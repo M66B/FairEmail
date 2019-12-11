@@ -3199,6 +3199,7 @@ class Core {
     }
 
     static class State {
+        private int backoff;
         private ConnectionHelper.NetworkState networkState;
         private Thread thread;
         private Semaphore semaphore = new Semaphore(0);
@@ -3217,6 +3218,14 @@ class Core {
             return networkState;
         }
 
+        void setBackoff(int value) {
+            this.backoff = value;
+        }
+
+        int getBackoff() {
+            return backoff;
+        }
+
         void runnable(Runnable runnable, String name) {
             thread = new Thread(runnable, name);
             thread.setPriority(THREAD_PRIORITY_BACKGROUND);
@@ -3225,10 +3234,6 @@ class Core {
         void release() {
             semaphore.release();
             yield();
-        }
-
-        void acquire() throws InterruptedException {
-            semaphore.acquire();
         }
 
         boolean acquire(long milliseconds) throws InterruptedException {

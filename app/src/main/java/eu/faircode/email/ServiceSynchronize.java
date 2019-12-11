@@ -51,6 +51,8 @@ import androidx.preference.PreferenceManager;
 
 import com.sun.mail.imap.IMAPFolder;
 
+import org.w3c.dom.Text;
+
 import java.net.SocketException;
 import java.text.DateFormat;
 import java.util.ArrayList;
@@ -777,7 +779,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
             final DB db = DB.getInstance(this);
 
-            int backoff = CONNECT_BACKOFF_START;
+            state.setBackoff(CONNECT_BACKOFF_START);
             while (state.isRunning()) {
                 state.reset();
                 Log.i(account.name + " run");
@@ -798,17 +800,24 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 iservice.setListener(new StoreListener() {
                     @Override
                     public void notification(StoreEvent e) {
+                        String message = e.getMessage();
+                        if (TextUtils.isEmpty(message))
+                            message = "?";
                         if (e.getMessageType() == StoreEvent.NOTICE)
-                            EntityLog.log(ServiceSynchronize.this, account.name + " notice: " + e.getMessage());
+                            EntityLog.log(ServiceSynchronize.this, account.name + " notice: " + message);
                         else
                             try {
                                 wlFolder.acquire();
 
-                                EntityLog.log(ServiceSynchronize.this, account.name + " " + e.getMessage());
+                                EntityLog.log(ServiceSynchronize.this, account.name + " " + message);
 
-                                NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                                nm.notify("alert:" + account.id, 1,
-                                        getNotificationAlert(account.name, e.getMessage()).build());
+                                if (state.getBackoff() > CONNECT_BACKOFF_MAX ||
+                                        !(message.startsWith("Maximum number of connections") /* Dovecot */ ||
+                                                message.startsWith("Too many simultaneous connections") /* Gmail */)) {
+                                    NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                                    nm.notify("alert:" + account.id, 1,
+                                            getNotificationAlert(account.name, message).build());
+                                }
                             } finally {
                                 wlFolder.release();
                             }
@@ -842,7 +851,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                             long now = new Date().getTime();
                             long delayed = now - account.last_connected - account.poll_interval * 60 * 1000L;
-                            if (delayed > ACCOUNT_ERROR_AFTER * 60 * 1000L && backoff > BACKOFF_ERROR_AFTER) {
+                            if (delayed > ACCOUNT_ERROR_AFTER * 60 * 1000L && state.getBackoff() > BACKOFF_ERROR_AFTER) {
                                 Log.i("Reporting sync error after=" + delayed);
                                 Throwable warning = new Throwable(
                                         getString(R.string.title_no_sync,
@@ -1197,7 +1206,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         EntityOperation.sync(this, folder.id, false);
 
                         // Successfully connected: reset back off time
-                        backoff = CONNECT_BACKOFF_START;
+                        state.setBackoff(CONNECT_BACKOFF_START);
 
                         // Record successful connection
                         account.last_connected = new Date().getTime();
@@ -1286,6 +1295,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 }
 
                 if (state.isRunning()) {
+                    int backoff = state.getBackoff();
                     if (backoff <= CONNECT_BACKOFF_MAX) {
                         // Short back-off period, keep device awake
                         EntityLog.log(this, account.name + " backoff=" + backoff);
@@ -1319,7 +1329,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     }
 
                     if (backoff <= CONNECT_BACKOFF_MAX)
-                        backoff *= 2;
+                        state.setBackoff(backoff * 2);
                 }
             }
         } finally {
