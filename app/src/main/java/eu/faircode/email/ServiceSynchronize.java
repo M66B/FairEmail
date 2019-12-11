@@ -953,6 +953,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             db.folder().setFolderState(folder.id, "connecting");
 
                             final IMAPFolder ifolder = (IMAPFolder) iservice.getStore().getFolder(folder.name);
+                            mapFolders.put(folder, ifolder);
                             try {
                                 if (BuildConfig.DEBUG && "Postausgang".equals(folder.name))
                                     throw new ReadOnlyFolderException(ifolder);
@@ -975,7 +976,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
                                 throw ex;
                             }
-                            mapFolders.put(folder, ifolder);
 
                             db.folder().setFolderState(folder.id, "connected");
                             db.folder().setFolderError(folder.id, null);
