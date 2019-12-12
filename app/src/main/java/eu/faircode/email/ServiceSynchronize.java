@@ -1435,6 +1435,16 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 try {
                     DB db = DB.getInstance(context);
 
+                    // Reset accounts
+                    for (EntityAccount account : db.account().getAccounts())
+                        db.account().setAccountState(account.id, null);
+
+                    // reset folders
+                    for (EntityFolder folder : db.folder().getFolders()) {
+                        db.folder().setFolderState(folder.id, null);
+                        db.folder().setFolderSyncState(folder.id, null);
+                    }
+
                     // Restore notifications
                     db.message().clearNotifyingMessages();
 
@@ -1445,19 +1455,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     // Restore schedule
                     schedule(context);
 
-                    // Conditionally init service
-                    int accounts = db.account().getSynchronizingAccounts().size();
-                    if (accounts > 0)
-                        eval(context, "boot");
-                    else {
-                        for (EntityAccount account : db.account().getAccounts())
-                            db.account().setAccountState(account.id, null);
-
-                        for (EntityFolder folder : db.folder().getFolders()) {
-                            db.folder().setFolderState(folder.id, null);
-                            db.folder().setFolderSyncState(folder.id, null);
-                        }
-                    }
+                    // Init service
+                    eval(context, "boot");
                 } catch (Throwable ex) {
                     Log.e(ex);
                 }
