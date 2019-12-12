@@ -536,7 +536,6 @@
     <string name="title_no_stream">Zaharkitutako aplikazio batek fitxategi bide bat bidali du fitxategi jario baten ordez</string>
     <string name="title_no_contacts">Kontaktuan hautatzailea ez dago eskuragarri</string>
     <string name="title_no_internet">Internet konexiorik ez edo konexio desegokia</string>
-    <string name="title_no_connection">Sinkronizazioa kontua konektatzen den hurrengoan egingo da</string>
     <string name="title_no_folder">Karpeta ez da existitzen</string>
     <string name="title_no_format">Jasotako jatorrizko mezua gehituko da</string>
     <string name="title_no_image">Ezin izan da irudia deskodetu</string>

@@ -112,6 +112,7 @@
     <string name="title_setup_quick_failed">您也可以尝试在下方配置一个账户和身份</string>
     <string name="title_setup_manage">管理</string>
     <string name="title_setup_grant">授权</string>
+    <string name="title_setup_grant_again">授予所需权限</string>
     <string name="title_setup_account">设置账户</string>
     <string name="title_setup_account_remark">用于接收电子邮件</string>
     <string name="title_setup_account_hint">左/右滑动目标文件夹来更改颜色</string>
@@ -524,7 +525,6 @@
     <string name="title_no_stream">过时的应用发送的是文件路径, 而不是文件流</string>
     <string name="title_no_contacts">联系选择器不可用</string>
     <string name="title_no_internet">没有或没有合适的网络连接</string>
-    <string name="title_no_connection">将在下次账户连接时进行同步</string>
     <string name="title_no_folder">文件夹不存在</string>
     <string name="title_no_format">将包含最初收到的消息</string>
     <string name="title_no_image">无法解码图像</string>

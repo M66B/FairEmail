@@ -124,6 +124,7 @@
     <string name="title_setup_quick_failed">Du kan prøve å konfigurere en konto og en identitet nedenfor også</string>
     <string name="title_setup_manage">Behandle</string>
     <string name="title_setup_grant">Tillat</string>
+    <string name="title_setup_grant_again">Gi nødvendige tillatelser</string>
     <string name="title_setup_account">Oppsett av kontoer</string>
     <string name="title_setup_account_remark">Å motta e-post</string>
     <string name="title_setup_account_hint">For å endre farge, sveip venstre/høyre målmappe, osv</string>
@@ -536,7 +537,6 @@
     <string name="title_no_stream">En utdatert app sendte en filbane i stedet for en filstrøm</string>
     <string name="title_no_contacts">Kontaktvelgeren er ikke tilgjengelig</string>
     <string name="title_no_internet">Ingen eller ingen egnet internettforbindelse</string>
-    <string name="title_no_connection">Synkronisering vil bli utført på neste kontoforbindelse</string>
     <string name="title_no_folder">Mappe eksisterer ikke</string>
     <string name="title_no_format">Den opprinnelig mottatte meldingen vil bli inkludert</string>
     <string name="title_no_image">Bildet kunne ikke dekodes</string>

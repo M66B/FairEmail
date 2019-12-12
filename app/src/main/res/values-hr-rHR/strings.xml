@@ -526,7 +526,6 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_no_stream">Zastarjela aplikacija poslala je put datoteke umjesto sadržaja datoteke</string>
     <string name="title_no_contacts">Birač kontakata nije dostupan</string>
     <string name="title_no_internet">Nema ili nema prikladne internetske veze</string>
-    <string name="title_no_connection">Sinkronizacija će se izvršiti pri sljedećoj vezi računa</string>
     <string name="title_no_folder">Mapa ne postoji</string>
     <string name="title_no_format">Prvobitno primljena poruka bit će uključena</string>
     <string name="title_no_image">Slika se ne može dekodirati</string>

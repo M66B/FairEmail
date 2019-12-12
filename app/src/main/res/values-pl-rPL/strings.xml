@@ -553,7 +553,6 @@
     <string name="title_no_stream">Nieaktualna aplikacja wysłała ścieżkę pliku zamiast strumienia pliku</string>
     <string name="title_no_contacts">Wybór kontaktu nie jest dostępny</string>
     <string name="title_no_internet">Brak lub brak odpowiedniego połączenia internetowego</string>
-    <string name="title_no_connection">Synchronizacja nastąpi podczas następnego połączenia z kontem</string>
     <string name="title_no_folder">Folder nie istnieje</string>
     <string name="title_no_format">Oryginalnie odebrana wiadomość zostanie dołączona</string>
     <string name="title_no_image">Nie można zdekodować obrazu</string>

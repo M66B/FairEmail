@@ -124,6 +124,7 @@
     <string name="title_setup_quick_failed">U kunt ook proberen om hieronder een account en een identiteit te configureren</string>
     <string name="title_setup_manage">Beheer</string>
     <string name="title_setup_grant">Verlenen</string>
+    <string name="title_setup_grant_again">Verleen de vereiste machtigingen</string>
     <string name="title_setup_account">Accounts instellen</string>
     <string name="title_setup_account_remark">Om e-mail te ontvangen</string>
     <string name="title_setup_account_hint">Om kleur, veeg naar links/rechts doelmap, etc te wijzigen</string>
@@ -536,7 +537,7 @@
     <string name="title_no_stream">Een verouderde app verzond een bestandsnaam in plaats van een bestandsstroom</string>
     <string name="title_no_contacts">Contact kiezer niet beschikbaar</string>
     <string name="title_no_internet">Geen of geen geschikte internet-verbinding</string>
-    <string name="title_no_connection">Synchronisatie zal worden uitgevoerd bij de volgende accountverbinding</string>
+    <string name="title_no_connection">Verbinding maken met één of meer accounts &#8230;</string>
     <string name="title_no_folder">Map bestaat niet</string>
     <string name="title_no_format">Het oorspronkelijke ontvangen bericht zal worden opgenomen</string>
     <string name="title_no_image">Afbeelding kon niet gedecodeerd worden</string>

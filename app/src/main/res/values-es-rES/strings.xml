@@ -124,6 +124,7 @@
     <string name="title_setup_quick_failed">Puede intentar configurar una cuenta y una identidad a continuación también</string>
     <string name="title_setup_manage">Administrar</string>
     <string name="title_setup_grant">Conceder</string>
+    <string name="title_setup_grant_again">Otorgar permisos requeridos</string>
     <string name="title_setup_account">Configurar cuentas</string>
     <string name="title_setup_account_remark">Para recibir correo electrónico</string>
     <string name="title_setup_account_hint">Para cambiar el color, deslizar la carpeta de destino a la izquierda/derecha, etc</string>
@@ -536,7 +537,6 @@
     <string name="title_no_stream">Una app obsoleta ha enviado la ruta a un archivo en lugar de una secuencia de archivos</string>
     <string name="title_no_contacts">Selector de contactos no disponible</string>
     <string name="title_no_internet">No o ninguna conexión adecuada de Internet</string>
-    <string name="title_no_connection">La sincronización se realizará en la próxima conexión de la cuenta</string>
     <string name="title_no_folder">La carpeta no existe</string>
     <string name="title_no_format">El mensaje recibido originalmente será incluido</string>
     <string name="title_no_image">La imagen no se pudo decodificar</string>

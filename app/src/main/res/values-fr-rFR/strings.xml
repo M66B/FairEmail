@@ -124,6 +124,7 @@
     <string name="title_setup_quick_failed">Vous pouvez essayer de configurer un compte et une identité ci-dessous</string>
     <string name="title_setup_manage">Gérer</string>
     <string name="title_setup_grant">Autoriser</string>
+    <string name="title_setup_grant_again">Accorder les autorisations requises</string>
     <string name="title_setup_account">Configurer les comptes</string>
     <string name="title_setup_account_remark">Pour recevoir des e-mails</string>
     <string name="title_setup_account_hint">Pour changer la couleur, balayer le dossier à gauche/droite, etc</string>
@@ -536,7 +537,6 @@
     <string name="title_no_stream">Une application obsolète a envoyé un chemin d\'accès au lieu d\'un flux de fichier</string>
     <string name="title_no_contacts">Sélecteur de contact non disponible</string>
     <string name="title_no_internet">Pas ou pas de connexion internet appropriée</string>
-    <string name="title_no_connection">La synchronisation sera effectuée à la prochaine connexion du compte</string>
     <string name="title_no_folder">Le dossier n\'existe pas</string>
     <string name="title_no_format">Le message reçu initialement sera inclus</string>
     <string name="title_no_image">L\'image n\'a pas pu être décodée</string>

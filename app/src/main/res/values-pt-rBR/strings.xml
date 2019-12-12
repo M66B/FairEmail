@@ -507,7 +507,6 @@
     <string name="title_no_stream">Um aplicativo desatualizado enviou um caminho de arquivo em vez de um fluxo de arquivo</string>
     <string name="title_no_contacts">Seletor de contato não está disponível</string>
     <string name="title_no_internet">Não ou nenhuma conexão de internet adequada</string>
-    <string name="title_no_connection">A sincronização será realizada na próxima conexão de conta</string>
     <string name="title_no_folder">A pasta não existe</string>
     <string name="title_no_format">Mensagem originalmente recebida será incluída</string>
     <string name="title_no_image">A imagem não pôde ser decodificada</string>

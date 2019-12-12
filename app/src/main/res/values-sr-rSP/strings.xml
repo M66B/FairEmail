@@ -512,7 +512,6 @@
     <string name="title_no_stream">Застарела апликација је послала путању до фајла уместо фајл</string>
     <string name="title_no_contacts">Бирач контаката није доступан</string>
     <string name="title_no_internet">Нема везе или нема прикладне везе</string>
-    <string name="title_no_connection">Синхронизација ће се обавити на следећу везу налога</string>
     <string name="title_no_folder">Фасцикла не постоји</string>
     <string name="title_no_format">Биће укључена и оригинална порука</string>
     <string name="title_no_image">Слика не може да се декодује</string>

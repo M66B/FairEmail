@@ -123,6 +123,7 @@
     <string name="title_setup_quick_failed">Puoi provare a configurare un account e un\'identità qui sotto</string>
     <string name="title_setup_manage">Gestisci</string>
     <string name="title_setup_grant">Concedi</string>
+    <string name="title_setup_grant_again">Concedi le autorizzazioni richieste</string>
     <string name="title_setup_account">Imposta account</string>
     <string name="title_setup_account_remark">Per ricevere email</string>
     <string name="title_setup_account_hint">Per cambiare colore, scorri la cartella di destinazione a sinistra/destra, ecc</string>
@@ -535,7 +536,6 @@
     <string name="title_no_stream">Un\'app obsoleta ha inviato un percorso file invece di un flusso di file</string>
     <string name="title_no_contacts">Selettore di contatti non disponibile</string>
     <string name="title_no_internet">Nessuna connessione internet adeguata</string>
-    <string name="title_no_connection">La sincronizzazione verrà eseguita alla prossima connessione dell\'account</string>
     <string name="title_no_folder">La cartella non esiste</string>
     <string name="title_no_format">Verrà incluso Il messaggio originale ricevuto</string>
     <string name="title_no_image">L\'immagine potrebbe non essere decodificata</string>

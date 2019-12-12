@@ -515,7 +515,6 @@
     <string name="title_no_stream">Una aplicació obsoleta enviava una ruta del fitxer en lloc d’un flux de fitxers</string>
     <string name="title_no_contacts">El selector de contacte no està disponible</string>
     <string name="title_no_internet">Cap connexió a Internet adequada</string>
-    <string name="title_no_connection">La sincronització es realitzarà a la connexió del compte següent</string>
     <string name="title_no_folder">La carpeta no existeix</string>
     <string name="title_no_format">S\'inclourà el missatge rebut originalment</string>
     <string name="title_no_image">La imatge no s\'ha pogut descodificar</string>

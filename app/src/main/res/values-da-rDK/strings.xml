@@ -534,7 +534,6 @@
     <string name="title_no_stream">En forældet app har sendt en filsti i stedet for en fil-stream</string>
     <string name="title_no_contacts">Kontaktvælger ikke tilgængelig</string>
     <string name="title_no_internet">Ingen (passende) dataforbindelse</string>
-    <string name="title_no_connection">Synkronisering gennemføres ved næste kontotilslutning</string>
     <string name="title_no_folder">Mappe findes ikke</string>
     <string name="title_no_format">Den oprindeligt modtagne besked bliver inkluderet</string>
     <string name="title_no_image">Billede kunne ikke afkodes</string>

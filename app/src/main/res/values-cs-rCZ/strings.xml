@@ -552,7 +552,6 @@
     <string name="title_no_stream">Zastaralá aplikace poslala cestu k souboru namísto datového proudu</string>
     <string name="title_no_contacts">Výběr kontaktů není k dispozici</string>
     <string name="title_no_internet">Žádné nebo nevyhovující internetové připojení</string>
-    <string name="title_no_connection">Synchronizace bude provedena při příštím připojení k účtu</string>
     <string name="title_no_folder">Složka neexistuje</string>
     <string name="title_no_format">Původní zpráva bude zahrnuta</string>
     <string name="title_no_image">Obrázek nemohl být dekódován</string>
