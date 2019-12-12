@@ -484,6 +484,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         if (PREF_EVAL.contains(key)) {
             Bundle command = new Bundle();
             command.putString("name", "eval");
+            liveAccountNetworkState.post(command);
         } else if (PREF_RELOAD.contains(key)) {
             Bundle command = new Bundle();
             command.putString("name", "reload");
