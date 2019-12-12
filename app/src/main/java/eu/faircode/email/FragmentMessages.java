@@ -4524,8 +4524,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 Log.w(ex);
                             }
 
-                    if (is == null)
+                    if (is == null) {
+                        if (message.identity != null)
+                            db.identity().setIdentitySignKeyAlias(message.identity, null);
                         throw new IllegalArgumentException(context.getString(R.string.title_invalid_key));
+                    }
 
                     // Decode message
                     Properties props = MessageHelper.getSessionProperties();
