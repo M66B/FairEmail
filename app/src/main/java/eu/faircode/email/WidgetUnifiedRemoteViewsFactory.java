@@ -81,7 +81,15 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
         colorWidgetRead = ContextCompat.getColor(context, R.color.colorWidgetRead);
 
         DB db = DB.getInstance(context);
-        messages = db.message().getWidgetUnified(folder < 0 ? null : folder, threading, unseen, flagged);
+        try {
+            db.beginTransaction();
+
+            messages = db.message().getWidgetUnified(folder < 0 ? null : folder, threading, unseen, flagged);
+
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
     }
 
     @Override
