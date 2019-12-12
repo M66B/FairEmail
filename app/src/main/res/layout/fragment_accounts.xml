@@ -15,6 +15,19 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <Button
+                android:id="@+id/btnGrant"
+                style="@style/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:tag="disable"
+                android:text="@string/title_setup_grant_again"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvAccount"
                 android:layout_width="0dp"
@@ -27,7 +40,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@id/btnGrant" />
 
             <eu.faircode.email.ContentLoadingProgressBar
                 android:id="@+id/pbWait"

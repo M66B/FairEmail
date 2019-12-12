@@ -32,6 +32,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -60,6 +61,7 @@ public class FragmentAccounts extends FragmentBase {
 
     private ViewGroup view;
     private SwipeRefreshLayout swipeRefresh;
+    private Button btnGrant;
     private RecyclerView rvAccount;
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
@@ -69,6 +71,8 @@ public class FragmentAccounts extends FragmentBase {
 
     private String searching = null;
     private AdapterAccount adapter;
+
+    private static final int REQUEST_IMPORT_OAUTH = 1;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -91,6 +95,7 @@ public class FragmentAccounts extends FragmentBase {
 
         // Get controls
         swipeRefresh = view.findViewById(R.id.swipeRefresh);
+        btnGrant = view.findViewById(R.id.btnGrant);
         rvAccount = view.findViewById(R.id.rvAccount);
         pbWait = view.findViewById(R.id.pbWait);
         grpReady = view.findViewById(R.id.grpReady);
@@ -109,6 +114,13 @@ public class FragmentAccounts extends FragmentBase {
             }
         });
         swipeRefresh.setEnabled(!settings);
+
+        btnGrant.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                requestPermissions(Helper.getOAuthPermissions(), REQUEST_IMPORT_OAUTH);
+            }
+        });
 
         rvAccount.setHasFixedSize(false);
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
@@ -226,6 +238,7 @@ public class FragmentAccounts extends FragmentBase {
             fabCompose.show();
         }
 
+        btnGrant.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
 
@@ -254,6 +267,14 @@ public class FragmentAccounts extends FragmentBase {
                     public void onChanged(@Nullable List<TupleAccountEx> accounts) {
                         if (accounts == null)
                             accounts = new ArrayList<>();
+
+                        boolean authorized = true;
+                        for (TupleAccountEx account : accounts)
+                            if (account.auth_type != MailService.AUTH_TYPE_PASSWORD &&
+                                    !Helper.hasPermissions(getContext(), Helper.getOAuthPermissions())) {
+                                authorized = false;
+                            }
+                        btnGrant.setVisibility(authorized ? View.GONE : View.VISIBLE);
 
                         adapter.set(accounts);
 
@@ -296,6 +317,15 @@ public class FragmentAccounts extends FragmentBase {
         menu.findItem(R.id.menu_search).setVisible(!settings);
 
         super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if (requestCode == REQUEST_IMPORT_OAUTH)
+            if (Helper.hasPermissions(getContext(), permissions))
+                ServiceSynchronize.reload(getContext(), null, "Permissions regranted");
     }
 
     private void onSwipeRefresh() {

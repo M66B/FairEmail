@@ -129,9 +129,8 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     static final int REQUEST_SOUND = 2;
     static final int REQUEST_EXPORT = 3;
     static final int REQUEST_IMPORT = 4;
-    static final int REQUEST_IMPORT_OAUTH = 5;
-    static final int REQUEST_CHOOSE_ACCOUNT = 6;
-    static final int REQUEST_DONE = 7;
+    static final int REQUEST_CHOOSE_ACCOUNT = 5;
+    static final int REQUEST_DONE = 6;
     static final int REQUEST_IMPORT_CERTIFICATE = 7;
 
     static final String ACTION_QUICK_GMAIL = BuildConfig.APPLICATION_ID + ".ACTION_QUICK_GMAIL";
@@ -380,9 +379,6 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 case REQUEST_IMPORT:
                     if (resultCode == RESULT_OK && data != null)
                         handleImport(data, this.password);
-                    break;
-                case REQUEST_IMPORT_OAUTH:
-                    ServiceSynchronize.eval(this, "import/oauth");
                     break;
                 case REQUEST_IMPORT_CERTIFICATE:
                     if (resultCode == RESULT_OK && data != null)
@@ -660,14 +656,14 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         args.putParcelable("uri", data.getData());
         args.putString("password", password);
 
-        new SimpleTask<Boolean>() {
+        new SimpleTask<Void>() {
             @Override
             protected void onPreExecute(Bundle args) {
                 ToastEx.makeText(ActivitySetup.this, R.string.title_executing, Toast.LENGTH_LONG).show();
             }
 
             @Override
-            protected Boolean onExecute(Context context, Bundle args) throws Throwable {
+            protected Void onExecute(Context context, Bundle args) throws Throwable {
                 Uri uri = args.getParcelable("uri");
                 String password = args.getString("password");
 
@@ -675,8 +671,6 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                     Log.w("Import uri=" + uri);
                     throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
                 }
-
-                boolean oauth = false;
 
                 StringBuilder data = new StringBuilder();
                 Log.i("Reading URI=" + uri);
@@ -743,9 +737,6 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                         EntityAccount account = EntityAccount.fromJSON(jaccount);
                         Long aid = account.id;
                         account.id = null;
-
-                        if (account.auth_type != MailService.AUTH_TYPE_PASSWORD)
-                            oauth = true;
 
                         if (primary != null)
                             account.primary = false;
@@ -992,27 +983,12 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
                 Log.i("Imported data");
 
-                return oauth;
+                return null;
             }
 
             @Override
-            protected void onExecuted(Bundle args, Boolean oauth) {
+            protected void onExecuted(Bundle args, Void data) {
                 ToastEx.makeText(ActivitySetup.this, R.string.title_setup_imported, Toast.LENGTH_LONG).show();
-
-                if (oauth && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    List<String> permissions = new ArrayList<>();
-                    permissions.add(Manifest.permission.READ_CONTACTS); // profile
-                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
-                        permissions.add(Manifest.permission.GET_ACCOUNTS);
-
-                    for (String permission : permissions)
-                        if (!hasPermission(permission)) {
-                            // TODO: fix permissions request
-                            requestPermissions(permissions.toArray(new String[0]), REQUEST_IMPORT_OAUTH);
-                            //return;
-                        }
-                }
-
                 ServiceSynchronize.eval(ActivitySetup.this, "import");
             }
 
