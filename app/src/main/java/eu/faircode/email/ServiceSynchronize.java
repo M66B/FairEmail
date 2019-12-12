@@ -759,7 +759,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             try {
                                 wlFolder.acquire();
 
-                                EntityLog.log(ServiceSynchronize.this, account.name + " " + message);
+                                EntityLog.log(ServiceSynchronize.this, account.name + " alert: " + message);
 
                                 if (state.getBackoff() > CONNECT_BACKOFF_MAX ||
                                         !(message.startsWith("Maximum number of connections") /* Dovecot */ ||
@@ -787,7 +787,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     } catch (Throwable ex) {
                         // Immediately report auth errors
                         if (ex instanceof AuthenticationFailedException &&
-                                !(ex.getCause() instanceof SocketException)) {
+                                !(ex.getCause() instanceof SocketException) &&
+                                !(ex.getMessage() != null &&
+                                        ex.getMessage().contains("Too many simultaneous connections"))) {
                             NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                             nm.notify("receive:" + account.id, 1,
                                     Core.getNotificationError(this, "error", account.name, ex)
