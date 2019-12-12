@@ -1126,7 +1126,7 @@ FairEmail will by default check if old messages were deleted from the server on 
 If you don't mind that old messages that were delete from the server are still visible in FairEmail, you can save some network and battery usage by disabling this in the receive settings.
 
 Some providers don't follow the IMAP standard and don't keep connections open long enough, forcing FairEmail to reconnect often, causing extra battery usage.
-You can inspect the *Log* via the main navigation menu to check if there are frequent reconnects.
+You can inspect the *Log* via the main navigation menu to check if there are frequent reconnects (connection closed/reset, read/write error/timeout, etc).
 You can workaround this by lowering the keep-alive interval in the advanced account settings to for example 9 or 15 minutes.
 
 Some providers send every two minutes something like '*Still there*' resulting in network traffic and your device to wake up and causing unnecessary extra battery usage.
