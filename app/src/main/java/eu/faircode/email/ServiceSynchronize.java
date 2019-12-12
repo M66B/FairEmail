@@ -120,7 +120,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
     static final int PI_ALARM = 1;
     static final int PI_BACKOFF = 2;
-    static final int PI_KEEPALIVE = 2;
+    static final int PI_KEEPALIVE = 3;
 
     @Override
     public void onCreate() {
