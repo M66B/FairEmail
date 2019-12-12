@@ -156,6 +156,8 @@ public class FragmentPop extends FragmentBase {
             }
         });
 
+        etInterval.setHint(Integer.toString(EntityAccount.DEFAULT_POLL_INTERVAL));
+
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -245,7 +247,7 @@ public class FragmentPop extends FragmentBase {
                 if (synchronize && TextUtils.isEmpty(password) && !insecure)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_password));
                 if (TextUtils.isEmpty(interval))
-                    interval = Integer.toString(EntityAccount.DEFAULT_KEEP_ALIVE_INTERVAL);
+                    interval = Integer.toString(EntityAccount.DEFAULT_POLL_INTERVAL);
 
                 if (TextUtils.isEmpty(name))
                     name = user;

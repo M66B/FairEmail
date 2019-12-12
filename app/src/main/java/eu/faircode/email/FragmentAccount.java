@@ -355,6 +355,8 @@ public class FragmentAccount extends FragmentBase {
 
         Helper.linkPro(tvNotifyPro);
 
+        etInterval.setHint(Integer.toString(EntityAccount.DEFAULT_KEEP_ALIVE_INTERVAL));
+
         btnCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
