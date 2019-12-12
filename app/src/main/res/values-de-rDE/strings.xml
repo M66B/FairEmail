@@ -536,6 +536,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_no_stream">Eine veraltete App verschickte den Dateinamen anstelle des Datenstroms</string>
     <string name="title_no_contacts">Kontaktauswahl nicht verfügbar</string>
     <string name="title_no_internet">Keine oder keine passende Internetverbindung</string>
+    <string name="title_no_connection">Verbinde mit einem oder mehreren Konten &#8230;</string>
     <string name="title_no_folder">Ordner nicht vorhanden</string>
     <string name="title_no_format">Die ursprünglich empfangene Nachricht wird miteinbezogen</string>
     <string name="title_no_image">Bild konnte nicht dekodiert werden</string>

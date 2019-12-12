@@ -124,6 +124,7 @@
     <string name="title_setup_quick_failed">Voit yrittää määrittää tilin ja identiteetin alla</string>
     <string name="title_setup_manage">Muokkaa</string>
     <string name="title_setup_grant">Myönnä</string>
+    <string name="title_setup_grant_again">Myönnä vaaditut oikeudet</string>
     <string name="title_setup_account">Aseta tilit</string>
     <string name="title_setup_account_remark">Sähköpostien vastaanottoon</string>
     <string name="title_setup_account_hint">Tilin värin, kansioiden vasemmalle/oikealle pyyhkäisyn, jne. asettamiseen</string>
@@ -536,6 +537,7 @@
     <string name="title_no_stream">Vanhentunut sovellus lähetti tiedoston kansion tiedostovirran sijaan</string>
     <string name="title_no_contacts">Yhteystiedon valitsin ei ole käytettävissä</string>
     <string name="title_no_internet">Ei verkkoyhteyttä tai ei sopivaa verkkoyhteyttä</string>
+    <string name="title_no_connection">Yhdistetään yhteen tai useampaan tiliin &#8230;</string>
     <string name="title_no_folder">Kansiota ei ole</string>
     <string name="title_no_format">Alkuperäinen vastaanotettu viesti sisällytetään</string>
     <string name="title_no_image">Kuvan koodauksen purku epäonnistui</string>

@@ -559,6 +559,7 @@
     <string name="title_no_stream">Устаревшее приложение послало путь к файлу вместо файлового потока</string>
     <string name="title_no_contacts">Выбор контакта недоступен</string>
     <string name="title_no_internet">Нет или нет подходящего интернет-соединения</string>
+    <string name="title_no_connection">Подключение к одной или нескольким учётным записям&#8230;</string>
     <string name="title_no_folder">Папка не существует</string>
     <string name="title_no_format">Оригинальное сообщение будет включено</string>
     <string name="title_no_image">Изображение не может быть декодировано</string>
