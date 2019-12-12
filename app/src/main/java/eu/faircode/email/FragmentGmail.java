@@ -88,17 +88,12 @@ public class FragmentGmail extends FragmentBase {
         tvError = view.findViewById(R.id.tvError);
         grpError = view.findViewById(R.id.grpError);
 
-        List<String> permissions = new ArrayList<>();
-        permissions.add(Manifest.permission.READ_CONTACTS); // profile
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
-            permissions.add(Manifest.permission.GET_ACCOUNTS);
-
         // Wire controls
 
         btnGrant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                requestPermissions(permissions.toArray(new String[0]), ActivitySetup.REQUEST_CHOOSE_ACCOUNT);
+                requestPermissions(Helper.getOAuthPermissions(), ActivitySetup.REQUEST_CHOOSE_ACCOUNT);
             }
         });
 
@@ -133,13 +128,7 @@ public class FragmentGmail extends FragmentBase {
         pbSelect.setVisibility(View.GONE);
         grpError.setVisibility(View.GONE);
 
-        boolean granted = true;
-        for (String permission : permissions)
-            if (!hasPermission(permission)) {
-                granted = false;
-                break;
-            }
-
+        boolean granted = Helper.hasPermissions(getContext(), Helper.getOAuthPermissions());
         setGranted(granted);
 
         return view;

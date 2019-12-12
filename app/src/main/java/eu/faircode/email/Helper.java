@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.KeyguardManager;
 import android.content.ActivityNotFoundException;
@@ -177,6 +178,21 @@ public class Helper {
 
     static boolean hasPermission(Context context, String name) {
         return (ContextCompat.checkSelfPermission(context, name) == PackageManager.PERMISSION_GRANTED);
+    }
+
+    static boolean hasPermissions(Context context, String[] permissions) {
+        for (String permission : permissions)
+            if (!hasPermission(context, permission))
+                return false;
+        return true;
+    }
+
+    static String[] getOAuthPermissions() {
+        List<String> permissions = new ArrayList<>();
+        permissions.add(Manifest.permission.READ_CONTACTS); // profile
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
+            permissions.add(Manifest.permission.GET_ACCOUNTS);
+        return permissions.toArray(new String[0]);
     }
 
     static boolean hasCustomTabs(Context context, Uri uri) {
