@@ -881,6 +881,7 @@
     <string name="title_unexpected_error">Неочаквана грешка</string>
     <string name="title_log">Лог</string>
     <string name="title_auto_scroll">Автоматично превъртане</string>
+    <string name="title_log_clear">Изчисти</string>
     <string name="title_debug_info">Инфо за отстраняване на грешки</string>
     <string name="title_debug_info_remark">Моля, опишете проблема и отбележете часа на възникването му:</string>
     <string name="title_crash_info_remark">Моля, опишете какво правихте, когато приложението се срина:</string>

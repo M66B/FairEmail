@@ -13,6 +13,7 @@
     <string name="channel_update">Actualizări</string>
     <string name="channel_warning">Atenționări</string>
     <string name="channel_error">Erori</string>
+    <string name="channel_alert">Alerte server</string>
     <string name="channel_group_contacts">Contacte</string>
     <plurals name="page_conversation">
         <item quantity="one">Conversație</item>
@@ -31,6 +32,11 @@
     <string name="shortcut_refresh">Actualizează</string>
     <string name="shortcut_compose">Compune</string>
     <string name="shortcut_setup">Setări</string>
+    <plurals name="title_notification_synchronizing">
+        <item quantity="one">Monitorizare %1$d cont</item>
+        <item quantity="few">Monitorizare %1$d conturi</item>
+        <item quantity="other">Monitorizare %1$d de conturi</item>
+    </plurals>
     <plurals name="title_notification_operations">
         <item quantity="one">O operație în așteptare</item>
         <item quantity="few">%1$d operații în așteptare</item>
@@ -75,7 +81,9 @@
     <string name="title_notification_waiting">Se așteaptă o conexiune adecvată</string>
     <string name="title_notification_sending">Se trimit mesaje</string>
     <string name="title_notification_failed">\'%1$s\' a eșuat</string>
+    <string name="title_notification_alert">Alertă server %1$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
+    <string name="menu_exit">Ieșire</string>
     <string name="menu_answers">Șabloane</string>
     <string name="menu_operations">Operaţii</string>
     <string name="menu_contacts">Contacte locale</string>
@@ -116,6 +124,8 @@
     <string name="title_setup_other">Alt furnizor</string>
     <string name="title_setup_gmail_support">Autorizarea conturilor Google v-a funcționa doar în versiunile oficiale pentru că Android verifică semnătura aplicației</string>
     <string name="title_setup_gmail_rationale">Vă rugăm să acordați permisiunea de a selecta un cont și a vă citi numele</string>
+    <string name="title_setup_gmail_permissions">Google va cere permisiunea de a citi, compune, trimite și șterge în mod permanent mesajele dumneavoastră. de email. FairEmail nu vă va șterge niciodată mesajele fără consimțământul dumneavoastră explicit.</string>
+    <string name="title_setup_gmail_drafts">Dacă dosarul de ciorne nu este accesibil IMAP, se poate soluționa în setările de etichete Gmail</string>
     <string name="title_setup_select_account">Selectare cont</string>
     <string name="title_setup_instructions">Instrucțiuni de configurare</string>
     <string name="title_setup_no_settings">Nu s-au găsit setări pentru domeniul \'%1$s\'</string>
@@ -311,6 +321,7 @@
     <string name="title_advanced_cleanup">Curățare</string>
     <string name="title_advanced_hint">Setările implicite sunt de bun simț și ar trebui schimbate doar dacă este necesar</string>
     <string name="title_advanced_enabled_hint">Activează sau dezactivează global recepția mesajelor</string>
+    <string name="title_advanced_manual_hint">Dacă sincronizarea este dezactivată tot este posibilă sincronizarea manuală glisând în jos lista de mesaje.</string>
     <string name="title_advanced_poll_hint">Sincronizarea periodică va compara mesajele locale cu cele de pe server de fiecare dată, aceasta este o operațiune costisitoare ce va rezulta într-un consum ridicat al bateriei, mai ales atunci când sunt multe mesaje de sincronizat. Modul de sincronizare permanent evită asta prin monitorizarea continuă a schimbărilor.</string>
     <string name="title_advanced_schedule_hint">Atingeţi data pentru a seta un timp</string>
     <string name="title_advanced_check_mx">Verifică adresa expeditorului la sincronizarea mesajelor</string>
@@ -372,6 +383,7 @@
     <string name="title_account_partial_fetch_hint">Dezactivați numai pentru mesaje goale sau atașamente corupte</string>
     <string name="title_account_signature">Text semnătură</string>
     <string name="title_color">Culoare</string>
+    <string name="title_account_ondemand">Sincronizare manuală</string>
     <string name="title_account_notify">Separă notificările</string>
     <string name="title_account_left">Glisare spre stânga</string>
     <string name="title_account_right">Glisare spre dreapta</string>
@@ -479,6 +491,7 @@
     <string name="title_no_folders">Nici un dosar</string>
     <string name="title_no_messages">Nici un mesaj</string>
     <string name="title_filters_active">Unul sau mai multe filtre active</string>
+    <string name="title_duplicate_in">Mesaj duplicat în %1$s</string>
     <string name="title_subject_reply">Răsp: %1$s</string>
     <string name="title_subject_forward">Redir: %1$s</string>
     <string name="title_seen">Marcare ca citit</string>
@@ -568,6 +581,7 @@
     <string name="title_cc">CC:</string>
     <string name="title_bcc">BCC:</string>
     <string name="title_via_identity">Via:</string>
+    <string name="title_sent">Trimis:</string>
     <string name="title_received">Primit:</string>
     <string name="title_size">Mărime:</string>
     <string name="title_subject">Subiect:</string>
@@ -877,6 +891,7 @@
     <string name="title_unexpected_error">Eroare neașteptată</string>
     <string name="title_log">Raport</string>
     <string name="title_auto_scroll">Auto derulare</string>
+    <string name="title_log_clear">Curăță</string>
     <string name="title_debug_info">Depanare</string>
     <string name="title_debug_info_remark">Va rog sa descrieți problema și să indicați momentul când s-a produs:</string>
     <string name="title_crash_info_remark">Vă rugăm să descrieți ce făceați atunci când aplicația s-a oprit:</string>

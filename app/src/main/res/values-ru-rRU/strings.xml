@@ -903,6 +903,7 @@
     <string name="title_unexpected_error">Непредвиденная ошибка</string>
     <string name="title_log">Журнал</string>
     <string name="title_auto_scroll">Автопрокрутка</string>
+    <string name="title_log_clear">Очистить</string>
     <string name="title_debug_info">Отладочная информация</string>
     <string name="title_debug_info_remark">Пожалуйста, опишите проблему и укажите момент её возникновения:</string>
     <string name="title_crash_info_remark">Пожалуйста, опишите, что вы делали, когда в приложении произошёл сбой:</string>

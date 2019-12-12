@@ -896,6 +896,7 @@
     <string name="title_unexpected_error">Neočekávaná chyba</string>
     <string name="title_log">Záznam</string>
     <string name="title_auto_scroll">Automatické posouvání</string>
+    <string name="title_log_clear">Vyčistit</string>
     <string name="title_debug_info">Ladící informace</string>
     <string name="title_debug_info_remark">Prosím, popište problém a uveďte čas, kdy k němu došlo:</string>
     <string name="title_crash_info_remark">Popište prosím, co jste dělali, když došlo k pádu aplikace:</string>

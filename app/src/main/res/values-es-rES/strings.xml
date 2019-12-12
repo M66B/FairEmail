@@ -881,6 +881,7 @@
     <string name="title_unexpected_error">Error inesperado</string>
     <string name="title_log">Registro</string>
     <string name="title_auto_scroll">Desplazamiento automático</string>
+    <string name="title_log_clear">Limpiar</string>
     <string name="title_debug_info">Información de depuración</string>
     <string name="title_debug_info_remark">Por favor describa el problema e indique el momento del mismo:</string>
     <string name="title_crash_info_remark">Por favor describa que estaba haciendo cuando la app falló:</string>

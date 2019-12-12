@@ -881,6 +881,7 @@
     <string name="title_unexpected_error">Odottamaton virhe</string>
     <string name="title_log">Lokitiedot</string>
     <string name="title_auto_scroll">Automaattinen vieritys</string>
+    <string name="title_log_clear">Tyhjennä</string>
     <string name="title_debug_info">Vianetsintätiedot</string>
     <string name="title_debug_info_remark">Kuvaile ongelmatilanne ja milloin se ilmenee:</string>
     <string name="title_crash_info_remark">Kuvaile mitä olit tekemässä, kun sovellus kaatui:</string>

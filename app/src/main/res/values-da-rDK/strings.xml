@@ -878,6 +878,7 @@
     <string name="title_unexpected_error">Uventet fejl</string>
     <string name="title_log">Log</string>
     <string name="title_auto_scroll">Auto-rulning</string>
+    <string name="title_log_clear">Ryd</string>
     <string name="title_debug_info">Fejlretningsinfo</string>
     <string name="title_debug_info_remark">Beskriv venligst problemet og angiv tidspunktet for problemet:</string>
     <string name="title_crash_info_remark">Beskriv venligst, hvad du foretog dig, da app\'en gik ned:</string>

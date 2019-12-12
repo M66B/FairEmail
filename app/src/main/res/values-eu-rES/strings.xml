@@ -881,6 +881,7 @@
     <string name="title_unexpected_error">Ustekabeko errorea</string>
     <string name="title_log">Egunkaria</string>
     <string name="title_auto_scroll">Korritze automatikoa</string>
+    <string name="title_log_clear">Garbitu</string>
     <string name="title_debug_info">Arazketa informazioa</string>
     <string name="title_debug_info_remark">Azaldu arazoa eta esan noiz gertatu den:</string>
     <string name="title_crash_info_remark">Zaldu zer egiten ari zinen aplikazioak kraskatu duenean:</string>
