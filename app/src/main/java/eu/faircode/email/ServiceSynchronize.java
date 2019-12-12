@@ -98,6 +98,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private MutableLiveData<List<TupleAccountState>> liveAccountState = new MutableLiveData<>();
     private MediatorState liveAccountNetworkState = new MediatorState();
 
+    private static final long YIELD_DURATION = 200L; // milliseconds
     private static final int CONNECT_BACKOFF_START = 8; // seconds
     private static final int CONNECT_BACKOFF_MAX = 64; // seconds (totally 2 minutes)
     private static final int CONNECT_BACKOFF_AlARM = 15; // minutes
@@ -604,6 +605,11 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         else {
             EntityLog.log(this, "### waking up account=" + account);
             state.release();
+            try {
+                Thread.sleep(YIELD_DURATION);
+            } catch (InterruptedException ex) {
+                Log.w(ex);
+            }
         }
     }
 
