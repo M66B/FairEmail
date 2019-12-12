@@ -158,21 +158,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             if (networkState == null || accountStates == null)
                 return;
 
-            if (Looper.myLooper() == Looper.getMainLooper())
-                _post(command, networkState, accountStates);
-            else {
-                // Some Android versions call onDestroy not on the main thread
-                Log.e("### not main thread states=" + accountStates.size());
-                new Handler(Looper.getMainLooper()).post(new Runnable() {
-                    @Override
-                    public void run() {
-                        _post(command, networkState, accountStates);
-                    }
-                });
-            }
-        }
-
-        private void _post(Bundle command, ConnectionHelper.NetworkState networkState, List<TupleAccountState> accountStates) {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
             boolean enabled = prefs.getBoolean("enabled", true);
             int pollInterval = prefs.getInt("poll_interval", 0);
