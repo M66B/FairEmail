@@ -119,7 +119,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     ));
 
     static final int PI_ALARM = 1;
-    static final int PI_WAKEUP = 2;
+    static final int PI_BACKOFF = 2;
+    static final int PI_KEEPALIVE = 2;
 
     @Override
     public void onCreate() {
@@ -562,7 +563,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         onReload(intent);
                         break;
 
-                    case "wakeup":
+                    case "backoff":
+                    case "keepalive":
                         onWakeup(intent);
                         break;
 
@@ -707,14 +709,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
         try {
             wlAccount.acquire();
-
-            Intent wakeup = new Intent(ServiceSynchronize.this, ServiceSynchronize.class);
-            wakeup.setAction("wakeup:" + account.id);
-            PendingIntent piWakeup;
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
-                piWakeup = PendingIntent.getService(this, PI_WAKEUP, wakeup, PendingIntent.FLAG_UPDATE_CURRENT);
-            else
-                piWakeup = PendingIntent.getForegroundService(this, PI_WAKEUP, wakeup, PendingIntent.FLAG_UPDATE_CURRENT);
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 if (account.notify)
@@ -1177,13 +1171,18 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         nm.cancel("alert:" + account.id, 1);
 
                         // Schedule keep alive alarm
+                        Intent intent = new Intent(ServiceSynchronize.this, ServiceSynchronize.class);
+                        intent.setAction("keepalive:" + account.id);
+                        PendingIntent pi = PendingIntentCompat.getForegroundService(
+                                this, PI_KEEPALIVE, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
                         AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
                         try {
                             long duration = account.poll_interval * 60 * 1000L;
                             long trigger = System.currentTimeMillis() + duration;
                             EntityLog.log(this, "### " + account.name + " keep alive" +
                                     " wait=" + account.poll_interval + " until=" + new Date(trigger));
-                            AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, trigger, piWakeup);
+                            AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, trigger, pi);
 
                             try {
                                 wlAccount.release();
@@ -1195,7 +1194,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 wlAccount.acquire();
                             }
                         } finally {
-                            am.cancel(piWakeup);
+                            am.cancel(pi);
                         }
                     }
 
@@ -1264,13 +1263,18 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         }
                     } else {
                         // Long back-off period, let device sleep
+                        Intent intent = new Intent(ServiceSynchronize.this, ServiceSynchronize.class);
+                        intent.setAction("backoff:" + account.id);
+                        PendingIntent pi = PendingIntentCompat.getForegroundService(
+                                this, PI_BACKOFF, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
                         AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
                         try {
                             long duration = CONNECT_BACKOFF_AlARM * 60 * 1000L;
                             long trigger = System.currentTimeMillis() + duration;
                             EntityLog.log(this, "### " + account.name + " backoff" +
                                     " alarm=" + CONNECT_BACKOFF_AlARM + " until=" + new Date(trigger));
-                            AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, trigger, piWakeup);
+                            AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, trigger, pi);
 
                             try {
                                 wlAccount.release();
@@ -1282,7 +1286,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 wlAccount.acquire();
                             }
                         } finally {
-                            am.cancel(piWakeup);
+                            am.cancel(pi);
                         }
                     }
 
@@ -1463,16 +1467,13 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     }
 
     private static void schedule(Context context) {
-        Intent alarm = new Intent(context, ServiceSynchronize.class);
-        alarm.setAction("alarm");
-        PendingIntent piAlarm;
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
-            piAlarm = PendingIntent.getService(context, PI_ALARM, alarm, PendingIntent.FLAG_UPDATE_CURRENT);
-        else
-            piAlarm = PendingIntent.getForegroundService(context, PI_ALARM, alarm, PendingIntent.FLAG_UPDATE_CURRENT);
+        Intent intent = new Intent(context, ServiceSynchronize.class);
+        intent.setAction("alarm");
+        PendingIntent pi = PendingIntentCompat.getForegroundService(
+                context, PI_ALARM, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        am.cancel(piAlarm);
+        am.cancel(pi);
 
         long[] schedule = getSchedule(context);
         if (schedule == null)
@@ -1488,7 +1489,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         Log.i("Schedule next=" + new Date(next));
         Log.i("Schedule enabled=" + enabled);
 
-        AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, next, piAlarm);
+        AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, next, pi);
 
         WorkerPoll.init(context);
     }
