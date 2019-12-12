@@ -186,6 +186,10 @@ public class ApplicationEx extends Application {
                 editor.putInt("compose_zoom", zoom);
                 editor.remove("zoom");
             }
+
+        } else if (version < 844) {
+            if (prefs.getBoolean("schedule", false))
+                editor.putBoolean("enabled", true);
         }
 
         if (version < BuildConfig.VERSION_CODE)
