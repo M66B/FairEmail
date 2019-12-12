@@ -35,7 +35,6 @@ import android.net.NetworkRequest;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Looper;
 import android.os.PowerManager;
 import android.service.notification.StatusBarNotification;
 import android.text.TextUtils;
@@ -94,6 +93,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private int lastOperations = 0;
 
     private Map<Long, Core.State> coreStates = new Hashtable<>();
+    private MutableLiveData<ConnectionHelper.NetworkState> liveNetworkState = new MutableLiveData<>();
+    private MutableLiveData<List<TupleAccountState>> liveAccountState = new MutableLiveData<>();
+    private MediatorState liveAccountNetworkState = new MediatorState();
 
     private static final int CONNECT_BACKOFF_START = 8; // seconds
     private static final int CONNECT_BACKOFF_MAX = 64; // seconds (totally 2 minutes)
@@ -115,73 +117,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
     static final int PI_ALARM = 1;
     static final int PI_WAKEUP = 2;
-
-    private MutableLiveData<ConnectionHelper.NetworkState> liveNetworkState = new MutableLiveData<>();
-    private MutableLiveData<List<TupleAccountState>> liveAccountState = new MutableLiveData<>();
-    private MediatorState liveAccountNetworkState = new MediatorState();
-
-    private class MediatorState extends MediatorLiveData<List<TupleAccountNetworkState>> {
-        boolean running = true;
-        private ConnectionHelper.NetworkState lastNetworkState = null;
-        private List<TupleAccountState> lastAccountStates = null;
-
-        private void post(Bundle command) {
-            Log.i("### command posted");
-            for (String extra : Log.getExtras(command))
-                Log.i("### " + extra);
-            post(command, lastNetworkState, lastAccountStates);
-        }
-
-        private void post(ConnectionHelper.NetworkState networkState) {
-            lastNetworkState = networkState;
-            post(null, lastNetworkState, lastAccountStates);
-        }
-
-        private void post(List<TupleAccountState> accountStates) {
-            lastAccountStates = accountStates;
-            post(null, lastNetworkState, lastAccountStates);
-        }
-
-        private void postDestroy() {
-            if (running) {
-                running = false;
-                postValue(null);
-            }
-        }
-
-        private void post(Bundle command, ConnectionHelper.NetworkState networkState, List<TupleAccountState> accountStates) {
-            if (!running) {
-                Log.i("### not running");
-                return;
-            }
-
-            if (networkState == null || accountStates == null)
-                return;
-
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
-            boolean enabled = prefs.getBoolean("enabled", true);
-            int pollInterval = prefs.getInt("poll_interval", 0);
-
-            long[] schedule = getSchedule(ServiceSynchronize.this);
-            long now = new Date().getTime();
-            boolean scheduled = (schedule == null || now >= schedule[0] && now < schedule[1]);
-
-            if (command == null) {
-                command = new Bundle();
-                command.putString("name", "eval");
-            }
-
-            List<TupleAccountNetworkState> result = new ArrayList<>();
-            for (TupleAccountState accountState : accountStates)
-                result.add(new TupleAccountNetworkState(
-                        enabled && pollInterval == 0 && scheduled,
-                        command,
-                        networkState,
-                        accountState));
-
-            postValue(result);
-        }
-    }
 
     @Override
     public void onCreate() {
@@ -1399,6 +1334,69 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             Helper.clearAuthentication(ServiceSynchronize.this);
         }
     };
+
+    private class MediatorState extends MediatorLiveData<List<TupleAccountNetworkState>> {
+        boolean running = true;
+        private ConnectionHelper.NetworkState lastNetworkState = null;
+        private List<TupleAccountState> lastAccountStates = null;
+
+        private void post(Bundle command) {
+            Log.i("### command posted");
+            for (String extra : Log.getExtras(command))
+                Log.i("### " + extra);
+            post(command, lastNetworkState, lastAccountStates);
+        }
+
+        private void post(ConnectionHelper.NetworkState networkState) {
+            lastNetworkState = networkState;
+            post(null, lastNetworkState, lastAccountStates);
+        }
+
+        private void post(List<TupleAccountState> accountStates) {
+            lastAccountStates = accountStates;
+            post(null, lastNetworkState, lastAccountStates);
+        }
+
+        private void postDestroy() {
+            if (running) {
+                running = false;
+                postValue(null);
+            }
+        }
+
+        private void post(Bundle command, ConnectionHelper.NetworkState networkState, List<TupleAccountState> accountStates) {
+            if (!running) {
+                Log.i("### not running");
+                return;
+            }
+
+            if (networkState == null || accountStates == null)
+                return;
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
+            boolean enabled = prefs.getBoolean("enabled", true);
+            int pollInterval = prefs.getInt("poll_interval", 0);
+
+            long[] schedule = getSchedule(ServiceSynchronize.this);
+            long now = new Date().getTime();
+            boolean scheduled = (schedule == null || now >= schedule[0] && now < schedule[1]);
+
+            if (command == null) {
+                command = new Bundle();
+                command.putString("name", "eval");
+            }
+
+            List<TupleAccountNetworkState> result = new ArrayList<>();
+            for (TupleAccountState accountState : accountStates)
+                result.add(new TupleAccountNetworkState(
+                        enabled && pollInterval == 0 && scheduled,
+                        command,
+                        networkState,
+                        accountState));
+
+            postValue(result);
+        }
+    }
 
     static void boot(final Context context) {
         Thread thread = new Thread(new Runnable() {
