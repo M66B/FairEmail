@@ -1110,6 +1110,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibFull.setVisibility(View.VISIBLE);
             ibImages.setVisibility(View.GONE);
             ibUnsubscribe.setVisibility(message.unsubscribe == null ? View.GONE : View.VISIBLE);
+            ibDecrypt.setVisibility(View.GONE);
+            ibVerify.setVisibility(View.GONE);
 
             // Addresses
             ibExpanderAddress.setImageLevel(show_addresses ? 0 /* less */ : 1 /* more */);
