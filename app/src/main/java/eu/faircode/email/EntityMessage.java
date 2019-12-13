@@ -245,7 +245,7 @@ public class EntityMessage implements Serializable {
         File dir = new File(context.getFilesDir(), "raw");
         if (!dir.exists())
             dir.mkdir();
-        return new File(dir, Long.toString(id));
+        return new File(dir, id + ".eml");
     }
 
     static void snooze(Context context, long id, Long wakeup) {
