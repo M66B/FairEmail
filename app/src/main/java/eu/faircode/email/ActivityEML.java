@@ -30,6 +30,7 @@ import android.os.Bundle;
 import android.os.ParcelFileDescriptor;
 import android.text.Spanned;
 import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -93,6 +94,8 @@ public class ActivityEML extends ActivityBase {
         LinearLayoutManager llm = new LinearLayoutManager(this);
         rvAttachment.setLayoutManager(llm);
 
+        tvBody.setMovementMethod(LinkMovementMethod.getInstance());
+
         vSeparatorAttachments.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
 
@@ -147,7 +150,7 @@ public class ActivityEML extends ActivityBase {
 
                     String html = result.parts.getHtml(context);
                     if (html != null) {
-                        Document document = HtmlHelper.sanitize(context, html, false, false);
+                        Document document = HtmlHelper.sanitize(context, html, false, true);
                         result.body = HtmlHelper.fromHtml(document.html());
                     }
 
