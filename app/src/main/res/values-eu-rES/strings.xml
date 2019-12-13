@@ -124,6 +124,7 @@
     <string name="title_setup_quick_failed">Kontu eta identitate bat konfiguratzen saiatu zaitezke hemen azpian</string>
     <string name="title_setup_manage">Kudeatu</string>
     <string name="title_setup_grant">Eman</string>
+    <string name="title_setup_grant_again">Eman eskatzen dituen baimenak</string>
     <string name="title_setup_account">Ezarri kontuak</string>
     <string name="title_setup_account_remark">E-maila jasotzeko</string>
     <string name="title_setup_account_hint">Kolorea aldatzeko pasatu hatza ezkerrera/eskuinera karpetan, eta abar</string>
@@ -536,6 +537,7 @@
     <string name="title_no_stream">Zaharkitutako aplikazio batek fitxategi bide bat bidali du fitxategi jario baten ordez</string>
     <string name="title_no_contacts">Kontaktuan hautatzailea ez dago eskuragarri</string>
     <string name="title_no_internet">Internet konexiorik ez edo konexio desegokia</string>
+    <string name="title_no_connection">Konektatzen kontu batera edo batzuetara &#8230;</string>
     <string name="title_no_folder">Karpeta ez da existitzen</string>
     <string name="title_no_format">Jasotako jatorrizko mezua gehituko da</string>
     <string name="title_no_image">Ezin izan da irudia deskodetu</string>

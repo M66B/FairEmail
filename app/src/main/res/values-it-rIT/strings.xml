@@ -536,6 +536,7 @@
     <string name="title_no_stream">Un\'app obsoleta ha inviato un percorso file invece di un flusso di file</string>
     <string name="title_no_contacts">Selettore di contatti non disponibile</string>
     <string name="title_no_internet">Nessuna connessione internet adeguata</string>
+    <string name="title_no_connection">Connessione a uno o più account &#8230;</string>
     <string name="title_no_folder">La cartella non esiste</string>
     <string name="title_no_format">Verrà incluso Il messaggio originale ricevuto</string>
     <string name="title_no_image">L\'immagine potrebbe non essere decodificata</string>

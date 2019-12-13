@@ -123,6 +123,7 @@
     <string name="title_setup_quick_failed">Du kan også prøve at opsætte en konto og identitet nedenfor</string>
     <string name="title_setup_manage">Administrér</string>
     <string name="title_setup_grant">Tillad</string>
+    <string name="title_setup_grant_again">Tildel nødvendige tilladelser</string>
     <string name="title_setup_account">Opsæt konti</string>
     <string name="title_setup_account_remark">Til at modtage e-mail</string>
     <string name="title_setup_account_hint">For at ændre farve, så stryg venstre/højre på målmappe osv.</string>
@@ -534,6 +535,7 @@
     <string name="title_no_stream">En forældet app har sendt en filsti i stedet for en fil-stream</string>
     <string name="title_no_contacts">Kontaktvælger ikke tilgængelig</string>
     <string name="title_no_internet">Ingen (passende) dataforbindelse</string>
+    <string name="title_no_connection">Opretter forbindelse til én eller flere konti &#8230;</string>
     <string name="title_no_folder">Mappe findes ikke</string>
     <string name="title_no_format">Den oprindeligt modtagne besked bliver inkluderet</string>
     <string name="title_no_image">Billede kunne ikke afkodes</string>

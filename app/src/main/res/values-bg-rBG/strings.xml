@@ -124,6 +124,7 @@
     <string name="title_setup_quick_failed">Можете да опитате да конфигурирате профил и идентичност по долу</string>
     <string name="title_setup_manage">Управление</string>
     <string name="title_setup_grant">Разреши</string>
+    <string name="title_setup_grant_again">Даване не необходимите разрешения</string>
     <string name="title_setup_account">Настройка профил</string>
     <string name="title_setup_account_remark">За получаване на имейл</string>
     <string name="title_setup_account_hint">За промяна на цвета, прекарайте пръст наляво/надясно на избраната папка и т. н.</string>
@@ -536,6 +537,7 @@
     <string name="title_no_stream">Остарялото приложение изпрати пътя към файла вместо файла</string>
     <string name="title_no_contacts">Изборът на контакт не е наличен</string>
     <string name="title_no_internet">Няма или не е намерена подходяща интернет връзка</string>
+    <string name="title_no_connection">Свързване с един или повече профили &#8230;</string>
     <string name="title_no_folder">Папката не съществува</string>
     <string name="title_no_format">Оригиналното съобщение ще бъде добавено</string>
     <string name="title_no_image">Изображението не може да бъде декодирано</string>

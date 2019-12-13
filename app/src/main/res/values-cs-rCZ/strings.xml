@@ -140,6 +140,7 @@
     <string name="title_setup_quick_failed">Účet a identitu můžete také zkusit nastavit níže</string>
     <string name="title_setup_manage">Spravovat</string>
     <string name="title_setup_grant">Udělit</string>
+    <string name="title_setup_grant_again">Udělit požadovaná oprávnění</string>
     <string name="title_setup_account">Nastavit účty</string>
     <string name="title_setup_account_remark">Pro příjem e-mailů</string>
     <string name="title_setup_account_hint">Pro změnu barvy, cílové složky pro tažení doleva/doprava, apod.</string>
@@ -552,6 +553,7 @@
     <string name="title_no_stream">Zastaralá aplikace poslala cestu k souboru namísto datového proudu</string>
     <string name="title_no_contacts">Výběr kontaktů není k dispozici</string>
     <string name="title_no_internet">Žádné nebo nevyhovující internetové připojení</string>
+    <string name="title_no_connection">Připojování k jednomu nebo více účtům &#8230;</string>
     <string name="title_no_folder">Složka neexistuje</string>
     <string name="title_no_format">Původní zpráva bude zahrnuta</string>
     <string name="title_no_image">Obrázek nemohl být dekódován</string>
