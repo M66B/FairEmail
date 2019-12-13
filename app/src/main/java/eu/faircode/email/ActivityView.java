@@ -779,7 +779,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             new SimpleTask<Void>() {
                 @Override
                 protected Void onExecute(Context context, Bundle args) {
-                    WorkerPoll.sync(context);
+                    WorkerPoll.sync(context, null);
                     return null;
                 }
 
