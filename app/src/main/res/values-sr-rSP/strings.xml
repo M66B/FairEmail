@@ -183,7 +183,6 @@
     <string name="title_advanced_section_notifications">Обавештења</string>
     <string name="title_advanced_section_privacy">Приватност</string>
     <string name="title_advanced_section_misc">Разно</string>
-    <string name="title_advanced_enabled">Укључено</string>
     <string name="title_advanced_when">Када</string>
     <string name="title_advanced_schedule">Распоред</string>
     <string name="title_advanced_unseen">Све непрочитане поруке</string>

@@ -38,4 +38,4 @@ Sur les versions récentes d'Android, Android mettra les applications en veille 
 
 ## Questions ou problèmes
 
-Si vous avez une question ou un problème, veuillez [voir ici](https://github.com/M66B/FairEmail/blob/master/FAQ.md) ou utiliser [ce formulaire de contact](https://contact.faircode.eu/?product=fairemailsupport) pour demander de l'aide (vous pouvez utiliser le numéro de transaction "*aide d'installation*").
+Si vous avez une question ou un problème, veuillez [voir ici](https://github.com/M66B/FairEmail/blob/master/FAQ.md) pour obtenir de l'aide.

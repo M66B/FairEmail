@@ -185,7 +185,7 @@
     <string name="title_advanced_section_notifications">Известия</string>
     <string name="title_advanced_section_privacy">Поверителност</string>
     <string name="title_advanced_section_misc">Разни</string>
-    <string name="title_advanced_enabled">Активирано</string>
+    <string name="title_advanced_receive">Получени съобщения</string>
     <string name="title_advanced_when">Кога</string>
     <string name="title_advanced_schedule">График</string>
     <string name="title_advanced_unseen">Всички непрочетени съобщения</string>

@@ -38,4 +38,4 @@ Recente Android versies zetten apps in de slaapstand wanneer het scherm enige ti
 
 ## Vragen of problemen
 
-Als u een vraag of probleem heeft, kijk [hier](https://github.com/M66B/FairEmail/blob/master/FAQ.md) of gebruik [dit contactformulier](https://contact.faircode.eu/?product=fairemailsupport) om hulp te vragen (u kunt het transactienummer "*setup help*" gebruiken).
+If you have a question or problem, please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) for help.

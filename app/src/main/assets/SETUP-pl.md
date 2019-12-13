@@ -38,4 +38,4 @@ W najnowszych wersjach Android usypia aplikacje, gdy ekran jest wyłączony prze
 
 ## Pytania lub problemy
 
-Jeśli masz pytanie lub problem, [zobacz tutaj](https://github.com/M66B/FairEmail/blob/master/FAQ.md) lub użyj [tego formularza kontaktowego](https://contact.faircode.eu/?product=fairemailsupport), aby poprosić o pomoc (możesz użyć numeru transakcji "*pomoc konfiguracji*").
+If you have a question or problem, please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) for help.

@@ -38,4 +38,4 @@
 
 ## 疑问或问题
 
-如果您有问题或疑问，请 [见此处 ](https://github.com/M66B/FairEmail/blob/master/FAQ.md)，或使用 [此联系表单](https://contact.faircode.eu/?product=fairemailsupport) 来请求帮助 (您可以使用交易号“*设置帮助*")。
+如果您有问题，请[查看此处](https://github.com/M66B/FairEmail/blob/master/FAQ.md)寻求帮助

@@ -165,7 +165,6 @@
     <string name="title_advanced_section_notifications">通知</string>
     <string name="title_advanced_section_privacy">プライバシー</string>
     <string name="title_advanced_section_misc">その他</string>
-    <string name="title_advanced_enabled">有効</string>
     <string name="title_advanced_schedule">スケジュール</string>
     <string name="title_advanced_unseen">すべての未読メッセージ</string>
     <string name="title_advanced_flagged">すべてのスター付きメッセージ</string>

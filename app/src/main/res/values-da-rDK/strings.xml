@@ -184,7 +184,6 @@
     <string name="title_advanced_section_notifications">Notifikationer</string>
     <string name="title_advanced_section_privacy">Fortrolighed</string>
     <string name="title_advanced_section_misc">Diverse</string>
-    <string name="title_advanced_enabled">Aktiveret</string>
     <string name="title_advanced_when">Når</string>
     <string name="title_advanced_schedule">Planlægning</string>
     <string name="title_advanced_unseen">Alle ulæste beskeder</string>

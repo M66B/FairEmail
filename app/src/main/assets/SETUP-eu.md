@@ -38,4 +38,4 @@ Android bertsio berrietan, sistemak aplikazioak lokartzen ditu pantaila itzalita
 
 ## Galderak edo arazoak
 
-Galdera edo arazoren bat baduzu, mesedez [begiratu hemen](https://github.com/M66B/FairEmail/blob/master/FAQ.md) edo erabili [kontaktu formulario hau](https://contact.faircode.eu/?product=fairemailsupport) laguntza eskatzeko ("*setup help*" transakzioa erabili dezakezu).
+If you have a question or problem, please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) for help.

@@ -38,4 +38,4 @@ På nyere Android-versjoner vil Android legge appene i dvale når skjermen er sl
 
 ## Spørsmål eller problemer
 
-Hvis du har et spørsmål eller et problem, kan du [se her](https://github.com/M66B/FairEmail/blob/master/FAQ.md) eller bruk [dette kontaktskjemaet](https://contact.faircode.eu/?product=fairemailsupport) for å be om hjelp (du kan bruke transaksjonsnummeret "*konfigurasjonshjelp*").
+Hvis du har et spørsmål eller et problem, kan du [se her](https://github.com/M66B/FairEmail/blob/master/FAQ.md) for hjelp.

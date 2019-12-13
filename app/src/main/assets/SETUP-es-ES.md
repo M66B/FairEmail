@@ -38,4 +38,4 @@ En versiones recientes de Android, éste pondrá aplicaciones a dormir cuando la
 
 ## Preguntas o problemas
 
-Si tiene una pregunta o problema, por favor [vaya aquí](https://github.com/M66B/FairEmail/blob/master/FAQ.md) o utilice [este formulario de contacto](https://contact.faircode.eu/?product=fairemailsupport) para pedir ayuda (puedes utilizar el número de transacción "*ayuda de configuración*").
+Si tiene alguna pregunta o problema, por favor [consulte aquí](https://github.com/M66B/FairEmail/blob/master/FAQ.md) para obtener ayuda.

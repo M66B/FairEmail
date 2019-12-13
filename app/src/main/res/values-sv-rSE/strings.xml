@@ -171,7 +171,6 @@
     <string name="title_advanced_section_notifications">Aviseringar</string>
     <string name="title_advanced_section_privacy">Sekretess</string>
     <string name="title_advanced_section_misc">Diverse</string>
-    <string name="title_advanced_enabled">Aktiverad</string>
     <string name="title_advanced_when">När</string>
     <string name="title_advanced_schedule">Schema</string>
     <string name="title_advanced_unseen">Alla olästa meddelanden</string>

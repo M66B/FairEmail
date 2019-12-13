@@ -184,7 +184,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_section_notifications">Benachrichtigungen</string>
     <string name="title_advanced_section_privacy">Datenschutz</string>
     <string name="title_advanced_section_misc">Verschiedenes</string>
-    <string name="title_advanced_enabled">Aktiviert</string>
+    <string name="title_advanced_receive">Empfang von Nachrichten</string>
     <string name="title_advanced_when">Wann</string>
     <string name="title_advanced_schedule">Zeitplan</string>
     <string name="title_advanced_unseen">Alle ungelesenen Nachrichten</string>
@@ -618,7 +618,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_attachment_keywords">angehängt,Anhang,Anhänge,beigefügt,Anlage,Anlagen,anbei</string>
     <string name="title_attachment_reminder">Beabsichtigen Sie einen Anhang hinzuzufügen?</string>
     <string name="title_attachments_missing">Nicht alle Dateianhänge wurden heruntergeladen</string>
-    <string name="title_send_dialog_hint">Dieser Dialog ist in jeden Fall über das drei Punkte-Überlauf-Menü in der Aktionsleiste verfügbar</string>
+    <string name="title_send_dialog_hint">Dieser Dialog ist stets über das drei Punkte-Überlauf-Menü in der Aktionsleiste verfügbar</string>
     <string name="title_draft_deleted">Entwurf gelöscht</string>
     <string name="title_draft_saved">Entwurf gespeichert</string>
     <string name="title_ask_send_via">Sende E-Mail zu %1$s über %2$s?</string>

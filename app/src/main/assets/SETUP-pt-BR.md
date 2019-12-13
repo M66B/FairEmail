@@ -38,4 +38,4 @@ Nas versões recentes do Android, o Android colocará aplicativos para dormir qu
 
 ## Perguntas ou problemas
 
-Se você tiver uma pergunta ou problema, por favor [veja aqui](https://github.com/M66B/FairEmail/blob/master/FAQ.md) ou use [este formulário de contato](https://contact.faircode.eu/?product=fairemailsupport) para pedir ajuda (você pode usar o número de transação "*setup help*").
+If you have a question or problem, please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) for help.

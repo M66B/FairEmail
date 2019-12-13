@@ -38,4 +38,4 @@
 
 ## Имате питања или проблем
 
-Ако имате питање или проблем, [погледајте овде](https://github.com/M66B/FairEmail/blob/master/FAQ.md) или користите ову [контакт форму](https://contact.faircode.eu/?product=fairemailsupport) да затражите помоћ (можете користити број трансакције „*помоћ поставке*“).
+If you have a question or problem, please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) for help.

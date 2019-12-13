@@ -174,7 +174,6 @@
     <string name="title_advanced_section_notifications">Notificações</string>
     <string name="title_advanced_section_privacy">Privacidade</string>
     <string name="title_advanced_section_misc">Diversos</string>
-    <string name="title_advanced_enabled">Ativado</string>
     <string name="title_advanced_when">Quando</string>
     <string name="title_advanced_schedule">Programar</string>
     <string name="title_advanced_unseen">Todas as mensagens não lidas</string>

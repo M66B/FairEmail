@@ -38,4 +38,4 @@ Viimeisimmissä Android-versiossa sovellukset laitetaan lepotilaan akun käytön
 
 ## Kysymyksiä tai ongelmia
 
-Jos sinulla on kysymys tai ongelma, [katso täältä](https://github.com/M66B/FairEmail/blob/master/FAQ.md) tai käytä [tätä yhteydenotyolomaketta](https://contact.faircode.eu/?product=fairemailsupport) pyytääksesi apua (voit käyttää tapahtumanumeroa "*asetusohje*").
+If you have a question or problem, please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) for help.

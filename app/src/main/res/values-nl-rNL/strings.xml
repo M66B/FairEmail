@@ -185,7 +185,7 @@
     <string name="title_advanced_section_notifications">Meldingen</string>
     <string name="title_advanced_section_privacy">Privacy</string>
     <string name="title_advanced_section_misc">Diversen</string>
-    <string name="title_advanced_enabled">Ingeschakeld</string>
+    <string name="title_advanced_receive">Berichten ontvangen</string>
     <string name="title_advanced_when">Wanneer</string>
     <string name="title_advanced_schedule">Schema</string>
     <string name="title_advanced_unseen">Alle ongelezen berichten</string>

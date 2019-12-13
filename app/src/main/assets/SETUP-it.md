@@ -38,4 +38,4 @@ Nelle versioni recenti di Android, Android metterà le app in standby quando lo 
 
 ## Domande o problemi
 
-Se hai una domanda o un problema, si prega di [vedere qui](https://github.com/M66B/FairEmail/blob/master/FAQ.md) o utilizzare [questo modulo di contatto](https://contact.faircode.eu/?product=fairemailsupport) per chiedere aiuto (è possibile utilizzare il numero di transazione "*configurare aiuto*").
+Se hai una domanda o un problema, per favore [vedi qui](https://github.com/M66B/FairEmail/blob/master/FAQ.md) per aiuto.

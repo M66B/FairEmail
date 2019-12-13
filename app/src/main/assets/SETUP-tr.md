@@ -38,4 +38,4 @@ Son Android sürümlerinde batarya kullanımını azaltmak için ekran bir süre
 
 ## Sorular veya sorunlar
 
-Eğer sorun yada problemin varsa, lütfen [ Buraya Bakın ](https://github.com/M66B/FairEmail/blob/master/FAQ.md) veya burayı kullanın [ iletişim formu ](https://contact.faircode.eu/?product=fairemailsupport) yardım istemek için (işlem numarasını kullanabilirsiniz " * kurulum yardımı * ").
+Bir sorunuz veya probleminiz varsa, lütfen yardım için [buraya bakın](https://github.com/M66B/FairEmail/blob/master/FAQ.md).

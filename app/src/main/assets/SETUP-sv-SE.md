@@ -38,4 +38,4 @@ På de senaste Android-versionerna kommer Android att sätta appar i viloläge n
 
 ## Frågor eller problem
 
-Om du har en fråga eller problem, vänligen [se här](https://github.com/M66B/FairEmail/blob/master/FAQ.md) eller använd [detta kontaktformulär](https://contact.faircode.eu/?product=fairemailsupport) för att be om hjälp (du kan använda transaktionsnumret "*inställningshjälp*").
+If you have a question or problem, please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) for help.

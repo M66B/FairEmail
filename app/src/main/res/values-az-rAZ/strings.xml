@@ -124,7 +124,6 @@
     <string name="title_advanced_section_behavior">Davranış</string>
     <string name="title_advanced_section_notifications">Bildirişlər</string>
     <string name="title_advanced_section_misc">Qarışıq</string>
-    <string name="title_advanced_enabled">Fəallaşdırıldı</string>
     <string name="title_advanced_when">Nə vaxt</string>
     <string name="title_advanced_schedule">Cədvəl</string>
     <string name="title_advanced_unseen">Bütün oxunmamış mesajlar</string>

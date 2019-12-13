@@ -185,7 +185,6 @@
     <string name="title_advanced_section_notifications">Bildirimler</string>
     <string name="title_advanced_section_privacy">Gizlilik</string>
     <string name="title_advanced_section_misc">Çeşitli</string>
-    <string name="title_advanced_enabled">Etkin</string>
     <string name="title_advanced_when">Ne zaman</string>
     <string name="title_advanced_schedule">Program</string>
     <string name="title_advanced_unseen">Tüm okunmamış iletiler</string>

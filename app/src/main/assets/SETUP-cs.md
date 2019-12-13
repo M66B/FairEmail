@@ -38,4 +38,4 @@ V posledních verzích Androidu, pokud je obrazovka po nějaký čas vypnuta, js
 
 ## Otázky nebo problémy
 
-Máte-li nějaký dotaz či problém, podívejte se prosím [sem](https://github.com/M66B/FairEmail/blob/master/FAQ.md) nebo pro požádání o pomoc použijte [tento kontaktní formulář](https://contact.faircode.eu/?product=fairemailsupport) (jako "transaction number" můžete uvést "*setup help*").
+If you have a question or problem, please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) for help.

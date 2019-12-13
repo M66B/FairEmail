@@ -175,7 +175,6 @@
     <string name="title_advanced_section_notifications">Notificacions</string>
     <string name="title_advanced_section_privacy">Privacitat</string>
     <string name="title_advanced_section_misc">Miscel·lània</string>
-    <string name="title_advanced_enabled">Activat</string>
     <string name="title_advanced_when">Quan</string>
     <string name="title_advanced_schedule">Planificar</string>
     <string name="title_advanced_unseen">Tots els missatges no llegits</string>

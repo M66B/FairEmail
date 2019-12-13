@@ -38,4 +38,4 @@ Bei den aktuellen Android-Versionen wird Android alle Apps zum Schlafen bringen,
 
 ## Fragen oder Probleme
 
-Wenn Sie Fragen oder Probleme haben, bitte [hier](https://github.com/M66B/FairEmail/blob/master/FAQ.md) nachschauen oder benutzen Sie [dieses Kontaktformular](https://contact.faircode.eu/?product=fairemailsupport), um um Hilfe zu bitten (Sie können dabei die Transaktionsnummer "*Setup help*" verwenden).
+Wenn Sie eine Frage oder ein Problem haben, bitte [sehen Sie hier](https://github.com/M66B/FairEmail/blob/master/FAQ.md) für Hilfe.

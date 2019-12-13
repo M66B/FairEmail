@@ -38,4 +38,4 @@ En les versions recents d'Android, Android posarà les aplicacions en suspensió
 
 ## Preguntes o problemes
 
-Si teniu alguna pregunta o problema, consulteu [aquí](https://github.com/M66B/FairEmail/blob/master/FAQ.md) o utilitzeu [aquest formulari de contacte](https://contact.faircode.eu/?product=fairemailsupport) per demanar ajuda (podeu utilitzar el número de transacció "*Ajuda amb la configuració*").
+If you have a question or problem, please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) for help.

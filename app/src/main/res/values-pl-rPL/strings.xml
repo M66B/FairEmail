@@ -203,7 +203,6 @@
     <string name="title_advanced_section_notifications">Powiadomienia</string>
     <string name="title_advanced_section_privacy">Prywatność</string>
     <string name="title_advanced_section_misc">Różne</string>
-    <string name="title_advanced_enabled">Włączone</string>
     <string name="title_advanced_when">Kiedy</string>
     <string name="title_advanced_schedule">Harmonogram</string>
     <string name="title_advanced_unseen">Wszystkie nieprzeczytane wiadomości</string>

@@ -38,4 +38,4 @@ FairEmailのセットアップは非常に簡単です。 メールを受信す�
 
 ## Questions or problems
 
-質問や問題がある場合 [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) または、[お問い合わせフォーム](https://contact.faircode.eu/?product=fairemailsupport)から困っていることを質問してください(トランザクション番号"*セットアップヘルプ*"を使用できます)。
+If you have a question or problem, please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) for help.

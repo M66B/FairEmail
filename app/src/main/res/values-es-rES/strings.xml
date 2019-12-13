@@ -185,7 +185,7 @@
     <string name="title_advanced_section_notifications">Notificaciones</string>
     <string name="title_advanced_section_privacy">Privacidad</string>
     <string name="title_advanced_section_misc">Miscelánea</string>
-    <string name="title_advanced_enabled">Activado</string>
+    <string name="title_advanced_receive">Recibir mensajes</string>
     <string name="title_advanced_when">Cuando</string>
     <string name="title_advanced_schedule">Programar</string>
     <string name="title_advanced_unseen">Todos los mensajes no leídos</string>
@@ -537,6 +537,7 @@
     <string name="title_no_stream">Una app obsoleta ha enviado la ruta a un archivo en lugar de una secuencia de archivos</string>
     <string name="title_no_contacts">Selector de contactos no disponible</string>
     <string name="title_no_internet">No o ninguna conexión adecuada de Internet</string>
+    <string name="title_no_connection">Conectando a una o más cuentas &#8230;</string>
     <string name="title_no_folder">La carpeta no existe</string>
     <string name="title_no_format">El mensaje recibido originalmente será incluido</string>
     <string name="title_no_image">La imagen no se pudo decodificar</string>
