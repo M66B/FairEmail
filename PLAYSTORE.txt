@@ -21,7 +21,7 @@ FairEmail might be for you if you value your privacy.
 * Material design (including dark/black theme)
 * Maintained and supported
 
-This app is minimalistic by design, so you can concentrate on reading and writing messages.
+This app is deliberately minimalistic by design, so you can concentrate on reading and writing messages.
 
 This app starts a foreground service with a low priority status bar notification to make sure you'll never miss new emails.
 
