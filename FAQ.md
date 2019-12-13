@@ -1711,29 +1711,32 @@ so there is little room for performance improvements.
 <a name="faq78"></a>
 **(78) How do I use schedules?**
 
-In the settingss you can enable scheduling and set the time to turn synchronizing automatically on and off.
+In the receive settings you can enable scheduling and set the time period for when messages should be received.
 
-An end time equal to or earlier than the start time is considered to be 24 hours later.
+Note that an end time equal to or earlier than the start time is considered to be 24 hours later.
 
-Turning FairEmail on or off, for example by using [a quick settings tile](#user-content-faq30), will not turn scheduling off.
-This means that the next schedule event will still turn FairEmail on or off.
+For more complex schemes you could set one or more accounts to manual synchronization
+and send this command to FairEmail to check for new messages:
 
-You can also automate turning synchronization on and off by sending these commands to FairEmail:
+```
+(adb shell) am startservice -a eu.faircode.email.POLL
+```
+
+For a specific account:
+
+```
+(adb shell) am startservice -a eu.faircode.email.POLL --es account Gmail
+```
+
+You can also automate turning receiving messages on and off by sending these commands to FairEmail:
 
 ```
 (adb shell) am startservice -a eu.faircode.email.ENABLE
 (adb shell) am startservice -a eu.faircode.email.DISABLE
 ```
 
-Sending these commands will turn scheduling off.
+To enable/disable a specific account:
 
-If you want to automate checking for new messages, you can send this command to FairEmail:
-
-```
-(adb shell) adb shell am startservice -a eu.faircode.email.POLL
-```
-
-It is also possible to enable/disable an account, for example the account with the name *Gmail*:
 ```
 (adb shell) am startservice -a eu.faircode.email.ENABLE --es account Gmail
 (adb shell) am startservice -a eu.faircode.email.DISABLE --es account Gmail

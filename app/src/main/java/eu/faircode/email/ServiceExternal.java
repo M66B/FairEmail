@@ -29,6 +29,8 @@ import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 import androidx.preference.PreferenceManager;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 
 public class ServiceExternal extends Service {
@@ -36,7 +38,7 @@ public class ServiceExternal extends Service {
     private static final String ACTION_ENABLE = BuildConfig.APPLICATION_ID + ".ENABLE";
     private static final String ACTION_DISABLE = BuildConfig.APPLICATION_ID + ".DISABLE";
 
-    // adb shell am startservice -a eu.faircode.email.POLL
+    // adb shell am startservice -a eu.faircode.email.POLL --es account Gmail
     // adb shell am startservice -a eu.faircode.email.ENABLE --es account Gmail
     // adb shell am startservice -a eu.faircode.email.DISABLE --es account Gmail
 
@@ -73,20 +75,11 @@ public class ServiceExternal extends Service {
             if (!ActivityBilling.isPro(this))
                 return START_NOT_STICKY;
 
-            String action = intent.getAction();
-
-            if (ACTION_POLL.equals(action)) {
-                final Context context = getApplicationContext();
-                executor.submit(new Runnable() {
-                    @Override
-                    public void run() {
-                        WorkerPoll.sync(context);
-                    }
-                });
-                return START_NOT_STICKY;
-            }
+            final Context context = getApplicationContext();
+            final String accountName = intent.getStringExtra("account");
 
             final Boolean enabled;
+            String action = intent.getAction();
             if (ACTION_ENABLE.equals(action))
                 enabled = true;
             else if (ACTION_DISABLE.equals(action))
@@ -94,32 +87,35 @@ public class ServiceExternal extends Service {
             else
                 enabled = null;
 
-            if (enabled != null) {
-                final String accountName = intent.getStringExtra("account");
-                if (accountName == null) {
-                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-                    prefs.edit().putBoolean("schedule", false).apply();
-
-                    boolean previous = prefs.getBoolean("enabled", true);
-                    if (!enabled.equals(previous)) {
-                        prefs.edit().putBoolean("enabled", enabled).apply();
-                        ServiceSynchronize.eval(this, "external");
-                    }
-                } else {
-                    final Context context = getApplicationContext();
-                    executor.submit(new Runnable() {
-                        @Override
-                        public void run() {
-                            DB db = DB.getInstance(context);
-                            EntityAccount account = db.account().getAccount(accountName);
-                            if (account != null) {
-                                db.account().setAccountSynchronize(account.id, enabled);
-                                ServiceSynchronize.eval(context, "account enabled=" + enabled);
-                            }
+            executor.submit(new Runnable() {
+                @Override
+                public void run() {
+                    if (accountName == null) {
+                        if (enabled == null)
+                            WorkerPoll.sync(context, null);
+                        else {
+                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                            prefs.edit().putBoolean("enabled", enabled).apply();
+                            ServiceSynchronize.eval(context, "external enabled=" + enabled);
                         }
-                    });
+                    } else {
+                        DB db = DB.getInstance(context);
+
+                        EntityAccount account = db.account().getAccount(accountName);
+                        if (account == null) {
+                            EntityLog.log(context, "Account not found name=" + accountName);
+                            return;
+                        }
+
+                        if (enabled == null)
+                            WorkerPoll.sync(context, account.id);
+                        else {
+                            db.account().setAccountSynchronize(account.id, enabled);
+                            ServiceSynchronize.eval(context, "external account=" + accountName + " enabled=" + enabled);
+                        }
+                    }
                 }
-            }
+            });
 
             return START_NOT_STICKY;
         } finally {

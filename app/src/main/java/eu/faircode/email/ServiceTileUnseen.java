@@ -101,7 +101,7 @@ public class ServiceTileUnseen extends TileService {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                WorkerPoll.sync(context);
+                WorkerPoll.sync(context, null);
             }
         }).start();
     }

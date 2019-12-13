@@ -45,7 +45,7 @@ public class WorkerPoll extends Worker {
     public Result doWork() {
         Log.i("Running " + getName());
 
-        sync(getApplicationContext());
+        sync(getApplicationContext(), null);
 
         return Result.success();
     }
@@ -76,19 +76,20 @@ public class WorkerPoll extends Worker {
         }
     }
 
-    static void sync(Context context) {
+    static void sync(Context context, Long aid) {
         DB db = DB.getInstance(context);
         try {
             db.beginTransaction();
 
             List<EntityAccount> accounts = db.account().getSynchronizingAccounts();
-            for (EntityAccount account : accounts) {
-                List<EntityFolder> folders = db.folder().getSynchronizingFolders(account.id);
-                if (folders.size() > 0)
-                    Collections.sort(folders, folders.get(0).getComparator(context));
-                for (EntityFolder folder : folders)
-                    EntityOperation.sync(context, folder.id, false);
-            }
+            for (EntityAccount account : accounts)
+                if (aid == null || account.id.equals(aid)) {
+                    List<EntityFolder> folders = db.folder().getSynchronizingFolders(account.id);
+                    if (folders.size() > 0)
+                        Collections.sort(folders, folders.get(0).getComparator(context));
+                    for (EntityFolder folder : folders)
+                        EntityOperation.sync(context, folder.id, false);
+                }
 
             db.setTransactionSuccessful();
         } finally {
