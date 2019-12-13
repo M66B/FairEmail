@@ -3650,6 +3650,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             Intent send = new Intent(Intent.ACTION_SEND);
             send.putExtra(Intent.EXTRA_STREAM, uri);
             send.setType("message/rfc822");
+            send.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             context.startActivity(send);
         }
 
