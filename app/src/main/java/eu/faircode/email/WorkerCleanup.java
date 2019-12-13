@@ -56,7 +56,10 @@ public class WorkerCleanup extends Worker {
     @Override
     public Result doWork() {
         Log.i("Running " + getName());
+
+        Thread.currentThread().setPriority(THREAD_PRIORITY_BACKGROUND);
         cleanup(getApplicationContext(), getInputData().getBoolean("manual", false));
+
         return Result.success();
     }
 
@@ -64,7 +67,6 @@ public class WorkerCleanup extends Worker {
         DB db = DB.getInstance(context);
         try {
             Log.i("Start cleanup manual=" + manual);
-            Thread.currentThread().setPriority(THREAD_PRIORITY_BACKGROUND);
 
             if (manual) {
                 // Check message files
@@ -95,12 +97,13 @@ public class WorkerCleanup extends Worker {
                     }
                 }
 
+                // Clear raw headers
+                int headers = db.message().clearMessageHeaders();
+                Log.i("Cleared message headers=" + headers);
+
                 // Restore alarms
                 for (EntityMessage message : db.message().getSnoozed())
                     EntityMessage.snooze(context, message.id, message.ui_snoozed);
-
-                int headers = db.message().clearMessageHeaders();
-                Log.i("Cleared message headers=" + headers);
 
                 // Clear last search
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
