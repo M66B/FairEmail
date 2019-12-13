@@ -516,8 +516,11 @@ public class ServiceSend extends ServiceBase {
                 try {
                     DB db = DB.getInstance(context);
                     EntityFolder outbox = db.folder().getOutbox();
-                    if (outbox != null)
-                        start(context);
+                    if (outbox != null) {
+                        int operations = db.operation().getOperations(outbox.id).size();
+                        if (operations > 0)
+                            start(context);
+                    }
                 } catch (Throwable ex) {
                     Log.e(ex);
                 }

@@ -1456,7 +1456,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     schedule(context);
 
                     // Init service
-                    eval(context, "boot");
+                    int accounts = db.account().getSynchronizingAccounts().size();
+                    if (accounts > 0)
+                        eval(context, "boot");
                 } catch (Throwable ex) {
                     Log.e(ex);
                 }
