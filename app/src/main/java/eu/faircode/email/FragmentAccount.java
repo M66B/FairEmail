@@ -792,14 +792,23 @@ public class FragmentAccount extends FragmentBase {
                     host = h.getHost();
                 }
 
-                if (!should && TextUtils.isEmpty(host))
-                    throw new IllegalArgumentException(context.getString(R.string.title_no_host));
+                if (TextUtils.isEmpty(host))
+                    if (should)
+                        return true;
+                    else
+                        throw new IllegalArgumentException(context.getString(R.string.title_no_host));
                 if (TextUtils.isEmpty(port))
                     port = (starttls ? "143" : "993");
-                if (!should && TextUtils.isEmpty(user))
-                    throw new IllegalArgumentException(context.getString(R.string.title_no_user));
-                if (!should && synchronize && TextUtils.isEmpty(password) && !insecure)
-                    throw new IllegalArgumentException(context.getString(R.string.title_no_password));
+                if (TextUtils.isEmpty(user))
+                    if (should)
+                        return true;
+                    else
+                        throw new IllegalArgumentException(context.getString(R.string.title_no_user));
+                if (synchronize && TextUtils.isEmpty(password) && !insecure)
+                    if (should)
+                        return true;
+                    else
+                        throw new IllegalArgumentException(context.getString(R.string.title_no_password));
                 if (TextUtils.isEmpty(interval))
                     interval = Integer.toString(EntityAccount.DEFAULT_KEEP_ALIVE_INTERVAL);
 
