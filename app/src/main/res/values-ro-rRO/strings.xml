@@ -134,6 +134,7 @@
     <string name="title_setup_quick_failed">Puteţi încerca de asemenea să configurați un cont şi o identitate mai jos</string>
     <string name="title_setup_manage">Gestionează</string>
     <string name="title_setup_grant">Acordă</string>
+    <string name="title_setup_grant_again">Acordați permisiunile necesare</string>
     <string name="title_setup_account">Configurare conturi</string>
     <string name="title_setup_account_remark">Pentru a primi e-mail</string>
     <string name="title_setup_account_hint">Pentru a schimba culoare, glisați stânga/dreapta pe dosarul dorit, etc</string>
@@ -194,6 +195,7 @@
     <string name="title_advanced_section_notifications">Notificări</string>
     <string name="title_advanced_section_privacy">Confidențialitate</string>
     <string name="title_advanced_section_misc">Diverse</string>
+    <string name="title_advanced_receive">Primire mesaje</string>
     <string name="title_advanced_when">Când</string>
     <string name="title_advanced_schedule">Programat</string>
     <string name="title_advanced_unseen">Toate mesajele necitite</string>
@@ -545,6 +547,7 @@
     <string name="title_no_stream">O aplicație invechită a trimis calea fișierului în locul unui flux de date</string>
     <string name="title_no_contacts">Selectorul de contacte nu este disponibil</string>
     <string name="title_no_internet">Nu există o conexiune viabilă la Internet</string>
+    <string name="title_no_connection">Conectare la unul sau mai multe conturi &#8230;</string>
     <string name="title_no_folder">Dosarul nu există</string>
     <string name="title_no_format">Mesajul primit inițial va fi inclus</string>
     <string name="title_no_image">Imaginea nu a putut fi decodată</string>

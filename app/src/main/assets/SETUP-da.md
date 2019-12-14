@@ -38,4 +38,4 @@ I nyere Android-versioner sættes apps i dvale for at reducere batteriforbruget,
 
 ## Spørgsmål eller problemer
 
-If you have a question or problem, please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) for help.
+Har du et spørgsmål eller problem, så [kig venligst her](https://github.com/M66B/FairEmail/blob/master/FAQ.md) for hjælp.
