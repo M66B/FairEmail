@@ -123,16 +123,19 @@ public class Log {
     }
 
     public static int e(String msg) {
-        if (BuildConfig.BETA_RELEASE) {
-            List<StackTraceElement> ss = new ArrayList<>(Arrays.asList(new Throwable().getStackTrace()));
-            ss.remove(0);
-            Bugsnag.notify("Internal error", msg, ss.toArray(new StackTraceElement[0]), new Callback() {
-                @Override
-                public void beforeNotify(@NonNull Report report) {
-                    report.getError().setSeverity(Severity.ERROR);
-                }
-            });
-        }
+        if (BuildConfig.BETA_RELEASE)
+            try {
+                List<StackTraceElement> ss = new ArrayList<>(Arrays.asList(new Throwable().getStackTrace()));
+                ss.remove(0);
+                Bugsnag.notify("Internal error", msg, ss.toArray(new StackTraceElement[0]), new Callback() {
+                    @Override
+                    public void beforeNotify(@NonNull Report report) {
+                        report.getError().setSeverity(Severity.ERROR);
+                    }
+                });
+            } catch (Throwable ex) {
+                ex.printStackTrace();
+            }
         return android.util.Log.e(TAG, msg);
     }
 
@@ -142,37 +145,61 @@ public class Log {
 
     public static int w(Throwable ex) {
         if (BuildConfig.BETA_RELEASE)
-            Bugsnag.notify(ex, Severity.INFO);
+            try {
+                Bugsnag.notify(ex, Severity.INFO);
+            } catch (Throwable ex1) {
+                ex1.printStackTrace();
+            }
         return android.util.Log.w(TAG, ex + "\n" + android.util.Log.getStackTraceString(ex));
     }
 
     public static int e(Throwable ex) {
         if (BuildConfig.BETA_RELEASE)
-            Bugsnag.notify(ex, Severity.WARNING);
+            try {
+                Bugsnag.notify(ex, Severity.WARNING);
+            } catch (Throwable ex1) {
+                ex1.printStackTrace();
+            }
         return android.util.Log.e(TAG, ex + "\n" + android.util.Log.getStackTraceString(ex));
     }
 
     public static int w(String prefix, Throwable ex) {
         if (BuildConfig.BETA_RELEASE)
-            Bugsnag.notify(ex, Severity.INFO);
+            try {
+                Bugsnag.notify(ex, Severity.INFO);
+            } catch (Throwable ex1) {
+                ex1.printStackTrace();
+            }
         return android.util.Log.w(TAG, prefix + " " + ex + "\n" + android.util.Log.getStackTraceString(ex));
     }
 
     public static int e(String prefix, Throwable ex) {
         if (BuildConfig.BETA_RELEASE)
-            Bugsnag.notify(ex, Severity.WARNING);
+            try {
+                Bugsnag.notify(ex, Severity.WARNING);
+            } catch (Throwable ex1) {
+                ex1.printStackTrace();
+            }
         return android.util.Log.e(TAG, prefix + " " + ex + "\n" + android.util.Log.getStackTraceString(ex));
     }
 
     static void setCrashReporting(boolean enabled) {
-        if (enabled)
-            Bugsnag.startSession();
-        else
-            Bugsnag.stopSession();
+        try {
+            if (enabled)
+                Bugsnag.startSession();
+            else
+                Bugsnag.stopSession();
+        } catch (Throwable ex) {
+            ex.printStackTrace();
+        }
     }
 
     static void breadcrumb(String name, Map<String, String> crumb) {
-        Bugsnag.leaveBreadcrumb(name, BreadcrumbType.LOG, crumb);
+        try {
+            Bugsnag.leaveBreadcrumb(name, BreadcrumbType.LOG, crumb);
+        } catch (Throwable ex) {
+            ex.printStackTrace();
+        }
     }
 
     static void setupBugsnag(Context context) {
