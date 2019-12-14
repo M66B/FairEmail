@@ -106,7 +106,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
         }
 
         private void bindTo(EntityAttachment attachment) {
-            view.setAlpha(attachment.isInlineImage() ? Helper.LOW_LIGHT : 1.0f);
+            view.setAlpha(attachment.isInline() && attachment.isImage() ? Helper.LOW_LIGHT : 1.0f);
 
             ibDelete.setVisibility(readonly ? View.GONE : attachment.isInline() ? View.INVISIBLE : View.VISIBLE);
             tvName.setText(attachment.name);

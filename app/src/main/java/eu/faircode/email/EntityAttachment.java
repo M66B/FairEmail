@@ -109,10 +109,6 @@ public class EntityAttachment {
         return IMAGE_TYPES.contains(type);
     }
 
-    boolean isInlineImage() {
-        return ((isInline() || TextUtils.isEmpty(name)) && isImage());
-    }
-
     File getFile(Context context) {
         return getFile(context, id, name);
     }
