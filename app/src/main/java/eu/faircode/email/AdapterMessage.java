@@ -1285,7 +1285,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     int inlineImages = 0;
                     if (attachments != null)
                         for (EntityAttachment attachment : attachments)
-                            if (attachment.available && attachment.isInline() && attachment.isImage())
+                            if (attachment.available && attachment.isInlineImage())
                                 inlineImages++;
 
                     if (inlineImages != lastInlineImages) {
@@ -1647,7 +1647,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             List<EntityAttachment> a = new ArrayList<>();
             for (EntityAttachment attachment : attachments) {
-                boolean inline = ((attachment.isInline() && attachment.isImage()) || attachment.encryption != null);
+                boolean inline = ((attachment.isInlineImage()) || attachment.encryption != null);
                 if (inline)
                     has_inline = true;
                 if (attachment.progress == null && !attachment.available)
@@ -1701,7 +1701,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             List<EntityAttachment> images = new ArrayList<>();
             for (EntityAttachment attachment : attachments)
-                if (!attachment.isInline() && attachment.isImage())
+                if (!attachment.isInlineImage())
                     images.add(attachment);
             adapterImage.set(images);
             grpImages.setVisibility(images.size() > 0 ? View.VISIBLE : View.GONE);
@@ -2715,7 +2715,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                         List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
                         for (EntityAttachment attachment : attachments)
-                            if (attachment.isInline() && attachment.isImage() &&
+                            if (attachment.isInlineImage() &&
                                     attachment.progress == null && !attachment.available)
                                 EntityOperation.queue(context, message, EntityOperation.ATTACHMENT, attachment.id);
 

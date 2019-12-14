@@ -2978,8 +2978,7 @@ public class FragmentCompose extends FragmentBase {
                         for (EntityAttachment attachment : attachments)
                             if (attachment.encryption == null &&
                                     ("forward".equals(action) || "editasnew".equals(action) ||
-                                            (cid.contains(attachment.cid) ||
-                                                    (attachment.isInline() && attachment.isImage())))) {
+                                            (cid.contains(attachment.cid) || attachment.isInlineImage()))) {
                                 if (attachment.available) {
                                     File source = attachment.getFile(context);
 
@@ -3131,7 +3130,7 @@ public class FragmentCompose extends FragmentBase {
                                     available++;
                                 if (attachment.progress != null)
                                     downloading = true;
-                                if (attachment.isInline() && attachment.isImage())
+                                if (attachment.isInlineImage())
                                     inline_images = true;
                             }
 
