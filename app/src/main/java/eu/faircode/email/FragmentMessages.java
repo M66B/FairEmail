@@ -4592,7 +4592,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             boolean match = false;
                             List<String> emails = EntityCertificate.getAltSubjectName(cert);
                             for (String email : emails)
-                                if (Objects.equals(sender, email)) {
+                                if (email.equalsIgnoreCase(sender)) {
                                     match = true;
                                     break;
                                 }
