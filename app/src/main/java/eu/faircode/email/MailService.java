@@ -12,13 +12,22 @@ import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPStore;
 import com.sun.mail.smtp.SMTPTransport;
 import com.sun.mail.util.MailConnectException;
+import com.sun.mail.util.MailSSLSocketFactory;
+
+import org.bouncycastle.asn1.x509.GeneralName;
 
 import java.net.Inet4Address;
 import java.net.Inet6Address;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.security.GeneralSecurityException;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.Certificate;
+import java.security.cert.CertificateEncodingException;
+import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -35,6 +44,8 @@ import javax.mail.Service;
 import javax.mail.Session;
 import javax.mail.Store;
 import javax.mail.event.StoreListener;
+import javax.net.ssl.SSLPeerUnverifiedException;
+import javax.net.ssl.SSLSocket;
 
 public class MailService implements AutoCloseable {
     private Context context;
@@ -44,6 +55,10 @@ public class MailService implements AutoCloseable {
     private Properties properties;
     private Session isession;
     private Service iservice;
+    private boolean configuring;
+    private String fingerprint;
+    private X509Certificate certificate;
+    private boolean trusted;
     private StoreListener listener;
 
     private ExecutorService executor = Helper.getBackgroundExecutor(0, "mail");
@@ -74,6 +89,66 @@ public class MailService implements AutoCloseable {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean socks_enabled = prefs.getBoolean("socks_enabled", false);
         String socks_proxy = prefs.getString("socks_proxy", "localhost:9050");
+
+        if (BuildConfig.DEBUG)
+            try {
+                // openssl s_client -connect host:port < /dev/null 2>/dev/null | openssl x509 -fingerprint -noout -in /dev/stdin
+                MailSSLSocketFactory sf = new MailSSLSocketFactory() {
+                    @Override
+                    public synchronized boolean isServerTrusted(String server, SSLSocket sslSocket) {
+                        try {
+                            Certificate[] certificates = sslSocket.getSession().getPeerCertificates();
+                            if (certificates == null || certificates.length == 0 ||
+                                    !(certificates[0] instanceof X509Certificate))
+                                return false;
+
+                            certificate = (X509Certificate) certificates[0];
+
+                            Collection<List<?>> altNames = certificate.getSubjectAlternativeNames();
+                            if (altNames != null)
+                                for (List altName : altNames)
+                                    if (altName.get(0).equals(GeneralName.dNSName)) {
+                                        String name = (String) altName.get(1);
+                                        Log.i("Trusted name=" + name);
+                                        if (name.startsWith("*.")) {
+                                            // Wildcard certificate
+                                            String domain = name.substring(2);
+                                            if (TextUtils.isEmpty(domain))
+                                                continue;
+
+                                            int dot = server.indexOf(".");
+                                            if (dot < 0)
+                                                continue;
+                                            String cdomain = server.substring(dot + 1);
+                                            if (TextUtils.isEmpty(cdomain))
+                                                continue;
+
+                                            Log.i("Trust " + domain + " =? " + cdomain);
+                                            if (domain.equalsIgnoreCase(cdomain))
+                                                trusted = true;
+                                        } else {
+                                            Log.i("Trust " + server + " =? " + name);
+                                            if (server.equalsIgnoreCase(name))
+                                                trusted = true;
+                                        }
+                                    }
+
+                            if (fingerprint != null && fingerprint.equals(getFingerPrint()))
+                                trusted = true;
+
+                            Log.i("Is trusted? server=" + server + " trusted=" + trusted);
+                            return (configuring || trusted);
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                            return false;
+                        }
+                    }
+                };
+                properties.put("mail." + protocol + ".ssl.socketFactory", sf);
+                properties.put("mail." + protocol + ".socketFactory.fallback", "false");
+            } catch (GeneralSecurityException ex) {
+                Log.e(ex);
+            }
 
         // SOCKS proxy
         if (socks_enabled) {
@@ -108,7 +183,8 @@ public class MailService implements AutoCloseable {
 
             // https://javaee.github.io/javamail/docs/api/com/sun/mail/pop3/package-summary.html#properties
             properties.put("mail." + protocol + ".ssl.checkserveridentity", Boolean.toString(!insecure));
-            properties.put("mail." + protocol + ".ssl.trust", "*");
+            if (!BuildConfig.DEBUG)
+                properties.put("mail." + protocol + ".ssl.trust", "*");
 
             properties.put("mail.pop3s.starttls.enable", "false");
 
@@ -118,7 +194,8 @@ public class MailService implements AutoCloseable {
         } else if ("imap".equals(protocol) || "imaps".equals(protocol)) {
             // https://javaee.github.io/javamail/docs/api/com/sun/mail/imap/package-summary.html#properties
             properties.put("mail." + protocol + ".ssl.checkserveridentity", Boolean.toString(!insecure));
-            properties.put("mail." + protocol + ".ssl.trust", "*");
+            if (!BuildConfig.DEBUG)
+                properties.put("mail." + protocol + ".ssl.trust", "*");
 
             properties.put("mail.imaps.starttls.enable", "false");
 
@@ -147,7 +224,8 @@ public class MailService implements AutoCloseable {
         } else if ("smtp".equals(protocol) || "smtps".equals(protocol)) {
             // https://javaee.github.io/javamail/docs/api/com/sun/mail/smtp/package-summary.html#properties
             properties.put("mail." + protocol + ".ssl.checkserveridentity", Boolean.toString(!insecure));
-            properties.put("mail." + protocol + ".ssl.trust", "*");
+            if (!BuildConfig.DEBUG)
+                properties.put("mail." + protocol + ".ssl.trust", "*");
 
             properties.put("mail.smtps.starttls.enable", "false");
 
@@ -178,6 +256,22 @@ public class MailService implements AutoCloseable {
 
     void setListener(StoreListener listener) {
         this.listener = listener;
+    }
+
+    void setConfiguring() {
+        configuring = true;
+    }
+
+    void setFingerPrint(String value) {
+        fingerprint = value;
+    }
+
+    String getFingerPrint() throws CertificateEncodingException, NoSuchAlgorithmException {
+        return Helper.sha1(certificate.getEncoded());
+    }
+
+    boolean getTrusted() {
+        return trusted;
     }
 
     public void connect(EntityAccount account) throws MessagingException {

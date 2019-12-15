@@ -628,8 +628,16 @@ public class Helper {
         return sha256(data.getBytes());
     }
 
+    static String sha1(byte[] data) throws NoSuchAlgorithmException {
+        return sha("SHA-1", data);
+    }
+
     static String sha256(byte[] data) throws NoSuchAlgorithmException {
-        byte[] bytes = MessageDigest.getInstance("SHA-256").digest(data);
+        return sha("SHA-256", data);
+    }
+
+    static String sha(String digest, byte[] data) throws NoSuchAlgorithmException {
+        byte[] bytes = MessageDigest.getInstance(digest).digest(data);
         StringBuilder sb = new StringBuilder();
         for (byte b : bytes)
             sb.append(String.format("%02x", b));
