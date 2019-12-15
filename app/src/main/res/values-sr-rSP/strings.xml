@@ -76,6 +76,7 @@
     <string name="title_notification_sending">Слање порука</string>
     <string name="title_notification_failed">%1$s неуспело</string>
     <string name="title_name_count">%1$s (%2$s)</string>
+    <string name="menu_exit">Изађи</string>
     <string name="menu_answers">Шаблони</string>
     <string name="menu_operations">Операције</string>
     <string name="menu_contacts">Локални контакти</string>
@@ -124,6 +125,7 @@
     <string name="title_setup_quick_failed">Такође можете да покушате да подесите налог и идентитет испод</string>
     <string name="title_setup_manage">Управљај</string>
     <string name="title_setup_grant">Одобри</string>
+    <string name="title_setup_grant_again">Одобри захтеване дозволе</string>
     <string name="title_setup_account">Постављање налога</string>
     <string name="title_setup_account_remark">Да примате поруке</string>
     <string name="title_setup_account_hint">Да промените боју, где да се помери порука на превлачење лево/десно, итд</string>
@@ -142,6 +144,7 @@
     <string name="title_setup_go">Напред</string>
     <string name="title_setup_to_do">За урадити</string>
     <string name="title_setup_done">Урађено</string>
+    <string name="title_setup_error">Грешка</string>
     <string name="title_setup_export">Извези поставке</string>
     <string name="title_setup_import">Увези поставке</string>
     <string name="title_setup_import_do">Увезени налози ће бити додати поред постојећих</string>
@@ -183,6 +186,7 @@
     <string name="title_advanced_section_notifications">Обавештења</string>
     <string name="title_advanced_section_privacy">Приватност</string>
     <string name="title_advanced_section_misc">Разно</string>
+    <string name="title_advanced_receive">Прими поруке</string>
     <string name="title_advanced_when">Када</string>
     <string name="title_advanced_schedule">Распоред</string>
     <string name="title_advanced_unseen">Све непрочитане поруке</string>
@@ -197,6 +201,7 @@
     <string name="title_advanced_suggest_sent">Предлажи адресе нађене међу послатим порукама</string>
     <string name="title_advanced_suggest_received">Предлажи адресе нађене међу примљеним порукама</string>
     <string name="title_advanced_prefix_once">Префиксуј наслов само једном приликом одговарања или прослеђивања</string>
+    <string name="title_advanced_quote_reply">Цитирај текст на који се одговара</string>
     <string name="title_advanced_plain_only">Подразумевано шаљи обичан текст</string>
     <string name="title_advanced_usenet_signature">Usenet конвенција потписа</string>
     <string name="title_advanced_autoresize">Аутоматски промени величину закаченим и убаченим сликама</string>
@@ -226,6 +231,8 @@
     <string name="title_advanced_color_threshold">Ниво окидања за боју слова</string>
     <string name="title_advanced_name_email">Прикажи имена и е-мејл адресе</string>
     <string name="title_advanced_authentication">Прикажи упозорење када сервер примаоца не може да потврди идентитет поруке</string>
+    <string name="title_advanced_font_size_sender">Величина фонта пошиљаоца</string>
+    <string name="title_advanced_font_size_subject">Величина фонта за наслов</string>
     <string name="title_advanced_subject_top">Прикажи наслов изнад пошиљаоца</string>
     <string name="title_advanced_subject_italic">Прикажи наслов курзивом</string>
     <string name="title_advanced_subject_elipsed">Скрати наслов, ако је потребно</string>
@@ -260,6 +267,9 @@
     <string name="title_advanced_automove">Потврди померање порука</string>
     <string name="title_advanced_discard_delete">Избриши нацрт трајно приликом одбацивања</string>
     <string name="title_advanced_default_snooze">Подразумевано време одлагања</string>
+    <string name="title_advanced_notifications">Управљај обавештењима</string>
+    <string name="title_advanced_notifications_default">Подразумевани канал</string>
+    <string name="title_advanced_notifications_service">Сервисни канал</string>
     <string name="title_advanced_badge">Прикажи иконицу са бројем нових порука на покретачу</string>
     <string name="title_advanced_unseen_ignored">Нека се број нових порука поклапа са бројем обавештења</string>
     <string name="title_advanced_notify_summary">Прикажи само једно сумарно обавештење</string>
@@ -282,9 +292,17 @@
     <string name="title_advanced_sound">Одаберите звук обавештења</string>
     <string name="title_advanced_tracking">Аутоматски препознај и искључи слике које Вас прате</string>
     <string name="title_advanced_display_hidden">Прикажи сакривене текстове порука</string>
+    <string name="title_advanced_encrypt_method">Подразумевани начин шифровања</string>
+    <string name="title_advanced_openpgp">OpenPGP провајдер</string>
+    <string name="title_advanced_sign_default">Подразумевани потписуј</string>
+    <string name="title_advanced_encrypt_default">Подразумевано шифруј</string>
     <string name="title_advanced_auto_decrypt">Аутоматски дешифруј поруке</string>
+    <string name="title_advanced_secure">Сакриј са екрана скорашњих апликација и онемогући узимање снимака екрана</string>
     <string name="title_advanced_pin">ПИН</string>
     <string name="title_advanced_biometrics_timeout">Време истека на биометријску проверу идентитета</string>
+    <string name="title_advanced_manage_certificates">Управљање јавним кључевима</string>
+    <string name="title_advanced_import_key">Увези приватни кључ</string>
+    <string name="title_advanced_manage_keys">Управљање приватним кључевима</string>
     <string name="title_advanced_english">Форсирај енглески језик</string>
     <string name="title_advanced_watchdog">Периодично проверавај да ли је FairEmail и даље активан</string>
     <string name="title_advanced_updates">Провери за ажурирања</string>
@@ -323,6 +341,8 @@
     <string name="title_advanced_badge_hint">Доступно само на подржаним покретачима</string>
     <string name="title_advanced_notify_action_hint">Биће приказане највише три радње</string>
     <string name="title_advanced_notify_remove_hint">Обавештење о новој поруци ће увек бити уклоњено на склањање превлачењем и на означавање поруке прочитаном</string>
+    <string name="title_advanced_notify_manage_default_hint">За постављање подразумеваних звукова, итд.</string>
+    <string name="title_advanced_notify_manage_service_hint">Да искључите трајна обавештења</string>
     <string name="title_advanced_wearable_hint">Обавештења се шаљу само на уређаје који се носе пошто се текст поруке преузме</string>
     <string name="title_advanced_move_hint">Одредишна фасцикла се може подесити у поставкама налога</string>
     <string name="title_advanced_notify_no_grouping">Ова Андроид верзија не подржава груписање обавештења</string>
@@ -351,6 +371,7 @@
     <string name="title_account_partial_fetch_hint">Искључите ово само у случају празних порука или оштећених прилога</string>
     <string name="title_account_signature">Текст потписа</string>
     <string name="title_color">Боја</string>
+    <string name="title_account_ondemand">Синхронизуј ручно</string>
     <string name="title_account_notify">Одвојена обавештења</string>
     <string name="title_account_left">Превуци лево</string>
     <string name="title_account_right">Превуци десно</string>
@@ -457,6 +478,7 @@
     <string name="title_no_folders">Нема фасцикле</string>
     <string name="title_no_messages">Нема порука</string>
     <string name="title_filters_active">Један или више филтера активни</string>
+    <string name="title_duplicate_in">Дуплирана порука у %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_seen">Означи као прочитано</string>
@@ -511,9 +533,12 @@
     <string name="title_no_stream">Застарела апликација је послала путању до фајла уместо фајл</string>
     <string name="title_no_contacts">Бирач контаката није доступан</string>
     <string name="title_no_internet">Нема везе или нема прикладне везе</string>
+    <string name="title_no_connection">Повезивање на један или више налога&#8230;</string>
     <string name="title_no_folder">Фасцикла не постоји</string>
     <string name="title_no_format">Биће укључена и оригинална порука</string>
     <string name="title_no_image">Слика не може да се декодује</string>
+    <string name="title_no_search">Претрага на серверу није доступна за овај налог</string>
+    <string name="title_unused_inline">Неискоришћене уметнуте слике ће бити уклоњене при слању</string>
     <string name="title_accross_remark">Поруке које се премештају између налога ће бити преузимане опет што доводи до повећане потрошње података</string>
     <string name="title_raw_saved">Сачувана сирова порука</string>
     <string name="title_attachment_saved">Прилог сачуван</string>
@@ -526,6 +551,7 @@
     <string name="title_ask_discard">Одбаци нацрт?</string>
     <string name="title_ask_show_html">Приватне осетљиве информације могу да исцуре приказивањем оригиналне поруке</string>
     <string name="title_ask_show_html_remark">Приказивање оригиналне поруке са тамном позадином није могуће јер може да изазове да се не види тамни текст и слике</string>
+    <string name="title_ask_show_html_images">Увек прикажи слике при приказивању оригиналне поруке</string>
     <string name="title_ask_show_image">Приватне осетљиве информације могу да исцуре приказивањем слика</string>
     <string name="title_ask_show_image_hint">Слике које се препознају да служе да вас прате неће бити приказане</string>
     <string name="title_ask_sync_all">Синхронизује све поруке у %1$s?</string>
@@ -542,6 +568,7 @@
     <string name="title_cc">CC:</string>
     <string name="title_bcc">BCC:</string>
     <string name="title_via_identity">Путем:</string>
+    <string name="title_sent">Послато:</string>
     <string name="title_received">Примљена:</string>
     <string name="title_size">Величина:</string>
     <string name="title_subject">Наслов:</string>
@@ -552,6 +579,7 @@
     <string name="title_send_via">Пошаљи преко</string>
     <string name="title_send_with_options">Слање &#8230;</string>
     <string name="title_send_at">Слање у &#8230;</string>
+    <string name="title_send_encryption">Шифровање</string>
     <string name="title_send_priority">Приоритет</string>
     <string name="title_no_server">Ниједан сервер није нађен на \'%1$s\'</string>
     <string name="title_style_bold">Подебљано</string>
@@ -572,6 +600,11 @@
     <string name="title_insert_template">Убаци шаблон</string>
     <string name="title_edit_plain_text">Измени као обичан текст</string>
     <string name="title_edit_formatted_text">Измени као реформатирани текст</string>
+    <string name="title_select_certificate">Одаберите јавни кључ</string>
+    <string name="title_certificate_missing">Нема јавног кључа за %1$s</string>
+    <string name="title_certificate_invalid">Јавни кључ за адресу %1$s није исправан</string>
+    <string name="title_no_key">Нема приватног кључа</string>
+    <string name="title_invalid_key">Неисправан приватни кључ</string>
     <string name="title_send_plain_text">Само обични текст</string>
     <string name="title_send_receipt">Захтевај потврду о пријему/читању</string>
     <string name="title_send_receipt_remark">Већина провајдера и е-мејл клијената игноришу потврде о пријему</string>
@@ -588,13 +621,24 @@
     <string name="title_ask_send_via">Пошаљи поруку за %1$s преко %2$s?</string>
     <string name="title_queued">Шаљем поруку</string>
     <string name="title_queued_at">Порука ће бити послата око %1$s</string>
+    <string name="title_sign">Потпиши</string>
     <string name="title_encrypt">Шифруј</string>
     <string name="title_decrypt">Дешифруј</string>
     <string name="title_resync">Ресинхронизуј</string>
     <string name="title_no_openpgp">OpenKeychain није нађен</string>
+    <string name="title_not_encrypted">Порука није ни потписана ни шифрована</string>
+    <string name="title_reset_sign_key">Ресетуј кључ за потпис</string>
     <string name="title_signature_none">Порука није потписана</string>
     <string name="title_signature_valid">Потпис поруке исправан</string>
+    <string name="title_signature_unconfirmed">Потпис поруке исправан, али није потврђен</string>
     <string name="title_signature_invalid">Потпис поруке није исправан</string>
+    <string name="title_signature_sender">Адреса пошиљаоца</string>
+    <string name="title_signature_email">Адреса потписа</string>
+    <string name="title_signature_mismatch">Адресе пошиљаоца и потписа се не слажу</string>
+    <string name="title_signature_subject">Наслов</string>
+    <string name="title_signature_validity">Важење</string>
+    <string name="title_signature_outdated">Овај јавни кључ тренутно не важи</string>
+    <string name="title_signature_store">Складиште</string>
     <string name="title_search">Претрага</string>
     <string name="title_search_server">Претражи на серверу</string>
     <string name="title_search_in">Претражи у</string>
@@ -709,6 +753,8 @@
     <string name="title_legend_draft">Има нацрт</string>
     <string name="title_legend_priority">Високог приоритета</string>
     <string name="title_legend_priority_low">Ниског приоритета</string>
+    <string name="title_legend_signed">Је потписан</string>
+    <string name="title_legend_encrypted">Је шифрован</string>
     <string name="title_legend_auth">Неуспела провера идентитета</string>
     <string name="title_legend_snoozed">Је одложена</string>
     <string name="title_legend_browsed">Је прегледана или тражена</string>
@@ -767,6 +813,8 @@
     <string name="title_hint_eml">Ово је сажетак садржаја фајла сирове поруке. Сачувајте сирову поруку преко иконице за чување у траци са радњама да бисте јој видели садржај.</string>
     <string name="title_open_link">Отвори везу</string>
     <string name="title_different_link">Текст везе и адреса везе су различити</string>
+    <string name="title_link_http">Саобраћај неће бити шифрован</string>
+    <string name="title_link_https">Саобраћ ће бити шифрован</string>
     <string name="title_sanitize_link">Уклони параметре за праћење</string>
     <string name="title_insecure_link">Веза је небезбедна</string>
     <string name="title_check_owner">Провери власника</string>
@@ -780,6 +828,7 @@
     <string name="title_undo">Опозови</string>
     <string name="title_redo">Врати</string>
     <string name="title_add">Додај</string>
+    <string name="title_browse">Отвори помоћу</string>
     <string name="title_info">Инфо</string>
     <string name="title_report">Извештај</string>
     <string name="title_fix">Поправи</string>
@@ -795,6 +844,7 @@
     <string name="title_via">Преко: %1$s</string>
     <string name="title_1hour">1 сат</string>
     <string name="title_1day">1 дан</string>
+    <string name="title_1week">1 недеља</string>
     <string name="title_now">Сада</string>
     <string name="title_after">После %1$s</string>
     <string name="title_reset">Ресетуј</string>
@@ -807,6 +857,7 @@
     <string name="title_icalendar_accept">Прихвати</string>
     <string name="title_icalendar_decline">Одбиј</string>
     <string name="title_icalendar_maybe">Можда</string>
+    <string name="title_icalendar_calendar">Календар</string>
     <string name="title_try">Испробајте FairEmail, е-мејл Андроид апликацију отвореног кода са фокусом на приватност</string>
     <string name="title_pro_feature">Ово је премијум функционалност</string>
     <string name="title_pro_list">Списак премијум функционалности</string>
@@ -816,6 +867,7 @@
         Да би FairEmail био одржив на дуже стазе, неке погодности и напредне функционалности нису бесплатне.
         FairEmail приказује малу поруку да Вас подсети на ово, која се може уклонити куповином премијум функционалности.
     </string>
+    <string name="title_pro_hide">Сакриј мале поруке до сутра</string>
     <string name="title_pro_hint">Куповина премијум функционалности ће Вам дозволити да користите све тренутне и будуће премијум функције, и бринуће се да се апликација одржава и да буде подржана.</string>
     <string name="title_pro_price">Видите ова <a href="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq19">често постављана питања</a> о цени премијум функционалности</string>
     <string name="title_pro_pending">Куповина на чекању</string>
@@ -826,14 +878,21 @@
     <string name="title_unexpected_error">Неочекивана грешка</string>
     <string name="title_log">Дневник</string>
     <string name="title_auto_scroll">Аутоматско померање</string>
+    <string name="title_log_clear">Очисти</string>
     <string name="title_debug_info">Отклањање грешака</string>
     <string name="title_debug_info_remark">Опишите проблем и назначите време када се десио проблем:</string>
     <string name="title_crash_info_remark">Опишите шта сте радили када се апликација срушила:</string>
     <string name="title_search_special_prefix">специјално</string>
     <string name="title_search_special_unseen">непрочитано</string>
     <string name="title_search_special_flagged">озвездано</string>
+    <string name="title_search_special_snoozed">сакривено</string>
+    <string name="title_search_special_encrypted">шифровано</string>
+    <string name="title_widget_title_count">Број нових порука</string>
+    <string name="title_widget_title_list">Листа порука</string>
     <string name="title_widget_account">Налог</string>
     <string name="title_widget_account_all">Све</string>
+    <string name="title_widget_folder">Фасцикла</string>
+    <string name="title_widget_folder_unified">Обједињене фасцикле пријемног сандучета</string>
     <string name="title_widget_unseen">Само непрочитане поруке</string>
     <string name="title_widget_flagged">Само озвездане поруке</string>
     <string-array name="pollIntervalNames">
@@ -879,7 +938,7 @@
         <item>Мала</item>
         <item>Средња</item>
         <item>Велика</item>
-        <item>Extra large</item>
+        <item>Веома велика</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
@@ -910,5 +969,18 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+    </string-array>
+    <string-array name="fontSizeNames">
+        <item>Подразумевана</item>
+        <item>Мала</item>
+        <item>Средња</item>
+        <item>Велика</item>
+    </string-array>
+    <string-array name="encryptNames">
+        <item>Ниједно</item>
+        <item>PGP само-потпис</item>
+        <item>PGP потпис+шифровање</item>
+        <item>S/MIME само потпис</item>
+        <item>S/MIME потпис+шифровање</item>
     </string-array>
 </resources>

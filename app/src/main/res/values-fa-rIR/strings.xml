@@ -6,9 +6,12 @@
     <string name="app_welcome">FairEmail یک برنامه متن باز بوده که تمرکز آن بر روی امنیت و حفظ حریم خصوصی است. بنابر دلایلی ممکن است برخی ویژگی‌ها بسته به نوع استفاده شما متفاوت باشند.</string>
     <string name="app_limitations">برای مثال پیام‌ها همواره برای حذف عناصر ناامن و بهبود خوانایی متن شکل‌ بندی خواهند شد و باز کردن لینک‌ها نیز برای ایمنی بیشتر نیاز به تایید دارد.</string>
     <string name="channel_service">سرویس</string>
+    <string name="channel_send">ارسال</string>
     <string name="channel_notification">اعلان‌ها</string>
+    <string name="channel_update">به روز رسانی</string>
     <string name="channel_warning">هشدارها</string>
     <string name="channel_error">خطاها</string>
+    <string name="channel_alert">Server alerts</string>
     <string name="tile_synchronize">همگام سازی</string>
     <string name="tile_unseen">پیام های جدید</string>
     <string name="shortcut_compose">ایجاد پیام</string>

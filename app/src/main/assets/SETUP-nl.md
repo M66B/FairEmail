@@ -38,4 +38,4 @@ Recente Android versies zetten apps in de slaapstand wanneer het scherm enige ti
 
 ## Vragen of problemen
 
-If you have a question or problem, please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) for help.
+Als u een vraag of probleem heeft, [zie hier](https://github.com/M66B/FairEmail/blob/master/FAQ.md) voor hulp.

@@ -38,4 +38,4 @@
 
 ## Имате питања или проблем
 
-If you have a question or problem, please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) for help.
+Уколико имате питања или проблем, [погледајте овде](https://github.com/M66B/FairEmail/blob/master/FAQ.md) за помоћ.
