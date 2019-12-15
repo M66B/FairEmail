@@ -462,4 +462,16 @@
             port="587"
             starttls="true" />
     </provider>
+    <provider
+        name="AOL"
+        link="https://help.aol.com/articles/how-do-i-use-other-email-applications-to-send-and-receive-my-aol-mail">
+        <imap
+            host="imap.aol.com"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.aol.com"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
