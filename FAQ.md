@@ -2558,9 +2558,9 @@ The error *User is authenticated but not connected* might occur if:
 **(140) Why does the message text contain strange characters?**
 
 Displaying strange characters is almost always caused by specifying no or an invalid character encoding by the sending software.
-There is no way to reliably determine the correct character encoding automatically,
+FairEmail will assume ISO 8859-1 when no character set or when US-ASCII as character set was specified.
+Other than that there is no way to reliably determine the correct character encoding automatically,
 so this cannot be fixed by FairEmail. The right action is to complain to the sender.
-
 
 <br />
 
