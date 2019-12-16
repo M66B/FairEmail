@@ -16,6 +16,7 @@ import com.sun.mail.util.MailSSLSocketFactory;
 
 import org.bouncycastle.asn1.x509.GeneralName;
 
+import java.io.IOException;
 import java.net.Inet4Address;
 import java.net.Inet6Address;
 import java.net.InetAddress;
@@ -24,6 +25,7 @@ import java.security.GeneralSecurityException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateEncodingException;
+import java.security.cert.CertificateParsingException;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -44,7 +46,6 @@ import javax.mail.Service;
 import javax.mail.Session;
 import javax.mail.Store;
 import javax.mail.event.StoreListener;
-import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSocket;
 
 public class MailService implements AutoCloseable {
@@ -52,13 +53,11 @@ public class MailService implements AutoCloseable {
     private String protocol;
     private boolean useip;
     private boolean debug;
+    private String trustedFingerprint;
     private Properties properties;
     private Session isession;
     private Service iservice;
-    private boolean configuring;
-    private String fingerprint;
     private X509Certificate certificate;
-    private boolean trusted;
     private StoreListener listener;
 
     private ExecutorService executor = Helper.getBackgroundExecutor(0, "mail");
@@ -104,40 +103,17 @@ public class MailService implements AutoCloseable {
 
                             certificate = (X509Certificate) certificates[0];
 
-                            Collection<List<?>> altNames = certificate.getSubjectAlternativeNames();
-                            if (altNames != null)
-                                for (List altName : altNames)
-                                    if (altName.get(0).equals(GeneralName.dNSName)) {
-                                        String name = (String) altName.get(1);
-                                        Log.i("Trusted name=" + name);
-                                        if (name.startsWith("*.")) {
-                                            // Wildcard certificate
-                                            String domain = name.substring(2);
-                                            if (TextUtils.isEmpty(domain))
-                                                continue;
+                            boolean trusted = false;
 
-                                            int dot = server.indexOf(".");
-                                            if (dot < 0)
-                                                continue;
-                                            String cdomain = server.substring(dot + 1);
-                                            if (TextUtils.isEmpty(cdomain))
-                                                continue;
+                            String name = getDnsName(certificate);
+                            if (name != null && matches(server, name))
+                                trusted = true;
 
-                                            Log.i("Trust " + domain + " =? " + cdomain);
-                                            if (domain.equalsIgnoreCase(cdomain))
-                                                trusted = true;
-                                        } else {
-                                            Log.i("Trust " + server + " =? " + name);
-                                            if (server.equalsIgnoreCase(name))
-                                                trusted = true;
-                                        }
-                                    }
-
-                            if (fingerprint != null && fingerprint.equals(getFingerPrint()))
+                            if (getFingerPrint(certificate).equals(trustedFingerprint))
                                 trusted = true;
 
                             Log.i("Is trusted? server=" + server + " trusted=" + trusted);
-                            return (configuring || trusted);
+                            return trusted;
                         } catch (Throwable ex) {
                             Log.e(ex);
                             return false;
@@ -258,20 +234,8 @@ public class MailService implements AutoCloseable {
         this.listener = listener;
     }
 
-    void setConfiguring() {
-        configuring = true;
-    }
-
-    void setFingerPrint(String value) {
-        fingerprint = value;
-    }
-
-    String getFingerPrint() throws CertificateEncodingException, NoSuchAlgorithmException {
-        return Helper.sha1(certificate.getEncoded());
-    }
-
-    boolean getTrusted() {
-        return trusted;
+    void setTrustedFingerPrint(String value) {
+        trustedFingerprint = value;
     }
 
     public void connect(EntityAccount account) throws MessagingException {
@@ -347,6 +311,22 @@ public class MailService implements AutoCloseable {
             }
 
             throw ex;
+        } catch (MessagingException ex) {
+            if (ex.getCause() instanceof IOException &&
+                    ex.getCause().getMessage() != null &&
+                    ex.getCause().getMessage().startsWith("Server is not trusted:")) {
+                String name;
+                String fingerprint;
+                try {
+                    name = getDnsName(certificate);
+                    fingerprint = getFingerPrint(certificate);
+                } catch (Throwable ex1) {
+                    Log.e(ex1);
+                    throw ex;
+                }
+                throw new UntrustedException(name, fingerprint);
+            } else
+                throw ex;
         }
     }
 
@@ -491,6 +471,68 @@ public class MailService implements AutoCloseable {
                 iservice.close();
         } finally {
             context = null;
+        }
+    }
+
+    static String getDnsName(X509Certificate certificate) throws CertificateParsingException {
+        Collection<List<?>> altNames = certificate.getSubjectAlternativeNames();
+        if (altNames == null)
+            return null;
+
+        for (List altName : altNames)
+            if (altName.get(0).equals(GeneralName.dNSName))
+                return (String) altName.get(1);
+
+        return null;
+    }
+
+    static String getFingerPrint(X509Certificate certificate) throws CertificateEncodingException, NoSuchAlgorithmException {
+        return Helper.sha1(certificate.getEncoded());
+    }
+
+    static boolean matches(String server, String name) {
+        if (name.startsWith("*.")) {
+            // Wildcard certificate
+            String domain = name.substring(2);
+            if (TextUtils.isEmpty(domain))
+                return false;
+
+            int dot = server.indexOf(".");
+            if (dot < 0)
+                return false;
+
+            String cdomain = server.substring(dot + 1);
+            if (TextUtils.isEmpty(cdomain))
+                return false;
+
+            Log.i("Trust " + domain + " =? " + cdomain);
+            return domain.equalsIgnoreCase(cdomain);
+        } else {
+            Log.i("Trust " + server + " =? " + name);
+            return server.equalsIgnoreCase(name);
+        }
+    }
+
+    class UntrustedException extends MessagingException {
+        private String name;
+        private String fingerprint;
+
+        UntrustedException(String name, String fingerprint) {
+            this.name = name;
+            this.fingerprint = fingerprint;
+        }
+
+        String getName() {
+            return name;
+        }
+
+        String getFingerprint() {
+            return fingerprint;
+        }
+
+        @Override
+        public synchronized String toString() {
+            return this.getClass().getName() + " name=" + name + " fingerprint=" + fingerprint;
         }
     }
 }
