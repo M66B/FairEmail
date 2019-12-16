@@ -110,6 +110,7 @@ public class FragmentIdentity extends FragmentBase {
     private Button btnSave;
     private ContentLoadingProgressBar pbSave;
     private TextView tvError;
+    private CheckBox cbTrust;
     private Button btnHelp;
     private Button btnSupport;
     private TextView tvInstructions;
@@ -191,6 +192,7 @@ public class FragmentIdentity extends FragmentBase {
         btnSave = view.findViewById(R.id.btnSave);
         pbSave = view.findViewById(R.id.pbSave);
         tvError = view.findViewById(R.id.tvError);
+        cbTrust = view.findViewById(R.id.cbTrust);
         btnHelp = view.findViewById(R.id.btnHelp);
         btnSupport = view.findViewById(R.id.btnSupport);
         tvInstructions = view.findViewById(R.id.tvInstructions);
@@ -255,6 +257,7 @@ public class FragmentIdentity extends FragmentBase {
                 etUser.setText(account.user);
                 tilPassword.getEditText().setText(account.password);
                 etRealm.setText(account.realm);
+                cbTrust.setChecked(false);
             }
 
             @Override
@@ -426,6 +429,7 @@ public class FragmentIdentity extends FragmentBase {
 
         btnSave.setVisibility(View.GONE);
         pbSave.setVisibility(View.GONE);
+        cbTrust.setVisibility(View.GONE);
         btnHelp.setVisibility(View.GONE);
         btnSupport.setVisibility(View.GONE);
         tvInstructions.setVisibility(View.GONE);
@@ -514,6 +518,7 @@ public class FragmentIdentity extends FragmentBase {
         args.putString("user", etUser.getText().toString());
         args.putString("password", tilPassword.getEditText().getText().toString());
         args.putString("realm", etRealm.getText().toString());
+        args.putString("fingerprint", cbTrust.isChecked() ? (String) cbTrust.getTag() : null);
         args.putBoolean("use_ip", cbUseIp.isChecked());
         args.putString("signature", (String) etSignature.getTag());
         args.putBoolean("synchronize", cbSynchronize.isChecked());
@@ -561,6 +566,7 @@ public class FragmentIdentity extends FragmentBase {
                 String user = args.getString("user").trim();
                 String password = args.getString("password");
                 String realm = args.getString("realm");
+                String fingerprint = args.getString("fingerprint");
                 boolean use_ip = args.getBoolean("use_ip");
                 boolean synchronize = args.getBoolean("synchronize");
                 boolean primary = args.getBoolean("primary");
@@ -687,6 +693,8 @@ public class FragmentIdentity extends FragmentBase {
                         return true;
                     if (!Objects.equals(identity.realm, realm))
                         return true;
+                    if (!Objects.equals(identity.fingerprint, fingerprint))
+                        return true;
                     if (!Objects.equals(identity.use_ip, use_ip))
                         return true;
                     if (!Objects.equals(identity.synchronize, synchronize))
@@ -715,6 +723,7 @@ public class FragmentIdentity extends FragmentBase {
                         !host.equals(identity.host) || Integer.parseInt(port) != identity.port ||
                         !user.equals(identity.user) || !password.equals(identity.password) ||
                         !Objects.equals(realm, identityRealm) ||
+                        !Objects.equals(identity.fingerprint, fingerprint) ||
                         use_ip != identity.use_ip));
                 Log.i("Identity check=" + check);
 
@@ -728,7 +737,7 @@ public class FragmentIdentity extends FragmentBase {
                     String protocol = (starttls ? "smtp" : "smtps");
                     try (MailService iservice = new MailService(context, protocol, realm, insecure, true, true)) {
                         iservice.setUseIp(use_ip);
-                        iservice.connect(host, Integer.parseInt(port), auth, user, password);
+                        iservice.connect(host, Integer.parseInt(port), auth, user, password, fingerprint);
                     }
                 }
 
@@ -763,6 +772,7 @@ public class FragmentIdentity extends FragmentBase {
                         identity.password = password;
                     }
                     identity.realm = realm;
+                    identity.fingerprint = fingerprint;
                     identity.use_ip = use_ip;
                     identity.synchronize = synchronize;
                     identity.primary = (identity.synchronize && primary);
@@ -827,6 +837,13 @@ public class FragmentIdentity extends FragmentBase {
     private void showError(Throwable ex) {
         tvError.setText(Log.formatThrowable(ex, false));
         grpError.setVisibility(View.VISIBLE);
+
+        if (ex instanceof MailService.UntrustedException) {
+            MailService.UntrustedException e = (MailService.UntrustedException) ex;
+            cbTrust.setTag(e.getFingerprint());
+            cbTrust.setText(getString(R.string.title_trust, e.getFingerprint()));
+            cbTrust.setVisibility(View.VISIBLE);
+        }
 
         final EmailProvider provider = (EmailProvider) spProvider.getSelectedItem();
         if (provider != null && provider.link != null) {
@@ -898,6 +915,18 @@ public class FragmentIdentity extends FragmentBase {
                     etUser.setText(identity == null ? null : identity.user);
                     tilPassword.getEditText().setText(identity == null ? null : identity.password);
                     etRealm.setText(identity == null ? null : identity.realm);
+
+                    if (identity == null || identity.fingerprint == null) {
+                        cbTrust.setTag(null);
+                        cbTrust.setChecked(false);
+                        cbTrust.setVisibility(View.GONE);
+                    } else {
+                        cbTrust.setTag(identity.fingerprint);
+                        cbTrust.setChecked(true);
+                        cbTrust.setText(getString(R.string.title_trust, identity.fingerprint));
+                        cbTrust.setVisibility(View.VISIBLE);
+                    }
+
                     cbUseIp.setChecked(identity == null ? true : identity.use_ip);
                     cbSynchronize.setChecked(identity == null ? true : identity.synchronize);
                     cbPrimary.setChecked(identity == null ? true : identity.primary);

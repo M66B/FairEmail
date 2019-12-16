@@ -1223,7 +1223,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                                                             String user = email;
                                                             String password = token;
                                                             try (MailService iservice = new MailService(context, "imaps", null, false, true, true)) {
-                                                                iservice.connect(host, port, MailService.AUTH_TYPE_OUTLOOK, user, password);
+                                                                iservice.connect(host, port, MailService.AUTH_TYPE_OUTLOOK, user, password, null);
 
                                                                 folders = iservice.getFolders();
 

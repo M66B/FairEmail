@@ -77,6 +77,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
     @NonNull
     public String password;
     public String realm;
+    public String fingerprint;
 
     public String name;
     public String signature; // obsolete

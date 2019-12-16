@@ -77,6 +77,7 @@ public class EntityIdentity {
     @NonNull
     public String password;
     public String realm;
+    public String fingerprint;
     @NonNull
     public Boolean use_ip = true; // instead of domain name
     @NonNull

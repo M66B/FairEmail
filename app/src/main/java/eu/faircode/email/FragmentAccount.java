@@ -127,6 +127,7 @@ public class FragmentAccount extends FragmentBase {
     private ContentLoadingProgressBar pbSave;
     private CheckBox cbIdentity;
     private TextView tvError;
+    private CheckBox cbTrust;
     private Button btnHelp;
     private Button btnSupport;
     private TextView tvInstructions;
@@ -229,6 +230,7 @@ public class FragmentAccount extends FragmentBase {
         cbIdentity = view.findViewById(R.id.cbIdentity);
 
         tvError = view.findViewById(R.id.tvError);
+        cbTrust = view.findViewById(R.id.cbTrust);
         btnHelp = view.findViewById(R.id.btnHelp);
         btnSupport = view.findViewById(R.id.btnSupport);
         tvInstructions = view.findViewById(R.id.tvInstructions);
@@ -271,6 +273,7 @@ public class FragmentAccount extends FragmentBase {
                 etUser.setText(null);
                 tilPassword.getEditText().setText(null);
                 etRealm.setText(null);
+                cbTrust.setChecked(false);
 
                 etName.setText(position > 1 ? provider.name : null);
                 etInterval.setText(provider.keepalive > 0 ? Integer.toString(provider.keepalive) : null);
@@ -432,6 +435,7 @@ public class FragmentAccount extends FragmentBase {
         pbSave.setVisibility(View.GONE);
         cbIdentity.setVisibility(View.GONE);
 
+        cbTrust.setVisibility(View.GONE);
         btnHelp.setVisibility(View.GONE);
         btnSupport.setVisibility(View.GONE);
         tvInstructions.setVisibility(View.GONE);
@@ -499,6 +503,7 @@ public class FragmentAccount extends FragmentBase {
         args.putString("user", etUser.getText().toString());
         args.putString("password", tilPassword.getEditText().getText().toString());
         args.putString("realm", etRealm.getText().toString());
+        args.putString("fingerprint", cbTrust.isChecked() ? (String) cbTrust.getTag() : null);
 
         new SimpleTask<CheckResult>() {
             @Override
@@ -535,6 +540,7 @@ public class FragmentAccount extends FragmentBase {
                 String user = args.getString("user");
                 String password = args.getString("password");
                 String realm = args.getString("realm");
+                String fingerprint = args.getString("fingerprint");
 
                 if (host.contains(":")) {
                     Uri h = Uri.parse(host);
@@ -562,7 +568,7 @@ public class FragmentAccount extends FragmentBase {
                 // Check IMAP server / get folders
                 String protocol = "imap" + (starttls ? "" : "s");
                 try (MailService iservice = new MailService(context, protocol, realm, insecure, true, true)) {
-                    iservice.connect(host, Integer.parseInt(port), auth, user, password);
+                    iservice.connect(host, Integer.parseInt(port), auth, user, password, fingerprint);
 
                     result.idle = iservice.hasCapability("IDLE");
 
@@ -639,6 +645,9 @@ public class FragmentAccount extends FragmentBase {
 
                 setFolders(result.folders, result.account);
 
+                if (!cbTrust.isChecked())
+                    cbTrust.setVisibility(View.GONE);
+
                 new Handler().post(new Runnable() {
                     @Override
                     public void run() {
@@ -701,6 +710,7 @@ public class FragmentAccount extends FragmentBase {
         args.putString("user", etUser.getText().toString());
         args.putString("password", tilPassword.getEditText().getText().toString());
         args.putString("realm", etRealm.getText().toString());
+        args.putString("fingerprint", cbTrust.isChecked() ? (String) cbTrust.getTag() : null);
 
         args.putString("name", etName.getText().toString());
         args.putInt("color", btnColor.getColor());
@@ -760,6 +770,7 @@ public class FragmentAccount extends FragmentBase {
                 String user = args.getString("user").trim();
                 String password = args.getString("password");
                 String realm = args.getString("realm");
+                String fingerprint = args.getString("fingerprint");
 
                 String name = args.getString("name");
                 Integer color = args.getInt("color");
@@ -846,6 +857,8 @@ public class FragmentAccount extends FragmentBase {
                         return true;
                     if (!Objects.equals(account.realm, realm))
                         return true;
+                    if (!Objects.equals(account.fingerprint, fingerprint))
+                        return true;
                     if (!Objects.equals(account.name, name))
                         return true;
                     if (!Objects.equals(account.color, color))
@@ -916,7 +929,8 @@ public class FragmentAccount extends FragmentBase {
                         !account.port.equals(Integer.parseInt(port)) ||
                         !account.user.equals(user) ||
                         !account.password.equals(password) ||
-                        !Objects.equals(realm, accountRealm)));
+                        !Objects.equals(realm, accountRealm) ||
+                        !Objects.equals(account.fingerprint, fingerprint)));
                 Log.i("Account check=" + check);
 
                 Long last_connected = null;
@@ -928,7 +942,7 @@ public class FragmentAccount extends FragmentBase {
                 if (check) {
                     String protocol = "imap" + (starttls ? "" : "s");
                     try (MailService iservice = new MailService(context, protocol, realm, insecure, true, true)) {
-                        iservice.connect(host, Integer.parseInt(port), auth, user, password);
+                        iservice.connect(host, Integer.parseInt(port), auth, user, password, fingerprint);
 
                         for (Folder ifolder : iservice.getStore().getDefaultFolder().list("*")) {
                             // Check folder attributes
@@ -976,6 +990,7 @@ public class FragmentAccount extends FragmentBase {
                         account.password = password;
                     }
                     account.realm = realm;
+                    account.fingerprint = fingerprint;
 
                     account.name = name;
                     account.color = color;
@@ -1160,6 +1175,13 @@ public class FragmentAccount extends FragmentBase {
         tvError.setText(Log.formatThrowable(ex, false));
         grpError.setVisibility(View.VISIBLE);
 
+        if (ex instanceof MailService.UntrustedException) {
+            MailService.UntrustedException e = (MailService.UntrustedException) ex;
+            cbTrust.setTag(e.getFingerprint());
+            cbTrust.setText(getString(R.string.title_trust, e.getFingerprint()));
+            cbTrust.setVisibility(View.VISIBLE);
+        }
+
         final EmailProvider provider = (EmailProvider) spProvider.getSelectedItem();
         if (provider != null && provider.link != null) {
             Uri uri = Uri.parse(provider.link);
@@ -1250,6 +1272,15 @@ public class FragmentAccount extends FragmentBase {
                     etUser.setText(account == null ? null : account.user);
                     tilPassword.getEditText().setText(account == null ? null : account.password);
                     etRealm.setText(account == null ? null : account.realm);
+
+                    if (account == null || account.fingerprint == null) {
+                        cbTrust.setTag(null);
+                        cbTrust.setChecked(false);
+                    } else {
+                        cbTrust.setTag(account.fingerprint);
+                        cbTrust.setChecked(true);
+                        cbTrust.setText(getString(R.string.title_trust, account.fingerprint));
+                    }
 
                     etName.setText(account == null ? null : account.name);
                     btnColor.setColor(account == null ? null : account.color);
@@ -1556,10 +1587,14 @@ public class FragmentAccount extends FragmentBase {
             }
         }
 
+        cbIdentity.setChecked(account == null);
+
         grpFolders.setVisibility(View.VISIBLE);
         btnSave.setVisibility(View.VISIBLE);
         cbIdentity.setVisibility(View.VISIBLE);
-        cbIdentity.setChecked(account == null);
+
+        if (cbTrust.isChecked())
+            cbTrust.setVisibility(View.VISIBLE);
     }
 
     private class CheckResult {

@@ -285,7 +285,7 @@ public class FragmentGmail extends FragmentBase {
 
                 String aprotocol = provider.imap.starttls ? "imap" : "imaps";
                 try (MailService iservice = new MailService(context, aprotocol, null, false, true, true)) {
-                    iservice.connect(provider.imap.host, provider.imap.port, MailService.AUTH_TYPE_GMAIL, user, password);
+                    iservice.connect(provider.imap.host, provider.imap.port, MailService.AUTH_TYPE_GMAIL, user, password, null);
 
                     folders = iservice.getFolders();
 
@@ -295,7 +295,7 @@ public class FragmentGmail extends FragmentBase {
 
                 String iprotocol = provider.smtp.starttls ? "smtp" : "smtps";
                 try (MailService iservice = new MailService(context, iprotocol, null, false, true, true)) {
-                    iservice.connect(provider.smtp.host, provider.smtp.port, MailService.AUTH_TYPE_GMAIL, user, password);
+                    iservice.connect(provider.smtp.host, provider.smtp.port, MailService.AUTH_TYPE_GMAIL, user, password, null);
                 }
 
                 DB db = DB.getInstance(context);

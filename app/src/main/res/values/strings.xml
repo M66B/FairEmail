@@ -469,6 +469,7 @@
     <string name="title_use_date">Use date header sent time instead of server received time</string>
     <string name="title_related_identity">Add related identity</string>
     <string name="title_check">Check</string>
+    <string name="title_trust">Trust %1$s</string>
     <string name="title_no_name">Name missing</string>
     <string name="title_no_email">Email address missing</string>
     <string name="title_email_invalid">Email address invalid: \'%1$s\'</string>

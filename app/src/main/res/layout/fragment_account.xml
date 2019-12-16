@@ -814,6 +814,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvErrorTitle" />
 
+        <CheckBox
+            android:id="@+id/cbTrust"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_trust"
+            android:textColor="?attr/colorWarning"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvError" />
+
         <Button
             android:id="@+id/btnHelp"
             android:layout_width="wrap_content"
@@ -824,7 +835,7 @@
             android:textColor="@android:color/black"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvError" />
+            app:layout_constraintTop_toBottomOf="@id/cbTrust" />
 
         <Button
             android:id="@+id/btnSupport"
@@ -836,7 +847,7 @@
             android:textColor="@android:color/black"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvError" />
+            app:layout_constraintTop_toBottomOf="@id/cbTrust" />
 
         <TextView
             android:id="@+id/tvInstructions"

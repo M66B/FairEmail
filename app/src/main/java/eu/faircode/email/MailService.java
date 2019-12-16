@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
 
 import com.sun.mail.imap.IMAPFolder;
@@ -15,7 +16,6 @@ import com.sun.mail.util.MailConnectException;
 import com.sun.mail.util.MailSSLSocketFactory;
 
 import org.bouncycastle.asn1.x509.GeneralName;
-import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.net.Inet4Address;
@@ -121,6 +121,7 @@ public class MailService implements AutoCloseable {
                         }
                     }
                 };
+
                 properties.put("mail." + protocol + ".ssl.socketFactory", sf);
                 properties.put("mail." + protocol + ".socketFactory.fallback", "false");
             } catch (GeneralSecurityException ex) {
@@ -160,8 +161,7 @@ public class MailService implements AutoCloseable {
 
             // https://javaee.github.io/javamail/docs/api/com/sun/mail/pop3/package-summary.html#properties
             properties.put("mail." + protocol + ".ssl.checkserveridentity", Boolean.toString(!insecure));
-            if (!BuildConfig.DEBUG)
-                properties.put("mail." + protocol + ".ssl.trust", "*");
+            properties.put("mail." + protocol + ".ssl.trust", "*");
 
             properties.put("mail.pop3s.starttls.enable", "false");
 
@@ -170,10 +170,6 @@ public class MailService implements AutoCloseable {
 
         } else if ("imap".equals(protocol) || "imaps".equals(protocol)) {
             // https://javaee.github.io/javamail/docs/api/com/sun/mail/imap/package-summary.html#properties
-            properties.put("mail." + protocol + ".ssl.checkserveridentity", Boolean.toString(!insecure));
-            if (!BuildConfig.DEBUG)
-                properties.put("mail." + protocol + ".ssl.trust", "*");
-
             properties.put("mail.imaps.starttls.enable", "false");
 
             properties.put("mail.imap.starttls.enable", "true");
@@ -200,10 +196,6 @@ public class MailService implements AutoCloseable {
 
         } else if ("smtp".equals(protocol) || "smtps".equals(protocol)) {
             // https://javaee.github.io/javamail/docs/api/com/sun/mail/smtp/package-summary.html#properties
-            properties.put("mail." + protocol + ".ssl.checkserveridentity", Boolean.toString(!insecure));
-            if (!BuildConfig.DEBUG)
-                properties.put("mail." + protocol + ".ssl.trust", "*");
-
             properties.put("mail.smtps.starttls.enable", "false");
 
             properties.put("mail.smtp.starttls.enable", "true");
@@ -235,12 +227,8 @@ public class MailService implements AutoCloseable {
         this.listener = listener;
     }
 
-    void setTrustedFingerPrint(String value) {
-        trustedFingerprint = value;
-    }
-
     public void connect(EntityAccount account) throws MessagingException {
-        String password = connect(account.host, account.port, account.auth_type, account.user, account.password);
+        String password = connect(account.host, account.port, account.auth_type, account.user, account.password, account.fingerprint);
         if (password != null) {
             DB db = DB.getInstance(context);
             int count = db.account().setAccountPassword(account.id, account.password);
@@ -249,7 +237,7 @@ public class MailService implements AutoCloseable {
     }
 
     public void connect(EntityIdentity identity) throws MessagingException {
-        String password = connect(identity.host, identity.port, identity.auth_type, identity.user, identity.password);
+        String password = connect(identity.host, identity.port, identity.auth_type, identity.user, identity.password, identity.fingerprint);
         if (password != null) {
             DB db = DB.getInstance(context);
             int count = db.identity().setIdentityPassword(identity.id, identity.password);
@@ -257,7 +245,8 @@ public class MailService implements AutoCloseable {
         }
     }
 
-    public String connect(String host, int port, int auth, String user, String password) throws MessagingException {
+    public String connect(String host, int port, int auth, String user, String password, String fingerprint) throws MessagingException {
+        this.trustedFingerprint = fingerprint;
         try {
             if (auth == AUTH_TYPE_GMAIL || auth == AUTH_TYPE_OUTLOOK)
                 properties.put("mail." + protocol + ".auth.mechanisms", "XOAUTH2");
@@ -317,16 +306,14 @@ public class MailService implements AutoCloseable {
                     ex.getCause() instanceof IOException &&
                     ex.getCause().getMessage() != null &&
                     ex.getCause().getMessage().startsWith("Server is not trusted:")) {
-                String name;
-                String fingerprint;
+                String sfingerprint;
                 try {
-                    name = getDnsName(certificate);
-                    fingerprint = getFingerPrint(certificate);
+                    sfingerprint = getFingerPrint(certificate);
                 } catch (Throwable ex1) {
                     Log.e(ex1);
                     throw ex;
                 }
-                throw new UntrustedException(name, fingerprint);
+                throw new UntrustedException(sfingerprint, ex);
             } else
                 throw ex;
         }
@@ -516,26 +503,20 @@ public class MailService implements AutoCloseable {
     }
 
     class UntrustedException extends MessagingException {
-        private String name;
         private String fingerprint;
 
-        UntrustedException(String name, String fingerprint) {
-            this.name = name;
+        UntrustedException(@NonNull String fingerprint, @NonNull Exception cause) {
+            super(cause.getMessage(), cause);
             this.fingerprint = fingerprint;
-        }
-
-        String getName() {
-            return name;
         }
 
         String getFingerprint() {
             return fingerprint;
         }
 
-        @NotNull
         @Override
         public synchronized String toString() {
-            return this.getClass().getName() + " name=" + name + " fingerprint=" + fingerprint;
+            return getCause().toString();
         }
     }
 }
