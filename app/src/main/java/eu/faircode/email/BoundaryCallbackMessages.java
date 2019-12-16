@@ -489,7 +489,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                     rules, null);
                             found++;
                         }
-                        if (message != null)
+                        if (message != null && query != null)
                             if (threading)
                                 db.message().setMessageFound(message.account, message.thread);
                             else
