@@ -13,11 +13,12 @@
     <string name="channel_update">Ажурирања</string>
     <string name="channel_warning">Упозорења</string>
     <string name="channel_error">Грешке</string>
+    <string name="channel_alert">Упозорења са сервера</string>
     <string name="channel_group_contacts">Контакти</string>
     <plurals name="page_conversation">
         <item quantity="one">Разговор</item>
-        <item quantity="few">Разговора</item>
-        <item quantity="other">Разговора</item>
+        <item quantity="few">Разговори</item>
+        <item quantity="other">Разговори</item>
     </plurals>
     <plurals name="page_message">
         <item quantity="one">Порука</item>
@@ -31,6 +32,11 @@
     <string name="shortcut_refresh">Освежи</string>
     <string name="shortcut_compose">Састави</string>
     <string name="shortcut_setup">Поставке</string>
+    <plurals name="title_notification_synchronizing">
+        <item quantity="one">Надгледам %1$d налог</item>
+        <item quantity="few">Надгледам %1$d налога</item>
+        <item quantity="other">Надгледам %1$d налога</item>
+    </plurals>
     <plurals name="title_notification_operations">
         <item quantity="one">%1$d операција на чекању</item>
         <item quantity="few">%1$d операције на чекању</item>
@@ -75,6 +81,7 @@
     <string name="title_notification_waiting">Чекам на погодну конекцију</string>
     <string name="title_notification_sending">Слање порука</string>
     <string name="title_notification_failed">%1$s неуспело</string>
+    <string name="title_notification_alert">Упозорење са сервера %1$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="menu_exit">Изађи</string>
     <string name="menu_answers">Шаблони</string>
@@ -104,8 +111,8 @@
     <string name="title_edit_folder">Измени фасциклу</string>
     <string name="title_setup">Поставке</string>
     <string name="title_setup_help">Помоћ</string>
-    <string name="title_setup_welcome">        Примање и слање порука захтева подешавање налога и идентитета, као и свакој другој е-мејл апликацији.
-        Брзо подешавање ће направити и налог и идентитет, само Вас питајући име, е-мејл адресу и лозинку.
+    <string name="title_setup_welcome">        Примање и слање порука захтева подешавање налога и идентитета, као и у свакој другој е-мејл апликацији.
+        Брзо подешавање ће направити и налог и идентитет, само Вас питајући за име, е-мејл адресу и лозинку.
         Налози и идентитет (алијаси) се могу подесити и ручно, ако се жели.
     </string>
     <string name="title_setup_quick">Брзо подешавање</string>
@@ -118,9 +125,12 @@
     <string name="title_setup_other">Остали провајдери</string>
     <string name="title_setup_gmail_support">Одобравање Google налозима ће радити само у званичној верзији пошто Андроид провера потпис апликације</string>
     <string name="title_setup_gmail_rationale">Одобрите дозволе да се одабере налог и чита Ваше име</string>
+    <string name="title_setup_gmail_permissions">Гугл ће питати за дозволе за читање, састављае, слање и трајно брисање свих Ваших мејлова. FairEmail никад неће обрисати Ваше поруке без Вашег експлицитног одобрења.</string>
+    <string name="title_setup_gmail_drafts">Фасцикла нацрта није доступна преко IMAP-а, ово се решава у Gmail поставкама ознака</string>
     <string name="title_setup_select_account">Изабери налог</string>
     <string name="title_setup_instructions">Упутства за поставку</string>
     <string name="title_setup_no_settings">Нису нађене поставке за домен ’%1$s’</string>
+    <string name="title_setup_no_system_folders">Пријемно сандуче или фасцикла са нацртима није нађена</string>
     <string name="title_setup_quick_success">Налог и идентитет су успешно додати</string>
     <string name="title_setup_quick_failed">Такође можете да покушате да подесите налог и идентитет испод</string>
     <string name="title_setup_manage">Управљај</string>
@@ -137,8 +147,8 @@
     <string name="title_setup_doze">Постављање оптимизације батерије</string>
     <string name="title_setup_doze_remark">Да стално примате поруке (опционо)</string>
     <string name="title_setup_doze_instructions">У следећем дијалогу, одаберите „Све апликације” на врху, одаберите ову апликацију и потврдите „Не оптимизуј”</string>
-    <string name="title_setup_doze_battery">Велика потрошња батерије?</string>
-    <string name="title_setup_doze_stopped">Синхронизација заустављена?</string>
+    <string name="title_setup_doze_battery">Потрошња батерије?</string>
+    <string name="title_setup_doze_stopped">Синхро заустављен?</string>
     <string name="title_setup_data">Укључена је штедња података</string>
     <string name="title_setup_inbox">Иди на поруке</string>
     <string name="title_setup_go">Напред</string>
@@ -177,7 +187,7 @@
     <string name="title_setup_options">Опције</string>
     <string name="title_setup_defaults">Врати на подразумевано</string>
     <string name="title_setup_reset_questions">Ресетуј питања</string>
-    <string name="title_advanced_section_main">Главно</string>
+    <string name="title_advanced_section_main">Опште</string>
     <string name="title_advanced_section_synchronize">Примање</string>
     <string name="title_advanced_section_send">Слање</string>
     <string name="title_advanced_section_connection">Конекција</string>
@@ -193,7 +203,7 @@
     <string name="title_advanced_flagged">Све озвездане поруке</string>
     <string name="title_advanced_delete_unseen">Избриши старе непрочитане поруке</string>
     <string name="title_advanced_kept_removed">Провери да ли су старе поруке уклоњене са сервера</string>
-    <string name="title_advanced_sync_folders">Синхронизује списак фасцикли</string>
+    <string name="title_advanced_sync_folders">Синхронизуј списак фасцикли</string>
     <string name="title_advanced_subscriptions">Управљај претплатама на фасцикле</string>
     <string name="title_advanced_sync_subscribed">Синхронизуј само претплаћене фасцикле</string>
     <string name="title_advanced_keyboard">Приказуј подразумевано тастатуру</string>
@@ -201,6 +211,7 @@
     <string name="title_advanced_suggest_sent">Предлажи адресе нађене међу послатим порукама</string>
     <string name="title_advanced_suggest_received">Предлажи адресе нађене међу примљеним порукама</string>
     <string name="title_advanced_prefix_once">Префиксуј наслов само једном приликом одговарања или прослеђивања</string>
+    <string name="title_advanced_extended_reply">Користи проширено заглавље одговора/прослеђивања</string>
     <string name="title_advanced_quote_reply">Цитирај текст на који се одговара</string>
     <string name="title_advanced_plain_only">Подразумевано шаљи обичан текст</string>
     <string name="title_advanced_usenet_signature">Usenet конвенција потписа</string>
@@ -215,11 +226,11 @@
     <string name="title_advanced_socks">Користи SOCKS прокси</string>
     <string name="title_advanced_manage_connectivity">Управљање конекцијама</string>
     <string name="title_advanced_landscape">Користи две колоне у пејзажном режиму</string>
-    <string name="title_advanced_startup">Прикажи на почетном екрану</string>
+    <string name="title_advanced_startup">На почетном екрану прикажи</string>
     <string name="title_advanced_cards">Прикажи картице</string>
     <string name="title_advanced_date_header">Групиши по датуму</string>
     <string name="title_advanced_threading">Увезивање разговора</string>
-    <string name="title_advanced_indentation">Лево/десно увуци примљене/послате поруке у разговору</string>
+    <string name="title_advanced_indentation">Увуци лево/десно примљене/послате поруке у разговору</string>
     <string name="title_advanced_highlight_unread">Истакни непрочитане поруке</string>
     <string name="title_advanced_distinguish_contacts">Разликуј поруке од познатих и од непознатих контаката</string>
     <string name="title_advanced_avatars">Прикажи слике контаката</string>
@@ -235,7 +246,7 @@
     <string name="title_advanced_font_size_subject">Величина фонта за наслов</string>
     <string name="title_advanced_subject_top">Прикажи наслов изнад пошиљаоца</string>
     <string name="title_advanced_subject_italic">Прикажи наслов курзивом</string>
-    <string name="title_advanced_subject_elipsed">Скрати наслов, ако је потребно</string>
+    <string name="title_advanced_subject_elipsed">Ако је потребно скратити наслов, скрати га</string>
     <string name="title_advanced_flags">Прикажи звездице</string>
     <string name="title_advanced_flags_background">Прикажи обојену позадину уместо обојених звездица</string>
     <string name="title_advanced_preview">Прикажи претпреглед поруке</string>
@@ -252,7 +263,7 @@
     <string name="title_advanced_actionbar">Прикажи траку са радњама у разговорима</string>
     <string name="title_advanced_double_back">Дупло „назад” за излаз</string>
     <string name="title_advanced_pull_refresh">Повуци на доле за освежавање</string>
-    <string name="title_advanced_autoscroll">Помери се на врх када се приме нове оруке</string>
+    <string name="title_advanced_autoscroll">Помери се на врх када се приме нове поруке</string>
     <string name="title_advanced_double_tap">Дупли клик да означих поруке прочитане/непрочитане</string>
     <string name="title_advanced_swipenav">Превуци на лево/десно за следећи/претходни разговор</string>
     <string name="title_advanced_reversed">Обрни смер навођења</string>
@@ -265,7 +276,7 @@
     <string name="title_advanced_autoread">Аутоматски означи поруке као прочитане кад се померају</string>
     <string name="title_advanced_autounstar">Аутоматски уклони звездице са порука кад се померају</string>
     <string name="title_advanced_automove">Потврди померање порука</string>
-    <string name="title_advanced_discard_delete">Избриши нацрт трајно приликом одбацивања</string>
+    <string name="title_advanced_discard_delete">Трајно избриши нацрт приликом одбацивања</string>
     <string name="title_advanced_default_snooze">Подразумевано време одлагања</string>
     <string name="title_advanced_notifications">Управљај обавештењима</string>
     <string name="title_advanced_notifications_default">Подразумевани канал</string>
@@ -274,23 +285,23 @@
     <string name="title_advanced_unseen_ignored">Нека се број нових порука поклапа са бројем обавештења</string>
     <string name="title_advanced_notify_summary">Прикажи само једно сумарно обавештење</string>
     <string name="title_advanced_notify_preview">Прикажи претпреглед поруке у обавештењима</string>
-    <string name="title_advanced_notify_actions">Акцију у обавештењима</string>
-    <string name="title_advanced_notify_action_trash">Отпад</string>
-    <string name="title_advanced_notify_action_junk">Нежељена пошта</string>
-    <string name="title_advanced_notify_action_archive">Архива</string>
+    <string name="title_advanced_notify_actions">Акција у обавештењу</string>
+    <string name="title_advanced_notify_action_trash">Премести на отпад</string>
+    <string name="title_advanced_notify_action_junk">Означи као нежељену пошту</string>
+    <string name="title_advanced_notify_action_archive">Архивирај</string>
     <string name="title_advanced_notify_action_move">Премести</string>
     <string name="title_advanced_notify_action_reply">Одговори</string>
     <string name="title_advanced_notify_action_reply_direct">Директни одговор</string>
-    <string name="title_advanced_notify_action_flag">Звездица</string>
-    <string name="title_advanced_notify_action_seen">Прочитај</string>
+    <string name="title_advanced_notify_action_flag">Стави звездицу</string>
+    <string name="title_advanced_notify_action_seen">Означи као прочитано</string>
     <string name="title_advanced_notify_action_snooze">Одложи</string>
     <string name="title_advanced_notify_remove">Уклони обавештење о новој поруци кликном на обавештење</string>
     <string name="title_advanced_notify_clear">Уклони обавештење о новим порукама када се погледа списак порука</string>
-    <string name="title_advanced_wearable_preview">Шаљи обавештења са претпрегледом поруке само на уређаје који се носе</string>
+    <string name="title_advanced_wearable_preview">Шаљи обавештења са претпрегледом поруке само на уређаје који се носе на телу</string>
     <string name="title_advanced_biometrics_notify">Прикажи садржај обавештења када се користи биометријска провера идентитета</string>
     <string name="title_advanced_light">Користи светло обавештења</string>
     <string name="title_advanced_sound">Одаберите звук обавештења</string>
-    <string name="title_advanced_tracking">Аутоматски препознај и искључи слике које Вас прате</string>
+    <string name="title_advanced_tracking">Аутоматски препознај и искључи слике које служе да Вас прате</string>
     <string name="title_advanced_display_hidden">Прикажи сакривене текстове порука</string>
     <string name="title_advanced_encrypt_method">Подразумевани начин шифровања</string>
     <string name="title_advanced_openpgp">OpenPGP провајдер</string>
@@ -299,7 +310,7 @@
     <string name="title_advanced_auto_decrypt">Аутоматски дешифруј поруке</string>
     <string name="title_advanced_secure">Сакриј са екрана скорашњих апликација и онемогући узимање снимака екрана</string>
     <string name="title_advanced_pin">ПИН</string>
-    <string name="title_advanced_biometrics_timeout">Време истека на биометријску проверу идентитета</string>
+    <string name="title_advanced_biometrics_timeout">Време истека за биометријску проверу идентитета</string>
     <string name="title_advanced_manage_certificates">Управљање јавним кључевима</string>
     <string name="title_advanced_import_key">Увези приватни кључ</string>
     <string name="title_advanced_manage_keys">Управљање приватним кључевима</string>
@@ -312,14 +323,15 @@
     <string name="title_advanced_cleanup">Чишћење</string>
     <string name="title_advanced_hint">Све поставке имају разумне подразумеване вредности, које треба мењати само ако је неопходно</string>
     <string name="title_advanced_enabled_hint">Глобално укључи и искључи примање порука</string>
+    <string name="title_advanced_manual_hint">Ако се синхронизација искључи, и даље је могућа ручна синхронизација повлачењем листе порука на доле.</string>
     <string name="title_advanced_poll_hint">Периодична синхронизација ће упоређивати локалне и удаљене поруке сваки пут, што је скупа операција, која може да проузрокује додатну потрошњу батерије, нарочито ако има много порука за синхронизацију. Увек синхронизовати ће избећи ово тако што ће непрекидно пратити само промене.</string>
-    <string name="title_advanced_schedule_hint">Килкните на време да га поставите</string>
+    <string name="title_advanced_schedule_hint">Кликните на време да га поставите</string>
     <string name="title_advanced_check_mx">Провери адресу пошиљаоца приликом синхронизације порука</string>
     <string name="title_advanced_unseen_hint">Неки провајдери не подржавају ово најбоље, што може да доведе да синхронизујете или све или ниједну поруку</string>
     <string name="title_advanced_sync_kept_hint">Ово ће пренети више података и потрошити више батерије, нарочито ако на уређају има јако много порука</string>
     <string name="title_advanced_sync_folders_hint">Искључивањем ће се смањити количина пренетих података и потрошња батерије, али ће бити искључено и ажурирање списка фасцикли</string>
     <string name="title_advanced_sync_delay_hint">Овим ће се успорити синхронизовање порука</string>
-    <string name="title_advanced_suggest_local_hint">Поред контатака који су у Андроиду. Подаци о контактима ће бити ускладиштени за новопримљене и послате поруке само ако је укључено.</string>
+    <string name="title_advanced_suggest_local_hint">Поред контаката који су у Андроиду. Подаци о контактима ће бити ускладиштени за новопримљене и послате поруке само ако је ово укључено.</string>
     <string name="title_advanced_lookup_mx_hint">Ово ће проверити да ли постоји DNS MX запис</string>
     <string name="title_advanced_metered_hint">Конекције које мере потрошњу података су обично мобилне конекције или плаћени Wi-Fi хотспотови</string>
     <string name="title_advanced_metered_warning">Искључивањем ове опције ћете онемогућити примање и слање порука са мобилних конекција</string>
@@ -327,23 +339,25 @@
     <string name="title_advanced_socks_hint">Коришћење удаљеног прокси сервера је небезбедно пошто прокси везе нису шифроване</string>
     <string name="title_advanced_roaming_hint">Заглавља порука ће се увек скидати у ромингу. Користите поставке роминга Вашег уређаја да тамо искључите интернет у ромингу.</string>
     <string name="title_advanced_browse_hint">Дохвати још порука при превлачењу на доле</string>
-    <string name="title_advanced_layout_hint">Пребацивање на компактнији приказ и промена величина текста поруке се може урадити из горње акционе траке у порукама</string>
+    <string name="title_advanced_layout_hint">Пребацивање на компактнији приказ и промена величина текста поруке може да се уради из горње акционе траке у порукама</string>
     <string name="title_advanced_date_hint">Поруке су груписане по датуму само ако су сортиране по времену</string>
     <string name="title_advanced_threading_hint">Групиши међусобно повезане поруке</string>
     <string name="title_advanced_name_email_hint">Када је искључено, биће приказана само имена ако су доступна</string>
     <string name="title_advanced_preview_hint">Доступно само када се преузме текст поруке</string>
     <string name="title_advanced_inline_hint">Уметнуте слике су слике укључене у поруку</string>
     <string name="title_advanced_autoexpand_hint">Аутоматски отвори поруку када има само једна порука или само једна непрочитана порука у разговору</string>
+    <string name="title_advanced_autoseen_hint">Аутоматско означавање порука као прочитане на проширење се може искључити у индивидуалним поставкама налога</string>
     <string name="title_advanced_autoclose_hint">Аутоматски затвори разговор када су све поруке архивиране, послате или бачене у отпад</string>
     <string name="title_advanced_sender_hint">Већина провајдера не дозвољава промењене адресе пошиљаоца</string>
     <string name="title_advanced_display_hidden_hint">Ово може довести до дуплих или чудних текстова</string>
     <string name="title_advanced_display_pin_hint">PIN има предност над биометријском провером идентитета</string>
     <string name="title_advanced_badge_hint">Доступно само на подржаним покретачима</string>
-    <string name="title_advanced_notify_action_hint">Биће приказане највише три радње</string>
+    <string name="title_advanced_notify_action_hint">Биће приказане највише три акције</string>
     <string name="title_advanced_notify_remove_hint">Обавештење о новој поруци ће увек бити уклоњено на склањање превлачењем и на означавање поруке прочитаном</string>
+    <string name="title_advanced_notify_manage_hint">Кликните на име канала да му поставите својства</string>
     <string name="title_advanced_notify_manage_default_hint">За постављање подразумеваних звукова, итд.</string>
     <string name="title_advanced_notify_manage_service_hint">Да искључите трајна обавештења</string>
-    <string name="title_advanced_wearable_hint">Обавештења се шаљу само на уређаје који се носе пошто се текст поруке преузме</string>
+    <string name="title_advanced_wearable_hint">Обавештења се шаљу само на уређаје који се носе на телу пошто се текст поруке преузме</string>
     <string name="title_advanced_move_hint">Одредишна фасцикла се може подесити у поставкама налога</string>
     <string name="title_advanced_notify_no_grouping">Ова Андроид верзија не подржава груписање обавештења</string>
     <string name="title_advanced_notify_no_channels">Ова Андроид верзија не подржава канале за обавештање</string>
@@ -393,6 +407,7 @@
     <string name="title_primary_identity">Главни (подразумевани идентитет)</string>
     <string name="title_leave_on_server">Остави поруке на серверу</string>
     <string name="title_keep_alive_interval">Интервал за одржавање везе/довлачење (у минутима)</string>
+    <string name="title_use_date">Користи датум слања поруке из заглавља уместо време примања поруке на серверу</string>
     <string name="title_related_identity">Додај повезани идентитет</string>
     <string name="title_check">Провери</string>
     <string name="title_no_name">Недостаје име</string>
@@ -426,7 +441,7 @@
     <string name="title_synchronize_all">Синхронизуј све поруке</string>
     <string name="title_synchronize_enabled">Синхронизуј</string>
     <string name="title_delete_local">Избриши локалне поруке</string>
-    <string name="title_delete_browsed">Избриши прегледане/претражене поруке</string>
+    <string name="title_delete_browsed">Избриши прегледане/претражене</string>
     <string name="title_empty_trash">Испразни отпад</string>
     <string name="title_empty_spam">Испразни нежељене</string>
     <string name="title_edit_properties">Измени својства</string>
@@ -446,23 +461,23 @@
     <string name="title_show_folders">Прикажи скривене фасцикле</string>
     <string name="title_apply_to_all">Примени на све&#8230;</string>
     <string name="title_hide_folder">Сакриј фасциклу</string>
-    <string name="title_unified_folder">Прикажи у обједињеном пријемном сандучету</string>
+    <string name="title_unified_folder">Прикажи међу свим примљеним</string>
     <string name="title_navigation_folder">Прикажи у навигационом менију</string>
     <string name="title_synchronize_folder">Синхронизуј (прими поруке)</string>
     <string name="title_poll_folder">Провери с времена на време уместо да непрекидно синхронизујеш</string>
     <string name="title_download_folder">Аутоматски преузимај текстове порука и прилоге</string>
-    <string name="title_notify_folder">Обавести за нове поруке</string>
+    <string name="title_notify_folder">Обавести на нове поруке</string>
     <string name="title_sync_days">Синхронизуј поруке (у данима)</string>
     <string name="title_sync_days_remark">Повећање ове вредности ће повећати потрошњу батерије и количину пренетих података</string>
     <string name="title_keep_days">Задржи поруке (у данима)</string>
     <string name="title_keep_days_remark">Старије поруке ће бити уклоњене са уређаја, али ће остати на серверу</string>
     <string name="title_keep_all">Задржи све поруке</string>
-    <string name="title_auto_trash">Аутоматски помери старе поруке на отпад</string>
+    <string name="title_auto_trash">Аутоматски померај старе поруке на отпад</string>
     <string name="title_auto_delete">Аутоматски обрисати старе поруке заувек</string>
     <string name="title_folder_name_missing">Недостаје име фасцикле</string>
     <string name="title_folder_exists">Фасцикла %1$s већ постоји</string>
     <string name="title_folder_delete">Трајно обрисати ову фасциклу и све поруке које садржи?</string>
-    <string name="title_folder_unified">Обједињено пријемно сандуче</string>
+    <string name="title_folder_unified">Све примљене</string>
     <string name="title_folder_inbox">Примљене</string>
     <string name="title_folder_outbox">За слање</string>
     <string name="title_folder_all">Архива</string>
@@ -643,19 +658,19 @@
     <string name="title_search_server">Претражи на серверу</string>
     <string name="title_search_in">Претражи у</string>
     <string name="title_sort_on">Сортирај по</string>
-    <string name="title_sort_on_time">Време</string>
-    <string name="title_sort_on_unread">Непрочитано</string>
-    <string name="title_sort_on_starred">Са звездицом</string>
-    <string name="title_sort_on_sender">Пошиљалац</string>
-    <string name="title_sort_on_subject">Наслов</string>
-    <string name="title_sort_on_size">Величина</string>
-    <string name="title_sort_on_hidden">Сакривено</string>
+    <string name="title_sort_on_time">Времену</string>
+    <string name="title_sort_on_unread">Непрочитаним</string>
+    <string name="title_sort_on_starred">Звездицама</string>
+    <string name="title_sort_on_sender">Пошиљаоцу</string>
+    <string name="title_sort_on_subject">Наслову</string>
+    <string name="title_sort_on_size">Величини</string>
+    <string name="title_sort_on_hidden">Сакривеним</string>
     <string name="title_sort_ascending">Прво најстарије</string>
     <string name="title_filter">Филтрирај по</string>
-    <string name="title_filter_seen">Прочитано</string>
+    <string name="title_filter_seen">Прочитаним</string>
     <string name="title_filter_unflagged">Без звездице</string>
-    <string name="title_filter_hidden">Сакривено</string>
-    <string name="title_filter_duplicates">Дупликати</string>
+    <string name="title_filter_hidden">Сакривеним</string>
+    <string name="title_filter_duplicates">Дупликатима</string>
     <string name="title_compact">Компактан изглед</string>
     <string name="title_zoom">Величина текста</string>
     <string name="title_select_all">Изабери све</string>
@@ -687,7 +702,7 @@
     <string name="title_rule_name">Име</string>
     <string name="title_rule_order">Редослед</string>
     <string name="title_rule_enabled">Укључено</string>
-    <string name="title_rule_stop">Не обрађуј правила после извршавања овог правила</string>
+    <string name="title_rule_stop">Не обрађуј друга правила после извршавања овог правила</string>
     <string name="title_rule_sender">Пошиљалац садржи</string>
     <string name="title_rule_sender_known">Пошиљалац је контакт</string>
     <string name="title_rule_recipient">Прималац садржи</string>
@@ -744,7 +759,7 @@
     <string name="title_legend_subscribed">Претплаћен на</string>
     <string name="title_legend_rule">Има правила</string>
     <string name="title_legend_similar">Претражи сличне поруке</string>
-    <string name="title_legend_notify">Обавести за нове поруке</string>
+    <string name="title_legend_notify">Обавести на нове поруке</string>
     <string name="title_legend_sync_keep">Број дана за синхронизацију / чување порука</string>
     <string name="title_legend_download_fetch">Број преузетих порука / скинутих заглавља</string>
     <string name="title_legend_stop">Престани са обрадом правила</string>
@@ -916,7 +931,7 @@
     <string-array name="startupNames">
         <item>Обједињено пријемно сандуче</item>
         <item>Обједињене фасцикле</item>
-        <item>Налози</item>
+        <item>Налоге</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>

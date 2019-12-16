@@ -34,24 +34,6 @@
     <string name="shortcut_refresh">Načíst znovu</string>
     <string name="shortcut_compose">Napsat zprávu</string>
     <string name="shortcut_setup">Nastavení</string>
-    <plurals name="title_notification_operations">
-        <item quantity="one">Probíhá %1$d operace</item>
-        <item quantity="few">Probíhají %1$d operace</item>
-        <item quantity="many">Probíhá %1$d operací</item>
-        <item quantity="other">Probíhá %1$d operací</item>
-    </plurals>
-    <plurals name="title_notification_unseen">
-        <item quantity="one">%1$d nová zpráva</item>
-        <item quantity="few">%1$d nové zprávy</item>
-        <item quantity="many">%1$d nových zpráv</item>
-        <item quantity="other">%1$d nových zpráv</item>
-    </plurals>
-    <plurals name="title_notification_unsent">
-        <item quantity="one">%1$d zpráva k odeslání</item>
-        <item quantity="few">%1$d zprávy k odeslání</item>
-        <item quantity="many">%1$d zpráv k odeslání</item>
-        <item quantity="other">%1$d zpráv k odeslání</item>
-    </plurals>
     <plurals name="title_tile_unseen">
         <item quantity="one">%1$d nová</item>
         <item quantity="few">%1$d nové</item>
@@ -201,6 +183,7 @@
     <string name="title_advanced_section_notifications">Oznámení</string>
     <string name="title_advanced_section_privacy">Soukromí</string>
     <string name="title_advanced_section_misc">Ostatní</string>
+    <string name="title_advanced_receive">Přijímat zprávy</string>
     <string name="title_advanced_when">Kdy</string>
     <string name="title_advanced_schedule">Plán</string>
     <string name="title_advanced_unseen">Všechny nepřečtené zprávy</string>
@@ -882,9 +865,9 @@
     <string name="title_pro_list">Seznam Pro funkcí</string>
     <string name="title_pro_purchase">Koupit</string>
     <string name="title_pro_once">Jen jednou</string>
-    <string name="title_pro_info">  Vývoj FairEmail trval doslova tisíce hodin a přesto lze většinu funkcí volně použít.
+    <string name="title_pro_info">  Vývoj FairEmail trval doslova tisíce hodin a i přesto lze většinu funkcí používat volně.
   Abychom učinili FairEmail dlouhodobě udržitelným, některé pokročilé funkce a usnadnění nejsou volně k dispozici.
-  K připomenutí téhož zobrazí FairEmail  stručnou zprávu, jež bude odstaněna, zakoupíte-li si funkce Pro.    </string>
+  Jako připomínku téhož zobrazuje FairEmail stručnou zprávu, jež bude odstraněna, zakoupíte-li si funkce Pro.    </string>
     <string name="title_pro_hide">Skrýt stručnou zprávu do zítřka</string>
     <string name="title_pro_hint">Zakoupením Pro funkcí získáte přístup ke všem současným i budoucím Pro funkcím a pomůžete zachovat tuto aplikaci udržovanou a podporovanou</string>
     <string name="title_pro_price">Pro odůvodnění ceny Pro funkcí si prosím přečtěte <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">časté dotazy</a></string>

@@ -36,6 +36,6 @@ Pro hledání e-mailových adres, zobrazení fotografií kontaktů, apod., musí
 
 V posledních verzích Androidu, pokud je obrazovka po nějaký čas vypnuta, jsou aplikace uspávány pro snížení spotřeby baterie. Chcete-li přijímat nové e-maily bez prodlení, měli byste pro FairEmail zakázat optimalizaci výdrže baterie. Stiskněte *Zakázat optimalizaci baterie* a postupujte dle instrukcí.
 
-## Otázky nebo problémy
+## Otázky či problémy
 
-If you have a question or problem, please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) for help.
+Máte-li dotaz nebo problém, podívejte se prosím [sem](https://github.com/M66B/FairEmail/blob/master/FAQ.md) pro pomoc.

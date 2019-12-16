@@ -38,4 +38,4 @@ Android bertsio berrietan, sistemak aplikazioak lokartzen ditu pantaila itzalita
 
 ## Galderak edo arazoak
 
-If you have a question or problem, please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) for help.
+Galdera edo arazo bat baduzu [begiratu hemen](https://github.com/M66B/FairEmail/blob/master/FAQ.md) laguntzarako.
