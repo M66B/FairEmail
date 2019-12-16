@@ -1344,7 +1344,7 @@ public class FragmentAccount extends FragmentBase {
                 if (copy < 0 && account != null) {
                     args.putLong("account", account.id);
 
-                    new SimpleTask<List<EntityFolder>>() {
+                    final SimpleTask task = new SimpleTask<List<EntityFolder>>() {
                         @Override
                         protected List<EntityFolder> onExecute(Context context, Bundle args) {
                             long account = args.getLong("account");
@@ -1369,7 +1369,15 @@ public class FragmentAccount extends FragmentBase {
                         protected void onException(Bundle args, Throwable ex) {
                             Log.unexpectedError(getParentFragmentManager(), ex);
                         }
-                    }.execute(FragmentAccount.this, args, "account:folders");
+                    };
+
+                    // Load after provider has been selected
+                    new Handler().post(new Runnable() {
+                        @Override
+                        public void run() {
+                            task.execute(FragmentAccount.this, args, "account:folders");
+                        }
+                    });
                 }
             }
 
