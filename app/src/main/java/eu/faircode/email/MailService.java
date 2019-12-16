@@ -15,6 +15,7 @@ import com.sun.mail.util.MailConnectException;
 import com.sun.mail.util.MailSSLSocketFactory;
 
 import org.bouncycastle.asn1.x509.GeneralName;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.net.Inet4Address;
@@ -312,7 +313,8 @@ public class MailService implements AutoCloseable {
 
             throw ex;
         } catch (MessagingException ex) {
-            if (ex.getCause() instanceof IOException &&
+            if (BuildConfig.DEBUG &&
+                    ex.getCause() instanceof IOException &&
                     ex.getCause().getMessage() != null &&
                     ex.getCause().getMessage().startsWith("Server is not trusted:")) {
                 String name;
@@ -474,7 +476,7 @@ public class MailService implements AutoCloseable {
         }
     }
 
-    static String getDnsName(X509Certificate certificate) throws CertificateParsingException {
+    private static String getDnsName(X509Certificate certificate) throws CertificateParsingException {
         Collection<List<?>> altNames = certificate.getSubjectAlternativeNames();
         if (altNames == null)
             return null;
@@ -486,11 +488,11 @@ public class MailService implements AutoCloseable {
         return null;
     }
 
-    static String getFingerPrint(X509Certificate certificate) throws CertificateEncodingException, NoSuchAlgorithmException {
+    private static String getFingerPrint(X509Certificate certificate) throws CertificateEncodingException, NoSuchAlgorithmException {
         return Helper.sha1(certificate.getEncoded());
     }
 
-    static boolean matches(String server, String name) {
+    private static boolean matches(String server, String name) {
         if (name.startsWith("*.")) {
             // Wildcard certificate
             String domain = name.substring(2);
@@ -530,6 +532,7 @@ public class MailService implements AutoCloseable {
             return fingerprint;
         }
 
+        @NotNull
         @Override
         public synchronized String toString() {
             return this.getClass().getName() + " name=" + name + " fingerprint=" + fingerprint;
