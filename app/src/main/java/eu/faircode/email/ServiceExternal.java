@@ -29,8 +29,6 @@ import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 import androidx.preference.PreferenceManager;
 
-import java.util.Collections;
-import java.util.List;
 import java.util.concurrent.ExecutorService;
 
 public class ServiceExternal extends Service {

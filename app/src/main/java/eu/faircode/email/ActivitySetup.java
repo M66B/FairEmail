@@ -19,7 +19,6 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
-import android.Manifest;
 import android.app.Dialog;
 import android.app.Notification;
 import android.app.NotificationChannel;
