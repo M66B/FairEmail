@@ -187,14 +187,14 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         final AdapterNavUnified uadapter = new AdapterNavUnified(this, this);
         rvUnified.setAdapter(uadapter);
 
-        boolean unified_system = prefs.getBoolean("unified_system", false);
+        boolean unified_system = prefs.getBoolean("unified_system", true);
         ibExpanderUnified.setImageLevel(unified_system ? 0 /* less */ : 1 /* more */);
         grpUnified.setVisibility(unified_system ? View.VISIBLE : View.GONE);
 
         ibExpanderUnified.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean unified_system = !prefs.getBoolean("unified_system", false);
+                boolean unified_system = !prefs.getBoolean("unified_system", true);
                 prefs.edit().putBoolean("unified_system", unified_system).apply();
                 ibExpanderUnified.setImageLevel(unified_system ? 0 /* less */ : 1 /* more */);
                 grpUnified.setVisibility(unified_system ? View.VISIBLE : View.GONE);
@@ -421,7 +421,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 if (folders == null)
                     folders = new ArrayList<>();
                 ibExpanderUnified.setVisibility(folders.size() > 0 ? View.VISIBLE : View.GONE);
-                boolean unified_system = prefs.getBoolean("unified_system", false);
+                boolean unified_system = prefs.getBoolean("unified_system", true);
                 grpUnified.setVisibility(unified_system && folders.size() > 0 ? View.VISIBLE : View.GONE);
                 uadapter.set(folders);
             }
