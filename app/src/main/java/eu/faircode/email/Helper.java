@@ -716,6 +716,8 @@ public class Helper {
             else
                 info.setNegativeButtonText(activity.getString(android.R.string.cancel));
 
+            info.setConfirmationRequired(false);
+
             info.setSubtitle(activity.getString(enabled == null ? R.string.title_setup_biometrics_unlock
                     : enabled
                     ? R.string.title_setup_biometrics_disable
