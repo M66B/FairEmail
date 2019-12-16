@@ -869,18 +869,31 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                     @Override
                     protected void onExecuted(Bundle args, List<EntityAccount> accounts) {
+                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                        boolean search_text = prefs.getBoolean("search_text", true);
+
                         PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), fabSearch);
 
-                        popupMenu.getMenu().add(Menu.NONE, 0, 0, R.string.title_search_server).setEnabled(false);
+                        popupMenu.getMenu().add(Menu.NONE, 0, 0, R.string.title_search_server)
+                                .setEnabled(false);
+                        popupMenu.getMenu().add(Menu.NONE, 1, 1, R.string.title_search_text)
+                                .setCheckable(true).setChecked(search_text);
 
-                        int order = 1;
+                        int order = 2;
                         for (EntityAccount account : accounts)
-                            popupMenu.getMenu().add(Menu.NONE, 0, order++, account.name)
+                            popupMenu.getMenu().add(Menu.NONE, 2, order++, account.name)
                                     .setIntent(new Intent().putExtra("account", account.id));
 
                         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                             @Override
                             public boolean onMenuItemClick(MenuItem target) {
+                                if (target.getItemId() == 1) {
+                                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                                    boolean search_text = prefs.getBoolean("search_text", true);
+                                    prefs.edit().putBoolean("search_text", !search_text).apply();
+                                    return true;
+                                }
+
                                 Intent intent = target.getIntent();
                                 if (intent == null)
                                     return false;

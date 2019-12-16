@@ -261,8 +261,10 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         DB db = DB.getInstance(context);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean threading = prefs.getBoolean("threading", true);
-        boolean debug = (prefs.getBoolean("debug", false) || BuildConfig.BETA_RELEASE);
+        final boolean threading = prefs.getBoolean("threading", true);
+        final boolean search_text = prefs.getBoolean("search_text", true);
+        final boolean debug = (prefs.getBoolean("debug", false) || BuildConfig.BETA_RELEASE);
+
 
         final EntityFolder browsable = db.folder().getBrowsableFolder(folder, query != null);
         if (browsable == null)
@@ -352,19 +354,22 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                         arg.writeAtom("CHARSET");
                                         arg.writeAtom(StandardCharsets.UTF_8.name());
                                     }
+                                    arg.writeAtom("OR");
+                                    arg.writeAtom("OR");
+                                    if (search_text)
+                                        arg.writeAtom("OR");
                                     if (keywords)
                                         arg.writeAtom("OR");
-                                    arg.writeAtom("OR");
-                                    arg.writeAtom("OR");
-                                    arg.writeAtom("OR");
                                     arg.writeAtom("FROM");
                                     arg.writeBytes(query.getBytes());
                                     arg.writeAtom("TO");
                                     arg.writeBytes(query.getBytes());
                                     arg.writeAtom("SUBJECT");
                                     arg.writeBytes(query.getBytes());
-                                    arg.writeAtom("BODY");
-                                    arg.writeBytes(query.getBytes());
+                                    if (search_text) {
+                                        arg.writeAtom("BODY");
+                                        arg.writeBytes(query.getBytes());
+                                    }
                                     if (keywords) {
                                         arg.writeAtom("KEYWORD");
                                         arg.writeBytes(query.getBytes());
