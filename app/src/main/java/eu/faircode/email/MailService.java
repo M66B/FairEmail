@@ -90,43 +90,47 @@ public class MailService implements AutoCloseable {
         boolean socks_enabled = prefs.getBoolean("socks_enabled", false);
         String socks_proxy = prefs.getString("socks_proxy", "localhost:9050");
 
-        if (BuildConfig.DEBUG)
-            try {
-                // openssl s_client -connect host:port < /dev/null 2>/dev/null | openssl x509 -fingerprint -noout -in /dev/stdin
-                MailSSLSocketFactory sf = new MailSSLSocketFactory() {
-                    @Override
-                    public synchronized boolean isServerTrusted(String server, SSLSocket sslSocket) {
-                        try {
-                            Certificate[] certificates = sslSocket.getSession().getPeerCertificates();
-                            if (certificates == null || certificates.length == 0 ||
-                                    !(certificates[0] instanceof X509Certificate))
-                                return false;
-
-                            certificate = (X509Certificate) certificates[0];
-
-                            boolean trusted = false;
-
-                            String name = getDnsName(certificate);
-                            if (name != null && matches(server, name))
-                                trusted = true;
-
-                            if (getFingerPrint(certificate).equals(trustedFingerprint))
-                                trusted = true;
-
-                            Log.i("Is trusted? server=" + server + " trusted=" + trusted);
-                            return trusted;
-                        } catch (Throwable ex) {
-                            Log.e(ex);
+        try {
+            // openssl s_client -connect host:port < /dev/null 2>/dev/null | openssl x509 -fingerprint -noout -in /dev/stdin
+            MailSSLSocketFactory sf = new MailSSLSocketFactory() {
+                @Override
+                public synchronized boolean isServerTrusted(String server, SSLSocket sslSocket) {
+                    try {
+                        Certificate[] certificates = sslSocket.getSession().getPeerCertificates();
+                        if (certificates == null || certificates.length == 0 ||
+                                !(certificates[0] instanceof X509Certificate)) {
+                            Log.e("Peer certificates missing" +
+                                    " count=" + (certificates == null ? null : certificates.length));
                             return false;
                         }
-                    }
-                };
 
-                properties.put("mail." + protocol + ".ssl.socketFactory", sf);
-                properties.put("mail." + protocol + ".socketFactory.fallback", "false");
-            } catch (GeneralSecurityException ex) {
-                Log.e(ex);
-            }
+                        certificate = (X509Certificate) certificates[0];
+
+                        boolean trusted = false;
+
+                        String name = getDnsName(certificate);
+                        if (name != null && matches(server, name)) {
+                            Log.e("Certificate mismatch server=" + server + " name=" + name);
+                            trusted = true;
+                        }
+
+                        if (getFingerPrint(certificate).equals(trustedFingerprint))
+                            trusted = true;
+
+                        Log.i("Is trusted? server=" + server + " trusted=" + trusted);
+                        return trusted;
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                        return false;
+                    }
+                }
+            };
+
+            properties.put("mail." + protocol + ".ssl.socketFactory", sf);
+            properties.put("mail." + protocol + ".socketFactory.fallback", "false");
+        } catch (GeneralSecurityException ex) {
+            Log.e(ex);
+        }
 
         // SOCKS proxy
         if (socks_enabled) {
@@ -145,6 +149,8 @@ public class MailService implements AutoCloseable {
         properties.put("mail.event.scope", "folder");
         properties.put("mail.event.executor", executor);
 
+        properties.put("mail." + protocol + ".ssl.checkserveridentity", Boolean.toString(!insecure));
+
         properties.put("mail." + protocol + ".sasl.realm", realm == null ? "" : realm);
         properties.put("mail." + protocol + ".auth.ntlm.domain", realm == null ? "" : realm);
 
@@ -160,7 +166,6 @@ public class MailService implements AutoCloseable {
             this.debug = true;
 
             // https://javaee.github.io/javamail/docs/api/com/sun/mail/pop3/package-summary.html#properties
-            properties.put("mail." + protocol + ".ssl.checkserveridentity", Boolean.toString(!insecure));
             properties.put("mail." + protocol + ".ssl.trust", "*");
 
             properties.put("mail.pop3s.starttls.enable", "false");
@@ -247,6 +252,9 @@ public class MailService implements AutoCloseable {
 
     public String connect(String host, int port, int auth, String user, String password, String fingerprint) throws MessagingException {
         this.trustedFingerprint = fingerprint;
+        if (fingerprint != null)
+            properties.put("mail." + protocol + ".ssl.checkserveridentity", "false");
+
         try {
             if (auth == AUTH_TYPE_GMAIL || auth == AUTH_TYPE_OUTLOOK)
                 properties.put("mail." + protocol + ".auth.mechanisms", "XOAUTH2");
@@ -302,8 +310,7 @@ public class MailService implements AutoCloseable {
 
             throw ex;
         } catch (MessagingException ex) {
-            if (BuildConfig.DEBUG &&
-                    ex.getCause() instanceof IOException &&
+            if (ex.getCause() instanceof IOException &&
                     ex.getCause().getMessage() != null &&
                     ex.getCause().getMessage().startsWith("Server is not trusted:")) {
                 String sfingerprint;
