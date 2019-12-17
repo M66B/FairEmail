@@ -398,6 +398,7 @@
     <string name="title_use_date">Benyt datooverskriftadsendelsestid i stedet for servermodtagelsestid</string>
     <string name="title_related_identity">Tilføj relateret identitet</string>
     <string name="title_check">Tjek</string>
+    <string name="title_trust">Gør %1$s betroet</string>
     <string name="title_no_name">Navn mangler</string>
     <string name="title_no_email">E-mailadresse mangler</string>
     <string name="title_email_invalid">Ugyldig e-mailadresse: \'%1$s\'</string>
@@ -644,6 +645,7 @@
     <string name="title_signature_store">Gem</string>
     <string name="title_search">Søg</string>
     <string name="title_search_server">Søg på server</string>
+    <string name="title_search_text">Søg i tekst</string>
     <string name="title_search_in">Søg i</string>
     <string name="title_sort_on">Sortér efter</string>
     <string name="title_sort_on_time">Tid</string>

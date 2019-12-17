@@ -399,6 +399,7 @@
     <string name="title_use_date">Gebruik datum header verzendtijd in plaats van server ontvangen tijd</string>
     <string name="title_related_identity">Voeg gerelateerde identiteit toe</string>
     <string name="title_check">Controleer</string>
+    <string name="title_trust">Vertrouw %1$s</string>
     <string name="title_no_name">Naam ontbreekt</string>
     <string name="title_no_email">Email adres ontbreekt</string>
     <string name="title_email_invalid">E-mailadres ongeldig: \'%1$s\'</string>
@@ -645,6 +646,7 @@
     <string name="title_signature_store">Opslaan</string>
     <string name="title_search">Zoek</string>
     <string name="title_search_server">Zoek op server</string>
+    <string name="title_search_text">Zoeken in tekst</string>
     <string name="title_search_in">Zoeken in</string>
     <string name="title_sort_on">Sorteer op</string>
     <string name="title_sort_on_time">Tijd</string>

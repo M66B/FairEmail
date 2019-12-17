@@ -399,6 +399,7 @@
     <string name="title_use_date">Използвай времето на изпращане в заглавката вместо полученото от сървъра време</string>
     <string name="title_related_identity">Добавяне на свързана идентичност</string>
     <string name="title_check">Проверка</string>
+    <string name="title_trust">Тръст %1$s</string>
     <string name="title_no_name">Липсва име</string>
     <string name="title_no_email">Липсва имейл адрес</string>
     <string name="title_email_invalid">Невалиден имейл адрес: \'%1$s</string>

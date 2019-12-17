@@ -398,6 +398,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_use_date">Datums-Header-Sendezeit anstelle der empfangenen Zeit des Servers verwenden</string>
     <string name="title_related_identity">Ähnliche Identität hinzufügen</string>
     <string name="title_check">Prüfen</string>
+    <string name="title_trust">%1$s vertrauen</string>
     <string name="title_no_name">Name fehlt</string>
     <string name="title_no_email">E-Mail-Adresse fehlt</string>
     <string name="title_email_invalid">E-Mail-Adresse ungültig: \'%1$s\'</string>
@@ -644,6 +645,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_signature_store">Speichern</string>
     <string name="title_search">Suche</string>
     <string name="title_search_server">Auf dem Server suchen</string>
+    <string name="title_search_text">Suchen im Text</string>
     <string name="title_search_in">Suchen in</string>
     <string name="title_sort_on">Sortieren nach</string>
     <string name="title_sort_on_time">Uhrzeit</string>

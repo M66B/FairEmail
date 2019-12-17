@@ -398,6 +398,7 @@
     <string name="title_use_date">Usa la data nell\'intestazione di invio al posto di quella del server di ricezione</string>
     <string name="title_related_identity">Aggiungi identità correlata</string>
     <string name="title_check">Controlla</string>
+    <string name="title_trust">Fiducia %1$s</string>
     <string name="title_no_name">Nome mancante</string>
     <string name="title_no_email">Indirizzo email mancante</string>
     <string name="title_email_invalid">Indirizzo email non valido: »%1$s\'</string>
@@ -644,6 +645,7 @@
     <string name="title_signature_store">Registra</string>
     <string name="title_search">Cerca</string>
     <string name="title_search_server">Cerca sul server</string>
+    <string name="title_search_text">Cerca nel testo</string>
     <string name="title_search_in">Cerca in</string>
     <string name="title_sort_on">Ordina per</string>
     <string name="title_sort_on_time">Ora</string>

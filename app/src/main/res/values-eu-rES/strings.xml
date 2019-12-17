@@ -399,6 +399,7 @@
     <string name="title_use_date">Erabili goiburuko datuetan bidalketa unea eta ez jasoketarena</string>
     <string name="title_related_identity">Gehitu lotutako identitatea</string>
     <string name="title_check">Egiaztatu</string>
+    <string name="title_trust">Fidatu honekin: %1$s</string>
     <string name="title_no_name">Izena falta da</string>
     <string name="title_no_email">E-mail helbidea falta da</string>
     <string name="title_email_invalid">E-mail helbide baliogabea: \'%1$s\'</string>
