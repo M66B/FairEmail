@@ -131,10 +131,16 @@ I do not hand over the signing keys of my apps to Google.
 
 * [F-Droid](https://f-droid.org/en/packages/eu.faircode.email/) ([last build status](https://f-droid.org/wiki/page/eu.faircode.email/lastbuild))
 
-Note that F-Droid builds new versions irregularly and you'll need the F-Droid client to get update notifications.
+F-Droid builds new versions irregularly and you'll need the F-Droid client to get update notifications.
 To get updates in a timely fashion you are advised to use the GitHub release.
 
 Because F-Droid builds and GitHub releases are signed differently, an F-Droid build needs to be uninstalled first to be able to update to a GitHub release.
+
+The Gmail quick setup wizard can be used in official releases only (Play store or GitHub) because Google approved the use of OAuth for one signature only.
+
+**Important**: Gsuite accounts authorized with a username/password will stop working
+in the [near future](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
+Gsuite accounts authorized with the quick setup wizard (OAuth) will keep working.
 
 ## Privacy
 
