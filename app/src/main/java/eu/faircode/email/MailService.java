@@ -108,11 +108,14 @@ public class MailService implements AutoCloseable {
 
                         boolean trusted = false;
 
-                        String name = getDnsName(certificate);
-                        if (name != null && matches(server, name))
-                            trusted = true;
-                        else
-                            Log.e("Certificate mismatch server=" + server + " name=" + name);
+                        List<String> names = getDnsNames(certificate);
+                        for (String name : names)
+                            if (matches(server, name))
+                                trusted = true;
+
+                        if (!trusted)
+                            Log.e("Certificate mismatch" +
+                                    " server=" + server + " names=" + TextUtils.join(",", names));
 
                         if (getFingerPrint(certificate).equals(trustedFingerprint))
                             trusted = true;
@@ -470,16 +473,18 @@ public class MailService implements AutoCloseable {
         }
     }
 
-    private static String getDnsName(X509Certificate certificate) throws CertificateParsingException {
+    private static List<String> getDnsNames(X509Certificate certificate) throws CertificateParsingException {
+        List<String> result = new ArrayList<>();
+
         Collection<List<?>> altNames = certificate.getSubjectAlternativeNames();
         if (altNames == null)
-            return null;
+            return result;
 
         for (List altName : altNames)
             if (altName.get(0).equals(GeneralName.dNSName))
-                return (String) altName.get(1);
+                result.add((String) altName.get(1));
 
-        return null;
+        return result;
     }
 
     private static String getFingerPrint(X509Certificate certificate) throws CertificateEncodingException, NoSuchAlgorithmException {
