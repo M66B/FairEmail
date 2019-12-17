@@ -474,4 +474,16 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="Hetzner Online"
+        link="https://wiki.hetzner.de/index.php/KonsoleH:Email-Konto_einrichten/en">
+        <imap
+            host="mail.your-server.de"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="mail.your-server.de"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
