@@ -23,6 +23,7 @@ import java.net.Inet6Address;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.security.GeneralSecurityException;
+import java.security.KeyStore;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateEncodingException;
@@ -48,6 +49,7 @@ import javax.mail.Session;
 import javax.mail.Store;
 import javax.mail.event.StoreListener;
 import javax.net.ssl.SSLSocket;
+import javax.net.ssl.TrustManagerFactory;
 
 public class MailService implements AutoCloseable {
     private Context context;
@@ -128,6 +130,10 @@ public class MailService implements AutoCloseable {
                     }
                 }
             };
+
+            TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+            tmf.init((KeyStore) null);
+            sf.setTrustManagers(tmf.getTrustManagers());
 
             properties.put("mail." + protocol + ".ssl.socketFactory", sf);
             properties.put("mail." + protocol + ".socketFactory.fallback", "false");
