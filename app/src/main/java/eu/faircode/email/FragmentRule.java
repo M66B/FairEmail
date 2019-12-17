@@ -737,7 +737,7 @@ public class FragmentRule extends FragmentBase {
                     Log.e(ex);
                 } finally {
                     grpReady.setVisibility(View.VISIBLE);
-                    bottom_navigation.findViewById(R.id.action_delete).setVisibility(rule == null ? View.GONE : View.VISIBLE);
+                    bottom_navigation.findViewById(R.id.action_delete).setVisibility(id < 0 ? View.GONE : View.VISIBLE);
                     bottom_navigation.setVisibility(View.VISIBLE);
                     pbWait.setVisibility(View.GONE);
                 }
