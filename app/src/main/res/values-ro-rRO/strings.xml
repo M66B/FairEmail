@@ -409,7 +409,6 @@
     <string name="title_use_date">Folosește data de trimitere din antet în loc de data de recepție pe server</string>
     <string name="title_related_identity">Adaugă identitate conexă</string>
     <string name="title_check">Verificare</string>
-    <string name="title_trust">Ai încredere în %1$s</string>
     <string name="title_no_name">Lipsește numele</string>
     <string name="title_no_email">Lipsește adresa de e-mail</string>
     <string name="title_email_invalid">Adresa de e-mail nu este validă: \'%1$s\'</string>

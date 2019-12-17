@@ -421,7 +421,6 @@
     <string name="title_use_date">Использовать время отправки вместо времени получения сервером</string>
     <string name="title_related_identity">Добавить связанный идентификатор</string>
     <string name="title_check">Проверить</string>
-    <string name="title_trust">Доверять %1$s</string>
     <string name="title_no_name">Отсутствует имя</string>
     <string name="title_no_email">Отсутствует адрес электронной почты</string>
     <string name="title_email_invalid">Неправильный адрес электронной почты: \"%1$s\"</string>

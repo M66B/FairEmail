@@ -399,7 +399,6 @@
     <string name="title_use_date">Utiliser l\'heure d\'envoi dans l\'entête au lieu de l\'heure de réception sur le serveur</string>
     <string name="title_related_identity">Ajouter une identité liée</string>
     <string name="title_check">Vérifier</string>
-    <string name="title_trust">Faire confiance à %1$s</string>
     <string name="title_no_name">Nom manquant</string>
     <string name="title_no_email">Adresse e-mail manquante</string>
     <string name="title_email_invalid">Adresse e-mail invalide : \'%1$s\'</string>

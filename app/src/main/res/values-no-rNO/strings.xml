@@ -399,7 +399,6 @@
     <string name="title_use_date">Bruk dato overskrift sendt tid i stedet for mottatt tid på serveren</string>
     <string name="title_related_identity">Legg til relatert identitet</string>
     <string name="title_check">Sjekk</string>
-    <string name="title_trust">Stol på %1$s</string>
     <string name="title_no_name">Navn mangler</string>
     <string name="title_no_email">E-post adressen mangler</string>
     <string name="title_email_invalid">E-postadressen er ugyldig: \'%1$s\'</string>

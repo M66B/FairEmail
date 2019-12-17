@@ -398,7 +398,6 @@
     <string name="title_use_date">Benyt datooverskriftadsendelsestid i stedet for servermodtagelsestid</string>
     <string name="title_related_identity">Tilføj relateret identitet</string>
     <string name="title_check">Tjek</string>
-    <string name="title_trust">Gør %1$s betroet</string>
     <string name="title_no_name">Navn mangler</string>
     <string name="title_no_email">E-mailadresse mangler</string>
     <string name="title_email_invalid">Ugyldig e-mailadresse: \'%1$s\'</string>

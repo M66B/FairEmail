@@ -399,7 +399,6 @@
     <string name="title_use_date">Sunucu alma zamanı yerine tarih başlığındaki gönderme zamanını kullan</string>
     <string name="title_related_identity">İlgili kimliği ekle</string>
     <string name="title_check">Kontrol et</string>
-    <string name="title_trust">Güven %1$s</string>
     <string name="title_no_name">İsim eksik</string>
     <string name="title_no_email">E-posta adresi eksik</string>
     <string name="title_email_invalid">E-posta adresi geçersiz: \'%1$s\'</string>
