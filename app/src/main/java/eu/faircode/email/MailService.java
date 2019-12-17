@@ -109,10 +109,10 @@ public class MailService implements AutoCloseable {
                         boolean trusted = false;
 
                         String name = getDnsName(certificate);
-                        if (name != null && matches(server, name)) {
-                            Log.e("Certificate mismatch server=" + server + " name=" + name);
+                        if (name != null && matches(server, name))
                             trusted = true;
-                        }
+                        else
+                            Log.e("Certificate mismatch server=" + server + " name=" + name);
 
                         if (getFingerPrint(certificate).equals(trustedFingerprint))
                             trusted = true;
