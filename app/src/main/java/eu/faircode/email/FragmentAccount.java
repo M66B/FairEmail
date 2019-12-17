@@ -1438,13 +1438,17 @@ public class FragmentAccount extends FragmentBase {
                     break;
                 case REQUEST_SAVE:
                     if (resultCode == RESULT_OK) {
+                        final boolean save = (btnSave.getVisibility() == View.VISIBLE);
                         new Handler().post(new Runnable() {
                             @Override
                             public void run() {
-                                scroll.smoothScrollTo(0, btnSave.getBottom());
+                                scroll.smoothScrollTo(0, (save ? btnSave : btnCheck).getBottom());
                             }
                         });
-                        onSave(false);
+                        if (save)
+                            onSave(false);
+                        else
+                            onCheck();
                     } else if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                         getParentFragmentManager().popBackStack();
                     break;
