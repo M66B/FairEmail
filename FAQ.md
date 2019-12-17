@@ -49,7 +49,7 @@ Related questions:
 * A [bug in Android](https://issuetracker.google.com/issues/62427912) sometimes causes a crash with "*... ActivityRecord not found for ...*" after updating FairEmail. Reinstalling ([source](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) might fix the problem.
 * A [bug in Android](https://issuetracker.google.com/issues/37018931) sometimes causes a crash with *... InputChannel is not initialized ...* on some devices.
 * A bug in Nova Launcher on Android 5.x lets FairEmail crash with a *java.lang.StackOverflowError* when Nova Launcher has access to the accessibility service.
-* The folder selector sometimes shows no folders for yet unknown reasons.
+* ~~The folder selector sometimes shows no folders for yet unknown reasons. This seems to be fixed.~~
 * ~~A [bug in AndroidX](https://issuetracker.google.com/issues/64729576) makes it hard to grap the fast scroller. A workaround was added.~~
 * ~~Encryption with YubiKey results into an infinite loop. This seems to be caused by a [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
 * Scrolling to an internal linked location in original messages does not work. This can't be fixed because the original message view is contained in a scrolling view.
