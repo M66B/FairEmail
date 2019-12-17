@@ -113,12 +113,12 @@ public class MailService implements AutoCloseable {
                             if (matches(server, name))
                                 trusted = true;
 
+                        if (getFingerPrint(certificate).equals(trustedFingerprint))
+                            trusted = true;
+
                         if (!trusted)
                             Log.e("Certificate mismatch" +
                                     " server=" + server + " names=" + TextUtils.join(",", names));
-
-                        if (getFingerPrint(certificate).equals(trustedFingerprint))
-                            trusted = true;
 
                         Log.i("Is trusted? server=" + server + " trusted=" + trusted);
                         return trusted;
