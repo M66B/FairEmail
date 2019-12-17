@@ -387,6 +387,7 @@
     <string name="title_use_date">使用日期头发送时间而非服务器接收时间</string>
     <string name="title_related_identity">添加相关身份</string>
     <string name="title_check">检查</string>
+    <string name="title_trust">信任具有指纹 %1$s的服务器证书</string>
     <string name="title_no_name">缺少名称</string>
     <string name="title_no_email">缺少邮箱地址</string>
     <string name="title_email_invalid">电邮地址无效：\'%1$s\'</string>
@@ -633,6 +634,7 @@
     <string name="title_signature_store">保存</string>
     <string name="title_search">搜索</string>
     <string name="title_search_server">在服务器上搜索</string>
+    <string name="title_search_text">搜索文本</string>
     <string name="title_search_in">搜索范围</string>
     <string name="title_sort_on">分类方式</string>
     <string name="title_sort_on_time">时间</string>
