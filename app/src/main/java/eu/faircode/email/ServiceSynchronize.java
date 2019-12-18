@@ -210,6 +210,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 state.setNetworkState(current.networkState);
 
                             boolean reload = false;
+                            boolean sync = current.command.getBoolean("sync", false);
                             switch (current.command.getString("name")) {
                                 case "reload":
                                     reload = true;
@@ -230,6 +231,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                             " reload=" + reload +
                                             " stop=" + prev.canRun() +
                                             " start=" + current.canRun() +
+                                            " sync=" + current.accountState.isEnabled(current.enabled) + "/" + sync +
                                             " changed=" + !prev.accountState.equals(current.accountState) +
                                             " enabled=" + current.accountState.synchronize +
                                             " state=" + current.accountState.state +
@@ -237,7 +239,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 if (prev.canRun())
                                     stop(prev);
                                 if (current.canRun())
-                                    start(current, current.accountState.isEnabled(current.enabled));
+                                    start(current, current.accountState.isEnabled(current.enabled) || sync);
                                 if (current.accountState.tbd != null)
                                     delete(current);
                             }
@@ -620,6 +622,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         Bundle command = new Bundle();
         schedule(this);
         command.putString("name", "eval");
+        command.putBoolean("sync", true);
         liveAccountNetworkState.post(command);
     }
 
