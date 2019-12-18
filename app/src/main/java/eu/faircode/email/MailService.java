@@ -265,11 +265,11 @@ public class MailService implements AutoCloseable {
             try {
                 // Some devices resolve IPv6 addresses while not having IPv6 connectivity
                 InetAddress[] iaddrs = InetAddress.getAllByName(host);
+                Log.i("Fallback count=" + iaddrs.length);
                 if (iaddrs.length > 1)
                     for (InetAddress iaddr : iaddrs)
                         try {
                             Log.i("Falling back to " + iaddr.getHostAddress());
-                            factory.setCheckServer(false);
                             _connect(context, iaddr.getHostAddress(), port, user, password, factory);
                             return null;
                         } catch (MessagingException ex1) {
@@ -440,11 +440,19 @@ public class MailService implements AutoCloseable {
 
     private static class SSLSocketFactoryService extends SSLSocketFactory {
         // openssl s_client -connect host:port < /dev/null 2>/dev/null | openssl x509 -fingerprint -noout -in /dev/stdin
-        private SSLContext sslcontext;
+        private String server;
+        private boolean secure;
+        private String trustedFingerprint;
+        private SSLSocketFactory factory;
         private X509Certificate certificate;
-        private boolean checkServer = true;
 
-        SSLSocketFactoryService(final String host, final boolean insecure, final String trustedFingerprint) throws GeneralSecurityException {
+        SSLSocketFactoryService(String host, boolean insecure, String fingerprint) throws GeneralSecurityException {
+            this.server = host;
+            this.secure = !insecure;
+            this.trustedFingerprint = fingerprint;
+
+            SSLContext sslContext = SSLContext.getInstance("TLS");
+
             TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
             try {
                 KeyStore ks = KeyStore.getInstance("AndroidCAStore");
@@ -455,100 +463,109 @@ public class MailService implements AutoCloseable {
                 tmf.init((KeyStore) null);
             }
 
-            final X509TrustManager rtm = (X509TrustManager) tmf.getTrustManagers()[0];
+            TrustManager[] tms = tmf.getTrustManagers();
+            if (tms == null || tms.length == 0 || !(tms[0] instanceof X509TrustManager)) {
+                Log.e("Missing root trust manager");
+                sslContext.init(null, tms, null);
+            } else {
+                final X509TrustManager rtm = (X509TrustManager) tms[0];
 
-            X509TrustManager tm = new X509TrustManager() {
-                @Override
-                public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {
-                    if (insecure)
-                        return;
-
-                    rtm.checkClientTrusted(chain, authType);
-                }
-
-                @Override
-                public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {
-                    certificate = chain[0];
-
-                    if (insecure)
-                        return;
-
-                    String fingerprint;
-                    try {
-                        fingerprint = getFingerPrint(certificate);
-                    } catch (Throwable ex) {
-                        throw new CertificateException(ex);
+                X509TrustManager tm = new X509TrustManager() {
+                    @Override
+                    public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+                        if (secure)
+                            rtm.checkClientTrusted(chain, authType);
                     }
 
-                    if (fingerprint.equals(trustedFingerprint))
-                        return;
+                    @Override
+                    public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+                        certificate = chain[0];
 
-                    if (checkServer) {
-                        rtm.checkServerTrusted(chain, authType);
+                        if (secure) {
+                            // Get certificate fingerprint
+                            String fingerprint;
+                            try {
+                                fingerprint = getFingerPrint(certificate);
+                            } catch (Throwable ex) {
+                                throw new CertificateException(ex);
+                            }
 
-                        List<String> names = getDnsNames(certificate);
-                        for (String name : names)
-                            if (matches(host, name))
+                            // Check if selected fingerprint
+                            if (fingerprint.equals(trustedFingerprint)) {
+                                Log.i("Trusted selected fingerprint");
                                 return;
+                            }
 
-                        String error = host + " not in certificate: " + TextUtils.join(",", names);
-                        Log.e(error);
-                        throw new CertificateException(error);
+                            // Check certificates
+                            rtm.checkServerTrusted(chain, authType);
+
+                            // Check host name
+                            List<String> names = getDnsNames(certificate);
+                            for (String name : names)
+                                if (matches(server, name)) {
+                                    Log.i("Trusted server=" + server + " name=" + name);
+                                    return;
+                                }
+
+                            String error = server + " not in certificate: " + TextUtils.join(",", names);
+                            Log.e(error);
+                            throw new CertificateException(error);
+                        }
                     }
-                }
 
-                @Override
-                public X509Certificate[] getAcceptedIssuers() {
-                    return rtm.getAcceptedIssuers();
-                }
-            };
+                    @Override
+                    public X509Certificate[] getAcceptedIssuers() {
+                        return rtm.getAcceptedIssuers();
+                    }
+                };
 
-            sslcontext = SSLContext.getInstance("TLS");
-            sslcontext.init(null, new TrustManager[]{tm}, null);
-        }
+                sslContext.init(null, new TrustManager[]{tm}, null);
+            }
 
-        void setCheckServer(boolean value) {
-            checkServer = value;
+            factory = sslContext.getSocketFactory();
         }
 
         @Override
         public Socket createSocket() throws IOException {
-            return sslcontext.getSocketFactory().createSocket();
+            Log.e("createSocket");
+            throw new IOException("createSocket");
         }
 
         @Override
         public Socket createSocket(String host, int port) throws IOException {
-            return sslcontext.getSocketFactory().createSocket(host, port);
+            return factory.createSocket(server, port);
         }
 
         @Override
         public Socket createSocket(Socket s, String host, int port, boolean autoClose) throws IOException {
-            return sslcontext.getSocketFactory().createSocket(s, host, port, autoClose);
+            return factory.createSocket(s, server, port, autoClose);
         }
 
         @Override
         public Socket createSocket(InetAddress address, int port) throws IOException {
-            return sslcontext.getSocketFactory().createSocket(address, port);
+            Log.e("createSocket(address, port)");
+            throw new IOException("createSocket");
         }
 
         @Override
         public Socket createSocket(String host, int port, InetAddress clientAddress, int clientPort) throws IOException {
-            return sslcontext.getSocketFactory().createSocket(host, port, clientAddress, clientPort);
+            return factory.createSocket(server, port, clientAddress, clientPort);
         }
 
         @Override
         public Socket createSocket(InetAddress address, int port, InetAddress clientAddress, int clientPort) throws IOException {
-            return sslcontext.getSocketFactory().createSocket(address, port, clientAddress, clientPort);
+            Log.e("createSocket(address, port, clientAddress, clientPort)");
+            throw new IOException("createSocket");
         }
 
         @Override
         public String[] getDefaultCipherSuites() {
-            return sslcontext.getSocketFactory().getDefaultCipherSuites();
+            return factory.getDefaultCipherSuites();
         }
 
         @Override
         public String[] getSupportedCipherSuites() {
-            return sslcontext.getSocketFactory().getSupportedCipherSuites();
+            return factory.getSupportedCipherSuites();
         }
 
         private static boolean matches(String server, String name) {
