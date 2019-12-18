@@ -186,6 +186,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     int operations = 0;
                     boolean runService = false;
                     for (TupleAccountNetworkState current : accountNetworkStates) {
+                        Log.d("### evaluating " + current);
                         if (current.accountState.shouldRun(current.enabled))
                             runService = true;
                         if ("connected".equals(current.accountState.state))
@@ -240,13 +241,13 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                     stop(prev);
                                 if (current.canRun())
                                     start(current, current.accountState.isEnabled(current.enabled) || sync);
-                                if (current.accountState.tbd != null)
-                                    delete(current);
                             }
                         }
 
                         if (current.accountState.tbd == null)
                             accountStates.add(current);
+                        else
+                            delete(current);
                     }
 
                     if (runService) {
