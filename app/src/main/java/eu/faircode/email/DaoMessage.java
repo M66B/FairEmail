@@ -65,10 +65,9 @@ public interface DaoMessage {
             " LEFT JOIN identity ON identity.id = message.identity" +
             " JOIN folder ON folder.id = message.folder" +
             " WHERE account.`synchronize`" +
-            " AND (:threading OR folder.unified)" +
             " AND (NOT message.ui_hide OR :debug)" +
             " AND (NOT :found OR ui_found = :found)" +
-            " GROUP BY account.id, CASE WHEN message.thread IS NULL THEN message.id ELSE message.thread END" +
+            " GROUP BY account.id, CASE WHEN message.thread IS NULL OR NOT :threading THEN message.id ELSE message.thread END" +
             " HAVING (:found OR" +
             "   CASE WHEN :type IS NULL THEN SUM(folder.unified) > 0" +
             "   ELSE SUM(CASE WHEN folder.type = :type THEN 1 ELSE 0 END) > 0 END)" +
@@ -114,10 +113,9 @@ public interface DaoMessage {
             " JOIN folder ON folder.id = message.folder" +
             " JOIN folder AS f ON f.id = :folder" +
             " WHERE (message.account = f.account OR " + is_outbox + ")" +
-            " AND (:threading OR folder.id = :folder)" +
             " AND (NOT message.ui_hide OR :debug)" +
             " AND (NOT :found OR ui_found = :found)" +
-            " GROUP BY CASE WHEN message.thread IS NULL THEN message.id ELSE message.thread END" +
+            " GROUP BY CASE WHEN message.thread IS NULL OR NOT :threading THEN message.id ELSE message.thread END" +
             " HAVING SUM(CASE WHEN folder.id = :folder THEN 1 ELSE 0 END) > 0" +
             " AND (NOT :filter_seen OR SUM(1 - message.ui_seen) > 0 OR " + is_outbox + ")" +
             " AND (NOT :filter_unflagged OR COUNT(message.id) - SUM(1 - message.ui_flagged) > 0 OR " + is_outbox + ")" +
@@ -364,10 +362,10 @@ public interface DaoMessage {
             " AND (NOT :unseen OR NOT message.ui_seen)" +
             " AND (NOT :flagged OR message.ui_flagged)" +
             " GROUP BY account.id" +
-            ", CASE WHEN message.thread IS NULL THEN message.id ELSE message.thread END" +
+            ", CASE WHEN message.thread IS NULL OR NOT :threading THEN message.id ELSE message.thread END" +
             " ORDER BY message.received DESC")
     @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
-    List<TupleMessageWidget> getWidgetUnified(Long folder, boolean unseen, boolean flagged);
+    List<TupleMessageWidget> getWidgetUnified(Long folder, boolean threading, boolean unseen, boolean flagged);
 
     @Query("SELECT uid FROM message" +
             " WHERE folder = :folder" +

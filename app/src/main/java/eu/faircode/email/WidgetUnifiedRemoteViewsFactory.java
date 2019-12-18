@@ -70,6 +70,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
         Log.i("Widget factory changed id=" + appWidgetId);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        threading = prefs.getBoolean("threading", true);
         subject_top = prefs.getBoolean("subject_top", false);
         subject_italic = prefs.getBoolean("subject_italic", true);
         account = prefs.getLong("widget." + appWidgetId + ".account", -1L);
@@ -83,7 +84,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
         try {
             db.beginTransaction();
 
-            messages = db.message().getWidgetUnified(folder < 0 ? null : folder, unseen, flagged);
+            messages = db.message().getWidgetUnified(folder < 0 ? null : folder, threading, unseen, flagged);
 
             db.setTransactionSuccessful();
         } finally {
