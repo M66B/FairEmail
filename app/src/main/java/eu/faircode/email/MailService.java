@@ -348,7 +348,8 @@ public class MailService implements AutoCloseable {
             } else
                 throw new NoSuchProviderException(protocol);
         } catch (MessagingException ex) {
-            if (ex.getCause() instanceof SSLHandshakeException &&
+            if (factory != null &&
+                    ex.getCause() instanceof SSLHandshakeException &&
                     ex.getCause().getCause() instanceof CertificateException)
                 throw new UntrustedException(factory.getFingerPrint(), ex);
             else
