@@ -23,6 +23,7 @@
         android:padding="12dp"
         android:scrollbarStyle="outsideOverlay"
         android:scrollbars="vertical"
+        app:layout_constrainedHeight="true"
         app:layout_constraintBottom_toTopOf="@+id/btnExecute"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
