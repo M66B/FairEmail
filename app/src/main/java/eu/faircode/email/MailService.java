@@ -232,7 +232,7 @@ public class MailService implements AutoCloseable {
                 properties.put("mail." + protocol + ".auth.mechanisms", "XOAUTH2");
 
             //if (BuildConfig.DEBUG)
-            //    throw new MailConnectException(new SocketConnectException("Debug", new Exception(), host, port, 0));
+            //    throw new MailConnectException(new SocketConnectException("Debug", new Exception("Test"), host, port, 0));
 
             _connect(context, host, port, user, password);
             return null;
@@ -265,12 +265,12 @@ public class MailService implements AutoCloseable {
         } catch (MailConnectException ex) {
             try {
                 // Some devices resolve IPv6 addresses while not having IPv6 connectivity
-                properties.put("mail." + protocol + ".ssl.checkserveridentity", "false");
                 InetAddress[] iaddrs = InetAddress.getAllByName(host);
                 if (iaddrs.length > 1)
                     for (InetAddress iaddr : iaddrs)
                         try {
                             Log.i("Falling back to " + iaddr.getHostAddress());
+                            properties.put("mail." + protocol + ".ssl.trust", iaddr.getHostAddress());
                             _connect(context, iaddr.getHostAddress(), port, user, password);
                             return null;
                         } catch (MessagingException ex1) {
