@@ -915,7 +915,7 @@ Alternatively, you might be able to enable the *Files* app again using the Andro
 <a name="faq26"></a>
 **(26) Can I help to translate FairEmail in my own language?**
 
-Yes, you can translate the texts of FairEmail in your own language [here](https://crowdin.com/project/open-source-email).
+Yes, you can translate the texts of FairEmail in your own language [on Crowdin](https://crowdin.com/project/open-source-email).
 Registration is free.
 
 <br />
