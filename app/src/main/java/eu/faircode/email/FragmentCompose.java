@@ -2597,8 +2597,13 @@ public class FragmentCompose extends FragmentBase {
                     long aid = args.getLong("account", -1);
                     long iid = args.getLong("identity", -1);
 
-                    if (aid < 0 && ref != null)
-                        aid = ref.account;
+                    if (aid < 0)
+                        if (ref == null) {
+                            EntityAccount primary = db.account().getPrimaryAccount();
+                            if (primary != null)
+                                aid = primary.id;
+                        } else
+                            aid = ref.account;
                     if (iid < 0 && ref != null && ref.identity != null)
                         iid = ref.identity;
 
