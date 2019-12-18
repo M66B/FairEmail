@@ -455,14 +455,7 @@ public class MailService implements AutoCloseable {
             SSLContext sslContext = SSLContext.getInstance("TLS");
 
             TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
-            try {
-                KeyStore ks = KeyStore.getInstance("AndroidCAStore");
-                ks.load(null, null);
-                tmf.init(ks);
-            } catch (IOException ex) {
-                Log.e(ex);
-                tmf.init((KeyStore) null);
-            }
+            tmf.init((KeyStore) null);
 
             TrustManager[] tms = tmf.getTrustManagers();
             if (tms == null || tms.length == 0 || !(tms[0] instanceof X509TrustManager)) {
