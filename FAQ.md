@@ -374,8 +374,19 @@ You should try to fix this by contacting your provider or by getting a valid sec
 because invalid security certificates are insecure and allow [man-in-the-middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack).
 If money is an obstacle, you can get free security certificates from [Let’s Encrypt](https://letsencrypt.org).
 
+Alternatively, you can safely accept the fingerprint shown below the error message.
+
 Note that older Android versions might not recognize newer certification authorities like Let’s Encrypt causing connections to be considered insecure,
 see also [here](https://developer.android.com/training/articles/security-ssl).
+
+*Trust anchor for certification path not found*
+
+*... java.security.cert.CertPathValidatorException: Trust anchor for certification path not found ...*
+means that the default Android trust manager was not able to verify the server certificate chain.
+
+You should either fix the server configuration or accept the fingerprint shown below the error message.
+
+Note that this problem can be caused by the server not sending all intermediate certificates too.
 
 *Empty password*
 
@@ -808,7 +819,7 @@ The error *... Unexpected end of zlib input stream ...* means that not all data 
 The warning *... Unsupported encoding ...* means that the character set of the message is unknown or not supported.
 FairEmail will assume ISO-8859-1 (Latin1), which will in most cases result in showing the message correctly.
 
-Please [see here](#user-content-faq4) for the error *... Invalid security certificate (Can't verify identity of server) ...*.
+Please [see here](#user-content-faq4) for the error *... Invalid security certificate (Can't verify identity of server) ...* or *... Trust anchor for certification path not found ...*
 
 Please [see here](#user-content-faq127) for the error *... Syntactically invalid HELO argument(s) ...*.
 
