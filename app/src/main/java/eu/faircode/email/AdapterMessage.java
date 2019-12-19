@@ -1319,9 +1319,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (prefs.getBoolean(from + ".show_full", false)) {
                         properties.setValue("full", message.id, true);
                         properties.setValue("full_asked", message.id, true);
-                        boolean images = prefs.getBoolean("html_always_images", false);
-                        if (images)
-                            properties.setValue("images", message.id, true);
                     }
                     if (prefs.getBoolean(from + ".show_images", false)) {
                         properties.setValue("images", message.id, true);
@@ -1332,6 +1329,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean show_full = properties.getValue("full", message.id);
             boolean show_images = properties.getValue("images", message.id);
             boolean show_quotes = (properties.getValue("quotes", message.id) || !collapse_quotes);
+
+            boolean always_images = prefs.getBoolean("html_always_images", false);
+            if (always_images && show_full) {
+                show_images = true;
+                properties.setValue("images", message.id, true);
+            }
+
             float size = properties.getSize(message.id, show_full ? 0 : textSize);
             int height = properties.getHeight(message.id, 0);
             Pair<Integer, Integer> position = properties.getPosition(message.id);
@@ -1650,7 +1654,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean always_images = prefs.getBoolean("html_always_images", false);
 
                     // Show images
-                    ibImages.setVisibility(has_images && (!show_full && always_images) ? View.VISIBLE : View.GONE);
+                    ibImages.setVisibility(has_images && !(show_full && always_images) ? View.VISIBLE : View.GONE);
                 }
 
                 @Override
