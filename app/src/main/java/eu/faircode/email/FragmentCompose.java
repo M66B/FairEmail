@@ -1975,7 +1975,7 @@ public class FragmentCompose extends FragmentBase {
                 }
 
                 // Sign
-                Store store = new JcaCertStore(Arrays.asList(chain[0]));
+                Store store = new JcaCertStore(Arrays.asList(chain));
                 CMSSignedDataGenerator cmsGenerator = new CMSSignedDataGenerator();
                 cmsGenerator.addCertificates(store);
 
