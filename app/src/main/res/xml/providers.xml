@@ -143,6 +143,19 @@
             port="587"
             starttls="true" />
     </provider>
+    <provider
+        name="gmx.net"
+        keepalive="9"
+        link="https://hilfe.gmx.net/pop-imap/imap/imap-serverdaten.html#indexlink_help_pop-imap_imap">
+        <imap
+            host="imap.gmx.net"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="mail.gmx.net"
+            port="587"
+            starttls="true" />
+    </provider>
     <provider name="disroot.org">
         <imap
             host="disroot.org"
