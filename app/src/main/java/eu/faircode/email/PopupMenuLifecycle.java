@@ -20,9 +20,11 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.view.MenuItem;
 import android.view.View;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
@@ -46,6 +48,22 @@ public class PopupMenuLifecycle extends PopupMenu implements LifecycleObserver {
         } catch (Throwable ex) {
             Log.e(ex);
         }
+    }
+
+    @Override
+    public void setOnMenuItemClickListener(@Nullable OnMenuItemClickListener listener) {
+        super.setOnMenuItemClickListener(new OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                try {
+                    // Handle click just before destroy
+                    return listener.onMenuItemClick(item);
+                } catch (Throwable ex) {
+                    Log.w(ex);
+                    return false;
+                }
+            }
+        });
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
