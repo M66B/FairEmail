@@ -212,7 +212,7 @@ public class MailService implements AutoCloseable {
     }
 
     public String connect(String host, int port, int auth, String user, String password, String fingerprint) throws MessagingException {
-        SSLSocketFactoryService factory;
+        SSLSocketFactoryService factory = null;
         try {
             factory = new SSLSocketFactoryService(host, insecure, fingerprint);
             properties.put("mail." + protocol + ".ssl.socketFactory", factory);
@@ -222,7 +222,7 @@ public class MailService implements AutoCloseable {
             properties.put("mail." + protocol + ".ssl.checkserveridentity", Boolean.toString(!insecure));
             if (insecure)
                 properties.put("mail." + protocol + ".ssl.trust", "*");
-            throw new MessagingException("Trust issues", ex);
+            Log.e("Trust issues", ex);
         }
 
         try {
