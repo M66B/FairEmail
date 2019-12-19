@@ -1313,6 +1313,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (prefs.getBoolean(from + ".show_full", false)) {
                         properties.setValue("full", message.id, true);
                         properties.setValue("full_asked", message.id, true);
+                        boolean images = prefs.getBoolean("html_always_images", false);
+                        if (images)
+                            properties.setValue("images", message.id, true);
                     }
                     if (prefs.getBoolean(from + ".show_images", false)) {
                         properties.setValue("images", message.id, true);
@@ -1480,6 +1483,25 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     }
                     args.putBoolean("has_images", has_images);
 
+                    // Download inline images
+                    if (show_images) {
+                        DB db = DB.getInstance(context);
+                        try {
+                            db.beginTransaction();
+
+                            List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
+                            for (EntityAttachment attachment : attachments)
+                                if (attachment.isInline() && attachment.isImage() &&
+                                        attachment.progress == null && !attachment.available)
+                                    EntityOperation.queue(context, message, EntityOperation.ATTACHMENT, attachment.id);
+
+                            db.setTransactionSuccessful();
+                        } finally {
+                            db.endTransaction();
+                        }
+                    }
+
+                    // Format message
                     if (show_full) {
                         HtmlHelper.setViewport(document);
                         if (inline || show_images)
@@ -1618,8 +1640,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     EntityMessage.SMIME_SIGNENCRYPT.equals(message.encrypt)))
                         onActionDecrypt(message, true);
 
+                    boolean show_full = properties.getValue("full", message.id);
+                    boolean always_images = prefs.getBoolean("html_always_images", false);
+
                     // Show images
-                    ibImages.setVisibility(has_images ? View.VISIBLE : View.GONE);
+                    ibImages.setVisibility(has_images && (!show_full && always_images) ? View.VISIBLE : View.GONE);
                 }
 
                 @Override
@@ -2683,13 +2708,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onShowFullConfirmed(final TupleMessageEx message) {
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            boolean images = prefs.getBoolean("html_always_images", false);
-            if (images) {
-                properties.setValue("images", message.id, true);
-                onShowImagesConfirmed(message);
-            }
-
             properties.setSize(message.id, null);
             properties.setHeight(message.id, null);
             properties.setPosition(message.id, null);
@@ -2697,43 +2715,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             bindBody(message);
         }
 
-        private void onShowImagesConfirmed(final TupleMessageEx message) {
+        private void onShowImagesConfirmed(TupleMessageEx message) {
             bindBody(message);
-
-            // Download inline images
-            Bundle args = new Bundle();
-            args.putSerializable("message", message);
-
-            new SimpleTask<Void>() {
-                @Override
-                protected Void onExecute(Context context, Bundle args) {
-                    TupleMessageEx message = (TupleMessageEx) args.getSerializable("message");
-
-                    DB db = DB.getInstance(context);
-                    try {
-                        db.beginTransaction();
-
-                        List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
-                        for (EntityAttachment attachment : attachments)
-                            if (attachment.isInline() && attachment.isImage() &&
-                                    attachment.progress == null && !attachment.available)
-                                EntityOperation.queue(context, message, EntityOperation.ATTACHMENT, attachment.id);
-
-                        db.setTransactionSuccessful();
-                    } finally {
-                        db.endTransaction();
-                    }
-
-                    ServiceSynchronize.eval(context, "attachment");
-
-                    return null;
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
-                }
-            }.execute(context, owner, args, "show:images");
         }
 
         private void onActionUnsubscribe(TupleMessageEx message) {
