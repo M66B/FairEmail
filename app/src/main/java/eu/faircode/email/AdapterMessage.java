@@ -782,6 +782,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (ibExpander.getTag() == null || (boolean) ibExpander.getTag() != expanded) {
                 ibExpander.setTag(expanded);
                 ibExpander.setImageLevel(expanded ? 0 /* less */ : 1 /* more */);
+                ibExpander.setContentDescription(context.getString(
+                        expanded ? R.string.title_accessibility_expanded : R.string.title_accessibility_collapsed));
             }
             if (viewType == ViewType.THREAD)
                 ibExpander.setVisibility(EntityFolder.DRAFTS.equals(message.folderType) ? View.INVISIBLE : View.VISIBLE);
@@ -799,6 +801,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivEncrypted.setVisibility(message.encrypted > 0 ? View.VISIBLE : View.GONE);
             tvFrom.setText(MessageHelper.formatAddresses(addresses, name_email, false));
             tvFrom.setPaintFlags(tvFrom.getPaintFlags() & ~Paint.UNDERLINE_TEXT_FLAG);
+            tvFrom.setContentDescription(context.getString(
+                    message.unseen > 0 ? R.string.title_accessibility_unseen : R.string.title_accessibility_seen));
             tvSize.setText(message.totalSize == null ? null : Helper.humanReadableByteCount(message.totalSize, true));
             tvSize.setVisibility(message.totalSize != null && "size".equals(sort) ? View.VISIBLE : View.GONE);
             tvTime.setText(date && "time".equals(sort)
@@ -1026,6 +1030,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             int color = (message.color == null || !pro ? colorAccent : message.color);
 
             ibFlagged.setImageResource(flagged > 0 ? R.drawable.baseline_star_24 : R.drawable.baseline_star_border_24);
+            ibFlagged.setContentDescription(context.getString(
+                    flagged > 0 ? R.string.title_accessibility_flagged : R.string.title_accessibility_unflagged));
             ibFlagged.setImageTintList(ColorStateList.valueOf(flagged > 0 ? color : textColorSecondary));
             ibFlagged.setEnabled(message.uid != null || message.accountProtocol != EntityAccount.TYPE_IMAP);
 
@@ -2532,6 +2538,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 ibExpander.setTag(expanded);
                 ibExpander.setImageLevel(expanded ? 0 /* less*/ : 1 /* more */);
+                ibExpander.setContentDescription(context.getString(
+                        expanded ? R.string.title_accessibility_expanded : R.string.title_accessibility_collapsed));
 
                 if (expanded)
                     bindExpanded(message, true);

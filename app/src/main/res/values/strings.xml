@@ -1016,6 +1016,13 @@
     <string name="title_widget_unseen">Unread messages only</string>
     <string name="title_widget_flagged">Starred messages only</string>
 
+    <string name="title_accessibility_collapsed">Collapsed</string>
+    <string name="title_accessibility_expanded">Expanded</string>
+    <string name="title_accessibility_seen">Read</string>
+    <string name="title_accessibility_unseen">Unread</string>
+    <string name="title_accessibility_flagged">Starred</string>
+    <string name="title_accessibility_unflagged">Unstarred</string>
+
     <string-array name="pollIntervalNames">
         <item>Always</item>
         <item>Every 15 minutes</item>
