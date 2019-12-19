@@ -466,16 +466,6 @@ public class MessageHelper {
         String htmlContent = document.html();
         String plainContent = HtmlHelper.getText(htmlContent);
 
-        if (message.encrypt != null && !EntityMessage.ENCRYPT_NONE.equals(message.encrypt)) {
-            // Normalize trailing spaces and new lines
-            Log.i("Normalizing for encryption");
-            htmlContent = htmlContent.replaceAll(" +$", "")
-                    .replace("\\r?\\n", "\\r\\n");
-
-            plainContent = plainContent.replaceAll(" +$", "")
-                    .replace("\\r?\\n", "\\r\\n");
-        }
-
         BodyPart plainPart = new MimeBodyPart();
         plainPart.setContent(plainContent, "text/plain; charset=" + Charset.defaultCharset().name());
 
