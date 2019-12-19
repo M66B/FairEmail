@@ -1979,7 +1979,9 @@ public class FragmentCompose extends FragmentBase {
                 CMSSignedDataGenerator cmsGenerator = new CMSSignedDataGenerator();
                 cmsGenerator.addCertificates(store);
 
-                ContentSigner contentSigner = new JcaContentSignerBuilder("SHA256withRSA")
+                String salgo = "SHA256with" + chain[0].getPublicKey().getAlgorithm();
+                Log.i("Sign algorithm=" + salgo);
+                ContentSigner contentSigner = new JcaContentSignerBuilder(salgo)
                         .build(privkey);
                 DigestCalculatorProvider digestCalculator = new JcaDigestCalculatorProviderBuilder()
                         .build();
