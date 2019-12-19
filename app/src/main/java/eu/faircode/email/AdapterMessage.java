@@ -923,7 +923,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         if (amessage == null || !amessage.id.equals(id))
                             return;
 
-                        bindContactInfo(info, message);
+                        bindContactInfo(info, addresses, name_email);
                     }
 
                     @Override
@@ -932,7 +932,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     }
                 }.setLog(false).execute(context, owner, aargs, "message:avatar");
             } else
-                bindContactInfo(info, message);
+                bindContactInfo(info, addresses, name_email);
 
             if (viewType == ViewType.THREAD)
                 if (expanded)
@@ -1045,7 +1045,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibFlagged.setVisibility(View.GONE);
         }
 
-        private void bindContactInfo(ContactInfo info, TupleMessageEx message) {
+        private void bindContactInfo(ContactInfo info, Address[] addresses, boolean name_email) {
             if (info.hasPhoto()) {
                 ibAvatar.setImageBitmap(info.getPhotoBitmap());
                 ibAvatar.setVisibility(View.VISIBLE);
@@ -1055,6 +1055,20 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             Uri lookupUri = info.getLookupUri();
             ibAvatar.setTag(lookupUri);
             ibAvatar.setEnabled(lookupUri != null);
+
+            if (addresses != null && addresses.length == 1) {
+                String displayName = info.getDisplayName();
+                if (!TextUtils.isEmpty(displayName)) {
+                    String personal = ((InternetAddress) addresses[0]).getPersonal();
+                    if (TextUtils.isEmpty(personal))
+                        try {
+                            ((InternetAddress) addresses[0]).setPersonal(displayName);
+                            tvFrom.setText(MessageHelper.formatAddresses(addresses, name_email, false));
+                        } catch (UnsupportedEncodingException ex) {
+                            Log.w(ex);
+                        }
+                }
+            }
 
             if (distinguish_contacts && info.isKnown())
                 tvFrom.setPaintFlags(tvFrom.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);

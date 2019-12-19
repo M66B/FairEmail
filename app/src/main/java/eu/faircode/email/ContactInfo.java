@@ -70,6 +70,10 @@ public class ContactInfo {
         return bitmap;
     }
 
+    String getDisplayName() {
+        return displayName;
+    }
+
     String getDisplayName(boolean name_email) {
         if (!name_email && displayName != null)
             return displayName;
