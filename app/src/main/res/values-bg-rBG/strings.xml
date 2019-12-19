@@ -399,6 +399,7 @@
     <string name="title_use_date">Използвай времето на изпращане в заглавката вместо полученото от сървъра време</string>
     <string name="title_related_identity">Добавяне на свързана идентичност</string>
     <string name="title_check">Проверка</string>
+    <string name="title_trust">Доверете се на сървърния сертификат с пръстов отпечатък %1$s</string>
     <string name="title_no_name">Липсва име</string>
     <string name="title_no_email">Липсва имейл адрес</string>
     <string name="title_email_invalid">Невалиден имейл адрес: \'%1$s</string>
@@ -645,6 +646,7 @@
     <string name="title_signature_store">Хранилище</string>
     <string name="title_search">Търси</string>
     <string name="title_search_server">Търси на сървъра</string>
+    <string name="title_search_text">Търсене в текст</string>
     <string name="title_search_in">Търси в</string>
     <string name="title_sort_on">Сортирай по</string>
     <string name="title_sort_on_time">Време</string>

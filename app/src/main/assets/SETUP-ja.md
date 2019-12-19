@@ -18,11 +18,11 @@ FairEmailのセットアップは非常に簡単です。 メールを受信す�
 
 アカウントを追加するには*アカウントの管理*をタップし、下部にあるオレンジ色の*追加*をタップします。 リストからプロバイダーを選択し、ユーザー名(ほとんどはメールアドレス)、パスワードを入力します。 *確認*をタップしてFairEmailがメールサーバーに接続し、システムフォルダーのリストを取得できるようにします。 システムフォルダーの選択を確認後、*保存*をタップしてアカウントを追加できます。
 
-プロバイダーがリストにない場合は、*カスタム*を選択します。 *gmail.com*などのドメイン名を入力し、*設定を取得*をタップします。 プロバイダーが[自動検出](https://tools.ietf.org/html/rfc6186)をサポートしている場合、FairEmailはホスト名とポート番号を入力し、 それ以外の場合は、プロバイダーのセットアップ手順で正しいIMAPホスト名、ポート番号、プロトコル(SSL/TLS or STARTTLS)を確認してください。 より詳しく [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts)
+プロバイダーがリストにない場合は、*カスタム*を選択します。 *gmail.com*などのドメイン名を入力し、*設定を取得*をタップします。 プロバイダーが[自動検出](https://tools.ietf.org/html/rfc6186)をサポートしている場合、FairEmailはホスト名とポート番号を入力し、 それ以外の場合は、プロバイダーのセットアップ手順で正しいIMAPホスト名、ポート番号、プロトコル(SSL/TLS or STARTTLS)を確認してください。 より詳しく [こちら](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts)
 
 ## IDの設定 - メールを送信するために
 
-同様に、Idを追加するには*IDの管理*をタップし、下部のオレンジ色の*追加*をタップします。 Enter the name you want to appear in de from address of the emails you send and select a linked account. *保存*をタップしてIDを追加します。
+同様に、Idを追加するには*IDの管理*をタップし、下部のオレンジ色の*追加*をタップします。 送信するメールのアドレスから表示する名前を入力し、リンクされたアカウントを選択します。 *保存*をタップしてIDを追加します。
 
 アカウントがマニュアルで設定した場合、おそらくIDもマニュアルで設定する必要があります。 *gmail.com*などのドメイン名を入力し、*設定を取得*をタップします。 プロバイダーが[自動検出](https://tools.ietf.org/html/rfc6186)をサポートしている場合、FairEmailはホスト名とポート番号を入力し、 それ以外の場合は、プロバイダーのセットアップ手順で正しいSMTPホスト名、ポート番号、プロトコル(SSL/TLS or STARTTLS)を確認してください。
 
@@ -36,6 +36,6 @@ FairEmailのセットアップは非常に簡単です。 メールを受信す�
 
 最近のAndroidバージョンでは、電池の消費を抑えるために画面オフ後しばらくするとアプリをスリープ状態にします。 新着メールを遅延なく受信するには、FairEmailの電池の最適化を無効にする必要があります。 *電池の最適化を無効にする*をタップし、指示に従います。
 
-## Questions or problems
+## 質問または問題
 
-If you have a question or problem, please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) for help.
+質問や問題がある場合は、[こちら](https://github.com/M66B/FairEmail/blob/master/FAQ.md)をご覧ください。
