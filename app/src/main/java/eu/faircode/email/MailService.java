@@ -26,6 +26,7 @@ import java.net.UnknownHostException;
 import java.security.GeneralSecurityException;
 import java.security.KeyStore;
 import java.security.NoSuchAlgorithmException;
+import java.security.Principal;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateParsingException;
@@ -491,7 +492,15 @@ public class MailService implements AutoCloseable {
                             }
 
                             // Check certificates
-                            rtm.checkServerTrusted(chain, authType);
+                            try {
+                                rtm.checkServerTrusted(chain, authType);
+                            } catch (CertificateException ex) {
+                                Principal principal = certificate.getSubjectDN();
+                                if (principal == null)
+                                    throw ex;
+                                else
+                                    throw new CertificateException(principal.getName(), ex);
+                            }
 
                             // Check host name
                             List<String> names = getDnsNames(certificate);
