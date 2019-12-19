@@ -901,6 +901,12 @@
     <string name="title_widget_folder_unified">Birleşik gelen kutusu klasörleri</string>
     <string name="title_widget_unseen">Sadece okunmamış iletiler</string>
     <string name="title_widget_flagged">Sadece yıldızlı iletiler</string>
+    <string name="title_accessibility_collapsed">Daraltılan</string>
+    <string name="title_accessibility_expanded">Genişletilen</string>
+    <string name="title_accessibility_seen">Okunan</string>
+    <string name="title_accessibility_unseen">Okunmayan</string>
+    <string name="title_accessibility_flagged">Yıldızlı</string>
+    <string name="title_accessibility_unflagged">Yıldızlı olmayan</string>
     <string-array name="pollIntervalNames">
         <item>Her Zaman</item>
         <item>Her 15 dakikada</item>

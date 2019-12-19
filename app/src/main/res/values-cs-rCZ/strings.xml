@@ -898,6 +898,12 @@
     <string name="title_widget_folder_unified">Složky sjednocené doručené pošty</string>
     <string name="title_widget_unseen">Pouze nepřečtené zprávy</string>
     <string name="title_widget_flagged">Pouze zprávy označené hvězdičkou</string>
+    <string name="title_accessibility_collapsed">Sbaleno</string>
+    <string name="title_accessibility_expanded">Rozbaleno</string>
+    <string name="title_accessibility_seen">Přečteno</string>
+    <string name="title_accessibility_unseen">Nepřečteno</string>
+    <string name="title_accessibility_flagged">S hvězdičkou</string>
+    <string name="title_accessibility_unflagged">Bez hvězdičky</string>
     <string-array name="pollIntervalNames">
         <item>Nepřetržitě</item>
         <item>Každých 15 minut</item>

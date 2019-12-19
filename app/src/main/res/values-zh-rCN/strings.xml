@@ -888,6 +888,12 @@ FairEmail会显示一条消息来提醒您这一点，这条消息在您购买�
     <string name="title_widget_folder_unified">聚合收件箱文件夹</string>
     <string name="title_widget_unseen">仅未读信息</string>
     <string name="title_widget_flagged">仅带有星标的邮件</string>
+    <string name="title_accessibility_collapsed">折叠</string>
+    <string name="title_accessibility_expanded">展开</string>
+    <string name="title_accessibility_seen">阅读</string>
+    <string name="title_accessibility_unseen">未读</string>
+    <string name="title_accessibility_flagged">标星</string>
+    <string name="title_accessibility_unflagged">取消标星</string>
     <string-array name="pollIntervalNames">
         <item>总是</item>
         <item>每15分钟</item>

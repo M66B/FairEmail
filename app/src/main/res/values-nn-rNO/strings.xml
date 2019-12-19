@@ -901,6 +901,12 @@
     <string name="title_widget_folder_unified">Enhetlig Innboks mapper</string>
     <string name="title_widget_unseen">Bare uleste meldinger</string>
     <string name="title_widget_flagged">Bare stjerne merkede meldinger</string>
+    <string name="title_accessibility_collapsed">Skjul</string>
+    <string name="title_accessibility_expanded">Utvidet</string>
+    <string name="title_accessibility_seen">Les</string>
+    <string name="title_accessibility_unseen">Ulest</string>
+    <string name="title_accessibility_flagged">Stjernemerkede</string>
+    <string name="title_accessibility_unflagged">Ikke med stjerne</string>
     <string-array name="pollIntervalNames">
         <item>Alltid</item>
         <item>Hvert 15. minutt</item>

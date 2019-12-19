@@ -923,6 +923,12 @@
     <string name="title_widget_folder_unified">Папки единого почтового ящика</string>
     <string name="title_widget_unseen">Только непрочитанные сообщения</string>
     <string name="title_widget_flagged">Только избранные сообщения</string>
+    <string name="title_accessibility_collapsed">Свёрнуто</string>
+    <string name="title_accessibility_expanded">Развёрнуто</string>
+    <string name="title_accessibility_seen">Прочитано</string>
+    <string name="title_accessibility_unseen">Непрочитано</string>
+    <string name="title_accessibility_flagged">Избранное</string>
+    <string name="title_accessibility_unflagged">Не избранное</string>
     <string-array name="pollIntervalNames">
         <item>Непрерывно</item>
         <item>Каждые 15 минут</item>

@@ -901,6 +901,12 @@
     <string name="title_widget_folder_unified">Yhdistetyn saapuneet-kansion kansiot</string>
     <string name="title_widget_unseen">Vain lukemattomat viestit</string>
     <string name="title_widget_flagged">Vain tähdelliset viestit</string>
+    <string name="title_accessibility_collapsed">Tiivistetty</string>
+    <string name="title_accessibility_expanded">Laajennettu</string>
+    <string name="title_accessibility_seen">Luettu</string>
+    <string name="title_accessibility_unseen">Lukematon</string>
+    <string name="title_accessibility_flagged">Tähdellinen</string>
+    <string name="title_accessibility_unflagged">Tähdetön</string>
     <string-array name="pollIntervalNames">
         <item>Koko ajan</item>
         <item>15 minuutin välein</item>
