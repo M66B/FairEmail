@@ -140,6 +140,7 @@
     <string name="title_setup_wizard">Wizard</string>
     <string name="title_setup_wizard_remark">Go \'back\' to go to the inbox</string>
     <string name="title_setup_gmail" translatable="false">Gmail</string>
+    <string name="title_setup_gmail_oauth" translatable="false">Gmail OAuth</string>
     <string name="title_setup_outlook" translatable="false">Outlook</string>
     <string name="title_setup_activesync" translatable="false">Exchange ActiveSync</string>
     <string name="title_setup_other">Other provider</string>

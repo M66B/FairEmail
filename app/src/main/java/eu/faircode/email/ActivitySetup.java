@@ -73,6 +73,21 @@ import com.microsoft.identity.client.IPublicClientApplication;
 import com.microsoft.identity.client.PublicClientApplication;
 import com.microsoft.identity.client.exception.MsalException;
 
+import net.openid.appauth.AppAuthConfiguration;
+import net.openid.appauth.AuthorizationException;
+import net.openid.appauth.AuthorizationRequest;
+import net.openid.appauth.AuthorizationResponse;
+import net.openid.appauth.AuthorizationService;
+import net.openid.appauth.AuthorizationServiceConfiguration;
+import net.openid.appauth.ClientAuthentication;
+import net.openid.appauth.ClientSecretPost;
+import net.openid.appauth.ResponseTypeValues;
+import net.openid.appauth.TokenResponse;
+import net.openid.appauth.browser.BrowserBlacklist;
+import net.openid.appauth.browser.Browsers;
+import net.openid.appauth.browser.VersionRange;
+import net.openid.appauth.browser.VersionedBrowserMatcher;
+
 import org.bouncycastle.util.io.pem.PemObject;
 import org.bouncycastle.util.io.pem.PemReader;
 import org.json.JSONArray;
@@ -131,8 +146,10 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     static final int REQUEST_CHOOSE_ACCOUNT = 5;
     static final int REQUEST_DONE = 6;
     static final int REQUEST_IMPORT_CERTIFICATE = 7;
+    static final int REQUEST_OAUTH = 8;
 
     static final String ACTION_QUICK_GMAIL = BuildConfig.APPLICATION_ID + ".ACTION_QUICK_GMAIL";
+    static final String ACTION_QUICK_OAUTH = BuildConfig.APPLICATION_ID + ".ACTION_QUICK_OAUTH";
     static final String ACTION_QUICK_OUTLOOK = BuildConfig.APPLICATION_ID + ".ACTION_QUICK_OUTLOOK";
     static final String ACTION_QUICK_SETUP = BuildConfig.APPLICATION_ID + ".ACTION_QUICK_SETUP";
     static final String ACTION_VIEW_ACCOUNTS = BuildConfig.APPLICATION_ID + ".ACTION_VIEW_ACCOUNTS";
@@ -310,6 +327,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
         IntentFilter iff = new IntentFilter();
         iff.addAction(ACTION_QUICK_GMAIL);
+        iff.addAction(ACTION_QUICK_OAUTH);
         iff.addAction(ACTION_QUICK_OUTLOOK);
         iff.addAction(ACTION_QUICK_SETUP);
         iff.addAction(ACTION_VIEW_ACCOUNTS);
@@ -382,6 +400,10 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 case REQUEST_IMPORT_CERTIFICATE:
                     if (resultCode == RESULT_OK && data != null)
                         handleImportCertificate(data);
+                    break;
+                case REQUEST_OAUTH:
+                    if (resultCode == RESULT_OK && data != null)
+                        onHandleOAuth(data);
                     break;
             }
         } catch (Throwable ex) {
@@ -1138,6 +1160,78 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         fragmentTransaction.commit();
     }
 
+    private void onOAuth(Intent intent) {
+        String name = intent.getStringExtra("name");
+        for (EmailProvider provider : EmailProvider.loadProfiles(this))
+            if (provider.name.equals(name) && provider.oauth != null) {
+                AppAuthConfiguration appAuthConfig = new AppAuthConfiguration.Builder()
+                        .setBrowserMatcher(new BrowserBlacklist(
+                                new VersionedBrowserMatcher(
+                                        Browsers.SBrowser.PACKAGE_NAME,
+                                        Browsers.SBrowser.SIGNATURE_SET,
+                                        true,
+                                        VersionRange.atMost("5.3")
+                                )))
+                        .build();
+
+                AuthorizationService authService = new AuthorizationService(this, appAuthConfig);
+
+                AuthorizationRequest authRequest =
+                        new AuthorizationRequest.Builder(
+                                new AuthorizationServiceConfiguration(
+                                        Uri.parse(provider.oauth.authorizationEndpoint),
+                                        Uri.parse(provider.oauth.tokenEndpoint)),
+                                provider.oauth.clientId,
+                                ResponseTypeValues.CODE,
+                                Uri.parse(provider.oauth.redirectUri))
+                                .setScopes(provider.oauth.scopes)
+                                .setState(name)
+                                .build();
+
+                Intent authIntent = authService.getAuthorizationRequestIntent(authRequest);
+                startActivityForResult(authIntent, REQUEST_OAUTH);
+
+                return;
+            }
+
+        Log.unexpectedError(getSupportFragmentManager(),
+                new IllegalArgumentException("Unknown provider=" + name));
+    }
+
+    private void onHandleOAuth(Intent data) {
+        AuthorizationResponse auth = AuthorizationResponse.fromIntent(data);
+        if (auth == null) {
+            AuthorizationException ex = AuthorizationException.fromIntent(data);
+            Log.unexpectedError(getSupportFragmentManager(), ex);
+            return;
+        }
+
+        for (EmailProvider provider : EmailProvider.loadProfiles(this))
+            if (provider.name.equals(auth.state)) {
+                AuthorizationService authService = new AuthorizationService(this);
+                ClientAuthentication clientAuth = new ClientSecretPost(provider.oauth.clientSecret);
+                authService.performTokenRequest(
+                        auth.createTokenExchangeRequest(),
+                        clientAuth,
+                        new AuthorizationService.TokenResponseCallback() {
+                            @Override
+                            public void onTokenRequestCompleted(TokenResponse access, AuthorizationException ex) {
+                                if (access == null) {
+                                    Log.unexpectedError(getSupportFragmentManager(), ex);
+                                    return;
+                                }
+
+                                // access.accessToken
+                            }
+                        });
+
+                return;
+            }
+
+        Log.unexpectedError(getSupportFragmentManager(),
+                new IllegalArgumentException("Unknown state=" + auth.state));
+    }
+
     private void onOutlook(Intent intent) {
         PublicClientApplication.createMultipleAccountPublicClientApplication(
                 this,
@@ -1484,6 +1578,8 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 String action = intent.getAction();
                 if (ACTION_QUICK_GMAIL.equals(action))
                     onGmail(intent);
+                else if (ACTION_QUICK_OAUTH.equals(action))
+                    onOAuth(intent);
                 else if (ACTION_QUICK_OUTLOOK.equals(action))
                     onOutlook(intent);
                 else if (ACTION_QUICK_SETUP.equals(action))

@@ -67,6 +67,7 @@ public class EmailProvider {
     public String link;
     public Server imap = new Server();
     public Server smtp = new Server();
+    public OAuth oauth;
     public UserType user = UserType.EMAIL;
     public StringBuilder documentation; // html
 
@@ -129,6 +130,14 @@ public class EmailProvider {
                         provider.smtp.host = xml.getAttributeValue(null, "host");
                         provider.smtp.port = xml.getAttributeIntValue(null, "port", 0);
                         provider.smtp.starttls = xml.getAttributeBooleanValue(null, "starttls", false);
+                    } else if ("oauth".equals(name)) {
+                        provider.oauth = new OAuth();
+                        provider.oauth.clientId = xml.getAttributeValue(null, "clientId");
+                        provider.oauth.clientSecret = xml.getAttributeValue(null, "clientSecret");
+                        provider.oauth.scopes = xml.getAttributeValue(null, "scopes").split(",");
+                        provider.oauth.authorizationEndpoint = xml.getAttributeValue(null, "authorizationEndpoint");
+                        provider.oauth.tokenEndpoint = xml.getAttributeValue(null, "tokenEndpoint");
+                        provider.oauth.redirectUri = xml.getAttributeValue(null, "redirectUri");
                     } else
                         throw new IllegalAccessException(name);
                 } else if (eventType == XmlPullParser.END_TAG) {
@@ -649,5 +658,14 @@ public class EmailProvider {
         public String toString() {
             return host + ":" + port;
         }
+    }
+
+    public static class OAuth {
+        String clientId;
+        String clientSecret;
+        String[] scopes;
+        String authorizationEndpoint;
+        String tokenEndpoint;
+        String redirectUri;
     }
 }

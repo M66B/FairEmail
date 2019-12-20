@@ -14,6 +14,15 @@
             host="smtp.gmail.com"
             port="465"
             starttls="false" />
+        <oauth
+            authorizationEndpoint="https://accounts.google.com/o/oauth2/v2/auth"
+            clientId="803253368361-574lor1js3csqif9nogkhk5m7688af3c.apps.googleusercontent.com"
+            clientSecret="9iyiDx1LEfpg3fpH6DqzoIcG"
+            redirectUri="https://email.faircode.eu/oauth/"
+            scopes="https://mail.google.com/"
+            tokenEndpoint="https://oauth2.googleapis.com/token" />
+        <!-- https://email.faircode.eu/.well-known/assetlinks.json -->
+        <!-- /opt/android-studio/jre/bin/keytool -keystore ~/.android/debug.keystore -list -v -->
     </provider>
     <provider
         name="Outlook/Office365"

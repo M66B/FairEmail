@@ -167,9 +167,16 @@ public class FragmentSetup extends FragmentBase {
                 PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), btnQuick);
 
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_gmail, 1, R.string.title_setup_gmail);
-                //popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_outlook, 2, R.string.title_setup_outlook);
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_activesync, 3, R.string.title_setup_activesync);
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_other, 4, R.string.title_setup_other);
+
+                // Android 5 Lollipop does not support app links
+                if (BuildConfig.DEBUG && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_gmail_oauth, 2, R.string.title_setup_gmail_oauth);
+
+                if (BuildConfig.DEBUG)
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_outlook, 3, R.string.title_setup_outlook);
+
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_activesync, 4, R.string.title_setup_activesync);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_other, 5, R.string.title_setup_other);
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
@@ -181,6 +188,9 @@ public class FragmentSetup extends FragmentBase {
                                     lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_QUICK_GMAIL));
                                 else
                                     ToastEx.makeText(getContext(), R.string.title_setup_gmail_support, Toast.LENGTH_LONG).show();
+                                return true;
+                            case R.string.title_setup_gmail_oauth:
+                                lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_QUICK_OAUTH).putExtra("name", "Gmail"));
                                 return true;
                             case R.string.title_setup_outlook:
                                 lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_QUICK_OUTLOOK));

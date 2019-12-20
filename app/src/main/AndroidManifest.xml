@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="eu.faircode.email">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -226,6 +227,22 @@
             android:name=".ActivityBilling"
             android:icon="@mipmap/ic_launcher"
             android:launchMode="singleTask" />
+
+        <activity
+            android:name="net.openid.appauth.RedirectUriReceiverActivity"
+            tools:node="replace">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="email.faircode.eu"
+                    android:path="/oauth/"
+                    android:scheme="https" />
+            </intent-filter>
+        </activity>
 
         <service
             android:name=".ServiceSynchronize"
