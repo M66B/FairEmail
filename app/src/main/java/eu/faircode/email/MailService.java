@@ -14,6 +14,10 @@ import com.sun.mail.imap.IMAPStore;
 import com.sun.mail.smtp.SMTPTransport;
 import com.sun.mail.util.MailConnectException;
 
+import net.openid.appauth.AuthState;
+import net.openid.appauth.AuthorizationException;
+import net.openid.appauth.AuthorizationService;
+
 import org.bouncycastle.asn1.x509.GeneralName;
 import org.jetbrains.annotations.NotNull;
 
@@ -41,6 +45,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Semaphore;
 
 import javax.mail.AuthenticationFailedException;
 import javax.mail.Folder;
@@ -72,7 +77,7 @@ public class MailService implements AutoCloseable {
 
     static final int AUTH_TYPE_PASSWORD = 1;
     static final int AUTH_TYPE_GMAIL = 2;
-    static final int AUTH_TYPE_OUTLOOK = 3;
+    static final int AUTH_TYPE_OAUTH = 3;
 
     private final static int CHECK_TIMEOUT = 15 * 1000; // milliseconds
     private final static int CONNECT_TIMEOUT = 20 * 1000; // milliseconds
@@ -227,15 +232,21 @@ public class MailService implements AutoCloseable {
         }
 
         try {
-            if (auth == AUTH_TYPE_GMAIL || auth == AUTH_TYPE_OUTLOOK)
+            if (auth == AUTH_TYPE_GMAIL || auth == AUTH_TYPE_OAUTH)
                 properties.put("mail." + protocol + ".auth.mechanisms", "XOAUTH2");
 
             //if (BuildConfig.DEBUG)
             //    throw new MailConnectException(
             //            new SocketConnectException("Debug", new Exception("Test"), host, port, 0));
 
-            _connect(context, host, port, user, password, factory);
-            return null;
+            if (auth == AUTH_TYPE_OAUTH) {
+                AuthState authState = OAuthRefresh(context, password);
+                _connect(context, host, port, user, authState.getAccessToken(), factory);
+                return authState.jsonSerializeString();
+            } else {
+                _connect(context, host, port, user, password, factory);
+                return null;
+            }
         } catch (AuthenticationFailedException ex) {
             // Refresh token
             if (auth == AUTH_TYPE_GMAIL)
@@ -260,7 +271,11 @@ public class MailService implements AutoCloseable {
                     Log.e(ex1);
                     throw new AuthenticationFailedException(ex.getMessage(), ex1);
                 }
-            else
+            else if (auth == AUTH_TYPE_OAUTH) {
+                AuthState authState = OAuthRefresh(context, password);
+                _connect(context, host, port, user, authState.getAccessToken(), factory);
+                return authState.jsonSerializeString();
+            } else
                 throw ex;
         } catch (MailConnectException ex) {
             try {
@@ -355,6 +370,41 @@ public class MailService implements AutoCloseable {
                 throw new UntrustedException(factory.getFingerPrint(), ex);
             else
                 throw ex;
+        }
+    }
+
+    private static class ErrorHolder {
+        AuthorizationException error;
+    }
+
+    static AuthState OAuthRefresh(Context context, String json) throws MessagingException {
+        try {
+            AuthState authState = AuthState.jsonDeserialize(json);
+
+            Semaphore semaphore = new Semaphore(0);
+
+            ErrorHolder holder = new ErrorHolder();
+
+            Log.i("OAuth refresh");
+            AuthorizationService authService = new AuthorizationService(context);
+            authState.performActionWithFreshTokens(authService, new AuthState.AuthStateAction() {
+                @Override
+                public void execute(String accessToken, String idToken, AuthorizationException error) {
+                    if (error != null)
+                        holder.error = error;
+                    semaphore.release();
+                }
+            });
+
+            semaphore.acquire();
+            Log.i("OAuth refreshed");
+
+            if (holder.error != null)
+                throw holder.error;
+
+            return authState;
+        } catch (Exception ex) {
+            throw new MessagingException("OAuth refresh", ex);
         }
     }
 
