@@ -79,7 +79,8 @@ import net.openid.appauth.ClientSecretPost;
 import net.openid.appauth.NoClientAuthentication;
 import net.openid.appauth.ResponseTypeValues;
 import net.openid.appauth.TokenResponse;
-import net.openid.appauth.browser.BrowserBlacklist;
+import net.openid.appauth.browser.BrowserDescriptor;
+import net.openid.appauth.browser.BrowserMatcher;
 import net.openid.appauth.browser.Browsers;
 import net.openid.appauth.browser.VersionRange;
 import net.openid.appauth.browser.VersionedBrowserMatcher;
@@ -1157,13 +1158,17 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
     private AuthorizationService getAuthorizationService() {
         AppAuthConfiguration appAuthConfig = new AppAuthConfiguration.Builder()
-                .setBrowserMatcher(new BrowserBlacklist(
-                        new VersionedBrowserMatcher(
+                .setBrowserMatcher(new BrowserMatcher() {
+                    @Override
+                    public boolean matches(@NonNull BrowserDescriptor descriptor) {
+                        BrowserMatcher sbrowser = new VersionedBrowserMatcher(
                                 Browsers.SBrowser.PACKAGE_NAME,
                                 Browsers.SBrowser.SIGNATURE_SET,
                                 true,
-                                VersionRange.atMost("5.3")
-                        )))
+                                VersionRange.atMost("5.3"));
+                        return descriptor.useCustomTab && !sbrowser.matches(descriptor);
+                    }
+                })
                 .build();
 
         return new AuthorizationService(this, appAuthConfig);
@@ -1237,7 +1242,8 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
                                         Log.i("OAuth token provider=" + provider.name);
 
-                                        if ("Outlook/Office365".equals(provider.name)) {
+                                        if ("Gmail".equals(provider.name)) {
+                                        } else if ("Outlook/Office365".equals(provider.name)) {
                                             authState.performActionWithFreshTokens(getAuthorizationService(), new AuthState.AuthStateAction() {
                                                 @Override
                                                 public void execute(String accessToken, String idToken, AuthorizationException error) {

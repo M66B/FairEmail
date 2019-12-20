@@ -169,13 +169,12 @@ public class FragmentSetup extends FragmentBase {
                 int order = 1;
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_gmail, order++, R.string.title_setup_gmail);
 
-                // Android 5 Lollipop does not support app links
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-                    for (EmailProvider provider : EmailProvider.loadProfiles(getContext()))
-                        if (provider.oauth != null && (provider.oauth.enabled || BuildConfig.DEBUG))
-                            popupMenu.getMenu()
-                                    .add(Menu.NONE, -1, order++, getString(R.string.title_setup_oauth, provider.name))
-                                    .setIntent(new Intent(ActivitySetup.ACTION_QUICK_OAUTH).putExtra("name", provider.name));
+                for (EmailProvider provider : EmailProvider.loadProfiles(getContext()))
+                    if (provider.oauth != null && (provider.oauth.enabled || BuildConfig.DEBUG))
+                        popupMenu.getMenu()
+                                .add(Menu.NONE, -1, order++, getString(R.string.title_setup_oauth, provider.name))
+                                .setIntent(new Intent(ActivitySetup.ACTION_QUICK_OAUTH)
+                                        .putExtra("name", provider.name));
 
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_activesync, order++, R.string.title_setup_activesync);
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_other, order++, R.string.title_setup_other);
