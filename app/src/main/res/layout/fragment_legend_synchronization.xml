@@ -13,13 +13,35 @@
         android:layout_height="wrap_content">
 
         <ImageView
+            android:id="@+id/ivOAuth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/title_legend_oauth"
+            android:padding="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/baseline_security_24" />
+
+        <TextView
+            android:id="@+id/tvOauth"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:text="@string/title_legend_oauth"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivOAuth"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivOAuth"
+            app:layout_constraintTop_toTopOf="@id/ivOAuth" />
+
+        <ImageView
             android:id="@+id/ivPrimaryConnected"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/title_legend_primary_connected"
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivOAuth"
             app:srcCompat="@drawable/baseline_folder_24" />
 
         <TextView

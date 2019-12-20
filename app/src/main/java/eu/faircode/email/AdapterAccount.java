@@ -77,6 +77,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         private View view;
         private View vwColor;
+        private ImageView ivOAuth;
         private ImageView ivPrimary;
         private ImageView ivNotify;
         private TextView tvName;
@@ -100,6 +101,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             view = itemView.findViewById(R.id.clItem);
             vwColor = itemView.findViewById(R.id.vwColor);
             ivSync = itemView.findViewById(R.id.ivSync);
+            ivOAuth = itemView.findViewById(R.id.ivOAuth);
             ivPrimary = itemView.findViewById(R.id.ivPrimary);
             ivNotify = itemView.findViewById(R.id.ivNotify);
             tvName = itemView.findViewById(R.id.tvName);
@@ -134,6 +136,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
 
             ivSync.setImageResource(account.synchronize ? R.drawable.baseline_sync_24 : R.drawable.baseline_sync_disabled_24);
 
+            ivOAuth.setVisibility(account.auth_type == MailService.AUTH_TYPE_PASSWORD ? View.GONE : View.VISIBLE);
             ivPrimary.setVisibility(account.primary ? View.VISIBLE : View.GONE);
             ivNotify.setVisibility(account.notify ? View.VISIBLE : View.GONE);
 

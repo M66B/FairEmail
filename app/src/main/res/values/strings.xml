@@ -823,6 +823,7 @@
     <string name="title_legend_section_messages">Messages</string>
     <string name="title_legend_section_compose">Compose</string>
 
+    <string name="title_legend_oauth">OAuth authorization</string>
     <string name="title_legend_primary_connected">Account connected</string>
     <string name="title_legend_primary_disconnected">Account disconnected</string>
     <string name="title_legend_download_on">Download message content automatically</string>
