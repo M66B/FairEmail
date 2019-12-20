@@ -4293,7 +4293,7 @@ public class FragmentCompose extends FragmentBase {
 
             return new AlertDialog.Builder(getContext())
                     .setView(dview)
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    .setPositiveButton(R.string.title_send, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             sendResult(Activity.RESULT_OK);
