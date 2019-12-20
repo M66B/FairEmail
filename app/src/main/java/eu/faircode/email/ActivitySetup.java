@@ -1157,29 +1157,27 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         fragmentTransaction.commit();
     }
 
-    private AuthorizationService getAuthorizationService() {
-        AppAuthConfiguration appAuthConfig = new AppAuthConfiguration.Builder()
-                .setBrowserMatcher(new BrowserMatcher() {
-                    @Override
-                    public boolean matches(@NonNull BrowserDescriptor descriptor) {
-                        BrowserMatcher sbrowser = new VersionedBrowserMatcher(
-                                Browsers.SBrowser.PACKAGE_NAME,
-                                Browsers.SBrowser.SIGNATURE_SET,
-                                true,
-                                VersionRange.atMost("5.3"));
-                        return descriptor.useCustomTab && !sbrowser.matches(descriptor);
-                    }
-                })
-                .build();
-
-        return new AuthorizationService(this, appAuthConfig);
-    }
-
     private void onOAuth(Intent intent) {
         try {
             String name = intent.getStringExtra("name");
             for (EmailProvider provider : EmailProvider.loadProfiles(this))
                 if (provider.name.equals(name) && provider.oauth != null) {
+                    AppAuthConfiguration appAuthConfig = new AppAuthConfiguration.Builder()
+                            .setBrowserMatcher(new BrowserMatcher() {
+                                @Override
+                                public boolean matches(@NonNull BrowserDescriptor descriptor) {
+                                    BrowserMatcher sbrowser = new VersionedBrowserMatcher(
+                                            Browsers.SBrowser.PACKAGE_NAME,
+                                            Browsers.SBrowser.SIGNATURE_SET,
+                                            true,
+                                            VersionRange.atMost("5.3"));
+                                    return !sbrowser.matches(descriptor);
+                                }
+                            })
+                            .build();
+
+                    AuthorizationService authService = new AuthorizationService(this, appAuthConfig);
+
                     AuthorizationServiceConfiguration serviceConfig = new AuthorizationServiceConfiguration(
                             Uri.parse(provider.oauth.authorizationEndpoint),
                             Uri.parse(provider.oauth.tokenEndpoint));
@@ -1199,7 +1197,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                                     .build();
 
                     Log.i("OAuth request provider=" + provider.name);
-                    Intent authIntent = getAuthorizationService().getAuthorizationRequestIntent(authRequest);
+                    Intent authIntent = authService.getAuthorizationRequestIntent(authRequest);
                     startActivityForResult(authIntent, REQUEST_OAUTH);
 
                     return;
@@ -1221,8 +1219,11 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 if (provider.name.equals(auth.state)) {
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
                     final AuthState authState = AuthState.jsonDeserialize(prefs.getString("oauth." + provider.name, null));
-                    authState.update(auth, null);
                     prefs.edit().remove("oauth." + provider.name).apply();
+
+                    authState.update(auth, null);
+
+                    AuthorizationService authService = new AuthorizationService(this);
 
                     ClientAuthentication clientAuth;
                     if (provider.oauth.clientSecret == null)
@@ -1231,7 +1232,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                         clientAuth = new ClientSecretPost(provider.oauth.clientSecret);
 
                     Log.i("OAuth get token provider=" + provider.name);
-                    getAuthorizationService().performTokenRequest(
+                    authService.performTokenRequest(
                             auth.createTokenExchangeRequest(),
                             clientAuth,
                             new AuthorizationService.TokenResponseCallback() {
@@ -1451,6 +1452,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
+                // TODO: Handle IllegalArgumentException
                 Log.unexpectedError(getSupportFragmentManager(), ex);
             }
         }.execute(ActivitySetup.this, args, "oauth:configure");
