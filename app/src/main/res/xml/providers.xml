@@ -18,6 +18,7 @@
             authorizationEndpoint="https://accounts.google.com/o/oauth2/v2/auth"
             clientId="803253368361-574lor1js3csqif9nogkhk5m7688af3c.apps.googleusercontent.com"
             clientSecret="9iyiDx1LEfpg3fpH6DqzoIcG"
+            enabled="false"
             redirectUri="https://email.faircode.eu/oauth/"
             scopes="https://mail.google.com/"
             tokenEndpoint="https://oauth2.googleapis.com/token" />
@@ -38,6 +39,13 @@
             host="smtp.office365.com"
             port="587"
             starttls="true" />
+        <oauth
+            authorizationEndpoint="https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize"
+            clientId="3514cf2c-e7a3-45a2-80d4-6a3c3498eca0"
+            enabled="false"
+            redirectUri="https://email.faircode.eu/oauth/"
+            scopes="openid,offline_access,profile,email,User.Read,Mail.ReadWrite,Mail.Send,MailboxSettings.ReadWrite"
+            tokenEndpoint="https://login.microsoftonline.com/organizations/oauth2/v2.0/token" />
     </provider>
     <!-- needs subscription -->
     <provider
