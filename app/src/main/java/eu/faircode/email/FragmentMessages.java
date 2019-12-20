@@ -1087,7 +1087,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             public boolean canChildScrollUp(@NonNull SwipeRefreshLayout parent, @Nullable View child) {
                 if (viewType != AdapterMessage.ViewType.UNIFIED && viewType != AdapterMessage.ViewType.FOLDER)
                     return true;
-                if (!prefs.getBoolean("pull", true))
+                if (!prefs.getBoolean("pull", true) && !EntityFolder.OUTBOX.equals(type))
                     return true;
                 if (swiping)
                     return true;
