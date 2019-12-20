@@ -281,7 +281,6 @@ public class FragmentGmail extends FragmentBase {
                 EmailProvider provider = EmailProvider.fromDomain(context, "gmail.com", EmailProvider.Discover.ALL);
 
                 List<EntityFolder> folders;
-                String domain = user.split("@")[1];
 
                 String aprotocol = provider.imap.starttls ? "imap" : "imaps";
                 try (MailService iservice = new MailService(context, aprotocol, null, false, true, true)) {
