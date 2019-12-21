@@ -26,6 +26,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -65,6 +66,7 @@ import org.json.JSONObject;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -291,7 +293,7 @@ public class FragmentOAuth extends FragmentBase {
                                         if (TextUtils.isEmpty(access.refreshToken))
                                             throw new IllegalStateException("No refresh token");
 
-                                        onOAuthorized(provider.name, access.accessToken, authState);
+                                        onOAuthorized(access.accessToken, authState);
                                     } catch (Throwable ex) {
                                         showError(ex);
                                     }
@@ -309,7 +311,7 @@ public class FragmentOAuth extends FragmentBase {
         }
     }
 
-    private void onOAuthorized(String name, String accessToken, AuthState state) {
+    private void onOAuthorized(String accessToken, AuthState state) {
         Bundle args = new Bundle();
         args.putString("name", name);
         args.putString("token", accessToken);
@@ -322,8 +324,8 @@ public class FragmentOAuth extends FragmentBase {
                 String token = args.getString("token");
                 String state = args.getString("state");
 
-                String emailAddress = null;
-                String displayName = null;
+                String primaryEmail = null;
+                List<Pair<String, String>> identities = new ArrayList<>();
 
                 if ("Gmail".equals(name)) {
                     // https://developers.google.com/gmail/api/v1/reference/users/getProfile
@@ -339,26 +341,31 @@ public class FragmentOAuth extends FragmentBase {
                     request.setRequestProperty("Accept", "application/json");
                     request.connect();
 
+                    String json;
                     try {
-                        String json = Helper.readStream(request.getInputStream(), StandardCharsets.UTF_8.name());
+                        json = Helper.readStream(request.getInputStream(), StandardCharsets.UTF_8.name());
                         Log.i("Response=" + json);
-                        JSONObject data = new JSONObject(json);
-
-                        String altDisplayName = null;
-                        JSONArray sendAs = (JSONArray) data.get("sendAs");
-                        for (int i = 0; i < sendAs.length(); i++) {
-                            JSONObject send = (JSONObject) sendAs.get(i);
-                            if (send.optBoolean("isPrimary")) {
-                                emailAddress = send.getString("sendAsEmail");
-                                displayName = send.getString("displayName");
-                            }
-                            if (TextUtils.isEmpty(altDisplayName))
-                                altDisplayName = send.getString("sendAsEmail");
-                        }
-
                     } finally {
                         request.disconnect();
                     }
+
+                    JSONObject data = new JSONObject(json);
+                    if (data.has("sendAs")) {
+                        JSONArray sendAs = (JSONArray) data.get("sendAs");
+                        for (int i = 0; i < sendAs.length(); i++) {
+                            JSONObject send = (JSONObject) sendAs.get(i);
+                            String sendAsEmail = send.optString("sendAsEmail");
+                            String displayName = send.optString("displayName");
+                            if (!TextUtils.isEmpty(sendAsEmail)) {
+                                if (send.optBoolean("isPrimary"))
+                                    primaryEmail = sendAsEmail;
+                                if (TextUtils.isEmpty(displayName))
+                                    displayName = name;
+                                identities.add(new Pair<>(sendAsEmail, displayName));
+                            }
+                        }
+                    }
+
                 } else if ("Outlook/Office365".equals(name)) {
                     // https://docs.microsoft.com/en-us/graph/api/user-get?view=graph-rest-1.0&tabs=http#http-request
                     URL url = new URL("https://graph.microsoft.com/v1.0/me?$select=displayName,otherMails");
@@ -373,26 +380,37 @@ public class FragmentOAuth extends FragmentBase {
                     request.setRequestProperty("Content-Type", "application/json");
                     request.connect();
 
+                    String json;
                     try {
-                        String json = Helper.readStream(request.getInputStream(), StandardCharsets.UTF_8.name());
+                        json = Helper.readStream(request.getInputStream(), StandardCharsets.UTF_8.name());
                         Log.i("Response=" + json);
-                        JSONObject data = new JSONObject(json);
-                        JSONArray otherMails = data.getJSONArray("otherMails");
-
-                        emailAddress = (String) otherMails.get(0);
-                        displayName = data.getString("displayName");
                     } finally {
                         request.disconnect();
+                    }
+
+                    JSONObject data = new JSONObject(json);
+                    if (data.has("otherMails")) {
+                        JSONArray otherMails = data.getJSONArray("otherMails");
+
+                        String displayName = data.getString("displayName");
+                        for (int i = 0; i < otherMails.length(); i++) {
+                            String email = (String) otherMails.get(i);
+                            if (i == 0)
+                                primaryEmail = email;
+                            if (TextUtils.isEmpty(displayName))
+                                displayName = name;
+                            identities.add(new Pair<>(email, displayName));
+                        }
                     }
                 } else
                     throw new IllegalArgumentException("Unknown provider=" + name);
 
-                if (TextUtils.isEmpty(emailAddress))
-                    throw new IllegalArgumentException("email address missing");
-                if (TextUtils.isEmpty(displayName))
-                    displayName = emailAddress;
+                if (TextUtils.isEmpty(primaryEmail) || identities.size() == 0)
+                    throw new IllegalArgumentException("Primary email address not found");
 
-                Log.i("OAuth email=" + emailAddress + " name=" + displayName);
+                Log.i("OAuth email=" + primaryEmail);
+                for (Pair<String, String> identity : identities)
+                    Log.i("OAuth identity=" + identity.first + "/" + identity.second);
 
                 for (EmailProvider provider : EmailProvider.loadProfiles(context))
                     if (provider.name.equals(name)) {
@@ -402,7 +420,7 @@ public class FragmentOAuth extends FragmentBase {
                         Log.i("OAuth checking IMAP provider=" + provider.name);
                         String aprotocol = provider.imap.starttls ? "imap" : "imaps";
                         try (MailService iservice = new MailService(context, aprotocol, null, false, true, true)) {
-                            iservice.connect(provider.imap.host, provider.imap.port, MailService.AUTH_TYPE_OAUTH, emailAddress, state, null);
+                            iservice.connect(provider.imap.host, provider.imap.port, MailService.AUTH_TYPE_OAUTH, primaryEmail, state, null);
 
                             folders = iservice.getFolders();
 
@@ -413,7 +431,7 @@ public class FragmentOAuth extends FragmentBase {
                         Log.i("OAuth checking SMTP provider=" + provider.name);
                         String iprotocol = provider.smtp.starttls ? "smtp" : "smtps";
                         try (MailService iservice = new MailService(context, iprotocol, null, false, true, true)) {
-                            iservice.connect(provider.smtp.host, provider.smtp.port, MailService.AUTH_TYPE_OAUTH, emailAddress, state, null);
+                            iservice.connect(provider.smtp.host, provider.smtp.port, MailService.AUTH_TYPE_OAUTH, primaryEmail, state, null);
                         }
 
                         Log.i("OAuth passed provider=" + provider.name);
@@ -431,7 +449,7 @@ public class FragmentOAuth extends FragmentBase {
                             account.starttls = provider.imap.starttls;
                             account.port = provider.imap.port;
                             account.auth_type = MailService.AUTH_TYPE_OAUTH;
-                            account.user = emailAddress;
+                            account.user = primaryEmail;
                             account.password = state;
 
                             account.name = provider.name;
@@ -462,24 +480,25 @@ public class FragmentOAuth extends FragmentBase {
 
                             db.account().updateAccount(account);
 
-                            // Create identity
-                            EntityIdentity identity = new EntityIdentity();
-                            identity.name = name;
-                            identity.email = displayName;
-                            identity.account = account.id;
+                            // Create identities
+                            for (Pair<String, String> identity : identities) {
+                                EntityIdentity ident = new EntityIdentity();
+                                ident.name = identity.second;
+                                ident.email = identity.first;
+                                ident.account = account.id;
 
-                            identity.host = provider.smtp.host;
-                            identity.starttls = provider.smtp.starttls;
-                            identity.port = provider.smtp.port;
-                            identity.auth_type = MailService.AUTH_TYPE_GMAIL;
-                            identity.user = emailAddress;
-                            identity.password = state;
-                            identity.synchronize = true;
-                            identity.primary = true;
+                                ident.host = provider.smtp.host;
+                                ident.starttls = provider.smtp.starttls;
+                                ident.port = provider.smtp.port;
+                                ident.auth_type = MailService.AUTH_TYPE_OAUTH;
+                                ident.user = primaryEmail;
+                                ident.password = state;
+                                ident.synchronize = true;
+                                ident.primary = ident.user.equals(ident.email);
 
-                            identity.id = db.identity().insertIdentity(identity);
-                            args.putLong("identity", identity.id);
-                            EntityLog.log(context, "OAuth identity=" + identity.name + " email=" + identity.email);
+                                ident.id = db.identity().insertIdentity(ident);
+                                EntityLog.log(context, "OAuth identity=" + ident.name + " email=" + ident.email);
+                            }
 
                             db.setTransactionSuccessful();
                         } finally {

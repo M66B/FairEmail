@@ -360,7 +360,6 @@ public class FragmentGmail extends FragmentBase {
                     identity.primary = true;
 
                     identity.id = db.identity().insertIdentity(identity);
-                    args.putLong("identity", identity.id);
                     EntityLog.log(context, "Gmail identity=" + identity.name + " email=" + identity.email);
 
                     db.setTransactionSuccessful();
