@@ -17,6 +17,9 @@ import com.sun.mail.util.MailConnectException;
 import net.openid.appauth.AuthState;
 import net.openid.appauth.AuthorizationException;
 import net.openid.appauth.AuthorizationService;
+import net.openid.appauth.ClientAuthentication;
+import net.openid.appauth.ClientSecretPost;
+import net.openid.appauth.NoClientAuthentication;
 
 import org.bouncycastle.asn1.x509.GeneralName;
 import org.jetbrains.annotations.NotNull;
@@ -200,7 +203,7 @@ public class MailService implements AutoCloseable {
     }
 
     public void connect(EntityAccount account) throws MessagingException {
-        String password = connect(account.host, account.port, account.auth_type, account.user, account.password, account.fingerprint);
+        String password = connect(account.host, account.port, account.auth_type, account.provider, account.user, account.password, account.fingerprint);
         if (password != null) {
             DB db = DB.getInstance(context);
             int count = db.account().setAccountPassword(account.id, account.password);
@@ -209,7 +212,7 @@ public class MailService implements AutoCloseable {
     }
 
     public void connect(EntityIdentity identity) throws MessagingException {
-        String password = connect(identity.host, identity.port, identity.auth_type, identity.user, identity.password, identity.fingerprint);
+        String password = connect(identity.host, identity.port, identity.auth_type, identity.provider, identity.user, identity.password, identity.fingerprint);
         if (password != null) {
             DB db = DB.getInstance(context);
             int count = db.identity().setIdentityPassword(identity.id, identity.password);
@@ -217,7 +220,7 @@ public class MailService implements AutoCloseable {
         }
     }
 
-    public String connect(String host, int port, int auth, String user, String password, String fingerprint) throws MessagingException {
+    public String connect(String host, int port, int auth, String provider, String user, String password, String fingerprint) throws MessagingException {
         SSLSocketFactoryService factory = null;
         try {
             factory = new SSLSocketFactoryService(host, insecure, fingerprint);
@@ -240,7 +243,7 @@ public class MailService implements AutoCloseable {
             //            new SocketConnectException("Debug", new Exception("Test"), host, port, 0));
 
             if (auth == AUTH_TYPE_OAUTH) {
-                AuthState authState = OAuthRefresh(context, password);
+                AuthState authState = OAuthRefresh(context, provider, password);
                 _connect(context, host, port, user, authState.getAccessToken(), factory);
                 return authState.jsonSerializeString();
             } else {
@@ -272,7 +275,7 @@ public class MailService implements AutoCloseable {
                     throw new AuthenticationFailedException(ex.getMessage(), ex1);
                 }
             else if (auth == AUTH_TYPE_OAUTH) {
-                AuthState authState = OAuthRefresh(context, password);
+                AuthState authState = OAuthRefresh(context, provider, password);
                 _connect(context, host, port, user, authState.getAccessToken(), factory);
                 return authState.jsonSerializeString();
             } else
@@ -377,24 +380,33 @@ public class MailService implements AutoCloseable {
         AuthorizationException error;
     }
 
-    static AuthState OAuthRefresh(Context context, String json) throws MessagingException {
+    private static AuthState OAuthRefresh(Context context, String id, String json) throws MessagingException {
         try {
             AuthState authState = AuthState.jsonDeserialize(json);
 
-            Semaphore semaphore = new Semaphore(0);
+            ClientAuthentication clientAuth;
+            EmailProvider provider = EmailProvider.getProvider(context, id);
+            if (provider.oauth.clientSecret == null)
+                clientAuth = NoClientAuthentication.INSTANCE;
+            else
+                clientAuth = new ClientSecretPost(provider.oauth.clientSecret);
 
             ErrorHolder holder = new ErrorHolder();
+            Semaphore semaphore = new Semaphore(0);
 
             Log.i("OAuth refresh");
             AuthorizationService authService = new AuthorizationService(context);
-            authState.performActionWithFreshTokens(authService, new AuthState.AuthStateAction() {
-                @Override
-                public void execute(String accessToken, String idToken, AuthorizationException error) {
-                    if (error != null)
-                        holder.error = error;
-                    semaphore.release();
-                }
-            });
+            authState.performActionWithFreshTokens(
+                    authService,
+                    clientAuth,
+                    new AuthState.AuthStateAction() {
+                        @Override
+                        public void execute(String accessToken, String idToken, AuthorizationException error) {
+                            if (error != null)
+                                holder.error = error;
+                            semaphore.release();
+                        }
+                    });
 
             semaphore.acquire();
             Log.i("OAuth refreshed");

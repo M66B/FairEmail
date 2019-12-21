@@ -36,6 +36,7 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -57,6 +58,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
 
 public class EmailProvider {
+    public String id;
     public String name;
     public List<String> domain;
     public int order;
@@ -107,6 +109,7 @@ public class EmailProvider {
                         result = new ArrayList<>();
                     else if ("provider".equals(name)) {
                         provider = new EmailProvider();
+                        provider.id = xml.getAttributeValue(null, "id");
                         provider.name = xml.getAttributeValue(null, "name");
                         String domain = xml.getAttributeValue(null, "domain");
                         if (domain != null)
@@ -168,6 +171,14 @@ public class EmailProvider {
         });
 
         return result;
+    }
+
+    static EmailProvider getProvider(Context context, String id) throws FileNotFoundException {
+        for (EmailProvider provider : loadProfiles(context))
+            if (id.equals(provider.id))
+                return provider;
+
+        throw new FileNotFoundException("provider id=" + id);
     }
 
     @NonNull

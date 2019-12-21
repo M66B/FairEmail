@@ -250,13 +250,13 @@ public class FragmentQuickSetup extends FragmentBase {
                 String aprotocol = provider.imap.starttls ? "imap" : "imaps";
                 try (MailService iservice = new MailService(context, aprotocol, null, false, true, true)) {
                     try {
-                        iservice.connect(provider.imap.host, provider.imap.port, MailService.AUTH_TYPE_PASSWORD, user, password, null);
+                        iservice.connect(provider.imap.host, provider.imap.port, MailService.AUTH_TYPE_PASSWORD, null, user, password, null);
                     } catch (AuthenticationFailedException ex) {
                         if (!user.equals(username)) {
                             Log.w(ex);
                             user = username;
                             Log.i("Retry with user=" + user);
-                            iservice.connect(provider.imap.host, provider.imap.port, MailService.AUTH_TYPE_PASSWORD, user, password, null);
+                            iservice.connect(provider.imap.host, provider.imap.port, MailService.AUTH_TYPE_PASSWORD, null, user, password, null);
                         } else
                             throw ex;
                     }
@@ -270,7 +270,7 @@ public class FragmentQuickSetup extends FragmentBase {
                 String iprotocol = provider.smtp.starttls ? "smtp" : "smtps";
                 try (MailService iservice = new MailService(context, iprotocol, null, false, true, true)) {
                     iservice.setUseIp(provider.useip);
-                    iservice.connect(provider.smtp.host, provider.smtp.port, MailService.AUTH_TYPE_PASSWORD, user, password, null);
+                    iservice.connect(provider.smtp.host, provider.smtp.port, MailService.AUTH_TYPE_PASSWORD, null, user, password, null);
                 }
 
                 if (check)

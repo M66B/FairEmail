@@ -72,6 +72,7 @@ public class EntityIdentity {
     public Integer port;
     @NonNull
     public Integer auth_type;
+    public String provider;
     @NonNull
     public String user;
     @NonNull

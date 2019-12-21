@@ -278,7 +278,7 @@ public class FragmentPop extends FragmentBase {
                 if (check) {
                     String protocol = "pop3" + (starttls ? "" : "s");
                     try (MailService iservice = new MailService(context, protocol, null, insecure, true, true)) {
-                        iservice.connect(host, Integer.parseInt(port), MailService.AUTH_TYPE_PASSWORD, user, password, null);
+                        iservice.connect(host, Integer.parseInt(port), MailService.AUTH_TYPE_PASSWORD, null, user, password, null);
                     }
                 }
 

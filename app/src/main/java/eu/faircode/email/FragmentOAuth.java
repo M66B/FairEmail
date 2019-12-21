@@ -75,6 +75,7 @@ import java.util.Map;
 import static android.app.Activity.RESULT_OK;
 
 public class FragmentOAuth extends FragmentBase {
+    private String id;
     private String name;
 
     private ViewGroup view;
@@ -97,6 +98,7 @@ public class FragmentOAuth extends FragmentBase {
         super.onCreate(savedInstanceState);
 
         Bundle args = getArguments();
+        id = args.getString("id");
         name = args.getString("name");
     }
 
@@ -133,7 +135,7 @@ public class FragmentOAuth extends FragmentBase {
         tvGrantHint.setText(getString(R.string.title_setup_oauth_rationale, name));
         pbOAuth.setVisibility(View.GONE);
         tvAuthorized.setVisibility(View.GONE);
-        tvGmailHint.setVisibility("Gmail".equals(name) ? View.VISIBLE : View.GONE);
+        tvGmailHint.setVisibility("gmail".equals(id) ? View.VISIBLE : View.GONE);
         hideError();
 
         return view;
@@ -186,61 +188,56 @@ public class FragmentOAuth extends FragmentBase {
             pbOAuth.setVisibility(View.VISIBLE);
             hideError();
 
-            for (EmailProvider provider : EmailProvider.loadProfiles(getContext()))
-                if (provider.name.equals(name) && provider.oauth != null) {
-                    AppAuthConfiguration appAuthConfig = new AppAuthConfiguration.Builder()
-                            .setBrowserMatcher(new BrowserMatcher() {
-                                @Override
-                                public boolean matches(@NonNull BrowserDescriptor descriptor) {
-                                    BrowserMatcher sbrowser = new VersionedBrowserMatcher(
-                                            Browsers.SBrowser.PACKAGE_NAME,
-                                            Browsers.SBrowser.SIGNATURE_SET,
-                                            true,
-                                            VersionRange.atMost("5.3"));
-                                    return !sbrowser.matches(descriptor);
-                                }
-                            })
-                            .build();
+            EmailProvider provider = EmailProvider.getProvider(getContext(), id);
 
-                    AuthorizationService authService = new AuthorizationService(getContext(), appAuthConfig);
+            AppAuthConfiguration appAuthConfig = new AppAuthConfiguration.Builder()
+                    .setBrowserMatcher(new BrowserMatcher() {
+                        @Override
+                        public boolean matches(@NonNull BrowserDescriptor descriptor) {
+                            BrowserMatcher sbrowser = new VersionedBrowserMatcher(
+                                    Browsers.SBrowser.PACKAGE_NAME,
+                                    Browsers.SBrowser.SIGNATURE_SET,
+                                    true,
+                                    VersionRange.atMost("5.3"));
+                            return !sbrowser.matches(descriptor);
+                        }
+                    })
+                    .build();
 
-                    AuthorizationServiceConfiguration serviceConfig = new AuthorizationServiceConfiguration(
-                            Uri.parse(provider.oauth.authorizationEndpoint),
-                            Uri.parse(provider.oauth.tokenEndpoint));
+            AuthorizationService authService = new AuthorizationService(getContext(), appAuthConfig);
 
-                    AuthState authState = new AuthState(serviceConfig);
-                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                    prefs.edit().putString("oauth." + provider.name, authState.jsonSerializeString()).apply();
+            AuthorizationServiceConfiguration serviceConfig = new AuthorizationServiceConfiguration(
+                    Uri.parse(provider.oauth.authorizationEndpoint),
+                    Uri.parse(provider.oauth.tokenEndpoint));
 
-                    Map<String, String> params = new HashMap<>();
-                    if ("Gmail".equals(provider.name))
-                        params.put("access_type", "offline");
+            AuthState authState = new AuthState(serviceConfig);
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            prefs.edit().putString("oauth." + provider.id, authState.jsonSerializeString()).apply();
 
-                    AuthorizationRequest.Builder authRequestBuilder =
-                            new AuthorizationRequest.Builder(
-                                    serviceConfig,
-                                    provider.oauth.clientId,
-                                    ResponseTypeValues.CODE,
-                                    Uri.parse(provider.oauth.redirectUri))
-                                    .setScopes(provider.oauth.scopes)
-                                    .setState(provider.name)
-                                    .setAdditionalParameters(params);
+            Map<String, String> params = new HashMap<>();
+            if ("gmail".equals(provider.id))
+                params.put("access_type", "offline");
 
-                    if ("Gmail".equals(provider.name) && BuildConfig.DEBUG)
-                        authRequestBuilder.setPrompt("consent");
+            AuthorizationRequest.Builder authRequestBuilder =
+                    new AuthorizationRequest.Builder(
+                            serviceConfig,
+                            provider.oauth.clientId,
+                            ResponseTypeValues.CODE,
+                            Uri.parse(provider.oauth.redirectUri))
+                            .setScopes(provider.oauth.scopes)
+                            .setState(provider.id)
+                            .setAdditionalParameters(params);
 
-                    AuthorizationRequest authRequest = authRequestBuilder.build();
+            if ("gmail".equals(provider.id) && BuildConfig.DEBUG)
+                authRequestBuilder.setPrompt("consent");
 
-                    Log.i("OAuth request provider=" + provider.name);
-                    if (BuildConfig.DEBUG)
-                        Log.i("OAuth uri=" + authRequest.toUri());
-                    Intent authIntent = authService.getAuthorizationRequestIntent(authRequest);
-                    startActivityForResult(authIntent, ActivitySetup.REQUEST_OAUTH);
+            AuthorizationRequest authRequest = authRequestBuilder.build();
 
-                    return;
-                }
-
-            throw new IllegalArgumentException("Unknown provider=" + name);
+            Log.i("OAuth request provider=" + provider.id);
+            if (BuildConfig.DEBUG)
+                Log.i("OAuth uri=" + authRequest.toUri());
+            Intent authIntent = authService.getAuthorizationRequestIntent(authRequest);
+            startActivityForResult(authIntent, ActivitySetup.REQUEST_OAUTH);
         } catch (Throwable ex) {
             showError(ex);
             btnOAuth.setEnabled(true);
@@ -256,54 +253,51 @@ public class FragmentOAuth extends FragmentBase {
 
             tvAuthorized.setVisibility(View.VISIBLE);
 
-            for (final EmailProvider provider : EmailProvider.loadProfiles(getContext()))
-                if (provider.name.equals(auth.state)) {
-                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                    final AuthState authState = AuthState.jsonDeserialize(prefs.getString("oauth." + provider.name, null));
-                    prefs.edit().remove("oauth." + provider.name).apply();
+            final EmailProvider provider = EmailProvider.getProvider(getContext(), auth.state);
 
-                    Log.i("OAuth get token provider=" + provider.name);
-                    authState.update(auth, null);
-                    if (BuildConfig.DEBUG)
-                        Log.i("OAuth response=" + authState.jsonSerializeString());
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            String json = prefs.getString("oauth." + provider.id, null);
+            prefs.edit().remove("oauth." + provider.id).apply();
 
-                    AuthorizationService authService = new AuthorizationService(getContext());
+            final AuthState authState = AuthState.jsonDeserialize(json);
 
-                    ClientAuthentication clientAuth;
-                    if (provider.oauth.clientSecret == null)
-                        clientAuth = NoClientAuthentication.INSTANCE;
-                    else
-                        clientAuth = new ClientSecretPost(provider.oauth.clientSecret);
+            Log.i("OAuth get token provider=" + provider.id);
+            authState.update(auth, null);
+            if (BuildConfig.DEBUG)
+                Log.i("OAuth response=" + authState.jsonSerializeString());
 
-                    authService.performTokenRequest(
-                            auth.createTokenExchangeRequest(),
-                            clientAuth,
-                            new AuthorizationService.TokenResponseCallback() {
-                                @Override
-                                public void onTokenRequestCompleted(TokenResponse access, AuthorizationException error) {
-                                    try {
-                                        if (access == null)
-                                            throw error;
+            AuthorizationService authService = new AuthorizationService(getContext());
 
-                                        Log.i("OAuth got token provider=" + provider.name);
-                                        authState.update(access, null);
-                                        if (BuildConfig.DEBUG)
-                                            Log.i("OAuth response=" + authState.jsonSerializeString());
+            ClientAuthentication clientAuth;
+            if (provider.oauth.clientSecret == null)
+                clientAuth = NoClientAuthentication.INSTANCE;
+            else
+                clientAuth = new ClientSecretPost(provider.oauth.clientSecret);
 
-                                        if (TextUtils.isEmpty(access.refreshToken))
-                                            throw new IllegalStateException("No refresh token");
+            authService.performTokenRequest(
+                    auth.createTokenExchangeRequest(),
+                    clientAuth,
+                    new AuthorizationService.TokenResponseCallback() {
+                        @Override
+                        public void onTokenRequestCompleted(TokenResponse access, AuthorizationException error) {
+                            try {
+                                if (access == null)
+                                    throw error;
 
-                                        onOAuthorized(access.accessToken, authState);
-                                    } catch (Throwable ex) {
-                                        showError(ex);
-                                    }
-                                }
-                            });
+                                Log.i("OAuth got token provider=" + provider.id);
+                                authState.update(access, null);
+                                if (BuildConfig.DEBUG)
+                                    Log.i("OAuth response=" + authState.jsonSerializeString());
 
-                    return;
-                }
+                                if (TextUtils.isEmpty(access.refreshToken))
+                                    throw new IllegalStateException("No refresh token");
 
-            throw new IllegalArgumentException("Unknown state=" + auth.state);
+                                onOAuthorized(access.accessToken, authState);
+                            } catch (Throwable ex) {
+                                showError(ex);
+                            }
+                        }
+                    });
         } catch (Throwable ex) {
             showError(ex);
             btnOAuth.setEnabled(true);
@@ -313,6 +307,7 @@ public class FragmentOAuth extends FragmentBase {
 
     private void onOAuthorized(String accessToken, AuthState state) {
         Bundle args = new Bundle();
+        args.putString("id", id);
         args.putString("name", name);
         args.putString("token", accessToken);
         args.putString("state", state.jsonSerializeString());
@@ -320,6 +315,7 @@ public class FragmentOAuth extends FragmentBase {
         new SimpleTask<Void>() {
             @Override
             protected Void onExecute(Context context, Bundle args) throws Throwable {
+                String id = args.getString("id");
                 String name = args.getString("name");
                 String token = args.getString("token");
                 String state = args.getString("state");
@@ -327,7 +323,7 @@ public class FragmentOAuth extends FragmentBase {
                 String primaryEmail = null;
                 List<Pair<String, String>> identities = new ArrayList<>();
 
-                if ("Gmail".equals(name)) {
+                if ("gmail".equals(id)) {
                     // https://developers.google.com/gmail/api/v1/reference/users/getProfile
                     URL url = new URL("https://www.googleapis.com/gmail/v1/users/me/settings/sendAs");
                     Log.i("Fetching " + url);
@@ -366,7 +362,7 @@ public class FragmentOAuth extends FragmentBase {
                         }
                     }
 
-                } else if ("Outlook/Office365".equals(name)) {
+                } else if ("outlook".equals(id)) {
                     // https://docs.microsoft.com/en-us/graph/api/user-get?view=graph-rest-1.0&tabs=http#http-request
                     URL url = new URL("https://graph.microsoft.com/v1.0/me?$select=displayName,otherMails");
                     Log.i("Fetching " + url);
@@ -403,7 +399,7 @@ public class FragmentOAuth extends FragmentBase {
                         }
                     }
                 } else
-                    throw new IllegalArgumentException("Unknown provider=" + name);
+                    throw new IllegalArgumentException("Unknown provider=" + id);
 
                 if (TextUtils.isEmpty(primaryEmail) || identities.size() == 0)
                     throw new IllegalArgumentException("Primary email address not found");
@@ -412,101 +408,101 @@ public class FragmentOAuth extends FragmentBase {
                 for (Pair<String, String> identity : identities)
                     Log.i("OAuth identity=" + identity.first + "/" + identity.second);
 
-                for (EmailProvider provider : EmailProvider.loadProfiles(context))
-                    if (provider.name.equals(name)) {
+                EmailProvider provider = EmailProvider.getProvider(context, id);
 
-                        List<EntityFolder> folders;
+                List<EntityFolder> folders;
 
-                        Log.i("OAuth checking IMAP provider=" + provider.name);
-                        String aprotocol = provider.imap.starttls ? "imap" : "imaps";
-                        try (MailService iservice = new MailService(context, aprotocol, null, false, true, true)) {
-                            iservice.connect(provider.imap.host, provider.imap.port, MailService.AUTH_TYPE_OAUTH, primaryEmail, state, null);
+                Log.i("OAuth checking IMAP provider=" + provider.id);
+                String aprotocol = provider.imap.starttls ? "imap" : "imaps";
+                try (MailService iservice = new MailService(context, aprotocol, null, false, true, true)) {
+                    iservice.connect(provider.imap.host, provider.imap.port, MailService.AUTH_TYPE_OAUTH, provider.id, primaryEmail, state, null);
 
-                            folders = iservice.getFolders();
+                    folders = iservice.getFolders();
 
-                            if (folders == null)
-                                throw new IllegalArgumentException(context.getString(R.string.title_setup_no_system_folders));
-                        }
+                    if (folders == null)
+                        throw new IllegalArgumentException(context.getString(R.string.title_setup_no_system_folders));
+                }
 
-                        Log.i("OAuth checking SMTP provider=" + provider.name);
-                        String iprotocol = provider.smtp.starttls ? "smtp" : "smtps";
-                        try (MailService iservice = new MailService(context, iprotocol, null, false, true, true)) {
-                            iservice.connect(provider.smtp.host, provider.smtp.port, MailService.AUTH_TYPE_OAUTH, primaryEmail, state, null);
-                        }
+                Log.i("OAuth checking SMTP provider=" + provider.id);
+                String iprotocol = provider.smtp.starttls ? "smtp" : "smtps";
+                try (MailService iservice = new MailService(context, iprotocol, null, false, true, true)) {
+                    iservice.connect(provider.smtp.host, provider.smtp.port, MailService.AUTH_TYPE_OAUTH, provider.id, primaryEmail, state, null);
+                }
 
-                        Log.i("OAuth passed provider=" + provider.name);
+                Log.i("OAuth passed provider=" + provider.id);
 
-                        DB db = DB.getInstance(context);
-                        try {
-                            db.beginTransaction();
+                DB db = DB.getInstance(context);
+                try {
+                    db.beginTransaction();
 
-                            EntityAccount primary = db.account().getPrimaryAccount();
+                    EntityAccount primary = db.account().getPrimaryAccount();
 
-                            // Create account
-                            EntityAccount account = new EntityAccount();
+                    // Create account
+                    EntityAccount account = new EntityAccount();
 
-                            account.host = provider.imap.host;
-                            account.starttls = provider.imap.starttls;
-                            account.port = provider.imap.port;
-                            account.auth_type = MailService.AUTH_TYPE_OAUTH;
-                            account.user = primaryEmail;
-                            account.password = state;
+                    account.host = provider.imap.host;
+                    account.starttls = provider.imap.starttls;
+                    account.port = provider.imap.port;
+                    account.auth_type = MailService.AUTH_TYPE_OAUTH;
+                    account.provider = provider.id;
+                    account.user = primaryEmail;
+                    account.password = state;
 
-                            account.name = provider.name;
+                    account.name = provider.name;
 
-                            account.synchronize = true;
-                            account.primary = (primary == null);
+                    account.synchronize = true;
+                    account.primary = (primary == null);
 
-                            account.created = new Date().getTime();
-                            account.last_connected = account.created;
+                    account.created = new Date().getTime();
+                    account.last_connected = account.created;
 
-                            account.id = db.account().insertAccount(account);
-                            args.putLong("account", account.id);
-                            EntityLog.log(context, "OAuth account=" + account.name);
+                    account.id = db.account().insertAccount(account);
+                    args.putLong("account", account.id);
+                    EntityLog.log(context, "OAuth account=" + account.name);
 
-                            // Create folders
-                            for (EntityFolder folder : folders) {
-                                folder.account = account.id;
-                                folder.id = db.folder().insertFolder(folder);
-                                EntityLog.log(context, "OAuth folder=" + folder.name + " type=" + folder.type);
-                            }
-
-                            // Set swipe left/right folder
-                            for (EntityFolder folder : folders)
-                                if (EntityFolder.TRASH.equals(folder.type))
-                                    account.swipe_left = folder.id;
-                                else if (EntityFolder.ARCHIVE.equals(folder.type))
-                                    account.swipe_right = folder.id;
-
-                            db.account().updateAccount(account);
-
-                            // Create identities
-                            for (Pair<String, String> identity : identities) {
-                                EntityIdentity ident = new EntityIdentity();
-                                ident.name = identity.second;
-                                ident.email = identity.first;
-                                ident.account = account.id;
-
-                                ident.host = provider.smtp.host;
-                                ident.starttls = provider.smtp.starttls;
-                                ident.port = provider.smtp.port;
-                                ident.auth_type = MailService.AUTH_TYPE_OAUTH;
-                                ident.user = primaryEmail;
-                                ident.password = state;
-                                ident.synchronize = true;
-                                ident.primary = ident.user.equals(ident.email);
-
-                                ident.id = db.identity().insertIdentity(ident);
-                                EntityLog.log(context, "OAuth identity=" + ident.name + " email=" + ident.email);
-                            }
-
-                            db.setTransactionSuccessful();
-                        } finally {
-                            db.endTransaction();
-                        }
-
-                        ServiceSynchronize.eval(context, "OAuth");
+                    // Create folders
+                    for (EntityFolder folder : folders) {
+                        folder.account = account.id;
+                        folder.id = db.folder().insertFolder(folder);
+                        EntityLog.log(context, "OAuth folder=" + folder.name + " type=" + folder.type);
                     }
+
+                    // Set swipe left/right folder
+                    for (EntityFolder folder : folders)
+                        if (EntityFolder.TRASH.equals(folder.type))
+                            account.swipe_left = folder.id;
+                        else if (EntityFolder.ARCHIVE.equals(folder.type))
+                            account.swipe_right = folder.id;
+
+                    db.account().updateAccount(account);
+
+                    // Create identities
+                    for (Pair<String, String> identity : identities) {
+                        EntityIdentity ident = new EntityIdentity();
+                        ident.name = identity.second;
+                        ident.email = identity.first;
+                        ident.account = account.id;
+
+                        ident.host = provider.smtp.host;
+                        ident.starttls = provider.smtp.starttls;
+                        ident.port = provider.smtp.port;
+                        ident.auth_type = MailService.AUTH_TYPE_OAUTH;
+                        ident.provider = provider.id;
+                        ident.user = primaryEmail;
+                        ident.password = state;
+                        ident.synchronize = true;
+                        ident.primary = ident.user.equals(ident.email);
+
+                        ident.id = db.identity().insertIdentity(ident);
+                        EntityLog.log(context, "OAuth identity=" + ident.name + " email=" + ident.email);
+                    }
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+
+                ServiceSynchronize.eval(context, "OAuth");
 
                 return null;
             }
@@ -542,7 +538,7 @@ public class FragmentOAuth extends FragmentBase {
 
         grpError.setVisibility(View.VISIBLE);
 
-        if ("Gmail".equals(name))
+        if ("gmail".equals(id))
             tvGmailDraftsHint.setVisibility(View.VISIBLE);
 
         new Handler().post(new Runnable() {

@@ -143,6 +143,7 @@ public class FragmentAccount extends FragmentBase {
     private long id = -1;
     private long copy = -1;
     private int auth = MailService.AUTH_TYPE_PASSWORD;
+    private String provider = null;
     private boolean saving = false;
 
     private static final int REQUEST_COLOR = 1;
@@ -500,6 +501,7 @@ public class FragmentAccount extends FragmentBase {
         args.putBoolean("insecure", cbInsecure.isChecked());
         args.putString("port", etPort.getText().toString());
         args.putInt("auth", auth);
+        args.putString("provider", provider);
         args.putString("user", etUser.getText().toString());
         args.putString("password", tilPassword.getEditText().getText().toString());
         args.putString("realm", etRealm.getText().toString());
@@ -537,6 +539,7 @@ public class FragmentAccount extends FragmentBase {
                 boolean insecure = args.getBoolean("insecure");
                 String port = args.getString("port");
                 int auth = args.getInt("auth");
+                String provider = args.getString("provider");
                 String user = args.getString("user");
                 String password = args.getString("password");
                 String realm = args.getString("realm");
@@ -568,7 +571,7 @@ public class FragmentAccount extends FragmentBase {
                 // Check IMAP server / get folders
                 String protocol = "imap" + (starttls ? "" : "s");
                 try (MailService iservice = new MailService(context, protocol, realm, insecure, true, true)) {
-                    iservice.connect(host, Integer.parseInt(port), auth, user, password, fingerprint);
+                    iservice.connect(host, Integer.parseInt(port), auth, provider, user, password, fingerprint);
 
                     result.idle = iservice.hasCapability("IDLE");
 
@@ -707,6 +710,7 @@ public class FragmentAccount extends FragmentBase {
         args.putBoolean("insecure", cbInsecure.isChecked());
         args.putString("port", etPort.getText().toString());
         args.putInt("auth", auth);
+        args.putString("provider", provider);
         args.putString("user", etUser.getText().toString());
         args.putString("password", tilPassword.getEditText().getText().toString());
         args.putString("realm", etRealm.getText().toString());
@@ -767,6 +771,7 @@ public class FragmentAccount extends FragmentBase {
                 boolean insecure = args.getBoolean("insecure");
                 String port = args.getString("port");
                 int auth = args.getInt("auth");
+                String provider = args.getString("provider");
                 String user = args.getString("user").trim();
                 String password = args.getString("password");
                 String realm = args.getString("realm");
@@ -942,7 +947,7 @@ public class FragmentAccount extends FragmentBase {
                 if (check) {
                     String protocol = "imap" + (starttls ? "" : "s");
                     try (MailService iservice = new MailService(context, protocol, realm, insecure, true, true)) {
-                        iservice.connect(host, Integer.parseInt(port), auth, user, password, fingerprint);
+                        iservice.connect(host, Integer.parseInt(port), auth, provider, user, password, fingerprint);
 
                         for (Folder ifolder : iservice.getStore().getDefaultFolder().list("*")) {
                             // Check folder attributes
@@ -989,6 +994,7 @@ public class FragmentAccount extends FragmentBase {
                         account.user = user;
                         account.password = password;
                     }
+                    account.provider = provider;
                     account.realm = realm;
                     account.fingerprint = fingerprint;
 
@@ -1213,6 +1219,7 @@ public class FragmentAccount extends FragmentBase {
         outState.putString("fair:password", tilPassword.getEditText().getText().toString());
         outState.putInt("fair:advanced", grpAdvanced.getVisibility());
         outState.putInt("fair:auth", auth);
+        outState.putString("fair:authprovider", provider);
         super.onSaveInstanceState(outState);
     }
 
@@ -1300,6 +1307,7 @@ public class FragmentAccount extends FragmentBase {
                     cbUseDate.setChecked(account == null ? false : account.use_date);
 
                     auth = (account == null ? MailService.AUTH_TYPE_PASSWORD : account.auth_type);
+                    provider = (account == null ? null : account.provider);
 
                     new SimpleTask<EntityAccount>() {
                         @Override
@@ -1319,13 +1327,14 @@ public class FragmentAccount extends FragmentBase {
                         }
                     }.execute(FragmentAccount.this, new Bundle(), "account:primary");
                 } else {
-                    int provider = savedInstanceState.getInt("fair:provider");
-                    spProvider.setTag(provider);
-                    spProvider.setSelection(provider);
+                    int p = savedInstanceState.getInt("fair:provider");
+                    spProvider.setTag(p);
+                    spProvider.setSelection(p);
 
                     tilPassword.getEditText().setText(savedInstanceState.getString("fair:password"));
                     grpAdvanced.setVisibility(savedInstanceState.getInt("fair:advanced"));
                     auth = savedInstanceState.getInt("fair:auth");
+                    provider = savedInstanceState.getString("fair:authprovider");
                 }
 
                 Helper.setViewsEnabled(view, true);
