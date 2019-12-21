@@ -175,6 +175,8 @@ public class FragmentOAuth extends FragmentBase {
             case ActivitySetup.REQUEST_OAUTH:
                 if (resultCode == RESULT_OK && data != null)
                     onHandleOAuth(data);
+                else
+                    onHandleCancel();
                 break;
             case ActivitySetup.REQUEST_DONE:
                 finish();
@@ -519,6 +521,11 @@ public class FragmentOAuth extends FragmentBase {
                 showError(ex);
             }
         }.execute(this, args, "oauth:configure");
+    }
+
+    private void onHandleCancel() {
+        btnOAuth.setEnabled(true);
+        pbOAuth.setVisibility(View.GONE);
     }
 
     void showError(Throwable ex) {
