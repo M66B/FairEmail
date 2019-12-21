@@ -522,7 +522,7 @@ public class FragmentIdentity extends FragmentBase {
         args.putString("port", etPort.getText().toString());
         args.putInt("auth", auth);
         args.putString("provider", provider);
-        args.putString("user", etUser.getText().toString());
+        args.putString("user", etUser.getText().toString().trim());
         args.putString("password", tilPassword.getEditText().getText().toString());
         args.putString("realm", etRealm.getText().toString());
         args.putString("fingerprint", cbTrust.isChecked() ? (String) cbTrust.getTag() : null);
