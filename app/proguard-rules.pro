@@ -86,6 +86,10 @@
 -dontwarn org.bouncycastle.jce.provider.**
 -dontwarn org.bouncycastle.x509.util.**
 
+#AppAuth
+-keep class net.openid.appauth.** {*;}
+-keepnames class net.openid.appauth.* {*;}
+
 #Notes
 -dontnote com.google.android.material.**
 -dontnote com.sun.mail.**
@@ -95,3 +99,4 @@
 -dontnote com.github.chrisbanes.photoview.**
 -dontnote com.bugsnag.android.**
 -dontnote biweekly.io.**
+
