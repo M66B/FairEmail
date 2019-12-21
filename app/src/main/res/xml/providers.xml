@@ -65,6 +65,7 @@
     <!-- no IMAP IDLE -->
     <provider
         name="Yahoo!"
+        id="yahoo"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq88">
         <imap
             host="imap.mail.yahoo.com"
@@ -74,6 +75,14 @@
             host="smtp.mail.yahoo.com"
             port="465"
             starttls="false" />
+        <oauth
+            authorizationEndpoint="https://api.login.yahoo.com/oauth2/request_auth"
+            clientId="dj0yJmk9eDZYbnFSMkVtMEdMJmQ9WVdrOVdXOUZabXBwTnpnbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmc3Y9MCZ4PWJm"
+            clientSecret="927650c8ce98b653d7f88d0398a192dc44cedcd2"
+            enabled="false"
+            redirectUri="https://email.faircode.eu/oauth/"
+            scopes="mail-w"
+            tokenEndpoint="https://api.login.aol.com/oauth2/get_token" />
     </provider>
     <provider
         name="Posteo.de"
