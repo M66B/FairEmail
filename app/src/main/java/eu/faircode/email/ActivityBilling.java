@@ -78,7 +78,8 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
     static final String ACTION_PURCHASE = BuildConfig.APPLICATION_ID + ".ACTION_PURCHASE";
     static final String ACTION_PURCHASE_CHECK = BuildConfig.APPLICATION_ID + ".ACTION_PURCHASE_CHECK";
 
-    final static long MAX_SKU_CACHE_DURATION = 24 * 3600 * 1000L; // milliseconds
+    private final static long MAX_SKU_CACHE_DURATION = 24 * 3600 * 1000L; // milliseconds
+    private final static long MAX_SKU_NOACK_DURATION = 24 * 3600 * 1000L; // milliseconds
 
     @Override
     @SuppressLint("MissingSuperCall")
@@ -352,9 +353,11 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
                 try {
                     query.remove(purchase.getSku());
 
-                    boolean purchased = (purchase.getPurchaseState() == Purchase.PurchaseState.PURCHASED);
                     long time = purchase.getPurchaseTime();
-                    Log.i("IAB SKU=" + purchase.getSku() + " purchased=" + purchased + " time=" + new Date(time));
+                    Log.i("IAB SKU=" + purchase.getSku() +
+                            " purchased=" + isPurchased(purchase) +
+                            " valid=" + isPurchaseValid(purchase) +
+                            " time=" + new Date(time));
 
                     //if (new Date().getTime() - purchase.getPurchaseTime() > 3 * 60 * 1000L) {
                     //    consumePurchase(purchase);
@@ -362,15 +365,12 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
                     //}
 
                     for (IBillingListener listener : listeners)
-                        if (purchased && purchase.isAcknowledged())
+                        if (isPurchaseValid(purchase))
                             listener.onPurchased(purchase.getSku());
                         else
                             listener.onPurchasePending(purchase.getSku());
 
-                    if (!purchased)
-                        continue;
-
-                    if (getSkuPro().equals(purchase.getSku())) {
+                    if (isPurchased(purchase)) {
                         byte[] decodedKey = Base64.decode(getString(R.string.public_key), Base64.DEFAULT);
                         KeyFactory keyFactory = KeyFactory.getInstance("RSA");
                         PublicKey publicKey = keyFactory.generatePublic(new X509EncodedKeySpec(decodedKey));
@@ -378,15 +378,16 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
                         sig.initVerify(publicKey);
                         sig.update(purchase.getOriginalJson().getBytes());
                         if (sig.verify(Base64.decode(purchase.getSignature(), Base64.DEFAULT))) {
+                            Log.i("IAB valid signature");
                             if (getSkuPro().equals(purchase.getSku())) {
-                                if (purchase.isAcknowledged()) {
-                                    Log.i("IAB valid signature");
+                                if (isPurchaseValid(purchase)) {
                                     editor.putBoolean("pro", true);
-                                    editor.putLong(getSkuPro() + ".cached", new Date().getTime());
-                                } else
+                                    editor.putLong(purchase.getSku() + ".cached", new Date().getTime());
+                                }
+
+                                if (!purchase.isAcknowledged())
                                     acknowledgePurchase(purchase, 0);
                             }
-
                         } else {
                             Log.w("IAB invalid signature");
                             editor.putBoolean("pro", false);
@@ -455,7 +456,7 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ActivityBilling.this);
                     SharedPreferences.Editor editor = prefs.edit();
                     editor.putBoolean("pro", true);
-                    editor.putLong(getSkuPro() + ".cached", new Date().getTime());
+                    editor.putLong(purchase.getSku() + ".cached", new Date().getTime());
                     editor.apply();
 
                     for (IBillingListener listener : listeners)
@@ -475,6 +476,16 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
                 }
             }
         });
+    }
+
+    private boolean isPurchased(Purchase purchase) {
+        return (purchase.getPurchaseState() == Purchase.PurchaseState.PURCHASED);
+    }
+
+    private boolean isPurchaseValid(Purchase purchase) {
+        return (isPurchased(purchase) &&
+                (purchase.isAcknowledged() ||
+                        purchase.getPurchaseTime() + MAX_SKU_NOACK_DURATION > new Date().getTime()));
     }
 
     private void reportError(BillingResult result, String stage) {
