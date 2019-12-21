@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -240,7 +241,10 @@ public class FragmentOAuth extends FragmentBase {
             if (BuildConfig.DEBUG)
                 Log.i("OAuth uri=" + authRequest.toUri());
             Intent authIntent = authService.getAuthorizationRequestIntent(authRequest);
-            startActivityForResult(authIntent, ActivitySetup.REQUEST_OAUTH);
+            if (authIntent.resolveActivity(getContext().getPackageManager()) == null)
+                throw new ActivityNotFoundException(authIntent.toString());
+            else
+                startActivityForResult(authIntent, ActivitySetup.REQUEST_OAUTH);
         } catch (Throwable ex) {
             showError(ex);
         }
