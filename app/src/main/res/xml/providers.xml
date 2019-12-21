@@ -19,7 +19,7 @@
             authorizationEndpoint="https://accounts.google.com/o/oauth2/v2/auth"
             clientId="803253368361-574lor1js3csqif9nogkhk5m7688af3c.apps.googleusercontent.com"
             clientSecret="9iyiDx1LEfpg3fpH6DqzoIcG"
-            enabled="false"
+            enabled="true"
             redirectUri="https://email.faircode.eu/oauth/"
             scopes="https://mail.google.com/"
             tokenEndpoint="https://oauth2.googleapis.com/token" />
