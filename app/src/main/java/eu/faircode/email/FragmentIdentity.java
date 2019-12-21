@@ -253,10 +253,14 @@ public class FragmentIdentity extends FragmentBase {
                 }
 
                 // Copy account credentials
+                auth = (account.auth_type == null ? MailService.AUTH_TYPE_PASSWORD : account.auth_type);
                 etEmail.setText(account.user);
                 etUser.setText(account.user);
                 tilPassword.getEditText().setText(account.password);
                 etRealm.setText(account.realm);
+
+                etUser.setEnabled(auth == MailService.AUTH_TYPE_PASSWORD);
+                tilPassword.setEnabled(auth == MailService.AUTH_TYPE_PASSWORD);
                 cbTrust.setChecked(false);
             }
 
