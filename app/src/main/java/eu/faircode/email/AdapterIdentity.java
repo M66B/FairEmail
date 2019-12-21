@@ -65,6 +65,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
         private View view;
         private View vwColor;
         private ImageView ivSync;
+        private ImageView ivOAuth;
         private ImageView ivPrimary;
         private TextView tvName;
         private TextView tvUser;
@@ -83,6 +84,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
             view = itemView.findViewById(R.id.clItem);
             vwColor = itemView.findViewById(R.id.vwColor);
             ivSync = itemView.findViewById(R.id.ivSync);
+            ivOAuth = itemView.findViewById(R.id.ivOAuth);
             ivPrimary = itemView.findViewById(R.id.ivPrimary);
             tvName = itemView.findViewById(R.id.tvName);
             tvUser = itemView.findViewById(R.id.tvUser);
@@ -110,6 +112,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
 
             ivSync.setImageResource(identity.synchronize ? R.drawable.baseline_sync_24 : R.drawable.baseline_sync_disabled_24);
 
+            ivOAuth.setVisibility(identity.auth_type == MailService.AUTH_TYPE_PASSWORD ? View.GONE : View.VISIBLE);
             ivPrimary.setVisibility(identity.primary ? View.VISIBLE : View.GONE);
             tvName.setText(identity.getDisplayName());
             tvUser.setText(identity.email);

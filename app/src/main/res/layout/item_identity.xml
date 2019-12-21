@@ -45,13 +45,24 @@
                 app:srcCompat="@drawable/baseline_cloud_off_24" />
 
             <ImageView
-                android:id="@+id/ivPrimary"
+                android:id="@+id/ivOAuth"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginStart="6dp"
                 android:contentDescription="@string/title_legend_primary"
                 app:layout_constraintBottom_toBottomOf="@+id/tvName"
                 app:layout_constraintStart_toEndOf="@id/ivState"
+                app:layout_constraintTop_toTopOf="@+id/tvName"
+                app:srcCompat="@drawable/baseline_security_24" />
+
+            <ImageView
+                android:id="@+id/ivPrimary"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="6dp"
+                android:contentDescription="@string/title_legend_primary"
+                app:layout_constraintBottom_toBottomOf="@+id/tvName"
+                app:layout_constraintStart_toEndOf="@id/ivOAuth"
                 app:layout_constraintTop_toTopOf="@+id/tvName"
                 app:srcCompat="@drawable/baseline_star_24" />
 
