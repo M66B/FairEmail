@@ -228,7 +228,8 @@ public class FragmentOAuth extends FragmentBase {
                             .setState(provider.id)
                             .setAdditionalParameters(params);
 
-            if ("gmail".equals(provider.id) && BuildConfig.DEBUG)
+            // For offline access
+            if ("gmail".equals(provider.id))
                 authRequestBuilder.setPrompt("consent");
 
             AuthorizationRequest authRequest = authRequestBuilder.build();
