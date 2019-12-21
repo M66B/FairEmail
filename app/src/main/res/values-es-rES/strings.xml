@@ -116,6 +116,8 @@
     <string name="title_setup_gmail_rationale">Por favor, conceda permisos para seleccionar una cuenta y leer su nombre</string>
     <string name="title_setup_gmail_permissions">Google solicitará permisos para leer, redactar, enviar y eliminar permanentemente todo su correo electrónico. FairEmail nunca eliminará sus mensajes sin su consentimiento explícito.</string>
     <string name="title_setup_gmail_drafts">Si la carpeta de borradores no es accesible por IMAP, esto se puede arreglar en la configuración de etiquetas de Gmail</string>
+    <string name="title_setup_oauth_rationale">Autorizar acceso a su cuenta %1$s</string>
+    <string name="title_setup_oauth_authorize">Autorizar</string>
     <string name="title_setup_select_account">Seleccionar cuenta</string>
     <string name="title_setup_instructions">Instrucciones de configuración</string>
     <string name="title_setup_no_settings">No se encontraron ajustes para el dominio \'%1$s\'</string>
@@ -725,6 +727,7 @@
     <string name="title_legend_section_folders">Carpetas</string>
     <string name="title_legend_section_messages">Mensajes</string>
     <string name="title_legend_section_compose">Redactar</string>
+    <string name="title_legend_oauth">Autorización OAuth</string>
     <string name="title_legend_primary_connected">Cuenta conectada</string>
     <string name="title_legend_primary_disconnected">Cuenta desconectada</string>
     <string name="title_legend_download_on">Descargar el contenido de mensajes automáticamente</string>

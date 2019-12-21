@@ -138,6 +138,8 @@
     <string name="title_setup_gmail_rationale">Пожалуйста, предоставьте разрешения для выбора учётной записи и чтения вашего имени</string>
     <string name="title_setup_gmail_permissions">Google запросит разрешения на чтение, создание, отправку и безвозвратное удаление всех ваших сообщений. FairEmail никогда не будет удалять ваши сообщения без вашего явного согласия.</string>
     <string name="title_setup_gmail_drafts">Если папка черновиков недоступна по IMAP, это может быть исправлено в настройках ярлыка Gmail</string>
+    <string name="title_setup_oauth_rationale">Авторизовать доступ к вашей учетной записи %1$s</string>
+    <string name="title_setup_oauth_authorize">Авторизироваться</string>
     <string name="title_setup_select_account">Выбрать учётную запись</string>
     <string name="title_setup_instructions">Инструкция по установке</string>
     <string name="title_setup_no_settings">Не найдено настроек для домена \'%1$s\'</string>
@@ -747,6 +749,7 @@
     <string name="title_legend_section_folders">Папки</string>
     <string name="title_legend_section_messages">Сообщения</string>
     <string name="title_legend_section_compose">Написание</string>
+    <string name="title_legend_oauth">OAuth-авторизация</string>
     <string name="title_legend_primary_connected">Учётная запись подключена</string>
     <string name="title_legend_primary_disconnected">Учётная запись отключена</string>
     <string name="title_legend_download_on">Автоматически загружать содержимое сообщения</string>

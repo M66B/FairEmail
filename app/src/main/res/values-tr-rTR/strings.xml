@@ -116,6 +116,8 @@
     <string name="title_setup_gmail_rationale">Lütfen bir hesap seçmek ve isminizi okumak için izin verin</string>
     <string name="title_setup_gmail_permissions">Google, tüm e-postalarınızı okumak, oluşturmak, göndermek ve kalıcı olarak silmek için izin isteyecektir. FairEmail, açık onayınız olmadan mesajlarınızı asla silmeyecektir.</string>
     <string name="title_setup_gmail_drafts">Taslaklar klasörüne IMAP tarafından erişilemiyorsa, bu Gmail etiket ayarlarında düzeltilebilir</string>
+    <string name="title_setup_oauth_rationale">%1$s hesabınıza erişim için yetkilendirin</string>
+    <string name="title_setup_oauth_authorize">Yetkilendir</string>
     <string name="title_setup_select_account">Hesap seç</string>
     <string name="title_setup_instructions">Kurulum yönergeleri</string>
     <string name="title_setup_no_settings">\'%1$s\' alan adı için ayar bulunamadı</string>
@@ -725,6 +727,7 @@
     <string name="title_legend_section_folders">Klasörler</string>
     <string name="title_legend_section_messages">İletiler</string>
     <string name="title_legend_section_compose">Eposta Oluştur</string>
+    <string name="title_legend_oauth">OAuth yetkilendirmesi</string>
     <string name="title_legend_primary_connected">Hesap bağlantısı kuruldu</string>
     <string name="title_legend_primary_disconnected">Hesap bağlantısı kesildi</string>
     <string name="title_legend_download_on">İleti içeriğini otomatik olarak indir</string>

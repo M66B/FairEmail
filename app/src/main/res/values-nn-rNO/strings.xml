@@ -116,6 +116,8 @@
     <string name="title_setup_gmail_rationale">Gi tillatelser til å velge en konto og lese navnet ditt</string>
     <string name="title_setup_gmail_permissions">Google vil be om tillatelser til å lese, komponere, sende og slette all e-postmeldingen din permanent. FairEmail vil aldri slette meldingene dine uten ditt eksplisitte samtykke.</string>
     <string name="title_setup_gmail_drafts">Hvis utkast mappen ikke er tilgjengelig med IMAP, kan du fikse dette i Gmail-etikettinnstillingene</string>
+    <string name="title_setup_oauth_rationale">Autoriser tilgang til din %1$s konto</string>
+    <string name="title_setup_oauth_authorize">Godkjenne</string>
     <string name="title_setup_select_account">Velg konto</string>
     <string name="title_setup_instructions">Oppsett instruksjoner</string>
     <string name="title_setup_no_settings">Ingen innstillinger funnet for domene \'%1$s\'</string>
@@ -725,6 +727,7 @@
     <string name="title_legend_section_folders">Mapper</string>
     <string name="title_legend_section_messages">Meldinger</string>
     <string name="title_legend_section_compose">Skriv</string>
+    <string name="title_legend_oauth">OAuth autorisasjon</string>
     <string name="title_legend_primary_connected">Konto tilkoblet</string>
     <string name="title_legend_primary_disconnected">Konto frakoblet</string>
     <string name="title_legend_download_on">Last ned meldingsinnhold automatisk</string>

@@ -116,6 +116,8 @@
     <string name="title_setup_gmail_rationale">Eman baimena kontu bat aukeratu eta zure izena irakurtzeko</string>
     <string name="title_setup_gmail_permissions">Google-k zure posta elektronikoa irakurri, konposatu, bidali eta ezabatzeko baimenak eskatuko ditu. FairEmail-ek ez ditu zure mezuak ezabatuko baimen espliziturik gabe.</string>
     <string name="title_setup_gmail_drafts">Zirriborroen karpeta IMAP bidez eskuragarri ez badago, Gmailen etiketen ezarpenetan konpondu daiteke</string>
+    <string name="title_setup_oauth_rationale">Baimendu zure %1$s kontura sarbidea</string>
+    <string name="title_setup_oauth_authorize">Baimendu</string>
     <string name="title_setup_select_account">Hautatu kontua</string>
     <string name="title_setup_instructions">Ezartzeko argibideak</string>
     <string name="title_setup_no_settings">Ez da \'%1$s\' domeinuarentzat ezarpenik aurkitu</string>
@@ -646,6 +648,7 @@
     <string name="title_signature_store">Biltegiratu</string>
     <string name="title_search">Bilatu</string>
     <string name="title_search_server">Bilatu zerbitzarian</string>
+    <string name="title_search_text">Bilatu testuan</string>
     <string name="title_search_in">Bilatu hemen</string>
     <string name="title_sort_on">Ordenatzeko irizpidea</string>
     <string name="title_sort_on_time">Denbora</string>
@@ -724,6 +727,7 @@
     <string name="title_legend_section_folders">Karpetak</string>
     <string name="title_legend_section_messages">Mezuak</string>
     <string name="title_legend_section_compose">Idatzi</string>
+    <string name="title_legend_oauth">OAuth baimena</string>
     <string name="title_legend_primary_connected">Kontua konektatuta</string>
     <string name="title_legend_primary_disconnected">Kontua deskonektatuta</string>
     <string name="title_legend_download_on">Deskargatu mezuaren edukia automatikoki</string>
@@ -900,6 +904,12 @@
     <string name="title_widget_folder_unified">Bateratutako sarrera-ontziko karpetak</string>
     <string name="title_widget_unseen">Irakurri gabeko mezuak soilik</string>
     <string name="title_widget_flagged">Izardun mezuak soilik</string>
+    <string name="title_accessibility_collapsed">Tolestuta</string>
+    <string name="title_accessibility_expanded">Hedatua</string>
+    <string name="title_accessibility_seen">Irakurri</string>
+    <string name="title_accessibility_unseen">Irakurri gabea</string>
+    <string name="title_accessibility_flagged">Izarduna</string>
+    <string name="title_accessibility_unflagged">Izarrik gabe</string>
     <string-array name="pollIntervalNames">
         <item>Beti</item>
         <item>15 minutuero</item>

@@ -713,6 +713,7 @@
     <string name="title_legend_section_folders">文件夹</string>
     <string name="title_legend_section_messages">消息</string>
     <string name="title_legend_section_compose">撰写</string>
+    <string name="title_legend_oauth">OAuth 授权</string>
     <string name="title_legend_primary_connected">帐户已连接</string>
     <string name="title_legend_primary_disconnected">帐户已断开连接</string>
     <string name="title_legend_download_on">自动下载邮件内容</string>

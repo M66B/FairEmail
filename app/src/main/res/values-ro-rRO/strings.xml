@@ -911,6 +911,12 @@
     <string name="title_widget_folder_unified">Dosare unificate</string>
     <string name="title_widget_unseen">Numai mesajele necitite</string>
     <string name="title_widget_flagged">Numai mesajele cu stea</string>
+    <string name="title_accessibility_collapsed">Restrâns</string>
+    <string name="title_accessibility_expanded">Extins</string>
+    <string name="title_accessibility_seen">Citit</string>
+    <string name="title_accessibility_unseen">Necitit</string>
+    <string name="title_accessibility_flagged">Marcat</string>
+    <string name="title_accessibility_unflagged">Nemarcat</string>
     <string-array name="pollIntervalNames">
         <item>Permanent</item>
         <item>La fiecare 15 minute</item>
