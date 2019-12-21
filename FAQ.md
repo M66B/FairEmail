@@ -48,6 +48,7 @@ Related questions:
 * A [bug in Android](https://issuetracker.google.com/issues/119872129) lets FairEmail crash with "*... Bad notification posted ...*" on some devices once after updating FairEmail and tapping on a notification.
 * A [bug in Android](https://issuetracker.google.com/issues/62427912) sometimes causes a crash with "*... ActivityRecord not found for ...*" after updating FairEmail. Reinstalling ([source](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) might fix the problem.
 * A [bug in Android](https://issuetracker.google.com/issues/37018931) sometimes causes a crash with *... InputChannel is not initialized ...* on some devices.
+* A [bug in LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) sometimes causes a crash with *... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.
 * A bug in Nova Launcher on Android 5.x lets FairEmail crash with a *java.lang.StackOverflowError* when Nova Launcher has access to the accessibility service.
 * ~~The folder selector sometimes shows no folders for yet unknown reasons. This seems to be fixed.~~
 * ~~A [bug in AndroidX](https://issuetracker.google.com/issues/64729576) makes it hard to grap the fast scroller. A workaround was added.~~
@@ -100,7 +101,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 
 Since FairEmail is privacy oriented, the following will not be added:
 
-* Opening links without confirmation
+* Opening links without confirmation (if you want to reset the default *Open with* apps, please [see here](https://support.google.com/android/answer/9415055))
 * Showing images and original messages without confirmation, see also [this FAQ](#user-content-faq35)
 * Direct file/folder access: for security/privacy reasons (other) apps should use the [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider), see also [this FAQ](#user-content-faq49)
 
