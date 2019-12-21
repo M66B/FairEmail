@@ -1186,7 +1186,11 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
                     prefs.edit().putString("oauth." + provider.name, authState.jsonSerializeString()).apply();
 
-                    AuthorizationRequest authRequest =
+                    Map<String, String> params = new HashMap<>();
+                    if ("Gmail".equals(provider.name))
+                        params.put("access_type", "offline");
+
+                    AuthorizationRequest.Builder authRequestBuilder =
                             new AuthorizationRequest.Builder(
                                     serviceConfig,
                                     provider.oauth.clientId,
@@ -1194,9 +1198,16 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                                     Uri.parse(provider.oauth.redirectUri))
                                     .setScopes(provider.oauth.scopes)
                                     .setState(provider.name)
-                                    .build();
+                                    .setAdditionalParameters(params);
+
+                    if ("Gmail".equals(provider.name) && BuildConfig.DEBUG)
+                        authRequestBuilder.setPrompt("consent");
+
+                    AuthorizationRequest authRequest = authRequestBuilder.build();
 
                     Log.i("OAuth request provider=" + provider.name);
+                    if (BuildConfig.DEBUG)
+                        Log.i("OAuth uri=" + authRequest.toUri());
                     Intent authIntent = authService.getAuthorizationRequestIntent(authRequest);
                     startActivityForResult(authIntent, REQUEST_OAUTH);
 
@@ -1221,7 +1232,10 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                     final AuthState authState = AuthState.jsonDeserialize(prefs.getString("oauth." + provider.name, null));
                     prefs.edit().remove("oauth." + provider.name).apply();
 
+                    Log.i("OAuth get token provider=" + provider.name);
                     authState.update(auth, null);
+                    if (BuildConfig.DEBUG)
+                        Log.i("OAuth response=" + authState.jsonSerializeString());
 
                     AuthorizationService authService = new AuthorizationService(this);
 
@@ -1231,7 +1245,6 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                     else
                         clientAuth = new ClientSecretPost(provider.oauth.clientSecret);
 
-                    Log.i("OAuth get token provider=" + provider.name);
                     authService.performTokenRequest(
                             auth.createTokenExchangeRequest(),
                             clientAuth,
@@ -1244,6 +1257,12 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
                                         Log.i("OAuth got token provider=" + provider.name);
                                         authState.update(access, null);
+                                        if (BuildConfig.DEBUG)
+                                            Log.i("OAuth response=" + authState.jsonSerializeString());
+
+                                        if (TextUtils.isEmpty(access.refreshToken))
+                                            throw new IllegalStateException("No refresh token");
+
                                         onOAuthorized(provider.name, access.accessToken, authState);
                                     } catch (Throwable ex) {
                                         Log.unexpectedError(getSupportFragmentManager(), ex);
