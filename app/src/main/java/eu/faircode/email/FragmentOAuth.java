@@ -240,8 +240,6 @@ public class FragmentOAuth extends FragmentBase {
             startActivityForResult(authIntent, ActivitySetup.REQUEST_OAUTH);
         } catch (Throwable ex) {
             showError(ex);
-            btnOAuth.setEnabled(true);
-            pbOAuth.setVisibility(View.GONE);
         }
     }
 
@@ -300,8 +298,6 @@ public class FragmentOAuth extends FragmentBase {
                     });
         } catch (Throwable ex) {
             showError(ex);
-            btnOAuth.setEnabled(true);
-            pbOAuth.setVisibility(View.GONE);
         }
     }
 
@@ -520,8 +516,6 @@ public class FragmentOAuth extends FragmentBase {
             @Override
             protected void onException(Bundle args, Throwable ex) {
                 showError(ex);
-                btnOAuth.setEnabled(true);
-                pbOAuth.setVisibility(View.GONE);
             }
         }.execute(this, args, "oauth:configure");
     }
@@ -540,6 +534,9 @@ public class FragmentOAuth extends FragmentBase {
 
         if ("gmail".equals(id))
             tvGmailDraftsHint.setVisibility(View.VISIBLE);
+
+        btnOAuth.setEnabled(true);
+        pbOAuth.setVisibility(View.GONE);
 
         new Handler().post(new Runnable() {
             @Override
