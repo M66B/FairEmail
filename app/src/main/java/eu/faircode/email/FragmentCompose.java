@@ -1991,7 +1991,7 @@ public class FragmentCompose extends FragmentBase {
                 bpContent.writeTo(osContent);
 
                 CMSTypedData cmsData = new CMSProcessableByteArray(osContent.toByteArray());
-                CMSSignedData cmsSignedData = cmsGenerator.generate(cmsData, true);
+                CMSSignedData cmsSignedData = cmsGenerator.generate(cmsData);
                 byte[] signedMessage = cmsSignedData.getEncoded();
 
                 // Build signature
