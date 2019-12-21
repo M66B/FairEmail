@@ -183,11 +183,6 @@ public class FragmentSetup extends FragmentBase {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
                         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-                        if (item.getIntent() != null) {
-                            lbm.sendBroadcast(item.getIntent());
-                            return true;
-                        }
-
                         switch (item.getItemId()) {
                             case R.string.title_setup_gmail:
                                 if (Helper.hasValidFingerprint(getContext()))
@@ -202,7 +197,12 @@ public class FragmentSetup extends FragmentBase {
                                 lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_QUICK_SETUP));
                                 return true;
                             default:
-                                return false;
+                                if (item.getIntent() == null)
+                                    return false;
+                                else {
+                                    lbm.sendBroadcast(item.getIntent());
+                                    return true;
+                                }
                         }
                     }
                 });
