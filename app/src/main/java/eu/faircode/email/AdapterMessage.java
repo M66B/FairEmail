@@ -772,11 +772,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             int colorBackground =
                     (message.accountColor == null || !ActivityBilling.isPro(context)
                             ? colorSeparator : message.accountColor);
-            vwColor.setVisibility(View.VISIBLE);
             if (vwColor.getTag() == null || (int) vwColor.getTag() != colorBackground) {
                 vwColor.setTag(colorBackground);
                 vwColor.setBackgroundColor(colorBackground);
             }
+
+            vwColor.setContentDescription(context.getString(
+                    message.unseen > 0 ? R.string.title_accessibility_unseen : R.string.title_accessibility_seen));
 
             // Expander
             if (ibExpander.getTag() == null || (boolean) ibExpander.getTag() != expanded) {
@@ -801,8 +803,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivEncrypted.setVisibility(message.encrypted > 0 ? View.VISIBLE : View.GONE);
             tvFrom.setText(MessageHelper.formatAddresses(addresses, name_email, false));
             tvFrom.setPaintFlags(tvFrom.getPaintFlags() & ~Paint.UNDERLINE_TEXT_FLAG);
-            //tvFrom.setContentDescription(context.getString(
-            //        message.unseen > 0 ? R.string.title_accessibility_unseen : R.string.title_accessibility_seen));
             tvSize.setText(message.totalSize == null ? null : Helper.humanReadableByteCount(message.totalSize, true));
             tvSize.setVisibility(message.totalSize != null && "size".equals(sort) ? View.VISIBLE : View.GONE);
             tvTime.setText(date && "time".equals(sort)
