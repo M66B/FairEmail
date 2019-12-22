@@ -854,7 +854,7 @@ class Core {
         }
 
         // Delete source
-        if (!copy && !EntityFolder.TRASH.equals(folder.type)) {
+        if (!copy) {
             try {
                 for (Message imessage : map.keySet())
                     imessage.setFlag(Flags.Flag.DELETED, true);
