@@ -224,8 +224,7 @@
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <data
-                    android:host="email.faircode.eu"
-                    android:path="/oauth/"
+                    android:host="oauth.faircode.eu"
                     android:scheme="https" />
             </intent-filter>
 

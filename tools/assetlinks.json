@@ -10,5 +10,5 @@
 },
 {
   "relation": ["delegate_permission/common.handle_all_urls"],
-  "target": { "namespace": "web", "site": "https://email.faircode.eu" }
+  "target": { "namespace": "web", "site": "https://oauth.faircode.eu" }
 }]
