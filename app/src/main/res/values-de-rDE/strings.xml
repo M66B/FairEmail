@@ -311,6 +311,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_crash_reports">Fehlerbericht senden</string>
     <string name="title_advanced_debug">Debugmodus</string>
     <string name="title_advanced_cleanup">Bereinigen</string>
+    <string name="title_advanced_last_cleanup">Letzte Bereinigung: %1$s</string>
     <string name="title_advanced_hint">Alle Einstellungen haben vernünftige Standardwerte, die nur dann geändert werden sollten, wenn es tatsächlich auch notwendig ist</string>
     <string name="title_advanced_enabled_hint">Empfang von Nachrichten für alle Konten deaktivieren oder aktivieren</string>
     <string name="title_advanced_manual_hint">Wenn die Synchronisation deaktiviert ist, ist es immer noch möglich, manuell zu synchronisieren, indem Sie die Nachrichtenliste herunterziehen.</string>

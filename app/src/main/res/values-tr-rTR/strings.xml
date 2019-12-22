@@ -312,6 +312,7 @@
     <string name="title_advanced_crash_reports">Hata raporları gönder</string>
     <string name="title_advanced_debug">Hata ayıklama</string>
     <string name="title_advanced_cleanup">Temizle</string>
+    <string name="title_advanced_last_cleanup">Son temizleme: %1$s</string>
     <string name="title_advanced_hint">Tüm seçenekler mantıklı varsayılan değerlere sahiptir ve yalnızca gerektiğinde değiştirilmelidir</string>
     <string name="title_advanced_enabled_hint">İleti alımını tamamen aç ya da kapat</string>
     <string name="title_advanced_manual_hint">Senkronizasyon devre dışı bırakılmışsa, mesaj listesini aşağı çekerek manuel olarak senkronizasyon yapılabilir.</string>

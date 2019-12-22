@@ -320,6 +320,7 @@
     <string name="title_advanced_crash_reports">Trimite rapoarte de eroare</string>
     <string name="title_advanced_debug">Depanare</string>
     <string name="title_advanced_cleanup">Curățare</string>
+    <string name="title_advanced_last_cleanup">Ultima curățare: %1$s</string>
     <string name="title_advanced_hint">Setările implicite sunt de bun simț și ar trebui schimbate doar dacă este necesar</string>
     <string name="title_advanced_enabled_hint">Activează sau dezactivează global recepția mesajelor</string>
     <string name="title_advanced_manual_hint">Dacă sincronizarea este dezactivată tot este posibilă sincronizarea manuală glisând în jos lista de mesaje.</string>
