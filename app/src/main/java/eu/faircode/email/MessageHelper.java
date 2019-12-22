@@ -236,11 +236,9 @@ public class MessageHelper {
                     StringBuilder sb = new StringBuilder();
                     try (BufferedReader br = new BufferedReader(new FileReader(file))) {
                         String line;
-                        while ((line = br.readLine()) != null) {
-                            Log.i(line);
+                        while ((line = br.readLine()) != null)
                             if (!line.startsWith("-----") && !line.endsWith("-----"))
                                 sb.append(line);
-                        }
                     }
 
                     imessage.addHeader("Autocrypt",
