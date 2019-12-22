@@ -181,6 +181,16 @@
             app:layout_constraintTop_toBottomOf="@id/btnCleanup" />
 
         <TextView
+            android:id="@+id/tvLastCleanup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/title_advanced_last_cleanup"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCleanupHint" />
+
+        <TextView
             android:id="@+id/tvProcessors"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -189,7 +199,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvCleanupHint" />
+            app:layout_constraintTop_toBottomOf="@id/tvLastCleanup" />
 
         <TextView
             android:id="@+id/tvMemoryClass"
@@ -212,11 +222,12 @@
             app:layout_constraintTop_toBottomOf="@id/tvMemoryClass" />
 
         <TextView
-            android:id="@+id/tvLastCleanup"
+            android:id="@+id/tvFingerprint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/title_advanced_last_cleanup"
+            android:text="12:34:56:78:9A:BC:CD:EF"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textIsSelectable="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvStorageSpace" />
@@ -225,6 +236,6 @@
             android:id="@+id/grpDebug"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvProcessors,tvMemoryClass,tvStorageSpace,tvLastCleanup" />
+            app:constraint_referenced_ids="tvProcessors,tvMemoryClass,tvStorageSpace,tvFingerprint" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

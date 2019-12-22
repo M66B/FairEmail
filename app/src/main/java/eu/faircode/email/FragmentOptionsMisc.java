@@ -50,15 +50,16 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swExperiments;
     private TextView tvExperimentsHint;
     private SwitchCompat swCrashReports;
+    private TextView tvUuid;
     private SwitchCompat swDebug;
     private Button btnReset;
     private Button btnCleanup;
+    private TextView tvLastCleanup;
 
     private TextView tvProcessors;
     private TextView tvMemoryClass;
     private TextView tvStorageSpace;
-    private TextView tvLastCleanup;
-    private TextView tvUuid;
+    private TextView tvFingerprint;
 
     private Group grpDebug;
 
@@ -88,15 +89,16 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swExperiments = view.findViewById(R.id.swExperiments);
         tvExperimentsHint = view.findViewById(R.id.tvExperimentsHint);
         swCrashReports = view.findViewById(R.id.swCrashReports);
+        tvUuid = view.findViewById(R.id.tvUuid);
         swDebug = view.findViewById(R.id.swDebug);
         btnReset = view.findViewById(R.id.btnReset);
         btnCleanup = view.findViewById(R.id.btnCleanup);
+        tvLastCleanup = view.findViewById(R.id.tvLastCleanup);
 
         tvProcessors = view.findViewById(R.id.tvProcessors);
         tvMemoryClass = view.findViewById(R.id.tvMemoryClass);
         tvStorageSpace = view.findViewById(R.id.tvStorageSpace);
-        tvLastCleanup = view.findViewById(R.id.tvLastCleanup);
-        tvUuid = view.findViewById(R.id.tvUuid);
+        tvFingerprint = view.findViewById(R.id.tvFingerprint);
 
         grpDebug = view.findViewById(R.id.grpDebug);
 
@@ -295,6 +297,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         tvStorageSpace.setText(getString(R.string.title_advanced_storage_space,
                 Helper.humanReadableByteCount(Helper.getStorageSpace(), true)));
+        tvFingerprint.setText(Helper.getFingerprint(getContext()));
 
         grpDebug.setVisibility(swDebug.isChecked() || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
     }

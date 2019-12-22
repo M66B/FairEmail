@@ -362,7 +362,7 @@
     <string name="title_advanced_processors" translatable="false">Processors: %1$d</string>
     <string name="title_advanced_memory_class" translatable="false">Memory class: %1$s</string>
     <string name="title_advanced_storage_space" translatable="false">Storage space: %1$s</string>
-    <string name="title_advanced_last_cleanup" translatable="false">Last cleanup: %1$s</string>
+    <string name="title_advanced_last_cleanup">Last cleanup: %1$s</string>
 
     <string name="title_advanced_hint">All settings have sensible default values, which should only be changed if necessary</string>
 
