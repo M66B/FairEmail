@@ -1420,11 +1420,6 @@ class Core {
             Message[] imessages = ifolder.getMessages();
             Log.i(folder.name + " POP messages=" + imessages.length);
 
-            // Some servers send messages once only
-            // Prevent deleting all local messages
-            if (imessages.length == 0)
-                return;
-
             if (caps.containsKey("UIDL")) {
                 FetchProfile ifetch = new FetchProfile();
                 ifetch.add(UIDFolder.FetchProfileItem.UID);
