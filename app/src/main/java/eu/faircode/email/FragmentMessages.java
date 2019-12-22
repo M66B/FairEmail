@@ -3018,14 +3018,19 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         model.getIds(getContext(), getViewLifecycleOwner(), new Observer<List<Long>>() {
             @Override
             public void onChanged(List<Long> ids) {
-                selectionTracker.clearSelection();
-                for (long id : ids)
-                    selectionTracker.select(id);
+                new Handler().post(new Runnable() {
+                    @Override
+                    public void run() {
+                        selectionTracker.clearSelection();
+                        for (long id : ids)
+                            selectionTracker.select(id);
 
-                ToastEx.makeText(getContext(),
-                        getContext().getResources().getQuantityString(
-                                R.plurals.title_selected_conversations, ids.size(), ids.size()),
-                        Toast.LENGTH_LONG).show();
+                        ToastEx.makeText(getContext(),
+                                getContext().getResources().getQuantityString(
+                                        R.plurals.title_selected_conversations, ids.size(), ids.size()),
+                                Toast.LENGTH_LONG).show();
+                    }
+                });
             }
         });
     }
