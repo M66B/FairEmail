@@ -204,7 +204,8 @@ public class ApplicationEx extends Application {
             editor.remove("folder_sync");
         }
 
-        editor.putInt("previous_version", version);
+        if (version < BuildConfig.VERSION_CODE)
+            editor.putInt("previous_version", version);
         editor.putInt("version", BuildConfig.VERSION_CODE);
 
         editor.apply();
