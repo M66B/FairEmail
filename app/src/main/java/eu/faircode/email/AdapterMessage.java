@@ -721,9 +721,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             : message.uid == null && message.accountProtocol == EntityAccount.TYPE_IMAP)
                             ? Helper.LOW_LIGHT : 1.0f);
 
-            view.setContentDescription(context.getString(
-                    message.unseen > 0 ? R.string.title_accessibility_unseen : R.string.title_accessibility_seen));
-
             // Duplicate
             if (viewType == ViewType.THREAD) {
                 boolean dim = (message.duplicate || EntityFolder.TRASH.equals(message.folderType));
@@ -779,6 +776,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 vwColor.setTag(colorBackground);
                 vwColor.setBackgroundColor(colorBackground);
             }
+
+            vwColor.setContentDescription(context.getString(
+                    message.unseen > 0 ? R.string.title_accessibility_unseen : R.string.title_accessibility_seen));
 
             // Expander
             if (ibExpander.getTag() == null || (boolean) ibExpander.getTag() != expanded) {
