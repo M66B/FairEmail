@@ -236,9 +236,11 @@ public class MessageHelper {
                     StringBuilder sb = new StringBuilder();
                     try (BufferedReader br = new BufferedReader(new FileReader(file))) {
                         String line;
-                        while ((line = br.readLine()) != null)
+                        while ((line = br.readLine()) != null) {
+                            Log.i(line);
                             if (!line.startsWith("-----") && !line.endsWith("-----"))
                                 sb.append(line);
+                        }
                     }
 
                     imessage.addHeader("Autocrypt",
@@ -874,6 +876,20 @@ public class MessageHelper {
             Log.w(ex);
             return null;
         }
+    }
+
+    String getAutocrypt() throws MessagingException {
+        String autocrypt = imessage.getHeader("Autocrypt", null);
+        if (autocrypt == null)
+            return null;
+
+        autocrypt = MimeUtility.unfold(autocrypt);
+
+        int k = autocrypt.indexOf("keydata=");
+        if (k < 0)
+            return null;
+
+        return autocrypt.substring(k + 8);
     }
 
     String getSubject() throws MessagingException {
