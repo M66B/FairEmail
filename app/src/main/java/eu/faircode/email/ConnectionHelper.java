@@ -187,13 +187,7 @@ public class ConnectionHelper {
         Network active = cm.getActiveNetwork();
         if (active == null) {
             Log.i("isMetered: no active network");
-            // Workaround bug in some Android versions
-            NetworkInfo ani = cm.getActiveNetworkInfo();
-            if (ani == null || !ani.isConnected()) {
-                Log.i("isMetered: no active network=" + (ani == null ? null : ani.isConnected()));
-                return null;
-            }
-            return cm.isActiveNetworkMetered();
+            return null;
         }
 
         // onLost [... state: DISCONNECTED/DISCONNECTED ... available: true]
