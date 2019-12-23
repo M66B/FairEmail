@@ -1502,37 +1502,84 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
     private static long[] getSchedule(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        if (!prefs.getBoolean("schedule", false) || !ActivityBilling.isPro(context))
+        if (!prefs.getBoolean("schedule", false))
+            return null;
+
+        if (!ActivityBilling.isPro(context))
             return null;
 
         int minuteStart = prefs.getInt("schedule_start", 0);
         int minuteEnd = prefs.getInt("schedule_end", 0);
-
-        if (minuteEnd <= minuteStart)
-            minuteEnd += 24 * 60;
 
         Calendar calStart = Calendar.getInstance();
         calStart.set(Calendar.HOUR_OF_DAY, minuteStart / 60);
         calStart.set(Calendar.MINUTE, minuteStart % 60);
         calStart.set(Calendar.SECOND, 0);
         calStart.set(Calendar.MILLISECOND, 0);
+        calStart.add(Calendar.DATE, -1);
 
         Calendar calEnd = Calendar.getInstance();
         calEnd.set(Calendar.HOUR_OF_DAY, minuteEnd / 60);
         calEnd.set(Calendar.MINUTE, minuteEnd % 60);
         calEnd.set(Calendar.SECOND, 0);
         calEnd.set(Calendar.MILLISECOND, 0);
+        if (minuteEnd > minuteStart)
+            calEnd.add(Calendar.DATE, -1);
 
         long now = new Date().getTime();
-        if (now > calEnd.getTimeInMillis()) {
-            calStart.set(Calendar.DAY_OF_MONTH, calStart.get(Calendar.DAY_OF_MONTH) + 1);
-            calEnd.set(Calendar.DAY_OF_MONTH, calEnd.get(Calendar.DAY_OF_MONTH) + 1);
+
+        boolean found = false;
+        for (int i = 0; i < 8; i++) {
+            int sdow = calStart.get(Calendar.DAY_OF_WEEK) - 1;
+            int edow = calEnd.get(Calendar.DAY_OF_WEEK) - 1;
+            boolean son = prefs.getBoolean("schedule_day" + sdow, true);
+            boolean eon = prefs.getBoolean("schedule_day" + edow, true);
+
+            if (BuildConfig.DEBUG)
+                Log.i("@@@ eval dow=" + sdow + "/" + edow +
+                        " on=" + son + "/" + eon +
+                        " start=" + new Date(calStart.getTimeInMillis()) +
+                        " end=" + new Date(calEnd.getTimeInMillis()));
+
+            if ((son || eon) &&
+                    now < calEnd.getTimeInMillis() &&
+                    (i > 0 || (now >= calStart.getTimeInMillis() && eon))) {
+                found = true;
+
+                if (!son) {
+                    calStart.set(Calendar.HOUR_OF_DAY, 0);
+                    calStart.set(Calendar.MINUTE, 0);
+                    calStart.add(Calendar.DATE, 1);
+                }
+
+                if (!eon) {
+                    calEnd.set(Calendar.HOUR_OF_DAY, 0);
+                    calEnd.set(Calendar.MINUTE, 0);
+                }
+
+                break;
+            }
+
+            calStart.add(Calendar.DATE, 1);
+            calEnd.add(Calendar.DATE, 1);
         }
-        if (now > calEnd.getTimeInMillis())
-            Log.e("Schedule invalid now=" + new Date(now) + " end=" + new Date(calEnd.getTimeInMillis()));
+
+        if (!found) {
+            if (BuildConfig.DEBUG)
+                Log.i("@@@ not found");
+            return null;
+        }
 
         long start = calStart.getTimeInMillis();
         long end = calEnd.getTimeInMillis();
+
+        if (BuildConfig.DEBUG) {
+            Log.i("@@@ start=" + new Date(start));
+            Log.i("@@@ end=" + new Date(end));
+        }
+
+        if (now > end)
+            Log.e("Schedule invalid now=" + new Date(now) + " end=" + new Date(end));
         if (start > end)
             Log.e("Schedule invalid start=" + new Date(start) + " end=" + new Date(end));
 
