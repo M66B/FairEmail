@@ -1030,9 +1030,10 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                         if (der)
                             cert = (X509Certificate) fact.generateCertificate(is);
                         else {
+                            // throws DecoderException extends IllegalStateException
                             PemObject pem = new PemReader(new InputStreamReader(is)).readPemObject();
                             if (pem == null)
-                                throw new IllegalArgumentException(context.getString(R.string.title_invalid_key));
+                                throw new IllegalStateException();
                             ByteArrayInputStream bis = new ByteArrayInputStream(pem.getContent());
                             cert = (X509Certificate) fact.generateCertificate(bis);
                         }
@@ -1058,6 +1059,8 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 protected void onException(Bundle args, Throwable ex) {
                     if (ex instanceof IllegalArgumentException)
                         ToastEx.makeText(ActivitySetup.this, ex.getMessage(), Toast.LENGTH_LONG).show();
+                    else if (ex instanceof IllegalStateException)
+                        ToastEx.makeText(ActivitySetup.this, R.string.title_invalid_key, Toast.LENGTH_LONG).show();
                     else
                         Log.unexpectedError(getSupportFragmentManager(), ex);
                 }
