@@ -112,10 +112,12 @@
     <string name="title_setup_wizard">Помощник</string>
     <string name="title_setup_wizard_remark">Назад за връщане в пощенската кутия</string>
     <string name="title_setup_other">Друг доставчик</string>
-    <string name="title_setup_gmail_support">Ауторизацията на профила в Google работи само в официални версии, защото Android проверява подписа на приложението</string>
+    <string name="title_setup_gmail_support">Оторизацията на профила в Google работи само в официални версии, защото Android проверява подписа на приложението</string>
     <string name="title_setup_gmail_rationale">Моля, дайте разрешения за избор на профил</string>
     <string name="title_setup_gmail_permissions">Google ще поиска разрешения за четене, съставяне, изпращане и окончателно изтриване на целия ви имейл. FairEmail никога няма да изтрие вашите съобщения без вашето изрично съгласие.</string>
     <string name="title_setup_gmail_drafts">Ако папката за чернови не е достъпна от IMAP, това може да бъде коригирано в настройките на етикета на Gmail</string>
+    <string name="title_setup_oauth_rationale">Разрешете достъп до вашия %1$s акаунт</string>
+    <string name="title_setup_oauth_authorize">Оторизирам</string>
     <string name="title_setup_select_account">Изберане на профил</string>
     <string name="title_setup_instructions">Инструкции за настройка</string>
     <string name="title_setup_no_settings">Не са намерени настройки за домейн %1$s</string>
@@ -725,6 +727,7 @@
     <string name="title_legend_section_folders">Папки</string>
     <string name="title_legend_section_messages">Съобщения</string>
     <string name="title_legend_section_compose">Ново съобщение</string>
+    <string name="title_legend_oauth">OAuth оторизация</string>
     <string name="title_legend_primary_connected">Профила е свързан</string>
     <string name="title_legend_primary_disconnected">Профила не е свързан</string>
     <string name="title_legend_download_on">Изтеглеяне съдържанието на съобщенията автоматично</string>
@@ -901,6 +904,12 @@
     <string name="title_widget_folder_unified">Обща папка входящи</string>
     <string name="title_widget_unseen">Непрочетени съобщения</string>
     <string name="title_widget_flagged">Само съобщения със звезда</string>
+    <string name="title_accessibility_collapsed">Свиване</string>
+    <string name="title_accessibility_expanded">Разширен</string>
+    <string name="title_accessibility_seen">Прочетено</string>
+    <string name="title_accessibility_unseen">Непрочетено</string>
+    <string name="title_accessibility_flagged">Със звезда</string>
+    <string name="title_accessibility_unflagged">Без звезда</string>
     <string-array name="pollIntervalNames">
         <item>Винаги</item>
         <item>На всеки 15 минути</item>

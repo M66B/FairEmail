@@ -13,6 +13,7 @@
     <string name="channel_update">Aktualizacje</string>
     <string name="channel_warning">Ostrzeżenia</string>
     <string name="channel_error">Błędy</string>
+    <string name="channel_alert">Alerty serwera</string>
     <string name="channel_group_contacts">Kontakty</string>
     <plurals name="page_conversation">
         <item quantity="one">Wątek</item>
@@ -91,7 +92,9 @@
     <string name="title_notification_waiting">Oczekiwanie na odpowiednie połączenie</string>
     <string name="title_notification_sending">Wysyłanie wiadomości</string>
     <string name="title_notification_failed">%1$s nie powiodło się</string>
+    <string name="title_notification_alert">Alert serwera \'%1$s\'</string>
     <string name="title_name_count">%1$s (%2$s)</string>
+    <string name="menu_exit">Wyjście</string>
     <string name="menu_answers">Szablony</string>
     <string name="menu_operations">Operacje</string>
     <string name="menu_contacts">Kontakty lokalne</string>
@@ -135,6 +138,8 @@
     <string name="title_setup_gmail_rationale">Przyznaj uprawnienia, aby wybrać konto i odczytać swoje imię</string>
     <string name="title_setup_gmail_permissions">Google poprosi o uprawnienia do odczytu, tworzenia, wysyłania i trwałego usuwania wszystkich wiadomości e-mail. FairEmail nigdy nie usunie twoich wiadomości bez Twojej wyraźnej zgody.</string>
     <string name="title_setup_gmail_drafts">Jeśli folder wersji roboczych nie jest dostępny przez IMAP, można to naprawić w ustawieniach etykiety Gmail</string>
+    <string name="title_setup_oauth_rationale">Autoryzuj dostęp do Twojego konta %1$s</string>
+    <string name="title_setup_oauth_authorize">Autoryzuj</string>
     <string name="title_setup_select_account">Wybierz konto</string>
     <string name="title_setup_instructions">Instrukcja konfiguracji</string>
     <string name="title_setup_no_settings">Nie ma ustawień dla domeny \'%1$s\'</string>
@@ -143,6 +148,7 @@
     <string name="title_setup_quick_failed">Możesz ustawić konto i tożsamość w krokach poniżej</string>
     <string name="title_setup_manage">Zarządzaj</string>
     <string name="title_setup_grant">Zezwól</string>
+    <string name="title_setup_grant_again">Udziel wymaganych uprawnień</string>
     <string name="title_setup_account">Skonfiguruj konta</string>
     <string name="title_setup_account_remark">Do odebrania poczty</string>
     <string name="title_setup_account_hint">Aby zmienić kolor, przesuń lewy/prawy folder docelowy, itp.</string>
@@ -203,6 +209,7 @@
     <string name="title_advanced_section_notifications">Powiadomienia</string>
     <string name="title_advanced_section_privacy">Prywatność</string>
     <string name="title_advanced_section_misc">Różne</string>
+    <string name="title_advanced_receive">Odbierz wiadomości</string>
     <string name="title_advanced_when">Kiedy</string>
     <string name="title_advanced_schedule">Harmonogram</string>
     <string name="title_advanced_unseen">Wszystkie nieprzeczytane wiadomości</string>
@@ -330,6 +337,7 @@
     <string name="title_advanced_last_cleanup">Ostatnie czyszczenie: %1$s</string>
     <string name="title_advanced_hint">Wszystkie ustawienia mają wrażliwe wartości domyślne, które należy zmieniać tylko w razie potrzeby</string>
     <string name="title_advanced_enabled_hint">Globalnie wyłącz lub włącz odbieranie wiadomości</string>
+    <string name="title_advanced_manual_hint">Jeśli synchronizacja jest wyłączona, nadal można synchronizować ręcznie, przeciągając listę wiadomości.</string>
     <string name="title_advanced_poll_hint">Synchronizacja okresowa za każdym razem porównuje wiadomości lokalne i zdalne, co jest kosztowną operacją, która może prowadzić do dodatkowego zużycia baterii, zwłaszcza gdy jest wiele wiadomości do synchronizacji. Synchronizacja ciągła pozwoli uniknąć tego poprzez stałe monitorowanie tylko zmian.</string>
     <string name="title_advanced_schedule_hint">Dotknij zegara, aby ustawić czas</string>
     <string name="title_advanced_check_mx">Sprawdź adresy e-mail nadawcy przy synchronizowaniu wiadomości</string>
@@ -416,6 +424,7 @@
     <string name="title_use_date">Użyj czasu wysłania nagłówka daty zamiast czasu odebranego przez serwer</string>
     <string name="title_related_identity">Dodaj powiązaną tożsamość</string>
     <string name="title_check">Sprawdź</string>
+    <string name="title_trust">Zaufaj certyfikatowi serwera za pomocą odcisku palca %1$s</string>
     <string name="title_no_name">Brak nazwy</string>
     <string name="title_no_email">Brak adresu e-mail</string>
     <string name="title_email_invalid">Niepoprawny adres e-mail: \'%1$s\'</string>
@@ -499,6 +508,7 @@
     <string name="title_no_folders">Brak folderów</string>
     <string name="title_no_messages">Brak wiadomości</string>
     <string name="title_filters_active">Jeden lub więcej filtrów jest aktywnych</string>
+    <string name="title_duplicate_in">Duplikat wiadomości w %1$s</string>
     <string name="title_subject_reply">Odp: %1$s</string>
     <string name="title_subject_forward">Pd: %1$s</string>
     <string name="title_seen">Oznacz jako przeczytane</string>
@@ -553,6 +563,7 @@
     <string name="title_no_stream">Nieaktualna aplikacja wysłała ścieżkę pliku zamiast strumienia pliku</string>
     <string name="title_no_contacts">Wybór kontaktu nie jest dostępny</string>
     <string name="title_no_internet">Brak lub brak odpowiedniego połączenia internetowego</string>
+    <string name="title_no_connection">Łączenie z jednym lub kilkoma kontami &#8230;</string>
     <string name="title_no_folder">Folder nie istnieje</string>
     <string name="title_no_format">Oryginalnie odebrana wiadomość zostanie dołączona</string>
     <string name="title_no_image">Nie można zdekodować obrazu</string>
@@ -660,6 +671,7 @@
     <string name="title_signature_store">Zapisz</string>
     <string name="title_search">Szukaj</string>
     <string name="title_search_server">Szukaj na serwerze</string>
+    <string name="title_search_text">Szukaj w tekście</string>
     <string name="title_search_in">Szukaj w</string>
     <string name="title_sort_on">Sortuj wg</string>
     <string name="title_sort_on_time">Czas</string>
@@ -738,6 +750,7 @@
     <string name="title_legend_section_folders">Foldery</string>
     <string name="title_legend_section_messages">Wiadomości</string>
     <string name="title_legend_section_compose">Napisz</string>
+    <string name="title_legend_oauth">Autoryzacja OAuth</string>
     <string name="title_legend_primary_connected">Konto połączone</string>
     <string name="title_legend_primary_disconnected">Konto rozłączone</string>
     <string name="title_legend_download_on">Automatycznie pobierz zawartość wiadomości</string>
@@ -896,6 +909,7 @@ FairEmail wyświetla o tym małą wiadomość przypominającą, która zostanie 
     <string name="title_unexpected_error">Nieoczekiwany błąd</string>
     <string name="title_log">Log</string>
     <string name="title_auto_scroll">Autoprzewijanie</string>
+    <string name="title_log_clear">Wyczyść</string>
     <string name="title_debug_info">Info debugowania</string>
     <string name="title_debug_info_remark">Opisz proszę problem i wskaż moment jego wystąpienia:</string>
     <string name="title_crash_info_remark">Opisz proszę, co robisz, w momencie awarii aplikacji:</string>
@@ -912,6 +926,12 @@ FairEmail wyświetla o tym małą wiadomość przypominającą, która zostanie 
     <string name="title_widget_folder_unified">Foldery wspólnej skrzynki odbiorczej</string>
     <string name="title_widget_unseen">Tylko nieprzeczytane wiadomości</string>
     <string name="title_widget_flagged">Tylko oznaczone</string>
+    <string name="title_accessibility_collapsed">Zwinięta</string>
+    <string name="title_accessibility_expanded">Rozwinięta</string>
+    <string name="title_accessibility_seen">Przeczytana</string>
+    <string name="title_accessibility_unseen">Nieprzeczytana</string>
+    <string name="title_accessibility_flagged">Oznaczona</string>
+    <string name="title_accessibility_unflagged">Nie oznaczona</string>
     <string-array name="pollIntervalNames">
         <item>Zawsze</item>
         <item>Co 15 minut</item>

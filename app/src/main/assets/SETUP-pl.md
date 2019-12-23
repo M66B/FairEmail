@@ -38,4 +38,4 @@ W najnowszych wersjach Android usypia aplikacje, gdy ekran jest wyłączony prze
 
 ## Pytania lub problemy
 
-If you have a question or problem, please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) for help.
+Jeśli masz pytanie lub problem, [zobacz tutaj](https://github.com/M66B/FairEmail/blob/master/FAQ.md), aby uzyskać pomoc.
