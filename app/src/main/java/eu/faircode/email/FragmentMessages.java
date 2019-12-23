@@ -4527,15 +4527,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                     // Find recipient
                     InputStream is = null;
-                    for (RecipientInformation recipientInfo : recipients) {
-                        KeyTransRecipientId recipientId = (KeyTransRecipientId) recipientInfo.getRID();
-                        if (recipientId.getSerialNumber().equals(chain[0].getSerialNumber()))
-                            try {
-                                is = recipientInfo.getContentStream(recipient).getContentStream();
-                            } catch (CMSException ex) {
-                                Log.w(ex);
-                            }
-                    }
+                    if (chain[0].getSerialNumber() != null)
+                        for (RecipientInformation recipientInfo : recipients) {
+                            KeyTransRecipientId recipientId = (KeyTransRecipientId) recipientInfo.getRID();
+                            if (chain[0].getSerialNumber().equals(recipientId.getSerialNumber()))
+                                try {
+                                    is = recipientInfo.getContentStream(recipient).getContentStream();
+                                } catch (CMSException ex) {
+                                    Log.w(ex);
+                                }
+                        }
 
                     // Fallback: try all recipients
                     if (is == null)
