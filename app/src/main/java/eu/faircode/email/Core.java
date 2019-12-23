@@ -32,6 +32,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.TextUtils;
+import android.util.Base64;
 import android.util.Pair;
 
 import androidx.annotation.NonNull;
@@ -2147,28 +2148,29 @@ class Core {
                 int sequence = 1;
 
                 String autocrypt = helper.getAutocrypt();
-                if (autocrypt != null) {
-                    EntityAttachment attachment = new EntityAttachment();
-                    attachment.message = message.id;
-                    attachment.sequence = sequence++;
-                    attachment.name = "pubkey.pem";
-                    attachment.type = "application/pgp-keys";
-                    attachment.disposition = Part.ATTACHMENT;
-                    attachment.id = db.attachment().insertAttachment(attachment);
+                if (autocrypt != null)
+                    try {
+                        EntityAttachment attachment = new EntityAttachment();
+                        attachment.message = message.id;
+                        attachment.sequence = sequence++;
+                        attachment.name = "pubkey.pem";
+                        attachment.type = "application/pgp-keys";
+                        attachment.disposition = Part.ATTACHMENT;
+                        attachment.id = db.attachment().insertAttachment(attachment);
 
-                    File file = attachment.getFile(context);
-                    try (FileWriter writer = new FileWriter(file)) {
-                        writer.write("-----BEGIN PGP PUBLIC KEY BLOCK-----\r\n\r\n");
-                        while (autocrypt.length() > 0) {
-                            int i = Math.min(64, autocrypt.length());
-                            writer.write(autocrypt.substring(0, i) + "\r\n");
-                            autocrypt = autocrypt.substring(i);
+                        byte[] b = Base64.decode(autocrypt, Base64.DEFAULT);
+
+                        File file = attachment.getFile(context);
+                        try (FileWriter writer = new FileWriter(file)) {
+                            writer.write("-----BEGIN PGP PUBLIC KEY BLOCK-----\r\n\r\n");
+                            writer.write(Base64.encodeToString(b, Base64.CRLF));
+                            writer.write("-----END PGP PUBLIC KEY BLOCK-----\r\n");
                         }
-                        writer.write("-----END PGP PUBLIC KEY BLOCK-----\r\n");
-                    }
 
-                    db.attachment().setDownloaded(attachment.id, file.length());
-                }
+                        db.attachment().setDownloaded(attachment.id, file.length());
+                    } catch (IllegalArgumentException ex) {
+                        Log.w(ex);
+                    }
 
                 List<EntityAttachment> attachments = parts.getAttachments();
                 for (EntityAttachment attachment : attachments) {
