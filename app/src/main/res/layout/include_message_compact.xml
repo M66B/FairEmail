@@ -9,6 +9,7 @@
         android:layout_width="6dp"
         android:layout_height="0dp"
         android:background="?attr/colorAccent"
+        android:importantForAccessibility="no"
         app:layout_constraintBottom_toBottomOf="@+id/paddingBottom"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -57,6 +58,13 @@
         app:layout_constraintTop_toBottomOf="@id/paddingTop"
         app:srcCompat="@drawable/baseline_person_24" />
 
+    <View
+        android:id="@+id/vwSeen"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toEndOf="@+id/ibAvatar"
+        app:layout_constraintTop_toBottomOf="@id/paddingTop"/>
+
     <ImageButton
         android:id="@+id/ibAuth"
         android:layout_width="21dp"
@@ -66,7 +74,7 @@
         android:contentDescription="@string/title_legend_auth"
         android:tint="@color/colorError"
         app:layout_constraintBottom_toBottomOf="@+id/tvFrom"
-        app:layout_constraintStart_toEndOf="@id/ibAvatar"
+        app:layout_constraintStart_toEndOf="@id/vwSeen"
         app:layout_constraintTop_toTopOf="@+id/tvFrom"
         app:srcCompat="@drawable/baseline_flag_24" />
 
@@ -162,9 +170,8 @@
         android:layout_width="21dp"
         android:layout_height="21dp"
         android:layout_marginStart="6dp"
-        android:contentDescription="@string/title_legend_folder_type"
         app:layout_constraintBottom_toBottomOf="@+id/tvSubject"
-        app:layout_constraintStart_toEndOf="@id/ibAvatar"
+        app:layout_constraintStart_toEndOf="@id/vwSeen"
         app:layout_constraintTop_toTopOf="@+id/tvSubject"
         app:srcCompat="@drawable/baseline_edit_24" />
 
@@ -236,7 +243,6 @@
         android:layout_width="15dp"
         android:layout_height="15dp"
         android:layout_marginEnd="6dp"
-        android:contentDescription="@string/title_legend_thread"
         app:layout_constraintBottom_toBottomOf="@id/tvSubject"
         app:layout_constraintEnd_toStartOf="@+id/ibFlagged"
         app:layout_constraintTop_toTopOf="@+id/tvSubject"
@@ -268,7 +274,7 @@
         android:text="Folder"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintEnd_toStartOf="@+id/ibFlagged"
-        app:layout_constraintStart_toEndOf="@id/ibAvatar"
+        app:layout_constraintStart_toEndOf="@id/vwSeen"
         app:layout_constraintTop_toBottomOf="@id/tvSubject" />
 
     <TextView

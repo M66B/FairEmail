@@ -263,6 +263,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageButton ibExpander;
         private ImageView ibFlagged;
         private ImageButton ibAvatar;
+        private View vwSeen;
         private ImageButton ibAuth;
         private ImageView ivPriorityHigh;
         private ImageView ivPriorityLow;
@@ -386,6 +387,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibExpander = itemView.findViewById(R.id.ibExpander);
             ibFlagged = itemView.findViewById(R.id.ibFlagged);
             ibAvatar = itemView.findViewById(R.id.ibAvatar);
+            vwSeen = itemView.findViewById(R.id.vwSeen);
             ibAuth = itemView.findViewById(R.id.ibAuth);
             ivPriorityHigh = itemView.findViewById(R.id.ivPriorityHigh);
             ivPriorityLow = itemView.findViewById(R.id.ivPriorityLow);
@@ -777,9 +779,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 vwColor.setBackgroundColor(colorBackground);
             }
 
-            vwColor.setContentDescription(context.getString(
-                    message.unseen > 0 ? R.string.title_accessibility_unseen : R.string.title_accessibility_seen));
-
             // Expander
             if (ibExpander.getTag() == null || (boolean) ibExpander.getTag() != expanded) {
                 ibExpander.setTag(expanded);
@@ -794,6 +793,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             // Photo
             ibAvatar.setVisibility(avatars ? View.INVISIBLE : View.GONE);
+
+            vwSeen.setContentDescription(context.getString(
+                    message.unseen > 0 ? R.string.title_accessibility_unseen : R.string.title_accessibility_seen));
 
             // Line 1
             ibAuth.setVisibility(authentication && !authenticated ? View.VISIBLE : View.GONE);
