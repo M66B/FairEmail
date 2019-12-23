@@ -584,6 +584,7 @@ The first time you send a signed/encrypted message you might be asked for a sign
 FairEmail will automatically store the selected sign key in the used identity for the next time.
 If you need to reset the sign key, just save the identity or long press the identity in the list of identities and select *Reset sign key*.
 The selected sign key is visible in the list of identities.
+If need to select a key on a case by case basis, you can create multiple identities for the same account with the same email address.
 
 In the privacy settings you can select the default encryption method (PGP or S/MIME),
 enable *Sign by default*, *Encrypt by default* and *Automatically decrypt messages*,
