@@ -2148,16 +2148,16 @@ class Core {
                 int sequence = 1;
 
                 String autocrypt = helper.getAutocrypt();
-                if (autocrypt != null)
-                    try {
-                        EntityAttachment attachment = new EntityAttachment();
-                        attachment.message = message.id;
-                        attachment.sequence = sequence++;
-                        attachment.name = "pubkey.pem";
-                        attachment.type = "application/pgp-keys";
-                        attachment.disposition = Part.ATTACHMENT;
-                        attachment.id = db.attachment().insertAttachment(attachment);
+                if (autocrypt != null) {
+                    EntityAttachment attachment = new EntityAttachment();
+                    attachment.message = message.id;
+                    attachment.sequence = sequence++;
+                    attachment.name = "pubkey.pem";
+                    attachment.type = "application/pgp-keys";
+                    attachment.disposition = Part.ATTACHMENT;
+                    attachment.id = db.attachment().insertAttachment(attachment);
 
+                    try {
                         byte[] b = Base64.decode(autocrypt, Base64.DEFAULT);
 
                         File file = attachment.getFile(context);
@@ -2170,7 +2170,10 @@ class Core {
                         db.attachment().setDownloaded(attachment.id, file.length());
                     } catch (IllegalArgumentException ex) {
                         Log.w(ex);
+                        db.attachment().setDownloaded(attachment.id, 0L);
+                        db.attachment().setError(attachment.id, Log.formatThrowable(ex, false));
                     }
+                }
 
                 List<EntityAttachment> attachments = parts.getAttachments();
                 for (EntityAttachment attachment : attachments) {
