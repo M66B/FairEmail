@@ -1056,14 +1056,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibAvatar.setTag(lookupUri);
             ibAvatar.setEnabled(lookupUri != null);
 
-            if (addresses != null && addresses.length == 1) {
+            // Updating in message lists causes jitter
+            if (viewType == ViewType.THREAD) {
                 String displayName = info.getDisplayName();
-                if (!TextUtils.isEmpty(displayName)) {
+                if (!TextUtils.isEmpty(displayName) &&
+                        addresses != null && addresses.length == 1) {
+                    String email = ((InternetAddress) addresses[0]).getAddress();
                     String personal = ((InternetAddress) addresses[0]).getPersonal();
-                    if (TextUtils.isEmpty(personal))
+                    if (TextUtils.isEmpty(personal) || !personal.equals(displayName))
                         try {
-                            ((InternetAddress) addresses[0]).setPersonal(displayName);
-                            tvFrom.setText(MessageHelper.formatAddresses(addresses, name_email, false));
+                            InternetAddress a = new InternetAddress(email, displayName);
+                            tvFrom.setText(MessageHelper.formatAddresses(new Address[]{a}, name_email, false));
                         } catch (UnsupportedEncodingException ex) {
                             Log.w(ex);
                         }
