@@ -32,6 +32,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -45,6 +46,7 @@ import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.Lifecycle;
 import androidx.preference.PreferenceManager;
 
+import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -52,9 +54,10 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
     private SwitchCompat swEnabled;
     private Spinner spPollInterval;
     private SwitchCompat swSchedule;
+    private TextView tvSchedulePro;
     private TextView tvScheduleStart;
     private TextView tvScheduleEnd;
-    private TextView tvSchedulePro;
+    private CheckBox[] cbDay;
     private SwitchCompat swUnseen;
     private SwitchCompat swFlagged;
     private SwitchCompat swDeleteUnseen;
@@ -83,9 +86,18 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         swEnabled = view.findViewById(R.id.swEnabled);
         spPollInterval = view.findViewById(R.id.spPollInterval);
         swSchedule = view.findViewById(R.id.swSchedule);
+        tvSchedulePro = view.findViewById(R.id.tvSchedulePro);
         tvScheduleStart = view.findViewById(R.id.tvScheduleStart);
         tvScheduleEnd = view.findViewById(R.id.tvScheduleEnd);
-        tvSchedulePro = view.findViewById(R.id.tvSchedulePro);
+        cbDay = new CheckBox[]{
+                view.findViewById(R.id.cbDay0),
+                view.findViewById(R.id.cbDay1),
+                view.findViewById(R.id.cbDay2),
+                view.findViewById(R.id.cbDay3),
+                view.findViewById(R.id.cbDay4),
+                view.findViewById(R.id.cbDay5),
+                view.findViewById(R.id.cbDay6)
+        };
         swUnseen = view.findViewById(R.id.swUnseen);
         swFlagged = view.findViewById(R.id.swFlagged);
         swDeleteUnseen = view.findViewById(R.id.swDeleteUnseen);
@@ -144,6 +156,8 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             }
         });
 
+        Helper.linkPro(tvSchedulePro);
+
         tvScheduleStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -166,7 +180,18 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             }
         });
 
-        Helper.linkPro(tvSchedulePro);
+        String[] daynames = new DateFormatSymbols().getWeekdays();
+        for (int i = 0; i < 7; i++) {
+            final int day = i;
+            cbDay[i].setText(daynames[i + 1]);
+            cbDay[i].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    prefs.edit().putBoolean("schedule_day" + day, isChecked).apply();
+                    ServiceSynchronize.reschedule(getContext());
+                }
+            });
+        }
 
         swUnseen.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -294,6 +319,8 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         swSchedule.setEnabled(pro);
         tvScheduleStart.setText(formatHour(getContext(), prefs.getInt("schedule_start", 0)));
         tvScheduleEnd.setText(formatHour(getContext(), prefs.getInt("schedule_end", 0)));
+        for (int i = 0; i < 7; i++)
+            cbDay[i].setChecked(prefs.getBoolean("schedule_day" + i, true));
 
         swUnseen.setChecked(prefs.getBoolean("sync_unseen", false));
         swFlagged.setChecked(prefs.getBoolean("sync_flagged", false));
