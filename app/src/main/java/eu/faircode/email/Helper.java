@@ -614,6 +614,11 @@ public class Helper {
         return stats.getAvailableBlocksLong() * stats.getBlockSizeLong();
     }
 
+    static long getTotalStorageSpace() {
+        StatFs stats = new StatFs(Environment.getDataDirectory().getAbsolutePath());
+        return stats.getTotalBytes();
+    }
+
     static void openAdvanced(Intent intent) {
         // https://issuetracker.google.com/issues/72053350
         intent.putExtra("android.content.extra.SHOW_ADVANCED", true);
