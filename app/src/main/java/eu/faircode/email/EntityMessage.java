@@ -123,6 +123,7 @@ public class EntityMessage implements Serializable {
     public Address[] reply;
     public Address[] list_post;
     public String unsubscribe;
+    public String autocrypt;
     public String headers;
     public Boolean raw;
     public String subject;

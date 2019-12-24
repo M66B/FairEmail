@@ -32,7 +32,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.TextUtils;
-import android.util.Base64;
 import android.util.Pair;
 
 import androidx.annotation.NonNull;
@@ -67,7 +66,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -99,7 +97,6 @@ import javax.mail.FolderNotFoundException;
 import javax.mail.Message;
 import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
-import javax.mail.Part;
 import javax.mail.Session;
 import javax.mail.Store;
 import javax.mail.UIDFolder;
@@ -2084,6 +2081,7 @@ class Core {
             message.reply = helper.getReply();
             message.list_post = helper.getListPost();
             message.unsubscribe = helper.getListUnsubscribe();
+            message.autocrypt = helper.getAutocrypt();
             message.subject = helper.getSubject();
             message.size = parts.getBodySize();
             message.total = helper.getSize();
@@ -2146,35 +2144,6 @@ class Core {
                 Log.i(folder.name + " added id=" + message.id + " uid=" + message.uid);
 
                 int sequence = 1;
-
-                String autocrypt = helper.getAutocrypt();
-                if (autocrypt != null) {
-                    EntityAttachment attachment = new EntityAttachment();
-                    attachment.message = message.id;
-                    attachment.sequence = sequence++;
-                    attachment.name = "pubkey.pem";
-                    attachment.type = "application/pgp-keys";
-                    attachment.disposition = Part.INLINE;
-                    attachment.id = db.attachment().insertAttachment(attachment);
-
-                    try {
-                        byte[] b = Base64.decode(autocrypt, Base64.DEFAULT);
-
-                        File file = attachment.getFile(context);
-                        try (FileWriter writer = new FileWriter(file)) {
-                            writer.write("-----BEGIN PGP PUBLIC KEY BLOCK-----\r\n\r\n");
-                            writer.write(Base64.encodeToString(b, Base64.CRLF));
-                            writer.write("-----END PGP PUBLIC KEY BLOCK-----\r\n");
-                        }
-
-                        db.attachment().setDownloaded(attachment.id, file.length());
-                    } catch (IllegalArgumentException ex) {
-                        Log.w(ex);
-                        db.attachment().setDownloaded(attachment.id, 0L);
-                        db.attachment().setError(attachment.id, Log.formatThrowable(ex, false));
-                    }
-                }
-
                 List<EntityAttachment> attachments = parts.getAttachments();
                 for (EntityAttachment attachment : attachments) {
                     Log.i(folder.name + " attachment seq=" + sequence + " " + attachment);

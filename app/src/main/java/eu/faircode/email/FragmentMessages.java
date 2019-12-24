@@ -4280,7 +4280,25 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         return null;
                     else
                         throw new IllegalArgumentException(context.getString(R.string.title_not_encrypted));
+/*
+                if (message.from != null && message.from.length > 0 &&
+                        message.autocrypt != null &&
+                        OpenPgpApi.ACTION_DECRYPT_VERIFY.equals(data.getAction())) {
+                    int k = message.autocrypt.indexOf("keydata=");
+                    if (k >= 0)
+                        try {
+                            String keydata = message.autocrypt.substring(k + 8);
+                            AutocryptPeerUpdate update = AutocryptPeerUpdate.createAutocryptPeerUpdate(
+                                    Base64.decode(keydata, Base64.DEFAULT),
+                                    new Date(message.received));
 
+                            data.putExtra(OpenPgpApi.EXTRA_AUTOCRYPT_PEER_ID, ((InternetAddress) message.from[0]).getAddress());
+                            data.putExtra(OpenPgpApi.EXTRA_AUTOCRYPT_PEER_UPDATE, update);
+                        } catch (IllegalArgumentException ex) {
+                            Log.w(ex);
+                        }
+                }
+*/
                 Intent result;
                 try {
                     // Decrypt message

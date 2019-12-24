@@ -56,7 +56,7 @@ import io.requery.android.database.sqlite.RequerySQLiteOpenHelperFactory;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 125,
+        version = 126,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -1215,6 +1215,13 @@ public abstract class DB extends RoomDatabase {
                             db.execSQL("UPDATE account SET insecure = 1 WHERE auth_type = " + MailService.AUTH_TYPE_PASSWORD);
                             db.execSQL("UPDATE identity SET insecure = 1 WHERE auth_type = " + MailService.AUTH_TYPE_PASSWORD);
                         }
+                    }
+                })
+                .addMigrations(new Migration(125, 126) {
+                    @Override
+                    public void migrate(@NonNull SupportSQLiteDatabase db) {
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
+                        db.execSQL("ALTER TABLE `message` ADD COLUMN `autocrypt` TEXT");
                     }
                 })
                 .build();

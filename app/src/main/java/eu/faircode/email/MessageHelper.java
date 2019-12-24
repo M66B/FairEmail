@@ -232,15 +232,28 @@ public class MessageHelper {
             for (EntityAttachment attachment : attachments)
                 if (EntityAttachment.PGP_KEY.equals(attachment.encryption)) {
                     InternetAddress from = (InternetAddress) message.from[0];
-                    File file = attachment.getFile(context);
+
                     StringBuilder sb = new StringBuilder();
+                    File file = attachment.getFile(context);
                     try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-                        String line;
-                        while ((line = br.readLine()) != null)
-                            if (!line.startsWith("-----") && !line.endsWith("-----"))
-                                sb.append(line);
+                        String line = br.readLine();
+                        while (line != null) {
+                            String data = null;
+                            if (line.length() > 0 &&
+                                    !line.startsWith("-----BEGIN ") &&
+                                    !line.startsWith("-----END "))
+                                data = line;
+
+                            line = br.readLine();
+
+                            // https://www.w3.org/Protocols/rfc822/3_Lexical.html#z0
+                            if (data != null &&
+                                    line != null && !line.startsWith("-----END "))
+                                sb.append("\r\n ").append(data);
+                        }
                     }
 
+                    // https://autocrypt.org/level1.html#the-autocrypt-header
                     imessage.addHeader("Autocrypt",
                             "addr=" + from.getAddress() + ";" +
                                     " prefer-encrypt=mutual;" +
@@ -881,13 +894,7 @@ public class MessageHelper {
         if (autocrypt == null)
             return null;
 
-        autocrypt = MimeUtility.unfold(autocrypt);
-
-        int k = autocrypt.indexOf("keydata=");
-        if (k < 0)
-            return null;
-
-        return autocrypt.substring(k + 8);
+        return MimeUtility.unfold(autocrypt);
     }
 
     String getSubject() throws MessagingException {
