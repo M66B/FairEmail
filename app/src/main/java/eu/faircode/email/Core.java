@@ -2154,7 +2154,7 @@ class Core {
                     attachment.sequence = sequence++;
                     attachment.name = "pubkey.pem";
                     attachment.type = "application/pgp-keys";
-                    attachment.disposition = Part.ATTACHMENT;
+                    attachment.disposition = Part.INLINE;
                     attachment.id = db.attachment().insertAttachment(attachment);
 
                     try {
