@@ -8,8 +8,6 @@ buildscript {
         classpath 'com.android.tools.build:gradle:3.5.3'
         // https://github.com/bugsnag/bugsnag-android-gradle-plugin
         classpath 'com.bugsnag:bugsnag-android-gradle-plugin:4.5.2'
-        // open-keychain
-        classpath 'com.novoda:bintray-release:0.8.0'
     }
 }
 
