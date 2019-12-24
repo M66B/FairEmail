@@ -1033,7 +1033,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                             // throws DecoderException extends IllegalStateException
                             PemObject pem = new PemReader(new InputStreamReader(is)).readPemObject();
                             if (pem == null)
-                                throw new IllegalStateException();
+                                throw new IllegalStateException("Invalid key file");
                             ByteArrayInputStream bis = new ByteArrayInputStream(pem.getContent());
                             cert = (X509Certificate) fact.generateCertificate(bis);
                         }

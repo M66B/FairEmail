@@ -135,7 +135,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
                      */
                     ParcelFileDescriptor pfd = context.getContentResolver().openFileDescriptor(uri, "r");
                     if (pfd == null)
-                        throw new IllegalArgumentException();
+                        throw new IllegalArgumentException("Contact inaccessible");
                     pfd.close();
 
                     ivAvatar.setImageURI(uri);
