@@ -1081,6 +1081,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             int color = (message.color == null || !pro ? colorAccent : message.color);
 
             ibFlagged.setImageResource(flagged > 0 ? R.drawable.baseline_star_24 : R.drawable.baseline_star_border_24);
+            ibFlagged.setImportantForAccessibility(
+                    flagged == 0 ? View.IMPORTANT_FOR_ACCESSIBILITY_NO : View.IMPORTANT_FOR_ACCESSIBILITY_AUTO);
             ibFlagged.setContentDescription(context.getString(
                     flagged > 0 ? R.string.title_accessibility_flagged : R.string.title_accessibility_unflagged));
             ibFlagged.setImageTintList(ColorStateList.valueOf(flagged > 0 ? color : textColorSecondary));
