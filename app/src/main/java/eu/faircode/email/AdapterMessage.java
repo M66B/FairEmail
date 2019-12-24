@@ -78,6 +78,7 @@ import android.view.ViewAnimationUtils;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.ViewStub;
+import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.webkit.WebView;
 import android.widget.Button;
@@ -420,6 +421,54 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     else
                         tvSubject.setEllipsize(TextUtils.TruncateAt.MIDDLE);
             }
+
+            view.setAccessibilityDelegate(new View.AccessibilityDelegate() {
+                @Override
+                public void onInitializeAccessibilityNodeInfo(View host, AccessibilityNodeInfo info) {
+                    super.onInitializeAccessibilityNodeInfo(host, info);
+
+                    TupleMessageEx message = getMessage();
+                    if (message == null)
+                        return;
+
+                    if (ibExpander.getVisibility() == View.VISIBLE) {
+                        boolean expanded = properties.getValue("expanded", message.id);
+                        info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibExpander,
+                                context.getString(expanded ? R.string.title_accessibility_collapse : R.string.title_accessibility_expand)));
+                    }
+
+                    if (ibAvatar.getVisibility() == View.VISIBLE && ibAvatar.isEnabled())
+                        info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibAvatar,
+                                context.getString(R.string.title_accessibility_view_contact)));
+
+                    if (ibFlagged.getVisibility() == View.VISIBLE && ibFlagged.isEnabled()) {
+                        int flagged = (message.count - message.unflagged);
+                        info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibFlagged,
+                                context.getString(flagged > 0 ? R.string.title_unflag : R.string.title_flag)));
+                    }
+                }
+
+                @Override
+                public boolean performAccessibilityAction(View host, int action, Bundle args) {
+                    TupleMessageEx message = getMessage();
+                    if (message == null)
+                        return false;
+
+                    switch (action) {
+                        case R.id.ibExpander:
+                            onToggleMessage(message);
+                            return true;
+                        case R.id.ibAvatar:
+                            onViewContact(message);
+                            return true;
+                        case R.id.ibFlagged:
+                            onToggleFlag(message);
+                            return true;
+                        default:
+                            return super.performAccessibilityAction(host, action, args);
+                    }
+                }
+            });
         }
 
         private void ensureExpanded() {

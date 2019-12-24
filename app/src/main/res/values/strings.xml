@@ -1025,6 +1025,9 @@
     <string name="title_accessibility_unseen">Unread</string>
     <string name="title_accessibility_flagged">Starred</string>
     <string name="title_accessibility_unflagged">Unstarred</string>
+    <string name="title_accessibility_collapse">Collapse</string>
+    <string name="title_accessibility_expand">Expand</string>
+    <string name="title_accessibility_view_contact">View contact</string>
 
     <string-array name="pollIntervalNames">
         <item>Always</item>
