@@ -1058,21 +1058,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibAvatar.setTag(lookupUri);
             ibAvatar.setEnabled(lookupUri != null);
 
-            // Updating in message lists causes jitter
-            if (viewType == ViewType.THREAD) {
-                String displayName = info.getDisplayName();
-                if (!TextUtils.isEmpty(displayName) &&
-                        addresses != null && addresses.length == 1) {
-                    String email = ((InternetAddress) addresses[0]).getAddress();
-                    String personal = ((InternetAddress) addresses[0]).getPersonal();
-                    if (TextUtils.isEmpty(personal) || !personal.equals(displayName))
-                        try {
-                            InternetAddress a = new InternetAddress(email, displayName);
-                            tvFrom.setText(MessageHelper.formatAddresses(new Address[]{a}, name_email, false));
-                        } catch (UnsupportedEncodingException ex) {
-                            Log.w(ex);
-                        }
-                }
+            String displayName = info.getDisplayName();
+            if (!TextUtils.isEmpty(displayName) &&
+                    addresses != null && addresses.length == 1) {
+                String email = ((InternetAddress) addresses[0]).getAddress();
+                String personal = ((InternetAddress) addresses[0]).getPersonal();
+                if (TextUtils.isEmpty(personal))
+                    try {
+                        InternetAddress a = new InternetAddress(email, displayName, StandardCharsets.UTF_8.name());
+                        tvFrom.setText(MessageHelper.formatAddresses(new Address[]{a}, name_email, false));
+                    } catch (UnsupportedEncodingException ex) {
+                        Log.w(ex);
+                    }
             }
 
             if (distinguish_contacts && info.isKnown())
