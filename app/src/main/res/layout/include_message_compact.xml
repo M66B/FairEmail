@@ -18,6 +18,7 @@
         android:id="@+id/paddingTop"
         android:layout_width="match_parent"
         android:layout_height="12dp"
+        android:importantForAccessibility="no"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,6 +41,7 @@
         android:id="@+id/paddingStart"
         android:layout_width="6dp"
         android:layout_height="0dp"
+        android:importantForAccessibility="no"
         android:visibility="gone"
         app:layout_constraintStart_toEndOf="@+id/ibExpander"
         app:layout_constraintTop_toTopOf="parent" />
@@ -51,6 +53,7 @@
         android:layout_marginStart="6dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/title_legend_avatar"
+        android:importantForAccessibility="no"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="@+id/tvFolder"
         app:layout_constraintDimensionRatio="1:1"
@@ -63,7 +66,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintStart_toEndOf="@+id/ibAvatar"
-        app:layout_constraintTop_toBottomOf="@id/paddingTop"/>
+        app:layout_constraintTop_toBottomOf="@id/paddingTop" />
 
     <ImageButton
         android:id="@+id/ibAuth"
@@ -338,6 +341,7 @@
         android:id="@+id/paddingEnd"
         android:layout_width="6dp"
         android:layout_height="0dp"
+        android:importantForAccessibility="no"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/paddingBottom"
         app:layout_constraintEnd_toEndOf="parent"
@@ -347,6 +351,7 @@
         android:id="@+id/paddingBottom"
         android:layout_width="match_parent"
         android:layout_height="12dp"
+        android:importantForAccessibility="no"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
