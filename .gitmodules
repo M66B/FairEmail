@@ -1,3 +1,6 @@
 [submodule "qcolorpicker"]
 	path = qcolorpicker
 	url = https://github.com/QuadFlask/colorpicker.git
+[submodule "openpgp-api"]
+	path = openpgp-api
+	url = https://github.com/open-keychain/openpgp-api.git
