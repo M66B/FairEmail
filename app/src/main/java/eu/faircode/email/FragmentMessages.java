@@ -51,6 +51,7 @@ import android.print.PrintManager;
 import android.security.KeyChain;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
+import android.util.Base64;
 import android.util.LongSparseArray;
 import android.util.Pair;
 import android.util.TypedValue;
@@ -126,6 +127,7 @@ import org.bouncycastle.cms.jcajce.JceKeyTransRecipient;
 import org.bouncycastle.util.Store;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.openintents.openpgp.AutocryptPeerUpdate;
 import org.openintents.openpgp.OpenPgpError;
 import org.openintents.openpgp.OpenPgpSignatureResult;
 import org.openintents.openpgp.util.OpenPgpApi;
@@ -4280,25 +4282,28 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         return null;
                     else
                         throw new IllegalArgumentException(context.getString(R.string.title_not_encrypted));
-/*
+
                 if (message.from != null && message.from.length > 0 &&
                         message.autocrypt != null &&
-                        OpenPgpApi.ACTION_DECRYPT_VERIFY.equals(data.getAction())) {
-                    int k = message.autocrypt.indexOf("keydata=");
-                    if (k >= 0)
-                        try {
-                            String keydata = message.autocrypt.substring(k + 8);
-                            AutocryptPeerUpdate update = AutocryptPeerUpdate.createAutocryptPeerUpdate(
-                                    Base64.decode(keydata, Base64.DEFAULT),
-                                    new Date(message.received));
+                        OpenPgpApi.ACTION_DECRYPT_VERIFY.equals(data.getAction()))
+                    try {
+                        String peer = ((InternetAddress) message.from[0]).getAddress();
 
-                            data.putExtra(OpenPgpApi.EXTRA_AUTOCRYPT_PEER_ID, ((InternetAddress) message.from[0]).getAddress());
+                        int k = message.autocrypt.indexOf("keydata=");
+                        if (k >= 0) {
+                            String keydata = message.autocrypt.substring(k + 8);
+                            AutocryptPeerUpdate update = AutocryptPeerUpdate.create(
+                                    Base64.decode(keydata, Base64.DEFAULT),
+                                    new Date(message.received),
+                                    true);
+
+                            data.putExtra(OpenPgpApi.EXTRA_AUTOCRYPT_PEER_ID, peer);
                             data.putExtra(OpenPgpApi.EXTRA_AUTOCRYPT_PEER_UPDATE, update);
-                        } catch (IllegalArgumentException ex) {
-                            Log.w(ex);
                         }
-                }
-*/
+                    } catch (IllegalArgumentException ex) {
+                        Log.w(ex);
+                    }
+
                 Intent result;
                 try {
                     // Decrypt message
