@@ -990,10 +990,8 @@ public class FragmentAccount extends FragmentBase {
                     account.insecure = insecure;
                     account.port = Integer.parseInt(port);
                     account.auth_type = auth;
-                    if (auth == MailService.AUTH_TYPE_PASSWORD) {
-                        account.user = user;
-                        account.password = password;
-                    }
+                    account.user = user;
+                    account.password = password;
                     account.provider = provider;
                     account.realm = realm;
                     account.fingerprint = fingerprint;

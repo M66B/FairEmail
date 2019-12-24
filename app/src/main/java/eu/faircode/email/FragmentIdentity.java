@@ -775,10 +775,8 @@ public class FragmentIdentity extends FragmentBase {
                     identity.insecure = insecure;
                     identity.port = Integer.parseInt(port);
                     identity.auth_type = auth;
-                    if (auth == MailService.AUTH_TYPE_PASSWORD) {
-                        identity.user = user;
-                        identity.password = password;
-                    }
+                    identity.user = user;
+                    identity.password = password;
                     identity.provider = provider;
                     identity.realm = realm;
                     identity.fingerprint = fingerprint;
