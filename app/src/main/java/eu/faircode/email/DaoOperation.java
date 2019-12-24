@@ -42,7 +42,7 @@ public interface DaoOperation {
             " FROM operation" +
             " JOIN folder ON folder.id = operation.folder" +
             " LEFT JOIN message ON message.id = operation.message" +
-            " LEFT JOIN account ON account.id = operation.account OR account.id = folder.account" +
+            " LEFT JOIN account ON account.id = operation.account" +
             " LEFT JOIN identity ON identity.id = message.identity" +
             " ORDER BY " + priority + ", id")
     LiveData<List<TupleOperationEx>> liveOperations();
