@@ -432,17 +432,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         if (message == null)
                             return;
 
-                        if (ibExpander.getVisibility() == View.VISIBLE) {
+                        if (ibExpander != null && ibExpander.getVisibility() == View.VISIBLE) {
                             boolean expanded = properties.getValue("expanded", message.id);
                             info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibExpander,
                                     context.getString(expanded ? R.string.title_accessibility_collapse : R.string.title_accessibility_expand)));
                         }
 
-                        if (ibAvatar.getVisibility() == View.VISIBLE && ibAvatar.isEnabled())
+                        if (ibAvatar != null && ibAvatar.getVisibility() == View.VISIBLE && ibAvatar.isEnabled())
                             info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibAvatar,
                                     context.getString(R.string.title_accessibility_view_contact)));
 
-                        if (ibFlagged.getVisibility() == View.VISIBLE && ibFlagged.isEnabled()) {
+                        if (ibFlagged != null && ibFlagged.getVisibility() == View.VISIBLE && ibFlagged.isEnabled()) {
                             int flagged = (message.count - message.unflagged);
                             info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibFlagged,
                                     context.getString(flagged > 0 ? R.string.title_unflag : R.string.title_flag)));
