@@ -225,6 +225,7 @@
             android:id="@+id/tvFingerprint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:fontFamily="monospace"
             android:text="12:34:56:78:9A:BC:CD:EF"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textIsSelectable="true"
