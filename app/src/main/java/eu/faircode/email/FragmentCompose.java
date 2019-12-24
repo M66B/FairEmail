@@ -2768,7 +2768,24 @@ public class FragmentCompose extends FragmentBase {
                                 }
 
                                 if (data.draft.from != null && data.draft.from.length > 0) {
-                                    String from = ((InternetAddress) data.draft.from[0]).getAddress();
+                                    Address preferred = null;
+                                    if (ref.identity != null) {
+                                        EntityIdentity recognized = db.identity().getIdentity(ref.identity);
+                                        if (recognized != null) {
+                                            Address same = null;
+                                            Address similar = null;
+                                            for (Address from : data.draft.from) {
+                                                if (same == null && recognized.sameAddress(from))
+                                                    same = from;
+                                                if (similar == null && recognized.similarAddress(from))
+                                                    similar = from;
+                                            }
+                                            preferred = (same == null ? similar : same);
+                                        }
+                                    }
+                                    if (preferred == null)
+                                        preferred = data.draft.from[0];
+                                    String from = ((InternetAddress) preferred).getAddress();
                                     if (from != null && from.contains("@"))
                                         data.draft.extra = from.substring(0, from.indexOf("@"));
                                 }
