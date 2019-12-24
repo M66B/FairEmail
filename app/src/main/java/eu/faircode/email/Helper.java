@@ -609,7 +609,7 @@ public class Helper {
             out.write(buf, 0, len);
     }
 
-    static long getStorageSpace() {
+    static long getAvailableStorageSpace() {
         StatFs stats = new StatFs(Environment.getDataDirectory().getAbsolutePath());
         return stats.getAvailableBlocksLong() * stats.getBlockSizeLong();
     }

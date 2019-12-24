@@ -776,7 +776,7 @@ public class Log {
         sb.append(String.format("Memory class: %d\r\n", am.getMemoryClass()));
 
         sb.append(String.format("Storage space: %s\r\n",
-                Helper.humanReadableByteCount(Helper.getStorageSpace(), true)));
+                Helper.humanReadableByteCount(Helper.getAvailableStorageSpace(), true)));
 
         Runtime rt = Runtime.getRuntime();
         long hused = (rt.totalMemory() - rt.freeMemory()) / 1024L;

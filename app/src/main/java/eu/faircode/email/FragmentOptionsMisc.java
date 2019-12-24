@@ -296,7 +296,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvMemoryClass.setText(getString(R.string.title_advanced_memory_class, class_mb + " MB"));
 
         tvStorageSpace.setText(getString(R.string.title_advanced_storage_space,
-                Helper.humanReadableByteCount(Helper.getStorageSpace(), true)));
+                Helper.humanReadableByteCount(Helper.getAvailableStorageSpace(), true)));
         tvFingerprint.setText(Helper.getFingerprint(getContext()));
 
         grpDebug.setVisibility(swDebug.isChecked() || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
