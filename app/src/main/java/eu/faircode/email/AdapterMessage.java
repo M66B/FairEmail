@@ -264,7 +264,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageButton ibExpander;
         private ImageView ibFlagged;
         private ImageButton ibAvatar;
-        private View vwSeen;
         private ImageButton ibAuth;
         private ImageView ivPriorityHigh;
         private ImageView ivPriorityLow;
@@ -388,7 +387,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibExpander = itemView.findViewById(R.id.ibExpander);
             ibFlagged = itemView.findViewById(R.id.ibFlagged);
             ibAvatar = itemView.findViewById(R.id.ibAvatar);
-            vwSeen = itemView.findViewById(R.id.vwSeen);
             ibAuth = itemView.findViewById(R.id.ibAuth);
             ivPriorityHigh = itemView.findViewById(R.id.ivPriorityHigh);
             ivPriorityLow = itemView.findViewById(R.id.ivPriorityLow);
@@ -833,8 +831,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (ibExpander.getTag() == null || (boolean) ibExpander.getTag() != expanded) {
                 ibExpander.setTag(expanded);
                 ibExpander.setImageLevel(expanded ? 0 /* less */ : 1 /* more */);
-                ibExpander.setContentDescription(context.getString(
-                        expanded ? R.string.title_accessibility_expanded : R.string.title_accessibility_collapsed));
             }
             if (viewType == ViewType.THREAD)
                 ibExpander.setVisibility(EntityFolder.DRAFTS.equals(message.folderType) ? View.INVISIBLE : View.VISIBLE);
@@ -843,9 +839,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             // Photo
             ibAvatar.setVisibility(avatars ? View.INVISIBLE : View.GONE);
-
-            vwSeen.setContentDescription(context.getString(
-                    message.unseen > 0 ? R.string.title_accessibility_unseen : R.string.title_accessibility_seen));
 
             // Line 1
             ibAuth.setVisibility(authentication && !authenticated ? View.VISIBLE : View.GONE);
@@ -1082,10 +1075,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             int color = (message.color == null || !pro ? colorAccent : message.color);
 
             ibFlagged.setImageResource(flagged > 0 ? R.drawable.baseline_star_24 : R.drawable.baseline_star_border_24);
-            ibFlagged.setImportantForAccessibility(
-                    flagged == 0 ? View.IMPORTANT_FOR_ACCESSIBILITY_NO : View.IMPORTANT_FOR_ACCESSIBILITY_AUTO);
-            ibFlagged.setContentDescription(context.getString(
-                    flagged > 0 ? R.string.title_accessibility_flagged : R.string.title_accessibility_unflagged));
             ibFlagged.setImageTintList(ColorStateList.valueOf(flagged > 0 ? color : textColorSecondary));
             ibFlagged.setEnabled(message.uid != null || message.accountProtocol != EntityAccount.TYPE_IMAP);
 
@@ -2610,8 +2599,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 ibExpander.setTag(expanded);
                 ibExpander.setImageLevel(expanded ? 0 /* less*/ : 1 /* more */);
-                ibExpander.setContentDescription(context.getString(
-                        expanded ? R.string.title_accessibility_expanded : R.string.title_accessibility_collapsed));
 
                 if (expanded)
                     bindExpanded(message, true);
