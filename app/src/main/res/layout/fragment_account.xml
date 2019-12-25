@@ -243,6 +243,19 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <Button
+            android:id="@+id/btnOAuth"
+            style="@style/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:tag="disable"
+            android:text="@string/title_setup_authentication"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tilPassword" />
+
         <TextView
             android:id="@+id/tvOAuthSupport"
             android:layout_width="wrap_content"
@@ -254,7 +267,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?android:attr/textColorLink"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tilPassword" />
+            app:layout_constraintTop_toBottomOf="@id/btnOAuth" />
 
         <TextView
             android:id="@+id/tvRealm"
@@ -883,7 +896,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:constraint_referenced_ids="
-                tvUser,etUser,tvPassword,tilPassword,tvOAuthSupport,tvRealm,etRealm,
+                tvUser,etUser,tvPassword,tilPassword,btnOAuth,tvOAuthSupport,tvRealm,etRealm,
                 tvName,tvNameRemark,etName,
                 tvColor,btnColor,tvColorHint,tvColorPro" />
 

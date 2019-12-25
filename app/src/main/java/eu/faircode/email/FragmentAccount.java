@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.accounts.Account;
+import android.accounts.AccountManager;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
@@ -46,6 +48,7 @@ import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -85,6 +88,7 @@ public class FragmentAccount extends FragmentBase {
     private EditText etPort;
     private EditText etUser;
     private TextInputLayout tilPassword;
+    private Button btnOAuth;
     private TextView tvOAuthSupport;
     private EditText etRealm;
 
@@ -191,6 +195,7 @@ public class FragmentAccount extends FragmentBase {
         cbInsecure = view.findViewById(R.id.cbInsecure);
         etUser = view.findViewById(R.id.etUser);
         tilPassword = view.findViewById(R.id.tilPassword);
+        btnOAuth = view.findViewById(R.id.btnOAuth);
         tvOAuthSupport = view.findViewById(R.id.tvOAuthSupport);
         etRealm = view.findViewById(R.id.etRealm);
 
@@ -273,6 +278,7 @@ public class FragmentAccount extends FragmentBase {
                 etUser.setTag(null);
                 etUser.setText(null);
                 tilPassword.getEditText().setText(null);
+                btnOAuth.setEnabled(false);
                 etRealm.setText(null);
                 cbTrust.setChecked(false);
 
@@ -301,6 +307,13 @@ public class FragmentAccount extends FragmentBase {
             @Override
             public void onCheckedChanged(RadioGroup group, int id) {
                 etPort.setHint(id == R.id.radio_starttls ? "143" : "993");
+            }
+        });
+
+        btnOAuth.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onAuth();
             }
         });
 
@@ -1175,6 +1188,56 @@ public class FragmentAccount extends FragmentBase {
         }.execute(this, args, "account:save");
     }
 
+    private void onAuth() {
+        Bundle args = new Bundle();
+        args.putLong("id", id);
+
+        new SimpleTask<String>() {
+            @Override
+            protected void onPreExecute(Bundle args) {
+                btnOAuth.setEnabled(false);
+            }
+
+            @Override
+            protected void onPostExecute(Bundle args) {
+                btnOAuth.setEnabled(true);
+            }
+
+            @Override
+            protected String onExecute(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+
+                DB db = DB.getInstance(context);
+
+                EntityAccount account = db.account().getAccount(id);
+                if (account == null)
+                    return null;
+
+                AccountManager am = AccountManager.get(getContext());
+                Account[] accounts = am.getAccountsByType("com.google");
+                for (Account google : accounts)
+                    if (account.user.equals(google.name))
+                        return am.blockingGetAuthToken(
+                                google,
+                                MailService.getAuthTokenType("com.google"),
+                                true);
+
+                return null;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, String token) {
+                ToastEx.makeText(getContext(), R.string.title_completed, Toast.LENGTH_LONG).show();
+                tilPassword.getEditText().setText(token);
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, args, "account:oauth");
+    }
+
     private void showError(Throwable ex) {
         tvError.setText(Log.formatThrowable(ex, false));
         grpError.setVisibility(View.VISIBLE);
@@ -1341,6 +1404,9 @@ public class FragmentAccount extends FragmentBase {
                     etUser.setEnabled(false);
                     tilPassword.setEnabled(false);
                 }
+
+                if (account == null || account.auth_type != MailService.AUTH_TYPE_GMAIL)
+                    Helper.hide((btnOAuth));
 
                 cbOnDemand.setEnabled(cbSynchronize.isChecked());
                 cbPrimary.setEnabled(cbSynchronize.isChecked());
