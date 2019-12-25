@@ -913,7 +913,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     tvTime.getText(),
                     tvSubject.getText(),
                     context.getString(message.unseen > 0 ? R.string.title_accessibility_unseen : R.string.title_accessibility_seen),
-                    message.count - message.unflagged > 0 ? context.getString(R.string.title_accessibility_flagged) : ""
+                    message.count - message.unflagged > 0 ? context.getString(R.string.title_accessibility_flagged) : "",
+                    message.count
             ));
 
             // Message text preview
