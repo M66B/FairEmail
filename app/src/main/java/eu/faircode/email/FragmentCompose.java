@@ -53,10 +53,12 @@ import android.os.OperationCanceledException;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.security.KeyChain;
+import android.text.Editable;
 import android.text.Html;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.text.style.ImageSpan;
 import android.text.style.QuoteSpan;
 import android.util.TypedValue;
@@ -444,6 +446,25 @@ public class FragmentCompose extends FragmentBase {
             @Override
             public void onSelected(boolean selection) {
                 style_bar.setVisibility(selection ? View.VISIBLE : View.GONE);
+            }
+        });
+
+        etBody.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Do nothing
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                Activity activity = getActivity();
+                if (activity != null)
+                    activity.onUserInteraction();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // Do nothing
             }
         });
 
