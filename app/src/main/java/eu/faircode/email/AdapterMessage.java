@@ -259,6 +259,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             BottomNavigationView.OnNavigationItemSelectedListener {
         private ViewCardOptional card;
         private View view;
+        private View header;
 
         private View vwColor;
         private ImageButton ibExpander;
@@ -382,6 +383,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             card = itemView.findViewById(R.id.card);
             view = itemView.findViewById(R.id.clItem);
+            header = itemView.findViewById(R.id.inHeader);
 
             vwColor = itemView.findViewById(R.id.vwColor);
             ibExpander = itemView.findViewById(R.id.ibExpander);
@@ -733,7 +735,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         @SuppressLint("WrongConstant")
-        private void bindTo(final TupleMessageEx message) {
+        private void bindTo(final TupleMessageEx message, int position) {
             boolean inbox = EntityFolder.INBOX.equals(message.folderType);
             boolean outbox = EntityFolder.OUTBOX.equals(message.folderType);
             boolean outgoing = isOutgoing(message);
@@ -902,6 +904,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             // Expand warning
             bindExpandWarning(message, expanded);
+
+            // Accessibility
+            header.setContentDescription(context.getString(
+                    R.string.title_accessibility_header,
+                    position,
+                    tvFrom.getText(),
+                    tvTime.getText(),
+                    tvSubject.getText(),
+                    context.getString(message.unseen > 0 ? R.string.title_accessibility_unseen : R.string.title_accessibility_seen),
+                    message.count - message.unflagged > 0 ? context.getString(R.string.title_accessibility_flagged) : ""
+            ));
 
             // Message text preview
             int textColor = (contrast ? textColorPrimary : textColorSecondary);
@@ -2193,7 +2206,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     } else {
                         message.ui_seen = !message.ui_seen;
                         message.unseen = (message.ui_seen ? 0 : message.count);
-                        bindTo(message);
+                        bindTo(message, getAdapterPosition());
 
                         Bundle args = new Bundle();
                         args.putLong("id", message.id);
@@ -4238,7 +4251,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         holder.unwire();
-        holder.bindTo(message);
+        holder.bindTo(message, position);
         holder.wire();
     }
 
