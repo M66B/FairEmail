@@ -908,7 +908,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             // Accessibility
             header.setContentDescription(context.getString(
                     R.string.title_accessibility_header,
-                    position,
+                    position + 1,
                     tvFrom.getText(),
                     tvTime.getText(),
                     tvSubject.getText(),
