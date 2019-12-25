@@ -4288,19 +4288,39 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         OpenPgpApi.ACTION_DECRYPT_VERIFY.equals(data.getAction()))
                     try {
                         String peer = ((InternetAddress) message.from[0]).getAddress();
+                        boolean mutual = false;
+                        byte[] keydata = null;
 
-                        int k = message.autocrypt.indexOf("keydata=");
-                        if (k >= 0) {
-                            String keydata = message.autocrypt.substring(k + 8);
-                            AutocryptPeerUpdate update = AutocryptPeerUpdate.create(
-                                    Base64.decode(keydata, Base64.DEFAULT),
-                                    new Date(message.received),
-                                    true);
-
-                            data.putExtra(OpenPgpApi.EXTRA_AUTOCRYPT_PEER_ID, peer);
-                            data.putExtra(OpenPgpApi.EXTRA_AUTOCRYPT_PEER_UPDATE, update);
+                        // https://autocrypt.org/level1.html#the-autocrypt-header
+                        String[] param = message.autocrypt.split(";");
+                        for (int i = 0; i < param.length; i++) {
+                            int e = param[i].indexOf("=");
+                            if (e > 0) {
+                                String key = param[i].substring(0, e).trim().toLowerCase();
+                                String value = param[i].substring(e + 1);
+                                Log.i("Autocrypt " + key + "=" + value);
+                                switch (key) {
+                                    case "addr":
+                                        break;
+                                    case "prefer-encrypt":
+                                        mutual = value.trim().toLowerCase().equals("mutual");
+                                        break;
+                                    case "keydata":
+                                        keydata = Base64.decode(value, Base64.DEFAULT);
+                                        break;
+                                }
+                            }
                         }
-                    } catch (IllegalArgumentException ex) {
+
+                        if (keydata == null)
+                            throw new IllegalArgumentException("keydata not found");
+
+                        AutocryptPeerUpdate update = AutocryptPeerUpdate.create(
+                                keydata, new Date(message.received), mutual);
+
+                        data.putExtra(OpenPgpApi.EXTRA_AUTOCRYPT_PEER_ID, peer);
+                        data.putExtra(OpenPgpApi.EXTRA_AUTOCRYPT_PEER_UPDATE, update);
+                    } catch (Throwable ex) {
                         Log.w(ex);
                     }
 

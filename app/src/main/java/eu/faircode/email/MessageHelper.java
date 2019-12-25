@@ -20,9 +20,12 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.MailTo;
 import android.net.Uri;
 import android.text.TextUtils;
+
+import androidx.preference.PreferenceManager;
 
 import com.sun.mail.util.FolderClosedIOException;
 import com.sun.mail.util.MessageRemovedIOException;
@@ -233,6 +236,10 @@ public class MessageHelper {
                 if (EntityAttachment.PGP_KEY.equals(attachment.encryption)) {
                     InternetAddress from = (InternetAddress) message.from[0];
 
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    boolean mutual = prefs.getBoolean("autocrypt_mutual", true);
+                    String mode = (mutual ? "mutual" : "nopreference");
+
                     StringBuilder sb = new StringBuilder();
                     File file = attachment.getFile(context);
                     try (BufferedReader br = new BufferedReader(new FileReader(file))) {
@@ -256,7 +263,7 @@ public class MessageHelper {
                     // https://autocrypt.org/level1.html#the-autocrypt-header
                     imessage.addHeader("Autocrypt",
                             "addr=" + from.getAddress() + ";" +
-                                    " prefer-encrypt=mutual;" +
+                                    " prefer-encrypt=" + mode + ";" +
                                     " keydata=" + sb.toString());
                 }
 
