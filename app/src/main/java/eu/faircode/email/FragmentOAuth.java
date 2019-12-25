@@ -89,8 +89,10 @@ public class FragmentOAuth extends FragmentBase {
     private TextView tvGmailHint;
 
     private TextView tvError;
-    private Group grpError;
     private TextView tvGmailDraftsHint;
+    private Button btnSupport;
+
+    private Group grpError;
 
     private static final int OAUTH_TIMEOUT = 20 * 1000; // milliseconds
 
@@ -120,8 +122,10 @@ public class FragmentOAuth extends FragmentBase {
         tvGmailHint = view.findViewById(R.id.tvGmailHint);
 
         tvError = view.findViewById(R.id.tvError);
-        grpError = view.findViewById(R.id.grpError);
         tvGmailDraftsHint = view.findViewById(R.id.tvGmailDraftsHint);
+        btnSupport = view.findViewById(R.id.btnSupport);
+
+        grpError = view.findViewById(R.id.grpError);
 
         // Wire controls
 
@@ -129,6 +133,13 @@ public class FragmentOAuth extends FragmentBase {
             @Override
             public void onClick(View v) {
                 onAuthorize();
+            }
+        });
+
+        btnSupport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Helper.view(getContext(), Uri.parse(Helper.FAQ_URI + "#user-content-authorizing-accounts"), false);
             }
         });
 

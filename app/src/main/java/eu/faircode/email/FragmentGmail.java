@@ -27,6 +27,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.ContactsContract;
@@ -64,6 +65,8 @@ public class FragmentGmail extends FragmentBase {
     private ContentLoadingProgressBar pbSelect;
 
     private TextView tvError;
+    private Button btnSupport;
+
     private Group grpError;
 
     @Override
@@ -83,6 +86,8 @@ public class FragmentGmail extends FragmentBase {
         pbSelect = view.findViewById(R.id.pbSelect);
 
         tvError = view.findViewById(R.id.tvError);
+        btnSupport = view.findViewById(R.id.btnSupport);
+
         grpError = view.findViewById(R.id.grpError);
 
         // Wire controls
@@ -117,6 +122,13 @@ public class FragmentGmail extends FragmentBase {
                                 null,
                                 null)),
                         ActivitySetup.REQUEST_CHOOSE_ACCOUNT);
+            }
+        });
+
+        btnSupport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Helper.view(getContext(), Uri.parse(Helper.FAQ_URI + "#user-content-authorizing-accounts"), false);
             }
         });
 
