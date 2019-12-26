@@ -194,6 +194,7 @@
                 android:layout_gravity="end|bottom"
                 android:layout_margin="@dimen/fab_padding"
                 android:tint="?attr/colorFabForeground"
+                android:contentDescription="@string/title_reply"
                 app:backgroundTint="?attr/colorFabBackground"
                 app:layout_constraintBottom_toTopOf="@+id/sbThread"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -206,6 +207,7 @@
                 android:background="?attr/selectableItemBackground"
                 android:padding="12dp"
                 android:tint="?attr/colorSeparator"
+                android:contentDescription="@string/title_accessibility_scroll_down"
                 app:layout_constraintBottom_toTopOf="@+id/sbThread"
                 app:layout_constraintEnd_toStartOf="@+id/ibUp"
                 app:layout_constraintHorizontal_chainStyle="packed"
@@ -219,6 +221,7 @@
                 android:background="?attr/selectableItemBackground"
                 android:padding="12dp"
                 android:tint="?attr/colorSeparator"
+                android:contentDescription="@string/title_accessibility_scroll_up"
                 app:layout_constraintBottom_toTopOf="@+id/sbThread"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_chainStyle="packed"
@@ -232,6 +235,7 @@
                 android:background="?attr/selectableItemBackground"
                 android:padding="12dp"
                 android:tint="?attr/colorSeparator"
+                android:contentDescription="@string/title_accessibility_filter_out_seen"
                 app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
                 app:layout_constraintEnd_toStartOf="@id/ibUnflagged"
                 app:layout_constraintHorizontal_chainStyle="packed"
@@ -245,6 +249,7 @@
                 android:background="?attr/selectableItemBackground"
                 android:padding="12dp"
                 android:tint="?attr/colorSeparator"
+                android:contentDescription="@string/title_accessibility_filter_out_unflagged"
                 app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
                 app:layout_constraintEnd_toEndOf="@+id/ibSnoozed"
                 app:layout_constraintStart_toEndOf="@id/ibSeen"
@@ -257,6 +262,7 @@
                 android:background="?attr/selectableItemBackground"
                 android:padding="12dp"
                 android:tint="?attr/colorSeparator"
+                android:contentDescription="@string/title_accessibility_filter_out_snoozed"
                 app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/ibUnflagged"
@@ -324,6 +330,7 @@
         android:layout_marginBottom="90dp"
         android:tint="?attr/colorFabForeground"
         android:tooltipText="@string/title_more"
+        android:contentDescription="@string/title_more"
         app:backgroundTint="?attr/colorFabBackground"
         app:srcCompat="@drawable/baseline_more_vert_24" />
 
@@ -335,6 +342,7 @@
         android:layout_margin="@dimen/fab_padding"
         android:tint="?attr/colorFabForeground"
         android:tooltipText="@string/title_search_server"
+        android:contentDescription="@string/title_search_server"
         app:backgroundTint="?attr/colorFabBackground"
         app:srcCompat="@drawable/baseline_youtube_searched_for_24" />
 
@@ -346,6 +354,7 @@
         android:layout_margin="@dimen/fab_padding"
         android:tint="?attr/colorFabForeground"
         android:tooltipText="@string/title_compose"
+        android:contentDescription="@string/title_compose"
         app:backgroundTint="?attr/colorFabBackground"
         app:srcCompat="@drawable/baseline_edit_24" />
 
@@ -357,6 +366,7 @@
         android:layout_margin="@dimen/fab_padding"
         android:tint="?attr/colorFabForeground"
         android:tooltipText="@string/title_compose"
+        android:contentDescription="@string/title_legend_section_folders"
         app:backgroundTint="?attr/colorWarning"
         app:srcCompat="@drawable/baseline_warning_24" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

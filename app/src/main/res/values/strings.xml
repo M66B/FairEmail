@@ -1055,6 +1055,12 @@
     <string name="title_accessibility_view_help">View help</string>
     <string name="title_accessibility_selected">Selected</string>
     <string name="title_accessibility_answered">Replied</string>
+    <string name="title_accessibility_scroll_down">Scroll down</string>
+    <string name="title_accessibility_scroll_up">Scroll up</string>
+    <string name="title_accessibility_filter_out_seen">Toggle read messages filter</string>
+    <string name="title_accessibility_filter_out_unflagged">Toggle starred messages filter</string>
+    <string name="title_accessibility_filter_out_snoozed">Toggle snoozed messages filter</string>
+    <string name="title_accessibility_edit">Edit</string>
 
     <string-array name="pollIntervalNames">
         <item>Always</item>
