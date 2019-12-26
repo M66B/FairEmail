@@ -65,7 +65,7 @@ public interface DaoMessage {
             " LEFT JOIN identity ON identity.id = message.identity" +
             " JOIN folder ON folder.id = message.folder" +
             " WHERE account.`synchronize`" +
-            " AND (:threading OR (:type IS NULL AND folder.unified) OR (:type IS NOT NULL AND folder.type = :type))" +
+            " AND (:threading OR (:type IS NULL AND (folder.unified OR :found)) OR (:type IS NOT NULL AND folder.type = :type))" +
             " AND (NOT message.ui_hide OR :debug)" +
             " AND (NOT :found OR ui_found = :found)" +
             " GROUP BY account.id, CASE WHEN message.thread IS NULL OR NOT :threading THEN message.id ELSE message.thread END" +
