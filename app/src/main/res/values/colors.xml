@@ -8,8 +8,6 @@
     <color name="colorAccent">#ffb300</color>
     <color name="colorAccentDark">#c68400</color>
 
-    <color name="colorError">#ff0000</color>
-
     <color name="colorReadLight">#b3000000</color>
     <color name="colorUnreadLight">#ff000000</color>
 

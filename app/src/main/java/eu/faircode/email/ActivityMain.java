@@ -38,7 +38,7 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
         getSupportFragmentManager().addOnBackStackChangedListener(this);
 
         if (!Log.isSupportedDevice() && Helper.isPlayStoreInstall()) {
-            setTheme(R.style.AppThemeLight);
+            setTheme(R.style.AppThemeBlueOrangeLight);
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_unsupported);
             return;
@@ -163,7 +163,7 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
             if (!getResources().getConfiguration().isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_LARGE))
                 prefs.edit().putBoolean("compact", true).apply();
 
-            setTheme(R.style.AppThemeLight);
+            setTheme(R.style.AppThemeBlueOrangeLight);
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
 

@@ -84,7 +84,7 @@
             android:layout_height="wrap_content"
             android:contentDescription="@string/title_legend_auth"
             android:padding="12dp"
-            android:tint="@color/colorError"
+            android:tint="?attr/colorWarning"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivDraft"
             app:srcCompat="@drawable/baseline_flag_24" />
@@ -108,7 +108,7 @@
             android:layout_height="wrap_content"
             android:contentDescription="@string/title_legend_priority"
             android:padding="12dp"
-            android:tint="@color/colorError"
+            android:tint="?attr/colorWarning"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivAuth"
             app:srcCompat="@drawable/baseline_priority_high_24" />

@@ -85,13 +85,13 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
             String theme = prefs.getString("theme", "light");
 
             if ("dark".equals(theme))
-                setTheme(R.style.AppThemeDark);
+                setTheme(R.style.AppThemeBlueOrangeDark);
             else if ("black".equals(theme))
                 setTheme(R.style.AppThemeBlack);
             else if ("grey_light".equals(theme))
-                setTheme(R.style.AppThemeGreyLight);
+                setTheme(R.style.AppThemeGreySteelBlueLight);
             else if ("grey_dark".equals(theme))
-                setTheme(R.style.AppThemeGreyDark);
+                setTheme(R.style.AppThemeGreySteelBlueDark);
             else if ("system".equals(theme)) {
                 int uiMode = getResources().getConfiguration().uiMode;
                 Log.i("UI mode=" + uiMode);
@@ -101,9 +101,9 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                 int uiMode = getResources().getConfiguration().uiMode;
                 Log.i("UI mode=" + uiMode);
                 if ((uiMode & Configuration.UI_MODE_NIGHT_YES) != 0)
-                    setTheme(R.style.AppThemeGreyDark);
+                    setTheme(R.style.AppThemeGreySteelBlueDark);
                 else
-                    setTheme(R.style.AppThemeGreyLight);
+                    setTheme(R.style.AppThemeGreySteelBlueLight);
             }
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
