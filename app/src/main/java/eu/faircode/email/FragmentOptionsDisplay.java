@@ -674,8 +674,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
                 case "yellow_purple_light":
                     rgTheme.check(R.id.rbThemeYellowPurpleLight);
                     break;
-                case "green_red_light":
-                    rgTheme.check(R.id.rbThemeGreenRedLight);
+                case "red_green_light":
+                    rgTheme.check(R.id.rbThemeRedGreenLight);
                     break;
                 case "grey_light":
                     rgTheme.check(R.id.rbThemeGreyLight);
@@ -688,8 +688,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
                 case "yellow_purple_dark":
                     rgTheme.check(R.id.rbThemeYellowPurpleDark);
                     break;
-                case "green_red_dark":
-                    rgTheme.check(R.id.rbThemeGreenRedDark);
+                case "red_green_dark":
+                    rgTheme.check(R.id.rbThemeRedGreenDark);
                     break;
                 case "grey_dark":
                     rgTheme.check(R.id.rbThemeGreyDark);
@@ -720,8 +720,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
                         case R.id.rbThemeYellowPurpleLight:
                             prefs.edit().putString("theme", "yellow_purple_light").apply();
                             break;
-                        case R.id.rbThemeGreenRedLight:
-                            prefs.edit().putString("theme", "green_red_light").apply();
+                        case R.id.rbThemeRedGreenLight:
+                            prefs.edit().putString("theme", "red_green_light").apply();
                             break;
                         case R.id.rbThemeGreyLight:
                             prefs.edit().putString("theme", "grey_light").apply();
@@ -733,8 +733,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
                         case R.id.rbThemeYellowPurpleDark:
                             prefs.edit().putString("theme", "yellow_purple_dark").apply();
                             break;
-                        case R.id.rbThemeGreenRedDark:
-                            prefs.edit().putString("theme", "green_red_dark").apply();
+                        case R.id.rbThemeRedGreenDark:
+                            prefs.edit().putString("theme", "red_green_dark").apply();
                             break;
                         case R.id.rbThemeGreyDark:
                             prefs.edit().putString("theme", "grey_dark").apply();

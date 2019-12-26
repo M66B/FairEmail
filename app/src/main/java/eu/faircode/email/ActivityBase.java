@@ -94,8 +94,8 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                 case "yellow_purple_light":
                     setTheme(R.style.AppThemeYellowPurpleLight);
                     break;
-                case "green_red_light":
-                    setTheme(R.style.AppThemeGreenRedLight);
+                case "red_green_light":
+                    setTheme(R.style.AppThemeRedGreenLight);
                     break;
                 case "grey_light":
                     setTheme(R.style.AppThemeGreySteelBlueLight);
@@ -108,8 +108,8 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                 case "yellow_purple_dark":
                     setTheme(R.style.AppThemeYellowPurpleDark);
                     break;
-                case "green_red_dark":
-                    setTheme(R.style.AppThemeGreenRedDark);
+                case "red_green_dark":
+                    setTheme(R.style.AppThemeRedGreenDark);
                     break;
                 case "grey_dark":
                     setTheme(R.style.AppThemeGreySteelBlueDark);

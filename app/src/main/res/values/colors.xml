@@ -77,15 +77,15 @@
     <color name="darkYellowPrimaryDark">#bc5100</color>
     <color name="darkPurpleAccent">#ba68c8</color>
 
-    <!-- Green 600 / Red 600 -->
-    <color name="lightGreenPrimary">#43a047</color>
-    <color name="lightGreenPrimaryDark">#00701a</color>
-    <color name="lightRedAccent">#e53935</color>
+    <!-- Red 600 / Green 600 -->
+    <color name="lightRedPrimary">#e53935</color>
+    <color name="lightRedPrimaryDark">#ab000d</color>
+    <color name="lightGreenAccent">#43a047</color>
 
-    <!-- Green 900 / red 300 -->
-    <color name="darkGreenPrimary">#1b5e20</color>
-    <color name="darkGreenPrimaryDark">#003300</color>
-    <color name="darkRedAccent">#e57373</color>
+    <!-- Red 900 / Green 300 -->
+    <color name="darkRedPrimary">#b71c1c</color>
+    <color name="darkRedPrimaryDark">#7f0000</color>
+    <color name="darkGreenAccent">#81c784</color>
 
     <!-- default: #323232 -->
     <color name="design_snackbar_background_color" tools:override="true">#222</color>

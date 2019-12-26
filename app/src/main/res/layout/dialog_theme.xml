@@ -45,11 +45,11 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
             <RadioButton
-                android:id="@+id/rbThemeGreenRedLight"
+                android:id="@+id/rbThemeRedGreenLight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="6dp"
-                android:text="@string/title_setup_green_red_light_theme"
+                android:text="@string/title_setup_red_green_light_theme"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
             <RadioButton
@@ -77,11 +77,11 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
             <RadioButton
-                android:id="@+id/rbThemeGreenRedDark"
+                android:id="@+id/rbThemeRedGreenDark"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="6dp"
-                android:text="@string/title_setup_green_red_dark_theme"
+                android:text="@string/title_setup_red_green_dark_theme"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
             <RadioButton
