@@ -166,11 +166,15 @@
     <string name="title_setup_biometrics_disable">Desactivar</string>
     <string name="title_setup_biometrics_unlock">Desbloquear</string>
     <string name="title_setup_theme">Seleccionar tema</string>
-    <string name="title_setup_light_theme">Tema claro</string>
-    <string name="title_setup_dark_theme">Tema oscuro</string>
-    <string name="title_setup_black_theme">Tema negro</string>
+    <string name="title_setup_blue_orange_light_theme">Tema claro azul/naranja</string>
+    <string name="title_setup_yellow_purple_light_theme">Tema claro amarillo/morado</string>
+    <string name="title_setup_green_red_light_theme">Tema claro verde/rojo</string>
     <string name="title_setup_grey_light_theme">Tema gris claro</string>
+    <string name="title_setup_blue_orange_dark_theme">Tema oscuro azul/naranja</string>
+    <string name="title_setup_yellow_purple_dark_theme">Tema oscuro amarillo/morado</string>
+    <string name="title_setup_green_red_dark_theme">Tema oscuro verde/rojo</string>
     <string name="title_setup_grey_dark_theme">Tema gris oscuro</string>
+    <string name="title_setup_black_theme">Tema negro</string>
     <string name="title_setup_system_theme">Tema del sistema</string>
     <string name="title_setup_grey_system_theme">Tema gris del sistema</string>
     <string name="title_setup_system_theme_hint">Los temas del sistema cambiarán automáticamente a claro/oscuro durante el día/noche, si es compatible con Android</string>
@@ -910,11 +914,24 @@
     <string name="title_accessibility_expanded">Expandido</string>
     <string name="title_accessibility_seen">Leído</string>
     <string name="title_accessibility_unseen">No leído</string>
+    <plurals name="title_accessibility_count_of_seen">
+        <item quantity="one">%1$d de %2$d leído</item>
+        <item quantity="other">%1$d de %2$d leídos</item>
+    </plurals>
+    <plurals name="title_accessibility_all_of_seen">
+        <item quantity="one">Todos de %1$d leídos</item>
+        <item quantity="other">Todos de %1$d leídos</item>
+    </plurals>
     <string name="title_accessibility_flagged">Destacado</string>
     <string name="title_accessibility_unflagged">No destacado</string>
     <string name="title_accessibility_collapse">Ocultar</string>
     <string name="title_accessibility_expand">Expandir</string>
     <string name="title_accessibility_view_contact">Ver contacto</string>
+    <string name="title_accessibility_show_authentication_result">Mostrar resultado de autenticación</string>
+    <string name="title_accessibility_show_snooze_time">Mostrar tiempo pospuesto</string>
+    <string name="title_accessibility_view_help">Ver ayuda</string>
+    <string name="title_accessibility_selected">Seleccionado</string>
+    <string name="title_accessibility_answered">Respondido</string>
     <string-array name="pollIntervalNames">
         <item>Siempre</item>
         <item>Cada 15 minutos</item>

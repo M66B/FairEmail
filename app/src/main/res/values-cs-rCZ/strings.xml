@@ -162,11 +162,9 @@
     <string name="title_setup_biometrics_disable">Vypnout</string>
     <string name="title_setup_biometrics_unlock">Odemknout</string>
     <string name="title_setup_theme">Vybrat motiv</string>
-    <string name="title_setup_light_theme">Světlý motiv</string>
-    <string name="title_setup_dark_theme">Tmavý motiv</string>
-    <string name="title_setup_black_theme">Černý motiv</string>
     <string name="title_setup_grey_light_theme">Šedý světlý motiv</string>
     <string name="title_setup_grey_dark_theme">Šedý tmavý motiv</string>
+    <string name="title_setup_black_theme">Černý motiv</string>
     <string name="title_setup_system_theme">Motiv systému</string>
     <string name="title_setup_grey_system_theme">Šedý systémový motiv</string>
     <string name="title_setup_system_theme_hint">Podporuje-li to Android, systémové motivy se ve dne/noci automaticky přepnou mezi světlým/tmavým zobrazením</string>

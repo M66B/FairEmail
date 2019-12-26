@@ -166,11 +166,15 @@
     <string name="title_setup_biometrics_disable">Deaktiver</string>
     <string name="title_setup_biometrics_unlock">Låse opp</string>
     <string name="title_setup_theme">Velg tema</string>
-    <string name="title_setup_light_theme">Lyst tema</string>
-    <string name="title_setup_dark_theme">Mørkt tema</string>
-    <string name="title_setup_black_theme">Svart tema</string>
+    <string name="title_setup_blue_orange_light_theme">Blått/oransje lyst tema</string>
+    <string name="title_setup_yellow_purple_light_theme">Gul/lilla lyst tema</string>
+    <string name="title_setup_green_red_light_theme">Grønt/rødt lyst tema</string>
     <string name="title_setup_grey_light_theme">Grått lyst tema</string>
+    <string name="title_setup_blue_orange_dark_theme">Blått/oransje mørkt tema</string>
+    <string name="title_setup_yellow_purple_dark_theme">Gult/lilla mørkt tema</string>
+    <string name="title_setup_green_red_dark_theme">Grønt/rødt mørkt tema</string>
     <string name="title_setup_grey_dark_theme">Grått mørkt tema</string>
+    <string name="title_setup_black_theme">Svart tema</string>
     <string name="title_setup_system_theme">System tema</string>
     <string name="title_setup_grey_system_theme">Grått systemtema</string>
     <string name="title_setup_system_theme_hint">System temaene skifter automatisk lys/mørk på dag/natt, hvis de støttes av Android</string>
@@ -910,11 +914,24 @@
     <string name="title_accessibility_expanded">Utvidet</string>
     <string name="title_accessibility_seen">Les</string>
     <string name="title_accessibility_unseen">Ulest</string>
+    <plurals name="title_accessibility_count_of_seen">
+        <item quantity="one">%1$d av %2$d lest</item>
+        <item quantity="other">%1$d av %2$d lest</item>
+    </plurals>
+    <plurals name="title_accessibility_all_of_seen">
+        <item quantity="one">Hele %1$d er lest</item>
+        <item quantity="other">Hele %1$d er lest</item>
+    </plurals>
     <string name="title_accessibility_flagged">Stjernemerkede</string>
     <string name="title_accessibility_unflagged">Ikke med stjerne</string>
     <string name="title_accessibility_collapse">Skjul</string>
     <string name="title_accessibility_expand">Utvid</string>
     <string name="title_accessibility_view_contact">Vis kontakt</string>
+    <string name="title_accessibility_show_authentication_result">Vis autentiseringsresultat</string>
+    <string name="title_accessibility_show_snooze_time">Vis slumretid</string>
+    <string name="title_accessibility_view_help">Se hjelp</string>
+    <string name="title_accessibility_selected">Valgt</string>
+    <string name="title_accessibility_answered">Svarte</string>
     <string-array name="pollIntervalNames">
         <item>Alltid</item>
         <item>Hvert 15. minutt</item>

@@ -153,11 +153,9 @@
     <string name="title_setup_biometrics_disable">Desabilitar</string>
     <string name="title_setup_biometrics_unlock">Desbloquear</string>
     <string name="title_setup_theme">Selecione um tema</string>
-    <string name="title_setup_light_theme">Tema claro</string>
-    <string name="title_setup_dark_theme">Tema escuro</string>
-    <string name="title_setup_black_theme">Tema escuro</string>
     <string name="title_setup_grey_light_theme">Tema cinza claro</string>
     <string name="title_setup_grey_dark_theme">Tema cinza escuro</string>
+    <string name="title_setup_black_theme">Tema escuro</string>
     <string name="title_setup_system_theme">Tema do sistema</string>
     <string name="title_setup_grey_system_theme">Tema cinza do sistema</string>
     <string name="title_setup_system_theme_hint">Os temas do sistema mudarão automaticamente para luz/escuro no dia/noite, se suportado pelo Android</string>

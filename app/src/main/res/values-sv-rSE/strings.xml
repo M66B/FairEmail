@@ -150,11 +150,9 @@
     <string name="title_setup_biometrics_disable">Inaktivera</string>
     <string name="title_setup_biometrics_unlock">Lås upp</string>
     <string name="title_setup_theme">Välj tema</string>
-    <string name="title_setup_light_theme">Ljust tema</string>
-    <string name="title_setup_dark_theme">Mörkt tema</string>
-    <string name="title_setup_black_theme">Svart tema</string>
     <string name="title_setup_grey_light_theme">Ljusgrått tema</string>
     <string name="title_setup_grey_dark_theme">Mörkgrått tema</string>
+    <string name="title_setup_black_theme">Svart tema</string>
     <string name="title_setup_system_theme">Systemtema</string>
     <string name="title_setup_grey_system_theme">Grått systemtema</string>
     <string name="title_setup_system_theme_hint">Systemet teman kommer automatiskt att växla mellan ljus/mörkt på dag/natt, om det stöds av Android</string>

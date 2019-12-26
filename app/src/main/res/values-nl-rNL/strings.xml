@@ -166,11 +166,15 @@
     <string name="title_setup_biometrics_disable">Uitschakelen</string>
     <string name="title_setup_biometrics_unlock">Ontgrendelen</string>
     <string name="title_setup_theme">Selecteer thema</string>
-    <string name="title_setup_light_theme">Licht thema</string>
-    <string name="title_setup_dark_theme">Donker thema</string>
-    <string name="title_setup_black_theme">Zwart thema</string>
+    <string name="title_setup_blue_orange_light_theme">Blauw/oranje licht thema</string>
+    <string name="title_setup_yellow_purple_light_theme">Geel/paars licht thema</string>
+    <string name="title_setup_green_red_light_theme">Groen/rood licht thema</string>
     <string name="title_setup_grey_light_theme">Grijs licht thema</string>
+    <string name="title_setup_blue_orange_dark_theme">Blauw/oranje donker thema</string>
+    <string name="title_setup_yellow_purple_dark_theme">Geel/paarse donker thema</string>
+    <string name="title_setup_green_red_dark_theme">Groen/rood donker thema</string>
     <string name="title_setup_grey_dark_theme">Grijs donker thema</string>
+    <string name="title_setup_black_theme">Zwart thema</string>
     <string name="title_setup_system_theme">Systeem thema</string>
     <string name="title_setup_grey_system_theme">Grijs systeemthema</string>
     <string name="title_setup_system_theme_hint">De systeemthema\'s zullen automatisch naar licht/donker bij dag/nacht schakelen, indien ondersteund door Android</string>
@@ -907,11 +911,24 @@
     <string name="title_accessibility_expanded">Uitgevouwen</string>
     <string name="title_accessibility_seen">Gelezen</string>
     <string name="title_accessibility_unseen">Ongelezen</string>
+    <plurals name="title_accessibility_count_of_seen">
+        <item quantity="one">%1$d van %2$d te gelezen</item>
+        <item quantity="other">%1$d van %2$d te gelezen</item>
+    </plurals>
+    <plurals name="title_accessibility_all_of_seen">
+        <item quantity="one">Alle van %1$d gelezen</item>
+        <item quantity="other">Alle van %1$d gelezen</item>
+    </plurals>
     <string name="title_accessibility_flagged">Met ster</string>
     <string name="title_accessibility_unflagged">Zonder ster</string>
     <string name="title_accessibility_collapse">Samenvouwen</string>
     <string name="title_accessibility_expand">Uitvouwen</string>
     <string name="title_accessibility_view_contact">Contact weergeven</string>
+    <string name="title_accessibility_show_authentication_result">Toon authenticatie resultaat</string>
+    <string name="title_accessibility_show_snooze_time">Toon sluimertijd</string>
+    <string name="title_accessibility_view_help">Help bekijken</string>
+    <string name="title_accessibility_selected">Geselecteerd</string>
+    <string name="title_accessibility_answered">Beantwoord</string>
     <string-array name="pollIntervalNames">
         <item>Altijd</item>
         <item>Elke 15 minuten</item>

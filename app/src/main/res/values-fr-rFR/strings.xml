@@ -166,11 +166,15 @@
     <string name="title_setup_biometrics_disable">Désactiver</string>
     <string name="title_setup_biometrics_unlock">Déverrouiller</string>
     <string name="title_setup_theme">Choisir le thème</string>
-    <string name="title_setup_light_theme">Thème clair</string>
-    <string name="title_setup_dark_theme">Thème sombre</string>
-    <string name="title_setup_black_theme">Thème noir</string>
+    <string name="title_setup_blue_orange_light_theme">Thème clair bleu/orange</string>
+    <string name="title_setup_yellow_purple_light_theme">Thème clair jaune/violet</string>
+    <string name="title_setup_green_red_light_theme">Thème clair vert/rouge</string>
     <string name="title_setup_grey_light_theme">Thème clair gris</string>
+    <string name="title_setup_blue_orange_dark_theme">Thème sombre bleu/orange</string>
+    <string name="title_setup_yellow_purple_dark_theme">Thème sombre jaune/violet</string>
+    <string name="title_setup_green_red_dark_theme">Thème sombre vert/rouge</string>
     <string name="title_setup_grey_dark_theme">Thème sombre gris</string>
+    <string name="title_setup_black_theme">Thème noir</string>
     <string name="title_setup_system_theme">Thème système</string>
     <string name="title_setup_grey_system_theme">Thème système gris</string>
     <string name="title_setup_system_theme_hint">Les thèmes système basculeront automatiquement en mode clair/sombre le jour/la nuit si pris en charge par Android</string>
@@ -910,11 +914,24 @@
     <string name="title_accessibility_expanded">Étendu</string>
     <string name="title_accessibility_seen">Lu</string>
     <string name="title_accessibility_unseen">Non lu</string>
+    <plurals name="title_accessibility_count_of_seen">
+        <item quantity="one">%1$d sur %2$d lu</item>
+        <item quantity="other">%1$d sur %2$d lus</item>
+    </plurals>
+    <plurals name="title_accessibility_all_of_seen">
+        <item quantity="one">%1$d lu</item>
+        <item quantity="other">Tous les %1$d lus</item>
+    </plurals>
     <string name="title_accessibility_flagged">Suivi</string>
     <string name="title_accessibility_unflagged">Non suivi</string>
     <string name="title_accessibility_collapse">Réduire</string>
     <string name="title_accessibility_expand">Développer</string>
     <string name="title_accessibility_view_contact">Voir le contact</string>
+    <string name="title_accessibility_show_authentication_result">Afficher le résultat d\'authentification</string>
+    <string name="title_accessibility_show_snooze_time">Afficher le délai de répétition</string>
+    <string name="title_accessibility_view_help">Voir l\'aide</string>
+    <string name="title_accessibility_selected">Sélectionné</string>
+    <string name="title_accessibility_answered">Répondu</string>
     <string-array name="pollIntervalNames">
         <item>Toujours</item>
         <item>Toutes les 15 minutes</item>

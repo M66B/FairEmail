@@ -154,11 +154,9 @@
     <string name="title_setup_biometrics_disable">禁用</string>
     <string name="title_setup_biometrics_unlock">解锁​​​​</string>
     <string name="title_setup_theme">选择主题</string>
-    <string name="title_setup_light_theme">亮色主题</string>
-    <string name="title_setup_dark_theme">暗色主题</string>
-    <string name="title_setup_black_theme">黑色主题</string>
     <string name="title_setup_grey_light_theme">灰亮主题</string>
     <string name="title_setup_grey_dark_theme">灰暗主题</string>
+    <string name="title_setup_black_theme">黑色主题</string>
     <string name="title_setup_system_theme">系统主题</string>
     <string name="title_setup_grey_system_theme">灰色系统主题</string>
     <string name="title_setup_system_theme_hint">如果Android支持，系统主题将在白天/夜间自动切换亮色/暗色主题</string>
@@ -284,7 +282,7 @@
     <string name="title_advanced_display_hidden">显示隐藏消息文本</string>
     <string name="title_advanced_encrypt_method">默认加密方法</string>
     <string name="title_advanced_openpgp">OpenPGP 提供者</string>
-    <string name="title_advanced_autocrypt_mutual">Autocrypt互助(mutual)模式</string>
+    <string name="title_advanced_autocrypt_mutual">自动双向加密模式</string>
     <string name="title_advanced_sign_default">使用默认签名</string>
     <string name="title_advanced_encrypt_default">使用默认加密</string>
     <string name="title_advanced_auto_decrypt">自动解密消息</string>

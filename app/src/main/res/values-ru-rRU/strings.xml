@@ -188,11 +188,9 @@
     <string name="title_setup_biometrics_disable">Отключить</string>
     <string name="title_setup_biometrics_unlock">Разблокировать</string>
     <string name="title_setup_theme">Выбрать тему</string>
-    <string name="title_setup_light_theme">Светлая тема</string>
-    <string name="title_setup_dark_theme">Тёмная тема</string>
-    <string name="title_setup_black_theme">Чёрная тема</string>
     <string name="title_setup_grey_light_theme">Светло-серая тема</string>
     <string name="title_setup_grey_dark_theme">Тёмно-серая тема</string>
+    <string name="title_setup_black_theme">Чёрная тема</string>
     <string name="title_setup_system_theme">Системная тема</string>
     <string name="title_setup_grey_system_theme">Серая системная тема</string>
     <string name="title_setup_system_theme_hint">Темы системы автоматически переключаются на светлые/тёмные днём/ночью, если это поддерживается Android</string>

@@ -166,11 +166,15 @@
     <string name="title_setup_biometrics_disable">Poista käytöstä</string>
     <string name="title_setup_biometrics_unlock">Poista lukitus</string>
     <string name="title_setup_theme">Valitse teema</string>
-    <string name="title_setup_light_theme">Vaalea teema</string>
-    <string name="title_setup_dark_theme">Tumma teema</string>
-    <string name="title_setup_black_theme">Musta teema</string>
+    <string name="title_setup_blue_orange_light_theme">Sininen/oranssi vaalea teema</string>
+    <string name="title_setup_yellow_purple_light_theme">Keltainen/violetti vaalea teema</string>
+    <string name="title_setup_green_red_light_theme">Vihreä/punainen vaalea teema</string>
     <string name="title_setup_grey_light_theme">Harmaa-vaalea teema</string>
+    <string name="title_setup_blue_orange_dark_theme">Sininen/oranssi tumma teema</string>
+    <string name="title_setup_yellow_purple_dark_theme">Keltainen/violetti tumma teema</string>
+    <string name="title_setup_green_red_dark_theme">Vihreä/punainen tumma teema</string>
     <string name="title_setup_grey_dark_theme">Harmaa-tumma teema</string>
+    <string name="title_setup_black_theme">Musta teema</string>
     <string name="title_setup_system_theme">Järjestelmän teema</string>
     <string name="title_setup_grey_system_theme">Harmaa järjestelmän teema</string>
     <string name="title_setup_system_theme_hint">Järjestelmän teemat vaihtuvat automaattisesti vaaleaksi/tummaksi päivällä/yöllä, jos Android tukee sitä</string>
@@ -910,11 +914,24 @@
     <string name="title_accessibility_expanded">Laajennettu</string>
     <string name="title_accessibility_seen">Luettu</string>
     <string name="title_accessibility_unseen">Lukematon</string>
+    <plurals name="title_accessibility_count_of_seen">
+        <item quantity="one">%1$d/%2$d luettu</item>
+        <item quantity="other">%1$d/%2$d luettu</item>
+    </plurals>
+    <plurals name="title_accessibility_all_of_seen">
+        <item quantity="one">Kaikki %1$d luettu</item>
+        <item quantity="other">Kaikki %1$d luettu</item>
+    </plurals>
     <string name="title_accessibility_flagged">Tähdellinen</string>
     <string name="title_accessibility_unflagged">Tähdetön</string>
     <string name="title_accessibility_collapse">Tiivistä</string>
     <string name="title_accessibility_expand">Laajenna</string>
     <string name="title_accessibility_view_contact">Näytä yhteystieto</string>
+    <string name="title_accessibility_show_authentication_result">Näytä tunnistautumisen tulos</string>
+    <string name="title_accessibility_show_snooze_time">Näytä torkutusaika</string>
+    <string name="title_accessibility_view_help">Näytä ohje</string>
+    <string name="title_accessibility_selected">Valittu</string>
+    <string name="title_accessibility_answered">Vastattu</string>
     <string-array name="pollIntervalNames">
         <item>Koko ajan</item>
         <item>15 minuutin välein</item>

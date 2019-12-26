@@ -166,11 +166,9 @@
     <string name="title_setup_biometrics_disable">Desgaitu</string>
     <string name="title_setup_biometrics_unlock">Desblokeatu</string>
     <string name="title_setup_theme">Hautatu gaia</string>
-    <string name="title_setup_light_theme">Gai argia</string>
-    <string name="title_setup_dark_theme">Gai iluna</string>
-    <string name="title_setup_black_theme">Gai beltza</string>
     <string name="title_setup_grey_light_theme">Gai gris argia</string>
     <string name="title_setup_grey_dark_theme">Gai gris iluna</string>
+    <string name="title_setup_black_theme">Gai beltza</string>
     <string name="title_setup_system_theme">Sistemako gaia</string>
     <string name="title_setup_grey_system_theme">Sistemako gai grisa</string>
     <string name="title_setup_system_theme_hint">Sistemako gaiek automatikoki txandakatuko dute argia/iluna eguna/gauaren arabera, Androidek onartzen duenean</string>

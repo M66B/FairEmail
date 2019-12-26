@@ -63,8 +63,6 @@
     <string name="title_setup_password_invalid">کلمه عبور اشتباه است</string>
     <string name="title_setup_exported">تنظیمات صادر شدند</string>
     <string name="title_setup_imported">تنظیمات وارد شدند</string>
-    <string name="title_setup_light_theme">تم روشن</string>
-    <string name="title_setup_dark_theme">تم تاریک</string>
     <string name="title_setup_black_theme">تم سیاه</string>
     <string name="title_setup_system_theme">تم سیستم</string>
     <string name="title_setup_advanced">پیشرفته</string>

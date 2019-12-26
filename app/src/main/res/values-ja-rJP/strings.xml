@@ -154,11 +154,15 @@
     <string name="title_setup_biometrics_disable">無効</string>
     <string name="title_setup_biometrics_unlock">ロック解除</string>
     <string name="title_setup_theme">テーマを選択</string>
-    <string name="title_setup_light_theme">ライトテーマ</string>
-    <string name="title_setup_dark_theme">ダークテーマ</string>
-    <string name="title_setup_black_theme">ブラックテーマ</string>
+    <string name="title_setup_blue_orange_light_theme">ブルー/オレンジライトテーマ</string>
+    <string name="title_setup_yellow_purple_light_theme">イエロー/パープルライトテーマ</string>
+    <string name="title_setup_green_red_light_theme">グリーン/レッドライトテーマ</string>
     <string name="title_setup_grey_light_theme">グレイライトテーマ</string>
+    <string name="title_setup_blue_orange_dark_theme">ブルー/オレンジダークテーマ</string>
+    <string name="title_setup_yellow_purple_dark_theme">イエロー/パープルダークテーマ</string>
+    <string name="title_setup_green_red_dark_theme">グリーン/レッドダークテーマ</string>
     <string name="title_setup_grey_dark_theme">グレイダークテーマ</string>
+    <string name="title_setup_black_theme">ブラックテーマ</string>
     <string name="title_setup_system_theme">システムテーマ</string>
     <string name="title_setup_grey_system_theme">グレイシステムテーマ</string>
     <string name="title_setup_system_theme_hint">Androidでサポートされている場合、システムテーマは自動的に昼/夜においてライト/ダークテーマに切り替わります</string>
@@ -896,11 +900,22 @@ FairEmailは、Pro機能購入の為に上部に小さなメッセージを表�
     <string name="title_accessibility_expanded">拡大</string>
     <string name="title_accessibility_seen">読む</string>
     <string name="title_accessibility_unseen">未読</string>
+    <plurals name="title_accessibility_count_of_seen">
+        <item quantity="other">読取り %2$d の %1$d</item>
+    </plurals>
+    <plurals name="title_accessibility_all_of_seen">
+        <item quantity="other">%1$dの全てを読取</item>
+    </plurals>
     <string name="title_accessibility_flagged">スター付き</string>
     <string name="title_accessibility_unflagged">スター無し</string>
     <string name="title_accessibility_collapse">折りたたむ</string>
     <string name="title_accessibility_expand">展開</string>
     <string name="title_accessibility_view_contact">連絡先を表示</string>
+    <string name="title_accessibility_show_authentication_result">認証結果を表示</string>
+    <string name="title_accessibility_show_snooze_time">スヌーズ時間を表示</string>
+    <string name="title_accessibility_view_help">ヘルプを見る</string>
+    <string name="title_accessibility_selected">選択</string>
+    <string name="title_accessibility_answered">返信済み</string>
     <string-array name="pollIntervalNames">
         <item>常に</item>
         <item>15分毎</item>

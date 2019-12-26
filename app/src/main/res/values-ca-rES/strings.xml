@@ -13,6 +13,7 @@
     <string name="channel_update">Actualitzacions</string>
     <string name="channel_warning">Advertències</string>
     <string name="channel_error">Errors</string>
+    <string name="channel_alert">Alertes de servidor</string>
     <string name="channel_group_contacts">Contactes</string>
     <plurals name="page_conversation">
         <item quantity="one">Conversa</item>
@@ -29,6 +30,10 @@
     <string name="shortcut_refresh">Refrescar</string>
     <string name="shortcut_compose">Redactar</string>
     <string name="shortcut_setup">Preferències</string>
+    <plurals name="title_notification_synchronizing">
+        <item quantity="one">Monitoritza %1$d compte</item>
+        <item quantity="other">Monitoritza %1$d comptes</item>
+    </plurals>
     <plurals name="title_notification_operations">
         <item quantity="one">%1$d operació pendent</item>
         <item quantity="other">%1$d operacions pendents</item>
@@ -65,7 +70,9 @@
     <string name="title_notification_waiting">S\'està esperant la connexió</string>
     <string name="title_notification_sending">Enviant missatge</string>
     <string name="title_notification_failed">%1$s ha fallat</string>
+    <string name="title_notification_alert">%1$s alerta del servidor</string>
     <string name="title_name_count">%1$s (%2$s)</string>
+    <string name="menu_exit">Surt</string>
     <string name="menu_answers">Plantilles</string>
     <string name="menu_operations">Operacions</string>
     <string name="menu_contacts">Contactes locals</string>
@@ -107,6 +114,10 @@
     <string name="title_setup_other">Altres proveïdors</string>
     <string name="title_setup_gmail_support">Com que Android comprova les firmes dels aplicatius, es podran autoritzar comptes de Google des des les versions oficials</string>
     <string name="title_setup_gmail_rationale">Doneu permís per seleccionar un compte i llegir el vostre nom</string>
+    <string name="title_setup_gmail_permissions">Google sol·licitarà permisos per llegir, compondre, enviar i suprimir tot el vostre correu electrònic. FairEmail mai suprimirà els vostres missatges sense el vostre consentiment explícit.</string>
+    <string name="title_setup_gmail_drafts">Si IMAP no pot accedir a la carpeta d\'esborranys, es pot solucionar a la configuració de l\'etiqueta de Gmail</string>
+    <string name="title_setup_oauth_rationale">Autoritza accés al seu compte %1$s</string>
+    <string name="title_setup_oauth_authorize">Autoritzar</string>
     <string name="title_setup_select_account">Selecciona un compte</string>
     <string name="title_setup_instructions">Instruccions per la configuració</string>
     <string name="title_setup_no_settings">No s\'ha trobat cap configuració pel domini \'%1$s\'</string>
@@ -115,6 +126,7 @@
     <string name="title_setup_quick_failed">A més, podeu provar de configurar un compte i una identitat</string>
     <string name="title_setup_manage">Gestiona</string>
     <string name="title_setup_grant">Permet</string>
+    <string name="title_setup_grant_again">Concedeix els permisos requerits</string>
     <string name="title_setup_account">Configuració dels comptes</string>
     <string name="title_setup_account_remark">Per rebre correu electrònic</string>
     <string name="title_setup_account_hint">Per canviar el color, llisca la carpeta de destinació cap a la dreta/esquerra, etc</string>
@@ -154,11 +166,9 @@
     <string name="title_setup_biometrics_disable">Deshabilita</string>
     <string name="title_setup_biometrics_unlock">Desbloquejar</string>
     <string name="title_setup_theme">Selecció del tema</string>
-    <string name="title_setup_light_theme">Tema clar</string>
-    <string name="title_setup_dark_theme">Tema fosc</string>
-    <string name="title_setup_black_theme">Tema negre</string>
     <string name="title_setup_grey_light_theme">Tema gris clar</string>
     <string name="title_setup_grey_dark_theme">Tema gris fosc</string>
+    <string name="title_setup_black_theme">Tema negre</string>
     <string name="title_setup_system_theme">Tema del sistema</string>
     <string name="title_setup_grey_system_theme">Tema del sistema gris</string>
     <string name="title_setup_system_theme_hint">Si Android és compatible amb els temes del sistema, automàticament, es farà clar/fosc quan sigui de dia/nit</string>
@@ -175,6 +185,7 @@
     <string name="title_advanced_section_notifications">Notificacions</string>
     <string name="title_advanced_section_privacy">Privacitat</string>
     <string name="title_advanced_section_misc">Miscel·lània</string>
+    <string name="title_advanced_receive">Rebre missatges</string>
     <string name="title_advanced_when">Quan</string>
     <string name="title_advanced_schedule">Planificar</string>
     <string name="title_advanced_unseen">Tots els missatges no llegits</string>
@@ -281,11 +292,18 @@
     <string name="title_advanced_sound">Selecciona so de notificació</string>
     <string name="title_advanced_tracking">Reconèixer i desactivar automàticament les imatges de seguiment</string>
     <string name="title_advanced_display_hidden">Mostra textos de missatges ocults</string>
+    <string name="title_advanced_encrypt_method">Mètode de xifratge per defecte</string>
     <string name="title_advanced_openpgp">Proveïdor d’OpenPGP</string>
+    <string name="title_advanced_autocrypt_mutual">Mode mutu Autocrypt</string>
+    <string name="title_advanced_sign_default">Signa per defecte</string>
+    <string name="title_advanced_encrypt_default">Xifra per defecte</string>
     <string name="title_advanced_auto_decrypt">Xifra automàticament els missatges</string>
     <string name="title_advanced_secure">Amaga de la pantalla d\'aplicacions recents i evita que es pugui fer captures de pantalla</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Retard de l’autenticació biomètrica</string>
+    <string name="title_advanced_manage_certificates">Gestiona claus públiques</string>
+    <string name="title_advanced_import_key">Importa la clau privada</string>
+    <string name="title_advanced_manage_keys">Gestiona claus privades</string>
     <string name="title_advanced_english">Forçar idioma anglès</string>
     <string name="title_advanced_watchdog">Comproveu periòdicament si FairEmail està actiu</string>
     <string name="title_advanced_updates">Comprova si hi ha actualitzacions</string>
@@ -295,6 +313,7 @@
     <string name="title_advanced_cleanup">Neteja</string>
     <string name="title_advanced_hint">Tots els paràmetres tenen valors per defecte raonables, que només s\'ha de modificar si es necessari</string>
     <string name="title_advanced_enabled_hint">Desactivar o habilitar la recepció de missatges globalment</string>
+    <string name="title_advanced_manual_hint">Si la sincronització està desactivada, encara es pot sincronitzar manualment desplegant la llista de missatges.</string>
     <string name="title_advanced_poll_hint">Sincronitzar periòdicament es compararà cada vegada més missatges locals i remots, la qual cosa és una operació costosa que possiblement produeixi un ús addicional de la bateria, especialment quan hi ha molts missatges per sincronitzar. Sempre la sincronització evitarà això mitjançant un control continuat només per a canvis.</string>
     <string name="title_advanced_schedule_hint">Toqueu una hora per definir-la</string>
     <string name="title_advanced_check_mx">Comproveu les adreces de correu electrònic del remitent sobre la sincronització de missatges</string>
@@ -317,6 +336,7 @@
     <string name="title_advanced_preview_hint">Només disponible quan s\'ha descarregat el text del missatge</string>
     <string name="title_advanced_inline_hint">Les imatges en línia són imatges incloses al missatge</string>
     <string name="title_advanced_autoexpand_hint">Obre automàticament un missatge quan només hi ha un missatge o només un missatge sense llegir en una conversa</string>
+    <string name="title_advanced_autoseen_hint">Es pot desactivar la configuració automàtica dels missatges llegits en expandir-se a la configuració del compte individual</string>
     <string name="title_advanced_autoclose_hint">Tanqueu automàticament les converses quan tots els missatges s’arxiven, s’envien o s’esborren</string>
     <string name="title_advanced_sender_hint">La majoria de proveïdors no permeten adreces d\'emissor modificades</string>
     <string name="title_advanced_display_hidden_hint">Això pot donar lloc a textos estranys i dobles</string>
@@ -324,6 +344,7 @@
     <string name="title_advanced_badge_hint">Només disponible en llançadors compatibles</string>
     <string name="title_advanced_notify_action_hint">Com a màxim es mostraran tres accions</string>
     <string name="title_advanced_notify_remove_hint">Les notificacions de nous missatges sempre s\'esborraran quan es llisquin cap als costats o al marcar els missatges com a llegits</string>
+    <string name="title_advanced_notify_manage_hint">Toqueu el nom del canal per configurar les propietats del canal</string>
     <string name="title_advanced_notify_manage_default_hint">Per definir el so per defecte, etc</string>
     <string name="title_advanced_notify_manage_service_hint">Per deshabilitar la notificació permanent</string>
     <string name="title_advanced_wearable_hint">Les notificacions només s’envien a un portable després de descarregar el text del missatge</string>
@@ -354,6 +375,7 @@
     <string name="title_account_partial_fetch_hint">Desactiveu-ho només en cas de missatges buits o fitxers adjunts corruptes</string>
     <string name="title_account_signature">Text de signatura</string>
     <string name="title_color">Color</string>
+    <string name="title_account_ondemand">Sincronitza manualment</string>
     <string name="title_account_notify">Notificacions independents</string>
     <string name="title_account_left">Llisca a l\'esquerra</string>
     <string name="title_account_right">Llisca a dreta</string>
@@ -375,8 +397,10 @@
     <string name="title_primary_identity">Primària (identitat per defecte)</string>
     <string name="title_leave_on_server">Deixa els missatges al servidor</string>
     <string name="title_keep_alive_interval">Interval d\'activitat (minuts)</string>
+    <string name="title_use_date">Feu servir la capçalera de la data enviada en lloc de la recepció del temps</string>
     <string name="title_related_identity">Afegiu identitat relacionada</string>
     <string name="title_check">Comprovar</string>
+    <string name="title_trust">Confia en el certificat del servidor amb empremta digital %1$s</string>
     <string name="title_no_name">Falta nom</string>
     <string name="title_no_email">Falta l\'adreça de correu electrònic</string>
     <string name="title_email_invalid">L\'adreça de correu electrònic no és vàlida: \'%1$s\'</string>
@@ -460,6 +484,7 @@
     <string name="title_no_folders">No carpetes</string>
     <string name="title_no_messages">No hi ha missatges</string>
     <string name="title_filters_active">S\'han activat un o més filtres</string>
+    <string name="title_duplicate_in">Missatge duplicat a %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Rv: %1$s</string>
     <string name="title_seen">Marca com a llegit</string>
@@ -514,6 +539,7 @@
     <string name="title_no_stream">Una aplicació obsoleta enviava una ruta del fitxer en lloc d’un flux de fitxers</string>
     <string name="title_no_contacts">El selector de contacte no està disponible</string>
     <string name="title_no_internet">Cap connexió a Internet adequada</string>
+    <string name="title_no_connection">Connectat a un o més comptes &#8230;</string>
     <string name="title_no_folder">La carpeta no existeix</string>
     <string name="title_no_format">S\'inclourà el missatge rebut originalment</string>
     <string name="title_no_image">La imatge no s\'ha pogut descodificar</string>
@@ -548,6 +574,7 @@
     <string name="title_cc">CC:</string>
     <string name="title_bcc">CCO:</string>
     <string name="title_via_identity">Via:</string>
+    <string name="title_sent">Enviat:</string>
     <string name="title_received">Rebut: </string>
     <string name="title_size">Mida:</string>
     <string name="title_subject">Assumpte:</string>
@@ -558,6 +585,7 @@
     <string name="title_send_via">Envia com</string>
     <string name="title_send_with_options">Envia &#8230;</string>
     <string name="title_send_at">Envia a les &#8230;</string>
+    <string name="title_send_encryption">Xifratge</string>
     <string name="title_send_priority">Prioritat</string>
     <string name="title_no_server">No s\'ha trobat servidor per \'%1$s\'</string>
     <string name="title_style_bold">Negreta</string>
@@ -578,6 +606,11 @@
     <string name="title_insert_template">Inserta plantilla</string>
     <string name="title_edit_plain_text">Editar en text pla</string>
     <string name="title_edit_formatted_text">Editar com a text amb format</string>
+    <string name="title_select_certificate">Selecciona la clau privada</string>
+    <string name="title_certificate_missing">Sense clau pública per %1$s</string>
+    <string name="title_certificate_invalid">La clau pública de %1$s no és vàlida</string>
+    <string name="title_no_key">Sense clau privada</string>
+    <string name="title_invalid_key">Clau privada invàlida</string>
     <string name="title_send_plain_text">Només text pla</string>
     <string name="title_send_receipt">Sol·liciteu el lliurament/llegida del rebut</string>
     <string name="title_send_receipt_remark">La majoria de proveïdors i clients de correu electrònic ignoren les sol·licituds de recepció</string>
@@ -594,17 +627,27 @@
     <string name="title_ask_send_via">Enviar missatge a %1$s mitjançant %2$s?</string>
     <string name="title_queued">Enviant missatge</string>
     <string name="title_queued_at">El missatge s\'enviarà al voltant de %1$s</string>
+    <string name="title_sign">Signar</string>
     <string name="title_encrypt">Xifra</string>
     <string name="title_decrypt">Desxifra</string>
     <string name="title_resync">Resincronitza</string>
     <string name="title_no_openpgp">OpenKeychain no trobat</string>
+    <string name="title_not_encrypted">El missatge no està signat o xifrat</string>
     <string name="title_reset_sign_key">Reinicia la clau signada</string>
     <string name="title_signature_none">El missatge no està signat</string>
     <string name="title_signature_valid">La signatura del missatge és vàlida</string>
     <string name="title_signature_unconfirmed">La signatura del missatge es vàlida però no confirmada</string>
     <string name="title_signature_invalid">La signatura del missatge no és vàlida</string>
+    <string name="title_signature_sender">Adreça del remitent</string>
+    <string name="title_signature_email">Adreça de la signatura</string>
+    <string name="title_signature_mismatch">L’adreça de correu electrònic de l’emissor i la signatura no coincideixen</string>
+    <string name="title_signature_subject">Assumpte</string>
+    <string name="title_signature_validity">Validesa</string>
+    <string name="title_signature_outdated">La clau pública actualment no és vàlida</string>
+    <string name="title_signature_store">Botiga</string>
     <string name="title_search">Cerca</string>
     <string name="title_search_server">Cerca en el servidor remot</string>
+    <string name="title_search_text">Cerca al text</string>
     <string name="title_search_in">Cerca en</string>
     <string name="title_sort_on">Ordena per</string>
     <string name="title_sort_on_time">Data</string>
@@ -683,6 +726,7 @@
     <string name="title_legend_section_folders">Carpetes</string>
     <string name="title_legend_section_messages">Missatges</string>
     <string name="title_legend_section_compose">Redactar</string>
+    <string name="title_legend_oauth">Autorització OAuth</string>
     <string name="title_legend_primary_connected">Compte connectat</string>
     <string name="title_legend_primary_disconnected">Compte desconnectat</string>
     <string name="title_legend_download_on">Baixa automàticament el contingut del missatge</string>
@@ -717,6 +761,7 @@
     <string name="title_legend_draft">Té un esborrany</string>
     <string name="title_legend_priority">Té prioritat alta</string>
     <string name="title_legend_priority_low">Té prioritat baixa</string>
+    <string name="title_legend_signed">Està signat</string>
     <string name="title_legend_encrypted">Està xifrat</string>
     <string name="title_legend_auth">Autenticació ha fallat</string>
     <string name="title_legend_snoozed">Està posposada</string>
@@ -841,6 +886,7 @@
     <string name="title_unexpected_error">S\'ha produït un error inesperat</string>
     <string name="title_log">Registres</string>
     <string name="title_auto_scroll">Desplaçament automàtic</string>
+    <string name="title_log_clear">Netejar</string>
     <string name="title_debug_info">Informació de depuració</string>
     <string name="title_debug_info_remark">Per favor descriu el problema i indica quan en el que va ocorre:</string>
     <string name="title_crash_info_remark">Per favor descriu què estaves fent quan l\'aplicació va fallar:</string>
@@ -857,6 +903,15 @@
     <string name="title_widget_folder_unified">Carpetes unificades de la safata d\'entrada</string>
     <string name="title_widget_unseen">Missatges no llegits només</string>
     <string name="title_widget_flagged">Missatges senyalats només</string>
+    <string name="title_accessibility_collapsed">Replegat</string>
+    <string name="title_accessibility_expanded">Extés</string>
+    <string name="title_accessibility_seen">Llegit</string>
+    <string name="title_accessibility_unseen">Sense llegir</string>
+    <string name="title_accessibility_flagged">Destacats</string>
+    <string name="title_accessibility_unflagged">Sense destacar</string>
+    <string name="title_accessibility_collapse">Replegar</string>
+    <string name="title_accessibility_expand">Expandeix</string>
+    <string name="title_accessibility_view_contact">Mostra el contacte</string>
     <string-array name="pollIntervalNames">
         <item>Sempre</item>
         <item>Cada 15 minuts</item>
@@ -937,5 +992,12 @@
         <item>Petit</item>
         <item>Mitjà</item>
         <item>Gran</item>
+    </string-array>
+    <string-array name="encryptNames">
+        <item>Cap</item>
+        <item>Només signar PGP</item>
+        <item>Signar i xifrar PGP</item>
+        <item>Només signar S/MIME</item>
+        <item>Signar i xifrar S/MIME</item>
     </string-array>
 </resources>

@@ -38,4 +38,4 @@ En les versions recents d'Android, Android posarà les aplicacions en suspensió
 
 ## Preguntes o problemes
 
-If you have a question or problem, please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) for help.
+Si tens alguna pregunta o problema, si us plau [llegeix això](https://github.com/M66B/FairEmail/blob/master/FAQ.md) per ajudar-te.
