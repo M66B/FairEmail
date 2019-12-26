@@ -455,7 +455,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 R.plurals.title_accessibility_all_of_seen, message.count, message.count));
                     else
                         result.add(context.getResources().getQuantityString(
-                                R.plurals.title_accessibility_count_of_seen, message.unseen, message.unseen, message.count));
+                                R.plurals.title_accessibility_count_of_unseen, message.unseen, message.unseen, message.count));
 
                     if (ibExpander.getVisibility() == View.VISIBLE) {
                         result.add(context.getString(expanded ? R.string.title_accessibility_expanded : R.string.title_accessibility_collapsed));

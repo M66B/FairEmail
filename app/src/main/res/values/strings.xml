@@ -1024,9 +1024,9 @@
     <string name="title_accessibility_expanded">Expanded</string>
     <string name="title_accessibility_seen">Read</string>
     <string name="title_accessibility_unseen">Unread</string>
-    <plurals name="title_accessibility_count_of_seen">
-        <item quantity="one">%1$d of %2$d read</item>
-        <item quantity="other">%1$d of %2$d read</item>
+    <plurals name="title_accessibility_count_of_unseen">
+        <item quantity="one">%1$d of %2$d unread</item>
+        <item quantity="other">%1$d of %2$d unread</item>
     </plurals>
     <plurals name="title_accessibility_all_of_seen">
         <item quantity="one"></item>
