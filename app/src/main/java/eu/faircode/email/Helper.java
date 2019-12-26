@@ -324,6 +324,13 @@ public class Helper {
             return new Intent(Intent.ACTION_VIEW, Uri.parse(XDA_URI));
     }
 
+    static Intent getIntentRate(Context context) {
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + BuildConfig.APPLICATION_ID));
+        if (intent.resolveActivity(context.getPackageManager()) == null)
+            intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID));
+        return intent;
+    }
+
     // Graphics
 
     static int dp2pixels(Context context, int dp) {

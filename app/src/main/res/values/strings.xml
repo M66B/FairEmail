@@ -657,6 +657,10 @@
     <string name="title_ask_help">Help improve FairEmail</string>
     <string name="title_ask_reporting">Send error reports?</string>
     <string name="title_reporting_why">Error reporting will help improve FairEmail</string>
+
+    <string name="title_ask_review" translatable="false">Please review FairEmail</string>
+    <string name="title_ask_review_rationale" translatable="false">You have been using FairEmail for a while. It is appreciated if you rate FairEmail in the Play Store, also to maintain a balance between unfavorable and favorable reviews.</string>
+
     <string name="title_expand_warning">Expanding this message will download %1$s</string>
     <string name="title_download_message">Downloading &#8230;</string>
 

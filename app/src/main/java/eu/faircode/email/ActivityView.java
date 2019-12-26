@@ -382,7 +382,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }).setExternal(true));
 
         if ((Helper.isPlayStoreInstall() || BuildConfig.DEBUG) &&
-                getIntentRate(this).resolveActivity(pm) != null)
+                Helper.getIntentRate(this).resolveActivity(pm) != null)
             extra.add(new NavMenuItem(R.drawable.baseline_star_24, R.string.menu_rate, new Runnable() {
                 @Override
                 public void run() {
@@ -1164,13 +1164,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         return intent;
     }
 
-    private static Intent getIntentRate(Context context) {
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + BuildConfig.APPLICATION_ID));
-        if (intent.resolveActivity(context.getPackageManager()) == null)
-            intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID));
-        return intent;
-    }
-
     public static class FragmentDialogFirst extends FragmentDialogBase {
         @NonNull
         @Override
@@ -1204,7 +1197,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     .setNegativeButton(R.string.title_no, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            Helper.view(getContext(), getIntentRate(getContext()));
+                            Helper.view(getContext(), Helper.getIntentRate(getContext()));
                         }
                     })
                     .create();

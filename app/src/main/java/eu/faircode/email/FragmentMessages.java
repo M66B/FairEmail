@@ -30,6 +30,8 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.IntentSender;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -287,6 +289,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     static final String ACTION_STORE_RAW = BuildConfig.APPLICATION_ID + ".STORE_RAW";
     static final String ACTION_DECRYPT = BuildConfig.APPLICATION_ID + ".DECRYPT";
     static final String ACTION_NEW_MESSAGE = BuildConfig.APPLICATION_ID + ".NEW_MESSAGE";
+
+    private static final long REVIEW_ASK_DELAY = 24 * 3600 * 1000L; // milliseonds
 
     private static final List<String> DUPLICATE_ORDER = Collections.unmodifiableList(Arrays.asList(
             EntityFolder.INBOX,
@@ -2577,7 +2581,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         else
             fabMore.hide();
 
-        checkReporting();
+        if (!checkReporting())
+            checkReview();
     }
 
     @Override
@@ -2695,24 +2700,69 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }
     };
 
-    private void checkReporting() {
-        if (viewType == AdapterMessage.ViewType.UNIFIED) {
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-            if (prefs.getBoolean("crash_reports", false) ||
-                    prefs.getBoolean("crash_reports_asked", false))
-                return;
+    private boolean checkReporting() {
+        if (viewType != AdapterMessage.ViewType.UNIFIED)
+            return false;
 
-            final Snackbar snackbar = Snackbar.make(view, R.string.title_ask_help, Snackbar.LENGTH_INDEFINITE);
-            snackbar.setAction(R.string.title_info, new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    snackbar.dismiss();
-                    new FragmentDialogReporting().show(getParentFragmentManager(), "reporting");
-                }
-            });
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        if (prefs.getBoolean("crash_reports", false) ||
+                prefs.getBoolean("crash_reports_asked", false))
+            return false;
 
-            snackbar.show();
+        final Snackbar snackbar = Snackbar.make(view, R.string.title_ask_help, Snackbar.LENGTH_INDEFINITE);
+        snackbar.setAction(R.string.title_info, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                snackbar.dismiss();
+                new FragmentDialogReporting().show(getParentFragmentManager(), "reporting");
+            }
+        });
+
+        snackbar.show();
+
+        return true;
+    }
+
+    private boolean checkReview() {
+        if (viewType != AdapterMessage.ViewType.UNIFIED)
+            return false;
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        if (prefs.getBoolean("review_asked", false))
+            return false;
+
+        PackageManager pm = getContext().getPackageManager();
+
+        Intent intent = Helper.getIntentRate(getContext());
+        if (intent.resolveActivity(pm) == null)
+            return false;
+
+        long installed = 0;
+        try {
+            PackageInfo pi = pm.getPackageInfo(BuildConfig.APPLICATION_ID, 0);
+            if (pi != null)
+                installed = pi.firstInstallTime;
+        } catch (Throwable ex) {
+            Log.e(ex);
         }
+        Log.i("Installed=" + new Date(installed));
+
+        long now = new Date().getTime();
+        if (installed + REVIEW_ASK_DELAY > now)
+            return false;
+
+        final Snackbar snackbar = Snackbar.make(view, R.string.title_ask_review, Snackbar.LENGTH_INDEFINITE);
+        snackbar.setAction(R.string.title_info, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                snackbar.dismiss();
+                new FragmentDialogReview().show(getParentFragmentManager(), "review");
+            }
+        });
+
+        snackbar.show();
+
+        return true;
     }
 
     @Override
@@ -5406,6 +5456,36 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
                             prefs.edit().putBoolean("crash_reports", true).apply();
                             Log.setCrashReporting(true);
+                        }
+                    })
+                    .setNegativeButton(android.R.string.no, null)
+                    .create();
+        }
+    }
+
+    public static class FragmentDialogReview extends FragmentDialogBase {
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_review, null);
+            CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
+
+            cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                    prefs.edit().putBoolean("review_asked", isChecked).apply();
+                }
+            });
+
+            return new AlertDialog.Builder(getContext())
+                    .setView(dview)
+                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                            prefs.edit().putBoolean("review_asked", true).apply();
+                            startActivity(Helper.getIntentRate(getContext()));
                         }
                     })
                     .setNegativeButton(android.R.string.no, null)
