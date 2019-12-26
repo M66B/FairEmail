@@ -157,9 +157,15 @@ public class MessageHelper {
         if (message.from != null && message.from.length > 0) {
             String email = ((InternetAddress) message.from[0]).getAddress();
             String name = ((InternetAddress) message.from[0]).getPersonal();
-            if (email != null && identity != null && identity.sender_extra && !TextUtils.isEmpty(message.extra)) {
+            if (identity != null && identity.sender_extra &&
+                    identity.email.contains("@") &&
+                    email != null &&
+                    email.contains("@") &&
+                    message.extra != null &&
+                    !message.extra.equals(identity.email.split("@")[0])) {
                 int at = email.indexOf('@');
                 email = message.extra + email.substring(at);
+                name = null;
                 Log.i("extra=" + email);
             }
             imessage.setFrom(new InternetAddress(email, name));
