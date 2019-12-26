@@ -540,6 +540,36 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     info.setContentDescription(TextUtils.join(", ", result));
                 }
+
+                @Override
+                public boolean performAccessibilityAction(View host, int action, Bundle args) {
+                    TupleMessageEx message = getMessage();
+                    if (message == null)
+                        return false;
+
+                    switch (action) {
+                        case R.id.ibExpander:
+                            onToggleMessage(message);
+                            return true;
+                        case R.id.ibAvatar:
+                            onViewContact(message);
+                            return true;
+                        case R.id.ibFlagged:
+                            onToggleFlag(message);
+                            return true;
+                        case R.id.ibAuth:
+                            onShowAuth(message);
+                            return true;
+                        case R.id.ibSnoozed:
+                            onShowSnoozed(message);
+                            return true;
+                        case R.id.ibHelp:
+                            onHelp(message);
+                            return true;
+                        default:
+                            return super.performAccessibilityAction(host, action, args);
+                    }
+                }
             });
         }
 
