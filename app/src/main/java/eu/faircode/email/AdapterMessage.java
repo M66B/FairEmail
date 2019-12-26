@@ -261,7 +261,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             BottomNavigationView.OnNavigationItemSelectedListener {
         private ViewCardOptional card;
         private View view;
-        private View header;
 
         private View vwColor;
         private ImageButton ibExpander;
@@ -385,7 +384,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             card = itemView.findViewById(R.id.card);
             view = itemView.findViewById(R.id.clItem);
-            header = itemView.findViewById(R.id.inHeader);
 
             vwColor = itemView.findViewById(R.id.vwColor);
             ibExpander = itemView.findViewById(R.id.ibExpander);
