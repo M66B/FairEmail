@@ -29,27 +29,27 @@
             app:layout_constraintTop_toBottomOf="@id/tvCaption">
 
             <RadioButton
-                android:id="@+id/rbThemeLight"
+                android:id="@+id/rbThemeBlueOrangeLight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="6dp"
-                android:text="@string/title_setup_light_theme"
+                android:text="@string/title_setup_blue_orange_light_theme"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
             <RadioButton
-                android:id="@+id/rbThemeDark"
+                android:id="@+id/rbThemeYellowPurpleLight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="6dp"
-                android:text="@string/title_setup_dark_theme"
+                android:text="@string/title_setup_yellow_purple_light_theme"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
             <RadioButton
-                android:id="@+id/rbThemeBlack"
+                android:id="@+id/rbThemeGreenRedLight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="6dp"
-                android:text="@string/title_setup_black_theme"
+                android:text="@string/title_setup_green_red_light_theme"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
             <RadioButton
@@ -61,11 +61,43 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
             <RadioButton
+                android:id="@+id/rbThemeBlueOrangeDark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="@string/title_setup_blue_orange_dark_theme"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <RadioButton
+                android:id="@+id/rbThemeYellowPurpleDark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="@string/title_setup_yellow_purple_dark_theme"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <RadioButton
+                android:id="@+id/rbThemeGreenRedDark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="@string/title_setup_green_red_dark_theme"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <RadioButton
                 android:id="@+id/rbThemeGreyDark"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="6dp"
                 android:text="@string/title_setup_grey_dark_theme"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <RadioButton
+                android:id="@+id/rbThemeBlack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="@string/title_setup_black_theme"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
             <RadioButton
@@ -83,6 +115,7 @@
                 android:padding="6dp"
                 android:text="@string/title_setup_grey_system_theme"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
         </RadioGroup>
 
         <TextView

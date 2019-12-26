@@ -667,17 +667,36 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             String theme = prefs.getString("theme", "light");
 
             switch (theme) {
-                case "dark":
-                    rgTheme.check(R.id.rbThemeDark);
+                case "light":
+                case "blue_orange_light":
+                    rgTheme.check(R.id.rbThemeBlueOrangeLight);
                     break;
-                case "black":
-                    rgTheme.check(R.id.rbThemeBlack);
+                case "yellow_purple_light":
+                    rgTheme.check(R.id.rbThemeYellowPurpleLight);
+                    break;
+                case "green_red_light":
+                    rgTheme.check(R.id.rbThemeGreenRedLight);
                     break;
                 case "grey_light":
                     rgTheme.check(R.id.rbThemeGreyLight);
                     break;
+
+                case "dark":
+                case "blue_orange_dark":
+                    rgTheme.check(R.id.rbThemeBlueOrangeDark);
+                    break;
+                case "yellow_purple_dark":
+                    rgTheme.check(R.id.rbThemeYellowPurpleDark);
+                    break;
+                case "green_red_dark":
+                    rgTheme.check(R.id.rbThemeGreenRedDark);
+                    break;
                 case "grey_dark":
                     rgTheme.check(R.id.rbThemeGreyDark);
+                    break;
+
+                case "black":
+                    rgTheme.check(R.id.rbThemeBlack);
                     break;
                 case "system":
                     rgTheme.check(R.id.rbThemeSystem);
@@ -685,8 +704,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
                 case "grey_system":
                     rgTheme.check(R.id.rbThemeGreySystem);
                     break;
-                default:
-                    rgTheme.check(R.id.rbThemeLight);
             }
 
             rgTheme.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -697,20 +714,34 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
                     ContactInfo.clearCache();
 
                     switch (checkedId) {
-                        case R.id.rbThemeLight:
-                            prefs.edit().putString("theme", "light").apply();
+                        case R.id.rbThemeBlueOrangeLight:
+                            prefs.edit().putString("theme", "blue_orange_light").apply();
                             break;
-                        case R.id.rbThemeDark:
-                            prefs.edit().putString("theme", "dark").apply();
+                        case R.id.rbThemeYellowPurpleLight:
+                            prefs.edit().putString("theme", "yellow_purple_light").apply();
                             break;
-                        case R.id.rbThemeBlack:
-                            prefs.edit().putString("theme", "black").apply();
+                        case R.id.rbThemeGreenRedLight:
+                            prefs.edit().putString("theme", "green_red_light").apply();
                             break;
                         case R.id.rbThemeGreyLight:
                             prefs.edit().putString("theme", "grey_light").apply();
                             break;
+
+                        case R.id.rbThemeBlueOrangeDark:
+                            prefs.edit().putString("theme", "blue_orange_dark").apply();
+                            break;
+                        case R.id.rbThemeYellowPurpleDark:
+                            prefs.edit().putString("theme", "yellow_purple_dark").apply();
+                            break;
+                        case R.id.rbThemeGreenRedDark:
+                            prefs.edit().putString("theme", "green_red_dark").apply();
+                            break;
                         case R.id.rbThemeGreyDark:
                             prefs.edit().putString("theme", "grey_dark").apply();
+                            break;
+
+                        case R.id.rbThemeBlack:
+                            prefs.edit().putString("theme", "black").apply();
                             break;
                         case R.id.rbThemeSystem:
                             prefs.edit().putString("theme", "system").apply();
