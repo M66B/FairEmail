@@ -1020,16 +1020,29 @@
     <string name="title_widget_unseen">Unread messages only</string>
     <string name="title_widget_flagged">Starred messages only</string>
 
-    <string name="title_accessibility_header" translatable="false">Conversation %1$d: %2$s at %3$s %4$s %5$s %6$s %7$d messages</string>
     <string name="title_accessibility_collapsed">Collapsed</string>
     <string name="title_accessibility_expanded">Expanded</string>
     <string name="title_accessibility_seen">Read</string>
     <string name="title_accessibility_unseen">Unread</string>
+    <plurals name="title_accessibility_count_of_seen">
+        <item quantity="one"></item>
+        <item quantity="other">%1$d of %2$d read</item>
+    </plurals>
+    <plurals name="title_accessibility_all_of_seen">
+        <item quantity="one"></item>
+        <item quantity="other">All of %1$d read</item>
+    </plurals>
+
     <string name="title_accessibility_flagged">Starred</string>
     <string name="title_accessibility_unflagged">Unstarred</string>
     <string name="title_accessibility_collapse">Collapse</string>
     <string name="title_accessibility_expand">Expand</string>
     <string name="title_accessibility_view_contact">View contact</string>
+    <string name="title_accessibility_show_authentication_result">Show authentication result</string>
+    <string name="title_accessibility_show_snooze_time">Show snooze time</string>
+    <string name="title_accessibility_view_help">View help</string>
+    <string name="title_accessibility_selected">Selected</string>
+    <string name="title_accessibility_answered">Replied</string>
 
     <string-array name="pollIntervalNames">
         <item>Always</item>

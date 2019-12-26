@@ -78,6 +78,7 @@ import android.view.ViewAnimationUtils;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.ViewStub;
+import android.view.accessibility.AccessibilityManager;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.webkit.WebView;
@@ -174,6 +175,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private Context context;
     private LifecycleOwner owner;
     private LayoutInflater inflater;
+    private boolean accessibility;
 
     private boolean suitable;
     private boolean unmetered;
@@ -422,54 +424,123 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         tvSubject.setEllipsize(TextUtils.TruncateAt.MIDDLE);
             }
 
-            if (view != null)
-                view.setAccessibilityDelegate(new View.AccessibilityDelegate() {
-                    @Override
-                    public void onInitializeAccessibilityNodeInfo(View host, AccessibilityNodeInfo info) {
-                        super.onInitializeAccessibilityNodeInfo(host, info);
+            // Accessibility
 
-                        TupleMessageEx message = getMessage();
-                        if (message == null)
-                            return;
+            int vt = getItemViewType();
+            if (vt != R.layout.item_message_compact && vt != R.layout.item_message_normal)
+                return;
 
-                        if (ibExpander != null && ibExpander.getVisibility() == View.VISIBLE) {
-                            boolean expanded = properties.getValue("expanded", message.id);
-                            info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibExpander,
-                                    context.getString(expanded ? R.string.title_accessibility_collapse : R.string.title_accessibility_expand)));
-                        }
+            if (!BuildConfig.DEBUG && !accessibility)
+                return;
 
-                        if (ibAvatar != null && ibAvatar.getVisibility() == View.VISIBLE && ibAvatar.isEnabled())
-                            info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibAvatar,
-                                    context.getString(R.string.title_accessibility_view_contact)));
+            view.setAccessibilityDelegate(new View.AccessibilityDelegate() {
+                @Override
+                public void onInitializeAccessibilityNodeInfo(View host, AccessibilityNodeInfo info) {
+                    super.onInitializeAccessibilityNodeInfo(host, info);
 
-                        if (ibFlagged != null && ibFlagged.getVisibility() == View.VISIBLE && ibFlagged.isEnabled()) {
-                            int flagged = (message.count - message.unflagged);
-                            info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibFlagged,
-                                    context.getString(flagged > 0 ? R.string.title_unflag : R.string.title_flag)));
-                        }
+                    TupleMessageEx message = getMessage();
+                    if (message == null)
+                        return;
+
+                    boolean expanded = properties.getValue("expanded", message.id);
+
+                    List<String> result = new ArrayList<>();
+
+                    vwColor.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+
+                    if (selectionTracker != null && selectionTracker.isSelected(message.id))
+                        result.add(context.getString(R.string.title_accessibility_selected));
+
+                    if (message.count == 1)
+                        result.add(context.getString(message.unseen > 0 ? R.string.title_accessibility_unseen : R.string.title_accessibility_seen));
+                    else if (message.unseen == 0)
+                        result.add(context.getResources().getQuantityString(
+                                R.plurals.title_accessibility_all_of_seen, message.count, message.count));
+                    else
+                        result.add(context.getResources().getQuantityString(
+                                R.plurals.title_accessibility_count_of_seen, message.unseen, message.unseen, message.count));
+
+                    if (ibExpander.getVisibility() == View.VISIBLE) {
+                        result.add(context.getString(expanded ? R.string.title_accessibility_expanded : R.string.title_accessibility_collapsed));
+                        info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibExpander,
+                                context.getString(expanded ? R.string.title_accessibility_collapse : R.string.title_accessibility_expand)));
                     }
+                    ibExpander.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
 
-                    @Override
-                    public boolean performAccessibilityAction(View host, int action, Bundle args) {
-                        TupleMessageEx message = getMessage();
-                        if (message == null)
-                            return false;
+                    if (ibAvatar.getVisibility() == View.VISIBLE && ibAvatar.isEnabled())
+                        info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibAvatar,
+                                context.getString(R.string.title_accessibility_view_contact)));
+                    ibAvatar.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
 
-                        switch (action) {
-                            case R.id.ibExpander:
-                                onToggleMessage(message);
-                                return true;
-                            case R.id.ibAvatar:
-                                onViewContact(message);
-                                return true;
-                            case R.id.ibFlagged:
-                                onToggleFlag(message);
-                                return true;
-                            default:
-                                return super.performAccessibilityAction(host, action, args);
-                        }
+                    if (message.drafts > 0)
+                        result.add(context.getString(R.string.title_legend_draft));
+                    if (message.ui_answered)
+                        result.add(context.getString(R.string.title_accessibility_answered));
+
+                    if (ibFlagged.getVisibility() == View.VISIBLE && ibFlagged.isEnabled()) {
+                        int flagged = (message.count - message.unflagged);
+                        if (flagged > 0)
+                            result.add(context.getString(R.string.title_accessibility_flagged));
+                        info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibFlagged,
+                                context.getString(flagged > 0 ? R.string.title_unflag : R.string.title_flag)));
                     }
-                });
+                    ibFlagged.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+
+                    if (EntityMessage.PRIORITIY_HIGH.equals(message.priority))
+                        result.add(context.getString(R.string.title_legend_priority));
+                    if (EntityMessage.PRIORITIY_LOW.equals(message.priority))
+                        result.add(context.getString(R.string.title_legend_priority_low));
+                    if (message.attachments > 0)
+                        result.add(context.getString(R.string.title_legend_attachment));
+
+                    // For a11y purpose report addresses first in case of incoming message
+                    boolean outgoing = isOutgoing(message);
+                    if (!outgoing || message.count > 1)
+                        result.add(tvFrom.getText().toString());
+                    else
+                        result.add(message.subject); // Don't want to ellipsize for a11y
+                    result.add(tvTime.getText().toString());
+                    if (outgoing && message.count == 1)
+                        result.add(tvFrom.getText().toString());
+                    else
+                        result.add(message.subject);
+
+                    if (message.encrypted > 0)
+                        result.add(context.getString(R.string.title_legend_encrypted));
+                    if (message.signed > 0)
+                        result.add(context.getString(R.string.title_legend_signed));
+
+                    if (ibAuth.getVisibility() == View.VISIBLE) {
+                        result.add(context.getString(R.string.title_legend_auth));
+                        info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibAuth,
+                                context.getString(R.string.title_accessibility_show_authentication_result)));
+                    }
+                    ibAuth.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+
+                    if (ibSnoozed.getVisibility() == View.VISIBLE) {
+                        result.add(context.getString(R.string.title_legend_snoozed));
+                        info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibSnoozed,
+                                context.getString(R.string.title_accessibility_show_snooze_time)));
+                    }
+                    ibSnoozed.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+
+                    if (tvFolder.getVisibility() == View.VISIBLE)
+                        result.add(tvFolder.getText().toString());
+                    if (tvSize.getVisibility() == View.VISIBLE)
+                        result.add(tvSize.getText().toString());
+                    if (tvError.getVisibility() == View.VISIBLE)
+                        result.add(tvError.getText().toString());
+                    if (tvPreview.getVisibility() == View.VISIBLE)
+                        result.add(tvPreview.getText().toString());
+
+                    if (ibHelp.getVisibility() == View.VISIBLE)
+                        info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibHelp,
+                                context.getString(R.string.title_accessibility_view_help)));
+                    ibHelp.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+
+                    info.setContentDescription(TextUtils.join(", ", result));
+                }
+            });
         }
 
         private void ensureExpanded() {
@@ -904,18 +975,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             // Expand warning
             bindExpandWarning(message, expanded);
-
-            // Accessibility
-            header.setContentDescription(context.getString(
-                    R.string.title_accessibility_header,
-                    position + 1,
-                    tvFrom.getText(),
-                    tvTime.getText(),
-                    tvSubject.getText(),
-                    context.getString(message.unseen > 0 ? R.string.title_accessibility_unseen : R.string.title_accessibility_seen),
-                    message.count - message.unflagged > 0 ? context.getString(R.string.title_accessibility_flagged) : "",
-                    message.count
-            ));
 
             // Message text preview
             int textColor = (contrast ? textColorPrimary : textColorSecondary);
@@ -3744,6 +3803,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.context = parentFragment.getContext();
         this.owner = parentFragment.getViewLifecycleOwner();
         this.inflater = LayoutInflater.from(context);
+
+        AccessibilityManager am = (AccessibilityManager) context.getSystemService(Context.ACCESSIBILITY_SERVICE);
+        this.accessibility = (am != null && am.isEnabled());
+
         this.TF = Helper.getTimeInstance(context, SimpleDateFormat.SHORT);
         this.DTF = Helper.getDateTimeInstance(context, SimpleDateFormat.LONG, SimpleDateFormat.LONG);
 
