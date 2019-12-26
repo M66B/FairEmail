@@ -1041,7 +1041,7 @@ public class FragmentIdentity extends FragmentBase {
                     tilPassword.setEnabled(false);
                 }
 
-                if (identity == null && identity.auth_type != MailService.AUTH_TYPE_GMAIL)
+                if (identity == null || identity.auth_type != MailService.AUTH_TYPE_GMAIL)
                     Helper.hide(btnOAuth);
 
                 cbPrimary.setEnabled(cbSynchronize.isChecked());
