@@ -426,10 +426,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             // Accessibility
 
-            int vt = getItemViewType();
-            if (vt != R.layout.item_message_compact && vt != R.layout.item_message_normal)
-                return;
-
             if (!BuildConfig.DEBUG && !accessibility)
                 return;
 
@@ -439,7 +435,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     super.onInitializeAccessibilityNodeInfo(host, info);
 
                     TupleMessageEx message = getMessage();
-                    if (message == null)
+                    if (message == null || (filter_duplicates && message.duplicate))
                         return;
 
                     boolean expanded = properties.getValue("expanded", message.id);
