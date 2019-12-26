@@ -318,6 +318,7 @@
     <string name="title_advanced_display_hidden">Показывать текст скрытых сообщений</string>
     <string name="title_advanced_encrypt_method">Метод шифрования по умолчанию</string>
     <string name="title_advanced_openpgp">Провайдер OpenPGP</string>
+    <string name="title_advanced_autocrypt_mutual">Взаимный режим Autocrypt</string>
     <string name="title_advanced_sign_default">Подписать по умолчанию</string>
     <string name="title_advanced_encrypt_default">Шифровать по умолчанию</string>
     <string name="title_advanced_auto_decrypt">Автоматически расшифровывать сообщения</string>
@@ -933,6 +934,9 @@
     <string name="title_accessibility_unseen">Непрочитано</string>
     <string name="title_accessibility_flagged">Избранное</string>
     <string name="title_accessibility_unflagged">Не избранное</string>
+    <string name="title_accessibility_collapse">Свернуть</string>
+    <string name="title_accessibility_expand">Развернуть</string>
+    <string name="title_accessibility_view_contact">Просмотр контакта</string>
     <string-array name="pollIntervalNames">
         <item>Непрерывно</item>
         <item>Каждые 15 минут</item>

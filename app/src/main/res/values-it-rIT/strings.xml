@@ -295,6 +295,7 @@
     <string name="title_advanced_display_hidden">Mostra il testo nascosto del messaggio</string>
     <string name="title_advanced_encrypt_method">Metodo di crittografia predefinito</string>
     <string name="title_advanced_openpgp">Provider OpenPGP</string>
+    <string name="title_advanced_autocrypt_mutual">Autocrypt in modalità reciproca</string>
     <string name="title_advanced_sign_default">Firma di default</string>
     <string name="title_advanced_encrypt_default">Crittografa di default</string>
     <string name="title_advanced_auto_decrypt">Decodifica automaticamente i messaggi</string>
@@ -910,6 +911,9 @@
     <string name="title_accessibility_unseen">Non letto</string>
     <string name="title_accessibility_flagged">Preferiti</string>
     <string name="title_accessibility_unflagged">Non preferito</string>
+    <string name="title_accessibility_collapse">Comprimi</string>
+    <string name="title_accessibility_expand">Espandi</string>
+    <string name="title_accessibility_view_contact">Visualizza contatto</string>
     <string-array name="pollIntervalNames">
         <item>Sempre</item>
         <item>Ogni 15 minuti</item>

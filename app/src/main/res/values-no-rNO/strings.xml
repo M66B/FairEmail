@@ -296,6 +296,7 @@
     <string name="title_advanced_display_hidden">Vis skjulte meldingstekster</string>
     <string name="title_advanced_encrypt_method">Standard krypterings metode</string>
     <string name="title_advanced_openpgp">OpenPGP-leverandør</string>
+    <string name="title_advanced_autocrypt_mutual">Autokrypt gjensidig modus</string>
     <string name="title_advanced_sign_default">Signer som standard</string>
     <string name="title_advanced_encrypt_default">Krypter som standard</string>
     <string name="title_advanced_auto_decrypt">Dekrypter meldinger automatisk</string>
@@ -911,6 +912,9 @@
     <string name="title_accessibility_unseen">Ulest</string>
     <string name="title_accessibility_flagged">Stjernemerkede</string>
     <string name="title_accessibility_unflagged">Ikke med stjerne</string>
+    <string name="title_accessibility_collapse">Skjul</string>
+    <string name="title_accessibility_expand">Utvid</string>
+    <string name="title_accessibility_view_contact">Vis kontakt</string>
     <string-array name="pollIntervalNames">
         <item>Alltid</item>
         <item>Hvert 15. minutt</item>

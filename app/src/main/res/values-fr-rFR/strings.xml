@@ -138,7 +138,7 @@
     <string name="title_setup_doze">Configurer les optimisations de la batterie</string>
     <string name="title_setup_doze_remark">Pour recevoir des e-mails en continu (facultatif)</string>
     <string name="title_setup_doze_instructions">Sur le prochain écran, sélectionnez \"Toutes les applications\" en haut, recherchez cette application puis sélectionnez et validez \"Ne pas optimiser\"</string>
-    <string name="title_setup_doze_battery">Utilisation de batterie élevée ?</string>
+    <string name="title_setup_doze_battery">Utilisation élevée de batterie ?</string>
     <string name="title_setup_doze_stopped">Synchronisation arrêtée ?</string>
     <string name="title_setup_data">L\'économiseur de données est activé</string>
     <string name="title_setup_inbox">Voir les messages</string>
@@ -296,6 +296,7 @@
     <string name="title_advanced_display_hidden">Afficher les textes de message cachés</string>
     <string name="title_advanced_encrypt_method">Méthode de chiffrement par défaut</string>
     <string name="title_advanced_openpgp">Fournisseur OpenPGP</string>
+    <string name="title_advanced_autocrypt_mutual">Mode Autocrypt mutuel</string>
     <string name="title_advanced_sign_default">Signer par défaut</string>
     <string name="title_advanced_encrypt_default">Chiffrer par défaut</string>
     <string name="title_advanced_auto_decrypt">Déchiffrer automatiquement les messages</string>
@@ -911,6 +912,9 @@
     <string name="title_accessibility_unseen">Non lu</string>
     <string name="title_accessibility_flagged">Suivi</string>
     <string name="title_accessibility_unflagged">Non suivi</string>
+    <string name="title_accessibility_collapse">Réduire</string>
+    <string name="title_accessibility_expand">Développer</string>
+    <string name="title_accessibility_view_contact">Voir le contact</string>
     <string-array name="pollIntervalNames">
         <item>Toujours</item>
         <item>Toutes les 15 minutes</item>

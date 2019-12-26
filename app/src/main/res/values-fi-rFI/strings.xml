@@ -112,10 +112,11 @@
     <string name="title_setup_wizard">Asetusvelho</string>
     <string name="title_setup_wizard_remark">Mene \'takaisin\' palataksesi saapuneet-kansioon</string>
     <string name="title_setup_other">Muu palveluntarjoaja</string>
-    <string name="title_setup_gmail_support">Google-tilien vahvistaminen toimii vain virallisissa versioissa, koska Android tarkistaa sovelluksen allekirjoituksen</string>
+    <string name="title_setup_gmail_support">Google-tilien valtuuttaminen toimii vain virallisissa versioissa, koska Android tarkistaa sovelluksen allekirjoituksen</string>
     <string name="title_setup_gmail_rationale">Ole hyvä ja myönnä oikeudet, että tili voidaan valita ja nimesi voidaan lukea</string>
     <string name="title_setup_gmail_permissions">Google kysyy oikeuksia lukea, kirjoittaa, lähettää ja poistaa viestejäsi pysyvästi. FairEmail ei koskaan poista viestejäsi ilman yksiselitteistä hyväksyntääsi.</string>
     <string name="title_setup_gmail_drafts">Jos luonnokset-kansio ei ole IMAP:lla saatavilla, asia voidaan korjata Gmailin tunnisteiden asetuksissa</string>
+    <string name="title_setup_oauth_rationale">Valtuuta pääsy tilillesi %1$s</string>
     <string name="title_setup_oauth_authorize">Valtuuta</string>
     <string name="title_setup_select_account">Valitse tili</string>
     <string name="title_setup_instructions">Asetusohjeet</string>
@@ -295,6 +296,7 @@
     <string name="title_advanced_display_hidden">Näytä piilotetut viestien tekstit</string>
     <string name="title_advanced_encrypt_method">Oletussalausmenetelmä</string>
     <string name="title_advanced_openpgp">OpenPGP-palveluntarjoaja</string>
+    <string name="title_advanced_autocrypt_mutual">Autocrypt molemminpuolinen tila</string>
     <string name="title_advanced_sign_default">Allekirjoita oletuksena</string>
     <string name="title_advanced_encrypt_default">Salaa oletuksena</string>
     <string name="title_advanced_auto_decrypt">Pura viestien salaus automaattisesti</string>
@@ -727,6 +729,7 @@
     <string name="title_legend_section_folders">Kansiot</string>
     <string name="title_legend_section_messages">Viestit</string>
     <string name="title_legend_section_compose">Viestien kirjoitus</string>
+    <string name="title_legend_oauth">OAuth-valtuutus</string>
     <string name="title_legend_primary_connected">Tili yhdistetty</string>
     <string name="title_legend_primary_disconnected">Yhteys tiliin katkaistu</string>
     <string name="title_legend_download_on">Lataa viestien sisältö automaattisesti</string>
@@ -909,6 +912,9 @@
     <string name="title_accessibility_unseen">Lukematon</string>
     <string name="title_accessibility_flagged">Tähdellinen</string>
     <string name="title_accessibility_unflagged">Tähdetön</string>
+    <string name="title_accessibility_collapse">Tiivistä</string>
+    <string name="title_accessibility_expand">Laajenna</string>
+    <string name="title_accessibility_view_contact">Näytä yhteystieto</string>
     <string-array name="pollIntervalNames">
         <item>Koko ajan</item>
         <item>15 minuutin välein</item>

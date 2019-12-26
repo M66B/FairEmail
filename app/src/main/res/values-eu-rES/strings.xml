@@ -296,6 +296,7 @@
     <string name="title_advanced_display_hidden">Erakutsi ezkutatutako mezuen testuak</string>
     <string name="title_advanced_encrypt_method">Berezko zifratze-metodoa</string>
     <string name="title_advanced_openpgp">OpenPGP hornitzailea</string>
+    <string name="title_advanced_autocrypt_mutual">Elkarrekiko autozifratze modua</string>
     <string name="title_advanced_sign_default">Besterik ezean sinatu</string>
     <string name="title_advanced_encrypt_default">Besterik ezean zifratu</string>
     <string name="title_advanced_auto_decrypt">Desenkriptatu mezuak automatikoki</string>
@@ -910,6 +911,9 @@
     <string name="title_accessibility_unseen">Irakurri gabea</string>
     <string name="title_accessibility_flagged">Izarduna</string>
     <string name="title_accessibility_unflagged">Izarrik gabe</string>
+    <string name="title_accessibility_collapse">Tolestu</string>
+    <string name="title_accessibility_expand">Hedatu</string>
+    <string name="title_accessibility_view_contact">Hautatu kontaktua</string>
     <string-array name="pollIntervalNames">
         <item>Beti</item>
         <item>15 minutuero</item>

@@ -909,6 +909,9 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_accessibility_unseen">Ungelesene</string>
     <string name="title_accessibility_flagged">Markierte</string>
     <string name="title_accessibility_unflagged">Nicht markiert</string>
+    <string name="title_accessibility_collapse">Zusammenklappen</string>
+    <string name="title_accessibility_expand">Erweitern</string>
+    <string name="title_accessibility_view_contact">Kontakt anzeigen</string>
     <string-array name="pollIntervalNames">
         <item>Immer</item>
         <item>Alle 15 Minuten</item>

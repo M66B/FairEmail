@@ -104,6 +104,8 @@
     <string name="title_setup_gmail_rationale">请授予权限来选择一个帐户并读取您的姓名</string>
     <string name="title_setup_gmail_permissions">谷歌会请求权限来读取、撰写、发送和永久删除您所有的电子邮件。相比之下，未经您的明确同意，FairEmail永远不会删除您的邮件。</string>
     <string name="title_setup_gmail_drafts">如果草稿文件夹无法通过IMAP访问，可以在Gmail的标签设置中进行修复</string>
+    <string name="title_setup_oauth_rationale">授权访问您的 %1$s 帐户</string>
+    <string name="title_setup_oauth_authorize">授权</string>
     <string name="title_setup_select_account">选择账户</string>
     <string name="title_setup_instructions">设置指南</string>
     <string name="title_setup_no_settings">找不到域名\"%1$s\"的设置</string>
@@ -282,6 +284,7 @@
     <string name="title_advanced_display_hidden">显示隐藏消息文本</string>
     <string name="title_advanced_encrypt_method">默认加密方法</string>
     <string name="title_advanced_openpgp">OpenPGP 提供者</string>
+    <string name="title_advanced_autocrypt_mutual">Autocrypt互助(mutual)模式</string>
     <string name="title_advanced_sign_default">使用默认签名</string>
     <string name="title_advanced_encrypt_default">使用默认加密</string>
     <string name="title_advanced_auto_decrypt">自动解密消息</string>
@@ -896,6 +899,9 @@ FairEmail会显示一条消息来提醒您这一点，这条消息在您购买�
     <string name="title_accessibility_unseen">未读</string>
     <string name="title_accessibility_flagged">标星</string>
     <string name="title_accessibility_unflagged">取消标星</string>
+    <string name="title_accessibility_collapse">折叠</string>
+    <string name="title_accessibility_expand">展开</string>
+    <string name="title_accessibility_view_contact">查看联系人</string>
     <string-array name="pollIntervalNames">
         <item>总是</item>
         <item>每15分钟</item>

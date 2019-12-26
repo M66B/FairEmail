@@ -126,6 +126,8 @@
     <string name="title_setup_gmail_rationale">Vă rugăm să acordați permisiunea de a selecta un cont și a vă citi numele</string>
     <string name="title_setup_gmail_permissions">Google va cere permisiunea de a citi, compune, trimite și șterge în mod permanent mesajele dumneavoastră. de email. FairEmail nu vă va șterge niciodată mesajele fără consimțământul dumneavoastră explicit.</string>
     <string name="title_setup_gmail_drafts">Dacă dosarul de ciorne nu este accesibil IMAP, se poate soluționa în setările de etichete Gmail</string>
+    <string name="title_setup_oauth_rationale">Autorizare acces la contul %1$s</string>
+    <string name="title_setup_oauth_authorize">Autorizare</string>
     <string name="title_setup_select_account">Selectare cont</string>
     <string name="title_setup_instructions">Instrucțiuni de configurare</string>
     <string name="title_setup_no_settings">Nu s-au găsit setări pentru domeniul \'%1$s\'</string>
@@ -304,6 +306,7 @@
     <string name="title_advanced_display_hidden">Arată textul ascuns din mesaj</string>
     <string name="title_advanced_encrypt_method">Metoda implicită de criptare</string>
     <string name="title_advanced_openpgp">Furnizor OpenPGP</string>
+    <string name="title_advanced_autocrypt_mutual">Modul mutual Autocrypt</string>
     <string name="title_advanced_sign_default">Semnare în mod implicit</string>
     <string name="title_advanced_encrypt_default">Criptare în mod implicit</string>
     <string name="title_advanced_auto_decrypt">Decriptează automat mesajele</string>
@@ -736,6 +739,7 @@
     <string name="title_legend_section_folders">Dosare</string>
     <string name="title_legend_section_messages">Mesaje</string>
     <string name="title_legend_section_compose">Compune</string>
+    <string name="title_legend_oauth">Autorizare OAuth</string>
     <string name="title_legend_primary_connected">Cont conectat</string>
     <string name="title_legend_primary_disconnected">Cont deconectat</string>
     <string name="title_legend_download_on">Descarcă mesajul complet, automat</string>
@@ -918,6 +922,9 @@
     <string name="title_accessibility_unseen">Necitit</string>
     <string name="title_accessibility_flagged">Marcat</string>
     <string name="title_accessibility_unflagged">Nemarcat</string>
+    <string name="title_accessibility_collapse">Restrânge</string>
+    <string name="title_accessibility_expand">Extinde</string>
+    <string name="title_accessibility_view_contact">Vizualizare contact</string>
     <string-array name="pollIntervalNames">
         <item>Permanent</item>
         <item>La fiecare 15 minute</item>

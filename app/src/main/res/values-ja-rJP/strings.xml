@@ -284,6 +284,7 @@
     <string name="title_advanced_display_hidden">非表示のメッセージテキストを表示</string>
     <string name="title_advanced_encrypt_method">デフォルトの暗号化方法</string>
     <string name="title_advanced_openpgp">OpenPGP プロバイダ</string>
+    <string name="title_advanced_autocrypt_mutual">相互暗号化モード</string>
     <string name="title_advanced_sign_default">デフォルトで署名</string>
     <string name="title_advanced_encrypt_default">デフォルトで暗号化</string>
     <string name="title_advanced_auto_decrypt">メッセージを自動的に解読</string>
@@ -897,6 +898,9 @@ FairEmailは、Pro機能購入の為に上部に小さなメッセージを表�
     <string name="title_accessibility_unseen">未読</string>
     <string name="title_accessibility_flagged">スター付き</string>
     <string name="title_accessibility_unflagged">スター無し</string>
+    <string name="title_accessibility_collapse">折りたたむ</string>
+    <string name="title_accessibility_expand">展開</string>
+    <string name="title_accessibility_view_contact">連絡先を表示</string>
     <string-array name="pollIntervalNames">
         <item>常に</item>
         <item>15分毎</item>
