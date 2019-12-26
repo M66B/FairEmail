@@ -658,8 +658,8 @@
     <string name="title_ask_reporting">Send error reports?</string>
     <string name="title_reporting_why">Error reporting will help improve FairEmail</string>
 
-    <string name="title_ask_review" translatable="false">Please review FairEmail</string>
-    <string name="title_ask_review_rationale" translatable="false">
+    <string name="title_ask_review">Please review FairEmail</string>
+    <string name="title_ask_review_rationale">
         You have been using FairEmail for a while.
         It would be appreciated if you could rate FairEmail in the Play Store.
         This will help to maintain a balance between unfavorable and favorable reviews.
@@ -958,6 +958,7 @@
     <string name="title_issue">Do you have a question or problem?</string>
     <string name="title_yes">Yes</string>
     <string name="title_no">No</string>
+    <string name="title_later">Later</string>
     <string name="title_undo">Undo</string>
     <string name="title_redo">Redo</string>
     <string name="title_add">Add</string>

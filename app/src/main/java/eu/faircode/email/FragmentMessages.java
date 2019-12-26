@@ -2727,6 +2727,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         if (viewType != AdapterMessage.ViewType.UNIFIED)
             return false;
 
+        if (!Helper.isPlayStoreInstall() && !BuildConfig.DEBUG)
+            return false;
+
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         if (prefs.getBoolean("review_asked", false))
             return false;
@@ -2745,7 +2748,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         } catch (Throwable ex) {
             Log.e(ex);
         }
-        Log.i("Installed=" + new Date(installed));
+
+        long later = prefs.getLong("review_later", 0);
+
+        Log.i("Installed=" + new Date(installed) + " later=" + new Date(later));
+        if (later > installed)
+            installed = later;
 
         long now = new Date().getTime();
         if (installed + REVIEW_ASK_DELAY > now)
@@ -5489,6 +5497,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         }
                     })
                     .setNegativeButton(android.R.string.no, null)
+                    .setNeutralButton(R.string.title_later, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                            prefs.edit().putLong("review_later", new Date().getTime()).apply();
+                        }
+                    })
                     .create();
         }
     }
