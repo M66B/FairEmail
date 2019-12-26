@@ -453,12 +453,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     if (message.count == 1)
                         result.add(context.getString(message.unseen > 0 ? R.string.title_accessibility_unseen : R.string.title_accessibility_seen));
+                    else if (message.unseen == message.count)
+                        result.add(context.getResources().getQuantityString(
+                                R.plurals.title_accessibility_all_of_unseen, message.count, message.count));
                     else if (message.unseen == 0)
                         result.add(context.getResources().getQuantityString(
                                 R.plurals.title_accessibility_all_of_seen, message.count, message.count));
                     else
                         result.add(context.getResources().getQuantityString(
-                                R.plurals.title_accessibility_count_of_seen, message.unseen, message.unseen, message.count));
+                                R.plurals.title_accessibility_count_of_unseen, message.unseen, message.unseen, message.count));
 
                     if (ibExpander.getVisibility() == View.VISIBLE) {
                         result.add(context.getString(expanded ? R.string.title_accessibility_expanded : R.string.title_accessibility_collapsed));
