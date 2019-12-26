@@ -168,11 +168,9 @@
     <string name="title_setup_theme">Velg tema</string>
     <string name="title_setup_blue_orange_light_theme">Blått/oransje lyst tema</string>
     <string name="title_setup_yellow_purple_light_theme">Gul/lilla lyst tema</string>
-    <string name="title_setup_green_red_light_theme">Grønt/rødt lyst tema</string>
     <string name="title_setup_grey_light_theme">Grått lyst tema</string>
     <string name="title_setup_blue_orange_dark_theme">Blått/oransje mørkt tema</string>
     <string name="title_setup_yellow_purple_dark_theme">Gult/lilla mørkt tema</string>
-    <string name="title_setup_green_red_dark_theme">Grønt/rødt mørkt tema</string>
     <string name="title_setup_grey_dark_theme">Grått mørkt tema</string>
     <string name="title_setup_black_theme">Svart tema</string>
     <string name="title_setup_system_theme">System tema</string>
@@ -914,13 +912,17 @@
     <string name="title_accessibility_expanded">Utvidet</string>
     <string name="title_accessibility_seen">Les</string>
     <string name="title_accessibility_unseen">Ulest</string>
-    <plurals name="title_accessibility_count_of_seen">
-        <item quantity="one">%1$d av %2$d lest</item>
-        <item quantity="other">%1$d av %2$d lest</item>
+    <plurals name="title_accessibility_count_of_unseen">
+        <item quantity="one">%1$d av %2$d ulest</item>
+        <item quantity="other">%1$d av %2$d ulest</item>
     </plurals>
     <plurals name="title_accessibility_all_of_seen">
-        <item quantity="one">Hele %1$d er lest</item>
-        <item quantity="other">Hele %1$d er lest</item>
+        <item quantity="one">Alle %1$d lest</item>
+        <item quantity="other">Alle %1$d lest</item>
+    </plurals>
+    <plurals name="title_accessibility_all_of_unseen">
+        <item quantity="one">Alle %1$d uleste</item>
+        <item quantity="other">Alle %1$d uleste</item>
     </plurals>
     <string name="title_accessibility_flagged">Stjernemerkede</string>
     <string name="title_accessibility_unflagged">Ikke med stjerne</string>

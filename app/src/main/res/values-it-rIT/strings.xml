@@ -167,11 +167,11 @@
     <string name="title_setup_theme">Seleziona tema</string>
     <string name="title_setup_blue_orange_light_theme">Tema blu/arancione chiaro</string>
     <string name="title_setup_yellow_purple_light_theme">Tema chiaro giallo/viola</string>
-    <string name="title_setup_green_red_light_theme">Tema verde/rosso chiaro</string>
+    <string name="title_setup_red_green_light_theme">Tema rosso/verde chiaro</string>
     <string name="title_setup_grey_light_theme">Tema grigio chiaro</string>
     <string name="title_setup_blue_orange_dark_theme">Tema scuro blu/arancione</string>
     <string name="title_setup_yellow_purple_dark_theme">Tema scuro giallo/viola</string>
-    <string name="title_setup_green_red_dark_theme">Tema verde e rosso scuro</string>
+    <string name="title_setup_red_green_dark_theme">Tema scuro rosso/verde</string>
     <string name="title_setup_grey_dark_theme">Tema grigio scuro</string>
     <string name="title_setup_black_theme">Tema nero</string>
     <string name="title_setup_system_theme">Tema di sistema</string>
@@ -571,6 +571,10 @@
     <string name="title_ask_help">Aiuta a migliorare FairEmail</string>
     <string name="title_ask_reporting">Inviare rapporti di errore?</string>
     <string name="title_reporting_why">Il report di errore aiuterà a migliorare FairEmail</string>
+    <string name="title_ask_review">Si prega di valutare FairEmail</string>
+    <string name="title_ask_review_rationale">        Stai usando FairEmail da un po\'.
+        Ti saremmo grati se potessi valutare FairEmail nel Play Store.
+        Questo aiuterà a mantenere un equilibrio tra revisioni sfavorevoli e favorevoli.    </string>
     <string name="title_expand_warning">Espandendo questo messaggio verrà scaricato %1$s</string>
     <string name="title_download_message">Download &#8230;</string>
     <string name="title_compose">Scrivi</string>
@@ -839,6 +843,7 @@
     <string name="title_issue">Hai una domanda o un problema?</string>
     <string name="title_yes">Sì</string>
     <string name="title_no">No</string>
+    <string name="title_later">Più tardi</string>
     <string name="title_undo">Annulla</string>
     <string name="title_redo">Ripeti</string>
     <string name="title_add">Aggiungi</string>
@@ -913,13 +918,17 @@
     <string name="title_accessibility_expanded">Espanso</string>
     <string name="title_accessibility_seen">Letto</string>
     <string name="title_accessibility_unseen">Non letto</string>
-    <plurals name="title_accessibility_count_of_seen">
-        <item quantity="one">%1$d di %2$d letti</item>
-        <item quantity="other">%1$d di %2$d letti</item>
+    <plurals name="title_accessibility_count_of_unseen">
+        <item quantity="one">%1$d di %2$d non letti</item>
+        <item quantity="other">%1$d di %2$d non letti</item>
     </plurals>
     <plurals name="title_accessibility_all_of_seen">
-        <item quantity="one">Tutte le %1$d lette</item>
-        <item quantity="other">Tutte le %1$d lette</item>
+        <item quantity="one">Tutti i %1$d letti</item>
+        <item quantity="other">Tutti i %1$d letti</item>
+    </plurals>
+    <plurals name="title_accessibility_all_of_unseen">
+        <item quantity="one">Tutti %1$d non letti</item>
+        <item quantity="other">Tutti %1$d non letti</item>
     </plurals>
     <string name="title_accessibility_flagged">Preferiti</string>
     <string name="title_accessibility_unflagged">Non preferito</string>

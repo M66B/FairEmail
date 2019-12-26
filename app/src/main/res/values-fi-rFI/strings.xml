@@ -168,11 +168,9 @@
     <string name="title_setup_theme">Valitse teema</string>
     <string name="title_setup_blue_orange_light_theme">Sininen/oranssi vaalea teema</string>
     <string name="title_setup_yellow_purple_light_theme">Keltainen/violetti vaalea teema</string>
-    <string name="title_setup_green_red_light_theme">Vihreä/punainen vaalea teema</string>
     <string name="title_setup_grey_light_theme">Harmaa-vaalea teema</string>
     <string name="title_setup_blue_orange_dark_theme">Sininen/oranssi tumma teema</string>
     <string name="title_setup_yellow_purple_dark_theme">Keltainen/violetti tumma teema</string>
-    <string name="title_setup_green_red_dark_theme">Vihreä/punainen tumma teema</string>
     <string name="title_setup_grey_dark_theme">Harmaa-tumma teema</string>
     <string name="title_setup_black_theme">Musta teema</string>
     <string name="title_setup_system_theme">Järjestelmän teema</string>
@@ -914,13 +912,17 @@
     <string name="title_accessibility_expanded">Laajennettu</string>
     <string name="title_accessibility_seen">Luettu</string>
     <string name="title_accessibility_unseen">Lukematon</string>
-    <plurals name="title_accessibility_count_of_seen">
-        <item quantity="one">%1$d/%2$d luettu</item>
-        <item quantity="other">%1$d/%2$d luettu</item>
+    <plurals name="title_accessibility_count_of_unseen">
+        <item quantity="one">%1$d/%2$d lukematta</item>
+        <item quantity="other">%1$d/%2$d lukematta</item>
     </plurals>
     <plurals name="title_accessibility_all_of_seen">
         <item quantity="one">Kaikki %1$d luettu</item>
         <item quantity="other">Kaikki %1$d luettu</item>
+    </plurals>
+    <plurals name="title_accessibility_all_of_unseen">
+        <item quantity="one">Kaikki %1$d lukematta</item>
+        <item quantity="other">Kaikki %1$d lukematta</item>
     </plurals>
     <string name="title_accessibility_flagged">Tähdellinen</string>
     <string name="title_accessibility_unflagged">Tähdetön</string>

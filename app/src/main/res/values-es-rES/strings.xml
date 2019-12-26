@@ -168,11 +168,9 @@
     <string name="title_setup_theme">Seleccionar tema</string>
     <string name="title_setup_blue_orange_light_theme">Tema claro azul/naranja</string>
     <string name="title_setup_yellow_purple_light_theme">Tema claro amarillo/morado</string>
-    <string name="title_setup_green_red_light_theme">Tema claro verde/rojo</string>
     <string name="title_setup_grey_light_theme">Tema gris claro</string>
     <string name="title_setup_blue_orange_dark_theme">Tema oscuro azul/naranja</string>
     <string name="title_setup_yellow_purple_dark_theme">Tema oscuro amarillo/morado</string>
-    <string name="title_setup_green_red_dark_theme">Tema oscuro verde/rojo</string>
     <string name="title_setup_grey_dark_theme">Tema gris oscuro</string>
     <string name="title_setup_black_theme">Tema negro</string>
     <string name="title_setup_system_theme">Tema del sistema</string>
@@ -572,6 +570,11 @@
     <string name="title_ask_help">Ayude a mejorar FairEmail</string>
     <string name="title_ask_reporting">¿Enviar informes de error?</string>
     <string name="title_reporting_why">Informar de errores ayudará a mejorar FairEmail</string>
+    <string name="title_ask_review">Por favor califique FairEmail</string>
+    <string name="title_ask_review_rationale">        Ha estado usando FairEmail durante un tiempo.
+        Agradecería que pudiera calificar a FairEmail en Play Store.
+        Esto ayudará a mantener un equilibrio entre reseñas desfavorables y favorables.
+    </string>
     <string name="title_expand_warning">Expandir este mensaje descargará %1$s</string>
     <string name="title_download_message">Descargando &#8230;</string>
     <string name="title_compose">Redactar</string>
@@ -840,6 +843,7 @@
     <string name="title_issue">¿Tiene una pregunta o problema?</string>
     <string name="title_yes">Sí</string>
     <string name="title_no">No</string>
+    <string name="title_later">Más tarde</string>
     <string name="title_undo">Deshacer</string>
     <string name="title_redo">Rehacer</string>
     <string name="title_add">Agregar</string>
@@ -914,13 +918,17 @@
     <string name="title_accessibility_expanded">Expandido</string>
     <string name="title_accessibility_seen">Leído</string>
     <string name="title_accessibility_unseen">No leído</string>
-    <plurals name="title_accessibility_count_of_seen">
-        <item quantity="one">%1$d de %2$d leído</item>
-        <item quantity="other">%1$d de %2$d leídos</item>
+    <plurals name="title_accessibility_count_of_unseen">
+        <item quantity="one">%1$d de %2$d no leído</item>
+        <item quantity="other">%1$d de %2$d no leídos</item>
     </plurals>
     <plurals name="title_accessibility_all_of_seen">
-        <item quantity="one">Todos de %1$d leídos</item>
-        <item quantity="other">Todos de %1$d leídos</item>
+        <item quantity="one">Todos los %1$d leídos</item>
+        <item quantity="other">Todos los %1$d leídos</item>
+    </plurals>
+    <plurals name="title_accessibility_all_of_unseen">
+        <item quantity="one">Todos %1$d no leídos</item>
+        <item quantity="other">Todos %1$d no leídos</item>
     </plurals>
     <string name="title_accessibility_flagged">Destacado</string>
     <string name="title_accessibility_unflagged">No destacado</string>

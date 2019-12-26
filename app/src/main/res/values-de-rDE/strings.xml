@@ -167,11 +167,9 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_setup_theme">Design auswählen</string>
     <string name="title_setup_blue_orange_light_theme">Blau/orange helles Design</string>
     <string name="title_setup_yellow_purple_light_theme">Gelb/lila helles Design</string>
-    <string name="title_setup_green_red_light_theme">Grün/Rotes helles Design</string>
     <string name="title_setup_grey_light_theme">Graues Design auf hellem Hintergrund</string>
     <string name="title_setup_blue_orange_dark_theme">Blau/orange dunkles Design</string>
     <string name="title_setup_yellow_purple_dark_theme">Gelb/lila dunkles Design</string>
-    <string name="title_setup_green_red_dark_theme">Grün/Rotes dunkles Design</string>
     <string name="title_setup_grey_dark_theme">Graues Design auf dunklem Hintergrund</string>
     <string name="title_setup_black_theme">Schwarzes Design</string>
     <string name="title_setup_system_theme">System-Design</string>
@@ -570,6 +568,11 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_ask_help">Helfen Sie mit, FairEmail zu verbessern</string>
     <string name="title_ask_reporting">Fehlerberichte senden?</string>
     <string name="title_reporting_why">Fehlerberichte helfen uns, FairEmail zu verbessern</string>
+    <string name="title_ask_review">Bitte bewerten Sie FairEmail</string>
+    <string name="title_ask_review_rationale">        Du hast FairEmail schon eine Weile benutzt.
+        Es wäre zu begrüßen, wenn Du FairEmail - sofern Du zufrieden bist - im Play Store positiv bewerten könntest.
+        Dies wird helfen, ein Gleichgewicht zwischen ungünstigen und vorteilhaften Bewertungen zu erhalten.
+    </string>
     <string name="title_expand_warning">Durch Erweitern dieser Nachricht wird %1$s heruntergeladen</string>
     <string name="title_download_message">Lädt herunter &#8230;</string>
     <string name="title_compose">Verfassen</string>
@@ -838,6 +841,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_issue">Haben Sie eine Frage oder ein Problem?</string>
     <string name="title_yes">Ja</string>
     <string name="title_no">Nein</string>
+    <string name="title_later">Später</string>
     <string name="title_undo">Rückgängig</string>
     <string name="title_redo">Rückgängig</string>
     <string name="title_add">Hinzufügen</string>
@@ -911,13 +915,17 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_accessibility_expanded">Erweiterte</string>
     <string name="title_accessibility_seen">Gelesene</string>
     <string name="title_accessibility_unseen">Ungelesene</string>
-    <plurals name="title_accessibility_count_of_seen">
-        <item quantity="one">%1$d von %2$d gelesen</item>
-        <item quantity="other">%1$d von %2$d gelesen</item>
+    <plurals name="title_accessibility_count_of_unseen">
+        <item quantity="one">%1$d von %2$d ungelesen</item>
+        <item quantity="other">%1$d von %2$d ungelesen</item>
     </plurals>
     <plurals name="title_accessibility_all_of_seen">
         <item quantity="one">Alle %1$d gelesen</item>
         <item quantity="other">Alle %1$d gelesen</item>
+    </plurals>
+    <plurals name="title_accessibility_all_of_unseen">
+        <item quantity="one">Alle %1$d ungelesen</item>
+        <item quantity="other">Alle %1$d ungelesen</item>
     </plurals>
     <string name="title_accessibility_flagged">Markierte</string>
     <string name="title_accessibility_unflagged">Nicht markiert</string>

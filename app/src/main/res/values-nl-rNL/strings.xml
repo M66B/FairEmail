@@ -168,11 +168,11 @@
     <string name="title_setup_theme">Selecteer thema</string>
     <string name="title_setup_blue_orange_light_theme">Blauw/oranje licht thema</string>
     <string name="title_setup_yellow_purple_light_theme">Geel/paars licht thema</string>
-    <string name="title_setup_green_red_light_theme">Groen/rood licht thema</string>
+    <string name="title_setup_red_green_light_theme">Rood/groen licht thema</string>
     <string name="title_setup_grey_light_theme">Grijs licht thema</string>
     <string name="title_setup_blue_orange_dark_theme">Blauw/oranje donker thema</string>
     <string name="title_setup_yellow_purple_dark_theme">Geel/paarse donker thema</string>
-    <string name="title_setup_green_red_dark_theme">Groen/rood donker thema</string>
+    <string name="title_setup_red_green_dark_theme">Rood/groen donker thema</string>
     <string name="title_setup_grey_dark_theme">Grijs donker thema</string>
     <string name="title_setup_black_theme">Zwart thema</string>
     <string name="title_setup_system_theme">Systeem thema</string>
@@ -572,6 +572,11 @@
     <string name="title_ask_help">Help FairEmail te verbeteren</string>
     <string name="title_ask_reporting">Foutrapporten verzenden?</string>
     <string name="title_reporting_why">Foutrapportage helpt om FairEmail te verbeteren</string>
+    <string name="title_ask_review">Beoordeel a.u.b. FairEmail</string>
+    <string name="title_ask_review_rationale">        U heeft FairEmail al een tijdje gebruikt.
+        Het wordt gewaardeerd als u FairEmail in de Play Store zou beoordelen.
+        Dit helpt ook om het evenwicht tussen ongunstige en gunstige beoordelingen te bewaren.
+    </string>
     <string name="title_expand_warning">Uitvouwen van dit bericht zal %1$s downloaden</string>
     <string name="title_download_message">Downloaden &#8230;</string>
     <string name="title_compose">Opstellen</string>
@@ -840,6 +845,7 @@
     <string name="title_issue">Heeft u een vraag of probleem?</string>
     <string name="title_yes">Ja</string>
     <string name="title_no">Nee</string>
+    <string name="title_later">Later</string>
     <string name="title_undo">Herstel</string>
     <string name="title_redo">Opnieuw</string>
     <string name="title_add">Toevoegen</string>
@@ -911,13 +917,17 @@
     <string name="title_accessibility_expanded">Uitgevouwen</string>
     <string name="title_accessibility_seen">Gelezen</string>
     <string name="title_accessibility_unseen">Ongelezen</string>
-    <plurals name="title_accessibility_count_of_seen">
-        <item quantity="one">%1$d van %2$d te gelezen</item>
-        <item quantity="other">%1$d van %2$d te gelezen</item>
+    <plurals name="title_accessibility_count_of_unseen">
+        <item quantity="one">%1$d van %2$d ongelezen</item>
+        <item quantity="other">%1$d van %2$d ongelezen</item>
     </plurals>
     <plurals name="title_accessibility_all_of_seen">
-        <item quantity="one">Alle van %1$d gelezen</item>
-        <item quantity="other">Alle van %1$d gelezen</item>
+        <item quantity="one">Alle %1$d gelezen</item>
+        <item quantity="other">Alle %1$d gelezen</item>
+    </plurals>
+    <plurals name="title_accessibility_all_of_unseen">
+        <item quantity="one">Alle %1$d ongelezen</item>
+        <item quantity="other">Alle %1$d ongelezen</item>
     </plurals>
     <string name="title_accessibility_flagged">Met ster</string>
     <string name="title_accessibility_unflagged">Zonder ster</string>

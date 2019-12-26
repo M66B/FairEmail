@@ -188,7 +188,13 @@
     <string name="title_setup_biometrics_disable">Отключить</string>
     <string name="title_setup_biometrics_unlock">Разблокировать</string>
     <string name="title_setup_theme">Выбрать тему</string>
+    <string name="title_setup_blue_orange_light_theme">Светлая оранжево-голубая тема</string>
+    <string name="title_setup_yellow_purple_light_theme">Светлая жёлто-фиолетовая тема</string>
+    <string name="title_setup_red_green_light_theme">Светлая красно-зелёная тема</string>
     <string name="title_setup_grey_light_theme">Светло-серая тема</string>
+    <string name="title_setup_blue_orange_dark_theme">Тёмная оранжево-голубая тема</string>
+    <string name="title_setup_yellow_purple_dark_theme">Тёмная Жёлто-Фиолетовая тема</string>
+    <string name="title_setup_red_green_dark_theme">Тёмная красно-зелёная тема</string>
     <string name="title_setup_grey_dark_theme">Тёмно-серая тема</string>
     <string name="title_setup_black_theme">Чёрная тема</string>
     <string name="title_setup_system_theme">Системная тема</string>
@@ -588,6 +594,11 @@
     <string name="title_ask_help">Помогите улучшить FairEmail</string>
     <string name="title_ask_reporting">Отправлять отчёты об ошибках?</string>
     <string name="title_reporting_why">Отчёты об ошибках помогут улучшить FairEmail</string>
+    <string name="title_ask_review">Пожалуйста, оцените FairEmail</string>
+    <string name="title_ask_review_rationale">        Вы давно используете FairEmail.
+        Будем признательны, если вы сможете оценить FairEmail в Play Store.
+        Это поможет поддерживать баланс между неблагоприятными и благоприятными отзывами.
+    </string>
     <string name="title_expand_warning">При развёртывании этого сообщения будет загружено %1$s</string>
     <string name="title_download_message">Загрузка&#8230;</string>
     <string name="title_compose">Создать</string>
@@ -856,6 +867,7 @@
     <string name="title_issue">У вас есть вопрос или проблема?</string>
     <string name="title_yes">Да</string>
     <string name="title_no">Нет</string>
+    <string name="title_later">Позже</string>
     <string name="title_undo">Отменить</string>
     <string name="title_redo">Восстановить</string>
     <string name="title_add">Добавить</string>
@@ -930,11 +942,34 @@
     <string name="title_accessibility_expanded">Развёрнуто</string>
     <string name="title_accessibility_seen">Прочитано</string>
     <string name="title_accessibility_unseen">Непрочитано</string>
+    <plurals name="title_accessibility_count_of_unseen">
+        <item quantity="one">%1$d из %2$d непрочитано</item>
+        <item quantity="few">%1$d из %2$d непрочитанных</item>
+        <item quantity="many">%1$d из %2$d непрочитанных</item>
+        <item quantity="other">%1$d из %2$d непрочитанных</item>
+    </plurals>
+    <plurals name="title_accessibility_all_of_seen">
+        <item quantity="one">Все %1$d прочитано</item>
+        <item quantity="few">Все %1$d прочитаны</item>
+        <item quantity="many">Все %1$d прочитаны</item>
+        <item quantity="other">Все %1$d прочитаны</item>
+    </plurals>
+    <plurals name="title_accessibility_all_of_unseen">
+        <item quantity="one">Все %1$d непрочитан</item>
+        <item quantity="few">Все %1$d непрочитаны</item>
+        <item quantity="many">Все %1$d непрочитаны</item>
+        <item quantity="other">Все %1$d непрочитаны</item>
+    </plurals>
     <string name="title_accessibility_flagged">Избранное</string>
     <string name="title_accessibility_unflagged">Не избранное</string>
     <string name="title_accessibility_collapse">Свернуть</string>
     <string name="title_accessibility_expand">Развернуть</string>
     <string name="title_accessibility_view_contact">Просмотр контакта</string>
+    <string name="title_accessibility_show_authentication_result">Показать результат аутентификации</string>
+    <string name="title_accessibility_show_snooze_time">Показывать время повтора</string>
+    <string name="title_accessibility_view_help">Посмотреть справку</string>
+    <string name="title_accessibility_selected">Выбранные</string>
+    <string name="title_accessibility_answered">Отвечено</string>
     <string-array name="pollIntervalNames">
         <item>Непрерывно</item>
         <item>Каждые 15 минут</item>
