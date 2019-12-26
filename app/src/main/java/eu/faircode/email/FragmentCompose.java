@@ -2306,13 +2306,17 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onActionSend(EntityMessage draft) {
-        if (draft.encrypt != null && draft.encrypt != 0)
-            if (ActivityBilling.isPro(getContext()))
-                onEncrypt(draft);
-            else
+        if (EntityMessage.SMIME_SIGNONLY.equals(draft.encrypt) ||
+                EntityMessage.SMIME_SIGNENCRYPT.equals(draft.encrypt))
+            if (!ActivityBilling.isPro(getContext())) {
                 startActivity(new Intent(getContext(), ActivityBilling.class));
-        else
+                return;
+            }
+
+        if (draft.encrypt == null || EntityMessage.ENCRYPT_NONE.equals(draft.encrypt))
             onAction(R.id.action_send);
+        else
+            onEncrypt(draft);
     }
 
     private void onExit() {
