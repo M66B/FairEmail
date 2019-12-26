@@ -1025,12 +1025,16 @@
     <string name="title_accessibility_seen">Read</string>
     <string name="title_accessibility_unseen">Unread</string>
     <plurals name="title_accessibility_count_of_seen">
-        <item quantity="one"></item>
+        <item quantity="one">%1$d of %2$d read</item>
         <item quantity="other">%1$d of %2$d read</item>
     </plurals>
     <plurals name="title_accessibility_all_of_seen">
         <item quantity="one"></item>
-        <item quantity="other">All of %1$d read</item>
+        <item quantity="other">All %1$d read</item>
+    </plurals>
+    <plurals name="title_accessibility_all_of_unseen">
+        <item quantity="one"></item>
+        <item quantity="other">All %1$d unread</item>
     </plurals>
 
     <string name="title_accessibility_flagged">Starred</string>
