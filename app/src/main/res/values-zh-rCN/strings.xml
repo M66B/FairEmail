@@ -154,7 +154,13 @@
     <string name="title_setup_biometrics_disable">禁用</string>
     <string name="title_setup_biometrics_unlock">解锁​​​​</string>
     <string name="title_setup_theme">选择主题</string>
+    <string name="title_setup_blue_orange_light_theme">亮蓝/橙色主题</string>
+    <string name="title_setup_yellow_purple_light_theme">亮黄/紫色主题</string>
+    <string name="title_setup_red_green_light_theme">亮红/绿色主题</string>
     <string name="title_setup_grey_light_theme">灰亮主题</string>
+    <string name="title_setup_blue_orange_dark_theme">暗蓝色/橙色主题</string>
+    <string name="title_setup_yellow_purple_dark_theme">暗黄/紫色主题</string>
+    <string name="title_setup_red_green_dark_theme">暗红/绿色主题</string>
     <string name="title_setup_grey_dark_theme">灰暗主题</string>
     <string name="title_setup_black_theme">黑色主题</string>
     <string name="title_setup_system_theme">系统主题</string>
@@ -554,6 +560,11 @@
     <string name="title_ask_help">帮助改进FairEmail</string>
     <string name="title_ask_reporting">发送错误报告?</string>
     <string name="title_reporting_why">错误报告将有助于改进FairEmail</string>
+    <string name="title_ask_review">请评价FairEmail</string>
+    <string name="title_ask_review_rationale">您已经使用FairEmail一段时间了。
+        要是您可以在谷歌商店为FairEmail评分，我将感激不尽。
+        这有助于保持批评和赞同评论之间的平衡。
+    </string>
     <string name="title_expand_warning">展开此消息将下载 %1$s</string>
     <string name="title_download_message">&#8230; 下载中</string>
     <string name="title_compose">撰写</string>
@@ -822,6 +833,7 @@
     <string name="title_issue">您要提问或有问题吗？</string>
     <string name="title_yes">是</string>
     <string name="title_no">否</string>
+    <string name="title_later">以后再说</string>
     <string name="title_undo">撤销</string>
     <string name="title_redo">重做</string>
     <string name="title_add">添加</string>
@@ -895,11 +907,25 @@ FairEmail会显示一条消息来提醒您这一点，这条消息在您购买�
     <string name="title_accessibility_expanded">展开</string>
     <string name="title_accessibility_seen">阅读</string>
     <string name="title_accessibility_unseen">未读</string>
+    <plurals name="title_accessibility_count_of_unseen">
+        <item quantity="other">%2$d中的%1$d未读</item>
+    </plurals>
+    <plurals name="title_accessibility_all_of_seen">
+        <item quantity="other">所有 %1$d 已读</item>
+    </plurals>
+    <plurals name="title_accessibility_all_of_unseen">
+        <item quantity="other">所有 %1$d 未读</item>
+    </plurals>
     <string name="title_accessibility_flagged">标星</string>
     <string name="title_accessibility_unflagged">取消标星</string>
     <string name="title_accessibility_collapse">折叠</string>
     <string name="title_accessibility_expand">展开</string>
     <string name="title_accessibility_view_contact">查看联系人</string>
+    <string name="title_accessibility_show_authentication_result">显示授权结果</string>
+    <string name="title_accessibility_show_snooze_time">显示暂停时间</string>
+    <string name="title_accessibility_view_help">查看帮助</string>
+    <string name="title_accessibility_selected">已选</string>
+    <string name="title_accessibility_answered">已回复</string>
     <string-array name="pollIntervalNames">
         <item>总是</item>
         <item>每15分钟</item>

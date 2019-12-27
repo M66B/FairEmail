@@ -165,7 +165,13 @@
     <string name="title_setup_biometrics_disable">Deaktivér</string>
     <string name="title_setup_biometrics_unlock">Oplås</string>
     <string name="title_setup_theme">Vælg tema</string>
+    <string name="title_setup_blue_orange_light_theme">Blåt/orange lyst tema</string>
+    <string name="title_setup_yellow_purple_light_theme">Gult/lilla lyst tema</string>
+    <string name="title_setup_red_green_light_theme">Rødt/grønt lyst temma</string>
     <string name="title_setup_grey_light_theme">Gråt/lyst tema</string>
+    <string name="title_setup_blue_orange_dark_theme">Blåt/orange mørkt tema</string>
+    <string name="title_setup_yellow_purple_dark_theme">Gult/lilla mørkt tema</string>
+    <string name="title_setup_red_green_dark_theme">Rødt/grønt mørkt temma</string>
     <string name="title_setup_grey_dark_theme">Mørkegråt tema</string>
     <string name="title_setup_black_theme">Sort tema</string>
     <string name="title_setup_system_theme">Systemtema</string>
@@ -565,6 +571,11 @@
     <string name="title_ask_help">Hjælp med at forbedre FairEmail</string>
     <string name="title_ask_reporting">Send fejlrapporter?</string>
     <string name="title_reporting_why">Rapportering af fejl vil hjælpe med at forbedre FairEmail</string>
+    <string name="title_ask_review">Bedøm venligst FairEmail</string>
+    <string name="title_ask_review_rationale">        Du har brugt FairEmail i et stykke tid nu.
+        Det vil blive værdsat, hvis du kunne bedømme FairEmail i Play Butik.
+        Dette vil hjælpe med at bevare balancen mellem ugunstige og gunstige anmeldelser.
+    </string>
     <string name="title_expand_warning">Udvides denne besked, downloades %1$s</string>
     <string name="title_download_message">Downloader &#8230;</string>
     <string name="title_compose">Skriv</string>
@@ -833,6 +844,7 @@
     <string name="title_issue">Har du et spørgsmål eller problem?</string>
     <string name="title_yes">Ja</string>
     <string name="title_no">Nej</string>
+    <string name="title_later">Senere</string>
     <string name="title_undo">Fortryd</string>
     <string name="title_redo">Annullér fortryd</string>
     <string name="title_add">Tilføj</string>
@@ -906,11 +918,20 @@
     <string name="title_accessibility_expanded">Udfoldet</string>
     <string name="title_accessibility_seen">Læst</string>
     <string name="title_accessibility_unseen">Ulæst</string>
+    <plurals name="title_accessibility_count_of_unseen">
+        <item quantity="one">%1$d of %2$d ulæst</item>
+        <item quantity="other">%1$d of %2$d ulæste</item>
+    </plurals>
     <string name="title_accessibility_flagged">Stjernemarkeret</string>
     <string name="title_accessibility_unflagged">Ikke-stjernemarkeret</string>
     <string name="title_accessibility_collapse">Sammenfold</string>
     <string name="title_accessibility_expand">Udvid</string>
     <string name="title_accessibility_view_contact">Vis kontaktperson</string>
+    <string name="title_accessibility_show_authentication_result">Vis godkendelsesresultat</string>
+    <string name="title_accessibility_show_snooze_time">Vis slumretid</string>
+    <string name="title_accessibility_view_help">Vis Hjælp</string>
+    <string name="title_accessibility_selected">Valgt(e)</string>
+    <string name="title_accessibility_answered">Besvaret</string>
     <string-array name="pollIntervalNames">
         <item>Altid</item>
         <item>Hvert 15. minut</item>

@@ -168,9 +168,11 @@
     <string name="title_setup_theme">Seleccionar tema</string>
     <string name="title_setup_blue_orange_light_theme">Tema claro azul/naranja</string>
     <string name="title_setup_yellow_purple_light_theme">Tema claro amarillo/morado</string>
+    <string name="title_setup_red_green_light_theme">Tema claro rojo/verde</string>
     <string name="title_setup_grey_light_theme">Tema gris claro</string>
     <string name="title_setup_blue_orange_dark_theme">Tema oscuro azul/naranja</string>
     <string name="title_setup_yellow_purple_dark_theme">Tema oscuro amarillo/morado</string>
+    <string name="title_setup_red_green_dark_theme">Tema oscuro rojo/verde</string>
     <string name="title_setup_grey_dark_theme">Tema gris oscuro</string>
     <string name="title_setup_black_theme">Tema negro</string>
     <string name="title_setup_system_theme">Tema del sistema</string>

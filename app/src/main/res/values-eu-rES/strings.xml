@@ -166,7 +166,11 @@
     <string name="title_setup_biometrics_disable">Desgaitu</string>
     <string name="title_setup_biometrics_unlock">Desblokeatu</string>
     <string name="title_setup_theme">Hautatu gaia</string>
+    <string name="title_setup_blue_orange_light_theme">Urdin/laranja itxura argia</string>
+    <string name="title_setup_yellow_purple_light_theme">Horia/morea itxura argia</string>
     <string name="title_setup_grey_light_theme">Gai gris argia</string>
+    <string name="title_setup_blue_orange_dark_theme">Urdin/laranja itxura iluna</string>
+    <string name="title_setup_yellow_purple_dark_theme">Horia/morea itxura iluna</string>
     <string name="title_setup_grey_dark_theme">Gai gris iluna</string>
     <string name="title_setup_black_theme">Gai beltza</string>
     <string name="title_setup_system_theme">Sistemako gaia</string>
@@ -912,6 +916,11 @@
     <string name="title_accessibility_collapse">Tolestu</string>
     <string name="title_accessibility_expand">Hedatu</string>
     <string name="title_accessibility_view_contact">Hautatu kontaktua</string>
+    <string name="title_accessibility_show_authentication_result">Erakutsi autentifikazioaren emaitza</string>
+    <string name="title_accessibility_show_snooze_time">Erakutsi atzerapen denbora</string>
+    <string name="title_accessibility_view_help">Erakutsi laguntza</string>
+    <string name="title_accessibility_selected">Aukeratuta</string>
+    <string name="title_accessibility_answered">Erantzuna emana</string>
     <string-array name="pollIntervalNames">
         <item>Beti</item>
         <item>15 minutuero</item>

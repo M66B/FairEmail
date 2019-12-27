@@ -156,9 +156,11 @@
     <string name="title_setup_theme">テーマを選択</string>
     <string name="title_setup_blue_orange_light_theme">ブルー/オレンジライトテーマ</string>
     <string name="title_setup_yellow_purple_light_theme">イエロー/パープルライトテーマ</string>
+    <string name="title_setup_red_green_light_theme">レッド/グリーンライトテーマ</string>
     <string name="title_setup_grey_light_theme">グレイライトテーマ</string>
     <string name="title_setup_blue_orange_dark_theme">ブルー/オレンジダークテーマ</string>
     <string name="title_setup_yellow_purple_dark_theme">イエロー/パープルダークテーマ</string>
+    <string name="title_setup_red_green_dark_theme">レッド/グリーンダークテーマ</string>
     <string name="title_setup_grey_dark_theme">グレイダークテーマ</string>
     <string name="title_setup_black_theme">ブラックテーマ</string>
     <string name="title_setup_system_theme">システムテーマ</string>
@@ -557,6 +559,10 @@
     <string name="title_ask_help">FairEmailの改善にご協力下さい</string>
     <string name="title_ask_reporting">エラーレポートを送信しますか？</string>
     <string name="title_reporting_why">エラー報告はFairEmailの改善に役立ちます</string>
+    <string name="title_ask_review">FairEmailを確認して下さい</string>
+    <string name="title_ask_review_rationale">FairEmailをしばらく使用しています。
+PlayストアでFairEmailを評価できれば幸いです。
+これは、好ましくないレビューと好ましいレビューのバランスを保つのに役立ちます。</string>
     <string name="title_expand_warning">このメッセージを展開すると、%1$sがダウンロードされます</string>
     <string name="title_download_message">&#8230; をダウンロード中</string>
     <string name="title_compose">作成する</string>
@@ -825,6 +831,7 @@
     <string name="title_issue">質問や問題がありますか？</string>
     <string name="title_yes">はい</string>
     <string name="title_no">いいえ</string>
+    <string name="title_later">後ほど</string>
     <string name="title_undo">元に戻す</string>
     <string name="title_redo">やり直し</string>
     <string name="title_add">追加</string>
@@ -898,6 +905,15 @@ FairEmailは、Pro機能購入の為に上部に小さなメッセージを表�
     <string name="title_accessibility_expanded">拡大</string>
     <string name="title_accessibility_seen">読む</string>
     <string name="title_accessibility_unseen">未読</string>
+    <plurals name="title_accessibility_count_of_unseen">
+        <item quantity="other">未読 %2$d の %1$d</item>
+    </plurals>
+    <plurals name="title_accessibility_all_of_seen">
+        <item quantity="other">全ての %1$d を読取りました</item>
+    </plurals>
+    <plurals name="title_accessibility_all_of_unseen">
+        <item quantity="other">%1$d 件 全て未読</item>
+    </plurals>
     <string name="title_accessibility_flagged">スター付き</string>
     <string name="title_accessibility_unflagged">スター無し</string>
     <string name="title_accessibility_collapse">折りたたむ</string>
