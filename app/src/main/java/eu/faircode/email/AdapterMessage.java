@@ -3788,6 +3788,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             context.getString(R.string.title_accessibility_view_help)));
                 ibHelp.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
 
+                if (expanded) {
+                    for (int i = 0; i < bnvActions.getMenu().size(); i++) {
+                        MenuItem menuItem = bnvActions.getMenu().getItem(i);
+                        if (menuItem.isVisible() && menuItem.isEnabled())
+                            info.addAction(new AccessibilityNodeInfo.AccessibilityAction(
+                                    menuItem.getItemId(), menuItem.getTitle()));
+                    }
+                }
+
                 info.setContentDescription(TextUtils.join(", ", result));
             }
 
@@ -3817,6 +3826,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         onHelp(message);
                         return true;
                     default:
+                        for (int i = 0; i < bnvActions.getMenu().size(); i++) {
+                            MenuItem menuItem = bnvActions.getMenu().getItem(i);
+                            if (menuItem.getItemId() == action) {
+                                bnvActions.getMenu().performIdentifierAction(action, 0);
+                                return true;
+                            }
+                        }
                         return super.performAccessibilityAction(host, action, args);
                 }
             }
