@@ -15,8 +15,8 @@
     <attr name="colorActionBackground" format="reference" />
     <attr name="colorFabForeground" format="reference" />
     <attr name="colorFabBackground" format="reference" />
-    <attr name="colorToastForeground" format="reference" />
-    <attr name="colorToastBackground" format="reference" />
+    <attr name="colorInfoForeground" format="reference" />
+    <attr name="colorInfoBackground" format="reference" />
     <attr name="activatableItemBackground" format="reference" />
 
     <style name="AppThemeBaseLight" parent="Base.Theme.AppCompat.Light.DarkActionBar">
@@ -108,8 +108,8 @@
 
         <item name="colorFabBackground">@color/colorAccent</item>
 
-        <item name="colorToastForeground">@color/white</item>
-        <item name="colorToastBackground">@color/colorPrimaryDark</item>
+        <item name="colorInfoForeground">@color/black</item>
+        <item name="colorInfoBackground">@color/colorAccent</item>
 
         <item name="android:textColorLink">@color/colorAccentDark</item>
     </style>
@@ -123,8 +123,8 @@
 
         <item name="colorFabBackground">@color/lightPurpleAccent</item>
 
-        <item name="colorToastForeground">@color/white</item>
-        <item name="colorToastBackground">@color/lightPurpleAccent</item>
+        <item name="colorInfoForeground">@color/white</item>
+        <item name="colorInfoBackground">@color/lightPurpleAccent</item>
 
         <item name="android:textColorLink">@color/lightPurpleAccent</item>
     </style>
@@ -138,8 +138,8 @@
 
         <item name="colorFabBackground">@color/lightGreenAccent</item>
 
-        <item name="colorToastForeground">@color/white</item>
-        <item name="colorToastBackground">@color/lightGreenAccent</item>
+        <item name="colorInfoForeground">@color/white</item>
+        <item name="colorInfoBackground">@color/lightGreenAccent</item>
 
         <item name="android:textColorLink">@color/lightGreenAccent</item>
     </style>
@@ -155,8 +155,8 @@
 
         <item name="colorFabBackground">@color/colorAccent</item>
 
-        <item name="colorToastForeground">@color/white</item>
-        <item name="colorToastBackground">@color/darkColorPrimary</item>
+        <item name="colorInfoForeground">@color/black</item>
+        <item name="colorInfoBackground">@color/colorAccent</item>
     </style>
 
     <style name="AppThemeYellowPurpleDark" parent="AppThemeBaseDark">
@@ -168,8 +168,8 @@
 
         <item name="colorFabBackground">@color/darkPurpleAccent</item>
 
-        <item name="colorToastForeground">@color/white</item>
-        <item name="colorToastBackground">@color/darkPurpleAccent</item>
+        <item name="colorInfoForeground">@color/white</item>
+        <item name="colorInfoBackground">@color/darkPurpleAccent</item>
 
         <item name="android:textColorLink">@color/darkPurpleAccent</item>
     </style>
@@ -183,8 +183,8 @@
 
         <item name="colorFabBackground">@color/darkGreenAccent</item>
 
-        <item name="colorToastForeground">@color/white</item>
-        <item name="colorToastBackground">@color/darkGreenAccent</item>
+        <item name="colorInfoForeground">@color/black</item>
+        <item name="colorInfoBackground">@color/darkGreenAccent</item>
 
         <item name="android:textColorLink">@color/darkGreenAccent</item>
     </style>
@@ -209,8 +209,8 @@
 
         <item name="colorFabBackground">@color/greyAccent</item>
 
-        <item name="colorToastForeground">@color/white</item>
-        <item name="colorToastBackground">@color/greyAccent</item>
+        <item name="colorInfoForeground">@color/white</item>
+        <item name="colorInfoBackground">@color/greyAccent</item>
     </style>
 
     <style name="AppThemeGreySteelBlueDark" parent="AppThemeBlack">
@@ -225,8 +225,8 @@
 
         <item name="colorFabBackground">@color/greyAccentDark</item>
 
-        <item name="colorToastForeground">@color/white</item>
-        <item name="colorToastBackground">@color/greyAccentDark</item>
+        <item name="colorInfoForeground">@color/white</item>
+        <item name="colorInfoBackground">@color/greyAccentDark</item>
     </style>
 
     <style name="Theme.AppCompat.Translucent" parent="Theme.AppCompat.NoActionBar">

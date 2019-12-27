@@ -24,7 +24,7 @@ public class ToastEx extends Toast {
         view.setBackground(context.getResources().getDrawable(R.drawable.toast_background, context.getTheme()));
 
         TextView tv = view.findViewById(android.R.id.message);
-        tv.setTextColor(Helper.resolveColor(context, R.attr.colorToastForeground));
+        tv.setTextColor(Helper.resolveColor(context, R.attr.colorInfoForeground));
         tv.setText(text);
         toast.setView(view);
         toast.setDuration(duration);

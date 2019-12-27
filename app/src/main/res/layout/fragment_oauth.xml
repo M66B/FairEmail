@@ -108,9 +108,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:backgroundTint="?attr/colorAccent"
+            android:backgroundTint="?attr/colorInfoBackground"
             android:text="@string/menu_faq"
-            android:textColor="@android:color/black"
+            android:textColor="?attr/colorInfoForeground"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvGmailDraftsHint" />

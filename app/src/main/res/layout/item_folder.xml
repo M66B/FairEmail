@@ -245,11 +245,11 @@
                 style="?android:attr/buttonStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="?attr/colorAccent"
+                android:backgroundTint="?attr/colorInfoBackground"
                 android:minWidth="0dp"
                 android:minHeight="0dp"
                 android:text="@string/title_setup_help"
-                android:textColor="@android:color/black"
+                android:textColor="?attr/colorInfoForeground"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvError" />

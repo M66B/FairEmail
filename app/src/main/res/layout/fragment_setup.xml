@@ -85,11 +85,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:backgroundTint="?attr/colorPrimary"
+            android:backgroundTint="?attr/colorInfoBackground"
             android:minWidth="0dp"
             android:minHeight="0dp"
             android:text="@string/title_setup_help"
-            android:textColor="@android:color/white"
+            android:textColor="?attr/colorInfoForeground"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvQuick" />
