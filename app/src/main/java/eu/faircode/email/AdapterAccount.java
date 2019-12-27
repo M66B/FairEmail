@@ -136,7 +136,8 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
 
             ivSync.setImageResource(account.synchronize ? R.drawable.baseline_sync_24 : R.drawable.baseline_sync_disabled_24);
 
-            ivOAuth.setVisibility(account.auth_type == MailService.AUTH_TYPE_PASSWORD ? View.GONE : View.VISIBLE);
+            ivOAuth.setVisibility(
+                    settings && account.auth_type != MailService.AUTH_TYPE_PASSWORD ? View.VISIBLE : View.GONE);
             ivPrimary.setVisibility(account.primary ? View.VISIBLE : View.GONE);
             ivNotify.setVisibility(account.notify ? View.VISIBLE : View.GONE);
 
