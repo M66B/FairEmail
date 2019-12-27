@@ -290,7 +290,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     static final String ACTION_DECRYPT = BuildConfig.APPLICATION_ID + ".DECRYPT";
     static final String ACTION_NEW_MESSAGE = BuildConfig.APPLICATION_ID + ".NEW_MESSAGE";
 
-    private static final long REVIEW_ASK_DELAY = 24 * 3600 * 1000L; // milliseonds
+    private static final long REVIEW_ASK_DELAY = 3 * 24 * 3600 * 1000L; // milliseonds
 
     private static final List<String> DUPLICATE_ORDER = Collections.unmodifiableList(Arrays.asList(
             EntityFolder.INBOX,
