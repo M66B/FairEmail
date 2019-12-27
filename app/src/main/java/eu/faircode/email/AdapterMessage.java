@@ -380,7 +380,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private ScaleGestureDetector gestureDetector;
 
-        ViewHolder(final View itemView) {
+        ViewHolder(final View itemView, long viewType) {
             super(itemView);
 
             card = itemView.findViewById(R.id.card);
@@ -424,10 +424,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         tvSubject.setEllipsize(TextUtils.TruncateAt.MIDDLE);
             }
 
-            // Accessibility
-
-            int vt = getItemViewType();
-            if (vt != R.layout.item_message_compact && vt != R.layout.item_message_normal)
+            if (viewType != R.layout.item_message_compact && viewType != R.layout.item_message_normal)
                 return;
 
             if (!BuildConfig.DEBUG && !accessibility)
@@ -4324,7 +4321,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     @Override
     @NonNull
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(inflater.inflate(viewType, parent, false));
+        return new ViewHolder(inflater.inflate(viewType, parent, false), viewType);
     }
 
     @Override
