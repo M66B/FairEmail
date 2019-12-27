@@ -166,18 +166,15 @@
     <string name="title_setup_biometrics_disable">Désactiver</string>
     <string name="title_setup_biometrics_unlock">Déverrouiller</string>
     <string name="title_setup_theme">Choisir le thème</string>
-    <string name="title_setup_blue_orange_light_theme">Thème clair bleu/orange</string>
-    <string name="title_setup_yellow_purple_light_theme">Thème clair jaune/violet</string>
-    <string name="title_setup_red_green_light_theme">Thème clair rouge/vert</string>
-    <string name="title_setup_grey_light_theme">Thème clair gris</string>
-    <string name="title_setup_blue_orange_dark_theme">Thème sombre bleu/orange</string>
-    <string name="title_setup_yellow_purple_dark_theme">Thème sombre jaune/violet</string>
-    <string name="title_setup_red_green_dark_theme">Thème sombre rouge/vert</string>
-    <string name="title_setup_grey_dark_theme">Thème sombre gris</string>
-    <string name="title_setup_black_theme">Thème noir</string>
-    <string name="title_setup_system_theme">Thème système</string>
-    <string name="title_setup_grey_system_theme">Thème système gris</string>
-    <string name="title_setup_system_theme_hint">Les thèmes système basculeront automatiquement en mode clair/sombre le jour/la nuit si pris en charge par Android</string>
+    <string name="title_setup_theme_blue_orange">Bleu/orange</string>
+    <string name="title_setup_theme_yellow_purple">Jaune/violet</string>
+    <string name="title_setup_theme_red_green">Rouge/vert</string>
+    <string name="title_setup_theme_grey">Gris</string>
+    <string name="title_setup_theme_black">Noir</string>
+    <string name="title_setup_theme_reverse">Inverser les couleurs</string>
+    <string name="title_setup_theme_dark">Sombre</string>
+    <string name="title_setup_theme_system">Suivre le système</string>
+    <string name="title_setup_theme_system_hint">Suivre le thème système basculera automatiquement en mode clair/sombre le jour/la nuit si cela est pris en charge par Android</string>
     <string name="title_setup_advanced">Avancé</string>
     <string name="title_setup_options">Options</string>
     <string name="title_setup_defaults">Rétablir les paramètres par défaut</string>
@@ -920,18 +917,6 @@
     <string name="title_accessibility_expanded">Étendu</string>
     <string name="title_accessibility_seen">Lu</string>
     <string name="title_accessibility_unseen">Non lu</string>
-    <plurals name="title_accessibility_count_of_unseen">
-        <item quantity="one">%1$d sur %2$d non lu</item>
-        <item quantity="other">%1$d sur %2$d non lus</item>
-    </plurals>
-    <plurals name="title_accessibility_all_of_seen">
-        <item quantity="one">%1$d lu</item>
-        <item quantity="other">Tous les %1$d lus</item>
-    </plurals>
-    <plurals name="title_accessibility_all_of_unseen">
-        <item quantity="one">%1$d non lu</item>
-        <item quantity="other">Tous les %1$d non lus</item>
-    </plurals>
     <string name="title_accessibility_flagged">Suivi</string>
     <string name="title_accessibility_unflagged">Non suivi</string>
     <string name="title_accessibility_collapse">Réduire</string>

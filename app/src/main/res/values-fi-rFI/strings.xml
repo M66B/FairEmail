@@ -166,16 +166,15 @@
     <string name="title_setup_biometrics_disable">Poista käytöstä</string>
     <string name="title_setup_biometrics_unlock">Poista lukitus</string>
     <string name="title_setup_theme">Valitse teema</string>
-    <string name="title_setup_blue_orange_light_theme">Sininen/oranssi vaalea teema</string>
-    <string name="title_setup_yellow_purple_light_theme">Keltainen/violetti vaalea teema</string>
-    <string name="title_setup_grey_light_theme">Harmaa-vaalea teema</string>
-    <string name="title_setup_blue_orange_dark_theme">Sininen/oranssi tumma teema</string>
-    <string name="title_setup_yellow_purple_dark_theme">Keltainen/violetti tumma teema</string>
-    <string name="title_setup_grey_dark_theme">Harmaa-tumma teema</string>
-    <string name="title_setup_black_theme">Musta teema</string>
-    <string name="title_setup_system_theme">Järjestelmän teema</string>
-    <string name="title_setup_grey_system_theme">Harmaa järjestelmän teema</string>
-    <string name="title_setup_system_theme_hint">Järjestelmän teemat vaihtuvat automaattisesti vaaleaksi/tummaksi päivällä/yöllä, jos Android tukee sitä</string>
+    <string name="title_setup_theme_blue_orange">Sininen/oranssi</string>
+    <string name="title_setup_theme_yellow_purple">Keltainen/violetti</string>
+    <string name="title_setup_theme_red_green">Punainen/vihreä</string>
+    <string name="title_setup_theme_grey">Harmaa</string>
+    <string name="title_setup_theme_black">Musta</string>
+    <string name="title_setup_theme_reverse">Käänteiset värit</string>
+    <string name="title_setup_theme_dark">Tumma</string>
+    <string name="title_setup_theme_system">Noudata järjestelmän teemaa</string>
+    <string name="title_setup_theme_system_hint">Järjestelmän teeman noudattaminen vaihtaa automaattisesti vaaleaksi/tummaksi päivällä/yöllä, jos Android tukee tätä</string>
     <string name="title_setup_advanced">Lisäasetukset</string>
     <string name="title_setup_options">Asetukset</string>
     <string name="title_setup_defaults">Palauta oletukset</string>
@@ -912,18 +911,6 @@
     <string name="title_accessibility_expanded">Laajennettu</string>
     <string name="title_accessibility_seen">Luettu</string>
     <string name="title_accessibility_unseen">Lukematon</string>
-    <plurals name="title_accessibility_count_of_unseen">
-        <item quantity="one">%1$d/%2$d lukematta</item>
-        <item quantity="other">%1$d/%2$d lukematta</item>
-    </plurals>
-    <plurals name="title_accessibility_all_of_seen">
-        <item quantity="one">Kaikki %1$d luettu</item>
-        <item quantity="other">Kaikki %1$d luettu</item>
-    </plurals>
-    <plurals name="title_accessibility_all_of_unseen">
-        <item quantity="one">Kaikki %1$d lukematta</item>
-        <item quantity="other">Kaikki %1$d lukematta</item>
-    </plurals>
     <string name="title_accessibility_flagged">Tähdellinen</string>
     <string name="title_accessibility_unflagged">Tähdetön</string>
     <string name="title_accessibility_collapse">Tiivistä</string>

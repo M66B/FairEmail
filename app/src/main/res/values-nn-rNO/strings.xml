@@ -166,16 +166,15 @@
     <string name="title_setup_biometrics_disable">Deaktiver</string>
     <string name="title_setup_biometrics_unlock">Låse opp</string>
     <string name="title_setup_theme">Velg tema</string>
-    <string name="title_setup_blue_orange_light_theme">Blått/oransje lyst tema</string>
-    <string name="title_setup_yellow_purple_light_theme">Gul/lilla lyst tema</string>
-    <string name="title_setup_grey_light_theme">Grått lyst tema</string>
-    <string name="title_setup_blue_orange_dark_theme">Blått/oransje mørkt tema</string>
-    <string name="title_setup_yellow_purple_dark_theme">Gult/lilla mørkt tema</string>
-    <string name="title_setup_grey_dark_theme">Grått mørkt tema</string>
-    <string name="title_setup_black_theme">Svart tema</string>
-    <string name="title_setup_system_theme">System tema</string>
-    <string name="title_setup_grey_system_theme">Grått systemtema</string>
-    <string name="title_setup_system_theme_hint">System temaene skifter automatisk lys/mørk på dag/natt, hvis de støttes av Android</string>
+    <string name="title_setup_theme_blue_orange">Blå/oransje</string>
+    <string name="title_setup_theme_yellow_purple">Gul/lilla</string>
+    <string name="title_setup_theme_red_green">Rød/grønn</string>
+    <string name="title_setup_theme_grey">Grå</string>
+    <string name="title_setup_theme_black">Svart</string>
+    <string name="title_setup_theme_reverse">Omvendte farger</string>
+    <string name="title_setup_theme_dark">Mørk</string>
+    <string name="title_setup_theme_system">Følg systemet</string>
+    <string name="title_setup_theme_system_hint">Følgende system temaer vil automatisk bytte til lys/mørk på dag/natt, hvis det støttes av Android</string>
     <string name="title_setup_advanced">Avansert</string>
     <string name="title_setup_options">Alternativer</string>
     <string name="title_setup_defaults">Gjenopprett standarder</string>
@@ -570,6 +569,10 @@
     <string name="title_ask_help">Hjelp til å forbedre FairEmail</string>
     <string name="title_ask_reporting">Send feilrapporter?</string>
     <string name="title_reporting_why">Feilrapportering vil bidra til å forbedre FairEmail</string>
+    <string name="title_ask_review">Vennligst anmeld FairEmail</string>
+    <string name="title_ask_review_rationale">Du har brukt FairEmail en stund.
+Det vil bli satt pris på om du kunne rangere FairEmail i Play Store.
+Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anmeldelser.    </string>
     <string name="title_expand_warning">Å utvide denne meldingen vil laste ned %1$s</string>
     <string name="title_download_message">Laster ned &#8230;</string>
     <string name="title_compose">Skriv</string>
@@ -838,6 +841,7 @@
     <string name="title_issue">Har du et spørsmål eller et problem?</string>
     <string name="title_yes">Ja</string>
     <string name="title_no">Nei</string>
+    <string name="title_later">Senere</string>
     <string name="title_undo">Angre</string>
     <string name="title_redo">Gjenta</string>
     <string name="title_add">Legg til</string>
@@ -912,18 +916,6 @@
     <string name="title_accessibility_expanded">Utvidet</string>
     <string name="title_accessibility_seen">Les</string>
     <string name="title_accessibility_unseen">Ulest</string>
-    <plurals name="title_accessibility_count_of_unseen">
-        <item quantity="one">%1$d av %2$d ulest</item>
-        <item quantity="other">%1$d av %2$d ulest</item>
-    </plurals>
-    <plurals name="title_accessibility_all_of_seen">
-        <item quantity="one">Alle %1$d lest</item>
-        <item quantity="other">Alle %1$d lest</item>
-    </plurals>
-    <plurals name="title_accessibility_all_of_unseen">
-        <item quantity="one">Alle %1$d uleste</item>
-        <item quantity="other">Alle %1$d uleste</item>
-    </plurals>
     <string name="title_accessibility_flagged">Stjernemerkede</string>
     <string name="title_accessibility_unflagged">Ikke med stjerne</string>
     <string name="title_accessibility_collapse">Skjul</string>

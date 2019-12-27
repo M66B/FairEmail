@@ -114,6 +114,8 @@
     <string name="title_setup_gmail_rationale">Pro zvolení účtu a přečtení vašeho jména prosím udělte oprávnění</string>
     <string name="title_setup_gmail_permissions">Google bude požadovat udělení oprávnění ke čtení, psaní, odesílání a trvalému odstranění všech vašich e-mailů. FairEmail nikdy neodstraní vaše zprávy bez vašeho výslovného souhlasu.</string>
     <string name="title_setup_gmail_drafts">Není-li složka s koncepty přístupná skrze IMAP, lze to v Gmailu napravit v nastavení štítků</string>
+    <string name="title_setup_oauth_rationale">Autorizovat přístup k vašemu účtu %1$s</string>
+    <string name="title_setup_oauth_authorize">Autorizovat</string>
     <string name="title_setup_select_account">Vybrat účet</string>
     <string name="title_setup_instructions">Pokyny pro nastavení</string>
     <string name="title_setup_no_settings">Pro doménu \'%1$s\' nebylo nalezeno žádné nastavení</string>
@@ -162,12 +164,14 @@
     <string name="title_setup_biometrics_disable">Vypnout</string>
     <string name="title_setup_biometrics_unlock">Odemknout</string>
     <string name="title_setup_theme">Vybrat motiv</string>
-    <string name="title_setup_grey_light_theme">Šedý světlý motiv</string>
-    <string name="title_setup_grey_dark_theme">Šedý tmavý motiv</string>
-    <string name="title_setup_black_theme">Černý motiv</string>
-    <string name="title_setup_system_theme">Motiv systému</string>
-    <string name="title_setup_grey_system_theme">Šedý systémový motiv</string>
-    <string name="title_setup_system_theme_hint">Podporuje-li to Android, systémové motivy se ve dne/noci automaticky přepnou mezi světlým/tmavým zobrazením</string>
+    <string name="title_setup_theme_yellow_purple">Žlutý/fialový</string>
+    <string name="title_setup_theme_red_green">Červený/zelený</string>
+    <string name="title_setup_theme_grey">Šedý</string>
+    <string name="title_setup_theme_black">Černý</string>
+    <string name="title_setup_theme_reverse">Obrátit barvy</string>
+    <string name="title_setup_theme_dark">Tmavý</string>
+    <string name="title_setup_theme_system">Podle systému</string>
+    <string name="title_setup_theme_system_hint">Podporuje-li to Android, motiv \"podle systému\" se ve dne/noci automaticky přepne na světlé/tmavé zobrazení</string>
     <string name="title_setup_advanced">Pokročilé</string>
     <string name="title_setup_options">Možnosti</string>
     <string name="title_setup_defaults">Obnovit výchozí</string>
@@ -561,6 +565,11 @@
     <string name="title_ask_help">Pomozte vylepšit FairEmail</string>
     <string name="title_ask_reporting">Odeslat zprávy o chybách?</string>
     <string name="title_reporting_why">Zprávami o chybách pomůžete zlepšit FairEmail</string>
+    <string name="title_ask_review">Prosím, ohodnoťte FairEmail</string>
+    <string name="title_ask_review_rationale">        Již nějakou dobu FairEmail používáte.
+        Vážil bych si, kdyby jste mohli FairEmail ohodnotit v Obchodě Play.
+        Pomůže to udržet rovnováhu mezi nepříznivými a příznivými recenzemi.
+    </string>
     <string name="title_expand_warning">Rozbalení této zprávy stáhne %1$s</string>
     <string name="title_download_message">Stahování &#8230;</string>
     <string name="title_compose">Napsat zprávu</string>
@@ -722,6 +731,7 @@
     <string name="title_legend_section_folders">Složky</string>
     <string name="title_legend_section_messages">Zprávy</string>
     <string name="title_legend_section_compose">Psaní zprávy</string>
+    <string name="title_legend_oauth">OAuth autorizace</string>
     <string name="title_legend_primary_connected">Účet připojen</string>
     <string name="title_legend_primary_disconnected">Účet odpojen</string>
     <string name="title_legend_download_on">Stáhnout obsah zprávy automaticky</string>
@@ -790,7 +800,7 @@
     <string name="title_legend_metered">Současné připojení je účtováno</string>
     <string name="title_legend_unmetered">Současné připojení není účtováno</string>
     <string name="title_legend_roaming">Roaming</string>
-    <string name="title_legend_expander">Rozbalit</string>
+    <string name="title_legend_expander">Rozbalovač</string>
     <string name="title_legend_avatar">Avatar</string>
     <string name="title_legend_show_quotes">Zobrazit citace</string>
     <string name="title_legend_show_unsubscribe">Ukončit odebírání kanálu</string>
@@ -828,6 +838,7 @@
     <string name="title_issue">Máte dotaz nebo problém?</string>
     <string name="title_yes">Ano</string>
     <string name="title_no">Ne</string>
+    <string name="title_later">Později</string>
     <string name="title_undo">Zpět</string>
     <string name="title_redo">Znovu</string>
     <string name="title_add">Přidat</string>
@@ -906,6 +917,11 @@
     <string name="title_accessibility_collapse">Sbalit</string>
     <string name="title_accessibility_expand">Rozbalit</string>
     <string name="title_accessibility_view_contact">Zobrazit kontakt</string>
+    <string name="title_accessibility_show_authentication_result">Zobrazit výsledek ověření</string>
+    <string name="title_accessibility_show_snooze_time">Zobrazit délku odložení</string>
+    <string name="title_accessibility_view_help">Zobrazit nápovědu</string>
+    <string name="title_accessibility_selected">Označené</string>
+    <string name="title_accessibility_answered">Odpovězeno</string>
     <string-array name="pollIntervalNames">
         <item>Nepřetržitě</item>
         <item>Každých 15 minut</item>

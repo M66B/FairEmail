@@ -165,18 +165,6 @@
     <string name="title_setup_biometrics_disable">Deaktivér</string>
     <string name="title_setup_biometrics_unlock">Oplås</string>
     <string name="title_setup_theme">Vælg tema</string>
-    <string name="title_setup_blue_orange_light_theme">Blåt/orange lyst tema</string>
-    <string name="title_setup_yellow_purple_light_theme">Gult/lilla lyst tema</string>
-    <string name="title_setup_red_green_light_theme">Rødt/grønt lyst temma</string>
-    <string name="title_setup_grey_light_theme">Gråt/lyst tema</string>
-    <string name="title_setup_blue_orange_dark_theme">Blåt/orange mørkt tema</string>
-    <string name="title_setup_yellow_purple_dark_theme">Gult/lilla mørkt tema</string>
-    <string name="title_setup_red_green_dark_theme">Rødt/grønt mørkt temma</string>
-    <string name="title_setup_grey_dark_theme">Mørkegråt tema</string>
-    <string name="title_setup_black_theme">Sort tema</string>
-    <string name="title_setup_system_theme">Systemtema</string>
-    <string name="title_setup_grey_system_theme">Gråt systemtema</string>
-    <string name="title_setup_system_theme_hint">Systemtemaerne skifter automatisk til lys/mørk dag/nat, hvis understøttet af Android</string>
     <string name="title_setup_advanced">Avanceret</string>
     <string name="title_setup_options">Valgmuligheder</string>
     <string name="title_setup_defaults">Gendan standardværdier</string>
@@ -918,10 +906,6 @@
     <string name="title_accessibility_expanded">Udfoldet</string>
     <string name="title_accessibility_seen">Læst</string>
     <string name="title_accessibility_unseen">Ulæst</string>
-    <plurals name="title_accessibility_count_of_unseen">
-        <item quantity="one">%1$d of %2$d ulæst</item>
-        <item quantity="other">%1$d of %2$d ulæste</item>
-    </plurals>
     <string name="title_accessibility_flagged">Stjernemarkeret</string>
     <string name="title_accessibility_unflagged">Ikke-stjernemarkeret</string>
     <string name="title_accessibility_collapse">Sammenfold</string>

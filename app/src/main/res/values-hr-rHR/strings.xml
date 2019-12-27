@@ -163,12 +163,6 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_setup_biometrics_disable">Onemogući</string>
     <string name="title_setup_biometrics_unlock">Otključaj</string>
     <string name="title_setup_theme">Odaberi temu</string>
-    <string name="title_setup_grey_light_theme">Svjetla siva tema</string>
-    <string name="title_setup_grey_dark_theme">Tamna siva tema </string>
-    <string name="title_setup_black_theme">Crna tema</string>
-    <string name="title_setup_system_theme">Tema sistema</string>
-    <string name="title_setup_grey_system_theme">Siva tema sustava</string>
-    <string name="title_setup_system_theme_hint">Teme sustava automatski će se prebaciti na svijetlo / tamno danju / noću, ako Android to podržava</string>
     <string name="title_setup_advanced">Napredno</string>
     <string name="title_setup_options">Opcije</string>
     <string name="title_setup_defaults">Vrati zadano</string>

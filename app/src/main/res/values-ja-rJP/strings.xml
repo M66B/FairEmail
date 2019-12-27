@@ -154,18 +154,15 @@
     <string name="title_setup_biometrics_disable">無効</string>
     <string name="title_setup_biometrics_unlock">ロック解除</string>
     <string name="title_setup_theme">テーマを選択</string>
-    <string name="title_setup_blue_orange_light_theme">ブルー/オレンジライトテーマ</string>
-    <string name="title_setup_yellow_purple_light_theme">イエロー/パープルライトテーマ</string>
-    <string name="title_setup_red_green_light_theme">レッド/グリーンライトテーマ</string>
-    <string name="title_setup_grey_light_theme">グレイライトテーマ</string>
-    <string name="title_setup_blue_orange_dark_theme">ブルー/オレンジダークテーマ</string>
-    <string name="title_setup_yellow_purple_dark_theme">イエロー/パープルダークテーマ</string>
-    <string name="title_setup_red_green_dark_theme">レッド/グリーンダークテーマ</string>
-    <string name="title_setup_grey_dark_theme">グレイダークテーマ</string>
-    <string name="title_setup_black_theme">ブラックテーマ</string>
-    <string name="title_setup_system_theme">システムテーマ</string>
-    <string name="title_setup_grey_system_theme">グレイシステムテーマ</string>
-    <string name="title_setup_system_theme_hint">Androidでサポートされている場合、システムテーマは自動的に昼/夜においてライト/ダークテーマに切り替わります</string>
+    <string name="title_setup_theme_blue_orange">ブルー/オレンジ</string>
+    <string name="title_setup_theme_yellow_purple">イエロー/パープル</string>
+    <string name="title_setup_theme_red_green">レッド/グリーン</string>
+    <string name="title_setup_theme_grey">グレイ</string>
+    <string name="title_setup_theme_black">ブラック</string>
+    <string name="title_setup_theme_reverse">色を反転</string>
+    <string name="title_setup_theme_dark">ダーク</string>
+    <string name="title_setup_theme_system">システム設定に従う</string>
+    <string name="title_setup_theme_system_hint">Androidでサポートされている場合、システムテーマは昼/夜に自動的に切り替わります</string>
     <string name="title_setup_advanced">詳細</string>
     <string name="title_setup_options">オプション</string>
     <string name="title_setup_defaults">既定に戻します</string>
@@ -905,15 +902,6 @@ FairEmailは、Pro機能購入の為に上部に小さなメッセージを表�
     <string name="title_accessibility_expanded">拡大</string>
     <string name="title_accessibility_seen">読む</string>
     <string name="title_accessibility_unseen">未読</string>
-    <plurals name="title_accessibility_count_of_unseen">
-        <item quantity="other">未読 %2$d の %1$d</item>
-    </plurals>
-    <plurals name="title_accessibility_all_of_seen">
-        <item quantity="other">全ての %1$d を読取りました</item>
-    </plurals>
-    <plurals name="title_accessibility_all_of_unseen">
-        <item quantity="other">%1$d 件 全て未読</item>
-    </plurals>
     <string name="title_accessibility_flagged">スター付き</string>
     <string name="title_accessibility_unflagged">スター無し</string>
     <string name="title_accessibility_collapse">折りたたむ</string>

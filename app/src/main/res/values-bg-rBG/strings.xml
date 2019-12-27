@@ -166,12 +166,6 @@
     <string name="title_setup_biometrics_disable">Деактивирай</string>
     <string name="title_setup_biometrics_unlock">Отключване</string>
     <string name="title_setup_theme">Избор на тема</string>
-    <string name="title_setup_grey_light_theme">Сива светла тема</string>
-    <string name="title_setup_grey_dark_theme">Сива тъмна тема</string>
-    <string name="title_setup_black_theme">Черна тема</string>
-    <string name="title_setup_system_theme">Системна тема</string>
-    <string name="title_setup_grey_system_theme">Сива системна тема</string>
-    <string name="title_setup_system_theme_hint">Системната тема ще превключи автоматично от светло/тъмно през деня/ноща, ако се поддържа от Андроид</string>
     <string name="title_setup_advanced">Разширени</string>
     <string name="title_setup_options">Настройки</string>
     <string name="title_setup_defaults">Възстановяване по подразбиране</string>

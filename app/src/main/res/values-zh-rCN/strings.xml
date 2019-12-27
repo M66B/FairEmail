@@ -154,18 +154,6 @@
     <string name="title_setup_biometrics_disable">禁用</string>
     <string name="title_setup_biometrics_unlock">解锁​​​​</string>
     <string name="title_setup_theme">选择主题</string>
-    <string name="title_setup_blue_orange_light_theme">亮蓝/橙色主题</string>
-    <string name="title_setup_yellow_purple_light_theme">亮黄/紫色主题</string>
-    <string name="title_setup_red_green_light_theme">亮红/绿色主题</string>
-    <string name="title_setup_grey_light_theme">灰亮主题</string>
-    <string name="title_setup_blue_orange_dark_theme">暗蓝色/橙色主题</string>
-    <string name="title_setup_yellow_purple_dark_theme">暗黄/紫色主题</string>
-    <string name="title_setup_red_green_dark_theme">暗红/绿色主题</string>
-    <string name="title_setup_grey_dark_theme">灰暗主题</string>
-    <string name="title_setup_black_theme">黑色主题</string>
-    <string name="title_setup_system_theme">系统主题</string>
-    <string name="title_setup_grey_system_theme">灰色系统主题</string>
-    <string name="title_setup_system_theme_hint">如果Android支持，系统主题将在白天/夜间自动切换亮色/暗色主题</string>
     <string name="title_setup_advanced">高级选项</string>
     <string name="title_setup_options">选项</string>
     <string name="title_setup_defaults">恢复默认设置</string>
@@ -907,15 +895,6 @@ FairEmail会显示一条消息来提醒您这一点，这条消息在您购买�
     <string name="title_accessibility_expanded">展开</string>
     <string name="title_accessibility_seen">阅读</string>
     <string name="title_accessibility_unseen">未读</string>
-    <plurals name="title_accessibility_count_of_unseen">
-        <item quantity="other">%2$d中的%1$d未读</item>
-    </plurals>
-    <plurals name="title_accessibility_all_of_seen">
-        <item quantity="other">所有 %1$d 已读</item>
-    </plurals>
-    <plurals name="title_accessibility_all_of_unseen">
-        <item quantity="other">所有 %1$d 未读</item>
-    </plurals>
     <string name="title_accessibility_flagged">标星</string>
     <string name="title_accessibility_unflagged">取消标星</string>
     <string name="title_accessibility_collapse">折叠</string>

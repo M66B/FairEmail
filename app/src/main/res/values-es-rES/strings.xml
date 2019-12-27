@@ -166,18 +166,6 @@
     <string name="title_setup_biometrics_disable">Desactivar</string>
     <string name="title_setup_biometrics_unlock">Desbloquear</string>
     <string name="title_setup_theme">Seleccionar tema</string>
-    <string name="title_setup_blue_orange_light_theme">Tema claro azul/naranja</string>
-    <string name="title_setup_yellow_purple_light_theme">Tema claro amarillo/morado</string>
-    <string name="title_setup_red_green_light_theme">Tema claro rojo/verde</string>
-    <string name="title_setup_grey_light_theme">Tema gris claro</string>
-    <string name="title_setup_blue_orange_dark_theme">Tema oscuro azul/naranja</string>
-    <string name="title_setup_yellow_purple_dark_theme">Tema oscuro amarillo/morado</string>
-    <string name="title_setup_red_green_dark_theme">Tema oscuro rojo/verde</string>
-    <string name="title_setup_grey_dark_theme">Tema gris oscuro</string>
-    <string name="title_setup_black_theme">Tema negro</string>
-    <string name="title_setup_system_theme">Tema del sistema</string>
-    <string name="title_setup_grey_system_theme">Tema gris del sistema</string>
-    <string name="title_setup_system_theme_hint">Los temas del sistema cambiarán automáticamente a claro/oscuro durante el día/noche, si es compatible con Android</string>
     <string name="title_setup_advanced">Avanzado</string>
     <string name="title_setup_options">Opciones</string>
     <string name="title_setup_defaults">Restablecer ajustes por defecto</string>
@@ -920,18 +908,6 @@
     <string name="title_accessibility_expanded">Expandido</string>
     <string name="title_accessibility_seen">Leído</string>
     <string name="title_accessibility_unseen">No leído</string>
-    <plurals name="title_accessibility_count_of_unseen">
-        <item quantity="one">%1$d de %2$d no leído</item>
-        <item quantity="other">%1$d de %2$d no leídos</item>
-    </plurals>
-    <plurals name="title_accessibility_all_of_seen">
-        <item quantity="one">Todos los %1$d leídos</item>
-        <item quantity="other">Todos los %1$d leídos</item>
-    </plurals>
-    <plurals name="title_accessibility_all_of_unseen">
-        <item quantity="one">Todos %1$d no leídos</item>
-        <item quantity="other">Todos %1$d no leídos</item>
-    </plurals>
     <string name="title_accessibility_flagged">Destacado</string>
     <string name="title_accessibility_unflagged">No destacado</string>
     <string name="title_accessibility_collapse">Ocultar</string>

@@ -176,12 +176,6 @@
     <string name="title_setup_biometrics_disable">Dezactivează</string>
     <string name="title_setup_biometrics_unlock">Deblocați</string>
     <string name="title_setup_theme">Selectare temă</string>
-    <string name="title_setup_grey_light_theme">Temă deschisă gri</string>
-    <string name="title_setup_grey_dark_theme">Temă întunecată gri</string>
-    <string name="title_setup_black_theme">Temă neagră</string>
-    <string name="title_setup_system_theme">Temă de sistem</string>
-    <string name="title_setup_grey_system_theme">Temă de sistem gri</string>
-    <string name="title_setup_system_theme_hint">Temele de sistem se vor schimba automat la deschisă/întunecată pe timp de zi/noapte, dacă Android suportă</string>
     <string name="title_setup_advanced">Setări avansate</string>
     <string name="title_setup_options">Opţiuni</string>
     <string name="title_setup_defaults">Restabiliți valorile implicite</string>

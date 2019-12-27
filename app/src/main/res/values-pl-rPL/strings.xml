@@ -188,12 +188,6 @@
     <string name="title_setup_biometrics_disable">Wyłącz</string>
     <string name="title_setup_biometrics_unlock">Odblokuj</string>
     <string name="title_setup_theme">Wybierz motyw</string>
-    <string name="title_setup_grey_light_theme">Motyw jasno szary</string>
-    <string name="title_setup_grey_dark_theme">Motyw ciemno szary</string>
-    <string name="title_setup_black_theme">Czarny motyw</string>
-    <string name="title_setup_system_theme">Motyw systemu</string>
-    <string name="title_setup_grey_system_theme">Motyw szary systemowy</string>
-    <string name="title_setup_system_theme_hint">Motywy systemowe zostaną automatycznie przełączone na jasne/ciemne w dzień/noc, jeśli jest to wspierane przez system Android</string>
     <string name="title_setup_advanced">Zaawansowane</string>
     <string name="title_setup_options">Opcje</string>
     <string name="title_setup_defaults">Przywróć domyślne</string>

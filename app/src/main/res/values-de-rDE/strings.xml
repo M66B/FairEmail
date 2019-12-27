@@ -165,18 +165,6 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_setup_biometrics_disable">Deaktivieren</string>
     <string name="title_setup_biometrics_unlock">Entsperren</string>
     <string name="title_setup_theme">Design auswählen</string>
-    <string name="title_setup_blue_orange_light_theme">Blau/orange helles Design</string>
-    <string name="title_setup_yellow_purple_light_theme">Gelb/lila helles Design</string>
-    <string name="title_setup_red_green_light_theme">Rot/grün helles Design</string>
-    <string name="title_setup_grey_light_theme">Graues Design auf hellem Hintergrund</string>
-    <string name="title_setup_blue_orange_dark_theme">Blau/orange dunkles Design</string>
-    <string name="title_setup_yellow_purple_dark_theme">Gelb/lila dunkles Design</string>
-    <string name="title_setup_red_green_dark_theme">Rot/grün dunkles Design</string>
-    <string name="title_setup_grey_dark_theme">Graues Design auf dunklem Hintergrund</string>
-    <string name="title_setup_black_theme">Schwarzes Design</string>
-    <string name="title_setup_system_theme">System-Design</string>
-    <string name="title_setup_grey_system_theme">Graues System-Design</string>
-    <string name="title_setup_system_theme_hint">Das System-Design wird abhängig von der Tageszeit automatisch zwischen hell und dunkel wechseln, falls von Android unterstützt</string>
     <string name="title_setup_advanced">Erweitert</string>
     <string name="title_setup_options">Optionen</string>
     <string name="title_setup_defaults">Auf Standard zurücksetzen</string>
@@ -917,18 +905,6 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_accessibility_expanded">Erweiterte</string>
     <string name="title_accessibility_seen">Gelesene</string>
     <string name="title_accessibility_unseen">Ungelesene</string>
-    <plurals name="title_accessibility_count_of_unseen">
-        <item quantity="one">%1$d von %2$d ungelesen</item>
-        <item quantity="other">%1$d von %2$d ungelesen</item>
-    </plurals>
-    <plurals name="title_accessibility_all_of_seen">
-        <item quantity="one">Alle %1$d gelesen</item>
-        <item quantity="other">Alle %1$d gelesen</item>
-    </plurals>
-    <plurals name="title_accessibility_all_of_unseen">
-        <item quantity="one">Alle %1$d ungelesen</item>
-        <item quantity="other">Alle %1$d ungelesen</item>
-    </plurals>
     <string name="title_accessibility_flagged">Markierte</string>
     <string name="title_accessibility_unflagged">Nicht markiert</string>
     <string name="title_accessibility_collapse">Zusammenklappen</string>

@@ -166,12 +166,6 @@
     <string name="title_setup_biometrics_disable">Deshabilita</string>
     <string name="title_setup_biometrics_unlock">Desbloquejar</string>
     <string name="title_setup_theme">Selecció del tema</string>
-    <string name="title_setup_grey_light_theme">Tema gris clar</string>
-    <string name="title_setup_grey_dark_theme">Tema gris fosc</string>
-    <string name="title_setup_black_theme">Tema negre</string>
-    <string name="title_setup_system_theme">Tema del sistema</string>
-    <string name="title_setup_grey_system_theme">Tema del sistema gris</string>
-    <string name="title_setup_system_theme_hint">Si Android és compatible amb els temes del sistema, automàticament, es farà clar/fosc quan sigui de dia/nit</string>
     <string name="title_setup_advanced">Avançat</string>
     <string name="title_setup_options">Opcions</string>
     <string name="title_setup_defaults">Restaura els valors per defecte</string>

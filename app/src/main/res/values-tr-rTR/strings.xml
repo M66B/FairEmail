@@ -166,18 +166,15 @@
     <string name="title_setup_biometrics_disable">Devredışı</string>
     <string name="title_setup_biometrics_unlock">Kilidi Aç</string>
     <string name="title_setup_theme">Tema Seç</string>
-    <string name="title_setup_blue_orange_light_theme">Mavi/turuncu açık tema</string>
-    <string name="title_setup_yellow_purple_light_theme">Sarı/mor açık tema</string>
-    <string name="title_setup_red_green_light_theme">Kırmızı/yeşil açık tema</string>
-    <string name="title_setup_grey_light_theme">Açık gri tema</string>
-    <string name="title_setup_blue_orange_dark_theme">Mavi/turuncu koyu tema</string>
-    <string name="title_setup_yellow_purple_dark_theme">Sarı/mor koyu tema</string>
-    <string name="title_setup_red_green_dark_theme">Kırmızı/yeşil koyu tema</string>
-    <string name="title_setup_grey_dark_theme">Koyu gri tema</string>
-    <string name="title_setup_black_theme">Siyah tema</string>
-    <string name="title_setup_system_theme">Sistem teması</string>
-    <string name="title_setup_grey_system_theme">Gri sistem teması</string>
-    <string name="title_setup_system_theme_hint">Eğer Android tarafından destekleniyorsa, sistem temaları gündüz/gece otomatik olarak açık/koyu olarak değişecektir</string>
+    <string name="title_setup_theme_blue_orange">Mavi/turuncu</string>
+    <string name="title_setup_theme_yellow_purple">Sarı/mor</string>
+    <string name="title_setup_theme_red_green">Kırmızı/yeşil</string>
+    <string name="title_setup_theme_grey">Gri</string>
+    <string name="title_setup_theme_black">Siyah</string>
+    <string name="title_setup_theme_reverse">Renkleri ters çevir</string>
+    <string name="title_setup_theme_dark">Koyu</string>
+    <string name="title_setup_theme_system">Sistem ile aynı</string>
+    <string name="title_setup_theme_system_hint">Eğer Android tarafından destekleniyorsa, sistem temasını izleme, gündüz/gece otomatik olarak açık/koyu olarak değişecektir</string>
     <string name="title_setup_advanced">Gelişmiş</string>
     <string name="title_setup_options">Seçenekler</string>
     <string name="title_setup_defaults">Öntanımlıları geri yükle</string>
@@ -920,18 +917,6 @@
     <string name="title_accessibility_expanded">Genişletilen</string>
     <string name="title_accessibility_seen">Okunan</string>
     <string name="title_accessibility_unseen">Okunmayan</string>
-    <plurals name="title_accessibility_count_of_unseen">
-        <item quantity="one">%1$d / %2$d okunmadı</item>
-        <item quantity="other">%1$d / %2$d okunmadı</item>
-    </plurals>
-    <plurals name="title_accessibility_all_of_seen">
-        <item quantity="one">%1$d tamamı okundu</item>
-        <item quantity="other">%1$d tamamı okundu</item>
-    </plurals>
-    <plurals name="title_accessibility_all_of_unseen">
-        <item quantity="one">%1$d tamamı okunmadı</item>
-        <item quantity="other">%1$d tamamı okunmadı</item>
-    </plurals>
     <string name="title_accessibility_flagged">Yıldızlı</string>
     <string name="title_accessibility_unflagged">Yıldızlı olmayan</string>
     <string name="title_accessibility_collapse">Daralt</string>

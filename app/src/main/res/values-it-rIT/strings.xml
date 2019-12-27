@@ -165,18 +165,15 @@
     <string name="title_setup_biometrics_disable">Disabilita</string>
     <string name="title_setup_biometrics_unlock">Sblocca</string>
     <string name="title_setup_theme">Seleziona tema</string>
-    <string name="title_setup_blue_orange_light_theme">Tema blu/arancione chiaro</string>
-    <string name="title_setup_yellow_purple_light_theme">Tema chiaro giallo/viola</string>
-    <string name="title_setup_red_green_light_theme">Tema rosso/verde chiaro</string>
-    <string name="title_setup_grey_light_theme">Tema grigio chiaro</string>
-    <string name="title_setup_blue_orange_dark_theme">Tema scuro blu/arancione</string>
-    <string name="title_setup_yellow_purple_dark_theme">Tema scuro giallo/viola</string>
-    <string name="title_setup_red_green_dark_theme">Tema scuro rosso/verde</string>
-    <string name="title_setup_grey_dark_theme">Tema grigio scuro</string>
-    <string name="title_setup_black_theme">Tema nero</string>
-    <string name="title_setup_system_theme">Tema di sistema</string>
-    <string name="title_setup_grey_system_theme">Tema di sistema grigio</string>
-    <string name="title_setup_system_theme_hint">I temi di sistema passeranno automaticamente a chiaro/scuro a seconda sia giorno o notte, se supportato da Android</string>
+    <string name="title_setup_theme_blue_orange">Blu/arancione</string>
+    <string name="title_setup_theme_yellow_purple">Giallo/viola</string>
+    <string name="title_setup_theme_red_green">Rosso/verde</string>
+    <string name="title_setup_theme_grey">Grigio</string>
+    <string name="title_setup_theme_black">Nero</string>
+    <string name="title_setup_theme_reverse">Inverti colori</string>
+    <string name="title_setup_theme_dark">Scuro</string>
+    <string name="title_setup_theme_system">Segui il sistema</string>
+    <string name="title_setup_theme_system_hint">I temi di sistema passeranno automaticamente a chiaro/scuro a seconda sia giorno o notte, se supportato da Android</string>
     <string name="title_setup_advanced">Avanzate</string>
     <string name="title_setup_options">Opzioni</string>
     <string name="title_setup_defaults">Ripristina predefiniti</string>
@@ -918,18 +915,6 @@
     <string name="title_accessibility_expanded">Espanso</string>
     <string name="title_accessibility_seen">Letto</string>
     <string name="title_accessibility_unseen">Non letto</string>
-    <plurals name="title_accessibility_count_of_unseen">
-        <item quantity="one">%1$d di %2$d non letti</item>
-        <item quantity="other">%1$d di %2$d non letti</item>
-    </plurals>
-    <plurals name="title_accessibility_all_of_seen">
-        <item quantity="one">Tutti i %1$d letti</item>
-        <item quantity="other">Tutti i %1$d letti</item>
-    </plurals>
-    <plurals name="title_accessibility_all_of_unseen">
-        <item quantity="one">Tutti %1$d non letti</item>
-        <item quantity="other">Tutti %1$d non letti</item>
-    </plurals>
     <string name="title_accessibility_flagged">Preferiti</string>
     <string name="title_accessibility_unflagged">Non preferito</string>
     <string name="title_accessibility_collapse">Comprimi</string>
