@@ -658,38 +658,77 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     }
 
     public static class FragmentDialogTheme extends FragmentDialogBase {
+        private RadioGroup rgTheme;
+        private SwitchCompat swReverse;
+        private SwitchCompat swDark;
+        private SwitchCompat swSystem;
+
+        private void eval() {
+            int checkedId = rgTheme.getCheckedRadioButtonId();
+
+            swReverse.setEnabled(checkedId == R.id.rbThemeBlueOrange ||
+                    checkedId == R.id.rbThemeYellowPurple ||
+                    checkedId == R.id.rbThemeRedGreen);
+            swDark.setEnabled(checkedId == R.id.rbThemeBlueOrange ||
+                    checkedId == R.id.rbThemeYellowPurple ||
+                    checkedId == R.id.rbThemeRedGreen ||
+                    checkedId == R.id.rbThemeGrey);
+            swSystem.setEnabled(checkedId == R.id.rbThemeBlueOrange ||
+                    checkedId == R.id.rbThemeGrey);
+
+            boolean reverse = (swReverse.isEnabled() && swReverse.isChecked());
+            boolean dark = (swDark.isEnabled() && swDark.isChecked());
+            boolean system = (swSystem.isEnabled() && swSystem.isChecked());
+
+            swReverse.setEnabled(swReverse.isEnabled() && !system);
+            swSystem.setEnabled(swSystem.isEnabled() && !reverse && !dark);
+        }
+
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_theme, null);
-            final RadioGroup rgTheme = dview.findViewById(R.id.rgTheme);
-            final SwitchCompat swReverse = dview.findViewById(R.id.swReverse);
-            final SwitchCompat swDark = dview.findViewById(R.id.swDark);
-            final SwitchCompat swSystem = dview.findViewById(R.id.swSystem);
+            rgTheme = dview.findViewById(R.id.rgTheme);
+            swReverse = dview.findViewById(R.id.swReverse);
+            swDark = dview.findViewById(R.id.swDark);
+            swSystem = dview.findViewById(R.id.swSystem);
 
             final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
             String theme = prefs.getString("theme", "light");
+
+            swReverse.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    eval();
+                }
+            });
+
+            swDark.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    eval();
+                }
+            });
+
+            swSystem.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    eval();
+                }
+            });
+
+            rgTheme.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(RadioGroup group, int checkedId) {
+                    eval();
+                }
+            });
 
             swReverse.setChecked(theme.startsWith("orange_blue") ||
                     theme.startsWith("purple_yellow") ||
                     theme.startsWith("green_red"));
             swDark.setChecked(theme.endsWith("dark"));
             swSystem.setChecked(theme.endsWith("system"));
-
-            rgTheme.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(RadioGroup group, int checkedId) {
-                    swReverse.setEnabled(checkedId == R.id.rbThemeBlueOrange ||
-                            checkedId == R.id.rbThemeYellowPurple ||
-                            checkedId == R.id.rbThemeRedGreen);
-                    swDark.setEnabled(checkedId == R.id.rbThemeBlueOrange ||
-                            checkedId == R.id.rbThemeYellowPurple ||
-                            checkedId == R.id.rbThemeRedGreen ||
-                            checkedId == R.id.rbThemeGrey);
-                    swSystem.setEnabled(checkedId == R.id.rbThemeBlueOrange ||
-                            checkedId == R.id.rbThemeGrey);
-                }
-            });
 
             switch (theme) {
                 case "light":
