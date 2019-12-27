@@ -670,6 +670,9 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
             String theme = prefs.getString("theme", "light");
 
+            swReverse.setChecked(theme.startsWith("orange_blue") ||
+                    theme.startsWith("purple_yellow") ||
+                    theme.startsWith("green_red"));
             swDark.setChecked(theme.endsWith("dark"));
             swSystem.setChecked(theme.endsWith("system"));
 
@@ -694,14 +697,20 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
                 case "system":
                 case "blue_orange_light":
                 case "blue_orange_dark":
+                case "orange_blue_light":
+                case "orange_blue_dark":
                     rgTheme.check(R.id.rbThemeBlueOrange);
                     break;
                 case "yellow_purple_light":
                 case "yellow_purple_dark":
+                case "purple_yellow_light":
+                case "purple_yellow_dark":
                     rgTheme.check(R.id.rbThemeYellowPurple);
                     break;
                 case "red_green_light":
                 case "red_green_dark":
+                case "green_red_light":
+                case "green_red_dark":
                     rgTheme.check(R.id.rbThemeRedGreen);
                     break;
                 case "grey_system":
@@ -727,22 +736,20 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
                                 case R.id.rbThemeBlueOrange:
                                     if (swSystem.isChecked())
                                         prefs.edit().putString("theme", "system").apply();
-                                    else if (swDark.isChecked())
-                                        prefs.edit().putString("theme", "blue_orange_dark").apply();
                                     else
-                                        prefs.edit().putString("theme", "blue_orange_light").apply();
+                                        prefs.edit().putString("theme",
+                                                (swReverse.isChecked() ? "orange_blue" : "blue_orange") +
+                                                        (swDark.isChecked() ? "_dark" : "_light")).apply();
                                     break;
                                 case R.id.rbThemeYellowPurple:
-                                    if (swDark.isChecked())
-                                        prefs.edit().putString("theme", "yellow_purple_dark").apply();
-                                    else
-                                        prefs.edit().putString("theme", "yellow_purple_light").apply();
+                                    prefs.edit().putString("theme",
+                                            (swReverse.isChecked() ? "purple_yellow" : "yellow_purple") +
+                                                    (swDark.isChecked() ? "_dark" : "_light")).apply();
                                     break;
                                 case R.id.rbThemeRedGreen:
-                                    if (swDark.isChecked())
-                                        prefs.edit().putString("theme", "red_green_dark").apply();
-                                    else
-                                        prefs.edit().putString("theme", "red_green_light").apply();
+                                    prefs.edit().putString("theme",
+                                            (swReverse.isChecked() ? "green_red" : "red_green") +
+                                                    (swDark.isChecked() ? "_dark" : "_light")).apply();
                                     break;
                                 case R.id.rbThemeGrey:
                                     if (swSystem.isChecked())

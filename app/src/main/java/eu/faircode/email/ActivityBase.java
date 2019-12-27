@@ -91,30 +91,52 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                 case "blue_orange_light":
                     setTheme(R.style.AppThemeBlueOrangeLight);
                     break;
+                case "orange_blue_light":
+                    setTheme(R.style.AppThemeOrangeBlueLight);
+                    break;
+
                 case "yellow_purple_light":
                     setTheme(R.style.AppThemeYellowPurpleLight);
                     break;
+                case "purple_yellow_light":
+                    setTheme(R.style.AppThemePurpleYellowLight);
+                    break;
+
                 case "red_green_light":
                     setTheme(R.style.AppThemeRedGreenLight);
                     break;
-                case "grey_light":
-                    setTheme(R.style.AppThemeGreySteelBlueLight);
+                case "green_red_light":
+                    setTheme(R.style.AppThemeGreenRedLight);
                     break;
 
                 case "dark":
                 case "blue_orange_dark":
                     setTheme(R.style.AppThemeBlueOrangeDark);
                     break;
+                case "orange_blue_dark":
+                    setTheme(R.style.AppThemeOrangeBlueDark);
+                    break;
+
                 case "yellow_purple_dark":
                     setTheme(R.style.AppThemeYellowPurpleDark);
                     break;
+                case "purple_yellow_dark":
+                    setTheme(R.style.AppThemePurpleYellowDark);
+                    break;
+
                 case "red_green_dark":
                     setTheme(R.style.AppThemeRedGreenDark);
+                    break;
+                case "green_red_dark":
+                    setTheme(R.style.AppThemeGreenRedDark);
+                    break;
+
+                case "grey_light":
+                    setTheme(R.style.AppThemeGreySteelBlueLight);
                     break;
                 case "grey_dark":
                     setTheme(R.style.AppThemeGreySteelBlueDark);
                     break;
-
                 case "black":
                     setTheme(R.style.AppThemeBlack);
                     break;
