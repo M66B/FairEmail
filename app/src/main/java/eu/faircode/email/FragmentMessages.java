@@ -495,6 +495,32 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     return false;
                 }
             }
+
+            @Override
+            public void onLayoutChildren(RecyclerView.Recycler recycler, RecyclerView.State state) {
+                try {
+                    super.onLayoutChildren(recycler, state);
+                } catch (IndexOutOfBoundsException ex) {
+                    /*
+                        java.lang.IndexOutOfBoundsException: Inconsistency detected. Invalid view holder adapter positionViewHolder{c6d0306 position=571 id=-1, oldPos=534, pLpos:534 scrap [attachedScrap] tmpDetached not recyclable(1) no parent} eu.faircode.email.FixedRecyclerView{8cb71ae VFED..... .F....ID 0,0-959,1068 #7f0902e9 app:id/rvMessage}, adapter:eu.faircode.email.AdapterMessage@5d69b4f, layout:eu.faircode.email.FragmentMessages$6@dcc62dc, context:eu.faircode.email.ActivityView@31147e2
+                          at androidx.recyclerview.widget.RecyclerView$Recycler.validateViewHolderForOffsetPosition(SourceFile:5974)
+                          at androidx.recyclerview.widget.RecyclerView$Recycler.tryGetViewHolderForPositionByDeadline(SourceFile:6158)
+                          at androidx.recyclerview.widget.RecyclerView$Recycler.getViewForPosition(SourceFile:6118)
+                          at androidx.recyclerview.widget.RecyclerView$Recycler.getViewForPosition(SourceFile:6114)
+                          at androidx.recyclerview.widget.LinearLayoutManager$LayoutState.next(SourceFile:2303)
+                          at androidx.recyclerview.widget.LinearLayoutManager.layoutChunk(SourceFile:1627)
+                          at androidx.recyclerview.widget.LinearLayoutManager.fill(SourceFile:1587)
+                          at androidx.recyclerview.widget.LinearLayoutManager.onLayoutChildren(SourceFile:665)
+                          at androidx.recyclerview.widget.RecyclerView.dispatchLayoutStep1(SourceFile:4085)
+                          at androidx.recyclerview.widget.RecyclerView.dispatchLayout(SourceFile:3849)
+                          at androidx.recyclerview.widget.RecyclerView.onLayout(SourceFile:4404)
+
+                        possibly related to the workaround for:
+                          https://issuetracker.google.com/issues/135628748
+                     */
+                    Log.w(ex);
+                }
+            }
         };
         rvMessage.setLayoutManager(llm);
 
