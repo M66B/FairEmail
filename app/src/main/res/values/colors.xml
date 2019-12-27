@@ -2,16 +2,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- https://material.io/resources/color/ -->
 
-    <!-- Light blue 600 / Amber 600 -->
-    <color name="colorPrimary">#039be5</color>
-    <color name="colorPrimaryDark">#006db3</color>
-    <color name="colorAccent">#ffb300</color>
-    <color name="colorAccentDark">#c68400</color>
-
-    <!-- Light blue 900 -->
-    <color name="darkColorPrimary">#01579b</color>
-    <color name="darkColorPrimaryDark">#002f6c</color>
-
     <color name="colorReadLight">#b3000000</color>
     <color name="colorUnreadLight">#ff000000</color>
 
@@ -66,6 +56,16 @@
     <color name="darkActionForeground">#fff</color>
     <color name="darkActionForegroundDisabled">#666</color>
     <color name="darkActionBackground">#444</color>
+
+    <!-- Light blue 600 / Amber 600 -->
+    <color name="lightBluePrimary">#039be5</color>
+    <color name="lightBluePrimaryDark">#006db3</color>
+    <color name="lightAmberAccent">#ffb300</color>
+    <color name="lightAmberAccentDark">#c68400</color>
+
+    <!-- Light blue 900 -->
+    <color name="darkBluePrimary">#01579b</color>
+    <color name="darkBluePrimaryDark">#002f6c</color>
 
     <!-- Yellow 600 / Purple 800 -->
     <color name="lightYellowPrimary">#fdd835</color>

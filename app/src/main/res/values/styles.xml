@@ -98,20 +98,20 @@
     </style>
 
     <style name="AppThemeBlueOrangeLight" parent="AppThemeBaseLight">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/lightBluePrimary</item>
+        <item name="colorPrimaryDark">@color/lightBluePrimaryDark</item>
+        <item name="colorAccent">@color/lightAmberAccent</item>
 
-        <item name="colorUnreadHighlight">@color/colorAccentDark</item>
+        <item name="colorUnreadHighlight">@color/lightAmberAccentDark</item>
 
-        <item name="colorWarning">@color/colorAccent</item>
+        <item name="colorWarning">@color/lightAmberAccent</item>
 
-        <item name="colorFabBackground">@color/colorAccent</item>
+        <item name="colorFabBackground">@color/lightAmberAccent</item>
 
         <item name="colorInfoForeground">@color/black</item>
-        <item name="colorInfoBackground">@color/colorAccent</item>
+        <item name="colorInfoBackground">@color/lightAmberAccent</item>
 
-        <item name="android:textColorLink">@color/colorAccentDark</item>
+        <item name="android:textColorLink">@color/lightAmberAccentDark</item>
     </style>
 
     <style name="AppThemeYellowPurpleLight" parent="AppThemeBaseLight">
@@ -145,18 +145,18 @@
     </style>
 
     <style name="AppThemeBlueOrangeDark" parent="AppThemeBaseDark">
-        <item name="colorPrimary">@color/darkColorPrimary</item>
-        <item name="colorPrimaryDark">@color/darkColorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/darkBluePrimary</item>
+        <item name="colorPrimaryDark">@color/darkBluePrimaryDark</item>
+        <item name="colorAccent">@color/lightAmberAccent</item>
 
-        <item name="colorUnreadHighlight">@color/colorAccent</item>
+        <item name="colorUnreadHighlight">@color/lightAmberAccent</item>
 
-        <item name="colorWarning">@color/colorAccent</item>
+        <item name="colorWarning">@color/lightAmberAccent</item>
 
-        <item name="colorFabBackground">@color/colorAccent</item>
+        <item name="colorFabBackground">@color/lightAmberAccent</item>
 
         <item name="colorInfoForeground">@color/black</item>
-        <item name="colorInfoBackground">@color/colorAccent</item>
+        <item name="colorInfoBackground">@color/lightAmberAccent</item>
     </style>
 
     <style name="AppThemeYellowPurpleDark" parent="AppThemeBaseDark">

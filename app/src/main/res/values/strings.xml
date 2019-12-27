@@ -201,21 +201,17 @@
 
     <string name="title_setup_theme">Select theme</string>
 
-    <string name="title_setup_blue_orange_light_theme">Blue/orange light theme</string>
-    <string name="title_setup_yellow_purple_light_theme">Yellow/purple light theme</string>
-    <string name="title_setup_red_green_light_theme">Red/green light theme</string>
-    <string name="title_setup_grey_light_theme">Grey light theme</string>
+    <string name="title_setup_theme_blue_amber">Blue/orange</string>
+    <string name="title_setup_theme_yellow_purple">Yellow/purple</string>
+    <string name="title_setup_theme_red_green">Red/green</string>
+    <string name="title_setup_theme_grey">Grey</string>
+    <string name="title_setup_theme_black">Black</string>
 
-    <string name="title_setup_blue_orange_dark_theme">Blue/orange dark theme</string>
-    <string name="title_setup_yellow_purple_dark_theme">Yellow/purple dark theme</string>
-    <string name="title_setup_red_green_dark_theme">Red/green dark theme</string>
-    <string name="title_setup_grey_dark_theme">Grey dark theme</string>
+    <string name="title_setup_theme_reverse">Reverse colors</string>
+    <string name="title_setup_theme_dark">Dark</string>
+    <string name="title_setup_theme_system">Follow system</string>
 
-    <string name="title_setup_black_theme">Black theme</string>
-    <string name="title_setup_system_theme">System theme</string>
-    <string name="title_setup_grey_system_theme">Grey system theme</string>
-
-    <string name="title_setup_system_theme_hint">The system themes will automatically switch to light/dark on day/night, if supported by Android</string>
+    <string name="title_setup_theme_system_hint">Follow system theme will automatically switch to light/dark on day/night, if supported by Android</string>
 
     <string name="title_setup_advanced">Advanced</string>
 
