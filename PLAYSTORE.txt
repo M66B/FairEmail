@@ -65,6 +65,7 @@ All pro features are convenience or advanced features.
 
 * Account/identity/folder colors
 * Colored stars
+* Extra themes
 * Notification settings (sounds) per account/folder/sender (requires Android 8 Oreo)
 * Configurable notification actions
 * Snooze messages
