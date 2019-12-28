@@ -27,7 +27,6 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginStart="6dp"
-                android:contentDescription="@string/title_legend_connection_state"
                 android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="@+id/tvName"
                 app:layout_constraintStart_toEndOf="@id/vwColor"
