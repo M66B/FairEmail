@@ -86,11 +86,6 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
             int uiMode = getResources().getConfiguration().uiMode;
             Log.i("UI mode=" + uiMode);
 
-            if (!this.getClass().equals(ActivitySetup.class) &&
-                    !ActivityBilling.isPro(this) &&
-                    (theme.contains("yellow") || theme.contains("red")))
-                theme = "blue_orange_light";
-
             switch (theme) {
                 case "light":
                 case "blue_orange_light":

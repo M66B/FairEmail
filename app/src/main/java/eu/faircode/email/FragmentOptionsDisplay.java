@@ -694,9 +694,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             swDark = dview.findViewById(R.id.swDark);
             swSystem = dview.findViewById(R.id.swSystem);
 
-            Helper.linkPro(dview.findViewById(R.id.tvThemeYellowPurplePro));
-            Helper.linkPro(dview.findViewById(R.id.tvThemeRedGreenPro));
-
             final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
             String theme = prefs.getString("theme", "light");
 
