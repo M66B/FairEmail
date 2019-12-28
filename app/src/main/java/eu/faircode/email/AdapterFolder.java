@@ -188,26 +188,34 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 vwColor.setVisibility(ActivityBilling.isPro(context) ? View.VISIBLE : View.GONE);
 
                 if (folder.sync_state == null || "requested".equals(folder.sync_state)) {
-                    if (folder.executing > 0)
+                    if (folder.executing > 0) {
                         ivState.setImageResource(R.drawable.baseline_dns_24);
-                    else if ("waiting".equals(folder.state))
+                        ivState.setContentDescription(context.getString(R.string.title_legend_executing));
+                    } else if ("waiting".equals(folder.state)) {
                         ivState.setImageResource(R.drawable.baseline_hourglass_empty_24);
-                    else if ("connected".equals(folder.state))
+                        ivState.setContentDescription(context.getString(R.string.title_legend_waiting));
+                    } else if ("connected".equals(folder.state)) {
                         ivState.setImageResource(R.drawable.baseline_cloud_24);
-                    else if ("connecting".equals(folder.state))
+                        ivState.setContentDescription(context.getString(R.string.title_legend_connected));
+                    } else if ("connecting".equals(folder.state)) {
                         ivState.setImageResource(R.drawable.baseline_cloud_queue_24);
-                    else if ("closing".equals(folder.state))
+                        ivState.setContentDescription(context.getString(R.string.title_legend_connecting));
+                    }else if ("closing".equals(folder.state)) {
                         ivState.setImageResource(R.drawable.baseline_close_24);
-                    else if (folder.state == null)
+                        ivState.setContentDescription(context.getString(R.string.title_legend_closing));
+                    } else if (folder.state == null) {
                         ivState.setImageResource(R.drawable.baseline_cloud_off_24);
-                    else
+                        ivState.setContentDescription(context.getString(R.string.title_legend_disconnected));
+                    } else
                         ivState.setImageResource(R.drawable.baseline_warning_24);
                 } else {
-                    if ("syncing".equals(folder.sync_state))
+                    if ("syncing".equals(folder.sync_state)) {
                         ivState.setImageResource(R.drawable.baseline_compare_arrows_24);
-                    else if ("downloading".equals(folder.sync_state))
+                        ivState.setContentDescription(context.getString(R.string.title_legend_synchronizing));
+                    } else if ("downloading".equals(folder.sync_state)) {
                         ivState.setImageResource(R.drawable.baseline_cloud_download_24);
-                    else
+                        ivState.setContentDescription(context.getString(R.string.title_legend_downloading));
+                    } else
                         ivState.setImageResource(R.drawable.baseline_warning_24);
                 }
                 ivState.setVisibility(
@@ -223,6 +231,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             vwLevel.setLayoutParams(lp);
 
             ibExpander.setImageLevel(folder.collapsed ? 1 /* more */ : 0 /* less */);
+            ibExpander.setContentDescription(context.getString(folder.collapsed ? R.string.title_accessibility_expand : R.string.title_accessibility_collapse));
             ibExpander.setVisibility(account < 0 || !folder.expander
                     ? View.GONE
                     : folder.child_refs != null && folder.child_refs.size() > 0
@@ -279,6 +288,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 if (folder.account == null) {
                     tvAfter.setText(null);
                     ivSync.setImageResource(R.drawable.baseline_sync_24);
+                    ivSync.setContentDescription(context.getString(R.string.title_legend_synchronize_on));
                 } else {
                     StringBuilder a = new StringBuilder();
 
@@ -296,6 +306,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
                     tvAfter.setText(a.toString());
                     ivSync.setImageResource(folder.synchronize ? R.drawable.baseline_sync_24 : R.drawable.baseline_sync_disabled_24);
+                    ivSync.setContentDescription(context.getString(folder.synchronize ? R.string.title_legend_synchronize_on : R.string.title_legend_synchronize_off));
                 }
                 ivSync.setImageTintList(ColorStateList.valueOf(
                         folder.synchronize && folder.initialize != 0 && !EntityFolder.OUTBOX.equals(folder.type)
