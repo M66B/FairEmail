@@ -135,6 +135,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             vwColor.setVisibility(ActivityBilling.isPro(context) ? View.VISIBLE : View.INVISIBLE);
 
             ivSync.setImageResource(account.synchronize ? R.drawable.baseline_sync_24 : R.drawable.baseline_sync_disabled_24);
+            ivSync.setContentDescription(context.getString(account.synchronize ? R.string.title_legend_synchronize_on : R.string.title_legend_synchronize_off));
 
             ivOAuth.setVisibility(
                     settings && account.auth_type != MailService.AUTH_TYPE_PASSWORD ? View.VISIBLE : View.GONE);
@@ -155,14 +156,19 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
 
             tvUser.setText(account.user);
 
-            if ("connected".equals(account.state))
+            if ("connected".equals(account.state)) {
                 ivState.setImageResource(R.drawable.baseline_cloud_24);
-            else if ("connecting".equals(account.state))
+                ivState.setContentDescription(context.getString(R.string.title_legend_connected));
+            } else if ("connecting".equals(account.state)) {
                 ivState.setImageResource(R.drawable.baseline_cloud_queue_24);
-            else if ("closing".equals(account.state))
+                ivState.setContentDescription(context.getString(R.string.title_legend_connecting));
+            } else if ("closing".equals(account.state)) {
                 ivState.setImageResource(R.drawable.baseline_close_24);
-            else
+                ivState.setContentDescription(context.getString(R.string.title_legend_closing));
+            } else {
                 ivState.setImageResource(R.drawable.baseline_cloud_off_24);
+                ivState.setContentDescription(context.getString(R.string.title_legend_disconnected));
+            }
             ivState.setVisibility(account.synchronize || account.state != null ? View.VISIBLE : View.INVISIBLE);
 
             tvHost.setText(String.format("%s:%d", account.host, account.port));
