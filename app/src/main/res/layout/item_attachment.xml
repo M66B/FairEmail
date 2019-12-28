@@ -55,7 +55,6 @@
             android:id="@+id/ivStatus"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:contentDescription="@string/title_legend_download_state"
             app:layout_constraintBottom_toBottomOf="@+id/tvType"
             app:layout_constraintEnd_toStartOf="@+id/ibSave"
             app:layout_constraintTop_toTopOf="parent"
