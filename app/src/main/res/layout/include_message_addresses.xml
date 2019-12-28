@@ -106,6 +106,7 @@
         android:text="@string/title_from"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textStyle="bold"
+        android:labelFor="@+id/tvFromEx"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/barrier_action" />
 
@@ -130,6 +131,7 @@
         android:text="@string/title_to"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textStyle="bold"
+        android:labelFor="@+id/tvTo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvFromEx" />
 
@@ -154,6 +156,7 @@
         android:text="@string/title_reply_to"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textStyle="bold"
+        android:labelFor="@+id/tvReplyTo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvTo" />
 
@@ -178,6 +181,7 @@
         android:text="@string/title_cc"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textStyle="bold"
+        android:labelFor="@+id/tvCc"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvReplyTo" />
 
@@ -202,6 +206,7 @@
         android:text="@string/title_bcc"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textStyle="bold"
+        android:labelFor="@+id/tvBcc"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvCc" />
 
@@ -226,6 +231,7 @@
         android:text="@string/title_via_identity"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textStyle="bold"
+        android:labelFor="@+id/tvIdentity"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvBcc" />
 
@@ -250,6 +256,7 @@
         android:text="@string/title_sent"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textStyle="bold"
+        android:labelFor="@+id/tvSent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvIdentity" />
 
@@ -274,6 +281,7 @@
         android:text="@string/title_received"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textStyle="bold"
+        android:labelFor="@+id/tvReceived"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvSent" />
 
@@ -298,6 +306,7 @@
         android:text="@string/title_size"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textStyle="bold"
+        android:labelFor="@+id/tvSizeEx"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvReceived" />
 
