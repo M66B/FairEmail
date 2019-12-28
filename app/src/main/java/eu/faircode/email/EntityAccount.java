@@ -50,8 +50,8 @@ public class EntityAccount extends EntityOrder implements Serializable {
     static final String TABLE_NAME = "account";
 
     // https://tools.ietf.org/html/rfc2177
-    static final int DEFAULT_KEEP_ALIVE_INTERVAL = 24; // minutes
-    static final int DEFAULT_POLL_INTERVAL = 12; // minutes
+    static final int DEFAULT_KEEP_ALIVE_INTERVAL = 15; // minutes
+    static final int DEFAULT_POLL_INTERVAL = 15; // minutes
 
     static final int TYPE_IMAP = 0;
     static final int TYPE_POP = 1;
