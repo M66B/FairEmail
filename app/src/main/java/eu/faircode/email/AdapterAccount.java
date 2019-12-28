@@ -167,7 +167,11 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
 
             tvHost.setText(String.format("%s:%d", account.host, account.port));
             tvLast.setText(context.getString(R.string.title_last_connected,
-                    account.last_connected == null ? "-" : DTF.format(account.last_connected)));
+                    (account.last_connected == null ? "-" : DTF.format(account.last_connected)) +
+                            (BuildConfig.DEBUG ?
+                                    " " + account.poll_interval +
+                                            "/" + account.keep_alive_ok +
+                                            "/" + account.keep_alive_failed : "")));
 
             tvIdentity.setVisibility(account.identities > 0 || !settings ? View.GONE : View.VISIBLE);
             tvDrafts.setVisibility(account.drafts || !settings ? View.GONE : View.VISIBLE);

@@ -121,6 +121,15 @@ public interface DaoAccount {
     @Query("UPDATE account SET last_connected = :last_connected WHERE id = :id")
     int setAccountConnected(long id, long last_connected);
 
+    @Query("UPDATE account SET poll_interval = :value WHERE id = :id")
+    int setAccountKeepAliveInterval(long id, int value);
+
+    @Query("UPDATE account SET keep_alive_ok = :ok WHERE id = :id")
+    int setAccountKeepAliveOk(long id, boolean ok);
+
+    @Query("UPDATE account SET keep_alive_failed = :value WHERE id = :id")
+    int setAccountKeepAliveFailed(long id, int value);
+
     @Query("UPDATE account SET `order` = :order WHERE id = :id")
     int setAccountOrder(long id, Integer order);
 

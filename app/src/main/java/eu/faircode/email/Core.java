@@ -3201,6 +3201,7 @@ class Core {
         private Semaphore semaphore = new Semaphore(0);
         private boolean running = true;
         private boolean recoverable = true;
+        private Long lastActivity = null;
 
         State(ConnectionHelper.NetworkState networkState) {
             this.networkState = networkState;
@@ -3264,6 +3265,7 @@ class Core {
 
         void reset() {
             recoverable = true;
+            lastActivity = null;
         }
 
         private void yield() {
@@ -3308,10 +3310,20 @@ class Core {
                 }
         }
 
+        synchronized void activity() {
+            lastActivity = SystemClock.elapsedRealtime();
+        }
+
+        long getIdleTime() {
+            return (lastActivity == null ? 0 : SystemClock.elapsedRealtime() - lastActivity);
+        }
+
         @NonNull
         @Override
         public String toString() {
-            return "[running=" + running + ",recoverable=" + recoverable + "]";
+            return "[running=" + running +
+                    ",recoverable=" + recoverable +
+                    ",activity=" + new Date(lastActivity == null ? 0 : lastActivity) + "]";
         }
     }
 }

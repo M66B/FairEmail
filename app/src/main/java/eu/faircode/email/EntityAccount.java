@@ -101,7 +101,11 @@ public class EntityAccount extends EntityOrder implements Serializable {
     public Long swipe_right;
     public Long move_to;
     @NonNull
-    public Integer poll_interval = DEFAULT_KEEP_ALIVE_INTERVAL; // keep-alive interval
+    public Integer poll_interval = DEFAULT_KEEP_ALIVE_INTERVAL;
+    @NonNull
+    public Boolean keep_alive_ok = false;
+    @NonNull
+    public Integer keep_alive_failed = 0;
     @NonNull
     public Boolean partial_fetch = true;
     @NonNull

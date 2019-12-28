@@ -1020,6 +1020,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         while (ifolder.isOpen() && state.isRunning() && state.isRecoverable()) {
                                             Log.i(folder.name + " do idle");
                                             ifolder.idle(false);
+                                            state.activity();
                                         }
                                     } catch (Throwable ex) {
                                         Log.e(folder.name, ex);
@@ -1144,23 +1145,51 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
 
                     // Keep alive
+                    boolean first = true;
                     while (state.isRunning()) {
-                        if (!state.isRecoverable())
-                            throw new StoreClosedException(iservice.getStore(), "Unrecoverable");
+                        try {
+                            if (!state.isRecoverable())
+                                throw new StoreClosedException(iservice.getStore(), "Unrecoverable");
 
-                        // Sends store NOOP
-                        if (!iservice.getStore().isConnected())
-                            throw new StoreClosedException(iservice.getStore(), "NOOP");
+                            // Sends store NOOP
+                            if (!iservice.getStore().isConnected())
+                                throw new StoreClosedException(iservice.getStore(), "NOOP");
 
-                        if (sync)
-                            for (EntityFolder folder : mapFolders.keySet())
-                                if (folder.synchronize)
-                                    if (!folder.poll && capIdle) {
-                                        // Sends folder NOOP
-                                        if (!mapFolders.get(folder).isOpen())
-                                            throw new StoreClosedException(iservice.getStore(), folder.name);
-                                    } else
-                                        EntityOperation.sync(this, folder.id, false);
+                            if (sync)
+                                for (EntityFolder folder : mapFolders.keySet())
+                                    if (folder.synchronize)
+                                        if (!folder.poll && capIdle) {
+                                            // Sends folder NOOP
+                                            if (!mapFolders.get(folder).isOpen())
+                                                throw new StoreClosedException(iservice.getStore(), folder.name);
+                                        } else
+                                            EntityOperation.sync(this, folder.id, false);
+                        } catch (Throwable ex) {
+                            if (!first && !account.keep_alive_ok &&
+                                    account.poll_interval > 9 &&
+                                    state.getIdleTime() > (account.poll_interval - 1) * 60 * 1000L) {
+                                account.keep_alive_failed++;
+                                if (account.keep_alive_failed > 10) {
+                                    account.keep_alive_failed = 0;
+                                    account.poll_interval--;
+                                    db.account().setAccountKeepAliveInterval(account.id, account.poll_interval);
+                                }
+                                db.account().setAccountKeepAliveFailed(account.id, account.keep_alive_failed);
+                                EntityLog.log(ServiceSynchronize.this, account.name +
+                                        " keep alive failed=" + account.keep_alive_failed +
+                                        " keep alive interval=" + account.poll_interval +
+                                        " max idle=" + state.getIdleTime());
+                            }
+                            throw ex;
+                        }
+
+                        if (!first && !account.keep_alive_ok &&
+                                account.poll_interval > 9 &&
+                                state.getIdleTime() > (account.poll_interval - 1) * 60 * 1000L) {
+                            account.keep_alive_ok = true;
+                            db.account().setAccountKeepAliveOk(account.id, true);
+                            EntityLog.log(ServiceSynchronize.this, account.name + " keep alive ok");
+                        }
 
                         // Successfully connected: reset back off time
                         state.setBackoff(CONNECT_BACKOFF_START);
@@ -1201,6 +1230,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         } finally {
                             am.cancel(pi);
                         }
+
+                        first = false;
                     }
 
                     Log.i(account.name + " done state=" + state);
