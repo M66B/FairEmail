@@ -3765,6 +3765,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
                 ibSnoozed.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
 
+                if (expanded) {
+                    if (message.receipt_request != null && message.receipt_request)
+                        result.add(context.getString(R.string.title_legend_receipt));
+                    if (message.plain_only != null && message.plain_only)
+                        result.add(context.getString(R.string.title_legend_plain_only));
+                    if (message.ui_browsed)
+                        result.add(context.getString(R.string.title_legend_browsed));
+                }
+
                 if (tvFolder.getVisibility() == View.VISIBLE)
                     result.add(tvFolder.getText().toString());
                 if (tvSize.getVisibility() == View.VISIBLE)
