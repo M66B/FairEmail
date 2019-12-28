@@ -54,6 +54,6 @@ public class TupleAccountState extends EntityAccount {
     }
 
     boolean shouldRun(boolean enabled) {
-        return (isEnabled(enabled) || (operations > 0 && synchronize));
+        return (isEnabled(enabled) || (operations > 0 && synchronize && tbd == null));
     }
 }
