@@ -154,13 +154,15 @@
     <string name="title_setup_biometrics_disable">禁用</string>
     <string name="title_setup_biometrics_unlock">解锁​​​​</string>
     <string name="title_setup_theme">选择主题</string>
+    <string name="title_setup_theme_blue_orange">蓝色/橙色</string>
     <string name="title_setup_theme_yellow_purple">黄色/紫色</string>
     <string name="title_setup_theme_red_green">红色/绿色</string>
     <string name="title_setup_theme_grey">灰色</string>
-    <string name="title_setup_theme_black">黑色</string>
+    <string name="title_setup_theme_black">黑色 (AMOLED)</string>
     <string name="title_setup_theme_reverse">反转色</string>
     <string name="title_setup_theme_dark">深色</string>
     <string name="title_setup_theme_system">跟随系统</string>
+    <string name="title_setup_theme_system_hint">跟随系统主题会自动切在白天/夜间切换到亮/暗色主题，如果安卓系统支持</string>
     <string name="title_setup_advanced">高级选项</string>
     <string name="title_setup_options">选项</string>
     <string name="title_setup_defaults">恢复默认设置</string>
@@ -902,6 +904,9 @@ FairEmail会显示一条消息来提醒您这一点，这条消息在您购买�
     <string name="title_accessibility_expanded">展开</string>
     <string name="title_accessibility_seen">阅读</string>
     <string name="title_accessibility_unseen">未读</string>
+    <plurals name="title_accessibility_messages">
+        <item quantity="other">%1$d 条消息</item>
+    </plurals>
     <string name="title_accessibility_flagged">标星</string>
     <string name="title_accessibility_unflagged">取消标星</string>
     <string name="title_accessibility_collapse">折叠</string>

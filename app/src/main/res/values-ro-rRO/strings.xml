@@ -176,6 +176,15 @@
     <string name="title_setup_biometrics_disable">Dezactivează</string>
     <string name="title_setup_biometrics_unlock">Deblocați</string>
     <string name="title_setup_theme">Selectare temă</string>
+    <string name="title_setup_theme_blue_orange">Albastru/portocaliu</string>
+    <string name="title_setup_theme_yellow_purple">Galben/violet</string>
+    <string name="title_setup_theme_red_green">Roșu/verde</string>
+    <string name="title_setup_theme_grey">Gri</string>
+    <string name="title_setup_theme_black">Negru (AMOLED)</string>
+    <string name="title_setup_theme_reverse">Inversează culorile</string>
+    <string name="title_setup_theme_dark">Întunecată</string>
+    <string name="title_setup_theme_system">Setare sistem</string>
+    <string name="title_setup_theme_system_hint">Dacă este suportată de Android, setare sistem, va schimba automat la deschis/întunecat în timpul zilei/nopții</string>
     <string name="title_setup_advanced">Setări avansate</string>
     <string name="title_setup_options">Opţiuni</string>
     <string name="title_setup_defaults">Restabiliți valorile implicite</string>
@@ -570,6 +579,11 @@
     <string name="title_ask_help">Ajută la îmbunătățirea FairEmail</string>
     <string name="title_ask_reporting">Trimite rapoarte de eroare?</string>
     <string name="title_reporting_why">Raportarea erorilor va ajuta la îmbunătățirea FairEmail</string>
+    <string name="title_ask_review">Vă rugăm să evaluați FairEmail</string>
+    <string name="title_ask_review_rationale">        Utilizați FairEmail de ceva vreme.
+        Vom aprecia dacă ați putea evalua FairEmail în Play Store.
+        Aceasta ajută la menținerea unui echilibru între recenziile nefavorabile și cele favorabile.
+    </string>
     <string name="title_expand_warning">Extinderea acestui mesaj va descărca %1$s</string>
     <string name="title_download_message">Se descarcă &#8230;</string>
     <string name="title_compose">Compune</string>
@@ -838,6 +852,7 @@
     <string name="title_issue">Aveți o întrebare sau problemă?</string>
     <string name="title_yes">Da</string>
     <string name="title_no">Nu</string>
+    <string name="title_later">Mai târziu</string>
     <string name="title_undo">Anulează</string>
     <string name="title_redo">Refacere</string>
     <string name="title_add">Adaugă</string>
@@ -912,11 +927,21 @@
     <string name="title_accessibility_expanded">Extins</string>
     <string name="title_accessibility_seen">Citit</string>
     <string name="title_accessibility_unseen">Necitit</string>
+    <plurals name="title_accessibility_messages">
+        <item quantity="one">%1$d mesaj</item>
+        <item quantity="few">%1$d mesaje</item>
+        <item quantity="other">%1$d de mesaje</item>
+    </plurals>
     <string name="title_accessibility_flagged">Marcat</string>
     <string name="title_accessibility_unflagged">Nemarcat</string>
     <string name="title_accessibility_collapse">Restrânge</string>
     <string name="title_accessibility_expand">Extinde</string>
     <string name="title_accessibility_view_contact">Vizualizare contact</string>
+    <string name="title_accessibility_show_authentication_result">Arată rezultatul autentificării</string>
+    <string name="title_accessibility_show_snooze_time">Arată timpul de amânare</string>
+    <string name="title_accessibility_view_help">Vizualizare ajutor</string>
+    <string name="title_accessibility_selected">Selectat</string>
+    <string name="title_accessibility_answered">Răspuns</string>
     <string-array name="pollIntervalNames">
         <item>Permanent</item>
         <item>La fiecare 15 minute</item>
