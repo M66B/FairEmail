@@ -3308,6 +3308,22 @@ class Core {
                 }
         }
 
+        private long maxIdle = 0;
+        private long lastActivity = 0;
+
+        synchronized void activity() {
+            long now = SystemClock.elapsedRealtime();
+            if (lastActivity > 0 && now - lastActivity > maxIdle) {
+                maxIdle = now - lastActivity;
+                Log.i("Max idle=" + (maxIdle / 1000));
+            }
+            lastActivity = now;
+        }
+
+        long getMaxIdle() {
+            return maxIdle;
+        }
+
         @NonNull
         @Override
         public String toString() {

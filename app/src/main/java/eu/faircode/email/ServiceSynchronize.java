@@ -1020,6 +1020,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         while (ifolder.isOpen() && state.isRunning() && state.isRecoverable()) {
                                             Log.i(folder.name + " do idle");
                                             ifolder.idle(false);
+                                            state.activity();
                                         }
                                     } catch (Throwable ex) {
                                         Log.e(folder.name, ex);
