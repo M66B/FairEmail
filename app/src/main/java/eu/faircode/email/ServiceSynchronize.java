@@ -50,7 +50,7 @@ import androidx.preference.PreferenceManager;
 
 import com.sun.mail.imap.IMAPFolder;
 
-import java.net.SocketException;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -792,7 +792,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     } catch (Throwable ex) {
                         // Immediately report auth errors
                         if (ex instanceof AuthenticationFailedException &&
-                                !(ex.getCause() instanceof SocketException) &&
+                                !(ex.getCause() instanceof IOException) &&
                                 !(ex.getMessage() != null &&
                                         ex.getMessage().contains("Too many simultaneous connections"))) {
                             NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
