@@ -290,7 +290,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     static final String ACTION_DECRYPT = BuildConfig.APPLICATION_ID + ".DECRYPT";
     static final String ACTION_NEW_MESSAGE = BuildConfig.APPLICATION_ID + ".NEW_MESSAGE";
 
-    private static final long REVIEW_ASK_DELAY = 3 * 24 * 3600 * 1000L; // milliseonds
+    private static final long REVIEW_ASK_DELAY = 21 * 24 * 3600 * 1000L; // milliseconds
 
     private static final List<String> DUPLICATE_ORDER = Collections.unmodifiableList(Arrays.asList(
             EntityFolder.INBOX,
@@ -5502,20 +5502,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_review, null);
-            Button btnIssue = dview.findViewById(R.id.btnIssue);
             CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
-
-            final Intent issue = Helper.getIntentIssue(getContext(), true);
-            btnIssue.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startActivity(issue);
-                    dismiss();
-                }
-            });
-
-            PackageManager pm = getContext().getPackageManager();
-            btnIssue.setVisibility(issue.resolveActivity(pm) == null ? View.GONE : View.VISIBLE);
 
             cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override

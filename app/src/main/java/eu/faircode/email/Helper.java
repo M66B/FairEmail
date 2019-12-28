@@ -304,11 +304,7 @@ public class Helper {
     }
 
     static Intent getIntentIssue(Context context) {
-        return getIntentIssue(context, ActivityBilling.isPro(context));
-    }
-
-    static Intent getIntentIssue(Context context, boolean pro) {
-        if (pro) {
+        if (ActivityBilling.isPro(context)) {
             String version = BuildConfig.VERSION_NAME + "/" +
                     (Helper.hasValidFingerprint(context) ? "1" : "3") +
                     (BuildConfig.PLAY_STORE_RELEASE ? "p" : "") +
