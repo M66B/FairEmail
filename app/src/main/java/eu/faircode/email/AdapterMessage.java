@@ -3697,8 +3697,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     result.add(context.getString(R.string.title_accessibility_selected));
 
                 result.add(context.getString(message.unseen > 0 ? R.string.title_accessibility_unseen : R.string.title_accessibility_seen));
-                result.add(context.getResources().getQuantityString(
-                        R.plurals.title_accessibility_messages, message.visible, message.visible));
+                if (tvCount.getVisibility() == View.VISIBLE)
+                    result.add(context.getResources().getQuantityString(
+                            R.plurals.title_accessibility_messages, message.visible, message.visible));
 
                 if (ibExpander.getVisibility() == View.VISIBLE) {
                     result.add(context.getString(expanded ? R.string.title_accessibility_expanded : R.string.title_accessibility_collapsed));
