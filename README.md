@@ -82,7 +82,7 @@ This app starts a foreground service with a low priority status bar notification
 
 All pro features are convenience or advanced features.
 
-* Account/identity colors
+* Account/identity/folder colors
 * Colored stars ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq107))
 * Notification settings (sounds) per account/folder/sender (requires Android 8 Oreo)
 * Configurable notification actions
