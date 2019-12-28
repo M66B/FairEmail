@@ -569,6 +569,11 @@
     <string name="title_ask_help">Auta parantamaan FairEmailia</string>
     <string name="title_ask_reporting">Lähetetäänkö virheraportteja?</string>
     <string name="title_reporting_why">Virheraportointi auttaa FairEmailin kehittämisessä</string>
+    <string name="title_ask_review">Ole hyvä ja arvostele FairEmail</string>
+    <string name="title_ask_review_rationale">Olet käyttänyt FairEmailia jonkin aikaa.
+        Olisi hienoa, jos voisit arvioida FairEmailin Play Kaupassa.
+        Tämä auttaa pitämään tasapainon hyvien ja huonojen arvioiden välillä.
+    </string>
     <string name="title_expand_warning">Tämän viestin laajentaminen lataa %1$s</string>
     <string name="title_download_message">Ladataan &#8230;</string>
     <string name="title_compose">Kirjoita viesti</string>
@@ -837,6 +842,7 @@
     <string name="title_issue">Onko sinulla kysyttävää tai ongelma?</string>
     <string name="title_yes">Kyllä</string>
     <string name="title_no">Ei</string>
+    <string name="title_later">Myöhemmin</string>
     <string name="title_undo">Kumoa</string>
     <string name="title_redo">Tee uudelleen</string>
     <string name="title_add">Lisää</string>
@@ -911,6 +917,10 @@
     <string name="title_accessibility_expanded">Laajennettu</string>
     <string name="title_accessibility_seen">Luettu</string>
     <string name="title_accessibility_unseen">Lukematon</string>
+    <plurals name="title_accessibility_messages">
+        <item quantity="one">%1$d viesti</item>
+        <item quantity="other">%1$d viestiä</item>
+    </plurals>
     <string name="title_accessibility_flagged">Tähdellinen</string>
     <string name="title_accessibility_unflagged">Tähdetön</string>
     <string name="title_accessibility_collapse">Tiivistä</string>

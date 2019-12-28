@@ -917,6 +917,10 @@
     <string name="title_accessibility_expanded">Étendu</string>
     <string name="title_accessibility_seen">Lu</string>
     <string name="title_accessibility_unseen">Non lu</string>
+    <plurals name="title_accessibility_messages">
+        <item quantity="one">%1$d message</item>
+        <item quantity="other">%1$d messages</item>
+    </plurals>
     <string name="title_accessibility_flagged">Suivi</string>
     <string name="title_accessibility_unflagged">Non suivi</string>
     <string name="title_accessibility_collapse">Réduire</string>

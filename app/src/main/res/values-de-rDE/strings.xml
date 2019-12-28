@@ -165,6 +165,15 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_setup_biometrics_disable">Deaktivieren</string>
     <string name="title_setup_biometrics_unlock">Entsperren</string>
     <string name="title_setup_theme">Design auswählen</string>
+    <string name="title_setup_theme_blue_orange">Blau/Orange</string>
+    <string name="title_setup_theme_yellow_purple">Gelbe/lila</string>
+    <string name="title_setup_theme_red_green">Rot/Grün</string>
+    <string name="title_setup_theme_grey">Grau</string>
+    <string name="title_setup_theme_black">Scharz</string>
+    <string name="title_setup_theme_reverse">Farben umkehren</string>
+    <string name="title_setup_theme_dark">Dunkel</string>
+    <string name="title_setup_theme_system">Dem System-Design folgen</string>
+    <string name="title_setup_theme_system_hint">Das System-Design wird abhängig von der Tageszeit automatisch zwischen hell und dunkel wechseln, falls von Android unterstützt</string>
     <string name="title_setup_advanced">Erweitert</string>
     <string name="title_setup_options">Optionen</string>
     <string name="title_setup_defaults">Auf Standard zurücksetzen</string>
@@ -287,6 +296,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_display_hidden">Versteckte Nachrichtentexte anzeigen</string>
     <string name="title_advanced_encrypt_method">Standard-Verschlüsselungsmethode</string>
     <string name="title_advanced_openpgp">OpenPGP Anbieter</string>
+    <string name="title_advanced_autocrypt_mutual">Autocrypt gegenseitiger Modus</string>
     <string name="title_advanced_sign_default">Standardmäßig signieren</string>
     <string name="title_advanced_encrypt_default">Standardmäßig verschlüsseln</string>
     <string name="title_advanced_auto_decrypt">Nachrichten automatisch entschlüsseln</string>
@@ -905,6 +915,10 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_accessibility_expanded">Erweiterte</string>
     <string name="title_accessibility_seen">Gelesene</string>
     <string name="title_accessibility_unseen">Ungelesene</string>
+    <plurals name="title_accessibility_messages">
+        <item quantity="one">%1$d Nachricht</item>
+        <item quantity="other">%1$d Nachrichten</item>
+    </plurals>
     <string name="title_accessibility_flagged">Markierte</string>
     <string name="title_accessibility_unflagged">Nicht markiert</string>
     <string name="title_accessibility_collapse">Zusammenklappen</string>

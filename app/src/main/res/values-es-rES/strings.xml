@@ -166,6 +166,15 @@
     <string name="title_setup_biometrics_disable">Desactivar</string>
     <string name="title_setup_biometrics_unlock">Desbloquear</string>
     <string name="title_setup_theme">Seleccionar tema</string>
+    <string name="title_setup_theme_blue_orange">Azul/naranja</string>
+    <string name="title_setup_theme_yellow_purple">Amarillo/morado</string>
+    <string name="title_setup_theme_red_green">Rojo/verde</string>
+    <string name="title_setup_theme_grey">Gris</string>
+    <string name="title_setup_theme_black">Negro</string>
+    <string name="title_setup_theme_reverse">Invertir colores</string>
+    <string name="title_setup_theme_dark">Oscuro</string>
+    <string name="title_setup_theme_system">Igual que el sistema</string>
+    <string name="title_setup_theme_system_hint">Igual que el tema del sistema cambiará automáticamente a luz/oscuro en el día y la noche, si es compatible con Android</string>
     <string name="title_setup_advanced">Avanzado</string>
     <string name="title_setup_options">Opciones</string>
     <string name="title_setup_defaults">Restablecer ajustes por defecto</string>
@@ -908,6 +917,10 @@
     <string name="title_accessibility_expanded">Expandido</string>
     <string name="title_accessibility_seen">Leído</string>
     <string name="title_accessibility_unseen">No leído</string>
+    <plurals name="title_accessibility_messages">
+        <item quantity="one">%1$d mensaje</item>
+        <item quantity="other">%1$d mensajes</item>
+    </plurals>
     <string name="title_accessibility_flagged">Destacado</string>
     <string name="title_accessibility_unflagged">No destacado</string>
     <string name="title_accessibility_collapse">Ocultar</string>

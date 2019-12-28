@@ -915,6 +915,10 @@
     <string name="title_accessibility_expanded">Espanso</string>
     <string name="title_accessibility_seen">Letto</string>
     <string name="title_accessibility_unseen">Non letto</string>
+    <plurals name="title_accessibility_messages">
+        <item quantity="one">%1$d messaggio</item>
+        <item quantity="other">%1$d messaggi</item>
+    </plurals>
     <string name="title_accessibility_flagged">Preferiti</string>
     <string name="title_accessibility_unflagged">Non preferito</string>
     <string name="title_accessibility_collapse">Comprimi</string>

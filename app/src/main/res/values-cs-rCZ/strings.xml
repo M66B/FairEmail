@@ -164,6 +164,7 @@
     <string name="title_setup_biometrics_disable">Vypnout</string>
     <string name="title_setup_biometrics_unlock">Odemknout</string>
     <string name="title_setup_theme">Vybrat motiv</string>
+    <string name="title_setup_theme_blue_orange">Modrý/oranžový</string>
     <string name="title_setup_theme_yellow_purple">Žlutý/fialový</string>
     <string name="title_setup_theme_red_green">Červený/zelený</string>
     <string name="title_setup_theme_grey">Šedý</string>

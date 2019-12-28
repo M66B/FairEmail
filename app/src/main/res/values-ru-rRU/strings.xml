@@ -939,6 +939,12 @@
     <string name="title_accessibility_expanded">Развёрнуто</string>
     <string name="title_accessibility_seen">Прочитано</string>
     <string name="title_accessibility_unseen">Непрочитано</string>
+    <plurals name="title_accessibility_messages">
+        <item quantity="one">%1$d сообщение</item>
+        <item quantity="few">%1$d сообщения</item>
+        <item quantity="many">%1$d сообщений</item>
+        <item quantity="other">%1$d сообщений</item>
+    </plurals>
     <string name="title_accessibility_flagged">Избранное</string>
     <string name="title_accessibility_unflagged">Не избранное</string>
     <string name="title_accessibility_collapse">Свернуть</string>
