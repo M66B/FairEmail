@@ -50,10 +50,9 @@ public class WorkerPoll extends Worker {
         return Result.success();
     }
 
-    static void init(Context context) {
+    static void init(Context context, boolean enabled) {
         try {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            boolean enabled = prefs.getBoolean("enabled", true);
             int pollInterval = prefs.getInt("poll_interval", 0);
             if (enabled && pollInterval > 0) {
                 Log.i("Queuing " + getName() + " every " + pollInterval + " minutes");

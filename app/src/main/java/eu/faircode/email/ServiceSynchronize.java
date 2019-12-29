@@ -1528,7 +1528,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
         AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, next, pi);
 
-        WorkerPoll.init(context);
+        WorkerPoll.init(context, enabled);
     }
 
     private static long[] getSchedule(Context context) {

@@ -132,9 +132,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
                 if (value != current) {
                     adapterView.setTag(value);
                     prefs.edit().putInt("poll_interval", value).apply();
-                    if (value == 0)
-                        ServiceSynchronize.eval(getContext(), "poll_interval");
-                    WorkerPoll.init(getContext());
+                    ServiceSynchronize.reschedule(getContext());
                 }
             }
 
@@ -142,8 +140,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             public void onNothingSelected(AdapterView<?> adapterView) {
                 adapterView.setTag(null);
                 prefs.edit().remove("poll_interval").apply();
-                ServiceSynchronize.eval(getContext(), "poll_interval");
-                WorkerPoll.init(getContext());
+                ServiceSynchronize.reschedule(getContext());
             }
         });
 
