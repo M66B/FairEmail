@@ -546,7 +546,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 for (int i = 0; i < parent.getChildCount(); i++) {
                     View view = parent.getChildAt(i);
                     int pos = parent.getChildAdapterPosition(view);
-                    View header = getView(parent, pos);
+                    View header = getView(view, parent, pos);
                     if (header != null) {
                         canvas.save();
                         canvas.translate(0, parent.getChildAt(i).getTop() - header.getMeasuredHeight());
@@ -559,14 +559,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             @Override
             public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
                 int pos = parent.getChildAdapterPosition(view);
-                View header = getView(parent, pos);
+                View header = getView(view, parent, pos);
                 if (header == null)
                     outRect.setEmpty();
                 else
                     outRect.top = header.getMeasuredHeight();
             }
 
-            private View getView(RecyclerView parent, int pos) {
+            private View getView(View view, RecyclerView parent, int pos) {
                 if (!date || !"time".equals(adapter.getSort()))
                     return null;
 
@@ -623,9 +623,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     new Date().getTime(),
                                     DAY_IN_MILLIS, 0));
 
-                header.setContentDescription(tvDate.getText().toString());
+                view.setContentDescription(tvDate.getText().toString());
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-                    header.setAccessibilityHeading(true);
+                    view.setAccessibilityHeading(true);
 
                 header.measure(View.MeasureSpec.makeMeasureSpec(parent.getWidth(), View.MeasureSpec.EXACTLY),
                         View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
