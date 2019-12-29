@@ -1168,9 +1168,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             if (BuildConfig.DEBUG &&
                                     !first && !account.keep_alive_ok &&
                                     account.poll_interval > 9 &&
-                                    state.getIdleTime() > (account.poll_interval - 1) * 60 * 1000L) {
+                                    Math.abs(state.getIdleTime() - account.poll_interval * 60 * 1000L) < 60 * 1000L) {
                                 account.keep_alive_failed++;
-                                if (account.keep_alive_failed > 10) {
+                                if (account.keep_alive_failed >= 3) {
                                     account.keep_alive_failed = 0;
                                     account.poll_interval--;
                                     db.account().setAccountKeepAliveInterval(account.id, account.poll_interval);
@@ -1187,7 +1187,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         if (BuildConfig.DEBUG &&
                                 !first && !account.keep_alive_ok &&
                                 account.poll_interval > 9 &&
-                                state.getIdleTime() > (account.poll_interval - 1) * 60 * 1000L) {
+                                Math.abs(state.getIdleTime() - account.poll_interval * 60 * 1000L) < 60 * 1000L) {
                             account.keep_alive_ok = true;
                             db.account().setAccountKeepAliveOk(account.id, true);
                             EntityLog.log(ServiceSynchronize.this, account.name + " keep alive ok");
