@@ -32,7 +32,7 @@
     <string name="shortcut_setup">Ezarpenak</string>
     <plurals name="title_notification_synchronizing">
         <item quantity="one">%1$d kontua monitorizatzen</item>
-        <item quantity="other">%1$d kontua monitorizatzen</item>
+        <item quantity="other">%1$d kontu monitorizatzen</item>
     </plurals>
     <plurals name="title_notification_operations">
         <item quantity="one">Eragiketa %1$d egiteke</item>
@@ -166,6 +166,15 @@
     <string name="title_setup_biometrics_disable">Desgaitu</string>
     <string name="title_setup_biometrics_unlock">Desblokeatu</string>
     <string name="title_setup_theme">Hautatu gaia</string>
+    <string name="title_setup_theme_blue_orange">Urdina/laranja</string>
+    <string name="title_setup_theme_yellow_purple">Horia/morea</string>
+    <string name="title_setup_theme_red_green">Gorria/berdea</string>
+    <string name="title_setup_theme_grey">Grisa</string>
+    <string name="title_setup_theme_black">Beltza (AMOLED)</string>
+    <string name="title_setup_theme_reverse">Alderantzizkatu koloreak</string>
+    <string name="title_setup_theme_dark">Iluna</string>
+    <string name="title_setup_theme_system">Jarraitu sistema</string>
+    <string name="title_setup_theme_system_hint">Jarraitu sistemako itxurak automatikoki txandakatuko ditu argia eta iluna eguna eta gauaren arabera, Androidek onartzen duenean</string>
     <string name="title_setup_advanced">Aurreratua</string>
     <string name="title_setup_options">Aukerak</string>
     <string name="title_setup_defaults">Berrezarri balio lehenetsiak</string>
@@ -288,7 +297,7 @@
     <string name="title_advanced_display_hidden">Erakutsi ezkutatutako mezuen testuak</string>
     <string name="title_advanced_encrypt_method">Berezko zifratze-metodoa</string>
     <string name="title_advanced_openpgp">OpenPGP hornitzailea</string>
-    <string name="title_advanced_autocrypt_mutual">Elkarrekiko autozifratze modua</string>
+    <string name="title_advanced_autocrypt_mutual">Elkarrekiko Autocrypt modua</string>
     <string name="title_advanced_sign_default">Besterik ezean sinatu</string>
     <string name="title_advanced_encrypt_default">Besterik ezean zifratu</string>
     <string name="title_advanced_auto_decrypt">Desenkriptatu mezuak automatikoki</string>
@@ -559,6 +568,11 @@
     <string name="title_ask_help">Lagundu FairEmail hobetzen</string>
     <string name="title_ask_reporting">Bidali errore txostenak?</string>
     <string name="title_reporting_why">Errore txostenek FairEmail hobetzen laguntzen dute</string>
+    <string name="title_ask_review">Baloratu FairEmail mesedez</string>
+    <string name="title_ask_review_rationale">FairEmail denbora batez erabili duzu.
+Eskertzekoa litzateke Play Storen FairEmail baloratuko bazenu.
+Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
+    </string>
     <string name="title_expand_warning">Mezu hau hedatzean %1$s deskargatuko da</string>
     <string name="title_download_message">Deskargatzen &#8230;</string>
     <string name="title_compose">Idatzi</string>
@@ -827,6 +841,7 @@
     <string name="title_issue">Galdera edo arazoren bat duzu?</string>
     <string name="title_yes">Bai</string>
     <string name="title_no">Ez</string>
+    <string name="title_later">Geroago</string>
     <string name="title_undo">Desegin</string>
     <string name="title_redo">Berregin</string>
     <string name="title_add">Gehitu</string>
@@ -869,7 +884,6 @@
         FairEmail epe luzera mantengarria izan dadin, erosotasun funtzio batzuk edo funtzio aurreratu batzuk ordainpekokoak dira.
         FairEmail-ek mezu txiki bat bistaratzen du hau gogorarazteko, ordainpeko ezaugarriak erosiz gero mezua desagertzen da.
     </string>
-    <string name="title_pro_hide">Ezkutatu mezu txikia bihar arte</string>
     <string name="title_pro_hint">Ordainpeko ezaugarriak erostean oraingo eta etorkizuneko ordainpeko ezaugarri guztiak erabiltzeko eskubidea ematen dizu, eta aplikazio hau mantentzen lagunduko du.</string>
     <string name="title_pro_price">Begiratu <a href="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq19">maiz egindako galderak</a> ordainpeko ezaugarrien salneurriari buruz</string>
     <string name="title_pro_pending">Erosketa egiteke</string>
@@ -901,6 +915,10 @@
     <string name="title_accessibility_expanded">Hedatua</string>
     <string name="title_accessibility_seen">Irakurri</string>
     <string name="title_accessibility_unseen">Irakurri gabea</string>
+    <plurals name="title_accessibility_messages">
+        <item quantity="one">Mezu %1$d</item>
+        <item quantity="other">%1$d mezu</item>
+    </plurals>
     <string name="title_accessibility_flagged">Izarduna</string>
     <string name="title_accessibility_unflagged">Izarrik gabe</string>
     <string name="title_accessibility_collapse">Tolestu</string>
@@ -913,12 +931,12 @@
     <string name="title_accessibility_answered">Erantzuna emana</string>
     <string-array name="pollIntervalNames">
         <item>Beti</item>
-        <item>15 minutuero</item>
-        <item>30 minutuero</item>
+        <item>15 minuturik behin</item>
+        <item>30 minuturik behin</item>
         <item>Orduero</item>
-        <item>2 ordutik behin</item>
-        <item>4 ordutik behin</item>
-        <item>8 ordutik behin</item>
+        <item>2 ordurik behin</item>
+        <item>4 ordurik behin</item>
+        <item>8 ordurik behin</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Ez</item>
