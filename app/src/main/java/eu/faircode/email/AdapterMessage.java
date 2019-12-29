@@ -3789,7 +3789,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             context.getString(R.string.title_accessibility_view_help)));
                 ibHelp.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
 
-                if (expanded)
+                if (expanded && bnvActions != null)
                     for (int i = 0; i < bnvActions.getMenu().size(); i++) {
                         MenuItem menuItem = bnvActions.getMenu().getItem(i);
                         if (menuItem.isVisible() && menuItem.isEnabled())
