@@ -1061,6 +1061,8 @@
     <string name="title_accessibility_filter_out_unflagged">Toggle starred messages filter</string>
     <string name="title_accessibility_filter_out_snoozed">Toggle snoozed messages filter</string>
     <string name="title_accessibility_edit">Edit</string>
+    <string name="title_accessibility_show_addresses">Show addresses</string>
+    <string name="title_accessibility_hide_addresses">Hide addresses</string>
 
     <string-array name="pollIntervalNames">
         <item>Always</item>
