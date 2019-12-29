@@ -91,14 +91,14 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 prefs.edit().putBoolean("banner", !isChecked).apply();
 
-                Intent daily = new Intent(getContext(), ServiceUI.class);
-                daily.setAction("daily");
-                PendingIntent pi = PendingIntent.getService(getContext(), ServiceUI.PI_DAILY, daily, PendingIntent.FLAG_UPDATE_CURRENT);
+                Intent banner = new Intent(getContext(), ServiceUI.class);
+                banner.setAction("banner");
+                PendingIntent pi = PendingIntent.getService(getContext(), ServiceUI.PI_BANNER, banner, PendingIntent.FLAG_UPDATE_CURRENT);
 
                 AlarmManager am = (AlarmManager) getContext().getSystemService(Context.ALARM_SERVICE);
                 if (isChecked) {
                     long now = new Date().getTime();
-                    long interval = AlarmManager.INTERVAL_DAY;
+                    long interval = AlarmManager.INTERVAL_DAY * 7;
                     long due = interval - (now % interval);
                     long trigger = now + due;
                     Log.i("Set banner alarm at " + new Date(trigger) + " due=" + due);

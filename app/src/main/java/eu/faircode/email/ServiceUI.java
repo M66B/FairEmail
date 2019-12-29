@@ -52,7 +52,7 @@ public class ServiceUI extends IntentService {
     static final int PI_IGNORED = 10;
     static final int PI_THREAD = 11;
     static final int PI_WAKEUP = 12;
-    static final int PI_DAILY = 13;
+    static final int PI_BANNER = 13;
 
     public ServiceUI() {
         this(ServiceUI.class.getName());
@@ -153,8 +153,8 @@ public class ServiceUI extends IntentService {
                     onWakeup(id);
                     break;
 
-                case "daily":
-                    onDaily();
+                case "banner":
+                    onBanner();
                     break;
                 default:
                     throw new IllegalArgumentException("Unknown UI action: " + parts[0]);
@@ -428,7 +428,7 @@ public class ServiceUI extends IntentService {
             ServiceSynchronize.eval(ServiceUI.this, "wakeup");
     }
 
-    private void onDaily() {
+    private void onBanner() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         prefs.edit().remove("banner").apply();
     }
