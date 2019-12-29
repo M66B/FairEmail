@@ -107,10 +107,10 @@
     <color name="darkGreenPrimaryDark">#003300</color>
     <color name="darkRedAccent">#e57373</color>
 
-    <!-- Grey 900 / Amber 600 -->
-    <color name="blackPrimary">#212121</color>
-    <color name="blackPrimaryDark">#000000</color>
-    <color name="blackAccent">#ffb300</color>
+    <!-- Grey 800 / Amber 800 -->
+    <color name="blackPrimary">#424242</color>
+    <color name="blackPrimaryDark">#1b1b1b</color>
+    <color name="blackAccent">#ff8f00</color>
 
     <!-- Grey 800 / Blue grey 300 -->
     <color name="greyPrimary">#424242</color>
