@@ -42,7 +42,6 @@ import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.net.NetworkRequest;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcel;
@@ -552,12 +551,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         canvas.translate(0, parent.getChildAt(i).getTop() - header.getMeasuredHeight());
                         header.draw(canvas);
                         canvas.restore();
-                        TextView tvDate = header.findViewById(R.id.tvDate);
-                        if (tvDate !=null) {
-                            view.setContentDescription(tvDate.getText().toString());
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-                                view.setAccessibilityHeading(true);
-                        }
                     }
                 }
             }
