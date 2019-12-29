@@ -624,7 +624,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     DAY_IN_MILLIS, 0));
 
                 view.setContentDescription(tvDate.getText().toString());
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
                     view.setAccessibilityHeading(true);
 
                 header.measure(View.MeasureSpec.makeMeasureSpec(parent.getWidth(), View.MeasureSpec.EXACTLY),
