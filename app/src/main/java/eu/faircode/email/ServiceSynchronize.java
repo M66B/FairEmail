@@ -1165,7 +1165,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         } else
                                             EntityOperation.sync(this, folder.id, false);
                         } catch (Throwable ex) {
-                            if (!first && !account.keep_alive_ok &&
+                            if (BuildConfig.DEBUG &&
+                                    !first && !account.keep_alive_ok &&
                                     account.poll_interval > 9 &&
                                     state.getIdleTime() > (account.poll_interval - 1) * 60 * 1000L) {
                                 account.keep_alive_failed++;
@@ -1183,7 +1184,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             throw ex;
                         }
 
-                        if (!first && !account.keep_alive_ok &&
+                        if (BuildConfig.DEBUG &&
+                                !first && !account.keep_alive_ok &&
                                 account.poll_interval > 9 &&
                                 state.getIdleTime() > (account.poll_interval - 1) * 60 * 1000L) {
                             account.keep_alive_ok = true;
