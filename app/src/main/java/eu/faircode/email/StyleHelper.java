@@ -108,6 +108,8 @@ public class StyleHelper {
                 }
 
                 case R.id.menu_link: {
+                    String url = (String) args[0];
+
                     List<Object> spans = new ArrayList<>();
                     for (Object span : ss.getSpans(start, end, Object.class)) {
                         if (!(span instanceof URLSpan))
@@ -115,7 +117,13 @@ public class StyleHelper {
                         ss.removeSpan(span);
                     }
 
-                    ss.setSpan(new URLSpan((String) args[0]), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    if (start == end) {
+                        etBody.getText().insert(start, url);
+                        end += url.length();
+                        ss = new SpannableString(etBody.getText());
+                    }
+
+                    ss.setSpan(new URLSpan(url), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
                     for (Object span : spans)
                         ss.setSpan(span, start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
