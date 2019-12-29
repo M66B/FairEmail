@@ -929,6 +929,14 @@
     <string name="title_accessibility_view_help">Visualizza aiuto</string>
     <string name="title_accessibility_selected">Selezionato</string>
     <string name="title_accessibility_answered">Risposto</string>
+    <string name="title_accessibility_scroll_down">Scorri in basso</string>
+    <string name="title_accessibility_scroll_up">Scorri su</string>
+    <string name="title_accessibility_filter_out_seen">Attiva/disattiva filtro messaggi letti</string>
+    <string name="title_accessibility_filter_out_unflagged">Attiva/disattiva filtro messaggi preferiti</string>
+    <string name="title_accessibility_filter_out_snoozed">Attiva/disattiva filtro messaggi posticipati</string>
+    <string name="title_accessibility_edit">Modifica</string>
+    <string name="title_accessibility_show_addresses">Mostra indirizzi</string>
+    <string name="title_accessibility_hide_addresses">Nascondi indirizzi</string>
     <string-array name="pollIntervalNames">
         <item>Sempre</item>
         <item>Ogni 15 minuti</item>

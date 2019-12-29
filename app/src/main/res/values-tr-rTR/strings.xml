@@ -931,6 +931,14 @@
     <string name="title_accessibility_view_help">Yardımı görüntüle</string>
     <string name="title_accessibility_selected">Seçildi</string>
     <string name="title_accessibility_answered">Yanıtlandı</string>
+    <string name="title_accessibility_scroll_down">Aşağı kaydır</string>
+    <string name="title_accessibility_scroll_up">Yukarı kaydır</string>
+    <string name="title_accessibility_filter_out_seen">Okunan mesajlar filtresini aç/kapat</string>
+    <string name="title_accessibility_filter_out_unflagged">Yıldızlanan mesajlar filtresini aç/kapat</string>
+    <string name="title_accessibility_filter_out_snoozed">Ertelenen mesajlar filtresini aç/kapat</string>
+    <string name="title_accessibility_edit">Düzenle</string>
+    <string name="title_accessibility_show_addresses">Adresleri göster</string>
+    <string name="title_accessibility_hide_addresses">Adresleri gizle</string>
     <string-array name="pollIntervalNames">
         <item>Her Zaman</item>
         <item>Her 15 dakikada</item>

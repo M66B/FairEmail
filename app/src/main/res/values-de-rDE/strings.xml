@@ -883,6 +883,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_pro_info">Die Entwicklung von FairEmail hat buchstäblich tausende von Stunden gedauert und trotzdem sind die meisten Funktionen kostenlos nutzbar.
         Um FairEmail langfristig mit Support verfügbar zu erhalten, sind einige Komfort- und erweiterte Funktionen nicht frei nutzbar.
         FairEmail zeigt daher ein kleines Banner an, das Sie daran erinnert und beim Kauf der Pro-Funktionen auch sofort entfernt wird.    </string>
+    <string name="title_pro_hide">Kleine Hinweis-Nachricht für eine Woche ausblenden</string>
     <string name="title_pro_hint">Der Erwerb der Pro-Funktionen erlaubt es Ihnen alle momentan und zukünftig verfügbaren Pro-Funktionen zu nutzen und ermöglicht die Weiterentwicklung und Pflege der App.</string>
     <string name="title_pro_price">Informationen zum Preis der Pro-Funktionen finden Sie in der <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">Hilfe</a></string>
     <string name="title_pro_pending">Kauf ausstehend</string>
@@ -928,6 +929,14 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_accessibility_view_help">Hilfe anzeigen</string>
     <string name="title_accessibility_selected">Ausgewählt</string>
     <string name="title_accessibility_answered">Beantwortet</string>
+    <string name="title_accessibility_scroll_down">Nach unten scrollen</string>
+    <string name="title_accessibility_scroll_up">Nach oben scrollen</string>
+    <string name="title_accessibility_filter_out_seen">Filter für gelesene Nachrichten umschalten</string>
+    <string name="title_accessibility_filter_out_unflagged">Filter für markierte Nachrichten umschalten</string>
+    <string name="title_accessibility_filter_out_snoozed">Filter für zurückgestellte Nachrichten umschalten</string>
+    <string name="title_accessibility_edit">Bearbeiten</string>
+    <string name="title_accessibility_show_addresses">Adressen anzeigen</string>
+    <string name="title_accessibility_hide_addresses">Adressen ausblenden</string>
     <string-array name="pollIntervalNames">
         <item>Immer</item>
         <item>Alle 15 Minuten</item>

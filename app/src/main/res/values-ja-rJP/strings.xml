@@ -915,6 +915,14 @@ FairEmailは、Pro機能購入の為に上部に小さなメッセージを表�
     <string name="title_accessibility_view_help">ヘルプを見る</string>
     <string name="title_accessibility_selected">選択</string>
     <string name="title_accessibility_answered">返信済み</string>
+    <string name="title_accessibility_scroll_down">下へスクロール</string>
+    <string name="title_accessibility_scroll_up">上にスクロール</string>
+    <string name="title_accessibility_filter_out_seen">読取りメッセージフィルターの切替</string>
+    <string name="title_accessibility_filter_out_unflagged">スター付きメッセージフィルターの切替</string>
+    <string name="title_accessibility_filter_out_snoozed">スヌーズメッセージフィルターの切替</string>
+    <string name="title_accessibility_edit">編集</string>
+    <string name="title_accessibility_show_addresses">アドレスを表示</string>
+    <string name="title_accessibility_hide_addresses">アドレスを非表示</string>
     <string-array name="pollIntervalNames">
         <item>常に</item>
         <item>15分毎</item>

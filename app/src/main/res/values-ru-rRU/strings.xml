@@ -955,6 +955,14 @@
     <string name="title_accessibility_view_help">Посмотреть справку</string>
     <string name="title_accessibility_selected">Выбранные</string>
     <string name="title_accessibility_answered">Отвечено</string>
+    <string name="title_accessibility_scroll_down">Прокрутить вниз</string>
+    <string name="title_accessibility_scroll_up">Прокрутить вверх</string>
+    <string name="title_accessibility_filter_out_seen">Переключить фильтр прочитанных сообщений</string>
+    <string name="title_accessibility_filter_out_unflagged">Переключить фильтр избранных сообщений</string>
+    <string name="title_accessibility_filter_out_snoozed">Переключить фильтр отложенных сообщений</string>
+    <string name="title_accessibility_edit">Редактировать</string>
+    <string name="title_accessibility_show_addresses">Показать адреса</string>
+    <string name="title_accessibility_hide_addresses">Скрыть адреса</string>
     <string-array name="pollIntervalNames">
         <item>Непрерывно</item>
         <item>Каждые 15 минут</item>
