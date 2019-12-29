@@ -1288,7 +1288,7 @@ public class FragmentCompose extends FragmentBase {
 
                 @Override
                 protected void onExecuted(final Bundle args, EntityIdentity identity) {
-                    Helper.selectKeyAlias(getActivity(), identity.sign_key_alias, new Helper.IKeyAlias() {
+                    Helper.selectKeyAlias(getActivity(), getViewLifecycleOwner(), identity.sign_key_alias, new Helper.IKeyAlias() {
                         @Override
                         public void onSelected(String alias) {
                             args.putString("alias", alias);

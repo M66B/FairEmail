@@ -80,6 +80,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.ColorUtils;
 import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -845,7 +847,7 @@ public class Helper {
         prefs.edit().remove("last_authentication").apply();
     }
 
-    static void selectKeyAlias(final Activity activity, final String email, final IKeyAlias intf) {
+    static void selectKeyAlias(final Activity activity, final LifecycleOwner owner, final String email, final IKeyAlias intf) {
         final Context context = activity.getApplicationContext();
         final Handler handler = new Handler();
 
@@ -859,7 +861,8 @@ public class Helper {
                             handler.post(new Runnable() {
                                 @Override
                                 public void run() {
-                                    intf.onSelected(email);
+                                    if (owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                                        intf.onSelected(email);
                                 }
                             });
                             return;
@@ -880,10 +883,11 @@ public class Helper {
                                         handler.post(new Runnable() {
                                             @Override
                                             public void run() {
-                                                if (alias == null)
-                                                    intf.onNothingSelected();
-                                                else
-                                                    intf.onSelected(alias);
+                                                if (owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                                                    if (alias == null)
+                                                        intf.onNothingSelected();
+                                                    else
+                                                        intf.onSelected(alias);
                                             }
                                         });
                                     }

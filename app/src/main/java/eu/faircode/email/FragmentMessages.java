@@ -4062,7 +4062,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     if (auto && identity == null)
                         return;
 
-                    Helper.selectKeyAlias(getActivity(), identity == null ? null : identity.sign_key_alias, new Helper.IKeyAlias() {
+                    String alias = (identity == null ? null : identity.sign_key_alias);
+                    Helper.selectKeyAlias(getActivity(), getViewLifecycleOwner(), alias, new Helper.IKeyAlias() {
                         @Override
                         public void onSelected(String alias) {
                             args.putString("alias", alias);
