@@ -291,6 +291,7 @@
         <item name="themeName">black</item>
         <item name="colorPrimary">@color/blackPrimary</item>
         <item name="colorPrimaryDark">@color/blackPrimaryDark</item>
+        <item name="colorAccent">@color/blackAccent</item>
 
         <item name="colorInfoForeground">@color/white</item>
         <item name="colorInfoBackground">@color/blackPrimary</item>
