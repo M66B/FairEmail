@@ -18,6 +18,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <ImageButton
+            android:id="@+id/itten"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:scaleType="fitCenter"
+            android:src="@drawable/farbkreis_itten_1961"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <!-- source: https://commons.wikimedia.org/wiki/File:Farbkreis_Itten_1961.svg -->
+
         <RadioGroup
             android:id="@+id/rgTheme"
             android:layout_width="0dp"

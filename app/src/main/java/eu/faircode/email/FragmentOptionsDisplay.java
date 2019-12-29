@@ -25,6 +25,7 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -35,6 +36,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
@@ -658,6 +660,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     }
 
     public static class FragmentDialogTheme extends FragmentDialogBase {
+        private ImageButton itten;
         private RadioGroup rgTheme;
         private SwitchCompat swReverse;
         private SwitchCompat swDark;
@@ -688,6 +691,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_theme, null);
+            itten = dview.findViewById(R.id.itten);
             rgTheme = dview.findViewById(R.id.rgTheme);
             swReverse = dview.findViewById(R.id.swReverse);
             swDark = dview.findViewById(R.id.swDark);
@@ -695,6 +699,14 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
             final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
             String theme = prefs.getString("theme", "light");
+
+            itten.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Uri uri = Uri.parse("https://en.wikipedia.org/wiki/Johannes_Itten");
+                    Helper.view(getContext(), uri, false);
+                }
+            });
 
             swReverse.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
