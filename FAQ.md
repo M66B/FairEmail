@@ -825,6 +825,8 @@ Please [see here](#user-content-faq4) for the error *... Invalid security certif
 
 Please [see here](#user-content-faq127) for the error *... Syntactically invalid HELO argument(s) ...*.
 
+Please [see here](#user-content-faq41) for the error *... Handshake failed ...*.
+
 See [here](https://linux.die.net/man/3/connect) for what error codes like EHOSTUNREACH and ETIMEDOUT mean.
 
 Possible causes are:
@@ -1438,7 +1440,7 @@ but even Google's Chrome cannot handle this.
 <a name="faq60"></a>
 **(60) Did you know ... ?**
 
-* Did you know that starred messages are by default synchronized/kept? (this can be changed in the receive settings)
+* Did you know that starred messages can be synchronized/kept always? (this can be enabled in the receive settings)
 * Did you know that you can long press the 'write message' icon to go to the drafts folder?
 * Did you know there is an advanced option to mark messages read when they are moved? (archiving and trashing is also moving)
 * Did you know that you can select text (or an email address) in any app on recent Android versions and let FairEmail search for it?
