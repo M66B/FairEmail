@@ -1182,7 +1182,12 @@ public class FragmentCompose extends FragmentBase {
 
     private void onActionRecordAudio() {
         Intent intent = new Intent(MediaStore.Audio.Media.RECORD_SOUND_ACTION);
-        startActivityForResult(intent, REQUEST_RECORD_AUDIO);
+        try {
+            startActivityForResult(intent, REQUEST_RECORD_AUDIO);
+        } catch (SecurityException ex) {
+            Log.w(ex);
+            Snackbar.make(view, getString(R.string.title_no_viewer, intent.getAction()), Snackbar.LENGTH_LONG).show();
+        }
     }
 
     private void onActionTakePhoto() {
@@ -1193,9 +1198,14 @@ public class FragmentCompose extends FragmentBase {
 
         // https://developer.android.com/training/camera/photobasics
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        photoURI = FileProvider.getUriForFile(getContext(), BuildConfig.APPLICATION_ID, file);
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
-        startActivityForResult(intent, REQUEST_TAKE_PHOTO);
+        try {
+            photoURI = FileProvider.getUriForFile(getContext(), BuildConfig.APPLICATION_ID, file);
+            intent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+            startActivityForResult(intent, REQUEST_TAKE_PHOTO);
+        } catch (SecurityException ex) {
+            Log.w(ex);
+            Snackbar.make(view, getString(R.string.title_no_viewer, intent.getAction()), Snackbar.LENGTH_LONG).show();
+        }
     }
 
     private void onActionImage() {
