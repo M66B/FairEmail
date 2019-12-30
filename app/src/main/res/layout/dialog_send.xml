@@ -63,6 +63,17 @@
             app:layout_constraintTop_toBottomOf="@id/tvRemindAttachment" />
 
         <TextView
+            android:id="@+id/tvTo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text="recipients"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="?android:attr/textColorPrimary"
+            app:layout_constraintStart_toEndOf="@+id/tvToTitle"
+            app:layout_constraintTop_toTopOf="@+id/tvToTitle" />
+
+        <TextView
             android:id="@+id/tvViaTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -72,24 +83,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvTo" />
 
-        <androidx.constraintlayout.widget.Barrier
-            android:id="@+id/barrier"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:barrierDirection="end"
-            app:constraint_referenced_ids="tvToTitle,tvViaTitle" />
-
-        <TextView
-            android:id="@+id/tvTo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:text="recipients"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="?android:attr/textColorPrimary"
-            app:layout_constraintStart_toEndOf="@+id/barrier"
-            app:layout_constraintTop_toTopOf="@+id/tvToTitle" />
-
         <TextView
             android:id="@+id/tvVia"
             android:layout_width="wrap_content"
@@ -98,7 +91,7 @@
             android:text="via"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?android:attr/textColorPrimary"
-            app:layout_constraintStart_toEndOf="@+id/barrier"
+            app:layout_constraintStart_toEndOf="@+id/tvViaTitle"
             app:layout_constraintTop_toTopOf="@+id/tvViaTitle" />
 
         <CheckBox
