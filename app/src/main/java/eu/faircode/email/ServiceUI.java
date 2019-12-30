@@ -153,6 +153,7 @@ public class ServiceUI extends IntentService {
                     onWakeup(id);
                     break;
 
+                case "daily":
                 case "banner":
                     onBanner();
                     break;
