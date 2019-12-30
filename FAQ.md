@@ -597,6 +597,9 @@ If you want to undo decryption, you can use the *resync* menu item in the three-
 
 You'll need to install and configure [OpenKeychain](https://f-droid.org/en/packages/org.sufficientlysecure.keychain/) first.
 
+The OpenKeychain app is known to (silently) crash when the calling app (FairEmail) is not authorized yet and is getting an existing public key.
+You can workaround this by trying to send a signed/encrypted message to a sender with an unknown public.
+
 FairEmail will send the [Autocrypt](https://autocrypt.org/) headers for use by other email clients.
 
 Inline encrypted PGP in received messages is supported, but inline PGP signatures and inline PGP in outgoing messages is not supported,
@@ -1913,15 +1916,15 @@ You will likely need to save the associated identity again as well.
 
 For the correct settings, see [here](https://help.yahoo.com/kb/SLN4075.html).
 
+To authorize a Yahoo! account you will need to create a third-party app password.
+Please see [here](https://help.yahoo.com/kb/generate-third-party-passwords-sln15241.html) for the instructions.
+
 You might need to enable "*less secure sign in*" for "*outdated*" apps,
 see [here](https://help.yahoo.com/kb/grant-temporary-access-outdated-apps-account-settings-sln27791.html) for more information.
 You can directly access this setting [here](https://login.yahoo.com/account/security#less-secure-apps).
 
 If you enable "*less secure sign in*", you should use a [strong password](https://en.wikipedia.org/wiki/Password_strength) for your Yahoo! account, which is a good idea anyway.
 Note that using the [standard](https://tools.ietf.org/html/rfc3501) IMAP protocol in itself is not less secure and not outdated.
-
-Depending on the age of your Yahoo! account you need to create a third-party app password.
-Please see [here](https://help.yahoo.com/kb/generate-third-party-passwords-sln15241.html) for the instructions.
 
 <br />
 
