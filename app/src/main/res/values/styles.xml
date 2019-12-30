@@ -325,7 +325,7 @@
 
     <!-- Other -->
 
-    <style name="_AppThemeBlack" parent="AppThemeBlueOrangeDark">
+    <style name="AppThemeBlack" parent="AppThemeBlueOrangeDark">
         <item name="themeName">black</item>
         <item name="colorPrimary">@color/blackPrimary</item>
         <item name="colorPrimaryDark">@color/blackPrimaryDark</item>

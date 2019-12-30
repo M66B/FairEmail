@@ -716,8 +716,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
             final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
             String theme = prefs.getString("theme", "light");
-            if ("black".equals(theme))
-                theme = "grey_dark";
 
             itten.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -767,7 +765,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
                             theme.startsWith("purple_yellow") ||
                             theme.startsWith("green_red"));
             boolean dark = theme.endsWith("dark");
-            boolean black = theme.endsWith("black");
+            boolean black = (!"black".equals(theme) && theme.endsWith("black"));
             boolean system = theme.endsWith("system");
 
             swReverse.setChecked(colored);
@@ -810,6 +808,10 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
                 case "grey_light":
                 case "grey_dark":
                     rgTheme.check(R.id.rbThemeGrey);
+                    break;
+
+                case "black":
+                    rgTheme.check(R.id.rbThemeBlack);
                     break;
             }
 
@@ -858,6 +860,9 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
                                     else
                                         prefs.edit().putString("theme",
                                                 "grey" + (dark ? "_dark" : "_light")).apply();
+                                    break;
+                                case R.id.rbThemeBlack:
+                                    prefs.edit().putString("theme", "black").apply();
                                     break;
                             }
                         }
