@@ -4380,6 +4380,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         OpenPgpApi.ACTION_DECRYPT_VERIFY.equals(data.getAction()))
                     try {
                         String peer = ((InternetAddress) message.from[0]).getAddress();
+                        String addr = null;
                         boolean mutual = false;
                         byte[] keydata = null;
 
@@ -4393,6 +4394,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 Log.i("Autocrypt " + key + "=" + value);
                                 switch (key) {
                                     case "addr":
+                                        addr = value;
                                         break;
                                     case "prefer-encrypt":
                                         mutual = value.trim().toLowerCase().equals("mutual");
@@ -4404,13 +4406,19 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             }
                         }
 
+                        if (addr == null)
+                            throw new IllegalArgumentException("addr not found");
+
+                        if (!addr.equalsIgnoreCase(peer))
+                            throw new IllegalArgumentException("addr different from peer");
+
                         if (keydata == null)
                             throw new IllegalArgumentException("keydata not found");
 
                         AutocryptPeerUpdate update = AutocryptPeerUpdate.create(
                                 keydata, new Date(message.received), mutual);
 
-                        data.putExtra(OpenPgpApi.EXTRA_AUTOCRYPT_PEER_ID, peer);
+                        data.putExtra(OpenPgpApi.EXTRA_AUTOCRYPT_PEER_ID, addr);
                         data.putExtra(OpenPgpApi.EXTRA_AUTOCRYPT_PEER_UPDATE, update);
                     } catch (Throwable ex) {
                         Log.w(ex);
