@@ -25,6 +25,7 @@
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:scaleType="fitCenter"
             android:src="@drawable/farbkreis_itten_1961"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
         <!-- source: https://commons.wikimedia.org/wiki/File:Farbkreis_Itten_1961.svg -->
