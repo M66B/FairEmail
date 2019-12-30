@@ -810,7 +810,7 @@ public class FragmentCompose extends FragmentBase {
     public void onDestroyView() {
         adapter = null;
 
-        if (pgpService != null)
+        if (pgpService != null && pgpService.isBound())
             pgpService.unbindFromService();
 
         super.onDestroyView();
@@ -1894,6 +1894,7 @@ public class FragmentCompose extends FragmentBase {
                     onPgp(intent);
                 } else if (result instanceof PendingIntent)
                     try {
+                        ToastEx.makeText(getContext(), R.string.title_user_interaction, Toast.LENGTH_SHORT).show();
                         PendingIntent pi = (PendingIntent) result;
                         startIntentSenderForResult(
                                 pi.getIntentSender(),
