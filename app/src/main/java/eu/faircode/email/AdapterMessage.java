@@ -3735,7 +3735,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (EntityMessage.PRIORITIY_LOW.equals(message.priority))
                     result.add(context.getString(R.string.title_legend_priority_low));
                 if (message.attachments > 0)
-                    result.add(context.getString(R.string.title_legend_attachment));
+                    result.add(context.getString(R.string.title_accessibility_attachment));
 
                 // For a11y purpose report addresses first in case of incoming message
                 boolean outgoing = isOutgoing(message);
