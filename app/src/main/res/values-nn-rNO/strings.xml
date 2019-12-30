@@ -884,6 +884,7 @@ Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anme
          For å gjøre FairEmail bærekraftig på lang sikt er det noe brukervennlighet og avanserte funksjoner som ikke er gratis å bruke.
          FairEmail viser en liten melding for å minne deg på dette, og som vil bli fjernet hvis du kjøper pro funksjonene.
     </string>
+    <string name="title_pro_hide">Skjul liten melding i en uke</string>
     <string name="title_pro_hint">Ved å kjøpe pro-funksjoner kan du bruke alle aktuelle og fremtidige pro-funksjoner, og vil holde denne appen vedlikeholdt og støttet</string>
     <string name="title_pro_price">Vennligst se <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">denne FAQ</a> om pris på Pro-funksjonene</string>
     <string name="title_pro_pending">Ventende kjøp</string>
@@ -929,6 +930,14 @@ Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anme
     <string name="title_accessibility_view_help">Se hjelp</string>
     <string name="title_accessibility_selected">Valgt</string>
     <string name="title_accessibility_answered">Svarte</string>
+    <string name="title_accessibility_scroll_down">Rull ned</string>
+    <string name="title_accessibility_scroll_up">Rull opp</string>
+    <string name="title_accessibility_filter_out_seen">Bytt filter for lese meldinger</string>
+    <string name="title_accessibility_filter_out_unflagged">Bytt filter med stjernemerkede meldinger</string>
+    <string name="title_accessibility_filter_out_snoozed">Bytt filter for utsatte meldinger</string>
+    <string name="title_accessibility_edit">Rediger</string>
+    <string name="title_accessibility_show_addresses">Vis adresser</string>
+    <string name="title_accessibility_hide_addresses">Skjul adresser</string>
     <string-array name="pollIntervalNames">
         <item>Alltid</item>
         <item>Hvert 15. minutt</item>

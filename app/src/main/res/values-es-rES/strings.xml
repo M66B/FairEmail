@@ -885,6 +885,7 @@
         Para hacer a Fairemail sostenible en el largo plazo, algunas funciones de conveniencia y avanzadas no son de uso libre.
         FairEmail muestra un pequeño mensaje para recordarte esto, que dejará de mostrarse si compras las funciones avanzadas.
     </string>
+    <string name="title_pro_hide">Ocultar mensaje pequeño durante una semana</string>
     <string name="title_pro_hint">La compra de características Pro le permitirá usar todas las características Pro actuales y futuras, y ayudará al mantenimiento y desarrollo de esta aplicación</string>
     <string name="title_pro_price">Por favor vea <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">estas Preguntas Frecuentes</a> acerca del precio de las características Pro</string>
     <string name="title_pro_pending">Compra pendiente</string>
@@ -930,6 +931,14 @@
     <string name="title_accessibility_view_help">Ver ayuda</string>
     <string name="title_accessibility_selected">Seleccionado</string>
     <string name="title_accessibility_answered">Respondido</string>
+    <string name="title_accessibility_scroll_down">Desplazar hacia abajo</string>
+    <string name="title_accessibility_scroll_up">Desplazar hacia arriba</string>
+    <string name="title_accessibility_filter_out_seen">Cambiar el filtro de mensajes leídos</string>
+    <string name="title_accessibility_filter_out_unflagged">Cambiar filtro de mensajes destacados</string>
+    <string name="title_accessibility_filter_out_snoozed">Cambiar filtro de mensajes pospuestos</string>
+    <string name="title_accessibility_edit">Editar</string>
+    <string name="title_accessibility_show_addresses">Mostrar direcciones</string>
+    <string name="title_accessibility_hide_addresses">Ocultar direcciones</string>
     <string-array name="pollIntervalNames">
         <item>Siempre</item>
         <item>Cada 15 minutos</item>

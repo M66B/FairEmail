@@ -885,6 +885,7 @@
         Jotta FairEmailin kehittäminen olisi mahdollista, jotkin mukavuutta tuovat ja edistyneemmät ominaisuudet eivät ole ilmaisia.
         FairEmail näyttää pienen viestin muistuttaakseen sinua tästä. Viesti poistuu, jos ostat pro-ominaisuudet.
     </string>
+    <string name="title_pro_hide">Piilota pieni viesti viikon ajaksi</string>
     <string name="title_pro_hint">Pro-ominaisuuksien ostaminen antaa oikeudet käyttää nykyisiä ja tulevia pro-ominaisuuksia sekä auttaa ylläpitämään ja tukemaan tätä sovellusta</string>
     <string name="title_pro_price">Katso <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">nämä usein kysytyt kysymykset</a> pro-ominaisuuksien hinnasta</string>
     <string name="title_pro_pending">Ostos odottaa vahvistusta</string>
@@ -930,6 +931,14 @@
     <string name="title_accessibility_view_help">Näytä ohje</string>
     <string name="title_accessibility_selected">Valittu</string>
     <string name="title_accessibility_answered">Vastattu</string>
+    <string name="title_accessibility_scroll_down">Vieritä alas</string>
+    <string name="title_accessibility_scroll_up">Vieritä ylös</string>
+    <string name="title_accessibility_filter_out_seen">Kytke luettujen viestien suodatus</string>
+    <string name="title_accessibility_filter_out_unflagged">Kytke tähdellisten viestien suodatus</string>
+    <string name="title_accessibility_filter_out_snoozed">Kytke torkutettujen viestien suodatus</string>
+    <string name="title_accessibility_edit">Muokkaa</string>
+    <string name="title_accessibility_show_addresses">Näytä osoitteet</string>
+    <string name="title_accessibility_hide_addresses">Piilota osoitteet</string>
     <string-array name="pollIntervalNames">
         <item>Koko ajan</item>
         <item>15 minuutin välein</item>

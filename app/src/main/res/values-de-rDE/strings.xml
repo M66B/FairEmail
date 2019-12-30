@@ -109,7 +109,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_setup_quick_imap">IMAP-Server für das Empfangen von Nachrichten</string>
     <string name="title_setup_quick_smtp">SMTP-Server zum Senden von Nachrichten</string>
     <string name="title_setup_wizard">Assistent</string>
-    <string name="title_setup_wizard_remark">Gehe \'zurück\' um zum Posteingang zu gehen</string>
+    <string name="title_setup_wizard_remark">Gehe \'zurück\', um zum Posteingang zu gelangen</string>
     <string name="title_setup_other">Anderer Anbieter</string>
     <string name="title_setup_gmail_support">Die Autorisierung von Google-Konten funktioniert nur in offiziellen Versionen, weil Android die App-Signatur überprüft</string>
     <string name="title_setup_gmail_rationale">Bitte erteilen Sie die Berechtigung, ein Konto auszuwählen und Ihren Namen zu lesen</string>
@@ -128,7 +128,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_setup_grant_again">Benötigte Rechte erteilen</string>
     <string name="title_setup_account">Konten einrichten</string>
     <string name="title_setup_account_remark">Um E-Mails zu empfangen</string>
-    <string name="title_setup_account_hint">Um die Farbe, Zielordner für wischen nach links/rechts, usw. zu ändern</string>
+    <string name="title_setup_account_hint">Um Farbe, Zielordner für das Wischen nach links/rechts, etc. zu ändern</string>
     <string name="title_setup_identity">Identitäten einrichten</string>
     <string name="title_setup_identity_remark">Um E-Mails zu senden</string>
     <string name="title_setup_identity_hint">Um Namen, Farbe, Signatur, etc. zu ändern</string>
@@ -164,7 +164,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_setup_biometrics_enable">Aktivieren</string>
     <string name="title_setup_biometrics_disable">Deaktivieren</string>
     <string name="title_setup_biometrics_unlock">Entsperren</string>
-    <string name="title_setup_theme">Design auswählen</string>
+    <string name="title_setup_theme">Motiv auswählen</string>
     <string name="title_setup_theme_blue_orange">Blau/Orange</string>
     <string name="title_setup_theme_yellow_purple">Gelb/Lila</string>
     <string name="title_setup_theme_red_green">Rot/Grün</string>
@@ -172,8 +172,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_setup_theme_black">Schwarz (AMOLED)</string>
     <string name="title_setup_theme_reverse">Farben umkehren</string>
     <string name="title_setup_theme_dark">Dunkler Hintergrund</string>
-    <string name="title_setup_theme_system">Dem System-Design folgen</string>
-    <string name="title_setup_theme_system_hint">Das System-Design wird abhängig von der Tageszeit automatisch zwischen hell und dunkel wechseln, falls von Android unterstützt</string>
+    <string name="title_setup_theme_system">Gemäß System-Motiv</string>
+    <string name="title_setup_theme_system_hint">Gemäß System-Motiv wechselt abhängig von der Tageszeit automatisch zwischen hellem und dunklem Motiv, falls von Android unterstützt</string>
     <string name="title_setup_advanced">Erweitert</string>
     <string name="title_setup_options">Optionen</string>
     <string name="title_setup_defaults">Auf Standard zurücksetzen</string>

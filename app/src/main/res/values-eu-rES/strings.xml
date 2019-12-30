@@ -884,6 +884,7 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
         FairEmail epe luzera mantengarria izan dadin, erosotasun funtzio batzuk edo funtzio aurreratu batzuk ordainpekokoak dira.
         FairEmail-ek mezu txiki bat bistaratzen du hau gogorarazteko, ordainpeko ezaugarriak erosiz gero mezua desagertzen da.
     </string>
+    <string name="title_pro_hide">Ezkutatu mezu txikia astebetez</string>
     <string name="title_pro_hint">Ordainpeko ezaugarriak erostean oraingo eta etorkizuneko ordainpeko ezaugarri guztiak erabiltzeko eskubidea ematen dizu, eta aplikazio hau mantentzen lagunduko du.</string>
     <string name="title_pro_price">Begiratu <a href="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq19">maiz egindako galderak</a> ordainpeko ezaugarrien salneurriari buruz</string>
     <string name="title_pro_pending">Erosketa egiteke</string>
@@ -929,6 +930,14 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_accessibility_view_help">Erakutsi laguntza</string>
     <string name="title_accessibility_selected">Aukeratuta</string>
     <string name="title_accessibility_answered">Erantzuna emana</string>
+    <string name="title_accessibility_scroll_down">Korritu behera</string>
+    <string name="title_accessibility_scroll_up">Korritu gora</string>
+    <string name="title_accessibility_filter_out_seen">Aldatu irakurritako mezuen iragazkia</string>
+    <string name="title_accessibility_filter_out_unflagged">Aldatu izardun mezuen iragazkia</string>
+    <string name="title_accessibility_filter_out_snoozed">Aldatu atzeratutako mezuen iragazkia</string>
+    <string name="title_accessibility_edit">Editatu</string>
+    <string name="title_accessibility_show_addresses">Erakutsi helbideak</string>
+    <string name="title_accessibility_hide_addresses">Ezkutatu helbideak</string>
     <string-array name="pollIntervalNames">
         <item>Beti</item>
         <item>15 minuturik behin</item>
