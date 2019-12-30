@@ -247,6 +247,7 @@
     <string name="title_advanced_indentation">Левый/правый отступ для полученных/отправленных сообщений в диалогах</string>
     <string name="title_advanced_highlight_unread">Выделять непрочитанные сообщения</string>
     <string name="title_advanced_distinguish_contacts">Разделять сообщения от известных и неизвестных контактов</string>
+    <string name="title_advanced_color_stripe">Показать цветовую полосу</string>
     <string name="title_advanced_avatars">Показывать фотографии контакта</string>
     <string name="title_advanced_generated_icons">Показывать сгенерированные значки</string>
     <string name="title_advanced_identicons">Показывать идентификаторы</string>
@@ -287,6 +288,8 @@
     <string name="title_advanced_collapse_multiple">Сворачивать сообщения в диалоге с несколькими сообщениями кнопкой \"назад\"</string>
     <string name="title_advanced_autoclose">Автоматически закрывать диалоги</string>
     <string name="title_advanced_onclose">При закрытии диалога</string>
+    <string name="title_advanced_quick_filter">Показывать ненавязчивые иконки быстрого фильтра</string>
+    <string name="title_advanced_quick_scroll">Показывать ненавязчивые иконки быстрой прокрутки вверх/вниз</string>
     <string name="title_advanced_autoread">Автоматически помечать сообщения прочитанными при перемещении</string>
     <string name="title_advanced_autounstar">Автоматически удалять отметку избранного при перемещении сообщений</string>
     <string name="title_advanced_automove">Подтверждать перемещение сообщений</string>
@@ -963,6 +966,7 @@
     <string name="title_accessibility_edit">Редактировать</string>
     <string name="title_accessibility_show_addresses">Показать адреса</string>
     <string name="title_accessibility_hide_addresses">Скрыть адреса</string>
+    <string name="title_accessibility_attachment">Вложение</string>
     <string-array name="pollIntervalNames">
         <item>Непрерывно</item>
         <item>Каждые 15 минут</item>

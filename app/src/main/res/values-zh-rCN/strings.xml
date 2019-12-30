@@ -213,6 +213,7 @@
     <string name="title_advanced_indentation">左/右缩进接收/发送的消息</string>
     <string name="title_advanced_highlight_unread">高亮未读消息</string>
     <string name="title_advanced_distinguish_contacts">区分已知和未知联系人的信息</string>
+    <string name="title_advanced_color_stripe">显示颜色条纹</string>
     <string name="title_advanced_avatars">显示联系人头像</string>
     <string name="title_advanced_generated_icons">显示生成的图标</string>
     <string name="title_advanced_identicons">显示哈希头像</string>
@@ -253,6 +254,8 @@
     <string name="title_advanced_collapse_multiple">按返回时折叠会话中的多条消息</string>
     <string name="title_advanced_autoclose">自动关闭对话</string>
     <string name="title_advanced_onclose">关闭对话时</string>
+    <string name="title_advanced_quick_filter">显示非侵扰性快速过滤器图标</string>
+    <string name="title_advanced_quick_scroll">显示非侵扰性快速上／下滚动图标</string>
     <string name="title_advanced_autoread">移动消息时自动标记为已读</string>
     <string name="title_advanced_autounstar">移动消息时自动移除星标</string>
     <string name="title_advanced_automove">确认移动邮件</string>
@@ -925,6 +928,7 @@ FairEmail会显示一条消息来提醒您这一点，这条消息在您购买�
     <string name="title_accessibility_edit">编辑</string>
     <string name="title_accessibility_show_addresses">显示地址</string>
     <string name="title_accessibility_hide_addresses">隐藏地址</string>
+    <string name="title_accessibility_attachment">附件</string>
     <string-array name="pollIntervalNames">
         <item>总是</item>
         <item>每15分钟</item>

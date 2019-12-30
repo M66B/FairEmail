@@ -225,6 +225,7 @@
     <string name="title_advanced_indentation">Décaler les messages reçus/envoyés vers la gauche/droite dans les conversations</string>
     <string name="title_advanced_highlight_unread">Surligner les messages non lus</string>
     <string name="title_advanced_distinguish_contacts">Faire la distinction entre les messages des contacts connus et inconnus</string>
+    <string name="title_advanced_color_stripe">Afficher la bande de couleur</string>
     <string name="title_advanced_avatars">Afficher la photo des contacts</string>
     <string name="title_advanced_generated_icons">Afficher les icônes générées</string>
     <string name="title_advanced_identicons">Afficher les identicônes</string>
@@ -265,6 +266,8 @@
     <string name="title_advanced_collapse_multiple">Réduire les messages dans une conversation avec plusieurs messages en faisant « Retour »</string>
     <string name="title_advanced_autoclose">Fermer automatiquement les conversations</string>
     <string name="title_advanced_onclose">Lors de la fermeture d\'une conversation</string>
+    <string name="title_advanced_quick_filter">Afficher les icônes discrètes de filtrage rapide</string>
+    <string name="title_advanced_quick_scroll">Afficher les icônes discrètes de défilement rapide vers le haut/bas</string>
     <string name="title_advanced_autoread">Marquer automatiquement les messages comme lus lors de leur déplacement</string>
     <string name="title_advanced_autounstar">Retirer automatiquement l\'étoile des messages lors de leur déplacement</string>
     <string name="title_advanced_automove">Confirmer le déplacement des messages</string>
@@ -939,6 +942,7 @@
     <string name="title_accessibility_edit">Modifier</string>
     <string name="title_accessibility_show_addresses">Afficher les adresses</string>
     <string name="title_accessibility_hide_addresses">Masquer les adresses</string>
+    <string name="title_accessibility_attachment">Pièce jointe</string>
     <string-array name="pollIntervalNames">
         <item>Toujours</item>
         <item>Toutes les 15 minutes</item>

@@ -225,6 +225,7 @@
     <string name="title_advanced_indentation">Tasaa vastaanotetut/lähetetyt viestit keskusteluissa vasemmalle/oikealle</string>
     <string name="title_advanced_highlight_unread">Korosta lukemattomat viestit</string>
     <string name="title_advanced_distinguish_contacts">Erottele tunnettujen ja tuntemattomien kontaktien viestit</string>
+    <string name="title_advanced_color_stripe">Näytä väriliuska</string>
     <string name="title_advanced_avatars">Näytä yhteystietojen kuvat</string>
     <string name="title_advanced_generated_icons">Näytä luodut kuvakkeet</string>
     <string name="title_advanced_identicons">Näytä identikonit</string>
@@ -265,6 +266,8 @@
     <string name="title_advanced_collapse_multiple">Tiivistä useamman viestin keskusteluiden viestit menemällä \'takaisin\'</string>
     <string name="title_advanced_autoclose">Sulje keskustelut automaattisesti</string>
     <string name="title_advanced_onclose">Keskustelua suljettaessa</string>
+    <string name="title_advanced_quick_filter">Näytä häiritsemättömät pikasuodatuskuvakkeet</string>
+    <string name="title_advanced_quick_scroll">Näytä häiritsemättömät ylös-/alaspikavierityskuvakkeet</string>
     <string name="title_advanced_autoread">Siirtäessä viestejä merkitse ne luetuiksi</string>
     <string name="title_advanced_autounstar">Poista tähti viestejä siirrettäessä</string>
     <string name="title_advanced_automove">Vahvista viestien siirto</string>
@@ -939,6 +942,7 @@
     <string name="title_accessibility_edit">Muokkaa</string>
     <string name="title_accessibility_show_addresses">Näytä osoitteet</string>
     <string name="title_accessibility_hide_addresses">Piilota osoitteet</string>
+    <string name="title_accessibility_attachment">Liite</string>
     <string-array name="pollIntervalNames">
         <item>Koko ajan</item>
         <item>15 minuutin välein</item>

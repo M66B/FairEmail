@@ -223,6 +223,7 @@
     <string name="title_advanced_indentation">Levé/pravé odsazení přijatých/odeslaných zpráv v konverzacích</string>
     <string name="title_advanced_highlight_unread">Zvýraznit nepřečtené zprávy</string>
     <string name="title_advanced_distinguish_contacts">Odlišit zprávy známých a neznámých kontaktů</string>
+    <string name="title_advanced_color_stripe">Zobrazit barevný pruh</string>
     <string name="title_advanced_avatars">Zobrazit fotografie kontaktů</string>
     <string name="title_advanced_generated_icons">Zobrazit generované ikony</string>
     <string name="title_advanced_identicons">Zobrazit identikony</string>
@@ -929,6 +930,7 @@
     <string name="title_accessibility_edit">Upravit</string>
     <string name="title_accessibility_show_addresses">Zobrazit adresy</string>
     <string name="title_accessibility_hide_addresses">Skrýt adresy</string>
+    <string name="title_accessibility_attachment">Příloha</string>
     <string-array name="pollIntervalNames">
         <item>Nepřetržitě</item>
         <item>Každých 15 minut</item>

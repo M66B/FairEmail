@@ -188,6 +188,15 @@
     <string name="title_setup_biometrics_disable">Wyłącz</string>
     <string name="title_setup_biometrics_unlock">Odblokuj</string>
     <string name="title_setup_theme">Wybierz motyw</string>
+    <string name="title_setup_theme_blue_orange">Niebieski/pomarańczowy</string>
+    <string name="title_setup_theme_yellow_purple">Żółty/fioletowy</string>
+    <string name="title_setup_theme_red_green">Czerwony/zielony</string>
+    <string name="title_setup_theme_grey">Szary</string>
+    <string name="title_setup_theme_black">Czarny (AMOLED)</string>
+    <string name="title_setup_theme_reverse">Odwróć kolory</string>
+    <string name="title_setup_theme_dark">Ciemny</string>
+    <string name="title_setup_theme_system">Zgodnie z systemem</string>
+    <string name="title_setup_theme_system_hint">Zgodnie z motywem systemu automatycznie przełączy się na jasny/ciemny w dzień/noc, jeśli jest wspierane przez Androida</string>
     <string name="title_setup_advanced">Zaawansowane</string>
     <string name="title_setup_options">Opcje</string>
     <string name="title_setup_defaults">Przywróć domyślne</string>
@@ -278,6 +287,8 @@
     <string name="title_advanced_collapse_multiple">Zwiń wiadomości w rozmowie z wieloma wiadomościami przy \'wstecz\'</string>
     <string name="title_advanced_autoclose">Automatycznie zamykaj konwersacje</string>
     <string name="title_advanced_onclose">Przy zamykaniu wiadomości</string>
+    <string name="title_advanced_quick_filter">Pokaż nienatarczywe ikony szybkiego filtrowania</string>
+    <string name="title_advanced_quick_scroll">Pokaż nienatarczywe ikony szybkiego przewijania w górę/w dół</string>
     <string name="title_advanced_autoread">Automatycznie oznacz wiadomość jako przeczytaną przy przenoszeniu</string>
     <string name="title_advanced_autounstar">Automatycznie usuwaj gwiazdki z wiadomości przy ich przenoszeniu</string>
     <string name="title_advanced_automove">Potwierdź przenoszenie wiadomości</string>
@@ -581,6 +592,11 @@
     <string name="title_ask_help">Pomóż udoskonalić FairEmail</string>
     <string name="title_ask_reporting">Wyślij raport o błędach?</string>
     <string name="title_reporting_why">Raportowanie błędów pomoże poprawić FairEmail</string>
+    <string name="title_ask_review">Oceń FairEmail</string>
+    <string name="title_ask_review_rationale">        Od pewnego czasu korzystasz z FairEmail.
+        Byłoby mile widziane, gdybyś mógł ocenić FairEmail w Sklepie Play..
+        Pomoże to utrzymać równowagę między niekorzystnymi a pozytywnymi ocenami.
+    </string>
     <string name="title_expand_warning">Rozwinięcie tej wiadomości spowoduje pobranie %1$s</string>
     <string name="title_download_message">Pobieranie &#8230;</string>
     <string name="title_compose">Napisz</string>
@@ -849,6 +865,7 @@
     <string name="title_issue">Masz pytanie lub problem?</string>
     <string name="title_yes">Tak</string>
     <string name="title_no">Nie</string>
+    <string name="title_later">Później</string>
     <string name="title_undo">Cofnij</string>
     <string name="title_redo">Ponów</string>
     <string name="title_add">Dodaj</string>
@@ -890,6 +907,7 @@
     <string name="title_pro_info">Opracowanie FairEmail zajęło dosłownie tysiące godzin i pomimo tego większość funkcji jest darmowe.
 W celu utrzymania FairEmail w dłuższej perspektywie, niektóre udogodnienia i zaawansowane funkcje nie są darmowe.
 FairEmail wyświetla o tym małą wiadomość przypominającą, która zostanie usunięta, jeśli kupisz funkcje pro.    </string>
+    <string name="title_pro_hide">Ukryj małą wiadomość na tydzień</string>
     <string name="title_pro_hint">Kupno funkcji pro pozwoli Ci używać wszystkich obecnych i przyszłych funkcji pro oraz będzie utrzymywać i wspierać aplikację</string>
     <string name="title_pro_price">Zobacz <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">ten FAQ</a> na temat cen funkcji pro</string>
     <string name="title_pro_pending">Zakup w toku</string>
@@ -921,8 +939,26 @@ FairEmail wyświetla o tym małą wiadomość przypominającą, która zostanie 
     <string name="title_accessibility_expanded">Rozwinięta</string>
     <string name="title_accessibility_seen">Przeczytana</string>
     <string name="title_accessibility_unseen">Nieprzeczytana</string>
+    <plurals name="title_accessibility_messages">
+        <item quantity="one">%1$d wiadomość</item>
+        <item quantity="few">%1$d wiadomości</item>
+        <item quantity="many">%1$d wiadomości</item>
+        <item quantity="other">%1$d wiadomości</item>
+    </plurals>
     <string name="title_accessibility_flagged">Oznaczona</string>
     <string name="title_accessibility_unflagged">Nie oznaczona</string>
+    <string name="title_accessibility_collapse">Zwiń</string>
+    <string name="title_accessibility_expand">Rozwiń</string>
+    <string name="title_accessibility_view_contact">Wyświetl kontakt</string>
+    <string name="title_accessibility_show_authentication_result">Pokaż wynik uwierzytelniania</string>
+    <string name="title_accessibility_show_snooze_time">Pokaż czas drzemki</string>
+    <string name="title_accessibility_view_help">Zobacz pomoc</string>
+    <string name="title_accessibility_selected">Wybrane</string>
+    <string name="title_accessibility_answered">Odpowiedziane</string>
+    <string name="title_accessibility_scroll_down">Przewiń w dół</string>
+    <string name="title_accessibility_scroll_up">Przewiń w górę</string>
+    <string name="title_accessibility_show_addresses">Pokaż adresy</string>
+    <string name="title_accessibility_hide_addresses">Ukryj adresy</string>
     <string-array name="pollIntervalNames">
         <item>Zawsze</item>
         <item>Co 15 minut</item>

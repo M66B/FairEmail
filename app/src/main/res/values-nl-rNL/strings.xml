@@ -225,6 +225,7 @@
     <string name="title_advanced_indentation">Links/rechts inspringen van ontvangen/verzonden berichten in gesprekken</string>
     <string name="title_advanced_highlight_unread">Ongelezen berichten markeren</string>
     <string name="title_advanced_distinguish_contacts">Onderscheid berichten van bekende en onbekende contacten</string>
+    <string name="title_advanced_color_stripe">Toon kleurenstreep</string>
     <string name="title_advanced_avatars">Toon foto\'s contacten</string>
     <string name="title_advanced_generated_icons">Toon gegenereerde iconen</string>
     <string name="title_advanced_identicons">Toon identicons</string>
@@ -265,6 +266,8 @@
     <string name="title_advanced_collapse_multiple">Vouw berichten in een gesprek met meerdere berichten bij \'terug\' samen</string>
     <string name="title_advanced_autoclose">Gesprekken automatisch sluiten</string>
     <string name="title_advanced_onclose">Bij het sluiten van een gesprek</string>
+    <string name="title_advanced_quick_filter">Toon niet-opdringerige snelle filterpictogrammen</string>
+    <string name="title_advanced_quick_scroll">Toon niet-opdringerige snelle scroll omhoog/omlaag pictogrammen</string>
     <string name="title_advanced_autoread">Markeer berichten automatisch als gelezen bij het verplaatsen van berichten</string>
     <string name="title_advanced_autounstar">Automatisch ster verwijderen van berichten bij verplaatsende berichten</string>
     <string name="title_advanced_automove">Bevestig het verplaatsen van berichten</string>
@@ -936,6 +939,7 @@
     <string name="title_accessibility_edit">Wijzigen</string>
     <string name="title_accessibility_show_addresses">Toon adressen</string>
     <string name="title_accessibility_hide_addresses">Verberg adressen</string>
+    <string name="title_accessibility_attachment">Bijlage</string>
     <string-array name="pollIntervalNames">
         <item>Altijd</item>
         <item>Elke 15 minuten</item>

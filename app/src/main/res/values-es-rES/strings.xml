@@ -225,6 +225,7 @@
     <string name="title_advanced_indentation">Sangría izquierda/derecha para mensajes recibidos/enviados en conversaciones</string>
     <string name="title_advanced_highlight_unread">Resaltar mensajes no leídos</string>
     <string name="title_advanced_distinguish_contacts">Distinguir mensajes de contactos conocidos y desconocidos</string>
+    <string name="title_advanced_color_stripe">Mostrar raya de color</string>
     <string name="title_advanced_avatars">Mostrar fotos de contactos</string>
     <string name="title_advanced_generated_icons">Mostrar iconos generados</string>
     <string name="title_advanced_identicons">Mostrar identicons</string>
@@ -265,6 +266,8 @@
     <string name="title_advanced_collapse_multiple">Colapsar mensajes en una conversación con varios mensajes al ir \'atrás\'</string>
     <string name="title_advanced_autoclose">Cerrar conversaciones automáticamente</string>
     <string name="title_advanced_onclose">Al cerrar una conversación</string>
+    <string name="title_advanced_quick_filter">Mostrar iconos de filtro rápido no intrusivos</string>
+    <string name="title_advanced_quick_scroll">Mostrar iconos rápidos de arriba/abajo no intrusivos</string>
     <string name="title_advanced_autoread">Marcar mensaje como leído automáticamente al moverlo</string>
     <string name="title_advanced_autounstar">Eliminar automáticamente la estrella de los mensajes al ser movidos</string>
     <string name="title_advanced_automove">Confirmar mover mensajes</string>
