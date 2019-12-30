@@ -1718,9 +1718,6 @@ public class FragmentCompose extends FragmentBase {
                     result = api.executeApi(data, new FileInputStream(input), new FileOutputStream(output));
                 }
 
-                // Sign-only: get sign key id, get key, detached sign
-                // Sign/encrypt: get key ids, get sign key id, sign and encrypt
-
                 // Process result
                 try {
                     int resultCode = result.getIntExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_ERROR);
@@ -1781,6 +1778,9 @@ public class FragmentCompose extends FragmentBase {
                                     db.endTransaction();
                                 }
 
+                            // Sign-only: [get sign key id], get key, detached sign
+                            // Sign/encrypt: get key ids, [get sign key id], get key, sign and encrypt
+
                             if (OpenPgpApi.ACTION_GET_KEY_IDS.equals(data.getAction())) {
                                 // Sign/encrypt
                                 pgpKeyIds = result.getLongArrayExtra(OpenPgpApi.EXTRA_KEY_IDS);
@@ -1789,10 +1789,11 @@ public class FragmentCompose extends FragmentBase {
                                     throw new OperationCanceledException("Got no key");
 
                                 if (identity.sign_key != null) {
-                                    // Encrypt message
-                                    Intent intent = new Intent(OpenPgpApi.ACTION_SIGN_AND_ENCRYPT);
-                                    intent.putExtra(OpenPgpApi.EXTRA_KEY_IDS, pgpKeyIds);
-                                    intent.putExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, identity.sign_key);
+                                    pgpSignKeyId = identity.sign_key;
+
+                                    // Get public key
+                                    Intent intent = new Intent(OpenPgpApi.ACTION_GET_KEY);
+                                    intent.putExtra(OpenPgpApi.EXTRA_KEY_ID, pgpSignKeyId);
                                     intent.putExtra(OpenPgpApi.EXTRA_REQUEST_ASCII_ARMOR, true);
                                     intent.putExtra(BuildConfig.APPLICATION_ID, draft.id);
                                     return intent;
@@ -1807,10 +1808,17 @@ public class FragmentCompose extends FragmentBase {
                                 pgpSignKeyId = result.getLongExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, -1);
                                 db.identity().setIdentitySignKey(identity.id, pgpSignKeyId);
 
+                                // Get public key
+                                Intent intent = new Intent(OpenPgpApi.ACTION_GET_KEY);
+                                intent.putExtra(OpenPgpApi.EXTRA_KEY_ID, pgpSignKeyId);
+                                intent.putExtra(OpenPgpApi.EXTRA_REQUEST_ASCII_ARMOR, true);
+                                intent.putExtra(BuildConfig.APPLICATION_ID, draft.id);
+                                return intent;
+                            } else if (OpenPgpApi.ACTION_GET_KEY.equals(data.getAction())) {
                                 if (EntityMessage.PGP_SIGNONLY.equals(draft.encrypt)) {
-                                    // Get sign key
-                                    Intent intent = new Intent(OpenPgpApi.ACTION_GET_KEY);
-                                    intent.putExtra(OpenPgpApi.EXTRA_KEY_ID, pgpSignKeyId);
+                                    // Get signature
+                                    Intent intent = new Intent(OpenPgpApi.ACTION_DETACHED_SIGN);
+                                    intent.putExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, pgpSignKeyId);
                                     intent.putExtra(OpenPgpApi.EXTRA_REQUEST_ASCII_ARMOR, true);
                                     intent.putExtra(BuildConfig.APPLICATION_ID, draft.id);
                                     return intent;
@@ -1824,13 +1832,6 @@ public class FragmentCompose extends FragmentBase {
                                     return intent;
                                 } else
                                     throw new IllegalArgumentException("Invalid encrypt=" + draft.encrypt);
-                            } else if (OpenPgpApi.ACTION_GET_KEY.equals(data.getAction())) {
-                                // Sign message
-                                Intent intent = new Intent(OpenPgpApi.ACTION_DETACHED_SIGN);
-                                intent.putExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, pgpSignKeyId);
-                                intent.putExtra(OpenPgpApi.EXTRA_REQUEST_ASCII_ARMOR, true);
-                                intent.putExtra(BuildConfig.APPLICATION_ID, draft.id);
-                                return intent;
                             } else if (OpenPgpApi.ACTION_DETACHED_SIGN.equals(data.getAction())) {
                                 EntityAttachment attachment = new EntityAttachment();
                                 attachment.message = draft.id;
@@ -1843,8 +1844,6 @@ public class FragmentCompose extends FragmentBase {
 
                                 File file = attachment.getFile(context);
                                 input.renameTo(file);
-
-                                db.attachment().setDownloaded(attachment.id, file.length());
 
                                 // send message
                                 return null;
