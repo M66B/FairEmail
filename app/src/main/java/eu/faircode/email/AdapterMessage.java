@@ -196,6 +196,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean date;
     private boolean threading;
     private boolean avatars;
+    private boolean color_stripe;
     private boolean name_email;
     private boolean distinguish_contacts;
     private Float font_size_sender;
@@ -792,6 +793,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 vwColor.setTag(colorBackground);
                 vwColor.setBackgroundColor(colorBackground);
             }
+            vwColor.setVisibility(color_stripe ? View.VISIBLE : View.GONE);
 
             // Expander
             if (ibExpander.getTag() == null || (boolean) ibExpander.getTag() != expanded) {
@@ -3895,6 +3897,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.date = prefs.getBoolean("date", true);
         this.threading = prefs.getBoolean("threading", true);
         this.avatars = (contacts && avatars) || generated;
+        this.color_stripe = prefs.getBoolean("color_stripe", true);
         this.name_email = prefs.getBoolean("name_email", false);
         this.distinguish_contacts = prefs.getBoolean("distinguish_contacts", false);
 

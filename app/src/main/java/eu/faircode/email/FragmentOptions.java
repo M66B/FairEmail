@@ -39,7 +39,7 @@ public class FragmentOptions extends FragmentBase {
 
     static String[] OPTIONS_RESTART = new String[]{
             "subscriptions",
-            "landscape", "startup", "cards", "indentation", "date", "threading", "highlight_unread",
+            "landscape", "startup", "cards", "indentation", "date", "threading", "highlight_unread", "color_stripe",
             "avatars", "generated_icons", "identicons", "circular", "saturation", "brightness", "threshold",
             "name_email", "distinguish_contacts", "authentication",
             "subject_top", "font_size_sender", "font_size_subject", "subject_italic", "subject_ellipsize",
@@ -48,6 +48,7 @@ public class FragmentOptions extends FragmentBase {
             "contrast", "monospaced", "text_color",
             "inline_images", "collapse_quotes", "seekbar", "actionbar",
             "autoscroll", "swipenav", "autoexpand", "autoclose", "onclose",
+            "quick_filter", "quick_scroll",
             "experiments", "debug",
             "biometrics"
     };

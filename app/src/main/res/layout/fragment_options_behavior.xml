@@ -211,6 +211,29 @@
             app:layout_constraintTop_toBottomOf="@id/tvOnClose" />
 
         <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swQuickFilter"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_quick_filter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spOnClose"
+            app:switchPadding="12dp" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swQuickScroll"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:enabled="true"
+            android:text="@string/title_advanced_quick_scroll"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swQuickFilter"
+            app:switchPadding="12dp" />
+
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swAutoRead"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -218,7 +241,7 @@
             android:text="@string/title_advanced_autoread"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/spOnClose"
+            app:layout_constraintTop_toBottomOf="@id/swQuickScroll"
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat

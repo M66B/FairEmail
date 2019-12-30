@@ -59,6 +59,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swThreading;
     private SwitchCompat swIndentation;
     private SwitchCompat swHighlightUnread;
+    private SwitchCompat swColorStripe;
     private SwitchCompat swAvatars;
     private SwitchCompat swGeneratedIcons;
     private SwitchCompat swIdenticons;
@@ -94,7 +95,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swActionbar;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "theme", "landscape", "startup", "cards", "indentation", "date", "threading", "highlight_unread",
+            "theme", "landscape", "startup", "cards", "indentation", "date", "threading", "highlight_unread", "color_stripe",
             "avatars", "generated_icons", "identicons", "circular", "saturation", "brightness", "threshold",
             "name_email", "distinguish_contacts", "authentication",
             "subject_top", "font_size_sender", "font_size_subject", "subject_italic", "subject_ellipsize",
@@ -121,6 +122,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swDate = view.findViewById(R.id.swDate);
         swThreading = view.findViewById(R.id.swThreading);
         swHighlightUnread = view.findViewById(R.id.swHighlightUnread);
+        swColorStripe = view.findViewById(R.id.swColorStripe);
         swAvatars = view.findViewById(R.id.swAvatars);
         swGeneratedIcons = view.findViewById(R.id.swGeneratedIcons);
         swIdenticons = view.findViewById(R.id.swIdenticons);
@@ -221,6 +223,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("highlight_unread", checked).apply();
+            }
+        });
+
+        swColorStripe.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("color_stripe", checked).apply();
             }
         });
 
@@ -565,6 +574,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swDate.setChecked(prefs.getBoolean("date", true));
         swThreading.setChecked(prefs.getBoolean("threading", true));
         swHighlightUnread.setChecked(prefs.getBoolean("highlight_unread", false));
+        swColorStripe.setChecked(prefs.getBoolean("color_stripe", true));
         swAvatars.setChecked(prefs.getBoolean("avatars", true));
         swGeneratedIcons.setChecked(prefs.getBoolean("generated_icons", true));
         swIdenticons.setChecked(prefs.getBoolean("identicons", false));

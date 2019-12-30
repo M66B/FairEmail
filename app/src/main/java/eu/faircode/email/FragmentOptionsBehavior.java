@@ -52,6 +52,8 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private SwitchCompat swExpandOne;
     private SwitchCompat swAutoClose;
     private Spinner spOnClose;
+    private SwitchCompat swQuickFilter;
+    private SwitchCompat swQuickScroll;
     private SwitchCompat swCollapseMultiple;
     private SwitchCompat swAutoRead;
     private SwitchCompat swAutoUnflag;
@@ -62,7 +64,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private final static String[] RESET_OPTIONS = new String[]{
             "double_back", "pull", "autoscroll", "doubletap", "swipenav", "reversed",
             "autoexpand", "expand_all", "expand_one", "collapse_multiple",
-            "autoclose", "onclose", "autoread", "autounflag", "automove", "discard_delete",
+            "autoclose", "onclose", "quick_filter", "quick_scroll", "autoread", "autounflag", "automove", "discard_delete",
             "default_snooze"
     };
 
@@ -88,6 +90,8 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swCollapseMultiple = view.findViewById(R.id.swCollapseMultiple);
         swAutoClose = view.findViewById(R.id.swAutoClose);
         spOnClose = view.findViewById(R.id.spOnClose);
+        swQuickFilter = view.findViewById(R.id.swQuickFilter);
+        swQuickScroll = view.findViewById(R.id.swQuickScroll);
         swAutoRead = view.findViewById(R.id.swAutoRead);
         swAutoUnflag = view.findViewById(R.id.swAutoUnflag);
         swAutoMove = view.findViewById(R.id.swAutoMove);
@@ -201,6 +205,20 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             }
         });
 
+        swQuickFilter.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("quick_filter", checked).apply();
+            }
+        });
+
+        swQuickScroll.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("quick_scroll", checked).apply();
+            }
+        });
+
         swAutoRead.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -307,6 +325,9 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             }
 
         spOnClose.setEnabled(!swAutoClose.isChecked());
+
+        swQuickFilter.setChecked(prefs.getBoolean("quick_filter", false));
+        swQuickScroll.setChecked(prefs.getBoolean("quick_scroll", true));
 
         swAutoRead.setChecked(prefs.getBoolean("autoread", false));
         swAutoUnflag.setChecked(prefs.getBoolean("autounflag", false));

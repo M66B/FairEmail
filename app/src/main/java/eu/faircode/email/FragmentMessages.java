@@ -232,6 +232,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private boolean autoexpand;
     private boolean autoclose;
     private String onclose;
+    private boolean quick_scroll;
     private boolean addresses;
 
     private int colorPrimary;
@@ -337,6 +338,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         autoexpand = prefs.getBoolean("autoexpand", true);
         autoclose = prefs.getBoolean("autoclose", true);
         onclose = (autoclose ? null : prefs.getString("onclose", null));
+        quick_scroll = prefs.getBoolean("quick_scroll", true);
         addresses = prefs.getBoolean("addresses", false);
 
         colorPrimary = Helper.resolveColor(getContext(), R.attr.colorPrimary);
@@ -2859,7 +2861,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         boolean filter_snoozed = prefs.getBoolean("filter_snoozed", true);
         boolean filter_duplicates = prefs.getBoolean("filter_duplicates", true);
         boolean compact = prefs.getBoolean("compact", false);
-        boolean experiments = prefs.getBoolean("experiments", false);
+        boolean quick_filter = prefs.getBoolean("quick_filter", false);
 
         boolean outbox = EntityFolder.OUTBOX.equals(type);
         boolean folder =
@@ -2936,9 +2938,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         ibUnflagged.setImageResource(filter_unflagged ? R.drawable.baseline_star_border_24 : R.drawable.baseline_star_24);
         ibSnoozed.setImageResource(filter_snoozed ? R.drawable.baseline_visibility_off_24 : R.drawable.baseline_visibility_24);
 
-        ibSeen.setVisibility(experiments && folder ? View.VISIBLE : View.GONE);
-        ibUnflagged.setVisibility(experiments && folder ? View.VISIBLE : View.GONE);
-        ibSnoozed.setVisibility(experiments && folder && canSnooze ? View.VISIBLE : View.GONE);
+        ibSeen.setVisibility(quick_filter && folder ? View.VISIBLE : View.GONE);
+        ibUnflagged.setVisibility(quick_filter && folder ? View.VISIBLE : View.GONE);
+        ibSnoozed.setVisibility(quick_filter && folder && canSnooze ? View.VISIBLE : View.GONE);
 
         super.onPrepareOptionsMenu(menu);
     }
@@ -3554,8 +3556,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         } else
             fabReply.hide();
 
-        ibDown.setVisibility(expanded > 0 ? View.VISIBLE : View.GONE);
-        ibUp.setVisibility(expanded > 0 ? View.VISIBLE : View.GONE);
+        ibDown.setVisibility(quick_scroll && expanded > 0 ? View.VISIBLE : View.GONE);
+        ibUp.setVisibility(quick_scroll && expanded > 0 ? View.VISIBLE : View.GONE);
     }
 
     private void handleExpand(long id) {
