@@ -4533,7 +4533,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 REQUEST_OPENPGP,
                                 null, 0, 0, 0, null);
                     } catch (IntentSender.SendIntentException ex) {
-                        Log.unexpectedError(getParentFragmentManager(), ex);
+                        // Likely cancelled
+                        Log.w(ex);
                     }
             }
 
