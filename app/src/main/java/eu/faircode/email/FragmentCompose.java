@@ -1331,6 +1331,8 @@ public class FragmentCompose extends FragmentBase {
             if (pgpService.isBound())
                 try {
                     List<Address> recipients = new ArrayList<>();
+                    if (draft.from != null)
+                        recipients.addAll(Arrays.asList(draft.from));
                     if (draft.to != null)
                         recipients.addAll(Arrays.asList(draft.to));
                     if (draft.cc != null)
@@ -1716,6 +1718,9 @@ public class FragmentCompose extends FragmentBase {
                     result = api.executeApi(data, new FileInputStream(input), new FileOutputStream(output));
                 }
 
+                // Sign-only: get sign key id, get key, detached sign
+                // Sign/encrypt: get key ids, get sign key id, sign and encrypt
+
                 // Process result
                 try {
                     int resultCode = result.getIntExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_ERROR);
@@ -1777,46 +1782,26 @@ public class FragmentCompose extends FragmentBase {
                                 }
 
                             if (OpenPgpApi.ACTION_GET_KEY_IDS.equals(data.getAction())) {
+                                // Sign/encrypt
                                 pgpKeyIds = result.getLongArrayExtra(OpenPgpApi.EXTRA_KEY_IDS);
                                 Log.i("Keys=" + pgpKeyIds.length);
                                 if (pgpKeyIds.length == 0)
                                     throw new OperationCanceledException("Got no key");
 
-                                // Get encrypt key
-                                if (pgpKeyIds.length == 1) {
-                                    Intent intent = new Intent(OpenPgpApi.ACTION_GET_KEY);
-                                    intent.putExtra(OpenPgpApi.EXTRA_KEY_ID, pgpKeyIds[0]);
-                                    intent.putExtra(OpenPgpApi.EXTRA_REQUEST_ASCII_ARMOR, true);
-                                    intent.putExtra(BuildConfig.APPLICATION_ID, draft.id);
-                                    return intent;
-                                }
-                            }
-
-                            if (OpenPgpApi.ACTION_GET_KEY.equals(data.getAction()) ||
-                                    (OpenPgpApi.ACTION_GET_KEY_IDS.equals(data.getAction()) && pgpKeyIds.length > 1)) {
-                                if (EntityMessage.PGP_SIGNONLY.equals(draft.encrypt)) {
-                                    // Sign message
-                                    Intent intent = new Intent(OpenPgpApi.ACTION_DETACHED_SIGN);
-                                    intent.putExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, pgpSignKeyId);
+                                if (identity.sign_key != null) {
+                                    // Encrypt message
+                                    Intent intent = new Intent(OpenPgpApi.ACTION_SIGN_AND_ENCRYPT);
+                                    intent.putExtra(OpenPgpApi.EXTRA_KEY_IDS, pgpKeyIds);
+                                    intent.putExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, identity.sign_key);
                                     intent.putExtra(OpenPgpApi.EXTRA_REQUEST_ASCII_ARMOR, true);
                                     intent.putExtra(BuildConfig.APPLICATION_ID, draft.id);
                                     return intent;
                                 } else {
-                                    if (identity.sign_key != null) {
-                                        // Encrypt message
-                                        Intent intent = new Intent(OpenPgpApi.ACTION_SIGN_AND_ENCRYPT);
-                                        intent.putExtra(OpenPgpApi.EXTRA_KEY_IDS, pgpKeyIds);
-                                        intent.putExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, identity.sign_key);
-                                        intent.putExtra(OpenPgpApi.EXTRA_REQUEST_ASCII_ARMOR, true);
-                                        intent.putExtra(BuildConfig.APPLICATION_ID, draft.id);
-                                        return intent;
-                                    } else {
-                                        // Get sign key
-                                        Intent intent = new Intent(OpenPgpApi.ACTION_GET_SIGN_KEY_ID);
-                                        intent.putExtra(OpenPgpApi.EXTRA_USER_IDS, pgpUserIds);
-                                        intent.putExtra(BuildConfig.APPLICATION_ID, draft.id);
-                                        return intent;
-                                    }
+                                    // Get sign key
+                                    Intent intent = new Intent(OpenPgpApi.ACTION_GET_SIGN_KEY_ID);
+                                    intent.putExtra(OpenPgpApi.EXTRA_USER_IDS, pgpUserIds);
+                                    intent.putExtra(BuildConfig.APPLICATION_ID, draft.id);
+                                    return intent;
                                 }
                             } else if (OpenPgpApi.ACTION_GET_SIGN_KEY_ID.equals(data.getAction())) {
                                 pgpSignKeyId = result.getLongExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, -1);
@@ -1839,6 +1824,13 @@ public class FragmentCompose extends FragmentBase {
                                     return intent;
                                 } else
                                     throw new IllegalArgumentException("Invalid encrypt=" + draft.encrypt);
+                            } else if (OpenPgpApi.ACTION_GET_KEY.equals(data.getAction())) {
+                                // Sign message
+                                Intent intent = new Intent(OpenPgpApi.ACTION_DETACHED_SIGN);
+                                intent.putExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, pgpSignKeyId);
+                                intent.putExtra(OpenPgpApi.EXTRA_REQUEST_ASCII_ARMOR, true);
+                                intent.putExtra(BuildConfig.APPLICATION_ID, draft.id);
+                                return intent;
                             } else if (OpenPgpApi.ACTION_DETACHED_SIGN.equals(data.getAction())) {
                                 EntityAttachment attachment = new EntityAttachment();
                                 attachment.message = draft.id;
