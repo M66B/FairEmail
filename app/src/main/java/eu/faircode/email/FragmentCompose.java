@@ -239,6 +239,7 @@ public class FragmentCompose extends FragmentBase {
     static final int REDUCED_IMAGE_QUALITY = 90; // percent
 
     private static final int ADDRESS_ELLIPSIZE = 50;
+    private static final int RECIPIENTS_WARNING = 10;
 
     private static final int REQUEST_CONTACT_TO = 1;
     private static final int REQUEST_CONTACT_CC = 2;
@@ -3695,7 +3696,10 @@ public class FragmentCompose extends FragmentBase {
                 boolean remind_text = args.getBoolean("remind_text", false);
                 boolean remind_attachment = args.getBoolean("remind_attachment", false);
 
-                if (dialog || remind_subject || remind_text || remind_attachment) {
+                int recipients = (draft.to == null ? 0 : draft.to.length) +
+                        (draft.cc == null ? 0 : draft.cc.length) +
+                        (draft.bcc == null ? 0 : draft.bcc.length);
+                if (dialog || remind_subject || remind_text || remind_attachment || recipients > RECIPIENTS_WARNING) {
                     setBusy(false);
 
                     FragmentDialogSend fragment = new FragmentDialogSend();
@@ -4300,9 +4304,11 @@ public class FragmentCompose extends FragmentBase {
                         return;
                     }
 
-                    int plus = (draft.cc == null ? 0 : draft.cc.length) +
-                            (draft.bcc == null ? 0 : draft.bcc.length);
-                    tvTo.setText(MessageHelper.formatAddressesShort(draft.to) + (plus > 0 ? " +" + plus : ""));
+                    int to = (draft.to == null ? 0 : draft.to.length);
+                    int cc = (draft.cc == null ? 0 : draft.cc.length) + (draft.bcc == null ? 0 : draft.bcc.length);
+                    tvTo.setText(MessageHelper.formatAddressesShort(draft.to) + (cc > 0 ? " +" + cc : ""));
+                    tvTo.setTextColor(Helper.resolveColor(getContext(),
+                            to + cc > RECIPIENTS_WARNING ? R.attr.colorWarning : android.R.attr.textColorPrimary));
                     tvVia.setText(draft.identityEmail);
 
                     cbPlainOnly.setChecked(draft.plain_only != null && draft.plain_only);
