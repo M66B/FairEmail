@@ -1845,6 +1845,8 @@ public class FragmentCompose extends FragmentBase {
                                 File file = attachment.getFile(context);
                                 input.renameTo(file);
 
+                                db.attachment().setDownloaded(attachment.id, file.length());
+
                                 // send message
                                 return null;
                             } else if (OpenPgpApi.ACTION_SIGN_AND_ENCRYPT.equals(data.getAction())) {
