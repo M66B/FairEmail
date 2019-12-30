@@ -793,7 +793,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 vwColor.setTag(colorBackground);
                 vwColor.setBackgroundColor(colorBackground);
             }
-            vwColor.setVisibility(color_stripe ? View.VISIBLE : View.GONE);
+            if (color_stripe) {
+                vwColor.setVisibility(View.VISIBLE);
+            } else {
+                vwColor.getLayoutParams().width = 0;
+                vwColor.setVisibility(View.INVISIBLE);
+            }
 
             // Expander
             if (ibExpander.getTag() == null || (boolean) ibExpander.getTag() != expanded) {
