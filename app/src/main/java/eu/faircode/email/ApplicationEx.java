@@ -192,9 +192,6 @@ public class ApplicationEx extends Application {
                 editor.putBoolean("enabled", true);
         }
 
-        if (version < BuildConfig.VERSION_CODE)
-            editor.putBoolean("vacuum", true);
-
         if (BuildConfig.DEBUG && false) {
             editor.remove("app_support");
             editor.remove("notify_archive");

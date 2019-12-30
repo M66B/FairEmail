@@ -107,7 +107,10 @@ public class WorkerCleanup extends Worker {
 
                 // Clear last search
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                prefs.edit().remove("last_search").apply();
+                prefs.edit()
+                        .remove("last_search")
+                        .putBoolean("vacuum", true)
+                        .apply();
             }
 
             long now = new Date().getTime();
