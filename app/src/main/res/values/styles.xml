@@ -285,9 +285,47 @@
         <item name="android:textColorLink">@color/darkRedAccent</item>
     </style>
 
+    <!-- Black -->
+
+    <style name="AppThemeBlueOrangeBlack" parent="AppThemeBlueOrangeDark">
+        <item name="themeName">black</item>
+        <item name="android:windowBackground">@color/black</item>
+        <item name="colorDrawerBackground">@color/black</item>
+    </style>
+
+    <style name="AppThemeOrangeBlueBlack" parent="AppThemeOrangeBlueDark">
+        <item name="themeName">black</item>
+        <item name="android:windowBackground">@color/black</item>
+        <item name="colorDrawerBackground">@color/black</item>
+    </style>
+
+    <style name="AppThemeYellowPurpleBlack" parent="AppThemeYellowPurpleDark">
+        <item name="themeName">black</item>
+        <item name="android:windowBackground">@color/black</item>
+        <item name="colorDrawerBackground">@color/black</item>
+    </style>
+
+    <style name="AppThemePurpleYellowBlack" parent="AppThemePurpleYellowDark">
+        <item name="themeName">black</item>
+        <item name="android:windowBackground">@color/black</item>
+        <item name="colorDrawerBackground">@color/black</item>
+    </style>
+
+    <style name="AppThemeRedGreenBlack" parent="AppThemeRedGreenDark">
+        <item name="themeName">black</item>
+        <item name="android:windowBackground">@color/black</item>
+        <item name="colorDrawerBackground">@color/black</item>
+    </style>
+
+    <style name="AppThemeGreenRedBlack" parent="AppThemeGreenRedDark">
+        <item name="themeName">black</item>
+        <item name="android:windowBackground">@color/black</item>
+        <item name="colorDrawerBackground">@color/black</item>
+    </style>
+
     <!-- Other -->
 
-    <style name="AppThemeBlack" parent="AppThemeBlueOrangeDark">
+    <style name="_AppThemeBlack" parent="AppThemeBlueOrangeDark">
         <item name="themeName">black</item>
         <item name="colorPrimary">@color/blackPrimary</item>
         <item name="colorPrimaryDark">@color/blackPrimaryDark</item>
@@ -315,7 +353,8 @@
         <item name="colorInfoBackground">@color/greyPrimary</item>
     </style>
 
-    <style name="AppThemeGreySteelBlueDark" parent="AppThemeBlack">
+    <style name="AppThemeGreySteelBlueDark" parent="AppThemeBaseDark">
+        <item name="themeName">black</item>
         <item name="colorPrimary">@color/greyPrimary</item>
         <item name="colorPrimaryDark">@color/greyPrimaryDark</item>
         <item name="colorAccent">@color/greyAccent</item>
@@ -329,6 +368,9 @@
 
         <item name="colorInfoForeground">@color/white</item>
         <item name="colorInfoBackground">@color/greyPrimary</item>
+
+        <item name="android:windowBackground">@color/black</item>
+        <item name="colorDrawerBackground">@color/black</item>
     </style>
 
     <style name="Theme.AppCompat.Translucent" parent="Theme.AppCompat.NoActionBar">

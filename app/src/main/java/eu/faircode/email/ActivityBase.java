@@ -88,6 +88,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
             Log.i("theme=" + theme + " UI mode=" + uiMode + " night=" + night);
 
             switch (theme) {
+                // Light
                 case "light":
                 case "blue_orange_light":
                     setTheme(R.style.AppThemeBlueOrangeLight);
@@ -110,6 +111,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                     setTheme(R.style.AppThemeGreenRedLight);
                     break;
 
+                // Dark
                 case "dark":
                 case "blue_orange_dark":
                     setTheme(R.style.AppThemeBlueOrangeDark);
@@ -132,16 +134,36 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                     setTheme(R.style.AppThemeGreenRedDark);
                     break;
 
+                // Black
+                case "blue_orange_black":
+                    setTheme(R.style.AppThemeBlueOrangeBlack);
+                    break;
+                case "orange_blue_black":
+                    setTheme(R.style.AppThemeOrangeBlueBlack);
+                    break;
+                case "yellow_purple_black":
+                    setTheme(R.style.AppThemeYellowPurpleBlack);
+                    break;
+                case "purple_yellow_black":
+                    setTheme(R.style.AppThemePurpleYellowBlack);
+                    break;
+                case "red_green_black":
+                    setTheme(R.style.AppThemeRedGreenBlack);
+                    break;
+                case "green_red_black":
+                    setTheme(R.style.AppThemeGreenRedBlack);
+                    break;
+
+                // Grey
                 case "grey_light":
                     setTheme(R.style.AppThemeGreySteelBlueLight);
                     break;
+                case "black":
                 case "grey_dark":
                     setTheme(R.style.AppThemeGreySteelBlueDark);
                     break;
-                case "black":
-                    setTheme(R.style.AppThemeBlack);
-                    break;
 
+                // System
                 case "system":
                 case "blue_orange_system":
                     setTheme(night
