@@ -3,7 +3,7 @@
 <resources>
     <string name="app_search">Recherche FairEmail</string>
     <string name="app_changelog">Liste des modifications</string>
-    <string name="app_welcome">FairEmail est une application de messagerie open source axée sur la confidentialité et la sécurité. C\'est pourquoi certaines fonctionnalités peuvent fonctionner différemment de ce à quoi vous êtes habitué.</string>
+    <string name="app_welcome">FairEmail est une application de messagerie open source axée sur la confidentialité et la sécurité. C’est pourquoi certaines fonctionnalités peuvent fonctionner différemment de ce à quoi vous êtes habitué.</string>
     <string name="app_limitations">Par exemple, les messages seront toujours reformatés pour enlever les éléments non sûrs et pour améliorer la lisibilité et l\'ouverture des liens doit être confirmée par sécurité.</string>
     <string name="app_crash">FairEmail n\'est pas pris en charge sur cet appareil parce que des bogues dans Android provoquent des plantages</string>
     <string name="app_exit">Faites « Retour » de nouveau pour quitter</string>
@@ -29,7 +29,7 @@
     <string name="tile_unseen">Nouveaux messages</string>
     <string name="shortcut_refresh">Actualiser</string>
     <string name="shortcut_compose">Rédiger</string>
-    <string name="shortcut_setup">Configuration</string>
+    <string name="shortcut_setup">Paramètres</string>
     <plurals name="title_notification_synchronizing">
         <item quantity="one">Surveillance de %1$d compte</item>
         <item quantity="other">Surveillance de %1$d comptes</item>
@@ -67,7 +67,7 @@
         <item quantity="other">Traiter %1$d messages comme spam ?</item>
     </plurals>
     <string name="title_ask_spam_who">Traiter le message de %1$s comme spam ?</string>
-    <string name="title_notification_waiting">En attente d\'une connexion appropriée</string>
+    <string name="title_notification_waiting">En attente d\'une connexion réseau suffisante</string>
     <string name="title_notification_sending">Envoi des messages en cours</string>
     <string name="title_notification_failed">\'%1$s\' a échoué</string>
     <string name="title_notification_alert">Alerte serveur \'%1$s\'</string>
@@ -76,7 +76,7 @@
     <string name="menu_answers">Modèles</string>
     <string name="menu_operations">Opérations</string>
     <string name="menu_contacts">Contacts locaux</string>
-    <string name="menu_setup">Configuration</string>
+    <string name="menu_setup">Paramètres</string>
     <string name="menu_legend">Légende</string>
     <string name="menu_test">Programme de test</string>
     <string name="menu_faq">Support</string>
@@ -170,7 +170,6 @@
     <string name="title_setup_theme_yellow_purple">Jaune/violet</string>
     <string name="title_setup_theme_red_green">Rouge/vert</string>
     <string name="title_setup_theme_grey">Gris</string>
-    <string name="title_setup_theme_black">Noir (AMOLED)</string>
     <string name="title_setup_theme_reverse">Inverser les couleurs</string>
     <string name="title_setup_theme_dark">Sombre</string>
     <string name="title_setup_theme_system">Suivre le système</string>

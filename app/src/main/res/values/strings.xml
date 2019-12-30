@@ -205,10 +205,11 @@
     <string name="title_setup_theme_yellow_purple">Yellow/purple</string>
     <string name="title_setup_theme_red_green">Red/green</string>
     <string name="title_setup_theme_grey">Grey</string>
+    <string name="title_setup_theme_black">Black</string>
 
     <string name="title_setup_theme_reverse">Reverse colors</string>
     <string name="title_setup_theme_dark">Dark</string>
-    <string name="title_setup_theme_black">Black (AMOLED)</string>
+    <string name="title_setup_theme_black_background">Black background</string>
     <string name="title_setup_theme_system">Follow system</string>
 
     <string name="title_setup_theme_system_hint">Follow system theme will automatically switch to light/dark on day/night, if supported by Android</string>
