@@ -3296,10 +3296,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onExecuted(Bundle args, Void ignored) {
+                    long id = args.getLong("id");
+                    TupleMessageEx amessage = getMessage();
+                    if (amessage == null || !amessage.id.equals(id))
+                        return;
+
                     boolean seen = args.getBoolean("seen");
-                    if (!seen)
+                    if (!seen) {
                         properties.setValue("expanded", message.id, false);
-                    notifyDataSetChanged();
+                        ibExpander.setTag(false);
+                        ibExpander.setImageLevel(1 /* more */);
+                        clearExpanded(amessage);
+                    }
                 }
 
                 @Override
