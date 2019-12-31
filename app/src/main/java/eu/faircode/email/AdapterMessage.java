@@ -3624,7 +3624,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     }
                 }.execute(context, owner, args, "message:headers");
             } else
-                notifyDataSetChanged();
+                bindExpanded(message, false);
         }
 
         private void onMenuRawDownload(TupleMessageEx message) {
