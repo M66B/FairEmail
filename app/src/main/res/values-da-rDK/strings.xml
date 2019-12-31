@@ -169,8 +169,10 @@
     <string name="title_setup_theme_yellow_purple">Gult/lilla</string>
     <string name="title_setup_theme_red_green">Rødt/grønt</string>
     <string name="title_setup_theme_grey">Gråt</string>
+    <string name="title_setup_theme_black">Sort</string>
     <string name="title_setup_theme_reverse">Omvendte farver</string>
     <string name="title_setup_theme_dark">Mørkt</string>
+    <string name="title_setup_theme_black_background">Sort baggrund</string>
     <string name="title_setup_theme_system">Følg system</string>
     <string name="title_setup_theme_system_hint">Følg system skifter automatisk til lyst/mørkt dag/nat, hvis understøttet af Android</string>
     <string name="title_setup_advanced">Avanceret</string>
@@ -223,6 +225,7 @@
     <string name="title_advanced_indentation">Venstre-/-højreindryk modtagne/sendte beskeder i samtaler</string>
     <string name="title_advanced_highlight_unread">Fremhæv ulæste beskeder</string>
     <string name="title_advanced_distinguish_contacts">Skeln mellem beskeder fra kendte og ukendte kontakter</string>
+    <string name="title_advanced_color_stripe">Vis farvestripe</string>
     <string name="title_advanced_avatars">Vis kontaktfotos</string>
     <string name="title_advanced_generated_icons">Vis genererede ikoner</string>
     <string name="title_advanced_identicons">Vis identikoner</string>
@@ -263,6 +266,8 @@
     <string name="title_advanced_collapse_multiple">Sammenfold beskeder i en samtale med flere beskeder ved tryk på \'Tilbage\'</string>
     <string name="title_advanced_autoclose">Auto-luk samtaler</string>
     <string name="title_advanced_onclose">Ved lukning af i en samtale</string>
+    <string name="title_advanced_quick_filter">Vis ikke-påtrængende hurtige filterikoner</string>
+    <string name="title_advanced_quick_scroll">Vis ikke-påtrængende hurtige rul op/ned ikoner</string>
     <string name="title_advanced_autoread">Auto-markér beskeder som læst, når de flyttes</string>
     <string name="title_advanced_autounstar">Fjern automatisk stjerner fra beskeder, når de flyttes</string>
     <string name="title_advanced_automove">Bekræft flytning af beskeder</string>
@@ -936,6 +941,7 @@
     <string name="title_accessibility_edit">Redigér</string>
     <string name="title_accessibility_show_addresses">Vis adresser</string>
     <string name="title_accessibility_hide_addresses">Skjul adresser</string>
+    <string name="title_accessibility_attachment">Vedhæftning</string>
     <string-array name="pollIntervalNames">
         <item>Altid</item>
         <item>Hvert 15. minut</item>

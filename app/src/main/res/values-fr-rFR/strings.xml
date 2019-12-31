@@ -98,7 +98,7 @@
     <string name="title_edit_account">Modifier le compte</string>
     <string name="title_edit_identity">Modifier l’identité</string>
     <string name="title_edit_folder">Modifier le dossier</string>
-    <string name="title_setup">Configuration</string>
+    <string name="title_setup">Paramètres</string>
     <string name="title_setup_help">Aide</string>
     <string name="title_setup_welcome">        Recevoir et envoyer des messages nécessite la création d\'un compte et d\'une identité comme dans toute autre application de messagerie.
         La configuration rapide créera à la fois un compte et une identité en demandant simplement votre nom, votre adresse e-mail et votre mot de passe.
@@ -115,7 +115,7 @@
     <string name="title_setup_gmail_support">L\'autorisation des comptes Google fonctionnera uniquement dans les versions officielles parce que Android vérifie la signature de l\'application</string>
     <string name="title_setup_gmail_rationale">Veuillez accorder les autorisations pour sélectionner un compte et lire votre nom</string>
     <string name="title_setup_gmail_permissions">Google vous demandera l\'autorisation de lire, rédiger, envoyer et supprimer définitivement tous vos e-mails. FairEmail ne supprimera jamais vos messages sans votre approbation.</string>
-    <string name="title_setup_gmail_drafts">Si le dossier brouillons n\'est pas accessible par IMAP, cela peut être corrigé dans les paramètres de préfixe Gmail</string>
+    <string name="title_setup_gmail_drafts">Si le dossier brouillons n\'est pas accessible par IMAP, cela peut être corrigé dans les paramètres de libellé Gmail</string>
     <string name="title_setup_oauth_rationale">Autoriser l\'accès à votre compte %1$s</string>
     <string name="title_setup_oauth_authorize">Autoriser</string>
     <string name="title_setup_select_account">Sélectionner un compte</string>
@@ -170,8 +170,10 @@
     <string name="title_setup_theme_yellow_purple">Jaune/violet</string>
     <string name="title_setup_theme_red_green">Rouge/vert</string>
     <string name="title_setup_theme_grey">Gris</string>
+    <string name="title_setup_theme_black">Noir</string>
     <string name="title_setup_theme_reverse">Inverser les couleurs</string>
     <string name="title_setup_theme_dark">Sombre</string>
+    <string name="title_setup_theme_black_background">Fond noir</string>
     <string name="title_setup_theme_system">Suivre le système</string>
     <string name="title_setup_theme_system_hint">Suivre le thème système basculera automatiquement en mode clair/sombre le jour/la nuit si cela est pris en charge par Android</string>
     <string name="title_setup_advanced">Avancé</string>
@@ -240,9 +242,9 @@
     <string name="title_advanced_subject_italic">Afficher l\'objet en italiques</string>
     <string name="title_advanced_subject_elipsed">Raccourcir l\'objet si nécessaire</string>
     <string name="title_advanced_flags">Afficher les messages suivis</string>
-    <string name="title_advanced_flags_background">Afficher un arrière-plan coloré au lieu des étoiles</string>
+    <string name="title_advanced_flags_background">Afficher un fond coloré au lieu des étoiles colorées</string>
     <string name="title_advanced_preview">Afficher l\'aperçu du message</string>
-    <string name="title_advanced_preview_italic">Afficher l\'aperçu du message en italiques</string>
+    <string name="title_advanced_preview_italic">Afficher l\'aperçu du message en italique</string>
     <string name="title_advanced_preview_lines">Nombre de lignes d\'aperçu</string>
     <string name="title_advanced_addresses">Afficher les détails de l\'adresse par défaut</string>
     <string name="title_advanced_attachments_alt">Afficher les pièces jointes après le texte du message</string>
@@ -295,7 +297,7 @@
     <string name="title_advanced_biometrics_notify">Afficher le contenu de notification lors de l\'utilisation de l\'authentification biométrique</string>
     <string name="title_advanced_light">Utiliser le voyant de notification</string>
     <string name="title_advanced_sound">Sélectionner le son pour les notifications</string>
-    <string name="title_advanced_tracking">Reconnaissance automatique et désactivation des images de suivi</string>
+    <string name="title_advanced_tracking">Reconnaître et désactiver automatiquement les images de suivi</string>
     <string name="title_advanced_display_hidden">Afficher les textes de message cachés</string>
     <string name="title_advanced_encrypt_method">Méthode de chiffrement par défaut</string>
     <string name="title_advanced_openpgp">Fournisseur OpenPGP</string>
@@ -337,7 +339,7 @@
     <string name="title_advanced_browse_hint">Télécharger plus de messages en faisant défiler vers le bas</string>
     <string name="title_advanced_layout_hint">Passer à une disposition plus compacte et changer la taille du texte des messages peut être fait dans le menu de la barre d\'action en haut dans la vue message</string>
     <string name="title_advanced_date_hint">Les messages ne sont regroupés par date que s\'ils sont triés par ordre chronologique</string>
-    <string name="title_advanced_threading_hint">Groupe de messages liés les uns aux autres</string>
+    <string name="title_advanced_threading_hint">Grouper les messages liés les uns aux autres</string>
     <string name="title_advanced_name_email_hint">Si désactivé, seuls les noms seront affichés si disponibles</string>
     <string name="title_advanced_preview_hint">Disponible uniquement lorsque le texte du message a été téléchargé</string>
     <string name="title_advanced_inline_hint">Les images en ligne sont des images incluses dans le message</string>
@@ -353,9 +355,9 @@
     <string name="title_advanced_notify_manage_hint">Appuyez sur le nom du canal pour définir les propriétés du canal</string>
     <string name="title_advanced_notify_manage_default_hint">Pour définir le son par défaut, etc</string>
     <string name="title_advanced_notify_manage_service_hint">Pour désactiver la notification permanente</string>
-    <string name="title_advanced_wearable_hint">Les notifications ne sont envoyées à un appareil connecté seulement après que le texte du message ait été téléchargé</string>
+    <string name="title_advanced_wearable_hint">Les notifications ne sont envoyées à un appareil connecté seulement après que le texte du message a été téléchargé</string>
     <string name="title_advanced_move_hint">Le dossier cible peut être configuré dans les paramètres du compte</string>
-    <string name="title_advanced_notify_no_grouping">Cette version de Android ne supporte pas le regroupement de notifications</string>
+    <string name="title_advanced_notify_no_grouping">Cette version d\'Android ne supporte pas le regroupement de notifications</string>
     <string name="title_advanced_notify_no_channels">Cette version de Android ne supporte pas les canaux de notification</string>
     <string name="title_advanced_subscribed_only_hint">Activer ceci supprimera tous les dossiers locaux sans abonnement</string>
     <string name="title_advanced_english_hint">Ceci va redémarrer l’application</string>
@@ -643,6 +645,7 @@
     <string name="title_decrypt">Déchiffrer</string>
     <string name="title_resync">Resynchroniser</string>
     <string name="title_no_openpgp">OpenKeychain introuvable</string>
+    <string name="title_user_interaction">Transfert vers OpenKeychain</string>
     <string name="title_not_encrypted">Le message n\'est pas signé ou chiffré</string>
     <string name="title_reset_sign_key">Réinitialiser la clé de signature</string>
     <string name="title_signature_none">Message non signé</string>

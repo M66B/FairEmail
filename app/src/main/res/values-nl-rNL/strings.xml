@@ -645,6 +645,7 @@
     <string name="title_decrypt">Ontsleutelen</string>
     <string name="title_resync">Resync</string>
     <string name="title_no_openpgp">OpenKeychain niet gevonden</string>
+    <string name="title_user_interaction">Overdragen naar OpenKeychain</string>
     <string name="title_not_encrypted">Bericht is niet ondertekend of versleuteld</string>
     <string name="title_reset_sign_key">Reset tekensleutel</string>
     <string name="title_signature_none">Bericht niet ondertekend</string>

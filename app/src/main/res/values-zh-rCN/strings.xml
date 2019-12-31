@@ -158,8 +158,10 @@
     <string name="title_setup_theme_yellow_purple">黄色/紫色</string>
     <string name="title_setup_theme_red_green">红色/绿色</string>
     <string name="title_setup_theme_grey">灰色</string>
+    <string name="title_setup_theme_black">黑色</string>
     <string name="title_setup_theme_reverse">反色</string>
     <string name="title_setup_theme_dark">深色</string>
+    <string name="title_setup_theme_black_background">黑色背景</string>
     <string name="title_setup_theme_system">跟随系统</string>
     <string name="title_setup_theme_system_hint">如果安卓系统支持，跟随系统主题将在白天/夜间自动切换到亮/暗色主题</string>
     <string name="title_setup_advanced">高级选项</string>
@@ -631,6 +633,7 @@
     <string name="title_decrypt">解密</string>
     <string name="title_resync">重新同步</string>
     <string name="title_no_openpgp">OpenKeychain 未找到</string>
+    <string name="title_user_interaction">正传输到 OpenKeychain</string>
     <string name="title_not_encrypted">消息未签名或加密</string>
     <string name="title_reset_sign_key">重置签名密钥</string>
     <string name="title_signature_none">消息未签名</string>

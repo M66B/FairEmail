@@ -158,8 +158,10 @@
     <string name="title_setup_theme_yellow_purple">イエロー/パープル</string>
     <string name="title_setup_theme_red_green">レッド/グリーン</string>
     <string name="title_setup_theme_grey">グレイ</string>
+    <string name="title_setup_theme_black">ブラック</string>
     <string name="title_setup_theme_reverse">色を反転</string>
     <string name="title_setup_theme_dark">ダーク</string>
+    <string name="title_setup_theme_black_background">ブラック背景</string>
     <string name="title_setup_theme_system">システム設定に従う</string>
     <string name="title_setup_theme_system_hint">Androidでサポートされている場合、システムテーマは昼/夜に自動的に切り替わります</string>
     <string name="title_setup_advanced">詳細</string>
@@ -629,6 +631,7 @@ PlayストアでFairEmailを評価できれば幸いです。
     <string name="title_decrypt">解読</string>
     <string name="title_resync">再同期</string>
     <string name="title_no_openpgp">オープンキーチェーンが見つかりません</string>
+    <string name="title_user_interaction">OpenKeychainへの転送</string>
     <string name="title_not_encrypted">メッセージは署名又は暗号化されていません</string>
     <string name="title_reset_sign_key">署名キーをリセット</string>
     <string name="title_signature_none">メッセージが署名されていません</string>
@@ -925,6 +928,7 @@ FairEmailは、Pro機能購入の為に上部に小さなメッセージを表�
     <string name="title_accessibility_edit">編集</string>
     <string name="title_accessibility_show_addresses">アドレスを表示</string>
     <string name="title_accessibility_hide_addresses">アドレスを非表示</string>
+    <string name="title_accessibility_attachment">添付ファイル</string>
     <string-array name="pollIntervalNames">
         <item>常に</item>
         <item>15分毎</item>

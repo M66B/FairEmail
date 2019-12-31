@@ -170,8 +170,10 @@
     <string name="title_setup_theme_yellow_purple">Amarillo/morado</string>
     <string name="title_setup_theme_red_green">Rojo/verde</string>
     <string name="title_setup_theme_grey">Gris</string>
+    <string name="title_setup_theme_black">Negro</string>
     <string name="title_setup_theme_reverse">Invertir colores</string>
     <string name="title_setup_theme_dark">Oscuro</string>
+    <string name="title_setup_theme_black_background">Fondo negro</string>
     <string name="title_setup_theme_system">Igual que el sistema</string>
     <string name="title_setup_theme_system_hint">Igual que el tema del sistema cambiará automáticamente a luz/oscuro en el día y la noche, si es compatible con Android</string>
     <string name="title_setup_advanced">Avanzado</string>
@@ -643,6 +645,7 @@
     <string name="title_decrypt">Descifrar</string>
     <string name="title_resync">Resincronizar</string>
     <string name="title_no_openpgp">OpenKeychain no encontrado</string>
+    <string name="title_user_interaction">Transfiriendo a OpenKeychain</string>
     <string name="title_not_encrypted">El mensaje no está firmado ni cifrado</string>
     <string name="title_reset_sign_key">Restablecer clave de firma</string>
     <string name="title_signature_none">Mensaje no firmado</string>
@@ -941,6 +944,7 @@
     <string name="title_accessibility_edit">Editar</string>
     <string name="title_accessibility_show_addresses">Mostrar direcciones</string>
     <string name="title_accessibility_hide_addresses">Ocultar direcciones</string>
+    <string name="title_accessibility_attachment">Adjunto</string>
     <string-array name="pollIntervalNames">
         <item>Siempre</item>
         <item>Cada 15 minutos</item>

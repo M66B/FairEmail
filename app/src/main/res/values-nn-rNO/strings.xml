@@ -170,8 +170,10 @@
     <string name="title_setup_theme_yellow_purple">Gul/lilla</string>
     <string name="title_setup_theme_red_green">Rød/grønn</string>
     <string name="title_setup_theme_grey">Grå</string>
+    <string name="title_setup_theme_black">Svart</string>
     <string name="title_setup_theme_reverse">Omvendte farger</string>
     <string name="title_setup_theme_dark">Mørk</string>
+    <string name="title_setup_theme_black_background">Svart bakgrunn</string>
     <string name="title_setup_theme_system">Følg systemet</string>
     <string name="title_setup_theme_system_hint">Følgende system temaer vil automatisk bytte til lys/mørk på dag/natt, hvis det støttes av Android</string>
     <string name="title_setup_advanced">Avansert</string>
@@ -642,6 +644,7 @@ Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anme
     <string name="title_decrypt">Dekrypter</string>
     <string name="title_resync">Resync</string>
     <string name="title_no_openpgp">Finner ikke OpenKeychain</string>
+    <string name="title_user_interaction">Overfører til OpenKeychain</string>
     <string name="title_not_encrypted">Meldingen er ikke signert eller kryptert</string>
     <string name="title_reset_sign_key">Tilbakestill signert nøkkel</string>
     <string name="title_signature_none">Melding ikke signert</string>

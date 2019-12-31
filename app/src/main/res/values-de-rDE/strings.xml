@@ -169,8 +169,10 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_setup_theme_yellow_purple">Gelb/Lila</string>
     <string name="title_setup_theme_red_green">Rot/Grün</string>
     <string name="title_setup_theme_grey">Grau</string>
+    <string name="title_setup_theme_black">Schwarz</string>
     <string name="title_setup_theme_reverse">Farben umkehren</string>
     <string name="title_setup_theme_dark">Dunkler Hintergrund</string>
+    <string name="title_setup_theme_black_background">Schwarzer Hintergrund</string>
     <string name="title_setup_theme_system">System-Design</string>
     <string name="title_setup_theme_system_hint">Das System-Design wird abhängig von der Tageszeit automatisch zwischen hell und dunkel wechseln, falls von Android unterstützt</string>
     <string name="title_setup_advanced">Erweitert</string>
@@ -264,8 +266,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_collapse_multiple">In Unterhaltungen mit mehreren Nachrichten diese bei „zurück” einklappen</string>
     <string name="title_advanced_autoclose">Konversationen automatisch schließen</string>
     <string name="title_advanced_onclose">Beim Schließen einer Unterhaltung</string>
-    <string name="title_advanced_quick_filter">Zeige nicht aufdringliche Schnellfilter-Symbole</string>
-    <string name="title_advanced_quick_scroll">Zeige nicht aufdringliche Schnellscroll-Symbole</string>
+    <string name="title_advanced_quick_filter">Zeige unaufdringliche Schnellfilter-Symbole</string>
+    <string name="title_advanced_quick_scroll">Zeige unaufdringliche Schnellscroll-Symbole</string>
     <string name="title_advanced_autoread">Nachrichten beim Verschieben automatisch als gelesen kennzeichnen</string>
     <string name="title_advanced_autounstar">Sterne automatisch von Nachrichten entfernen, wenn sie verschoben werden</string>
     <string name="title_advanced_automove">Verschieben von Nachrichten bestätigen</string>
@@ -642,6 +644,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_decrypt">Entschlüsseln</string>
     <string name="title_resync">Neu synchronisieren</string>
     <string name="title_no_openpgp">OpenKeychain wurde nicht gefunden</string>
+    <string name="title_user_interaction">Übertragung zu OpenKeychain</string>
     <string name="title_not_encrypted">Nachricht ist nicht signiert oder verschlüsselt</string>
     <string name="title_reset_sign_key">Sign-Schlüssel zurücksetzen</string>
     <string name="title_signature_none">Unsignierte Nachricht</string>

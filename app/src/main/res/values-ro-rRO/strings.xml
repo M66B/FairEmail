@@ -180,8 +180,10 @@
     <string name="title_setup_theme_yellow_purple">Galben/violet</string>
     <string name="title_setup_theme_red_green">Roșu/verde</string>
     <string name="title_setup_theme_grey">Gri</string>
+    <string name="title_setup_theme_black">Negru</string>
     <string name="title_setup_theme_reverse">Inversează culorile</string>
     <string name="title_setup_theme_dark">Întunecată</string>
+    <string name="title_setup_theme_black_background">Fundal negru</string>
     <string name="title_setup_theme_system">Setare sistem</string>
     <string name="title_setup_theme_system_hint">Dacă este suportată de Android, setare sistem, va schimba automat la deschis/întunecat în timpul zilei/nopții</string>
     <string name="title_setup_advanced">Setări avansate</string>
@@ -234,6 +236,7 @@
     <string name="title_advanced_indentation">Aliniere mesaje primite/trimise în stânga/dreapta în conversații</string>
     <string name="title_advanced_highlight_unread">Evidențiază mesajele necitite</string>
     <string name="title_advanced_distinguish_contacts">Distinge mesajele de la contactele cunoscute și necunoscute</string>
+    <string name="title_advanced_color_stripe">Arată banda de culori</string>
     <string name="title_advanced_avatars">Arată pozele contactelor</string>
     <string name="title_advanced_generated_icons">Arată pictograme cu literă</string>
     <string name="title_advanced_identicons">Arată pictograme generate pe baza identității</string>
@@ -274,6 +277,8 @@
     <string name="title_advanced_collapse_multiple">La apăsarea \'înapoi\' restrânge mesajele dintr-o conversație cu mai multe mesaje</string>
     <string name="title_advanced_autoclose">Închide automat conversațiile</string>
     <string name="title_advanced_onclose">La închiderea conversației</string>
+    <string name="title_advanced_quick_filter">Arată iconițele de filtrare rapidă</string>
+    <string name="title_advanced_quick_scroll">Arată iconițele de derulare sus/jos rapidă</string>
     <string name="title_advanced_autoread">Marchează automat mesajele mutate ca citite</string>
     <string name="title_advanced_autounstar">Elimină automat steaua mesajelor mutate</string>
     <string name="title_advanced_automove">Confirmă mutarea mesajelor</string>
@@ -650,6 +655,7 @@
     <string name="title_decrypt">Decriptare</string>
     <string name="title_resync">Resincronizare</string>
     <string name="title_no_openpgp">OpenKeychain nu a fost găsit</string>
+    <string name="title_user_interaction">Transfer la OpenKeychain</string>
     <string name="title_not_encrypted">Mesajul nu este semnat sau criptat</string>
     <string name="title_reset_sign_key">Resetare cheie de semnare</string>
     <string name="title_signature_none">Mesaj nesemnat</string>
@@ -894,6 +900,7 @@
         Pentru a face FairEmail sustenabil pe termen lung, unele caracteristici avansate sau ce țin de comoditate nu se pot folosi gratuit.
         FairEmail arată un mic mesaj care să vă reamintească de asta, care se poate ascunde dacă achiziționați caracteristicile Pro.
     </string>
+    <string name="title_pro_hide">Ascunde micul mesaj timp de o săptămână</string>
     <string name="title_pro_hint">Cumpărarea caracteristicilor Pro vă va permite să utilizați toate caracteristicile actuale cât și cele viitoare, și ajută la dezvoltarea acestei aplicații</string>
     <string name="title_pro_price">Vizitați <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">acestă pagină</a> pentru a afla despre prețurile caracteristicilor Pro</string>
     <string name="title_pro_pending">Achiziție în așteptare</string>
@@ -940,6 +947,15 @@
     <string name="title_accessibility_view_help">Vizualizare ajutor</string>
     <string name="title_accessibility_selected">Selectat</string>
     <string name="title_accessibility_answered">Răspuns</string>
+    <string name="title_accessibility_scroll_down">Derulează în jos</string>
+    <string name="title_accessibility_scroll_up">Derulează în sus</string>
+    <string name="title_accessibility_filter_out_seen">Comută filtrarea mesajelor citite</string>
+    <string name="title_accessibility_filter_out_unflagged">Comută filtrarea mesajelor marcate</string>
+    <string name="title_accessibility_filter_out_snoozed">Comută filtrarea mesajelor amânate</string>
+    <string name="title_accessibility_edit">Editează</string>
+    <string name="title_accessibility_show_addresses">Arată adresele</string>
+    <string name="title_accessibility_hide_addresses">Ascunde adresele</string>
+    <string name="title_accessibility_attachment">Atașament</string>
     <string-array name="pollIntervalNames">
         <item>Permanent</item>
         <item>La fiecare 15 minute</item>
