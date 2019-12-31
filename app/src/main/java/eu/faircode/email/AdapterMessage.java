@@ -262,6 +262,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             BottomNavigationView.OnNavigationItemSelectedListener {
         private ViewCardOptional card;
         private View view;
+        private View header;
 
         private View vwColor;
         private ImageButton ibExpander;
@@ -385,6 +386,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             card = itemView.findViewById(R.id.card);
             view = itemView.findViewById(R.id.clItem);
+            header = itemView.findViewById(R.id.inHeader);
 
             vwColor = itemView.findViewById(R.id.vwColor);
             ibExpander = itemView.findViewById(R.id.ibExpander);
@@ -560,10 +562,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 @Override
                 public void run() {
                     Rect rect = new Rect(
-                            view.getLeft(),
-                            vwColor.getTop(),
-                            view.getRight(),
-                            vwColor.getBottom());
+                            header.getLeft(),
+                            header.getTop(),
+                            header.getRight(),
+                            header.getBottom());
                     view.setTouchDelegate(new TouchDelegate(rect, touch));
                 }
             });
