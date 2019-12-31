@@ -3149,15 +3149,18 @@ class Core {
             Log.i("Notify light enabled");
         }
 
-        Uri uri = (sound == null ? null : Uri.parse(sound));
-        if (uri == null || !"content".equals(uri.getScheme()))
-            uri = null;
-        Log.i("Notify sound=" + uri);
+        if (!"".equals(sound)) {
+            // Not silent sound
+            Uri uri = (sound == null ? null : Uri.parse(sound));
+            if (uri != null && !"content".equals(uri.getScheme()))
+                uri = null;
+            Log.i("Notify sound=" + uri);
 
-        if (uri == null)
-            def |= DEFAULT_SOUND;
-        else
-            builder.setSound(uri);
+            if (uri == null)
+                def |= DEFAULT_SOUND;
+            else
+                builder.setSound(uri);
+        }
 
         builder.setDefaults(def);
     }

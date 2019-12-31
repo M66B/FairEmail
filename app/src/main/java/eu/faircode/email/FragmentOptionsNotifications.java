@@ -436,7 +436,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             switch (requestCode) {
                 case ActivitySetup.REQUEST_SOUND:
                     if (resultCode == RESULT_OK && data != null)
-                        onSelectSound((Uri) data.getParcelableExtra(RingtoneManager.EXTRA_RINGTONE_PICKED_URI));
+                        onSelectSound(data.getParcelableExtra(RingtoneManager.EXTRA_RINGTONE_PICKED_URI));
                     break;
             }
         } catch (Throwable ex) {
@@ -446,13 +446,16 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
 
     private void onSelectSound(Uri uri) {
         Log.i("Selected ringtone=" + uri);
-        if (uri != null && !"content".equals(uri.getScheme()))
-            uri = null;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        if (uri == null)
-            prefs.edit().remove("sound").apply();
-        else
-            prefs.edit().putString("sound", uri.toString()).apply();
+
+        if (uri == null) // silent sound
+            prefs.edit().putString("sound", "").apply();
+        else {
+            if ("content".equals(uri.getScheme()))
+                prefs.edit().putString("sound", uri.toString()).apply();
+            else
+                prefs.edit().remove("sound").apply();
+        }
     }
 }
