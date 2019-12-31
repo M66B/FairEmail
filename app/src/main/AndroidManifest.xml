@@ -110,7 +110,7 @@
 
         <activity
             android:name=".ActivitySearch"
-            android:enabled="false"
+            android:enabled="true"
             android:excludeFromRecents="true"
             android:exported="true"
             android:icon="@mipmap/ic_launcher"
