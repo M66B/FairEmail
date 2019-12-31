@@ -3301,13 +3301,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (amessage == null || !amessage.id.equals(id))
                         return;
 
-                    boolean seen = args.getBoolean("seen");
-                    if (!seen) {
-                        properties.setValue("expanded", message.id, false);
-                        ibExpander.setTag(false);
-                        ibExpander.setImageLevel(1 /* more */);
-                        clearExpanded(amessage);
-                    }
+                    properties.setValue("expanded", message.id, false);
+                    message.ui_seen = args.getBoolean("seen");
+                    message.unseen = (message.ui_seen ? 0 : message.count);
+                    bindTo(message, getAdapterPosition());
                 }
 
                 @Override
