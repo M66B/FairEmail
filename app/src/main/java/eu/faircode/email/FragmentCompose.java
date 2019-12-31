@@ -1350,15 +1350,15 @@ public class FragmentCompose extends FragmentBase {
                     }
 
                     Intent intent;
-                    if (EntityMessage.PGP_SIGNONLY.equals(draft.encrypt)) {
+                    if (EntityMessage.PGP_SIGNONLY.equals(draft.encrypt))
                         intent = new Intent(OpenPgpApi.ACTION_GET_SIGN_KEY_ID);
-                        intent.putExtra(BuildConfig.APPLICATION_ID, working);
-                    } else if (EntityMessage.PGP_SIGNENCRYPT.equals(draft.encrypt)) {
+                    else if (EntityMessage.PGP_SIGNENCRYPT.equals(draft.encrypt)) {
                         intent = new Intent(OpenPgpApi.ACTION_GET_KEY_IDS);
                         intent.putExtra(OpenPgpApi.EXTRA_USER_IDS, pgpUserIds);
-                        intent.putExtra(BuildConfig.APPLICATION_ID, working);
                     } else
                         throw new IllegalArgumentException("Invalid encrypt=" + draft.encrypt);
+
+                    intent.putExtra(BuildConfig.APPLICATION_ID, working);
 
                     onPgp(intent);
                 } catch (Throwable ex) {
@@ -1800,7 +1800,6 @@ public class FragmentCompose extends FragmentBase {
                                 } else {
                                     // Get sign key
                                     Intent intent = new Intent(OpenPgpApi.ACTION_GET_SIGN_KEY_ID);
-                                    intent.putExtra(OpenPgpApi.EXTRA_USER_IDS, pgpUserIds);
                                     intent.putExtra(BuildConfig.APPLICATION_ID, draft.id);
                                     return intent;
                                 }
