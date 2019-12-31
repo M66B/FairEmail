@@ -21,8 +21,10 @@ package eu.faircode.email;
 
 import android.app.ActivityManager;
 import android.app.NotificationManager;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -44,6 +46,7 @@ import androidx.lifecycle.Lifecycle;
 import androidx.preference.PreferenceManager;
 
 public class FragmentOptionsMisc extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
+    private SwitchCompat swExternalSearch;
     private SwitchCompat swEnglish;
     private SwitchCompat swWatchdog;
     private SwitchCompat swUpdates;
@@ -83,6 +86,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         // Get controls
 
+        swExternalSearch = view.findViewById(R.id.swExternalSearch);
         swEnglish = view.findViewById(R.id.swEnglish);
         swWatchdog = view.findViewById(R.id.swWatchdog);
         swUpdates = view.findViewById(R.id.swUpdates);
@@ -107,6 +111,19 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         // Wire controls
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+
+        swExternalSearch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                PackageManager pm = getContext().getPackageManager();
+                pm.setComponentEnabledSetting(
+                        new ComponentName(getContext(), ActivitySearch.class),
+                        checked
+                                ? PackageManager.COMPONENT_ENABLED_STATE_DEFAULT
+                                : PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+                        PackageManager.DONT_KILL_APP);
+            }
+        });
 
         swEnglish.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -278,6 +295,10 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private void setOptions() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
+        PackageManager pm = getContext().getPackageManager();
+        int state = pm.getComponentEnabledSetting(new ComponentName(getContext(), ActivitySearch.class));
+
+        swExternalSearch.setChecked(state != PackageManager.COMPONENT_ENABLED_STATE_DISABLED);
         swEnglish.setChecked(prefs.getBoolean("english", false));
         swWatchdog.setChecked(prefs.getBoolean("watchdog", true));
         swUpdates.setChecked(prefs.getBoolean("updates", true));

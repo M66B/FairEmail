@@ -21,7 +21,6 @@ package eu.faircode.email;
 
 import android.Manifest;
 import android.app.Dialog;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -404,13 +403,6 @@ public class FragmentSetup extends FragmentBase {
                 tvNoIdentities.setVisibility(done ? View.GONE : View.VISIBLE);
             }
         });
-
-        // Backward compatibility
-        PackageManager pm = getContext().getPackageManager();
-        pm.setComponentEnabledSetting(
-                new ComponentName(getContext(), ActivitySearch.class),
-                PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
-                PackageManager.DONT_KILL_APP);
     }
 
     @Override
