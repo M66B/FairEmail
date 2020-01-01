@@ -1472,6 +1472,8 @@ This can happen when there is no connection to the server or the account (yet).
 These messages will be synchronized after a connection to the server and the account has been made
 or, if this never happens, will be deleted if they are too old to be synchronized.
 
+You might need to manually synchronize the folder, for example by pulling down.
+
 You can view these messages, but you cannot move these messages again until the previous move has been confirmed.
 
 Pending [operations](#user-content-faq3) are shown in the operations view accessible from the main navigation menu.
