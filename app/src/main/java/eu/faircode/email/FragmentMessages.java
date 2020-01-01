@@ -2927,10 +2927,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         menu.findItem(R.id.menu_select_all).setVisible(!outbox &&
                 (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER));
         menu.findItem(R.id.menu_select_found).setVisible(viewType == AdapterMessage.ViewType.SEARCH);
-        menu.findItem(R.id.menu_empty_trash).setVisible(
-                viewType == AdapterMessage.ViewType.FOLDER && EntityFolder.TRASH.equals(type));
-        menu.findItem(R.id.menu_empty_spam).setVisible(
-                viewType == AdapterMessage.ViewType.FOLDER && EntityFolder.JUNK.equals(type));
+        menu.findItem(R.id.menu_empty_trash).setVisible(EntityFolder.TRASH.equals(type) &&
+                (viewType == AdapterMessage.ViewType.UNIFIED ||
+                        viewType == AdapterMessage.ViewType.FOLDER));
+        menu.findItem(R.id.menu_empty_spam).setVisible(EntityFolder.JUNK.equals(type) &&
+                (viewType == AdapterMessage.ViewType.UNIFIED ||
+                        viewType == AdapterMessage.ViewType.FOLDER));
 
         menu.findItem(R.id.menu_force_sync).setVisible(viewType == AdapterMessage.ViewType.UNIFIED);
 
@@ -3132,12 +3134,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private void onMenuEmpty(String type) {
         Bundle aargs = new Bundle();
         if (EntityFolder.TRASH.equals(type))
-            aargs.putString("question", getString(R.string.title_empty_trash_ask));
+            aargs.putString("question", getString(
+                    account < 0 ? R.string.title_empty_trash_all_ask : R.string.title_empty_trash_ask));
         else if (EntityFolder.JUNK.equals(type))
-            aargs.putString("question", getString(R.string.title_empty_spam_ask));
+            aargs.putString("question", getString(
+                    account < 0 ? R.string.title_empty_spam_all_ask : R.string.title_empty_spam_ask));
         else
             throw new IllegalArgumentException("Invalid folder type=" + type);
-        aargs.putLong("folder", folder);
+        aargs.putLong("account", account);
         aargs.putString("type", type);
 
         FragmentDialogAsk ask = new FragmentDialogAsk();
@@ -5349,25 +5353,36 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         new SimpleTask<Void>() {
             @Override
             protected Void onExecute(Context context, Bundle args) {
-                long fid = args.getLong("folder");
+                long aid = args.getLong("account");
                 String type = args.getString("type");
 
                 DB db = DB.getInstance(context);
                 try {
                     db.beginTransaction();
 
-                    EntityFolder folder = db.folder().getFolder(fid);
-                    if (folder == null)
-                        return null;
+                    List<EntityAccount> accounts;
+                    if (account < 0)
+                        accounts = db.account().getSynchronizingAccounts();
+                    else {
+                        EntityAccount account = db.account().getAccount(aid);
+                        if (account == null)
+                            return null;
+                        accounts = Arrays.asList(account);
+                    }
 
-                    if (!folder.type.equals(type))
-                        throw new IllegalStateException("Invalid folder type=" + type);
+                    for (EntityAccount account : accounts) {
+                        EntityFolder folder = db.folder().getFolderByType(account.id, type);
+                        if (folder == null)
+                            continue;
 
-                    List<Long> ids = db.message().getMessageByFolder(folder.id);
-                    for (Long id : ids) {
-                        EntityMessage message = db.message().getMessage(id);
-                        if (message.uid != null || !TextUtils.isEmpty(message.msgid))
-                            EntityOperation.queue(context, message, EntityOperation.DELETE);
+                        List<Long> ids = db.message().getMessageByFolder(folder.id);
+                        for (Long id : ids) {
+                            EntityMessage message = db.message().getMessage(id);
+                            if (message.uid != null || !TextUtils.isEmpty(message.msgid)) {
+                                Log.i("Deleting account=" + account.id + " folder=" + folder.id + " message=" + message.id);
+                                EntityOperation.queue(context, message, EntityOperation.DELETE);
+                            }
+                        }
                     }
 
                     db.setTransactionSuccessful();
