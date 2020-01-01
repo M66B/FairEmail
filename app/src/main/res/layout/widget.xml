@@ -11,7 +11,7 @@
         android:layout_width="24dp"
         android:layout_height="0dp"
         android:layout_gravity="center_horizontal"
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:contentDescription="@string/title_legend_count"
         android:src="@drawable/baseline_mail_24"
         android:tint="@color/colorWidgetForeground" />
@@ -21,10 +21,22 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_gravity="center_horizontal"
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:text="\?"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/colorWidgetForeground"
         android:textSize="18dp"
         android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:text="account"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/colorWidgetForeground"
+        android:textSize="12dp"
+        android:visibility="gone" />
 </LinearLayout>

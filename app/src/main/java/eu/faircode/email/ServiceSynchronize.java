@@ -362,23 +362,46 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
-        db.message().liveUnseenWidget().observe(this, new Observer<TupleMessageStats>() {
-            private Integer lastUnseen = null;
+        db.message().liveUnseenWidget(null).observe(this, new Observer<List<TupleMessageStats>>() {
+            private List<TupleMessageStats> last = null;
 
             @Override
-            public void onChanged(TupleMessageStats stats) {
+            public void onChanged(List<TupleMessageStats> stats) {
                 if (stats == null)
-                    stats = new TupleMessageStats();
+                    stats = new ArrayList<>();
 
+                boolean changed = false;
+                if (last == null || last.size() != stats.size())
+                    changed = true;
+                else
+                    for (int i = 0; i < stats.size(); i++)
+                        if (!last.get(i).equals(stats.get(i))) {
+                            changed = true;
+                            break;
+                        }
+
+                if (!changed)
+                    return;
+
+                Widget.update(ServiceSynchronize.this);
+
+                boolean badge = prefs.getBoolean("badge", true);
                 boolean unseen_ignored = prefs.getBoolean("unseen_ignored", false);
-                Integer unseen = (unseen_ignored ? stats.notifying : stats.unseen);
-                if (unseen == null)
-                    unseen = 0;
 
-                if (lastUnseen == null || !lastUnseen.equals(unseen)) {
-                    Log.i("Stats " + stats);
-                    lastUnseen = unseen;
-                    setUnseen(unseen);
+                int count = 0;
+                for (TupleMessageStats stat : stats) {
+                    Integer unseen = (unseen_ignored ? stat.notifying : stat.unseen);
+                    if (unseen != null)
+                        count += unseen;
+                }
+
+                try {
+                    if (count == 0 || !badge)
+                        ShortcutBadger.removeCount(ServiceSynchronize.this);
+                    else
+                        ShortcutBadger.applyCount(ServiceSynchronize.this, count);
+                } catch (Throwable ex) {
+                    Log.e(ex);
                 }
             }
         });
@@ -509,8 +532,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         cm.unregisterNetworkCallback(networkCallback);
 
         liveAccountNetworkState.postDestroy();
-
-        setUnseen(null);
 
         try {
             stopForeground(true);
@@ -685,22 +706,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 .bigText(message));
 
         return builder;
-    }
-
-    private void setUnseen(Integer unseen) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        boolean badge = prefs.getBoolean("badge", true);
-
-        Widget.update(this, unseen);
-
-        try {
-            if (unseen == null || !badge)
-                ShortcutBadger.removeCount(this);
-            else
-                ShortcutBadger.applyCount(this, unseen);
-        } catch (Throwable ex) {
-            Log.e(ex);
-        }
     }
 
     private void monitorAccount(final EntityAccount account, final Core.State state, final boolean sync) throws NoSuchProviderException {

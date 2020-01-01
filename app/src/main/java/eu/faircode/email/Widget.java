@@ -26,6 +26,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.text.TextUtils;
 import android.widget.RemoteViews;
 
 import androidx.preference.PreferenceManager;
@@ -42,21 +43,49 @@ public class Widget extends AppWidgetProvider {
         executor.submit(new Runnable() {
             @Override
             public void run() {
-                DB db = DB.getInstance(context);
-                TupleMessageStats stats = db.message().getUnseenWidget();
-
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean unseen_ignored = prefs.getBoolean("unseen_ignored", false);
-                Integer unseen = (unseen_ignored ? stats.notifying : stats.unseen);
-                if (unseen == null)
-                    unseen = 0;
 
-                update(context, appWidgetManager, appWidgetIds, unseen);
+                DB db = DB.getInstance(context);
+                NumberFormat nf = NumberFormat.getIntegerInstance();
+
+                Intent view = new Intent(context, ActivityView.class);
+                view.setAction("unified");
+                view.putExtra("refresh", true);
+                view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                PendingIntent pi = PendingIntent.getActivity(context, ActivityView.REQUEST_UNIFIED, view, PendingIntent.FLAG_UPDATE_CURRENT);
+
+                for (int appWidgetId : appWidgetIds) {
+                    long account = prefs.getLong("widget." + appWidgetId + ".account", -1L);
+                    String name = prefs.getString("widget." + appWidgetId + ".name", null);
+
+                    TupleMessageStats stats = db.message().getUnseenWidget(account < 0 ? null : account);
+                    Integer unseen = (unseen_ignored ? stats.notifying : stats.unseen);
+                    if (unseen == null)
+                        unseen = 0;
+
+                    RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget);
+
+                    views.setOnClickPendingIntent(R.id.widget, pi);
+
+                    views.setTextViewText(R.id.tvCount, unseen < 100 ? nf.format(unseen) : "∞");
+
+                    if (!TextUtils.isEmpty(name)) {
+                        views.setTextViewText(R.id.tvAccount, name);
+                        views.setViewVisibility(R.id.tvAccount, ViewStripe.VISIBLE);
+                    }
+
+                    appWidgetManager.updateAppWidget(appWidgetId, views);
+                }
             }
         });
     }
 
-    static void update(Context context, Integer count) {
+    static void init(Context context, int appWidgetId) {
+        update(context);
+    }
+
+    static void update(Context context) {
         AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
         if (appWidgetManager == null) {
             Log.w("No app widget manager"); // Fairphone FP2
@@ -64,31 +93,10 @@ public class Widget extends AppWidgetProvider {
         }
 
         int[] appWidgetIds = appWidgetManager.getAppWidgetIds(new ComponentName(context, Widget.class));
-        update(context, appWidgetManager, appWidgetIds, count);
-    }
 
-    private static void update(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds, Integer count) {
-        NumberFormat nf = NumberFormat.getIntegerInstance();
-
-        Intent view = new Intent(context, ActivityView.class);
-        view.setAction("unified");
-        view.putExtra("refresh", true);
-        view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        PendingIntent pi = PendingIntent.getActivity(context, ActivityView.REQUEST_UNIFIED, view, PendingIntent.FLAG_UPDATE_CURRENT);
-
-        for (int appWidgetId : appWidgetIds) {
-            RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget);
-
-            views.setOnClickPendingIntent(R.id.widget, pi);
-
-            if (count == null)
-                views.setTextViewText(R.id.tvCount, "?");
-            else if (count > 99)
-                views.setTextViewText(R.id.tvCount, "∞");
-            else
-                views.setTextViewText(R.id.tvCount, nf.format(count));
-
-            appWidgetManager.updateAppWidget(appWidgetId, views);
-        }
+        Intent intent = new Intent(context, Widget.class);
+        intent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
+        intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, appWidgetIds);
+        context.sendBroadcast(intent);
     }
 }
