@@ -452,6 +452,8 @@
     <string name="title_create_sub_folder">Lag undermappe</string>
     <string name="title_empty_trash_ask">Slett alle slettede meldinger permanent?</string>
     <string name="title_empty_spam_ask">Vil du slette alle spam meldinger permanent?</string>
+    <string name="title_empty_trash_all_ask">Vil du slette alle papirkurvmeldinger på alle kontoer permanent?</string>
+    <string name="title_empty_spam_all_ask">Vil du slette alle spammeldinger på alle kontoer permanent?</string>
     <string name="title_delete_operation">Slett operasjoner med en feilmelding?</string>
     <string name="title_delete_contacts">Slette alle lokale kontakter?</string>
     <string name="title_no_operations">Ingen ventende operasjoner</string>

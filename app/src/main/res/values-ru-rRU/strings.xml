@@ -474,6 +474,8 @@
     <string name="title_create_sub_folder">Создать вложенную папку</string>
     <string name="title_empty_trash_ask">Удалить все сообщения в корзине навсегда?</string>
     <string name="title_empty_spam_ask">Удалить все сообщения в папке \"Спам\" навсегда?</string>
+    <string name="title_empty_trash_all_ask">Навсегда удалить все сообщения из корзин всех учётных записей?</string>
+    <string name="title_empty_spam_all_ask">Навсегда удалить весь спам из всех учётных записей?</string>
     <string name="title_delete_operation">Удалить операции с сообщением об ошибке?</string>
     <string name="title_delete_contacts">Удалить все локальные контакты?</string>
     <string name="title_no_operations">Нет операций в очереди</string>

@@ -440,6 +440,8 @@
     <string name="title_create_sub_folder">创建子文件夹</string>
     <string name="title_empty_trash_ask">是否永久删除所有垃圾邮件？</string>
     <string name="title_empty_spam_ask">永久删除所有垃圾邮件？</string>
+    <string name="title_empty_trash_all_ask">永久删除所有账户的所有回收站消息？</string>
+    <string name="title_empty_spam_all_ask">永久删除所有帐户的垃圾邮件？</string>
     <string name="title_delete_operation">是否删除带有错误消息的操作？</string>
     <string name="title_delete_contacts">删除所有本地联系人？</string>
     <string name="title_no_operations">没有待执行操作</string>

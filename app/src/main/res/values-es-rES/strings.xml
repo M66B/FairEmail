@@ -452,6 +452,8 @@
     <string name="title_create_sub_folder">Crear subcarpeta</string>
     <string name="title_empty_trash_ask">¿Eliminar todos los mensajes borrados permanentemente?</string>
     <string name="title_empty_spam_ask">¿Eliminar todos los mensajes spam permanentemente?</string>
+    <string name="title_empty_trash_all_ask">¿Eliminar todos los mensajes en papelera de todas las cuentas permanentemente?</string>
+    <string name="title_empty_spam_all_ask">¿Eliminar permanentemente todos los mensajes de spam de todas las cuentas?</string>
     <string name="title_delete_operation">¿Eliminar operaciones con un mensaje de error?</string>
     <string name="title_delete_contacts">¿Eliminar todos los contactos locales?</string>
     <string name="title_no_operations">No hay operaciones pendientes</string>

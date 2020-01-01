@@ -449,6 +449,8 @@
     <string name="title_create_sub_folder">Crea sottocartella</string>
     <string name="title_empty_trash_ask">Eliminare definitivamente tutti i messaggi cestinati?</string>
     <string name="title_empty_spam_ask">Eliminare tutti i messaggi spam definitivamente?</string>
+    <string name="title_empty_trash_all_ask">Eliminare definitivamente tutti i messaggi cestinati di tutti gli account?</string>
+    <string name="title_empty_spam_all_ask">Eliminare definitivamente tutti i messaggi di spam di tutti gli account?</string>
     <string name="title_delete_operation">Eliminare le operazioni con un messaggio di errore?</string>
     <string name="title_delete_contacts">Eliminare tutti i contatti locali?</string>
     <string name="title_no_operations">Nessuna operazione in sospeso</string>

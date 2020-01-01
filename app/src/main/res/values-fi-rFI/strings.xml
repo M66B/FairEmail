@@ -452,6 +452,8 @@
     <string name="title_create_sub_folder">Luo alikansio</string>
     <string name="title_empty_trash_ask">Tyhjennetäänkö roskakori pysyvästi?</string>
     <string name="title_empty_spam_ask">Poistetaanko kaikki roskapostit pysyvästi?</string>
+    <string name="title_empty_trash_all_ask">Tyhjennetäänkö pysyvästi kaikkien tilien roskakoreissa olevat viestit?</string>
+    <string name="title_empty_spam_all_ask">Tyhjennetäänkö pysyvästi kaikkien tilien roskapostiviestit?</string>
     <string name="title_delete_operation">Poistetaanko toimenpiteet, joille on virheilmoitus?</string>
     <string name="title_delete_contacts">Poistetaanko kaikki paikalliset yhteystiedot?</string>
     <string name="title_no_operations">Ei odottavia toimenpiteitä</string>

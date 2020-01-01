@@ -920,7 +920,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_widget_unseen">Nur ungelesene Nachrichten</string>
     <string name="title_widget_flagged">Nur markierte Nachrichten</string>
     <string name="title_accessibility_collapsed">Eingeklappte</string>
-    <string name="title_accessibility_expanded">Erweiterte</string>
+    <string name="title_accessibility_expanded">Erweitert</string>
     <string name="title_accessibility_seen">Gelesen</string>
     <string name="title_accessibility_unseen">Ungelesen</string>
     <plurals name="title_accessibility_messages">

@@ -452,6 +452,8 @@
     <string name="title_create_sub_folder">Alt dizin oluştur</string>
     <string name="title_empty_trash_ask">Çöpe atılmış tüm iletiler kalıcı olarak silinsin mi?</string>
     <string name="title_empty_spam_ask">Tüm spam mesajlarını kalıcı olarak sil?</string>
+    <string name="title_empty_trash_all_ask">Tüm hesapların çöp kutusuna gönderilen tüm iletileri kalıcı olarak silinsin mi?</string>
+    <string name="title_empty_spam_all_ask">Tüm hesapların tüm spam iletileri kalıcı olarak silinsin mi?</string>
     <string name="title_delete_operation">Hata iletisi olan işlemler silinsin mi?</string>
     <string name="title_delete_contacts">Tüm yerel rehber silinsin mi?</string>
     <string name="title_no_operations">Bekleyen işlem yok</string>
