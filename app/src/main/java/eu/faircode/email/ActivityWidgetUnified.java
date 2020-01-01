@@ -102,7 +102,6 @@ public class ActivityWidgetUnified extends ActivityBase {
                 editor.apply();
 
                 WidgetUnified.init(ActivityWidgetUnified.this, appWidgetId);
-                //WidgetUnified.update(ActivityWidgetUnified.this);
 
                 setResult(RESULT_OK, resultValue);
                 finish();

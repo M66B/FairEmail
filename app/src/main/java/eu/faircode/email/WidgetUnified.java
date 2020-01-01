@@ -34,37 +34,7 @@ import androidx.preference.PreferenceManager;
 
 public class WidgetUnified extends AppWidgetProvider {
     @Override
-    public void onUpdate(final Context context, final AppWidgetManager appWidgetManager, final int[] appWidgetIds) {
-        update(context, appWidgetManager, appWidgetIds);
-    }
-
-    static void init(Context context, int appWidgetId) {
-        Log.i("Widget unified init=" + appWidgetId);
-
-        AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
-        if (appWidgetManager == null) {
-            Log.w("No app widget manager"); // Fairphone FP2
-            return;
-        }
-
-        update(context, appWidgetManager, new int[]{appWidgetId});
-    }
-
-    static void update(Context context) {
-        Log.i("Widget unified update");
-        if (ActivityBilling.isPro(context)) {
-            AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
-            if (appWidgetManager == null) {
-                Log.w("No app widget manager"); // Fairphone FP2
-                return;
-            }
-
-            int[] appWidgetIds = appWidgetManager.getAppWidgetIds(new ComponentName(context, WidgetUnified.class));
-            appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, R.id.lv);
-        }
-    }
-
-    private static void update(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
+    public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
         boolean pro = ActivityBilling.isPro(context);
@@ -110,6 +80,35 @@ public class WidgetUnified extends AppWidgetProvider {
                 views.setTextViewText(R.id.pro, context.getText(R.string.title_pro_feature));
 
             appWidgetManager.updateAppWidget(appWidgetId, views);
+        }
+    }
+
+    static void init(Context context, int appWidgetId) {
+        Log.i("Widget unified init=" + appWidgetId);
+
+        AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
+        if (appWidgetManager == null) {
+            Log.w("No app widget manager"); // Fairphone FP2
+            return;
+        }
+
+        Intent intent = new Intent(context, WidgetUnified.class);
+        intent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
+        intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, new int[]{appWidgetId});
+        context.sendBroadcast(intent);
+    }
+
+    static void updateData(Context context) {
+        Log.i("Widget unified update");
+        if (ActivityBilling.isPro(context)) {
+            AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
+            if (appWidgetManager == null) {
+                Log.w("No app widget manager"); // Fairphone FP2
+                return;
+            }
+
+            int[] appWidgetIds = appWidgetManager.getAppWidgetIds(new ComponentName(context, WidgetUnified.class));
+            appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, R.id.lv);
         }
     }
 }

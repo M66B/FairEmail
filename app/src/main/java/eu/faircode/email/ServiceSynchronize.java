@@ -496,7 +496,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         }
 
                 if (changed)
-                    WidgetUnified.update(ServiceSynchronize.this);
+                    WidgetUnified.updateData(ServiceSynchronize.this);
 
                 last = current;
             }
