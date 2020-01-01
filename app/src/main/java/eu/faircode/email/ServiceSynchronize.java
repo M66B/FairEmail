@@ -1295,7 +1295,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         // Short back-off period, keep device awake
                         EntityLog.log(this, account.name + " backoff=" + backoff);
                         try {
-                            state.acquire(backoff * 1000L);
+                            state.acquire(backoff *
+                                    ("imap.gmail.com".equalsIgnoreCase(account.host) ? 1500L : 1000L));
                         } catch (InterruptedException ex) {
                             Log.w(account.name + " backoff " + ex.toString());
                         }
