@@ -1106,7 +1106,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     .build();
             adapter.setSelectionTracker(selectionTracker);
 
-            selectionTracker.addObserver(new SelectionTracker.SelectionObserver() {
+            selectionTracker.addObserver(new SelectionTracker.SelectionObserver<Long>() {
                 @Override
                 public void onSelectionChanged() {
                     FragmentActivity activity = getActivity();
@@ -1117,6 +1117,19 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         fabMore.show();
                     else
                         fabMore.hide();
+                }
+
+                @Override
+                public void onItemStateChanged(@NonNull Long key, boolean selected) {
+                    int pos = adapter.getPositionForKey(key);
+                    if (pos == RecyclerView.NO_POSITION)
+                        return;
+
+                    RecyclerView.ViewHolder viewHolder = rvMessage.findViewHolderForAdapterPosition(pos);
+                    if (viewHolder == null)
+                        return;
+
+                    adapter.onItemSelected((AdapterMessage.ViewHolder) viewHolder, selected);
                 }
             });
         }
