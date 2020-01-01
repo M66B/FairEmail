@@ -310,6 +310,7 @@
     <string name="title_advanced_manage_certificates">Håndtér offentlige nøgler</string>
     <string name="title_advanced_import_key">Importér privat nøgle</string>
     <string name="title_advanced_manage_keys">Håndtér private nøgler</string>
+    <string name="title_advanced_external_search">Tillad andre apps at søge i beskeder</string>
     <string name="title_advanced_english">Gennemtving engelsk sprog</string>
     <string name="title_advanced_watchdog">Tjek periodisk om FairEmail stadig er aktiv</string>
     <string name="title_advanced_updates">Søg efter opdateringer</string>
@@ -644,6 +645,7 @@
     <string name="title_decrypt">Dekryptér</string>
     <string name="title_resync">Synkronisér igen</string>
     <string name="title_no_openpgp">OpenKeychain ikke fundet</string>
+    <string name="title_user_interaction">Overfører til OpenKeychain</string>
     <string name="title_not_encrypted">Besked er ikke signeret eller krypteret</string>
     <string name="title_reset_sign_key">Nulstil sign key</string>
     <string name="title_signature_none">Besked ikke signeret</string>

@@ -311,6 +311,7 @@
     <string name="title_advanced_manage_certificates">Publieke sleutels beheren</string>
     <string name="title_advanced_import_key">Importeer privé sleutel</string>
     <string name="title_advanced_manage_keys">Privé sleutels beheren</string>
+    <string name="title_advanced_external_search">Andere apps mogen zoeken in berichten</string>
     <string name="title_advanced_english">Forceer Engelse taal</string>
     <string name="title_advanced_watchdog">Periodiek controleren of FairEmail nog actief is</string>
     <string name="title_advanced_updates">Controleren op updates</string>
@@ -451,6 +452,8 @@
     <string name="title_create_sub_folder">Maak submap</string>
     <string name="title_empty_trash_ask">Alle weggegooide berichten definitief verwijderen?</string>
     <string name="title_empty_spam_ask">Alle spam berichten definitief verwijderen?</string>
+    <string name="title_empty_trash_all_ask">Alle weggegooide berichten van alle accounts definitief verwijderen?</string>
+    <string name="title_empty_spam_all_ask">Alle spamberichten van alle accounts permanent verwijderen?</string>
     <string name="title_delete_operation">Bewerkingen met een foutmelding verwijderen?</string>
     <string name="title_delete_contacts">Verwijder alle lokale contacten?</string>
     <string name="title_no_operations">Geen openstaande bewerkingen</string>

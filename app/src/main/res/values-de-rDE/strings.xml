@@ -310,6 +310,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_manage_certificates">Öffentliche Schlüssel verwalten</string>
     <string name="title_advanced_import_key">Privaten Schlüssel importieren</string>
     <string name="title_advanced_manage_keys">Private Schlüssel verwalten</string>
+    <string name="title_advanced_external_search">Erlaube anderen Apps in Nachrichten zu suchen</string>
     <string name="title_advanced_english">Englische Sprache erzwingen</string>
     <string name="title_advanced_watchdog">Regelmäßig prüfen, ob FairEmail noch aktiv ist</string>
     <string name="title_advanced_updates">Nach Aktualisierungen suchen</string>
@@ -450,6 +451,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_create_sub_folder">Unterordner erstellen</string>
     <string name="title_empty_trash_ask">Alle E-Mails im Papierkorb unwiderruflich löschen?</string>
     <string name="title_empty_spam_ask">Alle Spam-Nachrichten dauerhaft löschen?</string>
+    <string name="title_empty_trash_all_ask">Alle E-Mails im Papierkorb aller Konten unwiderruflich löschen?</string>
+    <string name="title_empty_spam_all_ask">Alle Spam-Nachrichten aller Konten dauerhaft löschen?</string>
     <string name="title_delete_operation">Lösche Operationen mit einer Fehlermeldung?</string>
     <string name="title_delete_contacts">Alle lokale Kontakte löschen?</string>
     <string name="title_no_operations">Keine weiteren Vorgänge</string>
