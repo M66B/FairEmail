@@ -76,7 +76,11 @@ public class DrawerLayoutEx extends DrawerLayout {
     @Override
     protected void onRestoreInstanceState(Parcelable state) {
         super.onRestoreInstanceState(state);
-        locked = (getDrawerLockMode(Gravity.LEFT) == LOCK_MODE_LOCKED_OPEN ||
+        locked = isLocked();
+    }
+
+    public boolean isLocked() {
+        return (getDrawerLockMode(Gravity.LEFT) == LOCK_MODE_LOCKED_OPEN ||
                 getDrawerLockMode(Gravity.RIGHT) == LOCK_MODE_LOCKED_OPEN);
     }
 
