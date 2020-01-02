@@ -499,7 +499,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        drawerLayout.setup(getResources().getConfiguration());
+        drawerLayout.setup(getResources().getConfiguration(), drawerContainer);
         drawerToggle.syncState();
     }
 
@@ -540,7 +540,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        drawerLayout.setup(newConfig);
+        drawerLayout.setup(newConfig, drawerContainer);
         drawerToggle.onConfigurationChanged(newConfig);
     }
 

@@ -48,7 +48,7 @@ public class DrawerLayoutEx extends DrawerLayout {
         super(context, attrs, defStyle);
     }
 
-    void setup(Configuration config) {
+    void setup(Configuration config, View drawerContainer) {
         setScrimColor(Helper.resolveColor(getContext(), R.attr.colorDrawerScrim));
 
         if (BuildConfig.DEBUG) {
@@ -64,6 +64,7 @@ public class DrawerLayoutEx extends DrawerLayout {
                 setDrawerLockMode(LOCK_MODE_UNLOCKED);
                 setScrimColor(Helper.resolveColor(getContext(), R.attr.colorDrawerScrim));
                 childContent.setPaddingRelative(0, 0, 0, 0);
+                closeDrawer(drawerContainer, false);
             }
         }
     }
