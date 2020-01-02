@@ -4381,6 +4381,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                                 inline = true;
                                 in = new ByteArrayInputStream(section.getBytes());
+                                out = new FileOutputStream(plain);
                             }
                         }
                     }
