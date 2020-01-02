@@ -4078,7 +4078,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         if (this.suitable != state.isSuitable() || this.unmetered != state.isUnmetered()) {
             this.suitable = state.isSuitable();
             this.unmetered = state.isUnmetered();
-            notifyDataSetChanged();
+
+            new Handler().post(new Runnable() {
+                @Override
+                public void run() {
+                    notifyDataSetChanged();
+                }
+            });
         }
     }
 
