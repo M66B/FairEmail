@@ -557,20 +557,21 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void wire() {
-            final View touch = (viewType == ViewType.THREAD ? ibExpander : vwColor);
+            final View touch = (viewType == ViewType.THREAD ? ibExpander : header);
             touch.setOnClickListener(this);
-            view.post(new Runnable() {
-                @Override
-                public void run() {
-                    Rect rect = new Rect(
-                            header.getLeft(),
-                            header.getTop(),
-                            header.getRight(),
-                            header.getBottom());
-                    view.setTouchDelegate(new TouchDelegate(rect, touch));
-                }
-            });
-            view.setOnKeyListener(this);
+            if (touch == ibExpander)
+                header.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        Rect rect = new Rect(
+                                header.getLeft(),
+                                header.getTop(),
+                                header.getRight(),
+                                header.getBottom());
+                        header.setTouchDelegate(new TouchDelegate(rect, touch));
+                    }
+                });
+            header.setOnKeyListener(this);
 
             ibAvatar.setOnClickListener(this);
             ibAuth.setOnClickListener(this);
