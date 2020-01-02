@@ -277,12 +277,21 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     };
 
     private void showConnectionType() {
-        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
-            ConnectionHelper.NetworkState networkState = ConnectionHelper.getNetworkState(getContext());
+        FragmentActivity activity = getActivity();
+        if (activity == null)
+            return;
 
-            tvConnectionType.setText(networkState.isUnmetered() ? R.string.title_legend_unmetered : R.string.title_legend_metered);
-            tvConnectionType.setVisibility(networkState.isConnected() ? View.VISIBLE : View.GONE);
-            tvConnectionRoaming.setVisibility(networkState.isRoaming() ? View.VISIBLE : View.GONE);
-        }
+        activity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
+                    ConnectionHelper.NetworkState networkState = ConnectionHelper.getNetworkState(getContext());
+
+                    tvConnectionType.setText(networkState.isUnmetered() ? R.string.title_legend_unmetered : R.string.title_legend_metered);
+                    tvConnectionType.setVisibility(networkState.isConnected() ? View.VISIBLE : View.GONE);
+                    tvConnectionRoaming.setVisibility(networkState.isRoaming() ? View.VISIBLE : View.GONE);
+                }
+            }
+        });
     }
 }
