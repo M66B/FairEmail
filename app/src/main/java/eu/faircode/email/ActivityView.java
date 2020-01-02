@@ -155,7 +155,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         drawerLayout = findViewById(R.id.drawer_layout);
         drawerLayout.setup(getResources().getConfiguration());
-        // drawerLayout.setScrimColor(Helper.resolveColor(this, R.attr.colorDrawerScrim));
 
         drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.app_name, R.string.app_name) {
             public void onDrawerClosed(View view) {

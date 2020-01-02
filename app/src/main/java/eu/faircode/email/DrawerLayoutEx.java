@@ -32,7 +32,7 @@ import androidx.annotation.Nullable;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 public class DrawerLayoutEx extends DrawerLayout {
-    private boolean locked;
+    private boolean locked = false;
 
     public DrawerLayoutEx(@NonNull Context context) {
         super(context);
@@ -47,7 +47,9 @@ public class DrawerLayoutEx extends DrawerLayout {
     }
 
     void setup(Configuration config) {
-        Log.i("Drawer setup orientation=" + config.orientation);
+        setScrimColor(Helper.resolveColor(getContext(), R.attr.colorDrawerScrim));
+
+/*
         ViewGroup childContent = (ViewGroup) getChildAt(0);
         ViewGroup childDrawer = (ViewGroup) getChildAt(1);
         if (config.orientation == Configuration.ORIENTATION_LANDSCAPE) {
@@ -62,6 +64,7 @@ public class DrawerLayoutEx extends DrawerLayout {
             childContent.setPaddingRelative(0, 0, 0, 0);
             closeDrawers();
         }
+ */
     }
 
     @Override
