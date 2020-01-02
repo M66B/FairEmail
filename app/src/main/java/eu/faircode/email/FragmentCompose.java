@@ -917,15 +917,8 @@ public class FragmentCompose extends FragmentBase {
         }
 
         private void check() {
-            Activity activity = getActivity();
-            if (activity != null)
-                activity.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-                            checkInternet();
-                    }
-                });
+            if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                checkInternet();
         }
     };
 
