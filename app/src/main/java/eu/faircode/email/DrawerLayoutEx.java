@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Parcelable;
@@ -32,6 +33,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.preference.PreferenceManager;
 
 public class DrawerLayoutEx extends DrawerLayout {
     private boolean locked = false;
@@ -51,7 +53,9 @@ public class DrawerLayoutEx extends DrawerLayout {
     void setup(Configuration config, View drawerContainer) {
         setScrimColor(Helper.resolveColor(getContext(), R.attr.colorDrawerScrim));
 
-        if (BuildConfig.DEBUG) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean landscape3 = prefs.getBoolean("landscape3", false);
+        if (landscape3) {
             ViewGroup childContent = (ViewGroup) getChildAt(0);
             ViewGroup childDrawer = (ViewGroup) getChildAt(1);
             if (config.orientation == Configuration.ORIENTATION_LANDSCAPE) {
