@@ -451,6 +451,8 @@
     <string name="title_create_sub_folder">Opret undermappe</string>
     <string name="title_empty_trash_ask">Slet alt indhold i papirkurven permanent?</string>
     <string name="title_empty_spam_ask">Slet alle spambeskeder permanent?</string>
+    <string name="title_empty_trash_all_ask">Slet permanent alt indhold i papirkurven for alle konti?</string>
+    <string name="title_empty_spam_all_ask">Slet permanent alle spam-meddelelser for alle konti?</string>
     <string name="title_delete_operation">Slet operationer med en fejlmeddelelse?</string>
     <string name="title_delete_contacts">Slet alle lokale kontakter?</string>
     <string name="title_no_operations">Ingen afventende handlinger</string>

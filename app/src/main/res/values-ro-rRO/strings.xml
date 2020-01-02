@@ -321,6 +321,7 @@
     <string name="title_advanced_manage_certificates">Gestionare chei publice</string>
     <string name="title_advanced_import_key">Importare cheie privată</string>
     <string name="title_advanced_manage_keys">Gestionare chei private</string>
+    <string name="title_advanced_external_search">Permite altor aplicații să caute în mesaje</string>
     <string name="title_advanced_english">Forțează folosirea limbii Engleze</string>
     <string name="title_advanced_watchdog">Verifică periodic dacă FairEmail este încă activ</string>
     <string name="title_advanced_updates">Verificare actualizări aplicație</string>
@@ -461,6 +462,8 @@
     <string name="title_create_sub_folder">Creează sub-dosar</string>
     <string name="title_empty_trash_ask">Şterge permanent toate mesajele din coșul de gunoi?</string>
     <string name="title_empty_spam_ask">Se șterg permanent toate mesajele spam?</string>
+    <string name="title_empty_trash_all_ask">Şterge permanent toate mesajele din coșul de gunoi pentru toate conturile?</string>
+    <string name="title_empty_spam_all_ask">Şterge permanent toate mesajele spam pentru toate conturile?</string>
     <string name="title_delete_operation">Se șterg operațiunile cu mesaj de eroare?</string>
     <string name="title_delete_contacts">Ștergeți toate contactele locale?</string>
     <string name="title_no_operations">Nici o operațiune în așteptare</string>
