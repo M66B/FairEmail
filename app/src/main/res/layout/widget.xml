@@ -8,6 +8,7 @@
     android:padding="6dp">
 
     <ImageView
+        android:id="@+id/ivMessage"
         android:layout_width="24dp"
         android:layout_height="0dp"
         android:layout_gravity="center_horizontal"
