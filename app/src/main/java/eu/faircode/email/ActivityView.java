@@ -88,7 +88,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private View content_separator;
     private View content_pane;
 
-    private DrawerLayout drawerLayout;
+    private DrawerLayoutEx drawerLayout;
     private ActionBarDrawerToggle drawerToggle;
     private ScrollView drawerContainer;
     private RecyclerView rvAccount;
@@ -154,7 +154,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         content_pane = findViewById(R.id.content_pane);
 
         drawerLayout = findViewById(R.id.drawer_layout);
-        drawerLayout.setScrimColor(Helper.resolveColor(this, R.attr.colorDrawerScrim));
+        drawerLayout.setup(getResources().getConfiguration());
+        // drawerLayout.setScrimColor(Helper.resolveColor(this, R.attr.colorDrawerScrim));
 
         drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.app_name, R.string.app_name) {
             public void onDrawerClosed(View view) {
@@ -541,6 +542,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
+        drawerLayout.setup(newConfig);
         drawerToggle.onConfigurationChanged(newConfig);
     }
 

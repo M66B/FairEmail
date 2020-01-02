@@ -1,4 +1,4 @@
-<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<eu.faircode.email.DrawerLayoutEx xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
@@ -42,4 +42,4 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </ScrollView>
-</androidx.drawerlayout.widget.DrawerLayout>
+</eu.faircode.email.DrawerLayoutEx>
