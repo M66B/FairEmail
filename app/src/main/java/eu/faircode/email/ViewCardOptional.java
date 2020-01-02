@@ -37,7 +37,6 @@ public class ViewCardOptional extends CardView {
     private boolean threading;
     private int margin;
     private int ident;
-    private Integer color = null;
 
     public ViewCardOptional(@NonNull Context context) {
         super(context);
@@ -83,16 +82,12 @@ public class ViewCardOptional extends CardView {
 
     @Override
     public void setCardBackgroundColor(int color) {
-        if (this.color == null || this.color != color) {
-            this.color = color;
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean cards = prefs.getBoolean("cards", true);
+        if (cards && color == Color.TRANSPARENT)
+            color = Helper.resolveColor(getContext(), R.attr.colorCardBackground);
 
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-            boolean cards = prefs.getBoolean("cards", true);
-            if (cards && color == Color.TRANSPARENT)
-                color = Helper.resolveColor(getContext(), R.attr.colorCardBackground);
-
-            super.setCardBackgroundColor(color);
-        }
+        super.setCardBackgroundColor(color);
     }
 
     public void setOutgoing(boolean outgoing) {
