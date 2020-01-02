@@ -2735,7 +2735,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         private void check() {
             if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-                adapter.checkInternet();
+                if (!rvMessage.isComputingLayout())
+                    adapter.checkInternet();
         }
     };
 
