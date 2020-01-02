@@ -22,7 +22,9 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.Color;
+import android.os.Parcelable;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,7 +51,6 @@ public class DrawerLayoutEx extends DrawerLayout {
     void setup(Configuration config) {
         setScrimColor(Helper.resolveColor(getContext(), R.attr.colorDrawerScrim));
 
-/*
         ViewGroup childContent = (ViewGroup) getChildAt(0);
         ViewGroup childDrawer = (ViewGroup) getChildAt(1);
         if (config.orientation == Configuration.ORIENTATION_LANDSCAPE) {
@@ -62,9 +63,14 @@ public class DrawerLayoutEx extends DrawerLayout {
             setDrawerLockMode(LOCK_MODE_UNLOCKED);
             setScrimColor(Helper.resolveColor(getContext(), R.attr.colorDrawerScrim));
             childContent.setPaddingRelative(0, 0, 0, 0);
-            closeDrawers();
         }
- */
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Parcelable state) {
+        super.onRestoreInstanceState(state);
+        locked = (getDrawerLockMode(Gravity.LEFT) == LOCK_MODE_LOCKED_OPEN ||
+                getDrawerLockMode(Gravity.RIGHT) == LOCK_MODE_LOCKED_OPEN);
     }
 
     @Override
