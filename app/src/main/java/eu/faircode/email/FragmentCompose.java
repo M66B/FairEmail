@@ -1644,6 +1644,8 @@ public class FragmentCompose extends FragmentBase {
                 EntityMessage draft = db.message().getMessage(id);
                 if (draft == null)
                     throw new MessageRemovedException("PGP");
+                if (draft.identity == null)
+                    throw new IllegalArgumentException(getString(R.string.title_from_missing));
                 EntityIdentity identity = db.identity().getIdentity(draft.identity);
                 if (identity == null)
                     throw new IllegalArgumentException(getString(R.string.title_from_missing));
