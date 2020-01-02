@@ -281,6 +281,7 @@
                     android:fontFamily="monospace"
                     android:gravity="top"
                     android:hint="@string/title_body_hint"
+                    android:imeOptions="actionNone|flagNoEnterAction"
                     android:inputType="textCapSentences|textMultiLine|textAutoCorrect"
                     android:minHeight="120dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
