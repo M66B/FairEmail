@@ -51,18 +51,20 @@ public class DrawerLayoutEx extends DrawerLayout {
     void setup(Configuration config) {
         setScrimColor(Helper.resolveColor(getContext(), R.attr.colorDrawerScrim));
 
-        ViewGroup childContent = (ViewGroup) getChildAt(0);
-        ViewGroup childDrawer = (ViewGroup) getChildAt(1);
-        if (config.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            locked = true;
-            setDrawerLockMode(LOCK_MODE_LOCKED_OPEN);
-            setScrimColor(Color.TRANSPARENT);
-            childContent.setPaddingRelative(childDrawer.getLayoutParams().width, 0, 0, 0);
-        } else {
-            locked = false;
-            setDrawerLockMode(LOCK_MODE_UNLOCKED);
-            setScrimColor(Helper.resolveColor(getContext(), R.attr.colorDrawerScrim));
-            childContent.setPaddingRelative(0, 0, 0, 0);
+        if (BuildConfig.DEBUG) {
+            ViewGroup childContent = (ViewGroup) getChildAt(0);
+            ViewGroup childDrawer = (ViewGroup) getChildAt(1);
+            if (config.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                locked = true;
+                setDrawerLockMode(LOCK_MODE_LOCKED_OPEN);
+                setScrimColor(Color.TRANSPARENT);
+                childContent.setPaddingRelative(childDrawer.getLayoutParams().width, 0, 0, 0);
+            } else {
+                locked = false;
+                setDrawerLockMode(LOCK_MODE_UNLOCKED);
+                setScrimColor(Helper.resolveColor(getContext(), R.attr.colorDrawerScrim));
+                childContent.setPaddingRelative(0, 0, 0, 0);
+            }
         }
     }
 
