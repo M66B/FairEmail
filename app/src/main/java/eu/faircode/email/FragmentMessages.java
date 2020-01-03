@@ -4372,16 +4372,20 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             int begin = body.indexOf(Helper.PGP_BEGIN_MESSAGE);
                             int end = body.indexOf(Helper.PGP_END_MESSAGE);
                             if (begin >= 0 && begin < end) {
-                                String section = body.substring(begin, end + Helper.PGP_END_MESSAGE.length());
-                                String[] lines = section.split("<br>");
+                                String[] lines = body
+                                        .substring(begin, end + Helper.PGP_END_MESSAGE.length())
+                                        .replace("<br>", "\r\n")
+                                        .split("\\r?\\n");
+
                                 List<String> disarmored = new ArrayList<>();
                                 for (String line : lines)
                                     if (!TextUtils.isEmpty(line) && !line.contains(": "))
                                         disarmored.add(line);
-                                section = TextUtils.join("\n\r", disarmored);
+
+                                String pgpMessage = TextUtils.join("\n\r", disarmored);
 
                                 inline = true;
-                                in = new ByteArrayInputStream(section.getBytes());
+                                in = new ByteArrayInputStream(pgpMessage.getBytes());
                                 out = new FileOutputStream(plain);
                             }
                         }
