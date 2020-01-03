@@ -31,7 +31,6 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
-import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -141,7 +140,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         startup = prefs.getString("startup", "unified");
 
         Configuration config = getResources().getConfiguration();
-        boolean normal = config.isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_NORMAL);
+        final boolean normal = config.isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_NORMAL);
         final boolean landscape = prefs.getBoolean("landscape", true);
         final boolean landscape3 = prefs.getBoolean("landscape3", true);
         Log.i("Orientation=" + config.orientation + " normal=" + normal +
@@ -164,27 +163,24 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         final ViewGroup childDrawer = (ViewGroup) drawerLayout.getChildAt(1);
         drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.app_name, R.string.app_name) {
             public void onDrawerClosed(View view) {
-                if (landscape && landscape3 &&
-                        config.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                    drawerLayout.setDrawerLockMode(LOCK_MODE_UNLOCKED);
-                    drawerLayout.setScrimColor(Helper.resolveColor(ActivityView.this, R.attr.colorDrawerScrim));
-                }
+                drawerLayout.setDrawerLockMode(LOCK_MODE_UNLOCKED);
+                childContent.setPaddingRelative(0, 0, 0, 0);
                 super.onDrawerClosed(view);
             }
 
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
-                if (landscape && landscape3 &&
+                if (normal && landscape && landscape3 &&
                         config.orientation == Configuration.ORIENTATION_LANDSCAPE) {
                     drawerLayout.setDrawerLockMode(LOCK_MODE_LOCKED_OPEN);
-                    drawerLayout.setScrimColor(Color.TRANSPARENT);
+                    childContent.setPaddingRelative(childDrawer.getLayoutParams().width, 0, 0, 0);
                 }
             }
 
             @Override
             public void onDrawerSlide(View drawerView, float slideOffset) {
                 super.onDrawerSlide(drawerView, slideOffset);
-                if (landscape && landscape3 &&
+                if (normal && landscape && landscape3 &&
                         config.orientation == Configuration.ORIENTATION_LANDSCAPE)
                     childContent.setPaddingRelative(
                             Math.round(slideOffset * childDrawer.getLayoutParams().width), 0, 0, 0);
@@ -541,7 +537,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        drawerLayout.setup(getResources().getConfiguration(), drawerContainer);
+        drawerLayout.setup(getResources().getConfiguration(), drawerContainer, drawerToggle);
         drawerToggle.syncState();
     }
 
@@ -582,7 +578,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        drawerLayout.setup(newConfig, drawerContainer);
+        drawerLayout.setup(newConfig, drawerContainer, drawerToggle);
         drawerToggle.onConfigurationChanged(newConfig);
     }
 
@@ -590,7 +586,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     public void onBackPressed() {
         int count = getSupportFragmentManager().getBackStackEntryCount();
         if (drawerLayout.isDrawerOpen(drawerContainer) &&
-                !drawerLayout.isLocked(drawerContainer))
+                (!drawerLayout.isLocked(drawerContainer) || count == 1))
             drawerLayout.closeDrawer(drawerContainer);
         else {
             if (exit || count > 1)
