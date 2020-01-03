@@ -85,4 +85,19 @@ public class DrawerLayoutEx extends DrawerLayout {
         }
         return super.onInterceptTouchEvent(ev);
     }
+
+    @Override
+    public boolean dispatchGenericMotionEvent(MotionEvent ev) {
+        if (isLocked()) {
+            View content = getChildAt(0);
+            Rect rect = new Rect();
+            content.getHitRect(rect);
+            rect.left += content.getPaddingLeft();
+            rect.right -= content.getPaddingRight();
+            if (rect.contains((int) ev.getX(), (int) ev.getY()))
+                return content.dispatchGenericMotionEvent(ev);
+        }
+        return super.dispatchGenericMotionEvent(ev);
+    }
+
 }
