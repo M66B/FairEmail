@@ -20,24 +20,17 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.content.res.Configuration;
-import android.graphics.Color;
-import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.preference.PreferenceManager;
 
 public class DrawerLayoutEx extends DrawerLayout {
-    private boolean locked = false;
-
     public DrawerLayoutEx(@NonNull Context context) {
         super(context);
     }
@@ -52,32 +45,14 @@ public class DrawerLayoutEx extends DrawerLayout {
 
     void setup(Configuration config, View drawerContainer) {
         setScrimColor(Helper.resolveColor(getContext(), R.attr.colorDrawerScrim));
-
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        boolean landscape = prefs.getBoolean("landscape", true);
-        boolean landscape3 = prefs.getBoolean("landscape3", false);
-        if (landscape && landscape3) {
-            ViewGroup childContent = (ViewGroup) getChildAt(0);
-            ViewGroup childDrawer = (ViewGroup) getChildAt(1);
-            if (config.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                locked = true;
-                setDrawerLockMode(LOCK_MODE_LOCKED_OPEN);
-                setScrimColor(Color.TRANSPARENT);
-                childContent.setPaddingRelative(childDrawer.getLayoutParams().width, 0, 0, 0);
-            } else {
-                locked = false;
-                setDrawerLockMode(LOCK_MODE_UNLOCKED);
-                setScrimColor(Helper.resolveColor(getContext(), R.attr.colorDrawerScrim));
-                childContent.setPaddingRelative(0, 0, 0, 0);
-                closeDrawer(drawerContainer, false);
-            }
+        if (config.orientation != Configuration.ORIENTATION_LANDSCAPE) {
+            setDrawerLockMode(LOCK_MODE_UNLOCKED);
+            closeDrawer(drawerContainer, false);
         }
     }
 
-    @Override
-    protected void onRestoreInstanceState(Parcelable state) {
-        super.onRestoreInstanceState(state);
-        locked = isLocked();
+    public boolean isLocked(View view) {
+        return (getDrawerLockMode(view) != LOCK_MODE_UNLOCKED);
     }
 
     public boolean isLocked() {
@@ -86,23 +61,7 @@ public class DrawerLayoutEx extends DrawerLayout {
     }
 
     @Override
-    public boolean isDrawerOpen(@NonNull View drawer) {
-        return (!locked && super.isDrawerOpen(drawer));
-    }
-
-    @Override
-    public boolean isDrawerOpen(int drawerGravity) {
-        return (!locked && super.isDrawerOpen(drawerGravity));
-    }
-
-    @Override
     public boolean onInterceptTouchEvent(final MotionEvent ev) {
-        return (!locked && super.onInterceptTouchEvent(ev));
-    }
-
-    @Override
-    public void closeDrawer(@NonNull View drawerView) {
-        if (!locked)
-            super.closeDrawer(drawerView);
+        return (!isLocked() && super.onInterceptTouchEvent(ev));
     }
 }
