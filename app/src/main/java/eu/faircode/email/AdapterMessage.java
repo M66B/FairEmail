@@ -625,8 +625,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
 
 
-            if (accessibility)
+            if (accessibility) {
                 view.setAccessibilityDelegate(accessibilityDelegateHeader);
+                header.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+            }
         }
 
         private void unwire() {
