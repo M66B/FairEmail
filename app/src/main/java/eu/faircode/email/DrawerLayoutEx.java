@@ -54,8 +54,9 @@ public class DrawerLayoutEx extends DrawerLayout {
         setScrimColor(Helper.resolveColor(getContext(), R.attr.colorDrawerScrim));
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean landscape = prefs.getBoolean("landscape", true);
         boolean landscape3 = prefs.getBoolean("landscape3", false);
-        if (landscape3) {
+        if (landscape && landscape3) {
             ViewGroup childContent = (ViewGroup) getChildAt(0);
             ViewGroup childDrawer = (ViewGroup) getChildAt(1);
             if (config.orientation == Configuration.ORIENTATION_LANDSCAPE) {
