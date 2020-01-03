@@ -2814,11 +2814,10 @@ public class FragmentCompose extends FragmentBase {
                                             preferred = (same == null ? similar : same);
                                         }
                                     }
-                                    if (preferred == null)
-                                        preferred = data.draft.from[0];
-                                    String from = ((InternetAddress) preferred).getAddress();
-                                    if (from != null && from.contains("@"))
+                                    if (preferred != null) {
+                                        String from = ((InternetAddress) preferred).getAddress();
                                         data.draft.extra = from.substring(0, from.indexOf("@"));
+                                    }
                                 }
                             }
 

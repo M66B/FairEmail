@@ -117,6 +117,9 @@ public class EntityIdentity {
         if (other == null)
             return false;
 
+        if (!other.contains("@") || !email.contains("@"))
+            return false;
+
         return other.equalsIgnoreCase(email);
     }
 
