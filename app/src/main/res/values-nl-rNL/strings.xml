@@ -218,7 +218,8 @@
     <string name="title_advanced_rlah">Roam zoals thuis</string>
     <string name="title_advanced_socks">Gebruik SOCKS proxy</string>
     <string name="title_advanced_manage_connectivity">Beheer connectiviteit</string>
-    <string name="title_advanced_landscape">Gebruik twee kolommen in landschapsmodus</string>
+    <string name="title_advanced_landscape">Twee kolommen gebruiken in liggende modus</string>
+    <string name="title_advanced_landscape3">Vaste navigatiemenu toestaan in liggende modus</string>
     <string name="title_advanced_startup">Toon op het startscherm</string>
     <string name="title_advanced_cards">Toon kaarten</string>
     <string name="title_advanced_date_header">Op datum groeperen</string>
