@@ -220,10 +220,10 @@
     <string name="title_setup_defaults">Restore defaults</string>
     <string name="title_setup_reset_questions">Reset questions</string>
 
-    <string name="title_advanced_hint_title" translatable="false">More advanced option</string>
-    <string name="title_advanced_hint_message" translatable="false">
+    <string name="title_advanced_hint_title">More advanced options</string>
+    <string name="title_advanced_hint_message">
         You are navigating to the more advanced options.
-        All options have sensible default values, which should only be changed if necessary
+        All options have commonly used standard values that can be changed if you have a different preference.
     </string>
 
     <string name="title_advanced_section_main">Principal</string>
