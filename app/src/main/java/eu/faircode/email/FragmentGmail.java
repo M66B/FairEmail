@@ -102,26 +102,31 @@ public class FragmentGmail extends FragmentBase {
         btnSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name = etName.getText().toString().trim();
-                if (TextUtils.isEmpty(name)) {
-                    tvError.setText(R.string.title_no_name);
+                try {
+                    grpError.setVisibility(View.GONE);
+
+                    String name = etName.getText().toString().trim();
+                    if (TextUtils.isEmpty(name))
+                        throw new IllegalArgumentException(getString(R.string.title_no_name));
+
+                    startActivityForResult(
+                            Helper.getChooser(getContext(), newChooseAccountIntent(
+                                    null,
+                                    null,
+                                    new String[]{"com.google"},
+                                    false,
+                                    null,
+                                    null,
+                                    null,
+                                    null)),
+                            ActivitySetup.REQUEST_CHOOSE_ACCOUNT);
+                } catch (Throwable ex) {
+                    if (ex instanceof IllegalArgumentException)
+                        tvError.setText(ex.getMessage());
+                    else
+                        tvError.setText(Log.formatThrowable(ex, false));
                     grpError.setVisibility(View.VISIBLE);
-                    return;
                 }
-
-                grpError.setVisibility(View.GONE);
-
-                startActivityForResult(
-                        Helper.getChooser(getContext(), newChooseAccountIntent(
-                                null,
-                                null,
-                                new String[]{"com.google"},
-                                false,
-                                null,
-                                null,
-                                null,
-                                null)),
-                        ActivitySetup.REQUEST_CHOOSE_ACCOUNT);
             }
         });
 
