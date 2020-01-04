@@ -6,6 +6,7 @@ At the bottom you can find how to ask other questions, request features and repo
 ## Index
 
 * [Authorizing accounts](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
+* [How to ...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-how-to-)
 * [Known problems](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
 * [Planned features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
 * [Frequently requested features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
@@ -38,6 +39,13 @@ Related questions:
 
 * [Why is ActiveSync not supported?](#user-content-faq133)
 * [Why is OAuth not supported?](#user-content-faq111)
+
+## How to ...?
+
+* Change the account name: Setup, step 1, Manage, tap account
+* Change the swipe left/right target: Setup, step 1, Manage, tap account, at the bottom
+* Set a signature: Setup, step 2, Manage, tap identity
+* Delete an account/identity: Setup step 1/2, Manage, tap account/identity, three-dots menu, Delete
 
 ## Known problems
 
