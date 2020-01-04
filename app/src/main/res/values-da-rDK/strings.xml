@@ -218,6 +218,7 @@
     <string name="title_advanced_socks">Benyt SOCKS-proxy</string>
     <string name="title_advanced_manage_connectivity">Håndtér konnektivitet</string>
     <string name="title_advanced_landscape">Benyt to kolonner i liggende tilstand</string>
+    <string name="title_advanced_landscape3">Tillad fastgjort navigeringsmenu i liggende tilstand</string>
     <string name="title_advanced_startup">Vis på startskærmen</string>
     <string name="title_advanced_cards">Vis Kort</string>
     <string name="title_advanced_date_header">Gruppér efter dato</string>

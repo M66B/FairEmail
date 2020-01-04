@@ -219,6 +219,7 @@
     <string name="title_advanced_socks">Utiliser un proxy SOCKS</string>
     <string name="title_advanced_manage_connectivity">Gérer la connectivité</string>
     <string name="title_advanced_landscape">Utiliser deux colonnes en mode paysage</string>
+    <string name="title_advanced_landscape3">Afficher le menu de navigation fixe en mode paysage</string>
     <string name="title_advanced_startup">Afficher sur l\'écran de démarrage</string>
     <string name="title_advanced_cards">Afficher sous forme de cartes</string>
     <string name="title_advanced_date_header">Grouper par date</string>

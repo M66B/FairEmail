@@ -218,6 +218,7 @@
     <string name="title_advanced_socks">Usa SOCKS proxy</string>
     <string name="title_advanced_manage_connectivity">Gestisci connettività</string>
     <string name="title_advanced_landscape">Usa due colonne in modalità orizzontale</string>
+    <string name="title_advanced_landscape3">Consenti menu di navigazione fisso in modalità orizzontale</string>
     <string name="title_advanced_startup">Mostra nella schermata iniziale</string>
     <string name="title_advanced_cards">Mostra carte</string>
     <string name="title_advanced_date_header">Raggruppa per data</string>

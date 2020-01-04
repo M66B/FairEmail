@@ -207,6 +207,7 @@
     <string name="title_advanced_socks">SOCKS proxyを使用</string>
     <string name="title_advanced_manage_connectivity">接続の管理</string>
     <string name="title_advanced_landscape">横向きモードで2列を使用</string>
+    <string name="title_advanced_landscape3">横向きモードで固定ナビゲーションメニューを許可</string>
     <string name="title_advanced_startup">スタート画面に表示</string>
     <string name="title_advanced_cards">カードを表示</string>
     <string name="title_advanced_date_header">日付毎にグループ化</string>

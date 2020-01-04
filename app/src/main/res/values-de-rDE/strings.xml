@@ -218,6 +218,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_socks">SOCKS Proxy verwenden</string>
     <string name="title_advanced_manage_connectivity">Konnektivität verwalten</string>
     <string name="title_advanced_landscape">Zwei Spalten im Querformat verwenden</string>
+    <string name="title_advanced_landscape3">Fixiertes Navigationsmenü im Querformat erlauben</string>
     <string name="title_advanced_startup">Auf Startbildschirm anzeigen</string>
     <string name="title_advanced_cards">Karten anzeigen</string>
     <string name="title_advanced_date_header">Nach Datum gruppieren</string>
@@ -919,7 +920,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_widget_folder_unified">Sammeleingangsordner</string>
     <string name="title_widget_unseen">Nur ungelesene Nachrichten</string>
     <string name="title_widget_flagged">Nur markierte Nachrichten</string>
-    <string name="title_accessibility_collapsed">Eingeklappte</string>
+    <string name="title_accessibility_collapsed">Eingeklappt</string>
     <string name="title_accessibility_expanded">Erweitert</string>
     <string name="title_accessibility_seen">Gelesen</string>
     <string name="title_accessibility_unseen">Ungelesen</string>
@@ -927,7 +928,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
         <item quantity="one">%1$d Nachricht</item>
         <item quantity="other">%1$d Nachrichten</item>
     </plurals>
-    <string name="title_accessibility_flagged">Markierte</string>
+    <string name="title_accessibility_flagged">Markiert</string>
     <string name="title_accessibility_unflagged">Nicht markiert</string>
     <string name="title_accessibility_collapse">Zusammenklappen</string>
     <string name="title_accessibility_expand">Erweitern</string>

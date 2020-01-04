@@ -207,6 +207,7 @@
     <string name="title_advanced_socks">使用 SOCKS 代理</string>
     <string name="title_advanced_manage_connectivity">管理连接</string>
     <string name="title_advanced_landscape">在横屏模式下使用两列</string>
+    <string name="title_advanced_landscape3">在横屏模式下允许固定导航菜单</string>
     <string name="title_advanced_startup">在启动屏幕上显示</string>
     <string name="title_advanced_cards">展示卡片</string>
     <string name="title_advanced_date_header">按日期分组</string>

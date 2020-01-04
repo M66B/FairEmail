@@ -229,6 +229,7 @@
     <string name="title_advanced_socks">Utilizați proxy SOCKS</string>
     <string name="title_advanced_manage_connectivity">Gestionare conexiuni</string>
     <string name="title_advanced_landscape">Folosește două coloane în modul portret</string>
+    <string name="title_advanced_landscape3">Permite meniul de navigare fix în modul panoramă</string>
     <string name="title_advanced_startup">Arată pe ecranul de start</string>
     <string name="title_advanced_cards">Arată carduri</string>
     <string name="title_advanced_date_header">Grupare după dată</string>
