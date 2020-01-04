@@ -134,6 +134,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     static final String ACTION_MANAGE_LOCAL_CONTACTS = BuildConfig.APPLICATION_ID + ".MANAGE_LOCAL_CONTACTS";
     static final String ACTION_MANAGE_CERTIFICATES = BuildConfig.APPLICATION_ID + ".MANAGE_CERTIFICATES";
     static final String ACTION_IMPORT_CERTIFICATE = BuildConfig.APPLICATION_ID + ".IMPORT_CERTIFICATE";
+    static final String ACTION_SETUP_ADVANCED = BuildConfig.APPLICATION_ID + ".SETUP_ADVANCED";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -311,6 +312,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         iff.addAction(ACTION_MANAGE_LOCAL_CONTACTS);
         iff.addAction(ACTION_MANAGE_CERTIFICATES);
         iff.addAction(ACTION_IMPORT_CERTIFICATE);
+        iff.addAction(ACTION_SETUP_ADVANCED);
         lbm.registerReceiver(receiver, iff);
     }
 
@@ -1209,6 +1211,14 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             startActivityForResult(Helper.getChooser(this, open), REQUEST_IMPORT_CERTIFICATE);
     }
 
+    private void onSetupAdvanced(Intent intent) {
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.title_advanced_hint_title)
+                .setMessage(R.string.title_advanced_hint_message)
+                .setPositiveButton(android.R.string.ok, null)
+                .show();
+    }
+
     private static Intent getIntentExport() {
         Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
@@ -1308,6 +1318,8 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                     onManageCertificates(intent);
                 else if (ACTION_IMPORT_CERTIFICATE.equals(action))
                     onImportCertificate(intent);
+                else if (ACTION_SETUP_ADVANCED.equals(action))
+                    onSetupAdvanced(intent);
             }
         }
     };

@@ -220,6 +220,12 @@
     <string name="title_setup_defaults">Restore defaults</string>
     <string name="title_setup_reset_questions">Reset questions</string>
 
+    <string name="title_advanced_hint_title" translatable="false">More advanced option</string>
+    <string name="title_advanced_hint_message" translatable="false">
+        You are navigating to the more advanced options.
+        All options have sensible default values, which should only be changed if necessary
+    </string>
+
     <string name="title_advanced_section_main">Principal</string>
     <string name="title_advanced_section_synchronize">Receive</string>
     <string name="title_advanced_section_send">Send</string>
@@ -376,8 +382,6 @@
     <string name="title_advanced_memory_class" translatable="false">Memory class: %1$s</string>
     <string name="title_advanced_storage_space" translatable="false">Storage space: %1$s/%2$s</string>
     <string name="title_advanced_last_cleanup">Last cleanup: %1$s</string>
-
-    <string name="title_advanced_hint">All settings have sensible default values, which should only be changed if necessary</string>
 
     <string name="title_advanced_enabled_hint">Globally disable or enable receiving of messages</string>
     <string name="title_advanced_manual_hint">If synchronization is disabled, it is still possible to synchronize manually by pulling down the message list.</string>
