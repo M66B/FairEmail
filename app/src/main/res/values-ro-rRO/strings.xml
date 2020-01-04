@@ -331,7 +331,6 @@
     <string name="title_advanced_debug">Depanare</string>
     <string name="title_advanced_cleanup">Curățare</string>
     <string name="title_advanced_last_cleanup">Ultima curățare: %1$s</string>
-    <string name="title_advanced_hint">Setările implicite sunt de bun simț și ar trebui schimbate doar dacă este necesar</string>
     <string name="title_advanced_enabled_hint">Activează sau dezactivează global recepția mesajelor</string>
     <string name="title_advanced_manual_hint">Dacă sincronizarea este dezactivată tot este posibilă sincronizarea manuală glisând în jos lista de mesaje.</string>
     <string name="title_advanced_poll_hint">Sincronizarea periodică va compara mesajele locale cu cele de pe server de fiecare dată, aceasta este o operațiune costisitoare ce va rezulta într-un consum ridicat al bateriei, mai ales atunci când sunt multe mesaje de sincronizat. Modul de sincronizare permanent evită asta prin monitorizarea continuă a schimbărilor.</string>

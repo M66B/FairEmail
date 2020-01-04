@@ -180,6 +180,10 @@
     <string name="title_setup_options">Opties</string>
     <string name="title_setup_defaults">Verstekwaarden herstellen</string>
     <string name="title_setup_reset_questions">Vragen resetten</string>
+    <string name="title_advanced_hint_title">Meer geavanceerde opties</string>
+    <string name="title_advanced_hint_message">        U navigeert naar de meer geavanceerde opties.
+        Alle opties hebben vaak gebruikte standaardwaarden die gewijzigd kunnen worden als u een andere voorkeur heeft.
+    </string>
     <string name="title_advanced_section_main">Hoofd</string>
     <string name="title_advanced_section_synchronize">Ontvangen</string>
     <string name="title_advanced_section_send">Verzenden</string>
@@ -321,7 +325,6 @@
     <string name="title_advanced_debug">Foutopsporing modus</string>
     <string name="title_advanced_cleanup">Opruimen</string>
     <string name="title_advanced_last_cleanup">Laatste schoonmaak: %1$s</string>
-    <string name="title_advanced_hint">Alle opties hebben zinnige verstekwaarden en dienen alleen gewijzigd te worden wanneer dat nodig is</string>
     <string name="title_advanced_enabled_hint">Globaal in- of uitschakelen van het ontvangen van berichten</string>
     <string name="title_advanced_manual_hint">Als synchronisatie uitgeschakeld is, is het nog steeds mogelijk om handmatig te synchroniseren door het omlaag trekken van de berichtenlijst.</string>
     <string name="title_advanced_poll_hint">Periodiek synchroniseren zal elke keer lokale en externe berichten vergelijken, wat een dure operatie is en kan resulteren in extra batterijgebruik, vooral wanneer er veel berichten zijn om te synchroniseren. Altijd synchroniseren vermijdt dit door voortdurend veranderingen te monitoren.</string>
@@ -816,6 +819,7 @@
     <string name="title_legend_expander">Uitvouwen</string>
     <string name="title_legend_avatar">Avatar</string>
     <string name="title_legend_show_quotes">Toon citaten</string>
+    <string name="title_legend_show_junk">Behandel als spam</string>
     <string name="title_legend_show_unsubscribe">Uitschrijven van lijst</string>
     <string name="title_legend_show_images">Toon afbeeldingen</string>
     <string name="title_legend_show_full">Toon volledig scherm</string>

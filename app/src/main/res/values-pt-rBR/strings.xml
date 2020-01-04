@@ -279,7 +279,6 @@
     <string name="title_advanced_debug">Modo de depuração</string>
     <string name="title_advanced_cleanup">Limpeza</string>
     <string name="title_advanced_last_cleanup">Última limpeza: %1$s</string>
-    <string name="title_advanced_hint">Todas as configurações têm valores padrão sensíveis, que devem ser alterados somente se necessário</string>
     <string name="title_advanced_enabled_hint">Globalmente desabilitar ou habilitar o recebimento de mensagens</string>
     <string name="title_advanced_poll_hint">Sincronizar periodicamente irá cada vez comparar mensagens locais e remotas, o que é uma operação pesada, possivelmente resultando em uso extra de bateria, especialmente quando há muitas mensagens para sincronizar. Sincronizar sempre evitará isso através de um acompanhamento contínuo para somente alterações.</string>
     <string name="title_advanced_schedule_hint">Toque uma vez para definir um tempo</string>

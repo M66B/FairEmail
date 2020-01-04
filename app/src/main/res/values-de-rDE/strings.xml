@@ -311,7 +311,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_manage_certificates">Öffentliche Schlüssel verwalten</string>
     <string name="title_advanced_import_key">Privaten Schlüssel importieren</string>
     <string name="title_advanced_manage_keys">Private Schlüssel verwalten</string>
-    <string name="title_advanced_external_search">Erlaube anderen Apps in Nachrichten zu suchen</string>
+    <string name="title_advanced_external_search">Erlaube anderen Apps, in Nachrichten zu suchen</string>
     <string name="title_advanced_english">Englische Sprache erzwingen</string>
     <string name="title_advanced_watchdog">Regelmäßig prüfen, ob FairEmail noch aktiv ist</string>
     <string name="title_advanced_updates">Nach Aktualisierungen suchen</string>
@@ -320,7 +320,6 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_debug">Debugmodus</string>
     <string name="title_advanced_cleanup">Bereinigen</string>
     <string name="title_advanced_last_cleanup">Letzte Bereinigung: %1$s</string>
-    <string name="title_advanced_hint">Alle Einstellungen haben sinnvolle Standardwerte, die nur geändert werden sollten, wenn dies notwendig ist</string>
     <string name="title_advanced_enabled_hint">Nachrichtenempfang global deaktivieren oder aktivieren</string>
     <string name="title_advanced_manual_hint">Selbst wenn die Synchronisation deaktiviert ist, ist es möglich, manuell zu synchronisieren, indem Sie die Nachrichtenliste herunterziehen.</string>
     <string name="title_advanced_poll_hint">Die regelmäßige Synchronisation vergleicht jedes Mal lokale und entfernte Nachrichten, was ein aufwendiger Vorgang ist, der möglicherweise zu einem zusätzlichen Batterieverbrauch führt, besonders wenn es viele zu synchronisierende Nachrichten gibt. Durch die ständige Synchronisation wird dies vermieden, indem man ständig nur auf Änderungen achtet.</string>
@@ -373,7 +372,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_sender">Bearbeitung der Absenderadresse erlauben</string>
     <string name="title_advanced_sender_regex">Regex um bearbeitete Adressen zu finden</string>
     <string name="title_identity_reply_to">Antwortadresse</string>
-    <string name="title_identity_receipt">Lieferung/Lesebestätigung standardmäßig anfordern</string>
+    <string name="title_identity_receipt">Auslieferungs-/Lesebestätigung standardmäßig anfordern</string>
     <string name="title_identity_use_ip_hint">Bei \'invalid greeting\', \'requires valid address\' oder einem ähnlichen Fehler, versuchen Sie, diese Einstellung zu ändern</string>
     <string name="title_optional">Optional</string>
     <string name="title_recommended">Empfohlen</string>

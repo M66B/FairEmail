@@ -308,7 +308,6 @@
     <string name="title_advanced_crash_reports">エラーレポートを送信</string>
     <string name="title_advanced_debug">デバッグモード</string>
     <string name="title_advanced_cleanup">クリーンアップ</string>
-    <string name="title_advanced_hint">全ての設定には適切なデフォルト値があり、必要な場合にのみ変更する必要があります</string>
     <string name="title_advanced_enabled_hint">メッセージのグローバルな無効又は有効にします</string>
     <string name="title_advanced_manual_hint">同期が無効になっている場合でも、メッセージリストをプルダウンして手動で同期する事は可能です</string>
     <string name="title_advanced_poll_hint">定期的に同期はローカルメッセージとリモートメッセージが毎回比較されます。特に同期するメッセージが多く有る場合、電池消費が増える可能性が有り負荷のかかる操作です。常に同期は変更のみを継続的に監視するのでこれを回避できます</string>

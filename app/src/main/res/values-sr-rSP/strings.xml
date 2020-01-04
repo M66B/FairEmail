@@ -313,7 +313,6 @@
     <string name="title_advanced_crash_reports">Шаљи извештаје о грешкама</string>
     <string name="title_advanced_debug">Режим отклањања грешака</string>
     <string name="title_advanced_cleanup">Чишћење</string>
-    <string name="title_advanced_hint">Све поставке имају разумне подразумеване вредности, које треба мењати само ако је неопходно</string>
     <string name="title_advanced_enabled_hint">Глобално укључи и искључи примање порука</string>
     <string name="title_advanced_manual_hint">Ако се синхронизација искључи, и даље је могућа ручна синхронизација повлачењем листе порука на доле.</string>
     <string name="title_advanced_poll_hint">Периодична синхронизација ће упоређивати локалне и удаљене поруке сваки пут, што је скупа операција, која може да проузрокује додатну потрошњу батерије, нарочито ако има много порука за синхронизацију. Увек синхронизовати ће избећи ово тако што ће непрекидно пратити само промене.</string>
