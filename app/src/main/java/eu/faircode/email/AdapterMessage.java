@@ -635,7 +635,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void unwire() {
-            final View touch = (viewType == ViewType.THREAD ? ibExpander : vwColor);
+            final View touch = (viewType == ViewType.THREAD ? ibExpander : header);
             touch.setOnClickListener(null);
             view.setOnKeyListener(null);
 
