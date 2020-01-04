@@ -83,7 +83,19 @@ public class DrawerLayoutEx extends DrawerLayout {
             if (!rect.contains((int) ev.getX(), (int) ev.getY()))
                 return false;
         }
-        return super.onInterceptTouchEvent(ev);
+
+        try {
+            return super.onInterceptTouchEvent(ev);
+        } catch (Throwable ex) {
+            Log.w(ex);
+/*
+            java.lang.NullPointerException: Attempt to get length of null array
+            java.lang.NullPointerException: Attempt to get length of null array
+            at androidx.customview.widget.ViewDragHelper.checkTouchSlop(SourceFile:1334)
+            at androidx.drawerlayout.widget.DrawerLayout.onInterceptTouchEvent(SourceFile:1512)
+*/
+            return false;
+        }
     }
 
     @Override
@@ -97,7 +109,7 @@ public class DrawerLayoutEx extends DrawerLayout {
             if (rect.contains((int) ev.getX(), (int) ev.getY()))
                 return content.dispatchGenericMotionEvent(ev);
         }
+
         return super.dispatchGenericMotionEvent(ev);
     }
-
 }
