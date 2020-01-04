@@ -930,6 +930,7 @@
     <string name="title_legend_expander">Expander</string>
     <string name="title_legend_avatar">Avatar</string>
     <string name="title_legend_show_quotes">Show quotes</string>
+    <string name="title_legend_show_junk">Treat as spam</string>
     <string name="title_legend_show_unsubscribe">Unsubscribe from list</string>
     <string name="title_legend_show_images">Show images</string>
     <string name="title_legend_show_full">Show fullscreen</string>

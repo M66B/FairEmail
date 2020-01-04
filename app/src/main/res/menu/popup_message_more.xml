@@ -30,7 +30,8 @@
 
     <item
         android:id="@+id/menu_junk"
-        android:title="@string/title_spam" />
+        android:title="@string/title_spam"
+        android:visible="false" />
 
     <item
         android:id="@+id/menu_resync"

@@ -342,6 +342,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageButton ibFull;
         private ImageButton ibImages;
         private ImageButton ibUnsubscribe;
+        private ImageButton ibJunk;
         private ImageButton ibVerify;
         private ImageButton ibDecrypt;
 
@@ -519,6 +520,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibFull = vsBody.findViewById(R.id.ibFull);
             ibImages = vsBody.findViewById(R.id.ibImages);
             ibUnsubscribe = vsBody.findViewById(R.id.ibUnsubscribe);
+            ibJunk = vsBody.findViewById(R.id.ibJunk);
             ibVerify = vsBody.findViewById(R.id.ibVerify);
             ibDecrypt = vsBody.findViewById(R.id.ibDecrypt);
 
@@ -595,6 +597,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibFull.setOnClickListener(this);
                 ibImages.setOnClickListener(this);
                 ibUnsubscribe.setOnClickListener(this);
+                ibJunk.setOnClickListener(this);
                 ibVerify.setOnClickListener(this);
                 ibDecrypt.setOnClickListener(this);
 
@@ -658,6 +661,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibFull.setOnClickListener(null);
                 ibImages.setOnClickListener(null);
                 ibUnsubscribe.setOnClickListener(null);
+                ibJunk.setOnClickListener(null);
                 ibVerify.setOnClickListener(null);
                 ibDecrypt.setOnClickListener(null);
 
@@ -1033,6 +1037,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibFull.setVisibility(View.GONE);
             ibImages.setVisibility(View.GONE);
             ibUnsubscribe.setVisibility(View.GONE);
+            ibJunk.setVisibility(View.GONE);
             ibVerify.setVisibility(View.GONE);
             ibDecrypt.setVisibility(View.GONE);
 
@@ -1147,6 +1152,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibFull.setVisibility(View.VISIBLE);
             ibImages.setVisibility(View.GONE);
             ibUnsubscribe.setVisibility(message.unsubscribe == null ? View.GONE : View.VISIBLE);
+            ibJunk.setVisibility(
+                    message.uid == null || message.folderReadOnly &&
+                            (hasJunk && !EntityFolder.JUNK.equals(message.folderType))
+                            ? View.GONE : View.VISIBLE);
             ibDecrypt.setVisibility(View.GONE);
             ibVerify.setVisibility(View.GONE);
 
@@ -2097,6 +2106,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     case R.id.ibUnsubscribe:
                         onActionUnsubscribe(message);
                         break;
+                    case R.id.ibJunk:
+                        onActionJunk(message);
+                        break;
                     case R.id.ibVerify:
                     case R.id.ibDecrypt:
                         onActionDecrypt(message, false);
@@ -2764,6 +2776,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private void onActionUnsubscribe(TupleMessageEx message) {
             Uri uri = Uri.parse(message.unsubscribe);
             onOpenLink(uri, context.getString(R.string.title_legend_show_unsubscribe));
+        }
+
+        private void onActionJunk(TupleMessageEx message) {
+            onMenuJunk(message);
         }
 
         private void onActionDecrypt(TupleMessageEx message, boolean auto) {
