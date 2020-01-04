@@ -1304,7 +1304,7 @@ public class MessageHelper {
 
             // Download attachment
             File file = EntityAttachment.getFile(context, local.id, local.name);
-            db.attachment().setProgress(local.id, null);
+            db.attachment().setProgress(local.id, 0);
 
             if (EntityAttachment.PGP_CONTENT.equals(apart.encrypt) ||
                     EntityAttachment.SMIME_CONTENT.equals(apart.encrypt)) {

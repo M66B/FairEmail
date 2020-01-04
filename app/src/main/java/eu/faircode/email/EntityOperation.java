@@ -262,7 +262,7 @@ public class EntityOperation {
                 db.message().setMessageUiHide(message.id, true);
 
             else if (ATTACHMENT.equals(name))
-                db.attachment().setProgress(jargs.getLong(0), null);
+                db.attachment().setProgress(jargs.getLong(0), 0);
 
             queue(context, message.account, message.folder, message.id, name, jargs);
 
