@@ -195,7 +195,7 @@ and is used to [help improve FairEmail](https://github.com/M66B/FairEmail/blob/m
 
 ## License
 
-Copyright &copy; 2018-2019 Marcel Bokhorst. All rights reserved.
+Copyright &copy; 2018-2020 Marcel Bokhorst. All rights reserved.
 
 [GNU General Public License version 3](https://www.gnu.org/licenses/gpl.txt)
 

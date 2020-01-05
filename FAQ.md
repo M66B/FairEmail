@@ -2601,3 +2601,5 @@ Requested features should:
 Features not fulfilling these requirements will likely be rejected.
 
 If you have another question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
+
+Copyright &copy; 2018-2020 Marcel Bokhorst.
