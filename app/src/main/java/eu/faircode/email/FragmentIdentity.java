@@ -374,12 +374,14 @@ public class FragmentIdentity extends FragmentBase {
                 cbUseIp.setChecked(provider.useip);
 
                 EntityAccount account = (EntityAccount) spAccount.getSelectedItem();
-                etUser.setEnabled(auth == MailService.AUTH_TYPE_PASSWORD ||
-                        account == null ||
-                        provider.imap.host == null || !provider.imap.host.equals(account.host));
-                tilPassword.setEnabled(auth == MailService.AUTH_TYPE_PASSWORD ||
-                        account == null ||
-                        provider.imap.host == null || !provider.imap.host.equals(account.host));
+                if (account == null ||
+                        provider.imap.host == null || !provider.imap.host.equals(account.host))
+                    auth = MailService.AUTH_TYPE_PASSWORD;
+                else
+                    auth = account.auth_type;
+
+                etUser.setEnabled(auth == MailService.AUTH_TYPE_PASSWORD);
+                tilPassword.setEnabled(auth == MailService.AUTH_TYPE_PASSWORD);
             }
 
             @Override
