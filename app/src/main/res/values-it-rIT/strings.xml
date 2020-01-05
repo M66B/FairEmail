@@ -179,6 +179,10 @@
     <string name="title_setup_options">Opzioni</string>
     <string name="title_setup_defaults">Ripristina predefiniti</string>
     <string name="title_setup_reset_questions">Resetta domande</string>
+    <string name="title_advanced_hint_title">Opzioni più avanzate</string>
+    <string name="title_advanced_hint_message">        Stai navigando tra le opzioni più avanzate.
+        Tutte le opzioni hanno valori standard comunemente usati che possono essere modificati se si ha una preferenza diversa.
+    </string>
     <string name="title_advanced_section_main">Principale</string>
     <string name="title_advanced_section_synchronize">Ricevi</string>
     <string name="title_advanced_section_send">Invia</string>
@@ -811,6 +815,7 @@
     <string name="title_legend_expander">Espansione</string>
     <string name="title_legend_avatar">Avatar</string>
     <string name="title_legend_show_quotes">Mostra citazioni</string>
+    <string name="title_legend_show_junk">Tratta come spam</string>
     <string name="title_legend_show_unsubscribe">Cancellare dalla lista</string>
     <string name="title_legend_show_images">Mostra immagini</string>
     <string name="title_legend_show_full">Mostra schermo intero</string>

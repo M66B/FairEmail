@@ -179,6 +179,10 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_setup_options">Optionen</string>
     <string name="title_setup_defaults">Standardeinstellungen wiederherstellen</string>
     <string name="title_setup_reset_questions">Fragen zurücksetzen</string>
+    <string name="title_advanced_hint_title">Erweiterte Optionen</string>
+    <string name="title_advanced_hint_message">        Du navigierst zu den erweiterten Optionen.
+        Alle diese Optionen haben üblicherweise benutzte Standardwerte. Diese können natürlich auch geändert werden, sofern eine andere Einstellung gewünscht wird.
+    </string>
     <string name="title_advanced_section_main">Haupteinstellungen</string>
     <string name="title_advanced_section_synchronize">Empfangen</string>
     <string name="title_advanced_section_send">Senden</string>
@@ -814,6 +818,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_legend_expander">Erweitern</string>
     <string name="title_legend_avatar">Benutzerbild</string>
     <string name="title_legend_show_quotes">Zitate anzeigen</string>
+    <string name="title_legend_show_junk">Als Spam behandeln</string>
     <string name="title_legend_show_unsubscribe">Aus Liste abmelden</string>
     <string name="title_legend_show_images">Bilder anzeigen</string>
     <string name="title_legend_show_full">Vollbild anzeigen</string>

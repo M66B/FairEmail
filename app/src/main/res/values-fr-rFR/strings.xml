@@ -180,6 +180,10 @@
     <string name="title_setup_options">Options</string>
     <string name="title_setup_defaults">Rétablir les paramètres par défaut</string>
     <string name="title_setup_reset_questions">Réinitialiser les questions</string>
+    <string name="title_advanced_hint_title">Plus d\'options avancées</string>
+    <string name="title_advanced_hint_message">        Vous allez afficher les options les plus avancées.
+        Toutes les options ont des valeurs standard couramment utilisées qui peuvent être modifiées si vous avez une préférence différente.
+    </string>
     <string name="title_advanced_section_main">Principal</string>
     <string name="title_advanced_section_synchronize">Réception</string>
     <string name="title_advanced_section_send">Envoi</string>
@@ -815,6 +819,7 @@
     <string name="title_legend_expander">Développer</string>
     <string name="title_legend_avatar">Avatar</string>
     <string name="title_legend_show_quotes">Afficher les citations</string>
+    <string name="title_legend_show_junk">Traiter comme spam</string>
     <string name="title_legend_show_unsubscribe">Se désabonner de la liste</string>
     <string name="title_legend_show_images">Afficher les images</string>
     <string name="title_legend_show_full">Afficher en plein écran</string>

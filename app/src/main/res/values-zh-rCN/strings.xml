@@ -168,6 +168,10 @@
     <string name="title_setup_options">选项</string>
     <string name="title_setup_defaults">恢复默认设置</string>
     <string name="title_setup_reset_questions">重置问题</string>
+    <string name="title_advanced_hint_title">更多高级选项</string>
+    <string name="title_advanced_hint_message">您正前往更多的高级选项。
+        所有选项默认均使用可更改的常用标准值。
+    </string>
     <string name="title_advanced_section_main">主要</string>
     <string name="title_advanced_section_synchronize">接收</string>
     <string name="title_advanced_section_send">发送</string>
@@ -803,6 +807,7 @@
     <string name="title_legend_expander">已展开</string>
     <string name="title_legend_avatar">头像</string>
     <string name="title_legend_show_quotes">显示引用内容</string>
+    <string name="title_legend_show_junk">当成垃圾邮件处理</string>
     <string name="title_legend_show_unsubscribe">从列表取消订阅</string>
     <string name="title_legend_show_images">显示图片</string>
     <string name="title_legend_show_full">全屏显示</string>
