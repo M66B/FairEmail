@@ -19,13 +19,17 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.app.RecoverableSecurityException;
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.IntentSender;
 import android.content.res.Configuration;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.ParcelFileDescriptor;
 import android.text.TextUtils;
@@ -36,7 +40,9 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.documentfile.provider.DocumentFile;
 import androidx.fragment.app.Fragment;
@@ -65,6 +71,7 @@ public class FragmentBase extends Fragment {
 
     private static final int REQUEST_ATTACHMENT = 51;
     private static final int REQUEST_ATTACHMENTS = 52;
+    private static final int REQUEST_RECOVERABLE_PERMISSION = 53;
 
     static final String ACTION_STORE_ATTACHMENT = BuildConfig.APPLICATION_ID + ".STORE_ATTACHMENT";
     static final String ACTION_STORE_ATTACHMENTS = BuildConfig.APPLICATION_ID + ".STORE_ATTACHMENTS";
@@ -375,7 +382,10 @@ public class FragmentBase extends Fragment {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                if (ex instanceof IllegalArgumentException || ex instanceof FileNotFoundException)
+                if (ex instanceof RecoverableSecurityException &&
+                        Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    handle((RecoverableSecurityException) ex);
+                } else if (ex instanceof IllegalArgumentException || ex instanceof FileNotFoundException)
                     ToastEx.makeText(getContext(), ex.getMessage(), Toast.LENGTH_LONG).show();
                 else
                     Log.unexpectedError(getParentFragmentManager(), ex);
@@ -451,8 +461,33 @@ public class FragmentBase extends Fragment {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Log.unexpectedError(getParentFragmentManager(), ex);
+                if (ex instanceof RecoverableSecurityException &&
+                        Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    handle((RecoverableSecurityException) ex);
+                } else
+                    Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "attachments:save");
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void handle(RecoverableSecurityException ex) {
+        new AlertDialog.Builder(getContext())
+                .setMessage(ex.getMessage())
+                .setPositiveButton(ex.getUserAction().getTitle(), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        try {
+                            startIntentSenderForResult(
+                                    ex.getUserAction().getActionIntent().getIntentSender(),
+                                    REQUEST_RECOVERABLE_PERMISSION,
+                                    null, 0, 0, 0, null);
+                        } catch (IntentSender.SendIntentException ex) {
+                            Log.w(ex);
+                        }
+                    }
+                })
+                .setNegativeButton(android.R.string.cancel, null)
+                .show();
     }
 }
