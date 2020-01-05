@@ -215,7 +215,6 @@
     <string name="title_advanced_threading">Fil de conversa</string>
     <string name="title_advanced_indentation">Sagnat dret/esquerra als missatges enviats/rebuts en les converses</string>
     <string name="title_advanced_highlight_unread">Ressalteu els missatges sense llegir</string>
-    <string name="title_advanced_distinguish_contacts">Diferencia els missatges de contactes coneguts i no coneguts</string>
     <string name="title_advanced_avatars">Mostra les fotos dels contactes</string>
     <string name="title_advanced_generated_icons">Mostra les icones generades</string>
     <string name="title_advanced_identicons">Mostra identicons</string>

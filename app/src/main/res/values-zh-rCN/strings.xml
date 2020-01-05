@@ -218,7 +218,7 @@
     <string name="title_advanced_threading">会话线程</string>
     <string name="title_advanced_indentation">左/右缩进接收/发送的消息</string>
     <string name="title_advanced_highlight_unread">高亮未读消息</string>
-    <string name="title_advanced_distinguish_contacts">区分已知和未知联系人的信息</string>
+    <string name="title_advanced_distinguish_contacts">突出本地联系人</string>
     <string name="title_advanced_color_stripe">头像前显示色彩条纹</string>
     <string name="title_advanced_avatars">显示联系人头像</string>
     <string name="title_advanced_generated_icons">显示生成的图标</string>

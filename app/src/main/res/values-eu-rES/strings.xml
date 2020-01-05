@@ -225,7 +225,6 @@
     <string name="title_advanced_threading">Elkarrizketak haritzea</string>
     <string name="title_advanced_indentation">Ezker/eskuin marjina elkarrizketetan jaso/bidalitako mezuetan</string>
     <string name="title_advanced_highlight_unread">Nabarmendu irakurri gabeko mezuak</string>
-    <string name="title_advanced_distinguish_contacts">Kontaktu ezagun eta ezezagunen mezuak bereiztu</string>
     <string name="title_advanced_color_stripe">Erakutsi kolorezko marra</string>
     <string name="title_advanced_avatars">Erakutsi kontaktuen argazkiak</string>
     <string name="title_advanced_generated_icons">Erakutsi sortutako ikonoak</string>

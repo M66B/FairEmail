@@ -252,7 +252,7 @@
     <string name="title_advanced_threading">Связанные диалоги</string>
     <string name="title_advanced_indentation">Левый/правый отступ для полученных/отправленных сообщений в диалогах</string>
     <string name="title_advanced_highlight_unread">Выделять непрочитанные сообщения</string>
-    <string name="title_advanced_distinguish_contacts">Разделять сообщения от известных и неизвестных контактов</string>
+    <string name="title_advanced_distinguish_contacts">Подчеркивать отправителя, если он известен как локальный контакт \'кому\'</string>
     <string name="title_advanced_color_stripe">Показать цветовую полосу</string>
     <string name="title_advanced_avatars">Показывать фотографии контакта</string>
     <string name="title_advanced_generated_icons">Показывать сгенерированные иконки</string>
@@ -356,7 +356,7 @@
     <string name="title_advanced_sync_kept_hint">Это приведёт к большему потреблению трафика и заряда батареи, особенно если на устройстве хранится много сообщений</string>
     <string name="title_advanced_sync_folders_hint">Отключение этой функции уменьшит потребление трафика и заряда батареи, но также отключит обновление списка папок</string>
     <string name="title_advanced_sync_delay_hint">Это замедлит синхронизацию сообщений</string>
-    <string name="title_advanced_suggest_local_hint">В дополнение к контактам, предоставляемым Android. Контактные данные будут сохранены только для новых отправленных или полученных сообщений при включении функции.</string>
+    <string name="title_advanced_suggest_local_hint">В дополнение к контактам, предоставляемым Android. Контактные данные будут сохранены только для вновь отправленных или полученных сообщений при включении этой функции.</string>
     <string name="title_advanced_lookup_mx_hint">Проверка наличия записей DNS MX</string>
     <string name="title_advanced_metered_hint">Лимитированные подключения - это обычно мобильные сети или платные Wi-Fi</string>
     <string name="title_advanced_metered_warning">Отключение данной функции отключит получение и отправку сообщений при мобильном подключении к интернету</string>

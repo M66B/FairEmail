@@ -224,7 +224,6 @@
     <string name="title_advanced_threading">Увезивање разговора</string>
     <string name="title_advanced_indentation">Увуци лево/десно примљене/послате поруке у разговору</string>
     <string name="title_advanced_highlight_unread">Истакни непрочитане поруке</string>
-    <string name="title_advanced_distinguish_contacts">Разликуј поруке од познатих и од непознатих контаката</string>
     <string name="title_advanced_avatars">Прикажи слике контаката</string>
     <string name="title_advanced_generated_icons">Прикажи генерисане иконице</string>
     <string name="title_advanced_identicons">Прикажи иденти-иконице</string>

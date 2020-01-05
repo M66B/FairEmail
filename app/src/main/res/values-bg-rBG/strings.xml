@@ -223,7 +223,6 @@
     <string name="title_advanced_threading">Групиране на разговори</string>
     <string name="title_advanced_indentation">Ляв/десен отстъп на получени/изпратени съобщения в разговори</string>
     <string name="title_advanced_highlight_unread">Маркирай непрочетените съобщения</string>
-    <string name="title_advanced_distinguish_contacts">Разграничи съобщенията от познати и непознати контакти</string>
     <string name="title_advanced_avatars">Покажи снимка на контакт</string>
     <string name="title_advanced_generated_icons">Показване на генерираните икони</string>
     <string name="title_advanced_identicons">Покажи икони за идентичност</string>

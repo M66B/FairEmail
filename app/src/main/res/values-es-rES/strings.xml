@@ -230,7 +230,7 @@
     <string name="title_advanced_threading">Hilos de conversación</string>
     <string name="title_advanced_indentation">Sangría izquierda/derecha para mensajes recibidos/enviados en conversaciones</string>
     <string name="title_advanced_highlight_unread">Resaltar mensajes no leídos</string>
-    <string name="title_advanced_distinguish_contacts">Distinguir mensajes de contactos conocidos y desconocidos</string>
+    <string name="title_advanced_distinguish_contacts">Subrayar el remitente cuando el remitente es conocido como contacto \'a:\' local</string>
     <string name="title_advanced_color_stripe">Mostrar raya de color</string>
     <string name="title_advanced_avatars">Mostrar fotos de contactos</string>
     <string name="title_advanced_generated_icons">Mostrar iconos generados</string>

@@ -230,7 +230,7 @@
     <string name="title_advanced_threading">İletişim iş parçacığı</string>
     <string name="title_advanced_indentation">Sohbetlerde alınan/gönderilen mesajları sola/sağa girintile</string>
     <string name="title_advanced_highlight_unread">Okunmamış iletileri vurgula</string>
-    <string name="title_advanced_distinguish_contacts">Bilinen ve bilinmeyen kişilerin mesajlarını ayır</string>
+    <string name="title_advanced_distinguish_contacts">Gönderen yerel \'alıcı\' kişisi olarak biliniyorsa gönderenin altını çiz</string>
     <string name="title_advanced_color_stripe">Renk şeridini göster</string>
     <string name="title_advanced_avatars">Kişi fotoğraflarını göster</string>
     <string name="title_advanced_generated_icons">Oluşturulan simgeleri göster</string>

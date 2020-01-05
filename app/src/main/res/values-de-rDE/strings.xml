@@ -229,7 +229,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_threading">Konversationsansicht</string>
     <string name="title_advanced_indentation">Links/Rechts-Einrückung von empfangenen/gesendeten Nachrichten in Unterhaltungen</string>
     <string name="title_advanced_highlight_unread">Ungelesene Nachrichten hervorheben</string>
-    <string name="title_advanced_distinguish_contacts">Unterscheide Nachrichten nach bekannten und unbekannten Kontakten</string>
+    <string name="title_advanced_distinguish_contacts">Den Sender unterstrichen darstellen, wenn er ein bekannter lokaler \'An\'-Kontakt ist</string>
     <string name="title_advanced_color_stripe">Farbstreifen anzeigen</string>
     <string name="title_advanced_avatars">Kontaktfotos anzeigen</string>
     <string name="title_advanced_generated_icons">Zeige generierte Symbole (Anfangsbuchstaben)</string>

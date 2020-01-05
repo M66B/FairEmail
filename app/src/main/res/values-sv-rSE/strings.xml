@@ -195,7 +195,6 @@
     <string name="title_advanced_date_header">Gruppera efter datum</string>
     <string name="title_advanced_threading">Konversationstrådar</string>
     <string name="title_advanced_highlight_unread">Markera olästa meddelanden</string>
-    <string name="title_advanced_distinguish_contacts">Skilj meddelanden från kända och okända kontakter</string>
     <string name="title_advanced_avatars">Visa kontaktfoton</string>
     <string name="title_advanced_generated_icons">Visa genererade ikoner</string>
     <string name="title_advanced_identicons">Visa identicons</string>

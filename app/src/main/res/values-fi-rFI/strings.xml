@@ -229,7 +229,7 @@
     <string name="title_advanced_threading">Keskustelujen ketjuttaminen</string>
     <string name="title_advanced_indentation">Tasaa vastaanotetut/lähetetyt viestit keskusteluissa vasemmalle/oikealle</string>
     <string name="title_advanced_highlight_unread">Korosta lukemattomat viestit</string>
-    <string name="title_advanced_distinguish_contacts">Erottele tunnettujen ja tuntemattomien kontaktien viestit</string>
+    <string name="title_advanced_distinguish_contacts">Alleviivaa lähettäjä tämän ollessa paikallisesti tunnettu vastaanottaja</string>
     <string name="title_advanced_color_stripe">Näytä väriliuska</string>
     <string name="title_advanced_avatars">Näytä yhteystietojen kuvat</string>
     <string name="title_advanced_generated_icons">Näytä luodut kuvakkeet</string>

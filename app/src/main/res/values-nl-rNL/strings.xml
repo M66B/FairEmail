@@ -230,7 +230,7 @@
     <string name="title_advanced_threading">Gesprekken groeperen</string>
     <string name="title_advanced_indentation">Links/rechts inspringen van ontvangen/verzonden berichten in gesprekken</string>
     <string name="title_advanced_highlight_unread">Ongelezen berichten markeren</string>
-    <string name="title_advanced_distinguish_contacts">Onderscheid berichten van bekende en onbekende contacten</string>
+    <string name="title_advanced_distinguish_contacts">Onderstreep de afzender wanneer de afzender bekend staat als lokaal \'aan\'-contact</string>
     <string name="title_advanced_color_stripe">Toon kleurenstreep</string>
     <string name="title_advanced_avatars">Toon foto\'s contacten</string>
     <string name="title_advanced_generated_icons">Toon gegenereerde iconen</string>

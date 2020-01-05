@@ -217,7 +217,7 @@
     <string name="title_advanced_threading">会話スレッド</string>
     <string name="title_advanced_indentation">会話の受信/送信メッセージの左/右インデント</string>
     <string name="title_advanced_highlight_unread">未読メッセージを強調表示</string>
-    <string name="title_advanced_distinguish_contacts">既知及び未知の連絡先からのメッセージを区別</string>
+    <string name="title_advanced_distinguish_contacts">送信者がローカル(宛先)連絡先として知られている場合、送信者に下線を引く</string>
     <string name="title_advanced_color_stripe">カラーストライプを表示</string>
     <string name="title_advanced_avatars">連絡先の写真を表示</string>
     <string name="title_advanced_generated_icons">生成されたアイコンを表示</string>

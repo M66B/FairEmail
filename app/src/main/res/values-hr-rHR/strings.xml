@@ -211,7 +211,6 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_threading">Prikaz razgovora</string>
     <string name="title_advanced_indentation">Uvlaka primljenih/poslanih poruka u razgovorima prema lijevo/desno</string>
     <string name="title_advanced_highlight_unread">Označiti nepročitane poruke</string>
-    <string name="title_advanced_distinguish_contacts">Razlikovati poruke poznatih i nepoznatih kontakata</string>
     <string name="title_advanced_avatars">Prikaži fotografije kontakata</string>
     <string name="title_advanced_generated_icons">Prikaži generirane ikone</string>
     <string name="title_advanced_identicons">Pokaži identitete</string>

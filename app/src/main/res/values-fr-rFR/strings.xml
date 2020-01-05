@@ -230,7 +230,7 @@
     <string name="title_advanced_threading">Afficher en mode conversation</string>
     <string name="title_advanced_indentation">Décaler les messages reçus/envoyés vers la gauche/droite dans les conversations</string>
     <string name="title_advanced_highlight_unread">Surligner les messages non lus</string>
-    <string name="title_advanced_distinguish_contacts">Faire la distinction entre les messages des contacts connus et inconnus</string>
+    <string name="title_advanced_distinguish_contacts">Souligner l\'expéditeur lorsqu\'il est connu comme contact local</string>
     <string name="title_advanced_color_stripe">Afficher la bande de couleur</string>
     <string name="title_advanced_avatars">Afficher la photo des contacts</string>
     <string name="title_advanced_generated_icons">Afficher les icônes générées</string>
