@@ -1410,7 +1410,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             return result;
 
                         EntityFolder target = db.folder().getFolderByType(message.account, type);
-
                         if (target == null)
                             return result;
 
@@ -4992,6 +4991,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         return null;
 
                     EntityFolder junk = db.folder().getFolderByType(message.account, EntityFolder.JUNK);
+                    if (junk == null)
+                        return null;
+
                     EntityOperation.queue(context, message, EntityOperation.MOVE, junk.id);
 
                     db.setTransactionSuccessful();
