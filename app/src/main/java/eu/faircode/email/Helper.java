@@ -271,8 +271,11 @@ public class Helper {
         } else {
             // https://developer.chrome.com/multidevice/android/customtabs
             CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
-            builder.setNavigationBarColor(resolveColor(context, R.attr.colorPrimaryDark));
             builder.setToolbarColor(resolveColor(context, R.attr.colorPrimary));
+            builder.setSecondaryToolbarColor(resolveColor(context, R.attr.colorPrimaryDark));
+            builder.setColorScheme(Helper.isDarkTheme(context)
+                    ? CustomTabsIntent.COLOR_SCHEME_DARK : CustomTabsIntent.COLOR_SCHEME_LIGHT);
+            builder.addDefaultShareMenuItem();
 
             CustomTabsIntent customTabsIntent = builder.build();
             try {
