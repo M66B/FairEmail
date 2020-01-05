@@ -45,6 +45,7 @@ Related questions:
 * Change the account name: Setup, step 1, Manage, tap account
 * Change the swipe left/right target: Setup, step 1, Manage, tap account, at the bottom
 * Set a signature: Setup, step 2, Manage, tap identity
+* Add a folder to the navigation menu: long press the folder in the folder list and check *Show in navigation menu*
 * Delete an account/identity: Setup step 1/2, Manage, tap account/identity, three-dots menu, Delete
 * Export/import settings: Setup, navigation/hamburger menu
 
