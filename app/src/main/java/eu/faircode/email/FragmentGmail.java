@@ -133,7 +133,7 @@ public class FragmentGmail extends FragmentBase {
         btnSupport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Helper.view(getContext(), Uri.parse(Helper.FAQ_URI + "#user-content-authorizing-accounts"), false);
+                Helper.view(getContext(), Uri.parse(Helper.SUPPORT_URI), false);
             }
         });
 
