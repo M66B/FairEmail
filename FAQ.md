@@ -46,6 +46,7 @@ Related questions:
 * Change the swipe left/right target: Setup, step 1, Manage, tap account, at the bottom
 * Set a signature: Setup, step 2, Manage, tap identity
 * Add a folder to the navigation menu: long press the folder in the folder list and check *Show in navigation menu*
+* Load older messages: long press a folder in the folder list, select *Edit properties* and change the number of days to sync/keep messages for; please [read this FAQ](#user-content-faq39)
 * Delete an account/identity: Setup step 1/2, Manage, tap account/identity, three-dots menu, Delete
 * Export/import settings: Setup, navigation/hamburger menu
 
