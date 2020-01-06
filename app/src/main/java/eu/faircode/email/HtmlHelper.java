@@ -176,7 +176,7 @@ public class HtmlHelper {
                     if (kv.length == 2) {
                         String key = kv[0].trim().toLowerCase(Locale.ROOT);
                         String value = kv[1].toLowerCase(Locale.ROOT)
-                                .replace(" ", "");
+                                .replaceAll("\\s", "");
                         switch (key) {
                             case "color":
                                 String c = value
