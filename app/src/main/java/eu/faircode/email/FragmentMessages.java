@@ -76,6 +76,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -192,6 +193,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private FixedRecyclerView rvMessage;
     private View vwAnchor;
     private SeekBar sbThread;
+    private ImageView ivLeft;
+    private ImageView ivRight;
     private ImageButton ibDown;
     private ImageButton ibUp;
     private ImageButton ibSeen;
@@ -381,6 +384,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         rvMessage = view.findViewById(R.id.rvMessage);
         vwAnchor = view.findViewById(R.id.vwAnchor);
         sbThread = view.findViewById(R.id.sbThread);
+        ivLeft = view.findViewById(R.id.ivLeft);
+        ivRight = view.findViewById(R.id.ivRight);
         ibDown = view.findViewById(R.id.ibDown);
         ibUp = view.findViewById(R.id.ibUp);
         ibSeen = view.findViewById(R.id.ibSeen);
@@ -982,6 +987,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         tvNoEmail.setVisibility(View.GONE);
         tvNoEmailHint.setVisibility(View.GONE);
         sbThread.setVisibility(View.GONE);
+        ivLeft.setVisibility(View.GONE);
+        ivRight.setVisibility(View.GONE);
         ibDown.setVisibility(View.GONE);
         ibUp.setVisibility(View.GONE);
         ibSeen.setVisibility(View.GONE);
@@ -1052,7 +1059,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 final SwipeListener swipeListener = new SwipeListener(getContext(), new SwipeListener.ISwipeListener() {
                     @Override
-                    public boolean onSwipeRight() {
+                    public boolean onSwipedRight() {
                         if (prev == null) {
                             Animation bounce = AnimationUtils.loadAnimation(getContext(), R.anim.bounce_right);
                             view.startAnimation(bounce);
@@ -1063,7 +1070,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     }
 
                     @Override
-                    public boolean onSwipeLeft() {
+                    public boolean onSwipedLeft() {
                         if (next == null) {
                             Animation bounce = AnimationUtils.loadAnimation(getContext(), R.anim.bounce_left);
                             view.startAnimation(bounce);
@@ -1071,6 +1078,24 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             navigate(next, false);
 
                         return (next != null);
+                    }
+
+                    @Override
+                    public void onSwipingLeft() {
+                        ivLeft.setVisibility(View.VISIBLE);
+                        ivRight.setVisibility(View.GONE);
+                    }
+
+                    @Override
+                    public void onSwipingRight() {
+                        ivLeft.setVisibility(View.GONE);
+                        ivRight.setVisibility(View.VISIBLE);
+                    }
+
+                    @Override
+                    public void onCancel() {
+                        ivLeft.setVisibility(View.GONE);
+                        ivRight.setVisibility(View.GONE);
                     }
                 });
 
