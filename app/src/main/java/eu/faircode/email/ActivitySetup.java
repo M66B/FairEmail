@@ -678,9 +678,9 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                         byte[] salt = new byte[16];
                         byte[] prefix = new byte[16];
                         if (raw.read(salt) != salt.length)
-                            throw new IOException("length");
+                            throw new IOException("Invalid file size");
                         if (raw.read(prefix) != prefix.length)
-                            throw new IOException("length");
+                            throw new IOException("Invalid file size");
 
                         SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
                         KeySpec keySpec = new PBEKeySpec(password.toCharArray(), salt, KEY_ITERATIONS, KEY_LENGTH);
