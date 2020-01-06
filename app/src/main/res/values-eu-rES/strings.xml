@@ -180,6 +180,10 @@
     <string name="title_setup_options">Aukerak</string>
     <string name="title_setup_defaults">Berrezarri balio lehenetsiak</string>
     <string name="title_setup_reset_questions">Berrezarri galderak</string>
+    <string name="title_advanced_hint_title">Aukera aurreratu gehiago</string>
+    <string name="title_advanced_hint_message">        Aukera aurreratuetan sartzen ari zara.
+        Aukera guztiek maiz erabilitako balioak dituzte, nahiez gero aldatu ditzakezunak.
+    </string>
     <string name="title_advanced_section_main">Nagusia</string>
     <string name="title_advanced_section_synchronize">Jaso</string>
     <string name="title_advanced_section_send">Bidali</string>
@@ -219,12 +223,14 @@
     <string name="title_advanced_socks">Erabili SOCKS proxya</string>
     <string name="title_advanced_manage_connectivity">Kudeatu konektibitatea</string>
     <string name="title_advanced_landscape">Erabili bi zutabe modu horizontalean</string>
+    <string name="title_advanced_landscape3">Baimendu nabigazio menu finkoa horizontalean</string>
     <string name="title_advanced_startup">Erakutsi hasiera pantailan</string>
     <string name="title_advanced_cards">Erakutsi txartelak</string>
     <string name="title_advanced_date_header">Taldekatu dataren arabera</string>
     <string name="title_advanced_threading">Elkarrizketak haritzea</string>
     <string name="title_advanced_indentation">Ezker/eskuin marjina elkarrizketetan jaso/bidalitako mezuetan</string>
     <string name="title_advanced_highlight_unread">Nabarmendu irakurri gabeko mezuak</string>
+    <string name="title_advanced_distinguish_contacts">Azpimarratu igorlea kontaktua jasotzaile lokalki ezaguna bada</string>
     <string name="title_advanced_color_stripe">Erakutsi kolorezko marra</string>
     <string name="title_advanced_avatars">Erakutsi kontaktuen argazkiak</string>
     <string name="title_advanced_generated_icons">Erakutsi sortutako ikonoak</string>
@@ -266,6 +272,8 @@
     <string name="title_advanced_collapse_multiple">Tolestu hainbat \'atzera\' mezu dituzten elkarrizketetako mezuak</string>
     <string name="title_advanced_autoclose">Itxi automatikoki elkarrizketak</string>
     <string name="title_advanced_onclose">Elkarrizketa ixtean</string>
+    <string name="title_advanced_quick_filter">Erakutsi iragazki azkarren ikonoak</string>
+    <string name="title_advanced_quick_scroll">Erakutsi azkar gora/behera korritzeko ikonoak</string>
     <string name="title_advanced_autoread">Markatu mezuak irakurrita gisa hauek mugitzean</string>
     <string name="title_advanced_autounstar">Kendu izarrak mezuetatik hauek mugitzean</string>
     <string name="title_advanced_automove">Baieztatu mezuak mugitzea</string>
@@ -810,6 +818,7 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_legend_expander">Hedatzailea</string>
     <string name="title_legend_avatar">Abatarra</string>
     <string name="title_legend_show_quotes">Erakutsi aipamenak</string>
+    <string name="title_legend_show_junk">Tratatu spam gisa</string>
     <string name="title_legend_show_unsubscribe">Kendu zerrendarako harpidetza</string>
     <string name="title_legend_show_images">Erakutsi irudiak</string>
     <string name="title_legend_show_full">Erakutsi pantaila osoan</string>

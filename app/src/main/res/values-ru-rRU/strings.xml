@@ -198,13 +198,13 @@
     <string name="title_setup_theme_black_background">Чёрный фон</string>
     <string name="title_setup_theme_system">Системная</string>
     <string name="title_setup_theme_system_hint">Системная тема автоматически переключится на светлую или тёмную в зависимости от времени суток, если поддерживается Android</string>
-    <string name="title_setup_advanced">Дополнительные параметры</string>
+    <string name="title_setup_advanced">Дополнительные настройки</string>
     <string name="title_setup_options">Параметры</string>
     <string name="title_setup_defaults">Вернуть настройки по умолчанию</string>
     <string name="title_setup_reset_questions">Заново включить вопросы</string>
-    <string name="title_advanced_hint_title">Более продвинутые опции</string>
-    <string name="title_advanced_hint_message">        Вы переходите к более продвинутым опциям.
-        Все опции обычно имеют стандартные значения, которые можно изменить, если у вас есть другие предпочтения.
+    <string name="title_advanced_hint_title">Более продвинутые настройки</string>
+    <string name="title_advanced_hint_message">        Вы переходите к более продвинутым настройкам.
+        Все параметры обычно имеют стандартные значения, которые можно изменить, если у вас есть другие предпочтения.
     </string>
     <string name="title_advanced_section_main">Основные</string>
     <string name="title_advanced_section_synchronize">Получение</string>
@@ -252,7 +252,7 @@
     <string name="title_advanced_threading">Связанные диалоги</string>
     <string name="title_advanced_indentation">Левый/правый отступ для полученных/отправленных сообщений в диалогах</string>
     <string name="title_advanced_highlight_unread">Выделять непрочитанные сообщения</string>
-    <string name="title_advanced_distinguish_contacts">Подчеркивать отправителя, если он известен как локальный контакт \'кому\'</string>
+    <string name="title_advanced_distinguish_contacts">Подчёркивать отправителя, если он известен как локальный контакт «кому»</string>
     <string name="title_advanced_color_stripe">Показать цветовую полосу</string>
     <string name="title_advanced_avatars">Показывать фотографии контакта</string>
     <string name="title_advanced_generated_icons">Показывать сгенерированные иконки</string>
