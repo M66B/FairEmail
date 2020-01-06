@@ -400,7 +400,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         cbNotifyActionReplyDirect.setChecked(prefs.getBoolean("notify_reply_direct", false) && pro);
         cbNotifyActionFlag.setChecked(prefs.getBoolean("notify_flag", false) && pro);
         cbNotifyActionSeen.setChecked(prefs.getBoolean("notify_seen", true) || !pro);
-        cbNotifyActionSnooze.setChecked(prefs.getBoolean("notify_snooze", false) || !pro);
+        cbNotifyActionSnooze.setChecked(prefs.getBoolean("notify_snooze", false) && pro);
 
         swBiometricsNotify.setChecked(prefs.getBoolean("biometrics_notify", false));
 
