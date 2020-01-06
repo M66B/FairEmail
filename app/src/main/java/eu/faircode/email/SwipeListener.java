@@ -31,12 +31,12 @@ public class SwipeListener implements View.OnTouchListener {
 
     SwipeListener(final Context context, final ISwipeListener listener) {
         final int width = context.getResources().getDisplayMetrics().widthPixels;
-        final int MOVE_THRESHOLD = width / 10;
-        final int SWIPE_THRESHOLD = width / 3;
+        final int MOVE_THRESHOLD = width / 3;
+        final int SPEED_THRESHOLD = width / 2;
 
         gestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() {
             @Override
-            public boolean onScroll(MotionEvent me1, MotionEvent me2, float distanceX, float distanceY) {
+            public boolean onFling(MotionEvent me1, MotionEvent me2, float vx, float vy) {
                 if (me1 == null || me2 == null)
                     return false;
                 if (me1.getPointerCount() > 1 || me2.getPointerCount() > 1)
@@ -45,39 +45,21 @@ public class SwipeListener implements View.OnTouchListener {
                 boolean consumed = false;
                 int dx = Math.round(me2.getX() - me1.getX());
                 int dy = Math.round(me2.getY() - me1.getY());
-
                 if (Math.abs(dx) > Math.abs(dy)) {
-                    Log.i("Swipe dx=" + dx + "/" + SWIPE_THRESHOLD);
-                    try {
-                        if (Math.abs(dx) > SWIPE_THRESHOLD) {
+                    Log.i("Swipe dx=" + dx + "/" + MOVE_THRESHOLD + " vx=" + vx + "/" + SPEED_THRESHOLD);
+                    if (Math.abs(dx) > MOVE_THRESHOLD && Math.abs(vx) > SPEED_THRESHOLD)
+                        try {
                             if (dx > 0)
-                                consumed = listener.onSwipedRight();
+                                consumed = listener.onSwipeRight();
                             else
-                                consumed = listener.onSwipedLeft();
-                        } else if (Math.abs(dx) > MOVE_THRESHOLD) {
-                            if (dx > 0)
-                                listener.onSwipingRight();
-                            else
-                                listener.onSwipingLeft();
+                                consumed = listener.onSwipeLeft();
+                        } catch (Throwable ex) {
+                            Log.e(ex);
                         }
-                    } catch (Throwable ex) {
-                        Log.e(ex);
-                    }
                 }
                 return consumed;
             }
-        }) {
-            @Override
-            public boolean onTouchEvent(MotionEvent ev) {
-                if (ev.getAction() == MotionEvent.ACTION_UP)
-                    try {
-                        listener.onCancel();
-                    } catch (Throwable ex) {
-                        Log.e(ex);
-                    }
-                return super.onTouchEvent(ev);
-            }
-        };
+        });
     }
 
     public boolean onTouch(@NonNull View view, @NonNull MotionEvent event) {
@@ -85,14 +67,8 @@ public class SwipeListener implements View.OnTouchListener {
     }
 
     interface ISwipeListener {
-        boolean onSwipedRight();
+        boolean onSwipeRight();
 
-        boolean onSwipedLeft();
-
-        void onSwipingLeft();
-
-        void onSwipingRight();
-
-        void onCancel();
+        boolean onSwipeLeft();
     }
 }
