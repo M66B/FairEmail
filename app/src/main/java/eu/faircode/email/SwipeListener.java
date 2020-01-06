@@ -36,7 +36,7 @@ public class SwipeListener implements View.OnTouchListener {
 
         gestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() {
             @Override
-            public boolean onFling(MotionEvent me1, MotionEvent me2, float vx, float vy) {
+            public boolean onScroll(MotionEvent me1, MotionEvent me2, float distanceX, float distanceY) {
                 if (me1 == null || me2 == null)
                     return false;
                 if (me1.getPointerCount() > 1 || me2.getPointerCount() > 1)
@@ -45,8 +45,11 @@ public class SwipeListener implements View.OnTouchListener {
                 boolean consumed = false;
                 int dx = Math.round(me2.getX() - me1.getX());
                 int dy = Math.round(me2.getY() - me1.getY());
+                long dt = me2.getEventTime() - me1.getEventTime();
+                long vx = dx * 1000 / dt;
                 if (Math.abs(dx) > Math.abs(dy)) {
-                    Log.i("Swipe dx=" + dx + "/" + MOVE_THRESHOLD + " vx=" + vx + "/" + SPEED_THRESHOLD);
+                    Log.i("Swipe dx=" + dx + "/" + MOVE_THRESHOLD +
+                            " dt=" + dt + " vx=" + vx + "/" + SPEED_THRESHOLD);
                     if (Math.abs(dx) > MOVE_THRESHOLD && Math.abs(vx) > SPEED_THRESHOLD)
                         try {
                             if (dx > 0)
