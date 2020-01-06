@@ -1477,6 +1477,10 @@ class Core {
 
                     Log.i(folder.name + " POP sync=" + msgid);
 
+                    Long sent = helper.getSent();
+                    if (sent == null)
+                        sent = 0L;
+
                     String authentication = helper.getAuthentication();
                     MessageHelper.MessageParts parts = helper.getMessageParts(context);
 
@@ -1508,8 +1512,8 @@ class Core {
                     message.total = helper.getSize();
                     message.content = false;
                     message.encrypt = parts.getEncryption();
-                    message.received = helper.getSent();
-                    message.sent = helper.getSent();
+                    message.received = sent;
+                    message.sent = sent;
                     message.seen = false;
                     message.answered = false;
                     message.flagged = false;
