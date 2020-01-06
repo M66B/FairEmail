@@ -2068,6 +2068,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (message == null)
                 return;
 
+            if (selectionTracker != null && selectionTracker.isSelected(message.id))
+                return;
+
             if (view.getId() == R.id.ibAvatar)
                 onViewContact(message);
             else if (view.getId() == R.id.ibAuth)
