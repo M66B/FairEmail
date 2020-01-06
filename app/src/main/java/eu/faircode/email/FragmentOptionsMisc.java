@@ -277,6 +277,9 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
             @Override
             protected Void onExecute(Context context, Bundle args) {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                prefs.edit().putBoolean("vacuum", true).apply();
+
                 WorkerCleanup.cleanup(context, true);
                 return null;
             }

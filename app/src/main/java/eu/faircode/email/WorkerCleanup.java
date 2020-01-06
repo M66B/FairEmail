@@ -105,12 +105,11 @@ public class WorkerCleanup extends Worker {
                 for (EntityMessage message : db.message().getSnoozed())
                     EntityMessage.snooze(context, message.id, message.ui_snoozed);
 
+                ServiceSynchronize.reschedule(context);
+
                 // Clear last search
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                prefs.edit()
-                        .remove("last_search")
-                        .putBoolean("vacuum", true)
-                        .apply();
+                prefs.edit().remove("last_search").apply();
             }
 
             long now = new Date().getTime();
