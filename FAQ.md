@@ -266,6 +266,7 @@ FairEmail follows all the best practices for an email client as described in [th
 * [(138) Can you add calendar / contact management?](#user-content-faq138)
 * [(139) How do I fix 'User is authenticated but not connected'?](#user-content-faq139)
 * [(140) Why does the message text contain strange characters?](#user-content-faq140)
+* [(141) How can I fix 'A drafts folder is required to send messages'?](#user-content-faq141)
 
 [I have another question.](#user-content-support)
 
@@ -2587,6 +2588,23 @@ FairEmail will assume [ISO 8859-1](https://en.wikipedia.org/wiki/ISO/IEC_8859-1)
 when no character set or when [US-ASCII](https://en.wikipedia.org/wiki/ASCII) was specified.
 Other than that there is no way to reliably determine the correct character encoding automatically,
 so this cannot be fixed by FairEmail. The right action is to complain to the sender.
+
+<br />
+
+<a name="faq141"></a>
+**(141) How can I fix 'A drafts folder is required to send messages'?**
+
+To store draft messages a drafts folder is required.
+In most cases FairEmail will automatically select the drafts folders on adding an account
+based on [the attributes](https://www.iana.org/assignments/imap-mailbox-name-attributes/imap-mailbox-name-attributes.xhtml) the email server sends.
+However, some email servers are not configured properly and do not send these attributes.
+In this case FairEmail tries to identify the drafts folder by name,
+but this might fail if the drafts folder has an unusual name or is not present at all.
+
+You can fix this problem by manually selecting the drafts folder in the account settings (Setup, step 1, tap account, at the bottom).
+If there is no drafts folder at all,
+you can create a drafts folder by tapping on the '+' button in the folder list of the account (tap on the account name in the navigation menu).
+
 
 <br />
 
