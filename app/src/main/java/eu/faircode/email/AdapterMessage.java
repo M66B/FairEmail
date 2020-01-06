@@ -4440,7 +4440,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     }
 
     public void onItemSelected(@NonNull ViewHolder holder, boolean selected) {
-        if (accessibility) {
+        if (accessibility && holder.view != null) {
             AccessibilityEvent event = AccessibilityEvent.obtain();
             holder.view.onInitializeAccessibilityEvent(event);
             event.setEventType(AccessibilityEvent.TYPE_VIEW_SELECTED);
