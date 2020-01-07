@@ -37,8 +37,8 @@ Please see [here](#user-content-faq22) for common error messages.
 
 Related questions:
 
+* [Is OAuth supported?](#user-content-faq111)
 * [Why is ActiveSync not supported?](#user-content-faq133)
-* [Why is OAuth not supported?](#user-content-faq111)
 
 ## How to ...?
 
@@ -237,7 +237,7 @@ FairEmail follows all the best practices for an email client as described in [th
 * [(108) Can you add permanently delete messages from any folder?](#user-content-faq108)
 * [~~(109) Why is 'select account' available in official versions only?~~](#user-content-faq109)
 * [(110) Why are (some) messages empty and/or attachments corrupted?](#user-content-faq110)
-* [(111) Why is OAuth not supported?](#user-content-faq111)
+* [(111) Is OAuth supported?](#user-content-faq111)
 * [(112) Which email provider do you recommend?](#user-content-faq112)
 * [(113) How does biometric authentication work?](#user-content-faq113)
 * [(114) Can you add an import for the settings of other email apps?](#user-content-faq114)
@@ -2220,13 +2220,16 @@ Disabling *Partial fetch* will result in more memory usage.
 <br />
 
 <a name="faq111"></a>
-**(111) Why is OAuth not supported?**
+**(111) Is OAuth supported?**
 
 OAuth is supported for Gmail via the quick setup wizard.
-The Android account manager will be used to fetch and refresh OAuth tokens for the selected account.
+The Android account manager will be used to fetch and refresh OAuth tokens for selected on-device accounts.
+OAuth for non on-device accounts is not support because Google requires [an expensive security audit](https://support.google.com/cloud/answer/9110914) for this.
 
 Outlook, Live and Hotmail do not yet support OAuth for IMAP/SMTP connections, but
 "*[We are actively working on OAuth support for IMAP connections to O365 mailboxes. We will make a public announcement once the same is available.](https://stackoverflow.com/a/58072053)*" (September 24, 2019).
+
+OAuth access for Yahoo! was requested, but Yahoo! never responded to the request.
 
 <br />
 
