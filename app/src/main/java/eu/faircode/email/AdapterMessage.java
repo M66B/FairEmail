@@ -1941,6 +1941,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 if (location != null)
                                     intent.putExtra(CalendarContract.Events.EVENT_LOCATION, location);
 
+                                intent.putExtra(CalendarContract.Events.STATUS, CalendarContract.Events.STATUS_CONFIRMED);
+
                                 if (attendee.size() > 0)
                                     intent.putExtra(Intent.EXTRA_EMAIL, TextUtils.join(",", attendee));
 
