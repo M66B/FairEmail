@@ -114,6 +114,9 @@ public class EntityAccount extends EntityOrder implements Serializable {
     public Boolean use_date = false;
     public String prefix; // namespace, obsolete
 
+    public Long quota_usage;
+    public Long quota_limit;
+
     public Long created;
     public Boolean tbd;
     public String state;
@@ -297,6 +300,8 @@ public class EntityAccount extends EntityOrder implements Serializable {
                     this.poll_interval.equals(other.poll_interval) &&
                     this.partial_fetch == other.partial_fetch &&
                     this.ignore_size == other.ignore_size &&
+                    Objects.equals(this.quota_usage, other.quota_usage) &&
+                    Objects.equals(this.quota_limit, other.quota_limit) &&
                     Objects.equals(this.created, other.created) &&
                     Objects.equals(this.tbd, other.tbd) &&
                     Objects.equals(this.state, other.state) &&

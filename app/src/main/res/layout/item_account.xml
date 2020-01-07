@@ -147,6 +147,20 @@
                 app:layout_constraintTop_toBottomOf="@id/tvHost" />
 
             <TextView
+                android:id="@+id/tvQuota"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginEnd="6dp"
+                android:ellipsize="start"
+                android:singleLine="true"
+                android:text="123/456 MB"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivState"
+                app:layout_constraintTop_toBottomOf="@id/tvLast" />
+
+            <TextView
                 android:id="@+id/tvIdentity"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -158,7 +172,7 @@
                 android:textIsSelectable="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/vwColor"
-                app:layout_constraintTop_toBottomOf="@id/tvLast" />
+                app:layout_constraintTop_toBottomOf="@id/tvQuota" />
 
             <TextView
                 android:id="@+id/tvDrafts"

@@ -49,6 +49,7 @@ import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
 
 import com.sun.mail.imap.IMAPFolder;
+import com.sun.mail.imap.IMAPStore;
 
 import java.io.IOException;
 import java.text.DateFormat;
@@ -72,6 +73,7 @@ import javax.mail.FolderNotFoundException;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.NoSuchProviderException;
+import javax.mail.Quota;
 import javax.mail.ReadOnlyFolderException;
 import javax.mail.StoreClosedException;
 import javax.mail.event.FolderAdapter;
@@ -1206,6 +1208,32 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         EntityLog.log(this, account.name + " set last_connected=" + new Date(account.last_connected));
                         db.account().setAccountConnected(account.id, account.last_connected);
                         db.account().setAccountWarning(account.id, capIdle ? null : getString(R.string.title_no_idle));
+
+                        // Get quota
+                        if (iservice.hasCapability("QUOTA"))
+                            try {
+                                // https://tools.ietf.org/id/draft-melnikov-extra-quota-00.html
+                                Quota[] quotas = ((IMAPStore) iservice.getStore()).getQuota("INBOX");
+                                if (quotas != null) {
+                                    long usage = 0;
+                                    long limit = 0;
+                                    for (Quota quota : quotas)
+                                        if (quota.resources != null)
+                                            for (Quota.Resource resource : quota.resources) {
+                                                Log.i("Quota " + resource.name + " " + resource.usage + "/" + resource.limit);
+                                                if ("STORAGE".equalsIgnoreCase(resource.name)) {
+                                                    usage += resource.usage * 1024;
+                                                    limit = Math.max(limit, resource.limit * 1024);
+                                                }
+                                            }
+                                    db.account().setAccountQuota(account.id, usage, limit);
+                                }
+                            } catch (MessagingException ex) {
+                                Log.w(ex);
+                                db.account().setAccountQuota(account.id, null, null);
+                            }
+                        else
+                            db.account().setAccountQuota(account.id, null, null);
 
                         NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                         nm.cancel("receive:" + account.id, 1);
