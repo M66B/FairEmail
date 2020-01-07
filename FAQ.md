@@ -47,6 +47,7 @@ Related questions:
 * Set a signature: Setup, step 2, Manage, tap identity
 * Add a folder to the navigation menu: long press the folder in the folder list and check *Show in navigation menu*
 * Load older messages: long press a folder in the folder list, select *Edit properties* and change the number of days to sync/keep messages for; please [read this FAQ](#user-content-faq39)
+* Delete a message, skipping trash: in the 3-dots menu of the action bar just above the message text there is a *Delete* item for this
 * Delete an account/identity: Setup step 1/2, Manage, tap account/identity, three-dots menu, Delete
 * Export/import settings: Setup, navigation/hamburger menu
 
