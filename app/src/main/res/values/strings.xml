@@ -1080,6 +1080,8 @@
     <string name="title_accessibility_show_addresses">Show addresses</string>
     <string name="title_accessibility_hide_addresses">Hide addresses</string>
     <string name="title_accessibility_attachment">Attachment</string>
+    <string name="title_accessibility_from">Sender</string>
+    <string name="title_accessibility_to">Recipient</string>
 
     <string-array name="pollIntervalNames">
         <item>Always</item>
