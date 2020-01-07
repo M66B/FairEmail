@@ -1520,6 +1520,9 @@ Images will by default be resized to a maximum width and height of about 1440 pi
 Images are scaled down using whole number factors to reduce memory usage and to retain image quality.
 There is an advanced option to disable automatically resizing and to set the target image size.
 
+If you want to resize images on a case-by-case basis,
+you can use [Send Reduced](https://f-droid.org/en/packages/mobi.omegacentauri.SendReduced/) or a similar app.
+
 <br />
 
 <a name="faq64"></a>
