@@ -111,18 +111,23 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
             vwColor.setVisibility(ActivityBilling.isPro(context) ? View.VISIBLE : View.INVISIBLE);
 
             ivSync.setImageResource(identity.synchronize ? R.drawable.baseline_sync_24 : R.drawable.baseline_sync_disabled_24);
+            ivSync.setContentDescription(context.getString(identity.synchronize ? R.string.title_legend_synchronize_on : R.string.title_legend_synchronize_off));
 
             ivOAuth.setVisibility(identity.auth_type == MailService.AUTH_TYPE_PASSWORD ? View.GONE : View.VISIBLE);
             ivPrimary.setVisibility(identity.primary ? View.VISIBLE : View.GONE);
             tvName.setText(identity.getDisplayName());
             tvUser.setText(identity.email);
 
-            if ("connected".equals(identity.state))
+            if ("connected".equals(identity.state)) {
                 ivState.setImageResource(R.drawable.baseline_cloud_24);
-            else if ("connecting".equals(identity.state))
+                ivState.setContentDescription(context.getString(R.string.title_legend_connected));
+            } else if ("connecting".equals(identity.state)) {
                 ivState.setImageResource(R.drawable.baseline_cloud_queue_24);
-            else
+                ivState.setContentDescription(context.getString(R.string.title_legend_connecting));
+            } else {
                 ivState.setImageDrawable(null);
+                ivState.setContentDescription(null);
+            }
             ivState.setVisibility(identity.synchronize ? View.VISIBLE : View.INVISIBLE);
 
             tvHost.setText(String.format("%s:%d", identity.host, identity.port));
