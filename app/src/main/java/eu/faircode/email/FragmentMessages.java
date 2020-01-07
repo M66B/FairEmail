@@ -293,6 +293,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     static final String ACTION_NEW_MESSAGE = BuildConfig.APPLICATION_ID + ".NEW_MESSAGE";
 
     private static final long REVIEW_ASK_DELAY = 21 * 24 * 3600 * 1000L; // milliseconds
+    private static final long REVIEW_LATER_DELAY = 3 * 24 * 3600 * 1000L; // milliseconds
 
     private static final List<String> DUPLICATE_ORDER = Collections.unmodifiableList(Arrays.asList(
             EntityFolder.INBOX,
@@ -2786,24 +2787,28 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         if (intent.resolveActivity(pm) == null)
             return false;
 
-        long installed = 0;
-        try {
-            PackageInfo pi = pm.getPackageInfo(BuildConfig.APPLICATION_ID, 0);
-            if (pi != null)
-                installed = pi.firstInstallTime;
-        } catch (Throwable ex) {
-            Log.e(ex);
-        }
-
-        long later = prefs.getLong("review_later", 0);
-
-        Log.i("Installed=" + new Date(installed) + " later=" + new Date(later));
-        if (later > installed)
-            installed = later;
-
         long now = new Date().getTime();
-        if (installed + REVIEW_ASK_DELAY > now)
-            return false;
+        long later = prefs.getLong("review_later", -1);
+        if (later < 0) {
+            long installed = 0;
+            try {
+                PackageInfo pi = pm.getPackageInfo(BuildConfig.APPLICATION_ID, 0);
+                if (pi != null)
+                    installed = pi.firstInstallTime;
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
+
+            Log.i("Review installed=" + new Date(installed));
+
+            if (installed + REVIEW_ASK_DELAY > now)
+                return false;
+        } else {
+            Log.i("Review later=" + new Date(later));
+
+            if (later + REVIEW_LATER_DELAY > now)
+                return false;
+        }
 
         final Snackbar snackbar = Snackbar.make(view, R.string.title_ask_review, Snackbar.LENGTH_INDEFINITE);
         snackbar.setAction(R.string.title_info, new View.OnClickListener() {
