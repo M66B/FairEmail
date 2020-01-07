@@ -5518,20 +5518,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_error_reporting, null);
             Button btnInfo = dview.findViewById(R.id.btnInfo);
-            CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
 
             btnInfo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Helper.viewFAQ(getContext(), 104);
-                }
-            });
-
-            cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                    prefs.edit().putBoolean("crash_reports_asked", isChecked).apply();
                 }
             });
 
@@ -5545,7 +5536,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             Log.setCrashReporting(true);
                         }
                     })
-                    .setNegativeButton(android.R.string.no, null)
+                    .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                            prefs.edit().putBoolean("crash_reports_asked", true).apply();
+                        }
+                    })
                     .create();
         }
     }
@@ -5555,15 +5552,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_review, null);
-            CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
-
-            cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                    prefs.edit().putBoolean("review_asked", isChecked).apply();
-                }
-            });
 
             return new AlertDialog.Builder(getContext())
                     .setView(dview)
@@ -5575,7 +5563,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             startActivity(Helper.getIntentRate(getContext()));
                         }
                     })
-                    .setNegativeButton(android.R.string.no, null)
+                    .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                            prefs.edit().putBoolean("review_asked", true).apply();
+                        }
+                    })
                     .setNeutralButton(R.string.title_later, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
