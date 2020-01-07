@@ -169,6 +169,11 @@ import javax.mail.internet.MimeMultipart;
 import javax.mail.internet.ParseException;
 import javax.mail.util.ByteArrayDataSource;
 
+import biweekly.Biweekly;
+import biweekly.ICalendar;
+import biweekly.component.VEvent;
+import biweekly.property.Organizer;
+
 import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
 import static android.widget.AdapterView.INVALID_POSITION;
@@ -3005,7 +3010,21 @@ public class FragmentCompose extends FragmentBase {
                         attachment.progress = null;
                         attachment.available = true;
                         attachment.id = db.attachment().insertAttachment(attachment);
-                        ics.renameTo(attachment.getFile(context));
+                        File file = attachment.getFile(context);
+                        ics.renameTo(file);
+
+                        ICalendar icalendar = Biweekly.parse(file).first();
+                        VEvent event = icalendar.getEvents().get(0);
+                        Organizer organizer = event.getOrganizer();
+                        if (organizer != null) {
+                            String email = organizer.getEmail();
+                            String name = organizer.getCommonName();
+                            if (!TextUtils.isEmpty(email)) {
+                                InternetAddress o = new InternetAddress(email, name);
+                                Log.i("Setting organizer=" + o);
+                                data.draft.to = new Address[]{o};
+                            }
+                        }
                     }
 
                     if ("new".equals(action)) {
