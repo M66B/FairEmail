@@ -690,6 +690,8 @@ public class MessageHelper {
             header = imessage.getHeader("X-MSMail-Priority", null);
 
         if (header != null) {
+            header = decodeMime(header);
+
             int sp = header.indexOf(" ");
             if (sp >= 0)
                 header = header.substring(0, sp); // "2 (High)"
