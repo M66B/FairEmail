@@ -85,7 +85,7 @@
         android:layout_marginTop="3dp"
         android:layout_marginEnd="12dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_legend_show_unsubscribe"
+        android:contentDescription="@string/title_legend_show_junk"
         android:foregroundTint="?android:attr/textColorSecondary"
         android:padding="3dp"
         android:scaleType="fitCenter"
