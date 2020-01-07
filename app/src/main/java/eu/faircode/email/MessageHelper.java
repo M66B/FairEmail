@@ -1181,6 +1181,8 @@ public class MessageHelper {
                     charset = charset.replace("\"", "");
                     if ("ASCII".equals(charset.toUpperCase()))
                         charset = "US-ASCII";
+                    else if (charset.toLowerCase().endsWith("8859-16")) // not supported by Android
+                        charset = null; // Use ISO8859-1 instead
                 }
 
                 if (TextUtils.isEmpty(charset) || "US-ASCII".equals(charset.toUpperCase())) {
