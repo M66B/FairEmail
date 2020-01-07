@@ -3717,8 +3717,16 @@ public class FragmentCompose extends FragmentBase {
 
             if (ex instanceof MessageRemovedException)
                 finish();
-            else if (ex instanceof IllegalArgumentException ||
-                    ex instanceof AddressException || ex instanceof UnknownHostException)
+            else if (ex instanceof AddressException) {
+                final Snackbar sb = Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_INDEFINITE);
+                sb.setAction(android.R.string.ok, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        sb.dismiss();
+                    }
+                });
+                sb.show();
+            } else if (ex instanceof IllegalArgumentException || ex instanceof UnknownHostException)
                 Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
             else
                 Log.unexpectedError(getParentFragmentManager(), ex);
