@@ -196,6 +196,14 @@ public class ApplicationEx extends Application {
                     prefs.getBoolean("experiments", false))
                 editor.putBoolean("quick_filter", true);
             editor.remove("experiments");
+
+        } else if (version < 889) {
+            if (prefs.contains("autoresize")) {
+                boolean autoresize = prefs.getBoolean("autoresize", true);
+                editor.putBoolean("resize_images", autoresize);
+                editor.putBoolean("resize_attachments", autoresize);
+                editor.remove("autoresize");
+            }
         }
 
         if (BuildConfig.DEBUG && false) {

@@ -52,7 +52,8 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private SwitchCompat swQuoteReply;
     private SwitchCompat swPlainOnly;
     private SwitchCompat swUsenetSignature;
-    private SwitchCompat swAutoResize;
+    private SwitchCompat swResizeImages;
+    private SwitchCompat swResizeAttachments;
     private Spinner spAutoResize;
     private TextView tvAutoResize;
     private SwitchCompat swReceipt;
@@ -63,7 +64,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             "keyboard", "suggest_sent", "suggested_received",
             "prefix_once", "extended_reply", "quote_reply",
             "plain_only", "usenet_signature",
-            "autoresize", "receipt_default", "resize", "lookup_mx", "send_delayed"
+            "resize_images", "resize_attachments", "receipt_default", "resize", "lookup_mx", "send_delayed"
     };
 
     @Override
@@ -85,7 +86,8 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swQuoteReply = view.findViewById(R.id.swQuoteReply);
         swPlainOnly = view.findViewById(R.id.swPlainOnly);
         swUsenetSignature = view.findViewById(R.id.swUsenetSignature);
-        swAutoResize = view.findViewById(R.id.swAutoResize);
+        swResizeImages = view.findViewById(R.id.swResizeImages);
+        swResizeAttachments = view.findViewById(R.id.swResizeAttachments);
         spAutoResize = view.findViewById(R.id.spAutoResize);
         tvAutoResize = view.findViewById(R.id.tvAutoResize);
         swReceipt = view.findViewById(R.id.swReceipt);
@@ -162,11 +164,18 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             }
         });
 
-        swAutoResize.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        swResizeImages.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("autoresize", checked).apply();
-                spAutoResize.setEnabled(checked);
+                prefs.edit().putBoolean("resize_images", checked).apply();
+            }
+        });
+
+        swResizeAttachments.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("resize_attachments", checked).apply();
+                spAutoResize.setEnabled(swResizeImages.isChecked() || swResizeAttachments.isChecked());
             }
         });
 
@@ -176,6 +185,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
                 int[] values = getResources().getIntArray(R.array.resizeValues);
                 prefs.edit().putInt("resize", values[position]).apply();
                 tvAutoResize.setText(getString(R.string.title_advanced_resize_pixels, values[position]));
+                spAutoResize.setEnabled(swResizeImages.isChecked() || swResizeAttachments.isChecked());
             }
 
             @Override
@@ -266,7 +276,8 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swPlainOnly.setChecked(prefs.getBoolean("plain_only", false));
         swUsenetSignature.setChecked(prefs.getBoolean("usenet_signature", false));
 
-        swAutoResize.setChecked(prefs.getBoolean("autoresize", true));
+        swResizeImages.setChecked(prefs.getBoolean("resize_images", true));
+        swResizeAttachments.setChecked(prefs.getBoolean("resize_attachments", true));
 
         int resize = prefs.getInt("resize", FragmentCompose.REDUCED_IMAGE_SIZE);
         int[] resizeValues = getResources().getIntArray(R.array.resizeValues);
@@ -276,7 +287,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
                 tvAutoResize.setText(getString(R.string.title_advanced_resize_pixels, resizeValues[pos]));
                 break;
             }
-        spAutoResize.setEnabled(swAutoResize.isChecked());
+        spAutoResize.setEnabled(swResizeImages.isChecked() || swResizeAttachments.isChecked());
 
         swReceipt.setChecked(prefs.getBoolean("receipt_default", false));
         swLookupMx.setChecked(prefs.getBoolean("lookup_mx", false));

@@ -256,7 +256,8 @@
     <string name="title_advanced_quote_reply">Quote replied text</string>
     <string name="title_advanced_plain_only">Send plain text only by default</string>
     <string name="title_advanced_usenet_signature">Usenet signature convention</string>
-    <string name="title_advanced_autoresize">Automatically resize attached and embedded images</string>
+    <string name="title_advanced_resize_images">Automatically resize embedded images</string>
+    <string name="title_advanced_resize_attachments">Automatically resize image attachments</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>
     <string name="title_advanced_lookup_mx">Check recipient email addresses before sending</string>
     <string name="title_advanced_send_delayed">Delay sending messages</string>

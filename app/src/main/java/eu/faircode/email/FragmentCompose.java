@@ -2508,11 +2508,14 @@ public class FragmentCompose extends FragmentBase {
 
     private static void resizeAttachment(Context context, EntityAttachment attachment) throws IOException {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean autoresize = prefs.getBoolean("autoresize", true);
+        boolean resize_images = prefs.getBoolean("resize_images", true);
+        boolean resize_attachments = prefs.getBoolean("resize_attachments", true);
 
         File file = attachment.getFile(context);
 
-        if (autoresize && file.exists() /* upload cancelled */ &&
+        if (((resize_images && Part.INLINE.equals(attachment.disposition)) ||
+                (resize_attachments && Part.ATTACHMENT.equals(attachment.disposition))) &&
+                file.exists() /* upload cancelled */ &&
                 ("image/jpeg".equals(attachment.type) || "image/png".equals(attachment.type))) {
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inJustDecodeBounds = true;
