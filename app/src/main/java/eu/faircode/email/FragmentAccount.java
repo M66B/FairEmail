@@ -1213,7 +1213,7 @@ public class FragmentAccount extends FragmentBase {
                 if (account == null)
                     return null;
 
-                AccountManager am = AccountManager.get(getContext());
+                AccountManager am = AccountManager.get(context);
                 Account[] accounts = am.getAccountsByType("com.google");
                 for (Account google : accounts)
                     if (account.user.equals(google.name))

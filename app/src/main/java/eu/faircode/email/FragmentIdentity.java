@@ -888,7 +888,7 @@ public class FragmentIdentity extends FragmentBase {
                 if (identity == null)
                     return null;
 
-                AccountManager am = AccountManager.get(getContext());
+                AccountManager am = AccountManager.get(context);
                 Account[] accounts = am.getAccountsByType("com.google");
                 for (Account google : accounts)
                     if (identity.user.equals(google.name))
