@@ -1200,7 +1200,7 @@ public class FragmentCompose extends FragmentBase {
         File dir = new File(getContext().getCacheDir(), "photo");
         if (!dir.exists())
             dir.mkdir();
-        File file = new File(dir, new Date().getTime() + ".jpg");
+        File file = new File(dir, working + ".jpg");
 
         // https://developer.android.com/training/camera/photobasics
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);

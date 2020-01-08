@@ -118,6 +118,7 @@ public class WorkerCleanup extends Worker {
             File[] messages = new File(context.getFilesDir(), "messages").listFiles();
             File[] revision = new File(context.getFilesDir(), "revision").listFiles();
             File[] references = new File(context.getFilesDir(), "references").listFiles();
+            File[] photos = new File(context.getCacheDir(), "photo").listFiles();
             File[] calendars = new File(context.getCacheDir(), "calendar").listFiles();
 
             if (messages != null)
@@ -126,6 +127,8 @@ public class WorkerCleanup extends Worker {
                 files.addAll(Arrays.asList(revision));
             if (references != null)
                 files.addAll(Arrays.asList(references));
+            if (photos != null)
+                files.addAll(Arrays.asList(photos));
             if (calendars != null)
                 files.addAll(Arrays.asList(calendars));
 
@@ -185,15 +188,6 @@ public class WorkerCleanup extends Worker {
                             if (!file.delete())
                                 Log.w("Error deleting " + file);
                         }
-                    }
-
-            Log.i("Cleanup photos");
-            File[] photos = new File(context.getCacheDir(), "photo").listFiles();
-            if (photos != null)
-                for (File file : photos)
-                    if (manual || file.lastModified() + KEEP_FILES_DURATION < now) {
-                        if (!file.delete())
-                            Log.w("Error deleting " + file);
                     }
 
             Log.i("Cleanup contacts");
