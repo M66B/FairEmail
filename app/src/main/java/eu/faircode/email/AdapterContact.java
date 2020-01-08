@@ -113,7 +113,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
             } else {
                 ivType.setImageDrawable(null);
                 ivType.setContentDescription(null);
-            } 
+            }
 
             if (contact.avatar == null || !contacts)
                 ivAvatar.setImageDrawable(null);
