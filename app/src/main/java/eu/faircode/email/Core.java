@@ -2572,10 +2572,10 @@ class Core {
                     StringBuilder sb = new StringBuilder();
                     for (String key : sid.keySet())
                         sb.append(" ").append(key).append("=").append(sid.get(key));
-                    Log.e("Empty message" + sb.toString());
+                    Log.e("Empty message" + sb.toString() + " partial=" + account.partial_fetch);
                 }
             } else
-                Log.e("Empty message " + account.host);
+                Log.e("Empty message " + account.host + " partial=" + account.partial_fetch);
         } catch (Throwable ex) {
             Log.w(ex);
         }
