@@ -184,6 +184,15 @@ public class WorkerCleanup extends Worker {
                         }
                     }
 
+            Log.i("Cleanup photos");
+            File[] photos = new File(context.getCacheDir(), "photo").listFiles();
+            if (photos != null)
+                for (File file : photos)
+                    if (manual || file.lastModified() + KEEP_FILES_DURATION < now) {
+                        if (!file.delete())
+                            Log.w("Error deleting " + file);
+                    }
+
             Log.i("Cleanup contacts");
             int contacts = db.contact().deleteContacts(now - KEEP_CONTACTS_DURATION);
             Log.i("Deleted contacts=" + contacts);
