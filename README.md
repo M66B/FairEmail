@@ -142,19 +142,23 @@ The Gmail quick setup wizard can be used in official releases only (Play store o
 in the [near future](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
 Gsuite accounts authorized with the quick setup wizard (OAuth) will keep working.
 
-## Privacy
-
-Please see [here](https://github.com/M66B/FairEmail/blob/master/PRIVACY.md#fairemail) for the privacy policy.
-
 ## Compatibility
 
 FairEmail requires at least Android 5 Lollipop.
+
 Individual message notifications are available on Android 7 Nougat and later only
 because earlier Android versions do not support notification grouping.
+
+Notification settings (sounds) per account/folder/sender are available on Android 8 Oreo and later only
+because earlier Android versions do not support notification channels.
 
 FairEmail will work properly on devices without any Google service installed.
 
 See [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems) for known problems.
+
+## Privacy
+
+Please see [here](https://github.com/M66B/FairEmail/blob/master/PRIVACY.md#fairemail) for the privacy policy.
 
 ## Support
 
