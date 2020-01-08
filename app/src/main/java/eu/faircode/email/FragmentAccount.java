@@ -30,7 +30,9 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -88,6 +90,7 @@ public class FragmentAccount extends FragmentBase {
     private EditText etPort;
     private EditText etUser;
     private TextInputLayout tilPassword;
+    private TextView tvCharacters;
     private Button btnOAuth;
     private TextView tvOAuthSupport;
     private EditText etRealm;
@@ -195,6 +198,7 @@ public class FragmentAccount extends FragmentBase {
         cbInsecure = view.findViewById(R.id.cbInsecure);
         etUser = view.findViewById(R.id.etUser);
         tilPassword = view.findViewById(R.id.tilPassword);
+        tvCharacters = view.findViewById(R.id.tvCharacters);
         btnOAuth = view.findViewById(R.id.btnOAuth);
         tvOAuthSupport = view.findViewById(R.id.tvOAuthSupport);
         etRealm = view.findViewById(R.id.etRealm);
@@ -307,6 +311,28 @@ public class FragmentAccount extends FragmentBase {
             @Override
             public void onCheckedChanged(RadioGroup group, int id) {
                 etPort.setHint(id == R.id.radio_starttls ? "143" : "993");
+            }
+        });
+
+        tilPassword.getEditText().addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Do nothing
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Do nothing
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String password = s.toString();
+                boolean warning = (Helper.containsWhiteSpace(password) ||
+                        Helper.containsControlChars(password));
+                tvCharacters.setVisibility(warning &&
+                        tilPassword.getVisibility() == View.VISIBLE
+                        ? View.VISIBLE : View.GONE);
             }
         });
 
@@ -436,6 +462,7 @@ public class FragmentAccount extends FragmentBase {
 
         rgEncryption.setVisibility(View.GONE);
         cbInsecure.setVisibility(View.GONE);
+        tvCharacters.setVisibility(View.GONE);
 
         btnAdvanced.setVisibility(View.GONE);
 

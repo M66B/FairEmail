@@ -584,6 +584,26 @@ public class Helper {
         return result.toArray(new String[0]);
     }
 
+    static boolean containsWhiteSpace(String text) {
+        return text.matches(".*\\s+.*");
+    }
+
+    static boolean containsControlChars(String text) {
+        for (int offset = 0; offset < text.length(); ) {
+            int codePoint = text.codePointAt(offset);
+            offset += Character.charCount(codePoint);
+            switch (Character.getType(codePoint)) {
+                case Character.CONTROL:     // \p{Cc}
+                case Character.FORMAT:      // \p{Cf}
+                case Character.PRIVATE_USE: // \p{Co}
+                case Character.SURROGATE:   // \p{Cs}
+                case Character.UNASSIGNED:  // \p{Cn}
+                    return true;
+            }
+        }
+        return false;
+    }
+
     // Files
 
     static String sanitizeFilename(String name) {

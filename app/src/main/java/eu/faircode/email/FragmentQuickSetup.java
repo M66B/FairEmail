@@ -24,7 +24,9 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
 import android.util.Patterns;
 import android.view.KeyEvent;
@@ -59,6 +61,7 @@ public class FragmentQuickSetup extends FragmentBase {
     private EditText etName;
     private EditText etEmail;
     private TextInputLayout tilPassword;
+    private TextView tvCharacters;
     private Button btnCheck;
     private ContentLoadingProgressBar pbCheck;
 
@@ -88,6 +91,7 @@ public class FragmentQuickSetup extends FragmentBase {
         etName = view.findViewById(R.id.etName);
         etEmail = view.findViewById(R.id.etEmail);
         tilPassword = view.findViewById(R.id.tilPassword);
+        tvCharacters = view.findViewById(R.id.tvCharacters);
         btnCheck = view.findViewById(R.id.btnCheck);
         pbCheck = view.findViewById(R.id.pbCheck);
 
@@ -116,6 +120,28 @@ public class FragmentQuickSetup extends FragmentBase {
                     return true;
                 }
                 return false;
+            }
+        });
+
+        tilPassword.getEditText().addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Do nothing
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Do nothing
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String password = s.toString();
+                boolean warning = (Helper.containsWhiteSpace(password) ||
+                        Helper.containsControlChars(password));
+                tvCharacters.setVisibility(warning &&
+                        tilPassword.getVisibility() == View.VISIBLE
+                        ? View.VISIBLE : View.GONE);
             }
         });
 
@@ -149,6 +175,7 @@ public class FragmentQuickSetup extends FragmentBase {
         });
 
         // Initialize
+        tvCharacters.setVisibility(View.GONE);
         pbCheck.setVisibility(View.GONE);
         pbSave.setVisibility(View.GONE);
         btnHelp.setVisibility(View.GONE);

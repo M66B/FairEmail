@@ -99,6 +99,7 @@ public class FragmentIdentity extends FragmentBase {
     private EditText etPort;
     private EditText etUser;
     private TextInputLayout tilPassword;
+    private TextView tvCharacters;
     private Button btnOAuth;
     private EditText etRealm;
     private CheckBox cbUseIp;
@@ -183,6 +184,7 @@ public class FragmentIdentity extends FragmentBase {
         etPort = view.findViewById(R.id.etPort);
         etUser = view.findViewById(R.id.etUser);
         tilPassword = view.findViewById(R.id.tilPassword);
+        tvCharacters = view.findViewById(R.id.tvCharacters);
         btnOAuth = view.findViewById(R.id.btnOAuth);
         etRealm = view.findViewById(R.id.etRealm);
         cbUseIp = view.findViewById(R.id.cbUseIp);
@@ -292,6 +294,23 @@ public class FragmentIdentity extends FragmentBase {
             }
         });
 
+        tilPassword.getEditText().addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Do nothing
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Do nothing
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                checkPassword(s.toString());
+            }
+        });
+
         btnColor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -347,6 +366,7 @@ public class FragmentIdentity extends FragmentBase {
             public void onClick(View v) {
                 int visibility = (grpAdvanced.getVisibility() == View.VISIBLE ? View.GONE : View.VISIBLE);
                 grpAdvanced.setVisibility(visibility);
+                checkPassword(tilPassword.getEditText().getText().toString());
                 if (visibility == View.VISIBLE)
                     new Handler().post(new Runnable() {
                         @Override
@@ -452,6 +472,7 @@ public class FragmentIdentity extends FragmentBase {
         btnAutoConfig.setEnabled(false);
         pbAutoConfig.setVisibility(View.GONE);
         cbInsecure.setVisibility(View.GONE);
+        tvCharacters.setVisibility(View.GONE);
 
         btnAdvanced.setVisibility(View.GONE);
 
@@ -513,6 +534,15 @@ public class FragmentIdentity extends FragmentBase {
                     Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "identity:config");
+    }
+
+    private void checkPassword(String password) {
+        boolean warning = (Helper.containsWhiteSpace(password) ||
+                Helper.containsControlChars(password));
+        tvCharacters.setVisibility(warning &&
+                grpAdvanced.getVisibility() == View.VISIBLE
+                ? View.VISIBLE : View.GONE);
+
     }
 
     private void onSave(boolean should) {

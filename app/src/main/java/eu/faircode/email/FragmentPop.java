@@ -26,7 +26,9 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -64,6 +66,7 @@ public class FragmentPop extends FragmentBase {
     private EditText etPort;
     private EditText etUser;
     private TextInputLayout tilPassword;
+    private TextView tvCharacters;
 
     private EditText etName;
     private ViewButtonColor btnColor;
@@ -113,6 +116,7 @@ public class FragmentPop extends FragmentBase {
         cbInsecure = view.findViewById(R.id.cbInsecure);
         etUser = view.findViewById(R.id.etUser);
         tilPassword = view.findViewById(R.id.tilPassword);
+        tvCharacters = view.findViewById(R.id.tvCharacters);
 
         etName = view.findViewById(R.id.etName);
         btnColor = view.findViewById(R.id.btnColor);
@@ -131,6 +135,28 @@ public class FragmentPop extends FragmentBase {
         grpError = view.findViewById(R.id.grpError);
 
         pbWait = view.findViewById(R.id.pbWait);
+
+        tilPassword.getEditText().addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Do nothing
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Do nothing
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String password = s.toString();
+                boolean warning = (Helper.containsWhiteSpace(password) ||
+                        Helper.containsControlChars(password));
+                tvCharacters.setVisibility(warning &&
+                        tilPassword.getVisibility() == View.VISIBLE
+                        ? View.VISIBLE : View.GONE);
+            }
+        });
 
         btnColor.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -169,6 +195,7 @@ public class FragmentPop extends FragmentBase {
         // Initialize
         Helper.setViewsEnabled(view, false);
 
+        tvCharacters.setVisibility(View.GONE);
         pbSave.setVisibility(View.GONE);
         grpError.setVisibility(View.GONE);
 
