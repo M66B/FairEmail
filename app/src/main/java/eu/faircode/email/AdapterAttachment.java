@@ -22,11 +22,7 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
-import android.net.Uri;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,7 +32,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
@@ -48,9 +43,6 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.snackbar.Snackbar;
-
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -218,37 +210,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
         }
 
         private void onShare(EntityAttachment attachment) {
-            // https://developer.android.com/reference/android/support/v4/content/FileProvider
-            File file = attachment.getFile(context);
-            Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
-            Log.i("uri=" + uri);
-
-            String type = attachment.getMimeType();
-
-            // Build intent
-            Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setDataAndTypeAndNormalize(uri, type);
-            intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-            if (!TextUtils.isEmpty(attachment.name))
-                intent.putExtra(Intent.EXTRA_TITLE, Helper.sanitizeFilename(attachment.name));
-            Log.i("Intent=" + intent + " type=" + type);
-
-            // Get targets
-            PackageManager pm = context.getPackageManager();
-            List<ResolveInfo> ris = pm.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
-            for (ResolveInfo ri : ris) {
-                Log.i("Target=" + ri);
-                context.grantUriPermission(ri.activityInfo.packageName, uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
-            }
-
-            // Check if viewer available
-            if (ris.size() == 0)
-                Snackbar.make(
-                        (View) itemView.getParent(),
-                        context.getString(R.string.title_no_viewer, type),
-                        Snackbar.LENGTH_LONG).show();
-            else
-                context.startActivity(intent);
+            Helper.share(context, attachment.getFile(context), attachment.type, attachment.name);
         }
 
         private void onDownload(EntityAttachment attachment) {
