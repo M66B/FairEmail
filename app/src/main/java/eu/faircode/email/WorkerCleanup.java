@@ -118,6 +118,7 @@ public class WorkerCleanup extends Worker {
             File[] messages = new File(context.getFilesDir(), "messages").listFiles();
             File[] revision = new File(context.getFilesDir(), "revision").listFiles();
             File[] references = new File(context.getFilesDir(), "references").listFiles();
+            File[] calendars = new File(context.getCacheDir(), "calendar").listFiles();
 
             if (messages != null)
                 files.addAll(Arrays.asList(messages));
@@ -125,6 +126,8 @@ public class WorkerCleanup extends Worker {
                 files.addAll(Arrays.asList(revision));
             if (references != null)
                 files.addAll(Arrays.asList(references));
+            if (calendars != null)
+                files.addAll(Arrays.asList(calendars));
 
             // Cleanup message files
             Log.i("Cleanup message files");
