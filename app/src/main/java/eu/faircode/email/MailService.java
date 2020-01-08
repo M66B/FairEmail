@@ -345,8 +345,9 @@ public class MailService implements AutoCloseable {
             } else if ("smtp".equals(protocol) || "smtps".equals(protocol)) {
                 String[] c = BuildConfig.APPLICATION_ID.split("\\.");
                 Collections.reverse(Arrays.asList(c));
-                String haddr = TextUtils.join(".", c);
+                String domain = TextUtils.join(".", c);
 
+                String haddr = domain;
                 if (useip)
                     try {
                         // This assumes getByName always returns the same address (type)
@@ -363,7 +364,18 @@ public class MailService implements AutoCloseable {
                 properties.put("mail." + protocol + ".localhost", haddr);
 
                 iservice = isession.getTransport(protocol);
-                iservice.connect(host, port, user, password);
+                try {
+                    iservice.connect(host, port, user, password);
+                } catch (MessagingException ex) {
+                    if (useip &&
+                            ex.getMessage() != null &&
+                            ex.getMessage().toLowerCase().contains("syntactically invalid")) {
+                        Log.i("Using localhost=" + domain);
+                        properties.put("mail." + protocol + ".localhost", domain);
+                        iservice.connect(host, port, user, password);
+                    } else
+                        throw ex;
+                }
             } else
                 throw new NoSuchProviderException(protocol);
         } catch (MessagingException ex) {
