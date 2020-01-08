@@ -2022,7 +2022,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         }
 
                         if (args.getBoolean("share"))
-                            Helper.share(context, (File) result, "text/calendar", action + ".ics");
+                            Helper.share(context, (File) result, "text/calendar", status + ".ics");
                         else {
                             Intent reply = new Intent(context, ActivityCompose.class)
                                     .putExtra("action", "participation")
