@@ -210,6 +210,14 @@
             host="smtp.yandex.com"
             port="465"
             starttls="false" />
+        <oauth
+            authorizationEndpoint="https://oauth.yandex.com/authorize"
+            clientId=""
+            clientSecret=""
+            enabled="false"
+            redirectUri="https://oauth.faircode.eu/"
+            scopes="mail:imap_full,mail:smtp"
+            tokenEndpoint="https://oauth.yandex.com/token" />
     </provider>
     <provider
         name="web.de"
