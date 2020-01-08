@@ -1974,7 +1974,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (result.hasArchive && !result.isArchive) // has archive and not is archive/drafts
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_archive, order++, R.string.title_archive);
 
-                if (result.isTrash) // is trash
+                if (result.isTrash || !result.hasTrash) // is trash or no trash
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, order++, R.string.title_delete);
 
                 if (!result.isTrash && result.hasTrash) // not trash and has trash
