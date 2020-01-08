@@ -699,7 +699,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.action_delete:
-                        onActionMove(EntityFolder.TRASH);
+                        if ((Boolean) bottom_navigation.getTag())
+                            onActionDelete();
+                        else
+                            onActionMove(EntityFolder.TRASH);
                         return true;
 
                     case R.id.action_snooze:
@@ -721,6 +724,58 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     default:
                         return false;
                 }
+            }
+
+            private void onActionDelete() {
+                Bundle args = new Bundle();
+                args.putLong("account", account);
+                args.putString("thread", thread);
+                args.putLong("id", id);
+
+                new SimpleTask<List<Long>>() {
+                    @Override
+                    protected List<Long> onExecute(Context context, Bundle args) throws Throwable {
+                        long aid = args.getLong("account");
+                        String thread = args.getString("thread");
+                        long id = args.getLong("id");
+
+                        ArrayList<Long> result = new ArrayList<>();
+
+                        DB db = DB.getInstance(context);
+                        try {
+                            db.beginTransaction();
+
+                            List<EntityMessage> messages = db.message().getMessagesByThread(
+                                    aid, thread, threading ? null : id, null);
+                            for (EntityMessage threaded : messages)
+                                result.add(threaded.id);
+
+                            db.setTransactionSuccessful();
+                        } finally {
+                            db.endTransaction();
+                        }
+
+                        return result;
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, List<Long> ids) {
+                        Bundle aargs = new Bundle();
+                        aargs.putString("question", getResources()
+                                .getQuantityString(R.plurals.title_deleting_messages, ids.size(), ids.size()));
+                        aargs.putLongArray("ids", Helper.toLongArray(ids));
+
+                        FragmentDialogAsk ask = new FragmentDialogAsk();
+                        ask.setArguments(aargs);
+                        ask.setTargetFragment(FragmentMessages.this, REQUEST_MESSAGES_DELETE);
+                        ask.show(getParentFragmentManager(), "messages:delete");
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Log.unexpectedError(getParentFragmentManager(), ex);
+                    }
+                }.execute(FragmentMessages.this, args, "messages:delete");
             }
 
             private void onActionMove(String folderType) {
@@ -3540,17 +3595,19 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     EntityFolder trash = db.folder().getFolderByType(account, EntityFolder.TRASH);
                     EntityFolder archive = db.folder().getFolderByType(account, EntityFolder.ARCHIVE);
 
-                    trashable = (trashable && trash != null);
-                    archivable = (archivable && archive != null);
-
-                    return new Boolean[]{trashable, snoozable, archivable};
+                    return new Boolean[]{
+                            trash == null,
+                            trashable,
+                            snoozable,
+                            archivable && archive != null};
                 }
 
                 @Override
                 protected void onExecuted(Bundle args, Boolean[] data) {
-                    bottom_navigation.getMenu().findItem(R.id.action_delete).setVisible(data[0]);
-                    bottom_navigation.getMenu().findItem(R.id.action_snooze).setVisible(data[1]);
-                    bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(data[2]);
+                    bottom_navigation.setTag(data[0]);
+                    bottom_navigation.getMenu().findItem(R.id.action_delete).setVisible(data[1]);
+                    bottom_navigation.getMenu().findItem(R.id.action_snooze).setVisible(data[2]);
+                    bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(data[3]);
                     bottom_navigation.setVisibility(View.VISIBLE);
                 }
 
@@ -4942,7 +4999,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void onDelete(Bundle args) {
-        selectionTracker.clearSelection();
+        if (selectionTracker != null)
+            selectionTracker.clearSelection();
 
         new SimpleTask<Void>() {
             @Override
