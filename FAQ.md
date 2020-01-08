@@ -1518,7 +1518,7 @@ will automatically be resized for displaying on screens.
 This is because email messages are limited in size, depending on the provider mostly between 10 and 50 MB.
 Images will by default be resized to a maximum width and height of about 1440 pixels and saved with a compression ratio of 90 %.
 Images are scaled down using whole number factors to reduce memory usage and to retain image quality.
-There is an advanced option to disable automatically resizing and to set the target image size.
+Automatically resizing of inline and/or attached images and the maximum target image size can be configured in the send settings.
 
 If you want to resize images on a case-by-case basis,
 you can use [Send Reduced](https://f-droid.org/en/packages/mobi.omegacentauri.SendReduced/) or a similar app.
