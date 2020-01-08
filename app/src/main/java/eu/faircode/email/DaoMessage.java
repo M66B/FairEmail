@@ -569,19 +569,19 @@ public interface DaoMessage {
 
     @Query("SELECT id FROM message" +
             " WHERE folder = :folder" +
-            " AND received < :received" +
+            " AND received < :before" +
             " AND NOT uid IS NULL" +
             " AND (ui_seen OR :unseen)" +
             " AND NOT ui_flagged" +
             " AND NOT ui_browsed")
-    List<Long> getMessagesBefore(long folder, long received, boolean unseen);
+    List<Long> getMessagesBefore(long folder, long before, boolean unseen);
 
     @Query("DELETE FROM message" +
             " WHERE folder = :folder" +
-            " AND received < :received" +
+            " AND received < :before" +
             " AND NOT uid IS NULL" +
             " AND (ui_seen OR :unseen)" +
             " AND NOT ui_flagged" +
-            " AND (NOT ui_browsed OR stored < :received)")
-    int deleteMessagesBefore(long folder, long received, boolean unseen);
+            " AND (NOT ui_browsed OR stored < :before)")
+    int deleteMessagesBefore(long folder, long before, boolean unseen);
 }
