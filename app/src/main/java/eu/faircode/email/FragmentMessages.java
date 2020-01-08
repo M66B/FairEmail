@@ -747,8 +747,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                             List<EntityMessage> messages = db.message().getMessagesByThread(
                                     aid, thread, threading ? null : id, null);
-                            for (EntityMessage threaded : messages)
-                                result.add(threaded.id);
+                            for (EntityMessage threaded : messages) {
+                                EntityFolder folder = db.folder().getFolder(threaded.folder);
+                                if (folder != null && !folder.read_only)
+                                    result.add(threaded.id);
+                            }
 
                             db.setTransactionSuccessful();
                         } finally {
@@ -806,7 +809,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                         aid, thread, threading ? null : id, null);
                                 for (EntityMessage threaded : messages) {
                                     EntityFolder folder = db.folder().getFolder(threaded.folder);
-                                    if (!target.id.equals(threaded.folder) &&
+                                    if (!folder.read_only &&
+                                            !target.id.equals(threaded.folder) &&
                                             !EntityFolder.DRAFTS.equals(folder.type) && !EntityFolder.OUTBOX.equals(folder.type) &&
                                             (!EntityFolder.SENT.equals(folder.type) || EntityFolder.TRASH.equals(target.type)) &&
                                             !EntityFolder.TRASH.equals(folder.type) && !EntityFolder.JUNK.equals(folder.type))
@@ -3564,6 +3568,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                     DB db = DB.getInstance(context);
 
+                    EntityFolder trash = db.folder().getFolderByType(account, EntityFolder.TRASH);
+                    EntityFolder archive = db.folder().getFolderByType(account, EntityFolder.ARCHIVE);
+
                     List<EntityMessage> messages = db.message().getMessagesByThread(
                             account, thread, threading ? null : id, null);
 
@@ -3573,12 +3580,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     for (EntityMessage message : messages) {
                         EntityFolder folder = db.folder().getFolder(message.folder);
 
-                        if (!folder.read_only &&
-                                !EntityFolder.DRAFTS.equals(folder.type) &&
-                                !EntityFolder.OUTBOX.equals(folder.type) &&
-                                // allow sent
-                                !EntityFolder.TRASH.equals(folder.type) &&
-                                !EntityFolder.JUNK.equals(folder.type))
+                        if (!folder.read_only && (trash == null ||
+                                (!EntityFolder.DRAFTS.equals(folder.type) &&
+                                        !EntityFolder.OUTBOX.equals(folder.type) &&
+                                        // allow sent
+                                        !EntityFolder.TRASH.equals(folder.type) &&
+                                        !EntityFolder.JUNK.equals(folder.type))))
                             trashable = true;
 
                         if (!EntityFolder.OUTBOX.equals(folder.type))
@@ -3591,9 +3598,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 !EntityFolder.ARCHIVE.equals(folder.type))
                             archivable = true;
                     }
-
-                    EntityFolder trash = db.folder().getFolderByType(account, EntityFolder.TRASH);
-                    EntityFolder archive = db.folder().getFolderByType(account, EntityFolder.ARCHIVE);
 
                     return new Boolean[]{
                             trash == null,
