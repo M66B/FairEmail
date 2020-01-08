@@ -505,7 +505,7 @@ class Core {
 
         Long uid = findUid(ifolder, message.msgid, false);
         if (uid == null)
-            throw new IllegalArgumentException("Message not found for " + op.name);
+            throw new IllegalArgumentException("Message not found for " + op.name + " folder=" + folder.name);
 
         DB db = DB.getInstance(context);
         db.message().setMessageUid(message.id, message.uid);
