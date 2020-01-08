@@ -1969,6 +1969,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             if (event.getDateEnd() != null)
                                 ev.setDateEnd(event.getDateEnd());
                             ev.setSummary(event.getSummary());
+                            ev.setDescription(event.getDescription());
                             ev.setLocation(event.getLocation());
 
                             InternetAddress to = (InternetAddress) message.to[0];
