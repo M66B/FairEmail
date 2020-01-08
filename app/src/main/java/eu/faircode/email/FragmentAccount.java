@@ -987,10 +987,9 @@ public class FragmentAccount extends FragmentBase {
                     db.beginTransaction();
 
                     if (account != null && !account.password.equals(password)) {
+                        String match = "%" + ConnectionHelper.getDomain(account.host);
                         int count = db.identity().setIdentityPassword(
-                                account.id,
-                                account.user, password,
-                                "%." + ConnectionHelper.getDomain(account.host));
+                                account.id, account.user, password, match);
                         Log.i("Updated passwords=" + count);
                     }
 
