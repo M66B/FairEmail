@@ -2524,7 +2524,9 @@ that non-standard protocols, like Microsoft Exchange Web Services and Microsoft 
 
 Since locally deleted messages would be downloaded again on the next sync it is not possible to permanently delete local messages.
 
-As an alternative you can snooze messages, which will hide messages for a selected time.
+As an alternative you can hide messages,
+either via the three-dots menu in the action bar just above the message text
+or by multiple selecting messages in the message list.
 
 <br />
 
