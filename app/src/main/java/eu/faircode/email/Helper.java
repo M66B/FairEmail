@@ -277,9 +277,11 @@ public class Helper {
         }
 
         // Check if viewer available
-        if (ris.size() == 0)
-            ToastEx.makeText(context, R.string.title_no_viewer, Toast.LENGTH_LONG).show();
-        else
+        if (ris.size() == 0) {
+            String message = context.getString(R.string.title_no_viewer,
+                    type != null ? type : name != null ? name : file.getName());
+            ToastEx.makeText(context, message, Toast.LENGTH_LONG).show();
+        } else
             context.startActivity(intent);
     }
 
