@@ -947,7 +947,7 @@
     <string name="title_legend_count">Count</string>
     <string name="title_legend_folder_type">Folder type</string>
 
-    <string name="title_hint_folder_actions">Long press for options</string>
+    <string name="title_hint_folder_actions">Long press a folder for options, like adding a folder to the navigation menu for quick access</string>
     <string name="title_hint_folder_sync">To limit battery and network usage not all folders and not all messages will be synchronized by default</string>
     <string name="title_hint_support">If you have a question or a problem, please use the support menu to get help</string>
     <string name="title_hint_message_actions">Swipe left to trash; Swipe right to archive (if available); The swipe actions can be configured in the account settings</string>
