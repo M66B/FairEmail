@@ -50,6 +50,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.Date;
+import java.util.Objects;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -286,11 +287,10 @@ public class FragmentPop extends FragmentBase {
                     db.beginTransaction();
 
                     if (account != null && !account.password.equals(password)) {
-                        int count = db.identity().setIdentityPassword(
-                                account.id,
-                                account.user, password,
-                                "%." + ConnectionHelper.getDomain(account.host));
-                        Log.i("Updated passwords=" + count);
+                        String domain = ConnectionHelper.getParentDomain(account.host);
+                        String match = (Objects.equals(account.host, domain) ? account.host : "%." + domain);
+                        int count = db.identity().setIdentityPassword(account.id, account.user, password, match);
+                        Log.i("Updated passwords=" + count + " match=" + match);
                     }
 
                     boolean update = (account != null);

@@ -375,7 +375,7 @@ public class ConnectionHelper {
         return null;
     }
 
-    static String getDomain(String host) {
+    static String getParentDomain(String host) {
         if (host != null) {
             String[] h = host.split("\\.");
             if (h.length >= 2)
