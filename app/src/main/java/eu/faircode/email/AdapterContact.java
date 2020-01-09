@@ -158,8 +158,8 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
                     ? R.drawable.baseline_star_24 : R.drawable.baseline_star_border_24);
             ivFavorite.setImageTintList(ColorStateList.valueOf(
                     contact.state == EntityContact.STATE_FAVORITE ? colorAccent : textColorSecondary));
-            ivFavorite.setContentDescription(context.getString(contact.state == EntityContact.STATE_FAVORITE
-                    ? R.string.title_accessibility_flagged : null));
+            ivFavorite.setContentDescription(contact.state == EntityContact.STATE_FAVORITE
+                    ? context.getString(R.string.title_accessibility_flagged) : null);
 
             view.requestLayout();
         }
