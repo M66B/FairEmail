@@ -2234,7 +2234,7 @@ Disabling *Partial fetch* will result in more memory usage.
 OAuth for Gmail is supported via the quick setup wizard.
 The Android account manager will be used to fetch and refresh OAuth tokens for selected on-device accounts.
 OAuth for non on-device accounts is not supported
-because Google requires an [expensive security audit](https://support.google.com/cloud/answer/9110914) ($15,000 to $75,000) for this.
+because Google requires a [yearly security audit](https://support.google.com/cloud/answer/9110914) ($15,000 to $75,000) for this.
 
 OAuth for Yandex is supported via the quick setup wizard.
 
