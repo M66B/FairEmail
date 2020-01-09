@@ -136,6 +136,7 @@ public class EmailProvider {
                     } else if ("oauth".equals(name)) {
                         provider.oauth = new OAuth();
                         provider.oauth.enabled = xml.getAttributeBooleanValue(null, "enabled", false);
+                        provider.oauth.askAccount = xml.getAttributeBooleanValue(null, "askAccount", false);
                         provider.oauth.clientId = xml.getAttributeValue(null, "clientId");
                         provider.oauth.clientSecret = xml.getAttributeValue(null, "clientSecret");
                         provider.oauth.scopes = xml.getAttributeValue(null, "scopes").split(",");
@@ -674,6 +675,7 @@ public class EmailProvider {
 
     public static class OAuth {
         boolean enabled;
+        boolean askAccount;
         String clientId;
         String clientSecret;
         String[] scopes;

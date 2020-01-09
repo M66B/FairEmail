@@ -176,7 +176,8 @@ public class FragmentSetup extends FragmentBase {
                                     .add(Menu.NONE, -1, order++, getString(R.string.title_setup_oauth, provider.name))
                                     .setIntent(new Intent(ActivitySetup.ACTION_QUICK_OAUTH)
                                             .putExtra("id", provider.id)
-                                            .putExtra("name", provider.name));
+                                            .putExtra("name", provider.name)
+                                            .putExtra("askAccount", provider.oauth.askAccount));
 
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_activesync, order++, R.string.title_setup_activesync);
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_other, order++, R.string.title_setup_other);

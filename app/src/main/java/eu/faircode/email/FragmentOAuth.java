@@ -28,6 +28,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Pair;
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -35,6 +36,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -78,11 +80,14 @@ import static android.app.Activity.RESULT_OK;
 public class FragmentOAuth extends FragmentBase {
     private String id;
     private String name;
+    private boolean askAccount;
 
     private ViewGroup view;
     private ScrollView scroll;
 
     private TextView tvGrantHint;
+    private EditText etName;
+    private EditText etEmail;
     private Button btnOAuth;
     private ContentLoadingProgressBar pbOAuth;
     private TextView tvAuthorized;
@@ -103,6 +108,7 @@ public class FragmentOAuth extends FragmentBase {
         Bundle args = getArguments();
         id = args.getString("id");
         name = args.getString("name");
+        askAccount = args.getBoolean("askAccount", false);
     }
 
     @Override
@@ -116,6 +122,8 @@ public class FragmentOAuth extends FragmentBase {
 
         // Get controls
         tvGrantHint = view.findViewById(R.id.tvGrantHint);
+        etName = view.findViewById(R.id.etName);
+        etEmail = view.findViewById(R.id.etEmail);
         btnOAuth = view.findViewById(R.id.btnOAuth);
         pbOAuth = view.findViewById(R.id.pbOAuth);
         tvAuthorized = view.findViewById(R.id.tvAuthorized);
@@ -145,6 +153,8 @@ public class FragmentOAuth extends FragmentBase {
 
         // Initialize
         tvGrantHint.setText(getString(R.string.title_setup_oauth_rationale, name));
+        etName.setVisibility(askAccount ? View.VISIBLE : View.GONE);
+        etEmail.setVisibility(askAccount ? View.VISIBLE : View.GONE);
         pbOAuth.setVisibility(View.GONE);
         tvAuthorized.setVisibility(View.GONE);
         tvGmailHint.setVisibility("gmail".equals(id) ? View.VISIBLE : View.GONE);
@@ -198,6 +208,19 @@ public class FragmentOAuth extends FragmentBase {
 
     private void onAuthorize() {
         try {
+            if (askAccount) {
+                String name = etName.getText().toString().trim();
+                String email = etEmail.getText().toString().trim();
+
+                if (TextUtils.isEmpty(name))
+                    throw new IllegalArgumentException(getString(R.string.title_no_name));
+
+                if (TextUtils.isEmpty(email))
+                    throw new IllegalArgumentException(getString(R.string.title_no_email));
+                if (!Patterns.EMAIL_ADDRESS.matcher(email).matches())
+                    throw new IllegalArgumentException(getString(R.string.title_email_invalid, email));
+            }
+
             btnOAuth.setEnabled(false);
             pbOAuth.setVisibility(View.VISIBLE);
             hideError();
@@ -242,6 +265,9 @@ public class FragmentOAuth extends FragmentBase {
                             .setScopes(provider.oauth.scopes)
                             .setState(provider.id)
                             .setAdditionalParameters(params);
+
+            if (askAccount)
+                authRequestBuilder.setLoginHint(etEmail.getText().toString().trim());
 
             // For offline access
             if ("gmail".equals(provider.id))
@@ -326,6 +352,8 @@ public class FragmentOAuth extends FragmentBase {
         args.putString("name", name);
         args.putString("token", accessToken);
         args.putString("state", state.jsonSerializeString());
+        args.putString("personal", etName.getText().toString().trim());
+        args.putString("address", etEmail.getText().toString().trim());
 
         new SimpleTask<Void>() {
             @Override
@@ -334,6 +362,8 @@ public class FragmentOAuth extends FragmentBase {
                 String name = args.getString("name");
                 String token = args.getString("token");
                 String state = args.getString("state");
+                String personal = args.getString("personal");
+                String address = args.getString("address");
 
                 String primaryEmail = null;
                 List<Pair<String, String>> identities = new ArrayList<>();
@@ -413,6 +443,9 @@ public class FragmentOAuth extends FragmentBase {
                             identities.add(new Pair<>(email, displayName));
                         }
                     }
+                } else if ("yandex".equals(id)) {
+                    primaryEmail = address;
+                    identities.add(new Pair<>(address, personal));
                 } else
                     throw new IllegalArgumentException("Unknown provider=" + id);
 
