@@ -21,10 +21,12 @@ package eu.faircode.email;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.ParcelFileDescriptor;
+import android.provider.ContactsContract;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -212,14 +214,21 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
             if (pos == RecyclerView.NO_POSITION)
                 return false;
 
-            TupleContactEx contact = selected.get(pos);
+            final TupleContactEx contact = selected.get(pos);
+
+            final Intent share = new Intent(Intent.ACTION_INSERT);
+            share.setType(ContactsContract.Contacts.CONTENT_TYPE);
+            share.putExtra(ContactsContract.Intents.Insert.NAME, contact.name);
+            share.putExtra(ContactsContract.Intents.Insert.EMAIL, contact.email);
 
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, view);
 
             popupMenu.getMenu().add(Menu.NONE, 0, 0, contact.email).setEnabled(false);
             if (contact.state != EntityContact.STATE_IGNORE)
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_advanced_never_favorite, 1, R.string.title_advanced_never_favorite);
-            popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, 2, R.string.title_delete);
+            if (share.resolveActivity(context.getPackageManager()) != null)
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_share, 2, R.string.title_share);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, 3, R.string.title_delete);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
@@ -227,6 +236,9 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
                     switch (item.getItemId()) {
                         case R.string.title_advanced_never_favorite:
                             onActionNeverFavorite();
+                            return true;
+                        case R.string.title_share:
+                            onActionShare();
                             return true;
                         case R.string.title_delete:
                             onActionDelete();
@@ -261,6 +273,14 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
                             Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                         }
                     }.execute(context, owner, args, "contact:favorite");
+                }
+
+                private void onActionShare() {
+                    try {
+                        context.startActivity(share);
+                    } catch (Throwable ex) {
+                        Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                    }
                 }
 
                 private void onActionDelete() {
