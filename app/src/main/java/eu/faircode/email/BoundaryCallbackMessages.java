@@ -164,9 +164,6 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     private int load_device(State state) {
         DB db = DB.getInstance(context);
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean threading = prefs.getBoolean("threading", true);
-
         Boolean seen = null;
         Boolean flagged = null;
         Boolean snoozed = null;
@@ -237,10 +234,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
                     if (match.matched != null && match.matched) {
                         found++;
-                        if (threading)
-                            db.message().setMessageFound(match.account, match.thread);
-                        else
-                            db.message().setMessageFound(match.id);
+                        db.message().setMessageFound(match.id);
                     }
                 }
             }
@@ -261,7 +255,6 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         DB db = DB.getInstance(context);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        final boolean threading = prefs.getBoolean("threading", true);
         final boolean search_text = prefs.getBoolean("search_text", true);
         final boolean debug = (prefs.getBoolean("debug", false) || BuildConfig.BETA_RELEASE);
 
@@ -495,10 +488,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                             found++;
                         }
                         if (message != null && query != null)
-                            if (threading)
-                                db.message().setMessageFound(message.account, message.thread);
-                            else
-                                db.message().setMessageFound(message.id);
+                            db.message().setMessageFound(message.id);
                     } catch (MessageRemovedException ex) {
                         Log.w(browsable.name + " boundary server", ex);
                     } catch (FolderClosedException ex) {

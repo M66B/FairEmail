@@ -516,11 +516,6 @@ public interface DaoMessage {
     @Query("UPDATE message SET ui_found = 1 WHERE id = :id")
     int setMessageFound(long id);
 
-    @Query("UPDATE message SET ui_found = 1" +
-            " WHERE account = :account" +
-            " AND thread = :thread")
-    int setMessageFound(long account, String thread);
-
     @Query("UPDATE message SET ui_found = 0")
     int resetSearch();
 
