@@ -67,6 +67,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private SwitchCompat swDisplayHidden;
     private Spinner spEncryptMethod;
     private Spinner spOpenPgp;
+    private SwitchCompat swAutocrypt;
     private SwitchCompat swAutocryptMutual;
     private SwitchCompat swSign;
     private SwitchCompat swEncrypt;
@@ -84,7 +85,8 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
 
     private final static String[] RESET_OPTIONS = new String[]{
             "disable_tracking", "display_hidden",
-            "default_encrypt_method", "openpgp_provider", "autocrypt_mutual", "sign_default", "encrypt_default", "auto_decrypt",
+            "default_encrypt_method", "openpgp_provider", "autocrypt", "autocrypt_mutual",
+            "sign_default", "encrypt_default", "auto_decrypt",
             "secure",
             "biometrics", "pin", "biometrics_timeout"
     };
@@ -104,6 +106,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         swDisplayHidden = view.findViewById(R.id.swDisplayHidden);
         spEncryptMethod = view.findViewById(R.id.spEncryptMethod);
         spOpenPgp = view.findViewById(R.id.spOpenPgp);
+        swAutocrypt = view.findViewById(R.id.swAutocrypt);
         swAutocryptMutual = view.findViewById(R.id.swAutocryptMutual);
         swSign = view.findViewById(R.id.swSign);
         swEncrypt = view.findViewById(R.id.swEncrypt);
@@ -172,6 +175,14 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 prefs.edit().remove("openpgp_provider").apply();
+            }
+        });
+
+        swAutocrypt.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("autocrypt", checked).apply();
+                swAutocryptMutual.setEnabled(checked);
             }
         });
 
@@ -356,7 +367,9 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
                 break;
             }
 
+        swAutocrypt.setChecked(prefs.getBoolean("autocrypt", true));
         swAutocryptMutual.setChecked(prefs.getBoolean("autocrypt_mutual", true));
+        swAutocryptMutual.setEnabled(swAutocrypt.isChecked());
         swSign.setChecked(prefs.getBoolean("sign_default", false));
         swEncrypt.setChecked(prefs.getBoolean("encrypt_default", false));
         swSign.setEnabled(!swEncrypt.isChecked());

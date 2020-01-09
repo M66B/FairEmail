@@ -243,34 +243,38 @@ public class MessageHelper {
                     InternetAddress from = (InternetAddress) message.from[0];
 
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    boolean autocrypt = prefs.getBoolean("autocrypt", true);
                     boolean mutual = prefs.getBoolean("autocrypt_mutual", true);
-                    String mode = (mutual ? "mutual" : "nopreference");
 
-                    StringBuilder sb = new StringBuilder();
-                    File file = attachment.getFile(context);
-                    try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-                        String line = br.readLine();
-                        while (line != null) {
-                            String data = null;
-                            if (line.length() > 0 &&
-                                    !line.startsWith("-----BEGIN ") &&
-                                    !line.startsWith("-----END "))
-                                data = line;
+                    if (autocrypt) {
+                        String mode = (mutual ? "mutual" : "nopreference");
 
-                            line = br.readLine();
+                        StringBuilder sb = new StringBuilder();
+                        File file = attachment.getFile(context);
+                        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+                            String line = br.readLine();
+                            while (line != null) {
+                                String data = null;
+                                if (line.length() > 0 &&
+                                        !line.startsWith("-----BEGIN ") &&
+                                        !line.startsWith("-----END "))
+                                    data = line;
 
-                            // https://www.w3.org/Protocols/rfc822/3_Lexical.html#z0
-                            if (data != null &&
-                                    line != null && !line.startsWith("-----END "))
-                                sb.append("\r\n ").append(data);
+                                line = br.readLine();
+
+                                // https://www.w3.org/Protocols/rfc822/3_Lexical.html#z0
+                                if (data != null &&
+                                        line != null && !line.startsWith("-----END "))
+                                    sb.append("\r\n ").append(data);
+                            }
                         }
-                    }
 
-                    // https://autocrypt.org/level1.html#the-autocrypt-header
-                    imessage.addHeader("Autocrypt",
-                            "addr=" + from.getAddress() + ";" +
-                                    " prefer-encrypt=" + mode + ";" +
-                                    " keydata=" + sb.toString());
+                        // https://autocrypt.org/level1.html#the-autocrypt-header
+                        imessage.addHeader("Autocrypt",
+                                "addr=" + from.getAddress() + ";" +
+                                        " prefer-encrypt=" + mode + ";" +
+                                        " keydata=" + sb.toString());
+                    }
                 }
 
         // PGP: https://tools.ietf.org/html/rfc3156

@@ -359,6 +359,7 @@
     <string name="title_advanced_display_hidden">Display hidden message texts</string>
     <string name="title_advanced_encrypt_method">Default encryption method</string>
     <string name="title_advanced_openpgp">OpenPGP provider</string>
+    <string name="title_advanced_autocrypt">Use Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Autocrypt mutual mode</string>
     <string name="title_advanced_sign_default">Sign by default</string>
     <string name="title_advanced_encrypt_default">Encrypt by default</string>

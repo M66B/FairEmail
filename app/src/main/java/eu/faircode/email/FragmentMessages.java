@@ -4468,7 +4468,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     else
                         throw new IllegalArgumentException(context.getString(R.string.title_not_encrypted));
 
-                if (message.from != null && message.from.length > 0 &&
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean autocrypt = prefs.getBoolean("autocrypt", true);
+                if (autocrypt &&
+                        message.from != null && message.from.length > 0 &&
                         message.autocrypt != null &&
                         OpenPgpApi.ACTION_DECRYPT_VERIFY.equals(data.getAction()))
                     try {
