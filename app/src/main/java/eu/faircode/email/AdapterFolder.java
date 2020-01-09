@@ -177,8 +177,12 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
         private void bindTo(final TupleFolderEx folder) {
             view.setActivated(folder.tbc != null || folder.rename != null || folder.tbd != null);
-            view.setAlpha(folder.hide || !folder.selectable || disabledIds.contains(folder.id)
-                    ? Helper.LOW_LIGHT : 1.0f);
+            view.setAlpha(
+                    folder.hide ||
+                            !folder.selectable ||
+                            (folder.read_only && listener != null) ||
+                            disabledIds.contains(folder.id)
+                            ? Helper.LOW_LIGHT : 1.0f);
 
             if (textSize != 0)
                 tvName.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
@@ -348,6 +352,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                                         .putExtra("folder", folder.id)
                                         .putExtra("type", folder.type));
                     } else {
+                        if (folder.read_only)
+                            return;
                         if (disabledIds.contains(folder.id))
                             return;
                         listener.onFolderSelected(folder);
