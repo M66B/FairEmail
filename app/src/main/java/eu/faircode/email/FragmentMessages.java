@@ -4804,6 +4804,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         // Write decrypted body
                         String html = parts.getHtml(context);
                         Helper.writeText(message.getFile(context), html);
+                        Log.i("s/mime html=" + (html == null ? null : html.length()));
 
                         // Remove existing attachments
                         db.attachment().deleteAttachments(message.id);
@@ -4820,6 +4821,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             } catch (Throwable ex) {
                                 Log.e(ex);
                             }
+                            Log.i("s/mime attachment=" + remote);
                         }
 
                         db.message().setMessageEncrypt(message.id, parts.getEncryption());
