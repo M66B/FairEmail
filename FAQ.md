@@ -47,11 +47,9 @@ Related questions:
 * Set a signature: Setup, step 2, Manage, tap identity
 * Add a folder to the navigation menu: long press the folder in the folder list and check *Show in navigation menu*
 * Load older messages: long press a folder in the folder list, select *Edit properties* and change the number of days to sync/keep messages for; please [read this FAQ](#user-content-faq39)
-* Delete a message, skipping trash: in the 3-dots menu of the action bar just above the message text there is a *Delete* item for this (1)
+* Delete a message, skipping trash: in the 3-dots menu of the action bar just above the message text there is a *Delete* item for this or alternatively, unselect the trash folder in the account settings
 * Delete an account/identity: Setup step 1/2, Manage, tap account/identity, three-dots menu, Delete
 * Export/import settings: Setup, navigation/hamburger menu
-
-1) Alternatively, unselect the trash folder in the account settings (requires FairEmail version 1.890+)
 
 ## Known problems
 
@@ -2230,12 +2228,17 @@ Disabling *Partial fetch* will result in more memory usage.
 
 OAuth is supported for Gmail via the quick setup wizard.
 The Android account manager will be used to fetch and refresh OAuth tokens for selected on-device accounts.
-OAuth for non on-device accounts is not support because Google requires [an expensive security audit](https://support.google.com/cloud/answer/9110914) for this.
+OAuth for non on-device accounts is not support because Google requires an expensive ($15,000 to $75,000) [security audit](https://support.google.com/cloud/answer/9110914) for this.
+
+OAuth for Yandex is supported via the quick setup wizard.
 
 Outlook, Live and Hotmail do not yet support OAuth for IMAP/SMTP connections, but
 "*[We are actively working on OAuth support for IMAP connections to O365 mailboxes. We will make a public announcement once the same is available.](https://stackoverflow.com/a/58072053)*" (September 24, 2019).
 
 OAuth access for Yahoo! was requested, but Yahoo! never responded to the request.
+OAuth for AOL [was deactivated](https://www.programmableweb.com/api/aol-open-auth) by AOL.
+Note that Verizon owns both AOL and Yahoo!, now both known as [Oath](https://en.wikipedia.org/wiki/Verizon_Media).
+So, it is reasonable to assume that OAuth is not supported for Yahoo! anymore too.
 
 <br />
 
