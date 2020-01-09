@@ -1896,8 +1896,8 @@ and why you can make a contact a favorite or exclude it from favorites by long p
 
 The list of contacts is sorted on number of times contacted and the last time contacted.
 
-Local contacts will be used for auto completion only when no contacts permission has been granted to FairEmail.
-You can revoke contacts permission in the Android app settings.
+By default only names and addresses to whom you send messages to will be recorded.
+You can change this in the send settings.
 
 <br />
 
