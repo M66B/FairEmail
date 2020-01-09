@@ -211,7 +211,8 @@
     <string name="title_advanced_quote_reply">Citat af svartekst</string>
     <string name="title_advanced_plain_only">Send kun simpel tekst som standard</string>
     <string name="title_advanced_usenet_signature">Usenet-signaturkonvention</string>
-    <string name="title_advanced_autoresize">Skalér automatisk vedhæftede og indlejrede billeder</string>
+    <string name="title_advanced_resize_images">Skalér automatisk indlejrede billeder</string>
+    <string name="title_advanced_resize_attachments">Skalér automatisk billedvedhæftnninger</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>
     <string name="title_advanced_lookup_mx">Tjek modtager e-mail inden afsendelse</string>
     <string name="title_advanced_send_delayed">Udsæt afsendelsen af beskeder</string>
@@ -434,6 +435,7 @@
     <string name="title_edit_html">Redigér som HTML</string>
     <string name="title_sign_key">Signér nøgle: %1$s</string>
     <string name="title_last_connected">Sidst forbundet: %1$s</string>
+    <string name="title_storage_quota">Serverlagerpladsforbrug: %1$s/%2$s</string>
     <string name="title_pop_support">POP3-protokollen understøtter kun download og sletning af beskeder fra Indbakken. POP3 kan ikke markere beskeder som læste eller flytte dem mv. POP3 forbruger mere batteristrøm og data end IMAP, så overvej at benytte IMAP-protokollen, når det er muligt.</string>
     <string name="title_oauth_support">OAuth er uunderstøttet</string>
     <string name="title_review">Gennemse</string>
@@ -832,7 +834,7 @@
     <string name="title_legend_delete">Slet</string>
     <string name="title_legend_count">Antal</string>
     <string name="title_legend_folder_type">Mappetype</string>
-    <string name="title_hint_folder_actions">Langt tryk for flere muligheder</string>
+    <string name="title_hint_folder_actions">Langt tryk på en mappe for indstillinger, såsom tilføjelse af en mappe til navigeringsmenuen for hurtig adgang</string>
     <string name="title_hint_folder_sync">For at reducere strøm- og dataforbruget synkroniseres visse mapper og beskeder ikke som standard</string>
     <string name="title_hint_support">Har du et spørgsmål eller problem, så benyt venligst supportmenuen for at få hjælp</string>
     <string name="title_hint_message_actions">Stryg til venstre for Papirkurv; Stryg til højre for at arkivere (hvis tilgængeligt); Strygehandlingerne kan opsættes i kontoindstillingerne</string>
@@ -951,6 +953,8 @@
     <string name="title_accessibility_show_addresses">Vis adresser</string>
     <string name="title_accessibility_hide_addresses">Skjul adresser</string>
     <string name="title_accessibility_attachment">Vedhæftning</string>
+    <string name="title_accessibility_from">Afsender</string>
+    <string name="title_accessibility_to">Modtager</string>
     <string-array name="pollIntervalNames">
         <item>Altid</item>
         <item>Hvert 15. minut</item>

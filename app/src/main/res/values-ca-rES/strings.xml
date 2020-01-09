@@ -198,7 +198,6 @@
     <string name="title_advanced_quote_reply">Text amb resposta a la cita</string>
     <string name="title_advanced_plain_only">Envia en text pla només per defecte</string>
     <string name="title_advanced_usenet_signature">Convenció de signatura Usenet</string>
-    <string name="title_advanced_autoresize">Redimensiona automàticament les imatges adjuntes i incrustades</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d píxels</string>
     <string name="title_advanced_lookup_mx">Comproveu les adreces de correu electrònic del destinatari abans d’enviar-les</string>
     <string name="title_advanced_send_delayed">Retarda l\'enviament de missatges</string>
@@ -803,7 +802,6 @@
     <string name="title_legend_delete">Eliminar</string>
     <string name="title_legend_count">Comptar</string>
     <string name="title_legend_folder_type">Tipus de directori</string>
-    <string name="title_hint_folder_actions">Manté polsat per més opcions</string>
     <string name="title_hint_folder_sync">Per limitar l’ús de la bateria i la xarxa, no totes les carpetes i no tots els missatges se sincronitzaran de manera predeterminada</string>
     <string name="title_hint_support">Si tens algun problema o pregunta, per favor utilitza el menú d\'ajuda per obtenir assistència</string>
     <string name="title_hint_message_actions">Feu lliscar el dit cap a l’esquerra a la paperera; Feu lliscar el dit cap a la dreta a l’arxiu (si està disponible); Les accions de desplaçament es poden configurar a la configuració del compte</string>

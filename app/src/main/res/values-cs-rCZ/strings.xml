@@ -200,7 +200,6 @@
     <string name="title_advanced_quote_reply">Citovat text odpovědi</string>
     <string name="title_advanced_plain_only">Odeslat pouze prostý text jako výchozí</string>
     <string name="title_advanced_usenet_signature">Používat Usenet konvenci pro podpisy</string>
-    <string name="title_advanced_autoresize">Automaticky upravit velikost přiložených a vložených obrázků</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixelů</string>
     <string name="title_advanced_lookup_mx">Před odesláním zkontrolovat e-mailové adresy příjemců</string>
     <string name="title_advanced_send_delayed">Pozdržet odesílání zpráv</string>
@@ -814,7 +813,6 @@
     <string name="title_legend_delete">Smazat</string>
     <string name="title_legend_count">Počet</string>
     <string name="title_legend_folder_type">Typ složky</string>
-    <string name="title_hint_folder_actions">Dlouze podržet pro možnosti</string>
     <string name="title_hint_folder_sync">Pro omezení spotřeby baterie a dat nebudou ve výchozím stavu synchronizovány všechny zprávy ani složky</string>
     <string name="title_hint_support">Máte-li dotaz nebo problém, použijte prosím menu podpory pro získání pomoci</string>
     <string name="title_hint_message_actions">Tažením doleva hodit do koše; Tažením doprava archivovat (pokud je k dispozici); Akce tažením lze změnit v nastavení účtu</string>

@@ -207,7 +207,6 @@
     <string name="title_advanced_quote_reply">Цитирај текст на који се одговара</string>
     <string name="title_advanced_plain_only">Подразумевано шаљи обичан текст</string>
     <string name="title_advanced_usenet_signature">Usenet конвенција потписа</string>
-    <string name="title_advanced_autoresize">Аутоматски промени величину закаченим и убаченим сликама</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d пиксела</string>
     <string name="title_advanced_lookup_mx">Провери е-мејл адресу примаоца пре слања</string>
     <string name="title_advanced_send_delayed">Одложи слање порука</string>
@@ -809,7 +808,6 @@
     <string name="title_legend_delete">Избриши</string>
     <string name="title_legend_count">Број</string>
     <string name="title_legend_folder_type">Тип фасцикле</string>
-    <string name="title_hint_folder_actions">Држите дуго за опције</string>
     <string name="title_hint_folder_sync">Да би се ограничила употреба батерије и преноса података, подразумевано се неће све фасцикле синхронизовати</string>
     <string name="title_hint_support">Ако имате питање или проблем, користите мени за подршку да добијете помоћ</string>
     <string name="title_hint_message_actions">Превуците на лево за отпад; Превуците десно за архивирање (ако је доступно); Радње приликом превлачења се могу подесити у поставкама налога</string>

@@ -206,7 +206,6 @@
     <string name="title_advanced_quote_reply">Цитирай текста в отговора</string>
     <string name="title_advanced_plain_only">Изпращане на обикновен текст по подразбиране</string>
     <string name="title_advanced_usenet_signature">Конвенция за подпис на Usenet</string>
-    <string name="title_advanced_autoresize">Автоматично оразмеряване на прикачени и вградени изображения</string>
     <string name="title_advanced_resize_pixels">&lt;%1$d пиксела</string>
     <string name="title_advanced_lookup_mx">Проверка имейл адреса на получателя преди изпращане</string>
     <string name="title_advanced_send_delayed">Отложено изпращане на съобщение</string>
@@ -816,7 +815,6 @@
     <string name="title_legend_delete">Изтрий</string>
     <string name="title_legend_count">Брой</string>
     <string name="title_legend_folder_type">Тип папка</string>
-    <string name="title_hint_folder_actions">Натиснете продължително за повече настройки</string>
     <string name="title_hint_folder_sync">За ограничаване използването на батерията и мрежата, не всички папки и съобщения ще бъдат синхронизирани по подразбиране</string>
     <string name="title_hint_support">Ако имате въпрос или проблем, моля изполвайте меню поддръжка за да получите помощ</string>
     <string name="title_hint_message_actions">Плъзнете наляво за преместване в кошчето; Плъзнето надясно за архивирне (ако е налично); Плъзгането можете да конфигурирате в настройките на профила</string>

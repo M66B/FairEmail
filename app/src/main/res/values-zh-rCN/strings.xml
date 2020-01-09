@@ -138,6 +138,7 @@
     <string name="title_setup_import">导入设置</string>
     <string name="title_setup_import_do">导入的账户不会覆盖任何现有的帐户</string>
     <string name="title_setup_password">密码</string>
+    <string name="title_setup_password_chars">密码包含控件或空格字符</string>
     <string name="title_setup_password_repeat">再次输入密码</string>
     <string name="title_setup_password_missing">密码缺失</string>
     <string name="title_setup_password_different">密码不匹配</string>
@@ -200,7 +201,8 @@
     <string name="title_advanced_quote_reply">引用回复文本</string>
     <string name="title_advanced_plain_only">默认仅发送纯文本</string>
     <string name="title_advanced_usenet_signature">Usenet签名公约（RFC3676）</string>
-    <string name="title_advanced_autoresize">自动调整附加和嵌入图片的大小</string>
+    <string name="title_advanced_resize_images">自动调整嵌入图像大小</string>
+    <string name="title_advanced_resize_attachments">自动调整图像附件大小</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d像素</string>
     <string name="title_advanced_lookup_mx">发送前检查收件人电子邮件地址</string>
     <string name="title_advanced_send_delayed">延迟发送消息</string>
@@ -423,6 +425,7 @@
     <string name="title_edit_html">以HTML格式编辑</string>
     <string name="title_sign_key">签名密钥:%1$s</string>
     <string name="title_last_connected">上次连接%1$s前</string>
+    <string name="title_storage_quota">服务器存储用量： %1$s/%2$s</string>
     <string name="title_pop_support">POP3协议仅支持从收件箱下载并删除消息。POP3无法标记消息为已读、移动消息等。相比IMAP协议，POP3消耗的电量和数流量都更多。因此，尽可能考虑使用 IMAP 协议。</string>
     <string name="title_oauth_support">不支持OAuth</string>
     <string name="title_review">评论</string>
@@ -821,7 +824,7 @@
     <string name="title_legend_delete">删除</string>
     <string name="title_legend_count">总数</string>
     <string name="title_legend_folder_type">文件夹类型</string>
-    <string name="title_hint_folder_actions">长按以显示更多选项</string>
+    <string name="title_hint_folder_actions">长按文件夹查看选项，例如将文件夹添加到导航菜单以便快速访问</string>
     <string name="title_hint_folder_sync">为了减少电池和网络的使用量, 默认情况下, 并非所有文件夹和邮件都将同步</string>
     <string name="title_hint_support">如果您要提问或有疑问，请使用支持选项获取帮助</string>
     <string name="title_hint_message_actions">左滑移动到回收站; 右滑存档 (如果可用); 滑动操作可以在账户设置中配置</string>
@@ -939,6 +942,8 @@ FairEmail会显示一条消息来提醒您这一点，这条消息在您购买�
     <string name="title_accessibility_show_addresses">显示地址</string>
     <string name="title_accessibility_hide_addresses">隐藏地址</string>
     <string name="title_accessibility_attachment">附件</string>
+    <string name="title_accessibility_from">发件人</string>
+    <string name="title_accessibility_to">接收方</string>
     <string-array name="pollIntervalNames">
         <item>总是</item>
         <item>每15分钟</item>

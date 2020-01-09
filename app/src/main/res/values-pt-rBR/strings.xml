@@ -13,6 +13,7 @@
     <string name="channel_update">Atualizações</string>
     <string name="channel_warning">Avisos</string>
     <string name="channel_error">Erros</string>
+    <string name="channel_alert">Alertas do servidor</string>
     <string name="channel_group_contacts">Contatos</string>
     <plurals name="page_conversation">
         <item quantity="one">Conversa</item>
@@ -66,6 +67,7 @@
     <string name="title_notification_sending">Enviando mensagens</string>
     <string name="title_notification_failed">\'%1$s\' falhou</string>
     <string name="title_name_count">%1$s (%2$s)</string>
+    <string name="menu_exit">Sair</string>
     <string name="menu_answers">Modelos</string>
     <string name="menu_operations">Operações</string>
     <string name="menu_contacts">Contatos locais</string>
@@ -107,6 +109,7 @@
     <string name="title_setup_other">Outro provedor</string>
     <string name="title_setup_gmail_support">Autorizar contas do Google funcionará apenas em versões oficiais porque o Android verifica a assinatura do aplicativo</string>
     <string name="title_setup_gmail_rationale">Por favor, conceda permissão para selecionar uma conta e ler seu nome</string>
+    <string name="title_setup_oauth_authorize">Autorizar</string>
     <string name="title_setup_select_account">Selecionar conta</string>
     <string name="title_setup_instructions">Instruções de configuração</string>
     <string name="title_setup_no_settings">Nenhuma configuração encontrada para o domínio \'%1$s\'</string>
@@ -153,10 +156,19 @@
     <string name="title_setup_biometrics_disable">Desabilitar</string>
     <string name="title_setup_biometrics_unlock">Desbloquear</string>
     <string name="title_setup_theme">Selecione um tema</string>
+    <string name="title_setup_theme_blue_orange">Azul/laranja</string>
+    <string name="title_setup_theme_yellow_purple">Amarelo/roxo</string>
+    <string name="title_setup_theme_red_green">Vermelho/verde</string>
+    <string name="title_setup_theme_grey">Cinza</string>
+    <string name="title_setup_theme_black">Preto</string>
+    <string name="title_setup_theme_reverse">Inverter cores</string>
+    <string name="title_setup_theme_dark">Escuro</string>
+    <string name="title_setup_theme_black_background">Fundo preto</string>
     <string name="title_setup_advanced">Avançado</string>
     <string name="title_setup_options">Opções</string>
     <string name="title_setup_defaults">Restaurar padrão</string>
     <string name="title_setup_reset_questions">Redefinir perguntas</string>
+    <string name="title_advanced_hint_title">Opções mais avançadas</string>
     <string name="title_advanced_section_main">Principal</string>
     <string name="title_advanced_section_synchronize">﻿Receber</string>
     <string name="title_advanced_section_send">Enviar</string>
@@ -166,6 +178,7 @@
     <string name="title_advanced_section_notifications">Notificações</string>
     <string name="title_advanced_section_privacy">Privacidade</string>
     <string name="title_advanced_section_misc">Diversos</string>
+    <string name="title_advanced_receive">Receber mensagens</string>
     <string name="title_advanced_when">Quando</string>
     <string name="title_advanced_schedule">Programar</string>
     <string name="title_advanced_unseen">Todas as mensagens não lidas</string>
@@ -184,7 +197,6 @@
     <string name="title_advanced_quote_reply">Citar texto respondido</string>
     <string name="title_advanced_plain_only">Enviar texto simples por padrão</string>
     <string name="title_advanced_usenet_signature">Convenção de assinatura do Usenet</string>
-    <string name="title_advanced_autoresize">Redimensionar automaticamente as imagens anexadas e incorporadas</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>
     <string name="title_advanced_lookup_mx">Verifique os endereços de e-mail do destinatário antes de enviar</string>
     <string name="title_advanced_send_delayed">Atraso ao enviar mensagens</string>
@@ -244,6 +256,8 @@
     <string name="title_advanced_automove">Confirmar ao mover mensagens</string>
     <string name="title_advanced_discard_delete">No rascunho de descarte, excluir permanentemente o rascunho</string>
     <string name="title_advanced_default_snooze">Tempo padrão de soneca</string>
+    <string name="title_advanced_notifications_default">Canal padrão</string>
+    <string name="title_advanced_notifications_service">Canal de serviço</string>
     <string name="title_advanced_badge">Mostrar ícone no launcher com número de novas mensagens</string>
     <string name="title_advanced_unseen_ignored">Permitir que o número de novas mensagens corresponda ao número de notificações</string>
     <string name="title_advanced_notify_summary">Mostrar apenas notificação de resumo</string>
@@ -337,6 +351,7 @@
     <string name="title_account_partial_fetch_hint">Desativar isto somente em caso de mensagens vazias ou anexos corrompidos</string>
     <string name="title_account_signature">Texto da assinatura</string>
     <string name="title_color">Cor</string>
+    <string name="title_account_ondemand">Sincronizar manualmente</string>
     <string name="title_account_notify">Notificações separadas</string>
     <string name="title_account_left">Deslize para esquerda</string>
     <string name="title_account_right">Deslizar para direita</string>
@@ -559,6 +574,8 @@
     <string name="title_insert_template">Inserir modelo</string>
     <string name="title_edit_plain_text">Editar como texto simples</string>
     <string name="title_edit_formatted_text">Editar como texto reformatado</string>
+    <string name="title_no_key">Nenhuma chave privada</string>
+    <string name="title_invalid_key">Chave privada inválida</string>
     <string name="title_send_plain_text">Somente texto simples</string>
     <string name="title_send_receipt">Solicitar confirmação de entrega/leitura por padrão</string>
     <string name="title_send_receipt_remark">A maioria dos provedores e clientes de e-mail ignoram as solicitações de confirmação</string>
@@ -582,8 +599,12 @@
     <string name="title_signature_none">Mensagem não assinada</string>
     <string name="title_signature_valid">Assinatura de mensagem válida</string>
     <string name="title_signature_invalid">Assinatura de mensagem inválida</string>
+    <string name="title_signature_sender">Endereço do remetente</string>
+    <string name="title_signature_subject">Assunto</string>
+    <string name="title_signature_validity">Validade</string>
     <string name="title_search">Pesquisar</string>
     <string name="title_search_server">Pesquisar no servidor</string>
+    <string name="title_search_text">Pesquisar no texto</string>
     <string name="title_search_in">Procurar em</string>
     <string name="title_sort_on">Ordenar por</string>
     <string name="title_sort_on_time">Data</string>
@@ -696,6 +717,7 @@
     <string name="title_legend_draft">Existe um rascunho</string>
     <string name="title_legend_priority">Tem alta prioridade</string>
     <string name="title_legend_priority_low">Tem baixa prioridade</string>
+    <string name="title_legend_encrypted">Está criptografado</string>
     <string name="title_legend_auth">Falha na autenticação</string>
     <string name="title_legend_snoozed">Está adiado</string>
     <string name="title_legend_browsed">Já acessado ou pesquisado</string>
@@ -731,6 +753,7 @@
     <string name="title_legend_expander">Expandir</string>
     <string name="title_legend_avatar">Avatar</string>
     <string name="title_legend_show_quotes">Mostrar citações</string>
+    <string name="title_legend_show_junk">Tratar como spam</string>
     <string name="title_legend_show_unsubscribe">Cancelar inscrição da lista</string>
     <string name="title_legend_show_images">Mostrar Imagens</string>
     <string name="title_legend_show_full">Mostrar tela cheia</string>
@@ -744,7 +767,6 @@
     <string name="title_legend_delete">Deletar</string>
     <string name="title_legend_count">Contagem</string>
     <string name="title_legend_folder_type">Tipo de pasta</string>
-    <string name="title_hint_folder_actions">Mantenha pressionado para mais opções</string>
     <string name="title_hint_folder_sync">Para limitar o uso de bateria e de rede nem todas as pastas e mensagens serão sincronizadas por padrão</string>
     <string name="title_hint_support">Se você tiver uma pergunta ou um problema, por favor, use o menu de suporte para obter ajuda</string>
     <string name="title_hint_message_actions">Deslize para a esquerda para a lixeira; Deslize para a direita para o arquivo (se disponível); As ações de deslize podem ser configuradas nas configurações da conta</string>
@@ -818,6 +840,7 @@
     <string name="title_unexpected_error">Erro inesperado</string>
     <string name="title_log">Log</string>
     <string name="title_auto_scroll">Rolagem automática</string>
+    <string name="title_log_clear">Limpar</string>
     <string name="title_debug_info">Informações de depuração</string>
     <string name="title_debug_info_remark">Por favor, descreva o problema e indique o momento em que ocorrera:</string>
     <string name="title_crash_info_remark">Por favor, descreva o que você estava fazendo quando o aplicativo falhou:</string>
@@ -825,10 +848,36 @@
     <string name="title_search_special_unseen">não_lida</string>
     <string name="title_search_special_flagged">favorito</string>
     <string name="title_search_special_snoozed">oculto</string>
+    <string name="title_search_special_encrypted">criptografado</string>
+    <string name="title_widget_title_list">Lista de mensagem</string>
     <string name="title_widget_account">Conta</string>
     <string name="title_widget_account_all">Todos</string>
+    <string name="title_widget_folder">Pasta</string>
     <string name="title_widget_unseen">Apenas mensagens não lidas</string>
     <string name="title_widget_flagged">Apenas mensagens com estrela</string>
+    <string name="title_accessibility_expanded">Expandido</string>
+    <string name="title_accessibility_seen">Lido</string>
+    <string name="title_accessibility_unseen">Não lido</string>
+    <plurals name="title_accessibility_messages">
+        <item quantity="one">%1$d mensagem</item>
+        <item quantity="other">%1$d mensagens</item>
+    </plurals>
+    <string name="title_accessibility_flagged">Com estrela</string>
+    <string name="title_accessibility_unflagged">Sem Estrela</string>
+    <string name="title_accessibility_expand">Expandir</string>
+    <string name="title_accessibility_view_contact">Ver contato</string>
+    <string name="title_accessibility_show_snooze_time">Mostrar tempo de soneca</string>
+    <string name="title_accessibility_view_help">Ver ajuda</string>
+    <string name="title_accessibility_selected">Selecionado</string>
+    <string name="title_accessibility_answered">Respondido</string>
+    <string name="title_accessibility_scroll_down">Rolar para baixo</string>
+    <string name="title_accessibility_scroll_up">Rolar para cima</string>
+    <string name="title_accessibility_edit">Editar</string>
+    <string name="title_accessibility_show_addresses">Mostrar endereços</string>
+    <string name="title_accessibility_hide_addresses">Ocultar endereços</string>
+    <string name="title_accessibility_attachment">Anexo</string>
+    <string name="title_accessibility_from">Remetente</string>
+    <string name="title_accessibility_to">Destinatário</string>
     <string-array name="pollIntervalNames">
         <item>Sempre</item>
         <item>A cada 15 minutos</item>
@@ -872,7 +921,7 @@
         <item>Pequeno</item>
         <item>Médio</item>
         <item>Grande</item>
-        <item>Extra large</item>
+        <item>Muito grande</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
@@ -903,5 +952,18 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+    </string-array>
+    <string-array name="fontSizeNames">
+        <item>Padrão</item>
+        <item>Pequeno</item>
+        <item>Médio</item>
+        <item>Grande</item>
+    </string-array>
+    <string-array name="encryptNames">
+        <item>Nenhum</item>
+        <item>PGP sign-only</item>
+        <item>PGP sign+encrypt</item>
+        <item>S/MIME sign-only</item>
+        <item>S/MIME sign+encrypt</item>
     </string-array>
 </resources>

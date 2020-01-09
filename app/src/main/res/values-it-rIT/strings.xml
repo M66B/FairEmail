@@ -149,6 +149,7 @@
     <string name="title_setup_import">Importa impostazioni</string>
     <string name="title_setup_import_do">Gli account importati saranno aggiunti senza sovrascrivere quelli esistenti</string>
     <string name="title_setup_password">Password</string>
+    <string name="title_setup_password_chars">La password contiene caratteri di controllo o spazi vuoti</string>
     <string name="title_setup_password_repeat">Ripeti password</string>
     <string name="title_setup_password_missing">Password mancante</string>
     <string name="title_setup_password_different">Le password non corrispondono</string>
@@ -211,7 +212,8 @@
     <string name="title_advanced_quote_reply">Cita il testo nella risposta</string>
     <string name="title_advanced_plain_only">Invia solo in testo semplice per impostazione predefinita</string>
     <string name="title_advanced_usenet_signature">Convenzione firma Usenet</string>
-    <string name="title_advanced_autoresize">Ridimensiona automaticamente le immagini allegate e incorporate</string>
+    <string name="title_advanced_resize_images">Ridimensiona automaticamente le immagini incorporate</string>
+    <string name="title_advanced_resize_attachments">Ridimensiona automaticamente gli allegati dell\'immagine</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixel</string>
     <string name="title_advanced_lookup_mx">Controlla gli indirizzi email dei destinatari prima di inviare</string>
     <string name="title_advanced_send_delayed">Ritardo invio messaggi</string>
@@ -271,6 +273,8 @@
     <string name="title_advanced_collapse_multiple">Comprimi i messaggi in una conversazione con più messaggi premendo \'indietro\'</string>
     <string name="title_advanced_autoclose">Chiudi automaticamente le conversazioni</string>
     <string name="title_advanced_onclose">Alla chiusura di una conversazione</string>
+    <string name="title_advanced_quick_filter">Mostra icone di filtri rapidi non vistose</string>
+    <string name="title_advanced_quick_scroll">Mostra icone di scorrimento rapido non vistose</string>
     <string name="title_advanced_autoread">Segna automaticamente i messaggi come letti quando si spostano</string>
     <string name="title_advanced_autounstar">Rimuovi automaticamente la stella dai messaggi sullo spostamento dei messaggi</string>
     <string name="title_advanced_automove">Conferma lo spostamento dei messaggi</string>
@@ -432,6 +436,7 @@
     <string name="title_edit_html">Modifica come HTML</string>
     <string name="title_sign_key">Firma chiave: %1$s</string>
     <string name="title_last_connected">Ultima connessione:%1$s</string>
+    <string name="title_storage_quota">Utilizzo archiviazione server: %1$s/%2$s</string>
     <string name="title_pop_support">Il protocollo POP3 supporta il download e l\'eliminazione dei messaggi solo dalla casella di posta in arrivo. POP3 non può contrassegnare i messaggi come letti, spostare i messaggi, ecc. POP3 userà più energia e dati di IMAP. Quindi, considera l\'uso del protocollo IMAP quando possibile.</string>
     <string name="title_oauth_support">OAuth non è supportato</string>
     <string name="title_review">Revisione</string>
@@ -483,7 +488,7 @@
     <string name="title_folder_unified">Posta in arrivo unificata</string>
     <string name="title_folder_inbox">Posta in arrivo</string>
     <string name="title_folder_outbox">Posta in uscita</string>
-    <string name="title_folder_all">Archivo</string>
+    <string name="title_folder_all">Archivio</string>
     <string name="title_folder_drafts">Bozze</string>
     <string name="title_folder_trash">Cestino</string>
     <string name="title_folder_junk">Posta indesiderata</string>
@@ -533,7 +538,7 @@
     <string name="title_move_to_folder">Sposta in &#8230;</string>
     <string name="title_move_to_account">Sposta in %1$s &#8230;</string>
     <string name="title_snooze">Posticipa &#8230;</string>
-    <string name="title_archive">Archivo</string>
+    <string name="title_archive">Archivio</string>
     <string name="title_reply">Rispondi</string>
     <string name="title_reply_to_sender">Mittente</string>
     <string name="title_reply_to_all">Tutti</string>
@@ -829,7 +834,7 @@
     <string name="title_legend_delete">Elimina</string>
     <string name="title_legend_count">Quantità</string>
     <string name="title_legend_folder_type">Tipo di cartella</string>
-    <string name="title_hint_folder_actions">Tieni premuto per le opzioni</string>
+    <string name="title_hint_folder_actions">Premi a lungo su una cartella per le opzioni, come aggiungere una cartella al menu di navigazione per un accesso rapido</string>
     <string name="title_hint_folder_sync">Per limitare l\'utilizzo della batteria e della rete, non tutte le cartelle e non tutti i messaggi verranno sincronizzati per impostazione predefinita</string>
     <string name="title_hint_support">Se hai una domanda o un problema, usa il menu di supporto per ottenere aiuto</string>
     <string name="title_hint_message_actions">Scorri a sinistra per cestinare; Scorri a destra per archiviare (se disponibile); Le azioni di scorrimento possono essere configurate nelle impostazioni dell\'account</string>
@@ -949,6 +954,8 @@
     <string name="title_accessibility_show_addresses">Mostra indirizzi</string>
     <string name="title_accessibility_hide_addresses">Nascondi indirizzi</string>
     <string name="title_accessibility_attachment">Allegato</string>
+    <string name="title_accessibility_from">Mittente</string>
+    <string name="title_accessibility_to">Destinatario</string>
     <string-array name="pollIntervalNames">
         <item>Sempre</item>
         <item>Ogni 15 minuti</item>

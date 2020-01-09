@@ -150,6 +150,7 @@
     <string name="title_setup_import">Importar ajustes</string>
     <string name="title_setup_import_do">Las cuentas importadas serán añadidas sin sobreescribir las existentes</string>
     <string name="title_setup_password">Contraseña</string>
+    <string name="title_setup_password_chars">La contraseña contiene caracteres de control o espacios en blanco</string>
     <string name="title_setup_password_repeat">Confirmar contraseña</string>
     <string name="title_setup_password_missing">Falta contraseña</string>
     <string name="title_setup_password_different">Las contraseñas no coinciden</string>
@@ -212,7 +213,8 @@
     <string name="title_advanced_quote_reply">Citar texto a responder</string>
     <string name="title_advanced_plain_only">Enviar sólo texto plano por defecto</string>
     <string name="title_advanced_usenet_signature">Convención de firma Usenet</string>
-    <string name="title_advanced_autoresize">Redimensionar automáticamente imágenes adjuntas e incrustadas</string>
+    <string name="title_advanced_resize_images">Redimensionar automáticamente las imágenes incrustadas</string>
+    <string name="title_advanced_resize_attachments">Redimensionar automáticamente las imágenes adjuntas</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d píxeles</string>
     <string name="title_advanced_lookup_mx">Comprobar direcciones de correo electrónico del destinatario antes de enviar</string>
     <string name="title_advanced_send_delayed">Diferir envío de mensajes</string>
@@ -435,6 +437,7 @@
     <string name="title_edit_html">Editar como HTML</string>
     <string name="title_sign_key">Clave de firma: %1$s</string>
     <string name="title_last_connected">Última conexión: %1$s</string>
+    <string name="title_storage_quota">Uso de almacenamiento del servidor: %1$s/%2$s</string>
     <string name="title_pop_support">El protocolo POP3 soporta descargar y eliminar mensajes de la bandeja de entrada únicamente. POP3 no puede marcar mensajes como leídos, mover mensajes, etc. POP3 utilizará más batería y datos que IMAP. Por lo tanto considera utilizar el protocolo IMAP cuando sea posible.</string>
     <string name="title_oauth_support">OAuth no está soportado</string>
     <string name="title_review">Revisar</string>
@@ -798,7 +801,7 @@
     <string name="title_legend_hide">Ocultar contenido</string>
     <string name="title_legend_download">Descargar contenido</string>
     <string name="title_legend_external_image">Imagen externa</string>
-    <string name="title_legend_embedded_image">Imagen insertada</string>
+    <string name="title_legend_embedded_image">Lugar reservado de imagen incrustada</string>
     <string name="title_legend_tracking_pixel">Imagen de rastreo</string>
     <string name="title_legend_broken_image">Imagen rota</string>
     <string name="title_legend_pick">Seleccionar contacto</string>
@@ -833,7 +836,7 @@
     <string name="title_legend_delete">Eliminar</string>
     <string name="title_legend_count">Cuenta</string>
     <string name="title_legend_folder_type">Tipo de carpeta</string>
-    <string name="title_hint_folder_actions">Mantenga pulsado para opciones</string>
+    <string name="title_hint_folder_actions">Mantenga pulsada una carpeta para las opciones, como añadir una carpeta al menú de navegación para acceso rápido</string>
     <string name="title_hint_folder_sync">Para limitar el uso de batería y redes, no todas las carpetas y mensajes serán sincronizados por defecto</string>
     <string name="title_hint_support">Si tiene una pregunta o problema, por favor use el menú de soporte para obtener ayuda</string>
     <string name="title_hint_message_actions">Desliza a la izquierda para enviar a la papelera; Desliza a la derecha para archivar (si está disponible); las acciones de deslizamiento pueden configurarse en la configuración de la cuenta</string>
@@ -953,6 +956,8 @@
     <string name="title_accessibility_show_addresses">Mostrar direcciones</string>
     <string name="title_accessibility_hide_addresses">Ocultar direcciones</string>
     <string name="title_accessibility_attachment">Adjunto</string>
+    <string name="title_accessibility_from">Remitente</string>
+    <string name="title_accessibility_to">Destinatario</string>
     <string-array name="pollIntervalNames">
         <item>Siempre</item>
         <item>Cada 15 minutos</item>

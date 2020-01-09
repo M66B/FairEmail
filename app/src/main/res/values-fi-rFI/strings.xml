@@ -150,6 +150,7 @@
     <string name="title_setup_import">Tuo asetukset</string>
     <string name="title_setup_import_do">Tuodut tilit lisätään korvaamatta olemassa olevia</string>
     <string name="title_setup_password">Salasana</string>
+    <string name="title_setup_password_chars">Salasana sisältää ohjaus- tai tyhjätilamerkkejä</string>
     <string name="title_setup_password_repeat">Toista salasana</string>
     <string name="title_setup_password_missing">Salasana puuttuu</string>
     <string name="title_setup_password_different">Salasanat eivät täsmää</string>
@@ -211,7 +212,8 @@
     <string name="title_advanced_quote_reply">Lainaa vastattu teksti</string>
     <string name="title_advanced_plain_only">Lähetä muotoilemattomana tekstinä oletuksena</string>
     <string name="title_advanced_usenet_signature">Usenetin allekirjoitustyyli</string>
-    <string name="title_advanced_autoresize">Muuta liitettyjen ja upotettujen kuvien koot</string>
+    <string name="title_advanced_resize_images">Muuta upotettujen kuvien koot</string>
+    <string name="title_advanced_resize_attachments">Muuta liitettyjen kuvien koot</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d kuvapistettä</string>
     <string name="title_advanced_lookup_mx">Tarkista vastaanottajien sähköpostiosoitteet ennen lähettämistä</string>
     <string name="title_advanced_send_delayed">Viivästä viestien lähetystä</string>
@@ -434,6 +436,7 @@
     <string name="title_edit_html">Muokkaa HTML-muodossa</string>
     <string name="title_sign_key">Allekirjoitusavain: %1$s</string>
     <string name="title_last_connected">Viimeksi yhdistetty: %1$s</string>
+    <string name="title_storage_quota">Palvelimen tallennustilan käyttö: %1$s/%2$s</string>
     <string name="title_pop_support">POP3-protokolla tukee vain viestien latausta ja poistamista. POP3 ei merkitse viestejä luetuksi, siirrä niitä, jne. POP3 käyttää enemmän akkua ja dataa kuin IMAP. Kannattaa harkita IMAP-protokollan käyttöä aina kuin mahdollista.</string>
     <string name="title_oauth_support">OAuth ei ole tuettu</string>
     <string name="title_review">Tarkista</string>
@@ -832,7 +835,7 @@
     <string name="title_legend_delete">Poista</string>
     <string name="title_legend_count">Lukumäärä</string>
     <string name="title_legend_folder_type">Kansion tyyppi</string>
-    <string name="title_hint_folder_actions">Pitkä painallus avaa asetukset</string>
+    <string name="title_hint_folder_actions">Paina pitkään kansiota päästäksesi toimintoihin, kuten kansion lisäämiseen navigointivalikkoon</string>
     <string name="title_hint_folder_sync">Akun ja verkon käytön rajoittamiseksi kaikkia kansioita ja viestejä ei oletusarvoisesti synkronoida</string>
     <string name="title_hint_support">Jos sinulla on kysyttävää tai ongelma, ole hyvä ja käytä tukivalikkoa saadaksesi apua</string>
     <string name="title_hint_message_actions">Pyyhkäise vasemmalle siirtääksesi roskakoriin; Pyyhkäise oikealle arkistoidaksesi (kun mahdollista); Pyyhkäisytoimintoja voi muokata tilin asetuksissa</string>
@@ -952,6 +955,8 @@
     <string name="title_accessibility_show_addresses">Näytä osoitteet</string>
     <string name="title_accessibility_hide_addresses">Piilota osoitteet</string>
     <string name="title_accessibility_attachment">Liite</string>
+    <string name="title_accessibility_from">Lähettäjä</string>
+    <string name="title_accessibility_to">Vastaanottaja</string>
     <string-array name="pollIntervalNames">
         <item>Koko ajan</item>
         <item>15 minuutin välein</item>

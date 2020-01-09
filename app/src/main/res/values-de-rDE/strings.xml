@@ -149,6 +149,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_setup_import">Einstellungen importieren</string>
     <string name="title_setup_import_do">Importierte Konten werden hinzugefügt, ohne vorhandene zu überschreiben</string>
     <string name="title_setup_password">Passwort</string>
+    <string name="title_setup_password_chars">Passwort enthält Kontroll- oder Leerzeichen</string>
     <string name="title_setup_password_repeat">Passwort erneut eingeben</string>
     <string name="title_setup_password_missing">Passwort fehlt</string>
     <string name="title_setup_password_different">Die Passworte stimmen nicht überein</string>
@@ -211,7 +212,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_quote_reply">Beantworteten Text zitieren</string>
     <string name="title_advanced_plain_only">Immer als Reintext senden</string>
     <string name="title_advanced_usenet_signature">Usenet-Signaturkonvention</string>
-    <string name="title_advanced_autoresize">Angehängte und eingebettete Bilder automatisch anpassen</string>
+    <string name="title_advanced_resize_images">Größe eingebetteter Bilder automatisch anpassen</string>
+    <string name="title_advanced_resize_attachments">Größe angehängter Bilder automatisch anpassen</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d Pixel</string>
     <string name="title_advanced_lookup_mx">Überprüft die Empfänger-E-Mail-Adressen vor dem Senden</string>
     <string name="title_advanced_send_delayed">Senden von Nachrichten verzögern</string>
@@ -434,6 +436,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_edit_html">Als HTML bearbeiten</string>
     <string name="title_sign_key">Signaturschlüssel: %1$s</string>
     <string name="title_last_connected">Zuletzt verbunden: %1$s</string>
+    <string name="title_storage_quota">Server-Speicherauslastung: %1$s/%2$s</string>
     <string name="title_pop_support">Das POP3-Protokoll unterstützt das Herunterladen und Löschen von Nachrichten nur aus dem Posteingang. POP3 kann Nachrichten nicht markieren, Nachrichten verschieben, etc. POP3 verwendet mehr Akku- und Daten als IMAP. Daher erwägen Sie, das IMAP-Protokoll zu verwenden, wann immer möglich.</string>
     <string name="title_oauth_support">OAuth wird nicht unterstützt</string>
     <string name="title_review">Kontrolle</string>
@@ -832,7 +835,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_legend_delete">Löschen</string>
     <string name="title_legend_count">Zählen</string>
     <string name="title_legend_folder_type">Ordnertyp</string>
-    <string name="title_hint_folder_actions">Gedrückt halten für weitere Optionen</string>
+    <string name="title_hint_folder_actions">Drücken Sie lange auf einen Ordner für Optionen, wie das Hinzufügen eines Ordners in die Navigation für schnellen Zugriff</string>
     <string name="title_hint_folder_sync">Um Akkuverbrauch und Datennutzung zu reduzieren, werden standardmäßig nicht alle Ordner und E-Mails synchronisiert</string>
     <string name="title_hint_support">Wenn Sie eine Frage oder ein Problem haben, verwenden Sie bitte die Hilfe im Menü</string>
     <string name="title_hint_message_actions">Standard: Wische links zum Papierkorb; Wische rechts zum Archiv (falls verfügbar); Diese Wischgesten können aber in den Kontoeinstellungen auch individuell anders konfiguriert werden</string>
@@ -951,6 +954,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_accessibility_show_addresses">Adressen anzeigen</string>
     <string name="title_accessibility_hide_addresses">Adressen ausblenden</string>
     <string name="title_accessibility_attachment">Anhang</string>
+    <string name="title_accessibility_from">Absender</string>
+    <string name="title_accessibility_to">Empfänger</string>
     <string-array name="pollIntervalNames">
         <item>Immer</item>
         <item>Alle 15 Minuten</item>

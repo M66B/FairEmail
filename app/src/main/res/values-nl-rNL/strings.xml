@@ -150,6 +150,7 @@
     <string name="title_setup_import">Importeer instellingen</string>
     <string name="title_setup_import_do">Geïmporteerde accounts worden toegevoegd zonder de bestaande te overschrijven</string>
     <string name="title_setup_password">Wachtwoord</string>
+    <string name="title_setup_password_chars">Wachtwoord bevat controle of witruimte tekens</string>
     <string name="title_setup_password_repeat">Herhaal wachtwoord</string>
     <string name="title_setup_password_missing">Wachtwoord ontbreekt</string>
     <string name="title_setup_password_different">De wachtwoorden komen niet overeen</string>
@@ -212,7 +213,8 @@
     <string name="title_advanced_quote_reply">Haal beantwoorde tekst aan</string>
     <string name="title_advanced_plain_only">Verstuur standaard alleen tekst</string>
     <string name="title_advanced_usenet_signature">Usenet handtekening conventie</string>
-    <string name="title_advanced_autoresize">Automatisch bijgevoegde en ingesloten afbeeldingen verkleinen</string>
+    <string name="title_advanced_resize_images">Automatisch ingesloten afbeeldingen verkleinen</string>
+    <string name="title_advanced_resize_attachments">Automatisch afbeeldingen in bijlagen verkleinen</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>
     <string name="title_advanced_lookup_mx">Controleer e-mailadressen van de ontvangers voor verzenden</string>
     <string name="title_advanced_send_delayed">Verzenden van berichten uitstellen</string>
@@ -435,7 +437,8 @@
     <string name="title_edit_html">Bewerk HTML</string>
     <string name="title_sign_key">Tekensleutel: %1$s</string>
     <string name="title_last_connected">Laatst verbonden: %1$s</string>
-    <string name="title_pop_support">Het POP3-protocol ondersteunt alleen het downloaden en verwijderen van berichten uit de inbox. POP3 kan berichten niet markeren als gelezen, berichten verplaatsen, enz. POP3 gebruikt meer batterijvermogen en gegevens dan IMAP. Overweeg daarom het IMAP-protocol waar mogelijk te gebruiken.</string>
+    <string name="title_storage_quota">Opslaggebruik server: %1$s/%2$s</string>
+    <string name="title_pop_support">Het POP3-protocol ondersteunt alleen het downloaden en verwijderen van berichten uit de inbox. POP3 kan berichten niet markeren als gelezen, berichten verplaatsen, enz. POP3 zal meer batterijvermogen en -gegevens gebruiken dan IMAP. Overweeg dus om het IMAP-protocol waar mogelijk te gebruiken.</string>
     <string name="title_oauth_support">OAuth wordt niet ondersteund</string>
     <string name="title_review">Review</string>
     <string name="title_hint_alias">Druk lang voor opties, zoals kopiëren om alias identiteiten te maken</string>
@@ -833,7 +836,7 @@
     <string name="title_legend_delete">Verwijderen</string>
     <string name="title_legend_count">Aantal</string>
     <string name="title_legend_folder_type">Maptype</string>
-    <string name="title_hint_folder_actions">Druk lang voor opties</string>
+    <string name="title_hint_folder_actions">Druk lang op de map voor opties, zoals het toevoegen van een map aan het navigatiemenu voor snelle toegang</string>
     <string name="title_hint_folder_sync">Om het gebruik van de batterij en het netwerk te beperken, worden niet alle mappen en niet alle berichten standaard gesynchroniseerd</string>
     <string name="title_hint_support">Als u een vraag of een probleem heeft, gebruik dan het menu ondersteuning om hulp te krijgen</string>
     <string name="title_hint_message_actions">Veeg naar links om weg te gooien; Veeg naar rechts om te archiveren (indien beschikbaar); De veegacties kunnen worden geconfigureerd in de accountinstellingen</string>
@@ -950,6 +953,8 @@
     <string name="title_accessibility_show_addresses">Toon adressen</string>
     <string name="title_accessibility_hide_addresses">Verberg adressen</string>
     <string name="title_accessibility_attachment">Bijlage</string>
+    <string name="title_accessibility_from">Afzender</string>
+    <string name="title_accessibility_to">Ontvanger</string>
     <string-array name="pollIntervalNames">
         <item>Altijd</item>
         <item>Elke 15 minuten</item>

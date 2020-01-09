@@ -138,6 +138,7 @@
     <string name="title_setup_import">設定をインポート</string>
     <string name="title_setup_import_do">インポートされたアカウントは既存のアカウントを上書きせずに追加されます</string>
     <string name="title_setup_password">パスワード</string>
+    <string name="title_setup_password_chars">パスワードに制御文字又は空白が含まれています</string>
     <string name="title_setup_password_repeat">パスワードの再入力</string>
     <string name="title_setup_password_missing">パスワードを入力して下さい</string>
     <string name="title_setup_password_different">パスワードが間違っています</string>
@@ -199,7 +200,8 @@
     <string name="title_advanced_quote_reply">返信テキストを引用</string>
     <string name="title_advanced_plain_only">デフォルトでプレーンテキストのみを送信</string>
     <string name="title_advanced_usenet_signature">署名の区切</string>
-    <string name="title_advanced_autoresize">添付および埋め込み画像の自動サイズ変更</string>
+    <string name="title_advanced_resize_images">埋込画像のサイズを自動的に変更</string>
+    <string name="title_advanced_resize_attachments">画像添付ファイルの自動サイズ変更</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>
     <string name="title_advanced_lookup_mx">送信する前に受信者のメールアドレスを確認</string>
     <string name="title_advanced_send_delayed">メッセージ送信を遅延させます</string>
@@ -421,6 +423,7 @@
     <string name="title_edit_html">HTMLとして編集</string>
     <string name="title_sign_key">署名キー:%1$s</string>
     <string name="title_last_connected">最終接続:%1$s</string>
+    <string name="title_storage_quota">サーバストレージ使用量:%1$s/%2$s</string>
     <string name="title_pop_support">POP3プロトコルは受信ボックスからのメッセージダウンロードと削除のみをサポートします。POP3はメッセージを既読としてマークしたりメッセージを移動したりする事は出来ません。POP3はIMAPよりも多くのバッテリー電力とデータを使用します。その為に可能な限りIMAPプロトコルの使用の検討して下さい</string>
     <string name="title_oauth_support">OAuthはサポートされていません</string>
     <string name="title_review">レビュー</string>
@@ -818,7 +821,7 @@ PlayストアでFairEmailを評価できれば幸いです。
     <string name="title_legend_delete">削除</string>
     <string name="title_legend_count">カウント</string>
     <string name="title_legend_folder_type">フォルダータイプ</string>
-    <string name="title_hint_folder_actions">長押しでオプションへ</string>
+    <string name="title_hint_folder_actions">クイックアクセスの為にナビゲーションメニューにフォルダー追加など、オプションのフォルダーを長押しで可能です</string>
     <string name="title_hint_folder_sync">バッテリーとネットワークの使用を制限する為にデフォルトでは全てのフォルダーと全てのメッセージが同期されるわけでは有りません</string>
     <string name="title_hint_support">質問や問題がある場合はサポートメニューを使用してヘルプを取得して下さい</string>
     <string name="title_hint_message_actions">左にスワイプしてゴミ箱に移動します。アーカイブするには右にスワイプします(利用可能な場合)。スワイプアクションはアカウント設定で構成できます</string>
@@ -936,6 +939,8 @@ FairEmailは、Pro機能購入の為に上部に小さなメッセージを表�
     <string name="title_accessibility_show_addresses">アドレスを表示</string>
     <string name="title_accessibility_hide_addresses">アドレスを非表示</string>
     <string name="title_accessibility_attachment">添付ファイル</string>
+    <string name="title_accessibility_from">送信者</string>
+    <string name="title_accessibility_to">受信者</string>
     <string-array name="pollIntervalNames">
         <item>常に</item>
         <item>15分毎</item>

@@ -150,6 +150,7 @@
     <string name="title_setup_import">Importer innstillinger</string>
     <string name="title_setup_import_do">Importerte kontoer vil bli lagt til uten å overskrive eksisterende</string>
     <string name="title_setup_password">Passord</string>
+    <string name="title_setup_password_chars">Passord inneholder kontroll eller mellomromstegn</string>
     <string name="title_setup_password_repeat">Gjenta passord</string>
     <string name="title_setup_password_missing">Passord mangler</string>
     <string name="title_setup_password_different">Passordene er ikke like</string>
@@ -212,7 +213,8 @@
     <string name="title_advanced_quote_reply">Sitat svarte tekst</string>
     <string name="title_advanced_plain_only">Send bare vanlig tekst som standard</string>
     <string name="title_advanced_usenet_signature">Usenet signaturkonvensjon</string>
-    <string name="title_advanced_autoresize">Endre størrelsen på vedlagte og innebygde bilder automatisk</string>
+    <string name="title_advanced_resize_images">Endre størrelse på innebygde bilder automatisk</string>
+    <string name="title_advanced_resize_attachments">Endre størrelse på bilder i vedlegg automatisk</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d piksler</string>
     <string name="title_advanced_lookup_mx">Sjekk mottakerens e-postadresser før du sender</string>
     <string name="title_advanced_send_delayed">Forsink sending av meldinger</string>
@@ -435,6 +437,7 @@
     <string name="title_edit_html">Rediger som HTML</string>
     <string name="title_sign_key">Skiltnøkkel: %1$s</string>
     <string name="title_last_connected">Sist tilkoblet: %1$s</string>
+    <string name="title_storage_quota">Bruk av serverlagring: %1$s/%2$s</string>
     <string name="title_pop_support">POP3-protokollen støtter bare nedlasting og sletting av meldinger fra innboksen. POP3 kan ikke merke meldinger som er lest, flytte meldinger, etc. POP3 vil bruke mer batteristrøm og data enn IMAP. Så vurder å bruke IMAP-protokollen når det er mulig.</string>
     <string name="title_oauth_support">OAuth støttes ikke</string>
     <string name="title_review">Anmeldelse</string>
@@ -832,7 +835,7 @@ Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anme
     <string name="title_legend_delete">Slett</string>
     <string name="title_legend_count">Antall</string>
     <string name="title_legend_folder_type">Mappe type</string>
-    <string name="title_hint_folder_actions">Langt trykk for flere instillinger</string>
+    <string name="title_hint_folder_actions">Trykk lenge på en mappe for alternativer, for eksempel å legge til en mappe i navigasjonsmenyen for rask tilgang</string>
     <string name="title_hint_folder_sync">For å begrense batteri- og nettverks bruk, vil ikke alle mapper og ikke alle meldinger synkroniseres som standard</string>
     <string name="title_hint_support">Hvis du har et spørsmål eller et problem, vennligst bruk support menyen for å få hjelp</string>
     <string name="title_hint_message_actions">Sveip til venstre for å slette; Sveip til høyre for å arkivere (hvis tilgjengelig); Sveipe handlingene kan konfigureres i kontoinnstillingene</string>
@@ -952,6 +955,8 @@ Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anme
     <string name="title_accessibility_show_addresses">Vis adresser</string>
     <string name="title_accessibility_hide_addresses">Skjul adresser</string>
     <string name="title_accessibility_attachment">Vedlegg</string>
+    <string name="title_accessibility_from">Avsender</string>
+    <string name="title_accessibility_to">Mottaker</string>
     <string-array name="pollIntervalNames">
         <item>Alltid</item>
         <item>Hvert 15. minutt</item>

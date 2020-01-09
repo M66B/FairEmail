@@ -318,7 +318,6 @@
     <string name="title_legend_italic">متن مورب شود</string>
     <string name="title_legend_metered">به شبکه موبایل متصلید</string>
     <string name="title_legend_unmetered">به شبکه غیر موبایل متصلید</string>
-    <string name="title_hint_folder_actions">برای تنظیمات بیشتر، لمس طولانی کنید</string>
     <string name="title_hint_folder_sync">برای محدود کردن مصرف دیتا و باتری تمامی پوشه‌ها و پیام‌ها به صورت پیش‌فرض همگام سازی نخواهند شد</string>
     <string name="title_hint_support">اگر سوال یا مشکلی دارید لطفا از قسمت پشتیبانی برای کمک گرفتن استفاده کنید</string>
     <string name="title_hint_sync">دریافت پیامها می تواند زمانی بسته به سرعت سرویس دهنده، اتصال به اینترنت، دستگاه و تعداد پیام‌ها طول بکشد. هنگام دریافت پیامها ممکن است عملکرد برنامه کند شود.</string>

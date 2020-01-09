@@ -150,6 +150,7 @@
     <string name="title_setup_import">Inportatu ezarpenak</string>
     <string name="title_setup_import_do">Inportatutako kontuak daudenak gainidatzi gabe gehituko dira</string>
     <string name="title_setup_password">Pasahitza</string>
+    <string name="title_setup_password_chars">Pasahitzak kontrol karaktereak edo espazio zuriak ditu</string>
     <string name="title_setup_password_repeat">Errepikatu pasahitza</string>
     <string name="title_setup_password_missing">Pasahitza falta da</string>
     <string name="title_setup_password_different">Pasahitzak ez datoz bat</string>
@@ -173,7 +174,7 @@
     <string name="title_setup_theme_black">Beltza</string>
     <string name="title_setup_theme_reverse">Alderantzizkatu koloreak</string>
     <string name="title_setup_theme_dark">Iluna</string>
-    <string name="title_setup_theme_black_background">Atzealde beltza</string>
+    <string name="title_setup_theme_black_background">Atzeko plano beltza</string>
     <string name="title_setup_theme_system">Jarraitu sistema</string>
     <string name="title_setup_theme_system_hint">Jarraitu sistemako itxurak automatikoki txandakatuko ditu argia eta iluna eguna eta gauaren arabera, Androidek onartzen duenean</string>
     <string name="title_setup_advanced">Aurreratua</string>
@@ -182,7 +183,7 @@
     <string name="title_setup_reset_questions">Berrezarri galderak</string>
     <string name="title_advanced_hint_title">Aukera aurreratu gehiago</string>
     <string name="title_advanced_hint_message">        Aukera aurreratuetan sartzen ari zara.
-        Aukera guztiek maiz erabilitako balioak dituzte, nahiez gero aldatu ditzakezunak.
+        Aukera guztiek maiz erabilitako balioak dituzte, nahi izanez gero aldatu ditzakezunak.
     </string>
     <string name="title_advanced_section_main">Nagusia</string>
     <string name="title_advanced_section_synchronize">Jaso</string>
@@ -212,7 +213,8 @@
     <string name="title_advanced_quote_reply">Aipatu erantzundako testua</string>
     <string name="title_advanced_plain_only">Bidali testu soil hutsa lehenetsita</string>
     <string name="title_advanced_usenet_signature">Usenet sinaduren konbentzioa</string>
-    <string name="title_advanced_autoresize">Lotu ta gehitutako irudiak tamainaz berraldatu automatikoki</string>
+    <string name="title_advanced_resize_images">Aldatu automatikoki kapsulatutako irudien neurria</string>
+    <string name="title_advanced_resize_attachments">Aldatu automatikoki eranskinetako irudien neurria</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixel</string>
     <string name="title_advanced_lookup_mx">Hartzaileen email-helbideak egiaztatu bidali aurretik</string>
     <string name="title_advanced_send_delayed">Atzeratu mezuen bidalketa</string>
@@ -434,6 +436,7 @@
     <string name="title_edit_html">Editatu HTML gisa</string>
     <string name="title_sign_key">Sinadura-gakoa: %1$s</string>
     <string name="title_last_connected">Azken konexioa: %1$s</string>
+    <string name="title_storage_quota">Zerbitzariko biltegiratze erabilera: %1$s/%2$s</string>
     <string name="title_pop_support">POP3 protokoloak mezuak deskargatzea eta ezabatzea soilik sarrerako ontzitik onartzen du. POP3-k ezin ditu mezuak irakurrita gisa markatu, mugitu eta abar. POP3-k bateriaren energia eta datu gehiago erabiliko ditu IMAPek baino. Beraz, hobetsi IMAP protokoloa erabiltzea ahal den guztietan.</string>
     <string name="title_oauth_support">Ez da OAuth onartzen</string>
     <string name="title_review">Berrikusi</string>
@@ -832,7 +835,7 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_legend_delete">Ezabatu</string>
     <string name="title_legend_count">Kopurua</string>
     <string name="title_legend_folder_type">Karpeta mota</string>
-    <string name="title_hint_folder_actions">Sakatu luze aukeretarako</string>
+    <string name="title_hint_folder_actions">Sakatu luze karpetako aukerak ikusteko, hala nola karpeta bat gehitzeko abio bizkorreko nabigazio menuan</string>
     <string name="title_hint_folder_sync">Bateria eta sarearen erabilera mugatzeko ez dira karpeta eta mezu guztiak sinkronizatuko lehenetsita</string>
     <string name="title_hint_support">Galdera edo arazoren bat baduzu, erabili laguntza menua laguntza jasotzeko</string>
     <string name="title_hint_message_actions">Pasatu hatza ezkerrera zakarrontzira botatzeko, pasatu hatza eskuinera artxibatzeko (eskuragarri badago). Hatza pasatzeko ekintzak kontuaren ezarpenetan konfiguratu daitezke</string>
@@ -952,6 +955,8 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_accessibility_show_addresses">Erakutsi helbideak</string>
     <string name="title_accessibility_hide_addresses">Ezkutatu helbideak</string>
     <string name="title_accessibility_attachment">Eranskina</string>
+    <string name="title_accessibility_from">Bidaltzailea</string>
+    <string name="title_accessibility_to">Hartzailea</string>
     <string-array name="pollIntervalNames">
         <item>Beti</item>
         <item>15 minuturik behin</item>

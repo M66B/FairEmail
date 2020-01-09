@@ -179,7 +179,6 @@
     <string name="title_advanced_prefix_once">Prefix i ämnet endast när du svarar eller vidarebefordrar</string>
     <string name="title_advanced_plain_only">Skicka bara vanlig text som standard</string>
     <string name="title_advanced_usenet_signature">Signaturkonvention för Usenet</string>
-    <string name="title_advanced_autoresize">Ändra storlek automatiskt på bifogade och inbäddade bilder</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixlar</string>
     <string name="title_advanced_lookup_mx">Kontrollera mottagarens e-postadresser innan du skickar</string>
     <string name="title_advanced_send_delayed">Fördröj sändning av meddelanden</string>
@@ -692,7 +691,6 @@
     <string name="title_legend_delete">Ta bort</string>
     <string name="title_legend_count">Antal</string>
     <string name="title_legend_folder_type">Mapptyp</string>
-    <string name="title_hint_folder_actions">Långtryck för inställningar</string>
     <string name="title_hint_folder_sync">För att begränsa batteri- och nätverksanvändning synkroniseras inte alla mappar och inte alla meddelanden som standard</string>
     <string name="title_hint_support">Om du har en fråga eller ett problem, vänligen använd supportmenyn för att få hjälp</string>
     <string name="title_hint_message_selection">Långt tryck på ett meddelande för att börja välja flera meddelanden; håll och svep uppåt eller nedåt för att välja fler meddelanden</string>

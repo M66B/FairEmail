@@ -38,4 +38,4 @@ Na novijim verzijama Androida Android će staviti uređaje za spavanje kad je ek
 
 ## Pitanja ili problemi
 
-If you have a question or problem, please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) for help.
+Ako imate pitanje ili problem, molimo vas da [potražite ovdje](https://github.com/M66B/FairEmail/blob/master/FAQ.md) pomoć.

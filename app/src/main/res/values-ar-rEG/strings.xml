@@ -333,7 +333,6 @@
     <string name="title_legend_save">حفظ</string>
     <string name="title_legend_delete">حذف</string>
     <string name="title_legend_folder_type">نوع المجلد</string>
-    <string name="title_hint_folder_actions">اضغط مطولاً للمزيد من الخيارات</string>
     <string name="title_open_link">افتح الرابط</string>
     <string name="title_updated">هناك إصدار جديد متوفر %1$s</string>
     <string name="title_issue">هل عندك تساؤل أو صادفتَ مشكلة؟</string>

@@ -192,14 +192,20 @@
     <string name="title_setup_theme_yellow_purple">Żółty/fioletowy</string>
     <string name="title_setup_theme_red_green">Czerwony/zielony</string>
     <string name="title_setup_theme_grey">Szary</string>
+    <string name="title_setup_theme_black">Czarny</string>
     <string name="title_setup_theme_reverse">Odwróć kolory</string>
     <string name="title_setup_theme_dark">Ciemny</string>
+    <string name="title_setup_theme_black_background">Czarne tło</string>
     <string name="title_setup_theme_system">Zgodnie z systemem</string>
     <string name="title_setup_theme_system_hint">Zgodnie z motywem systemu automatycznie przełączy się na jasny/ciemny w dzień/noc, jeśli jest wspierane przez Androida</string>
     <string name="title_setup_advanced">Zaawansowane</string>
     <string name="title_setup_options">Opcje</string>
     <string name="title_setup_defaults">Przywróć domyślne</string>
     <string name="title_setup_reset_questions">Zresetuj pytania</string>
+    <string name="title_advanced_hint_title">Bardziej zaawansowane opcje</string>
+    <string name="title_advanced_hint_message">        Przechodzisz do bardziej zaawansowanych opcji.
+        Wszystkie opcje mają powszechnie używane wartości standardowe, które można zmienić, jeśli masz inne preferencje.
+    </string>
     <string name="title_advanced_section_main">Głowne</string>
     <string name="title_advanced_section_synchronize">Odbieranie</string>
     <string name="title_advanced_section_send">Wysyłanie</string>
@@ -228,7 +234,6 @@
     <string name="title_advanced_quote_reply">Cytuj tekst odpowiedzi</string>
     <string name="title_advanced_plain_only">Domyślnie wysyłaj czystym tekstem</string>
     <string name="title_advanced_usenet_signature">Konwencja podpisu Usenet</string>
-    <string name="title_advanced_autoresize">Automatycznie zmieniaj rozmiar załączonych i osadzonych obrazów</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixeli</string>
     <string name="title_advanced_lookup_mx">Sprawdź adresy e-mail odbiorcy przed wysłaniem</string>
     <string name="title_advanced_send_delayed">Opóźnij wysyłanie wiadomości</string>
@@ -239,12 +244,15 @@
     <string name="title_advanced_socks">Użyj serwera proxy SOCKS</string>
     <string name="title_advanced_manage_connectivity">Zarządzaj połączeniami</string>
     <string name="title_advanced_landscape">Użyj dwóch kolumn w trybie poziomym</string>
+    <string name="title_advanced_landscape3">Zezwalaj na stałe menu nawigacji w trybie poziomym</string>
     <string name="title_advanced_startup">Pokaż na ekranie początkowym</string>
     <string name="title_advanced_cards">Pokaż karty</string>
     <string name="title_advanced_date_header">Grupuj według dat</string>
     <string name="title_advanced_threading">Konwersacje w wątkach</string>
     <string name="title_advanced_indentation">Lewe/prawe wcięcie otrzymane/wysłane wiadomości w rozmowach</string>
     <string name="title_advanced_highlight_unread">Podświetl nieprzeczytane wiadomości</string>
+    <string name="title_advanced_distinguish_contacts">Podkreśl nadawcę, gdy znany jest jako lokalny kontakt „do”</string>
+    <string name="title_advanced_color_stripe">Pokaż kolorowy pasek</string>
     <string name="title_advanced_avatars">Pokaż zdjęcia kontaktu</string>
     <string name="title_advanced_generated_icons">Pokaż wygenerowane ikony</string>
     <string name="title_advanced_identicons">Pokazuje ikony kontaktów</string>
@@ -319,6 +327,7 @@
     <string name="title_advanced_display_hidden">Wyświetlaj ukryte teksty wiadomości</string>
     <string name="title_advanced_encrypt_method">Domyślna metoda szyfrowania</string>
     <string name="title_advanced_openpgp">Dostawca OpenPGP</string>
+    <string name="title_advanced_autocrypt_mutual">Tryb automatycznego szyfrowania</string>
     <string name="title_advanced_sign_default">Domyślnie podpisuj</string>
     <string name="title_advanced_encrypt_default">Domyślnie szyfruj</string>
     <string name="title_advanced_auto_decrypt">Automatycznie odszyfruj wiadomości</string>
@@ -328,6 +337,7 @@
     <string name="title_advanced_manage_certificates">Zarządzaj kluczami publicznymi</string>
     <string name="title_advanced_import_key">Importuj klucz prywatny</string>
     <string name="title_advanced_manage_keys">Zarządzaj kluczami prywatnymi</string>
+    <string name="title_advanced_external_search">Zezwalaj innym aplikacjom na wyszukiwanie w wiadomościach</string>
     <string name="title_advanced_english">Wymuś język angielski</string>
     <string name="title_advanced_watchdog">Okresowo sprawdzaj, czy FairEmail jest nadal aktywny</string>
     <string name="title_advanced_updates">Sprawdź aktualizacje</string>
@@ -467,6 +477,8 @@
     <string name="title_create_sub_folder">Utwórz podfolder</string>
     <string name="title_empty_trash_ask">Trwale usunąć wszystkie wiadomości z kosza?</string>
     <string name="title_empty_spam_ask">Czy trwale usunąć wszystkie wiadomości - spam?</string>
+    <string name="title_empty_trash_all_ask">Usunąć wszystkie skasowane wiadomości z koszy dla wszystkich kont?</string>
+    <string name="title_empty_spam_all_ask">Usunąć wszystkie wiadomości spam dla wszystkich kont?</string>
     <string name="title_delete_operation">Usunąć działania z informacją o błędzie?</string>
     <string name="title_delete_contacts">Usunąć wszystkie lokalne kontakty?</string>
     <string name="title_no_operations">Nie ma oczekujących operacji</string>
@@ -661,6 +673,7 @@
     <string name="title_decrypt">Odszyfruj</string>
     <string name="title_resync">Resynchronizuj</string>
     <string name="title_no_openpgp">Nie znaleziono OpenKeychain</string>
+    <string name="title_user_interaction">Przenoszenie do OpenKeychain</string>
     <string name="title_not_encrypted">Wiadomość nie jest podpisana lub zaszyfrowana</string>
     <string name="title_reset_sign_key">Resetuj klucz podpisu</string>
     <string name="title_signature_none">Wiadomość niepodpisana</string>
@@ -827,6 +840,7 @@
     <string name="title_legend_expander">Rozszerzacz</string>
     <string name="title_legend_avatar">Awatar</string>
     <string name="title_legend_show_quotes">Pokaż cytaty</string>
+    <string name="title_legend_show_junk">Traktuj jako spam</string>
     <string name="title_legend_show_unsubscribe">Wypisz się z listy</string>
     <string name="title_legend_show_images">Pokaż obrazy</string>
     <string name="title_legend_show_full">Pokaż na pełnym ekranie</string>
@@ -840,7 +854,6 @@
     <string name="title_legend_delete">Usuń</string>
     <string name="title_legend_count">Liczba</string>
     <string name="title_legend_folder_type">Rodzaj folderu</string>
-    <string name="title_hint_folder_actions">Przytrzymaj, aby uzyskać więcej opcji</string>
     <string name="title_hint_folder_sync">W celu ograniczenia użycia baterii i sieci nie wszystkie foldery i wiadomości będą domyślnie synchronizowane</string>
     <string name="title_hint_support">Jeśli masz pytanie lub problem, użyj menu Pomoc, aby uzyskać pomoc</string>
     <string name="title_hint_message_actions">Przesuń w lewo, aby wyrzucić do kosza; Przesuń w prawo, aby zarchiwizować (jeśli dostępne); Działania przeciągnięcia można skonfigurować w ustawieniach konta</string>
@@ -954,8 +967,13 @@ FairEmail wyświetla o tym małą wiadomość przypominającą, która zostanie 
     <string name="title_accessibility_answered">Odpowiedziane</string>
     <string name="title_accessibility_scroll_down">Przewiń w dół</string>
     <string name="title_accessibility_scroll_up">Przewiń w górę</string>
+    <string name="title_accessibility_filter_out_seen">Przełącz filtr przeczytanych wiadomości</string>
+    <string name="title_accessibility_filter_out_unflagged">Przełącz filtr wiadomości oznaczonych gwiazdką</string>
+    <string name="title_accessibility_filter_out_snoozed">Przełącz filtr odłożonych wiadomości</string>
+    <string name="title_accessibility_edit">Edycja</string>
     <string name="title_accessibility_show_addresses">Pokaż adresy</string>
     <string name="title_accessibility_hide_addresses">Ukryj adresy</string>
+    <string name="title_accessibility_attachment">Załącznik</string>
     <string-array name="pollIntervalNames">
         <item>Zawsze</item>
         <item>Co 15 minut</item>

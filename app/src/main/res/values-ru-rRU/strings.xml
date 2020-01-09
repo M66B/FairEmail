@@ -172,6 +172,7 @@
     <string name="title_setup_import">Импорт настроек</string>
     <string name="title_setup_import_do">Импортированные учётные записи будут добавлены без перезаписи существующих</string>
     <string name="title_setup_password">Пароль</string>
+    <string name="title_setup_password_chars">Пароль содержит управляющие символы или пробелы</string>
     <string name="title_setup_password_repeat">Подтвердить пароль</string>
     <string name="title_setup_password_missing">Отсутствует пароль</string>
     <string name="title_setup_password_different">Пароли не совпадают</string>
@@ -234,7 +235,8 @@
     <string name="title_advanced_quote_reply">Цитировать текст при ответе</string>
     <string name="title_advanced_plain_only">По умолчанию отправлять простым текстом</string>
     <string name="title_advanced_usenet_signature">Стиль подписи Usenet</string>
-    <string name="title_advanced_autoresize">Автоматически изменять размер прикреплённых и встроенных изображений</string>
+    <string name="title_advanced_resize_images">Автоматически изменять размер встроенных изображений</string>
+    <string name="title_advanced_resize_attachments">Автоматически изменять размер прикреплённых изображений</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d пикселей</string>
     <string name="title_advanced_lookup_mx">Проверить адрес электронной почты получателя перед отправкой</string>
     <string name="title_advanced_send_delayed">Задержка отправки сообщений</string>
@@ -457,6 +459,7 @@
     <string name="title_edit_html">Редактировать как HTML</string>
     <string name="title_sign_key">Ключ подписи: %1$s</string>
     <string name="title_last_connected">Последнее подключение: %1$s</string>
+    <string name="title_storage_quota">Использование хранилища сервера: %1$s/%2$s</string>
     <string name="title_pop_support">Протокол POP3 поддерживает загрузку и удаление сообщений только из папки \"Входящие\". POP3 не может помечать сообщения прочитанными, перемещать их и т.д. POP3 расходует больше энергии батареи и трафика, чем IMAP. Поэтому всегда используйте протокол IMAP, если это возможно.</string>
     <string name="title_oauth_support">OAuth не поддерживается</string>
     <string name="title_review">Пересмотр</string>
@@ -855,7 +858,7 @@
     <string name="title_legend_delete">Удалить</string>
     <string name="title_legend_count">Количество</string>
     <string name="title_legend_folder_type">Тип папки</string>
-    <string name="title_hint_folder_actions">Длительное нажатие для других действий</string>
+    <string name="title_hint_folder_actions">Длительное нажатие на папку для других возможностей, например, добавление папки в меню навигации для быстрого доступа</string>
     <string name="title_hint_folder_sync">Для экономии заряда батареи и трафика по умолчанию синхронизируются не все папки и сообщения.</string>
     <string name="title_hint_support">Если у вас есть вопрос или проблема, пожалуйста, используйте меню поддержки для получения помощи.</string>
     <string name="title_hint_message_actions">Смахните влево, чтобы поместить в корзину; смахните вправо, чтобы поместить в архив (если имеется); действия жестов можно изменить в настройках учётной записи.</string>
@@ -977,6 +980,8 @@
     <string name="title_accessibility_show_addresses">Показать адреса</string>
     <string name="title_accessibility_hide_addresses">Скрыть адреса</string>
     <string name="title_accessibility_attachment">Вложение</string>
+    <string name="title_accessibility_from">Отправитель</string>
+    <string name="title_accessibility_to">Получатель</string>
     <string-array name="pollIntervalNames">
         <item>Непрерывно</item>
         <item>Каждые 15 минут</item>
