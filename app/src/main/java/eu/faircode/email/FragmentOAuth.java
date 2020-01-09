@@ -253,8 +253,14 @@ public class FragmentOAuth extends FragmentBase {
             prefs.edit().putString("oauth." + provider.id, authState.jsonSerializeString()).apply();
 
             Map<String, String> params = new HashMap<>();
+
             if ("gmail".equals(provider.id))
                 params.put("access_type", "offline");
+
+            if ("yandex".equals(provider.id)) {
+                params.put("device_name", "Android/FairEmail");
+                params.put("force_confirm", "true");
+            }
 
             AuthorizationRequest.Builder authRequestBuilder =
                     new AuthorizationRequest.Builder(
@@ -352,6 +358,7 @@ public class FragmentOAuth extends FragmentBase {
         args.putString("name", name);
         args.putString("token", accessToken);
         args.putString("state", state.jsonSerializeString());
+        args.putBoolean("askAccount", askAccount);
         args.putString("personal", etName.getText().toString().trim());
         args.putString("address", etEmail.getText().toString().trim());
 
@@ -362,6 +369,7 @@ public class FragmentOAuth extends FragmentBase {
                 String name = args.getString("name");
                 String token = args.getString("token");
                 String state = args.getString("state");
+                boolean askAccount = args.getBoolean("askAccount", false);
                 String personal = args.getString("personal");
                 String address = args.getString("address");
 
@@ -443,7 +451,7 @@ public class FragmentOAuth extends FragmentBase {
                             identities.add(new Pair<>(email, displayName));
                         }
                     }
-                } else if ("yandex".equals(id)) {
+                } else if (askAccount) {
                     primaryEmail = address;
                     identities.add(new Pair<>(address, personal));
                 } else
