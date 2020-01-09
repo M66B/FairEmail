@@ -330,6 +330,7 @@
     <string name="title_advanced_display_hidden">Показывать текст скрытых сообщений</string>
     <string name="title_advanced_encrypt_method">Метод шифрования по умолчанию</string>
     <string name="title_advanced_openpgp">Провайдер OpenPGP</string>
+    <string name="title_advanced_autocrypt">Использовать Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Взаимный режим Autocrypt</string>
     <string name="title_advanced_sign_default">Подписать по умолчанию</string>
     <string name="title_advanced_encrypt_default">Шифровать по умолчанию</string>

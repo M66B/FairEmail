@@ -308,6 +308,7 @@
     <string name="title_advanced_display_hidden">Vis skjulte meldingstekster</string>
     <string name="title_advanced_encrypt_method">Standard krypterings metode</string>
     <string name="title_advanced_openpgp">OpenPGP-leverandør</string>
+    <string name="title_advanced_autocrypt">Bruk autokrypt</string>
     <string name="title_advanced_autocrypt_mutual">Autokrypt gjensidig modus</string>
     <string name="title_advanced_sign_default">Signer som standard</string>
     <string name="title_advanced_encrypt_default">Krypter som standard</string>

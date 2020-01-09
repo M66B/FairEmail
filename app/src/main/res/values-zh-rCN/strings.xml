@@ -138,7 +138,7 @@
     <string name="title_setup_import">导入设置</string>
     <string name="title_setup_import_do">导入的账户不会覆盖任何现有的帐户</string>
     <string name="title_setup_password">密码</string>
-    <string name="title_setup_password_chars">密码包含控件或空格字符</string>
+    <string name="title_setup_password_chars">密码包含控制字符或空格字符</string>
     <string name="title_setup_password_repeat">再次输入密码</string>
     <string name="title_setup_password_missing">密码缺失</string>
     <string name="title_setup_password_different">密码不匹配</string>
@@ -213,14 +213,14 @@
     <string name="title_advanced_socks">使用 SOCKS 代理</string>
     <string name="title_advanced_manage_connectivity">管理连接</string>
     <string name="title_advanced_landscape">在横屏模式下使用两列</string>
-    <string name="title_advanced_landscape3">在横屏模式下允许固定导航菜单</string>
+    <string name="title_advanced_landscape3">在横屏模式下允许固定的导航栏菜单</string>
     <string name="title_advanced_startup">在启动屏幕上显示</string>
     <string name="title_advanced_cards">展示卡片</string>
     <string name="title_advanced_date_header">按日期分组</string>
     <string name="title_advanced_threading">会话线程</string>
     <string name="title_advanced_indentation">左/右缩进接收/发送的消息</string>
     <string name="title_advanced_highlight_unread">高亮未读消息</string>
-    <string name="title_advanced_distinguish_contacts">突出本地联系人</string>
+    <string name="title_advanced_distinguish_contacts">下划线发件人(当其为本地发送给的联系人时)</string>
     <string name="title_advanced_color_stripe">头像前显示色彩条纹</string>
     <string name="title_advanced_avatars">显示联系人头像</string>
     <string name="title_advanced_generated_icons">显示生成的图标</string>
@@ -810,7 +810,7 @@
     <string name="title_legend_expander">已展开</string>
     <string name="title_legend_avatar">头像</string>
     <string name="title_legend_show_quotes">显示引用内容</string>
-    <string name="title_legend_show_junk">当成垃圾邮件处理</string>
+    <string name="title_legend_show_junk">视为垃圾邮件</string>
     <string name="title_legend_show_unsubscribe">从列表取消订阅</string>
     <string name="title_legend_show_images">显示图片</string>
     <string name="title_legend_show_full">全屏显示</string>
@@ -943,7 +943,7 @@ FairEmail会显示一条消息来提醒您这一点，这条消息在您购买�
     <string name="title_accessibility_hide_addresses">隐藏地址</string>
     <string name="title_accessibility_attachment">附件</string>
     <string name="title_accessibility_from">发件人</string>
-    <string name="title_accessibility_to">接收方</string>
+    <string name="title_accessibility_to">收件人</string>
     <string-array name="pollIntervalNames">
         <item>总是</item>
         <item>每15分钟</item>
