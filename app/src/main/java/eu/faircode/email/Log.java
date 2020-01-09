@@ -552,6 +552,7 @@ public class Log {
                     ex.getCause().getMessage() != null &&
                     (ex.getCause().getMessage().contains("Read error") ||
                             ex.getCause().getMessage().contains("Write error") ||
+                            ex.getCause().getMessage().contains("Unexpected end of ZLIB input stream") ||
                             ex.getCause().getMessage().contains("Socket is closed")))
                 return null;
 
