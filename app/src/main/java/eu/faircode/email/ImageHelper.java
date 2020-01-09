@@ -422,7 +422,7 @@ class ImageHelper {
         });
 
         try {
-            if (!semaphore.tryAcquire(10, TimeUnit.SECONDS))
+            if (!semaphore.tryAcquire(10 * 1000, TimeUnit.MILLISECONDS))
                 Log.e("fitDrawable failed");
         } catch (InterruptedException ex) {
             Log.w(ex);
