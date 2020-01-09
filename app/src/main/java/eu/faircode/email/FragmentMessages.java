@@ -749,7 +749,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     aid, thread, threading ? null : id, null);
                             for (EntityMessage threaded : messages) {
                                 EntityFolder folder = db.folder().getFolder(threaded.folder);
-                                if (folder != null && !folder.read_only)
+                                if (!folder.read_only &&
+                                        !EntityFolder.DRAFTS.equals(folder.type) &&
+                                        !EntityFolder.OUTBOX.equals(folder.type) &&
+                                        // sent
+                                        // trash
+                                        !EntityFolder.JUNK.equals(folder.type))
                                     result.add(threaded.id);
                             }
 
@@ -3580,12 +3585,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     for (EntityMessage message : messages) {
                         EntityFolder folder = db.folder().getFolder(message.folder);
 
-                        if (!folder.read_only && (trash == null ||
-                                (!EntityFolder.DRAFTS.equals(folder.type) &&
-                                        !EntityFolder.OUTBOX.equals(folder.type) &&
-                                        // allow sent
-                                        !EntityFolder.TRASH.equals(folder.type) &&
-                                        !EntityFolder.JUNK.equals(folder.type))))
+                        if (!folder.read_only &&
+                                !EntityFolder.DRAFTS.equals(folder.type) &&
+                                !EntityFolder.OUTBOX.equals(folder.type) &&
+                                // allow sent
+                                !EntityFolder.TRASH.equals(folder.type) &&
+                                !EntityFolder.JUNK.equals(folder.type))
                             trashable = true;
 
                         if (!EntityFolder.OUTBOX.equals(folder.type))
