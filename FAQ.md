@@ -588,6 +588,11 @@ So, unless your provider can enable this extension, you cannot use FairEmail for
 
 *General*
 
+Please [see here](https://en.wikipedia.org/wiki/Public-key_cryptography) about how public/private key encryption works. In short:
+
+* **Outgoing** messages are encrypted with the **public key** of the other party
+* **Incoming** messages are decrypted with your own **private key**
+
 To sign/encrypt a message, just select the appropriate method in the send dialog.
 You can always open the send dialog using the three-dots overflow menu in case you selected *Don't show again* before.
 
