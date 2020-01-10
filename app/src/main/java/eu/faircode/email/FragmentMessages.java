@@ -4667,9 +4667,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (message == null)
                     return null;
 
+                InputStream is = null;
+                X509Certificate result = null;
+                String alias = args.getString("alias");
+
                 if (EntityMessage.SMIME_SIGNONLY.equals(type)) {
                     // Get content/signature
-                    boolean data = false;
+                    boolean sdata = false;
                     File content = null;
                     File signature = null;
                     List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
@@ -4681,7 +4685,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         } else if (EntityAttachment.SMIME_SIGNED_DATA.equals(attachment.encryption)) {
                             if (!attachment.available)
                                 throw new IllegalArgumentException(context.getString(R.string.title_attachments_missing));
-                            data = true;
+                            sdata = true;
                             signature = attachment.getFile(context);
                         } else if (EntityAttachment.SMIME_CONTENT.equals(attachment.encryption)) {
                             if (!attachment.available)
@@ -4689,35 +4693,31 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             content = attachment.getFile(context);
                         }
 
-                    if (content == null && !data)
+                    if (content == null && !sdata)
                         throw new IllegalArgumentException("Signed content missing");
                     if (signature == null)
                         throw new IllegalArgumentException("Signature missing");
 
                     // Build signed data
-                    CMSProcessable signedContent = new CMSProcessableFile(content);
                     FileInputStream fis = new FileInputStream(signature);
                     CMSSignedData signedData;
-                    if (data) {
+                    if (sdata) {
                         signedData = new CMSSignedData(fis);
 
                         CMSTypedData sc = signedData.getSignedContent();
                         if (sc == null)
                             throw new IllegalArgumentException("Signed content missing");
 
-                        try (OutputStream os = new FileOutputStream(message.getFile(context))) {
-                            sc.write(os);
-                        }
-
-                        db.message().setMessageEncrypt(message.id, null);
-                        db.message().setMessageStored(message.id, new Date().getTime());
-                    } else
+                        is = new ByteArrayInputStream((byte[]) sc.getContent());
+                    } else {
+                        CMSProcessable signedContent = new CMSProcessableFile(content);
                         signedData = new CMSSignedData(signedContent, fis);
+                    }
 
                     // Check signature
                     Store store = signedData.getCertificates();
                     SignerInformationStore signerInfos = signedData.getSignerInfos();
-                    for (SignerInformation signer : signerInfos.getSigners())
+                    for (SignerInformation signer : signerInfos.getSigners()) {
                         for (Object match : store.getMatches(signer.getSID())) {
                             X509CertificateHolder certHolder = (X509CertificateHolder) match;
                             X509Certificate cert = new JcaX509CertificateConverter()
@@ -4740,17 +4740,18 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     args.putString("sender", sender);
                                     args.putBoolean("known", known);
 
-                                    return cert;
+                                    result = cert;
+                                    break;
                                 }
                             } catch (CMSVerifierCertificateNotValidException ex) {
                                 Log.w(ex);
                             }
                         }
-
-                    return null;
+                        if (result != null)
+                            break;
+                    }
                 } else {
-                    // Get alias
-                    String alias = args.getString("alias");
+                    // Check alias
                     if (alias == null)
                         throw new IllegalArgumentException("Key alias missing");
 
@@ -4789,7 +4790,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     Collection<RecipientInformation> recipients = envelopedData.getRecipientInfos().getRecipients(); // KeyTransRecipientInformation
 
                     // Find recipient
-                    InputStream is = null;
+                    is = null;
                     if (chain[0].getSerialNumber() != null)
                         for (RecipientInformation recipientInfo : recipients) {
                             KeyTransRecipientId recipientId = (KeyTransRecipientId) recipientInfo.getRID();
@@ -4815,7 +4816,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             db.identity().setIdentitySignKeyAlias(message.identity, null);
                         throw new IllegalArgumentException(context.getString(R.string.title_invalid_key));
                     }
+                }
 
+                if (is != null) {
                     // Decode message
                     Properties props = MessageHelper.getSessionProperties();
                     Session isession = Session.getInstance(props, null);
@@ -4852,16 +4855,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         db.message().setMessageEncrypt(message.id, parts.getEncryption());
                         db.message().setMessageStored(message.id, new Date().getTime());
 
-                        if (message.identity != null)
+                        if (alias != null && message.identity != null)
                             db.identity().setIdentitySignKeyAlias(message.identity, alias);
 
                         db.setTransactionSuccessful();
                     } finally {
                         db.endTransaction();
                     }
-
-                    return null;
                 }
+
+                return result;
             }
 
             @Override
