@@ -614,6 +614,7 @@ If you want to undo decryption, you can use the *resync* menu item in the three-
 *PGP*
 
 You'll need to install and configure [OpenKeychain](https://f-droid.org/en/packages/org.sufficientlysecure.keychain/) first.
+FairEmail was tested with OpenKeychain version 5.4. Later versions will most likely be compatible, but earlier versions might not be.
 
 The OpenKeychain app is known to (silently) crash when the calling app (FairEmail) is not authorized yet and is getting an existing public key.
 You can workaround this by trying to send a signed/encrypted message to a sender with an unknown public key.
