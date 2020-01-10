@@ -285,11 +285,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
 
             @Override
-            protected void onExecuted(Bundle args, Void data) {
-                ServiceSynchronize.reschedule(getContext());
-            }
-
-            @Override
             protected void onException(Bundle args, Throwable ex) {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
