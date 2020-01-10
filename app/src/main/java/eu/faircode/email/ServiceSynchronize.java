@@ -121,8 +121,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     ));
 
     static final int PI_ALARM = 1;
-    static final int PI_BACKOFF = 2;
-    static final int PI_KEEPALIVE = 3;
+    static final int PI_POLL = 2;
+    static final int PI_BACKOFF = 3;
+    static final int PI_KEEPALIVE = 4;
 
     @Override
     public void onCreate() {
@@ -224,11 +225,12 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                             // Some networks disallow email server connections:
                             // - reload on network type change when disconnected
-                            if (reload ||
+                            if (reload || sync ||
                                     prev.canRun() != current.canRun() ||
                                     !prev.accountState.equals(current.accountState) ||
                                     (!"connected".equals(current.accountState.state) &&
                                             !Objects.equals(prev.networkState.getType(), current.networkState.getType()))) {
+
                                 if (prev.canRun() || current.canRun())
                                     EntityLog.log(ServiceSynchronize.this, "### changed " + current +
                                             " reload=" + reload +
@@ -239,8 +241,14 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                             " enabled=" + current.accountState.synchronize +
                                             " state=" + current.accountState.state +
                                             " type=" + prev.networkState.getType() + "/" + current.networkState.getType());
+
                                 if (prev.canRun())
-                                    stop(prev);
+                                    if (sync && current.canRun()) {
+                                        sync(current);
+                                        continue;
+                                    } else
+                                        stop(prev);
+
                                 if (current.canRun())
                                     start(current, current.accountState.isEnabled(current.enabled) || sync);
                             }
@@ -321,6 +329,22 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         state.stop();
                         state.join();
                         EntityLog.log(ServiceSynchronize.this, "### stopped=" + accountNetworkState);
+                    }
+                });
+            }
+
+            private void sync(final TupleAccountNetworkState accountNetworkState) {
+                EntityLog.log(ServiceSynchronize.this, "Service sync=" + accountNetworkState);
+
+                queue.submit(new Runnable() {
+                    @Override
+                    public void run() {
+                        DB db = DB.getInstance(ServiceSynchronize.this);
+                        List<EntityFolder> folders = db.folder().getSynchronizingFolders(accountNetworkState.accountState.id);
+                        if (folders.size() > 0)
+                            Collections.sort(folders, folders.get(0).getComparator(ServiceSynchronize.this));
+                        for (EntityFolder folder : folders)
+                            EntityOperation.sync(ServiceSynchronize.this, folder.id, false);
                     }
                 });
             }
@@ -613,6 +637,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private void onEval(Intent intent) {
         Bundle command = new Bundle();
         command.putString("name", "eval");
+        command.putBoolean("sync", intent.getBooleanExtra("sync", false));
         command.putLong("account", intent.getLongExtra("account", -1));
         liveAccountNetworkState.post(command);
     }
@@ -1540,31 +1565,46 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     }
 
     private static void schedule(Context context) {
-        Intent intent = new Intent(context, ServiceSynchronize.class);
-        intent.setAction("alarm");
-        PendingIntent pi = PendingIntentCompat.getForegroundService(
-                context, PI_ALARM, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        Intent alarm = new Intent(context, ServiceSynchronize.class);
+        alarm.setAction("alarm");
+        PendingIntent piAlarm = PendingIntentCompat.getForegroundService(
+                context, PI_ALARM, alarm, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        Intent poll = new Intent(context, ServiceSynchronize.class);
+        poll.setAction("poll");
+        PendingIntent piPoll = PendingIntentCompat.getForegroundService(
+                context, PI_POLL, poll, PendingIntent.FLAG_UPDATE_CURRENT);
 
         AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        am.cancel(pi);
+        am.cancel(piAlarm);
+        am.cancel(piPoll);
 
+        boolean enabled;
+        long now = new Date().getTime();
         long[] schedule = getSchedule(context);
         if (schedule == null)
-            return;
+            enabled = true;
+        else {
+            long next = (now < schedule[0] ? schedule[0] : schedule[1]);
+            enabled = (now >= schedule[0] && now < schedule[1]);
 
-        long now = new Date().getTime();
-        long next = (now < schedule[0] ? schedule[0] : schedule[1]);
-        boolean enabled = (now >= schedule[0] && now < schedule[1]);
+            Log.i("Schedule now=" + new Date(now));
+            Log.i("Schedule start=" + new Date(schedule[0]));
+            Log.i("Schedule end=" + new Date(schedule[1]));
+            Log.i("Schedule next=" + new Date(next));
+            Log.i("Schedule enabled=" + enabled);
 
-        Log.i("Schedule now=" + new Date(now));
-        Log.i("Schedule start=" + new Date(schedule[0]));
-        Log.i("Schedule end=" + new Date(schedule[1]));
-        Log.i("Schedule next=" + new Date(next));
-        Log.i("Schedule enabled=" + enabled);
+            AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, next, piAlarm);
+        }
 
-        AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, next, pi);
-
-        WorkerPoll.init(context, enabled);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        int pollInterval = prefs.getInt("poll_interval", 0);
+        if (enabled && pollInterval > 0) {
+            long interval = pollInterval * 60 * 1000L;
+            long trigger = now / interval * interval + interval;
+            Log.i("Poll interval=" + pollInterval + " trigger=" + new Date(trigger));
+            am.setInexactRepeating(AlarmManager.RTC_WAKEUP, trigger, interval, piPoll);
+        }
     }
 
     private static long[] getSchedule(Context context) {
@@ -1658,6 +1698,15 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 new Intent(context, ServiceSynchronize.class)
                         .setAction("eval")
                         .putExtra("reason", reason));
+    }
+
+    static void poll(Context context, Long account) {
+        ContextCompat.startForegroundService(context,
+                new Intent(context, ServiceSynchronize.class)
+                        .setAction("eval")
+                        .putExtra("account", account == null ? -1 : account)
+                        .putExtra("sync", true)
+                        .putExtra("reason", "poll"));
     }
 
     static void reload(Context context, Long account, String reason) {

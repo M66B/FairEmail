@@ -90,7 +90,7 @@ public class ServiceExternal extends Service {
                 public void run() {
                     if (accountName == null) {
                         if (enabled == null)
-                            WorkerPoll.sync(context, null);
+                            ServiceSynchronize.poll(context, null);
                         else {
                             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                             prefs.edit().putBoolean("enabled", enabled).apply();
@@ -106,7 +106,7 @@ public class ServiceExternal extends Service {
                         }
 
                         if (enabled == null)
-                            WorkerPoll.sync(context, account.id);
+                            ServiceSynchronize.poll(context, account.id);
                         else {
                             db.account().setAccountSynchronize(account.id, enabled);
                             ServiceSynchronize.eval(context, "external account=" + accountName + " enabled=" + enabled);

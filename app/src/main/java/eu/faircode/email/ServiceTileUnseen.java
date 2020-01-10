@@ -20,7 +20,6 @@ package eu.faircode.email;
 */
 
 import android.annotation.TargetApi;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Icon;
 import android.os.Build;
@@ -97,12 +96,6 @@ public class ServiceTileUnseen extends TileService {
 
     public void onClick() {
         Log.i("Click tile unseen");
-        final Context context = getApplicationContext();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                WorkerPoll.sync(context, null);
-            }
-        }).start();
+        ServiceSynchronize.poll(this, null);
     }
 }
