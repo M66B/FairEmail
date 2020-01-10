@@ -119,6 +119,7 @@ import org.bouncycastle.cms.CMSException;
 import org.bouncycastle.cms.CMSProcessable;
 import org.bouncycastle.cms.CMSProcessableFile;
 import org.bouncycastle.cms.CMSSignedData;
+import org.bouncycastle.cms.CMSTypedData;
 import org.bouncycastle.cms.CMSVerifierCertificateNotValidException;
 import org.bouncycastle.cms.KeyTransRecipientId;
 import org.bouncycastle.cms.RecipientInformation;
@@ -4668,6 +4669,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 if (EntityMessage.SMIME_SIGNONLY.equals(type)) {
                     // Get content/signature
+                    boolean data = false;
                     File content = null;
                     File signature = null;
                     List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
@@ -4676,13 +4678,18 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             if (!attachment.available)
                                 throw new IllegalArgumentException(context.getString(R.string.title_attachments_missing));
                             signature = attachment.getFile(context);
+                        } else if (EntityAttachment.SMIME_SIGNED_DATA.equals(attachment.encryption)) {
+                            if (!attachment.available)
+                                throw new IllegalArgumentException(context.getString(R.string.title_attachments_missing));
+                            data = true;
+                            signature = attachment.getFile(context);
                         } else if (EntityAttachment.SMIME_CONTENT.equals(attachment.encryption)) {
                             if (!attachment.available)
                                 throw new IllegalArgumentException(context.getString(R.string.title_attachments_missing));
                             content = attachment.getFile(context);
                         }
 
-                    if (content == null)
+                    if (content == null && !data)
                         throw new IllegalArgumentException("Signed content missing");
                     if (signature == null)
                         throw new IllegalArgumentException("Signature missing");
@@ -4690,7 +4697,22 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     // Build signed data
                     CMSProcessable signedContent = new CMSProcessableFile(content);
                     FileInputStream fis = new FileInputStream(signature);
-                    CMSSignedData signedData = new CMSSignedData(signedContent, fis);
+                    CMSSignedData signedData;
+                    if (data) {
+                        signedData = new CMSSignedData(fis);
+
+                        CMSTypedData sc = signedData.getSignedContent();
+                        if (sc == null)
+                            throw new IllegalArgumentException("Signed content missing");
+
+                        try (OutputStream os = new FileOutputStream(message.getFile(context))) {
+                            sc.write(os);
+                        }
+
+                        db.message().setMessageEncrypt(message.id, null);
+                        db.message().setMessageStored(message.id, new Date().getTime());
+                    } else
+                        signedData = new CMSSignedData(signedContent, fis);
 
                     // Check signature
                     Store store = signedData.getCertificates();

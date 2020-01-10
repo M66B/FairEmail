@@ -1230,7 +1230,8 @@ public class MessageHelper {
                     return EntityMessage.PGP_SIGNONLY;
                 else if (EntityAttachment.PGP_MESSAGE.equals(apart.attachment.encryption))
                     return EntityMessage.PGP_SIGNENCRYPT;
-                else if (EntityAttachment.SMIME_SIGNATURE.equals(apart.attachment.encryption))
+                else if (EntityAttachment.SMIME_SIGNATURE.equals(apart.attachment.encryption) ||
+                        EntityAttachment.SMIME_SIGNED_DATA.equals(apart.attachment.encryption))
                     return EntityMessage.SMIME_SIGNONLY;
                 else if (EntityAttachment.SMIME_MESSAGE.equals(apart.attachment.encryption))
                     return EntityMessage.SMIME_SIGNENCRYPT;
@@ -1475,6 +1476,9 @@ public class MessageHelper {
                 String smimeType = ct.getParameter("smime-type");
                 if ("enveloped-data".equals(smimeType)) {
                     getMessageParts(imessage, parts, EntityAttachment.SMIME_MESSAGE);
+                    return parts;
+                } else if ("signed-data".equals(smimeType)) {
+                    getMessageParts(imessage, parts, EntityAttachment.SMIME_SIGNED_DATA);
                     return parts;
                 }
             }
