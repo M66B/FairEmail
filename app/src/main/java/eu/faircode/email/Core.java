@@ -2790,7 +2790,8 @@ class Core {
                             .setShowWhen(false)
                             .setDeleteIntent(piClear)
                             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                            .setCategory(NotificationCompat.CATEGORY_STATUS)
+                            .setCategory(notify_summary
+                                    ? NotificationCompat.CATEGORY_EMAIL : NotificationCompat.CATEGORY_STATUS)
                             .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
                             .setAllowSystemGeneratedContextualActions(false);
 
