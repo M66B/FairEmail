@@ -292,7 +292,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         crumb.put("lastLost", new Date(lastLost).toString());
                         Log.breadcrumb("start", crumb);
 
-                        Log.i("### start=" + accountNetworkState);
+                        Log.i("### start=" + accountNetworkState + " sync=" + sync);
                         astate.start();
                         EntityLog.log(ServiceSynchronize.this, "### started=" + accountNetworkState);
                     }
