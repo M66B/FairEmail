@@ -3681,7 +3681,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             new SimpleTask<Void>() {
                 @Override
                 protected Void onExecute(Context context, Bundle args) {
-                    Long id = args.getLong("id");
+                    long id = args.getLong("id");
 
                     DB db = DB.getInstance(context);
                     try {
@@ -3703,6 +3703,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ServiceSynchronize.eval(context, "raw");
 
                     return null;
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, Void data) {
+                    ToastEx.makeText(context, R.string.title_executing, Toast.LENGTH_LONG).show();
                 }
 
                 @Override
