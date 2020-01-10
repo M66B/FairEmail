@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -35,6 +36,7 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.OnLifecycleEvent;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
@@ -52,7 +54,7 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
 
     private List<EntityAttachment> items = new ArrayList<>();
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         private View view;
         private ImageView ivImage;
         private TextView tvCaption;
@@ -67,10 +69,12 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
 
         private void wire() {
             view.setOnClickListener(this);
+            view.setOnLongClickListener(this);
         }
 
         private void unwire() {
             view.setOnClickListener(null);
+            view.setOnLongClickListener(null);
         }
 
         private void bindTo(EntityAttachment attachment) {
@@ -142,6 +146,25 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
                     }.execute(context, owner, args, "image:fetch");
                 }
             }
+        }
+
+        @Override
+        public boolean onLongClick(View v) {
+            int pos = getAdapterPosition();
+            if (pos == RecyclerView.NO_POSITION)
+                return false;
+
+            EntityAttachment attachment = items.get(pos);
+            if (!attachment.available)
+                return false;
+
+            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+            lbm.sendBroadcast(
+                    new Intent(FragmentMessages.ACTION_STORE_ATTACHMENT)
+                            .putExtra("id", attachment.id)
+                            .putExtra("name", Helper.sanitizeFilename(attachment.name))
+                            .putExtra("type", attachment.getMimeType()));
+            return true;
         }
     }
 
