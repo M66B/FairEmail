@@ -296,6 +296,7 @@
     <string name="title_advanced_display_hidden">显示隐藏消息文本</string>
     <string name="title_advanced_encrypt_method">默认加密方法</string>
     <string name="title_advanced_openpgp">OpenPGP 提供者</string>
+    <string name="title_advanced_autocrypt">使用Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">自动双向加密模式</string>
     <string name="title_advanced_sign_default">使用默认签名</string>
     <string name="title_advanced_encrypt_default">使用默认加密</string>

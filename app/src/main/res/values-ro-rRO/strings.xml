@@ -160,6 +160,7 @@
     <string name="title_setup_import">Importă setări</string>
     <string name="title_setup_import_do">Conturile importate vor fi adăugate fără a suprascrie pe cele existente</string>
     <string name="title_setup_password">Parolă</string>
+    <string name="title_setup_password_chars">Parola conține caractere nule sau de control</string>
     <string name="title_setup_password_repeat">Repetă parola</string>
     <string name="title_setup_password_missing">Lipsește parola</string>
     <string name="title_setup_password_different">Parolele nu corespund</string>
@@ -317,6 +318,7 @@
     <string name="title_advanced_display_hidden">Arată textul ascuns din mesaj</string>
     <string name="title_advanced_encrypt_method">Metoda implicită de criptare</string>
     <string name="title_advanced_openpgp">Furnizor OpenPGP</string>
+    <string name="title_advanced_autocrypt">Folosește Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Modul mutual Autocrypt</string>
     <string name="title_advanced_sign_default">Semnare în mod implicit</string>
     <string name="title_advanced_encrypt_default">Criptare în mod implicit</string>
@@ -845,6 +847,7 @@
     <string name="title_legend_delete">Șterge</string>
     <string name="title_legend_count">Contor</string>
     <string name="title_legend_folder_type">Tip de dosar</string>
+    <string name="title_hint_folder_actions">Atingeți lung un dosar pentru opțiuni, precum adăugarea la meniul de navigare pentru acces rapid</string>
     <string name="title_hint_folder_sync">Pentru a limita utilizarea bateriei şi a conexiunii, nu vor fi sincronizate în mod implicit toate dosarele si mesajele</string>
     <string name="title_hint_support">Dacă aveți o întrebare sau o problemă, vă rugăm să utilizați meniul de suport tehnic pentru a obține ajutor</string>
     <string name="title_hint_message_actions">Glisați stânga pentru Gunoi sau dreapta pentru Arhivă (dacă este disponibilă). Acțiunile de glisare se pot configura în setările contului</string>

@@ -308,6 +308,7 @@
     <string name="title_advanced_display_hidden">Erakutsi ezkutatutako mezuen testuak</string>
     <string name="title_advanced_encrypt_method">Berezko zifratze-metodoa</string>
     <string name="title_advanced_openpgp">OpenPGP hornitzailea</string>
+    <string name="title_advanced_autocrypt">Erabili Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Elkarrekiko Autocrypt modua</string>
     <string name="title_advanced_sign_default">Besterik ezean sinatu</string>
     <string name="title_advanced_encrypt_default">Besterik ezean zifratu</string>

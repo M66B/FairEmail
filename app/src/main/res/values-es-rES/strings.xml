@@ -308,6 +308,7 @@
     <string name="title_advanced_display_hidden">Mostrar textos de mensajes ocultos</string>
     <string name="title_advanced_encrypt_method">Método de cifrado por defecto</string>
     <string name="title_advanced_openpgp">Proveedor OpenPGP</string>
+    <string name="title_advanced_autocrypt">Usar Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Modo mutuo Autocrypt</string>
     <string name="title_advanced_sign_default">Firmar por defecto</string>
     <string name="title_advanced_encrypt_default">Cifrar por defecto</string>

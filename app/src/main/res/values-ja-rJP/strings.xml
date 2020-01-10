@@ -295,6 +295,7 @@
     <string name="title_advanced_display_hidden">非表示のメッセージテキストを表示</string>
     <string name="title_advanced_encrypt_method">デフォルトの暗号化方法</string>
     <string name="title_advanced_openpgp">OpenPGP プロバイダ</string>
+    <string name="title_advanced_autocrypt">自動暗号化を使用</string>
     <string name="title_advanced_autocrypt_mutual">相互暗号化モード</string>
     <string name="title_advanced_sign_default">デフォルトで署名</string>
     <string name="title_advanced_encrypt_default">デフォルトで暗号化</string>
