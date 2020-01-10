@@ -57,6 +57,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.text.NumberFormat;
 import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
@@ -81,6 +82,8 @@ public class FragmentFolders extends FragmentBase {
     private boolean show_hidden = false;
     private String searching = null;
     private AdapterFolder adapter;
+
+    private NumberFormat NF = NumberFormat.getNumberInstance();
 
     static final int REQUEST_SYNC = 1;
     static final int REQUEST_DELETE_LOCAL = 2;
@@ -272,7 +275,12 @@ public class FragmentFolders extends FragmentBase {
             db.account().liveAccount(account).observe(getViewLifecycleOwner(), new Observer<EntityAccount>() {
                 @Override
                 public void onChanged(@Nullable EntityAccount account) {
-                    setSubtitle(account == null ? null : account.name);
+                    if (account != null && account.quota_usage != null && account.quota_limit != null) {
+                        int percent = Math.round((float) account.quota_usage * 100 / account.quota_limit);
+                        setSubtitle(getString(R.string.title_name_count,
+                                account.name, NF.format(percent) + "%"));
+                    } else
+                        setSubtitle(account == null ? null : account.name);
 
                     if (account != null && account.error != null)
                         fabError.show();
