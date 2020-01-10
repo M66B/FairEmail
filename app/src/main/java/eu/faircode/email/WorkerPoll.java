@@ -31,6 +31,7 @@ import androidx.work.Worker;
 import androidx.work.WorkerParameters;
 
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -55,10 +56,13 @@ public class WorkerPoll extends Worker {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             int pollInterval = prefs.getInt("poll_interval", 0);
             if (enabled && pollInterval > 0) {
-                Log.i("Queuing " + getName() + " every " + pollInterval + " minutes");
+                int min = (int) (new Date().getTime() / (60 * 1000L));
+                int delay = pollInterval - min % pollInterval;
+                Log.i("Queuing " + getName() + " every " + pollInterval + " minutes delay=" + delay);
 
                 PeriodicWorkRequest workRequest =
                         new PeriodicWorkRequest.Builder(WorkerPoll.class, pollInterval, TimeUnit.MINUTES)
+                                .setInitialDelay(delay, TimeUnit.MINUTES)
                                 .build();
                 WorkManager.getInstance(context)
                         .enqueueUniquePeriodicWork(getName(), ExistingPeriodicWorkPolicy.REPLACE, workRequest);
