@@ -57,7 +57,7 @@ public class WorkerPoll extends Worker {
             int pollInterval = prefs.getInt("poll_interval", 0);
             if (enabled && pollInterval > 0) {
                 int min = (int) (new Date().getTime() / (60 * 1000L));
-                int delay = pollInterval - min % pollInterval;
+                int delay = pollInterval - (min % pollInterval) + pollInterval;
                 Log.i("Queuing " + getName() + " every " + pollInterval + " minutes delay=" + delay);
 
                 PeriodicWorkRequest workRequest =
