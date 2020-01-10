@@ -46,7 +46,7 @@ public class SwipeListener implements View.OnTouchListener {
                 int dx = Math.round(me2.getX() - me1.getX());
                 int dy = Math.round(me2.getY() - me1.getY());
                 long dt = me2.getEventTime() - me1.getEventTime();
-                long vx = dx * 1000 / dt;
+                long vx = (dt == 0 ? 0 : dx * 1000 / dt);
                 if (Math.abs(dx) > Math.abs(dy)) {
                     Log.i("Swipe dx=" + dx + "/" + MOVE_THRESHOLD +
                             " dt=" + dt + " vx=" + vx + "/" + SPEED_THRESHOLD);
