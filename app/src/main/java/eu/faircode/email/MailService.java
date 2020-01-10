@@ -370,8 +370,8 @@ public class MailService implements AutoCloseable {
                     if (useip &&
                             ex.getMessage() != null &&
                             ex.getMessage().toLowerCase().contains("syntactically invalid")) {
-                        Log.i("Using localhost=" + domain);
-                        properties.put("mail." + protocol + ".localhost", domain);
+                        Log.w("Using localhost=" + domain, ex);
+                        ((SMTPTransport) iservice).setLocalHost(domain);
                         iservice.connect(host, port, user, password);
                     } else
                         throw ex;
