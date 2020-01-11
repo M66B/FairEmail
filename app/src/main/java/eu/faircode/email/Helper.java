@@ -82,7 +82,9 @@ import androidx.core.content.FileProvider;
 import androidx.core.graphics.ColorUtils;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.OnLifecycleEvent;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -937,11 +939,23 @@ public class Helper {
                                         handler.post(new Runnable() {
                                             @Override
                                             public void run() {
-                                                if (owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                                                if (owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
                                                     if (alias == null)
                                                         intf.onNothingSelected();
                                                     else
                                                         intf.onSelected(alias);
+                                                } else {
+                                                    owner.getLifecycle().addObserver(new LifecycleObserver() {
+                                                        @OnLifecycleEvent(Lifecycle.Event.ON_START)
+                                                        public void onStart() {
+                                                            owner.getLifecycle().removeObserver(this);
+                                                            if (alias == null)
+                                                                intf.onNothingSelected();
+                                                            else
+                                                                intf.onSelected(alias);
+                                                        }
+                                                    });
+                                                }
                                             }
                                         });
                                     }
