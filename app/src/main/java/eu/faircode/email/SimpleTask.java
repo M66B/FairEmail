@@ -152,7 +152,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
                                         deliver();
                                         cleanup(context);
                                     } else
-                                        Log.i("Task deferring " + state);
+                                        Log.i("Deferring task " + name + " state=" + state);
                                 }
                             });
                     }
