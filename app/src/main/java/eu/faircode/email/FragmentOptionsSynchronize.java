@@ -67,10 +67,12 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
     private TextView tvSubscriptionPro;
     private SwitchCompat swSubscribedOnly;
     private SwitchCompat swCheckMx;
+    private SwitchCompat swCheckReply;
 
     private final static String[] RESET_OPTIONS = new String[]{
             "enabled", "poll_interval", "schedule", "schedule_start", "schedule_end",
-            "sync_unseen", "sync_flagged", "delete_unseen", "sync_kept", "sync_folders", "subscriptions", "subscribed_only", "check_mx"
+            "sync_unseen", "sync_flagged", "delete_unseen", "sync_kept", "sync_folders", "subscriptions", "subscribed_only",
+            "check_mx", "check_reply"
     };
 
     @Override
@@ -107,6 +109,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         tvSubscriptionPro = view.findViewById(R.id.tvSubscriptionPro);
         swSubscribedOnly = view.findViewById(R.id.swSubscribedOnly);
         swCheckMx = view.findViewById(R.id.swCheckMx);
+        swCheckReply = view.findViewById(R.id.swCheckReply);
 
         setOptions();
 
@@ -253,6 +256,13 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             }
         });
 
+        swCheckReply.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("check_reply", checked).apply();
+            }
+        });
+
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 
         return view;
@@ -327,6 +337,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         swSubscriptions.setEnabled(pro);
         swSubscribedOnly.setChecked(prefs.getBoolean("subscribed_only", false));
         swCheckMx.setChecked(prefs.getBoolean("check_mx", false));
+        swCheckReply.setChecked(prefs.getBoolean("check_reply", false));
     }
 
     private String formatHour(Context context, int minutes) {

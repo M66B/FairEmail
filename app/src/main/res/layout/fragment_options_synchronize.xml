@@ -373,7 +373,7 @@
             app:switchPadding="12dp" />
 
         <TextView
-            android:id="@+id/tvLookupMxHint"
+            android:id="@+id/tvCheckMxHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="48dp"
@@ -395,6 +395,29 @@
             android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvLookupMxHint" />
+            app:layout_constraintTop_toBottomOf="@id/tvCheckMxHint" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swCheckReply"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_check_reply"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDelayHint"
+            app:switchPadding="12dp" />
+
+        <TextView
+            android:id="@+id/tvCheckReplyHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_check_reply_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swCheckReply" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

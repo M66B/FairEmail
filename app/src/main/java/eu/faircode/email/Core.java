@@ -2144,6 +2144,32 @@ class Core {
                     message.warning = Log.formatThrowable(ex, false);
                 }
 
+            boolean check_reply = prefs.getBoolean("check_reply", false);
+            if (check_reply &&
+                    message.from != null && message.from.length > 0 &&
+                    message.reply != null && message.reply.length > 0) {
+                for (Address reply : message.reply) {
+                    String r = ((InternetAddress) reply).getAddress();
+                    int rat = (r == null ? -1 : r.indexOf('@'));
+                    if (rat > 0) {
+                        String rdomain = r.substring(rat + 1);
+                        for (Address from : message.from) {
+                            String f = ((InternetAddress) from).getAddress();
+                            int fat = (f == null ? -1 : f.indexOf('@'));
+                            if (fat > 0) {
+                                String fdomain = f.substring(fat + 1);
+                                if (!rdomain.equalsIgnoreCase(fdomain)) {
+                                    if (message.warning == null)
+                                        message.warning = context.getString(R.string.title_reply_domain, fdomain, rdomain);
+                                    else
+                                        message.warning += ", " + context.getString(R.string.title_reply_domain, fdomain, rdomain);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
             if (message.total != null && message.total == 0)
                 reportEmptyMessage(context, account, istore);
 
