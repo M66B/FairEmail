@@ -317,6 +317,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_display_hidden">Prikaži skrivene tekstove poruka</string>
     <string name="title_advanced_encrypt_method">Zadana metoda šifriranja</string>
     <string name="title_advanced_openpgp">Pružatelj OpenPGP</string>
+    <string name="title_advanced_autocrypt">Koristi Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Međusobni način Autocrypta</string>
     <string name="title_advanced_sign_default">Zadani potpis</string>
     <string name="title_advanced_encrypt_default">Zadano šifriranje</string>
@@ -616,6 +617,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_send_via">Pošalji putem</string>
     <string name="title_send_with_options">Slanje &#8230;</string>
     <string name="title_send_at">Pošalji u &#8230;</string>
+    <string name="title_send_encryption">Šifriranje</string>
     <string name="title_send_priority">Prioritet</string>
     <string name="title_no_server">Nije pronađen server na \'%1$s\'</string>
     <string name="title_style_bold">Podebljano</string>
@@ -636,6 +638,11 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_insert_template">Umetni predložak</string>
     <string name="title_edit_plain_text">Uredi kao običan tekst</string>
     <string name="title_edit_formatted_text">Uredi kao preoblikovani tekst</string>
+    <string name="title_select_certificate">Izaberi javni ključ</string>
+    <string name="title_certificate_missing">Nema javnog ključa za %1$s</string>
+    <string name="title_certificate_invalid">Javni ključ %1$s nije važeći</string>
+    <string name="title_no_key">Nema privatnog ključa</string>
+    <string name="title_invalid_key">Nevažeći privatni ključ</string>
     <string name="title_send_plain_text">Samo običan tekst</string>
     <string name="title_send_receipt">Zatražite potvrdu o isporuci/čitanju</string>
     <string name="title_send_receipt_remark">Većina pružatelja usluga i klijenti e-pošte zanemaruju zahtjeve za primanjem</string>
@@ -652,17 +659,28 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_ask_send_via">Pošaljite poruku na %1$s putem %2$s?</string>
     <string name="title_queued">Poruka se šalje</string>
     <string name="title_queued_at">Poruka će biti poslana oko %1$s</string>
+    <string name="title_sign">Potpisati</string>
     <string name="title_encrypt">Šifriranje</string>
     <string name="title_decrypt">Dešifriranje</string>
     <string name="title_resync">Resinkronizacija</string>
     <string name="title_no_openpgp">OpenKeychain nije pronađen</string>
+    <string name="title_user_interaction">Prijenos na OpenKeychain</string>
+    <string name="title_not_encrypted">Poruka nije potpisana ili šifrirana</string>
     <string name="title_reset_sign_key">Resetiraj potpisni ključ</string>
     <string name="title_signature_none">Poruka nije potpisana</string>
     <string name="title_signature_valid">Potpis poruke vrijedi</string>
     <string name="title_signature_unconfirmed">Potpis poruke je valjan, ali nije potvrđen</string>
     <string name="title_signature_invalid">Nevažeći potpis poruke</string>
+    <string name="title_signature_sender">Adresa pošiljatelja</string>
+    <string name="title_signature_email">Adresa potpisa</string>
+    <string name="title_signature_mismatch">Adresa e-pošte pošiljatelja i potpis ne podudaraju se</string>
+    <string name="title_signature_subject">Predmet</string>
+    <string name="title_signature_validity">Valjanost</string>
+    <string name="title_signature_outdated">Ovaj javni ključ trenutno nije valjan</string>
+    <string name="title_signature_store">Pohraniti</string>
     <string name="title_search">Pretraživanje</string>
     <string name="title_search_server">Traži na poslužitelju</string>
+    <string name="title_search_text">Traži u tekstu</string>
     <string name="title_search_in">Traži u</string>
     <string name="title_sort_on">Poredaj na</string>
     <string name="title_sort_on_time">Vrijeme</string>
@@ -741,6 +759,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_legend_section_folders">Mape</string>
     <string name="title_legend_section_messages">Poruke</string>
     <string name="title_legend_section_compose">Sastavi</string>
+    <string name="title_legend_oauth">OAuth autorizacija</string>
     <string name="title_legend_primary_connected">Račun povezan</string>
     <string name="title_legend_primary_disconnected">Račun nepovezan</string>
     <string name="title_legend_download_on">Automatski preuzeti sadržaj poruke</string>
@@ -775,6 +794,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_legend_draft">Ima skicu</string>
     <string name="title_legend_priority">Ima visoki prioritet</string>
     <string name="title_legend_priority_low">Ima nizak prioritet</string>
+    <string name="title_legend_signed">Potpisano je</string>
     <string name="title_legend_encrypted">Šifrirano je</string>
     <string name="title_legend_auth">Autentifikacija neuspješna</string>
     <string name="title_legend_snoozed">Odgođeno je</string>
@@ -811,6 +831,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_legend_expander">Proširenje</string>
     <string name="title_legend_avatar">Avatar</string>
     <string name="title_legend_show_quotes">Prikaži citate</string>
+    <string name="title_legend_show_junk">Tretiraj kao neželjenu poštu</string>
     <string name="title_legend_show_unsubscribe">Odjavi se s popisa</string>
     <string name="title_legend_show_images">Prikaži slike</string>
     <string name="title_legend_show_full">Prikaži cijeli ekran</string>
@@ -824,6 +845,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_legend_delete">Izbriši</string>
     <string name="title_legend_count">Brojač</string>
     <string name="title_legend_folder_type">Vrsta mape</string>
+    <string name="title_hint_folder_actions">Dugo pritisnite mapu za opcije, poput dodavanja mape navigacijskom izborniku za brzi pristup</string>
     <string name="title_hint_folder_sync">Da biste ograničili korištenje baterije i mreže prema zadanim postavkama neće se sve mape i sve poruke biti sinkronizirane</string>
     <string name="title_hint_support">Ako imate pitanje ili problem, upotrijebite izbornik za podršku da biste dobili pomoć</string>
     <string name="title_hint_message_actions">Prijeđite prstom ulijevo za otpad; Prstom povucite udesno za arhivu (ako dostupno); Akcije prelaska prstom možete konfigurirati u postavkama računa</string>
@@ -845,6 +867,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_issue">Imate li pitanje ili problem?</string>
     <string name="title_yes">Da</string>
     <string name="title_no">Ne</string>
+    <string name="title_later">Kasnije</string>
     <string name="title_undo">Poništi</string>
     <string name="title_redo">Ponovi</string>
     <string name="title_add">Dodaj</string>
@@ -886,6 +909,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_pro_info">Razvoj FairEmaila trajao je doslovno tisuće sati i bez obzira na to što je većina značajki besplatna za korištenje.
          Da bi FairEmail dugoročno bio održiv, neke pogodnosti i napredne značajke se ne mogu besplatno koristiti.
          FairEmail prikazuje malu poruku koja vas podsjeća na to, a koja će biti uklonjena ako kupite profesionalne značajke.    </string>
+    <string name="title_pro_hide">Sakrij malu poruku za tjedan dana</string>
     <string name="title_pro_hint">Kupnja pro funkcija će vam omogućiti da koristite sve trenutne i buduće mogućnosti aplikacije i zadržat će ovu aplikaciju održavanu i podržanu</string>
     <string name="title_pro_price">Pogledajte <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19"> ovaj FAQ </a> za cijenu pro funkcija</string>
     <string name="title_pro_pending">Kupnja na čekanju</string>
@@ -896,6 +920,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_unexpected_error">Neočekivana greška</string>
     <string name="title_log">Zapisnik</string>
     <string name="title_auto_scroll">Automatsko pomicanje</string>
+    <string name="title_log_clear">Izbriši</string>
     <string name="title_debug_info">Informacije o otklanjanju pogrešaka</string>
     <string name="title_debug_info_remark">Opišite problem i navedite vrijeme problema:</string>
     <string name="title_crash_info_remark">Opišite što ste radili kada je aplikacija pala:</string>
@@ -912,6 +937,36 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_widget_folder_unified">Mape objedinjenog ulaznog spremnika</string>
     <string name="title_widget_unseen">Samo nepročitane poruke</string>
     <string name="title_widget_flagged">Samo poruke označene zvjezdicom</string>
+    <string name="title_accessibility_collapsed">Sažeto</string>
+    <string name="title_accessibility_expanded">Prošireno</string>
+    <string name="title_accessibility_seen">Pročitano</string>
+    <string name="title_accessibility_unseen">Nepročitane</string>
+    <plurals name="title_accessibility_messages">
+        <item quantity="one">%1$d poruka</item>
+        <item quantity="few">%1$d poruke</item>
+        <item quantity="other">%1$d poruka</item>
+    </plurals>
+    <string name="title_accessibility_flagged">Sa zvjezdicom</string>
+    <string name="title_accessibility_unflagged">Bez zvjezdice</string>
+    <string name="title_accessibility_collapse">Sažmi</string>
+    <string name="title_accessibility_expand">Proširi</string>
+    <string name="title_accessibility_view_contact">Pregledaj kontakt</string>
+    <string name="title_accessibility_show_authentication_result">Prikaži rezultat provjere autentičnosti</string>
+    <string name="title_accessibility_show_snooze_time">Prikaži vrijeme odgode</string>
+    <string name="title_accessibility_view_help">Pregledaj pomoć</string>
+    <string name="title_accessibility_selected">Odabrano</string>
+    <string name="title_accessibility_answered">Odgovoreno</string>
+    <string name="title_accessibility_scroll_down">Pomakni prema dolje</string>
+    <string name="title_accessibility_scroll_up">Pomakni prema gore</string>
+    <string name="title_accessibility_filter_out_seen">Uključi filter za čitanje poruka</string>
+    <string name="title_accessibility_filter_out_unflagged">Uključi filter za poruke sa zvjezdicom</string>
+    <string name="title_accessibility_filter_out_snoozed">Uključi filter odgodenih poruka</string>
+    <string name="title_accessibility_edit">Uredi</string>
+    <string name="title_accessibility_show_addresses">Prikaži adrese</string>
+    <string name="title_accessibility_hide_addresses">Sakrij adrese</string>
+    <string name="title_accessibility_attachment">Prilog</string>
+    <string name="title_accessibility_from">Pošiljatelj</string>
+    <string name="title_accessibility_to">Primatelj</string>
     <string-array name="pollIntervalNames">
         <item>Uvijek</item>
         <item>Svakih 15 minuta</item>

@@ -149,6 +149,7 @@
     <string name="title_setup_import">Importindstillinger</string>
     <string name="title_setup_import_do">Importerede konti tilføjes uden at overskrive eksisterende ditto</string>
     <string name="title_setup_password">Adgangskode</string>
+    <string name="title_setup_password_chars">Adgangskode indeholder kontrol- eller mellemrumstegn</string>
     <string name="title_setup_password_repeat">Gentag adgangskode</string>
     <string name="title_setup_password_missing">Adgangskode mangler</string>
     <string name="title_setup_password_different">Adgangskoder matcher ikke</string>
