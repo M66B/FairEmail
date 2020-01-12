@@ -355,12 +355,14 @@
     <string name="title_advanced_poll_hint">Периодическая синхронизация будет каждый раз сравнивать сообщения на сервере с локальными. Это \"дорогая\" операция, которая может привести к высокому потреблению заряда батареи, особенно когда сообщений для синхронизации много. Непрерывная синхронизация избегает этого, постоянно отслеживая только изменения.</string>
     <string name="title_advanced_schedule_hint">Нажмите на время, чтобы установить его</string>
     <string name="title_advanced_check_mx">Проверять адреса электронной почты отправителя при синхронизации сообщений</string>
+    <string name="title_advanced_check_reply">Проверять адреса электронной почты для ответа при синхронизации сообщений</string>
     <string name="title_advanced_unseen_hint">Некоторые провайдеры не поддерживают эту функцию правильно, что может привести к синхронизации всех или ни одного сообщения</string>
     <string name="title_advanced_sync_kept_hint">Это приведёт к большему потреблению трафика и заряда батареи, особенно если на устройстве хранится много сообщений</string>
     <string name="title_advanced_sync_folders_hint">Отключение этой функции уменьшит потребление трафика и заряда батареи, но также отключит обновление списка папок</string>
     <string name="title_advanced_sync_delay_hint">Это замедлит синхронизацию сообщений</string>
     <string name="title_advanced_suggest_local_hint">В дополнение к контактам, предоставляемым Android. Контактные данные будут сохранены только для вновь отправленных или полученных сообщений при включении этой функции.</string>
     <string name="title_advanced_lookup_mx_hint">Проверка наличия записей DNS MX</string>
+    <string name="title_advanced_check_reply_hint">Проверяет, совпадает ли доменное имя отправителя и адреса для ответа</string>
     <string name="title_advanced_metered_hint">Лимитированные подключения - это обычно мобильные сети или платные Wi-Fi</string>
     <string name="title_advanced_metered_warning">Отключение данной функции отключит получение и отправку сообщений при мобильном подключении к интернету</string>
     <string name="title_advanced_rlah_hint">Предполагать отсутствие роуминга внутри ЕС</string>
@@ -453,6 +455,7 @@
     <string name="title_no_idle">Этот провайдер не поддерживает push-сообщения. Это задержит получение новых сообщений и увеличит расход заряда батареи.</string>
     <string name="title_no_utf8">Этот провайдер не поддерживает UTF-8</string>
     <string name="title_no_sync">Ошибки синхронизации после %1$s</string>
+    <string name="title_reply_domain">Домены адресов отправителя (%1$s) и для ответа (%2$s) отличаются</string>
     <string name="title_identity_required">Для отправки сообщений требуется идентификатор</string>
     <string name="title_drafts_required">Для отправки сообщений требуется папка черновиков</string>
     <string name="title_account_delete">Удалить эту учётную запись навсегда?</string>

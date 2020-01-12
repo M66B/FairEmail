@@ -333,12 +333,14 @@
     <string name="title_advanced_poll_hint">Belli aralıklarala eşitleme yerel ve uzak sunucudaki iletileri her defasında karşılaştıracak, bu da özellikle eşitlenecek ileti sayısı fazla olduğunda, fazladan pil kullanımına neden olan maliyetli bir işlem olacaktır. Sürekli eşitleme sadece değişiklikleri izleyerek bu durumu önleyecektir.</string>
     <string name="title_advanced_schedule_hint">Bir zaman ayarlamak için bir saate dokunun</string>
     <string name="title_advanced_check_mx">İletilerin eşzamanlanmasında gönderen e-posta adreslerini kontrol et</string>
+    <string name="title_advanced_check_reply">Mesajları senkronize ederken yanıtlama e-posta adreslerini kontrol et</string>
     <string name="title_advanced_unseen_hint">Bazı sağlayıcılar bunu düzgün bir şekilde desteklememektedir, bu durum mesajların hiç birinin senkronize edilmemesine ya da hepsinin senkronize edilmesine sebep olmaktadır</string>
     <string name="title_advanced_sync_kept_hint">Bu, özellikle aygıtda tutulan çok sayıda ileti olması durumunda, fazladan veri aktarır ve fazla pil kullanır</string>
     <string name="title_advanced_sync_folders_hint">Bunu devre dışı bırakmak veri ve pil kullanımını bir miktar azaltır, ancak klasör listesinin güncellenmesini de devre dışı bırakır</string>
     <string name="title_advanced_sync_delay_hint">Bu, iletilerin eşzamanlamasını yavaşlatır</string>
     <string name="title_advanced_suggest_local_hint">Android tarafından sağlanan kişilere ek olarak. Kişi verileri yeni gönderilen veya alınan mesajlar için yalnızca etkin olduğunda saklanacaktır.</string>
     <string name="title_advanced_lookup_mx_hint">Bu, DNS MX kayıtlarının olup olmadığını kontrol eder</string>
+    <string name="title_advanced_check_reply_hint">Bu, gönderenin alan adının ve yanıtlama adreslerinin aynı olup olmadığını kontrol edecektir</string>
     <string name="title_advanced_metered_hint">Ölçülü bağlantılar genellikle mobil bağlantılar veya ücretli Wi-Fi noktalarıdır</string>
     <string name="title_advanced_metered_warning">Bu seçeneğin devre dışı bırakılması mobil internet bağlantısında ileti almayı ve göndermeyi devre dışı bırakacaktır</string>
     <string name="title_advanced_rlah_hint">AB içinde dolaşımda olmadığını varsayma</string>
@@ -431,6 +433,7 @@
     <string name="title_no_idle">Bu sağlayıcı anlık mesajları desteklemiyor. Bu, yeni mesajların alınmasını geciktirecek ve pil kullanımını artıracaktır.</string>
     <string name="title_no_utf8">Bu sağlayıcı UTF-8\'i desteklemiyor</string>
     <string name="title_no_sync">%1$s\'den beri eşzamanlama hataları</string>
+    <string name="title_reply_domain">Gönderen (%1$s) ve yanıtlama alan adı (%2$s) farklı</string>
     <string name="title_identity_required">İleti göndermek için bir kimlik gerekli</string>
     <string name="title_drafts_required">İleti göndermek için taslaklar klasörü gerekir</string>
     <string name="title_account_delete">Bu hesap kalıcı olarak silinsin mi?</string>

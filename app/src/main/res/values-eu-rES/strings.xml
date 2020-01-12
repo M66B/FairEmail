@@ -67,6 +67,10 @@
         <item quantity="other">Jo %1$d mezu spamtzat?</item>
     </plurals>
     <string name="title_ask_spam_who">Jo %1$s erabiltzailearen mezua spamtzat?</string>
+    <string name="title_block_sender">Blokeatu igorlea</string>
+    <string name="title_block_sender_hint">        Honek etorkizuneko mezuak automatikoki spam karpetara eramateko arau bat sortuko du.
+        Arauak sortu eta erabiltzea ordainpeko ezaugarri bat da.
+    </string>
     <string name="title_notification_waiting">Konexio erabilgarriaren zain</string>
     <string name="title_notification_sending">Mezuak bidaltzen</string>
     <string name="title_notification_failed">%1$s(e)k huts egin du</string>
@@ -332,12 +336,14 @@
     <string name="title_advanced_poll_hint">Aldizka sinkronizatzeak tokiko eta urruneko mezuak konparatuko ditu behin eta berriz, hau da, eragiketa neketsua izanik bateriaren gehiegizko erabilera eragin dezake, batez ere sinkronizatzeko mezu asko daudenean. Sinkronizazioak hau saihestuko du aldaketak bakarrik monitorizatuz.</string>
     <string name="title_advanced_schedule_hint">Sakatu orduren batean ordua ezartzeko</string>
     <string name="title_advanced_check_mx">Egiaztatu bidaltzailearen helbide elektronikoak mezuak sinkronizatzean</string>
+    <string name="title_advanced_check_reply">Egiaztatu erantzuteko helbide elektronikoak mezuak sinkronizatzean</string>
     <string name="title_advanced_unseen_hint">Hornitzaile batzuek ez dute hori behar bezala onartzen, eta horrek mezu bat edo guztiak ez sinkronizatzea eragin dezake</string>
     <string name="title_advanced_sync_kept_hint">Honek datu gehigarriak transferituko ditu eta bateriaren energia gehigarria kontsumituko du, batez ere telefonoan mezu asko gordetzen badira</string>
     <string name="title_advanced_sync_folders_hint">Hori ezgaitzeak datuak eta bateriaren erabilera zertxobait murriztuko ditu, baina karpeten zerrenda eguneratzea ere ezgaituko du</string>
     <string name="title_advanced_sync_delay_hint">Honek mezuen sinkronizazioa motelduko du</string>
     <string name="title_advanced_suggest_local_hint">Android-en kontaktuez gain. Kontaktuen datuak gordeko dira mezuak bidali edo jasotzean soilik baimenduta badago.</string>
     <string name="title_advanced_lookup_mx_hint">Honek DNS MX erregistroak dauden ala ez egiaztatuko du</string>
+    <string name="title_advanced_check_reply_hint">Honek egiaztatuko du bidaltzailearen domeinuaren izena eta erantzutekoa berdinak ote diren</string>
     <string name="title_advanced_metered_hint">Neurtutako konexioak orokorrean konexio mugikorrak eta ordainpeko wifi guneak dira</string>
     <string name="title_advanced_metered_warning">Aukera hau desgaitzeak internet konexio mugikorrekin mezuak bidaltzea eta jasotzea eragotziko du</string>
     <string name="title_advanced_rlah_hint">EBn ez da datuen ibiltaritza onartzen</string>
@@ -430,6 +436,7 @@
     <string name="title_no_idle">Hornitzaile honek ez ditu push mezuak onartzen. Honek mezu berriak jasotzea atzeratuko du eta bateriaren erabilera areagotuko du.</string>
     <string name="title_no_utf8">Hornitzaile honek ez du UTF-8 onartzen</string>
     <string name="title_no_sync">Sinkronizazio akatsak %1$s geroztik</string>
+    <string name="title_reply_domain">Bidaltzailearena (%1$s) eta erantzuteko domeinua (%2$s) ez datoz bat</string>
     <string name="title_identity_required">Identitate bat behar da mezuak bidaltzeko</string>
     <string name="title_drafts_required">Zirriborroen karpeta beharrezkoa da mezuak bidaltzeko</string>
     <string name="title_account_delete">Ezabatu kontu hau behin betiko?</string>

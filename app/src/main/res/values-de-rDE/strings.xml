@@ -67,6 +67,11 @@
         <item quantity="other">%1$d Nachrichten als Spam behandeln?</item>
     </plurals>
     <string name="title_ask_spam_who">Nachricht von %1$s als Spam behandeln?</string>
+    <string name="title_block">%1$s blockieren</string>
+    <string name="title_block_sender">Absender blockieren</string>
+    <string name="title_block_sender_hint">        Dies wird eine Regel erstellen, um zukünftige Nachrichten automatisch in den Spam-Ordner zu verschieben.
+        Regeln erstellen und verwenden ist eine Pro-Funktion.
+    </string>
     <string name="title_notification_waiting">Warte auf eine geeignete Verbindung</string>
     <string name="title_notification_sending">Nachrichten werden gesendet</string>
     <string name="title_notification_failed">\'%1$s\' fehlgeschlagen</string>

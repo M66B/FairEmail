@@ -67,6 +67,11 @@
         <item quantity="other">Trattare %1$d messaggi come spam?</item>
     </plurals>
     <string name="title_ask_spam_who">Tratta il messaggio da %1$s come spam?</string>
+    <string name="title_block">Blocca %1$s</string>
+    <string name="title_block_sender">Blocco mittente</string>
+    <string name="title_block_sender_hint">        Questo creerà una regola per spostare automaticamente i messaggi futuri nella cartella spam.
+        Creare e utilizzare le regole è una funzione pro.
+    </string>
     <string name="title_notification_waiting">In attesa di una connessione adeguata</string>
     <string name="title_notification_sending">Invio messaggi in corso</string>
     <string name="title_notification_failed">\'%1$s\' fallito</string>
@@ -332,12 +337,14 @@
     <string name="title_advanced_poll_hint">La sincronizzazione periodica compara i messaggi locali e remoti ogni volta, il che è un\'operazione costosa che potrebbe comportare un utilizzo aggiuntivo di batteria, specialmente quando ci sono molti messaggi da sincronizzare. La sincronizzazione sempre eviterà questo tramite un monitoraggio continuo solo per le modifiche.</string>
     <string name="title_advanced_schedule_hint">Tocca un orario per impostare un orario</string>
     <string name="title_advanced_check_mx">Controlla gli indirizzi email mittente alla sincronizzazione dei messaggi</string>
+    <string name="title_advanced_check_reply">Controlla gli indirizzi email di risposta alla sincronizzazione dei messaggi</string>
     <string name="title_advanced_unseen_hint">Alcuni provider non supportano correttamente questa funzione, il che potrebbe causare la sincronizzazione di nessuno o di tutti i messaggi</string>
     <string name="title_advanced_sync_kept_hint">Questo trasferirà dati aggiuntivi e consumerà energia batteria extra, specialmente se molti messaggi vengono memorizzati sul dispositivo</string>
     <string name="title_advanced_sync_folders_hint">Disabilitando questa opzione si ridurranno in qualche modo i dati e l\'utilizzo della batteria, ma disattiverà anche l\'aggiornamento della lista delle cartelle</string>
     <string name="title_advanced_sync_delay_hint">Questo rallenterà la sincronizzazione dei messaggi</string>
     <string name="title_advanced_suggest_local_hint">Oltre ai contatti forniti da Android. I dati di contatto verranno archiviati per i messaggi appena inviati o ricevuti solo quando abilitato.</string>
     <string name="title_advanced_lookup_mx_hint">Questo controllerà se esistono record DNS MX</string>
+    <string name="title_advanced_check_reply_hint">Questo controlla se il nome di dominio del mittente e gli indirizzi di risposta sono uguali</string>
     <string name="title_advanced_metered_hint">Le connessioni a consumo sono generalmente connessioni mobili o hotspot Wi-Fi a pagamento</string>
     <string name="title_advanced_metered_warning">Disabilitando questa opzione disattiverai la ricezione e l\'invio di messaggi sulle connessioni internet mobili</string>
     <string name="title_advanced_rlah_hint">Presumi nessun roaming all\'interno dell\'UE</string>
@@ -430,6 +437,7 @@
     <string name="title_no_idle">Questo fornitore non supporta i messaggi push. Ciò ritarderà la ricezione di nuovi messaggi e aumenterà l\'utilizzo della batteria.</string>
     <string name="title_no_utf8">Questo provider non supporta UTF-8</string>
     <string name="title_no_sync">Errori di sincronizzazione da %1$s</string>
+    <string name="title_reply_domain">Il mittente (%1$s) e il dominio di risposta (%2$s) differiscono</string>
     <string name="title_identity_required">È necessaria un\'identità per inviare messaggi</string>
     <string name="title_drafts_required">Per inviare messaggi è necessaria una cartella bozze</string>
     <string name="title_account_delete">Eliminare questo account permanentemente?</string>

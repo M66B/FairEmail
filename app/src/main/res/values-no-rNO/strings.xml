@@ -67,6 +67,11 @@
         <item quantity="other">Behandle %1$d meldingene som spam?</item>
     </plurals>
     <string name="title_ask_spam_who">Behandle melding fra %1$s som spam?</string>
+    <string name="title_block">Blokkere %1$s</string>
+    <string name="title_block_sender">Blokker avsender</string>
+    <string name="title_block_sender_hint">        Dette vil opprette en regel for automatisk å flytte fremtidige meldinger til spam-mappen.
+        Å lage og bruke regler er en pro-funksjon.
+    </string>
     <string name="title_notification_waiting">Venter på passende tilkobling</string>
     <string name="title_notification_sending">Sender melding</string>
     <string name="title_notification_failed">\'%1$s\' mislyktes</string>
@@ -333,12 +338,14 @@
     <string name="title_advanced_poll_hint">Synkronisering med jevne mellomrom vil sammenligne lokale og eksterne meldinger hver gang, noe som er en kostbar operasjon som muligens resulterer i ekstra batteribruk, spesielt når det er mange meldinger å synkronisere. Alltid synkronisering vil unngå dette ved kontinuerlig overvåking for endringer.</string>
     <string name="title_advanced_schedule_hint">Trykk på en tid for å angi en tid</string>
     <string name="title_advanced_check_mx">Sjekk avsenderens e-postadresser når meldinger synkroniseres</string>
+    <string name="title_advanced_check_reply">Sjekk avsenderens e-postadresser når meldinger synkroniseres</string>
     <string name="title_advanced_unseen_hint">Noen leverandører støtter ikke dette ordentlig, noe som kan føre til synkronisering av ingen eller alle meldinger</string>
     <string name="title_advanced_sync_kept_hint">Dette vil overføre ekstra data og bruke ekstra batteristrøm, spesielt hvis det er lagret mange meldinger på enheten</string>
     <string name="title_advanced_sync_folders_hint">Deaktivering av dette vil redusere data og batteribruk noe, men deaktiverer også oppdateringen av listen over mapper</string>
     <string name="title_advanced_sync_delay_hint">Dette vil redusere synkroniseringen av meldinger</string>
     <string name="title_advanced_suggest_local_hint">I tillegg til kontakter levert av Android. Vil kontaktdata blir lagret for nylig sendte eller mottatte meldinger når de er aktivert.</string>
     <string name="title_advanced_lookup_mx_hint">Dette vil sjekke om DNS MX-poster eksisterer</string>
+    <string name="title_advanced_check_reply_hint">Dette vil sjekke om domenenavnet til avsenderen og svaradressene er det samme</string>
     <string name="title_advanced_metered_hint">Målte tilkoblinger er vanligvis mobile tilkoblinger eller betalte Wi-Fi-hotspots</string>
     <string name="title_advanced_metered_warning">Deaktivering av dette alternativet deaktiverer mottak og sending av meldinger på mobile internettforbindelser</string>
     <string name="title_advanced_rlah_hint">Forutsatt ingen roaming i EU</string>
@@ -431,6 +438,7 @@
     <string name="title_no_idle">Denne leverandøren støtter ikke push-meldinger. Dette vil forsinke mottak av nye meldinger og øke batteriforbruket.</string>
     <string name="title_no_utf8">Denne leverandøren støtter ikke UTF-8</string>
     <string name="title_no_sync">Synkroniseringsfeil siden %1$s</string>
+    <string name="title_reply_domain">Avsenderen (%1$s) og svardomenet (%2$s) er forskjellige</string>
     <string name="title_identity_required">En identitet er nødvendig for å sende meldinger</string>
     <string name="title_drafts_required">Det kreves en kladd mappe for å kunne sende meldinger</string>
     <string name="title_account_delete">Slett denne konto en permanent?</string>
