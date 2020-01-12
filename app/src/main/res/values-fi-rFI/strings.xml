@@ -67,6 +67,10 @@
         <item quantity="other">Käsittele %1$d viestiä roskapostina?</item>
     </plurals>
     <string name="title_ask_spam_who">Käsittele viesti lähettäjältä %1$s roskapostina?</string>
+    <string name="title_block">Estä %1$s</string>
+    <string name="title_block_sender">Estä lähettäjä</string>
+    <string name="title_block_sender_hint">Tämä luo säännön viestien käsittelemiseksi roskapostina.
+        Sääntöjen luominen ja käyttö ovat pro-ominaisuuksia.    </string>
     <string name="title_notification_waiting">Odotetaan sopivaa yhteyttä</string>
     <string name="title_notification_sending">Lähetetään viestejä</string>
     <string name="title_notification_failed">\'%1$s\' epäonnistui</string>
@@ -195,6 +199,7 @@
     <string name="title_advanced_section_misc">Sekalaiset</string>
     <string name="title_advanced_receive">Vastaanota viestejä</string>
     <string name="title_advanced_when">Milloin</string>
+    <string name="title_advanced_always">Synkronoi aina nämä tilit</string>
     <string name="title_advanced_schedule">Aikataulu</string>
     <string name="title_advanced_unseen">Kaikki lukemattomat viestit</string>
     <string name="title_advanced_flagged">Kaikki tähdelliset viestit</string>
@@ -332,6 +337,7 @@
     <string name="title_advanced_poll_hint">Ajoittainen synkronointi vertaa paikallisia ja palvelimen viestejä joka kerta ja voi aiheuttaa ylimääräistä akun käyttöä varsinkin, kun synkronoitavia viestejä on paljon. Koko ajan synkronointi välttää tämän synkronoimalla jatkuvasti vain muutokset.</string>
     <string name="title_advanced_schedule_hint">Napauta aikaa asettaaksesi sen</string>
     <string name="title_advanced_check_mx">Tarkista lähettäjien sähköpostiosoitteet viestejä synkronoitaessa</string>
+    <string name="title_advanced_check_reply">Tarkista vastaussähköpostiosoitteet viestejä synkronoitaessa</string>
     <string name="title_advanced_unseen_hint">Jotkin palveluntarjoajat eivät tue tätä kunnolla, mikä voi aiheuttaa kaikkien tai ei minkään viestin synkronoinnin</string>
     <string name="title_advanced_sync_kept_hint">Tämä lisää datan ja akun käyttöä varsinkin, jos paikallisia viestejä on paljon</string>
     <string name="title_advanced_sync_folders_hint">Tämän kytkeminen pois vähentää datan ja akun käyttöä, mutta kytkee pois myös kansiolistan päivittymisen</string>
@@ -430,6 +436,7 @@
     <string name="title_no_idle">Tämä palveluntarjoaja ei tue push-viestejä. Tämä viivästyttää uusien viestien vastaanottamista ja lisää akun käyttöä.</string>
     <string name="title_no_utf8">Tämä palveluntarjoaja ei tue UTF-8:aa</string>
     <string name="title_no_sync">Synkronointivirheitä alkaen %1$s</string>
+    <string name="title_reply_domain">Lähetys- (%1$s) ja vastausverkkotunnukset (%2$s) poikkeavat toisistaan</string>
     <string name="title_identity_required">Viestien lähettämiseen tarvitaan identiteetti</string>
     <string name="title_drafts_required">Viestien lähettämiseen tarvitaan luonnoskansio</string>
     <string name="title_account_delete">Poistetaanko tämä tili pysyvästi?</string>

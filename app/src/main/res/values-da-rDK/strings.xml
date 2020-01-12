@@ -67,6 +67,11 @@
         <item quantity="other">Håndter %1$d beskeder som spam?</item>
     </plurals>
     <string name="title_ask_spam_who">Håndtér besked fra %1$s som spam?</string>
+    <string name="title_block">Blokér %1$s</string>
+    <string name="title_block_sender">Blokér afsender</string>
+    <string name="title_block_sender_hint">        Dette opretter en regel til automatisk at flytte fremtidige beskeder til Spam-mappen.
+         Oprettelse og brug af regler er en Pro-funktion.
+    </string>
     <string name="title_notification_waiting">Afventer en passende forbindelse</string>
     <string name="title_notification_sending">Sender beskeder</string>
     <string name="title_notification_failed">\'%1$s\' mislykkedes</string>
@@ -195,6 +200,7 @@
     <string name="title_advanced_section_misc">Diverse</string>
     <string name="title_advanced_receive">Beskedmodtagelse</string>
     <string name="title_advanced_when">Når</string>
+    <string name="title_advanced_always">Synkronisér altid disse konti</string>
     <string name="title_advanced_schedule">Planlægning</string>
     <string name="title_advanced_unseen">Alle ulæste beskeder</string>
     <string name="title_advanced_flagged">Alle stjernemarkerede beskeder</string>
