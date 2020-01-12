@@ -85,6 +85,13 @@
     </plurals>
     <string name="title_ask_spam_who">Treat message from %1$s as spam?</string>
 
+    <string name="title_block">Block %1$s</string>
+    <string name="title_block_sender">Block sender</string>
+    <string name="title_block_sender_hint">
+        This will create a rule to automatically move future messages to the spam folder.
+        Creating and using rules is a pro feature.
+    </string>
+
     <string name="title_notification_waiting">Waiting for suitable connection</string>
     <string name="title_notification_sending">Sending messages</string>
     <string name="title_notification_failed">\'%1$s\' failed</string>

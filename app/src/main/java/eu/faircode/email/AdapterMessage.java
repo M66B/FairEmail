@@ -2809,13 +2809,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onActionJunk(TupleMessageEx message) {
-            String who = MessageHelper.formatAddresses(message.from);
-
             Bundle aargs = new Bundle();
-            aargs.putString("question", context.getString(R.string.title_ask_spam_who, who));
             aargs.putLong("id", message.id);
+            aargs.putString("from", MessageHelper.formatAddresses(message.from));
 
-            FragmentDialogAsk ask = new FragmentDialogAsk();
+            FragmentDialogJunk ask = new FragmentDialogJunk();
             ask.setArguments(aargs);
             ask.setTargetFragment(parentFragment, FragmentMessages.REQUEST_MESSAGE_JUNK);
             ask.show(parentFragment.getParentFragmentManager(), "message:junk");
@@ -4787,6 +4785,33 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             dialog.setContentView(pv);
 
             return dialog;
+        }
+    }
+
+    public static class FragmentDialogJunk extends FragmentDialogBase {
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            String from = getArguments().getString("from");
+
+            View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_junk, null);
+            final TextView tvMessage = view.findViewById(R.id.tvMessage);
+            final CheckBox cbBlock = view.findViewById(R.id.cbBlock);
+
+            tvMessage.setText(getString(R.string.title_ask_spam_who, from));
+            cbBlock.setEnabled(ActivityBilling.isPro(getContext()));
+
+            return new AlertDialog.Builder(getContext())
+                    .setView(view)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            getArguments().putBoolean("block", cbBlock.isChecked());
+                            sendResult(RESULT_OK);
+                        }
+                    })
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .create();
         }
     }
 

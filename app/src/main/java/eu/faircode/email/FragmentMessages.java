@@ -129,6 +129,8 @@ import org.bouncycastle.cms.jcajce.JcaSimpleSignerInfoVerifierBuilder;
 import org.bouncycastle.cms.jcajce.JceKeyTransEnvelopedRecipient;
 import org.bouncycastle.cms.jcajce.JceKeyTransRecipient;
 import org.bouncycastle.util.Store;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.openintents.openpgp.AutocryptPeerUpdate;
@@ -167,6 +169,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
 
+import javax.mail.Address;
 import javax.mail.FolderClosedException;
 import javax.mail.Session;
 import javax.mail.internet.InternetAddress;
@@ -4226,7 +4229,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     break;
                 case REQUEST_MESSAGE_JUNK:
                     if (resultCode == RESULT_OK && data != null)
-                        onJunk(data.getBundleExtra("args").getLong("id"));
+                        onJunk(data.getBundleExtra("args"));
                     break;
                 case REQUEST_MESSAGES_JUNK:
                     if (resultCode == RESULT_OK)
@@ -5075,14 +5078,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }.execute(this, args, "messages:delete:execute");
     }
 
-    private void onJunk(long id) {
-        Bundle args = new Bundle();
-        args.putLong("id", id);
-
+    private void onJunk(Bundle args) {
         new SimpleTask<Void>() {
             @Override
-            protected Void onExecute(Context context, Bundle args) {
+            protected Void onExecute(Context context, Bundle args) throws JSONException {
                 long id = args.getLong("id");
+                boolean block = args.getBoolean("block");
 
                 DB db = DB.getInstance(context);
                 try {
@@ -5098,12 +5099,40 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                     EntityOperation.queue(context, message, EntityOperation.MOVE, junk.id);
 
+                    if (block && message.from != null)
+                        for (Address from : message.from) {
+                            String sender = ((InternetAddress) from).getAddress();
+                            String name = MessageHelper.formatAddresses(new Address[]{from});
+
+                            JSONObject jsender = new JSONObject();
+                            jsender.put("value", sender);
+                            jsender.put("regex", false);
+
+                            JSONObject jcondition = new JSONObject();
+                            jcondition.put("sender", jsender);
+
+                            JSONObject jaction = new JSONObject();
+                            jaction.put("type", EntityRule.TYPE_MOVE);
+                            jaction.put("target", junk.id);
+
+                            EntityRule rule = new EntityRule();
+                            rule.folder = message.folder;
+                            rule.name = context.getString(R.string.title_block, name);
+                            rule.order = 1000;
+                            rule.enabled = true;
+                            rule.stop = true;
+                            rule.condition = jcondition.toString();
+                            rule.action = jaction.toString();
+                            rule.id = db.rule().insertRule(rule);
+                        }
+
+
                     db.setTransactionSuccessful();
                 } finally {
                     db.endTransaction();
                 }
 
-                ServiceSynchronize.eval(context, "move");
+                ServiceSynchronize.eval(context, "junk");
 
                 return null;
             }
