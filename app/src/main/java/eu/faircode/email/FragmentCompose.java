@@ -90,6 +90,9 @@ import androidx.constraintlayout.widget.Group;
 import androidx.core.content.FileProvider;
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
 import androidx.documentfile.provider.DocumentFile;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
@@ -1027,6 +1030,9 @@ public class FragmentCompose extends FragmentBase {
             case R.id.menu_clear:
                 StyleHelper.apply(R.id.menu_clear, etBody);
                 return true;
+            case R.id.menu_legend:
+                onMenuLegend();
+                return true;
             case R.id.menu_contact_group:
                 onMenuContactGroup();
                 return true;
@@ -1139,6 +1145,21 @@ public class FragmentCompose extends FragmentBase {
         ViewGroup.LayoutParams params = bottom_navigation.getLayoutParams();
         params.height = Helper.dp2pixels(view.getContext(), compact ? 36 : 56);
         bottom_navigation.setLayoutParams(params);
+    }
+
+    private void onMenuLegend() {
+        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+            getParentFragmentManager().popBackStack("legend", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+
+        Bundle args = new Bundle();
+        args.putString("tab", "compose");
+
+        Fragment fragment = new FragmentLegend();
+        fragment.setArguments(args);
+
+        FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("legend");
+        fragmentTransaction.commit();
     }
 
     private void onMenuContactGroup() {

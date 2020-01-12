@@ -72,6 +72,16 @@ public class FragmentLegend extends FragmentBase {
         if (layout < 0) {
             TabLayout tabLayout = view.findViewById(R.id.tab_layout);
             tabLayout.setupWithViewPager(pager);
+
+            Bundle args = getArguments();
+            if (args != null) {
+                String tab = args.getString("tab");
+                if ("compose".equals(tab))
+                    pager.setCurrentItem(3);
+
+                args.remove("tab");
+                setArguments(args);
+            }
         }
     }
 
