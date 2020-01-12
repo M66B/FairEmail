@@ -59,7 +59,6 @@ import javax.mail.Session;
 import javax.mail.Store;
 import javax.mail.event.StoreListener;
 import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLHandshakeException;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
@@ -379,12 +378,15 @@ public class MailService implements AutoCloseable {
             } else
                 throw new NoSuchProviderException(protocol);
         } catch (MessagingException ex) {
-            if (factory != null &&
-                    ex.getCause() instanceof SSLHandshakeException &&
-                    ex.getCause().getCause() instanceof CertificateException)
-                throw new UntrustedException(factory.getFingerPrint(), ex);
-            else
-                throw ex;
+            if (factory != null) {
+                Throwable ce = ex;
+                while (ce != null) {
+                    if (ce instanceof CertificateException)
+                        throw new UntrustedException(factory.getFingerPrint(), ex);
+                    ce = ce.getCause();
+                }
+            }
+            throw ex;
         }
     }
 
