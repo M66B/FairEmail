@@ -101,7 +101,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private MediatorState liveAccountNetworkState = new MediatorState();
 
     private static final long YIELD_DURATION = 200L; // milliseconds
-    private static final long QUIT_DELAY = 5 * 1000L; // milliseconds
+    private static final long QUIT_DELAY = 10 * 1000L; // milliseconds
     private static final int CONNECT_BACKOFF_START = 8; // seconds
     private static final int CONNECT_BACKOFF_MAX = 64; // seconds (totally 2 minutes)
     private static final int CONNECT_BACKOFF_AlARM = 15; // minutes
@@ -261,7 +261,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             nm.notify(Helper.NOTIFICATION_SYNCHRONIZE, getNotificationService(lastAccounts, lastOperations).build());
                         }
                     } else
-                        stopSelf(); // will result in quit
+                        quit();
                 }
             }
 
