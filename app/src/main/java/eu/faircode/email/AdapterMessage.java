@@ -1161,8 +1161,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibImages.setVisibility(View.GONE);
             ibUnsubscribe.setVisibility(message.unsubscribe == null ? View.GONE : View.VISIBLE);
             ibJunk.setVisibility(
-                    message.uid == null || message.folderReadOnly &&
-                            (hasJunk && !EntityFolder.JUNK.equals(message.folderType))
+                    message.uid == null || message.folderReadOnly ||
+                            !hasJunk || EntityFolder.JUNK.equals(message.folderType)
                             ? View.GONE : View.VISIBLE);
             ibDecrypt.setVisibility(View.GONE);
             ibVerify.setVisibility(View.GONE);
