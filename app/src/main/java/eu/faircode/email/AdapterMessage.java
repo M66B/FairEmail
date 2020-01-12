@@ -2809,7 +2809,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onActionJunk(TupleMessageEx message) {
-            onMenuJunk(message);
+            String who = MessageHelper.formatAddresses(message.from);
+
+            Bundle aargs = new Bundle();
+            aargs.putString("question", context.getString(R.string.title_ask_spam_who, who));
+            aargs.putLong("id", message.id);
+
+            FragmentDialogAsk ask = new FragmentDialogAsk();
+            ask.setArguments(aargs);
+            ask.setTargetFragment(parentFragment, FragmentMessages.REQUEST_MESSAGE_JUNK);
+            ask.show(parentFragment.getParentFragmentManager(), "message:junk");
         }
 
         private void onActionDecrypt(TupleMessageEx message, boolean auto) {
@@ -3108,9 +3117,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_manage_keywords).setEnabled(message.uid != null && !message.folderReadOnly);
             popupMenu.getMenu().findItem(R.id.menu_manage_keywords).setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
 
-            popupMenu.getMenu().findItem(R.id.menu_junk).setEnabled(message.uid != null && !message.folderReadOnly);
-            popupMenu.getMenu().findItem(R.id.menu_junk).setVisible(hasJunk && !EntityFolder.JUNK.equals(message.folderType));
-
             popupMenu.getMenu().findItem(R.id.menu_share).setEnabled(message.content);
             popupMenu.getMenu().findItem(R.id.menu_print).setEnabled(hasWebView && message.content);
             popupMenu.getMenu().findItem(R.id.menu_print).setVisible(Helper.canPrint(context));
@@ -3154,9 +3160,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             return true;
                         case R.id.menu_delete:
                             onMenuDelete(message);
-                            return true;
-                        case R.id.menu_junk:
-                            onMenuJunk(message);
                             return true;
                         case R.id.menu_resync:
                             onMenuResync(message);
@@ -3437,19 +3440,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ask.setArguments(aargs);
             ask.setTargetFragment(parentFragment, FragmentMessages.REQUEST_MESSAGE_DELETE);
             ask.show(parentFragment.getParentFragmentManager(), "message:delete");
-        }
-
-        private void onMenuJunk(final TupleMessageEx message) {
-            String who = MessageHelper.formatAddresses(message.from);
-
-            Bundle aargs = new Bundle();
-            aargs.putString("question", context.getString(R.string.title_ask_spam_who, who));
-            aargs.putLong("id", message.id);
-
-            FragmentDialogAsk ask = new FragmentDialogAsk();
-            ask.setArguments(aargs);
-            ask.setTargetFragment(parentFragment, FragmentMessages.REQUEST_MESSAGE_JUNK);
-            ask.show(parentFragment.getParentFragmentManager(), "message:junk");
         }
 
         private void onMenuResync(TupleMessageEx message) {
