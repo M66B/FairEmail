@@ -974,6 +974,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
         <item>Alle 2 Stunden</item>
         <item>Alle 4 Stunden</item>
         <item>Alle 8 Stunden</item>
+        <item>Every day</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Nein</item>

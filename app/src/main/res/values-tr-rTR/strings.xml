@@ -201,6 +201,7 @@
     <string name="title_advanced_section_misc">Çeşitli</string>
     <string name="title_advanced_receive">Mesajları al</string>
     <string name="title_advanced_when">Ne zaman</string>
+    <string name="title_advanced_always">Bu hesapları her zaman senkronize et</string>
     <string name="title_advanced_schedule">Program</string>
     <string name="title_advanced_unseen">Tüm okunmamış iletiler</string>
     <string name="title_advanced_flagged">Tüm yıldızlı iletiler</string>
@@ -975,6 +976,7 @@
         <item>2 saatte bir</item>
         <item>4 saatte bir</item>
         <item>8 saatte bir</item>
+        <item>Every day</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Hayır</item>

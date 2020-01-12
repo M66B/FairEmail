@@ -771,6 +771,7 @@
         <item>Varannan timme</item>
         <item>Var 4:e timme</item>
         <item>Var 8:e timme</item>
+        <item>Every day</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Nej</item>

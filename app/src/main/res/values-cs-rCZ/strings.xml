@@ -933,6 +933,7 @@
         <item>Každé 2 hodiny</item>
         <item>Každé 4 hodiny</item>
         <item>Každých 8 hodin</item>
+        <item>Every day</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Nepozdržovat</item>

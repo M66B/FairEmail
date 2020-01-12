@@ -368,6 +368,7 @@
         <item>كل ساعتين</item>
         <item>كل 4 ساعات</item>
         <item>كل 8 ساعات</item>
+        <item>Every day</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>لا</item>

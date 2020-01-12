@@ -961,6 +961,7 @@ FairEmail会显示一条消息来提醒您这一点，这条消息在您购买�
         <item>每两小时</item>
         <item>每四小时</item>
         <item>每八小时</item>
+        <item>Every day</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>否</item>

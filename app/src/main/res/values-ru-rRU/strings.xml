@@ -1000,6 +1000,7 @@
         <item>Каждые 2 часа</item>
         <item>Каждые 4 часа</item>
         <item>Каждые 8 часов</item>
+        <item>Every day</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Нет</item>

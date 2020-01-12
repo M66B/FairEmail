@@ -957,6 +957,7 @@ FairEmailは、Pro機能購入の為に上部に小さなメッセージを表�
         <item>2時間毎</item>
         <item>4時間毎</item>
         <item>8時間毎</item>
+        <item>Every day</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>いいえ</item>

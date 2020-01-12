@@ -978,6 +978,7 @@
         <item>La fiecare 2 ore</item>
         <item>La fiecare 4 ore</item>
         <item>La fiecare 8 ore</item>
+        <item>Every day</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Fără</item>

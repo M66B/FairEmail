@@ -973,6 +973,7 @@
         <item>Elke 2 uur</item>
         <item>Elke 4 uur</item>
         <item>Elke 8 uur</item>
+        <item>Elke dag</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Geen</item>

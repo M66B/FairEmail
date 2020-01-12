@@ -975,6 +975,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
         <item>Svaka 2 sata</item>
         <item>Svaka 4 sata</item>
         <item>Svakih 8 sati</item>
+        <item>Every day</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Ne</item>

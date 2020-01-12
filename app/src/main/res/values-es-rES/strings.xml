@@ -976,6 +976,7 @@
         <item>Cada 2 horas</item>
         <item>Cada 4 horas</item>
         <item>Cada 8 horas</item>
+        <item>Every day</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>No</item>

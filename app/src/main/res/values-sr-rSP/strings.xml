@@ -921,6 +921,7 @@
         <item>Свака 2 сата</item>
         <item>Свака 4 сата</item>
         <item>Сваких 8 сати</item>
+        <item>Every day</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Не</item>

@@ -932,6 +932,7 @@
         <item>На всеки 2 ч</item>
         <item>На всеки 4 часа</item>
         <item>На всеки 8 часа</item>
+        <item>Every day</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Без</item>
