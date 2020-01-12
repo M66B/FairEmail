@@ -1160,9 +1160,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibFull.setVisibility(View.VISIBLE);
             ibImages.setVisibility(View.GONE);
             ibUnsubscribe.setVisibility(message.unsubscribe == null ? View.GONE : View.VISIBLE);
+            ibJunk.setEnabled(false);
             ibJunk.setVisibility(
                     message.uid == null || message.folderReadOnly ||
-                            !hasJunk || EntityFolder.JUNK.equals(message.folderType)
+                            EntityFolder.JUNK.equals(message.folderType)
                             ? View.GONE : View.VISIBLE);
             ibDecrypt.setVisibility(View.GONE);
             ibVerify.setVisibility(View.GONE);
@@ -1289,6 +1290,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean inJunk = EntityFolder.JUNK.equals(message.folderType);
 
                     delete = (inTrash || !hasTrash || inOutbox);
+
+                    ibJunk.setEnabled(hasJunk);
 
                     bnvActions.getMenu().findItem(R.id.action_more).setVisible(!inOutbox);
 
