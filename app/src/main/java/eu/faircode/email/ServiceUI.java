@@ -492,7 +492,7 @@ public class ServiceUI extends IntentService {
             long interval = pollInterval * 60 * 1000L;
             long next = now + interval - now % interval;
 
-            Log.i("Poll next=" + new Date(next));
+            EntityLog.log(context, "Poll next=" + new Date(next));
 
             AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, next, piSync);
         }
