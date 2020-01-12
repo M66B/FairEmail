@@ -101,6 +101,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private MediatorState liveAccountNetworkState = new MediatorState();
 
     private static final long YIELD_DURATION = 200L; // milliseconds
+    private static final long QUIT_DELAY = 5 * 1000L; // milliseconds
     private static final int CONNECT_BACKOFF_START = 8; // seconds
     private static final int CONNECT_BACKOFF_MAX = 64; // seconds (totally 2 minutes)
     private static final int CONNECT_BACKOFF_AlARM = 15; // minutes
@@ -350,6 +351,12 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     public void run() {
                         Log.i("### quit");
 
+                        try {
+                            Thread.sleep(QUIT_DELAY);
+                        } catch (InterruptedException ex) {
+                            Log.w(ex);
+                        }
+
                         DB db = DB.getInstance(ServiceSynchronize.this);
                         List<EntityOperation> ops = db.operation().getOperations(EntityOperation.SYNC);
                         for (EntityOperation op : ops)
@@ -364,7 +371,20 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
-        db.message().liveUnseenWidget(null).observe(this, new Observer<List<TupleMessageStats>>() {
+        final TwoStateOwner cowner = new TwoStateOwner(this, "liveUnseenNotify");
+
+        db.folder().liveSynchronizing().observe(this, new Observer<Integer>() {
+            @Override
+            public void onChanged(Integer count) {
+                Log.i("Synchronizing folders=" + count);
+                if (count == null || count == 0)
+                    cowner.start();
+                else
+                    cowner.stop();
+            }
+        });
+
+        db.message().liveUnseenWidget(null).observe(cowner, new Observer<List<TupleMessageStats>>() {
             private List<TupleMessageStats> last = null;
 
             @Override
@@ -405,19 +425,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 } catch (Throwable ex) {
                     Log.e(ex);
                 }
-            }
-        });
-
-        final TwoStateOwner cowner = new TwoStateOwner(this, "liveUnseenNotify");
-
-        db.folder().liveSynchronizing().observe(this, new Observer<Integer>() {
-            @Override
-            public void onChanged(Integer count) {
-                Log.i("Synchronizing folders=" + count);
-                if (count == null || count == 0)
-                    cowner.start();
-                else
-                    cowner.stop();
             }
         });
 
