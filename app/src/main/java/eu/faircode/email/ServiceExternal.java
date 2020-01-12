@@ -29,6 +29,8 @@ import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 import androidx.preference.PreferenceManager;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 
 public class ServiceExternal extends Service {
@@ -82,32 +84,37 @@ public class ServiceExternal extends Service {
                 enabled = true;
             else if (ACTION_DISABLE.equals(action))
                 enabled = false;
-            else
+            else // poll
                 enabled = null;
 
             executor.submit(new Runnable() {
                 @Override
                 public void run() {
-                    if (accountName == null) {
-                        if (enabled == null)
-                            WorkerPoll.sync(context, null);
-                        else {
+                    DB db = DB.getInstance(context);
+
+                    if (enabled == null) {
+                        List<EntityAccount> accounts = db.account().getSynchronizingAccounts();
+                        for (EntityAccount account : accounts)
+                            if (accountName == null || accountName.equals(account.name)) {
+                                List<EntityFolder> folders = db.folder().getSynchronizingFolders(account.id);
+                                if (folders.size() > 0)
+                                    Collections.sort(folders, folders.get(0).getComparator(context));
+                                for (EntityFolder folder : folders)
+                                    EntityOperation.sync(context, folder.id, false);
+                            }
+                        ServiceSynchronize.eval(context, "external poll account=" + accountName);
+                    } else {
+                        if (accountName == null) {
                             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                             prefs.edit().putBoolean("enabled", enabled).apply();
                             ServiceSynchronize.eval(context, "external enabled=" + enabled);
-                        }
-                    } else {
-                        DB db = DB.getInstance(context);
+                        } else {
+                            EntityAccount account = db.account().getAccount(accountName);
+                            if (account == null) {
+                                EntityLog.log(context, "Account not found name=" + accountName);
+                                return;
+                            }
 
-                        EntityAccount account = db.account().getAccount(accountName);
-                        if (account == null) {
-                            EntityLog.log(context, "Account not found name=" + accountName);
-                            return;
-                        }
-
-                        if (enabled == null)
-                            WorkerPoll.sync(context, account.id);
-                        else {
                             db.account().setAccountSynchronize(account.id, enabled);
                             ServiceSynchronize.eval(context, "external account=" + accountName + " enabled=" + enabled);
                         }

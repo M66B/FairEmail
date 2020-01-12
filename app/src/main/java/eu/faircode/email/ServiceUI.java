@@ -19,8 +19,10 @@ package eu.faircode.email;
     Copyright 2018-2020 by Marcel Bokhorst (M66B)
 */
 
+import android.app.AlarmManager;
 import android.app.IntentService;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -28,10 +30,12 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.core.app.AlarmManagerCompat;
 import androidx.core.app.RemoteInput;
 import androidx.preference.PreferenceManager;
 
 import java.io.IOException;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -52,7 +56,8 @@ public class ServiceUI extends IntentService {
     static final int PI_IGNORED = 10;
     static final int PI_THREAD = 11;
     static final int PI_WAKEUP = 12;
-    static final int PI_BANNER = 13;
+    static final int PI_SYNC = 13;
+    static final int PI_BANNER = 14;
 
     public ServiceUI() {
         this(ServiceUI.class.getName());
@@ -151,6 +156,11 @@ public class ServiceUI extends IntentService {
                     // for approximately 10 seconds to allow that application to acquire further wake locks in which to complete its work.
                     // https://developer.android.com/reference/android/app/AlarmManager
                     onWakeup(id);
+                    break;
+
+                case "sync":
+                    boolean reschedule = intent.getBooleanExtra("reschedule", false);
+                    onSync(id, reschedule);
                     break;
 
                 case "daily":
@@ -429,8 +439,62 @@ public class ServiceUI extends IntentService {
             ServiceSynchronize.eval(ServiceUI.this, "wakeup");
     }
 
+    private void onSync(long aid, boolean reschedule) {
+        DB db = DB.getInstance(this);
+        try {
+            db.beginTransaction();
+
+            List<EntityAccount> accounts = db.account().getSynchronizingAccounts();
+            for (EntityAccount account : accounts)
+                if (aid < 0 || account.id.equals(aid)) {
+                    List<EntityFolder> folders = db.folder().getSynchronizingFolders(account.id);
+                    if (folders.size() > 0)
+                        Collections.sort(folders, folders.get(0).getComparator(this));
+                    for (EntityFolder folder : folders)
+                        EntityOperation.sync(this, folder.id, false);
+                }
+
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
+
+        if (reschedule)
+            schedule(this, true);
+
+        ServiceSynchronize.eval(this, "poll");
+    }
+
     private void onBanner() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         prefs.edit().remove("banner").apply();
+    }
+
+    static void sync(Context context, Long account) {
+        context.startService(new Intent(context, ServiceUI.class)
+                .setAction(account == null ? "sync" : "sync:" + account));
+    }
+
+    static void schedule(Context context, boolean enabled) {
+        Intent intent = new Intent(context, ServiceUI.class);
+        intent.setAction("sync");
+        intent.putExtra("reschedule", true);
+        PendingIntent piSync = PendingIntent.getService(
+                context, ServiceUI.PI_SYNC, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        am.cancel(piSync);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        int pollInterval = prefs.getInt("poll_interval", 0);
+        if (enabled && pollInterval > 0) {
+            long now = new Date().getTime();
+            long interval = pollInterval * 60 * 1000L;
+            long next = now + interval - now % interval;
+
+            Log.i("Poll next=" + new Date(next));
+
+            AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, next, piSync);
+        }
     }
 }
