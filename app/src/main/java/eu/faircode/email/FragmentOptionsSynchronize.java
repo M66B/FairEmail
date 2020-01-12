@@ -42,17 +42,27 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SwitchCompat;
+import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
+import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
+import java.util.Objects;
 
 public class FragmentOptionsSynchronize extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private SwitchCompat swEnabled;
     private Spinner spPollInterval;
+    private RecyclerView rvExempted;
     private SwitchCompat swSchedule;
     private TextView tvSchedulePro;
     private TextView tvScheduleStart;
@@ -68,6 +78,9 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
     private SwitchCompat swSubscribedOnly;
     private SwitchCompat swCheckMx;
     private SwitchCompat swCheckReply;
+    private Group grpExempted;
+
+    private AdapterAccountExempted adapter;
 
     private final static String[] RESET_OPTIONS = new String[]{
             "enabled", "poll_interval", "schedule", "schedule_start", "schedule_end",
@@ -88,6 +101,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         swEnabled = view.findViewById(R.id.swEnabled);
         spPollInterval = view.findViewById(R.id.spPollInterval);
         swSchedule = view.findViewById(R.id.swSchedule);
+        rvExempted = view.findViewById(R.id.rvExempted);
         tvSchedulePro = view.findViewById(R.id.tvSchedulePro);
         tvScheduleStart = view.findViewById(R.id.tvScheduleStart);
         tvScheduleEnd = view.findViewById(R.id.tvScheduleEnd);
@@ -110,6 +124,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         swSubscribedOnly = view.findViewById(R.id.swSubscribedOnly);
         swCheckMx = view.findViewById(R.id.swCheckMx);
         swCheckReply = view.findViewById(R.id.swCheckReply);
+        grpExempted = view.findViewById(R.id.grpExempted);
 
         setOptions();
 
@@ -135,6 +150,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
                 if (value != current) {
                     adapterView.setTag(value);
                     prefs.edit().putInt("poll_interval", value).apply();
+                    grpExempted.setVisibility(value == 0 ? View.GONE : View.VISIBLE);
                     ServiceSynchronize.reschedule(getContext());
                 }
             }
@@ -143,9 +159,17 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             public void onNothingSelected(AdapterView<?> adapterView) {
                 adapterView.setTag(null);
                 prefs.edit().remove("poll_interval").apply();
+                grpExempted.setVisibility(View.GONE);
                 ServiceSynchronize.reschedule(getContext());
             }
         });
+
+        rvExempted.setHasFixedSize(false);
+        LinearLayoutManager llm = new LinearLayoutManager(getContext());
+        rvExempted.setLayoutManager(llm);
+
+        adapter = new AdapterAccountExempted(getViewLifecycleOwner(), getContext());
+        rvExempted.setAdapter(adapter);
 
         swSchedule.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -263,6 +287,16 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             }
         });
 
+        DB db = DB.getInstance(getContext());
+        db.account().liveSynchronizingAccounts().observe(getViewLifecycleOwner(), new Observer<List<EntityAccount>>() {
+            @Override
+            public void onChanged(List<EntityAccount> accounts) {
+                if (accounts == null)
+                    accounts = new ArrayList<>();
+                adapter.set(accounts);
+            }
+        });
+
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 
         return view;
@@ -320,6 +354,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
                 spPollInterval.setSelection(pos);
                 break;
             }
+        grpExempted.setVisibility(pollInterval == 0 ? View.GONE : View.VISIBLE);
 
         swSchedule.setChecked(prefs.getBoolean("schedule", false) && pro);
         swSchedule.setEnabled(pro);
@@ -382,6 +417,146 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             editor.apply();
 
             ServiceSynchronize.reschedule(getContext());
+        }
+    }
+
+    public class AdapterAccountExempted extends RecyclerView.Adapter<AdapterAccountExempted.ViewHolder> {
+        private Context context;
+        private LifecycleOwner owner;
+        private LayoutInflater inflater;
+
+        private List<EntityAccount> items = new ArrayList<>();
+
+        public class ViewHolder extends RecyclerView.ViewHolder implements CompoundButton.OnCheckedChangeListener {
+            private CheckBox cbExempted;
+
+            ViewHolder(View itemView) {
+                super(itemView);
+                cbExempted = itemView.findViewById(R.id.cbExempted);
+            }
+
+            private void wire() {
+                cbExempted.setOnCheckedChangeListener(this);
+            }
+
+            private void unwire() {
+                cbExempted.setOnCheckedChangeListener(null);
+            }
+
+            private void bindTo(EntityAccount account) {
+                cbExempted.setEnabled(!account.ondemand);
+                cbExempted.setChecked(account.poll_exempted);
+                cbExempted.setText(account.name);
+            }
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                int pos = getAdapterPosition();
+                if (pos == RecyclerView.NO_POSITION)
+                    return;
+
+                EntityAccount account = items.get(pos);
+
+                Bundle args = new Bundle();
+                args.putLong("id", account.id);
+                args.putBoolean("exempted", isChecked);
+
+                new SimpleTask<Void>() {
+                    @Override
+                    protected Void onExecute(Context context, Bundle args) {
+                        long id = args.getLong("id");
+                        boolean exempted = args.getBoolean("exempted");
+
+                        DB db = DB.getInstance(context);
+                        db.account().setAccountPollExempted(id, exempted);
+
+                        ServiceSynchronize.eval(context, "exempted");
+
+                        return null;
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Log.e(ex);
+                    }
+                }.execute(context, owner, args, "set:exempted");
+            }
+        }
+
+        AdapterAccountExempted(LifecycleOwner owner, Context context) {
+            this.owner = owner;
+            this.context = context;
+            this.inflater = LayoutInflater.from(context);
+
+            setHasStableIds(true);
+        }
+
+        public void set(@NonNull List<EntityAccount> accounts) {
+            Log.i("Set accounts=" + accounts.size());
+
+            DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(items, accounts), false);
+            items = accounts;
+            diff.dispatchUpdatesTo(this);
+        }
+
+        private class DiffCallback extends DiffUtil.Callback {
+            private List<EntityAccount> prev = new ArrayList<>();
+            private List<EntityAccount> next = new ArrayList<>();
+
+            DiffCallback(List<EntityAccount> prev, List<EntityAccount> next) {
+                this.prev.addAll(prev);
+                this.next.addAll(next);
+            }
+
+            @Override
+            public int getOldListSize() {
+                return prev.size();
+            }
+
+            @Override
+            public int getNewListSize() {
+                return next.size();
+            }
+
+            @Override
+            public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
+                EntityAccount a1 = prev.get(oldItemPosition);
+                EntityAccount a2 = next.get(newItemPosition);
+                return a1.id.equals(a2.id);
+            }
+
+            @Override
+            public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
+                EntityAccount a1 = prev.get(oldItemPosition);
+                EntityAccount a2 = next.get(newItemPosition);
+                return (a1.ondemand == a2.ondemand &&
+                        a1.poll_exempted == a2.poll_exempted &&
+                        Objects.equals(a1.name, a2.name));
+            }
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return items.get(position).id;
+        }
+
+        @Override
+        public int getItemCount() {
+            return items.size();
+        }
+
+        @Override
+        @NonNull
+        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            return new ViewHolder(inflater.inflate(R.layout.item_account_exempted, parent, false));
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+            holder.unwire();
+            EntityAccount account = items.get(position);
+            holder.bindTo(account);
+            holder.wire();
         }
     }
 }

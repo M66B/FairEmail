@@ -84,6 +84,29 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/spPollInterval" />
 
+        <TextView
+            android:id="@+id/tvExempted"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_always"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?android:attr/textColorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvPollHint" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvExempted"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvExempted" />
+
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swSchedule"
             android:layout_width="0dp"
@@ -92,7 +115,7 @@
             android:text="@string/title_advanced_schedule"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvPollHint"
+            app:layout_constraintTop_toBottomOf="@id/rvExempted"
             app:switchPadding="12dp" />
 
         <TextView
@@ -419,5 +442,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/swCheckReply" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpExempted"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="tvExempted,rvExempted" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

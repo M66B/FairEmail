@@ -1497,7 +1497,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             List<TupleAccountNetworkState> result = new ArrayList<>();
             for (TupleAccountState accountState : accountStates)
                 result.add(new TupleAccountNetworkState(
-                        enabled && pollInterval == 0 && scheduled,
+                        enabled && (pollInterval == 0 || accountState.poll_exempted) && scheduled,
                         command,
                         networkState,
                         accountState));
