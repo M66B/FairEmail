@@ -27,6 +27,7 @@ import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.RoomWarnings;
+import androidx.room.Transaction;
 import androidx.room.Update;
 
 import java.util.List;
@@ -300,6 +301,7 @@ public interface DaoMessage {
             " WHERE message.id = :id")
     LiveData<TupleMessageEx> liveMessage(long id);
 
+    @Transaction
     @Query("SELECT account.id AS account, COUNT(message.id) AS unseen, SUM(ABS(notifying)) AS notifying" +
             " FROM message" +
             " JOIN account ON account.id = message.account" +
@@ -322,6 +324,7 @@ public interface DaoMessage {
             " AND NOT (message.ui_seen OR message.ui_hide)")
     TupleMessageStats getUnseenWidget(Long account);
 
+    @Transaction
     @Query("SELECT message.*" +
             ", account.pop AS accountProtocol, account.name AS accountName, COALESCE(identity.color, folder.color, account.color) AS accountColor" +
             ", account.notify AS accountNotify, account.auto_seen AS accountAutoSeen" +
@@ -347,6 +350,7 @@ public interface DaoMessage {
             " ORDER BY message.received")
     LiveData<List<TupleMessageEx>> liveUnseenNotify();
 
+    @Transaction
     @Query("SELECT folder, COUNT(*) AS total" +
             ", SUM(ui_seen) AS seen" +
             ", SUM(ui_flagged) AS flagged" +
