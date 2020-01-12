@@ -1159,12 +1159,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibFull.setEnabled(false);
             ibFull.setVisibility(View.VISIBLE);
             ibImages.setVisibility(View.GONE);
-            ibUnsubscribe.setVisibility(message.unsubscribe == null ? View.GONE : View.VISIBLE);
+            ibUnsubscribe.setVisibility(View.GONE);
             ibJunk.setEnabled(false);
-            ibJunk.setVisibility(
-                    message.uid == null || message.folderReadOnly ||
-                            EntityFolder.JUNK.equals(message.folderType)
-                            ? View.GONE : View.VISIBLE);
+            ibJunk.setVisibility(View.GONE);
             ibDecrypt.setVisibility(View.GONE);
             ibVerify.setVisibility(View.GONE);
 
@@ -1685,16 +1682,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     // Show attachments
                     cowner.start();
 
-                    // Show encrypt actions
-                    ibVerify.setVisibility(false ||
-                            EntityMessage.PGP_SIGNONLY.equals(message.encrypt) ||
-                            EntityMessage.SMIME_SIGNONLY.equals(message.encrypt)
-                            ? View.VISIBLE : View.GONE);
-                    ibDecrypt.setVisibility(args.getBoolean("inline_encrypted") ||
-                            EntityMessage.PGP_SIGNENCRYPT.equals(message.encrypt) ||
-                            EntityMessage.SMIME_SIGNENCRYPT.equals(message.encrypt)
-                            ? View.VISIBLE : View.GONE);
-
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                     boolean auto_decrypt = prefs.getBoolean("auto_decrypt", false);
                     if (auto_decrypt &&
@@ -1707,6 +1694,22 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     // Show images
                     ibImages.setVisibility(has_images && !(show_full && always_images) ? View.VISIBLE : View.GONE);
+
+                    ibUnsubscribe.setVisibility(message.unsubscribe == null ? View.GONE : View.VISIBLE);
+                    ibJunk.setVisibility(
+                            message.uid == null || message.folderReadOnly ||
+                                    EntityFolder.JUNK.equals(message.folderType)
+                                    ? View.GONE : View.VISIBLE);
+
+                    // Show encrypt actions
+                    ibVerify.setVisibility(false ||
+                            EntityMessage.PGP_SIGNONLY.equals(message.encrypt) ||
+                            EntityMessage.SMIME_SIGNONLY.equals(message.encrypt)
+                            ? View.VISIBLE : View.GONE);
+                    ibDecrypt.setVisibility(args.getBoolean("inline_encrypted") ||
+                            EntityMessage.PGP_SIGNENCRYPT.equals(message.encrypt) ||
+                            EntityMessage.SMIME_SIGNENCRYPT.equals(message.encrypt)
+                            ? View.VISIBLE : View.GONE);
                 }
 
                 @Override
