@@ -973,7 +973,7 @@
         <item>2 tunnin välein</item>
         <item>4 tunnin välein</item>
         <item>8 tunnin välein</item>
-        <item>Every day</item>
+        <item>Joka päivä</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Ei</item>

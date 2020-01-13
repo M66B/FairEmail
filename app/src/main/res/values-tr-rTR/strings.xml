@@ -976,7 +976,7 @@
         <item>2 saatte bir</item>
         <item>4 saatte bir</item>
         <item>8 saatte bir</item>
-        <item>Every day</item>
+        <item>Her gün</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Hayır</item>

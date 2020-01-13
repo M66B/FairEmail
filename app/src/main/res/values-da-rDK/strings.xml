@@ -974,7 +974,7 @@
         <item>Hver 2. time</item>
         <item>Hver 4. time</item>
         <item>Hver 8. time</item>
-        <item>Every day</item>
+        <item>Dagligt</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Nej</item>

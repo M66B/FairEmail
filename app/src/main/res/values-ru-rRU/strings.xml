@@ -223,7 +223,7 @@
     <string name="title_advanced_section_misc">Разное</string>
     <string name="title_advanced_receive">Получить сообщения</string>
     <string name="title_advanced_when">Когда</string>
-    <string name="title_advanced_always">Всегда синхронизировать эти учетные записи</string>
+    <string name="title_advanced_always">Всегда синхронизировать эти учётные записи</string>
     <string name="title_advanced_schedule">Расписание</string>
     <string name="title_advanced_unseen">Все непрочитанные сообщения</string>
     <string name="title_advanced_flagged">Все избранные сообщения</string>
@@ -1000,7 +1000,7 @@
         <item>Каждые 2 часа</item>
         <item>Каждые 4 часа</item>
         <item>Каждые 8 часов</item>
-        <item>Every day</item>
+        <item>Ежедневно</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Нет</item>

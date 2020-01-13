@@ -187,6 +187,7 @@
     <string name="title_advanced_section_misc">その他</string>
     <string name="title_advanced_receive">メッセージを受信する</string>
     <string name="title_advanced_when">同期</string>
+    <string name="title_advanced_always">アカウントを常に同期</string>
     <string name="title_advanced_schedule">スケジュール</string>
     <string name="title_advanced_unseen">すべての未読メッセージ</string>
     <string name="title_advanced_flagged">すべてのスター付きメッセージ</string>
@@ -957,7 +958,7 @@ FairEmailは、Pro機能購入の為に上部に小さなメッセージを表�
         <item>2時間毎</item>
         <item>4時間毎</item>
         <item>8時間毎</item>
-        <item>Every day</item>
+        <item>毎日</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>いいえ</item>

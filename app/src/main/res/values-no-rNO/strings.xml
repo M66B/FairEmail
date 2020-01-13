@@ -975,7 +975,7 @@ Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anme
         <item>Hver 2. time</item>
         <item>Hver 4. time</item>
         <item>Hver 8. time</item>
-        <item>Every day</item>
+        <item>Hver dag</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Nei</item>

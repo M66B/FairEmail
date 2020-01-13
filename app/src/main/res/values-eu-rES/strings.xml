@@ -975,7 +975,7 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
         <item>2 ordurik behin</item>
         <item>4 ordurik behin</item>
         <item>8 ordurik behin</item>
-        <item>Every day</item>
+        <item>Egunero</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Ez</item>
