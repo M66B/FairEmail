@@ -1304,7 +1304,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                     List<EntityFolder> folders = new ArrayList<>();
                     if (fid < 0)
-                        folders.addAll(db.folder().getFoldersSynchronizingUnified(type));
+                        folders.addAll(db.folder().getFoldersUnified(type, type == null));
                     else {
                         EntityFolder folder = db.folder().getFolder(fid);
                         if (folder != null)
