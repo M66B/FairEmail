@@ -69,6 +69,9 @@
     <string name="title_ask_spam_who">%1$s\' in iletisi istenmeyen posta olarak kabul edilsin mi?</string>
     <string name="title_block">Engelle: %1$s</string>
     <string name="title_block_sender">Göndereni engelle</string>
+    <string name="title_block_sender_hint">        Göndereni engellemek, gelecekteki iletileri otomatik olarak spam klasörüne taşımak için bir kural oluşturacaktır.
+        Kural oluşturma ve kullanma, pro sürümüne has bir özelliktir.
+    </string>
     <string name="title_notification_waiting">Uygun bağlantı bekleniyor</string>
     <string name="title_notification_sending">İletileri gönderiliyor</string>
     <string name="title_notification_failed">\'%1$s\' başarısız oldu</string>
