@@ -39,6 +39,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LevelListDrawable;
 import android.os.Build;
 import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.DisplayMetrics;
@@ -72,6 +73,7 @@ class ImageHelper {
             Helper.getBackgroundExecutor(1, "image");
 
     private static final int MAX_REDIRECTS = 10;
+    private static final long FIT_DRAWABLE_TIMEOUT = 10 * 1000L; // milliseconds
 
     static Bitmap generateIdenticon(@NonNull String email, int size, int pixels, Context context) {
         byte[] hash = getHash(email);
@@ -389,43 +391,51 @@ class ImageHelper {
     }
 
     private static void fitDrawable(final Drawable d, final AnnotatedSource a, final View view) {
-        Semaphore semaphore = new Semaphore(0);
+        if (Looper.getMainLooper().getThread() == Thread.currentThread()) {
+            Log.w("fitDrawable UI thread");
+            _fitDrawble(d, a, view);
+        } else {
+            Semaphore semaphore = new Semaphore(0);
 
-        view.post(new Runnable() {
-            @Override
-            public void run() {
-                Rect bounds = d.getBounds();
-                int w = bounds.width();
-                int h = bounds.height();
-
-                if (a.width == 0 && a.height != 0)
-                    a.width = Math.round(a.height * w / (float) h);
-                if (a.height == 0 && a.width != 0)
-                    a.height = Math.round(a.width * h / (float) w);
-
-                if (a.width != 0 && a.height != 0) {
-                    w = Helper.dp2pixels(view.getContext(), a.width);
-                    h = Helper.dp2pixels(view.getContext(), a.height);
-                    d.setBounds(0, 0, w, h);
+            view.post(new Runnable() {
+                @Override
+                public void run() {
+                    _fitDrawble(d, a, view);
+                    semaphore.release();
                 }
+            });
 
-                float width = view.getWidth();
-                if (w > width) {
-                    float scale = width / w;
-                    w = Math.round(w * scale);
-                    h = Math.round(h * scale);
-                    d.setBounds(0, 0, w, h);
-                }
-
-                semaphore.release();
+            try {
+                if (!semaphore.tryAcquire(FIT_DRAWABLE_TIMEOUT, TimeUnit.MILLISECONDS))
+                    Log.e("fitDrawable failed timeout=" + FIT_DRAWABLE_TIMEOUT);
+            } catch (InterruptedException ex) {
+                Log.w(ex);
             }
-        });
+        }
+    }
 
-        try {
-            if (!semaphore.tryAcquire(10 * 1000, TimeUnit.MILLISECONDS))
-                Log.e("fitDrawable failed");
-        } catch (InterruptedException ex) {
-            Log.w(ex);
+    private static void _fitDrawble(Drawable d, AnnotatedSource a, View view) {
+        Rect bounds = d.getBounds();
+        int w = bounds.width();
+        int h = bounds.height();
+
+        if (a.width == 0 && a.height != 0)
+            a.width = Math.round(a.height * w / (float) h);
+        if (a.height == 0 && a.width != 0)
+            a.height = Math.round(a.width * h / (float) w);
+
+        if (a.width != 0 && a.height != 0) {
+            w = Helper.dp2pixels(view.getContext(), a.width);
+            h = Helper.dp2pixels(view.getContext(), a.height);
+            d.setBounds(0, 0, w, h);
+        }
+
+        float width = view.getWidth();
+        if (w > width) {
+            float scale = width / w;
+            w = Math.round(w * scale);
+            h = Math.round(h * scale);
+            d.setBounds(0, 0, w, h);
         }
     }
 
