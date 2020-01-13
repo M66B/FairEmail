@@ -272,6 +272,7 @@ FairEmail follows all the best practices for an email client as described in [th
 * [(140) Why does the message text contain strange characters?](#user-content-faq140)
 * [(141) How can I fix 'A drafts folder is required to send messages'?](#user-content-faq141)
 * [(142) How can I store sent messages in the inbox?](#user-content-faq142)
+* [(143) Can you add a trash folder for POP3 accounts?](#user-content-faq143)
 
 [I have another question.](#user-content-support)
 
@@ -2648,6 +2649,17 @@ by long pressing the sent folder in the folder list and enabling *Show in unifie
 This way all messages can stay where they belong, while allowing to see both incoming and outgoing messages at one place.
 
 If this is not an option, you can [create a rule](#user-content-faq71) to automatically move sent messages to the inbox.
+
+<br />
+
+<a name="faq143"></a>
+**(143) Can you add a trash folder for POP3 accounts?**
+
+[POP3](https://en.wikipedia.org/wiki/Post_Office_Protocol) is a very limited protocol.
+Basically only messages can be downloaded and deleted from the inbox.
+It is not even possible to mark a message read.
+
+Since POP3 does not allow access to the trash folder at all, there is no way to restore trashed messages.
 
 <br />
 
