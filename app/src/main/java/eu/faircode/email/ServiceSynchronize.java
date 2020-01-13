@@ -789,9 +789,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                                 EntityLog.log(ServiceSynchronize.this, account.name + " alert: " + message);
 
-                                if (state.getBackoff() > CONNECT_BACKOFF_MAX ||
-                                        !(message.startsWith("Maximum number of connections") /* Dovecot */ ||
-                                                message.startsWith("Too many simultaneous connections") /* Gmail */)) {
+                                if (!isMaxConnections(message) || state.getBackoff() > CONNECT_BACKOFF_MAX) {
                                     NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                                     nm.notify("alert:" + account.id, 1,
                                             getNotificationAlert(account.name, message).build());
@@ -814,15 +812,24 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         iservice.connect(account);
                     } catch (Throwable ex) {
                         // Immediately report auth errors
-                        if (ex instanceof AuthenticationFailedException &&
-                                !(ex.getCause() instanceof IOException) &&
-                                !(ex.getMessage() != null &&
-                                        ex.getMessage().contains("Too many simultaneous connections"))) {
-                            NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                            nm.notify("receive:" + account.id, 1,
-                                    Core.getNotificationError(this, "error", account.name, ex)
-                                            .build());
-                            throw ex;
+                        if (ex instanceof AuthenticationFailedException) {
+                            boolean ioError = false;
+                            Throwable c = ex;
+                            while (c != null) {
+                                if (c instanceof IOException || isMaxConnections(c.getMessage())) {
+                                    ioError = true;
+                                    break;
+                                }
+                                c = c.getCause();
+                            }
+
+                            if (!ioError) {
+                                NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                                nm.notify("receive:" + account.id, 1,
+                                        Core.getNotificationError(this, "error", account.name, ex)
+                                                .build());
+                                throw ex;
+                            }
                         }
 
                         // Report account connection error
@@ -1386,6 +1393,12 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             EntityLog.log(this, account.name + " stopped");
             wlAccount.release();
         }
+    }
+
+    private boolean isMaxConnections(String message) {
+        return (message != null &&
+                (message.contains("Maximum number of connections") /* Dovecot */ ||
+                        message.contains("Too many simultaneous connections") /* Gmail */));
     }
 
     private ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {
