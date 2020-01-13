@@ -88,7 +88,7 @@
     <string name="title_block">Block %1$s</string>
     <string name="title_block_sender">Block sender</string>
     <string name="title_block_sender_hint">
-        This will create a rule to automatically move future messages to the spam folder.
+        Blocking a sender will create a rule to automatically move future messages to the spam folder.
         Creating and using rules is a pro feature.
     </string>
 
