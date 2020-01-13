@@ -143,7 +143,7 @@ public class FragmentRule extends FragmentBase {
 
     private ArrayAdapter<String> adapterDay;
     private ArrayAdapter<Action> adapterAction;
-    private ArrayAdapter<EntityFolder> adapterTarget;
+    private ArrayAdapter<AccountFolder> adapterTarget;
     private ArrayAdapter<EntityIdentity> adapterIdentity;
     private ArrayAdapter<EntityAnswer> adapterAnswer;
 
@@ -289,7 +289,7 @@ public class FragmentRule extends FragmentBase {
         adapterAction.setDropDownViewResource(R.layout.spinner_item1_dropdown);
         spAction.setAdapter(adapterAction);
 
-        adapterTarget = new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1, new ArrayList<EntityFolder>());
+        adapterTarget = new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1, new ArrayList<AccountFolder>());
         adapterTarget.setDropDownViewResource(R.layout.spinner_item1_dropdown);
         spTarget.setAdapter(adapterTarget);
 
@@ -454,13 +454,19 @@ public class FragmentRule extends FragmentBase {
 
                 DB db = DB.getInstance(context);
                 data.folder = db.folder().getFolder(fid);
-                data.folders = db.folder().getFolders(aid, true, true);
 
-                if (data.folders == null)
-                    data.folders = new ArrayList<>();
-
-                if (data.folders.size() > 0)
-                    Collections.sort(data.folders, data.folders.get(0).getComparator(null));
+                data.folders = new ArrayList<>();
+                List<EntityAccount> accounts = db.account().getSynchronizingAccounts();
+                if (accounts != null)
+                    for (EntityAccount account : accounts) {
+                        List<EntityFolder> folders = db.folder().getFolders(account.id, true, true);
+                        if (folders != null) {
+                            if (folders.size() > 0)
+                                Collections.sort(folders, folders.get(0).getComparator(null));
+                            for (EntityFolder folder : folders)
+                                data.folders.add(new AccountFolder(account, folder));
+                        }
+                    }
 
                 data.identities = db.identity().getSynchronizingIdentities(aid);
                 data.answers = db.answer().getAnswers(false);
@@ -695,7 +701,7 @@ public class FragmentRule extends FragmentBase {
                             case EntityRule.TYPE_COPY:
                                 long target = jaction.optLong("target", -1);
                                 for (int pos = 0; pos < adapterTarget.getCount(); pos++)
-                                    if (adapterTarget.getItem(pos).id.equals(target)) {
+                                    if (adapterTarget.getItem(pos).folder.id.equals(target)) {
                                         spTarget.setSelection(pos);
                                         break;
                                     }
@@ -987,8 +993,8 @@ public class FragmentRule extends FragmentBase {
 
                 case EntityRule.TYPE_MOVE:
                 case EntityRule.TYPE_COPY:
-                    EntityFolder target = (EntityFolder) spTarget.getSelectedItem();
-                    jaction.put("target", target == null ? -1 : target.id);
+                    AccountFolder target = (AccountFolder) spTarget.getSelectedItem();
+                    jaction.put("target", target == null ? -1 : target.folder.id);
                     if (action.type == EntityRule.TYPE_MOVE) {
                         jaction.put("seen", cbMoveSeen.isChecked());
                         jaction.put("thread", cbMoveThread.isChecked());
@@ -1008,9 +1014,25 @@ public class FragmentRule extends FragmentBase {
         return jaction;
     }
 
+    private class AccountFolder {
+        EntityAccount account;
+        EntityFolder folder;
+
+        public AccountFolder(EntityAccount account, EntityFolder folder) {
+            this.account = account;
+            this.folder = folder;
+        }
+
+        @NonNull
+        @Override
+        public String toString() {
+            return account.name + "/" + folder.name;
+        }
+    }
+
     private class RefData {
         EntityFolder folder;
-        List<EntityFolder> folders;
+        List<AccountFolder> folders;
         List<EntityIdentity> identities;
         List<EntityAnswer> answers;
     }
