@@ -188,15 +188,18 @@ public class EntityAccount extends EntityOrder implements Serializable {
         json.put("insecure", insecure);
         json.put("port", port);
         json.put("auth_type", auth_type);
+        json.put("provider", provider);
         json.put("user", user);
         json.put("password", password);
         json.put("realm", realm);
+        json.put("fingerprint", fingerprint);
 
         json.put("name", name);
         json.put("color", color);
 
         json.put("synchronize", synchronize);
         json.put("ondemand", ondemand);
+        json.put("poll_exempted", poll_exempted);
         json.put("primary", primary);
         json.put("notify", notify);
         json.put("browse", browse);
@@ -211,6 +214,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
         json.put("poll_interval", poll_interval);
         json.put("partial_fetch", partial_fetch);
         json.put("ignore_size", ignore_size);
+        json.put("use_date", use_date);
         // not prefix
         // not created
         // not tbd
@@ -239,10 +243,14 @@ public class EntityAccount extends EntityOrder implements Serializable {
         account.insecure = (json.has("insecure") && json.getBoolean("insecure"));
         account.port = json.getInt("port");
         account.auth_type = json.getInt("auth_type");
+        if (json.has("provider"))
+            account.provider = json.getString("provider");
         account.user = json.getString("user");
         account.password = json.getString("password");
         if (json.has("realm"))
             account.realm = json.getString("realm");
+        if (json.has("fingerprint"))
+            account.fingerprint = json.getString("fingerprint");
 
         if (json.has("name") && !json.isNull("name"))
             account.name = json.getString("name");
@@ -252,6 +260,8 @@ public class EntityAccount extends EntityOrder implements Serializable {
         account.synchronize = json.getBoolean("synchronize");
         if (json.has("ondemand"))
             account.ondemand = json.getBoolean("ondemand");
+        if (json.has("poll_exempted"))
+            account.poll_exempted = json.getBoolean("poll_exempted");
         account.primary = json.getBoolean("primary");
         if (json.has("notify"))
             account.notify = json.getBoolean("notify");
@@ -272,6 +282,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
 
         account.partial_fetch = json.optBoolean("partial_fetch", true);
         account.ignore_size = json.optBoolean("ignore_size", false);
+        account.use_date = json.optBoolean("use_date", false);
 
         return account;
     }

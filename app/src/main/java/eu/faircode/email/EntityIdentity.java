@@ -170,9 +170,11 @@ public class EntityIdentity {
         json.put("insecure", insecure);
         json.put("port", port);
         json.put("auth_type", auth_type);
+        json.put("provider", provider);
         json.put("user", user);
         json.put("password", password);
         json.put("realm", realm);
+        json.put("fingerprint", fingerprint);
         json.put("use_ip", use_ip);
 
         json.put("synchronize", synchronize);
@@ -184,7 +186,7 @@ public class EntityIdentity {
         json.put("bcc", bcc);
 
         // not plain_only
-        json.put("encrypt", encrypt);
+        // not encrypt
         // not store_sent
         // not sent_folder
         // not sign_key
@@ -212,10 +214,14 @@ public class EntityIdentity {
         identity.insecure = (json.has("insecure") && json.getBoolean("insecure"));
         identity.port = json.getInt("port");
         identity.auth_type = json.getInt("auth_type");
+        if (json.has("provider"))
+            identity.provider = json.getString("provider");
         identity.user = json.getString("user");
         identity.password = json.getString("password");
         if (json.has("realm") && !json.isNull("realm"))
             identity.realm = json.getString("realm");
+        if (json.has("fingerprint"))
+            identity.fingerprint = json.getString("fingerprint");
         if (json.has("use_ip"))
             identity.use_ip = json.getBoolean("use_ip");
 
@@ -230,9 +236,6 @@ public class EntityIdentity {
             identity.replyto = json.getString("replyto");
         if (json.has("bcc") && !json.isNull("bcc"))
             identity.bcc = json.getString("bcc");
-
-        if (json.has("encrypt"))
-            identity.encrypt = json.getBoolean("encrypt");
 
         return identity;
     }
