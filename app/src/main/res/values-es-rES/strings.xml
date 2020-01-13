@@ -69,7 +69,7 @@
     <string name="title_ask_spam_who">¿Tratar el mensaje de %1$s como spam?</string>
     <string name="title_block">Bloquear %1$s</string>
     <string name="title_block_sender">Bloquear remitente</string>
-    <string name="title_block_sender_hint">        Esto creará una regla para mover automáticamente los mensajes futuros a la carpeta de correo no deseado.
+    <string name="title_block_sender_hint">        Bloquear un remitente creará una regla para mover automáticamente los mensajes futuros a la carpeta de spam.
         Crear y usar reglas es una característica Pro.
     </string>
     <string name="title_notification_waiting">Esperando conexión</string>

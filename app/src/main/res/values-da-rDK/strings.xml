@@ -69,9 +69,6 @@
     <string name="title_ask_spam_who">Håndtér besked fra %1$s som spam?</string>
     <string name="title_block">Blokér %1$s</string>
     <string name="title_block_sender">Blokér afsender</string>
-    <string name="title_block_sender_hint">        Dette opretter en regel til automatisk at flytte fremtidige beskeder til Spam-mappen.
-         Oprettelse og brug af regler er en Pro-funktion.
-    </string>
     <string name="title_notification_waiting">Afventer en passende forbindelse</string>
     <string name="title_notification_sending">Sender beskeder</string>
     <string name="title_notification_failed">\'%1$s\' mislykkedes</string>

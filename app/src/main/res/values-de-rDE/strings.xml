@@ -69,7 +69,7 @@
     <string name="title_ask_spam_who">Nachricht von %1$s als Spam behandeln?</string>
     <string name="title_block">%1$s blockieren</string>
     <string name="title_block_sender">Absender blockieren</string>
-    <string name="title_block_sender_hint">        Dies wird eine Regel erstellen, um zukünftige Nachrichten automatisch in den Spam-Ordner zu verschieben.
+    <string name="title_block_sender_hint">        Das Blockieren eines Absenders erstellt eine Regel, um zukünftige Nachrichten von dieser Absender-Adresse automatisch in den Spam-Ordner zu verschieben.
         Regeln erstellen und verwenden ist eine Pro-Funktion.
     </string>
     <string name="title_notification_waiting">Warte auf eine geeignete Verbindung</string>

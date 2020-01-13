@@ -58,9 +58,8 @@
     <string name="title_ask_spam_who">将来自%1$s的消息标为垃圾邮件？</string>
     <string name="title_block">屏蔽%1$s</string>
     <string name="title_block_sender">屏蔽发件人</string>
-    <string name="title_block_sender_hint">        这将创建一条规则来自动将未来的消息移动到垃圾邮件文件夹。
-        创建和使用规则是一个高级功能。
-    </string>
+    <string name="title_block_sender_hint">拦截一名发件人将创建一条规则自动将未来消息移动至垃圾邮件文件夹。
+        创建并使用规则是一个专业版功能。    </string>
     <string name="title_notification_waiting">等待网络连接</string>
     <string name="title_notification_sending">正在发送消息</string>
     <string name="title_notification_failed">\'%1$s\' 失败</string>
@@ -189,6 +188,7 @@
     <string name="title_advanced_section_misc">杂项</string>
     <string name="title_advanced_receive">接收消息</string>
     <string name="title_advanced_when">何时</string>
+    <string name="title_advanced_always">总是同步这些账户</string>
     <string name="title_advanced_schedule">计划任务</string>
     <string name="title_advanced_unseen">所有未读消息</string>
     <string name="title_advanced_flagged">所有已标星消息</string>
@@ -961,7 +961,7 @@ FairEmail会显示一条消息来提醒您这一点，这条消息在您购买�
         <item>每两小时</item>
         <item>每四小时</item>
         <item>每八小时</item>
-        <item>Every day</item>
+        <item>每天</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>否</item>

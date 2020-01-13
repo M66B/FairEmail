@@ -78,6 +78,11 @@
         <item quantity="other">Tratează %1$d mesaje ca spam?</item>
     </plurals>
     <string name="title_ask_spam_who">Tratează mesajul de la %1$s ca spam?</string>
+    <string name="title_block">Blochează %1$s</string>
+    <string name="title_block_sender">Blochează expeditor</string>
+    <string name="title_block_sender_hint">        Blocarea unui expeditor va crea o regulă ce mută automat orice mesaj viitor în dosarul de spam.
+        Crearea și utilizarea regulilor este o caracteristică Pro.
+    </string>
     <string name="title_notification_waiting">Se așteaptă o conexiune adecvată</string>
     <string name="title_notification_sending">Se trimit mesaje</string>
     <string name="title_notification_failed">\'%1$s\' a eșuat</string>
@@ -206,6 +211,7 @@
     <string name="title_advanced_section_misc">Diverse</string>
     <string name="title_advanced_receive">Primire mesaje</string>
     <string name="title_advanced_when">Când</string>
+    <string name="title_advanced_always">Sincronizează mereu aceste conturi</string>
     <string name="title_advanced_schedule">Programat</string>
     <string name="title_advanced_unseen">Toate mesajele necitite</string>
     <string name="title_advanced_flagged">Toate mesajele marcate</string>
@@ -343,12 +349,14 @@
     <string name="title_advanced_poll_hint">Sincronizarea periodică va compara mesajele locale cu cele de pe server de fiecare dată, aceasta este o operațiune costisitoare ce va rezulta într-un consum ridicat al bateriei, mai ales atunci când sunt multe mesaje de sincronizat. Modul de sincronizare permanent evită asta prin monitorizarea continuă a schimbărilor.</string>
     <string name="title_advanced_schedule_hint">Atingeţi data pentru a seta un timp</string>
     <string name="title_advanced_check_mx">Verifică adresa expeditorului la sincronizarea mesajelor</string>
+    <string name="title_advanced_check_reply">Verifică adresa destinatarului la sincronizarea mesajelor</string>
     <string name="title_advanced_unseen_hint">Unii furnizori nu suportă asta în mod corect, fapt ce va duce la sincronizarea tuturor mesajelor sau a nici unuia</string>
     <string name="title_advanced_sync_kept_hint">Această opțiune va consuma date și baterie în plus, mai ales dacă sunt multe mesaje păstrate pe dispozitiv</string>
     <string name="title_advanced_sync_folders_hint">Dezactivând aceasta se va reduce utilizarea datelor și a bateriei, dar se va dezactiva și actualizarea listei de dosare</string>
     <string name="title_advanced_sync_delay_hint">Această opțiune va încetini viteza de sincronizare a mesajelor</string>
     <string name="title_advanced_suggest_local_hint">Pe lângă contactele furnizate de Android. Datele contactelor vor fi memorate pentru mesajele nou trimise sau primite doar când este activată.</string>
     <string name="title_advanced_lookup_mx_hint">Se verifică dacă există înregistrări DNS MX</string>
+    <string name="title_advanced_check_reply_hint">Se va verifica dacă numele de domeniu al expeditorului și adresa de răspuns coincid</string>
     <string name="title_advanced_metered_hint">Conexiunile contorizate sunt în general cele mobile sau punctele de acces Wi-Fi cu plată</string>
     <string name="title_advanced_metered_warning">Dezactivarea acestei opțiuni va opri primirea și trimiterea mesajelor pe conexiunile mobile de internet</string>
     <string name="title_advanced_rlah_hint">În zona UE nu se tratează ca roaming</string>
@@ -441,6 +449,7 @@
     <string name="title_no_idle">Acest furnizor de servicii e-mail nu suporta mesaje push. Acest fapt va duce la întârzierea recepției mesajelor și un consum mai mare al bateriei.</string>
     <string name="title_no_utf8">Acest furnizor nu suportă UTF-8</string>
     <string name="title_no_sync">Erori de sincronizare începând cu %1$s</string>
+    <string name="title_reply_domain">Expeditorul (%1$s) și domeniul de răspuns (%2$s) diferă</string>
     <string name="title_identity_required">O identitate este necesară pentru a trimite mesaje</string>
     <string name="title_drafts_required">Un dosar de ciorne este necesar pentru a trimite mesaje</string>
     <string name="title_account_delete">Ștergeți definitiv acest cont?</string>
@@ -978,7 +987,7 @@
         <item>La fiecare 2 ore</item>
         <item>La fiecare 4 ore</item>
         <item>La fiecare 8 ore</item>
-        <item>Every day</item>
+        <item>În fiecare zi</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Fără</item>

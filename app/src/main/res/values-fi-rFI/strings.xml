@@ -69,7 +69,7 @@
     <string name="title_ask_spam_who">Käsittele viesti lähettäjältä %1$s roskapostina?</string>
     <string name="title_block">Estä %1$s</string>
     <string name="title_block_sender">Estä lähettäjä</string>
-    <string name="title_block_sender_hint">Tämä luo säännön viestien käsittelemiseksi roskapostina.
+    <string name="title_block_sender_hint">Lähettäjän estäminen luo säännön viestien käsittelemiseksi roskapostina.
         Sääntöjen luominen ja käyttö ovat pro-ominaisuuksia.    </string>
     <string name="title_notification_waiting">Odotetaan sopivaa yhteyttä</string>
     <string name="title_notification_sending">Lähetetään viestejä</string>

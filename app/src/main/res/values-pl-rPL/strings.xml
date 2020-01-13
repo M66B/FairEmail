@@ -28,11 +28,11 @@
         <item quantity="other">Wiadomości</item>
     </plurals>
     <string name="page_folders">Foldery</string>
-    <string name="page_compose">Napisz</string>
+    <string name="page_compose">Utwórz</string>
     <string name="tile_synchronize">Synchronizuj</string>
     <string name="tile_unseen">Nowe wiadomości</string>
     <string name="shortcut_refresh">Odśwież</string>
-    <string name="shortcut_compose">Napisz</string>
+    <string name="shortcut_compose">Utwórz</string>
     <string name="shortcut_setup">Ustawienia</string>
     <plurals name="title_notification_synchronizing">
         <item quantity="one">Monitorowanie %1$d konta</item>
@@ -89,6 +89,10 @@
         <item quantity="other">Traktować wiadomości %1$d jako spam?</item>
     </plurals>
     <string name="title_ask_spam_who">Traktuj wiadomość od %1$s jako spam?</string>
+    <string name="title_block">Zablokuj %1$s</string>
+    <string name="title_block_sender">Zablokuj nadawcę</string>
+    <string name="title_block_sender_hint">        Blokowanie nadawcy utworzy regułę, aby automatycznie przenosić przyszłe wiadomości do folderu spam.
+        Tworzenie i używanie reguł jest funkcją Pro.    </string>
     <string name="title_notification_waiting">Oczekiwanie na odpowiednie połączenie</string>
     <string name="title_notification_sending">Wysyłanie wiadomości</string>
     <string name="title_notification_failed">%1$s nie powiodło się</string>
@@ -172,6 +176,7 @@
     <string name="title_setup_import">Import ustawień</string>
     <string name="title_setup_import_do">Zaimportowane konta zostaną dodane bez nadpisywania istniejących</string>
     <string name="title_setup_password">Hasło</string>
+    <string name="title_setup_password_chars">Hasło zawiera znaki kontrolne lub znaki spacji</string>
     <string name="title_setup_password_repeat">Powtórz hasło</string>
     <string name="title_setup_password_missing">Brak hasła</string>
     <string name="title_setup_password_different">Hasła nie są identyczne</string>
@@ -217,6 +222,7 @@
     <string name="title_advanced_section_misc">Różne</string>
     <string name="title_advanced_receive">Odbierz wiadomości</string>
     <string name="title_advanced_when">Kiedy</string>
+    <string name="title_advanced_always">Zawsze synchronizuj te konta</string>
     <string name="title_advanced_schedule">Harmonogram</string>
     <string name="title_advanced_unseen">Wszystkie nieprzeczytane wiadomości</string>
     <string name="title_advanced_flagged">Wszystkie oznaczone wiadomości</string>
@@ -234,6 +240,8 @@
     <string name="title_advanced_quote_reply">Cytuj tekst odpowiedzi</string>
     <string name="title_advanced_plain_only">Domyślnie wysyłaj czystym tekstem</string>
     <string name="title_advanced_usenet_signature">Konwencja podpisu Usenet</string>
+    <string name="title_advanced_resize_images">Automatycznie zmień rozmiar osadzonych obrazów</string>
+    <string name="title_advanced_resize_attachments">Automatycznie zmień rozmiar załączonych obrazów</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixeli</string>
     <string name="title_advanced_lookup_mx">Sprawdź adresy e-mail odbiorcy przed wysłaniem</string>
     <string name="title_advanced_send_delayed">Opóźnij wysyłanie wiadomości</string>
@@ -327,6 +335,7 @@
     <string name="title_advanced_display_hidden">Wyświetlaj ukryte teksty wiadomości</string>
     <string name="title_advanced_encrypt_method">Domyślna metoda szyfrowania</string>
     <string name="title_advanced_openpgp">Dostawca OpenPGP</string>
+    <string name="title_advanced_autocrypt">Użyj Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Tryb automatycznego szyfrowania</string>
     <string name="title_advanced_sign_default">Domyślnie podpisuj</string>
     <string name="title_advanced_encrypt_default">Domyślnie szyfruj</string>
@@ -351,12 +360,14 @@
     <string name="title_advanced_poll_hint">Synchronizacja okresowa za każdym razem porównuje wiadomości lokalne i zdalne, co jest kosztowną operacją, która może prowadzić do dodatkowego zużycia baterii, zwłaszcza gdy jest wiele wiadomości do synchronizacji. Synchronizacja ciągła pozwoli uniknąć tego poprzez stałe monitorowanie tylko zmian.</string>
     <string name="title_advanced_schedule_hint">Dotknij zegara, aby ustawić czas</string>
     <string name="title_advanced_check_mx">Sprawdź adresy e-mail nadawcy przy synchronizowaniu wiadomości</string>
+    <string name="title_advanced_check_reply">Sprawdź adresy e-mail odpowiedzi podczas synchronizacji wiadomości</string>
     <string name="title_advanced_unseen_hint">Niektórzy dostawcy nie obsługują tego poprawnie, co może powodować brak synchronizacji lub synchronizację wszystkich wiadomości</string>
     <string name="title_advanced_sync_kept_hint">Spowoduje to użycie dodatkowych danych i zużycie dodatkowej energii baterii, zwłaszcza jeśli w urządzeniu przechowywanych jest wiele wiadomości</string>
     <string name="title_advanced_sync_folders_hint">Wyłączenie tej opcji nieco zmniejszy zużycie danych i baterii, ale wyłączy także aktualizację listy folderów</string>
     <string name="title_advanced_sync_delay_hint">Wydłuży to synchronizację wiadomości</string>
     <string name="title_advanced_suggest_local_hint">Oprócz kontaktów dostarczanych przez Androida. Dane kontaktowe będą przechowywane dla nowo wysłanych lub odebranych wiadomości tylko kiedy włączone.</string>
     <string name="title_advanced_lookup_mx_hint">To sprawdzi, czy istnieją rekordy MX DNS</string>
+    <string name="title_advanced_check_reply_hint">Spowoduje to sprawdzenie, czy nazwa domeny nadawcy i adresy odpowiedzi są takie same</string>
     <string name="title_advanced_metered_hint">Połączeniu taryfowe to głównie połączenia komórkowe lub płatne hotspoty Wi-Fi</string>
     <string name="title_advanced_metered_warning">Wyłączenie tej opcji uniemożliwi odbieranie i wysyłanie wiadomości przy użyciu komórkowego połączenia internetowego</string>
     <string name="title_advanced_rlah_hint">Zakładając brak roamingu w UE</string>
@@ -449,6 +460,7 @@
     <string name="title_no_idle">Ten dostawca nie obsługuje wiadomości push. To opóźni otrzymywanie nowych wiadomości i zwiększy zużycie baterii.</string>
     <string name="title_no_utf8">Ten dostawca nie wspiera UTF-8</string>
     <string name="title_no_sync">Błędy synchornizacji od %1$s</string>
+    <string name="title_reply_domain">Nadawca (%1$s) i domena odpowiedzi (%2$s) różnią się</string>
     <string name="title_identity_required">Do wysyłania wiadomości wymagana jest tożsamość</string>
     <string name="title_drafts_required">Folder szkiców jest wymagany do wysyłania wiadomości</string>
     <string name="title_account_delete">Usunąć to konto bezpowrotnie?</string>
@@ -456,6 +468,7 @@
     <string name="title_edit_html">Edytuj jako HTML</string>
     <string name="title_sign_key">Klucz podpisu: %1$s</string>
     <string name="title_last_connected">Ostatnio połączony: %1$s</string>
+    <string name="title_storage_quota">Wykorzystane miejsce: %1$s/%2$s</string>
     <string name="title_pop_support">Protokół POP3 obsługuje tylko pobieranie i usuwanie wiadomości ze skrzynki odbiorczej. POP3 nie może oznaczać wiadomości jako przeczytanej, przenosić wiadomości itp. POP3 zużywa więcej energii baterii i danych niż IMAP. Dlatego rozważ użycie protokołu IMAP, gdy tylko jest to możliwe.</string>
     <string name="title_oauth_support">OAuth nie jest wspierane</string>
     <string name="title_review">Przejrzyj</string>
@@ -974,6 +987,8 @@ FairEmail wyświetla o tym małą wiadomość przypominającą, która zostanie 
     <string name="title_accessibility_show_addresses">Pokaż adresy</string>
     <string name="title_accessibility_hide_addresses">Ukryj adresy</string>
     <string name="title_accessibility_attachment">Załącznik</string>
+    <string name="title_accessibility_from">Nadawca</string>
+    <string name="title_accessibility_to">Adresat</string>
     <string-array name="pollIntervalNames">
         <item>Zawsze</item>
         <item>Co 15 minut</item>
@@ -982,7 +997,7 @@ FairEmail wyświetla o tym małą wiadomość przypominającą, która zostanie 
         <item>Co 2 godziny</item>
         <item>Co 4 godziny</item>
         <item>Co 8 godzin</item>
-        <item>Every day</item>
+        <item>Codziennie</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Brak</item>
