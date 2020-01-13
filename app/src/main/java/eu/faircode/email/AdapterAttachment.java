@@ -210,7 +210,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
         }
 
         private void onShare(EntityAttachment attachment) {
-            Helper.share(context, attachment.getFile(context), attachment.type, attachment.name);
+            Helper.share(context, attachment.getFile(context), attachment.getMimeType(), attachment.name);
         }
 
         private void onDownload(EntityAttachment attachment) {
