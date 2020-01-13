@@ -792,6 +792,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                 Intent update = new Intent(Intent.ACTION_VIEW, Uri.parse(info.html_url));
                 if (update.resolveActivity(getPackageManager()) != null) {
+                    update.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     PendingIntent piUpdate = PendingIntent.getActivity(
                             ActivityView.this, REQUEST_UPDATE, update, PendingIntent.FLAG_UPDATE_CURRENT);
                     builder.setContentIntent(piUpdate);
@@ -860,11 +861,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     Helper.viewFAQ(this, 2);
                 }
 
-            } else if ("alert".equals(action)) {
+            } else if ("alert".equals(action) || "error".equals(action)) {
                 if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                     getSupportFragmentManager().popBackStack("unified", 0);
 
-                Helper.viewFAQ(this, 23);
+                Helper.viewFAQ(this, "alert".equals(action) ? 23 : 22);
 
             } else if ("outbox".equals(action))
                 onMenuOutbox();

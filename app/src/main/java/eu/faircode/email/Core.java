@@ -2795,6 +2795,7 @@ class Core {
             // Build pending intents
             Intent unified = new Intent(context, ActivityView.class)
                     .setAction("unified" + (notify_remove ? ":" + group : ""));
+            unified.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             PendingIntent piUnified = PendingIntent.getActivity(context, ActivityView.REQUEST_UNIFIED, unified, PendingIntent.FLAG_UPDATE_CURRENT);
 
             Intent clear = new Intent(context, ServiceUI.class).setAction("clear:" + group);
@@ -3211,6 +3212,7 @@ class Core {
     static NotificationCompat.Builder getNotificationError(Context context, String channel, String title, Throwable ex) {
         // Build pending intent
         Intent intent = new Intent(context, ActivityView.class);
+        intent.setAction("error");
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         PendingIntent pi = PendingIntent.getActivity(
                 context, ActivityView.REQUEST_ERROR, intent, PendingIntent.FLAG_UPDATE_CURRENT);
