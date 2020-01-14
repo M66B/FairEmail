@@ -641,6 +641,35 @@ public class MessageHelper {
 
     String[] getReferences() throws MessagingException {
         String refs = imessage.getHeader("References", null);
+
+        try {
+            // Merge references of original message for threading
+            if (imessage.isMimeType("multipart/report")) {
+                ContentType ct = new ContentType(imessage.getContentType());
+                if ("delivery-status".equalsIgnoreCase(ct.getParameter("report-type"))) {
+                    MessageParts parts = new MessageParts();
+                    getMessageParts(imessage, parts, null);
+                    for (AttachmentPart apart : parts.attachments)
+                        if ("message/rfc822".equalsIgnoreCase(apart.attachment.type)) {
+                            Properties props = MessageHelper.getSessionProperties();
+                            Session isession = Session.getInstance(props, null);
+                            MimeMessage amessage = new MimeMessage(isession, apart.part.getInputStream());
+                            String arefs = amessage.getHeader("References", null);
+                            if (arefs != null) {
+                                Log.i("rfc822 refs=" + arefs);
+                                if (refs == null)
+                                    refs = arefs;
+                                else
+                                    refs += " " + arefs;
+                            }
+                            break;
+                        }
+                }
+            }
+        } catch (Throwable ex) {
+            Log.w(ex);
+        }
+
         return (refs == null ? new String[0] : MimeUtility.unfold(refs).split("\\s+"));
     }
 
