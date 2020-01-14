@@ -80,6 +80,15 @@ public class EmailProvider {
     private static final int SCAN_TIMEOUT = 5 * 1000; // milliseconds
     private static final int ISPDB_TIMEOUT = 15 * 1000; // milliseconds
 
+    private static final List<String> PROPRIETARY = Collections.unmodifiableList(Arrays.asList(
+            "protonmail.ch",
+            "protonmail.com",
+            "tutanota.com",
+            "tutanota.de",
+            "tutamail.com", // tutanota
+            "tuta.io", // tutanota
+            "keemailme" // tutanota
+    ));
     private static final ExecutorService executor =
             Helper.getBackgroundExecutor(0, "provider");
 
@@ -193,6 +202,9 @@ public class EmailProvider {
         String domain = (at < 0 ? email : email.substring(at + 1));
         if (at < 0)
             email = "someone@" + domain;
+
+        if (PROPRIETARY.contains(domain))
+            throw new IllegalArgumentException(context.getString(R.string.title_no_standard));
 
         List<EmailProvider> providers = loadProfiles(context);
         for (EmailProvider provider : providers)
