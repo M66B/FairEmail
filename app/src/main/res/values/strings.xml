@@ -382,6 +382,7 @@
     <string name="title_advanced_aes_key_size" translatable="false">Max AES key size: %1$d</string>
 
     <string name="title_advanced_external_search">Allow other apps to search in messages</string>
+    <string name="title_advanced_fts">Full text search</string>
     <string name="title_advanced_english">Force English language</string>
     <string name="title_advanced_watchdog">Periodically check if FairEmail is still active</string>
     <string name="title_advanced_updates">Check for updates</string>
@@ -403,6 +404,7 @@
     <string name="title_advanced_unseen_hint">Some providers don\'t support this properly, which may cause synchronizing none or all messages</string>
     <string name="title_advanced_sync_kept_hint">This will transfer extra data and consume extra battery power, especially if a lot of messages are stored on the device</string>
     <string name="title_advanced_sync_folders_hint">Disabling this will reduce data and battery usage somewhat, but will disable updating the list of folders too</string>
+    <string name="title_advanced_subscribed_only_hint">Enabling this will delete all local folders without subscription</string>
     <string name="title_advanced_sync_delay_hint">This will slow down synchronizing messages</string>
 
     <string name="title_advanced_suggest_local_hint">In addition to contacts provided by Android. Contact data will be stored for newly sent or received messages only when enabled.</string>
@@ -443,7 +445,7 @@
     <string name="title_advanced_notify_no_grouping">This Android version does not support notification grouping</string>
     <string name="title_advanced_notify_no_channels">This Android version does not support notification channels</string>
 
-    <string name="title_advanced_subscribed_only_hint">Enabling this will delete all local folders without subscription</string>
+    <string name="title_advanced_fts_hint">Enabling this will increase search performance, but also increase battery usage and uses more storage space</string>
     <string name="title_advanced_english_hint">This will restart the app</string>
     <string name="title_advanced_experiments_hint">List of current experimental features</string>
     <string name="title_advanced_debug_hint">Enable extra logging and show debug information at various places</string>

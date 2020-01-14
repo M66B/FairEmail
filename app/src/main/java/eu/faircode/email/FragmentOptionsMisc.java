@@ -47,6 +47,7 @@ import androidx.preference.PreferenceManager;
 
 public class FragmentOptionsMisc extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private SwitchCompat swExternalSearch;
+    private SwitchCompat swFts;
     private SwitchCompat swEnglish;
     private SwitchCompat swWatchdog;
     private SwitchCompat swUpdates;
@@ -67,7 +68,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private Group grpDebug;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "english", "watchdog", "updates", "experiments", "crash_reports", "debug"
+            "fts", "english", "watchdog", "updates", "experiments", "crash_reports", "debug"
     };
 
     private final static String[] RESET_QUESTIONS = new String[]{
@@ -88,6 +89,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         // Get controls
 
         swExternalSearch = view.findViewById(R.id.swExternalSearch);
+        swFts = view.findViewById(R.id.swFts);
         swEnglish = view.findViewById(R.id.swEnglish);
         swWatchdog = view.findViewById(R.id.swWatchdog);
         swUpdates = view.findViewById(R.id.swUpdates);
@@ -123,6 +125,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                                 ? PackageManager.COMPONENT_ENABLED_STATE_DEFAULT
                                 : PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
                         PackageManager.DONT_KILL_APP);
+            }
+        });
+
+        swFts.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("fts", checked).apply();
             }
         });
 
@@ -298,6 +307,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         int state = pm.getComponentEnabledSetting(new ComponentName(getContext(), ActivitySearch.class));
 
         swExternalSearch.setChecked(state != PackageManager.COMPONENT_ENABLED_STATE_DISABLED);
+        swFts.setChecked(prefs.getBoolean("fts", false));
         swEnglish.setChecked(prefs.getBoolean("english", false));
         swWatchdog.setChecked(prefs.getBoolean("watchdog", true));
         swUpdates.setChecked(prefs.getBoolean("updates", true));

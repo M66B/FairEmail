@@ -182,6 +182,32 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         }
 
         int found = 0;
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean fts = prefs.getBoolean("fts", false);
+        if (fts &&
+                (find == null || !find.startsWith(context.getString(R.string.title_search_special_prefix) + ":"))) {
+            if (state.ids == null) {
+                FtsDbHelper ftsDb = new FtsDbHelper(context);
+                state.ids = ftsDb.match(query);
+            }
+
+            try {
+                db.beginTransaction();
+
+                for (; state.index < state.ids.size() && found < pageSize && !state.destroyed; state.index++) {
+                    found++;
+                    db.message().setMessageFound(state.ids.get(state.index));
+                }
+                db.setTransactionSuccessful();
+
+            } finally {
+                db.endTransaction();
+            }
+
+            return found;
+        }
+
         try {
             db.beginTransaction();
 
@@ -546,6 +572,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         boolean error = false;
         int index = 0;
         int offset = 0;
+        List<Long> ids = null;
         List<TupleMatch> matches = null;
 
         MailService iservice = null;

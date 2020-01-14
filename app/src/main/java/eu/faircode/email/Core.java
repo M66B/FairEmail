@@ -2240,6 +2240,12 @@ class Core {
                     Log.i(folder.name + " inline downloaded message id=" + message.id +
                             " size=" + message.size + "/" + (body == null ? null : body.length()));
 
+                    boolean fts = prefs.getBoolean("fts", false);
+                    if (fts) {
+                        FtsDbHelper ftsDb = new FtsDbHelper(context);
+                        ftsDb.insert(message, HtmlHelper.getText(body));
+                    }
+
                     Long size = parts.getBodySize();
                     if (TextUtils.isEmpty(body) && size != null && size > 0)
                         reportEmptyMessage(context, account, istore);
@@ -2566,6 +2572,12 @@ class Core {
                             parts.getWarnings(message.warning));
                     Log.i(folder.name + " downloaded message id=" + message.id +
                             " size=" + message.size + "/" + (body == null ? null : body.length()));
+
+                    boolean fts = prefs.getBoolean("fts", false);
+                    if (fts) {
+                        FtsDbHelper ftsDb = new FtsDbHelper(context);
+                        ftsDb.insert(message, HtmlHelper.getText(body));
+                    }
 
                     Long size = parts.getBodySize();
                     if (TextUtils.isEmpty(body) && size != null && size > 0)
