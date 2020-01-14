@@ -970,6 +970,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     bindExpanded(message, false);
                 else
                     clearExpanded(message);
+
+            if (properties.getValue("raw_save", message.id)) {
+                properties.setValue("raw_save", message.id, false);
+                onMenuRawSave(message);
+            }
+
+            if (properties.getValue("raw_send", message.id)) {
+                properties.setValue("raw_send", message.id, false);
+                onMenuRawSend(message);
+            }
         }
 
         private void clearExpanded(TupleMessageEx message) {
@@ -3129,14 +3139,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_show_headers).setEnabled(message.uid != null);
             popupMenu.getMenu().findItem(R.id.menu_show_headers).setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
 
-            popupMenu.getMenu().findItem(R.id.menu_raw_download).setEnabled(
-                    message.uid != null && (message.raw == null || !message.raw));
-            popupMenu.getMenu().findItem(R.id.menu_raw_save).setEnabled(
-                    message.uid != null && (message.raw != null && message.raw));
-            popupMenu.getMenu().findItem(R.id.menu_raw_send).setEnabled(
-                    message.uid != null && (message.raw != null && message.raw));
+            popupMenu.getMenu().findItem(R.id.menu_raw_save).setEnabled(message.uid != null);
+            popupMenu.getMenu().findItem(R.id.menu_raw_send).setEnabled(message.uid != null);
 
-            popupMenu.getMenu().findItem(R.id.menu_raw_download).setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
             popupMenu.getMenu().findItem(R.id.menu_raw_save).setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
             popupMenu.getMenu().findItem(R.id.menu_raw_send).setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
 
@@ -3182,9 +3187,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             return true;
                         case R.id.menu_show_headers:
                             onMenuShowHeaders(message);
-                            return true;
-                        case R.id.menu_raw_download:
-                            onMenuRawDownload(message);
                             return true;
                         case R.id.menu_raw_save:
                             onMenuRawSave(message);
@@ -3668,7 +3670,35 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 bindExpanded(message, false);
         }
 
-        private void onMenuRawDownload(TupleMessageEx message) {
+        private void onMenuRawSave(TupleMessageEx message) {
+            if (message.raw == null || !message.raw) {
+                properties.setValue("raw_save", message.id, true);
+                rawDownload(message);
+            } else {
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                lbm.sendBroadcast(
+                        new Intent(FragmentMessages.ACTION_STORE_RAW)
+                                .putExtra("id", message.id));
+            }
+        }
+
+        private void onMenuRawSend(TupleMessageEx message) {
+            if (message.raw == null || !message.raw) {
+                properties.setValue("raw_send", message.id, true);
+                rawDownload(message);
+            } else {
+                File file = message.getRawFile(context);
+                Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
+
+                Intent send = new Intent(Intent.ACTION_SEND);
+                send.putExtra(Intent.EXTRA_STREAM, uri);
+                send.setType("message/rfc822");
+                send.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                context.startActivity(send);
+            }
+        }
+
+        private void rawDownload(TupleMessageEx message) {
             Bundle args = new Bundle();
             args.putLong("id", message.id);
 
@@ -3701,7 +3731,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onExecuted(Bundle args, Void data) {
-                    ToastEx.makeText(context, R.string.title_executing, Toast.LENGTH_LONG).show();
+                    ToastEx.makeText(context, R.string.title_download_message, Toast.LENGTH_LONG).show();
                 }
 
                 @Override
@@ -3709,24 +3739,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "message:raw");
-        }
-
-        private void onMenuRawSave(TupleMessageEx message) {
-            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-            lbm.sendBroadcast(
-                    new Intent(FragmentMessages.ACTION_STORE_RAW)
-                            .putExtra("id", message.id));
-        }
-
-        private void onMenuRawSend(TupleMessageEx message) {
-            File file = message.getRawFile(context);
-            Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
-
-            Intent send = new Intent(Intent.ACTION_SEND);
-            send.putExtra(Intent.EXTRA_STREAM, uri);
-            send.setType("message/rfc822");
-            send.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-            context.startActivity(send);
         }
 
         ItemDetailsLookup.ItemDetails<Long> getItemDetails(@NonNull MotionEvent motionEvent) {

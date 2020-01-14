@@ -54,10 +54,6 @@
         android:title="@string/title_show_headers" />
 
     <item
-        android:id="@+id/menu_raw_download"
-        android:title="@string/title_raw_download" />
-
-    <item
         android:id="@+id/menu_raw_save"
         android:enabled="false"
         android:title="@string/title_raw_save" />
