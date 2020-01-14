@@ -76,6 +76,7 @@ import javax.mail.Session;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.ContentType;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.InternetHeaders;
 import javax.mail.internet.MailDateFormat;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
@@ -640,37 +641,59 @@ public class MessageHelper {
     }
 
     String[] getReferences() throws MessagingException {
+        List<String> result = new ArrayList<>();
         String refs = imessage.getHeader("References", null);
+        if (refs != null)
+            result.addAll(Arrays.asList(MimeUtility.unfold(refs).split("\\s+")));
 
         try {
             // Merge references of original message for threading
             if (imessage.isMimeType("multipart/report")) {
                 ContentType ct = new ContentType(imessage.getContentType());
-                if ("delivery-status".equalsIgnoreCase(ct.getParameter("report-type"))) {
+                String reportType = ct.getParameter("report-type");
+                if ("delivery-status".equalsIgnoreCase(reportType) ||
+                        "disposition-notification".equalsIgnoreCase(reportType)) {
+                    String amsgid = null;
+                    String arefs = null;
+
                     MessageParts parts = new MessageParts();
                     getMessageParts(imessage, parts, null);
                     for (AttachmentPart apart : parts.attachments)
-                        if ("message/rfc822".equalsIgnoreCase(apart.attachment.type)) {
+                        if ("text/rfc822-headers".equalsIgnoreCase(apart.attachment.type)) {
+                            InternetHeaders iheaders = new InternetHeaders(apart.part.getInputStream());
+                            amsgid = iheaders.getHeader("Message-Id", null);
+                            arefs = iheaders.getHeader("References", null);
+                            break;
+                        } else if ("message/rfc822".equalsIgnoreCase(apart.attachment.type)) {
                             Properties props = MessageHelper.getSessionProperties();
                             Session isession = Session.getInstance(props, null);
                             MimeMessage amessage = new MimeMessage(isession, apart.part.getInputStream());
-                            String arefs = amessage.getHeader("References", null);
-                            if (arefs != null) {
-                                Log.i("rfc822 refs=" + arefs);
-                                if (refs == null)
-                                    refs = arefs;
-                                else
-                                    refs += " " + arefs;
-                            }
+                            amsgid = amessage.getHeader("Message-Id", null);
+                            arefs = amessage.getHeader("References", null);
                             break;
                         }
+
+                    if (amsgid != null) {
+                        String msgid = MimeUtility.unfold(amsgid);
+                        if (!result.contains(msgid)) {
+                            Log.i("rfc822 id=" + msgid);
+                            result.add(msgid);
+                        }
+                    }
+
+                    if (arefs != null)
+                        for (String ref : MimeUtility.unfold(arefs).split("\\s+"))
+                            if (!result.contains(ref)) {
+                                Log.i("rfc822 ref=" + ref);
+                                result.add(ref);
+                            }
                 }
             }
         } catch (Throwable ex) {
             Log.w(ex);
         }
 
-        return (refs == null ? new String[0] : MimeUtility.unfold(refs).split("\\s+"));
+        return result.toArray(new String[0]);
     }
 
     String getDeliveredTo() throws MessagingException {
