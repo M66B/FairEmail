@@ -153,8 +153,8 @@ public class EntityOperation {
                 boolean autoread = prefs.getBoolean("autoread", false);
                 boolean autounflag = prefs.getBoolean("autounflag", false);
 
-                if (jargs.optBoolean(1)) // rule
-                    autoread = true;
+                if (jargs.opt(1) != null) // rules
+                    autoread = jargs.getBoolean(1);
                 jargs.put(1, autoread);
                 jargs.put(3, autounflag);
 
