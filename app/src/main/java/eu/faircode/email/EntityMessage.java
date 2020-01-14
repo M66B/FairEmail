@@ -154,6 +154,8 @@ public class EntityMessage implements Serializable {
     @NonNull
     public Integer notifying = 0;
     @NonNull
+    public Boolean fts = false;
+    @NonNull
     public Boolean ui_seen = false;
     @NonNull
     public Boolean ui_answered = false;

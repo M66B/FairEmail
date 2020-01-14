@@ -959,6 +959,8 @@ class Core {
             int count = ifolder.getMessageCount();
             db.folder().setFolderTotal(folder.id, count < 0 ? null : count);
         }
+
+        WorkerFts.init(context);
     }
 
     private static void onDelete(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException {
@@ -1986,6 +1988,8 @@ class Core {
             Log.i(folder.name + " end sync state=" + state);
             db.folder().setFolderSyncState(folder.id, null);
         }
+
+        WorkerFts.init(context);
     }
 
     static EntityMessage synchronizeMessage(
@@ -2239,12 +2243,6 @@ class Core {
                             parts.getWarnings(message.warning));
                     Log.i(folder.name + " inline downloaded message id=" + message.id +
                             " size=" + message.size + "/" + (body == null ? null : body.length()));
-
-                    boolean fts = prefs.getBoolean("fts", false);
-                    if (fts) {
-                        FtsDbHelper ftsDb = new FtsDbHelper(context);
-                        ftsDb.insert(message, HtmlHelper.getText(body));
-                    }
 
                     Long size = parts.getBodySize();
                     if (TextUtils.isEmpty(body) && size != null && size > 0)
@@ -2572,12 +2570,6 @@ class Core {
                             parts.getWarnings(message.warning));
                     Log.i(folder.name + " downloaded message id=" + message.id +
                             " size=" + message.size + "/" + (body == null ? null : body.length()));
-
-                    boolean fts = prefs.getBoolean("fts", false);
-                    if (fts) {
-                        FtsDbHelper ftsDb = new FtsDbHelper(context);
-                        ftsDb.insert(message, HtmlHelper.getText(body));
-                    }
 
                     Long size = parts.getBodySize();
                     if (TextUtils.isEmpty(body) && size != null && size > 0)

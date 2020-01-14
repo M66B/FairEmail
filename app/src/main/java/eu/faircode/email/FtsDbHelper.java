@@ -45,7 +45,7 @@ public class FtsDbHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         Log.i("FTS create");
-        db.execSQL("CREATE VIRTUAL TABLE `message` USING fts4(`time`, `address`, `subject`, `keyword`, `text`)");
+        db.execSQL("CREATE VIRTUAL TABLE `message` USING fts4(`folder`, `time`, `address`, `subject`, `keyword`, `text`)");
     }
 
     @Override
@@ -53,7 +53,7 @@ public class FtsDbHelper extends SQLiteOpenHelper {
         // Do nothing
     }
 
-    void insert(EntityMessage message, String text) {
+    void insert(SQLiteDatabase db, EntityMessage message, String text) {
         Log.i("FTS insert id=" + message.id + " subject=" + message.subject + " text=" + text);
         List<Address> address = new ArrayList<>();
         if (message.from != null)
@@ -63,39 +63,39 @@ public class FtsDbHelper extends SQLiteOpenHelper {
         if (message.cc != null)
             address.addAll(Arrays.asList(message.cc));
 
-        try (SQLiteDatabase db = getWritableDatabase()) {
-            try {
-                db.beginTransaction();
+        try {
+            db.beginTransaction();
 
-                db.delete("message", "docid = ?", new Object[]{message.id});
+            db.delete("message", "docid = ?", new Object[]{message.id});
 
-                ContentValues cv = new ContentValues();
-                cv.put("docid", message.id);
-                cv.put("time", message.received);
-                cv.put("address", MessageHelper.formatAddresses(address.toArray(new Address[0]), true, false));
-                cv.put("subject", message.subject == null ? "" : message.subject);
-                cv.put("keyword", TextUtils.join(", ", message.keywords));
-                cv.put("text", text);
-                db.insert("message", SQLiteDatabase.CONFLICT_FAIL, cv);
+            ContentValues cv = new ContentValues();
+            cv.put("docid", message.id);
+            cv.put("folder", message.folder);
+            cv.put("time", message.received);
+            cv.put("address", MessageHelper.formatAddresses(address.toArray(new Address[0]), true, false));
+            cv.put("subject", message.subject == null ? "" : message.subject);
+            cv.put("keyword", TextUtils.join(", ", message.keywords));
+            cv.put("text", text);
+            db.insert("message", SQLiteDatabase.CONFLICT_FAIL, cv);
 
-                db.setTransactionSuccessful();
-            } finally {
-                db.endTransaction();
-            }
+            db.setTransactionSuccessful();
+        } catch (Throwable ex) {
+            Log.e(ex);
+        } finally {
+            db.endTransaction();
         }
     }
 
-    List<Long> match(String search) {
-        Log.i("FTS search=" + search);
+    List<Long> match(SQLiteDatabase db, Long folder, String search) {
+        Log.i("FTS folder=" + folder + " search=" + search);
         List<Long> result = new ArrayList<>();
-        try (SQLiteDatabase db = getReadableDatabase()) {
-            try (Cursor cursor = db.query(
-                    "message", new String[]{"docid"},
-                    "message MATCH ?", new Object[]{search},
-                    null, null, "time DESC", null)) {
-                while (cursor != null && cursor.moveToNext())
-                    result.add(cursor.getLong(0));
-            }
+        try (Cursor cursor = db.query(
+                "message", new String[]{"docid"},
+                folder == null ? "message MATCH ?" : "folder = ? AND message MATCH ?",
+                folder == null ? new Object[]{search} : new Object[]{folder, search},
+                null, null, "time DESC", null)) {
+            while (cursor != null && cursor.moveToNext())
+                result.add(cursor.getLong(0));
         }
         Log.i("FTS result=" + result.size());
         return result;

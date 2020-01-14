@@ -65,6 +65,8 @@ import javax.mail.search.RecipientStringTerm;
 import javax.mail.search.SearchTerm;
 import javax.mail.search.SubjectTerm;
 
+import io.requery.android.database.sqlite.SQLiteDatabase;
+
 public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMessageEx> {
     private Context context;
     private Long folder;
@@ -189,7 +191,9 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 (find == null || !find.startsWith(context.getString(R.string.title_search_special_prefix) + ":"))) {
             if (state.ids == null) {
                 FtsDbHelper ftsDb = new FtsDbHelper(context);
-                state.ids = ftsDb.match(query);
+                try (SQLiteDatabase sdb = ftsDb.getReadableDatabase()) {
+                    state.ids = ftsDb.match(sdb, folder, query);
+                }
             }
 
             try {

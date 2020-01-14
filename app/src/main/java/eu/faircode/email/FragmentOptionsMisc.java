@@ -132,6 +132,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("fts", checked).apply();
+                WorkerFts.init(getContext());
             }
         });
 

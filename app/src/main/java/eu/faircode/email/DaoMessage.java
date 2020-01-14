@@ -227,6 +227,11 @@ public interface DaoMessage {
             " ORDER BY message.received DESC")
     List<Long> getMessageIdsByFolder(Long folder);
 
+    @Query("SELECT id FROM message" +
+            " WHERE content AND NOT fts" +
+            " ORDER BY message.received DESC")
+    Cursor getMessageFts();
+
     @Query("SELECT id, account, thread, (:find IS NULL" +
             " OR `from` LIKE :find COLLATE NOCASE" +
             " OR `to` LIKE :find COLLATE NOCASE" +
@@ -436,6 +441,9 @@ public interface DaoMessage {
 
     @Query("UPDATE message SET notifying = :notifying WHERE id = :id")
     int setMessageNotifying(long id, int notifying);
+
+    @Query("UPDATE message SET fts = :fts WHERE id = :id")
+    int setMessageFts(long id, boolean fts);
 
     @Query("UPDATE message SET received = :received WHERE id = :id")
     int setMessageReceived(long id, long received);
