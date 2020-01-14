@@ -1604,7 +1604,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         ServiceUI.schedule(context, enabled);
     }
 
-    private static long[] getSchedule(Context context) {
+    static long[] getSchedule(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         if (!prefs.getBoolean("schedule", false))
             return null;

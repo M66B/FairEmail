@@ -459,10 +459,14 @@ public class ServiceUI extends IntentService {
             db.endTransaction();
         }
 
-        if (reschedule)
-            schedule(this, true);
-
         ServiceSynchronize.eval(this, "poll");
+
+        if (reschedule) {
+            long now = new Date().getTime();
+            long[] schedule = ServiceSynchronize.getSchedule(this);
+            boolean enabled = (schedule == null || (now >= schedule[0] && now < schedule[1]));
+            schedule(this, enabled);
+        }
     }
 
     private void onBanner() {
