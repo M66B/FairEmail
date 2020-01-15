@@ -32,6 +32,8 @@ import androidx.work.Worker;
 import androidx.work.WorkerParameters;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import io.requery.android.database.sqlite.SQLiteDatabase;
@@ -40,6 +42,7 @@ import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 
 public class WorkerFts extends Worker {
     private static final int INDEX_DELAY = 30; // seconds
+    private static final int INDEX_BATCH_SIZE = 500;
 
     public WorkerFts(@NonNull Context context, @NonNull WorkerParameters workerParams) {
         super(context, workerParams);
@@ -55,24 +58,32 @@ public class WorkerFts extends Worker {
             Log.i("FTS index");
 
             int indexed = 0;
+            List<Long> ids = new ArrayList<>(INDEX_BATCH_SIZE);
             DB db = DB.getInstance(getApplicationContext());
             SQLiteDatabase sdb = FtsDbHelper.getInstance(getApplicationContext());
             try (Cursor cursor = db.message().getMessageFts()) {
                 while (cursor.moveToNext()) {
-                    EntityMessage message = db.message().getMessage(cursor.getLong(0));
+                    long id = cursor.getLong(0);
+                    EntityMessage message = db.message().getMessage(id);
                     if (message != null)
                         try {
                             Log.i("FTS index=" + message.id);
+
                             File file = message.getFile(getApplicationContext());
                             String html = Helper.readText(file);
                             String text = HtmlHelper.getText(html);
                             FtsDbHelper.insert(sdb, message, text);
-                            db.message().setMessageFts(message.id, true);
+
                             indexed++;
+
+                            ids.add(id);
+                            if (ids.size() > INDEX_BATCH_SIZE)
+                                markIndexed(db, ids);
                         } catch (Throwable ex) {
                             Log.e(ex);
                         }
                 }
+                markIndexed(db, ids);
             }
 
             Log.i("FTS indexed=" + indexed);
@@ -81,6 +92,18 @@ public class WorkerFts extends Worker {
             Log.e(ex);
             return Result.failure();
         }
+    }
+
+    private void markIndexed(DB db, List<Long> ids) {
+        try {
+            db.beginTransaction();
+            for (Long id : ids)
+                db.message().setMessageFts(id, true);
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
+        ids.clear();
     }
 
     static void init(Context context, boolean immediately) {
