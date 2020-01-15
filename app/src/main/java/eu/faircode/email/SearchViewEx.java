@@ -49,9 +49,6 @@ public class SearchViewEx extends SearchView {
         setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextChange(String newText) {
-                if (newText.equals(_searching))
-                    return true;
-
                 _searching = newText;
                 intf.onSave(_searching);
 
