@@ -189,10 +189,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         boolean fts = prefs.getBoolean("fts", false);
         if (fts && seen == null && flagged == null && snoozed == null && encrypted == null) {
             if (state.ids == null) {
-                FtsDbHelper ftsDb = new FtsDbHelper(context);
-                try (SQLiteDatabase sdb = ftsDb.getReadableDatabase()) {
-                    state.ids = ftsDb.match(sdb, folder, query);
-                }
+                SQLiteDatabase sdb = FtsDbHelper.getInstance(context);
+                state.ids = FtsDbHelper.match(sdb, folder, query);
             }
 
             try {

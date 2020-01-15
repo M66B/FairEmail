@@ -195,17 +195,15 @@ public class WorkerCleanup extends Worker {
 
             Log.i("Cleanup FTS");
             int fts = 0;
-            FtsDbHelper ftsDb = new FtsDbHelper(context);
-            try (SQLiteDatabase sdb = ftsDb.getWritableDatabase()) {
-                try (Cursor cursor = ftsDb.getIds(sdb)) {
-                    while (cursor.moveToNext()) {
-                        long rowid = cursor.getLong(0);
-                        EntityMessage message = db.message().getMessage(rowid);
-                        if (message == null) {
-                            Log.i("Deleting rowid" + rowid);
-                            ftsDb.delete(sdb, rowid);
-                            fts++;
-                        }
+            SQLiteDatabase sdb = FtsDbHelper.getInstance(context);
+            try (Cursor cursor = FtsDbHelper.getIds(sdb)) {
+                while (cursor.moveToNext()) {
+                    long rowid = cursor.getLong(0);
+                    EntityMessage message = db.message().getMessage(rowid);
+                    if (message == null) {
+                        Log.i("Deleting rowid" + rowid);
+                        FtsDbHelper.delete(sdb, rowid);
+                        fts++;
                     }
                 }
             }

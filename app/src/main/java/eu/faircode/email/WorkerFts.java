@@ -55,24 +55,23 @@ public class WorkerFts extends Worker {
             Log.i("FTS index");
 
             int indexed = 0;
-            FtsDbHelper ftsDb = new FtsDbHelper(getApplicationContext());
-            try (SQLiteDatabase sdb = ftsDb.getWritableDatabase()) {
-                DB db = DB.getInstance(getApplicationContext());
-                try (Cursor cursor = db.message().getMessageFts()) {
-                    while (cursor.moveToNext()) {
-                        EntityMessage message = db.message().getMessage(cursor.getLong(0));
-                        if (message != null)
-                            try {
-                                Log.i("FTS index=" + message.id);
-                                File file = message.getFile(getApplicationContext());
-                                String html = Helper.readText(file);
-                                ftsDb.insert(sdb, message, HtmlHelper.getText(html));
-                                db.message().setMessageFts(message.id, true);
-                                indexed++;
-                            } catch (Throwable ex) {
-                                Log.e(ex);
-                            }
-                    }
+            DB db = DB.getInstance(getApplicationContext());
+            SQLiteDatabase sdb = FtsDbHelper.getInstance(getApplicationContext());
+            try (Cursor cursor = db.message().getMessageFts()) {
+                while (cursor.moveToNext()) {
+                    EntityMessage message = db.message().getMessage(cursor.getLong(0));
+                    if (message != null)
+                        try {
+                            Log.i("FTS index=" + message.id);
+                            File file = message.getFile(getApplicationContext());
+                            String html = Helper.readText(file);
+                            String text = HtmlHelper.getText(html);
+                            FtsDbHelper.insert(sdb, message, text);
+                            db.message().setMessageFts(message.id, true);
+                            indexed++;
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        }
                 }
             }
 
