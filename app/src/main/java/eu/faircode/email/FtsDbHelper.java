@@ -89,7 +89,17 @@ public class FtsDbHelper extends SQLiteOpenHelper {
         db.delete("message", "rowid = ?", new Object[]{id});
     }
 
-    static List<Long> match(SQLiteDatabase db, Long folder, String search) {
+    static List<Long> match(SQLiteDatabase db, Long folder, String query) {
+        String[] parts = query.split("\\s+");
+        StringBuilder sb = new StringBuilder();
+        for (String part : parts) {
+            if (sb.length() > 0)
+                sb.append(" AND ");
+            part = part.replaceAll("\"", "\"\"");
+            sb.append("\"").append(part).append("\"");
+        }
+
+        String search = sb.toString();
         Log.i("FTS folder=" + folder + " search=" + search);
         List<Long> result = new ArrayList<>();
         try (Cursor cursor = db.query(
