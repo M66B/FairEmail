@@ -5466,6 +5466,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 // https://developer.android.com/training/printing/html-docs.html
                 printWebView = new WebView(getContext());
                 WebSettings settings = printWebView.getSettings();
+                settings.setLoadsImagesAutomatically(true);
                 settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
                 settings.setAllowFileAccess(false);
 
