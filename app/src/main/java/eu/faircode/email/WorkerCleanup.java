@@ -199,11 +199,11 @@ public class WorkerCleanup extends Worker {
             try (SQLiteDatabase sdb = ftsDb.getWritableDatabase()) {
                 try (Cursor cursor = ftsDb.getIds(sdb)) {
                     while (cursor.moveToNext()) {
-                        long docid = cursor.getLong(0);
-                        EntityMessage message = db.message().getMessage(docid);
+                        long rowid = cursor.getLong(0);
+                        EntityMessage message = db.message().getMessage(rowid);
                         if (message == null) {
-                            Log.i("Deleting docid" + docid);
-                            ftsDb.delete(sdb, docid);
+                            Log.i("Deleting rowid" + rowid);
+                            ftsDb.delete(sdb, rowid);
                             fts++;
                         }
                     }

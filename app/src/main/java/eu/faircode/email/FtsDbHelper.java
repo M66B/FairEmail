@@ -33,8 +33,8 @@ import javax.mail.Address;
 import io.requery.android.database.sqlite.SQLiteDatabase;
 import io.requery.android.database.sqlite.SQLiteOpenHelper;
 
+// https://www.sqlite.org/fts5.html
 public class FtsDbHelper extends SQLiteOpenHelper {
-    // https://www.sqlite.org/fts3.html
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "fts.db";
 
@@ -46,7 +46,7 @@ public class FtsDbHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         Log.i("FTS create");
         db.execSQL("CREATE VIRTUAL TABLE `message`" +
-                " USING fts4(`folder`, `time`, `address`, `subject`, `keyword`, `text`)");
+                " USING fts5 (`folder` UNINDEXED, `time` UNINDEXED, `address`, `subject`, `keyword`, `text`)");
     }
 
     @Override
@@ -70,7 +70,7 @@ public class FtsDbHelper extends SQLiteOpenHelper {
             delete(db, message.id);
 
             ContentValues cv = new ContentValues();
-            cv.put("docid", message.id);
+            cv.put("rowid", message.id);
             cv.put("folder", message.folder);
             cv.put("time", message.received);
             cv.put("address", MessageHelper.formatAddresses(address.toArray(new Address[0]), true, false));
@@ -88,14 +88,14 @@ public class FtsDbHelper extends SQLiteOpenHelper {
     }
 
     void delete(SQLiteDatabase db, long id) {
-        db.delete("message", "docid = ?", new Object[]{id});
+        db.delete("message", "rowid = ?", new Object[]{id});
     }
 
     List<Long> match(SQLiteDatabase db, Long folder, String search) {
         Log.i("FTS folder=" + folder + " search=" + search);
         List<Long> result = new ArrayList<>();
         try (Cursor cursor = db.query(
-                "message", new String[]{"docid"},
+                "message", new String[]{"rowid"},
                 folder == null ? "message MATCH ?" : "folder = ? AND message MATCH ?",
                 folder == null ? new Object[]{search} : new Object[]{folder, search},
                 null, null, "time DESC", null)) {
@@ -108,7 +108,7 @@ public class FtsDbHelper extends SQLiteOpenHelper {
 
     Cursor getIds(SQLiteDatabase db) {
         return db.query(
-                "message", new String[]{"docid"},
+                "message", new String[]{"rowid"},
                 null, null,
                 null, null, "time");
     }

@@ -238,7 +238,7 @@ public interface DaoMessage {
             " WHERE content" +
             " AND NOT fts" +
             " AND folder.type <> '" + EntityFolder.OUTBOX + "'" +
-            " ORDER BY message.received DESC")
+            " ORDER BY message.received")
     Cursor getMessageFts();
 
     @Query("SELECT id, account, thread, (:find IS NULL" +
