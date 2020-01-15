@@ -650,7 +650,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 viewType == AdapterMessage.ViewType.THREAD ? "ascending_thread" : "ascending_list", false);
         boolean filter_duplicates = prefs.getBoolean("filter_duplicates", true);
 
-        adapter = new AdapterMessage(this, type, viewType, compact, zoom, sort, ascending, filter_duplicates, iProperties);
+        adapter = new AdapterMessage(
+                this, type, found, viewType,
+                compact, zoom, sort, ascending, filter_duplicates,
+                iProperties);
         rvMessage.setAdapter(adapter);
 
         sbThread.setOnTouchListener(new View.OnTouchListener() {

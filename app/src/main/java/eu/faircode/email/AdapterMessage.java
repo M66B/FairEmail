@@ -165,6 +165,7 @@ import static android.app.Activity.RESULT_OK;
 public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHolder> {
     private Fragment parentFragment;
     private String type;
+    private boolean found;
     private ViewType viewType;
     private boolean compact;
     private int zoom;
@@ -278,6 +279,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private TextView tvSize;
         private TextView tvTime;
         private ImageView ivType;
+        private ImageView ivFound;
         private ImageButton ibSnoozed;
         private ImageView ivAnswered;
         private ImageView ivAttachments;
@@ -403,6 +405,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvSize = itemView.findViewById(R.id.tvSize);
             tvTime = itemView.findViewById(R.id.tvTime);
             ivType = itemView.findViewById(R.id.ivType);
+            ivFound = itemView.findViewById(R.id.ivFound);
             ibSnoozed = itemView.findViewById(R.id.ibSnoozed);
             ivAnswered = itemView.findViewById(R.id.ivAnswered);
             ivAttachments = itemView.findViewById(R.id.ivAttachments);
@@ -702,6 +705,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvSize.setText(null);
             tvTime.setText(null);
             ivType.setVisibility(View.GONE);
+            ivFound.setVisibility(View.GONE);
             ibSnoozed.setVisibility(View.GONE);
             ivAnswered.setVisibility(View.GONE);
             ivAttachments.setVisibility(View.GONE);
@@ -770,6 +774,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvSize.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 tvTime.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ivType.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
+                ivFound.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ibSnoozed.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ivAnswered.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ivAttachments.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
@@ -857,6 +862,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ivType.setTag(icon);
                 ivType.setImageResource(icon);
             }
+
+            ivFound.setVisibility(message.ui_found && found ? View.VISIBLE : View.GONE);
 
             ibSnoozed.setImageResource(
                     message.ui_snoozed != null && message.ui_snoozed == Long.MAX_VALUE
@@ -3918,6 +3925,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (ibAuth.getVisibility() == View.VISIBLE)
                     result.add(context.getString(R.string.title_legend_auth));
 
+                if (ivFound.getVisibility() == View.VISIBLE)
+                    result.add(context.getString(R.string.title_legend_found));
+
                 if (ibSnoozed.getVisibility() == View.VISIBLE)
                     result.add(context.getString(R.string.title_legend_snoozed));
 
@@ -3948,11 +3958,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     }
 
     AdapterMessage(Fragment parentFragment,
-                   String type, ViewType viewType,
+                   String type, boolean found, ViewType viewType,
                    boolean compact, int zoom, String sort, boolean ascending, boolean filter_duplicates,
                    final IProperties properties) {
         this.parentFragment = parentFragment;
         this.type = type;
+        this.found = found;
         this.viewType = viewType;
         this.compact = compact;
         this.zoom = zoom;
@@ -4311,6 +4322,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         Log.i("keywords changed id=" + next.id);
                     }
                     // notifying
+                    // fts
                     if (!prev.ui_seen.equals(next.ui_seen)) {
                         same = false;
                         Log.i("ui_seen changed id=" + next.id);
