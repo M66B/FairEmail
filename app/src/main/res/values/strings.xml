@@ -409,6 +409,7 @@
     <string name="title_advanced_sync_delay_hint">This will slow down synchronizing messages</string>
 
     <string name="title_advanced_suggest_local_hint">In addition to contacts provided by Android. Contact data will be stored for newly sent or received messages only when enabled.</string>
+    <string name="title_advanced_usenet_hint">Insert \'-- \' between the text and the signature</string>
     <string name="title_advanced_lookup_mx_hint">This will check if DNS MX records exist</string>
     <string name="title_advanced_check_reply_hint">This will check if domain name of the sender and reply addresses are the same</string>
 
