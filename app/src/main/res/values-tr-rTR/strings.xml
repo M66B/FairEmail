@@ -326,7 +326,7 @@
     <string name="title_advanced_import_key">Özel anahtarı içe aktar</string>
     <string name="title_advanced_manage_keys">Özel anahtarları yönet</string>
     <string name="title_advanced_external_search">Diğer uygulamaların mesajlarda arama yapmasına izin ver</string>
-    <string name="title_advanced_fts">Tam metin araması</string>
+    <string name="title_advanced_fts">Arama indeksini oluştur</string>
     <string name="title_advanced_fts_indexed">%1$d/%2$d indekslendi</string>
     <string name="title_advanced_english">İngilizce Diline Zorla</string>
     <string name="title_advanced_watchdog">Düzenli aralıklarla FairEmail hala etkin mi diye kontrol et</string>
@@ -379,6 +379,7 @@
     <string name="title_advanced_move_hint">Hedef klasörü, hesap ayarlarından yapılandırılabilir</string>
     <string name="title_advanced_notify_no_grouping">Bu Android versiyonu bildirim gruplamayı desteklememektedir</string>
     <string name="title_advanced_notify_no_channels">Bu Android versiyonu bildirim kanallarını desteklememektedir</string>
+    <string name="title_advanced_fts_hint">Bunu etkinleştirmek arama performansını iyileştirir, ancak pil ve depolama alanı kullanımını da artırır</string>
     <string name="title_advanced_english_hint">Bu app yeniden başlatılır</string>
     <string name="title_advanced_experiments_hint">Güncel deneysel özelliklerin listesi</string>
     <string name="title_advanced_debug_hint">Fazladan günlük kaydını etkinleştir ve çeşitli yerlerdeki hata ayıklama bilgisini göster</string>

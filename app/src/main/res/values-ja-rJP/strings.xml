@@ -312,7 +312,6 @@
     <string name="title_advanced_import_key">秘密鍵をインポート</string>
     <string name="title_advanced_manage_keys">秘密鍵を管理する</string>
     <string name="title_advanced_external_search">他のアプリにメッセージの検索を許可</string>
-    <string name="title_advanced_fts">全文検索</string>
     <string name="title_advanced_fts_indexed">%1$d/%2$d インデックス付き</string>
     <string name="title_advanced_english">強制的に英語表示</string>
     <string name="title_advanced_watchdog">FairEmailがアクティブか定期的に確認</string>
