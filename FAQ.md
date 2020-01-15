@@ -693,8 +693,6 @@ to check if the searched text is contained in the file, which is a relative expe
 
 In the *miscellaneous settings* you can enable *Full text search* to significantly increase the speed of searching on the device,
 but be aware that this will increase battery usage and significantly increase storage space usage too.
-An advantage is that a number of advanced query options will become available,
-see [here](https://www.sqlite.org/fts5.html#full_text_query_syntax).
 
 Searching messages on the device is a free feature, searching messages on the server is a pro feature.
 
