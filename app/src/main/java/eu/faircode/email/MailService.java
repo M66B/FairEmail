@@ -12,7 +12,6 @@ import androidx.preference.PreferenceManager;
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPStore;
 import com.sun.mail.smtp.SMTPTransport;
-import com.sun.mail.util.MailConnectException;
 
 import net.openid.appauth.AuthState;
 import net.openid.appauth.AuthorizationException;
@@ -219,7 +218,10 @@ public class MailService implements AutoCloseable {
         }
     }
 
-    public String connect(String host, int port, int auth, String provider, String user, String password, String fingerprint) throws MessagingException {
+    public String connect(
+            String host, int port,
+            int auth, String provider, String user, String password,
+            String fingerprint) throws MessagingException {
         SSLSocketFactoryService factory = null;
         try {
             factory = new SSLSocketFactoryService(host, insecure, fingerprint);
@@ -237,16 +239,12 @@ public class MailService implements AutoCloseable {
             if (auth == AUTH_TYPE_GMAIL || auth == AUTH_TYPE_OAUTH)
                 properties.put("mail." + protocol + ".auth.mechanisms", "XOAUTH2");
 
-            //if (BuildConfig.DEBUG)
-            //    throw new MailConnectException(
-            //            new SocketConnectException("Debug", new Exception("Test"), host, port, 0));
-
             if (auth == AUTH_TYPE_OAUTH) {
                 AuthState authState = OAuthRefresh(context, provider, password);
-                _connect(context, host, port, user, authState.getAccessToken(), factory);
+                connect(host, port, user, authState.getAccessToken(), factory);
                 return authState.jsonSerializeString();
             } else {
-                _connect(context, host, port, user, password, factory);
+                connect(host, port, user, password, factory);
                 return null;
             }
         } catch (AuthenticationFailedException ex) {
@@ -264,7 +262,7 @@ public class MailService implements AutoCloseable {
                             if (token == null)
                                 throw new IllegalArgumentException("No token on refresh");
 
-                            _connect(context, host, port, user, token, factory);
+                            connect(host, port, user, token, factory);
                             return token;
                         }
 
@@ -275,26 +273,50 @@ public class MailService implements AutoCloseable {
                 }
             else if (auth == AUTH_TYPE_OAUTH) {
                 AuthState authState = OAuthRefresh(context, provider, password);
-                _connect(context, host, port, user, authState.getAccessToken(), factory);
+                connect(host, port, user, authState.getAccessToken(), factory);
                 return authState.jsonSerializeString();
             } else
                 throw ex;
-        } catch (MailConnectException ex) {
-            try {
-                // Some devices resolve IPv6 addresses while not having IPv6 connectivity
-                InetAddress[] iaddrs = InetAddress.getAllByName(host);
-                Log.i("Fallback count=" + iaddrs.length);
-                if (iaddrs.length > 1)
-                    for (InetAddress iaddr : iaddrs)
-                        try {
-                            Log.i("Falling back to " + iaddr.getHostAddress());
-                            _connect(context, iaddr.getHostAddress(), port, user, password, factory);
-                            return null;
-                        } catch (MessagingException ex1) {
-                            Log.w(ex1);
-                        }
-            } catch (Throwable ex1) {
-                Log.w(ex1);
+        }
+    }
+
+    private void connect(
+            String host, int port, String user, String password,
+            SSLSocketFactoryService factory) throws MessagingException {
+        try {
+            //if (BuildConfig.DEBUG)
+            //    throw new MailConnectException(
+            //            new SocketConnectException("Debug", new IOException("Test"), host, port, 0));
+
+            _connect(host, port, user, password, factory);
+        } catch (MessagingException ex) {
+            boolean ioError = false;
+            Throwable ce = ex;
+            while (ce != null) {
+                if (factory != null && ce instanceof CertificateException)
+                    throw new UntrustedException(factory.getFingerPrint(), ex);
+                if (ce instanceof IOException)
+                    ioError = true;
+                ce = ce.getCause();
+            }
+
+            if (ioError) {
+                try {
+                    // Some devices resolve IPv6 addresses while not having IPv6 connectivity
+                    InetAddress[] iaddrs = InetAddress.getAllByName(host);
+                    Log.i("Fallback count=" + iaddrs.length);
+                    if (iaddrs.length > 1)
+                        for (InetAddress iaddr : iaddrs)
+                            try {
+                                Log.i("Falling back to " + iaddr.getHostAddress());
+                                _connect(iaddr.getHostAddress(), port, user, password, factory);
+                                return;
+                            } catch (MessagingException ex1) {
+                                Log.w(ex1);
+                            }
+                } catch (Throwable ex1) {
+                    Log.w(ex1);
+                }
             }
 
             throw ex;
@@ -302,92 +324,79 @@ public class MailService implements AutoCloseable {
     }
 
     private void _connect(
-            Context context,
             String host, int port, String user, String password,
             SSLSocketFactoryService factory) throws MessagingException {
-        try {
-            isession = Session.getInstance(properties, null);
-            isession.setDebug(debug);
-            //System.setProperty("mail.socket.debug", Boolean.toString(debug));
+        isession = Session.getInstance(properties, null);
+        isession.setDebug(debug);
+        //System.setProperty("mail.socket.debug", Boolean.toString(debug));
 
-            if ("pop3".equals(protocol) || "pop3s".equals(protocol)) {
-                isession.setDebug(true);
-                iservice = isession.getStore(protocol);
-                iservice.connect(host, port, user, password);
+        if ("pop3".equals(protocol) || "pop3s".equals(protocol)) {
+            isession.setDebug(true);
+            iservice = isession.getStore(protocol);
+            iservice.connect(host, port, user, password);
 
-            } else if ("imap".equals(protocol) || "imaps".equals(protocol)) {
-                iservice = isession.getStore(protocol);
-                if (listener != null)
-                    ((IMAPStore) iservice).addStoreListener(listener);
-                iservice.connect(host, port, user, password);
+        } else if ("imap".equals(protocol) || "imaps".equals(protocol)) {
+            iservice = isession.getStore(protocol);
+            if (listener != null)
+                ((IMAPStore) iservice).addStoreListener(listener);
+            iservice.connect(host, port, user, password);
 
-                // https://www.ietf.org/rfc/rfc2971.txt
-                IMAPStore istore = (IMAPStore) getStore();
-                if (istore.hasCapability("ID"))
-                    try {
-                        Map<String, String> id = new LinkedHashMap<>();
-                        id.put("name", context.getString(R.string.app_name));
-                        id.put("version", BuildConfig.VERSION_NAME);
-                        Map<String, String> sid = istore.id(id);
-                        if (sid != null) {
-                            Map<String, String> crumb = new HashMap<>();
-                            for (String key : sid.keySet()) {
-                                crumb.put(key, sid.get(key));
-                                EntityLog.log(context, "Server " + key + "=" + sid.get(key));
-                            }
-                            Log.breadcrumb("server", crumb);
-                        }
-                    } catch (MessagingException ex) {
-                        Log.w(ex);
-                    }
-
-            } else if ("smtp".equals(protocol) || "smtps".equals(protocol)) {
-                String[] c = BuildConfig.APPLICATION_ID.split("\\.");
-                Collections.reverse(Arrays.asList(c));
-                String domain = TextUtils.join(".", c);
-
-                String haddr = domain;
-                if (useip)
-                    try {
-                        // This assumes getByName always returns the same address (type)
-                        InetAddress addr = InetAddress.getByName(host);
-                        if (addr instanceof Inet4Address)
-                            haddr = "[" + Inet4Address.getLocalHost().getHostAddress() + "]";
-                        else
-                            haddr = "[IPv6:" + Inet6Address.getLocalHost().getHostAddress() + "]";
-                    } catch (UnknownHostException ex) {
-                        Log.w(ex);
-                    }
-
-                Log.i("Using localhost=" + haddr);
-                properties.put("mail." + protocol + ".localhost", haddr);
-
-                iservice = isession.getTransport(protocol);
+            // https://www.ietf.org/rfc/rfc2971.txt
+            IMAPStore istore = (IMAPStore) getStore();
+            if (istore.hasCapability("ID"))
                 try {
-                    iservice.connect(host, port, user, password);
+                    Map<String, String> id = new LinkedHashMap<>();
+                    id.put("name", context.getString(R.string.app_name));
+                    id.put("version", BuildConfig.VERSION_NAME);
+                    Map<String, String> sid = istore.id(id);
+                    if (sid != null) {
+                        Map<String, String> crumb = new HashMap<>();
+                        for (String key : sid.keySet()) {
+                            crumb.put(key, sid.get(key));
+                            EntityLog.log(context, "Server " + key + "=" + sid.get(key));
+                        }
+                        Log.breadcrumb("server", crumb);
+                    }
                 } catch (MessagingException ex) {
-                    if (useip &&
-                            ex.getMessage() != null &&
-                            ex.getMessage().toLowerCase().contains("syntactically invalid")) {
-                        Log.w("Using localhost=" + domain, ex);
-                        ((SMTPTransport) iservice).setLocalHost(domain);
-                        iservice.connect(host, port, user, password);
-                    } else
-                        throw ex;
+                    Log.w(ex);
                 }
-            } else
-                throw new NoSuchProviderException(protocol);
-        } catch (MessagingException ex) {
-            if (factory != null) {
-                Throwable ce = ex;
-                while (ce != null) {
-                    if (ce instanceof CertificateException)
-                        throw new UntrustedException(factory.getFingerPrint(), ex);
-                    ce = ce.getCause();
+
+        } else if ("smtp".equals(protocol) || "smtps".equals(protocol)) {
+            String[] c = BuildConfig.APPLICATION_ID.split("\\.");
+            Collections.reverse(Arrays.asList(c));
+            String domain = TextUtils.join(".", c);
+
+            String haddr = domain;
+            if (useip)
+                try {
+                    // This assumes getByName always returns the same address (type)
+                    InetAddress addr = InetAddress.getByName(host);
+                    if (addr instanceof Inet4Address)
+                        haddr = "[" + Inet4Address.getLocalHost().getHostAddress() + "]";
+                    else
+                        haddr = "[IPv6:" + Inet6Address.getLocalHost().getHostAddress() + "]";
+                } catch (UnknownHostException ex) {
+                    Log.w(ex);
                 }
+
+            Log.i("Using localhost=" + haddr);
+            properties.put("mail." + protocol + ".localhost", haddr);
+
+            iservice = isession.getTransport(protocol);
+            try {
+                iservice.connect(host, port, user, password);
+            } catch (MessagingException ex) {
+                if (useip &&
+                        ex.getMessage() != null &&
+                        ex.getMessage().toLowerCase().contains("syntactically invalid")) {
+                    Log.w("Using localhost=" + domain, ex);
+                    ((SMTPTransport) iservice).setLocalHost(domain);
+                    iservice.connect(host, port, user, password);
+                } else
+                    throw ex;
             }
-            throw ex;
-        }
+        } else
+            throw new NoSuchProviderException(protocol);
     }
 
     private static class ErrorHolder {
