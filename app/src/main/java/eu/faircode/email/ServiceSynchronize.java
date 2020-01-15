@@ -1411,13 +1411,12 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         @Override
         public void onAvailable(@NonNull Network network) {
             EntityLog.log(ServiceSynchronize.this, "Available network=" + network);
-            updateState();
+            updateState(network, null);
         }
 
         @Override
         public void onCapabilitiesChanged(@NonNull Network network, @NonNull NetworkCapabilities capabilities) {
-            EntityLog.log(ServiceSynchronize.this, "Changed network=" + network + " capabilities " + capabilities);
-            updateState();
+            updateState(network, capabilities);
         }
 
         @Override
@@ -1431,15 +1430,19 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             } catch (Throwable ex) {
                 Log.w(ex);
             }
-            updateState();
+            updateState(network, null);
         }
 
-        private void updateState() {
+        private void updateState(Network network, NetworkCapabilities capabilities) {
             ConnectionHelper.NetworkState ns = ConnectionHelper.getNetworkState(ServiceSynchronize.this);
             liveNetworkState.postValue(ns);
 
             if (lastSuitable == null || lastSuitable != ns.isSuitable()) {
                 lastSuitable = ns.isSuitable();
+                EntityLog.log(ServiceSynchronize.this,
+                        "Updated network=" + network +
+                                " capabilities " + capabilities +
+                                " suitable=" + lastSuitable);
                 NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                 nm.notify(Helper.NOTIFICATION_SYNCHRONIZE, getNotificationService(lastAccounts, lastOperations).build());
             }
@@ -1449,7 +1452,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private BroadcastReceiver connectionChangedReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            EntityLog.log(ServiceSynchronize.this, "Received intent=" + intent +
+            Log.i("Received intent=" + intent +
                     " " + TextUtils.join(" ", Log.getExtras(intent.getExtras())));
 
             if (Intent.ACTION_AIRPLANE_MODE_CHANGED.equals(intent.getAction())) {
