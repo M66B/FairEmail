@@ -56,10 +56,10 @@
         <item quantity="other">将这%1$d则邮件标为垃圾邮件？</item>
     </plurals>
     <string name="title_ask_spam_who">将来自%1$s的消息标为垃圾邮件？</string>
-    <string name="title_block">屏蔽%1$s</string>
+    <string name="title_block">屏蔽 %1$s</string>
     <string name="title_block_sender">屏蔽发件人</string>
-    <string name="title_block_sender_hint">拦截一名发件人将创建一条规则自动将未来消息移动至垃圾邮件文件夹。
-        创建并使用规则是一个专业版功能。    </string>
+    <string name="title_block_sender_hint">        拉黑某发件人将创建一条规则来自动将未来消息移动至垃圾邮件文件夹
+        创建和使用规则属于专业版功能</string>
     <string name="title_notification_waiting">等待网络连接</string>
     <string name="title_notification_sending">正在发送消息</string>
     <string name="title_notification_failed">\'%1$s\' 失败</string>
@@ -313,6 +313,8 @@
     <string name="title_advanced_import_key">导入私钥</string>
     <string name="title_advanced_manage_keys">管理私钥</string>
     <string name="title_advanced_external_search">允许其他应用在消息中搜索</string>
+    <string name="title_advanced_fts">全文搜索</string>
+    <string name="title_advanced_fts_indexed">%2$d中的%1$d已索引</string>
     <string name="title_advanced_english">强制使用英语</string>
     <string name="title_advanced_watchdog">定期检查FairEmail是否仍在运行</string>
     <string name="title_advanced_updates">检查更新</string>
@@ -326,12 +328,14 @@
     <string name="title_advanced_poll_hint">定期同步将每次都比较本地和远程消息，这是有代价的操作(更耗电)，特别是在要同步的消息很多时。而始终同步可通过持续监视变化以避免发生上述情形。</string>
     <string name="title_advanced_schedule_hint">点击“时间”选项来设置时间</string>
     <string name="title_advanced_check_mx">同步消息时检查发送者电子邮件地址</string>
-    <string name="title_advanced_check_reply">同步消息时检查回复电子邮件地址</string>
+    <string name="title_advanced_check_reply">同步消息时检查回复邮件地址</string>
     <string name="title_advanced_unseen_hint">一些邮件服务提供商对该功能支持不佳，这可能导致同步所有消息或一条消息也不同步</string>
     <string name="title_advanced_sync_kept_hint">这将更耗数据与电量，特别是如果有大量消息存储在设备上</string>
     <string name="title_advanced_sync_folders_hint">禁用此功能某种程度上会减少数据和电量使用，但也会禁用更新文件夹列表</string>
+    <string name="title_advanced_subscribed_only_hint">启用此功能将删除所有未订阅的本地文件夹</string>
     <string name="title_advanced_sync_delay_hint">这将减缓同步消息的速度</string>
     <string name="title_advanced_suggest_local_hint">除了Android提供的联系人，只有在设置中允许，应用才会储存新接收或发送消息的联系人数据。</string>
+    <string name="title_advanced_usenet_hint">在文本和签名之间插入 \'-- \'</string>
     <string name="title_advanced_lookup_mx_hint">这将检查 DNS MX 记录是否存在</string>
     <string name="title_advanced_check_reply_hint">这将检查发件人和回复对象的地址是否相同</string>
     <string name="title_advanced_metered_hint">计量连接通常是指移动连接或付费WiFi热点</string>
@@ -362,7 +366,7 @@
     <string name="title_advanced_move_hint">可在账户设定中配置目标文件夹</string>
     <string name="title_advanced_notify_no_grouping">此Android版本不支持通知分组</string>
     <string name="title_advanced_notify_no_channels">此Android版本不支持通知通道</string>
-    <string name="title_advanced_subscribed_only_hint">启用此功能将删除所有未订阅的本地文件夹</string>
+    <string name="title_advanced_fts_hint">启用此功能将提高搜索性能，但也会增加电池和存储空间用量</string>
     <string name="title_advanced_english_hint">这将重新启动应用程序</string>
     <string name="title_advanced_experiments_hint">当前实验性功能列表</string>
     <string name="title_advanced_debug_hint">启用额外日志并在不同地方显示调试信息</string>
@@ -423,6 +427,7 @@
     <string name="title_no_inbox">未找到收件箱</string>
     <string name="title_no_primary_drafts">没有主帐户或草稿文件夹</string>
     <string name="title_no_identities">发送邮件至少需要一个身份</string>
+    <string name="title_no_standard">此提供商使用专有的电子邮件协议，因此无法使用第三方电子邮件客户端</string>
     <string name="title_no_idle">该提供商不支持消息推送，这将延迟新消息的接收并增加电池用量</string>
     <string name="title_no_utf8">该邮件服务供应商不支持UTF-8字符集</string>
     <string name="title_no_sync">从 %1$s 开始同步错误</string>
@@ -516,7 +521,6 @@
     <string name="title_share">分享</string>
     <string name="title_print">打印</string>
     <string name="title_show_headers">显示标题</string>
-    <string name="title_raw_download">下载原始消息</string>
     <string name="title_raw_save">保存原始消息</string>
     <string name="title_raw_send">作为附件发送</string>
     <string name="title_manage_keywords">关键字管理</string>

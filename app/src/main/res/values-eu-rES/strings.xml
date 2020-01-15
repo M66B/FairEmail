@@ -325,6 +325,7 @@
     <string name="title_advanced_import_key">Inportatu gako pribatua</string>
     <string name="title_advanced_manage_keys">Kudeatu gako pribatuak</string>
     <string name="title_advanced_external_search">Baimendu beste aplikazioei mezuetan bilatzea</string>
+    <string name="title_advanced_fts">Testu osoaren bilaketa</string>
     <string name="title_advanced_english">Behartu hizkuntza ingelesa</string>
     <string name="title_advanced_watchdog">Aldiro egiaztatu FairEmail aktibo dagoen</string>
     <string name="title_advanced_updates">Egiaztatu eguneraketarik dagoen</string>
@@ -341,6 +342,7 @@
     <string name="title_advanced_unseen_hint">Hornitzaile batzuek ez dute hori behar bezala onartzen, eta horrek mezu bat edo guztiak ez sinkronizatzea eragin dezake</string>
     <string name="title_advanced_sync_kept_hint">Honek datu gehigarriak transferituko ditu eta bateriaren energia gehigarria kontsumituko du, batez ere telefonoan mezu asko gordetzen badira</string>
     <string name="title_advanced_sync_folders_hint">Hori ezgaitzeak datuak eta bateriaren erabilera zertxobait murriztuko ditu, baina karpeten zerrenda eguneratzea ere ezgaituko du</string>
+    <string name="title_advanced_subscribed_only_hint">Hori gaitzen baduzu, harpidetzarik ez duten tokiko karpeta guztiak ezabatu egingo dira</string>
     <string name="title_advanced_sync_delay_hint">Honek mezuen sinkronizazioa motelduko du</string>
     <string name="title_advanced_suggest_local_hint">Android-en kontaktuez gain. Kontaktuen datuak gordeko dira mezuak bidali edo jasotzean soilik baimenduta badago.</string>
     <string name="title_advanced_lookup_mx_hint">Honek DNS MX erregistroak dauden ala ez egiaztatuko du</string>
@@ -373,7 +375,6 @@
     <string name="title_advanced_move_hint">Helburuko karpeta kontuaren ezarpenetan konfigura daiteke</string>
     <string name="title_advanced_notify_no_grouping">Android bertsio honek ez du jakinarazpenen taldekatzea onartzen</string>
     <string name="title_advanced_notify_no_channels">Android bertsio honek ez ditu jakinarazpenen kanalak onartzen</string>
-    <string name="title_advanced_subscribed_only_hint">Hori gaitzen baduzu, harpidetzarik ez duten tokiko karpeta guztiak ezabatu egingo dira</string>
     <string name="title_advanced_english_hint">Honek aplikazioa berrabiaraziko du</string>
     <string name="title_advanced_experiments_hint">Egungo funtzio esperimentalen zerrenda</string>
     <string name="title_advanced_debug_hint">Gaitu aparteko erregistroa eta erakutsi arazketaren informazioa hainbat tokitan</string>
@@ -434,6 +435,7 @@
     <string name="title_no_inbox">Ez da sarrera ontzia aurkitu</string>
     <string name="title_no_primary_drafts">Kontu nagusirik edo zirriborroen karpetarik ez</string>
     <string name="title_no_identities">Mezuak bidaltzeko gutxienez identitate bat behar da</string>
+    <string name="title_no_standard">Hornitzaile honek e-posta protokolo jabeduna erabiltzen du eta, beraz, ezin da hirugarrenen bezeroak erabili</string>
     <string name="title_no_idle">Hornitzaile honek ez ditu push mezuak onartzen. Honek mezu berriak jasotzea atzeratuko du eta bateriaren erabilera areagotuko du.</string>
     <string name="title_no_utf8">Hornitzaile honek ez du UTF-8 onartzen</string>
     <string name="title_no_sync">Sinkronizazio akatsak %1$s geroztik</string>
@@ -527,7 +529,6 @@
     <string name="title_share">Partekatu</string>
     <string name="title_print">Inprimatu</string>
     <string name="title_show_headers">Erakutsi goiburuak</string>
-    <string name="title_raw_download">Deskargatu mezu gordina</string>
     <string name="title_raw_save">Gorde mezu gordina</string>
     <string name="title_raw_send">Bidali eranskin gisa</string>
     <string name="title_manage_keywords">Kudeatu hitz gakoak</string>

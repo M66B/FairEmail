@@ -312,6 +312,8 @@
     <string name="title_advanced_import_key">秘密鍵をインポート</string>
     <string name="title_advanced_manage_keys">秘密鍵を管理する</string>
     <string name="title_advanced_external_search">他のアプリにメッセージの検索を許可</string>
+    <string name="title_advanced_fts">全文検索</string>
+    <string name="title_advanced_fts_indexed">%1$d/%2$d インデックス付き</string>
     <string name="title_advanced_english">強制的に英語表示</string>
     <string name="title_advanced_watchdog">FairEmailがアクティブか定期的に確認</string>
     <string name="title_advanced_updates">更新を確認</string>
@@ -328,8 +330,10 @@
     <string name="title_advanced_unseen_hint">一部のプロバイダーはこれを適切にサポートしていないため、メッセージが全く同期されないか全て同期されてしまう場合があります</string>
     <string name="title_advanced_sync_kept_hint">特に大量のメッセージがデバイスに保存されている場合、多くのデータが転送され電池消費が増えます</string>
     <string name="title_advanced_sync_folders_hint">これを無効にするとデータと電池の使用量が多少減りますが、フォルダーのリストの更新も無効になります</string>
+    <string name="title_advanced_subscribed_only_hint">有効にすると購読していない全てのローカルフォルダが削除されます</string>
     <string name="title_advanced_sync_delay_hint">メッセージの同期が遅くなります</string>
     <string name="title_advanced_suggest_local_hint">Android内の連絡先に加えます。連絡先データは有効にした場合のみ新しく送信又は受信メッセージへ保存されます</string>
+    <string name="title_advanced_usenet_hint">テキストと署名の間に「-」を挿入</string>
     <string name="title_advanced_lookup_mx_hint">DNS MXレコードが存在するかどうか確認</string>
     <string name="title_advanced_check_reply_hint">送信者のドメイン名と返信アドレスが同じかどうかを確認</string>
     <string name="title_advanced_metered_hint">従量制課金接続とは一般的にモバイル接続または有料Wi-Fiホットスポットの事です</string>
@@ -360,7 +364,7 @@
     <string name="title_advanced_move_hint">ターゲットフォルダはアカウント設定で設定できます</string>
     <string name="title_advanced_notify_no_grouping">このAndroidバージョンは通知のグループ化をサポートしていません</string>
     <string name="title_advanced_notify_no_channels">このAndroidバージョンは通知チャネルをサポートしていません</string>
-    <string name="title_advanced_subscribed_only_hint">有効にすると購読していない全てのローカルフォルダが削除されます</string>
+    <string name="title_advanced_fts_hint">有効にすると検索パフォーマンスが向上しますが、バッテリーとストレージ使用量も増加します</string>
     <string name="title_advanced_english_hint">アプリが再起動されます</string>
     <string name="title_advanced_experiments_hint">現在の実験的な機能のリスト</string>
     <string name="title_advanced_debug_hint">追加のログを有効にし様々な場所でデバッグ情報を表示</string>
@@ -421,6 +425,7 @@
     <string name="title_no_inbox">受信トレイが見つかりません</string>
     <string name="title_no_primary_drafts">プライマリアカウントもドラフトフォルダも有りません</string>
     <string name="title_no_identities">メールを送信するには少なくとも1つのIDが必要です</string>
+    <string name="title_no_standard">このプロバイダーは独自の電子メールプロトコルを使用している為、サードパーティの電子メールクライアントを使用することは出来ません</string>
     <string name="title_no_idle">このプロバイダーはプッシュメッセージをサポートしていません。 これにより新しいメッセージの受信が遅れバッテリーの使用量が増加します</string>
     <string name="title_no_utf8">このプロバイダーはUTF-8をサポートしていません</string>
     <string name="title_no_sync">%1$s 以降の同期エラー</string>
@@ -514,7 +519,6 @@
     <string name="title_share">共有</string>
     <string name="title_print">印刷</string>
     <string name="title_show_headers">ヘッダーを表示</string>
-    <string name="title_raw_download">素のメッセージをダウンロードする</string>
     <string name="title_raw_save">素のメッセージを保存</string>
     <string name="title_raw_send">添付ファイルとして送信</string>
     <string name="title_manage_keywords">キーワードを管理</string>

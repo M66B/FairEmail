@@ -272,6 +272,7 @@
     <string name="title_advanced_check_mx">Kontrollera avsändarens e-postadresser vid synkronisering av meddelanden</string>
     <string name="title_advanced_sync_kept_hint">Detta kommer att överföra extra data och förbruka extra batterikraft, speciellt om många meddelanden lagras på enheten</string>
     <string name="title_advanced_sync_folders_hint">Inaktivering av detta kommer att minska data och batterianvändning något, men kommer att inaktivera uppdatering av listan över mappar också</string>
+    <string name="title_advanced_subscribed_only_hint">Om du aktiverar detta tas alla lokala mappar utan abonnemang bort</string>
     <string name="title_advanced_sync_delay_hint">Detta kommer att sakta ner synkronisering av meddelanden</string>
     <string name="title_advanced_lookup_mx_hint">Detta kommer att kontrollera om DNS MX-poster finns</string>
     <string name="title_advanced_metered_hint">Uppmätta anslutningar är generellt mobila anslutningar eller betalda Wi-Fi-hotspots</string>
@@ -288,7 +289,6 @@
     <string name="title_advanced_sender_hint">De flesta leverantörer tillåter inte ändrade avsändaradresser</string>
     <string name="title_advanced_badge_hint">Endast tillgänglig på programstartare som stöds</string>
     <string name="title_advanced_notify_action_hint">Högst tre åtgärder kommer att visas</string>
-    <string name="title_advanced_subscribed_only_hint">Om du aktiverar detta tas alla lokala mappar utan abonnemang bort</string>
     <string name="title_advanced_english_hint">Detta startar om appen</string>
     <string name="title_advanced_experiments_hint">Lista över aktuella experimentella funktioner</string>
     <string name="title_advanced_debug_hint">Aktivera extra loggning och visa felsökningsinformation på olika ställen</string>
@@ -421,7 +421,6 @@
     <string name="title_share">Dela</string>
     <string name="title_print">Skriv ut</string>
     <string name="title_show_headers">Visa rubriker</string>
-    <string name="title_raw_download">Ladda ner rent meddelande</string>
     <string name="title_raw_save">Spara rent meddelande</string>
     <string name="title_raw_send">Skicka som bilaga</string>
     <string name="title_manage_keywords">Hantera nyckelord</string>

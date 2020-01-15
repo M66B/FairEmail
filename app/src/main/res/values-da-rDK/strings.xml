@@ -325,6 +325,7 @@
     <string name="title_advanced_import_key">Importér privat nøgle</string>
     <string name="title_advanced_manage_keys">Håndtér private nøgler</string>
     <string name="title_advanced_external_search">Tillad andre apps at søge i beskeder</string>
+    <string name="title_advanced_fts">Fuld tekstsøgning</string>
     <string name="title_advanced_english">Gennemtving engelsk sprog</string>
     <string name="title_advanced_watchdog">Tjek periodisk om FairEmail stadig er aktiv</string>
     <string name="title_advanced_updates">Søg efter opdateringer</string>
@@ -342,6 +343,7 @@
     <string name="title_advanced_unseen_hint">Visse udbydere understøtter ikke dette ordentligt, hvilket kan forårsage synkronisering af ingen eller alle beskeder</string>
     <string name="title_advanced_sync_kept_hint">Dette vil overføre ekstra data og forbruge ekstra strøm, især hvis der er mange beskeder lagret på enheden</string>
     <string name="title_advanced_sync_folders_hint">Deaktivering af dette reducerer data- og strømforbruget noget, men deaktiverer også mappelisteopdatering</string>
+    <string name="title_advanced_subscribed_only_hint">Aktivering af dette vil slette alle lokale mapper uden abonnering</string>
     <string name="title_advanced_sync_delay_hint">Dette vil forøge beskedsynkroniseringstiden</string>
     <string name="title_advanced_suggest_local_hint">Ud over kontakter fra Android. Kontaktdata gemmes kun for nyligt afsendte eller modtagne beskeder, når aktiveret.</string>
     <string name="title_advanced_lookup_mx_hint">Dette tjekker, om der findes DNS MX-poster</string>
@@ -374,7 +376,6 @@
     <string name="title_advanced_move_hint">Målmappen kan opsættes i kontoindstillingerne</string>
     <string name="title_advanced_notify_no_grouping">Denne Android-version understøtter ikke notifikationsgruppering</string>
     <string name="title_advanced_notify_no_channels">Denne Android-version understøtter ikke notifikationskanaler</string>
-    <string name="title_advanced_subscribed_only_hint">Aktivering af dette vil slette alle lokale mapper uden abonnering</string>
     <string name="title_advanced_english_hint">Dette vil genstarte app\'en</string>
     <string name="title_advanced_experiments_hint">Liste over aktuelle eksperimentelle funktioner</string>
     <string name="title_advanced_debug_hint">Aktivér ekstra logning og vis fejlretningsoplysninger forskellige steder</string>
@@ -435,6 +436,7 @@
     <string name="title_no_inbox">Indbakke ikke fundet</string>
     <string name="title_no_primary_drafts">Ingen primærkonto eller kladdemappe</string>
     <string name="title_no_identities">E-mailafsendelse kræver mindst én identitet</string>
+    <string name="title_no_standard">Denne udbyder benytter en proprietær e-mailprotokol, og det er derfor ikke muligt at benytte tredjeparts e-mailklienter</string>
     <string name="title_no_idle">Denne udbyder understøtter ikke push-beskeder. Dette vil forsinke modtagelsen af nye beskeder samt forøge strømforbruget.</string>
     <string name="title_no_utf8">Denne udbyder understøtter ikke UTF-8</string>
     <string name="title_no_sync">Synkroniseringsfejl siden %1$s</string>
@@ -528,7 +530,6 @@
     <string name="title_share">Del</string>
     <string name="title_print">Udskriv</string>
     <string name="title_show_headers">Vis overskrifter</string>
-    <string name="title_raw_download">Download besked i råformat</string>
     <string name="title_raw_save">Gem besked i råformat</string>
     <string name="title_raw_send">Send som vedhæftning</string>
     <string name="title_manage_keywords">Håndtér stikord</string>

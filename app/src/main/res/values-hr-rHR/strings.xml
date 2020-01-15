@@ -345,6 +345,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_unseen_hint">Neki davatelji ne podržavaju to ispravno, što može uzrokovati sinkronizaciju nijedne ili svih poruka</string>
     <string name="title_advanced_sync_kept_hint">To će prenijeti dodatne podatke i potrošiti dodatnu snagu baterije, posebno ako je na uređaju spremljeno puno poruka</string>
     <string name="title_advanced_sync_folders_hint">Onemogućavanjem će se nešto smanjiti korištenje podataka i baterija, ali će se onemogućiti i ažuriranje popisa mapa</string>
+    <string name="title_advanced_subscribed_only_hint">Ako to omogućite, izbrisat ćete sve lokalne mape bez pretplate</string>
     <string name="title_advanced_sync_delay_hint">Ovo će usporiti sinkronizaciju poruka</string>
     <string name="title_advanced_suggest_local_hint">Pored kontakata koje pruža Android. Podaci za kontakte bit će pohranjeni za novoprimljene ili primljene poruke samo ako su omogućene.</string>
     <string name="title_advanced_lookup_mx_hint">Ovo će provjeriti dali postoju DNS MX zapisi</string>
@@ -376,7 +377,6 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_move_hint">Ciljna mapa može se konfigurirati u postavkama računa</string>
     <string name="title_advanced_notify_no_grouping">Ova verzija Androida ne podržava grupiranje obavijesti</string>
     <string name="title_advanced_notify_no_channels">Ova verzija Androida ne podržava kanale za obavijesti</string>
-    <string name="title_advanced_subscribed_only_hint">Ako to omogućite, izbrisat ćete sve lokalne mape bez pretplate</string>
     <string name="title_advanced_english_hint">To će ponovno pokrenuti aplikaciju</string>
     <string name="title_advanced_experiments_hint">Popis trenutnih eksperimentalnih značajki</string>
     <string name="title_advanced_debug_hint">Omogućite dodatno bilježenje i prikaz informacija za uklanjanje pogrešaka na različitim mjestima</string>
@@ -529,7 +529,6 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_share">Podijeli</string>
     <string name="title_print">Ispiši</string>
     <string name="title_show_headers">Pokaži zaglavlje</string>
-    <string name="title_raw_download">Preuzmite sirovu poruku</string>
     <string name="title_raw_save">Spremi sirovu poruku</string>
     <string name="title_raw_send">Pošalji kao prilog</string>
     <string name="title_manage_keywords">Upravljanje ključnim riječima</string>

@@ -324,6 +324,8 @@
     <string name="title_advanced_import_key">Tuo yksityinen avain</string>
     <string name="title_advanced_manage_keys">Hallinnoi yksityisiä avaimia</string>
     <string name="title_advanced_external_search">Salli muiden sovellusten hakea viesteistä</string>
+    <string name="title_advanced_fts">Haku koko tekstistä</string>
+    <string name="title_advanced_fts_indexed">%1$d/%2$d indeksoitu</string>
     <string name="title_advanced_english">Pakota englannin kieli</string>
     <string name="title_advanced_watchdog">Tarkista toistuvasti, että FairEmail on edelleen aktiivinen</string>
     <string name="title_advanced_updates">Päivitysten tarkastus</string>
@@ -341,9 +343,12 @@
     <string name="title_advanced_unseen_hint">Jotkin palveluntarjoajat eivät tue tätä kunnolla, mikä voi aiheuttaa kaikkien tai ei minkään viestin synkronoinnin</string>
     <string name="title_advanced_sync_kept_hint">Tämä lisää datan ja akun käyttöä varsinkin, jos paikallisia viestejä on paljon</string>
     <string name="title_advanced_sync_folders_hint">Tämän kytkeminen pois vähentää datan ja akun käyttöä, mutta kytkee pois myös kansiolistan päivittymisen</string>
+    <string name="title_advanced_subscribed_only_hint">Tämän käyttöönotto poistaa kaikki paikalliset kansiot, joita ei ole tilattu</string>
     <string name="title_advanced_sync_delay_hint">Tämä hidastaa viestien synkronointia</string>
     <string name="title_advanced_suggest_local_hint">Androidin yhteystietojen lisäksi. Yhteystietoja tallennetaan uusista lähetetyistä ja vastaanotetuista viesteistä vain, jos asetus on päällä.</string>
+    <string name="title_advanced_usenet_hint">Lisää \'--\' tekstin ja allekirjoituksen väliin</string>
     <string name="title_advanced_lookup_mx_hint">Tämä tarkistaa löytyykö DNS MX-tietoja</string>
+    <string name="title_advanced_check_reply_hint">Tämä tarkistaa, ovatko lähetys- ja vastaussähköpostiosoitteiden verkkotunnukset samat</string>
     <string name="title_advanced_metered_hint">Käytön mukaan laskutettavat yhteydet ovat yleensä mobiiliyhteyksiä tai maksullisia Wi-Fi-yhteyspisteitä</string>
     <string name="title_advanced_metered_warning">Tämän kytkeminen pois estää viestien vastaanoton ja lähetyksen mobiiliyhteyttä käytettessä</string>
     <string name="title_advanced_rlah_hint">Oletetaan, että EU:ssa on kotimaanhintaiset verkkovierailut</string>
@@ -372,7 +377,6 @@
     <string name="title_advanced_move_hint">Kohdekansio voidaan asettaa tilin asetuksissa</string>
     <string name="title_advanced_notify_no_grouping">Tämä Android-versio ei tue ilmoitusten ryhmittelyä</string>
     <string name="title_advanced_notify_no_channels">Tämä Android-versio ei tue ilmoituskanavia</string>
-    <string name="title_advanced_subscribed_only_hint">Tämän käyttöönotto poistaa kaikki paikalliset kansiot, joita ei ole tilattu</string>
     <string name="title_advanced_english_hint">Tämä käynnistää sovelluksen uudelleen</string>
     <string name="title_advanced_experiments_hint">Lista kokeellisista ominaisuuksista</string>
     <string name="title_advanced_debug_hint">Salli ylimääräinen lokitietojen tallennus ja näytä debug-tietoja</string>
@@ -433,6 +437,7 @@
     <string name="title_no_inbox">Saapuneet-kansiota ei löydy</string>
     <string name="title_no_primary_drafts">Ei ensisijainen tili tai ei luonnokset-kansiota</string>
     <string name="title_no_identities">Sähköpostien lähettäminen vaatii vähintään yhden identiteetin</string>
+    <string name="title_no_standard">Tämä palveluntarjoaja käyttää omaa sähköpostiprotokollaansa ja siksi kolmansien osapuolten sähköpostiohjelmien käyttö ei ole mahdollista</string>
     <string name="title_no_idle">Tämä palveluntarjoaja ei tue push-viestejä. Tämä viivästyttää uusien viestien vastaanottamista ja lisää akun käyttöä.</string>
     <string name="title_no_utf8">Tämä palveluntarjoaja ei tue UTF-8:aa</string>
     <string name="title_no_sync">Synkronointivirheitä alkaen %1$s</string>
@@ -526,7 +531,6 @@
     <string name="title_share">Jaa</string>
     <string name="title_print">Tulosta</string>
     <string name="title_show_headers">Näytä tunnistetiedot</string>
-    <string name="title_raw_download">Lataa raakaviesti</string>
     <string name="title_raw_save">Tallenna raakaviesti</string>
     <string name="title_raw_send">Lähetä liitteenä</string>
     <string name="title_manage_keywords">Hallitse avainsanoja</string>

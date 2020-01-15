@@ -319,6 +319,7 @@
     <string name="title_advanced_unseen_hint">Неки провајдери не подржавају ово најбоље, што може да доведе да синхронизујете или све или ниједну поруку</string>
     <string name="title_advanced_sync_kept_hint">Ово ће пренети више података и потрошити више батерије, нарочито ако на уређају има јако много порука</string>
     <string name="title_advanced_sync_folders_hint">Искључивањем ће се смањити количина пренетих података и потрошња батерије, али ће бити искључено и ажурирање списка фасцикли</string>
+    <string name="title_advanced_subscribed_only_hint">Укључивање овога ће обрисати све локалне фасцикле без претплате</string>
     <string name="title_advanced_sync_delay_hint">Овим ће се успорити синхронизовање порука</string>
     <string name="title_advanced_suggest_local_hint">Поред контаката који су у Андроиду. Подаци о контактима ће бити ускладиштени за новопримљене и послате поруке само ако је ово укључено.</string>
     <string name="title_advanced_lookup_mx_hint">Ово ће проверити да ли постоји DNS MX запис</string>
@@ -350,7 +351,6 @@
     <string name="title_advanced_move_hint">Одредишна фасцикла се може подесити у поставкама налога</string>
     <string name="title_advanced_notify_no_grouping">Ова Андроид верзија не подржава груписање обавештења</string>
     <string name="title_advanced_notify_no_channels">Ова Андроид верзија не подржава канале за обавештање</string>
-    <string name="title_advanced_subscribed_only_hint">Укључивање овога ће обрисати све локалне фасцикле без претплате</string>
     <string name="title_advanced_english_hint">Ово ће рестартовати апликацију</string>
     <string name="title_advanced_experiments_hint">Списак тренутних експерименталних функционалности</string>
     <string name="title_advanced_debug_hint">Укључи додатно бележење и приказуј информације за отклањање грешака на разним местима</string>
@@ -499,7 +499,6 @@
     <string name="title_share">Подели</string>
     <string name="title_print">Штампа</string>
     <string name="title_show_headers">Прикажи заглавља</string>
-    <string name="title_raw_download">Преузми сирову поруку</string>
     <string name="title_raw_save">Сачувај сирову поруку</string>
     <string name="title_raw_send">Пошаљи као прилог</string>
     <string name="title_manage_keywords">Управљај кључним речима</string>

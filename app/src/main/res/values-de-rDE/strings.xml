@@ -325,6 +325,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_import_key">Privaten Schlüssel importieren</string>
     <string name="title_advanced_manage_keys">Private Schlüssel verwalten</string>
     <string name="title_advanced_external_search">Erlaube anderen Apps, in Nachrichten zu suchen</string>
+    <string name="title_advanced_fts">Volltext-Suche</string>
+    <string name="title_advanced_fts_indexed">%1$d/%2$d indiziert</string>
     <string name="title_advanced_english">Englische Sprache erzwingen</string>
     <string name="title_advanced_watchdog">Regelmäßig prüfen, ob FairEmail noch aktiv ist</string>
     <string name="title_advanced_updates">Nach Aktualisierungen suchen</string>
@@ -342,8 +344,10 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_unseen_hint">Einige Anbieter unterstützen dies nicht richtig, was möglicherweise zu einer Synchronisierung von keiner oder allen Nachrichten führen kann</string>
     <string name="title_advanced_sync_kept_hint">Dies überträgt zusätzliche Daten und verbraucht zusätzliche Akkuladung, insbesondere wenn viele Nachrichten auf dem Gerät gespeichert sind</string>
     <string name="title_advanced_sync_folders_hint">Wenn Sie dies deaktivieren, wird der Daten- und Akkubedarf etwas reduziert, aber auch die Aktualisierung der Ordnerliste deaktiviert.</string>
+    <string name="title_advanced_subscribed_only_hint">Wenn aktiviert, werden alle lokalen Ordner ohne Abonnement gelöscht</string>
     <string name="title_advanced_sync_delay_hint">Dies verzögert die Synchronisierung von Nachrichten</string>
     <string name="title_advanced_suggest_local_hint">Zusätzlich zu den von Android bereitgestellten Kontakten werden weitere Kontaktdaten für neue gesendete oder erhaltene Nachrichten nur dann gespeichert, wenn dies aktiviert ist.</string>
+    <string name="title_advanced_usenet_hint">Signatur-Trenner (\'-- \') zwischen Text und Signatur einfügen</string>
     <string name="title_advanced_lookup_mx_hint">Dies wird überprüfen, ob DNS MX-Einträge existieren</string>
     <string name="title_advanced_check_reply_hint">Damit wird überprüft, ob die Domain-Namen des Absenders und der Antwort-Adresse gleich sind</string>
     <string name="title_advanced_metered_hint">Getaktete Verbindungen sind in der Regel mobile Verbindungen oder bezahlte Wi-Fi Hotspots</string>
@@ -374,7 +378,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_move_hint">Der Zielordner kann in den Kontoeinstellungen konfiguriert werden</string>
     <string name="title_advanced_notify_no_grouping">Diese Android-Version unterstützt keine gruppierten Benachrichtigungen</string>
     <string name="title_advanced_notify_no_channels">Diese Android-Version unterstützt keine Benachrichtigungskanäle</string>
-    <string name="title_advanced_subscribed_only_hint">Wenn aktiviert, werden alle lokalen Ordner ohne Abonnement gelöscht</string>
+    <string name="title_advanced_fts_hint">Dies zu aktivieren, verbessert die Suchleistung, erhöht aber auch den Akku- und Speicherverbrauch</string>
     <string name="title_advanced_english_hint">Dadurch wird die App neu gestartet</string>
     <string name="title_advanced_experiments_hint">Liste der aktuellen experimentellen Funktionen</string>
     <string name="title_advanced_debug_hint">Aktiviert zusätzliche Protokollierung und zeigt Fehlerbehebungsinformationen an verschiedenen Stellen an</string>
@@ -435,6 +439,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_no_inbox">Posteingang nicht gefunden</string>
     <string name="title_no_primary_drafts">Kein Hauptkonto oder kein Entwürfe-Ordner</string>
     <string name="title_no_identities">Senden von E-Mails erfordert mindestens eine konfigurierte Identität</string>
+    <string name="title_no_standard">Dieser Provider verwendet ein proprietäres E-Mail-Protokoll, so dass es nicht möglich ist, E-Mail-Clients von Drittanbietern zu nutzen</string>
     <string name="title_no_idle">Dieser Anbieter unterstützt keine Pushnachrichten. Dies verzögert den Empfang neuer E-Mails und erhöht den Akkuverbrauch.</string>
     <string name="title_no_utf8">Dieser Anbieter unterstützt UTF-8 nicht</string>
     <string name="title_no_sync">Synchronisationsfehler seit %1$s</string>
@@ -528,7 +533,6 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_share">Teilen</string>
     <string name="title_print">Drucken</string>
     <string name="title_show_headers">Kopfzeile anzeigen</string>
-    <string name="title_raw_download">Rohdaten herunterladen</string>
     <string name="title_raw_save">Rohdaten speichern</string>
     <string name="title_raw_send">Als Anhang senden</string>
     <string name="title_manage_keywords">Labels verwalten</string>

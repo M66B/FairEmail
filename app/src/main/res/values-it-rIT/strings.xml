@@ -325,6 +325,8 @@
     <string name="title_advanced_import_key">Importa chiave privata</string>
     <string name="title_advanced_manage_keys">Gestisci le chiavi private</string>
     <string name="title_advanced_external_search">Consenti ad altre applicazioni di cercare nei messaggi</string>
+    <string name="title_advanced_fts">Ricerca testo completo</string>
+    <string name="title_advanced_fts_indexed">%1$d/%2$d indicizzato</string>
     <string name="title_advanced_english">Forza la lingua inglese</string>
     <string name="title_advanced_watchdog">Controlla periodicamente se FairEmail è ancora attiva</string>
     <string name="title_advanced_updates">Controlla aggiornamenti</string>
@@ -342,8 +344,10 @@
     <string name="title_advanced_unseen_hint">Alcuni provider non supportano correttamente questa funzione, il che potrebbe causare la sincronizzazione di nessuno o di tutti i messaggi</string>
     <string name="title_advanced_sync_kept_hint">Questo trasferirà dati aggiuntivi e consumerà energia batteria extra, specialmente se molti messaggi vengono memorizzati sul dispositivo</string>
     <string name="title_advanced_sync_folders_hint">Disabilitando questa opzione si ridurranno in qualche modo i dati e l\'utilizzo della batteria, ma disattiverà anche l\'aggiornamento della lista delle cartelle</string>
+    <string name="title_advanced_subscribed_only_hint">Abilitando questa opzione verranno eliminate tutte le cartelle locali senza abbonamento</string>
     <string name="title_advanced_sync_delay_hint">Questo rallenterà la sincronizzazione dei messaggi</string>
     <string name="title_advanced_suggest_local_hint">Oltre ai contatti forniti da Android. I dati di contatto verranno archiviati per i messaggi appena inviati o ricevuti solo quando abilitato.</string>
+    <string name="title_advanced_usenet_hint">Inserisci \'-- \' tra il testo e la firma</string>
     <string name="title_advanced_lookup_mx_hint">Questo controllerà se esistono record DNS MX</string>
     <string name="title_advanced_check_reply_hint">Questo controlla se il nome di dominio del mittente e gli indirizzi di risposta sono uguali</string>
     <string name="title_advanced_metered_hint">Le connessioni a consumo sono generalmente connessioni mobili o hotspot Wi-Fi a pagamento</string>
@@ -374,7 +378,7 @@
     <string name="title_advanced_move_hint">La cartella di destinazione può essere configurata nelle impostazioni dell\'account</string>
     <string name="title_advanced_notify_no_grouping">Questa versione Android non supporta il raggruppamento di notifiche</string>
     <string name="title_advanced_notify_no_channels">Questa versione Android non supporta i canali di notifica</string>
-    <string name="title_advanced_subscribed_only_hint">Abilitando questa opzione verranno eliminate tutte le cartelle locali senza abbonamento</string>
+    <string name="title_advanced_fts_hint">Abilitando questa opzione migliora le prestazioni di ricerca, ma aumenta anche l\'utilizzo dello spazio di batteria e archiviazione</string>
     <string name="title_advanced_english_hint">Questo riavvierà l\'app</string>
     <string name="title_advanced_experiments_hint">Elenco delle attuali funzionalità sperimentali</string>
     <string name="title_advanced_debug_hint">Abilita il log extra e mostra le informazioni di debug in vari luoghi</string>
@@ -435,6 +439,7 @@
     <string name="title_no_inbox">Posta in arrivo non trovata</string>
     <string name="title_no_primary_drafts">Nessun account principale o nessuna cartella bozze</string>
     <string name="title_no_identities">L\'invio di email richiede almeno un\'identità</string>
+    <string name="title_no_standard">Questo fornitore utilizza un protocollo di posta elettronica proprietario e quindi non è possibile utilizzare client di terze parti</string>
     <string name="title_no_idle">Questo fornitore non supporta i messaggi push. Ciò ritarderà la ricezione di nuovi messaggi e aumenterà l\'utilizzo della batteria.</string>
     <string name="title_no_utf8">Questo provider non supporta UTF-8</string>
     <string name="title_no_sync">Errori di sincronizzazione da %1$s</string>
@@ -528,7 +533,6 @@
     <string name="title_share">Condividi</string>
     <string name="title_print">Stampa</string>
     <string name="title_show_headers">Visualizza header</string>
-    <string name="title_raw_download">Scarica messaggio non elaborato</string>
     <string name="title_raw_save">Salva messaggio non elaborato</string>
     <string name="title_raw_send">Invia come allegato</string>
     <string name="title_manage_keywords">Gestione parole chiave</string>

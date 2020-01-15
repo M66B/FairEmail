@@ -326,6 +326,8 @@
     <string name="title_advanced_import_key">Importer une clé privée</string>
     <string name="title_advanced_manage_keys">Gérer les clés privées</string>
     <string name="title_advanced_external_search">Autoriser les autres applications à rechercher dans les messages</string>
+    <string name="title_advanced_fts">Recherche plein texte</string>
+    <string name="title_advanced_fts_indexed">%1$d/%2$d indexés</string>
     <string name="title_advanced_english">Forcer la langue anglaise</string>
     <string name="title_advanced_watchdog">Vérifier périodiquement si FairEmail est toujours actif</string>
     <string name="title_advanced_updates">Vérifier les mises à jour</string>
@@ -343,8 +345,10 @@
     <string name="title_advanced_unseen_hint">Certains fournisseurs ne supportent pas ceci correctement, ce qui peut causer la synchronisation de tous les messages, ou d\'aucun</string>
     <string name="title_advanced_sync_kept_hint">Ceci utilisera des données et de la batterie supplémentaires, surtout s\'il y a beaucoup de messages conservés sur l\'appareil</string>
     <string name="title_advanced_sync_folders_hint">Désactiver ceci réduira quelque peu l\'utilisation des données et de la batterie mais désactivera également la mise à jour de la liste des dossiers</string>
+    <string name="title_advanced_subscribed_only_hint">Activer ceci supprimera tous les dossiers locaux sans abonnement</string>
     <string name="title_advanced_sync_delay_hint">Cela ralentira la synchronisation des messages</string>
     <string name="title_advanced_suggest_local_hint">En plus des contacts fournis par Android. Les données de contact seront stockées pour les messages récemment envoyés ou reçus uniquement lorsque ceci est activé.</string>
+    <string name="title_advanced_usenet_hint">Insérer \'-- \' entre le texte et la signature</string>
     <string name="title_advanced_lookup_mx_hint">Ceci vérifiera si des enregistrements MX DNS existent</string>
     <string name="title_advanced_check_reply_hint">Ceci vérifiera que le nom de domaine de l\'expéditeur et celui de l\'adresse de réponse sont identiques</string>
     <string name="title_advanced_metered_hint">Les connexions limitées sont généralement des connexions mobiles ou des points d\'accès Wi-Fi payants</string>
@@ -375,7 +379,7 @@
     <string name="title_advanced_move_hint">Le dossier cible peut être configuré dans les paramètres du compte</string>
     <string name="title_advanced_notify_no_grouping">Cette version d\'Android ne supporte pas le regroupement de notifications</string>
     <string name="title_advanced_notify_no_channels">Cette version de Android ne supporte pas les canaux de notification</string>
-    <string name="title_advanced_subscribed_only_hint">Activer ceci supprimera tous les dossiers locaux sans abonnement</string>
+    <string name="title_advanced_fts_hint">Activer ceci améliore les performances de la recherche mais augmente également l\'utilisation de la batterie et de l\'espace de stockage</string>
     <string name="title_advanced_english_hint">Ceci va redémarrer l’application</string>
     <string name="title_advanced_experiments_hint">Liste des fonctionnalités expérimentales actuelles</string>
     <string name="title_advanced_debug_hint">Activer la journalisation supplémentaire et afficher les informations de débogage à différents endroits</string>
@@ -436,6 +440,7 @@
     <string name="title_no_inbox">Boîte de réception introuvable</string>
     <string name="title_no_primary_drafts">Pas de compte principal ou pas de dossier Brouillons</string>
     <string name="title_no_identities">L\'envoi d\'e-mails nécessite au moins une identité</string>
+    <string name="title_no_standard">Ce fournisseur utilise un protocole de messagerie propriétaire et il n\'est donc pas possible d\'utiliser des clients de messagerie tiers</string>
     <string name="title_no_idle">Ce fournisseur ne gère pas les messages en mode push. Cela va retarder la réception de nouveaux messages et augmenter l\'utilisation de la batterie.</string>
     <string name="title_no_utf8">Ce fournisseur ne prend pas en charge l\'UTF-8</string>
     <string name="title_no_sync">Erreurs de synchronisation depuis %1$s</string>
@@ -529,7 +534,6 @@
     <string name="title_share">Partager</string>
     <string name="title_print">Imprimer</string>
     <string name="title_show_headers">Afficher les en-têtes</string>
-    <string name="title_raw_download">Télécharger le message brut</string>
     <string name="title_raw_save">Sauvegarder le message brut</string>
     <string name="title_raw_send">Envoyer comme pièce jointe</string>
     <string name="title_manage_keywords">Gérer les mots-clés</string>

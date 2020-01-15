@@ -311,6 +311,7 @@
     <string name="title_advanced_unseen_hint">Alguns proveïdors no suporten aquesta funció degudament, cosa que pot evitar la sincronització d\'alguns o tots els missatges</string>
     <string name="title_advanced_sync_kept_hint">Això transferirà dades addicionals i consumeix energia addicional per a la bateria, especialment si es desen el dispositiu de molts missatges</string>
     <string name="title_advanced_sync_folders_hint">Si el desactiveu, reduireu una mica l’ús de les dades i la bateria, però també desactivareu l’actualització de la llista de carpetes</string>
+    <string name="title_advanced_subscribed_only_hint">Si ho activeu, suprimireu totes les carpetes locals sense subscripció</string>
     <string name="title_advanced_sync_delay_hint">Això alentirà la sincronització de missatges</string>
     <string name="title_advanced_suggest_local_hint">A més dels contactes proporcionats per Android. Les dades de contacte s’emmagatzemaran per als missatges recentment enviats o rebuts només quan estiguin habilitats.</string>
     <string name="title_advanced_lookup_mx_hint">Això comprovarà si existeixen registres MX al DNS</string>
@@ -342,7 +343,6 @@
     <string name="title_advanced_move_hint">La carpeta de destí pot ser configurada a la configuració del compte</string>
     <string name="title_advanced_notify_no_grouping">Aquesta versió d\'Android no admet l\'agrupació de notificacions</string>
     <string name="title_advanced_notify_no_channels">Aquesta versió d\'Android no admet els canals de notificacions</string>
-    <string name="title_advanced_subscribed_only_hint">Si ho activeu, suprimireu totes les carpetes locals sense subscripció</string>
     <string name="title_advanced_english_hint">Això reiniciarà l\'aplicació</string>
     <string name="title_advanced_experiments_hint">Llista de funcions experimentals actuals</string>
     <string name="title_advanced_debug_hint">Habiliteu el registre addicional i mostra informació de depuració en diversos llocs</string>
@@ -492,7 +492,6 @@
     <string name="title_share">Compartir</string>
     <string name="title_print">Imprimeix</string>
     <string name="title_show_headers">Mostra les capçaleres</string>
-    <string name="title_raw_download">Descarregueu el missatge sense format</string>
     <string name="title_raw_save">Descarregueu el missatge en brut</string>
     <string name="title_raw_send">Envia com a fitxer adjunt</string>
     <string name="title_manage_keywords">Gestiona les paraules clau</string>

@@ -319,6 +319,7 @@
     <string name="title_advanced_unseen_hint">Някои доставчици не поддържат това правилно, което може да доведе до синхронизиране всички или нито едно съобщение</string>
     <string name="title_advanced_sync_kept_hint">Това ще прехвърли допълнителни данни и ще консумира допълнително батерията, особено ако на устройството се съхраняват много съобщения</string>
     <string name="title_advanced_sync_folders_hint">Деактивирането на това ще намали донякъде използването на данни и батерията, но ще деактивира и актуализирането на списъка с папки</string>
+    <string name="title_advanced_subscribed_only_hint">Активирането ще изтрие всички локални папки без абонамент</string>
     <string name="title_advanced_sync_delay_hint">Това ще забави синхронизирането на съобщенията</string>
     <string name="title_advanced_suggest_local_hint">В допълнение към контактите, осигурени от Android. Данните за контакт ще бъдат съхранявани за нови изпратени или получени съобщения, само когато са активирани.</string>
     <string name="title_advanced_lookup_mx_hint">Проверка дали DNS MX записи съществуват</string>
@@ -350,7 +351,6 @@
     <string name="title_advanced_move_hint">Целевата папка може да бъде конфигурирана в настройките на профила</string>
     <string name="title_advanced_notify_no_grouping">Версията на Android не поддържа групиране на известия</string>
     <string name="title_advanced_notify_no_channels">Версията на Android не поддържа канали за уведомяване</string>
-    <string name="title_advanced_subscribed_only_hint">Активирането ще изтрие всички локални папки без абонамент</string>
     <string name="title_advanced_english_hint">Това ще рестартира програмата</string>
     <string name="title_advanced_experiments_hint">Списък на експерименталните функции</string>
     <string name="title_advanced_debug_hint">Активиране на допълнителна регистрация и показване на информация за отстраняване на грешки на различни места</string>
@@ -500,7 +500,6 @@
     <string name="title_share">Споделяне</string>
     <string name="title_print">Отпечатване</string>
     <string name="title_show_headers">Покажи заглавки</string>
-    <string name="title_raw_download">Изтегляне на необработено съобщение</string>
     <string name="title_raw_save">Запиши необработено съобщение</string>
     <string name="title_raw_send">Изпращане като прикачен файл</string>
     <string name="title_manage_keywords">Управление по ключови думи</string>
