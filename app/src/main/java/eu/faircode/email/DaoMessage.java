@@ -202,6 +202,12 @@ public interface DaoMessage {
             " AND ui_hide")
     LiveData<List<Long>> liveHiddenThread(long account, String thread);
 
+    @Query("SELECT SUM(fts) AS fts, COUNT(*) AS total FROM message" +
+            " JOIN folder ON folder.id = message.folder" +
+            " WHERE content" +
+            " AND folder.type <> '" + EntityFolder.OUTBOX + "'")
+    LiveData<TupleFtsStats> liveFts();
+
     @Query("SELECT *" +
             " FROM message" +
             " WHERE id = :id")
@@ -227,8 +233,11 @@ public interface DaoMessage {
             " ORDER BY message.received DESC")
     List<Long> getMessageIdsByFolder(Long folder);
 
-    @Query("SELECT id FROM message" +
-            " WHERE content AND NOT fts" +
+    @Query("SELECT message.id FROM message" +
+            " JOIN folder ON folder.id = message.folder" +
+            " WHERE content" +
+            " AND NOT fts" +
+            " AND folder.type <> '" + EntityFolder.OUTBOX + "'" +
             " ORDER BY message.received DESC")
     Cursor getMessageFts();
 
@@ -540,6 +549,9 @@ public interface DaoMessage {
 
     @Query("UPDATE message SET headers = NULL WHERE headers IS NOT NULL")
     int clearMessageHeaders();
+
+    @Query("UPDATE message SET fts = 0")
+    int resetFts();
 
     @Query("DELETE FROM message WHERE id = :id")
     int deleteMessage(long id);

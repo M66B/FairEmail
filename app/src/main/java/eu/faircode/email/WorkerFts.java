@@ -37,6 +37,8 @@ import java.util.concurrent.TimeUnit;
 import io.requery.android.database.sqlite.SQLiteDatabase;
 
 public class WorkerFts extends Worker {
+    private static final int INDEX_DELAY = 30; // seconds
+
     public WorkerFts(@NonNull Context context, @NonNull WorkerParameters workerParams) {
         super(context, workerParams);
         Log.i("Instance " + getName());
@@ -78,23 +80,23 @@ public class WorkerFts extends Worker {
         }
     }
 
-    static void init(Context context) {
+    static void init(Context context, boolean immediately) {
         try {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean fts = prefs.getBoolean("fts", true);
             if (fts) {
                 Log.i("Queuing " + getName());
 
-                OneTimeWorkRequest workRequest =
-                        new OneTimeWorkRequest.Builder(WorkerFts.class)
-                                .setInitialDelay(30, TimeUnit.SECONDS)
-                                .build();
+                OneTimeWorkRequest.Builder builder = new OneTimeWorkRequest.Builder(WorkerFts.class);
+                if (!immediately)
+                    builder.setInitialDelay(INDEX_DELAY, TimeUnit.SECONDS);
+                OneTimeWorkRequest workRequest = builder.build();
 
                 WorkManager.getInstance(context)
                         .enqueueUniqueWork(getName(), ExistingWorkPolicy.REPLACE, workRequest);
 
                 Log.i("Queued " + getName());
-            } else {
+            } else if (immediately) {
                 Log.i("Cancelling " + getName());
                 WorkManager.getInstance(context).cancelUniqueWork(getName());
                 Log.i("Cancelled " + getName());

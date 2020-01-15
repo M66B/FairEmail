@@ -100,12 +100,16 @@ public class EntityOperation {
             for (Object value : values)
                 jargs.put(value);
 
-            if (ADD.equals(name) &&
-                    (EntityMessage.PGP_SIGNENCRYPT.equals(message.encrypt) ||
-                            EntityMessage.SMIME_SIGNENCRYPT.equals(message.encrypt))) {
-                EntityFolder folder = db.folder().getFolder(message.folder);
-                if (folder != null && EntityFolder.DRAFTS.equals(folder.type))
-                    return;
+            if (ADD.equals(name)) {
+                db.message().setMessageFts(message.id, false);
+                WorkerFts.init(context, false);
+
+                if (EntityMessage.PGP_SIGNENCRYPT.equals(message.encrypt) ||
+                        EntityMessage.SMIME_SIGNENCRYPT.equals(message.encrypt)) {
+                    EntityFolder folder = db.folder().getFolder(message.folder);
+                    if (folder != null && EntityFolder.DRAFTS.equals(folder.type))
+                        return;
+                }
             }
 
             if (MOVE.equals(name) &&
@@ -199,6 +203,7 @@ public class EntityOperation {
                     Long identity = message.identity;
                     long uid = message.uid;
                     int notifying = message.notifying;
+                    boolean fts = message.fts;
                     boolean seen = message.seen;
                     boolean ui_seen = message.ui_seen;
                     Boolean ui_hide = message.ui_hide;
@@ -211,6 +216,7 @@ public class EntityOperation {
                     message.identity = null;
                     message.uid = null;
                     message.notifying = 0;
+                    message.fts = false;
                     if (autoread) {
                         message.seen = true;
                         message.ui_seen = true;
@@ -229,6 +235,7 @@ public class EntityOperation {
                     message.identity = identity;
                     message.uid = uid;
                     message.notifying = notifying;
+                    message.fts = fts;
                     message.seen = seen;
                     message.ui_seen = ui_seen;
                     message.ui_hide = ui_hide;
@@ -245,6 +252,8 @@ public class EntityOperation {
                         }
 
                     EntityAttachment.copy(context, message.id, tmpid);
+
+                    WorkerFts.init(context, false);
                 }
 
                 // Cross account move

@@ -38,14 +38,15 @@ public class FtsDbHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "fts.db";
 
-    public FtsDbHelper(Context context) {
+    FtsDbHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
         Log.i("FTS create");
-        db.execSQL("CREATE VIRTUAL TABLE `message` USING fts4(`folder`, `time`, `address`, `subject`, `keyword`, `text`)");
+        db.execSQL("CREATE VIRTUAL TABLE `message`" +
+                " USING fts4(`folder`, `time`, `address`, `subject`, `keyword`, `text`)");
     }
 
     @Override
@@ -66,7 +67,7 @@ public class FtsDbHelper extends SQLiteOpenHelper {
         try {
             db.beginTransaction();
 
-            db.delete("message", "docid = ?", new Object[]{message.id});
+            delete(db, message.id);
 
             ContentValues cv = new ContentValues();
             cv.put("docid", message.id);
@@ -86,6 +87,10 @@ public class FtsDbHelper extends SQLiteOpenHelper {
         }
     }
 
+    void delete(SQLiteDatabase db, long id) {
+        db.delete("message", "docid = ?", new Object[]{id});
+    }
+
     List<Long> match(SQLiteDatabase db, Long folder, String search) {
         Log.i("FTS folder=" + folder + " search=" + search);
         List<Long> result = new ArrayList<>();
@@ -99,5 +104,12 @@ public class FtsDbHelper extends SQLiteOpenHelper {
         }
         Log.i("FTS result=" + result.size());
         return result;
+    }
+
+    Cursor getIds(SQLiteDatabase db) {
+        return db.query(
+                "message", new String[]{"docid"},
+                null, null,
+                null, null, "time");
     }
 }

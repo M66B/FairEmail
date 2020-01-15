@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 
 import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
@@ -38,6 +39,8 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+
+import io.requery.android.database.sqlite.SQLiteDatabase;
 
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 
@@ -189,6 +192,24 @@ public class WorkerCleanup extends Worker {
                                 Log.w("Error deleting " + file);
                         }
                     }
+
+            Log.i("Cleanup FTS");
+            int fts = 0;
+            FtsDbHelper ftsDb = new FtsDbHelper(context);
+            try (SQLiteDatabase sdb = ftsDb.getWritableDatabase()) {
+                try (Cursor cursor = ftsDb.getIds(sdb)) {
+                    while (cursor.moveToNext()) {
+                        long docid = cursor.getLong(0);
+                        EntityMessage message = db.message().getMessage(docid);
+                        if (message == null) {
+                            Log.i("Deleting docid" + docid);
+                            ftsDb.delete(sdb, docid);
+                            fts++;
+                        }
+                    }
+                }
+            }
+            Log.i("Cleanup FTS=" + fts);
 
             Log.i("Cleanup contacts");
             int contacts = db.contact().deleteContacts(now - KEEP_CONTACTS_DURATION);

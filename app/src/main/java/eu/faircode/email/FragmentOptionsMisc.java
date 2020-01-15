@@ -43,11 +43,14 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.constraintlayout.widget.Group;
 import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
 
 public class FragmentOptionsMisc extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private SwitchCompat swExternalSearch;
     private SwitchCompat swFts;
+    private Button btnFtsReset;
+    private TextView tvFtsIndexed;
     private SwitchCompat swEnglish;
     private SwitchCompat swWatchdog;
     private SwitchCompat swUpdates;
@@ -90,6 +93,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         swExternalSearch = view.findViewById(R.id.swExternalSearch);
         swFts = view.findViewById(R.id.swFts);
+        btnFtsReset = view.findViewById(R.id.btnFtsReset);
+        tvFtsIndexed = view.findViewById(R.id.tvFtsIndexed);
         swEnglish = view.findViewById(R.id.swEnglish);
         swWatchdog = view.findViewById(R.id.swWatchdog);
         swUpdates = view.findViewById(R.id.swUpdates);
@@ -132,7 +137,33 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("fts", checked).apply();
-                WorkerFts.init(getContext());
+                WorkerFts.init(getContext(), true);
+            }
+        });
+
+        btnFtsReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle args = new Bundle();
+
+                new SimpleTask<Void>() {
+                    @Override
+                    protected Void onExecute(Context context, Bundle args) throws Throwable {
+                        DB db = DB.getInstance(context);
+                        db.message().resetFts();
+                        return null;
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, Void data) {
+                        WorkerFts.init(getContext(), true);
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Log.unexpectedError(getParentFragmentManager(), ex);
+                    }
+                }.execute(FragmentOptionsMisc.this, args, "fts:reset");
             }
         });
 
@@ -208,6 +239,19 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onClick(View view) {
                 onCleanup();
+            }
+        });
+
+        tvFtsIndexed.setText(null);
+
+        DB db = DB.getInstance(getContext());
+        db.message().liveFts().observe(getViewLifecycleOwner(), new Observer<TupleFtsStats>() {
+            @Override
+            public void onChanged(TupleFtsStats stats) {
+                if (stats == null)
+                    tvFtsIndexed.setText(null);
+                else
+                    tvFtsIndexed.setText(getString(R.string.title_advanced_fts_indexed, stats.fts, stats.total));
             }
         });
 

@@ -4545,12 +4545,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                         // Write decrypted body
                                         Helper.copy(plain, message.getFile(context));
                                         db.message().setMessageStored(message.id, new Date().getTime());
+                                        db.message().setMessageFts(message.id, false);
 
                                         db.setTransactionSuccessful();
                                     } finally {
                                         db.endTransaction();
                                     }
 
+                                    WorkerFts.init(context, false);
                                 } else {
                                     // Decode message
                                     MessageHelper.MessageParts parts;
@@ -4588,11 +4590,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                                         db.message().setMessageEncrypt(message.id, parts.getEncryption());
                                         db.message().setMessageStored(message.id, new Date().getTime());
+                                        db.message().setMessageFts(message.id, false);
 
                                         db.setTransactionSuccessful();
                                     } finally {
                                         db.endTransaction();
                                     }
+
+                                    WorkerFts.init(context, false);
                                 }
 
                             // Check signature status
@@ -4857,6 +4862,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                         db.message().setMessageEncrypt(message.id, parts.getEncryption());
                         db.message().setMessageStored(message.id, new Date().getTime());
+                        db.message().setMessageFts(message.id, false);
 
                         if (alias != null && message.identity != null)
                             db.identity().setIdentitySignKeyAlias(message.identity, alias);
@@ -4865,6 +4871,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     } finally {
                         db.endTransaction();
                     }
+
+                    WorkerFts.init(context, false);
                 }
 
                 return result;
