@@ -96,15 +96,18 @@ public class WorkerFts extends Worker {
                         .enqueueUniqueWork(getName(), ExistingWorkPolicy.REPLACE, workRequest);
 
                 Log.i("Queued " + getName());
-            } else if (immediately) {
-                Log.i("Cancelling " + getName());
-                WorkManager.getInstance(context).cancelUniqueWork(getName());
-                Log.i("Cancelled " + getName());
-            }
+            } else if (immediately)
+                cancel(context);
         } catch (IllegalStateException ex) {
             // https://issuetracker.google.com/issues/138465476
             Log.w(ex);
         }
+    }
+
+    static void cancel(Context context) {
+        Log.i("Cancelling " + getName());
+        WorkManager.getInstance(context).cancelUniqueWork(getName());
+        Log.i("Cancelled " + getName());
     }
 
     private static String getName() {

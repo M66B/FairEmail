@@ -3649,6 +3649,7 @@ public class FragmentCompose extends FragmentBase {
                         draft.id = null;
                         draft.folder = db.folder().getOutbox().id;
                         draft.uid = null;
+                        draft.fts = false;
                         draft.ui_hide = false;
                         draft.id = db.message().insertMessage(draft);
                         Helper.writeText(draft.getFile(context), body);

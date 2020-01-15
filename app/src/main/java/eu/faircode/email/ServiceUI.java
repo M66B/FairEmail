@@ -419,6 +419,7 @@ public class ServiceUI extends IntentService {
                     // A new message ID is needed for a new (wearable) notification
                     db.message().deleteMessage(id);
                     message.id = null;
+                    message.fts = false;
                     message.id = db.message().insertMessage(message);
                     if (message.content)
                         EntityMessage.getFile(this, id)

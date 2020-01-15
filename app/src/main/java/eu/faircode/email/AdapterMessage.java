@@ -3042,6 +3042,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         EntityFolder drafts = db.folder().getFolderByType(message.account, EntityFolder.DRAFTS);
                         message.id = null;
                         message.folder = drafts.id;
+                        message.fts = false;
                         message.ui_snoozed = null;
                         message.error = null;
                         message.id = db.message().insertMessage(message);

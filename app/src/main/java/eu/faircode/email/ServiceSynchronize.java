@@ -170,6 +170,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         });
 
         liveAccountNetworkState.observeForever(new Observer<List<TupleAccountNetworkState>>() {
+            private boolean fts = false;
             private List<TupleAccountNetworkState> accountStates = new ArrayList<>();
             private ExecutorService queue = Helper.getBackgroundExecutor(1, "service");
 
@@ -258,6 +259,13 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         if (lastAccounts != accounts || lastOperations != operations) {
                             lastAccounts = accounts;
                             lastOperations = operations;
+                            if (operations == 0) {
+                                fts = true;
+                                WorkerFts.init(ServiceSynchronize.this, false);
+                            } else if (fts) {
+                                fts = false;
+                                WorkerFts.cancel(ServiceSynchronize.this);
+                            }
                             NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                             nm.notify(Helper.NOTIFICATION_SYNCHRONIZE, getNotificationService(lastAccounts, lastOperations).build());
                         }

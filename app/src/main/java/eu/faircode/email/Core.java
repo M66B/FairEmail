@@ -959,8 +959,6 @@ class Core {
             int count = ifolder.getMessageCount();
             db.folder().setFolderTotal(folder.id, count < 0 ? null : count);
         }
-
-        WorkerFts.init(context, false);
     }
 
     private static void onDelete(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException {
@@ -1988,8 +1986,6 @@ class Core {
             Log.i(folder.name + " end sync state=" + state);
             db.folder().setFolderSyncState(folder.id, null);
         }
-
-        WorkerFts.init(context, false);
     }
 
     static EntityMessage synchronizeMessage(

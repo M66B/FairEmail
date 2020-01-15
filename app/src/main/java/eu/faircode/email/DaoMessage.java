@@ -499,10 +499,14 @@ public interface DaoMessage {
     @Query("UPDATE message SET revisions = :revisions WHERE id = :id")
     int setMessageRevisions(long id, Integer revisions);
 
-    @Query("UPDATE message SET content = :content WHERE id = :id")
+    @Query("UPDATE message" +
+            " SET content = :content, fts = 0" +
+            " WHERE id = :id")
     int setMessageContent(long id, boolean content);
 
-    @Query("UPDATE message SET content = :content, plain_only = :plain_only, preview = :preview, warning = :warning WHERE id = :id")
+    @Query("UPDATE message" +
+            " SET content = :content, fts = 0, plain_only = :plain_only, preview = :preview, warning = :warning" +
+            " WHERE id = :id")
     int setMessageContent(long id, boolean content, Boolean plain_only, String preview, String warning);
 
     @Query("UPDATE message SET size = :size, total = :total WHERE id = :id")

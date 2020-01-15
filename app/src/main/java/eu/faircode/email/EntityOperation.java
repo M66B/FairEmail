@@ -101,14 +101,13 @@ public class EntityOperation {
                 jargs.put(value);
 
             if (ADD.equals(name)) {
-                db.message().setMessageFts(message.id, false);
-                WorkerFts.init(context, false);
-
                 if (EntityMessage.PGP_SIGNENCRYPT.equals(message.encrypt) ||
                         EntityMessage.SMIME_SIGNENCRYPT.equals(message.encrypt)) {
                     EntityFolder folder = db.folder().getFolder(message.folder);
-                    if (folder != null && EntityFolder.DRAFTS.equals(folder.type))
+                    if (folder != null && EntityFolder.DRAFTS.equals(folder.type)) {
+                        WorkerFts.init(context, false);
                         return;
+                    }
                 }
             }
 
@@ -252,8 +251,6 @@ public class EntityOperation {
                         }
 
                     EntityAttachment.copy(context, message.id, tmpid);
-
-                    WorkerFts.init(context, false);
                 }
 
                 // Cross account move
