@@ -733,6 +733,7 @@
     <string name="title_answer_caption">Изменить шаблон</string>
     <string name="title_answer_reply">Шаблон ответа</string>
     <string name="title_answer_name">Название шаблона</string>
+    <string name="title_answer_favorite">Избранное</string>
     <string name="title_answer_hide">Скрыть из меню</string>
     <string name="title_answer_text">Текст шаблона</string>
     <string name="title_answer_template_name">Шаблон $name$ будет заменён на полное имя отправителя.</string>

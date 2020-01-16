@@ -314,6 +314,7 @@
     <string name="title_advanced_manage_keys">管理私钥</string>
     <string name="title_advanced_external_search">允许其他应用在消息中搜索</string>
     <string name="title_advanced_fts">创建搜索索引</string>
+    <string name="title_advanced_fts_indexed">已索引%2$d消息中的%1$d条消息(%3$s)</string>
     <string name="title_advanced_english">强制使用英语</string>
     <string name="title_advanced_watchdog">定期检查FairEmail是否仍在运行</string>
     <string name="title_advanced_updates">检查更新</string>

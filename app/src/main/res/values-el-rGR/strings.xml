@@ -139,6 +139,7 @@
     <string name="title_advanced_startup">Εμφάνιση στην oθόνη έναρξης</string>
     <string name="title_advanced_pull_refresh">Σύρετε προς τα κάτω για ανανέωση</string>
     <string name="title_advanced_light">Χρήση φωτεινής ένδειξης ειδοποιήσεων</string>
+    <string name="title_advanced_fts_indexed">%1$d / %2$d ευρετήριο μύνηματων (%3$s)</string>
     <string name="title_advanced_updates">Έλεγχος για ενημερώσεις</string>
     <string name="title_advanced_debug">Λειτουργία αποσφαλμάτωσης</string>
     <string name="title_advanced_usenet_hint">Εισάγεται \'_\' ανάμεσα στο κείμενο και την υπογραφή</string>
@@ -183,6 +184,7 @@
     <string name="title_answer_caption">Επεξεργασία προτύπου</string>
     <string name="title_answer_reply">Πρότυπο απάντησης</string>
     <string name="title_answer_name">Όνομα προτύπου</string>
+    <string name="title_answer_favorite">Αγαπημένα</string>
     <string name="title_answer_text">Κείμενο προτύπου</string>
     <string name="title_rule_noop">Καμία ενέργεια</string>
     <string name="title_rule_hide">Απόκρυψη</string>

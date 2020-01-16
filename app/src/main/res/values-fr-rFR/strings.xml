@@ -704,13 +704,14 @@
     <string name="title_compact">Vue compacte</string>
     <string name="title_zoom">Taille du texte</string>
     <string name="title_select_all">Tout sélectionner</string>
-    <string name="title_select_found">Sélection trouvée</string>
+    <string name="title_select_found">Sélectionner les messages trouvés</string>
     <string name="title_force_sync">Forcer la synchronisation</string>
     <string name="title_previous">Précédent</string>
     <string name="title_next">Suivant</string>
     <string name="title_answer_caption">Modifier le modèle</string>
     <string name="title_answer_reply">Modèle de réponse</string>
     <string name="title_answer_name">Nom du modèle</string>
+    <string name="title_answer_favorite">Favori</string>
     <string name="title_answer_hide">Cacher dans les menus</string>
     <string name="title_answer_text">Texte du modèle</string>
     <string name="title_answer_template_name">$name$ sera remplacé par le nom complet de l\'expéditeur</string>

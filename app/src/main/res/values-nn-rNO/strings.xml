@@ -327,6 +327,7 @@
     <string name="title_advanced_manage_keys">Administrer private nøkler</string>
     <string name="title_advanced_external_search">Tillat andre apper å søke i meldinger</string>
     <string name="title_advanced_fts">Bygg søkeindeks</string>
+    <string name="title_advanced_fts_indexed">%1$d / %2$d meldinger indeksert (%3$s)</string>
     <string name="title_advanced_english">Tving bruk av engelsk</string>
     <string name="title_advanced_watchdog">Kontroller regelmessig om FairEmail fortsatt er aktiv</string>
     <string name="title_advanced_updates">Se etter oppdateringer</string>
@@ -709,6 +710,7 @@ Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anme
     <string name="title_answer_caption">Rediger mal</string>
     <string name="title_answer_reply">Svarmal</string>
     <string name="title_answer_name">Navn på mal</string>
+    <string name="title_answer_favorite">Favoritt</string>
     <string name="title_answer_hide">Skjul i menyer</string>
     <string name="title_answer_text">Maltekst</string>
     <string name="title_answer_template_name">$name$ vil bli erstattet med avsenderens fulle navn</string>

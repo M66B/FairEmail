@@ -709,6 +709,7 @@
     <string name="title_answer_caption">Modifica modello</string>
     <string name="title_answer_reply">Modello di risposta</string>
     <string name="title_answer_name">Nome del modello</string>
+    <string name="title_answer_favorite">Preferito</string>
     <string name="title_answer_hide">Nascondi dai menu</string>
     <string name="title_answer_text">Testo del modello</string>
     <string name="title_answer_template_name">$name$ verrà sostituito con il nome completo del mittente</string>
