@@ -361,7 +361,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 }
             }).setExternal(true));
 
-        if (Helper.isPlayStoreInstall())
+        if (Helper.isPlayStoreInstall() && false)
             extra.add(new NavMenuItem(R.drawable.baseline_bug_report_24, R.string.menu_test, new Runnable() {
                 @Override
                 public void run() {
