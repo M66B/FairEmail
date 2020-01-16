@@ -19,7 +19,18 @@ package eu.faircode.email;
     Copyright 2018-2020 by Marcel Bokhorst (M66B)
 */
 
+import androidx.annotation.Nullable;
+
 public class TupleFtsStats {
     public long fts;
     public long total;
+
+    @Override
+    public boolean equals(@Nullable Object obj) {
+        if (obj instanceof TupleFtsStats) {
+            TupleFtsStats other = (TupleFtsStats) obj;
+            return (this.fts == other.fts && this.total == other.total);
+        } else
+            return false;
+    }
 }

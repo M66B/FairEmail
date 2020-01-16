@@ -85,6 +85,10 @@ public class FtsDbHelper extends SQLiteOpenHelper {
         db.insert("message", SQLiteDatabase.CONFLICT_FAIL, cv);
     }
 
+    static void delete(SQLiteDatabase db) {
+        db.delete("message", null, null);
+    }
+
     static void delete(SQLiteDatabase db, long id) {
         db.delete("message", "rowid = ?", new Object[]{id});
     }
@@ -119,5 +123,14 @@ public class FtsDbHelper extends SQLiteOpenHelper {
                 "message", new String[]{"rowid"},
                 null, null,
                 null, null, "time");
+    }
+
+    static long size(Context context) {
+        return context.getDatabasePath(DATABASE_NAME).length();
+    }
+
+    static void optimize(SQLiteDatabase db) {
+        Log.i("FTS optimize");
+        db.execSQL("INSERT INTO message (message) VALUES ('optimize')");
     }
 }

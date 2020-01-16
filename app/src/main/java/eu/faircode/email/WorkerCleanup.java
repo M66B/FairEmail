@@ -68,6 +68,7 @@ public class WorkerCleanup extends Worker {
 
     static void cleanup(Context context, boolean manual) {
         DB db = DB.getInstance(context);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         try {
             Log.i("Start cleanup manual=" + manual);
 
@@ -111,7 +112,6 @@ public class WorkerCleanup extends Worker {
                 ServiceSynchronize.reschedule(context);
 
                 // Clear last search
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 prefs.edit().remove("last_search").apply();
             }
 
@@ -193,21 +193,26 @@ public class WorkerCleanup extends Worker {
                         }
                     }
 
-            Log.i("Cleanup FTS");
-            int fts = 0;
-            SQLiteDatabase sdb = FtsDbHelper.getInstance(context);
-            try (Cursor cursor = FtsDbHelper.getIds(sdb)) {
-                while (cursor.moveToNext()) {
-                    long rowid = cursor.getLong(0);
-                    EntityMessage message = db.message().getMessage(rowid);
-                    if (message == null) {
-                        Log.i("Deleting rowid" + rowid);
-                        FtsDbHelper.delete(sdb, rowid);
-                        fts++;
+            boolean fts = prefs.getBoolean("fts", true);
+            Log.i("Cleanup FTS=" + fts);
+            if (fts) {
+                int deleted = 0;
+                SQLiteDatabase sdb = FtsDbHelper.getInstance(context);
+                try (Cursor cursor = FtsDbHelper.getIds(sdb)) {
+                    while (cursor.moveToNext()) {
+                        long rowid = cursor.getLong(0);
+                        EntityMessage message = db.message().getMessage(rowid);
+                        if (message == null || !message.fts) {
+                            Log.i("Deleting FTS rowid=" + rowid);
+                            FtsDbHelper.delete(sdb, rowid);
+                            deleted++;
+                        }
                     }
                 }
+                Log.i("Cleanup FTS=" + deleted);
+                if (manual)
+                    FtsDbHelper.optimize(sdb);
             }
-            Log.i("Cleanup FTS=" + fts);
 
             Log.i("Cleanup contacts");
             int contacts = db.contact().deleteContacts(now - KEEP_CONTACTS_DURATION);
@@ -221,7 +226,6 @@ public class WorkerCleanup extends Worker {
         } finally {
             Log.i("End cleanup");
 
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             prefs.edit()
                     .remove("crash_report_count")
                     .putLong("last_cleanup", new Date().getTime())
