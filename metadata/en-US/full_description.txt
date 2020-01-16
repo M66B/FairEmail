@@ -73,7 +73,7 @@ All pro features are convenience or advanced features.
 * Reply templates
 * Accept/decline calendar invitations
 * Filter rules
-* Search on server
+* Search indexing, search on server
 * Keyword management
 * S/MIME sign/encrypt
 * Biometric authentication

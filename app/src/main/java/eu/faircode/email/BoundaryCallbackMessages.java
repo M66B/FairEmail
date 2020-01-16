@@ -187,7 +187,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean fts = prefs.getBoolean("fts", false);
-        if (fts && seen == null && flagged == null && snoozed == null && encrypted == null) {
+        boolean pro = ActivityBilling.isPro(context);
+        if (fts && pro && seen == null && flagged == null && snoozed == null && encrypted == null) {
             if (state.ids == null) {
                 SQLiteDatabase sdb = FtsDbHelper.getInstance(context);
                 state.ids = FtsDbHelper.match(sdb, folder, query);

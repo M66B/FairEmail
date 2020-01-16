@@ -52,6 +52,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swExternalSearch;
     private SwitchCompat swFts;
     private TextView tvFtsIndexed;
+    private TextView tvFtsPro;
     private SwitchCompat swEnglish;
     private SwitchCompat swWatchdog;
     private SwitchCompat swUpdates;
@@ -95,6 +96,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swExternalSearch = view.findViewById(R.id.swExternalSearch);
         swFts = view.findViewById(R.id.swFts);
         tvFtsIndexed = view.findViewById(R.id.tvFtsIndexed);
+        tvFtsPro = view.findViewById(R.id.tvFtsPro);
         swEnglish = view.findViewById(R.id.swEnglish);
         swWatchdog = view.findViewById(R.id.swWatchdog);
         swUpdates = view.findViewById(R.id.swUpdates);
@@ -164,6 +166,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                 }
             }
         });
+
+        Helper.linkPro(tvFtsPro);
 
         swEnglish.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override

@@ -92,7 +92,7 @@ All pro features are convenience or advanced features.
 * Reply templates
 * Accept/decline calendar invitations
 * Filter rules ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq71))
-* Search on server ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq13))
+* Search indexing, search on server ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq13))
 * Keyword management
 * S/MIME sign/encrypt
 * Biometric authentication ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq113))

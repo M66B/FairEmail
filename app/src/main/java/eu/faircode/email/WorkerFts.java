@@ -110,7 +110,8 @@ public class WorkerFts extends Worker {
         try {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean fts = prefs.getBoolean("fts", true);
-            if (fts) {
+            boolean pro = ActivityBilling.isPro(context);
+            if (fts && pro) {
                 Log.i("Queuing " + getName());
 
                 OneTimeWorkRequest.Builder builder = new OneTimeWorkRequest.Builder(WorkerFts.class);
