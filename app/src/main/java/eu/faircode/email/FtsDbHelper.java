@@ -94,13 +94,26 @@ public class FtsDbHelper extends SQLiteOpenHelper {
     }
 
     static List<Long> match(SQLiteDatabase db, Long folder, String query) {
-        String[] parts = query.split("\\s+");
         StringBuilder sb = new StringBuilder();
-        for (String part : parts) {
+        for (String or : query.split(",")) {
             if (sb.length() > 0)
-                sb.append(" AND ");
-            part = part.replaceAll("\"", "\"\"");
-            sb.append("\"").append(part).append("\"");
+                sb.append(" OR ");
+
+            boolean first = true;
+            sb.append("(");
+            for (String and : or.trim().split("\\s+")) {
+                if (first)
+                    first = false;
+                else
+                    sb.append(" AND ");
+
+                // Escape quotes
+                String term = and.replaceAll("\"", "\"\"");
+
+                // Quote search term
+                sb.append("\"").append(term).append("\"");
+            }
+            sb.append(")");
         }
 
         String search = sb.toString();

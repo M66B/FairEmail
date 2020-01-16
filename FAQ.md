@@ -693,6 +693,10 @@ to check if the searched text is contained in the file, which is a relative expe
 
 In the *miscellaneous settings* you can enable *Build search index* to significantly increase the speed of searching on the device,
 but be aware that this will increase battery usage and significantly increase storage space usage too.
+Searching using the search index is by default AND, so searching for *apple orange* will search for apple AND orange.
+Words separated by commas results in searching for OR, so for example *apple, orange* will search for apple OR orange.
+Both can be combined, so searching for *apple, orange banana* will search for apple OR (orange AND banana).
+Using the search index is a pro feature.
 
 Searching messages on the device is a free feature, searching messages on the server is a pro feature.
 
