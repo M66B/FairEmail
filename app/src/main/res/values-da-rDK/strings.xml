@@ -325,7 +325,7 @@
     <string name="title_advanced_import_key">Importér privat nøgle</string>
     <string name="title_advanced_manage_keys">Håndtér private nøgler</string>
     <string name="title_advanced_external_search">Tillad andre apps at søge i beskeder</string>
-    <string name="title_advanced_fts_indexed">%1$d/%2$d indekseret</string>
+    <string name="title_advanced_fts">Opbyg søgeindeks</string>
     <string name="title_advanced_english">Gennemtving engelsk sprog</string>
     <string name="title_advanced_watchdog">Tjek periodisk om FairEmail stadig er aktiv</string>
     <string name="title_advanced_updates">Søg efter opdateringer</string>
@@ -800,6 +800,7 @@
     <string name="title_legend_signed">Er signeret</string>
     <string name="title_legend_encrypted">Er krypteret</string>
     <string name="title_legend_auth">Godkendelse mislykkedes</string>
+    <string name="title_legend_found">Blev fundet</string>
     <string name="title_legend_snoozed">Er udsat</string>
     <string name="title_legend_browsed">Gennemses eller søges i</string>
     <string name="title_legend_answered">Er besvaret</string>

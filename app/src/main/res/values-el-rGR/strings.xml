@@ -139,7 +139,6 @@
     <string name="title_advanced_startup">Εμφάνιση στην oθόνη έναρξης</string>
     <string name="title_advanced_pull_refresh">Σύρετε προς τα κάτω για ανανέωση</string>
     <string name="title_advanced_light">Χρήση φωτεινής ένδειξης ειδοποιήσεων</string>
-    <string name="title_advanced_fts_indexed">%1$d/%2$d ευρετήριο</string>
     <string name="title_advanced_updates">Έλεγχος για ενημερώσεις</string>
     <string name="title_advanced_debug">Λειτουργία αποσφαλμάτωσης</string>
     <string name="title_advanced_usenet_hint">Εισάγεται \'_\' ανάμεσα στο κείμενο και την υπογραφή</string>
@@ -192,6 +191,7 @@
     <string name="title_rule_move">Μετακίνηση</string>
     <string name="title_rule_folder">Φάκελος</string>
     <string name="title_rule_template">Πρότυπο απάντησης</string>
+    <string name="title_legend_found">Βρέθηκε</string>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="linesNames">

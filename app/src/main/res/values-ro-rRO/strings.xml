@@ -336,7 +336,6 @@
     <string name="title_advanced_import_key">Importare cheie privată</string>
     <string name="title_advanced_manage_keys">Gestionare chei private</string>
     <string name="title_advanced_external_search">Permite altor aplicații să caute în mesaje</string>
-    <string name="title_advanced_fts_indexed">%1$d/%2$d indexat</string>
     <string name="title_advanced_english">Forțează folosirea limbii Engleze</string>
     <string name="title_advanced_watchdog">Verifică periodic dacă FairEmail este încă activ</string>
     <string name="title_advanced_updates">Verificare actualizări aplicație</string>

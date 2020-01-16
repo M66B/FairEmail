@@ -313,7 +313,7 @@
     <string name="title_advanced_import_key">导入私钥</string>
     <string name="title_advanced_manage_keys">管理私钥</string>
     <string name="title_advanced_external_search">允许其他应用在消息中搜索</string>
-    <string name="title_advanced_fts_indexed">%2$d中的%1$d已索引</string>
+    <string name="title_advanced_fts">创建搜索索引</string>
     <string name="title_advanced_english">强制使用英语</string>
     <string name="title_advanced_watchdog">定期检查FairEmail是否仍在运行</string>
     <string name="title_advanced_updates">检查更新</string>
@@ -788,6 +788,7 @@
     <string name="title_legend_signed">已签名</string>
     <string name="title_legend_encrypted">已加密</string>
     <string name="title_legend_auth">认证失败</string>
+    <string name="title_legend_found">找到了</string>
     <string name="title_legend_snoozed">已打盹</string>
     <string name="title_legend_browsed">已浏览或搜索</string>
     <string name="title_legend_answered">已回复</string>

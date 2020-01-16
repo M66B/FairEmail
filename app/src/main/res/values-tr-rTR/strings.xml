@@ -327,7 +327,6 @@
     <string name="title_advanced_manage_keys">Özel anahtarları yönet</string>
     <string name="title_advanced_external_search">Diğer uygulamaların mesajlarda arama yapmasına izin ver</string>
     <string name="title_advanced_fts">Arama indeksini oluştur</string>
-    <string name="title_advanced_fts_indexed">%1$d/%2$d indekslendi</string>
     <string name="title_advanced_english">İngilizce Diline Zorla</string>
     <string name="title_advanced_watchdog">Düzenli aralıklarla FairEmail hala etkin mi diye kontrol et</string>
     <string name="title_advanced_updates">Güncellemelere bak</string>
@@ -802,6 +801,7 @@
     <string name="title_legend_signed">İmzalı</string>
     <string name="title_legend_encrypted">Şifrelenmiş</string>
     <string name="title_legend_auth">Kimlik doğrulama başarısız</string>
+    <string name="title_legend_found">Bulundu</string>
     <string name="title_legend_snoozed">Ertelendi</string>
     <string name="title_legend_browsed">Gözatılmış ve aranmış</string>
     <string name="title_legend_answered">Yanıtlandı</string>

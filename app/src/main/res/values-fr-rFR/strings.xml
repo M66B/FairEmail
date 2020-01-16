@@ -327,7 +327,7 @@
     <string name="title_advanced_manage_keys">Gérer les clés privées</string>
     <string name="title_advanced_external_search">Autoriser les autres applications à rechercher dans les messages</string>
     <string name="title_advanced_fts">Construire l\'index de recherche</string>
-    <string name="title_advanced_fts_indexed">%1$d/%2$d indexés</string>
+    <string name="title_advanced_fts_indexed">%1$d / %2$d messages indexés (%3$s)</string>
     <string name="title_advanced_english">Forcer la langue anglaise</string>
     <string name="title_advanced_watchdog">Vérifier périodiquement si FairEmail est toujours actif</string>
     <string name="title_advanced_updates">Vérifier les mises à jour</string>
@@ -802,6 +802,7 @@
     <string name="title_legend_signed">Est signé</string>
     <string name="title_legend_encrypted">Est chiffré</string>
     <string name="title_legend_auth">Échec de l\'authentification</string>
+    <string name="title_legend_found">A été trouvé</string>
     <string name="title_legend_snoozed">Est reporté</string>
     <string name="title_legend_browsed">Est parcouru ou recherché</string>
     <string name="title_legend_answered">A reçu une réponse</string>

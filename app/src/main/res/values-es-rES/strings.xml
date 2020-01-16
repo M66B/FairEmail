@@ -327,7 +327,6 @@
     <string name="title_advanced_manage_keys">Administrar claves privadas</string>
     <string name="title_advanced_external_search">Permitir que otras aplicaciones busquen en mensajes</string>
     <string name="title_advanced_fts">Crear índice de búsqueda</string>
-    <string name="title_advanced_fts_indexed">%1$d/%2$d indexado</string>
     <string name="title_advanced_english">Forzar idioma inglés</string>
     <string name="title_advanced_watchdog">Comprobar periódicamente si FairEmail sigue activo</string>
     <string name="title_advanced_updates">Buscar actualizaciones</string>

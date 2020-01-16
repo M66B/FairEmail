@@ -326,7 +326,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_manage_keys">Private Schlüssel verwalten</string>
     <string name="title_advanced_external_search">Erlaube anderen Apps, in Nachrichten zu suchen</string>
     <string name="title_advanced_fts">Suchindex erstellen</string>
-    <string name="title_advanced_fts_indexed">%1$d/%2$d indiziert</string>
+    <string name="title_advanced_fts_indexed">%1$d / %2$d Nachrichten indiziert (%3$s)</string>
     <string name="title_advanced_english">Englische Sprache erzwingen</string>
     <string name="title_advanced_watchdog">Regelmäßig prüfen, ob FairEmail noch aktiv ist</string>
     <string name="title_advanced_updates">Nach Aktualisierungen suchen</string>
@@ -801,6 +801,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_legend_signed">Ist signiert</string>
     <string name="title_legend_encrypted">Ist verschlüsselt</string>
     <string name="title_legend_auth">Authentifizierung fehlgeschlagen</string>
+    <string name="title_legend_found">Wurde gefunden</string>
     <string name="title_legend_snoozed">Wurde zurückgestellt</string>
     <string name="title_legend_browsed">Gesehen oder gesucht</string>
     <string name="title_legend_answered">Wurde beantwortet</string>
