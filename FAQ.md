@@ -268,7 +268,7 @@ FairEmail follows all the best practices for an email client as described in [th
 * [(135) Why are trashed messages and drafts shown in conversations?](#user-content-faq135)
 * [(136) How can I delete an account/identity/folder?](#user-content-faq136)
 * [(137) How can I reset 'Don't ask again'?](#user-content-faq137)
-* [(138) Can you add calendar / contact management?](#user-content-faq138)
+* [(138) Can you add calendar/contact management/synchronizing?](#user-content-faq138)
 * [(139) How do I fix 'User is authenticated but not connected'?](#user-content-faq139)
 * [(140) Why does the message text contain strange characters?](#user-content-faq140)
 * [(141) How can I fix 'A drafts folder is required to send messages'?](#user-content-faq141)
@@ -2583,21 +2583,16 @@ You can reset all questions set to be not asked again in the miscellaneous setti
 <br />
 
 <a name="faq138"></a>
-**(138) Can you add calendar / contact management?**
+**(138) Can you add calendar/contact management/synchronizing?**
 
-Calendar and contact management can better be done in a separate, specialized app
-and is too complex to add to FairEmail, which is in itself already complex enough.
+Calendar and contact management can better be done by a separate, specialized app.
 
-Note that FairEmail does support replying to calendar invites and adding calendar invites to your personal calendar.
+You are advised to use the excellent, open source [DAVx⁵](https://f-droid.org/packages/at.bitfire.davdroid/) app to synchronize/manage your calendars/contacts.
 
-Please see here for some open source apps:
+Most providers support exporting your contacts.
+Please [see here](https://support.google.com/contacts/answer/1069522) about how you can import contacts if synchronizing is not possible.
 
-* [Calendar](https://search.f-droid.org/?q=calendar)
-* [Contacts](https://search.f-droid.org/?q=contacts)
-
-I prefer to do a few things very well instead of many things half.
-Developing, maintaining and supporting my current apps already take most of my spare time,
-so adding yet another app is not really possible.
+Note that FairEmail does support replying to calendar invites (a pro feature) and adding calendar invites to your personal calendar.
 
 <br />
 
