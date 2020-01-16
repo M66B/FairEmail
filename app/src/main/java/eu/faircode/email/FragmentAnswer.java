@@ -49,6 +49,7 @@ import static android.app.Activity.RESULT_OK;
 public class FragmentAnswer extends FragmentBase {
     private ViewGroup view;
     private EditText etName;
+    private CheckBox cbFavorite;
     private CheckBox cbHide;
     private EditTextCompose etText;
     private ImageButton ibInfo;
@@ -85,6 +86,7 @@ public class FragmentAnswer extends FragmentBase {
 
         // Get controls
         etName = view.findViewById(R.id.etName);
+        cbFavorite = view.findViewById(R.id.cbFavorite);
         cbHide = view.findViewById(R.id.cbHide);
         etText = view.findViewById(R.id.etText);
         ibInfo = view.findViewById(R.id.ibInfo);
@@ -168,6 +170,7 @@ public class FragmentAnswer extends FragmentBase {
             @Override
             protected void onExecuted(Bundle args, EntityAnswer answer) {
                 etName.setText(answer == null ? null : answer.name);
+                cbFavorite.setChecked(answer == null ? false : answer.favorite);
                 cbHide.setChecked(answer == null ? false : answer.hide);
                 etText.setText(answer == null ? null : HtmlHelper.fromHtml(answer.text));
                 bottom_navigation.findViewById(R.id.action_delete).setVisibility(answer == null ? View.GONE : View.VISIBLE);
@@ -199,6 +202,7 @@ public class FragmentAnswer extends FragmentBase {
         Bundle args = new Bundle();
         args.putLong("id", id);
         args.putString("name", etName.getText().toString());
+        args.putBoolean("favorite", cbFavorite.isChecked());
         args.putBoolean("hide", cbHide.isChecked());
         args.putString("text", HtmlHelper.toHtml(etText.getText()));
 
@@ -217,6 +221,7 @@ public class FragmentAnswer extends FragmentBase {
             protected Void onExecute(Context context, Bundle args) {
                 long id = args.getLong("id");
                 String name = args.getString("name");
+                boolean favorite = args.getBoolean("favorite");
                 boolean hide = args.getBoolean("hide");
                 String text = args.getString("text");
 
@@ -224,12 +229,14 @@ public class FragmentAnswer extends FragmentBase {
                 if (id < 0) {
                     EntityAnswer answer = new EntityAnswer();
                     answer.name = name;
+                    answer.favorite = favorite;
                     answer.hide = hide;
                     answer.text = text;
                     answer.id = db.answer().insertAnswer(answer);
                 } else {
                     EntityAnswer answer = db.answer().getAnswer(id);
                     answer.name = name;
+                    answer.favorite = favorite;
                     answer.hide = hide;
                     answer.text = text;
                     db.answer().updateAnswer(answer);

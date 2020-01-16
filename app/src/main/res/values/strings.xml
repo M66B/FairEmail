@@ -813,6 +813,7 @@
     <string name="title_answer_caption">Edit template</string>
     <string name="title_answer_reply">Reply template</string>
     <string name="title_answer_name">Template name</string>
+    <string name="title_answer_favorite">Favorite</string>
     <string name="title_answer_hide">Hide from menus</string>
     <string name="title_answer_text">Template text</string>
     <string name="title_answer_template_name">$name$ will be replaced by the sender full name</string>

@@ -22,6 +22,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <CheckBox
+        android:id="@+id/cbFavorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="6dp"
+        android:text="@string/title_answer_favorite"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etName" />
+
+    <CheckBox
         android:id="@+id/cbHide"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,7 +39,7 @@
         android:layout_marginTop="6dp"
         android:text="@string/title_answer_hide"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etName" />
+        app:layout_constraintTop_toBottomOf="@+id/cbFavorite" />
 
     <View
         android:id="@+id/vSeparator"

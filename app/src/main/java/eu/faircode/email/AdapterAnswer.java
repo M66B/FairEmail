@@ -80,7 +80,7 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
 
         private void bindTo(EntityAnswer answer) {
             view.setAlpha(answer.hide ? Helper.LOW_LIGHT : 1.0f);
-            tvName.setText(answer.name);
+            tvName.setText(answer.toString());
         }
 
         @Override
@@ -300,8 +300,9 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.unwire();
         EntityAnswer answer = items.get(position);
+
+        holder.unwire();
         holder.bindTo(answer);
         holder.wire();
     }

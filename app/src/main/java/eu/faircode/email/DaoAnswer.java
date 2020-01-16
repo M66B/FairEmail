@@ -31,14 +31,14 @@ import java.util.List;
 public interface DaoAnswer {
     @Query("SELECT * FROM answer" +
             " WHERE :all OR NOT hide" +
-            " ORDER BY name COLLATE NOCASE")
+            " ORDER BY -favorite, name COLLATE NOCASE")
     List<EntityAnswer> getAnswers(boolean all);
 
     @Query("SELECT * FROM answer WHERE id = :id")
     EntityAnswer getAnswer(long id);
 
     @Query("SELECT * FROM answer" +
-            " ORDER BY name COLLATE NOCASE")
+            " ORDER BY -favorite, name COLLATE NOCASE")
     LiveData<List<EntityAnswer>> liveAnswers();
 
     @Query("SELECT COUNT(*) FROM answer" +

@@ -48,6 +48,8 @@ public class EntityAnswer implements Serializable {
     @NonNull
     public String name;
     @NonNull
+    public Boolean favorite;
+    @NonNull
     public Boolean hide;
     @NonNull
     public String text;
@@ -119,6 +121,7 @@ public class EntityAnswer implements Serializable {
         if (obj instanceof EntityAnswer) {
             EntityAnswer other = (EntityAnswer) obj;
             return (this.name.equals(other.name) &&
+                    this.favorite.equals(other.favorite) &&
                     this.hide.equals(other.hide) &&
                     this.text.equals(other.text)
             );
@@ -129,6 +132,6 @@ public class EntityAnswer implements Serializable {
     @NonNull
     @Override
     public String toString() {
-        return name;
+        return name + (favorite ? " ★" : "");
     }
 }

@@ -2974,7 +2974,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                         int order = 0;
                         for (EntityAnswer answer : answers)
-                            popupMenu.getMenu().add(Menu.NONE, answer.id.intValue(), order++, answer.name);
+                            popupMenu.getMenu().add(Menu.NONE, answer.id.intValue(), order++, answer.toString());
 
                         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                             @Override
