@@ -102,7 +102,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private MediatorState liveAccountNetworkState = new MediatorState();
 
     private static final long YIELD_DURATION = 200L; // milliseconds
-    private static final long QUIT_DELAY = 10 * 1000L; // milliseconds
+    private static final long QUIT_DELAY = 5 * 1000L; // milliseconds
     private static final int CONNECT_BACKOFF_START = 8; // seconds
     private static final int CONNECT_BACKOFF_MAX = 64; // seconds (totally 2 minutes)
     private static final int CONNECT_BACKOFF_AlARM = 15; // minutes
@@ -171,6 +171,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
         liveAccountNetworkState.observeForever(new Observer<List<TupleAccountNetworkState>>() {
             private boolean fts = false;
+            private Integer lastQuitId = null;
             private List<TupleAccountNetworkState> accountStates = new ArrayList<>();
             private ExecutorService queue = Helper.getBackgroundExecutor(1, "service");
 
@@ -255,21 +256,21 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             delete(current);
                     }
 
-                    if (runService) {
-                        if (lastAccounts != accounts || lastOperations != operations) {
-                            lastAccounts = accounts;
-                            lastOperations = operations;
-                            if (operations == 0) {
-                                fts = true;
-                                WorkerFts.init(ServiceSynchronize.this, false);
-                            } else if (fts) {
-                                fts = false;
-                                WorkerFts.cancel(ServiceSynchronize.this);
-                            }
-                            NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                            nm.notify(Helper.NOTIFICATION_SYNCHRONIZE, getNotificationService(lastAccounts, lastOperations).build());
+                    if (lastAccounts != accounts || lastOperations != operations) {
+                        lastAccounts = accounts;
+                        lastOperations = operations;
+                        if (operations == 0) {
+                            fts = true;
+                            WorkerFts.init(ServiceSynchronize.this, false);
+                        } else if (fts) {
+                            fts = false;
+                            WorkerFts.cancel(ServiceSynchronize.this);
                         }
-                    } else
+                        NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                        nm.notify(Helper.NOTIFICATION_SYNCHRONIZE, getNotificationService(lastAccounts, lastOperations).build());
+                    }
+
+                    if (!runService)
                         quit(lastStartId);
                 }
             }
@@ -353,30 +354,34 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             }
 
             private void quit(final Integer startId) {
-                EntityLog.log(ServiceSynchronize.this, "Service quit");
+                if (lastQuitId != null && lastQuitId.equals(startId))
+                    return;
+                lastQuitId = startId;
+
+                EntityLog.log(ServiceSynchronize.this, "Service quit=" + startId);
 
                 queue.submit(new Runnable() {
                     @Override
                     public void run() {
                         Log.i("### quit");
 
-                        try {
-                            Thread.sleep(QUIT_DELAY);
-                        } catch (InterruptedException ex) {
-                            Log.w(ex);
-                        }
-
-                        if (startId != null) {
-                            stopSelf(startId);
-
-                            if (startId.equals(lastStartId)) {
-                                DB db = DB.getInstance(ServiceSynchronize.this);
-                                List<EntityOperation> ops = db.operation().getOperations(EntityOperation.SYNC);
-                                for (EntityOperation op : ops)
-                                    db.folder().setFolderSyncState(op.folder, null);
+                        if (startId == null) {
+                            // Service destroy
+                            DB db = DB.getInstance(ServiceSynchronize.this);
+                            List<EntityOperation> ops = db.operation().getOperations(EntityOperation.SYNC);
+                            for (EntityOperation op : ops)
+                                db.folder().setFolderSyncState(op.folder, null);
+                        } else {
+                            // Delay for widget updates
+                            try {
+                                Thread.sleep(QUIT_DELAY);
+                            } catch (InterruptedException ex) {
+                                Log.w(ex);
                             }
 
-                            EntityLog.log(ServiceSynchronize.this, "### quit requested");
+                            // Stop service
+                            stopSelf(startId);
+                            EntityLog.log(ServiceSynchronize.this, "Service quited=" + startId);
                         }
                     }
                 });
