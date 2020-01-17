@@ -867,9 +867,14 @@ class Core {
             ifolder.expunge();
         }
 
+        boolean fetch =
+                (!target.synchronize || !"connected".equals(target.state) ||
+                        target.poll || !istore.hasCapability("IDLE"));
+
         // Fetch appended/copied when needed
-        if (draft || !target.synchronize || target.poll || !istore.hasCapability("IDLE"))
+        if (draft || fetch)
             try {
+                Log.i(target.name + " moved message fetch=" + fetch);
                 itarget.open(READ_WRITE);
 
                 for (EntityMessage message : map.values())
@@ -892,7 +897,7 @@ class Core {
                                     icopy.setFlag(Flags.Flag.DRAFT, EntityFolder.DRAFTS.equals(target.type));
                                 }
 
-                                if (!target.synchronize || !istore.hasCapability("IDLE")) {
+                                if (fetch) {
                                     JSONArray fargs = new JSONArray();
                                     fargs.put(uid);
                                     onFetch(context, fargs, target, istore, itarget, state);
