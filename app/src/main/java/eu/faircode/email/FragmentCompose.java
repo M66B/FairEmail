@@ -3592,7 +3592,8 @@ public class FragmentCompose extends FragmentBase {
                             if (TextUtils.isEmpty(draft.subject))
                                 args.putBoolean("remind_subject", true);
 
-                            if (empty)
+                            File refFile = draft.getRefFile(context);
+                            if (empty && !refFile.exists())
                                 args.putBoolean("remind_text", true);
 
                             int attached = 0;
