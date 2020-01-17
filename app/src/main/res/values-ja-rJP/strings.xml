@@ -73,6 +73,7 @@
     <string name="menu_legend">記録</string>
     <string name="menu_test">テストプログラム</string>
     <string name="menu_faq">サポート</string>
+    <string name="menu_translate">翻訳を手伝う</string>
     <string name="menu_issue">問題を報告</string>
     <string name="menu_attribution">帰属</string>
     <string name="menu_privacy">プライバシー</string>
@@ -227,6 +228,7 @@
     <string name="title_advanced_distinguish_contacts">送信者がローカル(宛先)連絡先として知られている場合、送信者に下線を引く</string>
     <string name="title_advanced_color_stripe">カラーストライプを表示</string>
     <string name="title_advanced_avatars">連絡先の写真を表示</string>
+    <string name="title_advanced_gravatars">Gravatar(アバター)を表示</string>
     <string name="title_advanced_generated_icons">生成されたアイコンを表示</string>
     <string name="title_advanced_identicons">識別アイコンを表示</string>
     <string name="title_advanced_circular">丸いアイコンで表示</string>

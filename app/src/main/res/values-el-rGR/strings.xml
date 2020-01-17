@@ -45,6 +45,7 @@
     <string name="menu_legend">Υπόμνημα</string>
     <string name="menu_test">Πρόγραμμα δοκιμής</string>
     <string name="menu_faq">Υποστήριξη</string>
+    <string name="menu_translate">Βοηθήστε στη μετάφραση</string>
     <string name="menu_issue">Αναφορά προβλήματος</string>
     <string name="menu_attribution">Κατανομή</string>
     <string name="menu_privacy">Ιδιωτικότητα</string>

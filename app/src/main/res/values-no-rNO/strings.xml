@@ -85,6 +85,7 @@
     <string name="menu_legend">Forklaring</string>
     <string name="menu_test">Testprogram</string>
     <string name="menu_faq">Støtte</string>
+    <string name="menu_translate">Hjelp med oversetting</string>
     <string name="menu_issue">Rapporter en feil</string>
     <string name="menu_attribution">Attributter</string>
     <string name="menu_privacy">Personvern</string>
@@ -241,6 +242,7 @@
     <string name="title_advanced_distinguish_contacts">Understreke avsenderen når avsenderen er kjent som lokal \'til\' -kontakt</string>
     <string name="title_advanced_color_stripe">Vis fargestripe</string>
     <string name="title_advanced_avatars">Vis kontakt bilde</string>
+    <string name="title_advanced_gravatars">Vis Gravatars</string>
     <string name="title_advanced_generated_icons">Vis genererte ikoner</string>
     <string name="title_advanced_identicons">Vis identicons</string>
     <string name="title_advanced_circular">Vis runde ikoner</string>

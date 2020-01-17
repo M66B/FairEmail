@@ -77,6 +77,7 @@
     <string name="menu_legend">Legenda</string>
     <string name="menu_test">Testovací program</string>
     <string name="menu_faq">Podpora</string>
+    <string name="menu_translate">Pomozte s překladem</string>
     <string name="menu_issue">Nahlásit problém</string>
     <string name="menu_attribution">Zásluhy</string>
     <string name="menu_privacy">Soukromí</string>
@@ -233,6 +234,7 @@
     <string name="title_advanced_distinguish_contacts">Podtrhnout odesílatele, když je odesílatel známý jako místní \"komu\" kontakt</string>
     <string name="title_advanced_color_stripe">Zobrazit barevný pruh</string>
     <string name="title_advanced_avatars">Zobrazit fotografie kontaktů</string>
+    <string name="title_advanced_gravatars">Zobrazit Gravatary</string>
     <string name="title_advanced_generated_icons">Zobrazit generované ikony</string>
     <string name="title_advanced_identicons">Zobrazit identikony</string>
     <string name="title_advanced_circular">Použít kulaté ikony</string>
@@ -703,6 +705,7 @@
     <string name="title_answer_caption">Upravit šablonu</string>
     <string name="title_answer_reply">Šablona odpovědi</string>
     <string name="title_answer_name">Název šablony</string>
+    <string name="title_answer_favorite">Oblíbená</string>
     <string name="title_answer_hide">Skrýt z nabídek</string>
     <string name="title_answer_text">Text šablony</string>
     <string name="title_answer_template_name">$name$ bude nahrazeno celým jménem odesílatele</string>

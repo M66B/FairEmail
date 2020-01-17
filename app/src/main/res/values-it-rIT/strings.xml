@@ -85,6 +85,7 @@
     <string name="menu_legend">Legenda</string>
     <string name="menu_test">Programma di test</string>
     <string name="menu_faq">Supporto</string>
+    <string name="menu_translate">Aiuta a tradurre</string>
     <string name="menu_issue">Segnala problema</string>
     <string name="menu_attribution">Attribuzione</string>
     <string name="menu_privacy">Privacy</string>
@@ -240,6 +241,7 @@
     <string name="title_advanced_distinguish_contacts">Sottolinea il mittente quando il mittente è conosciuto come contatto locale \'a\"</string>
     <string name="title_advanced_color_stripe">Mostra striscia di colore</string>
     <string name="title_advanced_avatars">Mostra foto del contatto</string>
+    <string name="title_advanced_gravatars">Mostra Gravatars</string>
     <string name="title_advanced_generated_icons">Mostra icone generate</string>
     <string name="title_advanced_identicons">Visualizza identicon</string>
     <string name="title_advanced_circular">Mostra icone rotonde</string>

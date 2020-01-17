@@ -85,6 +85,7 @@
     <string name="menu_legend">Legende</string>
     <string name="menu_test">Test-Programm</string>
     <string name="menu_faq">Unterstützung</string>
+    <string name="menu_translate">Hilf beim Übersetzen</string>
     <string name="menu_issue">Problem melden</string>
     <string name="menu_attribution">Danksagung</string>
     <string name="menu_privacy">Datenschutz</string>
@@ -240,6 +241,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_distinguish_contacts">Den Sender unterstrichen darstellen, wenn er ein bekannter lokaler \'An\'-Kontakt ist</string>
     <string name="title_advanced_color_stripe">Farbstreifen anzeigen</string>
     <string name="title_advanced_avatars">Kontaktfotos anzeigen</string>
+    <string name="title_advanced_gravatars">Gravatare anzeigen</string>
     <string name="title_advanced_generated_icons">Zeige generierte Symbole (Anfangsbuchstaben)</string>
     <string name="title_advanced_identicons">Identicons als Kontaktbilder anzeigen</string>
     <string name="title_advanced_circular">Runde Symbole anzeigen</string>

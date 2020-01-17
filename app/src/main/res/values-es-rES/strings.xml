@@ -85,6 +85,7 @@
     <string name="menu_legend">Leyenda</string>
     <string name="menu_test">Probar programa</string>
     <string name="menu_faq">Soporte</string>
+    <string name="menu_translate">Ayude a traducir</string>
     <string name="menu_issue">Reportar problema</string>
     <string name="menu_attribution">Atribución</string>
     <string name="menu_privacy">Privacidad</string>

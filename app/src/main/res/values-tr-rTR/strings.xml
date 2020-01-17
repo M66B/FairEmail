@@ -85,6 +85,7 @@
     <string name="menu_legend">Simgelerin anlamları</string>
     <string name="menu_test">Test programı</string>
     <string name="menu_faq">Destek</string>
+    <string name="menu_translate">Çeviriye yardım edin</string>
     <string name="menu_issue">Sorun bildir</string>
     <string name="menu_attribution">Öznitelik</string>
     <string name="menu_privacy">Gizlilik</string>
