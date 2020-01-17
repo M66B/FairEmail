@@ -695,6 +695,7 @@ PlayストアでFairEmailを評価できれば幸いです。
     <string name="title_answer_caption">テンプレートを編集</string>
     <string name="title_answer_reply">テンプレートで返信</string>
     <string name="title_answer_name">テンプレート名</string>
+    <string name="title_answer_favorite">お気に入り</string>
     <string name="title_answer_hide">メニューに表示しません</string>
     <string name="title_answer_text">テンプレートテキスト</string>
     <string name="title_answer_template_name">$name$ は送信者のフルネームに置き換えられます</string>

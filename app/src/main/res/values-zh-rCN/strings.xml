@@ -698,6 +698,7 @@
     <string name="title_answer_caption">编辑模板</string>
     <string name="title_answer_reply">回复模板</string>
     <string name="title_answer_name">模板名称</string>
+    <string name="title_answer_favorite">收藏</string>
     <string name="title_answer_hide">从菜单中隐藏</string>
     <string name="title_answer_text">模板内容</string>
     <string name="title_answer_template_name">$name$ 将被发件人的全名取代</string>

@@ -711,6 +711,7 @@
     <string name="title_answer_caption">Editar plantilla</string>
     <string name="title_answer_reply">Plantilla de respuesta</string>
     <string name="title_answer_name">Nombre de plantilla</string>
+    <string name="title_answer_favorite">Favorito</string>
     <string name="title_answer_hide">Ocultar de menús</string>
     <string name="title_answer_text">Texto de plantilla</string>
     <string name="title_answer_template_name">$name$ será reemplazado por el nombre completo del remitente</string>

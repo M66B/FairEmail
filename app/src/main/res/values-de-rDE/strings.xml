@@ -710,6 +710,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_answer_caption">Vorlage bearbeiten</string>
     <string name="title_answer_reply">Antwortvorlage</string>
     <string name="title_answer_name">Vorlagenname</string>
+    <string name="title_answer_favorite">Favorit</string>
     <string name="title_answer_hide">Aus Menüs ausblenden</string>
     <string name="title_answer_text">Vorlagentext</string>
     <string name="title_answer_template_name">$name$ wird durch den vollständigen Absendernamen ersetzt</string>

@@ -326,6 +326,7 @@
     <string name="title_advanced_manage_keys">Kudeatu gako pribatuak</string>
     <string name="title_advanced_external_search">Baimendu beste aplikazioei mezuetan bilatzea</string>
     <string name="title_advanced_fts">Sortu bilaketa-indizea</string>
+    <string name="title_advanced_fts_indexed">%1$d / %2$d mezu indexatuak (%3$s)</string>
     <string name="title_advanced_english">Behartu hizkuntza ingelesa</string>
     <string name="title_advanced_watchdog">Aldiro egiaztatu FairEmail aktibo dagoen</string>
     <string name="title_advanced_updates">Egiaztatu eguneraketarik dagoen</string>
@@ -708,6 +709,7 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_answer_caption">Editatu txantiloia</string>
     <string name="title_answer_reply">Erantzun txantiloia</string>
     <string name="title_answer_name">Txantiloi-izena</string>
+    <string name="title_answer_favorite">Gogokoa</string>
     <string name="title_answer_hide">Ezkutatu menuetan</string>
     <string name="title_answer_text">Txantiloi-testua</string>
     <string name="title_answer_template_name">$name$ igorlearen izen osoarekin ordeztuko da</string>

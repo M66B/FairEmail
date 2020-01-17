@@ -92,7 +92,7 @@
     <string name="title_block">Блокировать %1$s</string>
     <string name="title_block_sender">Блокировать отправителя</string>
     <string name="title_block_sender_hint">        Блокировка отправителя создаст правило для автоматического перемещения будущих сообщений в папку со спамом.
-        Создание и использование правил является Pro функцией.
+        Создание и использование правил является Pro-функцией.
     </string>
     <string name="title_notification_waiting">Ожидание подходящего соединения</string>
     <string name="title_notification_sending">Отправка сообщений</string>

@@ -710,6 +710,7 @@
     <string name="title_answer_caption">Redigér skabelon</string>
     <string name="title_answer_reply">Svarskabelon</string>
     <string name="title_answer_name">Skabelonnavn</string>
+    <string name="title_answer_favorite">Favorit</string>
     <string name="title_answer_hide">Skjul fra menuer</string>
     <string name="title_answer_text">Skabelontekst</string>
     <string name="title_answer_template_name">$name$ bliver erstattet med afsenders fulde navn</string>
