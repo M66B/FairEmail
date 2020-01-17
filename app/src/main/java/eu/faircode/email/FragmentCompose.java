@@ -3592,8 +3592,9 @@ public class FragmentCompose extends FragmentBase {
                             if (TextUtils.isEmpty(draft.subject))
                                 args.putBoolean("remind_subject", true);
 
-                            File refFile = draft.getRefFile(context);
-                            if (empty && !refFile.exists())
+                            Document d = JsoupEx.parse(body);
+
+                            if (empty && d.select("div[fairemail=reference]").isEmpty())
                                 args.putBoolean("remind_text", true);
 
                             int attached = 0;
@@ -3609,7 +3610,6 @@ public class FragmentCompose extends FragmentBase {
                                 for (String text : Helper.getStrings(context, R.string.title_attachment_keywords))
                                     keywords.addAll(Arrays.asList(text.split(",")));
 
-                                Document d = JsoupEx.parse(body);
                                 d.select("div[fairemail=signature]").remove();
                                 d.select("div[fairemail=reference]").remove();
                                 String text = d.text();
