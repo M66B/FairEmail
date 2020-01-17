@@ -27,7 +27,7 @@ This app starts a foreground service with a low priority status bar notification
 
 <b>Privacy features</b>
 
-* Encryption/decryption supported (OpenPGP and S/MIME)
+* Encryption/decryption supported (OpenPGP, S/MIME)
 * Reformat messages to prevent phishing
 * Confirm showing images to prevent tracking
 * Confirm opening links to prevent tracking and phishing
