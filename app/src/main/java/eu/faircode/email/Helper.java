@@ -138,6 +138,7 @@ public class Helper {
     static final String XDA_URI = "https://forum.xda-developers.com/showthread.php?t=3824168";
     static final String SUPPORT_URI = "https://contact.faircode.eu/?product=fairemailsupport";
     static final String TEST_URI = "https://play.google.com/apps/testing/" + BuildConfig.APPLICATION_ID;
+    static final String CROWDIN_URI = "https://crowdin.com/project/open-source-email";
 
     static ExecutorService getBackgroundExecutor(int threads, String name) {
         ThreadFactory factory = new ThreadFactory() {

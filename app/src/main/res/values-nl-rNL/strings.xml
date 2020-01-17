@@ -85,6 +85,7 @@
     <string name="menu_legend">Legenda</string>
     <string name="menu_test">Test programma</string>
     <string name="menu_faq">Ondersteuning</string>
+    <string name="menu_translate">Help vertalen</string>
     <string name="menu_issue">Probleem melden</string>
     <string name="menu_attribution">Attributie</string>
     <string name="menu_privacy">Privacy</string>
