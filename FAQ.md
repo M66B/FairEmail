@@ -2678,4 +2678,6 @@ Features not fulfilling these requirements will likely be rejected.
 
 If you have another question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
 
+GitHub issues have been disabled due to frequent abuse.
+
 Copyright &copy; 2018-2020 Marcel Bokhorst.
