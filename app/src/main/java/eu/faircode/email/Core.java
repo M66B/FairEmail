@@ -868,7 +868,7 @@ class Core {
         }
 
         // Fetch appended/copied when needed
-        if (draft || !target.synchronize || !istore.hasCapability("IDLE"))
+        if (draft || !target.synchronize || target.poll || !istore.hasCapability("IDLE"))
             try {
                 itarget.open(READ_WRITE);
 
