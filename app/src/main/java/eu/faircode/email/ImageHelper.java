@@ -72,6 +72,7 @@ class ImageHelper {
     private static final ExecutorService executor =
             Helper.getBackgroundExecutor(1, "image");
 
+    private static final int DOWNLOAD_TIMEOUT = 15 * 1000; // milliseconds
     private static final int MAX_REDIRECTS = 10;
     private static final long FIT_DRAWABLE_TIMEOUT = 10 * 1000L; // milliseconds
 
@@ -492,6 +493,8 @@ class ImageHelper {
                 urlConnection = (HttpURLConnection) url.openConnection();
                 urlConnection.setRequestMethod("GET");
                 urlConnection.setDoOutput(false);
+                urlConnection.setReadTimeout(DOWNLOAD_TIMEOUT);
+                urlConnection.setConnectTimeout(DOWNLOAD_TIMEOUT);
                 urlConnection.setInstanceFollowRedirects(true);
                 urlConnection.connect();
 

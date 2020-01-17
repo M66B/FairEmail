@@ -62,6 +62,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swHighlightUnread;
     private SwitchCompat swColorStripe;
     private SwitchCompat swAvatars;
+    private SwitchCompat swGravatars;
     private SwitchCompat swGeneratedIcons;
     private SwitchCompat swIdenticons;
     private SwitchCompat swCircular;
@@ -97,7 +98,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
     private final static String[] RESET_OPTIONS = new String[]{
             "theme", "landscape", "landscape3", "startup", "cards", "indentation", "date", "threading", "highlight_unread", "color_stripe",
-            "avatars", "generated_icons", "identicons", "circular", "saturation", "brightness", "threshold",
+            "avatars", "gravatars", "generated_icons", "identicons", "circular", "saturation", "brightness", "threshold",
             "name_email", "distinguish_contacts", "authentication",
             "subject_top", "font_size_sender", "font_size_subject", "subject_italic", "subject_ellipsize",
             "flags", "flags_background", "preview", "preview_italic", "preview_lines", "addresses", "attachments_alt",
@@ -126,6 +127,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swHighlightUnread = view.findViewById(R.id.swHighlightUnread);
         swColorStripe = view.findViewById(R.id.swColorStripe);
         swAvatars = view.findViewById(R.id.swAvatars);
+        swGravatars = view.findViewById(R.id.swGravatars);
         swGeneratedIcons = view.findViewById(R.id.swGeneratedIcons);
         swIdenticons = view.findViewById(R.id.swIdenticons);
         swCircular = view.findViewById(R.id.swCircular);
@@ -251,14 +253,22 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
+        swGravatars.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("gravatars", checked).apply();
+                ContactInfo.clearCache();
+            }
+        });
+
         swGeneratedIcons.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("generated_icons", checked).apply();
                 swIdenticons.setEnabled(checked);
-                sbSaturation.setEnabled(swGeneratedIcons.isChecked());
-                sbBrightness.setEnabled(swGeneratedIcons.isChecked());
-                sbThreshold.setEnabled(swGeneratedIcons.isChecked());
+                sbSaturation.setEnabled(checked);
+                sbBrightness.setEnabled(checked);
+                sbThreshold.setEnabled(checked);
                 ContactInfo.clearCache();
             }
         });
@@ -588,6 +598,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swHighlightUnread.setChecked(prefs.getBoolean("highlight_unread", false));
         swColorStripe.setChecked(prefs.getBoolean("color_stripe", true));
         swAvatars.setChecked(prefs.getBoolean("avatars", true));
+        swGravatars.setChecked(prefs.getBoolean("gravatars", false));
         swGeneratedIcons.setChecked(prefs.getBoolean("generated_icons", true));
         swIdenticons.setChecked(prefs.getBoolean("identicons", false));
         swIdenticons.setEnabled(swGeneratedIcons.isChecked());

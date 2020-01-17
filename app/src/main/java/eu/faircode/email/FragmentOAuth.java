@@ -382,9 +382,9 @@ public class FragmentOAuth extends FragmentBase {
                     Log.i("Fetching " + url);
 
                     HttpURLConnection request = (HttpURLConnection) url.openConnection();
+                    request.setRequestMethod("GET");
                     request.setReadTimeout(OAUTH_TIMEOUT);
                     request.setConnectTimeout(OAUTH_TIMEOUT);
-                    request.setRequestMethod("GET");
                     request.setDoInput(true);
                     request.setRequestProperty("Authorization", "Bearer " + token);
                     request.setRequestProperty("Accept", "application/json");
@@ -421,9 +421,9 @@ public class FragmentOAuth extends FragmentBase {
                     Log.i("Fetching " + url);
 
                     HttpURLConnection request = (HttpURLConnection) url.openConnection();
+                    request.setRequestMethod("GET");
                     request.setReadTimeout(OAUTH_TIMEOUT);
                     request.setConnectTimeout(OAUTH_TIMEOUT);
-                    request.setRequestMethod("GET");
                     request.setDoInput(true);
                     request.setRequestProperty("Authorization", "Bearer " + token);
                     request.setRequestProperty("Content-Type", "application/json");

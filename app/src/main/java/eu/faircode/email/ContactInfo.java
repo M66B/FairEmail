@@ -34,7 +34,10 @@ import android.provider.ContactsContract;
 
 import androidx.preference.PreferenceManager;
 
+import java.io.IOException;
 import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -57,7 +60,8 @@ public class ContactInfo {
     private static final ExecutorService executor =
             Helper.getBackgroundExecutor(1, "contact");
 
-    private static final long CACHE_CONTACT_DURATION = 120 * 1000L;
+    private static final int GRAVATAR_TIMEOUT = 15 * 1000; // milliseconds
+    private static final long CACHE_CONTACT_DURATION = 120 * 1000L; // milliseconds
 
     private ContactInfo() {
     }
@@ -159,6 +163,35 @@ public class ContactInfo {
                 }
             } catch (Throwable ex) {
                 Log.e(ex);
+            }
+        }
+
+        if (info.bitmap == null) {
+            boolean gravatars = prefs.getBoolean("gravatars", false);
+            if (gravatars) {
+                HttpURLConnection urlConnection = null;
+                try {
+                    String hash = Helper.md5(address.getAddress().getBytes());
+                    URL url = new URL("https://www.gravatar.com/avatar/" + hash+"?d=404");
+
+                    urlConnection = (HttpURLConnection) url.openConnection();
+                    urlConnection.setRequestMethod("GET");
+                    urlConnection.setDoOutput(false);
+                    urlConnection.setReadTimeout(GRAVATAR_TIMEOUT);
+                    urlConnection.setConnectTimeout(GRAVATAR_TIMEOUT);
+                    urlConnection.connect();
+
+                    int status = urlConnection.getResponseCode();
+                    if (status != HttpURLConnection.HTTP_OK)
+                        throw new IOException("HTTP status=" + status);
+
+                    info.bitmap = BitmapFactory.decodeStream(urlConnection.getInputStream());
+                } catch (Throwable ex) {
+                    Log.w(ex);
+                } finally {
+                    if (urlConnection != null)
+                        urlConnection.disconnect();
+                }
             }
         }
 

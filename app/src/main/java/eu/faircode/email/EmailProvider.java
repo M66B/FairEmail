@@ -316,9 +316,9 @@ public class EmailProvider {
             Log.i("Fetching " + url);
 
             request = (HttpURLConnection) url.openConnection();
+            request.setRequestMethod("GET");
             request.setReadTimeout(ISPDB_TIMEOUT);
             request.setConnectTimeout(ISPDB_TIMEOUT);
-            request.setRequestMethod("GET");
             request.setDoInput(true);
             request.connect();
 

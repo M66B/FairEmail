@@ -38,6 +38,8 @@ import javax.net.ssl.HttpsURLConnection;
 public class IPInfo {
     private static Map<InetAddress, String> hostOrganization = new HashMap<>();
 
+    private final static int FETCH_TIMEOUT = 15 * 1000; // milliseconds
+
     static String[] getOrganization(Uri uri, Context context) throws IOException, ParseException {
         if ("mailto".equals(uri.getScheme())) {
             MailTo email = MailTo.parse(uri.toString());
@@ -67,7 +69,7 @@ public class IPInfo {
         Log.i("GET " + url);
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
-        connection.setReadTimeout(15 * 1000);
+        connection.setReadTimeout(FETCH_TIMEOUT);
         connection.connect();
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()))) {
             String organization = reader.readLine();

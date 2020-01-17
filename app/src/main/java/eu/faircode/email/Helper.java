@@ -707,6 +707,10 @@ public class Helper {
         return sha("SHA-256", data);
     }
 
+    static String md5(byte[] data) throws NoSuchAlgorithmException {
+        return sha("MD5", data);
+    }
+
     static String sha(String digest, byte[] data) throws NoSuchAlgorithmException {
         byte[] bytes = MessageDigest.getInstance(digest).digest(data);
         StringBuilder sb = new StringBuilder();
