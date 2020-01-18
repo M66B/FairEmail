@@ -1532,6 +1532,9 @@ class Core {
                     message.ui_ignored = false;
                     message.ui_browsed = false;
 
+                    if (message.size == null && message.total != null)
+                        message.size = message.total;
+
                     EntityIdentity identity = matchIdentity(context, folder, message);
                     message.identity = (identity == null ? null : identity.id);
 
