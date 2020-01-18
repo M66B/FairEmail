@@ -56,6 +56,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private SwitchCompat swResizeAttachments;
     private Spinner spAutoResize;
     private TextView tvAutoResize;
+    private SwitchCompat swSendReminders;
     private SwitchCompat swReceipt;
     private SwitchCompat swLookupMx;
     private Spinner spSendDelayed;
@@ -64,7 +65,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             "keyboard", "suggest_sent", "suggested_received",
             "prefix_once", "extended_reply", "quote_reply",
             "plain_only", "usenet_signature",
-            "resize_images", "resize_attachments", "receipt_default", "resize", "lookup_mx", "send_delayed"
+            "resize_images", "resize_attachments", "send_reminders", "receipt_default", "resize", "lookup_mx", "send_delayed"
     };
 
     @Override
@@ -90,6 +91,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swResizeAttachments = view.findViewById(R.id.swResizeAttachments);
         spAutoResize = view.findViewById(R.id.spAutoResize);
         tvAutoResize = view.findViewById(R.id.tvAutoResize);
+        swSendReminders = view.findViewById(R.id.swSendReminders);
         swReceipt = view.findViewById(R.id.swReceipt);
         swLookupMx = view.findViewById(R.id.swLookupMx);
         spSendDelayed = view.findViewById(R.id.spSendDelayed);
@@ -201,6 +203,13 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             }
         });
 
+        swSendReminders.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("send_reminders", checked).apply();
+            }
+        });
+
         swLookupMx.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -289,6 +298,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             }
         spAutoResize.setEnabled(swResizeImages.isChecked() || swResizeAttachments.isChecked());
 
+        swSendReminders.setChecked(prefs.getBoolean("send_reminders", true));
         swReceipt.setChecked(prefs.getBoolean("receipt_default", false));
         swLookupMx.setChecked(prefs.getBoolean("lookup_mx", false));
 

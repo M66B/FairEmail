@@ -3734,11 +3734,14 @@ public class FragmentCompose extends FragmentBase {
                 boolean remind_subject = args.getBoolean("remind_subject", false);
                 boolean remind_text = args.getBoolean("remind_text", false);
                 boolean remind_attachment = args.getBoolean("remind_attachment", false);
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                boolean send_reminders = prefs.getBoolean("send_reminders", true);
 
                 int recipients = (draft.to == null ? 0 : draft.to.length) +
                         (draft.cc == null ? 0 : draft.cc.length) +
                         (draft.bcc == null ? 0 : draft.bcc.length);
-                if (dialog || remind_subject || remind_text || remind_attachment || recipients > RECIPIENTS_WARNING) {
+                if (dialog || (send_reminders &&
+                        (remind_subject || remind_text || remind_attachment || recipients > RECIPIENTS_WARNING))) {
                     setBusy(false);
 
                     FragmentDialogSend fragment = new FragmentDialogSend();
