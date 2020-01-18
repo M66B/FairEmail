@@ -599,6 +599,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swColorStripe.setChecked(prefs.getBoolean("color_stripe", true));
         swAvatars.setChecked(prefs.getBoolean("avatars", true));
         swGravatars.setChecked(prefs.getBoolean("gravatars", false));
+        swGravatars.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
         swGeneratedIcons.setChecked(prefs.getBoolean("generated_icons", true));
         swIdenticons.setChecked(prefs.getBoolean("identicons", false));
         swIdenticons.setEnabled(swGeneratedIcons.isChecked());

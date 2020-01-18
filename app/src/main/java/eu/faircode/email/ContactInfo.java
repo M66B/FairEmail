@@ -168,11 +168,11 @@ public class ContactInfo {
 
         if (info.bitmap == null) {
             boolean gravatars = prefs.getBoolean("gravatars", false);
-            if (gravatars) {
+            if (gravatars && BuildConfig.DEBUG) {
                 HttpURLConnection urlConnection = null;
                 try {
                     String hash = Helper.md5(address.getAddress().getBytes());
-                    URL url = new URL("https://www.gravatar.com/avatar/" + hash+"?d=404");
+                    URL url = new URL("https://www.gravatar.com/avatar/" + hash + "?d=404");
 
                     urlConnection = (HttpURLConnection) url.openConnection();
                     urlConnection.setRequestMethod("GET");
