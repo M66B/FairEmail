@@ -3376,11 +3376,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }
 
         @Override
-        public void onFound(String query, int count) {
-            setSubtitle(getString(R.string.title_name_count, query, count));
-        }
-
-        @Override
         public void onException(@NonNull Throwable ex) {
             if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                 if (ex instanceof IllegalStateException) {
