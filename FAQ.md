@@ -1216,7 +1216,7 @@ You can change this in the connection settings.
 There are several possible causes, so please read to the end of this answer.
 
 The error '*Handshake failed ... WRONG_VERSION_NUMBER*' might mean that you are trying to connect to an IMAP or SMTP server
-without an encrypted connection, typically using port 143 (IMAP) and port 25 (SMTP) or that a wrong protocol (SSL/TLS or STARTTLS) is being used.
+without an encrypted connection, typically using port 143 (IMAP) and port 25 (SMTP), or that a wrong protocol (SSL/TLS or STARTTLS) is being used.
 
 Most providers provide encrypted connections using different ports, typically port 993 (IMAP) and port 465/587 (SMTP).
 
