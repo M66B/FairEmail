@@ -4293,6 +4293,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         same = false;
                         Log.i("plain_only changed id=" + next.id);
                     }
+                    if (!Objects.equals(prev.encrypt, next.encrypt)) {
+                        same = false;
+                        Log.i("encrypt changed id=" + next.id);
+                    }
                     if (!Objects.equals(prev.preview, next.preview)) {
                         same = false;
                         Log.i("preview changed id=" + next.id);

@@ -1095,9 +1095,9 @@ public class FragmentCompose extends FragmentBase {
 
                 DB db = DB.getInstance(context);
                 if (EntityMessage.ENCRYPT_NONE.equals(encrypt))
-                    db.message().setMessageEncrypt(id, null);
+                    db.message().setMessageUiEncrypt(id, null);
                 else
-                    db.message().setMessageEncrypt(id, encrypt);
+                    db.message().setMessageUiEncrypt(id, encrypt);
 
                 return null;
             }
@@ -2649,6 +2649,7 @@ public class FragmentCompose extends FragmentBase {
                             data.draft.encrypt = EntityMessage.SMIME_SIGNONLY;
                         else
                             data.draft.encrypt = EntityMessage.PGP_SIGNONLY;
+                    data.draft.ui_encrypt = data.draft.encrypt;
                     if (receipt_default)
                         data.draft.receipt_request = true;
 
@@ -2895,8 +2896,10 @@ public class FragmentCompose extends FragmentBase {
 
                         if (ref.plain_only != null && ref.plain_only)
                             data.draft.plain_only = true;
-                        if (ref.encrypt != null && ref.encrypt != 0)
-                            data.draft.encrypt = ref.encrypt;
+                        if (ref.ui_encrypt != null && ref.ui_encrypt != EntityMessage.ENCRYPT_NONE) {
+                            data.draft.encrypt = ref.ui_encrypt;
+                            data.draft.ui_encrypt = ref.ui_encrypt;
+                        }
 
                         if (answer > 0) {
                             EntityAnswer a = db.answer().getAnswer(answer);
@@ -4277,7 +4280,7 @@ public class FragmentCompose extends FragmentBase {
                             int encrypt = args.getInt("encrypt");
 
                             DB db = DB.getInstance(context);
-                            db.message().setMessageEncrypt(id, encrypt);
+                            db.message().setMessageUiEncrypt(id, encrypt);
 
                             return null;
                         }

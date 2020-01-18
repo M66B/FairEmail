@@ -1516,6 +1516,7 @@ class Core {
                     message.total = helper.getSize();
                     message.content = false;
                     message.encrypt = parts.getEncryption();
+                    message.ui_encrypt = message.encrypt;
                     message.received = sent;
                     message.sent = sent;
                     message.seen = false;
@@ -2101,6 +2102,7 @@ class Core {
             message.total = helper.getSize();
             message.content = false;
             message.encrypt = parts.getEncryption();
+            message.ui_encrypt = message.encrypt;
             message.received = (account.use_date ? (sent == null ? 0 : sent) : helper.getReceived());
             message.sent = sent;
             message.seen = seen;

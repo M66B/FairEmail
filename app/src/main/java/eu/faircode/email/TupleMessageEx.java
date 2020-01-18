@@ -76,6 +76,7 @@ public class TupleMessageEx extends EntityMessage {
                     Objects.equals(this.identityName, other.identityName) &&
                     Objects.equals(this.identityEmail, other.identityEmail) &&
                     Objects.equals(this.identitySynchronize, other.identitySynchronize) &&
+                    MessageHelper.equal(this.senders, other.senders) &&
                     this.count == other.count &&
                     this.unseen == other.unseen &&
                     this.unflagged == other.unflagged &&

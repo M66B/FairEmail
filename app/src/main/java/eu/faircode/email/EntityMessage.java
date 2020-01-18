@@ -135,6 +135,7 @@ public class EntityMessage implements Serializable {
     public Boolean content = false;
     public Boolean plain_only = null;
     public Integer encrypt = null;
+    public Integer ui_encrypt = null;
     public String preview;
     @NonNull
     public Boolean signature = true;
@@ -276,6 +277,7 @@ public class EntityMessage implements Serializable {
             return (Objects.equals(this.account, other.account) &&
                     this.folder.equals(other.folder) &&
                     Objects.equals(this.identity, other.identity) &&
+                    // extra
                     Objects.equals(this.uid, other.uid) &&
                     Objects.equals(this.msgid, other.msgid) &&
                     Objects.equals(this.references, other.references) &&
@@ -298,6 +300,8 @@ public class EntityMessage implements Serializable {
                     MessageHelper.equal(this.bcc, other.bcc) &&
                     MessageHelper.equal(this.reply, other.reply) &&
                     MessageHelper.equal(this.list_post, other.list_post) &&
+                    Objects.equals(this.unsubscribe, other.unsubscribe) &&
+                    Objects.equals(this.autocrypt, other.autocrypt) &&
                     Objects.equals(this.headers, other.headers) &&
                     Objects.equals(this.raw, other.raw) &&
                     Objects.equals(this.subject, other.subject) &&
@@ -306,7 +310,10 @@ public class EntityMessage implements Serializable {
                     Objects.equals(this.attachments, other.attachments) &&
                     this.content == other.content &&
                     Objects.equals(this.plain_only, other.plain_only) &&
+                    Objects.equals(this.encrypt, other.encrypt) &&
+                    Objects.equals(this.ui_encrypt, other.ui_encrypt) &&
                     Objects.equals(this.preview, other.preview) &&
+                    this.signature.equals(other.signature) &&
                     Objects.equals(this.sent, other.sent) &&
                     this.received.equals(other.received) &&
                     this.stored.equals(other.stored) &&
