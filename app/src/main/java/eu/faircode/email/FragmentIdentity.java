@@ -940,7 +940,7 @@ public class FragmentIdentity extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
-        }.execute(this, args, "account:oauth");
+        }.execute(this, args, "identity:oauth");
     }
 
     private void showError(Throwable ex) {
