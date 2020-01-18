@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
 import androidx.room.Database;
+import androidx.room.DatabaseConfiguration;
 import androidx.room.InvalidationTracker;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
@@ -110,8 +111,6 @@ public abstract class DB extends RoomDatabase {
 
             sInstance = migrate(acontext, getBuilder(acontext));
 
-            //sInstance.getOpenHelper().getWritableDatabase().execSQL("PRAGMA wal_autocheckpoint=100;");
-
             // https://www.sqlite.org/lang_vacuum.html
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean vacuum = prefs.getBoolean("vacuum", false);
@@ -165,7 +164,8 @@ public abstract class DB extends RoomDatabase {
                 .addCallback(new Callback() {
                     @Override
                     public void onOpen(@NonNull SupportSQLiteDatabase db) {
-                        Log.i("Creating triggers");
+                        Log.i("Database version=" + db.getVersion());
+
                         db.execSQL("CREATE TRIGGER IF NOT EXISTS attachment_insert" +
                                 " AFTER INSERT ON attachment" +
                                 " BEGIN UPDATE message SET attachments = attachments + 1 WHERE message.id = NEW.message; END");
@@ -179,13 +179,6 @@ public abstract class DB extends RoomDatabase {
     private static DB migrate(final Context context, RoomDatabase.Builder<DB> builder) {
         // https://www.sqlite.org/lang_altertable.html
         return builder
-                .addCallback(new Callback() {
-                    @Override
-                    public void onOpen(@NonNull SupportSQLiteDatabase db) {
-                        Log.i("Database version=" + db.getVersion());
-                        super.onOpen(db);
-                    }
-                })
                 .addMigrations(new Migration(1, 2) {
                     @Override
                     public void migrate(@NonNull SupportSQLiteDatabase db) {
