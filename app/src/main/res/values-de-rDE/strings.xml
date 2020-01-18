@@ -351,7 +351,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_sync_delay_hint">Dies verzögert die Synchronisierung von Nachrichten</string>
     <string name="title_advanced_suggest_local_hint">Zusätzlich zu den von Android bereitgestellten Kontakten werden weitere Kontaktdaten für neue gesendete oder erhaltene Nachrichten nur dann gespeichert, wenn dies aktiviert ist.</string>
     <string name="title_advanced_usenet_hint">Signatur-Trenner (\'-- \') zwischen Text und Signatur einfügen</string>
-    <string name="title_advanced_send_reminders_hint">Zeige eine Warnung, wenn der Nachrichtentext oder der Betreff leer ist oder wenn ein Anhang fehlt,</string>
+    <string name="title_advanced_send_reminders_hint">Zeige eine Warnung, wenn der Nachrichtentext oder der Betreff leer ist oder wenn ein Anhang zu fehlen scheint</string>
     <string name="title_advanced_lookup_mx_hint">Dies wird überprüfen, ob DNS MX-Einträge existieren</string>
     <string name="title_advanced_check_reply_hint">Damit wird überprüft, ob die Domain-Namen des Absenders und der Antwort-Adresse gleich sind</string>
     <string name="title_advanced_metered_hint">Getaktete Verbindungen sind in der Regel mobile Verbindungen oder bezahlte Wi-Fi Hotspots</string>
