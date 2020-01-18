@@ -110,6 +110,8 @@ public abstract class DB extends RoomDatabase {
 
             sInstance = migrate(acontext, getBuilder(acontext));
 
+            sInstance.getOpenHelper().getWritableDatabase().execSQL("PRAGMA wal_autocheckpoint=100;");
+
             // https://www.sqlite.org/lang_vacuum.html
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean vacuum = prefs.getBoolean("vacuum", false);
