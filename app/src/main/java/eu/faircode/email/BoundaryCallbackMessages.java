@@ -88,6 +88,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
         void onLoaded(int fetched);
 
+        void onFound(String query, int count);
+
         void onException(@NonNull Throwable ex);
     }
 
@@ -188,10 +190,19 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean fts = prefs.getBoolean("fts", false);
         boolean pro = ActivityBilling.isPro(context);
-        if (fts && pro && seen == null && flagged == null && snoozed == null && encrypted == null) {
+        if (fts && pro &&
+                query != null &&
+                seen == null && flagged == null && snoozed == null && encrypted == null) {
             if (state.ids == null) {
                 SQLiteDatabase sdb = FtsDbHelper.getInstance(context);
                 state.ids = FtsDbHelper.match(sdb, folder, query);
+
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        intf.onFound(query, state.ids.size());
+                    }
+                });
             }
 
             try {
@@ -450,7 +461,15 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
                     state.imessages = (Message[]) result;
                 }
+
                 Log.i("Boundary server found messages=" + state.imessages.length);
+                if (query != null)
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            intf.onFound(query, count);
+                        }
+                    });
 
                 state.index = state.imessages.length - 1;
             } catch (Throwable ex) {
