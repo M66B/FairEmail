@@ -84,6 +84,7 @@
     <string name="menu_legend">Legenda</string>
     <string name="menu_test">Probatu programa</string>
     <string name="menu_faq">Laguntza</string>
+    <string name="menu_translate">Lagundu Itzultzen</string>
     <string name="menu_issue">Eman arazoaren berri</string>
     <string name="menu_attribution">Atribuzioa</string>
     <string name="menu_privacy">Pribatutasuna</string>
@@ -221,6 +222,7 @@
     <string name="title_advanced_resize_images">Aldatu automatikoki kapsulatutako irudien neurria</string>
     <string name="title_advanced_resize_attachments">Aldatu automatikoki eranskinetako irudien neurria</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixel</string>
+    <string name="title_advanced_send_reminders">Erakutsi oroigarriak</string>
     <string name="title_advanced_lookup_mx">Hartzaileen email-helbideak egiaztatu bidali aurretik</string>
     <string name="title_advanced_send_delayed">Atzeratu mezuen bidalketa</string>
     <string name="title_advanced_metered">Erabili neurtutako konexioak</string>
@@ -240,6 +242,7 @@
     <string name="title_advanced_distinguish_contacts">Azpimarratu igorlea kontaktua jasotzaile lokalki ezaguna bada</string>
     <string name="title_advanced_color_stripe">Erakutsi kolorezko marra</string>
     <string name="title_advanced_avatars">Erakutsi kontaktuen argazkiak</string>
+    <string name="title_advanced_gravatars">Erakutsi gravatarrak</string>
     <string name="title_advanced_generated_icons">Erakutsi sortutako ikonoak</string>
     <string name="title_advanced_identicons">Erakutsi identikonoak</string>
     <string name="title_advanced_circular">Erakutsi ikono borobilak</string>
@@ -347,6 +350,7 @@
     <string name="title_advanced_sync_delay_hint">Honek mezuen sinkronizazioa motelduko du</string>
     <string name="title_advanced_suggest_local_hint">Android-en kontaktuez gain. Kontaktuen datuak gordeko dira mezuak bidali edo jasotzean soilik baimenduta badago.</string>
     <string name="title_advanced_usenet_hint">Txertatu \'-- \' testua eta sinaduraren artean</string>
+    <string name="title_advanced_send_reminders_hint">Erakutsi abisua mezuaren edo gairen testua hutsik dagoenean edo eranskina falta denean</string>
     <string name="title_advanced_lookup_mx_hint">Honek DNS MX erregistroak dauden ala ez egiaztatuko du</string>
     <string name="title_advanced_check_reply_hint">Honek egiaztatuko du bidaltzailearen domeinuaren izena eta erantzutekoa berdinak ote diren</string>
     <string name="title_advanced_metered_hint">Neurtutako konexioak orokorrean konexio mugikorrak eta ordainpeko wifi guneak dira</string>

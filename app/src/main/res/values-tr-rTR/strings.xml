@@ -223,6 +223,7 @@
     <string name="title_advanced_resize_images">Gömülü resimleri otomatik olarak yeniden boyutlandır</string>
     <string name="title_advanced_resize_attachments">Ekli resimleri otomatik olarak yeniden boyutlandır</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d piksel</string>
+    <string name="title_advanced_send_reminders">Hatırlatıcıları göster</string>
     <string name="title_advanced_lookup_mx">Göndermeden önce alıcı e-posta adreslerini kontrol edin</string>
     <string name="title_advanced_send_delayed">Mesaj göndermede gecikme</string>
     <string name="title_advanced_metered">Ölçülü bağlantıları kullan</string>
@@ -242,6 +243,7 @@
     <string name="title_advanced_distinguish_contacts">Gönderen yerel \'alıcı\' kişisi olarak biliniyorsa gönderenin altını çiz</string>
     <string name="title_advanced_color_stripe">Renk şeridini göster</string>
     <string name="title_advanced_avatars">Kişi fotoğraflarını göster</string>
+    <string name="title_advanced_gravatars">Gravatar\'ları göster</string>
     <string name="title_advanced_generated_icons">Oluşturulan simgeleri göster</string>
     <string name="title_advanced_identicons">Kimliklerini göster</string>
     <string name="title_advanced_circular">Yuvarlak simgeleri göster</string>
@@ -350,6 +352,7 @@
     <string name="title_advanced_sync_delay_hint">Bu, iletilerin eşzamanlamasını yavaşlatır</string>
     <string name="title_advanced_suggest_local_hint">Android tarafından sağlanan kişilere ek olarak. Kişi verileri yeni gönderilen veya alınan mesajlar için yalnızca etkin olduğunda saklanacaktır.</string>
     <string name="title_advanced_usenet_hint">Metin ve imza arasına \'-- \' ekle</string>
+    <string name="title_advanced_send_reminders_hint">Mesaj metni veya konu boş olduğunda veya bir ek eksik olduğunda bir uyarı göster</string>
     <string name="title_advanced_lookup_mx_hint">Bu, DNS MX kayıtlarının olup olmadığını kontrol eder</string>
     <string name="title_advanced_check_reply_hint">Bu, gönderenin alan adının ve yanıtlama adreslerinin aynı olup olmadığını kontrol edecektir</string>
     <string name="title_advanced_metered_hint">Ölçülü bağlantılar genellikle mobil bağlantılar veya ücretli Wi-Fi noktalarıdır</string>

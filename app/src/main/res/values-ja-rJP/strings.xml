@@ -209,6 +209,7 @@
     <string name="title_advanced_resize_images">埋込画像のサイズを自動的に変更</string>
     <string name="title_advanced_resize_attachments">画像添付ファイルの自動サイズ変更</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>
+    <string name="title_advanced_send_reminders">リマインダーを表示</string>
     <string name="title_advanced_lookup_mx">送信する前に受信者のメールアドレスを確認</string>
     <string name="title_advanced_send_delayed">メッセージ送信を遅延させます</string>
     <string name="title_advanced_metered">従量制課金接続を使用</string>
@@ -336,6 +337,7 @@
     <string name="title_advanced_sync_delay_hint">メッセージの同期が遅くなります</string>
     <string name="title_advanced_suggest_local_hint">Android内の連絡先に加えます。連絡先データは有効にした場合のみ新しく送信又は受信メッセージへ保存されます</string>
     <string name="title_advanced_usenet_hint">テキストと署名の間に「-」を挿入</string>
+    <string name="title_advanced_send_reminders_hint">メッセージテキスト又は件名が空の場合や添付ファイルが無い場合に警告を表示</string>
     <string name="title_advanced_lookup_mx_hint">DNS MXレコードが存在するかどうか確認</string>
     <string name="title_advanced_check_reply_hint">送信者のドメイン名と返信アドレスが同じかどうかを確認</string>
     <string name="title_advanced_metered_hint">従量制課金接続とは一般的にモバイル接続または有料Wi-Fiホットスポットの事です</string>

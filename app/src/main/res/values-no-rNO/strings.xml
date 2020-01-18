@@ -223,6 +223,7 @@
     <string name="title_advanced_resize_images">Endre størrelse på innebygde bilder automatisk</string>
     <string name="title_advanced_resize_attachments">Endre størrelse på bilder i vedlegg automatisk</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d piksler</string>
+    <string name="title_advanced_send_reminders">Vis påminnelser</string>
     <string name="title_advanced_lookup_mx">Sjekk mottakerens e-postadresser før du sender</string>
     <string name="title_advanced_send_delayed">Forsink sending av meldinger</string>
     <string name="title_advanced_metered">Bruk målte tilkoblinger</string>
@@ -351,6 +352,7 @@
     <string name="title_advanced_sync_delay_hint">Dette vil redusere synkroniseringen av meldinger</string>
     <string name="title_advanced_suggest_local_hint">I tillegg til kontakter levert av Android. Vil kontaktdata blir lagret for nylig sendte eller mottatte meldinger når de er aktivert.</string>
     <string name="title_advanced_usenet_hint">Sett inn \'-- \' mellom teksten og signaturen</string>
+    <string name="title_advanced_send_reminders_hint">Vis en advarsel når meldingsteksten eller emnet er tomt eller når et vedlegg mangler</string>
     <string name="title_advanced_lookup_mx_hint">Dette vil sjekke om DNS MX-poster eksisterer</string>
     <string name="title_advanced_check_reply_hint">Dette vil sjekke om domenenavnet til avsenderen og svaradressene er det samme</string>
     <string name="title_advanced_metered_hint">Målte tilkoblinger er vanligvis mobile tilkoblinger eller betalte Wi-Fi-hotspots</string>

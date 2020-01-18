@@ -222,6 +222,7 @@
     <string name="title_advanced_resize_images">Ridimensiona automaticamente le immagini incorporate</string>
     <string name="title_advanced_resize_attachments">Ridimensiona automaticamente gli allegati dell\'immagine</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixel</string>
+    <string name="title_advanced_send_reminders">Mostra promemoria</string>
     <string name="title_advanced_lookup_mx">Controlla gli indirizzi email dei destinatari prima di inviare</string>
     <string name="title_advanced_send_delayed">Ritardo invio messaggi</string>
     <string name="title_advanced_metered">Usa connessioni a consumo</string>
@@ -350,6 +351,7 @@
     <string name="title_advanced_sync_delay_hint">Questo rallenterà la sincronizzazione dei messaggi</string>
     <string name="title_advanced_suggest_local_hint">Oltre ai contatti forniti da Android. I dati di contatto verranno archiviati per i messaggi appena inviati o ricevuti solo quando abilitato.</string>
     <string name="title_advanced_usenet_hint">Inserisci \'-- \' tra il testo e la firma</string>
+    <string name="title_advanced_send_reminders_hint">Mostra un avviso quando il testo del messaggio o l\'oggetto è vuoto o quando un allegato potrebbe mancare</string>
     <string name="title_advanced_lookup_mx_hint">Questo controllerà se esistono record DNS MX</string>
     <string name="title_advanced_check_reply_hint">Questo controlla se il nome di dominio del mittente e gli indirizzi di risposta sono uguali</string>
     <string name="title_advanced_metered_hint">Le connessioni a consumo sono generalmente connessioni mobili o hotspot Wi-Fi a pagamento</string>

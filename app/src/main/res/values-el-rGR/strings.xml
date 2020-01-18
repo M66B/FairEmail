@@ -137,13 +137,16 @@
     <string name="title_advanced_section_display">Εμφάνιση</string>
     <string name="title_advanced_section_behavior">Συμπεριφορά</string>
     <string name="title_advanced_section_notifications">Ειδοποιήσεις</string>
+    <string name="title_advanced_send_reminders">Εμφάνιση υπενθυμίσεων</string>
     <string name="title_advanced_startup">Εμφάνιση στην oθόνη έναρξης</string>
+    <string name="title_advanced_gravatars">Δείξε Gravatars</string>
     <string name="title_advanced_pull_refresh">Σύρετε προς τα κάτω για ανανέωση</string>
     <string name="title_advanced_light">Χρήση φωτεινής ένδειξης ειδοποιήσεων</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d ευρετήριο μύνηματων (%3$s)</string>
     <string name="title_advanced_updates">Έλεγχος για ενημερώσεις</string>
     <string name="title_advanced_debug">Λειτουργία αποσφαλμάτωσης</string>
     <string name="title_advanced_usenet_hint">Εισάγεται \'_\' ανάμεσα στο κείμενο και την υπογραφή</string>
+    <string name="title_advanced_send_reminders_hint">Εμφάνιση προειδοποίησης όταν το κείμενο μύνηματων η το θέμα μύνηματων είναι κενό η όταν το συνημμένο λείπει</string>
     <string name="title_identity_name">Το όνομα σας</string>
     <string name="title_identity_email">Η διεύθυνση email σας</string>
     <string name="title_identity_reply_to">Απάντηση στη διεύθυνση αυτή</string>

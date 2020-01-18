@@ -245,6 +245,7 @@
     <string name="title_advanced_resize_images">Автоматически изменять размер встроенных изображений</string>
     <string name="title_advanced_resize_attachments">Автоматически изменять размер прикреплённых изображений</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d пикселей</string>
+    <string name="title_advanced_send_reminders">Показывать напоминания</string>
     <string name="title_advanced_lookup_mx">Проверить адрес электронной почты получателя перед отправкой</string>
     <string name="title_advanced_send_delayed">Задержка отправки сообщений</string>
     <string name="title_advanced_metered">Использовать лимитированные подключения</string>
@@ -373,6 +374,7 @@
     <string name="title_advanced_sync_delay_hint">Это замедлит синхронизацию сообщений</string>
     <string name="title_advanced_suggest_local_hint">В дополнение к контактам, предоставляемым Android. Контактные данные будут сохранены только для вновь отправленных или полученных сообщений при включении этой функции.</string>
     <string name="title_advanced_usenet_hint">Вставлять \'-- \' между текстом и подписью</string>
+    <string name="title_advanced_send_reminders_hint">Показывать предупреждение, если отсутствует текст сообщения, тема или возможно отсутствует вложение</string>
     <string name="title_advanced_lookup_mx_hint">Проверка наличия записей DNS MX</string>
     <string name="title_advanced_check_reply_hint">Проверяет, совпадает ли доменное имя отправителя и адреса для ответа</string>
     <string name="title_advanced_metered_hint">Лимитированные подключения - это обычно мобильные сети или платные Wi-Fi</string>

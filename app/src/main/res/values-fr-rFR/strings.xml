@@ -223,6 +223,7 @@
     <string name="title_advanced_resize_images">Redimensionner automatiquement les images incluses</string>
     <string name="title_advanced_resize_attachments">Redimensionner automatiquement les images en pièce jointe</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>
+    <string name="title_advanced_send_reminders">Afficher les rappels</string>
     <string name="title_advanced_lookup_mx">Vérifier les adresses e-mail des destinataires avant d\'envoyer</string>
     <string name="title_advanced_send_delayed">Retarder l\'envoi des messages</string>
     <string name="title_advanced_metered">Utiliser des connexions limitées</string>
@@ -351,6 +352,7 @@
     <string name="title_advanced_sync_delay_hint">Cela ralentira la synchronisation des messages</string>
     <string name="title_advanced_suggest_local_hint">En plus des contacts fournis par Android. Les données de contact seront stockées pour les messages récemment envoyés ou reçus uniquement lorsque ceci est activé.</string>
     <string name="title_advanced_usenet_hint">Insérer \'-- \' entre le texte et la signature</string>
+    <string name="title_advanced_send_reminders_hint">Afficher un avertissement quand le texte du message ou l\'objet sont vides ou quand une pièce jointe semble être manquante</string>
     <string name="title_advanced_lookup_mx_hint">Ceci vérifiera si des enregistrements MX DNS existent</string>
     <string name="title_advanced_check_reply_hint">Ceci vérifiera que le nom de domaine de l\'expéditeur et celui de l\'adresse de réponse sont identiques</string>
     <string name="title_advanced_metered_hint">Les connexions limitées sont généralement des connexions mobiles ou des points d\'accès Wi-Fi payants</string>

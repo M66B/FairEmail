@@ -84,6 +84,7 @@
     <string name="menu_legend">Selite</string>
     <string name="menu_test">Testaa ohjelmaa</string>
     <string name="menu_faq">Tuki</string>
+    <string name="menu_translate">Auta kääntämisessä</string>
     <string name="menu_issue">Ilmoita ongelmasta</string>
     <string name="menu_attribution">Käytettävät teknologiat</string>
     <string name="menu_privacy">Yksityisyys</string>
@@ -220,6 +221,7 @@
     <string name="title_advanced_resize_images">Muuta upotettujen kuvien koot</string>
     <string name="title_advanced_resize_attachments">Muuta liitettyjen kuvien koot</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d kuvapistettä</string>
+    <string name="title_advanced_send_reminders">Näytä muistutukset</string>
     <string name="title_advanced_lookup_mx">Tarkista vastaanottajien sähköpostiosoitteet ennen lähettämistä</string>
     <string name="title_advanced_send_delayed">Viivästä viestien lähetystä</string>
     <string name="title_advanced_metered">Käytä käytön mukaan laskutettavia yhteyksiä</string>
@@ -239,6 +241,7 @@
     <string name="title_advanced_distinguish_contacts">Alleviivaa lähettäjä tämän ollessa paikallisesti tunnettu vastaanottaja</string>
     <string name="title_advanced_color_stripe">Näytä väriliuska</string>
     <string name="title_advanced_avatars">Näytä yhteystietojen kuvat</string>
+    <string name="title_advanced_gravatars">Näytä Gravatarit</string>
     <string name="title_advanced_generated_icons">Näytä luodut kuvakkeet</string>
     <string name="title_advanced_identicons">Näytä identikonit</string>
     <string name="title_advanced_circular">Näytä pyöreät kuvakkeet</string>
@@ -347,6 +350,7 @@
     <string name="title_advanced_sync_delay_hint">Tämä hidastaa viestien synkronointia</string>
     <string name="title_advanced_suggest_local_hint">Androidin yhteystietojen lisäksi. Yhteystietoja tallennetaan uusista lähetetyistä ja vastaanotetuista viesteistä vain, jos asetus on päällä.</string>
     <string name="title_advanced_usenet_hint">Lisää \'--\' tekstin ja allekirjoituksen väliin</string>
+    <string name="title_advanced_send_reminders_hint">Näytä varoitus, kun viestin teksti tai aihe on tyhjä tai kun liite puuttuu</string>
     <string name="title_advanced_lookup_mx_hint">Tämä tarkistaa löytyykö DNS MX-tietoja</string>
     <string name="title_advanced_check_reply_hint">Tämä tarkistaa, ovatko lähetys- ja vastaussähköpostiosoitteiden verkkotunnukset samat</string>
     <string name="title_advanced_metered_hint">Käytön mukaan laskutettavat yhteydet ovat yleensä mobiiliyhteyksiä tai maksullisia Wi-Fi-yhteyspisteitä</string>
