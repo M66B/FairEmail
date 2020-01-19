@@ -1204,6 +1204,12 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             if (!iservice.getStore().isConnected())
                                 throw new StoreClosedException(iservice.getStore(), "NOOP");
 
+                            if (!ServiceSynchronize.this.getMainLooper().getThread().isAlive()) {
+                                Log.e("App died");
+                                state.stop();
+                                throw new StoreClosedException(iservice.getStore(), "App died");
+                            }
+
                             if (sync)
                                 for (EntityFolder folder : mapFolders.keySet())
                                     if (folder.synchronize)
