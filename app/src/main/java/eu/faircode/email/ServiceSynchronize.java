@@ -358,12 +358,15 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     return;
                 lastQuitId = startId;
 
-                EntityLog.log(ServiceSynchronize.this, "Service quit startId=" + startId);
+                EntityLog.log(ServiceSynchronize.this,
+                        "Service quit startId=" + startId + " ops=" + lastOperations);
 
                 queue.submit(new Runnable() {
                     @Override
                     public void run() {
-                        Log.i("### quit");
+                        Log.i("### quit startId=" + startId + "/" + lastQuitId + " ops=" + lastOperations);
+                        if (lastOperations == 0)
+                            return;
 
                         if (startId == null) {
                             // Service destroy
@@ -372,7 +375,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             for (EntityOperation op : ops)
                                 db.folder().setFolderSyncState(op.folder, null);
                         } else {
-                            // Delay for widget updates
+                            // Yield update notifications/widgets
                             try {
                                 Thread.sleep(QUIT_DELAY);
                             } catch (InterruptedException ex) {
@@ -380,8 +383,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             }
 
                             // Stop service
-                            boolean stopped = stopSelfResult(startId);
-                            EntityLog.log(ServiceSynchronize.this, "Service quited=" + stopped + " startId=" + startId);
+                            boolean stopped = (lastOperations == 0 && stopSelfResult(startId));
+                            EntityLog.log(ServiceSynchronize.this, "Service quited=" + stopped +
+                                    " startId=" + startId + "/" + lastQuitId + " ops=" + lastOperations);
                         }
                     }
                 });
@@ -1192,7 +1196,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         });
                     }
 
-
                     // Keep alive
                     boolean first = true;
                     while (state.isRunning()) {
@@ -1206,6 +1209,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                             if (!ServiceSynchronize.this.getMainLooper().getThread().isAlive()) {
                                 Log.e("App died");
+                                EntityLog.log(ServiceSynchronize.this, account.name + " app died");
                                 state.stop();
                                 throw new StoreClosedException(iservice.getStore(), "App died");
                             }
