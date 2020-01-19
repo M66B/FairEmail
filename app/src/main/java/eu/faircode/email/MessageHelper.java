@@ -91,7 +91,7 @@ import biweekly.ICalendar;
 public class MessageHelper {
     private MimeMessage imessage;
 
-    static final int SMALL_MESSAGE_SIZE = 32 * 1024; // bytes
+    static final int SMALL_MESSAGE_SIZE = 64 * 1024; // bytes
     static final int DEFAULT_ATTACHMENT_DOWNLOAD_SIZE = 256 * 1024; // bytes
     static final long ATTACHMENT_PROGRESS_UPDATE = 1500L; // milliseconds
 
