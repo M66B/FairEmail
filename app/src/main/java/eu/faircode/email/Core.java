@@ -1930,6 +1930,8 @@ class Core {
 
             int count = ifolder.getMessageCount();
             db.folder().setFolderTotal(folder.id, count < 0 ? null : count);
+            account.last_connected = new Date().getTime();
+            db.account().setAccountConnected(account.id, account.last_connected);
 
             if (download && initialize == 0) {
                 db.folder().setFolderSyncState(folder.id, "downloading");
