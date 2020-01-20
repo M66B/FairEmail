@@ -3590,7 +3590,7 @@ public class FragmentCompose extends FragmentBase {
                                 throw new IllegalArgumentException(context.getString(R.string.title_from_missing));
 
                             if (draft.to == null && draft.cc == null && draft.bcc == null)
-                                throw new IllegalArgumentException(context.getString(R.string.title_to_missing));
+                                args.putBoolean("remind_to", true);
 
                             if (TextUtils.isEmpty(draft.subject))
                                 args.putBoolean("remind_subject", true);
@@ -4143,6 +4143,7 @@ public class FragmentCompose extends FragmentBase {
 
             Bundle args = getArguments();
             boolean dialog = args.getBundle("extras").getBoolean("dialog");
+            boolean remind_to = args.getBoolean("remind_to", false);
             boolean remind_subject = args.getBoolean("remind_subject", false);
             boolean remind_text = args.getBoolean("remind_text", false);
             boolean remind_attachment = args.getBoolean("remind_attachment", false);
@@ -4156,6 +4157,7 @@ public class FragmentCompose extends FragmentBase {
             final String[] sendDelayedNames = getResources().getStringArray(R.array.sendDelayedNames);
 
             final ViewGroup dview = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.dialog_send, null);
+            final TextView tvRemindTo = dview.findViewById(R.id.tvRemindTo);
             final TextView tvRemindSubject = dview.findViewById(R.id.tvRemindSubject);
             final TextView tvRemindText = dview.findViewById(R.id.tvRemindText);
             final TextView tvRemindAttachment = dview.findViewById(R.id.tvRemindAttachment);
@@ -4171,6 +4173,7 @@ public class FragmentCompose extends FragmentBase {
             final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
             final TextView tvNotAgain = dview.findViewById(R.id.tvNotAgain);
 
+            tvRemindTo.setVisibility(remind_to ? View.VISIBLE : View.GONE);
             tvRemindSubject.setVisibility(remind_subject ? View.VISIBLE : View.GONE);
             tvRemindText.setVisibility(remind_text ? View.VISIBLE : View.GONE);
             tvRemindAttachment.setVisibility(remind_attachment ? View.VISIBLE : View.GONE);
@@ -4402,16 +4405,19 @@ public class FragmentCompose extends FragmentBase {
                 }
             });
 
-            return new AlertDialog.Builder(getContext())
+            AlertDialog.Builder builder = new AlertDialog.Builder(getContext())
                     .setView(dview)
-                    .setPositiveButton(R.string.title_send, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            sendResult(Activity.RESULT_OK);
-                        }
-                    })
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .create();
+                    .setNegativeButton(android.R.string.cancel, null);
+
+            if (!remind_to)
+                builder.setPositiveButton(R.string.title_send, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        sendResult(Activity.RESULT_OK);
+                    }
+                });
+
+            return builder.create();
         }
 
         @Override
