@@ -267,6 +267,14 @@ public class HtmlHelper {
         //    if (br.parent() != null && !hasVisibleContent(br.parent().childNodes()))
         //        br.tagName("span");
 
+        for (Element div : document.select("div"))
+            if (div.children().select("div").size() == 0 &&
+                    hasVisibleContent(div.childNodes())) {
+                Node last = div.childNode(div.childNodeSize() - 1);
+                if (last != null && "br".equals(last.nodeName()))
+                    last.remove();
+            }
+
         // Paragraphs
         for (Element p : document.select("p")) {
             p.appendElement("br");
