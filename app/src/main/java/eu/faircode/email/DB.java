@@ -128,7 +128,7 @@ public abstract class DB extends RoomDatabase {
         if (sInstance == null) {
             Context acontext = context.getApplicationContext();
 
-            sInstance = migrate(acontext, getBuilder(acontext));
+            sInstance = migrate(acontext, getBuilder(acontext)).build();
 
             sInstance.getInvalidationTracker().addObserver(new InvalidationTracker.Observer(
                     EntityAccount.TABLE_NAME,
@@ -183,7 +183,7 @@ public abstract class DB extends RoomDatabase {
                 });
     }
 
-    private static DB migrate(final Context context, RoomDatabase.Builder<DB> builder) {
+    private static RoomDatabase.Builder<DB> migrate(final Context context, RoomDatabase.Builder<DB> builder) {
         // https://www.sqlite.org/lang_altertable.html
         return builder
                 .addMigrations(new Migration(1, 2) {
@@ -1270,8 +1270,7 @@ public abstract class DB extends RoomDatabase {
                         db.execSQL("ALTER TABLE `message` ADD COLUMN `ui_encrypt` INTEGER");
                         db.execSQL("UPDATE `message` SET `ui_encrypt` = `encrypt`");
                     }
-                })
-                .build();
+                });
     }
 
     @Override
