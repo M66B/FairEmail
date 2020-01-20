@@ -322,6 +322,7 @@ public interface DaoMessage {
             " JOIN folder ON folder.id = message.folder" +
             " WHERE (:account IS NULL OR account.id = :account)" +
             " AND account.`synchronize`" +
+            " AND folder.notify" +
             " AND NOT (message.ui_seen OR message.ui_hide)" +
             " GROUP BY account.id" +
             " ORDER BY account.id")
@@ -333,6 +334,7 @@ public interface DaoMessage {
             " JOIN folder ON folder.id = message.folder" +
             " WHERE (:account IS NULL OR account.id = :account)" +
             " AND account.`synchronize`" +
+            " AND folder.notify" +
             " AND NOT (message.ui_seen OR message.ui_hide)")
     TupleMessageStats getUnseenWidget(Long account);
 
