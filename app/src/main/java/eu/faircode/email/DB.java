@@ -34,6 +34,7 @@ import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
 
 import io.requery.android.database.sqlite.RequerySQLiteOpenHelperFactory;
+import io.requery.android.database.sqlite.SQLiteDatabase;
 
 /*
     This file is part of FairEmail.
@@ -104,6 +105,24 @@ public abstract class DB extends RoomDatabase {
             Helper.getBackgroundExecutor(1, "query");
 
     private static final String DB_NAME = "fairemail";
+    private static final int DB_CHECKPOINT = 100;
+
+    @Override
+    public void init(@NonNull DatabaseConfiguration configuration) {
+        // https://www.sqlite.org/pragma.html#pragma_wal_autocheckpoint
+        String dbpath = configuration.context.getDatabasePath(DB_NAME).getPath();
+        if (new File(dbpath).exists()) {
+            try (SQLiteDatabase db = SQLiteDatabase.openDatabase(dbpath, null, SQLiteDatabase.OPEN_READWRITE)) {
+
+                Log.i("DB checkpoint=" + DB_CHECKPOINT);
+                try (Cursor cursor = db.rawQuery("PRAGMA wal_autocheckpoint=" + DB_CHECKPOINT + ";", null)) {
+                    cursor.moveToNext();
+                }
+            }
+        }
+
+        super.init(configuration);
+    }
 
     public static synchronized DB getInstance(Context context) {
         if (sInstance == null) {
