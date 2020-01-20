@@ -221,6 +221,13 @@ public class WorkerCleanup extends Worker {
             Log.i("Cleanup log");
             int logs = db.log().deleteLogs(now - KEEP_LOG_DURATION);
             Log.i("Deleted logs=" + logs);
+
+            if (manual) {
+                // https://www.sqlite.org/lang_vacuum.html
+                Log.i("Running VACUUM");
+                db.getOpenHelper().getWritableDatabase().execSQL("VACUUM;");
+            }
+
         } catch (Throwable ex) {
             Log.e(ex);
         } finally {

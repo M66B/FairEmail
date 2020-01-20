@@ -130,18 +130,6 @@ public abstract class DB extends RoomDatabase {
 
             sInstance = migrate(acontext, getBuilder(acontext));
 
-            // https://www.sqlite.org/lang_vacuum.html
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            boolean vacuum = prefs.getBoolean("vacuum", false);
-            if (vacuum)
-                try {
-                    Log.i("Running VACUUM");
-                    sInstance.getOpenHelper().getWritableDatabase().execSQL("VACUUM;");
-                    prefs.edit().remove("vacuum").apply();
-                } catch (Throwable ex) {
-                    Log.e(ex);
-                }
-
             sInstance.getInvalidationTracker().addObserver(new InvalidationTracker.Observer(
                     EntityAccount.TABLE_NAME,
                     EntityIdentity.TABLE_NAME,
