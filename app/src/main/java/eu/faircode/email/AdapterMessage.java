@@ -2889,8 +2889,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     popupMenu.getMenu().findItem(R.id.menu_reply_to_all).setVisible(recipients.length > 0);
                     popupMenu.getMenu().findItem(R.id.menu_reply_list).setVisible(message.list_post != null);
                     popupMenu.getMenu().findItem(R.id.menu_reply_receipt).setVisible(message.receipt_to != null);
-                    popupMenu.getMenu().findItem(R.id.menu_reply_answer).setVisible(answers != 0 || !ActivityBilling.isPro(context));
                     popupMenu.getMenu().findItem(R.id.menu_new_message).setVisible(to != null && to.length > 0);
+                    popupMenu.getMenu().findItem(R.id.menu_reply_answer).setVisible(answers != 0 || !ActivityBilling.isPro(context));
 
                     popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                         @Override
@@ -2908,14 +2908,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 case R.id.menu_reply_receipt:
                                     onMenuReply(message, "receipt");
                                     return true;
-                                case R.id.menu_reply_answer:
-                                    onMenuAnswer(message);
-                                    return true;
                                 case R.id.menu_forward:
                                     onMenuReply(message, "forward");
                                     return true;
+                                case R.id.menu_editasnew:
+                                    onMenuEditAsNew(message);
+                                    return true;
                                 case R.id.menu_new_message:
                                     onMenuNew(message, to);
+                                    return true;
+                                case R.id.menu_reply_answer:
+                                    onMenuAnswer(message);
                                     return true;
                                 default:
                                     return false;
@@ -2937,6 +2940,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     .putExtra("action", action)
                     .putExtra("reference", message.id);
             context.startActivity(reply);
+        }
+
+        private void onMenuEditAsNew(final TupleMessageEx message) {
+            Intent asnew = new Intent(context, ActivityCompose.class)
+                    .putExtra("action", "editasnew")
+                    .putExtra("reference", message.id);
+            context.startActivity(asnew);
         }
 
         private void onMenuNew(TupleMessageEx message, Address[] to) {
@@ -3114,8 +3124,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, anchor);
             popupMenu.inflate(R.menu.popup_message_more);
 
-            popupMenu.getMenu().findItem(R.id.menu_editasnew).setEnabled(message.content);
-
             popupMenu.getMenu().findItem(R.id.menu_unseen).setTitle(message.ui_seen ? R.string.title_unseen : R.string.title_seen);
             popupMenu.getMenu().findItem(R.id.menu_unseen).setEnabled(
                     (message.uid != null && !message.folderReadOnly) || message.accountProtocol != EntityAccount.TYPE_IMAP);
@@ -3157,9 +3165,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 @Override
                 public boolean onMenuItemClick(MenuItem target) {
                     switch (target.getItemId()) {
-                        case R.id.menu_editasnew:
-                            onMenuEditAsNew(message);
-                            return true;
                         case R.id.menu_unseen:
                             onMenuUnseen(message);
                             return true;
@@ -3321,13 +3326,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             FragmentDialogImage fragment = new FragmentDialogImage();
             fragment.setArguments(args);
             fragment.show(parentFragment.getParentFragmentManager(), "view:image");
-        }
-
-        private void onMenuEditAsNew(final TupleMessageEx message) {
-            Intent asnew = new Intent(context, ActivityCompose.class)
-                    .putExtra("action", "editasnew")
-                    .putExtra("reference", message.id);
-            context.startActivity(asnew);
         }
 
         private void onMenuUnseen(final TupleMessageEx message) {

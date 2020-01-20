@@ -17,14 +17,18 @@
         android:title="@string/title_reply_receipt" />
 
     <item
-        android:id="@+id/menu_reply_answer"
-        android:title="@string/title_reply_template" />
-
-    <item
         android:id="@+id/menu_forward"
         android:title="@string/title_forward" />
 
     <item
+        android:id="@+id/menu_editasnew"
+        android:title="@string/title_editasnew" />
+
+    <item
         android:id="@+id/menu_new_message"
         android:title="@string/title_new_message" />
+
+    <item
+        android:id="@+id/menu_reply_answer"
+        android:title="@string/title_reply_template" />
 </menu>
