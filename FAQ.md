@@ -624,6 +624,9 @@ FairEmail was tested with OpenKeychain version 5.4. Later versions will most lik
 The OpenKeychain app is known to (silently) crash when the calling app (FairEmail) is not authorized yet and is getting an existing public key.
 You can workaround this by trying to send a signed/encrypted message to a sender with an unknown public key.
 
+To let apps like FairEmail reliably connect to the OpenKeychain service to encrypt/decrypt messages,
+it might be necessary to disable battery optimizations for the OpenKeychain app.
+
 FairEmail will send the [Autocrypt](https://autocrypt.org/) headers for use by other email clients.
 
 Inline encrypted PGP in received messages is supported, but inline PGP signatures and inline PGP in outgoing messages is not supported,
