@@ -110,13 +110,12 @@ public abstract class DB extends RoomDatabase {
     @Override
     public void init(@NonNull DatabaseConfiguration configuration) {
         // https://www.sqlite.org/pragma.html#pragma_wal_autocheckpoint
-        String dbpath = configuration.context.getDatabasePath(DB_NAME).getPath();
-        if (new File(dbpath).exists()) {
-            try (SQLiteDatabase db = SQLiteDatabase.openDatabase(dbpath, null, SQLiteDatabase.OPEN_READWRITE)) {
-
+        File dbfile = configuration.context.getDatabasePath(DB_NAME);
+        if (dbfile.exists()) {
+            try (SQLiteDatabase db = SQLiteDatabase.openDatabase(dbfile.getPath(), null, SQLiteDatabase.OPEN_READWRITE)) {
                 Log.i("DB checkpoint=" + DB_CHECKPOINT);
                 try (Cursor cursor = db.rawQuery("PRAGMA wal_autocheckpoint=" + DB_CHECKPOINT + ";", null)) {
-                    cursor.moveToNext();
+                    cursor.moveToNext(); // required
                 }
             }
         }
