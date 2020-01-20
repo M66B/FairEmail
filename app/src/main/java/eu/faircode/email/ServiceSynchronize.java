@@ -365,7 +365,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     @Override
                     public void run() {
                         Log.i("### quit startId=" + startId + "/" + lastQuitId + " ops=" + lastOperations);
-                        if (lastOperations == 0)
+                        if (lastOperations != 0)
                             return;
 
                         if (startId == null) {
