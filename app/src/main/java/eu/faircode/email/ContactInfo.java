@@ -60,8 +60,8 @@ public class ContactInfo {
     private static final ExecutorService executor =
             Helper.getBackgroundExecutor(1, "contact");
 
-    private static final int GRAVATAR_TIMEOUT = 15 * 1000; // milliseconds
-    private static final long CACHE_CONTACT_DURATION = 120 * 1000L; // milliseconds
+    private static final int GRAVATAR_TIMEOUT = 5 * 1000; // milliseconds
+    private static final long CACHE_CONTACT_DURATION = 2 * 60 * 1000L; // milliseconds
 
     private ContactInfo() {
     }
