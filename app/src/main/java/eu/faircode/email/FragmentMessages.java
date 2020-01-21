@@ -1092,9 +1092,17 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         else
             fabCompose.hide();
 
-        if (viewType == AdapterMessage.ViewType.SEARCH && !server)
-            fabSearch.show();
-        else
+        if (viewType == AdapterMessage.ViewType.SEARCH && !server) {
+            if (query != null && query.startsWith(getString(R.string.title_search_special_prefix) + ":")) {
+                String special = query.split(":")[1];
+                if (getString(R.string.title_search_special_snoozed).equals(special) ||
+                        getString(R.string.title_search_special_encrypted).equals(special))
+                    fabSearch.hide();
+                else
+                    fabSearch.show();
+            } else
+                fabSearch.show();
+        } else
             fabSearch.hide();
 
         fabMore.hide();
