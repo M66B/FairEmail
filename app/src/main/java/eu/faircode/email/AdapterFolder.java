@@ -30,7 +30,9 @@ import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.text.SpannableString;
 import android.text.TextUtils;
+import android.text.style.StyleSpan;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -407,7 +409,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, view);
 
             if (folder.selectable) {
-                popupMenu.getMenu().add(Menu.NONE, 0, 0, folder.getDisplayName(context)).setEnabled(false);
+                SpannableString ss = new SpannableString(folder.getDisplayName(context));
+                ss.setSpan(new StyleSpan(Typeface.ITALIC), 0, ss.length(), 0);
+                popupMenu.getMenu().add(Menu.NONE, 0, 0, ss).setEnabled(false);
+
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_now, 1, R.string.title_synchronize_now);
 
                 if (folder.account != null && folder.accountProtocol == EntityAccount.TYPE_IMAP) {

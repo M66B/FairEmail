@@ -30,6 +30,8 @@ import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.text.SpannableString;
+import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -231,7 +233,9 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
 
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, view);
 
-            popupMenu.getMenu().add(Menu.NONE, 0, 0, account.name).setEnabled(false);
+            SpannableString ss = new SpannableString(account.name);
+            ss.setSpan(new StyleSpan(Typeface.ITALIC), 0, ss.length(), 0);
+            popupMenu.getMenu().add(Menu.NONE, 0, 0, ss).setEnabled(false);
 
             popupMenu.getMenu().add(Menu.NONE, R.string.title_enabled, 1, R.string.title_enabled)
                     .setCheckable(true).setChecked(account.synchronize);

@@ -22,7 +22,10 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -176,7 +179,9 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
 
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, view);
 
-            popupMenu.getMenu().add(Menu.NONE, 0, 0, identity.email).setEnabled(false);
+            SpannableString ss = new SpannableString(identity.email);
+            ss.setSpan(new StyleSpan(Typeface.ITALIC), 0, ss.length(), 0);
+            popupMenu.getMenu().add(Menu.NONE, 0, 0, ss).setEnabled(false);
 
             popupMenu.getMenu().add(Menu.NONE, R.string.title_enabled, 1, R.string.title_enabled)
                     .setCheckable(true).setChecked(identity.synchronize);

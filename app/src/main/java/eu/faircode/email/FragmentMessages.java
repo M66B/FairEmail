@@ -36,6 +36,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.Rect;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.Network;
@@ -52,8 +53,10 @@ import android.print.PrintAttributes;
 import android.print.PrintDocumentAdapter;
 import android.print.PrintManager;
 import android.security.KeyChain;
+import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
+import android.text.style.StyleSpan;
 import android.util.Base64;
 import android.util.LongSparseArray;
 import android.util.Pair;
@@ -985,7 +988,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                         PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), fabSearch);
 
-                        popupMenu.getMenu().add(Menu.NONE, 0, 0, R.string.title_search_server)
+                        SpannableString ss = new SpannableString(getString(R.string.title_search_server));
+                        ss.setSpan(new StyleSpan(Typeface.ITALIC), 0, ss.length(), 0);
+                        popupMenu.getMenu().add(Menu.NONE, 0, 0, ss)
                                 .setEnabled(false);
                         popupMenu.getMenu().add(Menu.NONE, 1, 1, R.string.title_search_text)
                                 .setCheckable(true).setChecked(search_text);

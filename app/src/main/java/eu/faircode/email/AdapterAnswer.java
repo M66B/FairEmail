@@ -21,7 +21,10 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -107,7 +110,9 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
 
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, view);
 
-            popupMenu.getMenu().add(Menu.NONE, 0, 0, answer.name).setEnabled(false);
+            SpannableString ss = new SpannableString(answer.name);
+            ss.setSpan(new StyleSpan(Typeface.ITALIC), 0, ss.length(), 0);
+            popupMenu.getMenu().add(Menu.NONE, 0, 0, ss).setEnabled(false);
 
             if (composable)
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_compose, 1, R.string.title_compose);

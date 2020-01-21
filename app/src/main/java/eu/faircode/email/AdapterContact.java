@@ -23,11 +23,14 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.ParcelFileDescriptor;
 import android.provider.ContactsContract;
+import android.text.SpannableString;
 import android.text.TextUtils;
+import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -223,7 +226,10 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
 
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, view);
 
-            popupMenu.getMenu().add(Menu.NONE, 0, 0, contact.email).setEnabled(false);
+            SpannableString ss = new SpannableString(contact.email);
+            ss.setSpan(new StyleSpan(Typeface.ITALIC), 0, ss.length(), 0);
+            popupMenu.getMenu().add(Menu.NONE, 0, 0, ss).setEnabled(false);
+
             if (contact.state != EntityContact.STATE_IGNORE)
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_advanced_never_favorite, 1, R.string.title_advanced_never_favorite);
             if (share.resolveActivity(context.getPackageManager()) != null)
