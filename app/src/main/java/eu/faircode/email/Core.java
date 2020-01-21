@@ -1016,7 +1016,7 @@ class Core {
         // Delete message
         DB db = DB.getInstance(context);
 
-        if (!account.browse && EntityFolder.INBOX.equals(folder.type)) {
+        if (!account.leave_on_server && EntityFolder.INBOX.equals(folder.type)) {
             Map<String, String> caps = istore.capabilities();
 
             Message[] imessages = ifolder.getMessages();
@@ -1589,10 +1589,11 @@ class Core {
                     ((POP3Message) imessage).invalidate(true);
                 }
 
-            for (String msgid : existing) {
-                Log.i(folder.name + " POP deleted=" + msgid);
-                db.message().deleteMessage(folder.id, msgid);
-            }
+            if (!account.leave_on_device)
+                for (String msgid : existing) {
+                    Log.i(folder.name + " POP deleted=" + msgid);
+                    db.message().deleteMessage(folder.id, msgid);
+                }
 
             Log.i(folder.name + " done");
         } finally {

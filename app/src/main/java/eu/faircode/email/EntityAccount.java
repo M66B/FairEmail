@@ -95,7 +95,11 @@ public class EntityAccount extends EntityOrder implements Serializable {
     @NonNull
     public Boolean notify = false;
     @NonNull
-    public Boolean browse = true; // POP3: Leave messages on server
+    public Boolean browse = true;
+    @NonNull
+    public Boolean leave_on_server = true;
+    @NonNull
+    public Boolean leave_on_device = false;
     @NonNull
     public Boolean auto_seen = true;
     public Character separator;
@@ -203,6 +207,8 @@ public class EntityAccount extends EntityOrder implements Serializable {
         json.put("primary", primary);
         json.put("notify", notify);
         json.put("browse", browse);
+        json.put("leave_on_server", leave_on_server);
+        json.put("leave_on_device", leave_on_device);
         json.put("auto_seen", auto_seen);
         // not separator
 
@@ -267,6 +273,10 @@ public class EntityAccount extends EntityOrder implements Serializable {
             account.notify = json.getBoolean("notify");
         if (json.has("browse"))
             account.browse = json.getBoolean("browse");
+        if (json.has("leave_on_server"))
+            account.leave_on_server = json.getBoolean("leave_on_server");
+        if (json.has("leave_on_device"))
+            account.leave_on_device = json.getBoolean("leave_on_device");
         if (json.has("auto_seen"))
             account.auto_seen = json.getBoolean("auto_seen");
 
@@ -307,6 +317,8 @@ public class EntityAccount extends EntityOrder implements Serializable {
                     this.primary.equals(other.primary) &&
                     this.notify.equals(other.notify) &&
                     this.browse.equals(other.browse) &&
+                    this.leave_on_server.equals(other.leave_on_server) &&
+                    this.leave_on_device.equals(other.leave_on_device) &&
                     this.auto_seen.equals(other.auto_seen) &&
                     Objects.equals(this.swipe_left, other.swipe_left) &&
                     Objects.equals(this.swipe_right, other.swipe_right) &&

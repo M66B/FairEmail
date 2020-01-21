@@ -75,7 +75,8 @@ public class FragmentPop extends FragmentBase {
     private CheckBox cbSynchronize;
     private CheckBox cbOnDemand;
     private CheckBox cbPrimary;
-    private CheckBox cbLeave;
+    private CheckBox cbLeaveServer;
+    private CheckBox cbLeaveDevice;
     private EditText etInterval;
 
     private Button btnSave;
@@ -125,7 +126,8 @@ public class FragmentPop extends FragmentBase {
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         cbOnDemand = view.findViewById(R.id.cbOnDemand);
         cbPrimary = view.findViewById(R.id.cbPrimary);
-        cbLeave = view.findViewById(R.id.cbLeave);
+        cbLeaveServer = view.findViewById(R.id.cbLeaveServer);
+        cbLeaveDevice = view.findViewById(R.id.cbLeaveDevice);
         etInterval = view.findViewById(R.id.etInterval);
 
         btnSave = view.findViewById(R.id.btnSave);
@@ -219,7 +221,8 @@ public class FragmentPop extends FragmentBase {
         args.putBoolean("synchronize", cbSynchronize.isChecked());
         args.putBoolean("ondemand", cbOnDemand.isChecked());
         args.putBoolean("primary", cbPrimary.isChecked());
-        args.putBoolean("leave", cbLeave.isChecked());
+        args.putBoolean("leave_server", cbLeaveServer.isChecked());
+        args.putBoolean("leave_device", cbLeaveDevice.isChecked());
         args.putString("interval", etInterval.getText().toString());
 
         new SimpleTask<Boolean>() {
@@ -256,7 +259,8 @@ public class FragmentPop extends FragmentBase {
                 boolean synchronize = args.getBoolean("synchronize");
                 boolean ondemand = args.getBoolean("ondemand");
                 boolean primary = args.getBoolean("primary");
-                boolean leave = args.getBoolean("leave");
+                boolean leave_server = args.getBoolean("leave_server");
+                boolean leave_device = args.getBoolean("leave_device");
                 String interval = args.getString("interval");
 
                 boolean pro = ActivityBilling.isPro(context);
@@ -339,7 +343,8 @@ public class FragmentPop extends FragmentBase {
                     account.synchronize = synchronize;
                     account.ondemand = ondemand;
                     account.primary = (account.synchronize && primary);
-                    account.browse = leave;
+                    account.leave_on_server = leave_server;
+                    account.leave_on_device = leave_device;
                     account.poll_interval = Integer.parseInt(interval);
 
                     if (!update)
@@ -484,7 +489,8 @@ public class FragmentPop extends FragmentBase {
                     cbSynchronize.setChecked(account == null ? true : account.synchronize);
                     cbOnDemand.setChecked(account == null ? false : account.ondemand);
                     cbPrimary.setChecked(account == null ? false : account.primary);
-                    cbLeave.setChecked(account == null ? true : account.browse);
+                    cbLeaveServer.setChecked(account == null ? true : account.leave_on_server);
+                    cbLeaveDevice.setChecked(account == null ? false : account.leave_on_device);
                     etInterval.setText(account == null ? "" : Long.toString(account.poll_interval));
 
                     new SimpleTask<EntityAccount>() {

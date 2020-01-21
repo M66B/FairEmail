@@ -797,7 +797,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 iservice.setPartialFetch(account.partial_fetch);
                 iservice.setIgnoreBodyStructureSize(account.ignore_size);
                 if (account.protocol != EntityAccount.TYPE_IMAP)
-                    iservice.setLeaveOnServer(account.browse);
+                    iservice.setLeaveOnServer(account.leave_on_server);
                 iservice.setListener(new StoreListener() {
                     @Override
                     public void notification(StoreEvent e) {
