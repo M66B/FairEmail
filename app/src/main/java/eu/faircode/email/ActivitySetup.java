@@ -81,6 +81,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.security.SecureRandom;
+import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.security.spec.KeySpec;
@@ -1043,7 +1044,6 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
                     String fingerprint = EntityCertificate.getFingerprint(cert);
                     List<String> emails = EntityCertificate.getAltSubjectName(cert);
-                    String subject = EntityCertificate.getSubject(cert);
 
                     DB db = DB.getInstance(context);
                     for (String email : emails) {
@@ -1061,7 +1061,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 protected void onException(Bundle args, Throwable ex) {
                     if (ex instanceof IllegalArgumentException)
                         ToastEx.makeText(ActivitySetup.this, ex.getMessage(), Toast.LENGTH_LONG).show();
-                    else if (ex instanceof IllegalStateException)
+                    else if (ex instanceof IllegalStateException || ex instanceof CertificateException)
                         ToastEx.makeText(ActivitySetup.this, R.string.title_invalid_key, Toast.LENGTH_LONG).show();
                     else
                         Log.unexpectedError(getSupportFragmentManager(), ex);
