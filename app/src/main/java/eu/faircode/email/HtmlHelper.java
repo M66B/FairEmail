@@ -180,6 +180,7 @@ public class HtmlHelper {
                         switch (key) {
                             case "color":
                                 String c = value
+                                        .replace("none", "")
                                         .replace("inherit", "")
                                         .replace("initial", "")
                                         .replace("windowtext", "")
@@ -207,7 +208,11 @@ public class HtmlHelper {
                                     } else if (c.equals("orange"))
                                         color = 0Xffa500; // CSS Level 2
                                     else
-                                        color = Color.parseColor(c);
+                                        try {
+                                            color = Color.parseColor(c);
+                                        } catch (IllegalArgumentException ex) {
+                                            color = Color.parseColor("#" + c);
+                                        }
                                 } catch (Throwable ex) {
                                     Log.e("Color=" + c);
                                 }
