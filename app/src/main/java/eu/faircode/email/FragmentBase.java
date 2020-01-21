@@ -382,10 +382,13 @@ public class FragmentBase extends Fragment {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                if (ex instanceof RecoverableSecurityException &&
-                        Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                    handle((RecoverableSecurityException) ex);
-                } else if (ex instanceof IllegalArgumentException || ex instanceof FileNotFoundException)
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+                    if (ex instanceof RecoverableSecurityException) {
+                        handle((RecoverableSecurityException) ex);
+                        return;
+                    }
+
+                if (ex instanceof IllegalArgumentException || ex instanceof FileNotFoundException)
                     ToastEx.makeText(getContext(), ex.getMessage(), Toast.LENGTH_LONG).show();
                 else
                     Log.unexpectedError(getParentFragmentManager(), ex);
@@ -461,11 +464,13 @@ public class FragmentBase extends Fragment {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                if (ex instanceof RecoverableSecurityException &&
-                        Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                    handle((RecoverableSecurityException) ex);
-                } else
-                    Log.unexpectedError(getParentFragmentManager(), ex);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+                    if (ex instanceof RecoverableSecurityException) {
+                        handle((RecoverableSecurityException) ex);
+                        return;
+                    }
+
+                Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "attachments:save");
     }
