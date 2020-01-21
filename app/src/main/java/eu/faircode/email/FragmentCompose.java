@@ -178,6 +178,7 @@ import biweekly.component.VEvent;
 import biweekly.property.Organizer;
 
 import static android.app.Activity.RESULT_CANCELED;
+import static android.app.Activity.RESULT_FIRST_USER;
 import static android.app.Activity.RESULT_OK;
 import static android.widget.AdapterView.INVALID_POSITION;
 
@@ -1463,7 +1464,9 @@ public class FragmentCompose extends FragmentBase {
                     break;
                 case REQUEST_SEND:
                     if (resultCode == RESULT_OK)
-                        onActionSend();
+                        onActionSend(false);
+                    else if (resultCode == RESULT_FIRST_USER)
+                        onActionSend(true);
                     break;
                 case REQUEST_CERTIFICATE:
                     if (resultCode == RESULT_OK && data != null)
@@ -2310,17 +2313,22 @@ public class FragmentCompose extends FragmentBase {
         onAction(R.id.action_delete);
     }
 
-    private void onActionSend() {
+    private void onActionSend(boolean now) {
         Bundle args = new Bundle();
         args.putLong("id", working);
+        args.putBoolean("now", now);
 
         new SimpleTask<EntityMessage>() {
             @Override
             protected EntityMessage onExecute(Context context, Bundle args) {
                 long id = args.getLong("id");
+                boolean now = args.getBoolean("now");
 
                 DB db = DB.getInstance(context);
-                return db.message().getMessage(id);
+                EntityMessage draft = db.message().getMessage(id);
+                if (draft != null && now)
+                    db.message().setMessageSnoozed(draft.id, new Date().getTime());
+                return draft;
             }
 
             @Override
@@ -3669,6 +3677,11 @@ public class FragmentCompose extends FragmentBase {
                             db.message().setMessageSnoozed(draft.id, draft.ui_snoozed);
                         }
 
+                        if (draft.ui_snoozed != null && draft.ui_snoozed <= new Date().getTime()) {
+                            draft.ui_snoozed = null;
+                            db.message().setMessageSnoozed(draft.id, null);
+                        }
+
                         // Send message
                         if (draft.ui_snoozed == null)
                             EntityOperation.queue(context, draft, EntityOperation.SEND);
@@ -4411,13 +4424,21 @@ public class FragmentCompose extends FragmentBase {
                     .setView(dview)
                     .setNegativeButton(android.R.string.cancel, null);
 
-            if (!remind_to)
+            if (!remind_to) {
+                if (send_delayed != 0)
+                    builder.setNeutralButton(R.string.title_send_now, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            sendResult(Activity.RESULT_FIRST_USER);
+                        }
+                    });
                 builder.setPositiveButton(R.string.title_send, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         sendResult(Activity.RESULT_OK);
                     }
                 });
+            }
 
             return builder.create();
         }
