@@ -872,7 +872,20 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         fabReply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onReply("reply");
+                boolean reply_hint = prefs.getBoolean("reply_hint", false);
+                if (reply_hint)
+                    onReply("reply");
+                else
+                    new AlertDialog.Builder(getContext())
+                            .setMessage(R.string.title_reply_hint)
+                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    prefs.edit().putBoolean("reply_hint", true).apply();
+                                    onReply("reply");
+                                }
+                            })
+                            .show();
             }
         });
 
