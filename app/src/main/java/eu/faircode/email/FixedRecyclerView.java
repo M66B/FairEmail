@@ -87,7 +87,7 @@ public class FixedRecyclerView extends RecyclerView {
                 at androidx.recyclerview.widget.RecyclerView.dispatchOnItemTouch(SourceFile:2947)
                 at androidx.recyclerview.widget.RecyclerView.onTouchEvent(SourceFile:3090)
              */
-            Log.i(ex);
+            Log.w(ex);
             return false;
         } catch (NullPointerException ex) {
             /*
@@ -105,7 +105,7 @@ public class FixedRecyclerView extends RecyclerView {
             return false;
         } catch (IllegalStateException ex) {
             // Range start point not set
-            Log.i(ex);
+            Log.w(ex);
             return false;
         }
     }
