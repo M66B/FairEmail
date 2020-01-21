@@ -181,6 +181,7 @@ public class HtmlHelper {
                             case "color":
                                 String c = value
                                         .replace("none", "")
+                                        .replace("unset", "")
                                         .replace("inherit", "")
                                         .replace("initial", "")
                                         .replace("windowtext", "")
@@ -211,7 +212,7 @@ public class HtmlHelper {
                                         try {
                                             color = Color.parseColor(c);
                                         } catch (IllegalArgumentException ex) {
-                                            color = Color.parseColor("#" + c);
+                                            color = Integer.decode(c) | 0xFF000000;
                                         }
                                 } catch (Throwable ex) {
                                     Log.e("Color=" + c);
