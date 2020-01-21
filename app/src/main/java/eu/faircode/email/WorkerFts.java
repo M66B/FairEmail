@@ -72,7 +72,13 @@ public class WorkerFts extends Worker {
                             File file = message.getFile(getApplicationContext());
                             String html = Helper.readText(file);
                             String text = HtmlHelper.getText(html);
-                            FtsDbHelper.insert(sdb, message, text);
+                            try {
+                                sdb.beginTransaction();
+                                FtsDbHelper.insert(sdb, message, text);
+                                sdb.setTransactionSuccessful();
+                            } finally {
+                                sdb.endTransaction();
+                            }
 
                             indexed++;
 
