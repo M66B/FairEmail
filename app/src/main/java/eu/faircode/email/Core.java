@@ -121,6 +121,7 @@ class Core {
     private static final int SYNC_BATCH_SIZE = 20;
     private static final int DOWNLOAD_BATCH_SIZE = 20;
     private static final long YIELD_DURATION = 200L; // milliseconds
+    private static final long FUTURE_RECEIVED = 30 * 24 * 3600 * 1000L; // milliseconds
 
     static void processOperations(
             Context context,
@@ -2071,6 +2072,16 @@ class Core {
 
         if (message == null) {
             Long sent = helper.getSent();
+            long received;
+            if (account.use_date)
+                received = (sent == null ? 0 : sent);
+            else {
+                received = helper.getReceived();
+                if (received == 0 || received > new Date().getTime() + FUTURE_RECEIVED)
+                    if (sent != null)
+                        received = sent;
+            }
+
             String authentication = helper.getAuthentication();
             MessageHelper.MessageParts parts = helper.getMessageParts(context);
 
@@ -2108,7 +2119,7 @@ class Core {
             message.content = false;
             message.encrypt = parts.getEncryption();
             message.ui_encrypt = message.encrypt;
-            message.received = (account.use_date ? (sent == null ? 0 : sent) : helper.getReceived());
+            message.received = received;
             message.sent = sent;
             message.seen = seen;
             message.answered = answered;
