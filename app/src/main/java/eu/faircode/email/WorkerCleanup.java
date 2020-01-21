@@ -224,8 +224,13 @@ public class WorkerCleanup extends Worker {
 
             if (manual) {
                 // https://www.sqlite.org/lang_vacuum.html
-                Log.i("Running VACUUM");
-                db.getOpenHelper().getWritableDatabase().execSQL("VACUUM;");
+                long size = context.getDatabasePath(db.getOpenHelper().getDatabaseName()).length();
+                long space = Helper.getAvailableStorageSpace();
+                if (size * 2 < space) {
+                    Log.i("Running VACUUM");
+                    db.getOpenHelper().getWritableDatabase().execSQL("VACUUM;");
+                } else
+                    Log.w("Insufficient space for VACUUM");
             }
 
         } catch (Throwable ex) {
