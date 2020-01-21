@@ -32,6 +32,7 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.text.SpannableString;
 import android.text.TextUtils;
+import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -411,6 +412,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             if (folder.selectable) {
                 SpannableString ss = new SpannableString(folder.getDisplayName(context));
                 ss.setSpan(new StyleSpan(Typeface.ITALIC), 0, ss.length(), 0);
+                ss.setSpan(new RelativeSizeSpan(0.9f), 0, ss.length(), 0);
                 popupMenu.getMenu().add(Menu.NONE, 0, 0, ss).setEnabled(false);
 
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_now, 1, R.string.title_synchronize_now);

@@ -30,6 +30,7 @@ import android.os.ParcelFileDescriptor;
 import android.provider.ContactsContract;
 import android.text.SpannableString;
 import android.text.TextUtils;
+import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -228,6 +229,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
 
             SpannableString ss = new SpannableString(contact.email);
             ss.setSpan(new StyleSpan(Typeface.ITALIC), 0, ss.length(), 0);
+            ss.setSpan(new RelativeSizeSpan(0.9f), 0, ss.length(), 0);
             popupMenu.getMenu().add(Menu.NONE, 0, 0, ss).setEnabled(false);
 
             if (contact.state != EntityContact.STATE_IGNORE)

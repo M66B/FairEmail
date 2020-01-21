@@ -56,6 +56,7 @@ import android.security.KeyChain;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
+import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
 import android.util.Base64;
 import android.util.LongSparseArray;
@@ -990,6 +991,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                         SpannableString ss = new SpannableString(getString(R.string.title_search_server));
                         ss.setSpan(new StyleSpan(Typeface.ITALIC), 0, ss.length(), 0);
+                        ss.setSpan(new RelativeSizeSpan(0.9f), 0, ss.length(), 0);
                         popupMenu.getMenu().add(Menu.NONE, 0, 0, ss)
                                 .setEnabled(false);
                         popupMenu.getMenu().add(Menu.NONE, 1, 1, R.string.title_search_text)
