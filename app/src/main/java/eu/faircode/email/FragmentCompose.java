@@ -3734,6 +3734,7 @@ public class FragmentCompose extends FragmentBase {
 
             } else if (action == R.id.action_check) {
                 boolean dialog = args.getBundle("extras").getBoolean("dialog");
+                boolean remind_to = args.getBoolean("remind_to", false);
                 boolean remind_subject = args.getBoolean("remind_subject", false);
                 boolean remind_text = args.getBoolean("remind_text", false);
                 boolean remind_attachment = args.getBoolean("remind_attachment", false);
@@ -3744,7 +3745,8 @@ public class FragmentCompose extends FragmentBase {
                         (draft.cc == null ? 0 : draft.cc.length) +
                         (draft.bcc == null ? 0 : draft.bcc.length);
                 if (dialog || (send_reminders &&
-                        (remind_subject || remind_text || remind_attachment || recipients > RECIPIENTS_WARNING))) {
+                        (remind_to || remind_subject || remind_text || remind_attachment ||
+                                recipients > RECIPIENTS_WARNING))) {
                     setBusy(false);
 
                     FragmentDialogSend fragment = new FragmentDialogSend();
