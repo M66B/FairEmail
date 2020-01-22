@@ -59,8 +59,10 @@ import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
 import android.text.style.QuoteSpan;
+import android.text.style.StyleSpan;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -500,6 +502,27 @@ public class FragmentCompose extends FragmentBase {
                     }
 
                     if (broken) {
+                        StyleSpan[] sspan = ssb.getSpans(start, start, StyleSpan.class);
+                        for (StyleSpan span : sspan) {
+                            int s = ssb.getSpanStart(span);
+                            int e = ssb.getSpanEnd(span);
+                            int f = ssb.getSpanFlags(span);
+                            Log.i("Style span " + s + "..." + e + " start=" + start);
+
+                            StyleSpan s1 = new StyleSpan(span.getStyle());
+                            ssb.setSpan(s1, s, start, f);
+                            Log.i("Style span " + s + "..." + start);
+
+                            StyleSpan s2 = new StyleSpan(span.getStyle());
+                            ssb.setSpan(s2, start + 1, e, f);
+                            Log.i("Style span " + (start + 1) + "..." + e);
+
+                            ssb.removeSpan(span);
+                        }
+
+                        int color = Helper.resolveColor(getContext(), android.R.attr.textColorPrimary);
+                        ssb.setSpan(new ForegroundColorSpan(color), start, start, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+
                         etBody.setText(ssb);
                         etBody.setSelection(start);
                     }
