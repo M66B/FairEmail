@@ -91,6 +91,9 @@ public interface DaoAccount {
     @Query("SELECT * FROM account WHERE id = :id")
     LiveData<EntityAccount> liveAccount(long id);
 
+    @Query(TupleAccountView.query)
+    LiveData<List<TupleAccountView>> liveAccountView();
+
     @Query("SELECT account.id" +
             ", account.swipe_left, l.type AS left_type, l.name AS left_name" +
             ", account.swipe_right, r.type AS right_type, r.name AS right_name" +

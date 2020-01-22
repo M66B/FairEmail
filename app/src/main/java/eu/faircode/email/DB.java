@@ -75,6 +75,8 @@ import io.requery.android.database.sqlite.SQLiteDatabase;
                 EntityLog.class
         },
         views = {
+                TupleAccountView.class,
+                TupleIdentityView.class,
                 TupleFolderView.class
         }
 )
@@ -142,6 +144,8 @@ public abstract class DB extends RoomDatabase {
                 Field fmViewTables = InvalidationTracker.class.getDeclaredField("mViewTables");
                 fmViewTables.setAccessible(true);
                 Map<String, Set<String>> mViewTables = (Map) fmViewTables.get(sInstance.getInvalidationTracker());
+                mViewTables.get("account_view").clear();
+                mViewTables.get("identity_view").clear();
                 mViewTables.get("folder_view").clear();
                 Log.i("Disabled view invalidation");
             } catch (ReflectiveOperationException ex) {
@@ -1313,6 +1317,8 @@ public abstract class DB extends RoomDatabase {
                     @Override
                     public void migrate(@NonNull SupportSQLiteDatabase db) {
                         Log.i("DB migration from version " + startVersion + " to " + endVersion);
+                        db.execSQL("CREATE VIEW IF NOT EXISTS `account_view` AS " + TupleAccountView.query);
+                        db.execSQL("CREATE VIEW IF NOT EXISTS `identity_view` AS " + TupleIdentityView.query);
                         db.execSQL("CREATE VIEW IF NOT EXISTS `folder_view` AS " + TupleFolderView.query);
                     }
                 });

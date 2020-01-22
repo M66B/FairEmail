@@ -34,6 +34,9 @@ public interface DaoIdentity {
             " WHERE NOT :synchronize OR account.synchronize")
     LiveData<List<TupleIdentityEx>> liveIdentities(boolean synchronize);
 
+    @Query(TupleIdentityView.query)
+    LiveData<List<TupleIdentityView>> liveIdentityView();
+
     @Query("SELECT identity.*, account.name AS accountName FROM identity" +
             " JOIN account ON account.id = identity.account" +
             " JOIN folder ON folder.account = identity.account AND folder.type = '" + EntityFolder.DRAFTS + "'" +

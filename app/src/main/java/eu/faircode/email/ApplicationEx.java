@@ -93,8 +93,60 @@ public class ApplicationEx extends Application {
 
         DB db = DB.getInstance(this);
 
+        db.account().liveAccountView().observeForever(new Observer<List<TupleAccountView>>() {
+            private List<TupleAccountView> last = null;
+
+            @Override
+            public void onChanged(List<TupleAccountView> accounts) {
+                if (accounts == null)
+                    accounts = new ArrayList<>();
+
+                boolean changed = false;
+                if (last == null || last.size() != accounts.size())
+                    changed = true;
+                else
+                    for (int i = 0; i < accounts.size(); i++)
+                        if (!accounts.get(i).equals(last.get(i))) {
+                            changed = true;
+                            last = accounts;
+                        }
+
+                if (changed) {
+                    Log.i("Invalidating account view");
+                    last = accounts;
+                    db.getInvalidationTracker().notifyObserversByTableNames("account_view");
+                }
+            }
+        });
+
+        db.identity().liveIdentityView().observeForever(new Observer<List<TupleIdentityView>>() {
+            private List<TupleIdentityView> last = null;
+
+            @Override
+            public void onChanged(List<TupleIdentityView> identities) {
+                if (identities == null)
+                    identities = new ArrayList<>();
+
+                boolean changed = false;
+                if (last == null || last.size() != identities.size())
+                    changed = true;
+                else
+                    for (int i = 0; i < identities.size(); i++)
+                        if (!identities.get(i).equals(last.get(i))) {
+                            changed = true;
+                            last = identities;
+                        }
+
+                if (changed) {
+                    Log.i("Invalidating identity view");
+                    last = identities;
+                    db.getInvalidationTracker().notifyObserversByTableNames("identity_view");
+                }
+            }
+        });
+
         db.folder().liveFolderView().observeForever(new Observer<List<TupleFolderView>>() {
-            List<TupleFolderView> last = null;
+            private List<TupleFolderView> last = null;
 
             @Override
             public void onChanged(List<TupleFolderView> folders) {
