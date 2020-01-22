@@ -445,15 +445,14 @@ public class ServiceUI extends IntentService {
         try {
             db.beginTransaction();
 
-            List<EntityAccount> accounts = db.account().getSynchronizingAccounts();
-            for (EntityAccount account : accounts)
-                if (aid < 0 || account.id.equals(aid)) {
-                    List<EntityFolder> folders = db.folder().getSynchronizingFolders(account.id);
-                    if (folders.size() > 0)
-                        Collections.sort(folders, folders.get(0).getComparator(this));
-                    for (EntityFolder folder : folders)
-                        EntityOperation.sync(this, folder.id, false);
-                }
+            List<EntityAccount> accounts = db.account().getPollAccounts(aid < 0 ? null : aid);
+            for (EntityAccount account : accounts) {
+                List<EntityFolder> folders = db.folder().getSynchronizingFolders(account.id);
+                if (folders.size() > 0)
+                    Collections.sort(folders, folders.get(0).getComparator(this));
+                for (EntityFolder folder : folders)
+                    EntityOperation.sync(this, folder.id, false);
+            }
 
             db.setTransactionSuccessful();
         } finally {

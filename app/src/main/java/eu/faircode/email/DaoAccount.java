@@ -37,6 +37,13 @@ public interface DaoAccount {
             " ORDER BY `order`, `primary` DESC, name COLLATE NOCASE")
     List<EntityAccount> getSynchronizingAccounts();
 
+    @Query("SELECT * FROM account" +
+            " WHERE (:id IS NULL OR id = :id)" +
+            " AND synchronize" +
+            " AND NOT ondemand" +
+            " ORDER BY `order`, `primary` DESC, name COLLATE NOCASE")
+    List<EntityAccount> getPollAccounts(Long id);
+
     @Query("SELECT * FROM account WHERE synchronize")
     LiveData<List<EntityAccount>> liveSynchronizingAccounts();
 
