@@ -261,14 +261,15 @@
             starttls="false" />
     </provider>
     <provider
-        name="1und1.de"
-        link="https://hilfe.webmailer.1und1.de/mailprogramme/imap.html">
+        name="Ionos (1und1)"
+        domain="ionos\\.de,online\\.de"
+        link="https://www.ionos.de/hilfe/e-mail/allgemeine-themen/einstellungen-fuer-ihr-e-mail-programm/">
         <imap
-            host="imap.1und1.de"
+            host="imap.ionos.de"
             port="993"
             starttls="false" />
         <smtp
-            host="smtp.1und1.de"
+            host="smtp.ionos.de"
             port="465"
             starttls="false" />
     </provider>
