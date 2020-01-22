@@ -364,33 +364,31 @@ public class MailService implements AutoCloseable {
         } else if ("smtp".equals(protocol) || "smtps".equals(protocol)) {
             String[] c = BuildConfig.APPLICATION_ID.split("\\.");
             Collections.reverse(Arrays.asList(c));
-            String domain = TextUtils.join(".", c);
+            String hdomain = TextUtils.join(".", c);
 
-            String haddr = domain;
-            if (useip)
-                try {
-                    // This assumes getByName always returns the same address (type)
-                    InetAddress addr = InetAddress.getByName(host);
-                    if (addr instanceof Inet4Address)
-                        haddr = "[" + Inet4Address.getLocalHost().getHostAddress() + "]";
-                    else
-                        haddr = "[IPv6:" + Inet6Address.getLocalHost().getHostAddress() + "]";
-                } catch (UnknownHostException ex) {
-                    Log.w(ex);
-                }
+            String haddr = "[127.0.0.1]";
+            try {
+                // This assumes getByName always returns the same address (type)
+                InetAddress addr = InetAddress.getByName(host);
+                if (addr instanceof Inet4Address)
+                    haddr = "[" + Inet4Address.getLocalHost().getHostAddress() + "]";
+                else
+                    haddr = "[IPv6:" + Inet6Address.getLocalHost().getHostAddress() + "]";
+            } catch (UnknownHostException ex) {
+                Log.w(ex);
+            }
 
             Log.i("Using localhost=" + haddr);
-            properties.put("mail." + protocol + ".localhost", haddr);
+            properties.put("mail." + protocol + ".localhost", useip ? haddr : hdomain);
 
             iservice = isession.getTransport(protocol);
             try {
                 iservice.connect(host, port, user, password);
             } catch (MessagingException ex) {
-                if (useip &&
-                        ex.getMessage() != null &&
+                if (ex.getMessage() != null &&
                         ex.getMessage().toLowerCase().contains("syntactically invalid")) {
-                    Log.w("Using localhost=" + domain, ex);
-                    ((SMTPTransport) iservice).setLocalHost(domain);
+                    Log.w("Using localhost=" + (useip ? hdomain : haddr), ex);
+                    ((SMTPTransport) iservice).setLocalHost(useip ? hdomain : haddr);
                     iservice.connect(host, port, user, password);
                 } else
                     throw ex;
