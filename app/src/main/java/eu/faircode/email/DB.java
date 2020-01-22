@@ -58,7 +58,7 @@ import io.requery.android.database.sqlite.SQLiteDatabase;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 133,
+        version = 134,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -174,14 +174,26 @@ public abstract class DB extends RoomDatabase {
                     public void onOpen(@NonNull SupportSQLiteDatabase db) {
                         Log.i("Database version=" + db.getVersion());
 
-                        db.execSQL("CREATE TRIGGER IF NOT EXISTS attachment_insert" +
-                                " AFTER INSERT ON attachment" +
-                                " BEGIN UPDATE message SET attachments = attachments + 1 WHERE message.id = NEW.message; END");
-                        db.execSQL("CREATE TRIGGER IF NOT EXISTS attachment_delete" +
-                                " AFTER DELETE ON attachment" +
-                                " BEGIN UPDATE message SET attachments = attachments - 1 WHERE message.id = OLD.message; END");
+                        createTriggers(db);
                     }
                 });
+    }
+
+    private static void createTriggers(@NonNull SupportSQLiteDatabase db) {
+        db.execSQL("CREATE TRIGGER IF NOT EXISTS attachment_insert" +
+                " AFTER INSERT ON attachment" +
+                " BEGIN" +
+                "  UPDATE message SET attachments = attachments + 1" +
+                "  WHERE message.id = NEW.message" +
+                "  AND (NEW.encryption IS NULL OR NEW.encryption = 0);" +
+                " END");
+        db.execSQL("CREATE TRIGGER IF NOT EXISTS attachment_delete" +
+                " AFTER DELETE ON attachment" +
+                " BEGIN" +
+                "  UPDATE message SET attachments = attachments - 1" +
+                "  WHERE message.id = OLD.message" +
+                "  AND (OLD.encryption IS NULL OR OLD.encryption = 0);" +
+                " END");
     }
 
     private static RoomDatabase.Builder<DB> migrate(final Context context, RoomDatabase.Builder<DB> builder) {
@@ -1279,6 +1291,15 @@ public abstract class DB extends RoomDatabase {
                         db.execSQL("ALTER TABLE `account` ADD COLUMN `leave_on_server` INTEGER NOT NULL DEFAULT 1");
                         db.execSQL("ALTER TABLE `account` ADD COLUMN `leave_on_device` INTEGER NOT NULL DEFAULT 0");
                         db.execSQL("UPDATE `account` SET `leave_on_server` = `browse` WHERE `pop` = " + EntityAccount.TYPE_POP);
+                    }
+                })
+                .addMigrations(new Migration(133, 134) {
+                    @Override
+                    public void migrate(@NonNull SupportSQLiteDatabase db) {
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
+                        db.execSQL("DROP TRIGGER attachment_insert");
+                        db.execSQL("DROP TRIGGER attachment_delete");
+                        createTriggers(db);
                     }
                 });
     }
