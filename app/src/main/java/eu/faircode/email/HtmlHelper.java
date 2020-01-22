@@ -59,6 +59,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.regex.Matcher;
@@ -79,6 +80,159 @@ public class HtmlHelper {
             "h1", "h2", "h3", "h4", "h5", "h6", "p", "ol", "ul", "table", "br", "hr"));
     private static final List<String> tails = Collections.unmodifiableList(Arrays.asList(
             "h1", "h2", "h3", "h4", "h5", "h6", "p", "ol", "ul", "li"));
+
+    private static final HashMap<String, Integer> x11ColorMap = new HashMap<>();
+
+    static {
+        // https://www.w3.org/TR/css-color-3/
+        x11ColorMap.put("aliceblue", 0xF0F8FF);
+        x11ColorMap.put("antiquewhite", 0xFAEBD7);
+        x11ColorMap.put("aqua", 0x00FFFF);
+        x11ColorMap.put("aquamarine", 0x7FFFD4);
+        x11ColorMap.put("azure", 0xF0FFFF);
+        x11ColorMap.put("beige", 0xF5F5DC);
+        x11ColorMap.put("bisque", 0xFFE4C4);
+        x11ColorMap.put("black", 0x000000);
+        x11ColorMap.put("blanchedalmond", 0xFFEBCD);
+        x11ColorMap.put("blue", 0x0000FF);
+        x11ColorMap.put("blueviolet", 0x8A2BE2);
+        x11ColorMap.put("brown", 0xA52A2A);
+        x11ColorMap.put("burlywood", 0xDEB887);
+        x11ColorMap.put("cadetblue", 0x5F9EA0);
+        x11ColorMap.put("chartreuse", 0x7FFF00);
+        x11ColorMap.put("chocolate", 0xD2691E);
+        x11ColorMap.put("coral", 0xFF7F50);
+        x11ColorMap.put("cornflowerblue", 0x6495ED);
+        x11ColorMap.put("cornsilk", 0xFFF8DC);
+        x11ColorMap.put("crimson", 0xDC143C);
+        x11ColorMap.put("cyan", 0x00FFFF);
+        x11ColorMap.put("darkblue", 0x00008B);
+        x11ColorMap.put("darkcyan", 0x008B8B);
+        x11ColorMap.put("darkgoldenrod", 0xB8860B);
+        x11ColorMap.put("darkgray", 0xA9A9A9);
+        x11ColorMap.put("darkgreen", 0x006400);
+        x11ColorMap.put("darkgrey", 0xA9A9A9);
+        x11ColorMap.put("darkkhaki", 0xBDB76B);
+        x11ColorMap.put("darkmagenta", 0x8B008B);
+        x11ColorMap.put("darkolivegreen", 0x556B2F);
+        x11ColorMap.put("darkorange", 0xFF8C00);
+        x11ColorMap.put("darkorchid", 0x9932CC);
+        x11ColorMap.put("darkred", 0x8B0000);
+        x11ColorMap.put("darksalmon", 0xE9967A);
+        x11ColorMap.put("darkseagreen", 0x8FBC8F);
+        x11ColorMap.put("darkslateblue", 0x483D8B);
+        x11ColorMap.put("darkslategray", 0x2F4F4F);
+        x11ColorMap.put("darkslategrey", 0x2F4F4F);
+        x11ColorMap.put("darkturquoise", 0x00CED1);
+        x11ColorMap.put("darkviolet", 0x9400D3);
+        x11ColorMap.put("deeppink", 0xFF1493);
+        x11ColorMap.put("deepskyblue", 0x00BFFF);
+        x11ColorMap.put("dimgray", 0x696969);
+        x11ColorMap.put("dimgrey", 0x696969);
+        x11ColorMap.put("dodgerblue", 0x1E90FF);
+        x11ColorMap.put("firebrick", 0xB22222);
+        x11ColorMap.put("floralwhite", 0xFFFAF0);
+        x11ColorMap.put("forestgreen", 0x228B22);
+        x11ColorMap.put("fuchsia", 0xFF00FF);
+        x11ColorMap.put("gainsboro", 0xDCDCDC);
+        x11ColorMap.put("ghostwhite", 0xF8F8FF);
+        x11ColorMap.put("gold", 0xFFD700);
+        x11ColorMap.put("goldenrod", 0xDAA520);
+        x11ColorMap.put("gray", 0x808080);
+        x11ColorMap.put("green", 0x008000);
+        x11ColorMap.put("greenyellow", 0xADFF2F);
+        x11ColorMap.put("grey", 0x808080);
+        x11ColorMap.put("honeydew", 0xF0FFF0);
+        x11ColorMap.put("hotpink", 0xFF69B4);
+        x11ColorMap.put("indianred", 0xCD5C5C);
+        x11ColorMap.put("indigo", 0x4B0082);
+        x11ColorMap.put("ivory", 0xFFFFF0);
+        x11ColorMap.put("khaki", 0xF0E68C);
+        x11ColorMap.put("lavender", 0xE6E6FA);
+        x11ColorMap.put("lavenderblush", 0xFFF0F5);
+        x11ColorMap.put("lawngreen", 0x7CFC00);
+        x11ColorMap.put("lemonchiffon", 0xFFFACD);
+        x11ColorMap.put("lightblue", 0xADD8E6);
+        x11ColorMap.put("lightcoral", 0xF08080);
+        x11ColorMap.put("lightcyan", 0xE0FFFF);
+        x11ColorMap.put("lightgoldenrodyellow", 0xFAFAD2);
+        x11ColorMap.put("lightgray", 0xD3D3D3);
+        x11ColorMap.put("lightgreen", 0x90EE90);
+        x11ColorMap.put("lightgrey", 0xD3D3D3);
+        x11ColorMap.put("lightpink", 0xFFB6C1);
+        x11ColorMap.put("lightsalmon", 0xFFA07A);
+        x11ColorMap.put("lightseagreen", 0x20B2AA);
+        x11ColorMap.put("lightskyblue", 0x87CEFA);
+        x11ColorMap.put("lightslategray", 0x778899);
+        x11ColorMap.put("lightslategrey", 0x778899);
+        x11ColorMap.put("lightsteelblue", 0xB0C4DE);
+        x11ColorMap.put("lightyellow", 0xFFFFE0);
+        x11ColorMap.put("lime", 0x00FF00);
+        x11ColorMap.put("limegreen", 0x32CD32);
+        x11ColorMap.put("linen", 0xFAF0E6);
+        x11ColorMap.put("magenta", 0xFF00FF);
+        x11ColorMap.put("maroon", 0x800000);
+        x11ColorMap.put("mediumaquamarine", 0x66CDAA);
+        x11ColorMap.put("mediumblue", 0x0000CD);
+        x11ColorMap.put("mediumorchid", 0xBA55D3);
+        x11ColorMap.put("mediumpurple", 0x9370DB);
+        x11ColorMap.put("mediumseagreen", 0x3CB371);
+        x11ColorMap.put("mediumslateblue", 0x7B68EE);
+        x11ColorMap.put("mediumspringgreen", 0x00FA9A);
+        x11ColorMap.put("mediumturquoise", 0x48D1CC);
+        x11ColorMap.put("mediumvioletred", 0xC71585);
+        x11ColorMap.put("midnightblue", 0x191970);
+        x11ColorMap.put("mintcream", 0xF5FFFA);
+        x11ColorMap.put("mistyrose", 0xFFE4E1);
+        x11ColorMap.put("moccasin", 0xFFE4B5);
+        x11ColorMap.put("navajowhite", 0xFFDEAD);
+        x11ColorMap.put("navy", 0x000080);
+        x11ColorMap.put("oldlace", 0xFDF5E6);
+        x11ColorMap.put("olive", 0x808000);
+        x11ColorMap.put("olivedrab", 0x6B8E23);
+        x11ColorMap.put("orange", 0xFFA500);
+        x11ColorMap.put("orangered", 0xFF4500);
+        x11ColorMap.put("orchid", 0xDA70D6);
+        x11ColorMap.put("palegoldenrod", 0xEEE8AA);
+        x11ColorMap.put("palegreen", 0x98FB98);
+        x11ColorMap.put("paleturquoise", 0xAFEEEE);
+        x11ColorMap.put("palevioletred", 0xDB7093);
+        x11ColorMap.put("papayawhip", 0xFFEFD5);
+        x11ColorMap.put("peachpuff", 0xFFDAB9);
+        x11ColorMap.put("peru", 0xCD853F);
+        x11ColorMap.put("pink", 0xFFC0CB);
+        x11ColorMap.put("plum", 0xDDA0DD);
+        x11ColorMap.put("powderblue", 0xB0E0E6);
+        x11ColorMap.put("purple", 0x800080);
+        x11ColorMap.put("red", 0xFF0000);
+        x11ColorMap.put("rosybrown", 0xBC8F8F);
+        x11ColorMap.put("royalblue", 0x4169E1);
+        x11ColorMap.put("saddlebrown", 0x8B4513);
+        x11ColorMap.put("salmon", 0xFA8072);
+        x11ColorMap.put("sandybrown", 0xF4A460);
+        x11ColorMap.put("seagreen", 0x2E8B57);
+        x11ColorMap.put("seashell", 0xFFF5EE);
+        x11ColorMap.put("sienna", 0xA0522D);
+        x11ColorMap.put("silver", 0xC0C0C0);
+        x11ColorMap.put("skyblue", 0x87CEEB);
+        x11ColorMap.put("slateblue", 0x6A5ACD);
+        x11ColorMap.put("slategray", 0x708090);
+        x11ColorMap.put("slategrey", 0x708090);
+        x11ColorMap.put("snow", 0xFFFAFA);
+        x11ColorMap.put("springgreen", 0x00FF7F);
+        x11ColorMap.put("steelblue", 0x4682B4);
+        x11ColorMap.put("tan", 0xD2B48C);
+        x11ColorMap.put("teal", 0x008080);
+        x11ColorMap.put("thistle", 0xD8BFD8);
+        x11ColorMap.put("tomato", 0xFF6347);
+        x11ColorMap.put("turquoise", 0x40E0D0);
+        x11ColorMap.put("violet", 0xEE82EE);
+        x11ColorMap.put("wheat", 0xF5DEB3);
+        x11ColorMap.put("white", 0xFFFFFF);
+        x11ColorMap.put("whitesmoke", 0xF5F5F5);
+        x11ColorMap.put("yellow", 0xFFFF00);
+        x11ColorMap.put("yellowgreen", 0x9ACD32);
+    }
 
     static Document sanitize(Context context, String html, boolean show_images, boolean autolink) {
         try {
@@ -207,8 +361,8 @@ public class HtmlHelper {
                                                         Integer.parseInt(rgb[2])
                                                 );
                                         }
-                                    } else if (c.equals("orange"))
-                                        color = 0Xffa500; // CSS Level 2
+                                    } else if (x11ColorMap.containsKey(c))
+                                        color = x11ColorMap.get(c);
                                     else
                                         try {
                                             color = Color.parseColor(c);
