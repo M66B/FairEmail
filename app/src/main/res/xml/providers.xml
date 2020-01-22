@@ -287,7 +287,8 @@
     </provider>
     <provider
         name="Apple iCloud"
-        link="https://support.apple.com/en-us/HT202304">
+        link="https://support.apple.com/en-us/HT202304"
+        user="local">
         <imap
             host="imap.mail.me.com"
             port="993"
