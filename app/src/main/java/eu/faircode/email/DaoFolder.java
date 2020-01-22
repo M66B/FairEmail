@@ -146,6 +146,9 @@ public interface DaoFolder {
             " GROUP BY folder.id")
     LiveData<TupleFolderEx> liveFolderEx(long id);
 
+    @Query(TupleFolderView.query)
+    LiveData<List<TupleFolderView>> liveFolderView();
+
     @Query("SELECT * FROM folder ORDER BY account, name COLLATE NOCASE")
     List<EntityFolder> getFolders();
 

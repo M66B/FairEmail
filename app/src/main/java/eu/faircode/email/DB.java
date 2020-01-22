@@ -24,9 +24,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
+import java.lang.reflect.Field;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ExecutorService;
 
@@ -58,7 +60,7 @@ import io.requery.android.database.sqlite.SQLiteDatabase;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 134,
+        version = 135,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -73,6 +75,7 @@ import io.requery.android.database.sqlite.SQLiteDatabase;
                 EntityLog.class
         },
         views = {
+                TupleFolderView.class
         }
 )
 
@@ -107,6 +110,9 @@ public abstract class DB extends RoomDatabase {
     private static final String DB_NAME = "fairemail";
     private static final int DB_CHECKPOINT = 100;
 
+    static final String[] DB_TABLES = new String[]{
+            "identity", "account", "folder", "message", "attachment", "operation", "contact", "certificate", "answer", "rule", "log"};
+
     @Override
     public void init(@NonNull DatabaseConfiguration configuration) {
         // https://www.sqlite.org/pragma.html#pragma_wal_autocheckpoint
@@ -131,20 +137,21 @@ public abstract class DB extends RoomDatabase {
 
             sInstance = migrate(acontext, getBuilder(acontext)).build();
 
-            sInstance.getInvalidationTracker().addObserver(new InvalidationTracker.Observer(
-                    EntityAccount.TABLE_NAME,
-                    EntityIdentity.TABLE_NAME,
-                    EntityFolder.TABLE_NAME,
-                    EntityMessage.TABLE_NAME,
-                    EntityAttachment.TABLE_NAME,
-                    EntityOperation.TABLE_NAME,
-                    EntityContact.TABLE_NAME,
-                    EntityAnswer.TABLE_NAME,
-                    EntityRule.TABLE_NAME,
-                    EntityLog.TABLE_NAME) {
+            try {
+                Log.i("Disabling view invalidation");
+                Field fmViewTables = InvalidationTracker.class.getDeclaredField("mViewTables");
+                fmViewTables.setAccessible(true);
+                Map<String, Set<String>> mViewTables = (Map) fmViewTables.get(sInstance.getInvalidationTracker());
+                mViewTables.get("folder_view").clear();
+                Log.i("Disabled view invalidation");
+            } catch (ReflectiveOperationException ex) {
+                Log.w(ex);
+            }
+
+            sInstance.getInvalidationTracker().addObserver(new InvalidationTracker.Observer(DB.DB_TABLES) {
                 @Override
                 public void onInvalidated(@NonNull Set<String> tables) {
-                    Log.d("ROOM invalidated=" + TextUtils.join(",", tables));
+                    Log.i("ROOM invalidated=" + TextUtils.join(",", tables));
                 }
             });
         }
@@ -1297,9 +1304,16 @@ public abstract class DB extends RoomDatabase {
                     @Override
                     public void migrate(@NonNull SupportSQLiteDatabase db) {
                         Log.i("DB migration from version " + startVersion + " to " + endVersion);
-                        db.execSQL("DROP TRIGGER attachment_insert");
-                        db.execSQL("DROP TRIGGER attachment_delete");
+                        db.execSQL("DROP TRIGGER IF EXISTS `attachment_insert`");
+                        db.execSQL("DROP TRIGGER IF EXISTS `attachment_delete`");
                         createTriggers(db);
+                    }
+                })
+                .addMigrations(new Migration(134, 135) {
+                    @Override
+                    public void migrate(@NonNull SupportSQLiteDatabase db) {
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
+                        db.execSQL("CREATE VIEW IF NOT EXISTS `folder_view` AS " + TupleFolderView.query);
                     }
                 });
     }

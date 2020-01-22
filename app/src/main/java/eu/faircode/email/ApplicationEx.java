@@ -29,9 +29,12 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.webkit.CookieManager;
 
+import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
@@ -87,6 +90,34 @@ public class ApplicationEx extends Application {
 
         WorkerWatchdog.init(this);
         WorkerCleanup.queue(this);
+
+        DB db = DB.getInstance(this);
+
+        db.folder().liveFolderView().observeForever(new Observer<List<TupleFolderView>>() {
+            List<TupleFolderView> last = null;
+
+            @Override
+            public void onChanged(List<TupleFolderView> folders) {
+                if (folders == null)
+                    folders = new ArrayList<>();
+
+                boolean changed = false;
+                if (last == null || last.size() != folders.size())
+                    changed = true;
+                else
+                    for (int i = 0; i < folders.size(); i++)
+                        if (!folders.get(i).equals(last.get(i))) {
+                            changed = true;
+                            last = folders;
+                        }
+
+                if (changed) {
+                    Log.i("Invalidating folder view");
+                    last = folders;
+                    db.getInvalidationTracker().notifyObserversByTableNames("folder_view");
+                }
+            }
+        });
     }
 
     @Override

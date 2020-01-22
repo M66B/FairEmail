@@ -64,7 +64,7 @@ public interface DaoMessage {
             " FROM (SELECT * FROM message ORDER BY received DESC) AS message" +
             " JOIN account ON account.id = message.account" +
             " LEFT JOIN identity ON identity.id = message.identity" +
-            " JOIN folder ON folder.id = message.folder" +
+            " JOIN folder_view AS folder ON folder.id = message.folder" +
             " WHERE account.`synchronize`" +
             " AND (:threading OR (:type IS NULL AND (folder.unified OR :found)) OR (:type IS NOT NULL AND folder.type = :type))" +
             " AND (NOT message.ui_hide OR :debug)" +
@@ -112,8 +112,8 @@ public interface DaoMessage {
             " FROM (SELECT * FROM message ORDER BY received DESC) AS message" +
             " JOIN account ON account.id = message.account" +
             " LEFT JOIN identity ON identity.id = message.identity" +
-            " JOIN folder ON folder.id = message.folder" +
-            " JOIN folder AS f ON f.id = :folder" +
+            " JOIN folder_view AS folder ON folder.id = message.folder" +
+            " JOIN folder_view AS f ON f.id = :folder" +
             " WHERE (message.account = f.account OR " + is_outbox + ")" +
             " AND (:threading OR folder.id = :folder)" +
             " AND (NOT message.ui_hide OR :debug)" +
@@ -157,7 +157,7 @@ public interface DaoMessage {
             " FROM message" +
             " JOIN account ON account.id = message.account" +
             " LEFT JOIN identity ON identity.id = message.identity" +
-            " JOIN folder ON folder.id = message.folder" +
+            " JOIN folder_view AS folder ON folder.id = message.folder" +
             " WHERE message.account = :account" +
             " AND message.thread = :thread" +
             " AND (:id IS NULL OR message.id = :id)" +
@@ -203,7 +203,7 @@ public interface DaoMessage {
     LiveData<List<Long>> liveHiddenThread(long account, String thread);
 
     @Query("SELECT SUM(fts) AS fts, COUNT(*) AS total FROM message" +
-            " JOIN folder ON folder.id = message.folder" +
+            " JOIN folder_view AS folder ON folder.id = message.folder" +
             " WHERE content" +
             " AND folder.type <> '" + EntityFolder.OUTBOX + "'")
     LiveData<TupleFtsStats> liveFts();
@@ -234,7 +234,7 @@ public interface DaoMessage {
     List<Long> getMessageIdsByFolder(Long folder);
 
     @Query("SELECT message.id FROM message" +
-            " JOIN folder ON folder.id = message.folder" +
+            " JOIN folder_view AS folder ON folder.id = message.folder" +
             " WHERE content" +
             " AND NOT fts" +
             " AND folder.type <> '" + EntityFolder.OUTBOX + "'" +
@@ -311,7 +311,7 @@ public interface DaoMessage {
             " FROM message" +
             " JOIN account ON account.id = message.account" +
             " LEFT JOIN identity ON identity.id = message.identity" +
-            " JOIN folder ON folder.id = message.folder" +
+            " JOIN folder_view AS folder ON folder.id = message.folder" +
             " WHERE message.id = :id")
     LiveData<TupleMessageEx> liveMessage(long id);
 
@@ -319,7 +319,7 @@ public interface DaoMessage {
     @Query("SELECT account.id AS account, COUNT(message.id) AS unseen, SUM(ABS(notifying)) AS notifying" +
             " FROM message" +
             " JOIN account ON account.id = message.account" +
-            " JOIN folder ON folder.id = message.folder" +
+            " JOIN folder_view AS folder ON folder.id = message.folder" +
             " WHERE (:account IS NULL OR account.id = :account)" +
             " AND account.`synchronize`" +
             " AND folder.notify" +
@@ -331,7 +331,7 @@ public interface DaoMessage {
     @Query("SELECT :account AS account, COUNT(message.id) AS unseen, SUM(ABS(notifying)) AS notifying" +
             " FROM message" +
             " JOIN account ON account.id = message.account" +
-            " JOIN folder ON folder.id = message.folder" +
+            " JOIN folder_view AS folder ON folder.id = message.folder" +
             " WHERE (:account IS NULL OR account.id = :account)" +
             " AND account.`synchronize`" +
             " AND folder.notify" +
@@ -356,7 +356,7 @@ public interface DaoMessage {
             " FROM message" +
             " JOIN account ON account.id = message.account" +
             " LEFT JOIN identity ON identity.id = message.identity" +
-            " JOIN folder ON folder.id = message.folder" +
+            " JOIN folder_view AS folder ON folder.id = message.folder" +
             " WHERE account.`synchronize`" +
             " AND folder.notify" +
             " AND (account.created IS NULL OR message.received > account.created)" +
@@ -382,7 +382,7 @@ public interface DaoMessage {
             ", MAX(message.received) AS dummy" +
             " FROM message" +
             " JOIN account ON account.id = message.account" +
-            " JOIN folder ON folder.id = message.folder" +
+            " JOIN folder_view AS folder ON folder.id = message.folder" +
             " WHERE account.`synchronize`" +
             " AND ((:folder IS NULL AND folder.unified) OR folder.id = :folder)" +
             " AND NOT message.ui_hide" +
