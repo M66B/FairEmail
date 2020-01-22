@@ -180,6 +180,7 @@ public class HtmlHelper {
                         switch (key) {
                             case "color":
                                 String c = value
+                                        .replace("\"", "")
                                         .replace("none", "")
                                         .replace("unset", "")
                                         .replace("inherit", "")
