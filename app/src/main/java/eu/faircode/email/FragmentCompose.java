@@ -466,10 +466,44 @@ public class FragmentCompose extends FragmentBase {
             }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            public void onTextChanged(CharSequence text, int start, int before, int count) {
                 Activity activity = getActivity();
                 if (activity != null)
                     activity.onUserInteraction();
+
+                if (before == 0 && count == 1 && text.charAt(start) == '\n') {
+                    // break block quotes
+                    boolean broken = false;
+                    SpannableStringBuilder ssb = new SpannableStringBuilder(text);
+                    StyledQuoteSpan[] spans = ssb.getSpans(start + 1, start + 1, StyledQuoteSpan.class);
+                    for (StyledQuoteSpan span : spans) {
+                        int s = ssb.getSpanStart(span);
+                        int e = ssb.getSpanEnd(span);
+                        int f = ssb.getSpanFlags(span);
+                        Log.i("Span " + s + "..." + e + " start=" + start);
+
+                        if (start - s > 0 && e - (start + 1) > 0 &&
+                                ssb.charAt(s - 1) == '\n' && ssb.charAt(start - 1) == '\n' &&
+                                ssb.charAt(start) == '\n' && ssb.charAt(e - 1) == '\n') {
+                            broken = true;
+
+                            StyledQuoteSpan q1 = new StyledQuoteSpan(getContext(), span.getColor());
+                            ssb.setSpan(q1, s, start, f);
+                            Log.i("Span " + s + "..." + start);
+
+                            StyledQuoteSpan q2 = new StyledQuoteSpan(getContext(), span.getColor());
+                            ssb.setSpan(q2, start + 1, e, f);
+                            Log.i("Span " + (start + 1) + "..." + e);
+
+                            ssb.removeSpan(span);
+                        }
+                    }
+
+                    if (broken) {
+                        etBody.setText(ssb);
+                        etBody.setSelection(start);
+                    }
+                }
             }
 
             @Override
