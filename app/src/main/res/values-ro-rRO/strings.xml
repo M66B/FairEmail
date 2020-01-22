@@ -633,6 +633,7 @@
     <string name="title_discard">Renunță</string>
     <string name="title_save">Salvează</string>
     <string name="title_send">Trimite</string>
+    <string name="title_send_now">Trimite acum</string>
     <string name="title_send_via">Trimite prin</string>
     <string name="title_send_with_options">Trimite &#8230;</string>
     <string name="title_send_at">Trimite la &#8230;</string>

@@ -374,7 +374,7 @@
     <string name="title_advanced_sync_delay_hint">Это замедлит синхронизацию сообщений</string>
     <string name="title_advanced_suggest_local_hint">В дополнение к контактам, предоставляемым Android. Контактные данные будут сохранены только для вновь отправленных или полученных сообщений при включении этой функции.</string>
     <string name="title_advanced_usenet_hint">Вставлять \'-- \' между текстом и подписью</string>
-    <string name="title_advanced_send_reminders_hint">Показывать предупреждение, если отсутствует текст сообщения, тема или возможно отсутствует вложение</string>
+    <string name="title_advanced_send_reminders_hint">Показывать предупреждение, если отсутствует текст сообщения, тема или, возможно, отсутствует вложение</string>
     <string name="title_advanced_lookup_mx_hint">Проверка наличия записей DNS MX</string>
     <string name="title_advanced_check_reply_hint">Проверяет, совпадает ли доменное имя отправителя и адреса для ответа</string>
     <string name="title_advanced_metered_hint">Лимитированные подключения - это обычно мобильные сети или платные Wi-Fi</string>
@@ -450,6 +450,7 @@
     <string name="title_primary_account">Основная (учётная запись по умолчанию)</string>
     <string name="title_primary_identity">Основной (идентификатор по умолчанию)</string>
     <string name="title_leave_on_server">Оставлять сообщения на сервере</string>
+    <string name="title_leave_on_device">Оставлять сообщения на устройстве</string>
     <string name="title_keep_alive_interval">Интервал поддержания активности/опроса (минуты)</string>
     <string name="title_use_date">Использовать время отправки вместо времени получения сервером</string>
     <string name="title_related_identity">Добавить связанный идентификатор</string>
@@ -623,6 +624,7 @@
     <string name="title_ask_help">Помогите улучшить FairEmail</string>
     <string name="title_ask_reporting">Отправлять отчёты об ошибках?</string>
     <string name="title_reporting_why">Отчёты об ошибках помогут улучшить FairEmail</string>
+    <string name="title_reply_hint">Вы можете ответить всем, переслать и так далее, используя меню с двойной стрелкой чуть ниже заголовка сообщения</string>
     <string name="title_ask_review">Пожалуйста, оцените FairEmail</string>
     <string name="title_ask_review_rationale">        Вы давно используете FairEmail.
         Будем признательны, если вы сможете оценить FairEmail в Play Store.
@@ -645,6 +647,7 @@
     <string name="title_discard">Отменить</string>
     <string name="title_save">Сохранить</string>
     <string name="title_send">Отправить</string>
+    <string name="title_send_now">Отправить сейчас</string>
     <string name="title_send_via">Отправить через</string>
     <string name="title_send_with_options">Отправить&#8230;</string>
     <string name="title_send_at">Отправить в&#8230;</string>

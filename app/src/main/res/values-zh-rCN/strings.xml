@@ -415,6 +415,7 @@
     <string name="title_primary_account">主账户 (默认帐户)</string>
     <string name="title_primary_identity">主身份(默认身份)</string>
     <string name="title_leave_on_server">把消息留在服务器上</string>
+    <string name="title_leave_on_device">把消息留在设备上</string>
     <string name="title_keep_alive_interval">保持激活/轮询时间间隔(分钟)</string>
     <string name="title_use_date">使用日期头发送时间而非服务器接收时间</string>
     <string name="title_related_identity">添加相关身份</string>
@@ -588,6 +589,7 @@
     <string name="title_ask_help">帮助改进FairEmail</string>
     <string name="title_ask_reporting">发送错误报告?</string>
     <string name="title_reporting_why">错误报告将有助于改进FairEmail</string>
+    <string name="title_reply_hint">您可以在通过消息标题下方的双箭头动作菜单进行回复所有、转发等操作</string>
     <string name="title_ask_review">请给FairEmail评分</string>
     <string name="title_ask_review_rationale">        您已经使用FairEmail一段时间了。
         如果您能在谷歌商店为FairEmail评分，我将感激不尽。
@@ -610,6 +612,7 @@
     <string name="title_discard">舍弃</string>
     <string name="title_save">保存</string>
     <string name="title_send">发送</string>
+    <string name="title_send_now">现在发送</string>
     <string name="title_send_via">发送方式</string>
     <string name="title_send_with_options">发送 &#8230;</string>
     <string name="title_send_at">发送于 &#8230;</string>

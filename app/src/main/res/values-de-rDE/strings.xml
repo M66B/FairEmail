@@ -427,6 +427,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_primary_account">Primäres Konto</string>
     <string name="title_primary_identity">Primäre Identität</string>
     <string name="title_leave_on_server">Nachrichten auf Server belassen</string>
+    <string name="title_leave_on_device">Nachrichten auf Gerät belassen</string>
     <string name="title_keep_alive_interval">Verbindung halten/Pollintervall (Minuten)</string>
     <string name="title_use_date">Datums-Header-Sendezeit anstelle der empfangenen Zeit des Servers verwenden</string>
     <string name="title_related_identity">Ähnliche Identität hinzufügen</string>
@@ -600,6 +601,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_ask_help">Helfen Sie mit, FairEmail zu verbessern</string>
     <string name="title_ask_reporting">Fehlerberichte senden?</string>
     <string name="title_reporting_why">Fehlerberichte helfen uns, FairEmail zu verbessern</string>
+    <string name="title_reply_hint">Du kannst allen antworten, weiterleiten, etc. über das Doppel-Pfeil-Symbol direkt unter dem Nachrichtenkopf</string>
     <string name="title_ask_review">Bitte bewerten Sie FairEmail</string>
     <string name="title_ask_review_rationale">        Du hast FairEmail schon eine Weile benutzt.
         Es wäre zu begrüßen, wenn Du FairEmail - sofern Du zufrieden bist - im Play Store positiv bewerten könntest.
@@ -622,6 +624,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_discard">Verwerfen</string>
     <string name="title_save">Speichern</string>
     <string name="title_send">Senden</string>
+    <string name="title_send_now">Jetzt senden</string>
     <string name="title_send_via">Senden über</string>
     <string name="title_send_with_options">Sende-Optionen &#8230;</string>
     <string name="title_send_at">Später senden &#8230;</string>

@@ -428,6 +428,7 @@
     <string name="title_primary_account">Birincil (varsayılan hesap)</string>
     <string name="title_primary_identity">Birincil (varsayılan kimlik)</string>
     <string name="title_leave_on_server">Mesajları sunucuda bırak</string>
+    <string name="title_leave_on_device">Mesajları cihazda bırak</string>
     <string name="title_keep_alive_interval">Canlı tutma/yoklama aralığı (dakika)</string>
     <string name="title_use_date">Sunucu alma zamanı yerine tarih başlığındaki gönderme zamanını kullan</string>
     <string name="title_related_identity">İlgili kimliği ekle</string>
@@ -601,6 +602,7 @@
     <string name="title_ask_help">FairEmail\'in geliştirilmesine yardımcı olun</string>
     <string name="title_ask_reporting">Hata raporları gönderilsin mi?</string>
     <string name="title_reporting_why">Hata raporlama FairEmail\'in geliştirilmesine yardımcı olacaktır</string>
+    <string name="title_reply_hint">Mesaj başlığının hemen altındaki çift ok eylem menüsü aracılığıyla tümünü yanıtlayabilir, iletebilirsiniz, vs.</string>
     <string name="title_ask_review">Lütfen FairEmail\'i değerlendirin</string>
     <string name="title_ask_review_rationale">        Bir süredir FairEmail kullanıyorsunuz.
         Play Store\'da FairEmail\'e puan verebilirseniz seviniriz.
@@ -623,6 +625,7 @@
     <string name="title_discard">Sil</string>
     <string name="title_save">Kaydet</string>
     <string name="title_send">Gönder</string>
+    <string name="title_send_now">Şimdi gönder</string>
     <string name="title_send_via">Üzerinden gönder</string>
     <string name="title_send_with_options">Gönder &#8230;</string>
     <string name="title_send_at">&#8230;\'te gönder</string>

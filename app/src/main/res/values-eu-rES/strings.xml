@@ -426,6 +426,7 @@
     <string name="title_primary_account">Nagusia (kontu lehenetsia)</string>
     <string name="title_primary_identity">Nagusia (identitate lehenetsia)</string>
     <string name="title_leave_on_server">Utzi mezuak zerbitzarian</string>
+    <string name="title_leave_on_device">Utzi mezuak gailuan</string>
     <string name="title_keep_alive_interval">Mantendu-bizirik/eskaera tartea (minutuak)</string>
     <string name="title_use_date">Erabili goiburuko datuetan bidalketa unea eta ez jasoketarena</string>
     <string name="title_related_identity">Gehitu lotutako identitatea</string>
@@ -599,6 +600,7 @@
     <string name="title_ask_help">Lagundu FairEmail hobetzen</string>
     <string name="title_ask_reporting">Bidali errore txostenak?</string>
     <string name="title_reporting_why">Errore txostenek FairEmail hobetzen laguntzen dute</string>
+    <string name="title_reply_hint">Erantzun diezaiekezu guztiei, birbidali, etab. gezi bikoitzeko ekintza-menuaren bidez, mezuaren goiburuaren azpian</string>
     <string name="title_ask_review">Baloratu FairEmail mesedez</string>
     <string name="title_ask_review_rationale">FairEmail denbora batez erabili duzu.
 Eskertzekoa litzateke Play Storen FairEmail baloratuko bazenu.
@@ -621,6 +623,7 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_discard">Baztertu</string>
     <string name="title_save">Gorde</string>
     <string name="title_send">Bidali</string>
+    <string name="title_send_now">Bidali orain</string>
     <string name="title_send_via">Bidali honen bidez</string>
     <string name="title_send_with_options">Bidali &#8230;</string>
     <string name="title_send_at">Bidali noiz &#8230;</string>

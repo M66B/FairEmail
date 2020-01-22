@@ -106,6 +106,7 @@
     <string name="menu_legend">Legenda</string>
     <string name="menu_test">Program testowy</string>
     <string name="menu_faq">Wsparcie</string>
+    <string name="menu_translate">Pomóż w tłumaczeniu</string>
     <string name="menu_issue">Zgłoś problem</string>
     <string name="menu_attribution">Źródła</string>
     <string name="menu_privacy">Prywatność</string>
@@ -243,6 +244,7 @@
     <string name="title_advanced_resize_images">Automatycznie zmień rozmiar osadzonych obrazów</string>
     <string name="title_advanced_resize_attachments">Automatycznie zmień rozmiar załączonych obrazów</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixeli</string>
+    <string name="title_advanced_send_reminders">Pokaż przypomnienia</string>
     <string name="title_advanced_lookup_mx">Sprawdź adresy e-mail odbiorcy przed wysłaniem</string>
     <string name="title_advanced_send_delayed">Opóźnij wysyłanie wiadomości</string>
     <string name="title_advanced_metered">Użyj połączeń taryfowych</string>
@@ -262,6 +264,7 @@
     <string name="title_advanced_distinguish_contacts">Podkreśl nadawcę, gdy znany jest jako lokalny kontakt „do”</string>
     <string name="title_advanced_color_stripe">Pokaż kolorowy pasek</string>
     <string name="title_advanced_avatars">Pokaż zdjęcia kontaktu</string>
+    <string name="title_advanced_gravatars">Pokaż Gravatary</string>
     <string name="title_advanced_generated_icons">Pokaż wygenerowane ikony</string>
     <string name="title_advanced_identicons">Pokazuje ikony kontaktów</string>
     <string name="title_advanced_circular">Pokaż okrągłe ikony</string>
@@ -370,6 +373,7 @@
     <string name="title_advanced_sync_delay_hint">Wydłuży to synchronizację wiadomości</string>
     <string name="title_advanced_suggest_local_hint">Oprócz kontaktów dostarczanych przez Androida. Dane kontaktowe będą przechowywane dla nowo wysłanych lub odebranych wiadomości tylko kiedy włączone.</string>
     <string name="title_advanced_usenet_hint">Wstaw \'-- \' między tekstem a podpisem</string>
+    <string name="title_advanced_send_reminders_hint">Pokaż ostrzeżenie, gdy tekst wiadomości lub temat jest pusty lub gdy może brakować załącznika</string>
     <string name="title_advanced_lookup_mx_hint">To sprawdzi, czy istnieją rekordy MX DNS</string>
     <string name="title_advanced_check_reply_hint">Spowoduje to sprawdzenie, czy nazwa domeny nadawcy i adresy odpowiedzi są takie same</string>
     <string name="title_advanced_metered_hint">Połączenia taryfowe to głównie połączenia komórkowe lub płatne hotspoty Wi-Fi</string>
@@ -445,6 +449,7 @@
     <string name="title_primary_account">Podstawowe (domyślne konto)</string>
     <string name="title_primary_identity">Podstawowe (domyślna tożsamość)</string>
     <string name="title_leave_on_server">Pozostaw wiadomości na serwerze</string>
+    <string name="title_leave_on_device">Pozostaw wiadomości na urządzeniu</string>
     <string name="title_keep_alive_interval">Interwał utrzymywania aktywności/odpytywania (minuty)</string>
     <string name="title_use_date">Użyj czasu wysłania nagłówka daty zamiast czasu odebranego przez serwer</string>
     <string name="title_related_identity">Dodaj powiązaną tożsamość</string>
@@ -618,6 +623,7 @@
     <string name="title_ask_help">Pomóż udoskonalić FairEmail</string>
     <string name="title_ask_reporting">Wyślij raport o błędach?</string>
     <string name="title_reporting_why">Raportowanie błędów pomoże poprawić FairEmail</string>
+    <string name="title_reply_hint">Możesz odpowiedzieć wszystkim, przesłać dalej, itp. Za pomocą menu akcji z podwójną strzałką tuż pod nagłówkiem wiadomości</string>
     <string name="title_ask_review">Oceń FairEmail</string>
     <string name="title_ask_review_rationale">        Od pewnego czasu korzystasz z FairEmail.
         Byłoby mile widziane, gdybyś mógł ocenić FairEmail w Sklepie Play..
@@ -640,6 +646,7 @@
     <string name="title_discard">Odrzuć</string>
     <string name="title_save">Zapisz</string>
     <string name="title_send">Wyślij</string>
+    <string name="title_send_now">Wyślij teraz</string>
     <string name="title_send_via">Wyślij przez</string>
     <string name="title_send_with_options">Wyślij &#8230;</string>
     <string name="title_send_at">Wysłać o &#8230;</string>
@@ -732,6 +739,7 @@
     <string name="title_answer_caption">Edytuj szablon</string>
     <string name="title_answer_reply">Szablon odpowiedzi</string>
     <string name="title_answer_name">Nazwa szablonu</string>
+    <string name="title_answer_favorite">Ulubiony</string>
     <string name="title_answer_hide">Ukryj z menu</string>
     <string name="title_answer_text">Tekst szablonu</string>
     <string name="title_answer_template_name">$name$ zostanie zastąpiony przez pełną nazwę nadawcy</string>

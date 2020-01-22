@@ -426,6 +426,7 @@
     <string name="title_primary_account">Ensisijainen (oletustili)</string>
     <string name="title_primary_identity">Ensisijainen (oletusidentiteetti)</string>
     <string name="title_leave_on_server">Jätä viestit palvelimelle</string>
+    <string name="title_leave_on_device">Jätä viestit laitteeseen</string>
     <string name="title_keep_alive_interval">Yhteyden ylläpitokyselyn aikaväli (minuuttia)</string>
     <string name="title_use_date">Käytä päivämäärätunnisteen lähetysaikaa palvelimen vastaanottoajan sijaan</string>
     <string name="title_related_identity">Lisää liittyvä identiteetti</string>
@@ -599,6 +600,7 @@
     <string name="title_ask_help">Auta parantamaan FairEmailia</string>
     <string name="title_ask_reporting">Lähetetäänkö virheraportteja?</string>
     <string name="title_reporting_why">Virheraportointi auttaa FairEmailin kehittämisessä</string>
+    <string name="title_reply_hint">Voit vastata kaikille, lähettää edelleen, jne. kaksoisnuolella merkitystä toimintovalikosta viestin tunnistetietojen alapuolelta</string>
     <string name="title_ask_review">Ole hyvä ja arvostele FairEmail</string>
     <string name="title_ask_review_rationale">Olet käyttänyt FairEmailia jonkin aikaa.
         Olisi hienoa, jos voisit arvioida FairEmailin Play Kaupassa.
@@ -621,6 +623,7 @@
     <string name="title_discard">Hylkää</string>
     <string name="title_save">Tallenna</string>
     <string name="title_send">Lähetä</string>
+    <string name="title_send_now">Lähetä heti</string>
     <string name="title_send_via">Lähetä kautta</string>
     <string name="title_send_with_options">Lähetä &#8230;</string>
     <string name="title_send_at">Lähetysaika &#8230;</string>

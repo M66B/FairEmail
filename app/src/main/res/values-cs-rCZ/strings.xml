@@ -420,6 +420,7 @@
     <string name="title_primary_account">Hlavní (výchozí účet)</string>
     <string name="title_primary_identity">Hlavní (výchozí identita)</string>
     <string name="title_leave_on_server">Ponechat zprávy na serveru</string>
+    <string name="title_leave_on_device">Ponechat zprávy v zařízení</string>
     <string name="title_keep_alive_interval">Interval udržování spojení/dotazování (minuty)</string>
     <string name="title_use_date">Použít datum hlavičky čas odeslání namísto čas přijetí serverem</string>
     <string name="title_related_identity">Přidat související identitu</string>
@@ -615,6 +616,7 @@
     <string name="title_discard">Zahodit</string>
     <string name="title_save">Uložit</string>
     <string name="title_send">Odeslat</string>
+    <string name="title_send_now">Odeslat nyní</string>
     <string name="title_send_via">Odeslat přes</string>
     <string name="title_send_with_options">Odeslat &#8230;</string>
     <string name="title_send_at">Odeslat později &#8230;</string>

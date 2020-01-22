@@ -413,6 +413,7 @@
     <string name="title_primary_account">基本(デフォルトアカウント)</string>
     <string name="title_primary_identity">基本(デフォルトID)</string>
     <string name="title_leave_on_server">サーバにメッセージを残します</string>
+    <string name="title_leave_on_device">デバイスにメッセージを残す</string>
     <string name="title_keep_alive_interval">Keep-alive/poll 間隔(分)</string>
     <string name="title_use_date">サーバ受信時刻の代わりに日付ヘッダー送信時刻を使用</string>
     <string name="title_related_identity">関連するIDを追加</string>
@@ -586,6 +587,7 @@
     <string name="title_ask_help">FairEmailの改善にご協力下さい</string>
     <string name="title_ask_reporting">エラーレポートを送信しますか？</string>
     <string name="title_reporting_why">エラー報告はFairEmailの改善に役立ちます</string>
+    <string name="title_reply_hint">メッセージヘッダーの下にある矢印アクションメニューを使用し全員に返信したり転送したりできます</string>
     <string name="title_ask_review">FairEmailを確認して下さい</string>
     <string name="title_ask_review_rationale">FairEmailをしばらく使用しています。
 PlayストアでFairEmailを評価できれば幸いです。
@@ -607,6 +609,7 @@ PlayストアでFairEmailを評価できれば幸いです。
     <string name="title_discard">破棄</string>
     <string name="title_save">保存</string>
     <string name="title_send">送信</string>
+    <string name="title_send_now">今すぐ送信</string>
     <string name="title_send_via">～経由で送信</string>
     <string name="title_send_with_options">送信 &#8230;</string>
     <string name="title_send_at">&#8230; に送信</string>

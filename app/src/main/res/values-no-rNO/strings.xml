@@ -428,6 +428,7 @@
     <string name="title_primary_account">Primær (standardkonto)</string>
     <string name="title_primary_identity">Primær (standardidentitet)</string>
     <string name="title_leave_on_server">Legg igjen meldingene på serveren</string>
+    <string name="title_leave_on_device">Legg igjen meldinger på enheten</string>
     <string name="title_keep_alive_interval">Holde i live/avstemming intervall (minutter)</string>
     <string name="title_use_date">Bruk dato overskrift sendt tid i stedet for mottatt tid på serveren</string>
     <string name="title_related_identity">Legg til relatert identitet</string>
@@ -601,6 +602,7 @@
     <string name="title_ask_help">Hjelp til å forbedre FairEmail</string>
     <string name="title_ask_reporting">Send feilrapporter?</string>
     <string name="title_reporting_why">Feilrapportering vil bidra til å forbedre FairEmail</string>
+    <string name="title_reply_hint">Du kan svare på alle, videresende osv. Via handlingsmenyen med dobbel pil rett under meldingsoverskriften</string>
     <string name="title_ask_review">Vennligst anmeld FairEmail</string>
     <string name="title_ask_review_rationale">Du har brukt FairEmail en stund.
 Det vil bli satt pris på om du kunne rangere FairEmail i Play Store.
@@ -622,6 +624,7 @@ Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anme
     <string name="title_discard">Forkast</string>
     <string name="title_save">Lagre</string>
     <string name="title_send">Send</string>
+    <string name="title_send_now">Send nå</string>
     <string name="title_send_via">Send via</string>
     <string name="title_send_with_options">Send &#8230;</string>
     <string name="title_send_at">Sender &#8230;</string>

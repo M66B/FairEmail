@@ -427,7 +427,8 @@
     <string name="title_use_ip">Gebruik lokaal IP-adres in plaats van hostnaam</string>
     <string name="title_primary_account">Primair account (standaard account)</string>
     <string name="title_primary_identity">Primaire identiteit (standaard identiteit)</string>
-    <string name="title_leave_on_server">Berichten op server laten</string>
+    <string name="title_leave_on_server">Laat berichten achter op de server</string>
+    <string name="title_leave_on_device">Laat berichten achter op apparaat</string>
     <string name="title_keep_alive_interval">Keep-alive/periodieke controle interval (minuten)</string>
     <string name="title_use_date">Gebruik datum header verzendtijd in plaats van server ontvangen tijd</string>
     <string name="title_related_identity">Voeg gerelateerde identiteit toe</string>
@@ -601,6 +602,7 @@
     <string name="title_ask_help">Help FairEmail te verbeteren</string>
     <string name="title_ask_reporting">Foutrapporten verzenden?</string>
     <string name="title_reporting_why">Foutrapportage helpt om FairEmail te verbeteren</string>
+    <string name="title_reply_hint">U kunt iedereen beantwoorden, doorsturen, enz. via het dubbele pijl-actiemenu net onder de berichtkop</string>
     <string name="title_ask_review">Beoordeel a.u.b. FairEmail</string>
     <string name="title_ask_review_rationale">        U heeft FairEmail al een tijdje gebruikt.
         Het wordt gewaardeerd als u FairEmail in de Play Store zou beoordelen.
@@ -623,6 +625,7 @@
     <string name="title_discard">Weggooien</string>
     <string name="title_save">Bewaren</string>
     <string name="title_send">Verzenden</string>
+    <string name="title_send_now">Nu verzenden</string>
     <string name="title_send_via">Verzenden via</string>
     <string name="title_send_with_options">Verzenden &#8230;</string>
     <string name="title_send_at">Verzenden om &#8230;</string>

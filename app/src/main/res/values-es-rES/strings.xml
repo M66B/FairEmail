@@ -428,6 +428,7 @@
     <string name="title_primary_account">Primaria (cuenta predeterminada)</string>
     <string name="title_primary_identity">Primaria (identidad predeterminada)</string>
     <string name="title_leave_on_server">Dejar mensajes en el servidor</string>
+    <string name="title_leave_on_device">Dejar mensajes en el dispositivo</string>
     <string name="title_keep_alive_interval">Intervalo de comprobación (minutos)</string>
     <string name="title_use_date">Usar fecha y hora de envío del encabezado en lugar de la hora de recibido del servidor</string>
     <string name="title_related_identity">Añadir identidad relacionada</string>
@@ -601,6 +602,7 @@
     <string name="title_ask_help">Ayude a mejorar FairEmail</string>
     <string name="title_ask_reporting">¿Enviar informes de error?</string>
     <string name="title_reporting_why">Informar de errores ayudará a mejorar FairEmail</string>
+    <string name="title_reply_hint">Puedes responder a todos, reenviar, etc., via el menú de acción con la doble flecha justo debajo del encabezado del mensaje</string>
     <string name="title_ask_review">Por favor califique FairEmail</string>
     <string name="title_ask_review_rationale">        Ha estado usando FairEmail durante un tiempo.
         Agradecería que pudiera calificar a FairEmail en Play Store.
@@ -623,6 +625,7 @@
     <string name="title_discard">Descartar</string>
     <string name="title_save">Guardar</string>
     <string name="title_send">Enviar</string>
+    <string name="title_send_now">Enviar ahora</string>
     <string name="title_send_via">Enviar vía</string>
     <string name="title_send_with_options">Enviar &#8230;</string>
     <string name="title_send_at">Enviar a &#8230;</string>
@@ -720,7 +723,7 @@
     <string name="title_answer_text">Texto de plantilla</string>
     <string name="title_answer_template_name">$name$ será reemplazado por el nombre completo del remitente</string>
     <string name="title_answer_template_email">$email$ será reemplazado por la dirección de correo electrónico del remitente</string>
-    <string name="title_rule_noop">Sin acción</string>
+    <string name="title_rule_noop">Ninguna acción</string>
     <string name="title_rule_seen">Marcar como leído</string>
     <string name="title_rule_unseen">Marcar como no leído</string>
     <string name="title_rule_hide">Ocultar</string>
