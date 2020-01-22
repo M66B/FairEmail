@@ -182,10 +182,11 @@ public class ContactInfo {
                     urlConnection.connect();
 
                     int status = urlConnection.getResponseCode();
-                    if (status != HttpURLConnection.HTTP_OK)
+                    if (status == HttpURLConnection.HTTP_OK)
+                        info.bitmap = BitmapFactory.decodeStream(urlConnection.getInputStream());
+                    else if (status != HttpURLConnection.HTTP_NOT_FOUND)
                         throw new IOException("HTTP status=" + status);
 
-                    info.bitmap = BitmapFactory.decodeStream(urlConnection.getInputStream());
                 } catch (Throwable ex) {
                     Log.w(ex);
                 } finally {
