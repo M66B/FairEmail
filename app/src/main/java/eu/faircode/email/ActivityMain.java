@@ -30,6 +30,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.preference.PreferenceManager;
 
+import java.util.Date;
 import java.util.List;
 
 public class ActivityMain extends ActivityBase implements FragmentManager.OnBackStackChangedListener, SharedPreferences.OnSharedPreferenceChangeListener {
@@ -52,7 +53,10 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
         if (eula) {
             super.onCreate(savedInstanceState);
 
-            final SimpleTask start = new SimpleTask<Boolean>() {
+            long start = new Date().getTime();
+            Log.i("Main boot");
+
+            final SimpleTask boot = new SimpleTask<Boolean>() {
                 @Override
                 protected void onPreExecute(Bundle args) {
                     new Handler().postDelayed(new Runnable() {
@@ -101,6 +105,10 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                         ServiceSend.watchdog(ActivityMain.this);
                     } else
                         startActivity(new Intent(ActivityMain.this, ActivitySetup.class));
+
+                    long end = new Date().getTime();
+                    Log.i("Main booted " + (end - start) + " ms");
+
                     finish();
                 }
 
@@ -119,7 +127,7 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                                 Bundle args = new Bundle();
                                 if (intent.hasExtra("intent"))
                                     args.putParcelable("intent", intent.getParcelableExtra("intent"));
-                                start.execute(ActivityMain.this, args, "main:accounts");
+                                boot.execute(ActivityMain.this, args, "main:accounts");
                             }
                         },
                         new Runnable() {
@@ -157,7 +165,7 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                             }
                         });
             else
-                start.execute(this, new Bundle(), "main:accounts");
+                boot.execute(this, new Bundle(), "main:accounts");
         } else {
             // Enable compact view on small screens
             if (!getResources().getConfiguration().isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_LARGE))

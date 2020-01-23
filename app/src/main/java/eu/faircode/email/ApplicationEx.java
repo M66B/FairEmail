@@ -33,6 +33,7 @@ import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -62,6 +63,7 @@ public class ApplicationEx extends Application {
     public void onCreate() {
         super.onCreate();
 
+        long start = new Date().getTime();
         Log.logMemory(this, "App create version=" + BuildConfig.VERSION_NAME);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -105,7 +107,8 @@ public class ApplicationEx extends Application {
         WorkerWatchdog.init(this);
         WorkerCleanup.queue(this);
 
-        Log.i("App created");
+        long end = new Date().getTime();
+        Log.i("App created " + (end - start) + " ms");
     }
 
     @Override
