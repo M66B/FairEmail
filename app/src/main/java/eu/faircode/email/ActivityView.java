@@ -300,6 +300,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         checkFirst();
         checkCrash();
+
+        Shortcuts.update(this, this);
     }
 
     private void init() {
@@ -555,8 +557,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 adapterNavMenu.notifyDataSetChanged();
             }
         });
-
-        Shortcuts.update(this, this);
     }
 
     @Override
