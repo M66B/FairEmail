@@ -124,7 +124,6 @@ import org.bouncycastle.cms.CMSProcessable;
 import org.bouncycastle.cms.CMSProcessableFile;
 import org.bouncycastle.cms.CMSSignedData;
 import org.bouncycastle.cms.CMSTypedData;
-import org.bouncycastle.cms.CMSVerifierCertificateNotValidException;
 import org.bouncycastle.cms.KeyTransRecipientId;
 import org.bouncycastle.cms.RecipientInformation;
 import org.bouncycastle.cms.SignerInformation;
@@ -4819,7 +4818,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     result = cert;
                                     break;
                                 }
-                            } catch (CMSVerifierCertificateNotValidException ex) {
+                            } catch (CMSException ex) {
                                 Log.w(ex);
                             }
                         }
