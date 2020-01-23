@@ -155,7 +155,7 @@ public abstract class DB extends RoomDatabase {
             sInstance.getInvalidationTracker().addObserver(new InvalidationTracker.Observer(DB.DB_TABLES) {
                 @Override
                 public void onInvalidated(@NonNull Set<String> tables) {
-                    Log.i("ROOM invalidated=" + TextUtils.join(",", tables));
+                    Log.d("ROOM invalidated=" + TextUtils.join(",", tables));
                 }
             });
         }
