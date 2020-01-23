@@ -31,6 +31,7 @@ import java.util.List;
 import java.util.Properties;
 
 import eu.faircode.email.Helper;
+import eu.faircode.email.Log;
 
 // https://github.com/javaee/javamail/blob/master/mail/src/main/java/com/sun/mail/imap/protocol/IMAPSaslAuthenticator.java
 public class IMAPSaslAuthenticator implements SaslAuthenticator {
@@ -65,9 +66,11 @@ public class IMAPSaslAuthenticator implements SaslAuthenticator {
         boolean done = false;
 
         try {
+            Log.i("IMAP SASL command=AUTHENTICATE");
             Argument args = new Argument();
             args.writeAtom("CRAM-MD5");
             tag = pr.writeCommand("AUTHENTICATE", args);
+            Log.i("IMAP SASL tag=" + tag);
         } catch (Exception ex) {
             r = Response.byeResponse(ex);
             done = true;
@@ -76,10 +79,13 @@ public class IMAPSaslAuthenticator implements SaslAuthenticator {
         while (!done) {
             try {
                 r = pr.readResponse();
+                Log.i("IMAP SASL response=" + r);
                 if (r.isContinuation()) {
                     byte[] nonce = Base64.decode(r.getRest(), Base64.NO_WRAP);
+                    Log.i("IMAP SASL nonce=" + new String(nonce));
                     String hmac = Helper.HMAC("MD5", 64, p.getBytes(), nonce);
                     String hash = Base64.encodeToString((u + " " + hmac).getBytes(), Base64.NO_WRAP) + "\r\n";
+                    Log.i("IMAP SASL hash=" + hash);
                     pr.getIMAPOutputStream().write(hash.getBytes());
                     pr.getIMAPOutputStream().flush();
                 } else if (r.isTagged() && r.getTag().equals(tag))
