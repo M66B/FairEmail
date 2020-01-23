@@ -46,6 +46,18 @@ public class ApplicationEx extends Application {
         super.attachBaseContext(getLocalizedContext(base));
     }
 
+    static Context getLocalizedContext(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean english = prefs.getBoolean("english", false);
+
+        if (english) {
+            Configuration config = new Configuration(context.getResources().getConfiguration());
+            config.setLocale(Locale.US);
+            return context.createConfigurationContext(config);
+        } else
+            return context;
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -82,6 +94,8 @@ public class ApplicationEx extends Application {
 
         createNotificationChannels();
 
+        setupViewInvalidation();
+
         if (Helper.hasWebView(this))
             CookieManager.getInstance().setAcceptCookie(false);
 
@@ -91,85 +105,7 @@ public class ApplicationEx extends Application {
         WorkerWatchdog.init(this);
         WorkerCleanup.queue(this);
 
-        DB db = DB.getInstance(this);
-
-        db.account().liveAccountView().observeForever(new Observer<List<TupleAccountView>>() {
-            private List<TupleAccountView> last = null;
-
-            @Override
-            public void onChanged(List<TupleAccountView> accounts) {
-                if (accounts == null)
-                    accounts = new ArrayList<>();
-
-                boolean changed = false;
-                if (last == null || last.size() != accounts.size())
-                    changed = true;
-                else
-                    for (int i = 0; i < accounts.size(); i++)
-                        if (!accounts.get(i).equals(last.get(i))) {
-                            changed = true;
-                            last = accounts;
-                        }
-
-                if (changed) {
-                    Log.i("Invalidating account view");
-                    last = accounts;
-                    db.getInvalidationTracker().notifyObserversByTableNames("account_view");
-                }
-            }
-        });
-
-        db.identity().liveIdentityView().observeForever(new Observer<List<TupleIdentityView>>() {
-            private List<TupleIdentityView> last = null;
-
-            @Override
-            public void onChanged(List<TupleIdentityView> identities) {
-                if (identities == null)
-                    identities = new ArrayList<>();
-
-                boolean changed = false;
-                if (last == null || last.size() != identities.size())
-                    changed = true;
-                else
-                    for (int i = 0; i < identities.size(); i++)
-                        if (!identities.get(i).equals(last.get(i))) {
-                            changed = true;
-                            last = identities;
-                        }
-
-                if (changed) {
-                    Log.i("Invalidating identity view");
-                    last = identities;
-                    db.getInvalidationTracker().notifyObserversByTableNames("identity_view");
-                }
-            }
-        });
-
-        db.folder().liveFolderView().observeForever(new Observer<List<TupleFolderView>>() {
-            private List<TupleFolderView> last = null;
-
-            @Override
-            public void onChanged(List<TupleFolderView> folders) {
-                if (folders == null)
-                    folders = new ArrayList<>();
-
-                boolean changed = false;
-                if (last == null || last.size() != folders.size())
-                    changed = true;
-                else
-                    for (int i = 0; i < folders.size(); i++)
-                        if (!folders.get(i).equals(last.get(i))) {
-                            changed = true;
-                            last = folders;
-                        }
-
-                if (changed) {
-                    Log.i("Invalidating folder view");
-                    last = folders;
-                    db.getInvalidationTracker().notifyObserversByTableNames("folder_view");
-                }
-            }
-        });
+        Log.i("App created");
     }
 
     @Override
@@ -375,15 +311,85 @@ public class ApplicationEx extends Application {
         }
     }
 
-    static Context getLocalizedContext(Context context) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean english = prefs.getBoolean("english", false);
+    private void setupViewInvalidation() {
+        DB db = DB.getInstance(this);
 
-        if (english) {
-            Configuration config = new Configuration(context.getResources().getConfiguration());
-            config.setLocale(Locale.US);
-            return context.createConfigurationContext(config);
-        } else
-            return context;
+        db.account().liveAccountView().observeForever(new Observer<List<TupleAccountView>>() {
+            private List<TupleAccountView> last = null;
+
+            @Override
+            public void onChanged(List<TupleAccountView> accounts) {
+                if (accounts == null)
+                    accounts = new ArrayList<>();
+
+                boolean changed = false;
+                if (last == null || last.size() != accounts.size())
+                    changed = true;
+                else
+                    for (int i = 0; i < accounts.size(); i++)
+                        if (!accounts.get(i).equals(last.get(i))) {
+                            changed = true;
+                            last = accounts;
+                        }
+
+                if (changed) {
+                    Log.i("Invalidating account view");
+                    last = accounts;
+                    db.getInvalidationTracker().notifyObserversByTableNames("account_view");
+                }
+            }
+        });
+
+        db.identity().liveIdentityView().observeForever(new Observer<List<TupleIdentityView>>() {
+            private List<TupleIdentityView> last = null;
+
+            @Override
+            public void onChanged(List<TupleIdentityView> identities) {
+                if (identities == null)
+                    identities = new ArrayList<>();
+
+                boolean changed = false;
+                if (last == null || last.size() != identities.size())
+                    changed = true;
+                else
+                    for (int i = 0; i < identities.size(); i++)
+                        if (!identities.get(i).equals(last.get(i))) {
+                            changed = true;
+                            last = identities;
+                        }
+
+                if (changed) {
+                    Log.i("Invalidating identity view");
+                    last = identities;
+                    db.getInvalidationTracker().notifyObserversByTableNames("identity_view");
+                }
+            }
+        });
+
+        db.folder().liveFolderView().observeForever(new Observer<List<TupleFolderView>>() {
+            private List<TupleFolderView> last = null;
+
+            @Override
+            public void onChanged(List<TupleFolderView> folders) {
+                if (folders == null)
+                    folders = new ArrayList<>();
+
+                boolean changed = false;
+                if (last == null || last.size() != folders.size())
+                    changed = true;
+                else
+                    for (int i = 0; i < folders.size(); i++)
+                        if (!folders.get(i).equals(last.get(i))) {
+                            changed = true;
+                            last = folders;
+                        }
+
+                if (changed) {
+                    Log.i("Invalidating folder view");
+                    last = folders;
+                    db.getInvalidationTracker().notifyObserversByTableNames("folder_view");
+                }
+            }
+        });
     }
 }
