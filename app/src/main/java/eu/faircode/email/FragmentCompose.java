@@ -668,7 +668,7 @@ public class FragmentCompose extends FragmentBase {
                 getContext(),
                 R.layout.spinner_item2_dropdown,
                 null,
-                new String[]{"name", "email"},
+                new String[]{"display", "email"},
                 new int[]{android.R.id.text1, android.R.id.text2},
                 0);
 
@@ -701,7 +701,7 @@ public class FragmentCompose extends FragmentBase {
                 String wildcard = "%" + typed + "%";
                 List<Cursor> cursors = new ArrayList<>();
 
-                MatrixCursor provided = new MatrixCursor(new String[]{"_id", "name", "email"});
+                MatrixCursor provided = new MatrixCursor(new String[]{"_id", "name", "email", "display"});
                 boolean contacts = Helper.hasPermission(getContext(), Manifest.permission.READ_CONTACTS);
                 if (contacts) {
                     Cursor cursor = resolver.query(
@@ -723,7 +723,8 @@ public class FragmentCompose extends FragmentBase {
                         provided.newRow()
                                 .add(cursor.getLong(0))
                                 .add(cursor.getString(1))
-                                .add(cursor.getString(2));
+                                .add(cursor.getString(2))
+                                .add(cursor.getString(1));
                 }
                 cursors.add(provided);
 
