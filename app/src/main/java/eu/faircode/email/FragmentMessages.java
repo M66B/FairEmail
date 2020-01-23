@@ -152,8 +152,15 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
+import java.security.KeyStore;
 import java.security.PrivateKey;
+import java.security.cert.CertPathBuilder;
+import java.security.cert.CertStore;
+import java.security.cert.CertStoreParameters;
 import java.security.cert.CertificateFactory;
+import java.security.cert.CollectionCertStoreParameters;
+import java.security.cert.PKIXBuilderParameters;
+import java.security.cert.X509CertSelector;
 import java.security.cert.X509Certificate;
 import java.text.Collator;
 import java.text.DateFormat;
@@ -4781,6 +4788,34 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     args.putString("sender", sender);
                                     args.putBoolean("known", known);
 
+                                    try {
+                                        // https://tools.ietf.org/html/rfc3852#section-10.2.3
+                                        KeyStore ks = KeyStore.getInstance("AndroidCAStore");
+                                        ks.load(null, null);
+
+                                        X509CertSelector target = new X509CertSelector();
+                                        target.setCertificate(cert);
+
+                                        List<X509Certificate> certs = new ArrayList<>();
+                                        for (Object m : store.getMatches(null)) {
+                                            X509CertificateHolder h = (X509CertificateHolder) m;
+                                            certs.add(new JcaX509CertificateConverter().getCertificate(h));
+                                        }
+
+                                        PKIXBuilderParameters params = new PKIXBuilderParameters(ks, target);
+                                        CertStoreParameters intermediates = new CollectionCertStoreParameters(certs);
+                                        params.addCertStore(CertStore.getInstance("Collection", intermediates));
+                                        params.setRevocationEnabled(false);
+                                        params.setDate(new Date(message.received));
+
+                                        CertPathBuilder builder = CertPathBuilder.getInstance("PKIX");
+                                        builder.build(params);
+
+                                        args.putBoolean("valid", true);
+                                    } catch (Throwable ex) {
+                                        Log.w(ex);
+                                    }
+
                                     result = cert;
                                     break;
                                 }
@@ -4917,6 +4952,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (EntityMessage.SMIME_SIGNONLY.equals(type)) {
                     String sender = args.getString("sender");
                     boolean known = args.getBoolean("known");
+                    boolean valid = args.getBoolean("valid");
 
                     if (cert == null)
                         Snackbar.make(view, R.string.title_signature_invalid, Snackbar.LENGTH_LONG).show();
@@ -4932,11 +4968,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     break;
                                 }
 
-                            if (known && !record.isExpired() && match)
+                            if (known && !record.isExpired() && match && valid)
                                 Snackbar.make(view, R.string.title_signature_valid, Snackbar.LENGTH_LONG).show();
                             else {
                                 LayoutInflater inflator = LayoutInflater.from(getContext());
                                 View dview = inflator.inflate(R.layout.dialog_certificate, null);
+                                TextView tvCaption = dview.findViewById(R.id.tvCaption);
                                 TextView tvSender = dview.findViewById(R.id.tvSender);
                                 TextView tvEmail = dview.findViewById(R.id.tvEmail);
                                 TextView tvEmailInvalid = dview.findViewById(R.id.tvEmailInvalid);
@@ -4945,6 +4982,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 TextView tvBefore = dview.findViewById(R.id.tvBefore);
                                 TextView tvExpired = dview.findViewById(R.id.tvExpired);
 
+                                tvCaption.setText(valid ? R.string.title_signature_valid : R.string.title_signature_invalid);
+                                if (!valid)
+                                    tvCaption.setTextColor(Helper.resolveColor(getContext(), R.attr.colorWarning));
                                 tvSender.setText(sender);
                                 tvEmail.setText(TextUtils.join(",", emails));
                                 tvEmailInvalid.setVisibility(match ? View.GONE : View.VISIBLE);
