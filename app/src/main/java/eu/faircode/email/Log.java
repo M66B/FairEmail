@@ -421,6 +421,14 @@ public class Log {
             return false;
 
         /*
+            android.app.RemoteServiceException: Bad notification for startForeground: java.util.ConcurrentModificationException
+            android.app.RemoteServiceException: Bad notification for startForeground: java.util.ConcurrentModificationException
+            at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2204)
+        */
+        if ("android.app.RemoteServiceException".equals(ex.getClass().getName()))
+            return false;
+
+        /*
             java.lang.NoSuchMethodError: No direct method ()V in class Landroid/security/IKeyChainService$Stub; or its super classes (declaration of 'android.security.IKeyChainService$Stub' appears in /system/framework/framework.jar!classes2.dex)
             java.lang.NoSuchMethodError: No direct method ()V in class Landroid/security/IKeyChainService$Stub; or its super classes (declaration of 'android.security.IKeyChainService$Stub' appears in /system/framework/framework.jar!classes2.dex)
             at com.android.keychain.KeyChainService$1.(KeyChainService.java:95)
