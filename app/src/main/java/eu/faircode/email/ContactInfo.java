@@ -57,11 +57,13 @@ public class ContactInfo {
 
     private static Map<String, Uri> emailLookup = new ConcurrentHashMap<>();
     private static final Map<String, ContactInfo> emailContactInfo = new HashMap<>();
+    private static final Map<String, Gravatar> emailGravatar = new HashMap<>();
     private static final ExecutorService executor =
             Helper.getBackgroundExecutor(1, "contact");
 
     private static final int GRAVATAR_TIMEOUT = 5 * 1000; // milliseconds
     private static final long CACHE_CONTACT_DURATION = 2 * 60 * 1000L; // milliseconds
+    private static final long CACHE_GRAVATAR_DURATION = 2 * 60 * 60 * 1000L; // milliseconds
 
     private ContactInfo() {
     }
@@ -169,29 +171,45 @@ public class ContactInfo {
         if (info.bitmap == null) {
             boolean gravatars = prefs.getBoolean("gravatars", false);
             if (gravatars && BuildConfig.DEBUG) {
-                HttpURLConnection urlConnection = null;
-                try {
-                    String hash = Helper.md5(address.getAddress().getBytes());
-                    URL url = new URL("https://www.gravatar.com/avatar/" + hash + "?d=404");
+                boolean lookup;
+                synchronized (emailGravatar) {
+                    Gravatar g = emailGravatar.get(address.getAddress());
+                    lookup = (g == null || g.isExpired() || g.isAvailable());
+                }
 
-                    urlConnection = (HttpURLConnection) url.openConnection();
-                    urlConnection.setRequestMethod("GET");
-                    urlConnection.setDoOutput(false);
-                    urlConnection.setReadTimeout(GRAVATAR_TIMEOUT);
-                    urlConnection.setConnectTimeout(GRAVATAR_TIMEOUT);
-                    urlConnection.connect();
+                if (lookup) {
+                    HttpURLConnection urlConnection = null;
+                    try {
+                        String hash = Helper.md5(address.getAddress().getBytes());
+                        URL url = new URL("https://www.gravatar.com/avatar/" + hash + "?d=404");
+                        Log.i("Gravatar url=" + url);
 
-                    int status = urlConnection.getResponseCode();
-                    if (status == HttpURLConnection.HTTP_OK)
-                        info.bitmap = BitmapFactory.decodeStream(urlConnection.getInputStream());
-                    else if (status != HttpURLConnection.HTTP_NOT_FOUND)
-                        throw new IOException("HTTP status=" + status);
+                        urlConnection = (HttpURLConnection) url.openConnection();
+                        urlConnection.setRequestMethod("GET");
+                        urlConnection.setDoOutput(false);
+                        urlConnection.setReadTimeout(GRAVATAR_TIMEOUT);
+                        urlConnection.setConnectTimeout(GRAVATAR_TIMEOUT);
+                        urlConnection.connect();
 
-                } catch (Throwable ex) {
-                    Log.w(ex);
-                } finally {
-                    if (urlConnection != null)
-                        urlConnection.disconnect();
+                        int status = urlConnection.getResponseCode();
+                        if (status == HttpURLConnection.HTTP_OK) {
+                            info.bitmap = BitmapFactory.decodeStream(urlConnection.getInputStream());
+                            synchronized (emailGravatar) {
+                                emailGravatar.put(address.getAddress(), new Gravatar(true));
+                            }
+                        } else if (status == HttpURLConnection.HTTP_NOT_FOUND) {
+                            synchronized (emailGravatar) {
+                                emailGravatar.put(address.getAddress(), new Gravatar(false));
+                            }
+                        } else
+                            throw new IOException("HTTP status=" + status);
+
+                    } catch (Throwable ex) {
+                        Log.w(ex);
+                    } finally {
+                        if (urlConnection != null)
+                            urlConnection.disconnect();
+                    }
                 }
             }
         }
@@ -314,5 +332,23 @@ public class ContactInfo {
 
         Log.i("Read email/uri=" + all.size());
         return all;
+    }
+
+    private static class Gravatar {
+        private boolean available;
+        private long time;
+
+        Gravatar(boolean available) {
+            this.available = available;
+            this.time = new Date().getTime();
+        }
+
+        boolean isAvailable() {
+            return available;
+        }
+
+        boolean isExpired() {
+            return (new Date().getTime() - time > CACHE_GRAVATAR_DURATION);
+        }
     }
 }
