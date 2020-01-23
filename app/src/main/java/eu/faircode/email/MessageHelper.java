@@ -974,6 +974,7 @@ public class MessageHelper {
             return null;
 
         subject = MimeUtility.unfold(subject);
+        //subject = subject.replaceAll("\\?=\\s+=\\?", "\\?==\\?");
         subject = new String(subject.getBytes(StandardCharsets.ISO_8859_1));
         subject = decodeMime(subject);
 
