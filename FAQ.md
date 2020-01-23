@@ -1152,6 +1152,9 @@ If this isn't the case, please let me know.
 
 It is inevitable that synchronizing messages will use battery power because it requires network access and accessing the messages database.
 
+If you are comparing the battery usage of FairEmail with another email client, please make sure the other email client is setup similarly.
+For example comparing always sync (push messages) and (infrequent) periodic checking for new messages is not a fair comparison.
+
 Reconnecting to an email server will use extra battery power, so an unstable internet connection will result in extra battery usage.
 In this case you might want to synchronize periodically, for example each hour, instead of continuously.
 Note that polling frequently (more than every 30-60 minutes) will likely use more battery power than synchronizing always
