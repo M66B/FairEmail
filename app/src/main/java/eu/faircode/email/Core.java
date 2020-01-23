@@ -2963,7 +2963,7 @@ class Core {
                             .setDeleteIntent(piIgnore)
                             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                             .setCategory(NotificationCompat.CATEGORY_EMAIL)
-                            .setVisibility(NotificationCompat.VISIBILITY_PRIVATE)
+                            .setVisibility(NotificationCompat.VISIBILITY_SECRET)
                             .setOnlyAlertOnce(alert_once)
                             .setAllowSystemGeneratedContextualActions(false);
 
