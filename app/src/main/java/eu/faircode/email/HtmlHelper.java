@@ -367,10 +367,10 @@ public class HtmlHelper {
                                         try {
                                             color = Color.parseColor(c);
                                         } catch (IllegalArgumentException ex) {
-                                            color = Integer.decode(c) | 0xFF000000;
+                                            color = Integer.decode("#" + c) | 0xFF000000;
                                         }
                                 } catch (Throwable ex) {
-                                    Log.e("Color=" + c);
+                                    Log.e("Color=" + c + ": " + ex);
                                 }
 
                                 if (color != null && !(dark && color == Color.BLACK)) {
