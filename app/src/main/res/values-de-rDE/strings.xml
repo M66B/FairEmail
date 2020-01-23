@@ -363,6 +363,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_layout_hint">Das Wechseln zu einem kompakteren Layout und Ändern der Nachrichtentextgröße kann im oberen Aktionsleisten-Menü in der Nachrichtenansicht vorgenommen werden</string>
     <string name="title_advanced_date_hint">Nachrichten werden nur nach Datum gruppiert, wenn sie nach Zeit sortiert sind</string>
     <string name="title_advanced_threading_hint">E-Mails gruppieren, die miteinander verwandt sind</string>
+    <string name="title_advanced_gravatars_hint">Es könnte ein Datenschutzrisiko geben</string>
     <string name="title_advanced_name_email_hint">Wenn deaktiviert, werden nur Namen angezeigt, sofern verfügbar</string>
     <string name="title_advanced_preview_hint">Nur verfügbar, wenn der E-Mail-Text heruntergeladen wurde</string>
     <string name="title_advanced_inline_hint">Eingebettete Grafiken sind Grafiken, die innerhalb der Nachricht enthalten sind</string>

@@ -362,6 +362,7 @@
     <string name="title_advanced_layout_hint">Tiiviimpään näkymään vaihtaminen ja viestin tekstin koon vaihtaminen voidaan tehdä viestinäkymän yläreunan toimintopalkista</string>
     <string name="title_advanced_date_hint">Viestit ryhmitellään päivämäärän mukaan vain, jos ne on lajiteltu ajan mukaan</string>
     <string name="title_advanced_threading_hint">Ryhmittele toisiinsa liittyvät viestit</string>
+    <string name="title_advanced_gravatars_hint">On mahdollinen yksityisyysuhka</string>
     <string name="title_advanced_name_email_hint">Vain saatavilla olevat nimet näytetään, kun pois käytöstä</string>
     <string name="title_advanced_preview_hint">Saatavilla vain, kun viestin teksti on ladattu</string>
     <string name="title_advanced_inline_hint">Tekstiin upotetut kuvat ovat viestin tekstin joukossa olevat kuvat</string>

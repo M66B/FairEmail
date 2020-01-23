@@ -386,6 +386,7 @@
     <string name="title_advanced_layout_hint">Переключиться на компактный вид и изменить размера текста сообщения можно через верхнее меню панели действий при просмотре сообщения</string>
     <string name="title_advanced_date_hint">Сообщения группируются только по дате, если они сортируются по времени</string>
     <string name="title_advanced_threading_hint">Группировать сообщения, связанные друг с другом</string>
+    <string name="title_advanced_gravatars_hint">Возможен риск нарушения конфиденциальности</string>
     <string name="title_advanced_name_email_hint">Если отключено, будут показаны только имена (при наличии)</string>
     <string name="title_advanced_preview_hint">Доступно, только если был загружен текст сообщения</string>
     <string name="title_advanced_inline_hint">Встроенные изображения - это изображения, включённые в сообщение</string>

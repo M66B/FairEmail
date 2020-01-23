@@ -147,6 +147,7 @@
     <string name="title_advanced_debug">Λειτουργία αποσφαλμάτωσης</string>
     <string name="title_advanced_usenet_hint">Εισάγεται \'_\' ανάμεσα στο κείμενο και την υπογραφή</string>
     <string name="title_advanced_send_reminders_hint">Εμφάνιση προειδοποίησης όταν το κείμενο μύνηματων η το θέμα μύνηματων είναι κενό η όταν το συνημμένο λείπει</string>
+    <string name="title_advanced_gravatars_hint">Εδώ μπορεί να υπάρχει κίνδυνος προσωπικών δεδομένων</string>
     <string name="title_identity_name">Το όνομα σας</string>
     <string name="title_identity_email">Η διεύθυνση email σας</string>
     <string name="title_identity_reply_to">Απάντηση στη διεύθυνση αυτή</string>

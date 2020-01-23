@@ -364,6 +364,7 @@
     <string name="title_advanced_layout_hint">Å bytte til en mer kompakt layout og endre meldingens tekststørrelse kan gjøres i den øverste handlingslinje menyen i meldingsvisningen</string>
     <string name="title_advanced_date_hint">Meldinger grupperes bare etter dato hvis de er sortert etter tid</string>
     <string name="title_advanced_threading_hint">Gruppemeldinger knyttet til hverandre</string>
+    <string name="title_advanced_gravatars_hint">Det kan være en personvernrisiko</string>
     <string name="title_advanced_name_email_hint">Når deaktivert, vil bare navn bli vist når det er tilgjengelig</string>
     <string name="title_advanced_preview_hint">Kun tilgjengelig når meldingstekst ble lastet ned</string>
     <string name="title_advanced_inline_hint">Innebygde bilder er bilder som er inkludert i meldingen</string>

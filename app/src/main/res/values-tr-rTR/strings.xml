@@ -364,6 +364,7 @@
     <string name="title_advanced_layout_hint">Daha kompakt bir yerleşime geçmek ve mesaj metin boyutunu değiştirmek, mesaj görünümündeki üst eylem çubuğu menüsünden yapılabilir</string>
     <string name="title_advanced_date_hint">Eğer zamana göre sıralanmışlarsa mesajlar sadece tarihe göre gruplanacaktır</string>
     <string name="title_advanced_threading_hint">Birbirlerine bağlı grup iletileri</string>
+    <string name="title_advanced_gravatars_hint">Bir gizlilik riski olabilir</string>
     <string name="title_advanced_name_email_hint">Devre dışı bırakıldığında, yalnızca adlar mevcut olduğunda gösterilecektir</string>
     <string name="title_advanced_preview_hint">Yalnızca ileti metni indirildiğinde kullanılabilir</string>
     <string name="title_advanced_inline_hint">Satıriçi resimler mesajın içine eklenen resimlerdir</string>

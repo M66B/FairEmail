@@ -364,6 +364,7 @@
     <string name="title_advanced_layout_hint">Passer à une disposition plus compacte et changer la taille du texte des messages peut être fait dans le menu de la barre d\'action en haut dans la vue message</string>
     <string name="title_advanced_date_hint">Les messages ne sont regroupés par date que s\'ils sont triés par ordre chronologique</string>
     <string name="title_advanced_threading_hint">Grouper les messages liés les uns aux autres</string>
+    <string name="title_advanced_gravatars_hint">Il pourrait y avoir un risque pour la confidentialité</string>
     <string name="title_advanced_name_email_hint">Si désactivé, seuls les noms seront affichés si disponibles</string>
     <string name="title_advanced_preview_hint">Disponible uniquement lorsque le texte du message a été téléchargé</string>
     <string name="title_advanced_inline_hint">Les images en ligne sont des images incluses dans le message</string>

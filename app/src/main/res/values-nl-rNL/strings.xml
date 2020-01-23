@@ -364,6 +364,7 @@
     <string name="title_advanced_layout_hint">Overschakelen naar een compactere layout en het wijzigen van de berichttekst grootte kan worden gedaan in het menu van de top actiebalk in het berichtweergave</string>
     <string name="title_advanced_date_hint">Berichten worden alleen op datum gegroepeerd als ze op tijd zijn gesorteerd</string>
     <string name="title_advanced_threading_hint">Groepeer gerelateerde berichten</string>
+    <string name="title_advanced_gravatars_hint">Er is mogelijk een privacyrisico</string>
     <string name="title_advanced_name_email_hint">Indien uitgeschakeld, worden alleen namen weergegeven als deze beschikbaar zijn</string>
     <string name="title_advanced_preview_hint">Alleen beschikbaar wanneer de berichttekst werd gedownload</string>
     <string name="title_advanced_inline_hint">Inline afbeeldingen zijn afbeeldingen opgenomen in het bericht</string>

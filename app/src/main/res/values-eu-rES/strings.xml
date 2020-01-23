@@ -362,6 +362,7 @@
     <string name="title_advanced_layout_hint">Diseinua trinkotzea eta mezuaren testuaren tamaina alda daiteke mezuen ikuspegiko goiko ekintza-barran</string>
     <string name="title_advanced_date_hint">Mezuak dataren arabera multzokatzen dira soilik denboraren arabera ordenatuta badaude</string>
     <string name="title_advanced_threading_hint">Harremana duten mezuak taldekatu</string>
+    <string name="title_advanced_gravatars_hint">Pribatutasun-arriskua egon daiteke</string>
     <string name="title_advanced_name_email_hint">Desgaituta dagonean erabilgarri dauden izenak bakarrik erakutsiko dira</string>
     <string name="title_advanced_preview_hint">Eskuragarri soilik mezuaren testua deskargatu bada</string>
     <string name="title_advanced_inline_hint">Lineako irudiak mezuan sartutako irudiak dira</string>
