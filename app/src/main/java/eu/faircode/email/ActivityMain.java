@@ -34,6 +34,9 @@ import java.util.Date;
 import java.util.List;
 
 public class ActivityMain extends ActivityBase implements FragmentManager.OnBackStackChangedListener, SharedPreferences.OnSharedPreferenceChangeListener {
+    private static final long SPLASH_DELAY = 1500L; // milliseconds
+    private static final long SERVICE_START_DELAY = 5 * 1000L; // milliseconds
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getSupportFragmentManager().addOnBackStackChangedListener(this);
@@ -64,7 +67,7 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                         public void run() {
                             getWindow().setBackgroundDrawableResource(R.drawable.splash);
                         }
-                    }, 1500);
+                    }, SPLASH_DELAY);
                 }
 
                 @Override
@@ -101,8 +104,13 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                                 startActivity(view);
                             }
 
-                        ServiceSynchronize.eval(ActivityMain.this, "main");
-                        ServiceSend.watchdog(ActivityMain.this);
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                ServiceSynchronize.eval(ActivityMain.this, "main");
+                                ServiceSend.watchdog(ActivityMain.this);
+                            }
+                        }, SERVICE_START_DELAY);
                     } else
                         startActivity(new Intent(ActivityMain.this, ActivitySetup.class));
 
