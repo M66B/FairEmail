@@ -170,7 +170,7 @@ public class ContactInfo {
 
         if (info.bitmap == null) {
             boolean gravatars = prefs.getBoolean("gravatars", false);
-            if (gravatars && BuildConfig.DEBUG) {
+            if (gravatars) {
                 boolean lookup;
                 synchronized (emailGravatar) {
                     Gravatar g = emailGravatar.get(address.getAddress());

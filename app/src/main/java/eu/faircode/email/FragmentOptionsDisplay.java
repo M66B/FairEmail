@@ -41,6 +41,7 @@ import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -62,6 +63,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swHighlightUnread;
     private SwitchCompat swColorStripe;
     private SwitchCompat swAvatars;
+    private TextView tvGravatarsHint;
     private SwitchCompat swGravatars;
     private SwitchCompat swGeneratedIcons;
     private SwitchCompat swIdenticons;
@@ -128,6 +130,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swColorStripe = view.findViewById(R.id.swColorStripe);
         swAvatars = view.findViewById(R.id.swAvatars);
         swGravatars = view.findViewById(R.id.swGravatars);
+        tvGravatarsHint = view.findViewById(R.id.tvGravatarsHint);
         swGeneratedIcons = view.findViewById(R.id.swGeneratedIcons);
         swIdenticons = view.findViewById(R.id.swIdenticons);
         swCircular = view.findViewById(R.id.swCircular);
@@ -258,6 +261,14 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("gravatars", checked).apply();
                 ContactInfo.clearCache();
+            }
+        });
+
+        tvGravatarsHint.getPaint().setUnderlineText(true);
+        tvGravatarsHint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(getContext(), Uri.parse(Helper.GRAVATAR_PRIVACY_URI), true);
             }
         });
 
@@ -599,7 +610,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swColorStripe.setChecked(prefs.getBoolean("color_stripe", true));
         swAvatars.setChecked(prefs.getBoolean("avatars", true));
         swGravatars.setChecked(prefs.getBoolean("gravatars", false));
-        swGravatars.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
         swGeneratedIcons.setChecked(prefs.getBoolean("generated_icons", true));
         swIdenticons.setChecked(prefs.getBoolean("identicons", false));
         swIdenticons.setEnabled(swGeneratedIcons.isChecked());

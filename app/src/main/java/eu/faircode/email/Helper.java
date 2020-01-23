@@ -139,6 +139,7 @@ public class Helper {
     static final String SUPPORT_URI = "https://contact.faircode.eu/?product=fairemailsupport";
     static final String TEST_URI = "https://play.google.com/apps/testing/" + BuildConfig.APPLICATION_ID;
     static final String CROWDIN_URI = "https://crowdin.com/project/open-source-email";
+    static final String GRAVATAR_PRIVACY_URI = "https://meta.stackexchange.com/questions/44717/is-gravatar-a-privacy-risk";
 
     static ExecutorService getBackgroundExecutor(int threads, String name) {
         ThreadFactory factory = new ThreadFactory() {
