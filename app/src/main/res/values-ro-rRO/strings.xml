@@ -438,6 +438,7 @@
     <string name="title_primary_account">Primară (identitatea implicită)</string>
     <string name="title_primary_identity">Primară (identitatea implicită)</string>
     <string name="title_leave_on_server">Păstrează mesajele pe server</string>
+    <string name="title_leave_on_device">Păstrează mesajele pe dispozitiv</string>
     <string name="title_keep_alive_interval">Interval menținere conexiune/verificare periodică (minute)</string>
     <string name="title_use_date">Folosește data de trimitere din antet în loc de data de recepție pe server</string>
     <string name="title_related_identity">Adaugă identitate conexă</string>
@@ -611,6 +612,7 @@
     <string name="title_ask_help">Ajută la îmbunătățirea FairEmail</string>
     <string name="title_ask_reporting">Trimite rapoarte de eroare?</string>
     <string name="title_reporting_why">Raportarea erorilor va ajuta la îmbunătățirea FairEmail</string>
+    <string name="title_reply_hint">Puteți răspunde tuturor, redirecționa, etc cu ajutorul iconiței cu săgeată dublă de sub antetul mesajului</string>
     <string name="title_ask_review">Vă rugăm să evaluați FairEmail</string>
     <string name="title_ask_review_rationale">        Utilizați FairEmail de ceva vreme.
         Vom aprecia dacă ați putea evalua FairEmail în Play Store.
