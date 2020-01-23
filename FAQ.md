@@ -1963,6 +1963,8 @@ You will likely need to save the associated identity again as well.
 To authorize a Yahoo! account you will need to create a third-party app password.
 Please see [here](https://help.yahoo.com/kb/generate-third-party-passwords-sln15241.html) for the instructions.
 
+Please see [this FAQ](#user-content-faq111) about OAuth support.
+
 <br />
 
 <a name="faq89"></a>
