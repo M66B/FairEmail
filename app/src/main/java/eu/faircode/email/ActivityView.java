@@ -102,6 +102,12 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private RecyclerView rvMenuExtra;
     private Group grpUnified;
 
+    private AdapterNavAccount adapterNavAccount;
+    private AdapterNavUnified adapterNavUnified;
+    private AdapterNavFolder adapterNavFolder;
+    private AdapterNavMenu adapterNavMenu;
+    private AdapterNavMenu adapterNavMenuExtra;
+
     private boolean exit = false;
     private boolean searching = false;
 
@@ -194,8 +200,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         // Accounts
         rvAccount = drawerContainer.findViewById(R.id.rvAccount);
         rvAccount.setLayoutManager(new LinearLayoutManager(this));
-        final AdapterNavAccount aadapter = new AdapterNavAccount(this, this);
-        rvAccount.setAdapter(aadapter);
+        adapterNavAccount = new AdapterNavAccount(this, this);
+        rvAccount.setAdapter(adapterNavAccount);
 
         // Unified system folders
         ibExpanderUnified = drawerContainer.findViewById(R.id.ibExpanderUnified);
@@ -206,8 +212,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         rvUnified = drawerContainer.findViewById(R.id.rvUnified);
         rvUnified.setLayoutManager(new LinearLayoutManager(this));
-        final AdapterNavUnified uadapter = new AdapterNavUnified(this, this);
-        rvUnified.setAdapter(uadapter);
+        adapterNavUnified = new AdapterNavUnified(this, this);
+        rvUnified.setAdapter(adapterNavUnified);
 
         boolean unified_system = prefs.getBoolean("unified_system", true);
         ibExpanderUnified.setImageLevel(unified_system ? 0 /* less */ : 1 /* more */);
@@ -226,13 +232,13 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         // Navigation folders
         rvFolder = drawerContainer.findViewById(R.id.rvFolder);
         rvFolder.setLayoutManager(new LinearLayoutManager(this));
-        final AdapterNavFolder fadapter = new AdapterNavFolder(this, this);
-        rvFolder.setAdapter(fadapter);
+        adapterNavFolder = new AdapterNavFolder(this, this);
+        rvFolder.setAdapter(adapterNavFolder);
 
         rvMenu = drawerContainer.findViewById(R.id.rvMenu);
         rvMenu.setLayoutManager(new LinearLayoutManager(this));
-        final AdapterNavMenu madapter = new AdapterNavMenu(this, this);
-        rvMenu.setAdapter(madapter);
+        adapterNavMenu = new AdapterNavMenu(this, this);
+        rvMenu.setAdapter(adapterNavMenu);
 
         // Extra menus
         ibExpanderExtra = drawerContainer.findViewById(R.id.ibExpanderExtra);
@@ -240,15 +246,15 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         rvMenuExtra = drawerContainer.findViewById(R.id.rvMenuExtra);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         rvMenuExtra.setLayoutManager(llm);
-        final AdapterNavMenu eadapter = new AdapterNavMenu(this, this);
-        rvMenuExtra.setAdapter(eadapter);
+        adapterNavMenuExtra = new AdapterNavMenu(this, this);
+        rvMenuExtra.setAdapter(adapterNavMenuExtra);
 
         final Drawable d = getDrawable(R.drawable.divider);
         DividerItemDecoration itemDecorator = new DividerItemDecoration(this, llm.getOrientation()) {
             @Override
             public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
                 int pos = parent.getChildAdapterPosition(view);
-                NavMenuItem menu = eadapter.get(pos);
+                NavMenuItem menu = adapterNavMenuExtra.get(pos);
                 outRect.set(0, 0, 0, menu != null && menu.isSeparated() ? d.getIntrinsicHeight() : 0);
             }
         };
@@ -277,6 +283,65 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         });
 
         getSupportFragmentManager().addOnBackStackChangedListener(this);
+
+        // Initialize
+
+        if (content_pane != null) {
+            content_separator.setVisibility(View.GONE);
+            content_pane.setVisibility(View.GONE);
+        }
+
+        if (getSupportFragmentManager().getFragments().size() == 0 &&
+                !getIntent().hasExtra(Intent.EXTRA_PROCESS_TEXT))
+            init();
+
+        if (savedInstanceState != null)
+            drawerToggle.setDrawerIndicatorEnabled(savedInstanceState.getBoolean("fair:toggle"));
+
+        checkFirst();
+        checkCrash();
+    }
+
+    private void init() {
+        Bundle args = new Bundle();
+
+        FragmentBase fragment;
+        switch (startup) {
+            case "accounts":
+                fragment = new FragmentAccounts();
+                args.putBoolean("settings", false);
+                break;
+            case "folders":
+                fragment = new FragmentFolders();
+                break;
+            default:
+                fragment = new FragmentMessages();
+        }
+
+        fragment.setArguments(args);
+
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fm.beginTransaction();
+        for (Fragment existing : fm.getFragments())
+            fragmentTransaction.remove(existing);
+        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("unified");
+        fragmentTransaction.commit();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putBoolean("fair:toggle", drawerToggle.isDrawerIndicatorEnabled());
+        outState.putBoolean("fair:searching", searching);
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        drawerLayout.setup(getResources().getConfiguration(), drawerContainer, drawerToggle);
+        drawerToggle.syncState();
+
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
         // Fixed menus
 
@@ -321,7 +386,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
         }));
 
-        madapter.set(menus);
+        adapterNavMenu.set(menus);
 
         // Collapsible menus
 
@@ -446,7 +511,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 }
             }).setExternal(true));
 
-        eadapter.set(extra);
+        adapterNavMenuExtra.set(extra);
 
         // Live data
 
@@ -457,7 +522,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             public void onChanged(@Nullable List<TupleAccountEx> accounts) {
                 if (accounts == null)
                     accounts = new ArrayList<>();
-                aadapter.set(accounts);
+                adapterNavAccount.set(accounts);
             }
         });
 
@@ -469,7 +534,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 ibExpanderUnified.setVisibility(folders.size() > 0 ? View.VISIBLE : View.GONE);
                 boolean unified_system = prefs.getBoolean("unified_system", true);
                 grpUnified.setVisibility(unified_system && folders.size() > 0 ? View.VISIBLE : View.GONE);
-                uadapter.set(folders);
+                adapterNavUnified.set(folders);
             }
         });
 
@@ -478,7 +543,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             public void onChanged(List<TupleFolderNav> folders) {
                 if (folders == null)
                     folders = new ArrayList<>();
-                fadapter.set(folders);
+                adapterNavFolder.set(folders);
             }
         });
 
@@ -487,68 +552,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             public void onChanged(TupleOperationStats stats) {
                 navOperations.setWarning(stats != null && stats.errors != null && stats.errors > 0);
                 navOperations.setCount(stats == null ? 0 : stats.pending);
-                madapter.notifyDataSetChanged();
+                adapterNavMenu.notifyDataSetChanged();
             }
         });
 
-        // Initialize
-
-        if (content_pane != null) {
-            content_separator.setVisibility(View.GONE);
-            content_pane.setVisibility(View.GONE);
-        }
-
-        if (getSupportFragmentManager().getFragments().size() == 0 &&
-                !getIntent().hasExtra(Intent.EXTRA_PROCESS_TEXT))
-            init();
-
-        if (savedInstanceState != null)
-            drawerToggle.setDrawerIndicatorEnabled(savedInstanceState.getBoolean("fair:toggle"));
-
-        checkFirst();
-        checkCrash();
-
         Shortcuts.update(this, this);
-    }
-
-    private void init() {
-        Bundle args = new Bundle();
-
-        FragmentBase fragment;
-        switch (startup) {
-            case "accounts":
-                fragment = new FragmentAccounts();
-                args.putBoolean("settings", false);
-                break;
-            case "folders":
-                fragment = new FragmentFolders();
-                break;
-            default:
-                fragment = new FragmentMessages();
-        }
-
-        fragment.setArguments(args);
-
-        FragmentManager fm = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fm.beginTransaction();
-        for (Fragment existing : fm.getFragments())
-            fragmentTransaction.remove(existing);
-        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("unified");
-        fragmentTransaction.commit();
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        outState.putBoolean("fair:toggle", drawerToggle.isDrawerIndicatorEnabled());
-        outState.putBoolean("fair:searching", searching);
-        super.onSaveInstanceState(outState);
-    }
-
-    @Override
-    protected void onPostCreate(Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
-        drawerLayout.setup(getResources().getConfiguration(), drawerContainer, drawerToggle);
-        drawerToggle.syncState();
     }
 
     @Override
