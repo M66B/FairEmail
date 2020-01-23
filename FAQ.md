@@ -1731,12 +1731,10 @@ else FairEmail needs to connect to the folder(s) for each message.
 **(74) Why do I see duplicate messages?**
 
 Some providers, notably Gmail, list all messages in all folders, except trashed messages, in the archive (all messages) folder too.
-FairEmail shows all these messages, except for one, dimmed, to indicate that these messages are in fact the same message.
+FairEmail shows all these messages in a non obtrusive way to indicate that these messages are in fact the same message.
 
 Gmail allows one message to have multiple labels, which are presented to FairEmail as folders.
 This means that messages with multiple labels will be shown multiple times as well.
-
-You can hide duplicate messages by disabling *Show duplicates* in the three dots overflow menu.
 
 <br />
 
