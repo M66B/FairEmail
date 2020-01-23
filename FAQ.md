@@ -627,7 +627,10 @@ You can workaround this by trying to send a signed/encrypted message to a sender
 To let apps like FairEmail reliably connect to the OpenKeychain service to encrypt/decrypt messages,
 it might be necessary to disable battery optimizations for the OpenKeychain app.
 
-FairEmail will send the [Autocrypt](https://autocrypt.org/) headers for use by other email clients.
+FairEmail will send the [Autocrypt](https://autocrypt.org/) headers for use by other email clients
+and send received Autocrypt headers to the OpenKeychain app for storage.
+
+All key handling is delegated to the OpenKey chain app for security reasons. This also means that FairEmail does not store PGP keys.
 
 Inline encrypted PGP in received messages is supported, but inline PGP signatures and inline PGP in outgoing messages is not supported,
 see [here](https://josefsson.org/inline-openpgp-considered-harmful.html) about why not.
@@ -1831,6 +1834,8 @@ which is another possibility to have different synchronization schedules and to 
 
 It is also possible to create [rules](#user-content-faq71) with a time condition and to snooze messages until the end time of the time condition.
 This way it is possible to snooze business related messages until the start of the business hours.
+This also means that the messages will be on your device for when there is no internet connection, for example when flying.
+
 
 Scheduling is a pro feature.
 
