@@ -121,6 +121,8 @@ public class MailService implements AutoCloseable {
         properties.put("mail.event.scope", "folder");
         properties.put("mail.event.executor", executor);
 
+        properties.put("mail." + protocol + ".sasl.enable", "true");
+        properties.put("mail." + protocol + ".sasl.mechanisms", "CRAM-MD5");
         properties.put("mail." + protocol + ".sasl.realm", realm == null ? "" : realm);
         properties.put("mail." + protocol + ".auth.ntlm.domain", realm == null ? "" : realm);
 

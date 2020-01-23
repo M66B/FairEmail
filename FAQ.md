@@ -1522,11 +1522,11 @@ The following authentication methods are supported and used in this order:
 
 * LOGIN
 * PLAIN
+* CRAM-MD5
 * NTLM (untested)
 
-SASL authentication methods, like CRAM-MD5, are not supported
+SASL authentication methods, besides CRAM-MD5, are not supported
 because [JavaMail for Android](https://javaee.github.io/javamail/Android) does not support SASL authentication.
-If using secure connections, a must today, there is little value in using CRAM-MD5 anyway.
 
 If your provider requires an unsupported authentication method, you'll likely get the error message *authentication failed*.
 

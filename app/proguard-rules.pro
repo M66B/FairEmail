@@ -100,3 +100,6 @@
 -dontnote com.bugsnag.android.**
 -dontnote biweekly.io.**
 
+#SASL
+-keep class com.sun.mail.imap.protocol.IMAPSaslAuthenticator
+-keep class com.sun.mail.smtp.SMTPSaslAuthenticator

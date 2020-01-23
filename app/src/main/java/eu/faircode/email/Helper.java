@@ -978,6 +978,41 @@ public class Helper {
         void onNothingSelected();
     }
 
+    public static String HMAC(String algo, int blocksize, byte[] key, byte[] text) throws NoSuchAlgorithmException {
+        MessageDigest md = MessageDigest.getInstance(algo);
+
+        if (key.length > blocksize)
+            key = md.digest(key);
+
+        byte[] ipad = new byte[blocksize];
+        byte[] opad = new byte[blocksize];
+
+        for (int i = 0; i < key.length; i++) {
+            ipad[i] = key[i];
+            opad[i] = key[i];
+        }
+
+        for (int i = 0; i < blocksize; i++) {
+            ipad[i] ^= 0x36;
+            opad[i] ^= 0x5c;
+        }
+
+        byte[] digest;
+
+        md.update(ipad);
+        md.update(text);
+        digest = md.digest();
+
+        md.update(opad);
+        md.update(digest);
+        digest = md.digest();
+
+        StringBuilder sb = new StringBuilder();
+        for (byte b : digest)
+            sb.append(String.format("%02x", b));
+        return sb.toString();
+    }
+
     // Miscellaneous
 
     static <T> List<List<T>> chunkList(List<T> list, int size) {
