@@ -76,7 +76,7 @@ All pro features are convenience or advanced features.
 * Search indexing, search on server
 * Keyword management
 * S/MIME sign/encrypt
-* Biometric authentication
+* Biometric/PIN authentication
 * Unified inbox widget
 * Export settings
 
