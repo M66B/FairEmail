@@ -363,6 +363,7 @@
     <string name="title_advanced_layout_hint">Skift til et mere kompakt layout og ændring af beskedtekststørrelse kan ske via den øverste handlingsbjælkemenu fra beskedvisning</string>
     <string name="title_advanced_date_hint">Beskeder grupperes kun efter dato, hvis de er sorteret efter tid</string>
     <string name="title_advanced_threading_hint">Gruppér beskeder relateret til hinanden</string>
+    <string name="title_advanced_gravatars_hint">Der kan være en fortrolighedsrisiko</string>
     <string name="title_advanced_name_email_hint">Når deaktiveret, vises kun navne, når de er tilgængelige</string>
     <string name="title_advanced_preview_hint">Kun tilgængelig, når beskedtekst er downloadet</string>
     <string name="title_advanced_inline_hint">Inline-billeder er billeder, som er inkluderet i beskeden</string>
