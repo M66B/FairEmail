@@ -34,6 +34,7 @@
             port="587"
             starttls="true" />
         <oauth
+            askAccount="true"
             authorizationEndpoint="https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize"
             clientId="3514cf2c-e7a3-45a2-80d4-6a3c3498eca0"
             clientSecret="MZaRn@liyA0T98GwdRDK:m-cSWrUgA9:"

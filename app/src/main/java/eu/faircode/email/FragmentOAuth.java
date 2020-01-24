@@ -376,7 +376,10 @@ public class FragmentOAuth extends FragmentBase {
                 String primaryEmail = null;
                 List<Pair<String, String>> identities = new ArrayList<>();
 
-                if ("gmail".equals(id)) {
+                if (askAccount) {
+                    primaryEmail = address;
+                    identities.add(new Pair<>(address, personal));
+                } else if ("gmail".equals(id)) {
                     // https://developers.google.com/gmail/api/v1/reference/users/getProfile
                     URL url = new URL("https://www.googleapis.com/gmail/v1/users/me/settings/sendAs");
                     Log.i("Fetching " + url);
@@ -414,7 +417,6 @@ public class FragmentOAuth extends FragmentBase {
                             }
                         }
                     }
-
                 } else if ("outlook".equals(id)) {
                     // https://docs.microsoft.com/en-us/graph/api/user-get?view=graph-rest-1.0&tabs=http#http-request
                     URL url = new URL("https://graph.microsoft.com/v1.0/me?$select=displayName,otherMails");
@@ -451,9 +453,6 @@ public class FragmentOAuth extends FragmentBase {
                             identities.add(new Pair<>(email, displayName));
                         }
                     }
-                } else if (askAccount) {
-                    primaryEmail = address;
-                    identities.add(new Pair<>(address, personal));
                 } else
                     throw new IllegalArgumentException("Unknown provider=" + id);
 
