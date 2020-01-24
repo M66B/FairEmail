@@ -180,6 +180,9 @@ public class ActivityWidgetUnified extends ActivityBase {
 
             @Override
             protected void onExecuted(Bundle args, List<EntityAccount> accounts) {
+                if (accounts == null)
+                    accounts = new ArrayList<>();
+
                 EntityAccount all = new EntityAccount();
                 all.id = -1L;
                 all.name = getString(R.string.title_widget_account_all);
