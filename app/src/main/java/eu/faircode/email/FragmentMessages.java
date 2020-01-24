@@ -4972,7 +4972,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             else {
                                 LayoutInflater inflator = LayoutInflater.from(getContext());
                                 View dview = inflator.inflate(R.layout.dialog_certificate, null);
-                                TextView tvCaption = dview.findViewById(R.id.tvCaption);
+                                TextView tvCertificateInvalid = dview.findViewById(R.id.tvCertificateInvalid);
                                 TextView tvSender = dview.findViewById(R.id.tvSender);
                                 TextView tvEmail = dview.findViewById(R.id.tvEmail);
                                 TextView tvEmailInvalid = dview.findViewById(R.id.tvEmailInvalid);
@@ -4981,9 +4981,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 TextView tvBefore = dview.findViewById(R.id.tvBefore);
                                 TextView tvExpired = dview.findViewById(R.id.tvExpired);
 
-                                tvCaption.setText(valid ? R.string.title_signature_valid : R.string.title_signature_invalid);
-                                if (!valid)
-                                    tvCaption.setTextColor(Helper.resolveColor(getContext(), R.attr.colorWarning));
+                                tvCertificateInvalid.setVisibility(valid ? View.GONE : View.VISIBLE);
                                 tvSender.setText(sender);
                                 tvEmail.setText(TextUtils.join(",", emails));
                                 tvEmailInvalid.setVisibility(match ? View.GONE : View.VISIBLE);
