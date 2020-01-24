@@ -29,9 +29,9 @@ import java.util.List;
 @Dao
 public interface DaoOperation {
     String priority = "CASE" +
-            " WHEN operation.name = '" + EntityOperation.BODY + "' THEN -3" +
-            " WHEN operation.name = '" + EntityOperation.ATTACHMENT + "' THEN -2" +
-            " WHEN operation.name = '" + EntityOperation.HEADERS + "' THEN -1" +
+            " WHEN operation.name = '" + EntityOperation.BODY + "' THEN -4" +
+            " WHEN operation.name = '" + EntityOperation.ATTACHMENT + "' THEN -3" +
+            " WHEN operation.name = '" + EntityOperation.HEADERS + "' THEN -2" +
             " WHEN operation.name = '" + EntityOperation.SYNC + "' THEN" +
             "  CASE WHEN folder.account IS NULL THEN -1 ELSE 1 END" + // outbox
             " ELSE 0" +
