@@ -102,6 +102,7 @@ public class EntityAnswer implements Serializable {
         JSONObject json = new JSONObject();
         json.put("id", id);
         json.put("name", name);
+        json.put("favorite", favorite);
         json.put("hide", hide);
         json.put("text", text);
         return json;
@@ -111,7 +112,8 @@ public class EntityAnswer implements Serializable {
         EntityAnswer answer = new EntityAnswer();
         answer.id = json.getLong("id");
         answer.name = json.getString("name");
-        answer.hide = (json.has("hide") && json.getBoolean("hide"));
+        answer.favorite = json.optBoolean("favorite");
+        answer.hide = json.optBoolean("hide");
         answer.text = json.getString("text");
         return answer;
     }
