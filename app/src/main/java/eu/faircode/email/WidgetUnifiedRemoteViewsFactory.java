@@ -84,6 +84,12 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
         try {
             db.beginTransaction();
 
+            if (folder < 0 && account > 0) {
+                EntityFolder inbox = db.folder().getFolderByType(account, EntityFolder.INBOX);
+                if (inbox != null)
+                    folder = inbox.id;
+            }
+
             messages = db.message().getWidgetUnified(folder < 0 ? null : folder, threading, unseen, flagged);
 
             db.setTransactionSuccessful();
