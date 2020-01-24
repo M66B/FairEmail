@@ -384,6 +384,7 @@ public interface DaoMessage {
             " JOIN account_view AS account ON account.id = message.account" +
             " JOIN folder_view AS folder ON folder.id = message.folder" +
             " WHERE account.`synchronize`" +
+            " AND (:account IS NULL OR account.id = :account)" +
             " AND ((:folder IS NULL AND folder.unified) OR folder.id = :folder)" +
             " AND NOT message.ui_hide" +
             " AND message.ui_snoozed IS NULL" +
@@ -393,7 +394,7 @@ public interface DaoMessage {
             ", CASE WHEN message.thread IS NULL OR NOT :threading THEN message.id ELSE message.thread END" +
             " ORDER BY message.received DESC")
     @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
-    List<TupleMessageWidget> getWidgetUnified(Long folder, boolean threading, boolean unseen, boolean flagged);
+    List<TupleMessageWidget> getWidgetUnified(Long account, Long folder, boolean threading, boolean unseen, boolean flagged);
 
     @Query("SELECT uid FROM message" +
             " WHERE folder = :folder" +
