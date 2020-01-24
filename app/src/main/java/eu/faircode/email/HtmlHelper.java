@@ -334,14 +334,14 @@ public class HtmlHelper {
                         switch (key) {
                             case "color":
                                 String c = value
-                                        .replace("\"", "")
                                         .replace("none", "")
                                         .replace("unset", "")
                                         .replace("inherit", "")
                                         .replace("initial", "")
                                         .replace("windowtext", "")
                                         .replace("transparent", "")
-                                        .replace("!important", "");
+                                        .replace("!important", "")
+                                        .replaceAll("[^a-z0-9]", "");
 
                                 Integer color = null;
                                 try {
