@@ -684,6 +684,7 @@
     <string name="title_signature_valid">Handtekening bericht geldig</string>
     <string name="title_signature_unconfirmed">Handtekening bericht geldig maar niet bevestigd</string>
     <string name="title_signature_invalid">Handtekening bericht ongeldig</string>
+    <string name="title_signature_certificate_invalid">Certificaatketen ongeldig</string>
     <string name="title_signature_sender">Adres van de afzender</string>
     <string name="title_signature_email">Adres van de handtekening</string>
     <string name="title_signature_mismatch">Het e-mailadres van de afzender en de handtekening komen niet overeen</string>

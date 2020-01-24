@@ -684,6 +684,7 @@
     <string name="title_signature_valid">Signature de message valide</string>
     <string name="title_signature_unconfirmed">Signature du message valide mais non confirmée</string>
     <string name="title_signature_invalid">Signature de message invalide</string>
+    <string name="title_signature_certificate_invalid">Chaîne de certificats invalide</string>
     <string name="title_signature_sender">Adresse de l\'expéditeur</string>
     <string name="title_signature_email">Adresse de la signature</string>
     <string name="title_signature_mismatch">Les adresses e-mail de l\'expéditeur et de la signature ne correspondent pas</string>

@@ -668,6 +668,7 @@ PlayストアでFairEmailを評価できれば幸いです。
     <string name="title_signature_valid">メッセージ署名が有効</string>
     <string name="title_signature_unconfirmed">メッセージ署名は有効ですが確認されていません</string>
     <string name="title_signature_invalid">メッセージ署名が無効です</string>
+    <string name="title_signature_certificate_invalid">証明書が無効</string>
     <string name="title_signature_sender">差出人のメールアドレス</string>
     <string name="title_signature_email">署名のアドレス</string>
     <string name="title_signature_mismatch">送信者のメールアドレスと署名が一致しません</string>

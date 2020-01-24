@@ -683,6 +683,7 @@ Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anme
     <string name="title_signature_valid">Meldings signatur gyldig</string>
     <string name="title_signature_unconfirmed">Meldingssignatur er gyldig, men ikke bekreftet</string>
     <string name="title_signature_invalid">Meldings signatur ugyldig</string>
+    <string name="title_signature_certificate_invalid">Sertifikatkjeden er ugyldig</string>
     <string name="title_signature_sender">Avsenders adresse</string>
     <string name="title_signature_email">Signaturens adresse</string>
     <string name="title_signature_mismatch">E-postadressen til avsenderen og signaturen stemmer ikke overens</string>

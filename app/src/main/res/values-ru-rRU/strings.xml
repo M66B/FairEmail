@@ -706,6 +706,7 @@
     <string name="title_signature_valid">Подпись сообщения действительна</string>
     <string name="title_signature_unconfirmed">Подпись сообщения действительна, но не подтверждена</string>
     <string name="title_signature_invalid">Подпись сообщения недействительна</string>
+    <string name="title_signature_certificate_invalid">Некорректная цепочка сертификатов</string>
     <string name="title_signature_sender">Адрес отправителя</string>
     <string name="title_signature_email">Адрес подписи</string>
     <string name="title_signature_mismatch">Адреса электронной почты отправителя и подписи не совпадают</string>
