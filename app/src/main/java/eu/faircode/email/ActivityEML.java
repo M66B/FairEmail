@@ -51,6 +51,7 @@ import com.sun.mail.imap.IMAPFolder;
 
 import org.jsoup.nodes.Document;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.InputStream;
@@ -177,7 +178,41 @@ public class ActivityEML extends ActivityBase {
                         result.parts.getAttachmentParts(),
                         new AdapterAttachmentEML.IEML() {
                             @Override
-                            public void onSelected(MessageHelper.AttachmentPart apart) {
+                            public void onShare(MessageHelper.AttachmentPart apart) {
+                                new SimpleTask<File>() {
+                                    @Override
+                                    protected File onExecute(Context context, Bundle args) throws Throwable {
+                                        apart.attachment.id = 0L;
+                                        File file = apart.attachment.getFile(context);
+                                        Log.i("Writing to " + file);
+
+                                        try (InputStream is = apart.part.getInputStream()) {
+                                            try (OutputStream os = new FileOutputStream(file)) {
+                                                byte[] buffer = new byte[Helper.BUFFER_SIZE];
+                                                for (int len = is.read(buffer); len != -1; len = is.read(buffer))
+                                                    os.write(buffer, 0, len);
+                                            }
+                                        }
+
+                                        return file;
+                                    }
+
+                                    @Override
+                                    protected void onExecuted(Bundle args, File file) {
+                                        Helper.share(ActivityEML.this, file,
+                                                apart.attachment.getMimeType(),
+                                                apart.attachment.name);
+                                    }
+
+                                    @Override
+                                    protected void onException(Bundle args, Throwable ex) {
+                                        Log.unexpectedError(getSupportFragmentManager(), ex);
+                                    }
+                                }.execute(ActivityEML.this, new Bundle(), "eml:share");
+                            }
+
+                            @Override
+                            public void onSave(MessageHelper.AttachmentPart apart) {
                                 ActivityEML.this.apart = apart;
 
                                 Intent create = new Intent(Intent.ACTION_CREATE_DOCUMENT);

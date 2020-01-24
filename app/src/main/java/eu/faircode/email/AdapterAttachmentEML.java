@@ -23,6 +23,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -41,6 +42,7 @@ public class AdapterAttachmentEML extends RecyclerView.Adapter<AdapterAttachment
         private TextView tvName;
         private TextView tvSize;
         private TextView tvType;
+        private ImageButton ibSave;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -49,14 +51,17 @@ public class AdapterAttachmentEML extends RecyclerView.Adapter<AdapterAttachment
             tvName = itemView.findViewById(R.id.tvName);
             tvSize = itemView.findViewById(R.id.tvSize);
             tvType = itemView.findViewById(R.id.tvType);
+            ibSave = itemView.findViewById(R.id.ibSave);
         }
 
         private void wire() {
             view.setOnClickListener(this);
+            ibSave.setOnClickListener(this);
         }
 
         private void unwire() {
             view.setOnClickListener(null);
+            ibSave.setOnClickListener(null);
         }
 
         private void bindTo(MessageHelper.AttachmentPart apart) {
@@ -81,7 +86,10 @@ public class AdapterAttachmentEML extends RecyclerView.Adapter<AdapterAttachment
 
             MessageHelper.AttachmentPart apart = aparts.get(pos);
             if (apart != null)
-                intf.onSelected(apart);
+                if (view.getId() == R.id.ibSave)
+                    intf.onSave(apart);
+                else
+                    intf.onShare(apart);
         }
     }
 
@@ -115,6 +123,8 @@ public class AdapterAttachmentEML extends RecyclerView.Adapter<AdapterAttachment
     }
 
     interface IEML {
-        void onSelected(MessageHelper.AttachmentPart apart);
+        void onShare(MessageHelper.AttachmentPart apart);
+
+        void onSave(MessageHelper.AttachmentPart apart);
     }
 }
