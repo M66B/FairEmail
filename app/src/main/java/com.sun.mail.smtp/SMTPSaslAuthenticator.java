@@ -56,7 +56,7 @@ public class SMTPSaslAuthenticator implements SaslAuthenticator {
             final String p) throws MessagingException {
 
         if (!pr.supportsAuthentication("CRAM-MD5"))
-            throw new UnsupportedOperationException();
+            throw new UnsupportedOperationException("SASL not supported");
 
         // https://tools.ietf.org/html/rfc4954
         int resp = simpleCommand(pr, "AUTH CRAM-MD5");
@@ -65,11 +65,15 @@ public class SMTPSaslAuthenticator implements SaslAuthenticator {
             resp = simpleCommand(pr, "AUTH CRAM-MD5");
         }
 
-        if (resp == 235) // Authentication Succeeded
+        if (resp == 235) { // Authentication Succeeded
+            Log.i("SASL SMTP already authenticated");
             return true;
+        }
 
-        if (resp != 334) // server challenge
-            return false;
+        if (resp != 334) { // server challenge
+            Log.i("SASL SMTP response=" + resp);
+            throw new UnsupportedOperationException("SASL not supported");
+        }
 
         try {
             String t = responseText(pr);
@@ -81,13 +85,19 @@ public class SMTPSaslAuthenticator implements SaslAuthenticator {
             throw new MessagingException("CRAM-MD5", ex);
         }
 
-        return (resp == 235);
+        if (resp != 235) {
+            Log.i("SASL SMTP not authenticated response=" + resp);
+            throw new UnsupportedOperationException("SASL not authenticated");
+        }
+
+        Log.i("SASL SMTP authenticated");
+        return true;
     }
 
     private static int simpleCommand(SMTPTransport pr, String command) throws MessagingException {
-        Log.i("SMTP SASL command=" + command);
+        Log.i("SASL SMTP command=" + command);
         int resp = pr.simpleCommand(command);
-        Log.i("SMTP SASL response=" + pr.getLastServerResponse());
+        Log.i("SASL SMTP response=" + pr.getLastServerResponse());
         return resp;
     }
 

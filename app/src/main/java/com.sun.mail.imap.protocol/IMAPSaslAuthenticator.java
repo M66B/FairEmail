@@ -58,7 +58,7 @@ public class IMAPSaslAuthenticator implements SaslAuthenticator {
             final String p) throws ProtocolException {
 
         if (!pr.hasCapability("AUTH=CRAM-MD5"))
-            throw new UnsupportedOperationException();
+            throw new UnsupportedOperationException("SASL not supported");
 
         List<Response> v = new ArrayList<>();
         String tag = null;
@@ -66,11 +66,11 @@ public class IMAPSaslAuthenticator implements SaslAuthenticator {
         boolean done = false;
 
         try {
-            Log.i("IMAP SASL command=AUTHENTICATE");
+            Log.i("SASL IMAP command=AUTHENTICATE");
             Argument args = new Argument();
             args.writeAtom("CRAM-MD5");
             tag = pr.writeCommand("AUTHENTICATE", args);
-            Log.i("IMAP SASL tag=" + tag);
+            Log.i("SASL IMAP tag=" + tag);
         } catch (Exception ex) {
             r = Response.byeResponse(ex);
             done = true;
@@ -79,13 +79,13 @@ public class IMAPSaslAuthenticator implements SaslAuthenticator {
         while (!done) {
             try {
                 r = pr.readResponse();
-                Log.i("IMAP SASL response=" + r);
+                Log.i("SASL IMAP response=" + r);
                 if (r.isContinuation()) {
                     byte[] nonce = Base64.decode(r.getRest(), Base64.NO_WRAP);
-                    Log.i("IMAP SASL nonce=" + new String(nonce));
+                    Log.i("SASL IMAP nonce=" + new String(nonce));
                     String hmac = Helper.HMAC("MD5", 64, p.getBytes(), nonce);
                     String hash = Base64.encodeToString((u + " " + hmac).getBytes(), Base64.NO_WRAP) + "\r\n";
-                    Log.i("IMAP SASL hash=" + hash);
+                    Log.i("SASL IMAP hash=" + hash);
                     pr.getIMAPOutputStream().write(hash.getBytes());
                     pr.getIMAPOutputStream().flush();
                 } else if (r.isTagged() && r.getTag().equals(tag))
@@ -99,11 +99,18 @@ public class IMAPSaslAuthenticator implements SaslAuthenticator {
             v.add(r);
         }
 
-        Response[] responses = v.toArray(new Response[0]);
-        pr.handleCapabilityResponse(responses);
-        pr.notifyResponseHandlers(responses);
-        pr.handleLoginResult(r);
-        pr.setCapabilities(r);
+        try {
+            Response[] responses = v.toArray(new Response[0]);
+            pr.handleCapabilityResponse(responses);
+            pr.notifyResponseHandlers(responses);
+            pr.handleLoginResult(r);
+            pr.setCapabilities(r);
+        } catch (ProtocolException ex) {
+            Log.w(ex);
+            throw new UnsupportedOperationException("SASL not authenticated");
+        }
+
+        Log.i("SASL IMAP authenticated");
         return true;
     }
 }
