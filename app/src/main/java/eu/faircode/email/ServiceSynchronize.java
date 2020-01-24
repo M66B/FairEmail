@@ -1566,23 +1566,30 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             public void run() {
                 try {
                     DB db = DB.getInstance(context);
+                    try {
+                        db.beginTransaction();
 
-                    // Reset accounts
-                    for (EntityAccount account : db.account().getAccounts())
-                        db.account().setAccountState(account.id, null);
+                        // Reset accounts
+                        for (EntityAccount account : db.account().getAccounts())
+                            db.account().setAccountState(account.id, null);
 
-                    // reset folders
-                    for (EntityFolder folder : db.folder().getFolders()) {
-                        db.folder().setFolderState(folder.id, null);
-                        db.folder().setFolderSyncState(folder.id, null);
+                        // reset folders
+                        for (EntityFolder folder : db.folder().getFolders()) {
+                            db.folder().setFolderState(folder.id, null);
+                            db.folder().setFolderSyncState(folder.id, null);
+                        }
+
+                        // Restore notifications
+                        db.message().clearNotifyingMessages();
+
+                        // Restore snooze timers
+                        for (EntityMessage message : db.message().getSnoozed())
+                            EntityMessage.snooze(context, message.id, message.ui_snoozed);
+
+                        db.setTransactionSuccessful();
+                    } finally {
+                        db.endTransaction();
                     }
-
-                    // Restore notifications
-                    db.message().clearNotifyingMessages();
-
-                    // Restore snooze timers
-                    for (EntityMessage message : db.message().getSnoozed())
-                        EntityMessage.snooze(context, message.id, message.ui_snoozed);
 
                     // Restore schedule
                     schedule(context);
