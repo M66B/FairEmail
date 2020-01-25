@@ -115,6 +115,7 @@
     <string name="title_setup_quick_imap">IMAP-server til beskedmodtagelse</string>
     <string name="title_setup_quick_smtp">SMTP-server til beskedafsendelse</string>
     <string name="title_setup_wizard">Guide</string>
+    <string name="title_setup_wizard_multiple">Installationsguiden kan anvendes flere gange til opsætning af flere konti</string>
     <string name="title_setup_wizard_remark">Returnér til indbakken</string>
     <string name="title_setup_other">Anden udbyder</string>
     <string name="title_setup_gmail_support">Godkendelse af Google-konti fungerer kun i officielle versioner, da Android tjekker app-signaturen</string>
@@ -683,6 +684,7 @@
     <string name="title_signature_valid">Beskedsignatur gyldig</string>
     <string name="title_signature_unconfirmed">Beskedsignatur gyldig, men ubekræftet</string>
     <string name="title_signature_invalid">Beskedsignatur ugyldig</string>
+    <string name="title_signature_certificate_invalid">Certifikatkæde ugyldig</string>
     <string name="title_signature_sender">Afsenderadresse</string>
     <string name="title_signature_email">Signaturadresse</string>
     <string name="title_signature_mismatch">Afsenders e-mailadresse og signatur matcher ikke</string>

@@ -116,6 +116,7 @@
     <string name="title_setup_quick_imap">IMAP-serveren til å motta meldinger</string>
     <string name="title_setup_quick_smtp">SMTP-server for å sende meldinger</string>
     <string name="title_setup_wizard">Veiviser</string>
+    <string name="title_setup_wizard_multiple">Installasjonsveiviseren kan brukes flere ganger for å sette opp flere kontoer</string>
     <string name="title_setup_wizard_remark">Gå \'tilbake\' for å gå til innboksen</string>
     <string name="title_setup_other">Annen leverandør</string>
     <string name="title_setup_gmail_support">Å autorisere Google kontoer fungerer bare i offisielle versjoner fordi Android sjekker appens signatur</string>

@@ -116,6 +116,7 @@
     <string name="title_setup_quick_imap">İleti almak için IMAP sunucusu</string>
     <string name="title_setup_quick_smtp">İleti göndermek için SMTP sunucusu</string>
     <string name="title_setup_wizard">Yardımcı</string>
+    <string name="title_setup_wizard_multiple">Kurulum sihirbazı, birden fazla hesabı ayarlamak için birden çok kez kullanılabilir</string>
     <string name="title_setup_wizard_remark">Gelen kutusuna gitmek için \'geri\' gidin</string>
     <string name="title_setup_other">Diğer sağlayıcı</string>
     <string name="title_setup_gmail_support">Google hesaplarını yetkilendirmek sadece resmi versiyonlarda çalışacaktır çünkü Android uygulama imzasını kontrol etmektedir</string>
@@ -465,7 +466,7 @@
     <string name="title_hint_alias">Takma ad kimlikleri oluşturmak için kopyalamak gibi seçenekler için uzun basın</string>
     <string name="title_advanced_browse">Sunucudaki iletilere göz atın</string>
     <string name="title_advanced_expand_read">Genişletirken mesajları okundu olarak işaretle</string>
-    <string name="title_synchronize_now">Şimdi senkronize et</string>
+    <string name="title_synchronize_now">Şimdi eşzamanla</string>
     <string name="title_synchronize_all">Tüm iletileri eşzamanla</string>
     <string name="title_synchronize_enabled">Eşzamanlama</string>
     <string name="title_delete_local">Yerel iletileri sil</string>
@@ -493,7 +494,7 @@
     <string name="title_hide_folder">Klasörü gizle</string>
     <string name="title_unified_folder">Birleşik gelen kutusunda göster</string>
     <string name="title_navigation_folder">Gezinme menüsünde göster</string>
-    <string name="title_synchronize_folder">Senkronize et (iletileri al)</string>
+    <string name="title_synchronize_folder">Eşzamanla (iletileri al)</string>
     <string name="title_poll_folder">Sürekli eşzamanlama yerine belirli aralıklarla bakın</string>
     <string name="title_download_folder">İleti metinlerini ve eklerini otomatik olarak indir</string>
     <string name="title_notify_folder">Yeni iletileri bildir</string>
@@ -684,6 +685,7 @@
     <string name="title_signature_valid">İleti imzası geçerli</string>
     <string name="title_signature_unconfirmed">Mesaj imzası geçerli ancak onaylanmamış</string>
     <string name="title_signature_invalid">İleti imzası geçersiz</string>
+    <string name="title_signature_certificate_invalid">Sertifika zinciri geçersiz</string>
     <string name="title_signature_sender">Gönderenin adresi</string>
     <string name="title_signature_email">İmzanın adresi</string>
     <string name="title_signature_mismatch">Gönderenin ve imzanın e-posta adresi eşleşmiyor</string>
@@ -784,7 +786,7 @@
     <string name="title_legend_connecting">Bağlanıyor</string>
     <string name="title_legend_connected">Bağlandı</string>
     <string name="title_legend_executing">İşlemler uygulanıyor</string>
-    <string name="title_legend_synchronizing">Senkronize ediliyor</string>
+    <string name="title_legend_synchronizing">Eşzamanlama yapılıyor</string>
     <string name="title_legend_downloading">İndiriliyor</string>
     <string name="title_legend_closing">Kapatılıyor</string>
     <string name="title_legend_waiting">Sonraki eşzamanlama için bekleniyor</string>
@@ -800,7 +802,7 @@
     <string name="title_legend_rule">Kuralları var</string>
     <string name="title_legend_similar">Benzer iletileri ara</string>
     <string name="title_legend_notify">Yeni iletileri bildir</string>
-    <string name="title_legend_sync_keep">Mesajların senkronize edileceği / saklanacağı gün sayısı</string>
+    <string name="title_legend_sync_keep">İletilerin eşzamanlanacağı / saklanacağı gün sayısı</string>
     <string name="title_legend_download_fetch">İndirilen iletilerin / alınan başlıkların sayısı</string>
     <string name="title_legend_stop">İşlem kurallarının durdur</string>
     <string name="title_legend_thread">Söyleşi</string>
