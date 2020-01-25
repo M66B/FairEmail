@@ -236,6 +236,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private static final ExecutorService executor =
             Helper.getBackgroundExecutor(2, "differ");
 
+    private static final int LARGE_MESSAGE_SIZE = 250 * 1024;
+
     // https://github.com/newhouse/url-tracking-stripper
     private static final List<String> PARANOID_QUERY = Collections.unmodifiableList(Arrays.asList(
             "utm_source",
@@ -1606,6 +1608,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                         return document.html();
                     } else {
+                        if (body.length() > LARGE_MESSAGE_SIZE)
+                            return HtmlHelper.fromHtml("<em>" + context.getString(R.string.title_too_large) + "</em>");
+
                         // Cleanup message
                         document = HtmlHelper.sanitize(context, body, show_images, true);
 
