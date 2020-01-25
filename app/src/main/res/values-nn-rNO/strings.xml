@@ -583,6 +583,7 @@
     <string name="title_no_format">Den opprinnelig mottatte meldingen vil bli inkludert</string>
     <string name="title_no_image">Bildet kunne ikke dekodes</string>
     <string name="title_no_search">Søk på serveren er ikke tilgjengelig for denne kontoen</string>
+    <string name="title_too_large">Meldingen er for stor til å formatere på nytt, prøv å bruke den originale meldingsvisningen via ikonet på full skjerm i stedet</string>
     <string name="title_unused_inline">Ubrukte inline bilder blir fjernet ved sending</string>
     <string name="title_accross_remark">Meldinger som er flyttet over kontoer, lastes ned igjen, noe som resulterer i ekstra databruk</string>
     <string name="title_raw_saved">Rå melding lagret</string>

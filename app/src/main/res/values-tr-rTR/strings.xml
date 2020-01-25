@@ -583,6 +583,7 @@
     <string name="title_no_format">Alınan özgün iletiye eklenecek</string>
     <string name="title_no_image">Görselin kodu çözülemedi</string>
     <string name="title_no_search">Bu hesap için sunucuda arama yapılamıyor</string>
+    <string name="title_too_large">Mesaj yeniden biçimlendirilemeyecek kadar büyük, bunun yerine orijinal mesaj görünümünü tam ekran simgesiyle kullanmayı deneyin</string>
     <string name="title_unused_inline">Kullanılmayan satır içi resimler gönderirken kaldırılacaktır</string>
     <string name="title_accross_remark">Hesaplar arasında taşınan iletiler daha fazla veri kullanımıyla sonuçlanacak şekilde tekrar indirilecek</string>
     <string name="title_raw_saved">Ham ileti kaydedildi</string>
