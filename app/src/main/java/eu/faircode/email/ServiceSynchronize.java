@@ -1004,9 +1004,17 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         wlMessage.acquire();
                                         Log.i(folder.name + " messages added");
 
-                                        for (Message imessage : e.getMessages()) {
-                                            long uid = ifolder.getUID(imessage);
-                                            EntityOperation.queue(ServiceSynchronize.this, folder, EntityOperation.FETCH, uid);
+                                        try {
+                                            db.beginTransaction();
+
+                                            for (Message imessage : e.getMessages()) {
+                                                long uid = ifolder.getUID(imessage);
+                                                EntityOperation.queue(ServiceSynchronize.this, folder, EntityOperation.FETCH, uid);
+                                            }
+
+                                            db.setTransactionSuccessful();
+                                        } finally {
+                                            db.endTransaction();
                                         }
                                     } catch (Throwable ex) {
                                         Log.e(folder.name, ex);
@@ -1025,9 +1033,17 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         wlMessage.acquire();
                                         Log.i(folder.name + " messages removed");
 
-                                        for (Message imessage : e.getMessages()) {
-                                            long uid = ifolder.getUID(imessage);
-                                            EntityOperation.queue(ServiceSynchronize.this, folder, EntityOperation.FETCH, uid);
+                                        try {
+                                            db.beginTransaction();
+
+                                            for (Message imessage : e.getMessages()) {
+                                                long uid = ifolder.getUID(imessage);
+                                                EntityOperation.queue(ServiceSynchronize.this, folder, EntityOperation.FETCH, uid);
+                                            }
+
+                                            db.setTransactionSuccessful();
+                                        } finally {
+                                            db.endTransaction();
                                         }
                                     } catch (Throwable ex) {
                                         Log.e(folder.name, ex);
