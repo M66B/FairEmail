@@ -64,6 +64,7 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.TreeMap;
 import java.util.concurrent.ExecutorService;
 
 import javax.mail.AuthenticationFailedException;
@@ -1111,86 +1112,99 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                     @Override
                                     public void onChanged(final List<TupleOperationEx> _operations) {
                                         List<Long> ops = new ArrayList<>();
-                                        List<TupleOperationEx> operations = new ArrayList<>();
+                                        List<TupleOperationEx> submit = new ArrayList<>();
                                         for (TupleOperationEx op : _operations) {
                                             if (!handling.contains(op.id))
-                                                operations.add(op);
+                                                submit.add(op);
                                             ops.add(op.id);
                                         }
                                         handling = ops;
 
-                                        if (operations.size() > 0 ) {
-                                            Log.i(folder.name + " queuing operations=" + operations.size() +
+                                        if (submit.size() > 0) {
+                                            Log.i(folder.name + " queuing operations=" + submit.size() +
                                                     " init=" + folder.initialize + " poll=" + folder.poll);
 
-                                            executor.submit(new Helper.PriorityRunnable(operations.get(0).priority) {
-                                                @Override
-                                                public void run() {
-                                                    super.run();
-                                                    try {
-                                                        wlFolder.acquire();
-                                                        Log.i(folder.name + " process");
+                                            // Partition operations by priority
+                                            Map<Integer, List<TupleOperationEx>> partitions = new TreeMap<>();
+                                            for (TupleOperationEx op : submit) {
+                                                if (!partitions.containsKey(op.priority))
+                                                    partitions.put(op.priority, new ArrayList<>());
+                                                partitions.get(op.priority).add(op);
+                                            }
 
-                                                        // Get folder
-                                                        Folder ifolder = mapFolders.get(folder); // null when polling
-                                                        boolean canOpen = (account.protocol == EntityAccount.TYPE_IMAP || EntityFolder.INBOX.equals(folder.type));
-                                                        final boolean shouldClose = (ifolder == null && canOpen);
+                                            for (int priority : partitions.keySet()) {
+                                                List<TupleOperationEx> partition = partitions.get(priority);
+                                                Log.i(folder.name + " queuing operations=" + partition.size() + " priority=" + priority);
 
+                                                executor.submit(new Helper.PriorityRunnable(priority) {
+                                                    @Override
+                                                    public void run() {
+                                                        super.run();
                                                         try {
-                                                            Log.i(folder.name + " run " + (shouldClose ? "offline" : "online"));
+                                                            wlFolder.acquire();
+                                                            Log.i(folder.name + " process");
 
-                                                            if (shouldClose) {
-                                                                // Prevent unnecessary folder connections
-                                                                if (db.operation().getOperationCount(folder.id, null) == 0)
-                                                                    return;
+                                                            // Get folder
+                                                            Folder ifolder = mapFolders.get(folder); // null when polling
+                                                            boolean canOpen = (account.protocol == EntityAccount.TYPE_IMAP || EntityFolder.INBOX.equals(folder.type));
+                                                            final boolean shouldClose = (ifolder == null && canOpen);
 
-                                                                db.folder().setFolderState(folder.id, "connecting");
+                                                            try {
+                                                                Log.i(folder.name + " run " + (shouldClose ? "offline" : "online"));
 
-                                                                ifolder = iservice.getStore().getFolder(folder.name);
-                                                                ifolder.open(Folder.READ_WRITE);
+                                                                if (shouldClose) {
+                                                                    // Prevent unnecessary folder connections
+                                                                    if (db.operation().getOperationCount(folder.id, null) == 0)
+                                                                        return;
 
-                                                                db.folder().setFolderState(folder.id, "connected");
+                                                                    db.folder().setFolderState(folder.id, "connecting");
 
-                                                                db.folder().setFolderError(folder.id, null);
-                                                            }
+                                                                    ifolder = iservice.getStore().getFolder(folder.name);
+                                                                    ifolder.open(Folder.READ_WRITE);
 
-                                                            Core.processOperations(ServiceSynchronize.this,
-                                                                    account, folder,
-                                                                    operations,
-                                                                    iservice.getStore(), ifolder,
-                                                                    state);
+                                                                    db.folder().setFolderState(folder.id, "connected");
 
-                                                        } catch (FolderNotFoundException ex) {
-                                                            Log.w(folder.name, ex);
-                                                            db.folder().deleteFolder(folder.id);
-                                                        } catch (Throwable ex) {
-                                                            Log.e(folder.name, ex);
-                                                            EntityLog.log(
-                                                                    ServiceSynchronize.this,
-                                                                    folder.name + " " + Log.formatThrowable(ex, false));
-                                                            db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
-                                                            state.error(ex);
-                                                        } finally {
-                                                            if (shouldClose) {
-                                                                if (ifolder != null && ifolder.isOpen()) {
-                                                                    db.folder().setFolderState(folder.id, "closing");
-                                                                    try {
-                                                                        ifolder.close(false);
-                                                                    } catch (MessagingException ex) {
-                                                                        Log.w(folder.name, ex);
-                                                                    }
+                                                                    db.folder().setFolderError(folder.id, null);
                                                                 }
-                                                                if (folder.synchronize && (folder.poll || !capIdle))
-                                                                    db.folder().setFolderState(folder.id, "waiting");
-                                                                else
-                                                                    db.folder().setFolderState(folder.id, null);
+
+                                                                Core.processOperations(ServiceSynchronize.this,
+                                                                        account, folder,
+                                                                        partition,
+                                                                        iservice.getStore(), ifolder,
+                                                                        state);
+
+                                                            } catch (FolderNotFoundException ex) {
+                                                                Log.w(folder.name, ex);
+                                                                db.folder().deleteFolder(folder.id);
+                                                            } catch (Throwable ex) {
+                                                                Log.e(folder.name, ex);
+                                                                EntityLog.log(
+                                                                        ServiceSynchronize.this,
+                                                                        folder.name + " " + Log.formatThrowable(ex, false));
+                                                                db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
+                                                                state.error(ex);
+                                                            } finally {
+                                                                if (shouldClose) {
+                                                                    if (ifolder != null && ifolder.isOpen()) {
+                                                                        db.folder().setFolderState(folder.id, "closing");
+                                                                        try {
+                                                                            ifolder.close(false);
+                                                                        } catch (MessagingException ex) {
+                                                                            Log.w(folder.name, ex);
+                                                                        }
+                                                                    }
+                                                                    if (folder.synchronize && (folder.poll || !capIdle))
+                                                                        db.folder().setFolderState(folder.id, "waiting");
+                                                                    else
+                                                                        db.folder().setFolderState(folder.id, null);
+                                                                }
                                                             }
+                                                        } finally {
+                                                            wlFolder.release();
                                                         }
-                                                    } finally {
-                                                        wlFolder.release();
                                                     }
-                                                }
-                                            });
+                                                });
+                                            }
                                         }
                                     }
                                 });
