@@ -63,6 +63,7 @@ import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Date;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
@@ -73,7 +74,8 @@ class ImageHelper {
 
     private static final int DOWNLOAD_TIMEOUT = 15 * 1000; // milliseconds
     private static final int MAX_REDIRECTS = 10;
-    private static final long FIT_DRAWABLE_TIMEOUT = 10 * 1000L; // milliseconds
+    private static final long FIT_DRAWABLE_WARNING = 10 * 1000L; // milliseconds
+    private static final long FIT_DRAWABLE_TIMEOUT = 20 * 1000L; // milliseconds
 
     static Bitmap generateIdenticon(@NonNull String email, int size, int pixels, Context context) {
         byte[] hash = getHash(email);
@@ -393,6 +395,8 @@ class ImageHelper {
     private static void fitDrawable(final Drawable d, final AnnotatedSource a, final View view) {
         Semaphore semaphore = new Semaphore(0);
 
+        long start = new Date().getTime();
+
         view.post(new Runnable() {
             @Override
             public void run() {
@@ -424,7 +428,11 @@ class ImageHelper {
         });
 
         try {
-            if (!semaphore.tryAcquire(FIT_DRAWABLE_TIMEOUT, TimeUnit.MILLISECONDS))
+            if (semaphore.tryAcquire(FIT_DRAWABLE_TIMEOUT, TimeUnit.MILLISECONDS)) {
+                long elapsed = new Date().getTime() - start;
+                if (elapsed > FIT_DRAWABLE_WARNING)
+                    Log.e("fitDrawable failed elapsed=" + elapsed);
+            } else
                 Log.e("fitDrawable failed timeout=" + FIT_DRAWABLE_TIMEOUT);
         } catch (InterruptedException ex) {
             Log.w(ex);
