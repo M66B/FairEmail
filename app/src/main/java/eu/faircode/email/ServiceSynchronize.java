@@ -1109,18 +1109,18 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                             PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":folder." + folder.id);
 
                                     @Override
-                                    public void onChanged(final List<TupleOperationEx> operations) {
-                                        boolean process = false;
+                                    public void onChanged(final List<TupleOperationEx> _operations) {
                                         List<Long> ops = new ArrayList<>();
-                                        for (EntityOperation op : operations) {
+                                        List<TupleOperationEx> operations = new ArrayList<>();
+                                        for (TupleOperationEx op : _operations) {
                                             if (!handling.contains(op.id))
-                                                process = true;
+                                                operations.add(op);
                                             ops.add(op.id);
                                         }
                                         handling = ops;
 
-                                        if (handling.size() > 0 && process) {
-                                            Log.i(folder.name + " operations=" + operations.size() +
+                                        if (operations.size() > 0 ) {
+                                            Log.i(folder.name + " queuing operations=" + operations.size() +
                                                     " init=" + folder.initialize + " poll=" + folder.poll);
 
                                             executor.submit(new Helper.PriorityRunnable(operations.get(0).priority) {
@@ -1156,6 +1156,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                                                             Core.processOperations(ServiceSynchronize.this,
                                                                     account, folder,
+                                                                    operations,
                                                                     iservice.getStore(), ifolder,
                                                                     state);
 

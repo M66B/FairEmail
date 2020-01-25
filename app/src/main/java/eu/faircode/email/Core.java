@@ -125,7 +125,7 @@ class Core {
 
     static void processOperations(
             Context context,
-            EntityAccount account, EntityFolder folder,
+            EntityAccount account, EntityFolder folder, List<TupleOperationEx> ops,
             Store istore, Folder ifolder,
             State state)
             throws MessagingException, JSONException, IOException {
@@ -133,10 +133,9 @@ class Core {
             Log.i(folder.name + " start process");
 
             DB db = DB.getInstance(context);
-            List<TupleOperationEx> ops = db.operation().getOperations(folder.id);
 
             List<Long> processed = new ArrayList<>();
-            Log.i(folder.name + " pending operations=" + ops.size());
+            Log.i(folder.name + " executing operations=" + ops.size());
             for (int i = 0; i < ops.size() && state.isRunning() && state.isRecoverable(); i++) {
                 EntityOperation op = ops.get(i);
                 if (processed.contains(op.id)) {
