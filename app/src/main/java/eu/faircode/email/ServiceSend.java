@@ -92,11 +92,11 @@ public class ServiceSend extends ServiceBase {
         });
 
         // Observe send operations
-        db.operation().liveOperations(null).observe(this, new Observer<List<EntityOperation>>() {
+        db.operation().liveOperations(null).observe(this, new Observer<List<TupleOperationEx>>() {
             private List<Long> handling = new ArrayList<>();
 
             @Override
-            public void onChanged(final List<EntityOperation> operations) {
+            public void onChanged(final List<TupleOperationEx> operations) {
                 boolean process = false;
                 List<Long> ops = new ArrayList<>();
                 for (EntityOperation op : operations) {
@@ -245,7 +245,7 @@ public class ServiceSend extends ServiceBase {
                 db.folder().setFolderError(outbox.id, null);
                 db.folder().setFolderSyncState(outbox.id, "syncing");
 
-                List<EntityOperation> ops = db.operation().getOperations(outbox.id);
+                List<TupleOperationEx> ops = db.operation().getOperations(outbox.id);
                 Log.i(outbox.name + " pending operations=" + ops.size());
                 for (EntityOperation op : ops) {
                     EntityMessage message = null;

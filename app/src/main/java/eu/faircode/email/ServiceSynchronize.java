@@ -1103,13 +1103,13 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 cowners.add(cowner);
                                 cowner.start();
 
-                                db.operation().liveOperations(folder.id).observe(cowner, new Observer<List<EntityOperation>>() {
+                                db.operation().liveOperations(folder.id).observe(cowner, new Observer<List<TupleOperationEx>>() {
                                     private List<Long> handling = new ArrayList<>();
                                     private final PowerManager.WakeLock wlFolder = pm.newWakeLock(
                                             PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":folder." + folder.id);
 
                                     @Override
-                                    public void onChanged(final List<EntityOperation> operations) {
+                                    public void onChanged(final List<TupleOperationEx> operations) {
                                         boolean process = false;
                                         List<Long> ops = new ArrayList<>();
                                         for (EntityOperation op : operations) {
@@ -1123,9 +1123,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                             Log.i(folder.name + " operations=" + operations.size() +
                                                     " init=" + folder.initialize + " poll=" + folder.poll);
 
-                                            executor.submit(new Runnable() {
+                                            executor.submit(new Helper.PriorityRunnable(operations.get(0).priority) {
                                                 @Override
                                                 public void run() {
+                                                    super.run();
                                                     try {
                                                         wlFolder.acquire();
                                                         Log.i(folder.name + " process");

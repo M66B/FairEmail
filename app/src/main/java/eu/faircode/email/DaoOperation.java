@@ -37,7 +37,9 @@ public interface DaoOperation {
             " ELSE 0" +
             " END";
 
-    @Query("SELECT operation.*, account.name AS accountName, folder.name AS folderName" +
+    @Query("SELECT operation.*" +
+            ", " + priority + " AS priority" +
+            ", account.name AS accountName, folder.name AS folderName" +
             " ,((account.synchronize IS NULL OR account.synchronize)" +
             " AND (NOT folder.account IS NULL OR identity.synchronize IS NULL OR identity.synchronize)) AS synchronize" +
             " FROM operation" +
@@ -48,7 +50,12 @@ public interface DaoOperation {
             " ORDER BY " + priority + ", id")
     LiveData<List<TupleOperationEx>> liveOperations();
 
-    String GET_OPS_FOLDER = "SELECT operation.* FROM operation" +
+    String GET_OPS_FOLDER = "SELECT operation.*" +
+            ", " + priority + " AS priority" +
+            ", account.name AS accountName, folder.name AS folderName" +
+            " ,((account.synchronize IS NULL OR account.synchronize)" +
+            " AND (NOT folder.account IS NULL OR identity.synchronize IS NULL OR identity.synchronize)) AS synchronize" +
+            " FROM operation" +
             " JOIN folder ON folder.id = operation.folder" +
             " LEFT JOIN message ON message.id = operation.message" +
             " LEFT JOIN account ON account.id = operation.account" +
@@ -59,10 +66,10 @@ public interface DaoOperation {
             " ORDER BY " + priority + ", id";
 
     @Query(GET_OPS_FOLDER)
-    List<EntityOperation> getOperations(Long folder);
+    List<TupleOperationEx> getOperations(Long folder);
 
     @Query(GET_OPS_FOLDER)
-    LiveData<List<EntityOperation>> liveOperations(Long folder);
+    LiveData<List<TupleOperationEx>> liveOperations(Long folder);
 
     @Query("SELECT COUNT(operation.id) AS pending" +
             ", SUM(CASE WHEN operation.error IS NULL THEN 0 ELSE 1 END) AS errors" +

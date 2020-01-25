@@ -133,7 +133,7 @@ class Core {
             Log.i(folder.name + " start process");
 
             DB db = DB.getInstance(context);
-            List<EntityOperation> ops = db.operation().getOperations(folder.id);
+            List<TupleOperationEx> ops = db.operation().getOperations(folder.id);
 
             List<Long> processed = new ArrayList<>();
             Log.i(folder.name + " pending operations=" + ops.size());

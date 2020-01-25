@@ -90,6 +90,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -105,17 +107,22 @@ import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.PriorityBlockingQueue;
+import java.util.concurrent.RunnableFuture;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
@@ -141,7 +148,7 @@ public class Helper {
     static final String CROWDIN_URI = "https://crowdin.com/project/open-source-email";
     static final String GRAVATAR_PRIVACY_URI = "https://meta.stackexchange.com/questions/44717/is-gravatar-a-privacy-risk";
 
-    static ExecutorService getBackgroundExecutor(int threads, String name) {
+    static ExecutorService getBackgroundExecutor(int threads, final String name) {
         ThreadFactory factory = new ThreadFactory() {
             private final AtomicInteger threadId = new AtomicInteger();
 
@@ -160,6 +167,21 @@ public class Helper {
                     60L, TimeUnit.SECONDS,
                     new SynchronousQueue<Runnable>(),
                     factory);
+        else if (threads == 1)
+            return new ThreadPoolExecutorEx(
+                    threads, threads,
+                    0L, TimeUnit.MILLISECONDS,
+                    new PriorityBlockingQueue<Runnable>(10, new PriorityComparator()),
+                    factory) {
+                @Override
+                protected <T> RunnableFuture<T> newTaskFor(Runnable runnable, T value) {
+                    RunnableFuture<T> task = super.newTaskFor(runnable, value);
+                    if (runnable instanceof PriorityRunnable)
+                        return new PriorityFuture<T>(task, ((PriorityRunnable) runnable).getPriority());
+                    else
+                        return task;
+                }
+            };
         else
             return new ThreadPoolExecutorEx(
                     threads, threads,
@@ -176,6 +198,81 @@ public class Helper {
         @Override
         protected void beforeExecute(Thread t, Runnable r) {
             Log.d("Executing " + t.getName());
+        }
+    }
+
+    private static class PriorityFuture<T> implements RunnableFuture<T> {
+        private int priority;
+        private RunnableFuture<T> wrapped;
+
+        PriorityFuture(RunnableFuture<T> wrapped, int priority) {
+            this.priority = priority;
+            this.wrapped = wrapped;
+        }
+
+        public int getPriority() {
+            return priority;
+        }
+
+
+        @Override
+        public void run() {
+            wrapped.run();
+        }
+
+        @Override
+        public boolean cancel(boolean mayInterruptIfRunning) {
+            return wrapped.cancel(mayInterruptIfRunning);
+        }
+
+        @Override
+        public boolean isCancelled() {
+            return wrapped.isCancelled();
+        }
+
+        @Override
+        public boolean isDone() {
+            return wrapped.isDone();
+        }
+
+        @Override
+        public T get() throws ExecutionException, InterruptedException {
+            return wrapped.get();
+        }
+
+        @Override
+        public T get(long timeout, @NotNull TimeUnit unit) throws ExecutionException, InterruptedException, TimeoutException {
+            return wrapped.get(timeout, unit);
+        }
+    }
+
+    private static class PriorityComparator implements Comparator<Runnable> {
+        @Override
+        public int compare(Runnable r1, Runnable r2) {
+            if (r1 instanceof PriorityFuture<?> && r2 instanceof PriorityFuture<?>) {
+                Integer p1 = ((PriorityFuture<?>) r1).getPriority();
+                Integer p2 = ((PriorityFuture<?>) r2).getPriority();
+                Log.i("Priority " + p1 + "/" + p2 + "=" + p1.compareTo(p2));
+                return p1.compareTo(p2);
+            } else
+                return 0;
+        }
+    }
+
+    static class PriorityRunnable implements Runnable {
+        private int priority;
+
+        int getPriority() {
+            return priority;
+        }
+
+        PriorityRunnable(int priority) {
+            this.priority = priority;
+        }
+
+        @Override
+        public void run() {
+            Log.i("Run priority=" + priority);
         }
     }
 
