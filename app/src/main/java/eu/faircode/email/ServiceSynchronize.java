@@ -1125,18 +1125,27 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                     " init=" + folder.initialize + " poll=" + folder.poll);
 
                                             // Partition operations by priority
-                                            Map<Integer, List<TupleOperationEx>> partitions = new TreeMap<>();
+                                            Map<TupleOperationEx.PartitionKey, List<TupleOperationEx>> partitions = new TreeMap<>(new Comparator<TupleOperationEx.PartitionKey>() {
+                                                @Override
+                                                public int compare(TupleOperationEx.PartitionKey k1, TupleOperationEx.PartitionKey k2) {
+                                                    Integer p1 = k1.getPriority();
+                                                    Integer p2 = k2.getPriority();
+                                                    return p1.compareTo(p2);
+                                                }
+                                            });
+
                                             for (TupleOperationEx op : submit) {
-                                                if (!partitions.containsKey(op.priority))
-                                                    partitions.put(op.priority, new ArrayList<>());
-                                                partitions.get(op.priority).add(op);
+                                                TupleOperationEx.PartitionKey key = op.getPartitionKey();
+                                                if (!partitions.containsKey(key))
+                                                    partitions.put(key, new ArrayList<>());
+                                                partitions.get(key).add(op);
                                             }
 
-                                            for (int priority : partitions.keySet()) {
-                                                List<TupleOperationEx> partition = partitions.get(priority);
-                                                Log.i(folder.name + " queuing operations=" + partition.size() + " priority=" + priority);
+                                            for (TupleOperationEx.PartitionKey key : partitions.keySet()) {
+                                                List<TupleOperationEx> partition = partitions.get(key);
+                                                Log.i(folder.name + " queuing operations=" + partition.size() + " key=" + key);
 
-                                                executor.submit(new Helper.PriorityRunnable(priority) {
+                                                executor.submit(new Helper.PriorityRunnable(key.getPriority()) {
                                                     @Override
                                                     public void run() {
                                                         super.run();

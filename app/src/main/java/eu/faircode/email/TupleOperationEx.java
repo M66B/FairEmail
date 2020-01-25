@@ -19,6 +19,9 @@ package eu.faircode.email;
     Copyright 2018-2020 by Marcel Bokhorst (M66B)
 */
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import java.util.Objects;
 
 public class TupleOperationEx extends EntityOperation {
@@ -38,5 +41,46 @@ public class TupleOperationEx extends EntityOperation {
                     this.synchronize == other.synchronize);
         } else
             return false;
+    }
+
+    PartitionKey getPartitionKey() {
+        PartitionKey key = new PartitionKey();
+        key.id = (MOVE.equals(name) || FETCH.equals(name) ? 0 : this.id);
+        key.priority = this.priority;
+        key.operation = this.name;
+        return key;
+    }
+
+    class PartitionKey {
+        private long id;
+        private int priority;
+        @NonNull
+        private String operation;
+
+        int getPriority() {
+            return this.priority;
+        }
+
+        @Override
+        public int hashCode() {
+            return toString().hashCode();
+        }
+
+        @Override
+        public boolean equals(@Nullable Object obj) {
+            if (obj instanceof PartitionKey) {
+                PartitionKey other = (PartitionKey) obj;
+                return (this.id == other.id &&
+                        this.priority == other.priority &&
+                        this.operation.equals(other.operation));
+            } else
+                return false;
+        }
+
+        @NonNull
+        @Override
+        public String toString() {
+            return operation + ":" + priority + ":" + id;
+        }
     }
 }
