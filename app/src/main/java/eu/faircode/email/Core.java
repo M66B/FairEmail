@@ -133,13 +133,17 @@ class Core {
             Log.i(folder.name + " start process");
 
             DB db = DB.getInstance(context);
-            while (state.isRunning() && state.isRecoverable()) {
-                List<EntityOperation> ops = db.operation().getOperations(folder.id);
-                Log.i(folder.name + " pending operations=" + ops.size());
-                if (ops.size() == 0)
-                    break;
+            List<EntityOperation> ops = db.operation().getOperations(folder.id);
 
-                EntityOperation op = ops.get(0);
+            List<Long> processed = new ArrayList<>();
+            Log.i(folder.name + " pending operations=" + ops.size());
+            for (int i = 0; i < ops.size() && state.isRunning() && state.isRecoverable(); i++) {
+                EntityOperation op = ops.get(i);
+                if (processed.contains(op.id)) {
+                    Log.i(folder.name + " already processed op=" + op.id + "/" + op.name);
+                    continue;
+                }
+
                 try {
                     Log.i(folder.name +
                             " start op=" + op.id + "/" + op.name +
@@ -166,7 +170,7 @@ class Core {
 
                         // Process similar operations
                         boolean skip = false;
-                        for (int j = 1; j < ops.size(); j++) {
+                        for (int j = i + 1; j < ops.size(); j++) {
                             EntityOperation next = ops.get(j);
 
                             switch (op.name) {
@@ -194,8 +198,10 @@ class Core {
                                         // Same target
                                         if (jargs.getLong(0) == jnext.getLong(0)) {
                                             EntityMessage m = db.message().getMessage(next.message);
-                                            if (m != null && m.uid != null)
+                                            if (m != null && m.uid != null) {
+                                                processed.add(next.id);
                                                 similar.put(next, m);
+                                            }
                                         }
                                     }
                                     break;
