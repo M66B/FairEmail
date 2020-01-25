@@ -284,6 +284,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageView ivAnswered;
         private ImageView ivAttachments;
         private TextView tvSubject;
+        private TextView tvKeywords;
         private TextView tvFolder;
         private TextView tvCount;
         private ImageView ivThread;
@@ -326,7 +327,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private TextView tvSubjectEx;
         private TextView tvFlags;
-        private TextView tvKeywords;
+        private TextView tvKeywordsEx;
 
         private TextView tvHeaders;
         private ContentLoadingProgressBar pbHeaders;
@@ -410,6 +411,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivAnswered = itemView.findViewById(R.id.ivAnswered);
             ivAttachments = itemView.findViewById(R.id.ivAttachments);
             tvSubject = itemView.findViewById(subject_top ? R.id.tvFrom : R.id.tvSubject);
+            tvKeywords = itemView.findViewById(R.id.tvKeywords);
             tvExpand = itemView.findViewById(R.id.tvExpand);
             tvPreview = itemView.findViewById(R.id.tvPreview);
             tvFolder = itemView.findViewById(R.id.tvFolder);
@@ -481,7 +483,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             tvSubjectEx = vsBody.findViewById(R.id.tvSubjectEx);
             tvFlags = vsBody.findViewById(R.id.tvFlags);
-            tvKeywords = vsBody.findViewById(R.id.tvKeywords);
+            tvKeywordsEx = vsBody.findViewById(R.id.tvKeywordsEx);
 
             tvHeaders = vsBody.findViewById(R.id.tvHeaders);
             pbHeaders = vsBody.findViewById(R.id.pbHeaders);
@@ -710,6 +712,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivAnswered.setVisibility(View.GONE);
             ivAttachments.setVisibility(View.GONE);
             tvSubject.setText(null);
+            tvKeywords.setVisibility(View.GONE);
             tvFolder.setText(null);
             tvCount.setText(null);
             ivThread.setVisibility(View.GONE);
@@ -740,6 +743,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 float fz_subject = (font_size_subject == null ? textSize : font_size_subject) * 0.9f;
                 tvFrom.setTextSize(TypedValue.COMPLEX_UNIT_PX, fz_sender);
                 tvSubject.setTextSize(TypedValue.COMPLEX_UNIT_PX, fz_subject);
+                tvKeywords.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize * 0.9f);
                 tvFolder.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize * 0.9f);
                 tvPreview.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize * 0.9f);
 
@@ -779,6 +783,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ivAnswered.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ivAttachments.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 tvSubject.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
+                tvKeywords.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 tvFolder.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 tvCount.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ivThread.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
@@ -847,6 +852,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             // Line 2
             tvSubject.setText(message.subject);
+
+            tvKeywords.setVisibility(message.keywords.length > 0 ? View.VISIBLE : View.GONE);
+            tvKeywords.setText(TextUtils.join(" ", message.keywords));
 
             // Line 3
             int icon = (message.drafts > 0
@@ -1040,7 +1048,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvSizeEx.setVisibility(View.GONE);
             tvSubjectEx.setVisibility(View.GONE);
             tvFlags.setVisibility(View.GONE);
-            tvKeywords.setVisibility(View.GONE);
+            tvKeywordsEx.setVisibility(View.GONE);
 
             pbHeaders.setVisibility(View.GONE);
             tvNoInternetHeaders.setVisibility(View.GONE);
@@ -1254,8 +1262,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvFlags.setText(message.flags);
 
             // Keywords
-            tvKeywords.setVisibility(show_addresses && message.keywords.length > 0 ? View.VISIBLE : View.GONE);
-            tvKeywords.setText(TextUtils.join(" ", message.keywords));
+            tvKeywordsEx.setVisibility(show_addresses && message.keywords.length > 0 ? View.VISIBLE : View.GONE);
+            tvKeywordsEx.setText(TextUtils.join(" ", message.keywords));
 
             // Headers
             if (show_headers && message.headers != null)

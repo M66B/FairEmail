@@ -169,6 +169,21 @@
         app:layout_constraintStart_toEndOf="@id/ibAvatar"
         app:layout_constraintTop_toBottomOf="@id/tvFrom" />
 
+    <TextView
+        android:id="@+id/tvKeywords"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="6dp"
+        android:gravity="center_vertical"
+        android:minHeight="24dp"
+        android:text="tag1, tag2, tag3"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintEnd_toStartOf="@+id/ibFlagged"
+        app:layout_constraintStart_toEndOf="@id/ibAvatar"
+        app:layout_constraintTop_toBottomOf="@id/tvSubject" />
+
     <ImageButton
         android:id="@+id/ibFlagged"
         android:layout_width="42dp"
@@ -249,7 +264,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintEnd_toStartOf="@+id/tvCount"
         app:layout_constraintStart_toEndOf="@id/ivAttachments"
-        app:layout_constraintTop_toBottomOf="@id/tvSubject" />
+        app:layout_constraintTop_toBottomOf="@id/tvKeywords" />
 
     <TextView
         android:id="@+id/tvCount"

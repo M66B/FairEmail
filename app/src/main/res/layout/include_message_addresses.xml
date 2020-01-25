@@ -359,7 +359,7 @@
         app:layout_constraintTop_toBottomOf="@id/tvSubjectEx" />
 
     <TextView
-        android:id="@+id/tvKeywords"
+        android:id="@+id/tvKeywordsEx"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"

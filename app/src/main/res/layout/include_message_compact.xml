@@ -266,6 +266,20 @@
         app:srcCompat="@drawable/baseline_star_24" />
 
     <TextView
+        android:id="@+id/tvKeywords"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="tag1, tag2, tag3"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintEnd_toStartOf="@+id/ibFlagged"
+        app:layout_constraintStart_toEndOf="@id/ibAvatar"
+        app:layout_constraintTop_toBottomOf="@id/tvSubject" />
+
+    <TextView
         android:id="@+id/tvFolder"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -278,7 +292,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintEnd_toStartOf="@+id/ibFlagged"
         app:layout_constraintStart_toEndOf="@id/ibAvatar"
-        app:layout_constraintTop_toBottomOf="@id/tvSubject" />
+        app:layout_constraintTop_toBottomOf="@id/tvKeywords" />
 
     <TextView
         android:id="@+id/tvExpand"
