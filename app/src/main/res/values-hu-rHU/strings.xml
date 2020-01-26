@@ -30,6 +30,10 @@
     <string name="shortcut_refresh">Frissítés</string>
     <string name="shortcut_compose">Levélírás</string>
     <string name="shortcut_setup">Beállítások</string>
+    <plurals name="title_notification_synchronizing">
+        <item quantity="one">Monitoring %1$d account</item>
+        <item quantity="other">%1$d fiók szinkronizálása</item>
+    </plurals>
     <plurals name="title_notification_operations">
         <item quantity="one">%1$d függőben lévő művelet</item>
         <item quantity="other">%1$d függőben lévő művelet</item>
@@ -58,15 +62,39 @@
         <item quantity="one">Véglegesen töröl %1$d üzenetet?</item>
         <item quantity="other">Biztosan töröl %1$d üzenetet véglegesen?</item>
     </plurals>
+    <plurals name="title_ask_spam">
+        <item quantity="one">Megjelöl %1$d üzenetet spam-ként?</item>
+        <item quantity="other">Megjelöl %1$d üzenetet spam-ként?</item>
+    </plurals>
+    <string name="title_ask_spam_who">Megjelöli az üzenetet %1$s-től spam-ként?</string>
+    <string name="title_block">%1$s tiltása</string>
+    <string name="title_block_sender">Feladó tiltása</string>
+    <string name="title_block_sender_hint">        Ha letilt egy feladót, azzal létrehoz egy szabályt, ami az összes tőle származó jövőbeli üzenetet automatikusan a spam mappába mozgatja.
+        A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
+    </string>
+    <string name="title_notification_waiting">Kapcsolatra várakozás</string>
+    <string name="title_notification_sending">Üzenetek küldése</string>
     <string name="title_notification_failed">\'%1$s\' sikertelen</string>
+    <string name="title_notification_alert">\'%1$s\' szerver figyelmeztetés</string>
+    <string name="title_name_count">%1$s (%2$s)</string>
+    <string name="menu_exit">Kilépés</string>
+    <string name="menu_answers">Sablonok</string>
     <string name="menu_operations">Műveletek</string>
+    <string name="menu_contacts">Helyi kapcsolatok</string>
+    <string name="menu_setup">Beállítások</string>
     <string name="menu_legend">Jelmagyarázat</string>
+    <string name="menu_test">Teszt program</string>
+    <string name="menu_faq">Támogatás</string>
+    <string name="menu_translate">Segítsen a fordításban</string>
+    <string name="menu_issue">Probléma jelentése</string>
+    <string name="menu_attribution">Tulajdonság</string>
     <string name="menu_privacy">Adatvédelem</string>
     <string name="menu_about">Névjegy</string>
     <string name="menu_pro">Pro funkciók</string>
     <string name="menu_invite">Meghívás</string>
     <string name="menu_rate">Alkalmazás értékelése</string>
     <string name="menu_other">Egyéb alkalmazások</string>
+    <string name="title_welcome">Üdvözöljük</string>
     <string name="title_eula">Végfelhasználói licencszerződés</string>
     <string name="title_agree">Elfogadom</string>
     <string name="title_disagree">Nem fogadom el</string>
@@ -76,6 +104,37 @@
     <string name="title_edit_account">Fiók szerkesztése</string>
     <string name="title_edit_identity">Azonosító szerkesztése</string>
     <string name="title_edit_folder">Könyvtár szerkesztése</string>
+    <string name="title_setup">Beállítások</string>
+    <string name="title_setup_help">Súgó</string>
+    <string name="title_setup_welcome">        Az üzenetek küldéséhez és fogadásához be kell állítania egy fiókot és egy identitást (fedőnevet).
+        A gyors beállítás funkció a fiókot és az identitást is létrehozza az Ön neve, email címe és jelszava alapján.
+        Mindkettőt hozzáadhat manuálisan később is.
+    </string>
+    <string name="title_setup_quick">Gyors beállítás</string>
+    <string name="title_setup_quick_remark">Adjon hozzá egyszerűen egy fiókot és egy hozzá tartozó identitást</string>
+    <string name="title_setup_quick_hint">A gyors beállítás alkalmazza az autoconfig.thunderbird.net-en található konfigurációs információkat</string>
+    <string name="title_setup_quick_imap">Az üzenet fogadásához használt IMAP szerver</string>
+    <string name="title_setup_quick_smtp">Az üzenetek küldéséhez használt SMTP szerver</string>
+    <string name="title_setup_wizard">Varázsló</string>
+    <string name="title_setup_wizard_multiple">A telepítő varázsló többször is használható további fiókok hozzáadásához</string>
+    <string name="title_setup_wizard_remark">A \'vissza\' használatával a bejövő üzenetekhez jut</string>
+    <string name="title_setup_other">Egyéb szolgáltató</string>
+    <string name="title_setup_gmail_support">Google fiókok hozzáadása csak a hivatalos verziókban működik, mivel az Android ellenőrzi az app aláírását</string>
+    <string name="title_setup_gmail_rationale">Kérem adja meg a szükséges engedélyeket hogy a kijelölhessen egy fiókot, illetve az alkalmazás hozzáférjen</string>
+    <string name="title_setup_gmail_permissions">A Google engedélyeket fog kérni hogy olvashasson, írhasson, küldhessen és véglegesen törölhessen üzeneteket. A FairEmail sosem törli az üzeneteit az Ön beleegyezése nélkül.</string>
+    <string name="title_setup_gmail_drafts">Ha a piszkozatok mappa nem elérhető IMAP-on keresztül, a hibát orvosolhatja a Gmail címkék beállításai között</string>
+    <string name="title_setup_oauth_rationale">Engedélyezze a hozzáférést a %1$s fiókjához</string>
+    <string name="title_setup_oauth_authorize">Engedélyezés</string>
+    <string name="title_setup_select_account">Válasszon fiókot</string>
+    <string name="title_setup_instructions">Telepítési útmutató</string>
+    <string name="title_setup_no_settings">Nem találhatók beállítások a következő domainhez: %1$s</string>
+    <string name="title_setup_no_system_folders">Bejövő üzenetek vagy piszkozatok mappa nem található</string>
+    <string name="title_setup_quick_success">Egy fiók és egy identitás sikeresen hozzáadva</string>
+    <string name="title_setup_quick_failed">Megpróbálhat beállítani egy fiókot és egy identitást lentebb is</string>
+    <string name="title_setup_manage">Kezelés</string>
+    <string name="title_setup_grant">Engedélyezés</string>
+    <string name="title_setup_grant_again">A szükséges engedélyek megadása</string>
+    <string name="title_setup_account">Fiókok beállítása</string>
     <string name="title_setup_account_remark">E-mailt fogadni</string>
     <string name="title_setup_identity_remark">E-mailt küldeni</string>
     <string name="title_setup_export">Beállítások exportálása</string>
