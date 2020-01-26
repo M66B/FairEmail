@@ -1966,12 +1966,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             VEvent event = icalendar.getEvents().get(0);
 
                             if (action == R.id.ibCalendar) {
-                                String summary = event.getSummary() == null ? null : event.getSummary().getValue();
+                                String summary = (event.getSummary() == null ? null : event.getSummary().getValue());
+                                String description = (event.getDescription() == null ? null : event.getDescription().getValue());
 
-                                ICalDate start = event.getDateStart() == null ? null : event.getDateStart().getValue();
-                                ICalDate end = event.getDateEnd() == null ? null : event.getDateEnd().getValue();
+                                ICalDate start = (event.getDateStart() == null ? null : event.getDateStart().getValue());
+                                ICalDate end = (event.getDateEnd() == null ? null : event.getDateEnd().getValue());
 
-                                String location = event.getLocation() == null ? null : event.getLocation().getValue();
+                                String location = (event.getLocation() == null ? null : event.getLocation().getValue());
 
                                 List<String> attendee = new ArrayList<>();
                                 for (Attendee a : event.getAttendees()) {
@@ -1987,6 +1988,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                                 if (summary != null)
                                     intent.putExtra(CalendarContract.Events.TITLE, summary);
+
+                                if (description != null)
+                                    intent.putExtra(CalendarContract.Events.DESCRIPTION, description);
 
                                 if (start != null)
                                     intent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, start.getTime());
