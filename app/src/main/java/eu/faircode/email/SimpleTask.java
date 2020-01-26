@@ -39,6 +39,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Future;
 
 // This simple task is simple to use, but it is also simple to cause bugs that can easily lead to crashes
 // Make sure to not access any member in any outer scope from onExecute
@@ -48,6 +49,9 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     private boolean log = true;
     private boolean count = true;
     private int executing = 0;
+
+    private String name;
+    private Future<?> future;
 
     private static final List<SimpleTask> tasks = new ArrayList<>();
 
@@ -89,6 +93,8 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     private void run(final Context context, final LifecycleOwner owner, final Bundle args, final String name) {
         final Handler handler = new Handler();
 
+        this.name = name;
+
         if (owner instanceof TwoStateOwner)
             Log.e(new Throwable("SimpleTask/TwoStateOwner"));
 
@@ -109,7 +115,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
             onException(args, ex);
         }
 
-        executor.submit(new Runnable() {
+        future = executor.submit(new Runnable() {
             private Object data;
             private Throwable ex;
 
@@ -187,7 +193,16 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
         });
     }
 
+    void cancel(Context context) {
+        if (future != null)
+            if (future.cancel(false)) {
+                Log.i("Cancelled task=" + name);
+                cleanup(context);
+            }
+    }
+
     private void cleanup(Context context) {
+        future = null;
         synchronized (tasks) {
             tasks.remove(this);
             if (count)
