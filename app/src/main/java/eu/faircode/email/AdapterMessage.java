@@ -1791,7 +1791,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (show_inline || !inline || !attachment.available)
                     a.add(attachment);
 
-                if (attachment.available && "text/calendar".equals(attachment.type)) {
+                if (attachment.available && "text/calendar".equals(attachment.getMimeType())) {
                     calendar = true;
                     bindCalendar(message, attachment);
                 }
@@ -1960,7 +1960,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     List<EntityAttachment> attachments = db.attachment().getAttachments(id);
                     for (EntityAttachment attachment : attachments)
-                        if (attachment.available && "text/calendar".equals(attachment.type)) {
+                        if (attachment.available && "text/calendar".equals(attachment.getMimeType())) {
                             File file = attachment.getFile(context);
                             ICalendar icalendar = Biweekly.parse(file).first();
                             VEvent event = icalendar.getEvents().get(0);
