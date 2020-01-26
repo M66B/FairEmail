@@ -388,6 +388,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private ScaleGestureDetector gestureDetector;
 
+        private SimpleTask taskContactInfo;
+
         ViewHolder(final View itemView, long viewType) {
             super(itemView);
 
@@ -953,12 +955,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             // Contact info
             ContactInfo info = ContactInfo.get(context, message.account, addresses, true);
             if (info == null) {
+                if (taskContactInfo != null)
+                    taskContactInfo.cancel(context);
+
                 Bundle aargs = new Bundle();
                 aargs.putLong("id", message.id);
                 aargs.putLong("account", message.account);
                 aargs.putSerializable("addresses", addresses);
 
-                new SimpleTask<ContactInfo>() {
+                taskContactInfo = new SimpleTask<ContactInfo>() {
                     @Override
                     protected ContactInfo onExecute(Context context, Bundle args) {
                         long account = args.getLong("account");
@@ -969,6 +974,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     @Override
                     protected void onExecuted(Bundle args, ContactInfo info) {
+                        taskContactInfo = null;
+
                         long id = args.getLong("id");
                         TupleMessageEx amessage = getMessage();
                         if (amessage == null || !amessage.id.equals(id))
@@ -981,7 +988,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     protected void onException(Bundle args, Throwable ex) {
                         Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                     }
-                }.setLog(false).execute(context, owner, aargs, "message:avatar");
+                }.setLog(false);
+                taskContactInfo.execute(context, owner, aargs, "message:avatar");
             } else
                 bindContactInfo(info, addresses, name_email);
 
