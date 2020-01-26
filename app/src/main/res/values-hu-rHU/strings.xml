@@ -4,14 +4,30 @@
     <string name="app_search">FairEmail keresés</string>
     <string name="app_changelog">Újdonságok</string>
     <string name="app_welcome">A FairEmail egy nyílt forráskódú e-mail alkalmazás, melynek elsődleges szempontja az adatvédelem és biztonság. Emiatt némely funkció másképp működhet a megszokottnál.</string>
+    <string name="app_limitations">Többek között: formázással mindig eltávolítja az üzenetkből a nem biztonságos elemeket és javítja az olvashatóságot, valamint a hivatkozások megnyitása megerősítést fog igényelni.</string>
+    <string name="app_crash">FairEmail net támogatott ezen az eszközön, az Android hibái miatt</string>
+    <string name="app_exit">A kilépéshez használja újra a \'vissza\' opciót</string>
     <string name="channel_service">Szolgáltatás</string>
     <string name="channel_send">Küldés</string>
     <string name="channel_notification">Értesítések</string>
+    <string name="channel_update">Frissítések</string>
     <string name="channel_warning">Figyelmeztetések</string>
     <string name="channel_error">Hibák</string>
+    <string name="channel_alert">Szerver riasztások</string>
     <string name="channel_group_contacts">Kapcsolatok</string>
+    <plurals name="page_conversation">
+        <item quantity="one">Beszélgetés</item>
+        <item quantity="other">Beszélgetések</item>
+    </plurals>
+    <plurals name="page_message">
+        <item quantity="one">Üzenet</item>
+        <item quantity="other">Üzenetek</item>
+    </plurals>
+    <string name="page_folders">Mappák</string>
+    <string name="page_compose">Levélírás</string>
     <string name="tile_synchronize">Szinkronizálás</string>
     <string name="tile_unseen">Új üzenetek</string>
+    <string name="shortcut_refresh">Frissítés</string>
     <string name="shortcut_compose">Levélírás</string>
     <string name="shortcut_setup">Beállítások</string>
     <plurals name="title_notification_operations">
@@ -21,6 +37,26 @@
     <plurals name="title_notification_unseen">
         <item quantity="one">%1$d új üzenet</item>
         <item quantity="other">%1$d új üzenet</item>
+    </plurals>
+    <plurals name="title_notification_unsent">
+        <item quantity="one">%1$d üzenet vár elküldésre</item>
+        <item quantity="other">%1$d üzenet vár elküldésre</item>
+    </plurals>
+    <plurals name="title_tile_unseen">
+        <item quantity="one">%1$d új</item>
+        <item quantity="other">%1$d új</item>
+    </plurals>
+    <plurals name="title_selected_conversations">
+        <item quantity="one">%1$d beszélgetés kiválasztva</item>
+        <item quantity="other">%1$d beszélgetés kiválasztva</item>
+    </plurals>
+    <plurals name="title_moving_messages">
+        <item quantity="one">Áthelyez %1$d üzenetet a következő helyre: %2$s?</item>
+        <item quantity="other">Áthelyez %1$d üzenetet a következő helyre: %2$s?</item>
+    </plurals>
+    <plurals name="title_deleting_messages">
+        <item quantity="one">Véglegesen töröl %1$d üzenetet?</item>
+        <item quantity="other">Biztosan töröl %1$d üzenetet véglegesen?</item>
     </plurals>
     <string name="title_notification_failed">\'%1$s\' sikertelen</string>
     <string name="menu_operations">Műveletek</string>
