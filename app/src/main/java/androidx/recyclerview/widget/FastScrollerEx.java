@@ -497,7 +497,7 @@ public class FastScrollerEx extends RecyclerView.ItemDecoration implements Recyc
     @VisibleForTesting
     boolean isPointInsideVerticalThumb(float x, float y) {
         return (isLayoutRTL() ? x <= mVerticalThumbWidth
-            : x >= mRecyclerViewWidth - mVerticalThumbWidth)
+            : x >= mRecyclerViewWidth - mVerticalThumbWidth * 3)
             && y >= mVerticalThumbCenterY - mVerticalThumbHeight / 2
             && y <= mVerticalThumbCenterY + mVerticalThumbHeight / 2;
     }
