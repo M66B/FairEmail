@@ -35,6 +35,7 @@ public interface DaoOperation {
             " WHEN operation.name = '" + EntityOperation.SYNC + "' THEN" +
             "  CASE WHEN folder.account IS NULL THEN -1 ELSE 1 END" + // outbox
             " WHEN operation.name = '" + EntityOperation.FETCH + "' THEN 2" +
+            " WHEN operation.name = '" + EntityOperation.EXISTS + "' THEN 3" +
             " ELSE 0" +
             " END";
 
