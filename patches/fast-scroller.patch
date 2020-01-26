@@ -1,0 +1,60 @@
+--- /home/marcel/tmp/FastScroller.java	1980-02-01 00:00:00.000000000 +0100
++++ app/src/main/java/androidx/recyclerview/widget/FastScrollerEx.java	2020-01-26 19:12:27.775546398 +0100
+@@ -37,8 +37,8 @@ import java.lang.annotation.RetentionPol
+ /**
+  * Class responsible to animate and provide a fast scroller.
+  */
+-@VisibleForTesting
+-class FastScroller extends RecyclerView.ItemDecoration implements RecyclerView.OnItemTouchListener {
++//@VisibleForTesting
++public class FastScrollerEx extends RecyclerView.ItemDecoration implements RecyclerView.OnItemTouchListener {
+     @IntDef({STATE_HIDDEN, STATE_VISIBLE, STATE_DRAGGING})
+     @Retention(RetentionPolicy.SOURCE)
+     private @interface State { }
+@@ -135,7 +135,7 @@ class FastScroller extends RecyclerView.
+         }
+     };
+ 
+-    FastScroller(RecyclerView recyclerView, StateListDrawable verticalThumbDrawable,
++    public FastScrollerEx(RecyclerView recyclerView, StateListDrawable verticalThumbDrawable,
+             Drawable verticalTrackDrawable, StateListDrawable horizontalThumbDrawable,
+             Drawable horizontalTrackDrawable, int defaultWidth, int scrollbarMinimumRange,
+             int margin) {
+@@ -359,6 +359,7 @@ class FastScroller extends RecyclerView.
+                 (int) ((verticalVisibleLength * middleScreenPos) / verticalContentLength);
+             mVerticalThumbHeight = Math.min(verticalVisibleLength,
+                 (verticalVisibleLength * verticalVisibleLength) / verticalContentLength);
++            mVerticalThumbHeight = Math.max(mVerticalThumbHeight, mVerticalThumbDrawable.getIntrinsicHeight());
+         }
+ 
+         if (mNeedHorizontalScrollbar) {
+@@ -448,12 +449,14 @@ class FastScroller extends RecyclerView.
+         if (Math.abs(mVerticalThumbCenterY - y) < 2) {
+             return;
+         }
+-        int scrollingBy = scrollTo(mVerticalDragY, y, scrollbarRange,
+-                mRecyclerView.computeVerticalScrollRange(),
+-                mRecyclerView.computeVerticalScrollOffset(), mRecyclerViewHeight);
+-        if (scrollingBy != 0) {
+-            mRecyclerView.scrollBy(0, scrollingBy);
+-        }
++
++        int scrollbarLength = scrollbarRange[1] - scrollbarRange[0];
++        float percentage = (scrollbarLength == 0 ? 0 : y / (float) scrollbarLength);
++        androidx.recyclerview.widget.RecyclerView.Adapter adapter = mRecyclerView.getAdapter();
++        int count = (adapter == null ? 0 : adapter.getItemCount());
++        int pos = Math.round(count * percentage);
++        mRecyclerView.scrollToPosition(pos);
++
+         mVerticalDragY = y;
+     }
+ 
+@@ -494,7 +497,7 @@ class FastScroller extends RecyclerView.
+     @VisibleForTesting
+     boolean isPointInsideVerticalThumb(float x, float y) {
+         return (isLayoutRTL() ? x <= mVerticalThumbWidth
+-            : x >= mRecyclerViewWidth - mVerticalThumbWidth)
++            : x >= mRecyclerViewWidth - mVerticalThumbWidth * 3)
+             && y >= mVerticalThumbCenterY - mVerticalThumbHeight / 2
+             && y <= mVerticalThumbCenterY + mVerticalThumbHeight / 2;
+     }
