@@ -27,6 +27,8 @@ import android.app.Dialog;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -4627,7 +4629,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             final Uri uri = getArguments().getParcelable("uri");
-            String title = getArguments().getString("title");
+            final String title = getArguments().getString("title");
 
             final Uri sanitized;
             if (uri.isOpaque())
@@ -4652,6 +4654,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_open_link, null);
             TextView tvTitle = dview.findViewById(R.id.tvTitle);
+            ImageButton ibCopy = dview.findViewById(R.id.ibCopy);
             final EditText etLink = dview.findViewById(R.id.etLink);
             TextView tvDifferent = dview.findViewById(R.id.tvDifferent);
             final CheckBox cbSecure = dview.findViewById(R.id.cbSecure);
@@ -4662,6 +4665,20 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             final TextView tvHost = dview.findViewById(R.id.tvHost);
             final TextView tvOwner = dview.findViewById(R.id.tvOwner);
             final Group grpOwner = dview.findViewById(R.id.grpOwner);
+
+            ibCopy.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ClipboardManager clipboard =
+                            (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+                    if (clipboard != null) {
+                        ClipData clip = ClipData.newPlainText(title, uri.toString());
+                        clipboard.setPrimaryClip(clip);
+
+                        ToastEx.makeText(getContext(), R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
 
             etLink.addTextChangedListener(new TextWatcher() {
                 @Override
