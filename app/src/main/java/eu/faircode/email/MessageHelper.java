@@ -983,8 +983,6 @@ public class MessageHelper {
 
     Long getSize() throws MessagingException {
         long size = imessage.getSize();
-        //if (size == 0)
-        //    throw new MessagingException("Message empty");
         return (size < 0 ? null : size);
     }
 
