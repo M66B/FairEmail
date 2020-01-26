@@ -169,6 +169,11 @@ final class Range {
         mCallbacks.updateForRange(begin, end, selected, type);
     }
 
+    boolean isOverlapping(int position, int count) {
+        return (position >= mBegin && position <= mEnd) ||
+                (position + count >= mBegin && position + count <= mEnd);
+    }
+
     @Override
     public String toString() {
         return "Range{begin=" + mBegin + ", end=" + mEnd + "}";

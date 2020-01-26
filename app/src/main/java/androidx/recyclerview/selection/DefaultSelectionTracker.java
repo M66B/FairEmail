@@ -379,6 +379,10 @@ public class DefaultSelectionTracker<K> extends SelectionTracker<K> implements R
         return mRange != null;
     }
 
+    boolean isOverlapping(int position, int count) {
+        return (mRange != null && mRange.isOverlapping(position, count));
+    }
+
     private boolean canSetState(@NonNull K key, boolean nextState) {
         return mSelectionPredicate.canSetStateForKey(key, nextState);
     }
@@ -601,17 +605,21 @@ public class DefaultSelectionTracker<K> extends SelectionTracker<K> implements R
 
         @Override
         public void onItemRangeInserted(int startPosition, int itemCount) {
-            mSelectionTracker.endRange();
+            if (mSelectionTracker.isOverlapping(startPosition, itemCount))
+                mSelectionTracker.endRange();
         }
 
         @Override
         public void onItemRangeRemoved(int startPosition, int itemCount) {
-            mSelectionTracker.endRange();
+            if (mSelectionTracker.isOverlapping(startPosition, itemCount))
+                mSelectionTracker.endRange();
         }
 
         @Override
         public void onItemRangeMoved(int fromPosition, int toPosition, int itemCount) {
-            mSelectionTracker.endRange();
+            if (mSelectionTracker.isOverlapping(fromPosition, itemCount) ||
+                    mSelectionTracker.isOverlapping(toPosition, itemCount))
+                mSelectionTracker.endRange();
         }
     }
 }

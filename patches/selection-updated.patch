@@ -1,8 +1,8 @@
 diff --git a/app/src/main/java/androidx/recyclerview/selection/DefaultSelectionTracker.java b/app/src/main/java/androidx/recyclerview/selection/DefaultSelectionTracker.java
-index a513f5725..d8845a0b0 100644
+index 61985cf8d..709308482 100644
 --- a/app/src/main/java/androidx/recyclerview/selection/DefaultSelectionTracker.java
 +++ b/app/src/main/java/androidx/recyclerview/selection/DefaultSelectionTracker.java
-@@ -348,6 +348,10 @@ public class DefaultSelectionTracker<K> extends SelectionTracker<K> {
+@@ -379,6 +379,10 @@ public class DefaultSelectionTracker<K> extends SelectionTracker<K> implements R
          return mRange != null;
      }
  
@@ -13,7 +13,7 @@ index a513f5725..d8845a0b0 100644
      private boolean canSetState(@NonNull K key, boolean nextState) {
          return mSelectionPredicate.canSetStateForKey(key, nextState);
      }
-@@ -578,17 +582,21 @@ public class DefaultSelectionTracker<K>
+@@ -601,17 +605,21 @@ public class DefaultSelectionTracker<K> extends SelectionTracker<K> implements R
  
          @Override
          public void onItemRangeInserted(int startPosition, int itemCount) {
@@ -39,10 +39,10 @@ index a513f5725..d8845a0b0 100644
      }
  }
 diff --git a/app/src/main/java/androidx/recyclerview/selection/Range.java b/app/src/main/java/androidx/recyclerview/selection/Range.java
-index 35fb3a8ba..b11a14a9a 100644
+index 433e0d2cb..85ddeff94 100644
 --- a/app/src/main/java/androidx/recyclerview/selection/Range.java
 +++ b/app/src/main/java/androidx/recyclerview/selection/Range.java
-@@ -170,6 +170,11 @@ final class Range {
+@@ -169,6 +169,11 @@ final class Range {
          mCallbacks.updateForRange(begin, end, selected, type);
      }
  
