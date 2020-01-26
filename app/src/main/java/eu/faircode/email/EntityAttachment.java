@@ -181,12 +181,13 @@ public class EntityAttachment {
         if ("eml".equals(extension))
             return "message/rfc822";
 
-        if ("text/plain".equals(type) &&
-                "ovpn".equals(extension))
+        if ("text/plain".equals(type) && "ics".equals(extension))
+            return "text/calendar";
+
+        if ("text/plain".equals(type) && "ovpn".equals(extension))
             return "application/x-openvpn-profile";
 
-        if ("application/zip".equals(type) ||
-                "application/octet-stream".equals(type)) {
+        if ("application/zip".equals(type) || "application/octet-stream".equals(type)) {
             if ("log".equalsIgnoreCase(extension))
                 return "text/plain";
 
