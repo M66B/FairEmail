@@ -531,6 +531,7 @@ public class EmailProvider {
     @NonNull
     private static EmailProvider fromTemplate(Context context, String domain, Discover discover)
             throws ExecutionException, InterruptedException, UnknownHostException {
+        // https://tools.ietf.org/html/rfc8314
         Server imap = null;
         Server smtp = null;
 
