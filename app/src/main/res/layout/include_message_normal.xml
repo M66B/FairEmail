@@ -313,7 +313,6 @@
         android:layout_marginEnd="6dp"
         android:ellipsize="end"
         android:fontFamily="monospace"
-        android:maxLines="2"
         android:text="Preview"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textStyle="italic"

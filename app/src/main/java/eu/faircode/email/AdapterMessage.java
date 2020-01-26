@@ -911,7 +911,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (tvPreview.getTag() == null || (int) tvPreview.getTag() != textColor) {
                 tvPreview.setTag(textColor);
                 tvPreview.setTextColor(textColor);
-                tvPreview.setMaxLines(preview_lines);
+                if (preview_lines == 1)
+                    tvPreview.setSingleLine(true);
+                else
+                    tvPreview.setMaxLines(preview_lines);
             }
             tvPreview.setTypeface(
                     monospaced ? Typeface.MONOSPACE : Typeface.DEFAULT,
