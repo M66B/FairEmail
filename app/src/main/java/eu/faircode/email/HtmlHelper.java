@@ -37,6 +37,7 @@ import android.util.Base64;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
+import androidx.core.graphics.ColorUtils;
 import androidx.core.text.HtmlCompat;
 import androidx.core.util.PatternsCompat;
 import androidx.preference.PreferenceManager;
@@ -333,6 +334,7 @@ public class HtmlHelper {
                                 .replaceAll("\\s", "");
                         switch (key) {
                             case "color":
+                                // https://developer.mozilla.org/en-US/docs/Web/CSS/color_value
                                 String c = value
                                         .replace("none", "")
                                         .replace("unset", "")
@@ -341,7 +343,7 @@ public class HtmlHelper {
                                         .replace("windowtext", "")
                                         .replace("transparent", "")
                                         .replace("!important", "")
-                                        .replaceAll("[^a-z0-9]", "");
+                                        .replaceAll("[^a-z0-9(),.%]", "");
 
                                 Integer color = null;
                                 try {
@@ -349,17 +351,30 @@ public class HtmlHelper {
                                         ; // Do nothing
                                     else if (c.startsWith("#"))
                                         color = Integer.decode(c) | 0xFF000000;
-                                    else if (c.startsWith("rgb")) {
+                                    else if (c.startsWith("rgb") || c.startsWith("hsl")) {
                                         int s = c.indexOf("(");
                                         int e = c.indexOf(")");
                                         if (s > 0 && e > s) {
-                                            String[] rgb = c.substring(s + 1, e).split(",");
-                                            if (rgb.length == 3)
+                                            String[] component = c.substring(s + 1, e).split(",");
+
+                                            for (int i = 0; i < component.length; i++)
+                                                if (component[i].endsWith("%"))
+                                                    if (c.startsWith("rgb")) {
+                                                        int percent = Integer.parseInt(component[i].replace("%", ""));
+                                                        component[i] = Integer.toString(Math.round(255 * (percent / 100f)));
+                                                    } else
+                                                        component[i] = component[i].replace("%", "");
+
+                                            if (c.startsWith("rgb") && component.length >= 3)
                                                 color = Color.rgb(
-                                                        Integer.parseInt(rgb[0]),
-                                                        Integer.parseInt(rgb[1]),
-                                                        Integer.parseInt(rgb[2])
-                                                );
+                                                        Integer.parseInt(component[0]),
+                                                        Integer.parseInt(component[1]),
+                                                        Integer.parseInt(component[2]));
+                                            else if (c.startsWith("hsl") && component.length >= 3)
+                                                color = ColorUtils.HSLToColor(new float[]{
+                                                        Float.parseFloat(component[0]),
+                                                        Integer.parseInt(component[1]) / 100f,
+                                                        Integer.parseInt(component[2]) / 100f});
                                         }
                                     } else if (x11ColorMap.containsKey(c))
                                         color = x11ColorMap.get(c);
@@ -369,6 +384,10 @@ public class HtmlHelper {
                                         } catch (IllegalArgumentException ex) {
                                             color = Integer.decode("#" + c) | 0xFF000000;
                                         }
+
+                                    if (BuildConfig.DEBUG)
+                                        Log.i("Color " + c + "=" + (color == null ? null : Long.toHexString(color)));
+
                                 } catch (Throwable ex) {
                                     Log.e("Color=" + c + ": " + ex);
                                 }
