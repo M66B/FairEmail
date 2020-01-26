@@ -353,6 +353,7 @@
     <string name="title_advanced_gravatars_hint">プライバシーリスクが有るかもしれません</string>
     <string name="title_advanced_name_email_hint">無効にすると利用可能な場合にのみ名前が表示されます</string>
     <string name="title_advanced_preview_hint">メッセージテキストがダウンロードされた場合にのみ使用可能</string>
+    <string name="title_advanced_preview_issue">行数が複数の場合、一部のAndroidバージョンバグの為スクロールが遅くなる可能性が有ります</string>
     <string name="title_advanced_inline_hint">インライン画像はメッセージに含まれる画像です</string>
     <string name="title_advanced_autoexpand_hint">会話内のメッセージが1つだけの場合、又は未読メッセージが1つだけの場合に自動的にメッセージを開きます</string>
     <string name="title_advanced_autoseen_hint">開いたメッセージを自動的に既読にする機能は、個々のアカウント設定で無効に出来ます</string>

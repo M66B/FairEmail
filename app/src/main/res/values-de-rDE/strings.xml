@@ -367,6 +367,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_gravatars_hint">Es könnte ein Datenschutzrisiko geben</string>
     <string name="title_advanced_name_email_hint">Wenn deaktiviert, werden nur Namen angezeigt, sofern verfügbar</string>
     <string name="title_advanced_preview_hint">Nur verfügbar, wenn der E-Mail-Text heruntergeladen wurde</string>
+    <string name="title_advanced_preview_issue">Scrollen kann aufgrund eines Fehlers in einigen Android-Versionen langsam sein, wenn die Anzahl der Zeilen mehr als eine ist</string>
     <string name="title_advanced_inline_hint">Eingebettete Grafiken sind Grafiken, die innerhalb der Nachricht enthalten sind</string>
     <string name="title_advanced_autoexpand_hint">Eine (ungelesene) Nachricht wird automatisch geöffnet</string>
     <string name="title_advanced_autoseen_hint">Das automatische Markieren von Nachrichten bei ihrer Erweiterung als gelesen kann in den einzelnen Kontoeinstellungen deaktiviert werden</string>

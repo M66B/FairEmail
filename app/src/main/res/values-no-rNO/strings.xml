@@ -368,6 +368,7 @@
     <string name="title_advanced_gravatars_hint">Det kan være en personvernrisiko</string>
     <string name="title_advanced_name_email_hint">Når deaktivert, vil bare navn bli vist når det er tilgjengelig</string>
     <string name="title_advanced_preview_hint">Kun tilgjengelig når meldingstekst ble lastet ned</string>
+    <string name="title_advanced_preview_issue">Rullingen kan gå tregt på grunn av en feil i noen Android-versjoner når antall linjer er mer enn én</string>
     <string name="title_advanced_inline_hint">Innebygde bilder er bilder som er inkludert i meldingen</string>
     <string name="title_advanced_autoexpand_hint">Åpne automatisk melding når det bare er én melding eller bare en ulest melding i en samtale</string>
     <string name="title_advanced_autoseen_hint">Automatisk merking av meldinger som lest ved utvidelse, kan deaktiveres i de enkelte kontoinnstillingene</string>

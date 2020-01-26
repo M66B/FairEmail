@@ -368,6 +368,7 @@
     <string name="title_advanced_gravatars_hint">Puede haber un riesgo para la privacidad</string>
     <string name="title_advanced_name_email_hint">Si está desactivado, solo se mostrarán los nombres cuando estén disponibles</string>
     <string name="title_advanced_preview_hint">Sólo disponible cuando el texto del mensaje fue descargado</string>
+    <string name="title_advanced_preview_issue">El desplazamiento puede ser lento debido a un error en algunas versiones de Android cuando el número de líneas es más de una</string>
     <string name="title_advanced_inline_hint">Las imágenes embebidas son imágenes incluídas en el mensaje</string>
     <string name="title_advanced_autoexpand_hint">Abrir mensaje automáticamente cuando haya solo un mensaje o uno no leído en una conversación</string>
     <string name="title_advanced_autoseen_hint">El marcado automático de los mensajes como leídos al expandirlos se puede desactivar en la configuración individual de la cuenta</string>

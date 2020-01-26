@@ -355,6 +355,7 @@
     <string name="title_advanced_gravatars_hint">可能存在隐私风险</string>
     <string name="title_advanced_name_email_hint">禁用该选项，将仅显示名称（如果可用）</string>
     <string name="title_advanced_preview_hint">只有当消息文本下载时才可用</string>
+    <string name="title_advanced_preview_issue">由于某些Android版本中的错误，当行数大于一时，滚动可能会较慢</string>
     <string name="title_advanced_inline_hint">内联图像是邮件中包含的图像</string>
     <string name="title_advanced_autoexpand_hint">当对话中只有一条消息或只是一条未读消息时，自动打开该消息</string>
     <string name="title_advanced_autoseen_hint">可以在单独的账户设置中禁用展开消息时自动标记消息为已读</string>

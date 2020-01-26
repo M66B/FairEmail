@@ -367,6 +367,7 @@
     <string name="title_advanced_gravatars_hint">Potrebbe esserci un rischio per la privacy</string>
     <string name="title_advanced_name_email_hint">Quando disabilitati saranno mostrati solo i nomi quando disponibili</string>
     <string name="title_advanced_preview_hint">Disponibile solo quando è stato scaricato il testo del messaggio</string>
+    <string name="title_advanced_preview_issue">Lo scorrimento può essere lento a causa di un bug in alcune versioni di Android quando il numero di righe è più di uno</string>
     <string name="title_advanced_inline_hint">Le immagini in linea sono incluse nel messaggio</string>
     <string name="title_advanced_autoexpand_hint">Apri automaticamente il messaggio quando c\'è un solo messaggio o solo un messaggio da leggere in una conversazione</string>
     <string name="title_advanced_autoseen_hint">La marcatura automatica dei messaggi letti all\'apertura può essere disabilitata nelle impostazioni dei singoli account</string>
