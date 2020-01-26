@@ -57,7 +57,7 @@ public class ContactInfo {
 
     private static Map<String, Uri> emailLookup = new ConcurrentHashMap<>();
     private static final Map<String, ContactInfo> emailContactInfo = new HashMap<>();
-    private static final Map<String, Gravatar> emailGravatar = new HashMap<>();
+    private static final Map<String, Avatar> emailGravatar = new HashMap<>();
     private static final ExecutorService executor =
             Helper.getBackgroundExecutor(1, "contact");
 
@@ -173,8 +173,8 @@ public class ContactInfo {
             if (gravatars) {
                 boolean lookup;
                 synchronized (emailGravatar) {
-                    Gravatar g = emailGravatar.get(address.getAddress());
-                    lookup = (g == null || g.isExpired() || g.isAvailable());
+                    Avatar avatar = emailGravatar.get(address.getAddress());
+                    lookup = (avatar == null || avatar.isExpired() || avatar.isAvailable());
                 }
 
                 if (lookup) {
@@ -194,12 +194,14 @@ public class ContactInfo {
                         int status = urlConnection.getResponseCode();
                         if (status == HttpURLConnection.HTTP_OK) {
                             info.bitmap = BitmapFactory.decodeStream(urlConnection.getInputStream());
+                            // Positive reply
                             synchronized (emailGravatar) {
-                                emailGravatar.put(address.getAddress(), new Gravatar(true));
+                                emailGravatar.put(address.getAddress(), new Avatar(true));
                             }
                         } else if (status == HttpURLConnection.HTTP_NOT_FOUND) {
+                            // Negative reply
                             synchronized (emailGravatar) {
-                                emailGravatar.put(address.getAddress(), new Gravatar(false));
+                                emailGravatar.put(address.getAddress(), new Avatar(false));
                             }
                         } else
                             throw new IOException("HTTP status=" + status);
@@ -334,11 +336,11 @@ public class ContactInfo {
         return all;
     }
 
-    private static class Gravatar {
+    private static class Avatar {
         private boolean available;
         private long time;
 
-        Gravatar(boolean available) {
+        Avatar(boolean available) {
             this.available = available;
             this.time = new Date().getTime();
         }
