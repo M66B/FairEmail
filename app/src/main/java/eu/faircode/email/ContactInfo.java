@@ -180,7 +180,7 @@ public class ContactInfo {
                 if (lookup) {
                     HttpURLConnection urlConnection = null;
                     try {
-                        String hash = Helper.md5(address.getAddress().getBytes());
+                        String hash = Helper.md5(address.getAddress().toLowerCase().getBytes());
                         URL url = new URL("https://www.gravatar.com/avatar/" + hash + "?d=404");
                         Log.i("Gravatar url=" + url);
 
