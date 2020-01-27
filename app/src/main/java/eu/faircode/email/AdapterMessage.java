@@ -125,6 +125,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import com.github.chrisbanes.photoview.PhotoView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomnavigation.LabelVisibilityMode;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import org.jsoup.nodes.Document;
@@ -876,29 +877,31 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             // Line 2
             tvSubject.setText(message.subject);
 
-            SpannableStringBuilder keywords = new SpannableStringBuilder();
-            for (String keyword : message.keywords) {
-                String k = keyword.toLowerCase();
-                if (IMAP_KEYWORDS_WHITELIST.contains(k) ||
-                        !(k.startsWith("$") || IMAP_KEYWORDS_BLACKLIST.contains(k))) {
-                    if (keywords.length() > 0)
-                        keywords.append(", ");
-                    keywords.append(keyword);
+            if (keywords_header) {
+                SpannableStringBuilder keywords = new SpannableStringBuilder();
+                for (int i = 0; i < message.keywords.length; i++) {
+                    String k = message.keywords[i].toLowerCase();
+                    if (IMAP_KEYWORDS_WHITELIST.contains(k) ||
+                            !(k.startsWith("$") || IMAP_KEYWORDS_BLACKLIST.contains(k))) {
+                        if (keywords.length() > 0)
+                            keywords.append(", ");
 
-                    String key = "keyword." + keyword;
-                    if (prefs.contains(key)) {
-                        int len = keywords.length();
-                        int color = prefs.getInt(key, textColorSecondary);
-                        keywords.setSpan(
-                                new ForegroundColorSpan(color),
-                                len - keyword.length(), len,
-                                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                        keywords.append(message.keywords[i]);
+
+                        if (message.keyword_colors[i] != null) {
+                            int len = keywords.length();
+                            keywords.setSpan(
+                                    new ForegroundColorSpan(message.keyword_colors[i]),
+                                    len - message.keywords[i].length(), len,
+                                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                        }
                     }
                 }
-            }
 
-            tvKeywords.setVisibility(keywords_header && keywords.length() > 0 ? View.VISIBLE : View.GONE);
-            tvKeywords.setText(keywords);
+                tvKeywords.setVisibility(keywords.length() > 0 ? View.VISIBLE : View.GONE);
+                tvKeywords.setText(keywords);
+            } else
+                tvKeywords.setVisibility(View.GONE);
 
             // Line 3
             int icon = (message.drafts > 0
@@ -3584,38 +3587,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private void onMenuManageKeywords(TupleMessageEx message) {
             Bundle args = new Bundle();
             args.putLong("id", message.id);
-            args.putStringArray("keywords", message.keywords);
 
-            new SimpleTask<EntityFolder>() {
-                @Override
-                protected EntityFolder onExecute(Context context, Bundle args) {
-                    long id = args.getLong("id");
-
-                    DB db = DB.getInstance(context);
-                    EntityMessage message = db.message().getMessage(id);
-                    if (message == null)
-                        return null;
-
-                    return db.folder().getFolder(message.folder);
-                }
-
-                @Override
-                protected void onExecuted(final Bundle args, EntityFolder folder) {
-                    if (folder == null)
-                        return;
-
-                    args.putStringArray("fkeywords", folder.keywords);
-
-                    FragmentKeywordManage fragment = new FragmentKeywordManage();
-                    fragment.setArguments(args);
-                    fragment.show(parentFragment.getParentFragmentManager(), "keyword:manage");
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
-                }
-            }.execute(context, owner, args, "message:keywords");
+            FragmentDialogKeywordManage fragment = new FragmentDialogKeywordManage();
+            fragment.setArguments(args);
+            fragment.show(parentFragment.getParentFragmentManager(), "keyword:manage");
         }
 
         private void onMenuShare(TupleMessageEx message) {
@@ -4163,6 +4138,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     void submitList(PagedList<TupleMessageEx> list) {
         keyPosition.clear();
+        for (int i = 0; i < list.size(); i++) {
+            TupleMessageEx message = list.get(i);
+            if (message != null)
+                message.resolveKeywordColors(context);
+        }
         differ.submitList(list);
     }
 
@@ -4515,6 +4495,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (prev.duplicate != next.duplicate) {
                         same = false;
                         Log.i("duplicate changed id=" + next.id);
+                    }
+                    if (!Arrays.equals(prev.keyword_colors, next.keyword_colors)) {
+                        same = false;
+                        Log.i("keyword colors changed id=" + next.id);
                     }
 
                     return same;
@@ -4933,110 +4917,66 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
     }
 
-    public static class FragmentKeywordManage extends FragmentDialogBase {
+    public static class FragmentDialogKeywordManage extends FragmentDialogBase {
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             final long id = getArguments().getLong("id");
-            List<String> keywords = Arrays.asList(getArguments().getStringArray("keywords"));
-            List<String> fkeywords = Arrays.asList(getArguments().getStringArray("fkeywords"));
 
-            final List<String> items = new ArrayList<>(keywords);
-            for (String keyword : fkeywords)
-                if (!items.contains(keyword))
-                    items.add(keyword);
+            final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_keyword_manage, null);
+            final RecyclerView rvKeyword = dview.findViewById(R.id.rvKeyword);
+            final TextView tvPro = dview.findViewById(R.id.tvPro);
+            final FloatingActionButton fabAdd = dview.findViewById(R.id.fabAdd);
+            final ContentLoadingProgressBar pbWait = dview.findViewById(R.id.pbWait);
 
-            Collections.sort(items);
+            rvKeyword.setHasFixedSize(false);
+            final LinearLayoutManager llm = new LinearLayoutManager(getContext());
+            rvKeyword.setLayoutManager(llm);
 
-            final boolean[] selected = new boolean[items.size()];
-            final boolean[] dirty = new boolean[items.size()];
-            for (int i = 0; i < selected.length; i++) {
-                selected[i] = keywords.contains(items.get(i));
-                dirty[i] = false;
-            }
+            final AdapterKeyword adapter = new AdapterKeyword(getContext(), getViewLifecycleOwner());
+            rvKeyword.setAdapter(adapter);
+
+            Helper.linkPro(tvPro);
+
+            fabAdd.setEnabled(ActivityBilling.isPro(getContext()));
+            fabAdd.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Bundle args = new Bundle();
+                    args.putLong("id", id);
+
+                    FragmentDialogKeywordAdd fragment = new FragmentDialogKeywordAdd();
+                    fragment.setArguments(args);
+                    fragment.show(getParentFragmentManager(), "keyword:add");
+                }
+            });
+
+            pbWait.setVisibility(View.VISIBLE);
+
+            DB db = DB.getInstance(getContext());
+            db.message().liveMessageKeywords(id).observe(getViewLifecycleOwner(), new Observer<TupleKeyword.Persisted>() {
+                @Override
+                public void onChanged(TupleKeyword.Persisted data) {
+                    pbWait.setVisibility(View.GONE);
+                    adapter.set(id, TupleKeyword.from(getContext(), data));
+                }
+            });
 
             return new AlertDialog.Builder(getContext())
                     .setTitle(R.string.title_manage_keywords)
-                    .setMultiChoiceItems(items.toArray(new String[0]), selected, new DialogInterface.OnMultiChoiceClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which, boolean isChecked) {
-                            dirty[which] = true;
-                        }
-                    })
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            if (!ActivityBilling.isPro(getContext())) {
-                                startActivity(new Intent(getContext(), ActivityBilling.class));
-                                return;
-                            }
-
-                            Bundle args = new Bundle();
-                            args.putLong("id", id);
-                            args.putStringArray("keywords", items.toArray(new String[0]));
-                            args.putBooleanArray("selected", selected);
-                            args.putBooleanArray("dirty", dirty);
-
-                            new SimpleTask<Void>() {
-                                @Override
-                                protected Void onExecute(Context context, Bundle args) {
-                                    long id = args.getLong("id");
-                                    String[] keywords = args.getStringArray("keywords");
-                                    boolean[] selected = args.getBooleanArray("selected");
-                                    boolean[] dirty = args.getBooleanArray("dirty");
-
-                                    DB db = DB.getInstance(context);
-                                    try {
-                                        db.beginTransaction();
-
-                                        EntityMessage message = db.message().getMessage(id);
-                                        if (message == null)
-                                            return null;
-
-                                        for (int i = 0; i < selected.length; i++)
-                                            if (dirty[i])
-                                                EntityOperation.queue(context, message, EntityOperation.KEYWORD, keywords[i], selected[i]);
-
-                                        db.setTransactionSuccessful();
-                                    } finally {
-                                        db.endTransaction();
-                                    }
-
-                                    ServiceSynchronize.eval(context, "keywords");
-
-                                    return null;
-                                }
-
-                                @Override
-                                protected void onException(Bundle args, Throwable ex) {
-                                    Log.unexpectedError(getParentFragmentManager(), ex);
-                                }
-                            }.execute(getContext(), getActivity(), args, "message:keywords:manage");
-                        }
-                    })
-                    .setNeutralButton(R.string.title_add, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Bundle args = new Bundle();
-                            args.putLong("id", id);
-
-                            FragmentKeywordAdd fragment = new FragmentKeywordAdd();
-                            fragment.setArguments(args);
-                            fragment.show(getParentFragmentManager(), "keyword:add");
-                        }
-                    })
+                    .setView(dview)
                     .setNegativeButton(android.R.string.cancel, null)
                     .create();
         }
     }
 
-    public static class FragmentKeywordAdd extends FragmentDialogBase {
+    public static class FragmentDialogKeywordAdd extends FragmentDialogBase {
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             final long id = getArguments().getLong("id");
 
-            View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_keyword, null);
+            View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_keyword_add, null);
             final EditText etKeyword = view.findViewById(R.id.etKeyword);
             etKeyword.setText(null);
 
@@ -5045,11 +4985,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            if (!ActivityBilling.isPro(getContext())) {
-                                startActivity(new Intent(getContext(), ActivityBilling.class));
-                                return;
-                            }
-
                             String keyword = MessageHelper.sanitizeKeyword(etKeyword.getText().toString());
                             if (!TextUtils.isEmpty(keyword)) {
                                 Bundle args = new Bundle();
@@ -5086,7 +5021,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     protected void onException(Bundle args, Throwable ex) {
                                         Log.unexpectedError(getParentFragmentManager(), ex);
                                     }
-                                }.execute(getContext(), getActivity(), args, "message:keyword:add");
+                                }.execute(getContext(), getActivity(), args, "keyword:add");
                             }
                         }
                     })

@@ -20,9 +20,14 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 
+import androidx.preference.PreferenceManager;
 import androidx.room.Ignore;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import javax.mail.Address;
@@ -53,11 +58,30 @@ public class TupleMessageEx extends EntityMessage {
     @Ignore
     boolean duplicate;
 
+    @Ignore
+    public Integer[] keyword_colors;
+
     String getFolderName(Context context) {
         return (folderDisplay == null
                 ? Helper.localizeFolderName(context, folderName)
                 : folderDisplay);
     }
+
+    void resolveKeywordColors(Context context) {
+        List<Integer> color = new ArrayList<>();
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        for (int i = 0; i < this.keywords.length; i++) {
+            String key = "keyword." + this.keywords[i];
+            if (prefs.contains(key))
+                color.add(prefs.getInt(key, Color.GRAY));
+            else
+                color.add(null);
+        }
+
+        this.keyword_colors = color.toArray(new Integer[0]);
+    }
+
 
     @Override
     public boolean equals(Object obj) {

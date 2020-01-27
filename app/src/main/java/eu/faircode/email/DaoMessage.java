@@ -315,6 +315,12 @@ public interface DaoMessage {
             " WHERE message.id = :id")
     LiveData<TupleMessageEx> liveMessage(long id);
 
+    @Query("SELECT message.keywords AS selected, folder.keywords AS available" +
+            " FROM message" +
+            " JOIN folder ON folder.id = message.folder" +
+            " WHERE message.id = :id")
+    LiveData<TupleKeyword.Persisted> liveMessageKeywords(long id);
+
     @Transaction
     @Query("SELECT account.id AS account, COUNT(message.id) AS unseen, SUM(ABS(notifying)) AS notifying" +
             " FROM message" +
