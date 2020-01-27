@@ -896,6 +896,8 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_enabled">Gaituta</string>
     <string name="title_executing">Exekutatzen</string>
     <string name="title_completed">Burututa</string>
+    <string name="title_clipboard_copy">Kopiatu arbelera</string>
+    <string name="title_clipboard_copied">Arbelera kopiatuta</string>
     <string name="title_ask_what">Galdetu zer egin</string>
     <string name="title_no_ask_again">Ez galdetu hau berriro</string>
     <string name="title_no_ask_for_again">Ez galdetu hau berriro %1$s helbidearentzat</string>

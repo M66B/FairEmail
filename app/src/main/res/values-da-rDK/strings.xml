@@ -367,6 +367,7 @@
     <string name="title_advanced_gravatars_hint">Der kan være en fortrolighedsrisiko</string>
     <string name="title_advanced_name_email_hint">Når deaktiveret, vises kun navne, når de er tilgængelige</string>
     <string name="title_advanced_preview_hint">Kun tilgængelig, når beskedtekst er downloadet</string>
+    <string name="title_advanced_preview_issue">Rulning kan, grundet en fejl i visse Android-versioner, være langsom, når antallet af linjer er flere end én</string>
     <string name="title_advanced_inline_hint">Inline-billeder er billeder, som er inkluderet i beskeden</string>
     <string name="title_advanced_autoexpand_hint">Åbn automatisk besked, når der kun er én besked eller kun én ulæst besked i en samtale</string>
     <string name="title_advanced_autoseen_hint">Automarkering af læste beskeder ved udvidelse kan deaktiveres i de individuelle kontoindstillinger</string>
@@ -896,6 +897,8 @@
     <string name="title_enabled">Aktiveret</string>
     <string name="title_executing">Eksekverer</string>
     <string name="title_completed">Fuldført</string>
+    <string name="title_clipboard_copy">Kopiér til Udklipsholder</string>
+    <string name="title_clipboard_copied">Kopieret til Udklipsholder</string>
     <string name="title_ask_what">Spørg, hvad der skal ske</string>
     <string name="title_no_ask_again">Spørg ikke om dette igen</string>
     <string name="title_no_ask_for_again">Spørg ikke om dette igen for %1$s</string>

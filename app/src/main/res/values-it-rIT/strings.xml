@@ -896,6 +896,8 @@
     <string name="title_enabled">Abilitato</string>
     <string name="title_executing">Esecuzione</string>
     <string name="title_completed">Completato</string>
+    <string name="title_clipboard_copy">Copia negli appunti</string>
+    <string name="title_clipboard_copied">Copiato negli appunti</string>
     <string name="title_ask_what">Chiedi cosa fare</string>
     <string name="title_no_ask_again">Non chiedere di nuovo</string>
     <string name="title_no_ask_for_again">Non chiedere più per %1$s</string>

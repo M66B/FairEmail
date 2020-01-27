@@ -897,6 +897,8 @@ Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anme
     <string name="title_enabled">Aktivert</string>
     <string name="title_executing">Utfører</string>
     <string name="title_completed">Fullført</string>
+    <string name="title_clipboard_copy">Kopiere til utklippstavle</string>
+    <string name="title_clipboard_copied">Kopiert til utklippstavlen</string>
     <string name="title_ask_what">Spør hva du skal gjøre</string>
     <string name="title_no_ask_again">Ikke spør dette igjen</string>
     <string name="title_no_ask_for_again">Ikke spør dette igjen for %1$s</string>

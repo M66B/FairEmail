@@ -31,8 +31,8 @@
     <string name="shortcut_compose">Verfassen</string>
     <string name="shortcut_setup">Einstellungen</string>
     <plurals name="title_notification_synchronizing">
-        <item quantity="one">Überwache %1$d Konto</item>
-        <item quantity="other">Überwache %1$d Konten</item>
+        <item quantity="one">%1$d Konto wird überwacht</item>
+        <item quantity="other">%1$d Konten werden überwacht</item>
     </plurals>
     <plurals name="title_notification_operations">
         <item quantity="one">%1$d Vorgang ausstehend</item>
@@ -67,14 +67,15 @@
         <item quantity="other">%1$d Nachrichten als Spam behandeln?</item>
     </plurals>
     <string name="title_ask_spam_who">Nachricht von %1$s als Spam behandeln?</string>
-    <string name="title_block">%1$s blockieren</string>
-    <string name="title_block_sender">Absender blockieren</string>
-    <string name="title_block_sender_hint">        Das Blockieren eines Absenders erstellt eine Regel, um zukünftige Nachrichten von dieser Absender-Adresse automatisch in den Spam-Ordner zu verschieben.
+    <string name="title_block">%1$s sperren</string>
+    <string name="title_block_sender">Absender sperren</string>
+    <string name="title_block_sender_hint">        Das Sperren eines Absenders erstellt eine Regel, um zukünftige Nachrichten
+        von dieser Absenderadresse automatisch in den Spam-Ordner zu verschieben.
         Regeln erstellen und verwenden ist eine Pro-Funktion.
     </string>
     <string name="title_notification_waiting">Warte auf eine geeignete Verbindung</string>
     <string name="title_notification_sending">Nachrichten werden gesendet</string>
-    <string name="title_notification_failed">\'%1$s\' fehlgeschlagen</string>
+    <string name="title_notification_failed">„%1$s” fehlgeschlagen</string>
     <string name="title_notification_alert">\'%1$s\' Server-Warnung</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="menu_exit">Beenden</string>
@@ -85,7 +86,7 @@
     <string name="menu_legend">Legende</string>
     <string name="menu_test">Test-Programm</string>
     <string name="menu_faq">Unterstützung</string>
-    <string name="menu_translate">Hilf beim Übersetzen</string>
+    <string name="menu_translate">Beim Übersetzen helfen</string>
     <string name="menu_issue">Problem melden</string>
     <string name="menu_attribution">Danksagung</string>
     <string name="menu_privacy">Datenschutz</string>
@@ -438,8 +439,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_trust">Serverzertifikat mit Fingerabdruck %1$s vertrauen</string>
     <string name="title_no_name">Name fehlt</string>
     <string name="title_no_email">E-Mail-Adresse fehlt</string>
-    <string name="title_email_invalid">E-Mail-Adresse ungültig: \'%1$s\'</string>
-    <string name="title_address_parse_error">Adresse \'%1$s\' ungültig: %2$s</string>
+    <string name="title_email_invalid">E-Mail-Adresse ungültig: »%1$s«</string>
+    <string name="title_address_parse_error">Adresse »%1$s« ungültig: %2$s</string>
     <string name="title_no_account">Konto fehlt</string>
     <string name="title_no_host">Hostname fehlt</string>
     <string name="title_no_user">Benutzername fehlt</string>
@@ -617,8 +618,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_from">Von:</string>
     <string name="title_to">An:</string>
     <string name="title_reply_to">Antworten an:</string>
-    <string name="title_cc">CC:</string>
-    <string name="title_bcc">BCC:</string>
+    <string name="title_cc">Kopie:</string>
+    <string name="title_bcc">Blindkopie:</string>
     <string name="title_via_identity">Über:</string>
     <string name="title_sent">Gesendet:</string>
     <string name="title_received">Empfangen:</string>
@@ -647,7 +648,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_attachment_file">Anhang hinzufügen</string>
     <string name="title_attachment_photo">Foto aufnehmen</string>
     <string name="title_attachment_audio">Audio aufnehmen</string>
-    <string name="title_show_addresses">CC/BCC anzeigen</string>
+    <string name="title_show_addresses">Kopie/Blindkopie anzeigen</string>
     <string name="title_media_toolbar">Mediensymbolleiste</string>
     <string name="title_insert_contact_group">Kontaktgruppe einfügen</string>
     <string name="title_insert_template">Vorlage einfügen</string>
@@ -765,7 +766,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_rule_cc">Den CC-Adressen antworten</string>
     <string name="title_rule_name_missing">Regelname fehlt</string>
     <string name="title_rule_condition_missing">Voraussetzung fehlt</string>
-    <string name="title_rule_automation_hint">Dies sendet de Intent \'%1$s\' mit den Extras \'%2$s\'</string>
+    <string name="title_rule_automation_hint">Das wird die Absicht »%1$s« mit den Extras »%2$s« senden</string>
     <string name="title_rule_execute">Jetzt ausführen</string>
     <string name="title_rule_applied">Betroffene Nachrichten: %1$d</string>
     <string name="title_rule_check">Prüfen</string>
@@ -784,10 +785,10 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_legend_synchronize_on">Synchronisierung an</string>
     <string name="title_legend_synchronize_off">Synchronisierung aus</string>
     <string name="title_legend_disconnected">Keine Verbindung</string>
-    <string name="title_legend_connecting">Verbinde</string>
+    <string name="title_legend_connecting">wird verbunden</string>
     <string name="title_legend_connected">Verbunden</string>
     <string name="title_legend_executing">Operationen ausführen</string>
-    <string name="title_legend_synchronizing">Synchronisiere</string>
+    <string name="title_legend_synchronizing">wird synchronisiert</string>
     <string name="title_legend_downloading">Lade herunter</string>
     <string name="title_legend_closing">Schließen</string>
     <string name="title_legend_waiting">Warten auf Synchronisation</string>
@@ -832,7 +833,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_legend_tracking_pixel">Tracking-Bild</string>
     <string name="title_legend_broken_image">Defekte Bilddatei</string>
     <string name="title_legend_pick">Kontakt auswählen</string>
-    <string name="title_legend_cc">CC/BCC anzeigen</string>
+    <string name="title_legend_cc">Kopie/Blindkopie anzeigen</string>
     <string name="title_legend_link">Link hinzufügen</string>
     <string name="title_legend_file">Anhang hinzufügen</string>
     <string name="title_legend_picture">Bild hinzufügen</string>
@@ -858,7 +859,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_legend_close_hint">Hinweis schließen</string>
     <string name="title_legend_connection_state">Verbindungsstatus</string>
     <string name="title_legend_sync_state">Synchronisationsstatus</string>
-    <string name="title_legend_download_state">Downloadstatus</string>
+    <string name="title_legend_download_state">Übertragungsstatus</string>
     <string name="title_legend_save">Speichern</string>
     <string name="title_legend_delete">Löschen</string>
     <string name="title_legend_count">Zählen</string>
@@ -897,6 +898,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_enabled">Aktiviert</string>
     <string name="title_executing">Wird ausgeführt</string>
     <string name="title_completed">Fertig</string>
+    <string name="title_clipboard_copy">In die Zwischenablage kopieren</string>
+    <string name="title_clipboard_copied">In die Zwischenablage kopiert</string>
     <string name="title_ask_what">Fragen, was getan werden soll</string>
     <string name="title_no_ask_again">Dies nicht mehr anzeigen</string>
     <string name="title_no_ask_for_again">Dieses für %1$s nicht mehr fragen</string>
@@ -1034,8 +1037,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">
         <item>An</item>
-        <item>Zusätzliche Empfänger (CC)</item>
-        <item>Verdeckte Empfänger (BCC)</item>
+        <item>Kopie</item>
+        <item>Blindkopie</item>
     </string-array>
     <string-array name="biometricsTimeoutNames">
         <item>Eine Minute</item>

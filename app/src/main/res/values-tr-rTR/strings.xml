@@ -898,6 +898,8 @@
     <string name="title_enabled">Etkin</string>
     <string name="title_executing">Yürütülüyor</string>
     <string name="title_completed">Tamamlandı</string>
+    <string name="title_clipboard_copy">Panoya kopyala</string>
+    <string name="title_clipboard_copied">Panoya kopyalandı</string>
     <string name="title_ask_what">Ne yapılacağını sor</string>
     <string name="title_no_ask_again">Bunu bir daha sorma</string>
     <string name="title_no_ask_for_again">%1$s için bunu bir daha sorma</string>

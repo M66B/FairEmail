@@ -390,7 +390,7 @@
     <string name="title_advanced_gravatars_hint">Возможен риск нарушения конфиденциальности</string>
     <string name="title_advanced_name_email_hint">Если отключено, будут показаны только имена (при наличии)</string>
     <string name="title_advanced_preview_hint">Доступно, только если был загружен текст сообщения</string>
-    <string name="title_advanced_preview_issue">Прокрутка может быть медленной из-за ошибки в некоторых версиях Android, когда строк больше чем одна</string>
+    <string name="title_advanced_preview_issue">Прокрутка может быть медленной из-за ошибки в некоторых версиях Android, когда строк больше одной</string>
     <string name="title_advanced_inline_hint">Встроенные изображения - это изображения, включённые в сообщение</string>
     <string name="title_advanced_autoexpand_hint">Автоматически открывать сообщение, когда оно только одно или только одно непрочитанное сообщение в диалоге</string>
     <string name="title_advanced_autoseen_hint">Автоматическая пометка сообщений прочитанными при развёртывании может быть отключена в настройках учётной записи</string>
@@ -920,6 +920,8 @@
     <string name="title_enabled">Включено</string>
     <string name="title_executing">Выполнение</string>
     <string name="title_completed">Завершено</string>
+    <string name="title_clipboard_copy">Копировать в буфер</string>
+    <string name="title_clipboard_copied">Скопировано в буфер</string>
     <string name="title_ask_what">Спросить о действии</string>
     <string name="title_no_ask_again">Больше не спрашивать</string>
     <string name="title_no_ask_for_again">Больше не спрашивать для %1$s</string>

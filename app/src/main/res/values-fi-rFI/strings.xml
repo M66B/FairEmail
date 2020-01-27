@@ -896,6 +896,8 @@
     <string name="title_enabled">Käytössä</string>
     <string name="title_executing">Suoritetaan</string>
     <string name="title_completed">Valmis</string>
+    <string name="title_clipboard_copy">Kopioi leikepöydälle</string>
+    <string name="title_clipboard_copied">Kopioitu leikepöydälle</string>
     <string name="title_ask_what">Kysy, mitä tehdään</string>
     <string name="title_no_ask_again">Älä kysy tätä uudelleen</string>
     <string name="title_no_ask_for_again">Älä kysy tätä uudelleen osoitteelle %1$s</string>

@@ -38,4 +38,4 @@ Nas versões recentes do Android, o Android colocará aplicativos para dormir qu
 
 ## Perguntas ou problemas
 
-If you have a question or problem, please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) for help.
+Se você tiver dúvidas ou problemas, [veja aqui](https://github.com/M66B/FairEmail/blob/master/FAQ.md) para obter ajuda.

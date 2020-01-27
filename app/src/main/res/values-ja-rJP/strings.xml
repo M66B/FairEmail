@@ -882,6 +882,8 @@ PlayストアでFairEmailを評価できれば幸いです。
     <string name="title_enabled">有効化</string>
     <string name="title_executing">実行中</string>
     <string name="title_completed">完成しました</string>
+    <string name="title_clipboard_copy">クリップボードにコピー</string>
+    <string name="title_clipboard_copied">クリップボードにコピーしました</string>
     <string name="title_ask_what">毎回確認する</string>
     <string name="title_no_ask_again">再び表示しない</string>
     <string name="title_no_ask_for_again">%1$sを再度要求しない</string>

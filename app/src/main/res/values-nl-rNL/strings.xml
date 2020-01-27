@@ -898,6 +898,8 @@
     <string name="title_enabled">Ingeschakeld</string>
     <string name="title_executing">Aan het uitvoeren</string>
     <string name="title_completed">Voltooid</string>
+    <string name="title_clipboard_copy">Naar het klembord kopiëren</string>
+    <string name="title_clipboard_copied">Gekopieerd naar het klembord</string>
     <string name="title_ask_what">Vraag wat te doen</string>
     <string name="title_no_ask_again">Dit niet meer vragen</string>
     <string name="title_no_ask_for_again">Vraag dit niet opnieuw voor %1$s</string>

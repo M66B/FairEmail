@@ -1,4 +1,4 @@
-# Setuphilfe
+# Einrichtungshilfe
 
 FairEmail einzurichten, ist ziemlich einfach. Sie müssen mindestens ein Konto hinzufügen, um E-Mail zu erhalten, und mindestens eine Identität, wenn Sie E-Mail senden möchten. Die Schnelleinrichtung wird ein Konto und eine Identität in einem Vorgang für die meisten großen Anbieter erstellen.
 
@@ -14,7 +14,7 @@ Dies funktioniert für die meisten großen E-Mail-Anbieter.
 
 Wenn die Schnelleinrichtung nicht funktioniert, müssen Sie ein Konto und eine Identität auf andere Weise einrichten, siehe unten für Anweisungen dazu.
 
-## Konto einrichten - um E-Mail zu erhalten
+## Konto einrichten – um E-Mails zu erhalten
 
 Um ein Konto hinzuzufügen, tippen Sie unter 'Konten einrichten' auf *Verwalten* und tippen Sie dann auf den orange-farbenen Button mit dem *Plus-Zeichen* unten. Wählen Sie einen Anbieter aus der Liste, geben Sie den Benutzernamen ein, der meistens Ihre E-Mail-Adresse ist, und geben Sie Ihr Passwort ein. Tippen Sie auf *Prüfen* um FairEmail mit dem E-Mail-Server zu verbinden und eine Liste von Systemordnern zu laden. Nach der Überprüfung der Systemordner-Auswahl können Sie das Konto hinzufügen, indem Sie auf *Speichern* klicken.
 

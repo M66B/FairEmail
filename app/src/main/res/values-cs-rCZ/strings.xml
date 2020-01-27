@@ -3,7 +3,7 @@
 <resources>
     <string name="app_search">FairEmail vyhledávání</string>
     <string name="app_changelog">Přehled změn</string>
-    <string name="app_welcome">FairEmail je e-mailový klient s otevřeným kódem zaměřený na soukromí a bezpečnost. Z tohoto důvodu se některé funkce mohou chovat odlišně než jste zvyklí.</string>
+    <string name="app_welcome">FairEmail je e-mailový klient s otevřeným zdrojovým kódem zaměřený na soukromí a bezpečnost. Z tohoto důvodu se některé funkce mohou chovat odlišně než jste zvyklí.</string>
     <string name="app_limitations">Například, zprávy budou vždy přeformátovány pro odstranění prvků které nejsou bezpečné a zároveň pro zlepšení čitelnosti, a otevření odkazů je nutné z důvodu bezpečnosti potvrdit.</string>
     <string name="app_crash">FairEmail není na tomto zařízení podporován, protože chyby v Androidu způsobují jeho pády</string>
     <string name="app_exit">Znovu \"zpět\" pro ukončení</string>
@@ -15,18 +15,6 @@
     <string name="channel_error">Chyby</string>
     <string name="channel_alert">Upozornění serveru</string>
     <string name="channel_group_contacts">Kontakty</string>
-    <plurals name="page_conversation">
-        <item quantity="one">Konverzace</item>
-        <item quantity="few">Konverzace</item>
-        <item quantity="many">Konverzace</item>
-        <item quantity="other">Konverzace</item>
-    </plurals>
-    <plurals name="page_message">
-        <item quantity="one">Zpráva</item>
-        <item quantity="few">Zprávy</item>
-        <item quantity="many">Zpráv</item>
-        <item quantity="other">Zpráv</item>
-    </plurals>
     <string name="page_folders">Složky</string>
     <string name="page_compose">Napsat zprávu</string>
     <string name="tile_synchronize">Synchronizovat</string>
@@ -34,30 +22,6 @@
     <string name="shortcut_refresh">Načíst znovu</string>
     <string name="shortcut_compose">Napsat zprávu</string>
     <string name="shortcut_setup">Nastavení</string>
-    <plurals name="title_tile_unseen">
-        <item quantity="one">%1$d nová</item>
-        <item quantity="few">%1$d nové</item>
-        <item quantity="many">%1$d nových</item>
-        <item quantity="other">%1$d nových</item>
-    </plurals>
-    <plurals name="title_selected_conversations">
-        <item quantity="one">Vybrána %1$d konverzace</item>
-        <item quantity="few">Vybrány %1$d konverzace</item>
-        <item quantity="many">Vybráno %1$d konverzací</item>
-        <item quantity="other">Vybráno %1$d konverzací</item>
-    </plurals>
-    <plurals name="title_moving_messages">
-        <item quantity="one">Přesunout %1$d zprávu do %2$s?</item>
-        <item quantity="few">Přesunout %1$d zprávy do %2$s?</item>
-        <item quantity="many">Přesunout %1$d zpráv do %2$s?</item>
-        <item quantity="other">Přesunout %1$d zpráv do %2$s?</item>
-    </plurals>
-    <plurals name="title_deleting_messages">
-        <item quantity="one">Trvale odstranit %1$d zprávu?</item>
-        <item quantity="few">Trvale odstranit %1$d zprávy?</item>
-        <item quantity="many">Trvale odstranit %1$d zpráv?</item>
-        <item quantity="other">Trvale odstranit %1$d zpráv?</item>
-    </plurals>
     <string name="title_ask_spam_who">Považovat zprávy od %1$s za nevyžádané?</string>
     <string name="title_block">Blokovat %1$s</string>
     <string name="title_block_sender">Blokovat odesílatele</string>
@@ -77,7 +41,7 @@
     <string name="menu_legend">Legenda</string>
     <string name="menu_test">Testovací program</string>
     <string name="menu_faq">Podpora</string>
-    <string name="menu_translate">Pomozte s překladem</string>
+    <string name="menu_translate">Pomoc s překladem</string>
     <string name="menu_issue">Nahlásit problém</string>
     <string name="menu_attribution">Zásluhy</string>
     <string name="menu_privacy">Soukromí</string>
@@ -109,7 +73,7 @@
     <string name="title_setup_quick_smtp">SMTP server pro odesílání zpráv</string>
     <string name="title_setup_wizard">Průvodce</string>
     <string name="title_setup_wizard_multiple">Průvodce instalací lze použít vícekrát pro nastavení libovolného počtu účtů</string>
-    <string name="title_setup_wizard_remark">Jděte \"zpět\" pro přejítí do doručených</string>
+    <string name="title_setup_wizard_remark">Přejděte \"zpět\" pro vstup do doručených</string>
     <string name="title_setup_other">Jiný poskytovatel</string>
     <string name="title_setup_gmail_support">Autorizace Google účtů funguje pouze v oficiálních verzích aplikace, neboť Android kontroluje podpis aplikace</string>
     <string name="title_setup_gmail_rationale">Pro zvolení účtu a přečtení vašeho jména prosím udělte oprávnění</string>
@@ -287,7 +251,7 @@
     <string name="title_advanced_notifications_default">Výchozí kanál</string>
     <string name="title_advanced_notifications_service">Servisní kanál</string>
     <string name="title_advanced_badge">Zobrazit počet nových zpráv na ikoně aplikace</string>
-    <string name="title_advanced_unseen_ignored">Nechť počet nových zpráv souhlasí s počtem oznámení</string>
+    <string name="title_advanced_unseen_ignored">Počet oznámení bude odpovídat počtu nových zpráv</string>
     <string name="title_advanced_notify_summary">Zobrazit pouze souhrnné oznámení</string>
     <string name="title_advanced_notify_preview">Zobrazit náhled zprávy v oznámení</string>
     <string name="title_advanced_notify_actions">Akce oznámení</string>
@@ -300,10 +264,10 @@
     <string name="title_advanced_notify_action_flag">Hvězdička</string>
     <string name="title_advanced_notify_action_seen">Přečteno</string>
     <string name="title_advanced_notify_action_snooze">Odložit</string>
-    <string name="title_advanced_notify_remove">Odebrat oznámení nové zprávy při stisku oznámení</string>
+    <string name="title_advanced_notify_remove">Odebrat oznámení o nové zprávě při stisku oznámení</string>
     <string name="title_advanced_notify_clear">Odebrat oznámení nové zprávy při zobrazení seznamu zpráv</string>
     <string name="title_advanced_wearable_preview">Do nositelného zařízení posílat pouze oznámení s náhledem zprávy</string>
-    <string name="title_advanced_biometrics_notify">Zobrazit obsah oznámení při používání biometrického ověření</string>
+    <string name="title_advanced_biometrics_notify">Zobrazit obsah oznámení při použití biometrického ověření</string>
     <string name="title_advanced_light">Použít oznamovací LED</string>
     <string name="title_advanced_sound">Vybrat zvuk oznámení</string>
     <string name="title_advanced_tracking">Automaticky rozpoznat a zakázat sledovací obrázky</string>
@@ -529,7 +493,7 @@
     <string name="title_unflag">Odebrat hvězdičku</string>
     <string name="title_forward">Přeposlat</string>
     <string name="title_new_message">Nová zpráva</string>
-    <string name="title_editasnew">Upravit jako nové</string>
+    <string name="title_editasnew">Upravit jako novou</string>
     <string name="title_create_rule">Vytvořit pravidlo &#8230;</string>
     <string name="title_share">Sdílet</string>
     <string name="title_print">Tisk</string>
@@ -598,6 +562,7 @@
     <string name="title_ask_help">Pomozte vylepšit FairEmail</string>
     <string name="title_ask_reporting">Odeslat zprávy o chybách?</string>
     <string name="title_reporting_why">Zprávami o chybách pomůžete zlepšit FairEmail</string>
+    <string name="title_reply_hint">Stisk zdvojené šipky pod hlavičkou zprávy zobrazí nabídku pro odpovědět všem, přeposlat, atd.</string>
     <string name="title_ask_review">Prosím, ohodnoťte FairEmail</string>
     <string name="title_ask_review_rationale">        Již nějakou dobu FairEmail používáte.
         Vážil bych si, kdyby jste mohli FairEmail ohodnotit v Obchodě Play.
@@ -889,6 +854,8 @@
     <string name="title_enabled">Zapnuto</string>
     <string name="title_executing">Provádím</string>
     <string name="title_completed">Dokončeno</string>
+    <string name="title_clipboard_copy">Kopírovat do schránky</string>
+    <string name="title_clipboard_copied">Zkopírováno do schránky</string>
     <string name="title_ask_what">Zeptej se, co dělat</string>
     <string name="title_no_ask_again">Znovu se neptat</string>
     <string name="title_no_ask_for_again">Znovu nežádat pro %1$s</string>
@@ -911,7 +878,7 @@
     <string name="title_icalendar_decline">Odmítnout</string>
     <string name="title_icalendar_maybe">Nezávazně</string>
     <string name="title_icalendar_calendar">Kalendář</string>
-    <string name="title_try">Vyzkoušej FairEmail, e-mailový klient pro Android s otevřeným zdrojovým kódem, respektující soukromí</string>
+    <string name="title_try">Vyzkoušej FairEmail, e-mailový klient pro Android s otevřeným zdrojovým kódem respektující soukromí</string>
     <string name="title_pro_feature">Toto je Pro funkce</string>
     <string name="title_pro_list">Seznam Pro funkcí</string>
     <string name="title_pro_purchase">Koupit</string>
