@@ -55,12 +55,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
             android:text="10 kB"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/ibSave"
+            app:layout_constraintEnd_toStartOf="@+id/ivStatus"
             app:layout_constraintStart_toEndOf="@id/tvType"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivStatus"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ibSave"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/baseline_visibility_24" />
 
         <ImageButton
             android:id="@+id/ibSave"
