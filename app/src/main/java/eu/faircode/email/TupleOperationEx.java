@@ -48,6 +48,12 @@ public class TupleOperationEx extends EntityOperation {
     PartitionKey getPartitionKey(boolean offline) {
         PartitionKey key = new PartitionKey();
 
+        if (offline) {
+            // open/close folder is expensive
+            key.priority = this.priority + 10;
+            return key;
+        }
+
         if (FETCH.equals(name))
             try {
                 JSONArray jargs = new JSONArray(args);
@@ -61,9 +67,6 @@ public class TupleOperationEx extends EntityOperation {
 
         key.priority = this.priority;
         key.operation = this.name;
-
-        if (offline)
-            key.priority += 10;
 
         return key;
     }
