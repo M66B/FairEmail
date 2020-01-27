@@ -80,7 +80,7 @@ public class MailService implements AutoCloseable {
     static final int AUTH_TYPE_GMAIL = 2;
     static final int AUTH_TYPE_OAUTH = 3;
 
-    private final static int CHECK_TIMEOUT = 15 * 1000; // milliseconds
+    private final static int CHECK_TIMEOUT = 20 * 1000; // milliseconds
     private final static int CONNECT_TIMEOUT = 20 * 1000; // milliseconds
     private final static int WRITE_TIMEOUT = 60 * 1000; // milliseconds
     private final static int READ_TIMEOUT = 60 * 1000; // milliseconds
