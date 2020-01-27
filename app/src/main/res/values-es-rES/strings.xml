@@ -898,6 +898,8 @@
     <string name="title_enabled">Activado</string>
     <string name="title_executing">En ejecución</string>
     <string name="title_completed">Completado</string>
+    <string name="title_clipboard_copy">Copiar al portapapeles</string>
+    <string name="title_clipboard_copied">Copiado al portapapeles</string>
     <string name="title_ask_what">Preguntar qué hacer</string>
     <string name="title_no_ask_again">No volver a preguntar</string>
     <string name="title_no_ask_for_again">No volver a preguntar esto por %1$s</string>
