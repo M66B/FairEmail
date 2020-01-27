@@ -48,11 +48,15 @@ public class TupleOperationEx extends EntityOperation {
     PartitionKey getPartitionKey(boolean offline) {
         PartitionKey key = new PartitionKey();
 
+        key.time = this.created;
+
         if (offline) {
             // open/close folder is expensive
             key.priority = this.priority + 10;
             return key;
         }
+
+        key.priority = this.priority;
 
         if (FETCH.equals(name))
             try {
@@ -65,16 +69,20 @@ public class TupleOperationEx extends EntityOperation {
         else if (!MOVE.equals(name))
             key.id = "id:" + id;
 
-        key.priority = this.priority;
         key.operation = this.name;
 
         return key;
     }
 
     class PartitionKey {
-        private String id;
+        public long time;
         private int priority;
+        private String id;
         private String operation;
+
+        long getTime() {
+            return time;
+        }
 
         int getPriority() {
             return this.priority;
@@ -89,8 +97,8 @@ public class TupleOperationEx extends EntityOperation {
         public boolean equals(@Nullable Object obj) {
             if (obj instanceof PartitionKey) {
                 PartitionKey other = (PartitionKey) obj;
-                return (Objects.equals(this.id, other.id) &&
-                        this.priority == other.priority &&
+                return (this.priority == other.priority &&
+                        Objects.equals(this.id, other.id) &&
                         Objects.equals(this.operation, other.operation));
             } else
                 return false;
@@ -99,9 +107,9 @@ public class TupleOperationEx extends EntityOperation {
         @NonNull
         @Override
         public String toString() {
-            return (id == null ? "" : id) + ":" +
-                    priority + ":" +
-                    (operation == null ? "" : operation);
+            return (priority + ":" +
+                    (id == null ? "" : id) + ":" +
+                    (operation == null ? "" : operation));
         }
     }
 }

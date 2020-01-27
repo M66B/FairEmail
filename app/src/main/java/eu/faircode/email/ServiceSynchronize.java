@@ -1163,7 +1163,13 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                 public int compare(TupleOperationEx.PartitionKey k1, TupleOperationEx.PartitionKey k2) {
                                                     Integer p1 = k1.getPriority();
                                                     Integer p2 = k2.getPriority();
-                                                    return p1.compareTo(p2);
+                                                    int priority = p1.compareTo(p2);
+                                                    if (priority == 0) {
+                                                        Long t1 = k1.getTime();
+                                                        Long t2 = k2.getTime();
+                                                        return t1.compareTo(t2);
+                                                    } else
+                                                        return priority;
                                                 }
                                             });
 
