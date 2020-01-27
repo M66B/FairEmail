@@ -259,6 +259,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             "fbclid"
     ));
 
+    // https://www.iana.org/assignments/imap-jmap-keywords/imap-jmap-keywords.xhtml
+    private static final List<String> IMAP_KEYWORDS = Collections.unmodifiableList(Arrays.asList(
+            "$Phishing"
+    ));
+
     public class ViewHolder extends RecyclerView.ViewHolder implements
             View.OnKeyListener,
             View.OnClickListener,
@@ -863,8 +868,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             // Line 2
             tvSubject.setText(message.subject);
 
-            tvKeywords.setVisibility(message.keywords.length > 0 ? View.VISIBLE : View.GONE);
-            tvKeywords.setText(TextUtils.join(" ", message.keywords));
+            List<String> keywords = new ArrayList<>();
+            for (String keyword : message.keywords)
+                if (!keyword.startsWith("$") || IMAP_KEYWORDS.contains(keyword))
+                    keywords.add(keyword);
+
+            tvKeywords.setVisibility(keywords.size() > 0 ? View.VISIBLE : View.GONE);
+            tvKeywords.setText(TextUtils.join(" ", keywords));
 
             // Line 3
             int icon = (message.drafts > 0
