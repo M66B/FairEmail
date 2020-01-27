@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.Manifest;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -34,10 +35,15 @@ import androidx.constraintlayout.widget.Group;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 
 public class ActivityDSN extends ActivityBase {
+    private TextView tvHeaders;
+    private ContentLoadingProgressBar pbWait;
+    private Group grpReady;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,25 +51,35 @@ public class ActivityDSN extends ActivityBase {
         getSupportActionBar().setSubtitle("DSN");
         setContentView(R.layout.activity_dsn);
 
-        final TextView tvHeaders = findViewById(R.id.tvHeaders);
-        final ContentLoadingProgressBar pbWait = findViewById(R.id.pbWait);
-        final Group grpReady = findViewById(R.id.grpReady);
+        tvHeaders = findViewById(R.id.tvHeaders);
+        pbWait = findViewById(R.id.pbWait);
+        grpReady = findViewById(R.id.grpReady);
 
         grpReady.setVisibility(View.GONE);
 
-        Uri uri = getIntent().getData();
-        if (uri == null) {
-            pbWait.setVisibility(View.GONE);
-            return;
-        } else
-            pbWait.setVisibility(View.VISIBLE);
+        load();
+    }
 
-        Log.i("Disposition uri=" + uri);
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+        load();
+    }
+
+    private void load() {
+        Uri uri = getIntent().getData();
+        Log.i("DSN uri=" + uri);
 
         Bundle args = new Bundle();
         args.putParcelable("uri", uri);
 
         new SimpleTask<Result>() {
+            @Override
+            protected void onPreExecute(Bundle args) {
+                pbWait.setVisibility(View.VISIBLE);
+            }
+
             @Override
             protected void onPostExecute(Bundle args) {
                 pbWait.setVisibility(View.GONE);
@@ -72,6 +88,9 @@ public class ActivityDSN extends ActivityBase {
             @Override
             protected Result onExecute(Context context, Bundle args) throws Throwable {
                 Uri uri = args.getParcelable("uri");
+
+                if (uri == null)
+                    throw new FileNotFoundException();
 
                 if (!"content".equals(uri.getScheme()) &&
                         !Helper.hasPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE)) {
