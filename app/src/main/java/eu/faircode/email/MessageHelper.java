@@ -751,7 +751,8 @@ public class MessageHelper {
             int sp = header.indexOf(" ");
             if (sp >= 0)
                 header = header.substring(0, sp); // "2 (High)"
-            header = header.trim();
+
+            header = header.replaceAll("[^A-Za-z0-9\\-]", "");
         }
 
         if ("high".equalsIgnoreCase(header) ||
