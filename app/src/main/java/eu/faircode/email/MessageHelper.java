@@ -484,7 +484,7 @@ public class MessageHelper {
 
         // When sending message
         if (identity != null)
-            document.select("div[fairemail=signature],div[fairemail=reference]").removeAttr("fairemail");
+            document.select("div[fairemail=reference],div[fairemail=signature]").removeAttr("fairemail");
 
         // multipart/mixed
         //   multipart/related

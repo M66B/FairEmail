@@ -3178,9 +3178,9 @@ public class FragmentCompose extends FragmentBase {
                         File file = data.draft.getFile(context);
 
                         Document doc = JsoupEx.parse(Helper.readText(file));
-                        doc.select("div[fairemail=signature]").remove();
                         Elements ref = doc.select("div[fairemail=reference]");
                         ref.remove();
+                        doc.select("div[fairemail=signature]").remove();
 
                         File refFile = data.draft.getRefFile(context);
                         if (refFile.exists()) {
@@ -3190,13 +3190,13 @@ public class FragmentCompose extends FragmentBase {
 
                         Document document = HtmlHelper.sanitize(context, doc.html(), true, false);
 
+                        for (Element e : ref)
+                            document.body().appendChild(e);
+
                         if (data.draft.identity != null) {
                             EntityIdentity identity = db.identity().getIdentity(data.draft.identity);
                             addSignature(context, document, data.draft, identity);
                         }
-
-                        for (Element e : ref)
-                            document.body().appendChild(e);
 
                         String html = JsoupEx.parse(document.html()).html();
                         Helper.writeText(file, html);
@@ -3579,26 +3579,26 @@ public class FragmentCompose extends FragmentBase {
                             (extras != null && extras.containsKey("html"))) {
                         dirty = true;
 
-                        doc.select("div[fairemail=signature]").remove();
                         Elements ref = doc.select("div[fairemail=reference]");
                         ref.remove();
+                        doc.select("div[fairemail=signature]").remove();
 
                         // Get saved body
                         Document d;
                         if (extras != null && extras.containsKey("html")) {
                             // Save current revision
                             Document c = JsoupEx.parse(body);
-                            addSignature(context, c, draft, identity);
                             for (Element e : ref)
                                 c.body().appendChild(e);
+                            addSignature(context, c, draft, identity);
                             Helper.writeText(draft.getFile(context, draft.revision), c.html());
 
                             d = JsoupEx.parse(extras.getString("html"));
                         } else {
                             d = JsoupEx.parse(body);
-                            addSignature(context, d, draft, identity);
                             for (Element e : ref)
                                 d.body().appendChild(e);
+                            addSignature(context, d, draft, identity);
                         }
 
                         body = d.html();
@@ -3679,8 +3679,9 @@ public class FragmentCompose extends FragmentBase {
                                 for (String text : Helper.getStrings(context, R.string.title_attachment_keywords))
                                     keywords.addAll(Arrays.asList(text.split(",")));
 
-                                d.select("div[fairemail=signature]").remove();
                                 d.select("div[fairemail=reference]").remove();
+                                d.select("div[fairemail=signature]").remove();
+
                                 String text = d.text();
                                 for (String keyword : keywords)
                                     if (text.matches("(?si).*\\b" + Pattern.quote(keyword.trim()) + "\\b.*")) {
@@ -3954,9 +3955,9 @@ public class FragmentCompose extends FragmentBase {
                     throw new IllegalArgumentException(context.getString(R.string.title_no_body));
 
                 Document doc = JsoupEx.parse(Helper.readText(draft.getFile(context)));
-                doc.select("div[fairemail=signature]").remove();
                 Elements ref = doc.select("div[fairemail=reference]");
                 ref.remove();
+                doc.select("div[fairemail=signature]").remove();
 
                 Spanned spannedBody = HtmlHelper.fromHtml(doc.html(), new Html.ImageGetter() {
                     @Override
