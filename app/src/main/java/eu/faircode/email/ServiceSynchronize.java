@@ -1150,8 +1150,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                 }
                                             });
 
+                                            boolean offline = (mapFolders.get(folder) == null);
                                             for (TupleOperationEx op : submit) {
-                                                TupleOperationEx.PartitionKey key = op.getPartitionKey();
+                                                TupleOperationEx.PartitionKey key = op.getPartitionKey(offline);
                                                 if (!partitions.containsKey(key))
                                                     partitions.put(key, new ArrayList<>());
                                                 partitions.get(key).add(op);

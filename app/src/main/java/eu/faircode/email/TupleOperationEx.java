@@ -43,11 +43,15 @@ public class TupleOperationEx extends EntityOperation {
             return false;
     }
 
-    PartitionKey getPartitionKey() {
+    PartitionKey getPartitionKey(boolean offline) {
         PartitionKey key = new PartitionKey();
-        key.id = (MOVE.equals(name) || FETCH.equals(name) ? 0 : this.id);
-        key.priority = this.priority;
-        key.operation = this.name;
+        if (offline)
+            key.priority = this.priority + 10;
+        else {
+            key.id = (MOVE.equals(name) || FETCH.equals(name) ? 0 : this.id);
+            key.priority = this.priority;
+            key.operation = this.name;
+        }
         return key;
     }
 
@@ -72,7 +76,7 @@ public class TupleOperationEx extends EntityOperation {
                 PartitionKey other = (PartitionKey) obj;
                 return (this.id == other.id &&
                         this.priority == other.priority &&
-                        this.operation.equals(other.operation));
+                        Objects.equals(this.operation, other.operation));
             } else
                 return false;
         }
