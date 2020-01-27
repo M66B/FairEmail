@@ -82,6 +82,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private Spinner spFontSizeSubject;
     private SwitchCompat swSubjectItalic;
     private Spinner spSubjectEllipsize;
+    private SwitchCompat swKeywords;
     private SwitchCompat swFlags;
     private SwitchCompat swFlagsBackground;
     private SwitchCompat swPreview;
@@ -102,7 +103,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "theme", "landscape", "landscape3", "startup", "cards", "indentation", "date", "threading", "highlight_unread", "color_stripe",
             "avatars", "gravatars", "generated_icons", "identicons", "circular", "saturation", "brightness", "threshold",
             "name_email", "distinguish_contacts", "authentication",
-            "subject_top", "font_size_sender", "font_size_subject", "subject_italic", "subject_ellipsize",
+            "subject_top", "font_size_sender", "font_size_subject", "subject_italic", "subject_ellipsize", "keywords_header",
             "flags", "flags_background", "preview", "preview_italic", "preview_lines", "addresses", "attachments_alt",
             "contrast", "monospaced", "text_color",
             "inline_images", "collapse_quotes", "seekbar", "actionbar",
@@ -148,6 +149,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         spFontSizeSubject = view.findViewById(R.id.spFontSizeSubject);
         swSubjectItalic = view.findViewById(R.id.swSubjectItalic);
         spSubjectEllipsize = view.findViewById(R.id.spSubjectEllipsize);
+        swKeywords = view.findViewById(R.id.swKeywords);
         swFlags = view.findViewById(R.id.swFlags);
         swFlagsBackground = view.findViewById(R.id.swFlagsBackground);
         swPreview = view.findViewById(R.id.swPreview);
@@ -434,6 +436,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
+        swKeywords.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("keywords_header", checked).apply();
+            }
+        });
+
         swFlags.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -654,6 +663,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
                 break;
             }
 
+        swKeywords.setChecked(prefs.getBoolean("keywords_header", false));
         swFlags.setChecked(prefs.getBoolean("flags", true));
         swFlagsBackground.setChecked(prefs.getBoolean("flags_background", false));
         swPreview.setChecked(prefs.getBoolean("preview", false));

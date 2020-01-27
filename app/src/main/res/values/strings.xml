@@ -306,6 +306,7 @@
     <string name="title_advanced_subject_top">Show subject above sender</string>
     <string name="title_advanced_subject_italic">Show subject in italics</string>
     <string name="title_advanced_subject_elipsed">When needed, shorten the subject</string>
+    <string name="title_advanced_keywords">Show keywords in message header</string>
     <string name="title_advanced_flags">Show stars</string>
     <string name="title_advanced_flags_background">Show colored background instead of colored stars</string>
     <string name="title_advanced_preview">Show message preview</string>

@@ -209,6 +209,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean subject_italic;
     private String subject_ellipsize;
 
+    private boolean keywords_header;
     private boolean flags;
     private boolean flags_background;
     private boolean preview;
@@ -881,7 +882,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     keywords.add(keyword);
             }
 
-            tvKeywords.setVisibility(keywords.size() > 0 ? View.VISIBLE : View.GONE);
+            tvKeywords.setVisibility(keywords_header && keywords.size() > 0 ? View.VISIBLE : View.GONE);
             tvKeywords.setText(TextUtils.join(" ", keywords));
 
             // Line 3
@@ -4085,6 +4086,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         this.subject_italic = prefs.getBoolean("subject_italic", true);
         this.subject_ellipsize = prefs.getString("subject_ellipsize", "middle");
+        this.keywords_header = prefs.getBoolean("keywords_header", false);
         this.flags = prefs.getBoolean("flags", true);
         this.flags_background = prefs.getBoolean("flags_background", false);
         this.preview = prefs.getBoolean("preview", false);
