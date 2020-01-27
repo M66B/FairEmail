@@ -22,6 +22,8 @@ package eu.faircode.email;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import org.json.JSONArray;
+
 import java.util.Objects;
 
 public class TupleOperationEx extends EntityOperation {
@@ -45,20 +47,30 @@ public class TupleOperationEx extends EntityOperation {
 
     PartitionKey getPartitionKey(boolean offline) {
         PartitionKey key = new PartitionKey();
+
+        if (FETCH.equals(name))
+            try {
+                JSONArray jargs = new JSONArray(args);
+                long uid = jargs.getLong(0);
+                key.id = "uid:" + uid;
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
+        else if (!MOVE.equals(name))
+            key.id = "id:" + id;
+
+        key.priority = this.priority;
+        key.operation = this.name;
+
         if (offline)
-            key.priority = this.priority + 10;
-        else {
-            key.id = (MOVE.equals(name) || FETCH.equals(name) ? 0 : this.id);
-            key.priority = this.priority;
-            key.operation = this.name;
-        }
+            key.priority += 10;
+
         return key;
     }
 
     class PartitionKey {
-        private long id;
+        private String id;
         private int priority;
-        @NonNull
         private String operation;
 
         int getPriority() {
@@ -74,7 +86,7 @@ public class TupleOperationEx extends EntityOperation {
         public boolean equals(@Nullable Object obj) {
             if (obj instanceof PartitionKey) {
                 PartitionKey other = (PartitionKey) obj;
-                return (this.id == other.id &&
+                return (Objects.equals(this.id, other.id) &&
                         this.priority == other.priority &&
                         Objects.equals(this.operation, other.operation));
             } else
@@ -84,7 +96,9 @@ public class TupleOperationEx extends EntityOperation {
         @NonNull
         @Override
         public String toString() {
-            return operation + ":" + priority + ":" + id;
+            return (id == null ? "" : id) + ":" +
+                    priority + ":" +
+                    (operation == null ? "" : operation);
         }
     }
 }
