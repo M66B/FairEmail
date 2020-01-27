@@ -27,6 +27,7 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.webkit.CookieManager;
 
 import androidx.lifecycle.Observer;
@@ -236,6 +237,9 @@ public class ApplicationEx extends Application {
             editor.remove("folder_actions");
             editor.remove("folder_sync");
         }
+
+        if (BuildConfig.DEBUG)
+            editor.putInt("keyword." + "$Phishing", Color.parseColor("#FFA500"));
 
         if (version < BuildConfig.VERSION_CODE)
             editor.putInt("previous_version", version);

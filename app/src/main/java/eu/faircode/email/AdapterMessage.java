@@ -63,6 +63,7 @@ import android.text.format.DateUtils;
 import android.text.method.ArrowKeyMovementMethod;
 import android.text.method.LinkMovementMethod;
 import android.text.style.DynamicDrawableSpan;
+import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
 import android.text.style.QuoteSpan;
 import android.text.style.URLSpan;
@@ -179,6 +180,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private Context context;
     private LifecycleOwner owner;
     private LayoutInflater inflater;
+    private SharedPreferences prefs;
     private boolean accessibility;
 
     private boolean suitable;
@@ -874,16 +876,29 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             // Line 2
             tvSubject.setText(message.subject);
 
-            List<String> keywords = new ArrayList<>();
+            SpannableStringBuilder keywords = new SpannableStringBuilder();
             for (String keyword : message.keywords) {
                 String k = keyword.toLowerCase();
                 if (IMAP_KEYWORDS_WHITELIST.contains(k) ||
-                        !(k.startsWith("$") || IMAP_KEYWORDS_BLACKLIST.contains(k)))
-                    keywords.add(keyword);
+                        !(k.startsWith("$") || IMAP_KEYWORDS_BLACKLIST.contains(k))) {
+                    if (keywords.length() > 0)
+                        keywords.append(", ");
+                    keywords.append(keyword);
+
+                    String key = "keyword." + keyword;
+                    if (prefs.contains(key)) {
+                        int len = keywords.length();
+                        int color = prefs.getInt(key, textColorSecondary);
+                        keywords.setSpan(
+                                new ForegroundColorSpan(color),
+                                len - keyword.length(), len,
+                                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    }
+                }
             }
 
-            tvKeywords.setVisibility(keywords_header && keywords.size() > 0 ? View.VISIBLE : View.GONE);
-            tvKeywords.setText(TextUtils.join(" ", keywords));
+            tvKeywords.setVisibility(keywords_header && keywords.length() > 0 ? View.VISIBLE : View.GONE);
+            tvKeywords.setText(keywords);
 
             // Line 3
             int icon = (message.drafts > 0
@@ -1430,7 +1445,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (!message.content)
                 return;
 
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             if (message.from != null)
                 for (Address sender : message.from) {
                     String from = ((InternetAddress) sender).getAddress();
@@ -1635,7 +1649,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         if (inline || show_images)
                             HtmlHelper.embedInlineImages(context, message.id, document);
 
-                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                         boolean disable_tracking = prefs.getBoolean("disable_tracking", true);
                         if (disable_tracking)
                             HtmlHelper.removeTrackingPixels(context, document);
@@ -1754,7 +1767,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     // Show attachments
                     cowner.start();
 
-                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                     boolean auto_decrypt = prefs.getBoolean("auto_decrypt", false);
                     if (auto_decrypt &&
                             (EntityMessage.PGP_SIGNENCRYPT.equals(message.encrypt) ||
@@ -2266,7 +2278,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             .putExtra("id", message.id)
                             .putExtra("found", viewType == ViewType.SEARCH);
 
-                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                     boolean doubletap = prefs.getBoolean("doubletap", false);
 
                     if (!doubletap || message.folderReadOnly || EntityFolder.OUTBOX.equals(message.folderType)) {
@@ -2766,8 +2777,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onShow(final TupleMessageEx message, boolean full) {
-            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-
             boolean current = properties.getValue(full ? "full" : "images", message.id);
             boolean asked = properties.getValue(full ? "full_asked" : "images_asked", message.id);
             if (current || asked) {
@@ -3673,7 +3682,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             args.putLong("id", message.id);
             args.putBoolean("headers", properties.getValue("headers", message.id));
 
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             if (prefs.getBoolean("print_html_confirmed", false)) {
                 Intent data = new Intent();
                 data.putExtra("args", args);
@@ -4034,6 +4042,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.context = parentFragment.getContext();
         this.owner = parentFragment.getViewLifecycleOwner();
         this.inflater = LayoutInflater.from(context);
+        this.prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
         AccessibilityManager am = (AccessibilityManager) context.getSystemService(Context.ACCESSIBILITY_SERVICE);
         this.accessibility = (am != null && am.isEnabled());
@@ -4051,7 +4060,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.textColorPrimary = Helper.resolveColor(context, android.R.attr.textColorPrimary);
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean highlight_unread = prefs.getBoolean("highlight_unread", false);
 
         this.colorUnread = Helper.resolveColor(context, highlight_unread ? R.attr.colorUnreadHighlight : R.attr.colorUnread);
