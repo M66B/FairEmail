@@ -64,7 +64,6 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.TreeMap;
 import java.util.concurrent.ExecutorService;
 
 import javax.mail.AuthenticationFailedException;
@@ -1122,16 +1121,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                                 db.operation().liveOperations(folder.id).observe(cowner, new Observer<List<TupleOperationEx>>() {
                                     private List<Long> handling = new ArrayList<>();
-
-                                    private final Map<TupleOperationEx.PartitionKey, List<TupleOperationEx>> partitions =
-                                            new TreeMap<>(new Comparator<TupleOperationEx.PartitionKey>() {
-                                                @Override
-                                                public int compare(TupleOperationEx.PartitionKey k1, TupleOperationEx.PartitionKey k2) {
-                                                    Integer p1 = k1.getPriority();
-                                                    Integer p2 = k2.getPriority();
-                                                    return p1.compareTo(p2);
-                                                }
-                                            });
+                                    private final Map<TupleOperationEx.PartitionKey, List<TupleOperationEx>> partitions = new HashMap<>();
 
                                     private final PowerManager.WakeLock wlFolder = pm.newWakeLock(
                                             PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":folder." + folder.id);
@@ -1167,6 +1157,15 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                     partitions.get(key).add(op);
                                                 }
                                             }
+
+                                            Collections.sort(keys, new Comparator<TupleOperationEx.PartitionKey>() {
+                                                @Override
+                                                public int compare(TupleOperationEx.PartitionKey k1, TupleOperationEx.PartitionKey k2) {
+                                                    Integer p1 = k1.getPriority();
+                                                    Integer p2 = k2.getPriority();
+                                                    return p1.compareTo(p2);
+                                                }
+                                            });
 
                                             for (TupleOperationEx.PartitionKey key : keys) {
                                                 synchronized (partitions) {
