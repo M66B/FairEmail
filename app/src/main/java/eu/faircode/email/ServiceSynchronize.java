@@ -1469,8 +1469,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private boolean isMaxConnections(String message) {
         return (message != null &&
                 (message.contains("Too many simultaneous connections") /* Gmail */ ||
-                        message.contains("Maximum number of connections") /* Dovecot */ ||
-                        message.contains("Too many concurrent connections") /* to this mailbox */));
+                        message.contains("Maximum number of connections") /* ... from user+IP exceeded */ /* Dovecot */ ||
+                        message.contains("Too many concurrent connections") /* ... to this mailbox */));
     }
 
     private ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {
