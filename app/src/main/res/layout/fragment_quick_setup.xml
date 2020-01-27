@@ -160,7 +160,7 @@
             android:text="provider instructions"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnHelp" />
+            app:layout_constraintTop_toBottomOf="@id/btnSupport" />
 
         <TextView
             android:id="@+id/tvImapTitle"
