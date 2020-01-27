@@ -254,6 +254,7 @@
     <string name="title_advanced_subject_top">Tárgy kijelzése a küldő fölött</string>
     <string name="title_advanced_subject_italic">Tárgy kijelzése dőlt betűvel</string>
     <string name="title_advanced_subject_elipsed">Tárgy rövidítése szükség esetén</string>
+    <string name="title_advanced_keywords">Kulcsszavak megjelenítése az üzenetek fejlécében</string>
     <string name="title_advanced_flags">Csillagok kijelzése</string>
     <string name="title_advanced_flags_background">Színes háttér kijelzése színes csillagok helyett</string>
     <string name="title_advanced_preview">Üzenet előnézetének kijelzése</string>

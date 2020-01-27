@@ -219,6 +219,7 @@
     <string name="title_advanced_prefix_once">Prefiks emne bare en gang på svar eller videresending</string>
     <string name="title_advanced_extended_reply">Bruk utvidet svar/videresendt overskrift</string>
     <string name="title_advanced_quote_reply">Sitat svarte tekst</string>
+    <string name="title_advanced_signature_end">Legg til signatur etter sitert/videresendt melding</string>
     <string name="title_advanced_plain_only">Send bare vanlig tekst som standard</string>
     <string name="title_advanced_usenet_signature">Usenet signaturkonvensjon</string>
     <string name="title_advanced_resize_images">Endre størrelse på innebygde bilder automatisk</string>
@@ -258,6 +259,7 @@
     <string name="title_advanced_subject_top">Vis emne over avsender</string>
     <string name="title_advanced_subject_italic">Vis emnet i kursivt</string>
     <string name="title_advanced_subject_elipsed">Forkorte emnet ved behov</string>
+    <string name="title_advanced_keywords">Vis nøkkelord i meldingshode</string>
     <string name="title_advanced_flags">Vis stjerner</string>
     <string name="title_advanced_flags_background">Vis farget bakgrunn i stedet for fargede stjerner</string>
     <string name="title_advanced_preview">Vis forhåndsvisning av melding</string>

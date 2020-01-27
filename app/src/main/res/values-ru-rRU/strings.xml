@@ -138,7 +138,7 @@
     <string name="title_setup_quick_imap">IMAP-сервер для получения сообщений</string>
     <string name="title_setup_quick_smtp">SMTP-сервер для отправки сообщений</string>
     <string name="title_setup_wizard">Мастер</string>
-    <string name="title_setup_wizard_multiple">Мастер установки может быть использован неоднократно для настройки разных аккаунтов</string>
+    <string name="title_setup_wizard_multiple">Мастер установки может быть использован неоднократно для настройки разных учётных записей</string>
     <string name="title_setup_wizard_remark">Переход \"назад\" приводит в папку \"Входящие\"</string>
     <string name="title_setup_other">Другой провайдер</string>
     <string name="title_setup_gmail_support">Авторизация учётных записей Google будет работать только в официальных версиях, так как Android проверяет подпись приложения</string>
@@ -280,6 +280,7 @@
     <string name="title_advanced_subject_top">Показывать тему выше отправителя</string>
     <string name="title_advanced_subject_italic">Показывать тему курсивом</string>
     <string name="title_advanced_subject_elipsed">При необходимости сокращать тему</string>
+    <string name="title_advanced_keywords">Показывать ключевые слова в заголовке сообщения</string>
     <string name="title_advanced_flags">Показывать метки избранного</string>
     <string name="title_advanced_flags_background">Цветной фон вместо цветных меток избранного</string>
     <string name="title_advanced_preview">Показывать предпросмотр сообщения</string>

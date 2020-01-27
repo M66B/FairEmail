@@ -214,6 +214,7 @@
     <string name="title_advanced_subject_top">Zobrazit předmět nad odesílatelem</string>
     <string name="title_advanced_subject_italic">Zobrazit předmět kurzívou</string>
     <string name="title_advanced_subject_elipsed">V případě potřeby zestručnit předmět</string>
+    <string name="title_advanced_keywords">Zobrazit klíčová slova v hlavičce zprávy</string>
     <string name="title_advanced_flags">Zobrazit hvězdičky</string>
     <string name="title_advanced_flags_background">Obarvit pozadí, namísto barevných hvězdiček</string>
     <string name="title_advanced_preview">Zobrazit náhled zprávy</string>

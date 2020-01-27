@@ -219,6 +219,7 @@
     <string name="title_advanced_prefix_once">Ne préfixer l\'objet qu\'une seule fois lors de la réponse ou du transfert</string>
     <string name="title_advanced_extended_reply">Utiliser l\'en-tête étendu de réponse/transfert</string>
     <string name="title_advanced_quote_reply">Citer le texte répondu</string>
+    <string name="title_advanced_signature_end">Ajouter la signature après le message cité/transféré</string>
     <string name="title_advanced_plain_only">Envoyer le texte brut uniquement par défaut</string>
     <string name="title_advanced_usenet_signature">Utiliser la convention de signature Usenet</string>
     <string name="title_advanced_resize_images">Redimensionner automatiquement les images incluses</string>
@@ -258,6 +259,7 @@
     <string name="title_advanced_subject_top">Afficher l\'objet au dessus de l\'expéditeur</string>
     <string name="title_advanced_subject_italic">Afficher l\'objet en italiques</string>
     <string name="title_advanced_subject_elipsed">Raccourcir l\'objet si nécessaire</string>
+    <string name="title_advanced_keywords">Afficher les mots-clés dans l\'en-tête du message</string>
     <string name="title_advanced_flags">Afficher les messages suivis</string>
     <string name="title_advanced_flags_background">Afficher un fond coloré au lieu des étoiles colorées</string>
     <string name="title_advanced_preview">Afficher l\'aperçu du message</string>
@@ -563,8 +565,8 @@
     <string name="title_snooze">Reporter&#8230;</string>
     <string name="title_archive">Archiver</string>
     <string name="title_reply">Répondre</string>
-    <string name="title_reply_to_sender">Expéditeur</string>
-    <string name="title_reply_to_all">Tous</string>
+    <string name="title_reply_to_sender">Répondre à l\'expéditeur</string>
+    <string name="title_reply_to_all">Répondre à tous</string>
     <string name="title_reply_list">Liste</string>
     <string name="title_reply_receipt">Accusé de réception</string>
     <string name="title_reply_template">Modèle</string>

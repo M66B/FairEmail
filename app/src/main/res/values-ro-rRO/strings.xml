@@ -903,6 +903,8 @@
     <string name="title_enabled">Activat</string>
     <string name="title_executing">Se execută</string>
     <string name="title_completed">Finalizat</string>
+    <string name="title_clipboard_copy">Copiază în memorie</string>
+    <string name="title_clipboard_copied">Copiat în memorie</string>
     <string name="title_ask_what">Întreabă ce să faci</string>
     <string name="title_no_ask_again">Nu mai întreba din nou</string>
     <string name="title_no_ask_for_again">Nu mai întreba din nou pentru %1$s</string>

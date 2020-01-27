@@ -258,6 +258,7 @@
     <string name="title_advanced_subject_top">Gönderenin üzerinde konuyu göster</string>
     <string name="title_advanced_subject_italic">Konuyu eğik yazı ile göster</string>
     <string name="title_advanced_subject_elipsed">Gerektiğinde konuyu kısaltın</string>
+    <string name="title_advanced_keywords">Mesaj başlığında anahtar kelimeleri göster</string>
     <string name="title_advanced_flags">Yıldızları göster</string>
     <string name="title_advanced_flags_background">Renkli yıldızlar yerine renkli arka plan göster</string>
     <string name="title_advanced_preview">İleti önizlemesini göster</string>
