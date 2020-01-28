@@ -273,7 +273,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             "$NotJunk".toLowerCase(),
             "$recent".toLowerCase(),
             "DTAG_document".toLowerCase(),
-            "DTAG_image".toLowerCase()
+            "DTAG_image".toLowerCase(),
+            "$X-Me-Annot-1".toLowerCase(),
+            "$X-Me-Annot-2".toLowerCase()
     ));
 
     public class ViewHolder extends RecyclerView.ViewHolder implements
