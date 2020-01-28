@@ -655,24 +655,6 @@ class Core {
 
         Flags flags = new Flags(keyword);
         imessage.setFlags(flags, set);
-
-        try {
-            db.beginTransaction();
-
-            message = db.message().getMessage(message.id);
-
-            List<String> keywords = new ArrayList<>(Arrays.asList(message.keywords));
-            while (keywords.remove(keyword))
-                ;
-            if (set)
-                keywords.add(keyword);
-
-            db.message().setMessageKeywords(message.id, DB.Converters.fromStringArray(keywords.toArray(new String[0])));
-
-            db.setTransactionSuccessful();
-        } finally {
-            db.endTransaction();
-        }
     }
 
     private static void onAdd(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPStore istore, IMAPFolder ifolder) throws MessagingException, IOException {

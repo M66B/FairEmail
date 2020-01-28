@@ -35,8 +35,12 @@ import org.json.JSONException;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -144,6 +148,19 @@ public class EntityOperation {
                     queue(context, similar.account, similar.folder, similar.id, name, jargs);
                 }
                 return;
+
+            } else if (KEYWORD.equals(name)) {
+                String keyword = jargs.getString(0);
+                boolean set = jargs.getBoolean(1);
+
+                List<String> keywords = new ArrayList<>(Arrays.asList(message.keywords));
+                while (keywords.remove(keyword))
+                    ;
+                if (set)
+                    keywords.add(keyword);
+                Collections.sort(keywords);
+
+                db.message().setMessageKeywords(message.id, DB.Converters.fromStringArray(keywords.toArray(new String[0])));
 
             } else if (MOVE.equals(name)) {
                 // Parameters:

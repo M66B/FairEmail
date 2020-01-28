@@ -95,14 +95,14 @@ public class AdapterKeyword extends RecyclerView.Adapter<AdapterKeyword.ViewHold
             Bundle args = new Bundle();
             args.putLong("id", id);
             args.putString("name", keyword.name);
-            args.putBoolean("selected", keyword.selected);
+            args.putBoolean("set", keyword.selected);
 
             new SimpleTask<Void>() {
                 @Override
                 protected Void onExecute(Context context, Bundle args) {
                     long id = args.getLong("id");
                     String name = args.getString("name");
-                    boolean selected = args.getBoolean("selected");
+                    boolean set = args.getBoolean("set");
 
                     DB db = DB.getInstance(context);
 
@@ -110,7 +110,7 @@ public class AdapterKeyword extends RecyclerView.Adapter<AdapterKeyword.ViewHold
                     if (message == null)
                         return null;
 
-                    EntityOperation.queue(context, message, EntityOperation.KEYWORD, name, selected);
+                    EntityOperation.queue(context, message, EntityOperation.KEYWORD, name, set);
 
                     return null;
                 }
