@@ -2689,7 +2689,7 @@ This requires a compatible audio recorder app to be installed.
 In particular [this common intent](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media.html#RECORD_SOUND_ACTION)
 needs to be supported.
 
-For example [this audio recorder](https://play.google.com/store/apps/details?id=com.sonymobile.androidapp.audiorecorder) is compatible.
+For example [this audio recorder](https://f-droid.org/app/com.github.axet.audiorecorder) is compatible.
 
 Voice notes will automatically be attached.
 
