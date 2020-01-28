@@ -3048,7 +3048,7 @@ public class FragmentCompose extends FragmentBase {
                             boolean quote_reply = prefs.getBoolean("quote_reply", true);
                             boolean quote = (quote_reply && ("reply".equals(action) || "reply_all".equals(action)));
 
-                            e.tagName(quote ? "blockquote" : "div");
+                            e.tagName(quote ? "blockquote" : "p");
                             div.appendChild(e);
 
                             document.body().appendChild(div);
