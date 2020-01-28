@@ -662,13 +662,10 @@ class Core {
             message = db.message().getMessage(message.id);
 
             List<String> keywords = new ArrayList<>(Arrays.asList(message.keywords));
-            if (set) {
-                if (!keywords.contains(keyword))
-                    keywords.add(keyword);
-            } else {
-                while (keywords.remove(keyword))
-                    ;
-            }
+            while (keywords.remove(keyword))
+                ;
+            if (set)
+                keywords.add(keyword);
 
             db.message().setMessageKeywords(message.id, DB.Converters.fromStringArray(keywords.toArray(new String[0])));
 
