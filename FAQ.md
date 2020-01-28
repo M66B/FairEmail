@@ -1527,7 +1527,7 @@ The following authentication methods are supported and used in this order:
 * LOGIN
 * PLAIN
 * CRAM-MD5
-* XOAUTH2 ([Gmail](https://developers.google.com/gmail/imap/xoauth2-protocol), Yandex)
+* XOAUTH2 ([Gmail](https://developers.google.com/gmail/imap/xoauth2-protocol), [Yandex](https://tech.yandex.com/oauth/))
 * NTLM (untested)
 
 SASL authentication methods, besides CRAM-MD5, are not supported
