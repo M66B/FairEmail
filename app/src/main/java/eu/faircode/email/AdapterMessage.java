@@ -886,7 +886,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     String k = message.keywords[i].toLowerCase();
                     if (!IMAP_KEYWORDS_BLACKLIST.contains(k)) {
                         if (keywords.length() > 0)
-                            keywords.append(", ");
+                            keywords.append(" ");
 
                         keywords.append(message.keywords[i]);
 
@@ -4970,7 +4970,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             return new AlertDialog.Builder(getContext())
                     .setTitle(R.string.title_manage_keywords)
                     .setView(dview)
-                    .setNegativeButton(android.R.string.cancel, null)
+                    .setPositiveButton(android.R.string.ok, null)
                     .create();
         }
     }

@@ -665,8 +665,11 @@ class Core {
             if (set) {
                 if (!keywords.contains(keyword))
                     keywords.add(keyword);
-            } else
-                keywords.remove(keyword);
+            } else {
+                while (keywords.remove(keyword))
+                    ;
+            }
+
             db.message().setMessageKeywords(message.id, DB.Converters.fromStringArray(keywords.toArray(new String[0])));
 
             db.setTransactionSuccessful();

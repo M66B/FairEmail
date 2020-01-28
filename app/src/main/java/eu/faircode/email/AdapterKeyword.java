@@ -23,7 +23,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,7 +41,6 @@ import com.flask.colorpicker.builder.ColorPickerClickListener;
 import com.flask.colorpicker.builder.ColorPickerDialogBuilder;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class AdapterKeyword extends RecyclerView.Adapter<AdapterKeyword.ViewHolder> {
@@ -96,14 +94,14 @@ public class AdapterKeyword extends RecyclerView.Adapter<AdapterKeyword.ViewHold
 
             Bundle args = new Bundle();
             args.putLong("id", id);
-            args.putString("keyword", keyword.name);
+            args.putString("name", keyword.name);
             args.putBoolean("selected", keyword.selected);
 
             new SimpleTask<Void>() {
                 @Override
                 protected Void onExecute(Context context, Bundle args) {
                     long id = args.getLong("id");
-                    String keyword = args.getString("keyword");
+                    String name = args.getString("name");
                     boolean selected = args.getBoolean("selected");
 
                     DB db = DB.getInstance(context);
@@ -112,13 +110,7 @@ public class AdapterKeyword extends RecyclerView.Adapter<AdapterKeyword.ViewHold
                     if (message == null)
                         return null;
 
-                    List<String> keywords = new ArrayList<>(Arrays.asList(message.keywords));
-                    if (selected)
-                        keywords.add(keyword);
-                    else
-                        keywords.remove(keyword);
-
-                    db.message().setMessageKeywords(message.id, TextUtils.join(" ", keywords));
+                    EntityOperation.queue(context, message, EntityOperation.KEYWORD, name, selected);
 
                     return null;
                 }
@@ -192,8 +184,8 @@ public class AdapterKeyword extends RecyclerView.Adapter<AdapterKeyword.ViewHold
                     try {
                         db.beginTransaction();
 
-                        db.message().setMessageKeywords(message.id, "");
-                        db.message().setMessageKeywords(message.id, TextUtils.join(" ", message.keywords));
+                        db.message().setMessageKeywords(message.id, DB.Converters.fromStringArray(null));
+                        db.message().setMessageKeywords(message.id, DB.Converters.fromStringArray(message.keywords));
 
                         db.setTransactionSuccessful();
                     } finally {
