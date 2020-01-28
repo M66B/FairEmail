@@ -266,6 +266,7 @@ public class EntityIdentity {
                     Objects.equals(this.replyto, other.replyto) &&
                     Objects.equals(this.bcc, other.bcc) &&
                     Objects.equals(this.sign_key, other.sign_key) &&
+                    Objects.equals(this.sign_key_alias, other.sign_key_alias) &&
                     Objects.equals(this.state, other.state) &&
                     Objects.equals(this.error, other.error) &&
                     Objects.equals(this.last_connected, other.last_connected));
