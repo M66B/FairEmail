@@ -154,8 +154,11 @@ import java.nio.charset.StandardCharsets;
 import java.security.KeyStore;
 import java.security.PrivateKey;
 import java.security.cert.CertPathBuilder;
+import java.security.cert.CertPathBuilderResult;
+import java.security.cert.CertPathValidator;
 import java.security.cert.CertStore;
 import java.security.cert.CertStoreParameters;
+import java.security.cert.Certificate;
 import java.security.cert.CertificateFactory;
 import java.security.cert.CollectionCertStoreParameters;
 import java.security.cert.PKIXBuilderParameters;
@@ -4787,6 +4790,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     args.putString("sender", sender);
                                     args.putBoolean("known", known);
 
+                                    List<X509Certificate> certs = new ArrayList<>();
+                                    try {
+                                        for (Object m : store.getMatches(null)) {
+                                            X509CertificateHolder h = (X509CertificateHolder) m;
+                                            certs.add(new JcaX509CertificateConverter().getCertificate(h));
+                                        }
+                                    } catch (Throwable ex) {
+                                        Log.w(ex);
+                                    }
+
                                     try {
                                         // https://tools.ietf.org/html/rfc3852#section-10.2.3
                                         KeyStore ks = KeyStore.getInstance("AndroidCAStore");
@@ -4795,12 +4808,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                         X509CertSelector target = new X509CertSelector();
                                         target.setCertificate(cert);
 
-                                        List<X509Certificate> certs = new ArrayList<>();
-                                        for (Object m : store.getMatches(null)) {
-                                            X509CertificateHolder h = (X509CertificateHolder) m;
-                                            certs.add(new JcaX509CertificateConverter().getCertificate(h));
-                                        }
-
                                         PKIXBuilderParameters params = new PKIXBuilderParameters(ks, target);
                                         CertStoreParameters intermediates = new CollectionCertStoreParameters(certs);
                                         params.addCertStore(CertStore.getInstance("Collection", intermediates));
@@ -4808,11 +4815,29 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                         params.setDate(new Date(message.received));
 
                                         CertPathBuilder builder = CertPathBuilder.getInstance("PKIX");
-                                        builder.build(params);
+                                        CertPathBuilderResult path = builder.build(params);
+
+                                        CertPathValidator cpv = CertPathValidator.getInstance("PKIX");
+                                        cpv.validate(path.getCertPath(), params);
 
                                         args.putBoolean("valid", true);
+
+                                        ArrayList<String> trace = new ArrayList<>();
+                                        for (Certificate c : path.getCertPath().getCertificates())
+                                            if (c instanceof X509Certificate) {
+                                                EntityCertificate record = EntityCertificate.from((X509Certificate) c, null);
+                                                trace.add(record.subject);
+                                            }
+                                        args.putStringArrayList("trace", trace);
                                     } catch (Throwable ex) {
                                         Log.w(ex);
+
+                                        ArrayList<String> trace = new ArrayList<>();
+                                        for (X509Certificate c : certs) {
+                                            EntityCertificate record = EntityCertificate.from(c, null);
+                                            trace.add(record.subject);
+                                        }
+                                        args.putStringArrayList("trace", trace);
                                     }
 
                                     result = cert;
@@ -4952,6 +4977,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     String sender = args.getString("sender");
                     boolean known = args.getBoolean("known");
                     boolean valid = args.getBoolean("valid");
+                    final ArrayList<String> trace = args.getStringArrayList("trace");
 
                     if (cert == null)
                         Snackbar.make(view, R.string.title_signature_invalid, Snackbar.LENGTH_LONG).show();
@@ -4992,6 +5018,23 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 tvBefore.setText(record.before == null ? null : TF.format(record.before));
                                 tvExpired.setVisibility(record.isExpired() ? View.VISIBLE : View.GONE);
 
+                                if (trace != null && trace.size() > 0)
+                                    tvSubject.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            StringBuilder sb = new StringBuilder();
+                                            for (int i = 0; i < trace.size(); i++) {
+                                                if (i > 0)
+                                                    sb.append("\n\n");
+                                                sb.append(i + 1).append(") ").append(trace.get(i));
+                                            }
+
+                                            new AlertDialog.Builder(getContext())
+                                                    .setMessage(sb.toString())
+                                                    .show();
+                                        }
+                                    });
+
                                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext())
                                         .setView(dview)
                                         .setNegativeButton(android.R.string.cancel, null);
@@ -5019,7 +5062,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                                                         String fingerprint = EntityCertificate.getFingerprint(cert);
                                                         List<String> emails = EntityCertificate.getAltSubjectName(cert);
-                                                        String subject = EntityCertificate.getSubject(cert);
                                                         for (String email : emails) {
                                                             EntityCertificate record = db.certificate().getCertificate(fingerprint, email);
                                                             if (record == null) {
