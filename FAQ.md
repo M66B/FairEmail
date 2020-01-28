@@ -274,6 +274,7 @@ FairEmail follows all the best practices for an email client as described in [th
 * [(141) How can I fix 'A drafts folder is required to send messages'?](#user-content-faq141)
 * [(142) How can I store sent messages in the inbox?](#user-content-faq142)
 * [(143) Can you add a trash folder for POP3 accounts?](#user-content-faq143)
+* [(144) How can I record voice notes?](#user-content-faq144)
 
 [I have another question.](#user-content-support)
 
@@ -2676,6 +2677,24 @@ It is not even possible to mark a message read.
 Since POP3 does not allow access to the trash folder at all, there is no way to restore trashed messages.
 
 <br />
+
+<a name="faq144"></a>
+**(144) How can I record voice notes?**
+
+To record voice notes you can press this icon in the bottom action bar of the message composer:
+
+![External image](https://raw.githubusercontent.com/google/material-design-icons/master/action/1x_web/ic_record_voice_over_black_48dp.png)
+
+This requires a compatible audio recorder app to be installed.
+In particular [this common intent](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media.html#RECORD_SOUND_ACTION)
+needs to be supported.
+
+For example [this audio recorder](https://play.google.com/store/apps/details?id=com.sonymobile.androidapp.audiorecorder) is compatible.
+
+Voice notes will automatically be attached.
+
+<br />
+
 
 ## Support
 
