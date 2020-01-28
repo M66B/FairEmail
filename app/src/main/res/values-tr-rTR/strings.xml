@@ -219,6 +219,7 @@
     <string name="title_advanced_prefix_once">Önek konu sadece bir kez yanıtlarken veya yönlendirme</string>
     <string name="title_advanced_extended_reply">Genişletilmiş cevapla/ilet başlığı kullan</string>
     <string name="title_advanced_quote_reply">Cevap metnini alıntıla</string>
+    <string name="title_advanced_signature_end">Alıntılanan/iletilen mesajdan sonra imza ekle</string>
     <string name="title_advanced_plain_only">Öntanımlı olarak yalnızca düz metin gönder</string>
     <string name="title_advanced_usenet_signature">Kullanıcı ağı imza sözleşmesi</string>
     <string name="title_advanced_resize_images">Gömülü resimleri otomatik olarak yeniden boyutlandır</string>

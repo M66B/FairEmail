@@ -205,6 +205,7 @@
     <string name="title_advanced_prefix_once">返信または転送時にプレフィックスを1回だけにします</string>
     <string name="title_advanced_extended_reply">拡張した返信/転送ヘッダーを使用</string>
     <string name="title_advanced_quote_reply">返信テキストを引用</string>
+    <string name="title_advanced_signature_end">引用/転送されたメッセージの後に署名を追加</string>
     <string name="title_advanced_plain_only">デフォルトでプレーンテキストのみを送信</string>
     <string name="title_advanced_usenet_signature">署名の区切</string>
     <string name="title_advanced_resize_images">埋込画像のサイズを自動的に変更</string>
@@ -244,6 +245,7 @@
     <string name="title_advanced_subject_top">送信者の上に件名を表示</string>
     <string name="title_advanced_subject_italic">件名を斜体で表示</string>
     <string name="title_advanced_subject_elipsed">必要に応じて件名を短くします</string>
+    <string name="title_advanced_keywords">メッセージヘッダーにキーワードを表示</string>
     <string name="title_advanced_flags">スターを表示</string>
     <string name="title_advanced_flags_background">色付きのスターの代わりに色付きの背景を表示</string>
     <string name="title_advanced_preview">メッセージプレビューを表示</string>

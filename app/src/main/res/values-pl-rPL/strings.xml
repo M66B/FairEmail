@@ -137,6 +137,7 @@
     <string name="title_setup_quick_imap">Serwer IMAP do odbierania wiadomości</string>
     <string name="title_setup_quick_smtp">Serwer SMTP do wysyłania wiadomości</string>
     <string name="title_setup_wizard">Kreator</string>
+    <string name="title_setup_wizard_multiple">Kreatora instalacji może być użyty wielokrotnie, aby skonfigurować wiele kont</string>
     <string name="title_setup_wizard_remark">Idź \"wstecz\", aby przejść do skrzynki odbiorczej</string>
     <string name="title_setup_other">Inny dostawca</string>
     <string name="title_setup_gmail_support">Autoryzacja kont Google będzie działać tylko w oficjalnych wersjach, ponieważ system Android sprawdza podpis aplikacji</string>
@@ -239,6 +240,7 @@
     <string name="title_advanced_prefix_once">Prefiksuj temat tylko raz przy odpowiedzi lub przesyłaniu dalej</string>
     <string name="title_advanced_extended_reply">Użyj rozszerzonego nagłówka odpowiedzi/przesyłania dalej</string>
     <string name="title_advanced_quote_reply">Cytuj tekst odpowiedzi</string>
+    <string name="title_advanced_signature_end">Dodaj podpis po cytowanej/przesyłanej wiadomości</string>
     <string name="title_advanced_plain_only">Domyślnie wysyłaj czystym tekstem</string>
     <string name="title_advanced_usenet_signature">Konwencja podpisu Usenet</string>
     <string name="title_advanced_resize_images">Automatycznie zmień rozmiar osadzonych obrazów</string>
@@ -278,6 +280,7 @@
     <string name="title_advanced_subject_top">Pokaż temat nad nadawcą</string>
     <string name="title_advanced_subject_italic">Temat wyświetlaj kursywą</string>
     <string name="title_advanced_subject_elipsed">W razie potrzeby skróć temat</string>
+    <string name="title_advanced_keywords">Pokaż słowa kluczowe w nagłówku wiadomości</string>
     <string name="title_advanced_flags">Oznacz gwiazdkami</string>
     <string name="title_advanced_flags_background">Pokazuj kolorowe tło zamiast kolorowych gwiazdek</string>
     <string name="title_advanced_preview">Pokaż podgląd wiadomości</string>
@@ -385,8 +388,10 @@
     <string name="title_advanced_layout_hint">Przełączanie do bardziej zwartego układu i zmianę rozmiaru tekstu wiadomości można wykonać w menu górnego paska działań w widoku wiadomości</string>
     <string name="title_advanced_date_hint">Wiadomości są pogrupowane według daty, tylko jeśli są posortowane według czasu</string>
     <string name="title_advanced_threading_hint">Grupuj wiadomości powiązane ze sobą</string>
+    <string name="title_advanced_gravatars_hint">Może istnieć ryzyko naruszenia prywatności</string>
     <string name="title_advanced_name_email_hint">Gdy wyłączone, tylko nazwy będą pokazywane, gdy dostępne</string>
     <string name="title_advanced_preview_hint">Dostępne tylko po pobraniu tekstu wiadomości</string>
+    <string name="title_advanced_preview_issue">Przewijanie może być powolne z powodu błędu w niektórych wersjach Androida, gdy liczba linii jest większa niż jeden</string>
     <string name="title_advanced_inline_hint">Obrazy wstawione są obrazami zawartymi w wiadomości</string>
     <string name="title_advanced_autoexpand_hint">Automatycznie otwieraj wiadomość, gdy w rozmowie jest tylko jedna wiadomość lub tylko jedna nieprzeczytana wiadomość</string>
     <string name="title_advanced_autoseen_hint">Automatyczne oznaczanie wiadomości czytanych podczas rozwijania można wyłączyć w ustawieniach poszczególnych kont</string>
@@ -602,6 +607,7 @@
     <string name="title_no_format">Oryginalnie odebrana wiadomość zostanie dołączona</string>
     <string name="title_no_image">Nie można zdekodować obrazu</string>
     <string name="title_no_search">Wyszukiwanie na serwerze nie jest dostępne dla tego konta</string>
+    <string name="title_too_large">Wiadomość zbyt duża, aby ją ponownie sformatować, zamiast tego spróbuj użyć widoku oryginalnej wiadomości za pomocą ikony pełnego ekranu</string>
     <string name="title_unused_inline">Niewykorzystane wstawione obrazy zostaną usunięte podczas wysyłania</string>
     <string name="title_accross_remark">Wiadomości przenoszone pomiędzy kontami zostaną pobrane ponownie, wpływając na dodatkowe użycie danych</string>
     <string name="title_raw_saved">Zapisano nieprzetworzoną wiadomość</string>
@@ -704,6 +710,7 @@
     <string name="title_signature_valid">Ważny podpis wiadomości</string>
     <string name="title_signature_unconfirmed">Podpis wiadomości prawidłowy, ale nie potwierdzony</string>
     <string name="title_signature_invalid">Nieważny podpis wiadomości</string>
+    <string name="title_signature_certificate_invalid">Nieprawidłowy łańcuch certyfikatu</string>
     <string name="title_signature_sender">Adres nadawcy</string>
     <string name="title_signature_email">Adres podpisu</string>
     <string name="title_signature_mismatch">Adres e-mail nadawcy i podpis nie są zgodne</string>
@@ -914,6 +921,8 @@
     <string name="title_enabled">Włączone</string>
     <string name="title_executing">Wykonywanie</string>
     <string name="title_completed">Ukończone</string>
+    <string name="title_clipboard_copy">Kopiuj do schowka</string>
+    <string name="title_clipboard_copied">Skopiowano do schowka</string>
     <string name="title_ask_what">Zapytaj co zrobić</string>
     <string name="title_no_ask_again">Nie pytaj ponownie</string>
     <string name="title_no_ask_for_again">Nie pytaj ponownie o %1$s</string>

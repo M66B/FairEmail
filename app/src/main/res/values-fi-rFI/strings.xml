@@ -217,6 +217,7 @@
     <string name="title_advanced_prefix_once">Lisää aiheeseen etuliite vain kerran vastatessa ja edelleenlähetettäessä</string>
     <string name="title_advanced_extended_reply">Käytä laajennettuja tunnistetietoja vastauksessa/edelleenlähetettäessä</string>
     <string name="title_advanced_quote_reply">Lainaa vastattu teksti</string>
+    <string name="title_advanced_signature_end">Lisää allekirjoitus lainatun/edelleenlähetetyn viestin jälkeen</string>
     <string name="title_advanced_plain_only">Lähetä muotoilemattomana tekstinä oletuksena</string>
     <string name="title_advanced_usenet_signature">Usenetin allekirjoitustyyli</string>
     <string name="title_advanced_resize_images">Muuta upotettujen kuvien koot</string>
@@ -256,6 +257,7 @@
     <string name="title_advanced_subject_top">Näytä aihe lähettäjän yläpuolella</string>
     <string name="title_advanced_subject_italic">Näytä aihe kursiivilla</string>
     <string name="title_advanced_subject_elipsed">Lyhennä tarvittaessa viestin aihetta</string>
+    <string name="title_advanced_keywords">Näytä avainsanat viestin tunnistetiedoissa</string>
     <string name="title_advanced_flags">Näytä tähdet</string>
     <string name="title_advanced_flags_background">Näytä värillinen tausta värillisten tähtien sijaan</string>
     <string name="title_advanced_preview">Näytä viestin esikatselu</string>

@@ -5,6 +5,8 @@
     <string name="app_changelog">گذارش تفییرات</string>
     <string name="app_welcome">FairEmail یک برنامه متن باز بوده که تمرکز آن بر روی امنیت و حفظ حریم خصوصی است. بنابر دلایلی ممکن است برخی ویژگی‌ها بسته به نوع استفاده شما متفاوت باشند.</string>
     <string name="app_limitations">برای مثال پیام‌ها همواره برای حذف عناصر ناامن و بهبود خوانایی متن شکل‌ بندی خواهند شد و باز کردن لینک‌ها نیز برای ایمنی بیشتر نیاز به تایید دارد.</string>
+    <string name="app_crash">نرم‌افزار FairEmail در دستگاه شما پشتیبانی نمی‌شود، چون به دلیل وجود اشکالاتی در اندروید دستگاه، نرم‌افزار خارج می‌شود</string>
+    <string name="app_exit">برای خروج دوباره روی \'بازگشت\' کلیک کنید</string>
     <string name="channel_service">سرویس</string>
     <string name="channel_send">ارسال</string>
     <string name="channel_notification">اعلان‌ها</string>
@@ -12,9 +14,21 @@
     <string name="channel_warning">هشدارها</string>
     <string name="channel_error">خطاها</string>
     <string name="channel_alert">Server alerts</string>
+    <string name="channel_group_contacts">مخاطبین</string>
+    <string name="page_folders">پوشه‌ها</string>
+    <string name="page_compose">ایجاد پیام</string>
     <string name="tile_synchronize">همگام سازی</string>
     <string name="tile_unseen">پیام های جدید</string>
+    <string name="shortcut_refresh">به‌روزرسانی</string>
     <string name="shortcut_compose">ایجاد پیام</string>
+    <string name="shortcut_setup">تنظیمات</string>
+    <plurals name="title_notification_synchronizing">
+        <item quantity="one">مانیتورینگ %1$d اکانت</item>
+        <item quantity="other">مانیتورینگ %1$d اکانت</item>
+    </plurals>
+    <string name="title_ask_spam_who">گزارش پیام از %1$s به عنوان اسپم?</string>
+    <string name="title_block">%s مسدود شود</string>
+    <string name="title_block_sender">بلاک کردن فرستنده</string>
     <string name="title_notification_failed">\'%1$s\' انجام نشد</string>
     <string name="menu_answers">الگوها</string>
     <string name="menu_operations">عملیات ها</string>

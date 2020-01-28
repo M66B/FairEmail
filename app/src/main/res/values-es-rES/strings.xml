@@ -219,6 +219,7 @@
     <string name="title_advanced_prefix_once">Prefijar el asunto solo una vez al responder o reenviar</string>
     <string name="title_advanced_extended_reply">Usar encabezado de respuesta/reenvío extendido</string>
     <string name="title_advanced_quote_reply">Citar texto a responder</string>
+    <string name="title_advanced_signature_end">Añadir firma después de mensaje citado/reenviado</string>
     <string name="title_advanced_plain_only">Enviar sólo texto plano por defecto</string>
     <string name="title_advanced_usenet_signature">Convención de firma Usenet</string>
     <string name="title_advanced_resize_images">Redimensionar automáticamente las imágenes incrustadas</string>
@@ -258,6 +259,7 @@
     <string name="title_advanced_subject_top">Mostrar asunto arriba del remitente</string>
     <string name="title_advanced_subject_italic">Mostrar asunto en cursiva</string>
     <string name="title_advanced_subject_elipsed">Acortar el asunto cuando sea necesario</string>
+    <string name="title_advanced_keywords">Mostrar palabras clave en encabezado del mensaje</string>
     <string name="title_advanced_flags">Mostrar estrellas</string>
     <string name="title_advanced_flags_background">Mostrar fondo coloreado en lugar de estrellas de color</string>
     <string name="title_advanced_preview">Mostrar vista previa de mensajes</string>

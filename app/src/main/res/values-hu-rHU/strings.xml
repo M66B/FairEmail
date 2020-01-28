@@ -217,6 +217,7 @@
     <string name="title_advanced_prefix_once">Válasz vagy továbbítás esetén tárgy előtaggal jelzése csak egyszer</string>
     <string name="title_advanced_extended_reply">Kiterjesztett válasz/továbbítás fejléc használata</string>
     <string name="title_advanced_quote_reply">Megválaszolt szöveg idézése</string>
+    <string name="title_advanced_signature_end">Aláírás beillesztése az idézett/továbbított szöveg után</string>
     <string name="title_advanced_plain_only">Nyers szöveg alapértelmezett küldése</string>
     <string name="title_advanced_usenet_signature">Usenet aláírás konveció használata</string>
     <string name="title_advanced_resize_images">Beágyazott képek automatikus átméretezése</string>
@@ -236,6 +237,7 @@
     <string name="title_advanced_cards">Kártyák megjelnítése</string>
     <string name="title_advanced_date_header">Csoportosítás dátum szerint</string>
     <string name="title_advanced_threading">Beszélgetések összefűzése</string>
+    <string name="title_advanced_indentation">Beérkezett/elküldött üzenetek balra/jobbra tördelése a beszélgetésekben</string>
     <string name="title_advanced_highlight_unread">Olvasatlan üzenetek kiemelése</string>
     <string name="title_advanced_distinguish_contacts">Húzza alá a küldőt, ha az egy ismert, korábban megcímzett helyi kapcsolat</string>
     <string name="title_advanced_color_stripe">Színszalag kijelzése</string>
@@ -284,6 +286,7 @@
     <string name="title_advanced_quick_filter">Nem zavaró gyorsszűrő ikonok használata</string>
     <string name="title_advanced_quick_scroll">Nem zavaró gyors fel-/legörgetés ikonok használata</string>
     <string name="title_advanced_autoread">Áthelyezéskor az üzenetek automatikus megjelölése olvasottként</string>
+    <string name="title_advanced_autounstar">Csillagok automatikus eltávolítása az üzenetek áthelyezésekor</string>
     <string name="title_advanced_automove">Üzenetek áthelyezésének megerősítése</string>
     <string name="title_advanced_discard_delete">Piszkozat végleges törlése annak elvetésekor</string>
     <string name="title_advanced_default_snooze">Szundi alapértelmezett időtartama</string>
@@ -337,6 +340,14 @@
     <string name="title_advanced_manual_hint">Manuális szinkronizálás engedélyezése az üzenet lista lefelé húzásával, ha az automatikus szinkronizálás le van tiltva.</string>
     <string name="title_advanced_poll_hint">A periodikus szinkronizálás minden egyes alkalommal összehasonlítja a helyileg tárolt üzeneteket a távoliakkal. Ez erőforrásigényes folyamat amely fokozott akkumulátor használathoz vezethet. A folyamatos szinkronizálás kiküszöböli ezt, mivel csak a változásokat figyeli és alkalmazza.</string>
     <string name="title_advanced_schedule_hint">Koppintson egy időre az idő beállításához</string>
+    <string name="title_advanced_check_mx">Küldő email címek ellenőrzése az üzenetek szinkronizálásakor</string>
+    <string name="title_advanced_check_reply">Válasz email címek ellenőrzése az üzenetek szinkronizálásakor</string>
+    <string name="title_advanced_unseen_hint">Nehany szolgáltató ezt nem támogatja maradéktalanul, emiatt az összes - vagy semelyik - üzenet szinkronizálódhat</string>
+    <string name="title_advanced_sync_kept_hint">Ez megnövekedett adatforgalom es akkumulátor használathoz vezet, különösen ha sok üzenet található a készüléken</string>
+    <string name="title_advanced_sync_folders_hint">Kikapcsolása valamelyest csökkentheti az adatforgalom és akkumulátor használatot, de egyúttal a mappák listájának frissítését is tiltja</string>
+    <string name="title_advanced_subscribed_only_hint">Bekapcsolása eltávolítja az összes helyi mappát amelyhez nem tartozik feliratkozás</string>
+    <string name="title_advanced_sync_delay_hint">Ez lelassítja az üzenetek szinkronizálását</string>
+    <string name="title_advanced_usenet_hint">Elválasztó \'--\' beillesztése a szöveg törzs es az aláírás közé</string>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
 </resources>
