@@ -226,6 +226,10 @@ public class ApplicationEx extends Application {
                 editor.putBoolean("resize_attachments", autoresize);
                 editor.remove("autoresize");
             }
+        } else if (version < 930) {
+            boolean large = context.getResources().getConfiguration()
+                    .isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_LARGE);
+            editor.putBoolean("landscape3", large);
         }
 
         if (BuildConfig.DEBUG && false) {

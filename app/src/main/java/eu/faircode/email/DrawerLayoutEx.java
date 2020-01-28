@@ -52,7 +52,7 @@ public class DrawerLayoutEx extends DrawerLayout {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         boolean normal = config.isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_NORMAL);
         boolean landscape = prefs.getBoolean("landscape", true);
-        boolean landscape3 = prefs.getBoolean("landscape3", true);
+        boolean landscape3 = prefs.getBoolean("landscape3", false);
 
         if (normal && landscape && landscape3 &&
                 config.orientation == Configuration.ORIENTATION_LANDSCAPE) {

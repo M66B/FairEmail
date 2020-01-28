@@ -175,8 +175,10 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
             else
                 boot.execute(this, new Bundle(), "main:accounts");
         } else {
-            // Enable compact view on small screens
-            if (!getResources().getConfiguration().isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_LARGE))
+            // Enable 3-col mode on large screen / compact view on small screens
+            if (getResources().getConfiguration().isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_LARGE))
+                prefs.edit().putBoolean("landscape3", true).apply();
+            else
                 prefs.edit().putBoolean("compact", true).apply();
 
             setTheme(R.style.AppThemeBlueOrangeLight);
