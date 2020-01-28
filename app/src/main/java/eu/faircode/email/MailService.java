@@ -4,6 +4,7 @@ import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
@@ -57,7 +58,10 @@ import javax.mail.Service;
 import javax.mail.Session;
 import javax.mail.Store;
 import javax.mail.event.StoreListener;
+import javax.net.ssl.SNIHostName;
 import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLParameters;
+import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
@@ -621,12 +625,12 @@ public class MailService implements AutoCloseable {
 
         @Override
         public Socket createSocket(String host, int port) throws IOException {
-            return factory.createSocket(server, port);
+            return configure(factory.createSocket(server, port));
         }
 
         @Override
         public Socket createSocket(Socket s, String host, int port, boolean autoClose) throws IOException {
-            return factory.createSocket(s, server, port, autoClose);
+            return configure(factory.createSocket(s, server, port, autoClose));
         }
 
         @Override
@@ -637,13 +641,30 @@ public class MailService implements AutoCloseable {
 
         @Override
         public Socket createSocket(String host, int port, InetAddress clientAddress, int clientPort) throws IOException {
-            return factory.createSocket(server, port, clientAddress, clientPort);
+            return configure(factory.createSocket(server, port, clientAddress, clientPort));
         }
 
         @Override
         public Socket createSocket(InetAddress address, int port, InetAddress clientAddress, int clientPort) throws IOException {
             Log.e("createSocket(address, port, clientAddress, clientPort)");
             throw new IOException("createSocket");
+        }
+
+        private Socket configure(Socket socket) {
+/*
+            if (socket instanceof SSLSocket
+                    && Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                SSLParameters params = ((SSLSocket) socket).getSSLParameters();
+                if (params == null)
+                    params = new SSLParameters();
+                Log.i("SNI server names=" + params.getServerNames());
+                params.setEndpointIdentificationAlgorithm("HTTPS");
+                params.setServerNames(Arrays.asList(new SNIHostName(server)));
+                Log.i("SNI server name=" + params.getServerNames().get(0));
+                ((SSLSocket) socket).setSSLParameters(params);
+            }
+*/
+            return socket;
         }
 
         @Override
