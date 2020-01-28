@@ -264,11 +264,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     ));
 
     // https://www.iana.org/assignments/imap-jmap-keywords/imap-jmap-keywords.xhtml
-    private static final List<String> IMAP_KEYWORDS_WHITELIST = Collections.unmodifiableList(Arrays.asList(
-            "$Phishing".toLowerCase()
-    ));
-
     private static final List<String> IMAP_KEYWORDS_BLACKLIST = Collections.unmodifiableList(Arrays.asList(
+            "$MDNSent".toLowerCase(),
+            "$Forwarded".toLowerCase(),
+            "$SubmitPending".toLowerCase(),
+            "$Submitted".toLowerCase(),
+            "$Junk".toLowerCase(),
+            "$NotJunk".toLowerCase(),
+            "$recent".toLowerCase(),
             "DTAG_document".toLowerCase(),
             "DTAG_image".toLowerCase()
     ));
@@ -881,8 +884,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 SpannableStringBuilder keywords = new SpannableStringBuilder();
                 for (int i = 0; i < message.keywords.length; i++) {
                     String k = message.keywords[i].toLowerCase();
-                    if (IMAP_KEYWORDS_WHITELIST.contains(k) ||
-                            !(k.startsWith("$") || IMAP_KEYWORDS_BLACKLIST.contains(k))) {
+                    if (!IMAP_KEYWORDS_BLACKLIST.contains(k)) {
                         if (keywords.length() > 0)
                             keywords.append(", ");
 
