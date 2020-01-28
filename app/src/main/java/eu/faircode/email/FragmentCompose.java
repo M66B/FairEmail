@@ -126,8 +126,10 @@ import org.bouncycastle.operator.jcajce.JcaDigestCalculatorProviderBuilder;
 import org.bouncycastle.util.Store;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.jsoup.nodes.Node;
 import org.jsoup.nodes.TextNode;
 import org.jsoup.select.Elements;
+import org.jsoup.select.NodeFilter;
 import org.openintents.openpgp.OpenPgpError;
 import org.openintents.openpgp.util.OpenPgpApi;
 import org.openintents.openpgp.util.OpenPgpServiceConnection;
@@ -3036,12 +3038,35 @@ public class FragmentCompose extends FragmentBase {
                             // Remove signature separators
                             boolean usenet = prefs.getBoolean("usenet_signature", false);
                             if (usenet)
-                                for (Element span : d.select("span"))
-                                    if (span.childNodeSize() == 2 &&
-                                            span.childNode(0) instanceof TextNode &&
-                                            "-- ".equals(span.wholeText()) &&
-                                            "br".equals(span.childNode(1).nodeName()))
-                                        span.remove();
+                                d.body().filter(new NodeFilter() {
+                                    private boolean remove = false;
+
+                                    @Override
+                                    public FilterResult head(Node node, int depth) {
+                                        if (node instanceof TextNode) {
+                                            TextNode tnode = (TextNode) node;
+                                            String text = tnode.getWholeText()
+                                                    .replaceAll("[\r\n]+$", "")
+                                                    .replaceAll("^[\r\n]+", "");
+                                            if ("-- ".equals(text)) {
+                                                if (tnode.getWholeText().endsWith("\n"))
+                                                    remove = true;
+                                                else {
+                                                    Node next = node.nextSibling();
+                                                    if (next != null && "br".equals(next.nodeName()))
+                                                        remove = true;
+                                                }
+                                            }
+                                        }
+
+                                        return (remove ? FilterResult.REMOVE : FilterResult.CONTINUE);
+                                    }
+
+                                    @Override
+                                    public FilterResult tail(Node node, int depth) {
+                                        return FilterResult.CONTINUE;
+                                    }
+                                });
 
                             // Quote referenced message body
                             Element e = d.body();
