@@ -275,6 +275,7 @@ FairEmail follows all the best practices for an email client as described in [th
 * [(142) How can I store sent messages in the inbox?](#user-content-faq142)
 * [(143) Can you add a trash folder for POP3 accounts?](#user-content-faq143)
 * [(144) How can I record voice notes?](#user-content-faq144)
+* [(145) How can I set a notification sound for an account, folder or sender?](#user-content-faq145)
 
 [I have another question.](#user-content-support)
 
@@ -2701,6 +2702,30 @@ Voice notes will automatically be attached.
 
 <br />
 
+<a name="faq145"></a>
+**(145) How can I set a notification sound for an account, folder or sender?**
+
+Account:
+
+* Enable *Separate notifications* in the advanced account settings (Setup, step 1, Manage, tap account, tap Advanced)
+* Long press the account in the account list (Setup, step 1, Manage) and select *Edit notification channel* to change the notification sound
+
+Folder:
+
+* Long press the folder in the folder list and select *Create notification channel*
+* Long press the folder in the folder list and select *Edit notification channel* to change the notification sound
+
+Sender:
+
+* Open a message from the sender and expand it
+* Expand the addresses section by tapping on the down arrow
+* Tap on the bell icon to create or edit a notification channel and to change the notification sound
+
+The order of precendence is: sender sound, folder sound, account sound and default sound.
+
+Setting a notification sound for an account, folder or sender requires Android 8 Oreo or later and is a pro feature.
+
+<br />
 
 ## Support
 

@@ -84,7 +84,7 @@ All pro features are convenience or advanced features.
 
 * Account/identity/folder colors
 * Colored stars ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq107))
-* Notification settings (sounds) per account/folder/sender (requires Android 8 Oreo)
+* Notification settings (sounds) per account/folder/sender (requires Android 8 Oreo) ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq145))
 * Configurable notification actions
 * Snooze messages ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq67))
 * Send messages after selected time
