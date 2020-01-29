@@ -286,7 +286,6 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         final boolean search_text = prefs.getBoolean("search_text", true);
         final boolean debug = (prefs.getBoolean("debug", false) || BuildConfig.BETA_RELEASE);
 
-
         final EntityFolder browsable = db.folder().getBrowsableFolder(folder, query != null);
         if (browsable == null)
             return 0;
@@ -515,7 +514,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                     rules, null);
                             found++;
                         }
-                        if (message != null && query != null)
+                        if (message != null && query != null /* browsed */)
                             db.message().setMessageFound(message.id);
                     } catch (MessageRemovedException ex) {
                         Log.w(browsable.name + " boundary server", ex);
