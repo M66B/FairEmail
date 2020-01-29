@@ -643,59 +643,35 @@ public class FragmentIdentity extends FragmentBase {
                     host = h.getHost();
                 }
 
-                if (TextUtils.isEmpty(name))
-                    if (should)
-                        return true;
-                    else
-                        throw new IllegalArgumentException(context.getString(R.string.title_no_name));
-                if (TextUtils.isEmpty(email))
-                    if (should)
-                        return true;
-                    else
-                        throw new IllegalArgumentException(context.getString(R.string.title_no_email));
-                if (!Patterns.EMAIL_ADDRESS.matcher(email).matches())
-                    if (should)
-                        return true;
-                    else
-                        throw new IllegalArgumentException(context.getString(R.string.title_email_invalid, email));
-                if (TextUtils.isEmpty(host))
-                    if (should)
-                        return true;
-                    else
-                        throw new IllegalArgumentException(context.getString(R.string.title_no_host));
+                if (TextUtils.isEmpty(name) && !should)
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_name));
+                if (TextUtils.isEmpty(email) && !should)
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_email));
+                if (!Patterns.EMAIL_ADDRESS.matcher(email).matches() && !should)
+                    throw new IllegalArgumentException(context.getString(R.string.title_email_invalid, email));
+                if (TextUtils.isEmpty(host) && !should)
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_host));
                 if (TextUtils.isEmpty(port))
                     port = (starttls ? "587" : "465");
-                if (TextUtils.isEmpty(user))
-                    if (should)
-                        return true;
-                    else
-                        throw new IllegalArgumentException(context.getString(R.string.title_no_user));
-                if (synchronize && TextUtils.isEmpty(password) && !insecure)
-                    if (should)
-                        return true;
-                    else
-                        throw new IllegalArgumentException(context.getString(R.string.title_no_password));
+                if (TextUtils.isEmpty(user) && !should)
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_user));
+                if (synchronize && TextUtils.isEmpty(password) && !insecure && !should)
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_password));
 
-                if (!TextUtils.isEmpty(replyto)) {
+                if (!TextUtils.isEmpty(replyto) && !should) {
                     try {
                         InternetAddress[] addresses = InternetAddress.parse(replyto);
                         if (addresses.length != 1)
                             throw new AddressException();
                     } catch (AddressException ex) {
-                        if (should)
-                            return true;
-                        else
-                            throw new IllegalArgumentException(context.getString(R.string.title_email_invalid, replyto));
+                        throw new IllegalArgumentException(context.getString(R.string.title_email_invalid, replyto));
                     }
                 }
-                if (!TextUtils.isEmpty(bcc))
+                if (!TextUtils.isEmpty(bcc) && !should)
                     try {
                         InternetAddress.parse(bcc);
                     } catch (AddressException ex) {
-                        if (should)
-                            return true;
-                        else
-                            throw new IllegalArgumentException(context.getString(R.string.title_email_invalid, bcc));
+                        throw new IllegalArgumentException(context.getString(R.string.title_email_invalid, bcc));
                     }
 
                 if (TextUtils.isEmpty(display))
