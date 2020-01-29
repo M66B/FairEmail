@@ -4831,6 +4831,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                         KeyStore ks = KeyStore.getInstance("AndroidCAStore");
                                         ks.load(null, null);
 
+                                        // https://docs.oracle.com/javase/7/docs/technotes/guides/security/certpath/CertPathProgGuide.html
                                         X509CertSelector target = new X509CertSelector();
                                         target.setCertificate(cert);
 
