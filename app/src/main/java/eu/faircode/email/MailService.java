@@ -4,7 +4,6 @@ import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
@@ -49,6 +48,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Semaphore;
+import java.util.regex.Pattern;
 
 import javax.mail.AuthenticationFailedException;
 import javax.mail.Folder;
@@ -58,9 +58,7 @@ import javax.mail.Service;
 import javax.mail.Session;
 import javax.mail.Store;
 import javax.mail.event.StoreListener;
-import javax.net.ssl.SNIHostName;
 import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLParameters;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
@@ -71,6 +69,7 @@ public class MailService implements AutoCloseable {
     private Context context;
     private String protocol;
     private boolean insecure;
+    private boolean harden;
     private boolean useip;
     private boolean debug;
     private Properties properties;
@@ -93,7 +92,12 @@ public class MailService implements AutoCloseable {
 
     private static final int APPEND_BUFFER_SIZE = 4 * 1024 * 1024; // bytes
 
+    private static final List<String> SSL_PROTOCOL_BLACKLIST = Collections.unmodifiableList(Arrays.asList(
+            "SSLv2", "SSLv3", "TLSv1", "TLSv1.1"
+    ));
+
     private MailService() {
+        // Prevent instantiation
     }
 
     MailService(Context context, String protocol, String realm, boolean insecure, boolean check, boolean debug) throws NoSuchProviderException {
@@ -105,6 +109,8 @@ public class MailService implements AutoCloseable {
         properties = MessageHelper.getSessionProperties();
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        this.harden = prefs.getBoolean("ssl_harden", false);
+
         boolean socks_enabled = prefs.getBoolean("socks_enabled", false);
         String socks_proxy = prefs.getString("socks_proxy", "localhost:9050");
 
@@ -230,7 +236,7 @@ public class MailService implements AutoCloseable {
             String fingerprint) throws MessagingException {
         SSLSocketFactoryService factory = null;
         try {
-            factory = new SSLSocketFactoryService(host, insecure, fingerprint);
+            factory = new SSLSocketFactoryService(host, insecure, harden, fingerprint);
             properties.put("mail." + protocol + ".ssl.socketFactory", factory);
             properties.put("mail." + protocol + ".socketFactory.fallback", "false");
             properties.put("mail." + protocol + ".ssl.checkserveridentity", "false");
@@ -533,13 +539,15 @@ public class MailService implements AutoCloseable {
         // openssl s_client -connect host:port < /dev/null 2>/dev/null | openssl x509 -fingerprint -noout -in /dev/stdin
         private String server;
         private boolean secure;
+        private boolean harden;
         private String trustedFingerprint;
         private SSLSocketFactory factory;
         private X509Certificate certificate;
 
-        SSLSocketFactoryService(String host, boolean insecure, String fingerprint) throws GeneralSecurityException {
+        SSLSocketFactoryService(String host, boolean insecure, boolean harden, String fingerprint) throws GeneralSecurityException {
             this.server = host;
             this.secure = !insecure;
+            this.harden = harden;
             this.trustedFingerprint = fingerprint;
 
             SSLContext sslContext = SSLContext.getInstance("TLS");
@@ -651,19 +659,31 @@ public class MailService implements AutoCloseable {
         }
 
         private Socket configure(Socket socket) {
-/*
-            if (socket instanceof SSLSocket
-                    && Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                SSLParameters params = ((SSLSocket) socket).getSSLParameters();
-                if (params == null)
-                    params = new SSLParameters();
-                Log.i("SNI server names=" + params.getServerNames());
-                params.setEndpointIdentificationAlgorithm("HTTPS");
-                params.setServerNames(Arrays.asList(new SNIHostName(server)));
-                Log.i("SNI server name=" + params.getServerNames().get(0));
-                ((SSLSocket) socket).setSSLParameters(params);
+            if (harden && socket instanceof SSLSocket) {
+                // https://developer.android.com/reference/javax/net/ssl/SSLSocket.html
+                SSLSocket sslSocket = (SSLSocket) socket;
+
+                List<String> protocols = new ArrayList<>();
+                for (String protocol : sslSocket.getEnabledProtocols())
+                    if (SSL_PROTOCOL_BLACKLIST.contains(protocol))
+                        Log.i("SSL disabling protocol=" + protocol);
+                    else
+                        protocols.add(protocol);
+                Log.i("SSL protocols=" + TextUtils.join(",", protocols));
+                sslSocket.setEnabledProtocols(protocols.toArray(new String[0]));
+
+                ArrayList<String> ciphers = new ArrayList<>();
+                Pattern pattern = Pattern.compile(".*(_DES|DH_|DSS|EXPORT|MD5|NULL|RC4|TLS_FALLBACK_SCSV).*");
+                for (String cipher : sslSocket.getEnabledCipherSuites()) {
+                    if (pattern.matcher(cipher).matches())
+                        Log.i("SSL disabling cipher=" + cipher);
+                    else
+                        ciphers.add(cipher);
+                }
+                Log.i("SSL ciphers=" + TextUtils.join(",", ciphers));
+                sslSocket.setEnabledCipherSuites(ciphers.toArray(new String[0]));
             }
-*/
+
             return socket;
         }
 

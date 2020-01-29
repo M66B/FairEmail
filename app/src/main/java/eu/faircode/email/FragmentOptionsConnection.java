@@ -56,6 +56,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     private Spinner spDownload;
     private SwitchCompat swRoaming;
     private SwitchCompat swRlah;
+    private SwitchCompat swSslHarden;
     private SwitchCompat swSocks;
     private EditText etSocks;
     private Button btnSocks;
@@ -64,7 +65,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     private TextView tvConnectionRoaming;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "metered", "download", "roaming", "rlah", "socks_enabled", "socks_proxy"
+            "metered", "download", "roaming", "rlah", "ssl_harden", "socks_enabled", "socks_proxy"
     };
 
     @Override
@@ -81,6 +82,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         spDownload = view.findViewById(R.id.spDownload);
         swRoaming = view.findViewById(R.id.swRoaming);
         swRlah = view.findViewById(R.id.swRlah);
+        swSslHarden = view.findViewById(R.id.swSslHarden);
         swSocks = view.findViewById(R.id.swSocks);
         etSocks = view.findViewById(R.id.etSocks);
         btnSocks = view.findViewById(R.id.btnSocks);
@@ -126,6 +128,13 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("rlah", checked).apply();
+            }
+        });
+
+        swSslHarden.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("ssl_harden", checked).apply();
             }
         });
 
@@ -246,6 +255,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
 
         swRoaming.setChecked(prefs.getBoolean("roaming", true));
         swRlah.setChecked(prefs.getBoolean("rlah", true));
+        swSslHarden.setChecked(prefs.getBoolean("ssl_harden", false));
         swSocks.setChecked(prefs.getBoolean("socks_enabled", false));
         etSocks.setText(prefs.getString("socks_proxy", null));
         etSocks.setEnabled(swSocks.isChecked());

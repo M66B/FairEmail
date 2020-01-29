@@ -120,6 +120,30 @@
             app:layout_constraintTop_toBottomOf="@id/swRlah" />
 
         <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swSslHarden"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/title_advanced_ssl_harden"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvRlahHint"
+            app:switchPadding="12dp" />
+
+        <TextView
+            android:id="@+id/tvSslHardenHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_ssl_harden_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swSslHarden" />
+
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swSocks"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -128,7 +152,7 @@
             android:text="@string/title_advanced_socks"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvRlahHint"
+            app:layout_constraintTop_toBottomOf="@id/tvSslHardenHint"
             app:switchPadding="12dp" />
 
         <EditText
