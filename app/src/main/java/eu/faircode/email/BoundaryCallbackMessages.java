@@ -81,7 +81,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
     private State state;
 
-    private static final int SEARCH_LIMIT = 100;
+    private static final int SEARCH_LIMIT = 1000;
 
     interface IBoundaryCallbackMessages {
         void onLoading();
