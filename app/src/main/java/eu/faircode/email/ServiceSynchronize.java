@@ -793,7 +793,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
                 boolean debug = (prefs.getBoolean("debug", false) || BuildConfig.DEBUG);
 
-                final MailService iservice = new MailService(
+                final EmailService iservice = new EmailService(
                         this, account.getProtocol(), account.realm, account.insecure, false, debug);
                 iservice.setPartialFetch(account.partial_fetch);
                 iservice.setIgnoreBodyStructureSize(account.ignore_size);

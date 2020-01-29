@@ -149,7 +149,7 @@ public class FragmentAccount extends FragmentBase {
 
     private long id = -1;
     private long copy = -1;
-    private int auth = MailService.AUTH_TYPE_PASSWORD;
+    private int auth = EmailService.AUTH_TYPE_PASSWORD;
     private String provider = null;
     private boolean saving = false;
 
@@ -610,7 +610,7 @@ public class FragmentAccount extends FragmentBase {
 
                 // Check IMAP server / get folders
                 String protocol = "imap" + (starttls ? "" : "s");
-                try (MailService iservice = new MailService(context, protocol, realm, insecure, true, true)) {
+                try (EmailService iservice = new EmailService(context, protocol, realm, insecure, true, true)) {
                     iservice.connect(host, Integer.parseInt(port), auth, provider, user, password, fingerprint);
 
                     result.idle = iservice.hasCapability("IDLE");
@@ -977,7 +977,7 @@ public class FragmentAccount extends FragmentBase {
                 EntityFolder inbox = null;
                 if (check) {
                     String protocol = "imap" + (starttls ? "" : "s");
-                    try (MailService iservice = new MailService(context, protocol, realm, insecure, true, true)) {
+                    try (EmailService iservice = new EmailService(context, protocol, realm, insecure, true, true)) {
                         iservice.connect(host, Integer.parseInt(port), auth, provider, user, password, fingerprint);
 
                         for (Folder ifolder : iservice.getStore().getDefaultFolder().list("*")) {
@@ -1236,7 +1236,7 @@ public class FragmentAccount extends FragmentBase {
                     if (account.user.equals(google.name))
                         return am.blockingGetAuthToken(
                                 google,
-                                MailService.getAuthTokenType("com.google"),
+                                EmailService.getAuthTokenType("com.google"),
                                 true);
 
                 return null;
@@ -1259,8 +1259,8 @@ public class FragmentAccount extends FragmentBase {
         tvError.setText(Log.formatThrowable(ex, false));
         grpError.setVisibility(View.VISIBLE);
 
-        if (ex instanceof MailService.UntrustedException) {
-            MailService.UntrustedException e = (MailService.UntrustedException) ex;
+        if (ex instanceof EmailService.UntrustedException) {
+            EmailService.UntrustedException e = (EmailService.UntrustedException) ex;
             cbTrust.setTag(e.getFingerprint());
             cbTrust.setText(getString(R.string.title_trust, e.getFingerprint()));
             cbTrust.setVisibility(View.VISIBLE);
@@ -1384,7 +1384,7 @@ public class FragmentAccount extends FragmentBase {
                     cbIgnoreSize.setChecked(account == null ? false : account.ignore_size);
                     cbUseDate.setChecked(account == null ? false : account.use_date);
 
-                    auth = (account == null ? MailService.AUTH_TYPE_PASSWORD : account.auth_type);
+                    auth = (account == null ? EmailService.AUTH_TYPE_PASSWORD : account.auth_type);
                     provider = (account == null ? null : account.provider);
 
                     new SimpleTask<EntityAccount>() {
@@ -1417,12 +1417,12 @@ public class FragmentAccount extends FragmentBase {
 
                 Helper.setViewsEnabled(view, true);
 
-                if (auth != MailService.AUTH_TYPE_PASSWORD) {
+                if (auth != EmailService.AUTH_TYPE_PASSWORD) {
                     etUser.setEnabled(false);
                     tilPassword.setEnabled(false);
                 }
 
-                if (account == null || account.auth_type != MailService.AUTH_TYPE_GMAIL)
+                if (account == null || account.auth_type != EmailService.AUTH_TYPE_GMAIL)
                     Helper.hide((btnOAuth));
 
                 cbOnDemand.setEnabled(cbSynchronize.isChecked());

@@ -309,8 +309,8 @@ public class FragmentPop extends FragmentBase {
                 // Check POP3 server
                 if (check) {
                     String protocol = "pop3" + (starttls ? "" : "s");
-                    try (MailService iservice = new MailService(context, protocol, null, insecure, true, true)) {
-                        iservice.connect(host, Integer.parseInt(port), MailService.AUTH_TYPE_PASSWORD, null, user, password, null);
+                    try (EmailService iservice = new EmailService(context, protocol, null, insecure, true, true)) {
+                        iservice.connect(host, Integer.parseInt(port), EmailService.AUTH_TYPE_PASSWORD, null, user, password, null);
                     }
                 }
 
@@ -333,7 +333,7 @@ public class FragmentPop extends FragmentBase {
                     account.starttls = starttls;
                     account.insecure = insecure;
                     account.port = Integer.parseInt(port);
-                    account.auth_type = MailService.AUTH_TYPE_PASSWORD;
+                    account.auth_type = EmailService.AUTH_TYPE_PASSWORD;
                     account.user = user;
                     account.password = password;
 

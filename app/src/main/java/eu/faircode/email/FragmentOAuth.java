@@ -469,8 +469,8 @@ public class FragmentOAuth extends FragmentBase {
 
                 Log.i("OAuth checking IMAP provider=" + provider.id);
                 String aprotocol = provider.imap.starttls ? "imap" : "imaps";
-                try (MailService iservice = new MailService(context, aprotocol, null, false, true, true)) {
-                    iservice.connect(provider.imap.host, provider.imap.port, MailService.AUTH_TYPE_OAUTH, provider.id, primaryEmail, state, null);
+                try (EmailService iservice = new EmailService(context, aprotocol, null, false, true, true)) {
+                    iservice.connect(provider.imap.host, provider.imap.port, EmailService.AUTH_TYPE_OAUTH, provider.id, primaryEmail, state, null);
 
                     folders = iservice.getFolders();
 
@@ -480,8 +480,8 @@ public class FragmentOAuth extends FragmentBase {
 
                 Log.i("OAuth checking SMTP provider=" + provider.id);
                 String iprotocol = provider.smtp.starttls ? "smtp" : "smtps";
-                try (MailService iservice = new MailService(context, iprotocol, null, false, true, true)) {
-                    iservice.connect(provider.smtp.host, provider.smtp.port, MailService.AUTH_TYPE_OAUTH, provider.id, primaryEmail, state, null);
+                try (EmailService iservice = new EmailService(context, iprotocol, null, false, true, true)) {
+                    iservice.connect(provider.smtp.host, provider.smtp.port, EmailService.AUTH_TYPE_OAUTH, provider.id, primaryEmail, state, null);
                 }
 
                 Log.i("OAuth passed provider=" + provider.id);
@@ -498,7 +498,7 @@ public class FragmentOAuth extends FragmentBase {
                     account.host = provider.imap.host;
                     account.starttls = provider.imap.starttls;
                     account.port = provider.imap.port;
-                    account.auth_type = MailService.AUTH_TYPE_OAUTH;
+                    account.auth_type = EmailService.AUTH_TYPE_OAUTH;
                     account.provider = provider.id;
                     account.user = primaryEmail;
                     account.password = state;
@@ -541,7 +541,7 @@ public class FragmentOAuth extends FragmentBase {
                         ident.host = provider.smtp.host;
                         ident.starttls = provider.smtp.starttls;
                         ident.port = provider.smtp.port;
-                        ident.auth_type = MailService.AUTH_TYPE_OAUTH;
+                        ident.auth_type = EmailService.AUTH_TYPE_OAUTH;
                         ident.provider = provider.id;
                         ident.user = primaryEmail;
                         ident.password = state;

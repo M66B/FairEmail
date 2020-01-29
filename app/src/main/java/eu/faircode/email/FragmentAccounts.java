@@ -270,7 +270,7 @@ public class FragmentAccounts extends FragmentBase {
 
                         boolean authorized = true;
                         for (TupleAccountEx account : accounts)
-                            if (account.auth_type != MailService.AUTH_TYPE_PASSWORD &&
+                            if (account.auth_type != EmailService.AUTH_TYPE_PASSWORD &&
                                     !Helper.hasPermissions(getContext(), Helper.getOAuthPermissions())) {
                                 authorized = false;
                             }

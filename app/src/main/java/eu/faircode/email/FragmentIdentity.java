@@ -129,7 +129,7 @@ public class FragmentIdentity extends FragmentBase {
     private long id = -1;
     private long copy = -1;
     private long account = -1;
-    private int auth = MailService.AUTH_TYPE_PASSWORD;
+    private int auth = EmailService.AUTH_TYPE_PASSWORD;
     private String provider = null;
     private boolean saving = false;
 
@@ -268,8 +268,8 @@ public class FragmentIdentity extends FragmentBase {
                 tilPassword.getEditText().setText(account.password);
                 etRealm.setText(account.realm);
 
-                etUser.setEnabled(auth == MailService.AUTH_TYPE_PASSWORD);
-                tilPassword.setEnabled(auth == MailService.AUTH_TYPE_PASSWORD);
+                etUser.setEnabled(auth == EmailService.AUTH_TYPE_PASSWORD);
+                tilPassword.setEnabled(auth == EmailService.AUTH_TYPE_PASSWORD);
                 cbTrust.setChecked(false);
             }
 
@@ -396,12 +396,12 @@ public class FragmentIdentity extends FragmentBase {
                 EntityAccount account = (EntityAccount) spAccount.getSelectedItem();
                 if (account == null ||
                         provider.imap.host == null || !provider.imap.host.equals(account.host))
-                    auth = MailService.AUTH_TYPE_PASSWORD;
+                    auth = EmailService.AUTH_TYPE_PASSWORD;
                 else
                     auth = account.auth_type;
 
-                etUser.setEnabled(auth == MailService.AUTH_TYPE_PASSWORD);
-                tilPassword.setEnabled(auth == MailService.AUTH_TYPE_PASSWORD);
+                etUser.setEnabled(auth == EmailService.AUTH_TYPE_PASSWORD);
+                tilPassword.setEnabled(auth == EmailService.AUTH_TYPE_PASSWORD);
             }
 
             @Override
@@ -771,7 +771,7 @@ public class FragmentIdentity extends FragmentBase {
                 if (check) {
                     // Create transport
                     String protocol = (starttls ? "smtp" : "smtps");
-                    try (MailService iservice = new MailService(context, protocol, realm, insecure, true, true)) {
+                    try (EmailService iservice = new EmailService(context, protocol, realm, insecure, true, true)) {
                         iservice.setUseIp(use_ip);
                         iservice.connect(host, Integer.parseInt(port), auth, provider, user, password, fingerprint);
                     }
@@ -900,7 +900,7 @@ public class FragmentIdentity extends FragmentBase {
                     if (identity.user.equals(google.name))
                         return am.blockingGetAuthToken(
                                 google,
-                                MailService.getAuthTokenType("com.google"),
+                                EmailService.getAuthTokenType("com.google"),
                                 true);
 
                 return null;
@@ -923,8 +923,8 @@ public class FragmentIdentity extends FragmentBase {
         tvError.setText(Log.formatThrowable(ex, false));
         grpError.setVisibility(View.VISIBLE);
 
-        if (ex instanceof MailService.UntrustedException) {
-            MailService.UntrustedException e = (MailService.UntrustedException) ex;
+        if (ex instanceof EmailService.UntrustedException) {
+            EmailService.UntrustedException e = (EmailService.UntrustedException) ex;
             cbTrust.setTag(e.getFingerprint());
             cbTrust.setText(getString(R.string.title_trust, e.getFingerprint()));
             cbTrust.setVisibility(View.VISIBLE);
@@ -1022,7 +1022,7 @@ public class FragmentIdentity extends FragmentBase {
                     etReplyTo.setText(identity == null ? null : identity.replyto);
                     etBcc.setText(identity == null ? null : identity.bcc);
 
-                    auth = (identity == null ? MailService.AUTH_TYPE_PASSWORD : identity.auth_type);
+                    auth = (identity == null ? EmailService.AUTH_TYPE_PASSWORD : identity.auth_type);
                     provider = (identity == null ? null : identity.provider);
 
                     if (identity == null || copy > 0)
@@ -1052,12 +1052,12 @@ public class FragmentIdentity extends FragmentBase {
 
                 Helper.setViewsEnabled(view, true);
 
-                if (auth != MailService.AUTH_TYPE_PASSWORD) {
+                if (auth != EmailService.AUTH_TYPE_PASSWORD) {
                     etUser.setEnabled(false);
                     tilPassword.setEnabled(false);
                 }
 
-                if (identity == null || identity.auth_type != MailService.AUTH_TYPE_GMAIL)
+                if (identity == null || identity.auth_type != EmailService.AUTH_TYPE_GMAIL)
                     Helper.hide(btnOAuth);
 
                 cbPrimary.setEnabled(cbSynchronize.isChecked());
@@ -1077,7 +1077,7 @@ public class FragmentIdentity extends FragmentBase {
 
                         EntityAccount unselected = new EntityAccount();
                         unselected.id = -1L;
-                        unselected.auth_type = MailService.AUTH_TYPE_PASSWORD;
+                        unselected.auth_type = EmailService.AUTH_TYPE_PASSWORD;
                         unselected.name = getString(R.string.title_select);
                         unselected.primary = false;
                         accounts.add(0, unselected);

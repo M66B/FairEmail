@@ -65,7 +65,7 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
 
-public class MailService implements AutoCloseable {
+public class EmailService implements AutoCloseable {
     private Context context;
     private String protocol;
     private boolean insecure;
@@ -96,11 +96,11 @@ public class MailService implements AutoCloseable {
             "SSLv2", "SSLv3", "TLSv1", "TLSv1.1"
     ));
 
-    private MailService() {
+    private EmailService() {
         // Prevent instantiation
     }
 
-    MailService(Context context, String protocol, String realm, boolean insecure, boolean check, boolean debug) throws NoSuchProviderException {
+    EmailService(Context context, String protocol, String realm, boolean insecure, boolean check, boolean debug) throws NoSuchProviderException {
         this.context = context.getApplicationContext();
         this.protocol = protocol;
         this.insecure = insecure;

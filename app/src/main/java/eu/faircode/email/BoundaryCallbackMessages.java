@@ -301,7 +301,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     throw new IllegalStateException(context.getString(R.string.title_no_internet));
 
                 Log.i("Boundary server connecting account=" + account.name);
-                state.iservice = new MailService(context, account.getProtocol(), account.realm, account.insecure, false, debug);
+                state.iservice = new EmailService(context, account.getProtocol(), account.realm, account.insecure, false, debug);
                 state.iservice.setPartialFetch(account.partial_fetch);
                 state.iservice.setIgnoreBodyStructureSize(account.ignore_size);
                 state.iservice.connect(account);
@@ -576,7 +576,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         List<Long> ids = null;
         List<TupleMatch> matches = null;
 
-        MailService iservice = null;
+        EmailService iservice = null;
         IMAPFolder ifolder = null;
         Message[] imessages = null;
     }

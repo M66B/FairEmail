@@ -1238,8 +1238,8 @@ public abstract class DB extends RoomDatabase {
                         int previous_version = prefs.getInt("previous_version", -1);
                         if (previous_version <= 848 && Helper.isPlayStoreInstall()) {
                             // JavaMail didn't check server certificates
-                            db.execSQL("UPDATE account SET insecure = 1 WHERE auth_type = " + MailService.AUTH_TYPE_PASSWORD);
-                            db.execSQL("UPDATE identity SET insecure = 1 WHERE auth_type = " + MailService.AUTH_TYPE_PASSWORD);
+                            db.execSQL("UPDATE account SET insecure = 1 WHERE auth_type = " + EmailService.AUTH_TYPE_PASSWORD);
+                            db.execSQL("UPDATE identity SET insecure = 1 WHERE auth_type = " + EmailService.AUTH_TYPE_PASSWORD);
                         }
                     }
                 })

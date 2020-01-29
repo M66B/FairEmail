@@ -229,7 +229,7 @@ public class FragmentGmail extends FragmentBase {
             if (name.equals(account.name)) {
                 am.getAuthToken(
                         account,
-                        MailService.getAuthTokenType(type),
+                        EmailService.getAuthTokenType(type),
                         new Bundle(),
                         getActivity(),
                         new AccountManagerCallback<Bundle>() {
@@ -300,8 +300,8 @@ public class FragmentGmail extends FragmentBase {
                 List<EntityFolder> folders;
 
                 String aprotocol = provider.imap.starttls ? "imap" : "imaps";
-                try (MailService iservice = new MailService(context, aprotocol, null, false, true, true)) {
-                    iservice.connect(provider.imap.host, provider.imap.port, MailService.AUTH_TYPE_GMAIL, null, user, password, null);
+                try (EmailService iservice = new EmailService(context, aprotocol, null, false, true, true)) {
+                    iservice.connect(provider.imap.host, provider.imap.port, EmailService.AUTH_TYPE_GMAIL, null, user, password, null);
 
                     folders = iservice.getFolders();
 
@@ -310,8 +310,8 @@ public class FragmentGmail extends FragmentBase {
                 }
 
                 String iprotocol = provider.smtp.starttls ? "smtp" : "smtps";
-                try (MailService iservice = new MailService(context, iprotocol, null, false, true, true)) {
-                    iservice.connect(provider.smtp.host, provider.smtp.port, MailService.AUTH_TYPE_GMAIL, null, user, password, null);
+                try (EmailService iservice = new EmailService(context, iprotocol, null, false, true, true)) {
+                    iservice.connect(provider.smtp.host, provider.smtp.port, EmailService.AUTH_TYPE_GMAIL, null, user, password, null);
                 }
 
                 DB db = DB.getInstance(context);
@@ -326,7 +326,7 @@ public class FragmentGmail extends FragmentBase {
                     account.host = provider.imap.host;
                     account.starttls = provider.imap.starttls;
                     account.port = provider.imap.port;
-                    account.auth_type = MailService.AUTH_TYPE_GMAIL;
+                    account.auth_type = EmailService.AUTH_TYPE_GMAIL;
                     account.user = user;
                     account.password = password;
 
@@ -370,7 +370,7 @@ public class FragmentGmail extends FragmentBase {
                     identity.host = provider.smtp.host;
                     identity.starttls = provider.smtp.starttls;
                     identity.port = provider.smtp.port;
-                    identity.auth_type = MailService.AUTH_TYPE_GMAIL;
+                    identity.auth_type = EmailService.AUTH_TYPE_GMAIL;
                     identity.user = user;
                     identity.password = password;
                     identity.synchronize = true;

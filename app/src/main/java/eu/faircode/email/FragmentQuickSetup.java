@@ -275,15 +275,15 @@ public class FragmentQuickSetup extends FragmentBase {
                 List<EntityFolder> folders;
 
                 String aprotocol = provider.imap.starttls ? "imap" : "imaps";
-                try (MailService iservice = new MailService(context, aprotocol, null, false, true, true)) {
+                try (EmailService iservice = new EmailService(context, aprotocol, null, false, true, true)) {
                     try {
-                        iservice.connect(provider.imap.host, provider.imap.port, MailService.AUTH_TYPE_PASSWORD, null, user, password, null);
+                        iservice.connect(provider.imap.host, provider.imap.port, EmailService.AUTH_TYPE_PASSWORD, null, user, password, null);
                     } catch (AuthenticationFailedException ex) {
                         if (!user.equals(username)) {
                             Log.w(ex);
                             user = username;
                             Log.i("Retry with user=" + user);
-                            iservice.connect(provider.imap.host, provider.imap.port, MailService.AUTH_TYPE_PASSWORD, null, user, password, null);
+                            iservice.connect(provider.imap.host, provider.imap.port, EmailService.AUTH_TYPE_PASSWORD, null, user, password, null);
                         } else
                             throw ex;
                     }
@@ -295,9 +295,9 @@ public class FragmentQuickSetup extends FragmentBase {
                 }
 
                 String iprotocol = provider.smtp.starttls ? "smtp" : "smtps";
-                try (MailService iservice = new MailService(context, iprotocol, null, false, true, true)) {
+                try (EmailService iservice = new EmailService(context, iprotocol, null, false, true, true)) {
                     iservice.setUseIp(provider.useip);
-                    iservice.connect(provider.smtp.host, provider.smtp.port, MailService.AUTH_TYPE_PASSWORD, null, user, password, null);
+                    iservice.connect(provider.smtp.host, provider.smtp.port, EmailService.AUTH_TYPE_PASSWORD, null, user, password, null);
                 }
 
                 if (check)
@@ -315,7 +315,7 @@ public class FragmentQuickSetup extends FragmentBase {
                     account.host = provider.imap.host;
                     account.starttls = provider.imap.starttls;
                     account.port = provider.imap.port;
-                    account.auth_type = MailService.AUTH_TYPE_PASSWORD;
+                    account.auth_type = EmailService.AUTH_TYPE_PASSWORD;
                     account.user = user;
                     account.password = password;
 
@@ -361,7 +361,7 @@ public class FragmentQuickSetup extends FragmentBase {
                     identity.host = provider.smtp.host;
                     identity.starttls = provider.smtp.starttls;
                     identity.port = provider.smtp.port;
-                    identity.auth_type = MailService.AUTH_TYPE_PASSWORD;
+                    identity.auth_type = EmailService.AUTH_TYPE_PASSWORD;
                     identity.user = user;
                     identity.password = password;
                     identity.use_ip = provider.useip;
