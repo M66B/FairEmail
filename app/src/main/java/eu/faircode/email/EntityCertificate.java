@@ -93,7 +93,13 @@ public class EntityCertificate {
     }
 
     boolean isExpired() {
-        long now = new Date().getTime();
+        return isExpired(null);
+    }
+
+    boolean isExpired(Date date) {
+        if (date == null)
+            date = new Date();
+        long now = date.getTime();
         return ((this.after != null && now <= this.after) || (this.before != null && now > this.before));
     }
 

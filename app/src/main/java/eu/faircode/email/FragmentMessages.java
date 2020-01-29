@@ -116,6 +116,10 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.sun.mail.util.FolderClosedIOException;
 
+import org.bouncycastle.asn1.cms.Attribute;
+import org.bouncycastle.asn1.cms.AttributeTable;
+import org.bouncycastle.asn1.cms.CMSAttributes;
+import org.bouncycastle.asn1.cms.Time;
 import org.bouncycastle.cert.X509CertificateHolder;
 import org.bouncycastle.cert.jcajce.JcaX509CertificateConverter;
 import org.bouncycastle.cms.CMSEnvelopedData;
@@ -128,6 +132,7 @@ import org.bouncycastle.cms.KeyTransRecipientId;
 import org.bouncycastle.cms.RecipientInformation;
 import org.bouncycastle.cms.SignerInformation;
 import org.bouncycastle.cms.SignerInformationStore;
+import org.bouncycastle.cms.SignerInformationVerifier;
 import org.bouncycastle.cms.jcajce.JcaSimpleSignerInfoVerifierBuilder;
 import org.bouncycastle.cms.jcajce.JceKeyTransEnvelopedRecipient;
 import org.bouncycastle.cms.jcajce.JceKeyTransRecipient;
@@ -159,6 +164,7 @@ import java.security.cert.CertPathValidator;
 import java.security.cert.CertStore;
 import java.security.cert.CertStoreParameters;
 import java.security.cert.Certificate;
+import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.CollectionCertStoreParameters;
 import java.security.cert.PKIXBuilderParameters;
@@ -4774,7 +4780,26 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             X509Certificate cert = new JcaX509CertificateConverter()
                                     .getCertificate(certHolder);
                             try {
-                                if (signer.verify(new JcaSimpleSignerInfoVerifierBuilder().build(cert))) {
+                                Date signingTime;
+                                Attribute attr = signer.getSignedAttributes().get(CMSAttributes.signingTime);
+                                if (attr != null && attr.getAttrValues().size() == 1)
+                                    signingTime = Time.getInstance(attr.getAttrValues()
+                                            .getObjectAt(0).toASN1Primitive()).getDate();
+                                else
+                                    signingTime = new Date(message.received);
+                                args.putSerializable("time", signingTime);
+
+                                SignerInformationVerifier verifier = new JcaSimpleSignerInfoVerifierBuilder()
+                                        .build(cert);
+                                SignerInformation s = new SignerInformation(signer) {
+                                    @Override
+                                    public AttributeTable getSignedAttributes() {
+                                        // The certificate validity will be check below
+                                        return super.getSignedAttributes().remove(CMSAttributes.signingTime);
+                                    }
+                                };
+
+                                if (s.verify(verifier)) {
                                     boolean known = true;
                                     String fingerprint = EntityCertificate.getFingerprint(cert);
                                     List<String> emails = EntityCertificate.getAltSubjectName(cert);
@@ -4813,15 +4838,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                         CertStoreParameters intermediates = new CollectionCertStoreParameters(certs);
                                         params.addCertStore(CertStore.getInstance("Collection", intermediates));
                                         params.setRevocationEnabled(false);
-                                        params.setDate(new Date(message.received));
+                                        params.setDate(signingTime);
 
                                         CertPathBuilder builder = CertPathBuilder.getInstance("PKIX");
                                         CertPathBuilderResult path = builder.build(params);
 
                                         CertPathValidator cpv = CertPathValidator.getInstance("PKIX");
                                         cpv.validate(path.getCertPath(), params);
-
-                                        args.putBoolean("valid", true);
 
                                         List<Certificate> pcerts = new ArrayList<>();
                                         pcerts.addAll(path.getCertPath().getCertificates());
@@ -4842,6 +4865,18 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                             }
 
                                         args.putStringArrayList("trace", trace);
+
+                                        boolean valid = true;
+                                        for (Certificate pcert : pcerts)
+                                            try {
+                                                ((X509Certificate) pcert).checkValidity(signingTime);
+                                            } catch (CertificateException ex) {
+                                                Log.w(ex);
+                                                valid = false;
+                                                break;
+                                            }
+
+                                        args.putBoolean("valid", valid);
                                     } catch (Throwable ex) {
                                         Log.w(ex);
 
@@ -4990,11 +5025,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             protected void onExecuted(final Bundle args, X509Certificate cert) {
                 int type = args.getInt("type");
                 if (EntityMessage.SMIME_SIGNONLY.equals(type)) {
-                    String sender = args.getString("sender");
-                    boolean known = args.getBoolean("known");
-                    boolean valid = args.getBoolean("valid");
-                    final ArrayList<String> trace = args.getStringArrayList("trace");
-
                     if (cert == null) {
                         String message;
                         String reason = args.getString("reason");
@@ -5005,7 +5035,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         Snackbar.make(view, message, Snackbar.LENGTH_LONG).show();
                     } else
                         try {
+                            String sender = args.getString("sender");
+                            Date time = (Date) args.getSerializable("time");
+                            boolean known = args.getBoolean("known");
+                            boolean valid = args.getBoolean("valid");
+                            final ArrayList<String> trace = args.getStringArrayList("trace");
                             EntityCertificate record = EntityCertificate.from(cert, null);
+
+                            if (time == null)
+                                time = new Date();
 
                             boolean match = false;
                             List<String> emails = EntityCertificate.getAltSubjectName(cert);
@@ -5015,7 +5053,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     break;
                                 }
 
-                            if (known && !record.isExpired() && match && valid)
+                            if (known && !record.isExpired(time) && match && valid)
                                 Snackbar.make(view, R.string.title_signature_valid, Snackbar.LENGTH_LONG).show();
                             else {
                                 LayoutInflater inflator = LayoutInflater.from(getContext());
@@ -5038,7 +5076,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 DateFormat TF = Helper.getDateTimeInstance(getContext(), SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
                                 tvAfter.setText(record.after == null ? null : TF.format(record.after));
                                 tvBefore.setText(record.before == null ? null : TF.format(record.before));
-                                tvExpired.setVisibility(record.isExpired() ? View.VISIBLE : View.GONE);
+                                tvExpired.setVisibility(record.isExpired(time) ? View.VISIBLE : View.GONE);
 
                                 if (trace != null && trace.size() > 0)
                                     tvSubject.setOnClickListener(new View.OnClickListener() {
