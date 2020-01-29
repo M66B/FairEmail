@@ -549,8 +549,7 @@
     <provider
         name="Ziggo"
         domain="ziggo\\.nl,quicknet\\.nl,home\\.nl,casema\\.nl,upcmail\\.nl,chello\\.nl,a2000\\.nl"
-        link="https://www.ziggo.nl/klantenservice/internet/e-mail/serverinstellingen"
-        partial="false">
+        link="https://www.ziggo.nl/klantenservice/internet/e-mail/serverinstellingen">
         <imap
             host="imap.ziggo.nl"
             port="993"
