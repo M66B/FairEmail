@@ -1527,6 +1527,7 @@ The following authentication methods are supported and used in this order:
 * LOGIN
 * PLAIN
 * CRAM-MD5
+* XOAUTH2 ([Gmail](https://developers.google.com/gmail/imap/xoauth2-protocol), [Yandex](https://tech.yandex.com/oauth/))
 * NTLM (untested)
 
 SASL authentication methods, besides CRAM-MD5, are not supported
@@ -2689,7 +2690,7 @@ This requires a compatible audio recorder app to be installed.
 In particular [this common intent](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media.html#RECORD_SOUND_ACTION)
 needs to be supported.
 
-For example [this audio recorder](https://play.google.com/store/apps/details?id=com.sonymobile.androidapp.audiorecorder) is compatible.
+For example [this audio recorder](https://f-droid.org/app/com.github.axet.audiorecorder) is compatible.
 
 Voice notes will automatically be attached.
 
