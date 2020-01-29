@@ -546,4 +546,18 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="Ziggo"
+        domain="ziggo\\.nl,quicknet\\.nl,home\\.nl,casema\\.nl,upcmail\\.nl,chello\\.nl,a2000\\.nl"
+        link="https://www.ziggo.nl/klantenservice/internet/e-mail/serverinstellingen"
+        partial="false">
+        <imap
+            host="imap.ziggo.nl"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.ziggo.nl"
+            port="587"
+            starttls="true" />
+    </provider>
 </providers>
