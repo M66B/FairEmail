@@ -162,6 +162,7 @@ import java.security.cert.Certificate;
 import java.security.cert.CertificateFactory;
 import java.security.cert.CollectionCertStoreParameters;
 import java.security.cert.PKIXBuilderParameters;
+import java.security.cert.PKIXCertPathValidatorResult;
 import java.security.cert.X509CertSelector;
 import java.security.cert.X509Certificate;
 import java.text.Collator;
@@ -4822,22 +4823,31 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                                         args.putBoolean("valid", true);
 
+                                        List<Certificate> pcerts = new ArrayList<>();
+                                        pcerts.addAll(path.getCertPath().getCertificates());
+                                        if (path instanceof PKIXCertPathValidatorResult) {
+                                            X509Certificate root = ((PKIXCertPathValidatorResult) path).getTrustAnchor().getTrustedCert();
+                                            if (root != null)
+                                                pcerts.add(root);
+                                        }
+
                                         ArrayList<String> trace = new ArrayList<>();
-                                        for (Certificate c : path.getCertPath().getCertificates())
-                                            if (c instanceof X509Certificate) {
+                                        for (Certificate pcert : pcerts)
+                                            if (pcert instanceof X509Certificate) {
                                                 // https://tools.ietf.org/html/rfc5280#section-4.2.1.3
-                                                boolean[] usage = ((X509Certificate) c).getKeyUsage();
+                                                boolean[] usage = ((X509Certificate) pcert).getKeyUsage();
                                                 boolean root = (usage != null && usage[5]);
-                                                EntityCertificate record = EntityCertificate.from((X509Certificate) c, null);
+                                                EntityCertificate record = EntityCertificate.from((X509Certificate) pcert, null);
                                                 trace.add(record.subject + (root ? " *" : ""));
                                             }
+
                                         args.putStringArrayList("trace", trace);
                                     } catch (Throwable ex) {
                                         Log.w(ex);
 
                                         ArrayList<String> trace = new ArrayList<>();
                                         for (X509Certificate c : certs) {
-                                            boolean[] usage = ((X509Certificate) c).getKeyUsage();
+                                            boolean[] usage = c.getKeyUsage();
                                             boolean root = (usage != null && usage[5]);
                                             EntityCertificate record = EntityCertificate.from(c, null);
                                             trace.add(record.subject + (root ? " *" : ""));
