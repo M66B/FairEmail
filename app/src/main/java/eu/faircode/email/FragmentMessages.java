@@ -4850,6 +4850,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 }
                             } catch (CMSException ex) {
                                 Log.w(ex);
+                                args.putString("reason", ex.getMessage());
                             }
                         }
                         if (result != null)
@@ -4984,9 +4985,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     boolean valid = args.getBoolean("valid");
                     final ArrayList<String> trace = args.getStringArrayList("trace");
 
-                    if (cert == null)
-                        Snackbar.make(view, R.string.title_signature_invalid, Snackbar.LENGTH_LONG).show();
-                    else
+                    if (cert == null) {
+                        String message;
+                        String reason = args.getString("reason");
+                        if (TextUtils.isEmpty(reason))
+                            message = getString(R.string.title_signature_invalid);
+                        else
+                            message = getString(R.string.title_signature_invalid_reason, reason);
+                        Snackbar.make(view, message, Snackbar.LENGTH_LONG).show();
+                    } else
                         try {
                             EntityCertificate record = EntityCertificate.from(cert, null);
 
