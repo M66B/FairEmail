@@ -582,12 +582,6 @@ public class FragmentCompose extends FragmentBase {
             }
         });
 
-        PackageManager pm = getContext().getPackageManager();
-        Intent take_photo = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        Intent record_audio = new Intent(MediaStore.Audio.Media.RECORD_SOUND_ACTION);
-        media_bar.getMenu().findItem(R.id.menu_take_photo).setVisible(take_photo.resolveActivity(pm) != null);
-        media_bar.getMenu().findItem(R.id.menu_record_audio).setVisible(record_audio.resolveActivity(pm) != null);
-
         media_bar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -1269,30 +1263,54 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onActionRecordAudio() {
+        // https://developer.android.com/reference/android/provider/MediaStore.Audio.Media.html#RECORD_SOUND_ACTION
+        PackageManager pm = getContext().getPackageManager();
         Intent intent = new Intent(MediaStore.Audio.Media.RECORD_SOUND_ACTION);
-        try {
-            startActivityForResult(intent, REQUEST_RECORD_AUDIO);
-        } catch (SecurityException ex) {
-            Log.w(ex);
-            Snackbar.make(view, getString(R.string.title_no_viewer, intent.getAction()), Snackbar.LENGTH_LONG).show();
-        }
+        if (intent.resolveActivity(pm) == null) {
+            Snackbar snackbar = Snackbar.make(view, getString(R.string.title_no_recorder), Snackbar.LENGTH_INDEFINITE);
+            snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Helper.view(getContext(), Uri.parse(BuildConfig.RECORDER_URI), false);
+                }
+            });
+            snackbar.show();
+        } else
+            try {
+                startActivityForResult(intent, REQUEST_RECORD_AUDIO);
+            } catch (SecurityException ex) {
+                Log.w(ex);
+                Snackbar.make(view, getString(R.string.title_no_viewer, intent.getAction()), Snackbar.LENGTH_INDEFINITE).show();
+            }
     }
 
     private void onActionTakePhoto() {
-        File dir = new File(getContext().getCacheDir(), "photo");
-        if (!dir.exists())
-            dir.mkdir();
-        File file = new File(dir, working + ".jpg");
-
         // https://developer.android.com/training/camera/photobasics
+        PackageManager pm = getContext().getPackageManager();
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        try {
-            photoURI = FileProvider.getUriForFile(getContext(), BuildConfig.APPLICATION_ID, file);
-            intent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
-            startActivityForResult(intent, REQUEST_TAKE_PHOTO);
-        } catch (SecurityException ex) {
-            Log.w(ex);
-            Snackbar.make(view, getString(R.string.title_no_viewer, intent.getAction()), Snackbar.LENGTH_LONG).show();
+        if (intent.resolveActivity(pm) == null) {
+            Snackbar snackbar = Snackbar.make(view, getString(R.string.title_no_camera), Snackbar.LENGTH_LONG);
+            snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Helper.view(getContext(), Uri.parse(BuildConfig.CAMERA_URI), false);
+                }
+            });
+            snackbar.show();
+        } else {
+            File dir = new File(getContext().getCacheDir(), "photo");
+            if (!dir.exists())
+                dir.mkdir();
+            File file = new File(dir, working + ".jpg");
+
+            try {
+                photoURI = FileProvider.getUriForFile(getContext(), BuildConfig.APPLICATION_ID, file);
+                intent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+                startActivityForResult(intent, REQUEST_TAKE_PHOTO);
+            } catch (SecurityException ex) {
+                Log.w(ex);
+                Snackbar.make(view, getString(R.string.title_no_viewer, intent.getAction()), Snackbar.LENGTH_LONG).show();
+            }
         }
     }
 

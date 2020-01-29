@@ -664,6 +664,8 @@
 
     <string name="title_no_answers">No reply templates defined</string>
     <string name="title_no_viewer">No viewer app available for %1$s</string>
+    <string name="title_no_recorder">No suitable audio recorder app available</string>
+    <string name="title_no_camera">No suitable camera app available</string>
     <string name="title_no_saf">Storage access framework not available</string>
     <string name="title_no_stream">An outdated app sent a file path instead of a file stream</string>
     <string name="title_no_contacts">Contact picker not available</string>
