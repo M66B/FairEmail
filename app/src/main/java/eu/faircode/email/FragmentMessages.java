@@ -4825,8 +4825,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                         ArrayList<String> trace = new ArrayList<>();
                                         for (Certificate c : path.getCertPath().getCertificates())
                                             if (c instanceof X509Certificate) {
+                                                // https://tools.ietf.org/html/rfc5280#section-4.2.1.3
+                                                boolean[] usage = ((X509Certificate) c).getKeyUsage();
+                                                boolean root = (usage != null && usage[5]);
                                                 EntityCertificate record = EntityCertificate.from((X509Certificate) c, null);
-                                                trace.add(record.subject);
+                                                trace.add(record.subject + (root ? " *" : ""));
                                             }
                                         args.putStringArrayList("trace", trace);
                                     } catch (Throwable ex) {
@@ -4834,8 +4837,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                                         ArrayList<String> trace = new ArrayList<>();
                                         for (X509Certificate c : certs) {
+                                            boolean[] usage = ((X509Certificate) c).getKeyUsage();
+                                            boolean root = (usage != null && usage[5]);
                                             EntityCertificate record = EntityCertificate.from(c, null);
-                                            trace.add(record.subject);
+                                            trace.add(record.subject + (root ? " *" : ""));
                                         }
                                         args.putStringArrayList("trace", trace);
                                     }
