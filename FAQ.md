@@ -1535,6 +1535,9 @@ because [JavaMail for Android](https://javaee.github.io/javamail/Android) does n
 
 If your provider requires an unsupported authentication method, you'll likely get the error message *authentication failed*.
 
+[Server Name Indication](https://en.wikipedia.org/wiki/Server_Name_Indication) is supported
+by [all supported Android versions](https://developer.android.com/training/articles/security-ssl).
+
 <br />
 
 <a name="faq63"></a>
