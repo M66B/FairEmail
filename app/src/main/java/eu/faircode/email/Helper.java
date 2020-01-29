@@ -1006,22 +1006,22 @@ public class Helper {
         prefs.edit().remove("last_authentication").apply();
     }
 
-    static void selectKeyAlias(final Activity activity, final LifecycleOwner owner, final String email, final IKeyAlias intf) {
+    static void selectKeyAlias(final Activity activity, final LifecycleOwner owner, final String alias, final IKeyAlias intf) {
         final Context context = activity.getApplicationContext();
         final Handler handler = new Handler();
 
         new Thread(new Runnable() {
             @Override
             public void run() {
-                if (email != null)
+                if (alias != null)
                     try {
-                        if (KeyChain.getPrivateKey(context, email) != null) {
-                            Log.i("Private key available alias=" + email);
+                        if (KeyChain.getPrivateKey(context, alias) != null) {
+                            Log.i("Private key available alias=" + alias);
                             handler.post(new Runnable() {
                                 @Override
                                 public void run() {
                                     if (owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-                                        intf.onSelected(email);
+                                        intf.onSelected(alias);
                                 }
                             });
                             return;
@@ -1063,7 +1063,7 @@ public class Helper {
                                         });
                                     }
                                 },
-                                null, null, null, -1, email);
+                                null, null, null, -1, alias);
                     }
                 });
             }
