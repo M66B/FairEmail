@@ -4835,8 +4835,43 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                         X509CertSelector target = new X509CertSelector();
                                         target.setCertificate(cert);
 
+                                        // Load/store intermediate certificates
+                                        List<X509Certificate> local = new ArrayList<>();
+
+                                        try {
+                                            List<EntityCertificate> ecs = db.certificate().getIntermediateCertificate();
+                                            for (EntityCertificate ec : ecs)
+                                                local.add(ec.getCertificate());
+
+                                            for (X509Certificate c : certs) {
+                                                boolean[] usage = c.getKeyUsage();
+                                                boolean root = (usage != null && usage[5]);
+                                                if (root) {
+                                                    boolean found = false;
+                                                    String issuer = (c.getIssuerDN() == null ? "" : c.getIssuerDN().getName());
+                                                    EntityCertificate record = EntityCertificate.from(c, true, issuer);
+                                                    for (EntityCertificate ec : ecs)
+                                                        if (ec.fingerprint.equals(record.fingerprint)) {
+                                                            found = true;
+                                                            break;
+                                                        }
+
+                                                    if (!found) {
+                                                        Log.i("Storing certificate subject=" + record.subject);
+                                                        local.add(record.getCertificate());
+                                                        db.certificate().insertCertificate(record);
+                                                    }
+                                                }
+                                            }
+                                        } catch (Throwable ex) {
+                                            Log.e(ex);
+                                            local = certs;
+                                        }
+
+                                        // Intermediate certificates
+                                        Log.i("Intermediate certificates=" + local.size());
                                         PKIXBuilderParameters params = new PKIXBuilderParameters(ks, target);
-                                        CertStoreParameters intermediates = new CollectionCertStoreParameters(certs);
+                                        CertStoreParameters intermediates = new CollectionCertStoreParameters(local);
                                         params.addCertStore(CertStore.getInstance("Collection", intermediates));
                                         params.setRevocationEnabled(false);
                                         params.setDate(signingTime);

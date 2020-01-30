@@ -32,7 +32,7 @@ public interface DaoCertificate {
     List<EntityCertificate> getCertificates();
 
     @Query("SELECT * FROM certificate" +
-            " ORDER BY email, subject")
+            " ORDER BY intermediate, email, subject")
     LiveData<List<EntityCertificate>> liveCertificates();
 
     @Query("SELECT * FROM certificate" +
@@ -43,6 +43,10 @@ public interface DaoCertificate {
     @Query("SELECT * FROM certificate" +
             " WHERE email = :email COLLATE NOCASE")
     List<EntityCertificate> getCertificateByEmail(String email);
+
+    @Query("SELECT * FROM certificate" +
+            " WHERE intermediate")
+    List<EntityCertificate> getIntermediateCertificate();
 
     @Insert
     long insertCertificate(EntityCertificate certificate);

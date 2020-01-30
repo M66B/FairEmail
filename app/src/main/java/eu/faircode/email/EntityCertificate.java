@@ -62,6 +62,8 @@ public class EntityCertificate {
     @NonNull
     public String fingerprint;
     @NonNull
+    public boolean intermediate;
+    @NonNull
     public String email;
     public String subject;
     public Long after;
@@ -70,8 +72,13 @@ public class EntityCertificate {
     public String data;
 
     static EntityCertificate from(X509Certificate certificate, String email) throws CertificateEncodingException, NoSuchAlgorithmException {
+        return from(certificate, false, email);
+    }
+
+    static EntityCertificate from(X509Certificate certificate, boolean intermediate, String email) throws CertificateEncodingException, NoSuchAlgorithmException {
         EntityCertificate record = new EntityCertificate();
         record.fingerprint = getFingerprint(certificate);
+        record.intermediate = intermediate;
         record.email = email;
         record.subject = getSubject(certificate);
 
@@ -131,6 +138,7 @@ public class EntityCertificate {
     public JSONObject toJSON() throws JSONException {
         JSONObject json = new JSONObject();
         json.put("id", id);
+        json.put("intermediate", intermediate);
         json.put("email", email);
         json.put("data", data);
         return json;
@@ -139,6 +147,7 @@ public class EntityCertificate {
     public static EntityCertificate fromJSON(JSONObject json) throws JSONException, CertificateException, NoSuchAlgorithmException {
         EntityCertificate certificate = new EntityCertificate();
         certificate.id = json.getLong("id");
+        certificate.intermediate = json.optBoolean("intermediate");
         certificate.email = json.getString("email");
         certificate.data = json.getString("data");
 
@@ -160,9 +169,9 @@ public class EntityCertificate {
         if (obj instanceof EntityCertificate) {
             EntityCertificate other = (EntityCertificate) obj;
             return (this.fingerprint.equals(other.fingerprint) &&
+                    this.intermediate == other.intermediate &&
                     Objects.equals(this.email, other.email) &&
-                    Objects.equals(this.subject, other.subject) &&
-                    this.data.equals(other.data));
+                    Objects.equals(this.subject, other.subject));
         } else
             return false;
     }

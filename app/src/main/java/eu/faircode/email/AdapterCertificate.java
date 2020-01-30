@@ -30,6 +30,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -57,6 +58,7 @@ public class AdapterCertificate extends RecyclerView.Adapter<AdapterCertificate.
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnLongClickListener {
         private View view;
         private TextView tvEmail;
+        private ImageView ivIntermediate;
         private TextView tvSubject;
         private TextView tvAfter;
         private TextView tvBefore;
@@ -69,6 +71,7 @@ public class AdapterCertificate extends RecyclerView.Adapter<AdapterCertificate.
 
             view = itemView.findViewById(R.id.clItem);
             tvEmail = itemView.findViewById(R.id.tvEmail);
+            ivIntermediate = itemView.findViewById(R.id.ivIntermediate);
             tvSubject = itemView.findViewById(R.id.tvSubject);
             tvAfter = itemView.findViewById(R.id.tvAfter);
             tvBefore = itemView.findViewById(R.id.tvBefore);
@@ -143,6 +146,7 @@ public class AdapterCertificate extends RecyclerView.Adapter<AdapterCertificate.
 
         private void bindTo(EntityCertificate certificate) {
             tvEmail.setText(certificate.email);
+            ivIntermediate.setVisibility(certificate.intermediate ? View.VISIBLE : View.INVISIBLE);
             tvSubject.setText(certificate.subject);
             tvAfter.setText(certificate.after == null ? null : TF.format(certificate.after));
             tvBefore.setText(certificate.before == null ? null : TF.format(certificate.before));
