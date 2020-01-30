@@ -90,7 +90,7 @@ public class EditTextCompose extends AppCompatEditText {
                                 new StyledQuoteSpan(context, colorPrimary),
                                 ssb.getSpanStart(span),
                                 ssb.getSpanEnd(span),
-                                ssb.getSpanFlags(span));
+                                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                         ssb.removeSpan(span);
                     }
 

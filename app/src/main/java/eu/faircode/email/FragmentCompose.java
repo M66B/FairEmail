@@ -4037,7 +4037,7 @@ public class FragmentCompose extends FragmentBase {
                             new StyledQuoteSpan(context, colorPrimary),
                             bodyBuilder.getSpanStart(quoteSpan),
                             bodyBuilder.getSpanEnd(quoteSpan),
-                            bodyBuilder.getSpanFlags(quoteSpan));
+                            Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                     bodyBuilder.removeSpan(quoteSpan);
                 }
 
@@ -4062,7 +4062,7 @@ public class FragmentCompose extends FragmentBase {
                                 new StyledQuoteSpan(context, colorPrimary),
                                 refBuilder.getSpanStart(quoteSpan),
                                 refBuilder.getSpanEnd(quoteSpan),
-                                refBuilder.getSpanFlags(quoteSpan));
+                                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                         refBuilder.removeSpan(quoteSpan);
                     }
 
