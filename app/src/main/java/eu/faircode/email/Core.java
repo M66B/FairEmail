@@ -2151,7 +2151,7 @@ class Core {
                     message.warning = Log.formatThrowable(ex, false);
                 }
 
-            boolean check_spam = prefs.getBoolean("check_spam", BuildConfig.DEBUG);
+            boolean check_spam = prefs.getBoolean("check_spam", false);
             if (check_spam)
                 try {
                     String host = helper.getReceivedFromHost();
