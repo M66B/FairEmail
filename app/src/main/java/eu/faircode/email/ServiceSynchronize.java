@@ -825,6 +825,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     }
                 });
 
+                final ExecutorService executor =
+                        Helper.getBackgroundExecutor(1, "account_" + account.id);
+
                 final Map<EntityFolder, IMAPFolder> mapFolders = new HashMap<>();
                 List<Thread> idlers = new ArrayList<>();
                 try {
@@ -944,9 +947,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         Core.onSynchronizeFolders(this, account, iservice.getStore(), state);
 
                     // Open synchronizing folders
-                    final ExecutorService executor =
-                            Helper.getBackgroundExecutor(1, "account_" + account.id);
-
                     List<EntityFolder> folders = db.folder().getFolders(account.id, false, true);
                     Collections.sort(folders, new Comparator<EntityFolder>() {
                         @Override
@@ -1415,6 +1415,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 owner.destroy();
                         }
                     });
+
+                    executor.shutdown();
 
                     // Close folders
                     for (EntityFolder folder : mapFolders.keySet())

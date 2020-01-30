@@ -163,12 +163,14 @@ public class Helper {
 
         if (threads == 0)
             return new ThreadPoolExecutorEx(
+                    name,
                     0, Integer.MAX_VALUE,
                     60L, TimeUnit.SECONDS,
                     new SynchronousQueue<Runnable>(),
                     factory);
         else if (threads == 1)
             return new ThreadPoolExecutorEx(
+                    name,
                     threads, threads,
                     0L, TimeUnit.MILLISECONDS,
                     new PriorityBlockingQueue<Runnable>(10, new PriorityComparator()),
@@ -184,6 +186,7 @@ public class Helper {
             };
         else
             return new ThreadPoolExecutorEx(
+                    name,
                     threads, threads,
                     0L, TimeUnit.MILLISECONDS,
                     new LinkedBlockingQueue<Runnable>(),
@@ -191,13 +194,28 @@ public class Helper {
     }
 
     private static class ThreadPoolExecutorEx extends ThreadPoolExecutor {
-        public ThreadPoolExecutorEx(int corePoolSize, int maximumPoolSize, long keepAliveTime, TimeUnit unit, BlockingQueue<Runnable> workQueue, ThreadFactory threadFactory) {
+        String name;
+
+        public ThreadPoolExecutorEx(
+                String name,
+                int corePoolSize, int maximumPoolSize,
+                long keepAliveTime, TimeUnit unit,
+                BlockingQueue<Runnable> workQueue,
+                ThreadFactory threadFactory) {
             super(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue, threadFactory);
+            this.name = name;
         }
 
         @Override
         protected void beforeExecute(Thread t, Runnable r) {
             Log.d("Executing " + t.getName());
+        }
+
+        @Override
+        public void shutdown() {
+            Log.i("Shutdown " + name);
+            super.getQueue().clear();
+            super.shutdown();
         }
     }
 
