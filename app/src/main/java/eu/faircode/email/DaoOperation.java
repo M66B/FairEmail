@@ -23,6 +23,7 @@ import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Transaction;
 
 import java.util.List;
 
@@ -39,6 +40,7 @@ public interface DaoOperation {
             " ELSE 0" +
             " END";
 
+    @Transaction
     @Query("SELECT operation.*" +
             ", " + priority + " AS priority" +
             ", account.name AS accountName, folder.name AS folderName" +
