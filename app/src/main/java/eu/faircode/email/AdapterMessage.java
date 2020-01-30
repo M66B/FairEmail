@@ -246,6 +246,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     // https://github.com/newhouse/url-tracking-stripper
     private static final List<String> PARANOID_QUERY = Collections.unmodifiableList(Arrays.asList(
+            // https://en.wikipedia.org/wiki/UTM_parameters
             "utm_source",
             "utm_medium",
             "utm_campaign",
@@ -259,8 +260,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             "utm_pubreferrer",
             "utm_swu",
 
-            "gclid",
-            "fbclid"
+            "icid", // Adobe
+            "gclid", // Google
+            "fbclid", // Facebook
+            "igshid", // Instagram
+
+            "mc_cid", // MailChimp
+            "mc_eid", // MailChimp
+
+            "kclickid" // https://support.freespee.com/hc/en-us/articles/202577831-Kenshoo-integration
     ));
 
     // https://www.iana.org/assignments/imap-jmap-keywords/imap-jmap-keywords.xhtml
