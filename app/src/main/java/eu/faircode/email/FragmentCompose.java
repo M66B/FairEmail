@@ -673,7 +673,7 @@ public class FragmentCompose extends FragmentBase {
                 int colName = cursor.getColumnIndex("name");
                 int colEmail = cursor.getColumnIndex("email");
                 String name = cursor.getString(colName);
-                String email = cursor.getString(colEmail);
+                String email = MessageHelper.sanitizeEmail(cursor.getString(colEmail));
                 StringBuilder sb = new StringBuilder();
                 if (name == null)
                     sb.append(email);
@@ -1586,7 +1586,7 @@ public class FragmentCompose extends FragmentBase {
                     if (cursor != null && cursor.moveToFirst()) {
                         int colEmail = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Email.ADDRESS);
                         int colName = cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME);
-                        String email = cursor.getString(colEmail);
+                        String email = MessageHelper.sanitizeEmail(cursor.getString(colEmail));
                         String name = cursor.getString(colName);
 
                         try {

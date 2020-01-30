@@ -1702,6 +1702,17 @@ public class MessageHelper {
         return sb.toString();
     }
 
+    static String sanitizeEmail(String email) {
+        if (email.contains("<") && email.contains(">"))
+            try {
+                InternetAddress address = new InternetAddress(email);
+                return address.getAddress();
+            } catch (AddressException ignored) {
+            }
+
+        return email;
+    }
+
     static boolean equalEmail(Address a1, Address a2) {
         String email1 = ((InternetAddress) a1).getAddress();
         String email2 = ((InternetAddress) a2).getAddress();
