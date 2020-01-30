@@ -108,6 +108,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private static final int CONNECT_BACKOFF_AlARM = 15; // minutes
     private static final long RECONNECT_BACKOFF = 90 * 1000L; // milliseconds
     private static final int ACCOUNT_ERROR_AFTER = 60; // minutes
+    private static final int ACCOUNT_ERROR_AFTER_POLL = 3; // times
     private static final int BACKOFF_ERROR_AFTER = 16; // seconds
 
     private static final List<String> PREF_EVAL = Collections.unmodifiableList(Arrays.asList(
@@ -861,8 +862,11 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             EntityLog.log(this, account.name + " last connected: " + new Date(account.last_connected));
 
                             long now = new Date().getTime();
+                            int pollInterval = prefs.getInt("poll_interval", 0);
                             long delayed = now - account.last_connected - account.poll_interval * 60 * 1000L;
-                            if (delayed > ACCOUNT_ERROR_AFTER * 60 * 1000L && state.getBackoff() > BACKOFF_ERROR_AFTER) {
+                            long maxDelayed = (pollInterval > 0 && !account.poll_exempted
+                                    ? pollInterval * ACCOUNT_ERROR_AFTER_POLL : ACCOUNT_ERROR_AFTER) * 60 * 1000L;
+                            if (delayed > maxDelayed && state.getBackoff() > BACKOFF_ERROR_AFTER) {
                                 Log.i("Reporting sync error after=" + delayed);
                                 Throwable warning = new Throwable(
                                         getString(R.string.title_no_sync,
