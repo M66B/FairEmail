@@ -555,6 +555,8 @@ Some providers allow you to have multiple aliases.
 You can configure these by setting the email address field of an additional identity to the alias address
 and setting the user name field to your main email address.
 
+Note that you can copy an identity by long pressing it.
+
 Alternatively, you can enable *Allow editing sender address* in the advanced settings of an existing identity to edit the username when composing a new message,
 if your provider allows this.
 
