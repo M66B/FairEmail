@@ -507,7 +507,11 @@ public class HtmlHelper {
         // Lists
         for (Element li : document.select("li")) {
             li.tagName("span");
-            li.prependText("* ");
+            Element parent = li.parent();
+            if (parent == null || "ul".equals(parent.tagName()))
+                li.prependText("• ");
+            else
+                li.prependText((li.elementSiblingIndex() + 1) + ". ");
             li.appendElement("br"); // line break after list item
         }
         document.select("ol").tagName("div");
