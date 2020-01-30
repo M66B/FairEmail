@@ -873,6 +873,10 @@ public class MessageHelper {
         return addresses;
     }
 
+    Address[] getSender() throws MessagingException {
+        return getAddressHeader("Sender");
+    }
+
     Address[] getFrom() throws MessagingException {
         Address[] address = getAddressHeader("From");
         if (address == null)

@@ -712,6 +712,7 @@
     <string name="title_download_message">Downloading &#8230;</string>
 
     <string name="title_compose">Compose</string>
+    <string name="title_submitter">Sent by:</string>
     <string name="title_from">From:</string>
     <string name="title_to">To:</string>
     <string name="title_reply_to">Reply to:</string>

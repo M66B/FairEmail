@@ -1489,6 +1489,7 @@ class Core {
                     message.dkim = MessageHelper.getAuthentication("dkim", authentication);
                     message.spf = MessageHelper.getAuthentication("spf", authentication);
                     message.dmarc = MessageHelper.getAuthentication("dmarc", authentication);
+                    message.submitter = helper.getSender();
                     message.from = helper.getFrom();
                     message.to = helper.getTo();
                     message.cc = helper.getCc();
@@ -1516,6 +1517,9 @@ class Core {
                     message.ui_found = false;
                     message.ui_ignored = false;
                     message.ui_browsed = false;
+
+                    if (MessageHelper.equal(message.submitter, message.from))
+                        message.submitter = null;
 
                     if (message.size == null && message.total != null)
                         message.size = message.total;
@@ -2090,6 +2094,7 @@ class Core {
             message.dkim = MessageHelper.getAuthentication("dkim", authentication);
             message.spf = MessageHelper.getAuthentication("spf", authentication);
             message.dmarc = MessageHelper.getAuthentication("dmarc", authentication);
+            message.submitter = helper.getSender();
             message.from = helper.getFrom();
             message.to = helper.getTo();
             message.cc = helper.getCc();
@@ -2118,6 +2123,9 @@ class Core {
             message.ui_found = false;
             message.ui_ignored = seen;
             message.ui_browsed = browsed;
+
+            if (MessageHelper.equal(message.submitter, message.from))
+                message.submitter = null;
 
             // Borrow reply name from sender name
             if (message.from != null && message.from.length == 1 &&

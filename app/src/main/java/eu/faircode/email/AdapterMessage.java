@@ -336,6 +336,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageButton ibNotifyContact;
         private ImageButton ibAddContact;
 
+        private TextView tvSubmitterTitle;
         private TextView tvFromExTitle;
         private TextView tvToTitle;
         private TextView tvReplyToTitle;
@@ -346,6 +347,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private TextView tvReceivedTitle;
         private TextView tvSizeExTitle;
 
+        private TextView tvSubmitter;
         private TextView tvFromEx;
         private TextView tvTo;
         private TextView tvReplyTo;
@@ -496,6 +498,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibNotifyContact = vsBody.findViewById(R.id.ibNotifyContact);
             ibAddContact = vsBody.findViewById(R.id.ibAddContact);
 
+            tvSubmitterTitle = vsBody.findViewById(R.id.tvSubmitterTitle);
             tvFromExTitle = vsBody.findViewById(R.id.tvFromExTitle);
             tvToTitle = vsBody.findViewById(R.id.tvToTitle);
             tvReplyToTitle = vsBody.findViewById(R.id.tvReplyToTitle);
@@ -506,6 +509,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvReceivedTitle = vsBody.findViewById(R.id.tvReceivedTitle);
             tvSizeExTitle = vsBody.findViewById(R.id.tvSizeExTitle);
 
+            tvSubmitter = vsBody.findViewById(R.id.tvSubmitter);
             tvFromEx = vsBody.findViewById(R.id.tvFromEx);
             tvTo = vsBody.findViewById(R.id.tvTo);
             tvReplyTo = vsBody.findViewById(R.id.tvReplyTo);
@@ -1095,6 +1099,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibNotifyContact.setVisibility(View.GONE);
             ibAddContact.setVisibility(View.GONE);
 
+            tvSubmitterTitle.setVisibility(View.GONE);
             tvFromExTitle.setVisibility(View.GONE);
             tvToTitle.setVisibility(View.GONE);
             tvReplyToTitle.setVisibility(View.GONE);
@@ -1105,6 +1110,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvReceivedTitle.setVisibility(View.GONE);
             tvSizeExTitle.setVisibility(View.GONE);
 
+            tvSubmitter.setVisibility(View.GONE);
             tvFromEx.setVisibility(View.GONE);
             tvTo.setVisibility(View.GONE);
             tvReplyTo.setVisibility(View.GONE);
@@ -1268,11 +1274,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibExpanderAddress.setImageLevel(show_addresses ? 0 /* less */ : 1 /* more */);
             ibExpanderAddress.setContentDescription(context.getString(show_addresses ? R.string.title_accessibility_hide_addresses : R.string.title_accessibility_show_addresses));
 
+            String submitter = MessageHelper.formatAddresses(message.submitter);
             String from = MessageHelper.formatAddresses(message.senders);
             String to = MessageHelper.formatAddresses(message.to);
             String replyto = MessageHelper.formatAddresses(message.reply);
             String cc = MessageHelper.formatAddresses(message.cc);
             String bcc = MessageHelper.formatAddresses(message.bcc);
+
+            tvSubmitterTitle.setVisibility(show_addresses && !TextUtils.isEmpty(submitter) ? View.VISIBLE : View.GONE);
+            tvSubmitter.setVisibility(show_addresses && !TextUtils.isEmpty(submitter) ? View.VISIBLE : View.GONE);
+            tvSubmitter.setText(submitter);
 
             tvFromExTitle.setVisibility(show_addresses && !TextUtils.isEmpty(from) ? View.VISIBLE : View.GONE);
             tvFromEx.setVisibility(show_addresses && !TextUtils.isEmpty(from) ? View.VISIBLE : View.GONE);

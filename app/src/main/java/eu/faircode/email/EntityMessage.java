@@ -116,6 +116,7 @@ public class EntityMessage implements Serializable {
     public Boolean mx = null;
     public String avatar; // lookup URI from sender
     public String sender; // sort key
+    public Address[] submitter;
     public Address[] from;
     public Address[] to;
     public Address[] cc;
