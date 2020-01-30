@@ -231,6 +231,7 @@
     <string name="title_advanced_download">Scarica automaticamente i messaggi e gli allegati con una connessione a consumo fino a</string>
     <string name="title_advanced_roaming">Scarica messaggi e allegati durante il roaming</string>
     <string name="title_advanced_rlah">Roaming come a casa</string>
+    <string name="title_advanced_ssl_harden">Connessioni SSL Harden</string>
     <string name="title_advanced_socks">Usa SOCKS proxy</string>
     <string name="title_advanced_manage_connectivity">Gestisci connettività</string>
     <string name="title_advanced_landscape">Usa due colonne in modalità orizzontale</string>
@@ -360,6 +361,7 @@
     <string name="title_advanced_metered_hint">Le connessioni a consumo sono generalmente connessioni mobili o hotspot Wi-Fi a pagamento</string>
     <string name="title_advanced_metered_warning">Disabilitando questa opzione disattiverai la ricezione e l\'invio di messaggi sulle connessioni internet mobili</string>
     <string name="title_advanced_rlah_hint">Presumi nessun roaming all\'interno dell\'UE</string>
+    <string name="title_advanced_ssl_harden_hint">Abilitare questo disabiliterà i protocolli SSL deboli e i cifrari</string>
     <string name="title_advanced_socks_hint">L\'utilizzo di un server proxy remoto non è sicuro perché le connessioni proxy non sono cifrate</string>
     <string name="title_advanced_roaming_hint">Le intestazioni dei messaggi saranno sempre recuperate quando in roaming. Puoi utilizzare le impostazioni di roaming del dispositivo per disabilitare internet durante il roaming.</string>
     <string name="title_advanced_browse_hint">Scarica più messaggi quando scorri verso il basso</string>
@@ -576,6 +578,8 @@
     <string name="title_receipt_text">Questa conferma di lettura riconosce solo se il messaggio è stato visualizzato. Non c\'è garanzia che il destinatario abbia letto il contenuto del messaggio.</string>
     <string name="title_no_answers">Nessun modello di risposta definito</string>
     <string name="title_no_viewer">Nessuna app di visualizzazione disponibile per %1$s</string>
+    <string name="title_no_recorder">Nessuna app di registrazione audio adeguata disponibile</string>
+    <string name="title_no_camera">Nessuna app per la fotocamera adatta</string>
     <string name="title_no_saf">Storage access framework non disponibile</string>
     <string name="title_no_stream">Un\'app obsoleta ha inviato un percorso file invece di un flusso di file</string>
     <string name="title_no_contacts">Selettore di contatti non disponibile</string>

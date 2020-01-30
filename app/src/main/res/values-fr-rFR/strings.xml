@@ -232,6 +232,7 @@
     <string name="title_advanced_download">Télécharger automatiquement les messages et les pièces jointes avec une connexion limitée jusqu\'à</string>
     <string name="title_advanced_roaming">Télécharger les messages et les pièces jointes en itinérance</string>
     <string name="title_advanced_rlah">Ignorer l\'itinérance en Europe</string>
+    <string name="title_advanced_ssl_harden">Renforcer les connexions SSL</string>
     <string name="title_advanced_socks">Utiliser un proxy SOCKS</string>
     <string name="title_advanced_manage_connectivity">Gérer la connectivité</string>
     <string name="title_advanced_landscape">Utiliser deux colonnes en mode paysage</string>
@@ -361,6 +362,7 @@
     <string name="title_advanced_metered_hint">Les connexions limitées sont généralement des connexions mobiles ou des points d\'accès Wi-Fi payants</string>
     <string name="title_advanced_metered_warning">Désactiver cette option désactivera la réception et l\'envoi de messages sur les connexions Internet mobiles</string>
     <string name="title_advanced_rlah_hint">On considère qu\'il n\'y a pas d\'itinérance au sein de l\'UE (roam like at home)</string>
+    <string name="title_advanced_ssl_harden_hint">Activer ceci désactivera les protocoles et algorithmes SSL faibles</string>
     <string name="title_advanced_socks_hint">L\'utilisation d\'un serveur proxy distant n\'est pas sécurisée car les connexions proxy ne sont pas chiffrées</string>
     <string name="title_advanced_roaming_hint">Les en-têtes des messages seront toujours récupérés en itinérance. Vous pouvez utiliser le paramètre d\'itinérance de l\'appareil pour désactiver internet pendant l\'itinérance.</string>
     <string name="title_advanced_browse_hint">Télécharger plus de messages en faisant défiler vers le bas</string>
@@ -577,6 +579,8 @@
     <string name="title_receipt_text">Cet accusé de réception atteste seulement que le message a été affiché. Il n\'y a aucune garantie que le destinataire ait lu le contenu du message.</string>
     <string name="title_no_answers">Aucun modèle de réponse défini</string>
     <string name="title_no_viewer">Aucune application disponible pour visualiser %1$s</string>
+    <string name="title_no_recorder">Aucune application d\'enregistrement audio disponible</string>
+    <string name="title_no_camera">Aucune application de type appareil photo et caméra disponible</string>
     <string name="title_no_saf">Programme d\'accès au stockage non disponible</string>
     <string name="title_no_stream">Une application obsolète a envoyé un chemin d\'accès au lieu d\'un flux de fichier</string>
     <string name="title_no_contacts">Sélecteur de contact non disponible</string>
@@ -689,6 +693,7 @@
     <string name="title_signature_valid">Signature de message valide</string>
     <string name="title_signature_unconfirmed">Signature du message valide mais non confirmée</string>
     <string name="title_signature_invalid">Signature de message invalide</string>
+    <string name="title_signature_invalid_reason">Signature de message invalide : %1$s</string>
     <string name="title_signature_certificate_invalid">Chaîne de certificats invalide</string>
     <string name="title_signature_sender">Adresse de l\'expéditeur</string>
     <string name="title_signature_email">Adresse de la signature</string>

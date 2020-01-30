@@ -232,6 +232,7 @@
     <string name="title_advanced_download">Last ned meldinger og vedlegg automatisk på en målingstilkobling opp til</string>
     <string name="title_advanced_roaming">Laste ned meldinger og vedlegg under roaming</string>
     <string name="title_advanced_rlah">Roam som hjemme</string>
+    <string name="title_advanced_ssl_harden">Styrke SSL-tilkoblinger</string>
     <string name="title_advanced_socks">Bruk SOCKS-proxy</string>
     <string name="title_advanced_manage_connectivity">Administrer tilkobling</string>
     <string name="title_advanced_landscape">Bruk to kolonner i liggende modus</string>
@@ -361,6 +362,7 @@
     <string name="title_advanced_metered_hint">Målte tilkoblinger er vanligvis mobile tilkoblinger eller betalte Wi-Fi-hotspots</string>
     <string name="title_advanced_metered_warning">Deaktivering av dette alternativet deaktiverer mottak og sending av meldinger på mobile internettforbindelser</string>
     <string name="title_advanced_rlah_hint">Forutsatt ingen roaming i EU</string>
+    <string name="title_advanced_ssl_harden_hint">Aktivering av dette vil deaktivere svake SSL-protokoller og krypteringer</string>
     <string name="title_advanced_socks_hint">Å bruke en ekstern proxy-server er usikker fordi proxy-tilkoblinger ikke er kryptert</string>
     <string name="title_advanced_roaming_hint">Meldingsoverskrifter vil alltid bli hentet når du roamer. Du kan bruke enhetens roaming-innstilling for å deaktivere Internett mens du roamer.</string>
     <string name="title_advanced_browse_hint">Hent flere meldinger når du ruller ned</string>
@@ -577,6 +579,8 @@
     <string name="title_receipt_text">Denne lesekvitteringen bekrefter bare at meldingen ble vist. Det er ingen garanti for at mottakeren har lest meldings innholdet.</string>
     <string name="title_no_answers">Ingen svarmaler definert</string>
     <string name="title_no_viewer">Ingen visningsprogram tilgjengelig for %1$s</string>
+    <string name="title_no_recorder">Ingen passende lydopptaker app tilgjengelig</string>
+    <string name="title_no_camera">Ingen passende kamera app tilgjengelig</string>
     <string name="title_no_saf">Storage access framework ikke tilgjengelig</string>
     <string name="title_no_stream">En utdatert app sendte en filbane i stedet for en filstrøm</string>
     <string name="title_no_contacts">Kontaktvelgeren er ikke tilgjengelig</string>
@@ -688,6 +692,7 @@ Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anme
     <string name="title_signature_valid">Meldings signatur gyldig</string>
     <string name="title_signature_unconfirmed">Meldingssignatur er gyldig, men ikke bekreftet</string>
     <string name="title_signature_invalid">Meldings signatur ugyldig</string>
+    <string name="title_signature_invalid_reason">Meldingens signatur er ugyldig: %1$s</string>
     <string name="title_signature_certificate_invalid">Sertifikatkjeden er ugyldig</string>
     <string name="title_signature_sender">Avsenders adresse</string>
     <string name="title_signature_email">Signaturens adresse</string>

@@ -575,6 +575,8 @@
     <string name="title_receipt_text">Irakurragiri honek mezua bistaratu dela adierazten du, besterik ez. Ez dago jasotzaileak mezuaren edukia irakurri duela bermatzerik.</string>
     <string name="title_no_answers">Ez da erantzun txantiloirik zehaztu</string>
     <string name="title_no_viewer">Ez dago %1$s ikusteko aplikaziorik erabilgarri</string>
+    <string name="title_no_recorder">Ez dago audio grabagailu aplikazio egokirik eskuragarri</string>
+    <string name="title_no_camera">Ez dago kamera aplikazio egokirik eskuragarri</string>
     <string name="title_no_saf">Biltegiratzea atzitzeko tresneria ez dago eskuragarri</string>
     <string name="title_no_stream">Zaharkitutako aplikazio batek fitxategi bide bat bidali du fitxategi jario baten ordez</string>
     <string name="title_no_contacts">Kontaktuan hautatzailea ez dago eskuragarri</string>
@@ -687,6 +689,7 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_signature_valid">Mezuaren sinadura baliozkoa</string>
     <string name="title_signature_unconfirmed">Mezuaren sinadura baliozkoa da baina ez da baieztatu</string>
     <string name="title_signature_invalid">Mezuaren sinadura baliogabea</string>
+    <string name="title_signature_invalid_reason">Mezuaren sinadura baliogabea da: %1$s</string>
     <string name="title_signature_certificate_invalid">Ziurtagiri kate baliogabea</string>
     <string name="title_signature_sender">Igorlearen helbidea</string>
     <string name="title_signature_email">Sinaduraren helbidea</string>

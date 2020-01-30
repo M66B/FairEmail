@@ -231,6 +231,7 @@
     <string name="title_advanced_download">Download automatisk beskeder og vedhæftninger på forbrugsbaserede forbindelser</string>
     <string name="title_advanced_roaming">Download beskeder og vedhæftninger under roaming</string>
     <string name="title_advanced_rlah">Roam, som var du hjemme</string>
+    <string name="title_advanced_ssl_harden">Hærd SSL-forbindelser</string>
     <string name="title_advanced_socks">Benyt SOCKS-proxy</string>
     <string name="title_advanced_manage_connectivity">Håndtér konnektivitet</string>
     <string name="title_advanced_landscape">Benyt to kolonner i liggende tilstand</string>
@@ -360,6 +361,7 @@
     <string name="title_advanced_metered_hint">Forbrugsbaserede forbindelser er typisk mobildataforbindelser eller betalte Wi-Fi hotspots</string>
     <string name="title_advanced_metered_warning">Deaktivering af denne indstilling vil ikke gøre det muligt at modtage og sende meddelelser på mobildataforbindelser</string>
     <string name="title_advanced_rlah_hint">Antager ingen roaming inden for EU</string>
+    <string name="title_advanced_ssl_harden_hint">Aktivering af dette vil deaktivere svage SSL-protokoller og Cipher Suites</string>
     <string name="title_advanced_socks_hint">Brug af en ekstern proxyserver er usikkert, da proxyforbindelser er ukrypterede</string>
     <string name="title_advanced_roaming_hint">Beskedoverskrifter hentes altid under roaming. Du kan benytte enhedens roamingindstilling til at deaktivere mobilnetværk under roaming.</string>
     <string name="title_advanced_browse_hint">Hent flere beskeder, når du ruller nedad</string>
@@ -576,6 +578,8 @@
     <string name="title_receipt_text">Denne læsekvittering bekræfter kun, at beskeden er blevet vist. Der er ingen garanti for, at modtageren også har læst beskedindholdet.</string>
     <string name="title_no_answers">Ingen svarskabeloner defineret</string>
     <string name="title_no_viewer">Ingen fremviser-app tilgængelig for %1$s</string>
+    <string name="title_no_recorder">Ingen passende lydoptager-app tilgængelig</string>
+    <string name="title_no_camera">Ingen passende kamera-app tilgængelig</string>
     <string name="title_no_saf">Storage access framework ikke tilgængelig</string>
     <string name="title_no_stream">En forældet app har sendt en filsti i stedet for en fil-stream</string>
     <string name="title_no_contacts">Kontaktvælger ikke tilgængelig</string>
@@ -688,6 +692,7 @@
     <string name="title_signature_valid">Beskedsignatur gyldig</string>
     <string name="title_signature_unconfirmed">Beskedsignatur gyldig, men ubekræftet</string>
     <string name="title_signature_invalid">Beskedsignatur ugyldig</string>
+    <string name="title_signature_invalid_reason">Beskedsignatur ugyldig: %1$s</string>
     <string name="title_signature_certificate_invalid">Certifikatkæde ugyldig</string>
     <string name="title_signature_sender">Afsenderadresse</string>
     <string name="title_signature_email">Signaturadresse</string>

@@ -232,6 +232,7 @@
     <string name="title_advanced_download">Mesajları ve ekleri ölçülü bir bağlantıya kadar otomatik olarak indir</string>
     <string name="title_advanced_roaming">Gezeleme yaparken iletileri ve ekleri indir</string>
     <string name="title_advanced_rlah">Evde gibi dolaşmak</string>
+    <string name="title_advanced_ssl_harden">SSL bağlantılarını sağlamlaştır</string>
     <string name="title_advanced_socks">SOCKS proxy kullan</string>
     <string name="title_advanced_manage_connectivity">Bağlanabilirliği yönet</string>
     <string name="title_advanced_landscape">Yatay modda iki sütun kullanın</string>
@@ -361,6 +362,7 @@
     <string name="title_advanced_metered_hint">Ölçülü bağlantılar genellikle mobil bağlantılar veya ücretli Wi-Fi noktalarıdır</string>
     <string name="title_advanced_metered_warning">Bu seçeneğin devre dışı bırakılması mobil internet bağlantısında ileti almayı ve göndermeyi devre dışı bırakacaktır</string>
     <string name="title_advanced_rlah_hint">AB içinde dolaşımda olmadığını varsayma</string>
+    <string name="title_advanced_ssl_harden_hint">Bunu etkinleştirmek zayıf SSL protokollerini ve şifrelemelerini devre dışı bırakacaktır</string>
     <string name="title_advanced_socks_hint">Proxy bağlantıları şifreli olmadığından uzak bir proxy sunucusu kullanmak güvensizdir</string>
     <string name="title_advanced_roaming_hint">Dolaşım halindeyken mesaj başlıkları her zaman alınacaktır. Cihazın dolaşım ayarlarından dolaşım halindeyken interneti devre dışı bırakabilirsiniz.</string>
     <string name="title_advanced_browse_hint">Aşağı doğru kaydırdığında daha çok ileti getirir</string>
@@ -577,6 +579,8 @@
     <string name="title_receipt_text">Bu okundu bilgisi yalnızca iletinin görüntülendiğini onaylar. Alıcının ileti içeriğini okuduğu garanti edilmez.</string>
     <string name="title_no_answers">Tanımlanmış yanıt kalıbı yok</string>
     <string name="title_no_viewer">%1$s için mevcut görüntüleme uygulaması yok</string>
+    <string name="title_no_recorder">Uygun bir ses kaydedici uygulaması yok</string>
+    <string name="title_no_camera">Uygun bir kamera uygulaması yok</string>
     <string name="title_no_saf">Depolama erişim çerçevesi mevcut değil</string>
     <string name="title_no_stream">Eski bir uygulama bir dosya akışı yerine dosya yolu gönderdi</string>
     <string name="title_no_contacts">Kişi seçici mevcut değil</string>
@@ -689,6 +693,7 @@
     <string name="title_signature_valid">İleti imzası geçerli</string>
     <string name="title_signature_unconfirmed">Mesaj imzası geçerli ancak onaylanmamış</string>
     <string name="title_signature_invalid">İleti imzası geçersiz</string>
+    <string name="title_signature_invalid_reason">Mesaj imzası geçersiz: %1$s</string>
     <string name="title_signature_certificate_invalid">Sertifika zinciri geçersiz</string>
     <string name="title_signature_sender">Gönderenin adresi</string>
     <string name="title_signature_email">İmzanın adresi</string>

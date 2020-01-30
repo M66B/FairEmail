@@ -361,6 +361,7 @@
     <string name="title_advanced_metered_hint">Las conexiones medidas son generalmente conexiones móviles o puntos de acceso Wi-Fi de pago</string>
     <string name="title_advanced_metered_warning">Desactivar esta opción desactivará la recepción y envío de mensajes en conexiones móviles a Internet</string>
     <string name="title_advanced_rlah_hint">Suponiendo que no hay itinerancia dentro de la UE</string>
+    <string name="title_advanced_ssl_harden_hint">Activar esto desactivará los protocolos y cifrados SSL débiles</string>
     <string name="title_advanced_socks_hint">El uso de un servidor proxy remoto es inseguro porque las conexiones proxy no están cifradas</string>
     <string name="title_advanced_roaming_hint">Los encabezados de mensajes siempre se obtendrán cuando en itinerancia. Puede usar la configuración de itinerancia del dispositivo para desactivar internet mientras se está en itinerancia.</string>
     <string name="title_advanced_browse_hint">Buscar más mensajes al desplazarse hacia abajo</string>
@@ -577,6 +578,8 @@
     <string name="title_receipt_text">Esta confirmación de lectura sólo afirma que el mensaje fue mostrado. No hay garantía de que el destinatario haya leído el contenido del mensaje.</string>
     <string name="title_no_answers">No hay plantillas de respuesta definidas</string>
     <string name="title_no_viewer">No hay app disponible para visualizar %1$s</string>
+    <string name="title_no_recorder">No hay una aplicación de grabación de audio adecuada</string>
+    <string name="title_no_camera">No hay una aplicación de cámara adecuada disponible</string>
     <string name="title_no_saf">Framework de acceso a almacenamiento no disponible</string>
     <string name="title_no_stream">Una app obsoleta ha enviado la ruta a un archivo en lugar de una secuencia de archivos</string>
     <string name="title_no_contacts">Selector de contactos no disponible</string>
@@ -689,6 +692,7 @@
     <string name="title_signature_valid">Firma de mensaje válida</string>
     <string name="title_signature_unconfirmed">Firma del mensaje válida pero no confirmada</string>
     <string name="title_signature_invalid">Firma de mensaje no válida</string>
+    <string name="title_signature_invalid_reason">Firma de mensaje inválida: %1$s</string>
     <string name="title_signature_certificate_invalid">Cadena de certificado inválida</string>
     <string name="title_signature_sender">Dirección del remitente</string>
     <string name="title_signature_email">Dirección de la firma</string>

@@ -230,6 +230,7 @@
     <string name="title_advanced_download">Ladattavien viestien ja liitteiden maksimikoko käytön mukaan laskutettavaa yhteyttä käytettäessä</string>
     <string name="title_advanced_roaming">Lataa viestit ja liitteet verkkovierailun aikana</string>
     <string name="title_advanced_rlah">Kotimaanhintaiset verkkovierailut</string>
+    <string name="title_advanced_ssl_harden">Koveta SSL-yhteydet</string>
     <string name="title_advanced_socks">Käytä SOCKS-proxypalvelinta</string>
     <string name="title_advanced_manage_connectivity">Hallitse verkkoyhteyksiä</string>
     <string name="title_advanced_landscape">Käytä kahta saraketta vaakatilassa</string>
@@ -359,6 +360,7 @@
     <string name="title_advanced_metered_hint">Käytön mukaan laskutettavat yhteydet ovat yleensä mobiiliyhteyksiä tai maksullisia Wi-Fi-yhteyspisteitä</string>
     <string name="title_advanced_metered_warning">Tämän kytkeminen pois estää viestien vastaanoton ja lähetyksen mobiiliyhteyttä käytettessä</string>
     <string name="title_advanced_rlah_hint">Oletetaan, että EU:ssa on kotimaanhintaiset verkkovierailut</string>
+    <string name="title_advanced_ssl_harden_hint">Tämän käyttö poistaa käytöstä heikot SSL-protokollat ja salakirjoitukset</string>
     <string name="title_advanced_socks_hint">Välityspalvelimen käyttö ei ole turvallista, koska yhteys ei ole salattu</string>
     <string name="title_advanced_roaming_hint">Viestien tunnistetiedot haetaan aina myös verkkovierailun aikana. Laitteen asetuksista voi kytkeä verkkoyhteyden pois verkkovieraillessa.</string>
     <string name="title_advanced_browse_hint">Hae lisää viestejä alaspäin vieritettäessä</string>
@@ -575,6 +577,8 @@
     <string name="title_receipt_text">Tämä vastaanottokuittaus tarkoittaa, että viesti on näytetty. Ei ole varmuutta, että vastaanottaja on lukenut viestin sisällön.</string>
     <string name="title_no_answers">Vastausviestipohjia ei ole määritetty</string>
     <string name="title_no_viewer">Katselusovellusta ei ole saatavilla tiedostolle %1$s</string>
+    <string name="title_no_recorder">Sopivaa audiotallennussovellusta ei ole saatavilla</string>
+    <string name="title_no_camera">Sopivaa kamerasovellusta ei ole saatavilla</string>
     <string name="title_no_saf">Storage access framework ei ole käytettävissä</string>
     <string name="title_no_stream">Vanhentunut sovellus lähetti tiedoston kansion tiedostovirran sijaan</string>
     <string name="title_no_contacts">Yhteystiedon valitsin ei ole käytettävissä</string>
@@ -687,6 +691,7 @@
     <string name="title_signature_valid">Viestin allekirjoitus pätevä</string>
     <string name="title_signature_unconfirmed">Viestin allekirjoitus pätevä muttei vahvistettu</string>
     <string name="title_signature_invalid">Viestin allekirjoitus virheellinen</string>
+    <string name="title_signature_invalid_reason">Viestin allekirjoitus virheellinen: %1$s</string>
     <string name="title_signature_certificate_invalid">Virheellinen sertifikaattiketju</string>
     <string name="title_signature_sender">Lähettäjän sähköpostiosoite</string>
     <string name="title_signature_email">Allekirjoituksen sähköpostiosoite</string>

@@ -219,6 +219,7 @@
     <string name="title_advanced_download">在计量的连接下自动下载邮件和附件, 最高可达</string>
     <string name="title_advanced_roaming">漫游时下载邮件和附件</string>
     <string name="title_advanced_rlah">国内漫游</string>
+    <string name="title_advanced_ssl_harden">强化的SSL连接</string>
     <string name="title_advanced_socks">使用 SOCKS 代理</string>
     <string name="title_advanced_manage_connectivity">管理连接</string>
     <string name="title_advanced_landscape">在横屏模式下使用两列</string>
@@ -348,6 +349,7 @@
     <string name="title_advanced_metered_hint">计量连接通常是指移动连接或付费WiFi热点</string>
     <string name="title_advanced_metered_warning">禁用此选项将禁止在使用移动互联网连接时接收和发送消息</string>
     <string name="title_advanced_rlah_hint">假定欧盟境内不漫游</string>
+    <string name="title_advanced_ssl_harden_hint">启用此功能将禁用弱SSL协议和密码套件</string>
     <string name="title_advanced_socks_hint">使用远程代理服务器不安全，因为代理连接未加密</string>
     <string name="title_advanced_roaming_hint">当漫游时，将始终获取消息头。您可以使用设备的漫游设置在漫游时禁用互联网。</string>
     <string name="title_advanced_browse_hint">向下滚动时拉取更多邮件</string>
@@ -564,6 +566,8 @@
     <string name="title_receipt_text">此已读回执仅确认已显示该邮件。不能保证收件人已阅读邮件内容。</string>
     <string name="title_no_answers">未定义回复模板</string>
     <string name="title_no_viewer">未找到能打开%1$s的应用程序</string>
+    <string name="title_no_recorder">没有合适的录音app</string>
+    <string name="title_no_camera">没有合适的相机app</string>
     <string name="title_no_saf">存储访问框架不可用</string>
     <string name="title_no_stream">过时的应用发送的是文件路径, 而不是文件流</string>
     <string name="title_no_contacts">联系选择器不可用</string>
@@ -676,6 +680,7 @@
     <string name="title_signature_valid">消息签名有效</string>
     <string name="title_signature_unconfirmed">消息签名有效但未确认</string>
     <string name="title_signature_invalid">消息签名无效</string>
+    <string name="title_signature_invalid_reason">消息签名无效:%1$s</string>
     <string name="title_signature_certificate_invalid">证书链无效</string>
     <string name="title_signature_sender">发件人地址：</string>
     <string name="title_signature_email">签名地址</string>

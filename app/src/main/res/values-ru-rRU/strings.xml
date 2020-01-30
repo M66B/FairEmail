@@ -254,6 +254,7 @@
     <string name="title_advanced_download">Автоматически загружать сообщения и вложения для лимитного подключения до</string>
     <string name="title_advanced_roaming">Загружать сообщения и вложения в роуминге</string>
     <string name="title_advanced_rlah">В роуминге как дома</string>
+    <string name="title_advanced_ssl_harden">Усиленные SSL-соединения</string>
     <string name="title_advanced_socks">Использовать SOCKS-прокси</string>
     <string name="title_advanced_manage_connectivity">Управление подключением</string>
     <string name="title_advanced_landscape">Использовать две колонки в альбомном режиме</string>
@@ -373,7 +374,7 @@
     <string name="title_advanced_unseen_hint">Некоторые провайдеры не поддерживают эту функцию правильно, что может привести к синхронизации всех или ни одного сообщения</string>
     <string name="title_advanced_sync_kept_hint">Это приведёт к большему потреблению трафика и заряда батареи, особенно если на устройстве хранится много сообщений</string>
     <string name="title_advanced_sync_folders_hint">Отключение этой функции уменьшит потребление трафика и заряда батареи, но также отключит обновление списка папок</string>
-    <string name="title_advanced_subscribed_only_hint">Включение этого режима удалит все локальные папки без подписки</string>
+    <string name="title_advanced_subscribed_only_hint">Включение этой функции удалит все локальные папки без подписки</string>
     <string name="title_advanced_sync_delay_hint">Это замедлит синхронизацию сообщений</string>
     <string name="title_advanced_suggest_local_hint">В дополнение к контактам, предоставляемым Android. Контактные данные будут сохранены только для вновь отправленных или полученных сообщений при включении этой функции.</string>
     <string name="title_advanced_usenet_hint">Вставлять \'-- \' между текстом и подписью</string>
@@ -383,6 +384,7 @@
     <string name="title_advanced_metered_hint">Лимитированные подключения - это обычно мобильные сети или платные Wi-Fi</string>
     <string name="title_advanced_metered_warning">Отключение данной функции отключит получение и отправку сообщений при мобильном подключении к интернету</string>
     <string name="title_advanced_rlah_hint">Предполагать отсутствие роуминга внутри ЕС</string>
+    <string name="title_advanced_ssl_harden_hint">Включение этой функции отключит слабые протоколы и шифры SSL</string>
     <string name="title_advanced_socks_hint">Использование удалённого прокси-сервера небезопасно, потому что прокси-соединения не зашифрованы</string>
     <string name="title_advanced_roaming_hint">Заголовки сообщений всегда будут загружаться в роуминге. Вы можете использовать настройки устройства для отключения интернета в роуминге.</string>
     <string name="title_advanced_browse_hint">Получать больше сообщений при прокрутке вниз</string>
@@ -599,6 +601,8 @@
     <string name="title_receipt_text">Это уведомление о прочтении подтверждает только тот факт, что сообщение было открыто. Нет гарантии, что получатель прочёл содержимое сообщения.</string>
     <string name="title_no_answers">Шаблоны ответов не определены</string>
     <string name="title_no_viewer">Нет приложения для просмотра %1$s</string>
+    <string name="title_no_recorder">Нет подходящего приложения аудиозаписи</string>
+    <string name="title_no_camera">Нет подходящего приложения камеры</string>
     <string name="title_no_saf">Нет метода доступа к хранилищу</string>
     <string name="title_no_stream">Устаревшее приложение послало путь к файлу вместо файлового потока</string>
     <string name="title_no_contacts">Выбор контакта недоступен</string>
@@ -711,6 +715,7 @@
     <string name="title_signature_valid">Подпись сообщения действительна</string>
     <string name="title_signature_unconfirmed">Подпись сообщения действительна, но не подтверждена</string>
     <string name="title_signature_invalid">Подпись сообщения недействительна</string>
+    <string name="title_signature_invalid_reason">Некорректная подпись сообщения: %1$s</string>
     <string name="title_signature_certificate_invalid">Некорректная цепочка сертификатов</string>
     <string name="title_signature_sender">Адрес отправителя</string>
     <string name="title_signature_email">Адрес подписи</string>

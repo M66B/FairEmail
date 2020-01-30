@@ -232,6 +232,7 @@
     <string name="title_advanced_download">Automatisch downloaden van berichten en bijlagen op een gemeten verbinding tot</string>
     <string name="title_advanced_roaming">Download berichten en bijlagen tijdens roaming</string>
     <string name="title_advanced_rlah">Roam zoals thuis</string>
+    <string name="title_advanced_ssl_harden">Verhard SSL-verbindingen</string>
     <string name="title_advanced_socks">Gebruik SOCKS proxy</string>
     <string name="title_advanced_manage_connectivity">Beheer connectiviteit</string>
     <string name="title_advanced_landscape">Twee kolommen gebruiken in liggende modus</string>
@@ -361,6 +362,7 @@
     <string name="title_advanced_metered_hint">Gemeten verbindingen zijn over het algemeen mobiele verbindingen of betaalde Wi-Fi hotspots</string>
     <string name="title_advanced_metered_warning">Uitschakelen van deze optie zal het ontvangen en verzenden van berichten op mobiele internetverbindingen uitschakelen</string>
     <string name="title_advanced_rlah_hint">Veronderstel geen roaming binnen de EU</string>
+    <string name="title_advanced_ssl_harden_hint">Dit inschakelen zal zwakke SSL protocollen en coderingen uitschakelen</string>
     <string name="title_advanced_socks_hint">Een externe proxy server gebruiken is onveilig omdat proxy verbindingen niet worden versleuteld</string>
     <string name="title_advanced_roaming_hint">Berichtkoppen zullen altijd worden opgehaald bij roaming. Je kunt de roaming-instelling van het apparaat gebruiken om internet uit te schakelen tijdens roaming.</string>
     <string name="title_advanced_browse_hint">Meer berichten ophalen bij het naar beneden scrollen</string>
@@ -577,6 +579,8 @@
     <string name="title_receipt_text">Deze leesbevestiging erkent alleen dat het bericht is weergegeven. Er is geen garantie dat de ontvanger de inhoud van het bericht heeft gelezen.</string>
     <string name="title_no_answers">Geen sjablonen gedefinieerd</string>
     <string name="title_no_viewer">Geen app beschikbaar om %1$s te tonen</string>
+    <string name="title_no_recorder">Geen geschikte audio-recorder app beschikbaar</string>
+    <string name="title_no_camera">Geen geschikte camera app beschikbaar</string>
     <string name="title_no_saf">Storage access framework niet beschikbaar</string>
     <string name="title_no_stream">Een verouderde app verzond een bestandsnaam in plaats van een bestandsstroom</string>
     <string name="title_no_contacts">Contact kiezer niet beschikbaar</string>
@@ -689,6 +693,7 @@
     <string name="title_signature_valid">Handtekening bericht geldig</string>
     <string name="title_signature_unconfirmed">Handtekening bericht geldig maar niet bevestigd</string>
     <string name="title_signature_invalid">Handtekening bericht ongeldig</string>
+    <string name="title_signature_invalid_reason">Handtekening bericht ongeldig: %1$s</string>
     <string name="title_signature_certificate_invalid">Certificaatketen ongeldig</string>
     <string name="title_signature_sender">Adres van de afzender</string>
     <string name="title_signature_email">Adres van de handtekening</string>

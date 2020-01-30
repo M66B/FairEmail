@@ -188,6 +188,7 @@
     <string name="title_advanced_download">Automaticky stahovat zprávy a přílohy na účtovaném připojení až do velikosti</string>
     <string name="title_advanced_roaming">Stahovat zprávy a přílohy během roamingu</string>
     <string name="title_advanced_rlah">Roaming jako doma (RLAH)</string>
+    <string name="title_advanced_ssl_harden">Obrnit SSL připojení</string>
     <string name="title_advanced_socks">Použít SOCKS proxy</string>
     <string name="title_advanced_manage_connectivity">Spravovat připojení</string>
     <string name="title_advanced_landscape">Dvou-sloupcové rozvržení v režimu na šířku</string>
@@ -317,6 +318,7 @@
     <string name="title_advanced_metered_hint">Účtovaná připojení jsou obecně mobilní připojení nebo placené Wi-Fi hotspoty</string>
     <string name="title_advanced_metered_warning">Vypnutí této volby zakáže přijímání a odesílání zpráv při mobilních datových přenosech</string>
     <string name="title_advanced_rlah_hint">Nepředpokládat žádný roaming v rámci EU</string>
+    <string name="title_advanced_ssl_harden_hint">Povolením zakážete slabé SSL protokoly a šifry</string>
     <string name="title_advanced_socks_hint">Použití vzdáleného proxy serveru není bezpečné, neboť proxy spojení nejsou šifrována</string>
     <string name="title_advanced_roaming_hint">Hlavičky zpráv budou během roamingu stahovány vždy. Použijte nastavení svého zařízení pro zakázání internetu při roamingu.</string>
     <string name="title_advanced_browse_hint">Načte další zprávy při posouvání dolů</string>
@@ -533,6 +535,8 @@
     <string name="title_receipt_text">Potvrzení o přečtení potvrzuje pouze zobrazení zprávy. Nelze zaručit, že si příjemce přečetl obsah zprávy.</string>
     <string name="title_no_answers">Nebyly definovány žádné šablony odpovědi</string>
     <string name="title_no_viewer">Není k dispozici žádná aplikace prohlížeče pro %1$s</string>
+    <string name="title_no_recorder">Není k dispozici žádná vhodná aplikace nahrávání zvuku</string>
+    <string name="title_no_camera">Není k dispozici žádná vhodná aplikace fotoaparátu</string>
     <string name="title_no_saf">Rozhraní přístupu k úložišti není k dispozici</string>
     <string name="title_no_stream">Zastaralá aplikace poslala cestu k souboru namísto datového proudu</string>
     <string name="title_no_contacts">Výběr kontaktů není k dispozici</string>
@@ -645,6 +649,7 @@
     <string name="title_signature_valid">Podpis zprávy je platný</string>
     <string name="title_signature_unconfirmed">Podpis zprávy je platný, ale nepotvrzený</string>
     <string name="title_signature_invalid">Neplatný podpis zprávy</string>
+    <string name="title_signature_invalid_reason">Neplatný podpis zprávy: %1$s</string>
     <string name="title_signature_certificate_invalid">Neplatný řetězec certifikátů</string>
     <string name="title_signature_sender">Adresa odesílatele</string>
     <string name="title_signature_email">Adresa podpisu</string>

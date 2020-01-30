@@ -218,6 +218,7 @@
     <string name="title_advanced_download">従量制課金接続でメッセージと添付ファイルを自動的にダウンロードします</string>
     <string name="title_advanced_roaming">ローミング中にメッセージと添付ファイルをダウンロードします</string>
     <string name="title_advanced_rlah">EU内無制限ローミング(EUのみ)</string>
+    <string name="title_advanced_ssl_harden">SSL接続を有効</string>
     <string name="title_advanced_socks">SOCKS proxyを使用</string>
     <string name="title_advanced_manage_connectivity">接続の管理</string>
     <string name="title_advanced_landscape">横向きモードで2列を使用</string>
@@ -346,6 +347,7 @@
     <string name="title_advanced_metered_hint">従量制課金接続とは一般的にモバイル接続または有料Wi-Fiホットスポットの事です</string>
     <string name="title_advanced_metered_warning">このオプションを無効にするとモバイルネットワークでのメッセージの送受信が無効になります</string>
     <string name="title_advanced_rlah_hint">EU内でのローミングのみ</string>
+    <string name="title_advanced_ssl_harden_hint">有効にすると弱いSSLプロトコルと暗号が無効になります</string>
     <string name="title_advanced_socks_hint">プロキシ接続は暗号化されていない為、リモートプロキシサーバ使用は安全ではありません</string>
     <string name="title_advanced_roaming_hint">ローミング時メッセージヘッダーが常に取得されます。 デバイスのローミング設定を使用して、ローミング中にインターネットを無効にする事が出来ます</string>
     <string name="title_advanced_browse_hint">下にスクロール時に、更にメッセージを取得</string>
@@ -562,6 +564,8 @@
     <string name="title_receipt_text">この開封確認メッセージはメッセージが表示された事を確認するだけです。受信者がメッセージの内容を読んだという保証は有りません</string>
     <string name="title_no_answers">返信テンプレートが定義されていません</string>
     <string name="title_no_viewer">%1$s で利用出来るビューアアプリは有りません</string>
+    <string name="title_no_recorder">適切なオーディオレコーダーアプリが有りません</string>
+    <string name="title_no_camera">適切なカメラアプリが有りません</string>
     <string name="title_no_saf">ストレージアクセスフレームワークは利用出来ません</string>
     <string name="title_no_stream">古いアプリがファイルストリームでは無くファイルパスを送信しました</string>
     <string name="title_no_contacts">連絡先ピッカーは利用出来ません</string>
@@ -673,6 +677,7 @@ PlayストアでFairEmailを評価できれば幸いです。
     <string name="title_signature_valid">メッセージ署名が有効</string>
     <string name="title_signature_unconfirmed">メッセージ署名は有効ですが確認されていません</string>
     <string name="title_signature_invalid">メッセージ署名が無効です</string>
+    <string name="title_signature_invalid_reason">メッセージ署名が無効です:%1$s</string>
     <string name="title_signature_certificate_invalid">証明書が無効</string>
     <string name="title_signature_sender">差出人のメールアドレス</string>
     <string name="title_signature_email">署名のアドレス</string>

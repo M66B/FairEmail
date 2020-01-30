@@ -30,6 +30,10 @@
     <string name="shortcut_refresh">Atualizar</string>
     <string name="shortcut_compose">Escrever</string>
     <string name="shortcut_setup">Configurações</string>
+    <plurals name="title_notification_synchronizing">
+        <item quantity="one">Monitorando %1$d conta</item>
+        <item quantity="other">Monitorando %1$d contas</item>
+    </plurals>
     <plurals name="title_notification_operations">
         <item quantity="one">%1$d operação pendente</item>
         <item quantity="other">%1$d operações pendentes</item>
@@ -216,6 +220,7 @@
     <string name="title_advanced_prefix_once">Prefixo de assunto apenas uma vez na resposta ou encaminhamento</string>
     <string name="title_advanced_extended_reply">Usar cabeçalho de resposta/encaminhamento estendido</string>
     <string name="title_advanced_quote_reply">Citar texto respondido</string>
+    <string name="title_advanced_signature_end">Adicionar assinatura após mensagem citada/encaminhada</string>
     <string name="title_advanced_plain_only">Enviar texto simples por padrão</string>
     <string name="title_advanced_usenet_signature">Convenção de assinatura do Usenet</string>
     <string name="title_advanced_resize_images">Redimensionar automaticamente imagens incorporadas</string>
@@ -255,6 +260,7 @@
     <string name="title_advanced_subject_top">Mostrar assunto acima do remetente</string>
     <string name="title_advanced_subject_italic">Mostrar assunto em itálico</string>
     <string name="title_advanced_subject_elipsed">Quando necessário, encurte o assunto</string>
+    <string name="title_advanced_keywords">Mostrar palavras-chave no cabeçalho da mensagem</string>
     <string name="title_advanced_flags">Mostrar estrelas</string>
     <string name="title_advanced_flags_background">Mostrar plano de fundo colorido no lugar de estrelas coloridas</string>
     <string name="title_advanced_preview">Mostrar pré-visualização da mensagem</string>
