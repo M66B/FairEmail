@@ -49,7 +49,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
-import androidx.constraintlayout.widget.Group;
 import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -93,6 +92,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private DrawerLayoutEx drawerLayout;
     private ActionBarDrawerToggle drawerToggle;
     private ScrollView drawerContainer;
+    private ImageButton ibExpanderAccount;
     private RecyclerView rvAccount;
     private ImageButton ibExpanderUnified;
     private RecyclerView rvUnified;
@@ -100,7 +100,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private RecyclerView rvMenu;
     private ImageButton ibExpanderExtra;
     private RecyclerView rvMenuExtra;
-    private Group grpUnified;
 
     private AdapterNavAccount adapterNavAccount;
     private AdapterNavUnified adapterNavUnified;
@@ -198,17 +197,29 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         drawerContainer = findViewById(R.id.drawer_container);
 
         // Accounts
+        ibExpanderAccount = drawerContainer.findViewById(R.id.ibExpanderAccount);
+
         rvAccount = drawerContainer.findViewById(R.id.rvAccount);
         rvAccount.setLayoutManager(new LinearLayoutManager(this));
         adapterNavAccount = new AdapterNavAccount(this, this);
         rvAccount.setAdapter(adapterNavAccount);
 
+        boolean nav_account = prefs.getBoolean("nav_account", true);
+        ibExpanderAccount.setImageLevel(nav_account ? 0 /* less */ : 1 /* more */);
+        rvAccount.setVisibility(nav_account ? View.VISIBLE : View.GONE);
+
+        ibExpanderAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean nav_account = !prefs.getBoolean("nav_account", true);
+                prefs.edit().putBoolean("nav_account", nav_account).apply();
+                ibExpanderAccount.setImageLevel(nav_account ? 0 /* less */ : 1 /* more */);
+                rvAccount.setVisibility(nav_account ? View.VISIBLE : View.GONE);
+            }
+        });
+
         // Unified system folders
         ibExpanderUnified = drawerContainer.findViewById(R.id.ibExpanderUnified);
-        ibExpanderUnified.setVisibility(View.GONE);
-
-        grpUnified = drawerContainer.findViewById(R.id.grpUnified);
-        grpUnified.setVisibility(View.GONE);
 
         rvUnified = drawerContainer.findViewById(R.id.rvUnified);
         rvUnified.setLayoutManager(new LinearLayoutManager(this));
@@ -217,7 +228,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         boolean unified_system = prefs.getBoolean("unified_system", true);
         ibExpanderUnified.setImageLevel(unified_system ? 0 /* less */ : 1 /* more */);
-        grpUnified.setVisibility(unified_system ? View.VISIBLE : View.GONE);
+        rvUnified.setVisibility(unified_system ? View.VISIBLE : View.GONE);
 
         ibExpanderUnified.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -225,7 +236,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 boolean unified_system = !prefs.getBoolean("unified_system", true);
                 prefs.edit().putBoolean("unified_system", unified_system).apply();
                 ibExpanderUnified.setImageLevel(unified_system ? 0 /* less */ : 1 /* more */);
-                grpUnified.setVisibility(unified_system ? View.VISIBLE : View.GONE);
+                rvUnified.setVisibility(unified_system ? View.VISIBLE : View.GONE);
             }
         });
 
@@ -533,9 +544,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             public void onChanged(List<TupleFolderUnified> folders) {
                 if (folders == null)
                     folders = new ArrayList<>();
-                ibExpanderUnified.setVisibility(folders.size() > 0 ? View.VISIBLE : View.GONE);
-                boolean unified_system = prefs.getBoolean("unified_system", true);
-                grpUnified.setVisibility(unified_system && folders.size() > 0 ? View.VISIBLE : View.GONE);
                 adapterNavUnified.set(folders);
             }
         });
