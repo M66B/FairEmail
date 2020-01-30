@@ -171,6 +171,7 @@
     <string name="title_edit_properties">Επεξεργασία ιδιοτήτων</string>
     <string name="title_edit_rules">Επεξεργασία κανόνων</string>
     <string name="title_reply_hint">Μπορείτε να απαντήσετε σε όλους, να προωθήσετε, κλπ χρησιμοποιώντας το μενού με τα διπλά βέλη ακριβώς κάτω από το τίτλο</string>
+    <string name="title_submitter">Στάλθηκε από:</string>
     <string name="title_size">Μέγεθος:</string>
     <string name="title_subject">Θέμα:</string>
     <string name="title_body_hint">Το μηνυμά σας</string>

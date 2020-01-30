@@ -620,6 +620,7 @@
     <string name="title_expand_warning">Expandir este mensaje descargará %1$s</string>
     <string name="title_download_message">Descargando &#8230;</string>
     <string name="title_compose">Redactar</string>
+    <string name="title_submitter">Enviado por:</string>
     <string name="title_from">De:</string>
     <string name="title_to">A:</string>
     <string name="title_reply_to">Responder a:</string>

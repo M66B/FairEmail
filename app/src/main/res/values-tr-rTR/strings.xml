@@ -621,6 +621,7 @@
     <string name="title_expand_warning">Bu mesajı genişletmek %1$s indirecektir</string>
     <string name="title_download_message">İndiriliyor &#8230;</string>
     <string name="title_compose">Eposta Oluştur</string>
+    <string name="title_submitter">Gönderen:</string>
     <string name="title_from">Gönderen:</string>
     <string name="title_to">Alıcı:</string>
     <string name="title_reply_to">Yanıt adresi:</string>

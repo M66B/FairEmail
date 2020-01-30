@@ -280,6 +280,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_autoscroll">Nach oben scrollen, wenn Sie neue Nachrichten erhalten</string>
     <string name="title_advanced_double_tap">Doppelt antippen, um die Nachricht als gelesen bzw. ungelesen zu kennzeichnen</string>
     <string name="title_advanced_swipenav">Nach links/rechts wischen, um nächstes/voriges Gespräch zu zeigen</string>
+    <string name="title_advanced_volumenav">Lautstärke hoch/runter, um zur nächsten/vorherigen Unterhaltung zu wechseln</string>
     <string name="title_advanced_reversed">Navigationsrichtung umkehren</string>
     <string name="title_advanced_autoexpand">Nachrichten automatisch erweitern</string>
     <string name="title_advanced_expand_all">Alle gelesenen Nachrichten automatisch erweitern</string>

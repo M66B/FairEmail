@@ -620,6 +620,7 @@
     <string name="title_expand_warning">Рзширеното съобщение ще се изтегли %1$s</string>
     <string name="title_download_message">Изтегляне &#8230;</string>
     <string name="title_compose">Ново съобщение</string>
+    <string name="title_submitter">Изпратено от:</string>
     <string name="title_from">От:</string>
     <string name="title_to">До:</string>
     <string name="title_reply_to">Отговори на:</string>

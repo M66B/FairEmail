@@ -280,6 +280,7 @@
     <string name="title_advanced_autoscroll">Scroll naar boven bij het ontvangen van nieuwe berichten</string>
     <string name="title_advanced_double_tap">Dubbel tik om bericht gelezen/ongelezen te markeren</string>
     <string name="title_advanced_swipenav">Veeg links/rechts om naar het volgende/vorige gesprek te gaan</string>
+    <string name="title_advanced_volumenav">Volume omhoog/omlaag om naar het volgende/vorige gesprek te gaan</string>
     <string name="title_advanced_reversed">Keer navigatierichting om</string>
     <string name="title_advanced_autoexpand">Berichten automatisch uitvouwen</string>
     <string name="title_advanced_expand_all">Automatisch alle gelezen berichten uitvouwen</string>
