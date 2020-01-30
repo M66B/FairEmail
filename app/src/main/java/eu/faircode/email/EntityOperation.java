@@ -369,10 +369,10 @@ public class EntityOperation {
             operation.id = db.operation().insertOperation(operation);
 
             Log.i("Queued sync folder=" + folder);
-
-            if (foreground) // Show spinner
-                db.folder().setFolderSyncState(fid, "requested");
         }
+
+        if (foreground) // Show spinner
+            db.folder().setFolderSyncState(fid, "requested");
 
         if (folder.account == null) // Outbox
             ServiceSend.start(context);
