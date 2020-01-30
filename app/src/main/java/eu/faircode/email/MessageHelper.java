@@ -45,6 +45,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
+import java.nio.charset.IllegalCharsetNameException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -1259,7 +1260,14 @@ public class MessageHelper {
                     charset = charset.replace("\"", "");
                     charset = MimeUtility.javaCharset(charset);
 
-                    if (!Charset.isSupported(charset)) {
+                    boolean supported = false;
+                    try {
+                        supported = Charset.isSupported(charset);
+                    } catch (IllegalCharsetNameException ex) {
+                        Log.e(charset, ex);
+                    }
+
+                    if (!supported) {
                         // x-binaryenc
                         // UseInqueCodePage
                         // none
