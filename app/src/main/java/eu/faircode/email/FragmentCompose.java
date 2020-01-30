@@ -630,7 +630,7 @@ public class FragmentCompose extends FragmentBase {
 
         //view.getViewTreeObserver().addOnGlobalLayoutListener(layoutListener);
 
-        addBackPressedListener(onBackPressedListener);
+        addKeyPressedListener(onBackPressedListener);
 
         // Initialize
         setHasOptionsMenu(true);
@@ -4165,7 +4165,12 @@ public class FragmentCompose extends FragmentBase {
         }
     };
 
-    private ActivityBase.IBackPressedListener onBackPressedListener = new ActivityBase.IBackPressedListener() {
+    private ActivityBase.IKeyPressedListener onBackPressedListener = new ActivityBase.IKeyPressedListener() {
+        @Override
+        public boolean onKeyPressed(int keyCode) {
+            return false;
+        }
+
         @Override
         public boolean onBackPressed() {
             if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))

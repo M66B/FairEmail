@@ -444,7 +444,12 @@ public class FragmentIdentity extends FragmentBase {
             }
         });
 
-        addBackPressedListener(new ActivityBase.IBackPressedListener() {
+        addKeyPressedListener(new ActivityBase.IKeyPressedListener() {
+            @Override
+            public boolean onKeyPressed(int keyCode) {
+                return false;
+            }
+
             @Override
             public boolean onBackPressed() {
                 onSave(true);

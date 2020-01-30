@@ -272,8 +272,8 @@ public class FragmentBase extends Fragment {
         return activity.hasPermission(name);
     }
 
-    void addBackPressedListener(ActivityBase.IBackPressedListener listener) {
-        ((ActivityBase) getActivity()).addBackPressedListener(listener, getViewLifecycleOwner());
+    void addKeyPressedListener(ActivityBase.IKeyPressedListener listener) {
+        ((ActivityBase) getActivity()).addKeyPressedListener(listener, getViewLifecycleOwner());
     }
 
     void addBillingListener(ActivityBilling.IBillingListener listener) {

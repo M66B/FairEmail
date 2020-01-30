@@ -62,6 +62,7 @@ import android.util.Base64;
 import android.util.LongSparseArray;
 import android.util.Pair;
 import android.util.TypedValue;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -1081,7 +1082,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }
         });
 
-        addBackPressedListener(onBackPressedListener);
+        addKeyPressedListener(onBackPressedListener);
 
         // Initialize
         if (cards && !Helper.isDarkTheme(getContext()))
@@ -4051,7 +4052,41 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         return (filter_seen || filter_unflagged);
     }
 
-    private ActivityBase.IBackPressedListener onBackPressedListener = new ActivityBase.IBackPressedListener() {
+    private ActivityBase.IKeyPressedListener onBackPressedListener = new ActivityBase.IKeyPressedListener() {
+        @Override
+        public boolean onKeyPressed(int keyCode) {
+            if (viewType != AdapterMessage.ViewType.THREAD)
+                return false;
+
+            Context context = getContext();
+            if (context == null)
+                return false;
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean volumenav = prefs.getBoolean("volumenav", false);
+            if (!volumenav)
+                return false;
+
+            switch (keyCode) {
+                case KeyEvent.KEYCODE_VOLUME_UP:
+                    if (next == null) {
+                        Animation bounce = AnimationUtils.loadAnimation(getContext(), R.anim.bounce_left);
+                        view.startAnimation(bounce);
+                    } else
+                        navigate(next, false);
+                    return true;
+                case KeyEvent.KEYCODE_VOLUME_DOWN:
+                    if (prev == null) {
+                        Animation bounce = AnimationUtils.loadAnimation(getContext(), R.anim.bounce_right);
+                        view.startAnimation(bounce);
+                    } else
+                        navigate(prev, true);
+                    return true;
+                default:
+                    return false;
+            }
+        }
+
         @Override
         public boolean onBackPressed() {
             if (selectionTracker != null && selectionTracker.hasSelection()) {

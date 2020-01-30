@@ -28,6 +28,7 @@ import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.PowerManager;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
@@ -52,7 +53,7 @@ import java.util.Map;
 abstract class ActivityBase extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
     private Context originalContext;
     private boolean contacts;
-    private List<IBackPressedListener> backPressedListeners = new ArrayList<>();
+    private List<IKeyPressedListener> keyPressedListeners = new ArrayList<>();
 
     @Override
     protected void attachBaseContext(Context base) {
@@ -348,15 +349,15 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         return Helper.hasPermission(this, name);
     }
 
-    void addBackPressedListener(final IBackPressedListener listener, LifecycleOwner owner) {
+    void addKeyPressedListener(final IKeyPressedListener listener, LifecycleOwner owner) {
         Log.d("Adding back listener=" + listener);
-        backPressedListeners.add(listener);
+        keyPressedListeners.add(listener);
 
         owner.getLifecycle().addObserver(new LifecycleObserver() {
             @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
             public void onDestroyed() {
                 Log.d("Removing back listener=" + listener);
-                backPressedListeners.remove(listener);
+                keyPressedListeners.remove(listener);
             }
         });
     }
@@ -366,6 +367,14 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         if (backHandled())
             return;
         super.onBackPressed();
+    }
+
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        int keyCode = event.getKeyCode();
+        for (IKeyPressedListener listener : keyPressedListeners)
+            if (listener.onKeyPressed(keyCode))
+                return true;
+        return super.dispatchKeyEvent(event);
     }
 
     @Override
@@ -381,13 +390,15 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     }
 
     protected boolean backHandled() {
-        for (IBackPressedListener listener : backPressedListeners)
+        for (IKeyPressedListener listener : keyPressedListeners)
             if (listener.onBackPressed())
                 return true;
         return false;
     }
 
-    public interface IBackPressedListener {
+    public interface IKeyPressedListener {
+        boolean onKeyPressed(int keyCode);
+
         boolean onBackPressed();
     }
 }

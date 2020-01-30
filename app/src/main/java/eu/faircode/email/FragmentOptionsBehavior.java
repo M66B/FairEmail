@@ -46,6 +46,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private SwitchCompat swAutoScroll;
     private SwitchCompat swDoubleTap;
     private SwitchCompat swSwipeNav;
+    private SwitchCompat swVolumeNav;
     private SwitchCompat swReversed;
     private SwitchCompat swAutoExpand;
     private SwitchCompat swExpandAll;
@@ -62,7 +63,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private NumberPicker npDefaultSnooze;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "double_back", "pull", "autoscroll", "doubletap", "swipenav", "reversed",
+            "double_back", "pull", "autoscroll", "doubletap", "swipenav", "volumenav", "reversed",
             "autoexpand", "expand_all", "expand_one", "collapse_multiple",
             "autoclose", "onclose", "quick_filter", "quick_scroll", "autoread", "autounflag", "automove", "discard_delete",
             "default_snooze"
@@ -83,6 +84,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swAutoScroll = view.findViewById(R.id.swAutoScroll);
         swDoubleTap = view.findViewById(R.id.swDoubleTap);
         swSwipeNav = view.findViewById(R.id.swSwipeNav);
+        swVolumeNav = view.findViewById(R.id.swVolumeNav);
         swReversed = view.findViewById(R.id.swReversed);
         swAutoExpand = view.findViewById(R.id.swAutoExpand);
         swExpandAll = view.findViewById(R.id.swExpandAll);
@@ -139,6 +141,13 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("swipenav", checked).apply();
+            }
+        });
+
+        swVolumeNav.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("volumenav", checked).apply();
             }
         });
 
@@ -305,6 +314,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swAutoScroll.setChecked(prefs.getBoolean("autoscroll", true));
         swDoubleTap.setChecked(prefs.getBoolean("doubletap", false));
         swSwipeNav.setChecked(prefs.getBoolean("swipenav", true));
+        swVolumeNav.setChecked(prefs.getBoolean("volumenav", false));
         swReversed.setChecked(prefs.getBoolean("reversed", false));
 
         swAutoExpand.setChecked(prefs.getBoolean("autoexpand", true));
