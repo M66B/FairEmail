@@ -575,10 +575,22 @@ public class FragmentFolders extends FragmentBase {
                 Log.i("Delete local messages browsed=" + browsed);
 
                 DB db = DB.getInstance(context);
-                if (browsed)
-                    db.message().deleteBrowsedMessages(fid);
-                else
-                    db.message().deleteLocalMessages(fid);
+
+                try {
+                    db.beginTransaction();
+
+                    if (browsed)
+                        db.message().deleteBrowsedMessages(fid);
+                    else {
+                        db.message().deleteLocalMessages(fid);
+                        db.folder().setFolderKeywords(fid, DB.Converters.fromStringArray(null));
+                    }
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+
                 return null;
             }
 
