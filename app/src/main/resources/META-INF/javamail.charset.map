@@ -1,6 +1,17 @@
 ### JDK-to-MIME charset mapping table ####
 ### This should be the first mapping table ###
 
+### FairEmail
+
+8859_16		ISO-8859-1
+iso8859_16	ISO-8859-1
+ISO8859-16	ISO-8859-1
+
+ascii       ISO-8859-1
+ASCII       ISO-8859-1
+
+### Inherited
+
 8859_1		ISO-8859-1
 iso8859_1	ISO-8859-1
 ISO8859-1	ISO-8859-1
