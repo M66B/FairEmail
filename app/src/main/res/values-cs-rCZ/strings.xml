@@ -577,6 +577,7 @@
     <string name="title_expand_warning">Rozbalení této zprávy stáhne %1$s</string>
     <string name="title_download_message">Stahování &#8230;</string>
     <string name="title_compose">Napsat zprávu</string>
+    <string name="title_submitter">Odeslal:</string>
     <string name="title_from">Od:</string>
     <string name="title_to">Komu:</string>
     <string name="title_reply_to">Odpovědět na:</string>

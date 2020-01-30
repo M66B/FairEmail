@@ -253,6 +253,7 @@
     <string name="title_advanced_download">Automatycznie pobieraj wiadomości i załączniki przy połączeniach taryfowych do</string>
     <string name="title_advanced_roaming">Pobieraj wiadomości i załączniki podczas roamingu</string>
     <string name="title_advanced_rlah">Roaming jak w domu</string>
+    <string name="title_advanced_ssl_harden">Wzmocnij połączenia SSL</string>
     <string name="title_advanced_socks">Użyj serwera proxy SOCKS</string>
     <string name="title_advanced_manage_connectivity">Zarządzaj połączeniami</string>
     <string name="title_advanced_landscape">Użyj dwóch kolumn w trybie poziomym</string>
@@ -382,6 +383,7 @@
     <string name="title_advanced_metered_hint">Połączenia taryfowe to głównie połączenia komórkowe lub płatne hotspoty Wi-Fi</string>
     <string name="title_advanced_metered_warning">Wyłączenie tej opcji uniemożliwi odbieranie i wysyłanie wiadomości przy użyciu komórkowego połączenia internetowego</string>
     <string name="title_advanced_rlah_hint">Zakładając brak roamingu w UE</string>
+    <string name="title_advanced_ssl_harden_hint">Włączenie tego spowoduje wyłączenie słabych protokołów SSL i szyfrów</string>
     <string name="title_advanced_socks_hint">Korzystanie ze zdalnego serwera proxy jest niezabezpieczone, ponieważ połączenia proxy nie są szyfrowane</string>
     <string name="title_advanced_roaming_hint">Nagłówki wiadomości będą zawsze pobierane podczas roamingu. Możesz użyć ustawienia roamingu urządzenia, aby wyłączyć Internet podczas roamingu.</string>
     <string name="title_advanced_browse_hint">Pobierz więcej wiadomości podczas przewijania w dół</string>
@@ -598,6 +600,8 @@
     <string name="title_receipt_text">To potwierdzenie odczytu potwierdza tylko, że wiadomość została wyświetlona. Nie ma gwarancji, że odbiorca przeczytał treść wiadomości.</string>
     <string name="title_no_answers">Brak zdefiniowanych szablonów odpowiedzi</string>
     <string name="title_no_viewer">Brak aplikacji do podglądu %1$s</string>
+    <string name="title_no_recorder">Brak dostępnej odpowiedniej aplikacji do nagrywania dźwięku</string>
+    <string name="title_no_camera">Brak dostępnej odpowiedniej aplikacji aparatu</string>
     <string name="title_no_saf">Brak dostępu do plików</string>
     <string name="title_no_stream">Nieaktualna aplikacja wysłała ścieżkę pliku zamiast strumienia pliku</string>
     <string name="title_no_contacts">Wybór kontaktu nie jest dostępny</string>
@@ -710,6 +714,7 @@
     <string name="title_signature_valid">Ważny podpis wiadomości</string>
     <string name="title_signature_unconfirmed">Podpis wiadomości prawidłowy, ale nie potwierdzony</string>
     <string name="title_signature_invalid">Nieważny podpis wiadomości</string>
+    <string name="title_signature_invalid_reason">Niepoprawny podpis wiadomości: %1$s</string>
     <string name="title_signature_certificate_invalid">Nieprawidłowy łańcuch certyfikatu</string>
     <string name="title_signature_sender">Adres nadawcy</string>
     <string name="title_signature_email">Adres podpisu</string>

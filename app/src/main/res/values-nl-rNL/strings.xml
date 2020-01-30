@@ -621,6 +621,7 @@
     <string name="title_expand_warning">Uitvouwen van dit bericht zal %1$s downloaden</string>
     <string name="title_download_message">Downloaden &#8230;</string>
     <string name="title_compose">Opstellen</string>
+    <string name="title_submitter">Verstuurd door:</string>
     <string name="title_from">Van:</string>
     <string name="title_to">Aan:</string>
     <string name="title_reply_to">Antwoord op:</string>

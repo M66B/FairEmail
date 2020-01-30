@@ -643,6 +643,7 @@
     <string name="title_expand_warning">При развёртывании этого сообщения будет загружено %1$s</string>
     <string name="title_download_message">Загрузка&#8230;</string>
     <string name="title_compose">Создать</string>
+    <string name="title_submitter">Отправлено:</string>
     <string name="title_from">От:</string>
     <string name="title_to">Кому:</string>
     <string name="title_reply_to">Обратный адрес:</string>

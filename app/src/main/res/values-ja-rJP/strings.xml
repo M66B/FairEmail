@@ -605,6 +605,7 @@ PlayストアでFairEmailを評価できれば幸いです。
     <string name="title_expand_warning">このメッセージを展開すると、%1$sがダウンロードされます</string>
     <string name="title_download_message">&#8230; をダウンロード中</string>
     <string name="title_compose">作成する</string>
+    <string name="title_submitter">送信者:</string>
     <string name="title_from">From:</string>
     <string name="title_to">To:</string>
     <string name="title_reply_to">返信先:</string>

@@ -621,6 +621,7 @@
     <string name="title_expand_warning">Développer ce message téléchargera %1$s</string>
     <string name="title_download_message">Téléchargement&#8230;</string>
     <string name="title_compose">Rédiger</string>
+    <string name="title_submitter">Envoyé par :</string>
     <string name="title_from">De :</string>
     <string name="title_to">À :</string>
     <string name="title_reply_to">Répondre à :</string>

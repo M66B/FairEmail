@@ -620,6 +620,7 @@ Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anme
     <string name="title_expand_warning">Å utvide denne meldingen vil laste ned %1$s</string>
     <string name="title_download_message">Laster ned &#8230;</string>
     <string name="title_compose">Skriv</string>
+    <string name="title_submitter">Sendt av:</string>
     <string name="title_from">Fra:</string>
     <string name="title_to">Til:</string>
     <string name="title_reply_to">Svar til:</string>

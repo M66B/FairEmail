@@ -693,6 +693,7 @@
     <string name="title_signature_valid">Semnătura mesaj validă</string>
     <string name="title_signature_unconfirmed">Semnătura mesajului este validă dar nu este confirmată</string>
     <string name="title_signature_invalid">Semnătura mesaj invalidă</string>
+    <string name="title_signature_invalid_reason">Semnătura mesaj invalidă: %1$s</string>
     <string name="title_signature_sender">Adresa expeditorului</string>
     <string name="title_signature_email">Adresa semnăturii</string>
     <string name="title_signature_mismatch">Adresa email a expeditorului și semnătura nu corespund</string>
