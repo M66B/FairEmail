@@ -69,6 +69,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.Inet4Address;
+import java.net.Inet6Address;
+import java.net.InetAddress;
 import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.text.DateFormat;
@@ -2146,6 +2149,47 @@ class Core {
                 } catch (Throwable ex) {
                     Log.e(folder.name, ex);
                     message.warning = Log.formatThrowable(ex, false);
+                }
+
+            boolean check_spam = prefs.getBoolean("check_spam", BuildConfig.DEBUG);
+            if (check_spam)
+                try {
+                    String host = helper.getReceivedFromHost();
+                    if (host != null) {
+                        InetAddress addr = InetAddress.getByName(host);
+                        Log.i("Received from " + host + "=" + addr);
+
+                        StringBuilder lookup = new StringBuilder();
+                        if (addr instanceof Inet4Address) {
+                            List<String> a = Arrays.asList(addr.getHostAddress().split("\\."));
+                            Collections.reverse(a);
+                            lookup.append(TextUtils.join(".", a)).append('.');
+                        } else if (addr instanceof Inet6Address) {
+                            StringBuilder sb = new StringBuilder();
+                            byte[] a = addr.getAddress();
+                            for (int i = 0; i < 8; i++)
+                                sb.append(String.format("%02x",
+                                        ((a[i << 1] << 8) & 0xff00) | (a[(i << 1) + 1] & 0xff)));
+                            sb.reverse();
+                            for (char kar : sb.toString().toCharArray())
+                                lookup.append(kar).append('.');
+                        }
+
+                        lookup.append("zen.spamhaus.org");
+
+                        try {
+                            InetAddress.getByName(lookup.toString());
+                            if (message.warning == null)
+                                message.warning = lookup.toString();
+                            else
+                                message.warning += ", " + lookup;
+                        } catch (UnknownHostException ignore) {
+                        }
+                    }
+                } catch (UnknownHostException ex) {
+
+                } catch (Throwable ex) {
+                    Log.w(folder.name, ex);
                 }
 
             boolean check_reply = prefs.getBoolean("check_reply", false);

@@ -96,6 +96,8 @@ public class MessageHelper {
     static final int DEFAULT_ATTACHMENT_DOWNLOAD_SIZE = 256 * 1024; // bytes
     static final long ATTACHMENT_PROGRESS_UPDATE = 1500L; // milliseconds
 
+    // https://tools.ietf.org/html/rfc4021
+
     static void setSystemProperties(Context context) {
         System.setProperty("mail.mime.decodetext.strict", "false");
 
@@ -833,6 +835,18 @@ public class MessageHelper {
         }
 
         return result;
+    }
+
+    String getReceivedFromHost() throws MessagingException {
+        String[] received = imessage.getHeader("Received");
+        if (received == null || received.length == 0)
+            return null;
+
+        String[] h = MimeUtility.unfold(received[received.length - 1]).split("\\s+");
+        if (h.length > 1 && h[0].equalsIgnoreCase("from"))
+            return h[1];
+
+        return null;
     }
 
     private Address[] getAddressHeader(String name) throws MessagingException {
