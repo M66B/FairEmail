@@ -321,6 +321,7 @@
                     android:minHeight="24dp"
                     android:text="Signature"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textIsSelectable="true"
                     app:layout_constraintEnd_toStartOf="@+id/cbSignature"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/vSeparatorBody" />
