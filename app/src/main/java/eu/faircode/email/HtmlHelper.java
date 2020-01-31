@@ -672,7 +672,7 @@ public class HtmlHelper {
                                 Integer.parseInt(component[2]) / 100f});
                 }
             } else if (x11ColorMap.containsKey(c))
-                color = x11ColorMap.get(c);
+                color = x11ColorMap.get(c) | 0xFF000000;
             else
                 try {
                     color = Color.parseColor(c);
@@ -690,6 +690,8 @@ public class HtmlHelper {
         if (color != null) {
             if (dark || color != Color.BLACK)
                 color = Helper.adjustLuminance(color, dark, MIN_LUMINANCE);
+
+            color &= 0xFFFFFF;
         }
 
         return color;
