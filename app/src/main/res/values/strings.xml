@@ -161,7 +161,7 @@
     <string name="title_setup_select_account">Select account</string>
     <string name="title_setup_instructions">Setup instructions</string>
     <string name="title_setup_no_settings">No settings found for domain \'%1$s\'</string>
-    <string name="title_setup_no_settings_hint">Please try to setup an account and identity in setup step 1 and 2 using the settings provided by your email provider</string>
+    <string name="title_setup_no_settings_hint">Please try setting up an account and identity in setup steps 1 and 2 using the settings provided by your email provider</string>
     <string name="title_setup_no_auth_hint">Please double check your email address and password and make sure external access (IMAP/SMTP) is enabled for your account</string>
     <string name="title_setup_no_system_folders">Inbox or draft folder not found</string>
     <string name="title_setup_quick_success">An account and an identity have successfully been added</string>
@@ -450,7 +450,7 @@
     <string name="title_advanced_autoclose_hint">Automatically close conversations when all messages are archived, sent or trashed</string>
     <string name="title_advanced_sender_hint">Most providers do not allow modified sender addresses</string>
 
-    <string name="title_advanced_display_harmful_hint">Disabling this option might be harmful for your privacy</string>
+    <string name="title_advanced_display_harmful_hint">Disabling this option might be harmful to your privacy</string>
     <string name="title_advanced_display_hidden_hint">This can result in odd looking and double texts</string>
     <string name="title_advanced_display_pin_hint">A PIN takes precedence over biometrics authentication</string>
 
