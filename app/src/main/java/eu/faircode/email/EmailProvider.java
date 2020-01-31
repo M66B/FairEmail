@@ -215,7 +215,32 @@ public class EmailProvider {
                         return provider;
                     }
 
-        EmailProvider autoconfig = _fromDomain(context, domain.toLowerCase(Locale.ROOT), email, discover);
+        EmailProvider autoconfig = null;
+        try {
+            autoconfig = _fromDomain(context, domain.toLowerCase(Locale.ROOT), email, discover);
+        } catch (Throwable ex) {
+            Log.w(ex);
+
+            // Retry at MX server addresses
+            Record[] records = lookupDNS(context, domain, Type.MX);
+            for (Record record : records) {
+                String target = ((MXRecord) record).getTarget().toString(true);
+                while (autoconfig == null && target != null && target.indexOf('.') > 0) {
+                    try {
+                        autoconfig = _fromDomain(context, target.toLowerCase(Locale.ROOT), email, discover);
+                    } catch (Throwable ex1) {
+                        Log.w(ex1);
+                        int dot = target.indexOf('.');
+                        target = target.substring(dot + 1);
+                    }
+                }
+                if (autoconfig != null)
+                    break;
+            }
+
+            if (autoconfig == null)
+                throw ex;
+        }
 
         // Always prefer built-in profiles
         // - ISPDB is not always correct
@@ -263,31 +288,6 @@ public class EmailProvider {
 
     @NonNull
     private static EmailProvider fromISPDB(Context context, String domain, String email) throws IOException, XmlPullParserException {
-        try {
-            return _fromISPDB(context, domain, email);
-        } catch (Throwable ex) {
-            Log.w(ex);
-
-            Record[] records = lookupDNS(context, domain, Type.MX);
-            for (Record record : records) {
-                String target = ((MXRecord) record).getTarget().toString(true);
-                while (target != null && target.indexOf('.') > 0) {
-                    try {
-                        return _fromISPDB(context, target, email);
-                    } catch (Throwable ex1) {
-                        Log.w(ex1);
-                        int dot = target.indexOf('.');
-                        target = target.substring(dot + 1);
-                    }
-                }
-            }
-
-            throw new UnknownHostException(domain);
-        }
-    }
-
-    @NonNull
-    private static EmailProvider _fromISPDB(Context context, String domain, String email) throws IOException, XmlPullParserException {
         // https://wiki.mozilla.org/Thunderbird:Autoconfiguration
         try {
             URL url = new URL("https://autoconfig." + domain + "/mail/config-v1.1.xml?emailaddress=" + email);
