@@ -334,69 +334,10 @@ public class HtmlHelper {
                                 .replaceAll("\\s", "");
                         switch (key) {
                             case "color":
-                                // https://developer.mozilla.org/en-US/docs/Web/CSS/color_value
-                                String c = value
-                                        .replace("none", "")
-                                        .replace("unset", "")
-                                        .replace("inherit", "")
-                                        .replace("initial", "")
-                                        .replace("windowtext", "")
-                                        .replace("transparent", "")
-                                        .replace("!important", "")
-                                        .replaceAll("[^a-z0-9(),.%]", "");
-
-                                Integer color = null;
-                                try {
-                                    if (TextUtils.isEmpty(c))
-                                        ; // Do nothing
-                                    else if (c.startsWith("#"))
-                                        color = Integer.decode(c) | 0xFF000000;
-                                    else if (c.startsWith("rgb") || c.startsWith("hsl")) {
-                                        int s = c.indexOf("(");
-                                        int e = c.indexOf(")");
-                                        if (s > 0 && e > s) {
-                                            String[] component = c.substring(s + 1, e).split(",");
-
-                                            for (int i = 0; i < component.length; i++)
-                                                if (component[i].endsWith("%"))
-                                                    if (c.startsWith("rgb")) {
-                                                        int percent = Integer.parseInt(component[i].replace("%", ""));
-                                                        component[i] = Integer.toString(Math.round(255 * (percent / 100f)));
-                                                    } else
-                                                        component[i] = component[i].replace("%", "");
-
-                                            if (c.startsWith("rgb") && component.length >= 3)
-                                                color = Color.rgb(
-                                                        Integer.parseInt(component[0]),
-                                                        Integer.parseInt(component[1]),
-                                                        Integer.parseInt(component[2]));
-                                            else if (c.startsWith("hsl") && component.length >= 3)
-                                                color = ColorUtils.HSLToColor(new float[]{
-                                                        Float.parseFloat(component[0]),
-                                                        Integer.parseInt(component[1]) / 100f,
-                                                        Integer.parseInt(component[2]) / 100f});
-                                        }
-                                    } else if (x11ColorMap.containsKey(c))
-                                        color = x11ColorMap.get(c);
-                                    else
-                                        try {
-                                            color = Color.parseColor(c);
-                                        } catch (IllegalArgumentException ex) {
-                                            color = Integer.decode("#" + c) | 0xFF000000;
-                                        }
-
-                                    if (BuildConfig.DEBUG)
-                                        Log.i("Color " + c + "=" + (color == null ? null : Long.toHexString(color)));
-
-                                } catch (Throwable ex) {
-                                    Log.e("Color=" + c + ": " + ex);
-                                }
-
-                                if (color != null && !(dark && color == Color.BLACK)) {
-                                    color = Helper.adjustLuminance(color, dark, MIN_LUMINANCE);
-                                    c = String.format("#%06x", color & 0xFFFFFF);
+                                Integer color = parseColor(value, dark);
+                                if (color != null) {
+                                    String c = String.format("#%06x", color);
                                     sb.append("color:").append(c).append(";");
-
                                     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N)
                                         element.attr("color", c);
                                 }
@@ -415,10 +356,8 @@ public class HtmlHelper {
                                     Log.i("Removing element " + element.tagName());
                                     element.empty();
                                 }
-
                                 if ("inline".equals(value) || "inline-block".equals(value))
                                     element.attr("inline", "true");
-
                                 break;
 
                             case "height":
@@ -437,8 +376,11 @@ public class HtmlHelper {
 
                 if (sb.length() == 0)
                     element.removeAttr("style");
-                else
+                else {
                     element.attr("style", sb.toString());
+                    if (BuildConfig.DEBUG)
+                        Log.i("Style=" + sb);
+                }
             }
         }
 
@@ -684,6 +626,73 @@ public class HtmlHelper {
         }
 
         return document;
+    }
+
+    private static Integer parseColor(@NonNull String value, boolean dark) {
+        // https://developer.mozilla.org/en-US/docs/Web/CSS/color_value
+        String c = value
+                .replace("none", "")
+                .replace("unset", "")
+                .replace("inherit", "")
+                .replace("initial", "")
+                .replace("windowtext", "")
+                .replace("transparent", "")
+                .replace("!important", "")
+                .replaceAll("[^a-z0-9(),.%]", "");
+
+        Integer color = null;
+        try {
+            if (TextUtils.isEmpty(c))
+                return null;
+            else if (c.startsWith("#"))
+                color = Integer.decode(c) | 0xFF000000;
+            else if (c.startsWith("rgb") || c.startsWith("hsl")) {
+                int s = c.indexOf("(");
+                int e = c.indexOf(")");
+                if (s > 0 && e > s) {
+                    String[] component = c.substring(s + 1, e).split(",");
+
+                    for (int i = 0; i < component.length; i++)
+                        if (component[i].endsWith("%"))
+                            if (c.startsWith("rgb")) {
+                                int percent = Integer.parseInt(component[i].replace("%", ""));
+                                component[i] = Integer.toString(Math.round(255 * (percent / 100f)));
+                            } else
+                                component[i] = component[i].replace("%", "");
+
+                    if (c.startsWith("rgb") && component.length >= 3)
+                        color = Color.rgb(
+                                Integer.parseInt(component[0]),
+                                Integer.parseInt(component[1]),
+                                Integer.parseInt(component[2]));
+                    else if (c.startsWith("hsl") && component.length >= 3)
+                        color = ColorUtils.HSLToColor(new float[]{
+                                Float.parseFloat(component[0]),
+                                Integer.parseInt(component[1]) / 100f,
+                                Integer.parseInt(component[2]) / 100f});
+                }
+            } else if (x11ColorMap.containsKey(c))
+                color = x11ColorMap.get(c);
+            else
+                try {
+                    color = Color.parseColor(c);
+                } catch (IllegalArgumentException ex) {
+                    color = Integer.decode("#" + c) | 0xFF000000;
+                }
+
+            if (BuildConfig.DEBUG)
+                Log.i("Color " + c + "=" + (color == null ? null : Long.toHexString(color)));
+
+        } catch (Throwable ex) {
+            Log.e("Color=" + c + ": " + ex);
+        }
+
+        if (color != null) {
+            if (dark || color != Color.BLACK)
+                color = Helper.adjustLuminance(color, dark, MIN_LUMINANCE);
+        }
+
+        return color;
     }
 
     private static boolean hasVisibleContent(List<Node> nodes) {
