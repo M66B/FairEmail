@@ -221,21 +221,25 @@ public class EmailProvider {
         } catch (Throwable ex) {
             Log.w(ex);
 
-            // Retry at MX server addresses
-            Record[] records = lookupDNS(context, domain, Type.MX);
-            for (Record record : records) {
-                String target = ((MXRecord) record).getTarget().toString(true);
-                while (autoconfig == null && target != null && target.indexOf('.') > 0) {
-                    try {
-                        autoconfig = _fromDomain(context, target.toLowerCase(Locale.ROOT), email, discover);
-                    } catch (Throwable ex1) {
-                        Log.w(ex1);
-                        int dot = target.indexOf('.');
-                        target = target.substring(dot + 1);
+            try {
+                // Retry at MX server addresses
+                Record[] records = lookupDNS(context, domain, Type.MX);
+                for (Record record : records) {
+                    String target = ((MXRecord) record).getTarget().toString(true);
+                    while (autoconfig == null && target != null && target.indexOf('.') > 0) {
+                        try {
+                            autoconfig = _fromDomain(context, target.toLowerCase(Locale.ROOT), email, discover);
+                        } catch (Throwable ex1) {
+                            Log.w(ex1);
+                            int dot = target.indexOf('.');
+                            target = target.substring(dot + 1);
+                        }
                     }
+                    if (autoconfig != null)
+                        break;
                 }
-                if (autoconfig != null)
-                    break;
+            } catch (Throwable ex1) {
+                Log.w(ex1);
             }
 
             if (autoconfig == null)
