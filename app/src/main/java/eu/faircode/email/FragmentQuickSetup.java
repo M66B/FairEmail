@@ -66,6 +66,7 @@ public class FragmentQuickSetup extends FragmentBase {
     private ContentLoadingProgressBar pbCheck;
 
     private TextView tvError;
+    private TextView tvErrorHint;
     private Button btnHelp;
     private Button btnSupport;
     private TextView tvInstructions;
@@ -96,6 +97,7 @@ public class FragmentQuickSetup extends FragmentBase {
         pbCheck = view.findViewById(R.id.pbCheck);
 
         tvError = view.findViewById(R.id.tvError);
+        tvErrorHint = view.findViewById(R.id.tvErrorHint);
         btnHelp = view.findViewById(R.id.btnHelp);
         btnSupport = view.findViewById(R.id.btnSupport);
         tvInstructions = view.findViewById(R.id.tvInstructions);
@@ -402,6 +404,11 @@ public class FragmentQuickSetup extends FragmentBase {
             protected void onException(final Bundle args, Throwable ex) {
                 Log.e(ex);
 
+                if (ex instanceof AuthenticationFailedException)
+                    tvErrorHint.setText(R.string.title_setup_no_auth_hint);
+                else
+                    tvErrorHint.setText(R.string.title_setup_no_settings_hint);
+
                 if (ex instanceof IllegalArgumentException || ex instanceof UnknownHostException) {
                     tvError.setText(ex.getMessage());
                     grpError.setVisibility(View.VISIBLE);
@@ -409,7 +416,7 @@ public class FragmentQuickSetup extends FragmentBase {
                     new Handler().post(new Runnable() {
                         @Override
                         public void run() {
-                            scroll.smoothScrollTo(0, tvError.getBottom());
+                            scroll.smoothScrollTo(0, tvErrorHint.getBottom());
                         }
                     });
                 } else {

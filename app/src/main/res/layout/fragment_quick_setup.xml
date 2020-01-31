@@ -121,12 +121,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:autoLink="web"
-            android:text="error message"
+            android:text="Error message"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?attr/colorWarning"
             android:textIsSelectable="true"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvErrorTitle" />
+
+        <TextView
+            android:id="@+id/tvErrorHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:autoLink="web"
+            android:text="Error hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?attr/colorWarning"
+            android:textIsSelectable="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvError" />
 
         <Button
             android:id="@+id/btnHelp"
@@ -138,7 +151,7 @@
             android:textColor="?attr/colorInfoForeground"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvError" />
+            app:layout_constraintTop_toBottomOf="@id/tvErrorHint" />
 
         <Button
             android:id="@+id/btnSupport"
@@ -150,7 +163,7 @@
             android:textColor="?attr/colorInfoForeground"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvError" />
+            app:layout_constraintTop_toBottomOf="@id/tvErrorHint" />
 
         <TextView
             android:id="@+id/tvInstructions"
@@ -233,6 +246,6 @@
             android:id="@+id/grpError"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvErrorTitle,tvError" />
+            app:constraint_referenced_ids="tvErrorTitle,tvError,tvErrorHint" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
