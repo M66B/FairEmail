@@ -45,7 +45,6 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
-import java.nio.charset.IllegalCharsetNameException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -1252,37 +1251,11 @@ public class MessageHelper {
 
             try {
                 ContentType ct = new ContentType(part.getContentType());
-
                 String charset = ct.getParameter("charset");
-                if (charset == null)
-                    charset = StandardCharsets.ISO_8859_1.name();
-                else {
-                    charset = charset.replace("\"", "");
-                    charset = MimeUtility.javaCharset(charset);
-
-                    boolean supported = false;
-                    try {
-                        supported = Charset.isSupported(charset);
-                    } catch (IllegalCharsetNameException ex) {
-                        Log.e(charset, ex);
-                    }
-
-                    if (!supported) {
-                        // x-binaryenc
-                        // UseInqueCodePage
-                        // none
-                        // unknown-8bit
-                        // X-UNKNOWN
-                        Log.e("Unsupported encoding charset=" + charset);
-                        warnings.add(context.getString(R.string.title_no_charset, charset));
-                        charset = StandardCharsets.ISO_8859_1.name();
-                    }
-                }
-
-                result = new String(result.getBytes(Charset.forName(charset)));
+                if (UnknownCharsetProvider.charsetForMime(charset) == null)
+                    warnings.add(context.getString(R.string.title_no_charset, charset));
             } catch (ParseException ex) {
-                Log.w(ex);
-                warnings.add(Log.formatThrowable(ex, false));
+                Log.e(ex);
             }
 
             if (part == plain)
