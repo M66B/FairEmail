@@ -931,7 +931,7 @@ public class MessageHelper {
                     }
             }
 
-            Log.w(new IllegalArgumentException("List-Post: " + list));
+            Log.i(new IllegalArgumentException("List-Post: " + list));
             return null;
         } catch (AddressException ex) {
             Log.w(ex);
@@ -975,7 +975,7 @@ public class MessageHelper {
             if (mailto != null)
                 return mailto;
 
-            Log.w(new IllegalArgumentException("List-Unsubscribe: " + list));
+            Log.i(new IllegalArgumentException("List-Unsubscribe: " + list));
             return null;
         } catch (AddressException ex) {
             Log.w(ex);
