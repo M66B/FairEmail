@@ -20,7 +20,10 @@ import net.openid.appauth.ClientAuthentication;
 import net.openid.appauth.ClientSecretPost;
 import net.openid.appauth.NoClientAuthentication;
 
+import org.bouncycastle.asn1.DEROctetString;
+import org.bouncycastle.asn1.x509.Extension;
 import org.bouncycastle.asn1.x509.GeneralName;
+import org.bouncycastle.asn1.x509.SubjectKeyIdentifier;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
@@ -306,7 +309,7 @@ public class EmailService implements AutoCloseable {
             Throwable ce = ex;
             while (ce != null) {
                 if (factory != null && ce instanceof CertificateException)
-                    throw new UntrustedException(factory.getFingerPrint(), ex);
+                    throw new UntrustedException(factory.getFingerPrintSelect(), ex);
                 if (ce instanceof IOException)
                     ioError = true;
                 ce = ce.getCause();
@@ -563,6 +566,8 @@ public class EmailService implements AutoCloseable {
                 final X509TrustManager rtm = (X509TrustManager) tms[0];
 
                 X509TrustManager tm = new X509TrustManager() {
+                    // openssl s_client -connect <host>
+
                     @Override
                     public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {
                         if (secure)
@@ -574,16 +579,8 @@ public class EmailService implements AutoCloseable {
                         certificate = chain[0];
 
                         if (secure) {
-                            // Get certificate fingerprint
-                            String fingerprint;
-                            try {
-                                fingerprint = getFingerPrint(certificate);
-                            } catch (Throwable ex) {
-                                throw new CertificateException(ex);
-                            }
-
                             // Check if selected fingerprint
-                            if (fingerprint.equals(trustedFingerprint)) {
+                            if (trustedFingerprint != null && matches(certificate, trustedFingerprint)) {
                                 Log.i("Trusted selected fingerprint");
                                 return;
                             }
@@ -731,13 +728,48 @@ public class EmailService implements AutoCloseable {
             return result;
         }
 
+        private static boolean matches(X509Certificate certificate, @NonNull String trustedFingerprint) {
+            // Get certificate fingerprint
+            try {
+                String fingerprint = getFingerPrint(certificate);
+                int slash = trustedFingerprint.indexOf('/');
+                if (slash < 0)
+                    return trustedFingerprint.equals(fingerprint);
+                else {
+                    String keyId = getKeyId(certificate);
+                    if (trustedFingerprint.substring(slash + 1).equals(keyId))
+                        return true;
+                    return trustedFingerprint.substring(0, slash).equals(fingerprint);
+                }
+            } catch (Throwable ex) {
+                Log.w(ex);
+                return false;
+            }
+        }
+
+        private static String getKeyId(X509Certificate certificate) {
+            try {
+                byte[] extension = certificate.getExtensionValue(Extension.subjectKeyIdentifier.getId());
+                if (extension == null)
+                    return null;
+                byte[] bytes = DEROctetString.getInstance(extension).getOctets();
+                SubjectKeyIdentifier keyId = SubjectKeyIdentifier.getInstance(bytes);
+                return Helper.hex(keyId.getKeyIdentifier());
+            } catch (Throwable ex) {
+                Log.e(ex);
+                return null;
+            }
+        }
+
         private static String getFingerPrint(X509Certificate certificate) throws CertificateEncodingException, NoSuchAlgorithmException {
             return Helper.sha1(certificate.getEncoded());
         }
 
-        String getFingerPrint() {
+        String getFingerPrintSelect() {
             try {
-                return getFingerPrint(certificate);
+                String keyId = getKeyId(certificate);
+                String fingerPrint = getFingerPrint(certificate);
+                return fingerPrint + (keyId == null ? "" : "/" + keyId);
             } catch (Throwable ex) {
                 Log.e(ex);
                 return null;

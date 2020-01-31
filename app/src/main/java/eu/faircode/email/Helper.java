@@ -829,6 +829,10 @@ public class Helper {
 
     static String sha(String digest, byte[] data) throws NoSuchAlgorithmException {
         byte[] bytes = MessageDigest.getInstance(digest).digest(data);
+        return hex(bytes);
+    }
+
+    static String hex(byte[] bytes) {
         StringBuilder sb = new StringBuilder();
         for (byte b : bytes)
             sb.append(String.format("%02x", b));
