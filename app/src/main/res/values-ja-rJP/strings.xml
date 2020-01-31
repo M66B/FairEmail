@@ -115,6 +115,8 @@
     <string name="title_setup_select_account">アカウントの選択</string>
     <string name="title_setup_instructions">セットアップ手順</string>
     <string name="title_setup_no_settings">\'%1$s\'ドメインの設定が見つかりません</string>
+    <string name="title_setup_no_settings_hint">メールプロバイダーから提供された設定を使用しセットアップ手順1及び2でアカウントとIDをセットアップして下さい</string>
+    <string name="title_setup_no_auth_hint">メールアドレスとパスワードを再確認しアカウントで外部アクセス(IMAP/SMTP)が有効になっている事を確認して下さい</string>
     <string name="title_setup_no_system_folders">受信トレイ又は下書きフォルダーが見つかりません</string>
     <string name="title_setup_quick_success">アカウントとユーザ情報が正常に追加されました</string>
     <string name="title_setup_quick_failed">以下のアカウントとユーザ情報設定してみて下さい</string>
@@ -304,6 +306,9 @@
     <string name="title_advanced_biometrics_notify">生体認証を使用時、通知コンテンツを表示</string>
     <string name="title_advanced_light">通知ライトを使用</string>
     <string name="title_advanced_sound">通知音を選択</string>
+    <string name="title_advanced_confirm_links">リンクを開く事を確認</string>
+    <string name="title_advanced_confirm_images">画像表示を確認</string>
+    <string name="title_advanced_confirm_html">デフォルトで再フォーマットされたメッセージを表示</string>
     <string name="title_advanced_tracking">追跡イメージを自動認識して無効</string>
     <string name="title_advanced_display_hidden">非表示のメッセージテキストを表示</string>
     <string name="title_advanced_encrypt_method">デフォルトの暗号化方法</string>
@@ -364,6 +369,7 @@
     <string name="title_advanced_autoseen_hint">開いたメッセージを自動的に既読にする機能は、個々のアカウント設定で無効に出来ます</string>
     <string name="title_advanced_autoclose_hint">全てのメッセージがアーカイブ、送信、又は破棄された時に自動的に会話を閉じます</string>
     <string name="title_advanced_sender_hint">殆どのプロバイダは変更された送信者アドレスを許可しません</string>
+    <string name="title_advanced_display_harmful_hint">このオプションを無効にするとプライバシーが損なわれる可能性が有ります</string>
     <string name="title_advanced_display_hidden_hint">これにより奇妙な外観になったりと二重テキストが生成される可能性があります</string>
     <string name="title_advanced_display_pin_hint">PINを生体認証よりも優先</string>
     <string name="title_advanced_badge_hint">サポートされているランチャーでのみ利用可能</string>

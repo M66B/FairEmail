@@ -128,6 +128,8 @@
     <string name="title_setup_select_account">Selecteer account</string>
     <string name="title_setup_instructions">Installatie-instructies</string>
     <string name="title_setup_no_settings">Geen instellingen gevonden voor domein \'%1$s\'</string>
+    <string name="title_setup_no_settings_hint">Probeer a.u.b. een account en identiteit in stap 1 en 2 in te stellen met behulp van de instellingen die door uw e-mailprovider werden verstrekt</string>
+    <string name="title_setup_no_auth_hint">Controleer a.u.b. uw e-mailadres en wachtwoord en zorg ervoor dat externe toegang (IMAP/SMTP) is ingeschakeld voor uw account</string>
     <string name="title_setup_no_system_folders">Inbox of conceptmap niet gevonden</string>
     <string name="title_setup_quick_success">Een account en een identiteit zijn succesvol toegevoegd</string>
     <string name="title_setup_quick_failed">U kunt ook proberen om hieronder een account en een identiteit te configureren</string>
@@ -318,6 +320,9 @@
     <string name="title_advanced_biometrics_notify">Toon notificatie inhoud bij het gebruik van biometrische verificatie</string>
     <string name="title_advanced_light">Gebruik meldingslicht</string>
     <string name="title_advanced_sound">Selecteer meldingsgeluid</string>
+    <string name="title_advanced_confirm_links">Bevestig het openen van koppelingen</string>
+    <string name="title_advanced_confirm_images">Bevestig het tonen van afbeeldingen</string>
+    <string name="title_advanced_confirm_html">Toon standaard opnieuw geformatteerde berichten</string>
     <string name="title_advanced_tracking">Automatisch herkennen en uitschakelen van tracking-afbeeldingen</string>
     <string name="title_advanced_display_hidden">Verborgen berichtteksten weergeven</string>
     <string name="title_advanced_encrypt_method">Standaard versleutelingsmethode</string>
@@ -379,6 +384,7 @@
     <string name="title_advanced_autoseen_hint">Berichten automatisch markeren als gelezen bij uitvouwen, kan worden uitgeschakeld in de individuele accountinstellingen</string>
     <string name="title_advanced_autoclose_hint">Gesprekken automatisch sluiten wanneer alle berichten zijn gearchiveerd, verzonden of weggegooid</string>
     <string name="title_advanced_sender_hint">De meeste providers staan gemodificeerde verzendadressen niet toe</string>
+    <string name="title_advanced_display_harmful_hint">Het uitschakelen van deze optie kan schadelijk zijn voor uw privacy</string>
     <string name="title_advanced_display_hidden_hint">Dit kan leiden tot vreemd uitziende en dubbele teksten</string>
     <string name="title_advanced_display_pin_hint">Een PIN code gaat voor biometrische authenticatie</string>
     <string name="title_advanced_badge_hint">Alleen beschikbaar op ondersteunde launchers</string>

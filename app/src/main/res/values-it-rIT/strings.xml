@@ -127,6 +127,8 @@
     <string name="title_setup_select_account">Seleziona account</string>
     <string name="title_setup_instructions">Istruzioni di configurazione</string>
     <string name="title_setup_no_settings">Nessuna impostazione trovata per il dominio \'%1$s\'</string>
+    <string name="title_setup_no_settings_hint">Prova a configurare un account e un\'identità nei passaggi 1 e 2 del setup utilizzando le impostazioni fornite dal tuo provider di posta elettronica</string>
+    <string name="title_setup_no_auth_hint">Controlla nuovamente l\'indirizzo email e la password e assicurati che l\'accesso esterno (IMAP/SMTP) sia abilitato per il tuo account</string>
     <string name="title_setup_no_system_folders">Cartella in arrivo o bozza non trovata</string>
     <string name="title_setup_quick_success">Un account e un\'identità sono stati aggiunti con successo</string>
     <string name="title_setup_quick_failed">Puoi provare a configurare un account e un\'identità qui sotto</string>
@@ -317,6 +319,9 @@
     <string name="title_advanced_biometrics_notify">Mostra il contenuto delle notifiche quando si utilizza l\'autenticazione biometrica</string>
     <string name="title_advanced_light">Usa il led di notifica</string>
     <string name="title_advanced_sound">Seleziona il suono di notifica</string>
+    <string name="title_advanced_confirm_links">Conferma apertura link</string>
+    <string name="title_advanced_confirm_images">Conferma visualizzazione immagini</string>
+    <string name="title_advanced_confirm_html">Mostra i messaggi riformattati di default</string>
     <string name="title_advanced_tracking">Riconoscere e disabilitare automaticamente le immagini di tracciamento</string>
     <string name="title_advanced_display_hidden">Mostra il testo nascosto del messaggio</string>
     <string name="title_advanced_encrypt_method">Metodo di crittografia predefinito</string>
@@ -378,6 +383,7 @@
     <string name="title_advanced_autoseen_hint">La marcatura automatica dei messaggi letti all\'apertura può essere disabilitata nelle impostazioni dei singoli account</string>
     <string name="title_advanced_autoclose_hint">Chiudi automaticamente le conversazioni raggruppate quando tutti i messaggi sono archiviati, inviati o cestinati</string>
     <string name="title_advanced_sender_hint">La maggior parte dei fornitori non consente indirizzi mittente modificati</string>
+    <string name="title_advanced_display_harmful_hint">Disabilitare questa opzione potrebbe essere dannoso per la tua privacy</string>
     <string name="title_advanced_display_hidden_hint">Ciò può comportare un aspetto strano e doppi testi</string>
     <string name="title_advanced_display_pin_hint">Un PIN ha la precedenza sull\'autenticazione biometrica</string>
     <string name="title_advanced_badge_hint">Disponibile solo sui launcher supportati</string>

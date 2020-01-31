@@ -128,6 +128,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_setup_select_account">Konto wählen</string>
     <string name="title_setup_instructions">Einrichtungsanleitung</string>
     <string name="title_setup_no_settings">Keine Einstellungen für Domain „%1$s” gefunden</string>
+    <string name="title_setup_no_settings_hint">Bitte versuchen Sie, ein Konto und eine Identität in Schritt 1 und 2 des Setups einzurichten, indem Sie die Einstellungen Ihres E-Mail-Anbieters nutzen</string>
+    <string name="title_setup_no_auth_hint">Bitte überprüfen Sie Ihre E-Mail-Adresse und Ihr Passwort und stellen Sie sicher, dass der externe Zugriff (IMAP/SMTP) für Ihr Konto aktiviert ist</string>
     <string name="title_setup_no_system_folders">Posteingang oder Entwurfsordner nicht gefunden</string>
     <string name="title_setup_quick_success">Ein Konto und eine Identität wurden erfolgreich hinzugefügt</string>
     <string name="title_setup_quick_failed">Sie können unten versuchen, ein Konto und eine Identität zu konfigurieren</string>
@@ -318,6 +320,9 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_biometrics_notify">Benachrichtigungsinhalt bei Nutzung der biometrischen Authentifizierung anzeigen</string>
     <string name="title_advanced_light">Benachrichtigungslicht verwenden</string>
     <string name="title_advanced_sound">Benachrichtigungston auswählen</string>
+    <string name="title_advanced_confirm_links">Öffnungslinks bestätigen</string>
+    <string name="title_advanced_confirm_images">Bilder anzeigen bestätigen</string>
+    <string name="title_advanced_confirm_html">Standardmäßig reformatierte Nachrichten anzeigen</string>
     <string name="title_advanced_tracking">Tracking-Bilder automatisch erkennen und deaktivieren</string>
     <string name="title_advanced_display_hidden">Versteckte Nachrichtentexte anzeigen</string>
     <string name="title_advanced_encrypt_method">Standard-Verschlüsselungsmethode</string>
@@ -379,6 +384,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_autoseen_hint">Das automatische Markieren von Nachrichten bei ihrer Erweiterung als gelesen kann in den einzelnen Kontoeinstellungen deaktiviert werden</string>
     <string name="title_advanced_autoclose_hint">Automatisches Schließen des Unterhaltungsthreads, wenn alle E-Mails archiviert, gesendet oder gelöscht wurden</string>
     <string name="title_advanced_sender_hint">Die meisten Anbieter erlauben keine veränderten Absenderadressen</string>
+    <string name="title_advanced_display_harmful_hint">Deaktivieren dieser Option kann für Ihre Privatsphäre schädlich sein</string>
     <string name="title_advanced_display_hidden_hint">Dies kann zu merkwürdigem Aussehen und doppelten Texten führen</string>
     <string name="title_advanced_display_pin_hint">Eine PIN hat Vorrang vor der biometrischen Authentifizierung</string>
     <string name="title_advanced_badge_hint">Nur verfügbar auf unterstützten Launchern</string>

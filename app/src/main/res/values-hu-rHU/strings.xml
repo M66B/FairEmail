@@ -128,6 +128,8 @@
     <string name="title_setup_select_account">Válasszon fiókot</string>
     <string name="title_setup_instructions">Telepítési útmutató</string>
     <string name="title_setup_no_settings">Nem találhatók beállítások a következő domainhez: %1$s</string>
+    <string name="title_setup_no_settings_hint">Kérem állitson be egy fiókot és egy identitást a varázsló első két lépésével, az email szolgálatója által megadottaknak megfelelően</string>
+    <string name="title_setup_no_auth_hint">Ellenőrizze az email címét és jelszavát, illetve bizonyosodjon meg róla hogy a fiókja elérhető SMTP/IMAP protokollokon keresztül</string>
     <string name="title_setup_no_system_folders">Bejövő vagy piszkozatok mappa nem található</string>
     <string name="title_setup_quick_success">Egy fiók és egy identitás sikeresen hozzáadva</string>
     <string name="title_setup_quick_failed">Megpróbálhat beállítani egy fiókot és egy identitást lentebb is</string>
@@ -314,6 +316,9 @@
     <string name="title_advanced_biometrics_notify">Értesítés tartalmának megjelenítése biometrikus azonosítás használata mellett</string>
     <string name="title_advanced_light">Értesítő fény használata</string>
     <string name="title_advanced_sound">Válasszon értesítő hangot</string>
+    <string name="title_advanced_confirm_links">Linkek megnyitásának megerősítésehez kötése</string>
+    <string name="title_advanced_confirm_images">Képek megjelenítésének megerősítéshez kötése</string>
+    <string name="title_advanced_confirm_html">Üzenetek alapértelmezett újraformázása</string>
     <string name="title_advanced_tracking">Követésre használt képek automatikus felismerése és tiltása</string>
     <string name="title_advanced_display_hidden">Rejtett szövegrészletek megjelenítése</string>
     <string name="title_advanced_encrypt_method">Alapértelmezett titkosítási mód</string>

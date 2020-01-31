@@ -232,6 +232,7 @@
     <string name="title_advanced_download">Descargar automáticamente mensajes y adjuntos usando conexión de datos hasta</string>
     <string name="title_advanced_roaming">Descargar mensajes y adjuntos en itinerancia</string>
     <string name="title_advanced_rlah">Itinerancia como en casa</string>
+    <string name="title_advanced_ssl_harden">Endurecer conexiones SSL</string>
     <string name="title_advanced_socks">Usar proxy SOCKS</string>
     <string name="title_advanced_manage_connectivity">Administrar conectividad</string>
     <string name="title_advanced_landscape">Usar dos columnas en modo horizontal</string>
@@ -279,6 +280,7 @@
     <string name="title_advanced_autoscroll">Desplazar hacia arriba al recibir nuevos mensajes</string>
     <string name="title_advanced_double_tap">Doble toque para marcar mensaje leído/no leído</string>
     <string name="title_advanced_swipenav">Deslice a la izquierda/derecha para ir a la siguiente/anterior conversación</string>
+    <string name="title_advanced_volumenav">Volumen arriba/abajo para ir a la conversación siguiente/anterior</string>
     <string name="title_advanced_reversed">Invertir la dirección de navegación</string>
     <string name="title_advanced_autoexpand">Expandir mensajes automáticamente</string>
     <string name="title_advanced_expand_all">Expandir automáticamente todos los mensajes leídos</string>

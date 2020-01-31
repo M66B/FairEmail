@@ -128,6 +128,8 @@
     <string name="title_setup_select_account">Sélectionner un compte</string>
     <string name="title_setup_instructions">Instructions de configuration</string>
     <string name="title_setup_no_settings">Aucun paramètre trouvé pour le domaine \'%1$s\'</string>
+    <string name="title_setup_no_settings_hint">Veuillez essayer de configurer un compte et une identité dans les étapes 1 et 2 des paramètres en utilisant les informations données par votre fournisseur de messagerie</string>
+    <string name="title_setup_no_auth_hint">Veuillez vérifier votre adresse e-mail et votre mot de passe et assurez-vous que l\'accès externe (IMAP/SMTP) est activé pour votre compte</string>
     <string name="title_setup_no_system_folders">Boîte de réception ou dossier brouillon introuvables</string>
     <string name="title_setup_quick_success">Un compte et une identité ont été ajoutés avec succès</string>
     <string name="title_setup_quick_failed">Vous pouvez essayer de configurer un compte et une identité ci-dessous</string>
@@ -318,6 +320,9 @@
     <string name="title_advanced_biometrics_notify">Afficher le contenu de notification lors de l\'utilisation de l\'authentification biométrique</string>
     <string name="title_advanced_light">Utiliser le voyant de notification</string>
     <string name="title_advanced_sound">Sélectionner le son pour les notifications</string>
+    <string name="title_advanced_confirm_links">Confirmer l\'ouverture des liens</string>
+    <string name="title_advanced_confirm_images">Confirmer l\'affichage des images</string>
+    <string name="title_advanced_confirm_html">Afficher les messages reformatés par défaut</string>
     <string name="title_advanced_tracking">Reconnaître et désactiver automatiquement les images de suivi</string>
     <string name="title_advanced_display_hidden">Afficher les textes de message cachés</string>
     <string name="title_advanced_encrypt_method">Méthode de chiffrement par défaut</string>
@@ -379,6 +384,7 @@
     <string name="title_advanced_autoseen_hint">Le marquage automatique des messages comme lus lors l\'ouverture peut être désactivé dans les paramètres de chaque compte</string>
     <string name="title_advanced_autoclose_hint">Fermer automatiquement les conversations quand tous les messages sont archivés, envoyés ou mis à la corbeille</string>
     <string name="title_advanced_sender_hint">La plupart des fournisseurs n\'autorisent pas les adresses d\'expéditeur modifiées</string>
+    <string name="title_advanced_display_harmful_hint">Désactiver cette option peut nuire à votre vie privée</string>
     <string name="title_advanced_display_hidden_hint">Ceci peut entraîner un affichage étrange et des textes en double</string>
     <string name="title_advanced_display_pin_hint">Le code PIN a la priorité sur l\'authentification biométrique</string>
     <string name="title_advanced_badge_hint">Uniquement disponible sur les lanceurs pris en charge</string>

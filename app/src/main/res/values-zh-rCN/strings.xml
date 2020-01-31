@@ -115,6 +115,8 @@
     <string name="title_setup_select_account">选择账户</string>
     <string name="title_setup_instructions">设置指南</string>
     <string name="title_setup_no_settings">找不到域名\"%1$s\"的设置</string>
+    <string name="title_setup_no_settings_hint">请尝试使用您的电子邮件提供商提供的设置，在设置步骤1和步骤2中设置一个帐户和身份</string>
+    <string name="title_setup_no_auth_hint">请仔细检查您的电子邮件地址和密码，并确保您的帐户启用外部访问 (IMAP/SMTP)</string>
     <string name="title_setup_no_system_folders">找不到收件箱或草稿文件夹</string>
     <string name="title_setup_quick_success">已成功添加了一个账户和身份</string>
     <string name="title_setup_quick_failed">您也可以尝试在下方配置一个账户和身份</string>
@@ -305,6 +307,9 @@
     <string name="title_advanced_biometrics_notify">使用生物认证时显示通知内容</string>
     <string name="title_advanced_light">使用指示灯</string>
     <string name="title_advanced_sound">选择通知提示音</string>
+    <string name="title_advanced_confirm_links">确认打开链接</string>
+    <string name="title_advanced_confirm_images">确认显示图像</string>
+    <string name="title_advanced_confirm_html">默认情况下显示格式化消息</string>
     <string name="title_advanced_tracking">自动识别并禁用跟踪图像</string>
     <string name="title_advanced_display_hidden">显示隐藏消息文本</string>
     <string name="title_advanced_encrypt_method">默认加密方法</string>
@@ -366,6 +371,7 @@
     <string name="title_advanced_autoseen_hint">可以在单独的账户设置中禁用展开消息时自动标记消息为已读</string>
     <string name="title_advanced_autoclose_hint">在所有邮件存档、发送或丢弃时自动关闭对话线程</string>
     <string name="title_advanced_sender_hint">大多数提供商不允许修改发件人地址</string>
+    <string name="title_advanced_display_harmful_hint">禁用此选项可能会对您的隐私造成伤害</string>
     <string name="title_advanced_display_hidden_hint">这可能导致古怪的外观和双重文本</string>
     <string name="title_advanced_display_pin_hint">PIN码优先于生物验证</string>
     <string name="title_advanced_badge_hint">仅可用于支持的启动器</string>

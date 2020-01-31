@@ -126,6 +126,7 @@
     <string name="title_setup_quick_imap">Server IMAP pentru primire mesaje</string>
     <string name="title_setup_quick_smtp">Server SMTP pentru trimitere mesaje</string>
     <string name="title_setup_wizard">Asistent</string>
+    <string name="title_setup_wizard_multiple">Asistentul de instalare poate fi folosit de mai multe ori pentru a seta conturi multiple</string>
     <string name="title_setup_wizard_remark">Apasă \'înapoi\' pentru a merge la mesaje primite</string>
     <string name="title_setup_other">Alt furnizor</string>
     <string name="title_setup_gmail_support">Autorizarea conturilor Google v-a funcționa doar în versiunile oficiale pentru că Android verifică semnătura aplicației</string>
@@ -137,6 +138,8 @@
     <string name="title_setup_select_account">Selectare cont</string>
     <string name="title_setup_instructions">Instrucțiuni de configurare</string>
     <string name="title_setup_no_settings">Nu s-au găsit setări pentru domeniul \'%1$s\'</string>
+    <string name="title_setup_no_settings_hint">Încercați să configurați un cont și o identitate în etapele 1 și 2 de configurare utilizând setările furnizate de furnizorul de e-mail</string>
+    <string name="title_setup_no_auth_hint">Vă rugăm să verificați iar adresa de e-mail și parola și asigurați-vă că accesul extern (IMAP/SMTP) este activat pentru contul dumneavoastră</string>
     <string name="title_setup_no_system_folders">Dosarul de primite sau ciorne nu a fost găsit</string>
     <string name="title_setup_quick_success">Un cont şi o identitate au fost adăugate cu succes</string>
     <string name="title_setup_quick_failed">Puteţi încerca de asemenea să configurați un cont şi o identitate mai jos</string>
@@ -228,6 +231,7 @@
     <string name="title_advanced_prefix_once">Adaugă prefix la subiect o singură dată pentru răspuns sau redirecționare</string>
     <string name="title_advanced_extended_reply">Folosește antetul extins pentru răspuns/redirecționare</string>
     <string name="title_advanced_quote_reply">Citează textul la care răspunzi</string>
+    <string name="title_advanced_signature_end">Adaugă semnătură după mesajul citat/redirecționat</string>
     <string name="title_advanced_plain_only">Trimite implicit ca text simplu</string>
     <string name="title_advanced_usenet_signature">Semnatură conform Usenet</string>
     <string name="title_advanced_resize_images">Redimensionează automat imaginile încorporate</string>
@@ -240,6 +244,7 @@
     <string name="title_advanced_download">Descarcă automat mesajele și atașamentele, folosind o conexiune contorizată, până în</string>
     <string name="title_advanced_roaming">Descărcarea mesajelor și a atașamentelor prin conexiuni roaming</string>
     <string name="title_advanced_rlah">Consideră roamingul ca național</string>
+    <string name="title_advanced_ssl_harden">Întârire conexiuni SSL</string>
     <string name="title_advanced_socks">Utilizați proxy SOCKS</string>
     <string name="title_advanced_manage_connectivity">Gestionare conexiuni</string>
     <string name="title_advanced_landscape">Folosește două coloane în modul portret</string>
@@ -267,6 +272,7 @@
     <string name="title_advanced_subject_top">Arată subiectul desupra expeditorului</string>
     <string name="title_advanced_subject_italic">Arată subiectul cursiv</string>
     <string name="title_advanced_subject_elipsed">La nevoie, scurtează subiectul</string>
+    <string name="title_advanced_keywords">Arată cuvinte cheie în antetul mesajului</string>
     <string name="title_advanced_flags">Arată cu stea</string>
     <string name="title_advanced_flags_background">Arată fundalul colorat în loc de stea colorată</string>
     <string name="title_advanced_preview">Arată previzualizare mesaj</string>
@@ -286,6 +292,7 @@
     <string name="title_advanced_autoscroll">Derulează sus când se primește un mesaj nou</string>
     <string name="title_advanced_double_tap">Atingeți de două ori pentru a marca mesajul ca ne/citit</string>
     <string name="title_advanced_swipenav">Glisați stânga/dreapta pentru a merge la conversația următoare/anterioară</string>
+    <string name="title_advanced_volumenav">Volum sus/jos pentru a merge la conversația următoare/anterioară</string>
     <string name="title_advanced_reversed">Inversează direcția de navigare</string>
     <string name="title_advanced_autoexpand">Extinde mesajele automat</string>
     <string name="title_advanced_expand_all">Extinde automat toate mesajele citate</string>
@@ -323,6 +330,9 @@
     <string name="title_advanced_biometrics_notify">Arată conținutul notificării atunci când se utilizează autentificarea biometrică</string>
     <string name="title_advanced_light">Folosire LED de notificare</string>
     <string name="title_advanced_sound">Selectare sunet de notificare</string>
+    <string name="title_advanced_confirm_links">Confirma deschiderea legăturilor</string>
+    <string name="title_advanced_confirm_images">Confirmă afișarea imaginilor</string>
+    <string name="title_advanced_confirm_html">Arată implicit mesajele reformatate</string>
     <string name="title_advanced_tracking">Detectează și dezactivează în mod automat imaginile folosite la urmărire</string>
     <string name="title_advanced_display_hidden">Arată textul ascuns din mesaj</string>
     <string name="title_advanced_encrypt_method">Metoda implicită de criptare</string>
@@ -368,19 +378,23 @@
     <string name="title_advanced_metered_hint">Conexiunile contorizate sunt în general cele mobile sau punctele de acces Wi-Fi cu plată</string>
     <string name="title_advanced_metered_warning">Dezactivarea acestei opțiuni va opri primirea și trimiterea mesajelor pe conexiunile mobile de internet</string>
     <string name="title_advanced_rlah_hint">În zona UE nu se tratează ca roaming</string>
+    <string name="title_advanced_ssl_harden_hint">Activând veți dezactiva protocoalele și cifrurile SSL slabe</string>
     <string name="title_advanced_socks_hint">Este nesigură folosirea unui server proxy pentru că aceste conexiuni nu sunt criptate</string>
     <string name="title_advanced_roaming_hint">Antetele mesajelor vor fi mereu descărcate și în roaming. Puteți folosi setările roaming ale dispozitivului pentru a dezactiva internetul atunci când sunteți în roaming.</string>
     <string name="title_advanced_browse_hint">Descarcă mai multe mesaje când se derulează în jos</string>
     <string name="title_advanced_layout_hint">Selectarea unui aspect mai compact și mărimea textului se poate face din meniul paginii de mesaje</string>
     <string name="title_advanced_date_hint">Mesajele sunt grupate după dată doar dacă sunt sortate așa</string>
     <string name="title_advanced_threading_hint">Grupează mesajele asociate</string>
+    <string name="title_advanced_gravatars_hint">S-ar putea să existe un risc de confidențialitate</string>
     <string name="title_advanced_name_email_hint">Dacă este dezactivată, doar numele va fi afișat atunci când este disponibil</string>
     <string name="title_advanced_preview_hint">Disponibil doar atunci când a fost descarcat textul mesajului</string>
+    <string name="title_advanced_preview_issue">Derularea poate fi lentă din cauza unei erori în unele versiuni de Android atunci când numărul de linii este mare</string>
     <string name="title_advanced_inline_hint">Imaginile integrate sunt cele include în mesaj</string>
     <string name="title_advanced_autoexpand_hint">Atunci când este doar un mesaj sau doar un mesaj necitit într-o conversație</string>
     <string name="title_advanced_autoseen_hint">Marcarea mesajelor drept citite la extindere poate fi dezactivată în setările individuale ale contului</string>
     <string name="title_advanced_autoclose_hint">Atunci când toate mesajele sunt arhivate, trimise sau mutate la gunoi</string>
     <string name="title_advanced_sender_hint">Majoritatea furnizorilor nu permit modificarea adresei expeditorului</string>
+    <string name="title_advanced_display_harmful_hint">Dezactivarea poate fi dăunătoare pentru intimitatea dumneavoastră</string>
     <string name="title_advanced_display_hidden_hint">Se poate ca rezultatul să arate ciudat și textul să fie dublat</string>
     <string name="title_advanced_display_pin_hint">PIN-ul are prioritate față de autentificarea biometrică</string>
     <string name="title_advanced_badge_hint">Disponibil doar pe lansatoarele suportate</string>
@@ -582,6 +596,8 @@
     <string name="title_receipt_text">Confirmarea de citire doar arată că mesajul a fost afișat. Nu există garanția că destinatarul a citit conținutul mesajului.</string>
     <string name="title_no_answers">Nici un șablon de răspuns definit</string>
     <string name="title_no_viewer">Nici o aplicație nu poate deschide %1$s</string>
+    <string name="title_no_recorder">Nu este disponibilă o aplicație de înregistrat audio</string>
+    <string name="title_no_camera">Nu este disponibilă o aplicație de fotografiat</string>
     <string name="title_no_saf">Nu se poate accesa stocarea locală</string>
     <string name="title_no_stream">O aplicație invechită a trimis calea fișierului în locul unui flux de date</string>
     <string name="title_no_contacts">Selectorul de contacte nu este disponibil</string>
@@ -591,6 +607,7 @@
     <string name="title_no_format">Mesajul primit inițial va fi inclus</string>
     <string name="title_no_image">Imaginea nu a putut fi decodată</string>
     <string name="title_no_search">Căutarea pe server nu este disponibilă pentru acest cont</string>
+    <string name="title_too_large">Mesajul este prea mare pentru a fi reformatat, încercați să vizualizați mesajul original folosind pictograma ecran complet</string>
     <string name="title_unused_inline">Imaginile integrate nefolosite vor fi eliminate la trimitere</string>
     <string name="title_accross_remark">Mesajele mutate între conturi vor fi descărcate din nou consumând date în plus</string>
     <string name="title_raw_saved">Mesaj original salvat</string>
@@ -621,6 +638,7 @@
     <string name="title_expand_warning">Extinderea acestui mesaj va descărca %1$s</string>
     <string name="title_download_message">Se descarcă &#8230;</string>
     <string name="title_compose">Compune</string>
+    <string name="title_submitter">Trimis de:</string>
     <string name="title_from">De la:</string>
     <string name="title_to">Către:</string>
     <string name="title_reply_to">Răspunde la:</string>
@@ -694,6 +712,7 @@
     <string name="title_signature_unconfirmed">Semnătura mesajului este validă dar nu este confirmată</string>
     <string name="title_signature_invalid">Semnătura mesaj invalidă</string>
     <string name="title_signature_invalid_reason">Semnătura mesaj invalidă: %1$s</string>
+    <string name="title_signature_certificate_invalid">Lanț de certificate invalid</string>
     <string name="title_signature_sender">Adresa expeditorului</string>
     <string name="title_signature_email">Adresa semnăturii</string>
     <string name="title_signature_mismatch">Adresa email a expeditorului și semnătura nu corespund</string>
