@@ -280,6 +280,7 @@
     <string name="title_advanced_autoscroll">Rull til toppen når du mottar nye meldinger</string>
     <string name="title_advanced_double_tap">Dobbeltklikk for å markere meldingen lest/ulest</string>
     <string name="title_advanced_swipenav">Sveip til venstre/høyre for å gå til neste/forrige samtale</string>
+    <string name="title_advanced_volumenav">Volum opp/ned for å gå til neste/forrige samtale</string>
     <string name="title_advanced_reversed">Omvendt navigasjonsretning</string>
     <string name="title_advanced_autoexpand">Utvid automatisk meldinger</string>
     <string name="title_advanced_expand_all">Utvid alle leste meldinger automatisk</string>

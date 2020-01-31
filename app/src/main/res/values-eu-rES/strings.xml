@@ -278,6 +278,7 @@
     <string name="title_advanced_autoscroll">Korritu gora mezu berriak jasotzean</string>
     <string name="title_advanced_double_tap">Sakatu birritan mezua irakurrita/irakurri gabeko gisa markatzeko</string>
     <string name="title_advanced_swipenav">Pasatu hatza ezkerrera/eskuinera aurreko/hurrengo elkarrizketara joateko</string>
+    <string name="title_advanced_volumenav">Igo/jaitsi bolumena hurrengo/aurreko elkarrizketara joateko</string>
     <string name="title_advanced_reversed">Alderantzikatu nabigazioaren norabidea</string>
     <string name="title_advanced_autoexpand">Hedatu automatikoki mezuak</string>
     <string name="title_advanced_expand_all">Hedatu automatikoki irakurritako mezu guztiak</string>
@@ -617,6 +618,7 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_expand_warning">Mezu hau hedatzean %1$s deskargatuko da</string>
     <string name="title_download_message">Deskargatzen &#8230;</string>
     <string name="title_compose">Idatzi</string>
+    <string name="title_submitter">Honek bidalita:</string>
     <string name="title_from">Nork:</string>
     <string name="title_to">Nori:</string>
     <string name="title_reply_to">Erantzun honi:</string>

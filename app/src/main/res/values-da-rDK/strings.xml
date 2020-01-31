@@ -279,6 +279,7 @@
     <string name="title_advanced_autoscroll">Rul til toppen, når ny besked modtages</string>
     <string name="title_advanced_double_tap">Dobbelttryk for at markere besked læst/ulæst</string>
     <string name="title_advanced_swipenav">Stryg til venstre/højre for at gå til næste/forrige samtale</string>
+    <string name="title_advanced_volumenav">Lydstyrke op/ned for at gå til næste/foregående samtale</string>
     <string name="title_advanced_reversed">Omvendt navigeringsretning</string>
     <string name="title_advanced_autoexpand">Auto-udvid beskeder</string>
     <string name="title_advanced_expand_all">Auto-udvid alle læste beskeder</string>
@@ -620,6 +621,7 @@
     <string name="title_expand_warning">Udvides denne besked, downloades %1$s</string>
     <string name="title_download_message">Downloader &#8230;</string>
     <string name="title_compose">Skriv</string>
+    <string name="title_submitter">Sendt af:</string>
     <string name="title_from">Fra:</string>
     <string name="title_to">Til:</string>
     <string name="title_reply_to">Svar til:</string>

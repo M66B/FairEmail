@@ -266,6 +266,7 @@
     <string name="title_advanced_autoscroll">新着メッセージを受信したらトップにスクロール</string>
     <string name="title_advanced_double_tap">ダブルタップでメッセージを既読/未読にします</string>
     <string name="title_advanced_swipenav">左/右にスワイプで次/前の会話に移動</string>
+    <string name="title_advanced_volumenav">音量を上/下で次/前の会話に移動</string>
     <string name="title_advanced_reversed">ナビゲーション方向を逆にします</string>
     <string name="title_advanced_autoexpand">メッセージを自動的に展開</string>
     <string name="title_advanced_expand_all">全ての既読メッセージを自動的に展開</string>

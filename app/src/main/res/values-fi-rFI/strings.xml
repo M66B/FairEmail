@@ -278,6 +278,7 @@
     <string name="title_advanced_autoscroll">Vieritä ylös, kun uusi viesti saapuu</string>
     <string name="title_advanced_double_tap">Tuplanäpäytys merkitsee viestin luetuksi/lukemattomaksi</string>
     <string name="title_advanced_swipenav">Pyyhkäise vasemmalle/oikealle siirtyäksesi seuraavaan/edelliseen keskusteluun</string>
+    <string name="title_advanced_volumenav">Äänenvoimakkuus suuremmalle/pienemmälle siirtyäksesi seuraavaan/edelliseen keskusteluun</string>
     <string name="title_advanced_reversed">Käänteinen navigointisuunta</string>
     <string name="title_advanced_autoexpand">Laajenna viestit automaattisesti</string>
     <string name="title_advanced_expand_all">Laajenna kaikki luetut viestit automaattisesti</string>
@@ -619,6 +620,7 @@
     <string name="title_expand_warning">Tämän viestin laajentaminen lataa %1$s</string>
     <string name="title_download_message">Ladataan &#8230;</string>
     <string name="title_compose">Kirjoita viesti</string>
+    <string name="title_submitter">Lähettäjä:</string>
     <string name="title_from">Lähettäjä:</string>
     <string name="title_to">Vastaanottaja:</string>
     <string name="title_reply_to">Vastausosoite:</string>

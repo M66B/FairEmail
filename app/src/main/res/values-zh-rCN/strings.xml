@@ -267,6 +267,7 @@
     <string name="title_advanced_autoscroll">在收到新消息时滚动至顶部</string>
     <string name="title_advanced_double_tap">双击标记消息已读/未读</string>
     <string name="title_advanced_swipenav">左右滑动切换邮件</string>
+    <string name="title_advanced_volumenav">按音量上/下键转到下一个/上一个对话</string>
     <string name="title_advanced_reversed">反转导航方向</string>
     <string name="title_advanced_autoexpand">自动展开消息</string>
     <string name="title_advanced_expand_all">自动展开所有已读消息</string>
@@ -608,6 +609,7 @@
     <string name="title_expand_warning">展开此消息将下载 %1$s</string>
     <string name="title_download_message">&#8230; 下载中</string>
     <string name="title_compose">撰写</string>
+    <string name="title_submitter">发送自：</string>
     <string name="title_from">发件人：</string>
     <string name="title_to">收件人：</string>
     <string name="title_reply_to">回复：</string>

@@ -280,6 +280,7 @@
     <string name="title_advanced_autoscroll">Yeni iletiler almak için üst tarafı kaydırın</string>
     <string name="title_advanced_double_tap">İletiyi okundu/okunmadı olarak işaretlemek için iki kez dokunun</string>
     <string name="title_advanced_swipenav">Sonraki / önceki sohbete gitmek için sola / sağa kaydırın</string>
+    <string name="title_advanced_volumenav">Sonraki/önceki sohbete gitmek için ses arttırma/azaltma butonunu kullanın</string>
     <string name="title_advanced_reversed">Gezinti yönünü tersine çevir</string>
     <string name="title_advanced_autoexpand">İletileri otomatik olarak aç </string>
     <string name="title_advanced_expand_all">Tüm okunmuş mesajları otomatik olarak aç</string>

@@ -302,6 +302,7 @@
     <string name="title_advanced_autoscroll">Прокрутить к началу списка при получении новых сообщений</string>
     <string name="title_advanced_double_tap">Двойное нажатие для отметки сообщений прочитанными/непрочитанными</string>
     <string name="title_advanced_swipenav">Смахивание влево/вправо для перехода к следующему/предыдущему диалогу</string>
+    <string name="title_advanced_volumenav">Кнопки увеличения/уменьшения громкости, для перехода к следующему/предыдущему диалогу</string>
     <string name="title_advanced_reversed">Обратное направление навигации</string>
     <string name="title_advanced_autoexpand">Автоматически разворачивать сообщения</string>
     <string name="title_advanced_expand_all">Автоматически разворачивать все прочитанные сообщения</string>
