@@ -1569,22 +1569,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                             @Override
                             public boolean onOpenLink(String url) {
-                                Uri uri = Uri.parse(url);
-                                if ("cid".equals(uri.getScheme()) || "data".equals(uri.getScheme()))
-                                    return false;
-
                                 if (parentFragment == null)
                                     return false;
 
-                                Bundle args = new Bundle();
-                                args.putParcelable("uri", uri);
-                                args.putString("title", null);
-
-                                FragmentDialogLink fragment = new FragmentDialogLink();
-                                fragment.setArguments(args);
-                                fragment.show(parentFragment.getParentFragmentManager(), "open:link");
-
-                                return true;
+                                Uri uri = Uri.parse(url);
+                                return AdapterMessage.ViewHolder.this.onOpenLink(uri, null);
                             }
                         });
                 webView.setOnTouchListener(ViewHolder.this);
@@ -3340,10 +3329,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         if (image.length > 0 && image[0].getSource() != null) {
                             ImageHelper.AnnotatedSource a = new ImageHelper.AnnotatedSource(image[0].getSource());
                             Uri uri = Uri.parse(a.getSource());
-                            if ("http".equals(uri.getScheme()) || "https".equals(uri.getScheme())) {
-                                onOpenLink(uri, null);
-                                return true;
-                            }
+                            if ("http".equals(uri.getScheme()) || "https".equals(uri.getScheme()))
+                                if (onOpenLink(uri, null))
+                                    return true;
                         }
                     }
 
@@ -3361,8 +3349,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         if (url.equals(title))
                             title = null;
 
-                        onOpenLink(uri, title);
-                        return true;
+                        if (onOpenLink(uri, title))
+                            return true;
                     }
 
                     ImageSpan[] image = buffer.getSpans(off, off, ImageSpan.class);
@@ -3385,8 +3373,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
         }
 
-        private void onOpenLink(final Uri uri, String title) {
-            Log.i("Opening uri=" + uri);
+        private boolean onOpenLink(final Uri uri, String title) {
+            Log.i("Opening uri=" + uri + " title=" + title);
 
             if (BuildConfig.APPLICATION_ID.equals(uri.getHost()) && "/activate/".equals(uri.getPath())) {
                 try {
@@ -3398,8 +3386,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
             } else {
-                if ("cid".equals(uri.getScheme()))
-                    return;
+                if ("cid".equals(uri.getScheme()) || "data".equals(uri.getScheme()))
+                    return false;
 
                 Bundle args = new Bundle();
                 args.putParcelable("uri", uri);
@@ -3409,6 +3397,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 fragment.setArguments(args);
                 fragment.show(parentFragment.getParentFragmentManager(), "open:link");
             }
+
+            return true;
         }
 
         private void onOpenImage(long id, String source) {
