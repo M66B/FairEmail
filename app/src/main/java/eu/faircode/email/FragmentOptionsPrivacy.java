@@ -63,6 +63,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FragmentOptionsPrivacy extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
+    private SwitchCompat swConfirmLinks;
+    private SwitchCompat swConfirmImages;
+    private SwitchCompat swConfirmHtml;
     private SwitchCompat swDisableTracking;
     private SwitchCompat swDisplayHidden;
     private Spinner spEncryptMethod;
@@ -84,6 +87,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private List<String> openPgpProvider = new ArrayList<>();
 
     private final static String[] RESET_OPTIONS = new String[]{
+            "confirm_links", "confirm_images", "confirm_html",
             "disable_tracking", "display_hidden",
             "default_encrypt_method", "openpgp_provider", "autocrypt", "autocrypt_mutual",
             "sign_default", "encrypt_default", "auto_decrypt",
@@ -102,6 +106,9 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
 
         // Get controls
 
+        swConfirmLinks = view.findViewById(R.id.swConfirmLinks);
+        swConfirmImages = view.findViewById(R.id.swConfirmImages);
+        swConfirmHtml = view.findViewById(R.id.swConfirmHtml);
         swDisableTracking = view.findViewById(R.id.swDisableTracking);
         swDisplayHidden = view.findViewById(R.id.swDisplayHidden);
         spEncryptMethod = view.findViewById(R.id.spEncryptMethod);
@@ -136,6 +143,27 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         // Wire controls
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+
+        swConfirmLinks.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("confirm_links", checked).apply();
+            }
+        });
+
+        swConfirmImages.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("confirm_images", checked).apply();
+            }
+        });
+
+        swConfirmHtml.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("confirm_html", checked).apply();
+            }
+        });
 
         swDisableTracking.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -353,6 +381,9 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private void setOptions() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
+        swConfirmLinks.setChecked(prefs.getBoolean("confirm_links", true));
+        swConfirmImages.setChecked(prefs.getBoolean("confirm_images", true));
+        swConfirmHtml.setChecked(prefs.getBoolean("confirm_html", true));
         swDisableTracking.setChecked(prefs.getBoolean("disable_tracking", true));
         swDisplayHidden.setChecked(prefs.getBoolean("display_hidden", false));
 

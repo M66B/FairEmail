@@ -106,29 +106,12 @@ Related questions:
 
 Anything on this list is in random order and *might* be added in the near future.
 
-
 ## Frequently requested features
 
 The design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too.
 The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc).
 All displayed things should be useful in one or another way and should be carefully positioned for easy usage.
 Fonts, sizes, colors, etc should be material design whenever possible.
-
-Since FairEmail is privacy oriented, the following will not be added:
-
-* Opening links without confirmation (if you want to reset the default *Open with* apps, please [see here](https://support.google.com/android/answer/9415055))
-* Showing images and original messages without confirmation, see also [this FAQ](#user-content-faq35)
-* Direct file/folder access: for security/privacy reasons (other) apps should use the [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider), see also [this FAQ](#user-content-faq49)
-
-Confirmation is just one tap, which is just a small price for better privacy.
-You can show images and original messages by default for trusted senders on a case-by-case basis by checking *Do not ask this again for ...*.
-Note that your contacts could unknowingly send malicious messages if they got infected with malware.
-
-Stripped and reformatted messages are often better readable than original messages because the margins are removed, and font colors and sizes are standardized.
-
-FairEmail does not allow other apps access to your messages and attachments without your approval.
-
-FairEmail follows all the best practices for an email client as described in [this EFF article](https://www.eff.org/deeplinks/2019/01/stop-tracking-my-emails).
 
 ## Frequently Asked Questions
 
@@ -1116,9 +1099,15 @@ Note that your contacts could unknowingly send malicious messages if they got in
 
 FairEmail formats messages again causing messages to look different from the original, but also uncovering phishing links.
 
+Note that reformatted messages are often better readable than original messages because the margins are removed, and font colors and sizes are standardized.
+
 The Gmail app shows images by default by downloading the images through a Google proxy server.
 Since the images are downloaded from the source server [in real-time](https://blog.filippo.io/how-the-new-gmail-image-proxy-works-and-what-this-means-for-you/),
 this is even less secure because Google is involved too without providing much benefit.
+
+You can show images and original messages by default for trusted senders on a case-by-case basis by checking *Do not ask this again for ...*.
+
+If you want to reset the default *Open with* apps, please [see here](https://support.google.com/android/answer/9415055)).
 
 <br />
 
@@ -2053,7 +2042,9 @@ See also [this FAQ](#user-content-faq92).
 
 For privacy and security reasons FairEmail does not have permissions to directly access files,
 instead the Storage Access Framework, available and recommended since Android 4.4 KitKat (released in 2013), is used to select files.
+
 If an app is listed depends on if the app implements a [document provider](https://developer.android.com/guide/topics/providers/document-provider).
+If the app is not listed, you might need to ask the developer of the app to add support for the Storage Access Framework.
 
 Android Q will make it harder and maybe even impossible to directly access files,
 see [here](https://developer.android.com/preview/privacy/scoped-storage) and [here](https://www.xda-developers.com/android-q-storage-access-framework-scoped-storage/) for more details.

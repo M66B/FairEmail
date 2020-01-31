@@ -1484,6 +1484,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     }
                 }
 
+            boolean confirm_images = prefs.getBoolean("confirm_images", true);
+            boolean confirm_html = prefs.getBoolean("confirm_html", true);
+
+            if (!confirm_images)
+                properties.setValue("images", message.id, true);
+            if (!confirm_html)
+                properties.setValue("full", message.id, true);
+
             boolean show_full = properties.getValue("full", message.id);
             boolean show_images = properties.getValue("images", message.id);
             boolean show_quotes = (properties.getValue("quotes", message.id) || !collapse_quotes);
@@ -3389,13 +3397,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if ("cid".equals(uri.getScheme()) || "data".equals(uri.getScheme()))
                     return false;
 
-                Bundle args = new Bundle();
-                args.putParcelable("uri", uri);
-                args.putString("title", title);
+                boolean confirm_links = prefs.getBoolean("confirm_links", true);
+                if (confirm_links) {
+                    Bundle args = new Bundle();
+                    args.putParcelable("uri", uri);
+                    args.putString("title", title);
 
-                FragmentDialogLink fragment = new FragmentDialogLink();
-                fragment.setArguments(args);
-                fragment.show(parentFragment.getParentFragmentManager(), "open:link");
+                    FragmentDialogLink fragment = new FragmentDialogLink();
+                    fragment.setArguments(args);
+                    fragment.show(parentFragment.getParentFragmentManager(), "open:link");
+                } else
+                    Helper.view(context, uri, false);
             }
 
             return true;
