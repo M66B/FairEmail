@@ -4931,7 +4931,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                                 boolean[] usage = ((X509Certificate) pcert).getKeyUsage();
                                                 boolean root = (usage != null && usage[5]);
                                                 EntityCertificate record = EntityCertificate.from((X509Certificate) pcert, null);
-                                                trace.add(record.subject + (root ? " *" : ""));
+                                                trace.add((root ? "* " : "") + record.subject);
                                             }
 
                                         args.putStringArrayList("trace", trace);
