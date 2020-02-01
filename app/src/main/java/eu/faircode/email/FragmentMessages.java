@@ -3025,6 +3025,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         if (viewType == AdapterMessage.ViewType.THREAD) {
             menu.findItem(R.id.menu_sort_on_time).setVisible(false);
             menu.findItem(R.id.menu_sort_on_unread).setVisible(false);
+            menu.findItem(R.id.menu_sort_on_priority).setVisible(false);
             menu.findItem(R.id.menu_sort_on_starred).setVisible(false);
             menu.findItem(R.id.menu_sort_on_sender).setVisible(false);
             menu.findItem(R.id.menu_sort_on_subject).setVisible(false);
@@ -3039,6 +3040,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             menu.findItem(R.id.menu_sort_on_unread).setChecked(true);
         else if ("starred".equals(sort))
             menu.findItem(R.id.menu_sort_on_starred).setChecked(true);
+        else if ("priority".equals(sort))
+            menu.findItem(R.id.menu_sort_on_priority).setChecked(true);
         else if ("sender".equals(sort))
             menu.findItem(R.id.menu_sort_on_sender).setChecked(true);
         else if ("subject".equals(sort))
@@ -3107,6 +3110,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             case R.id.menu_sort_on_starred:
                 item.setChecked(true);
                 onMenuSort("starred");
+                return true;
+
+            case R.id.menu_sort_on_priority:
+                item.setChecked(true);
+                onMenuSort("priority");
                 return true;
 
             case R.id.menu_sort_on_sender:

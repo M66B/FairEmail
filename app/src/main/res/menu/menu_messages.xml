@@ -32,6 +32,9 @@
                     android:id="@+id/menu_sort_on_starred"
                     android:title="@string/title_sort_on_starred" />
                 <item
+                    android:id="@+id/menu_sort_on_priority"
+                    android:title="@string/title_sort_on_priority" />
+                <item
                     android:id="@+id/menu_sort_on_sender"
                     android:title="@string/title_sort_on_sender" />
                 <item
