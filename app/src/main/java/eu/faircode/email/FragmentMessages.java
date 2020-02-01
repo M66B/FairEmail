@@ -4880,7 +4880,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                             for (X509Certificate c : certs) {
                                                 boolean[] usage = c.getKeyUsage();
                                                 boolean root = (usage != null && usage[5]);
-                                                if (root && ks.getCertificateAlias(c) == null) {
+                                                boolean selfSigned = c.getIssuerX500Principal().equals(c.getSubjectX500Principal());
+                                                if (root && !selfSigned && ks.getCertificateAlias(c) == null) {
                                                     boolean found = false;
                                                     String issuer = (c.getIssuerDN() == null ? "" : c.getIssuerDN().getName());
                                                     EntityCertificate record = EntityCertificate.from(c, true, issuer);
@@ -4928,10 +4929,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                         for (Certificate pcert : pcerts)
                                             if (pcert instanceof X509Certificate) {
                                                 // https://tools.ietf.org/html/rfc5280#section-4.2.1.3
-                                                boolean[] usage = ((X509Certificate) pcert).getKeyUsage();
+                                                X509Certificate c = (X509Certificate) pcert;
+                                                boolean[] usage = c.getKeyUsage();
                                                 boolean root = (usage != null && usage[5]);
-                                                EntityCertificate record = EntityCertificate.from((X509Certificate) pcert, null);
-                                                trace.add((root ? "* " : "") + record.subject);
+                                                boolean selfSigned = c.getIssuerX500Principal().equals(c.getSubjectX500Principal());
+                                                EntityCertificate record = EntityCertificate.from(c, null);
+                                                trace.add((root ? "* " : "") + (selfSigned ? "# " : "") + record.subject);
                                             }
 
                                         args.putStringArrayList("trace", trace);
@@ -4954,8 +4957,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                         for (X509Certificate c : certs) {
                                             boolean[] usage = c.getKeyUsage();
                                             boolean root = (usage != null && usage[5]);
+                                            boolean selfSigned = c.getIssuerX500Principal().equals(c.getSubjectX500Principal());
                                             EntityCertificate record = EntityCertificate.from(c, null);
-                                            trace.add(record.subject + (root ? " *" : ""));
+                                            trace.add((root ? "* " : "") + (selfSigned ? "# " : "") + record.subject);
                                         }
                                         args.putStringArrayList("trace", trace);
                                     }
