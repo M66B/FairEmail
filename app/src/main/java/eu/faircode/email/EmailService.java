@@ -2,6 +2,7 @@ package eu.faircode.email;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
+import android.accounts.AuthenticatorException;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
@@ -275,13 +276,13 @@ public class EmailService implements AutoCloseable {
                             am.invalidateAuthToken(type, password);
                             String token = am.blockingGetAuthToken(account, getAuthTokenType(type), true);
                             if (token == null)
-                                throw new IllegalArgumentException("No token on refresh");
+                                throw new AuthenticatorException("No token on refresh");
 
                             connect(host, port, user, token, factory);
                             return token;
                         }
 
-                    throw new IllegalArgumentException("Account not found");
+                    throw new AuthenticatorException("Account not found");
                 } catch (Exception ex1) {
                     Log.e(ex1);
                     throw new AuthenticationFailedException(ex.getMessage(), ex1);
