@@ -150,6 +150,9 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                     case EntityRule.TYPE_FLAG:
                         tvAction.setText(R.string.title_rule_flag);
                         break;
+                    case EntityRule.TYPE_IMPORTANCE:
+                        tvAction.setText(R.string.title_rule_importance);
+                        break;
                     case EntityRule.TYPE_KEYWORD:
                         tvAction.setText(R.string.title_rule_keyword);
                         break;

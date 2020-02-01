@@ -116,6 +116,8 @@ public class FragmentRule extends FragmentBase {
 
     private ViewButtonColor btnColor;
 
+    private Spinner spImportance;
+
     private EditText etKeyword;
 
     private Spinner spTarget;
@@ -135,6 +137,7 @@ public class FragmentRule extends FragmentBase {
     private Group grpReady;
     private Group grpSnooze;
     private Group grpFlag;
+    private Group grpImportance;
     private Group grpKeyword;
     private Group grpMove;
     private Group grpMoveProp;
@@ -223,6 +226,8 @@ public class FragmentRule extends FragmentBase {
 
         btnColor = view.findViewById(R.id.btnColor);
 
+        spImportance = view.findViewById(R.id.spImportance);
+
         etKeyword = view.findViewById(R.id.etKeyword);
 
         spTarget = view.findViewById(R.id.spTarget);
@@ -243,6 +248,7 @@ public class FragmentRule extends FragmentBase {
         grpReady = view.findViewById(R.id.grpReady);
         grpSnooze = view.findViewById(R.id.grpSnooze);
         grpFlag = view.findViewById(R.id.grpFlag);
+        grpImportance = view.findViewById(R.id.grpImportance);
         grpKeyword = view.findViewById(R.id.grpKeyword);
         grpMove = view.findViewById(R.id.grpMove);
         grpMoveProp = view.findViewById(R.id.grpMoveProp);
@@ -339,6 +345,7 @@ public class FragmentRule extends FragmentBase {
         actions.add(new Action(EntityRule.TYPE_IGNORE, getString(R.string.title_rule_ignore)));
         actions.add(new Action(EntityRule.TYPE_SNOOZE, getString(R.string.title_rule_snooze)));
         actions.add(new Action(EntityRule.TYPE_FLAG, getString(R.string.title_rule_flag)));
+        actions.add(new Action(EntityRule.TYPE_IMPORTANCE, getString(R.string.title_rule_importance)));
         actions.add(new Action(EntityRule.TYPE_KEYWORD, getString(R.string.title_rule_keyword)));
         actions.add(new Action(EntityRule.TYPE_MOVE, getString(R.string.title_rule_move)));
         actions.add(new Action(EntityRule.TYPE_COPY, getString(R.string.title_rule_copy)));
@@ -426,6 +433,7 @@ public class FragmentRule extends FragmentBase {
         grpReady.setVisibility(View.GONE);
         grpSnooze.setVisibility(View.GONE);
         grpFlag.setVisibility(View.GONE);
+        grpImportance.setVisibility(View.GONE);
         grpKeyword.setVisibility(View.GONE);
         grpMove.setVisibility(View.GONE);
         grpMoveProp.setVisibility(View.GONE);
@@ -693,6 +701,10 @@ public class FragmentRule extends FragmentBase {
                                                 ? null : jaction.getInt("color"));
                                 break;
 
+                            case EntityRule.TYPE_IMPORTANCE:
+                                spImportance.setSelection(jaction.optInt("value"));
+                                break;
+
                             case EntityRule.TYPE_KEYWORD:
                                 etKeyword.setText(jaction.getString("keyword"));
                                 break;
@@ -759,6 +771,7 @@ public class FragmentRule extends FragmentBase {
     private void showActionParameters(int type) {
         grpSnooze.setVisibility(type == EntityRule.TYPE_SNOOZE ? View.VISIBLE : View.GONE);
         grpFlag.setVisibility(type == EntityRule.TYPE_FLAG ? View.VISIBLE : View.GONE);
+        grpImportance.setVisibility(type == EntityRule.TYPE_IMPORTANCE ? View.VISIBLE : View.GONE);
         grpKeyword.setVisibility(type == EntityRule.TYPE_KEYWORD ? View.VISIBLE : View.GONE);
         grpMove.setVisibility(type == EntityRule.TYPE_MOVE || type == EntityRule.TYPE_COPY ? View.VISIBLE : View.GONE);
         grpMoveProp.setVisibility(type == EntityRule.TYPE_MOVE ? View.VISIBLE : View.GONE);
@@ -985,6 +998,10 @@ public class FragmentRule extends FragmentBase {
                     int color = btnColor.getColor();
                     if (color != Color.TRANSPARENT)
                         jaction.put("color", color);
+                    break;
+
+                case EntityRule.TYPE_IMPORTANCE:
+                    jaction.put("value", spImportance.getSelectedItemPosition());
                     break;
 
                 case EntityRule.TYPE_KEYWORD:

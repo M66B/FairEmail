@@ -76,17 +76,19 @@ public interface DaoMessage {
             " AND (NOT :filter_seen OR SUM(1 - message.ui_seen) > 0)" +
             " AND (NOT :filter_unflagged OR COUNT(message.id) - SUM(1 - message.ui_flagged) > 0)" +
             " AND (NOT :filter_snoozed OR message.ui_snoozed IS NULL OR " + is_drafts + ")" +
-            " ORDER BY CASE" +
-            "  WHEN 'unread' = :sort THEN SUM(1 - message.ui_seen) = 0" +
-            "  WHEN 'starred' = :sort THEN COUNT(message.id) - SUM(1 - message.ui_flagged) = 0" +
-            "  WHEN 'priority' = :sort THEN -MAX(IFNULL(message.priority, 1))" +
-            "  WHEN 'sender' = :sort THEN LOWER(message.sender)" +
-            "  WHEN 'subject' = :sort THEN LOWER(message.subject)" +
-            "  WHEN 'size' = :sort THEN -SUM(message.total)" +
-            "  WHEN 'attachments' = :sort THEN -SUM(message.attachments)" +
-            "  WHEN 'snoozed' = :sort THEN SUM(CASE WHEN message.ui_snoozed IS NULL THEN 0 ELSE 1 END) = 0" +
-            "  ELSE 0" +
-            " END, CASE WHEN :ascending THEN message.received ELSE -message.received END")
+            " ORDER BY -IFNULL(MAX(message.importance), 1)" +
+            ", CASE" +
+            "   WHEN 'unread' = :sort THEN SUM(1 - message.ui_seen) = 0" +
+            "   WHEN 'starred' = :sort THEN COUNT(message.id) - SUM(1 - message.ui_flagged) = 0" +
+            "   WHEN 'priority' = :sort THEN -MAX(IFNULL(message.priority, 1))" +
+            "   WHEN 'sender' = :sort THEN LOWER(message.sender)" +
+            "   WHEN 'subject' = :sort THEN LOWER(message.subject)" +
+            "   WHEN 'size' = :sort THEN -SUM(message.total)" +
+            "   WHEN 'attachments' = :sort THEN -SUM(message.attachments)" +
+            "   WHEN 'snoozed' = :sort THEN SUM(CASE WHEN message.ui_snoozed IS NULL THEN 0 ELSE 1 END) = 0" +
+            "   ELSE 0" +
+            "  END" +
+            ", CASE WHEN :ascending THEN message.received ELSE -message.received END")
     @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
     DataSource.Factory<Integer, TupleMessageEx> pagedUnified(
             String type,
@@ -125,17 +127,19 @@ public interface DaoMessage {
             " AND (NOT :filter_seen OR SUM(1 - message.ui_seen) > 0 OR " + is_outbox + ")" +
             " AND (NOT :filter_unflagged OR COUNT(message.id) - SUM(1 - message.ui_flagged) > 0 OR " + is_outbox + ")" +
             " AND (NOT :filter_snoozed OR message.ui_snoozed IS NULL OR " + is_outbox + " OR " + is_drafts + ")" +
-            " ORDER BY CASE" +
-            "  WHEN 'unread' = :sort THEN SUM(1 - message.ui_seen) = 0" +
-            "  WHEN 'starred' = :sort THEN COUNT(message.id) - SUM(1 - message.ui_flagged) = 0" +
-            "  WHEN 'priority' = :sort THEN -MAX(IFNULL(message.priority, 1))" +
-            "  WHEN 'sender' = :sort THEN LOWER(message.sender)" +
-            "  WHEN 'subject' = :sort THEN LOWER(message.subject)" +
-            "  WHEN 'size' = :sort THEN -SUM(message.total)" +
-            "  WHEN 'attachments' = :sort THEN -SUM(message.attachments)" +
-            "  WHEN 'snoozed' = :sort THEN SUM(CASE WHEN message.ui_snoozed IS NULL THEN 0 ELSE 1 END) = 0" +
-            "  ELSE 0" +
-            " END, CASE WHEN :ascending THEN message.received ELSE -message.received END")
+            " ORDER BY -IFNULL(MAX(message.importance), 1)" +
+            ", CASE" +
+            "   WHEN 'unread' = :sort THEN SUM(1 - message.ui_seen) = 0" +
+            "   WHEN 'starred' = :sort THEN COUNT(message.id) - SUM(1 - message.ui_flagged) = 0" +
+            "   WHEN 'priority' = :sort THEN -MAX(IFNULL(message.priority, 1))" +
+            "   WHEN 'sender' = :sort THEN LOWER(message.sender)" +
+            "   WHEN 'subject' = :sort THEN LOWER(message.subject)" +
+            "   WHEN 'size' = :sort THEN -SUM(message.total)" +
+            "   WHEN 'attachments' = :sort THEN -SUM(message.attachments)" +
+            "   WHEN 'snoozed' = :sort THEN SUM(CASE WHEN message.ui_snoozed IS NULL THEN 0 ELSE 1 END) = 0" +
+            "   ELSE 0" +
+            "  END" +
+            ", CASE WHEN :ascending THEN message.received ELSE -message.received END")
     @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
     DataSource.Factory<Integer, TupleMessageEx> pagedFolder(
             long folder, boolean threading,
@@ -455,6 +459,9 @@ public interface DaoMessage {
 
     @Query("UPDATE message SET priority = :priority WHERE id = :id")
     int setMessagePriority(long id, Integer priority);
+
+    @Query("UPDATE message SET importance = :importance WHERE id = :id")
+    int setMessageImportance(long id, Integer importance);
 
     @Query("UPDATE message SET receipt_request = :receipt_request WHERE id = :id")
     int setMessageReceiptRequest(long id, Boolean receipt_request);

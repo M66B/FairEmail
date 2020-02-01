@@ -878,9 +878,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibAvatar.setVisibility(avatars ? View.INVISIBLE : View.GONE);
 
             // Line 1
+            Integer priority = (message.importance == null ? message.priority : message.importance);
             ibAuth.setVisibility(authentication && !authenticated ? View.VISIBLE : View.GONE);
-            ivPriorityHigh.setVisibility(EntityMessage.PRIORITIY_HIGH.equals(message.priority) ? View.VISIBLE : View.GONE);
-            ivPriorityLow.setVisibility(EntityMessage.PRIORITIY_LOW.equals(message.priority) ? View.VISIBLE : View.GONE);
+            ivPriorityHigh.setVisibility(EntityMessage.PRIORITIY_HIGH.equals(priority) ? View.VISIBLE : View.GONE);
+            ivPriorityLow.setVisibility(EntityMessage.PRIORITIY_LOW.equals(priority) ? View.VISIBLE : View.GONE);
             ivSigned.setVisibility(message.signed > 0 ? View.VISIBLE : View.GONE);
             ivEncrypted.setVisibility(message.encrypted > 0 ? View.VISIBLE : View.GONE);
             tvFrom.setText(MessageHelper.formatAddresses(addresses, name_email, false));
@@ -4286,6 +4287,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (!Objects.equals(prev.priority, next.priority)) {
                         same = false;
                         Log.i("priority changed id=" + next.id);
+                    }
+                    if (!Objects.equals(prev.importance, next.importance)) {
+                        same = false;
+                        Log.i("importance changed id=" + next.id);
                     }
                     if (!Objects.equals(prev.receipt_request, next.receipt_request)) {
                         same = false;

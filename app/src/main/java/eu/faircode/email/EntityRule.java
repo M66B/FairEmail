@@ -100,6 +100,7 @@ public class EntityRule {
     static final int TYPE_NOOP = 10;
     static final int TYPE_KEYWORD = 11;
     static final int TYPE_HIDE = 12;
+    static final int TYPE_IMPORTANCE = 13;
 
     static final String ACTION_AUTOMATION = BuildConfig.APPLICATION_ID + ".AUTOMATION";
     static final String EXTRA_RULE = "rule";
@@ -306,6 +307,8 @@ public class EntityRule {
                 return onActionSnooze(context, message, jaction);
             case TYPE_FLAG:
                 return onActionFlag(context, message, jaction);
+            case TYPE_IMPORTANCE:
+                return onActionImportance(context, message, jaction);
             case TYPE_KEYWORD:
                 return onActionKeyword(context, message, jaction);
             case TYPE_MOVE:
@@ -491,6 +494,19 @@ public class EntityRule {
 
         message.ui_flagged = true;
         message.color = color;
+
+        return true;
+    }
+
+    private boolean onActionImportance(Context context, EntityMessage message, JSONObject jargs) throws JSONException {
+        Integer importance = jargs.getInt("value");
+        if (importance == EntityMessage.PRIORITIY_NORMAL)
+            importance = null;
+
+        DB db = DB.getInstance(context);
+        db.message().setMessageImportance(message.id, importance);
+
+        message.importance = importance;
 
         return true;
     }

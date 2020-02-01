@@ -855,6 +855,7 @@
     <string name="title_rule_ignore">Suppress notification</string>
     <string name="title_rule_snooze">Snooze</string>
     <string name="title_rule_flag">Add star</string>
+    <string name="title_rule_importance">Set importance</string>
     <string name="title_rule_keyword">Add keyword</string>
     <string name="title_rule_move">Move</string>
     <string name="title_rule_copy">Copy (label)</string>
