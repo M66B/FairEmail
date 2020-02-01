@@ -80,7 +80,7 @@ public interface DaoMessage {
             ", CASE" +
             "   WHEN 'unread' = :sort THEN SUM(1 - message.ui_seen) = 0" +
             "   WHEN 'starred' = :sort THEN COUNT(message.id) - SUM(1 - message.ui_flagged) = 0" +
-            "   WHEN 'priority' = :sort THEN -MAX(IFNULL(message.priority, 1))" +
+            "   WHEN 'priority' = :sort THEN -IFNULL(MAX(message.priority), 1)" +
             "   WHEN 'sender' = :sort THEN LOWER(message.sender)" +
             "   WHEN 'subject' = :sort THEN LOWER(message.subject)" +
             "   WHEN 'size' = :sort THEN -SUM(message.total)" +
@@ -131,7 +131,7 @@ public interface DaoMessage {
             ", CASE" +
             "   WHEN 'unread' = :sort THEN SUM(1 - message.ui_seen) = 0" +
             "   WHEN 'starred' = :sort THEN COUNT(message.id) - SUM(1 - message.ui_flagged) = 0" +
-            "   WHEN 'priority' = :sort THEN -MAX(IFNULL(message.priority, 1))" +
+            "   WHEN 'priority' = :sort THEN -IFNULL(MAX(message.priority), 1)" +
             "   WHEN 'sender' = :sort THEN LOWER(message.sender)" +
             "   WHEN 'subject' = :sort THEN LOWER(message.subject)" +
             "   WHEN 'size' = :sort THEN -SUM(message.total)" +
