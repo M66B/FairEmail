@@ -233,6 +233,7 @@
     <string name="title_advanced_download">Deskargatu mezuak eta eranskinak automatikoki neurtutako konexioetan, gehienez</string>
     <string name="title_advanced_roaming">Roaming egoeran mezuak eta gehitutakoak jaitsi</string>
     <string name="title_advanced_rlah">Ibili etxean bezala</string>
+    <string name="title_advanced_ssl_harden">Gogortu SSL konexioak</string>
     <string name="title_advanced_socks">Erabili SOCKS proxya</string>
     <string name="title_advanced_manage_connectivity">Kudeatu konektibitatea</string>
     <string name="title_advanced_landscape">Erabili bi zutabe modu horizontalean</string>
@@ -365,6 +366,7 @@
     <string name="title_advanced_metered_hint">Neurtutako konexioak orokorrean konexio mugikorrak eta ordainpeko wifi guneak dira</string>
     <string name="title_advanced_metered_warning">Aukera hau desgaitzeak internet konexio mugikorrekin mezuak bidaltzea eta jasotzea eragotziko du</string>
     <string name="title_advanced_rlah_hint">EBn ez da datuen ibiltaritza onartzen</string>
+    <string name="title_advanced_ssl_harden_hint">Hau gaitzean SSL protokolo eta zifratze ahulak desgaituko dira</string>
     <string name="title_advanced_socks_hint">Urruneko proxy zerbitzari bat erabiltzea ez da segurua proxy-konexioak zifratuta ez daudelako</string>
     <string name="title_advanced_roaming_hint">Mezuen goiburuak beti jasoko dira datuen ibiltaritza dagoenean. Telefonoaren datuen ibiltaritza ezarpena erabil dezakezu internet desgaitzeko.</string>
     <string name="title_advanced_browse_hint">Bilatu mezu gehiago korritzerakoan</string>

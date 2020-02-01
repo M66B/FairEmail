@@ -127,6 +127,8 @@
     <string name="title_setup_select_account">Valitse tili</string>
     <string name="title_setup_instructions">Asetusohjeet</string>
     <string name="title_setup_no_settings">Asetuksia ei löytynyt verkkotunnukselle \'%1$s\'</string>
+    <string name="title_setup_no_settings_hint">Yritä asettaa tili ja identiteetti asetusvaiheissa 1 ja 2 käyttäen sähköpostipalveluntarjoajasi antamia asetuksia</string>
+    <string name="title_setup_no_auth_hint">Tarkista sähköpostiosoitteesi ja salasanasi ja varmista, että ulkopuolinen yhteys (IMAP/SMTP) on käytössä tilillesi</string>
     <string name="title_setup_no_system_folders">Saapuneet- tai luonnokset-kansiota ei löytynyt</string>
     <string name="title_setup_quick_success">Tili ja identiteetti on lisätty onnistuneesti</string>
     <string name="title_setup_quick_failed">Voit yrittää määrittää tilin ja identiteetin alla</string>
@@ -286,8 +288,8 @@
     <string name="title_advanced_collapse_multiple">Tiivistä useamman viestin keskusteluiden viestit menemällä \'takaisin\'</string>
     <string name="title_advanced_autoclose">Sulje keskustelut automaattisesti</string>
     <string name="title_advanced_onclose">Keskustelua suljettaessa</string>
-    <string name="title_advanced_quick_filter">Näytä häiritsemättömät pikasuodatuskuvakkeet</string>
-    <string name="title_advanced_quick_scroll">Näytä häiritsemättömät ylös-/alaspikavierityskuvakkeet</string>
+    <string name="title_advanced_quick_filter">Näytä huomaamattomat pikasuodatuskuvakkeet</string>
+    <string name="title_advanced_quick_scroll">Näytä huomaamattomat ylös-/alaspikavierityskuvakkeet</string>
     <string name="title_advanced_autoread">Siirtäessä viestejä merkitse ne luetuiksi</string>
     <string name="title_advanced_autounstar">Poista tähti viestejä siirrettäessä</string>
     <string name="title_advanced_automove">Vahvista viestien siirto</string>
@@ -312,10 +314,13 @@
     <string name="title_advanced_notify_action_snooze">Torkku</string>
     <string name="title_advanced_notify_remove">Poista ilmoitus uudesta viestistä näpäyttämällä sitä</string>
     <string name="title_advanced_notify_clear">Poista ilmoitukset uusista viesteistä katsottaessa viestilistaa</string>
-    <string name="title_advanced_wearable_preview">Lähetä puettaviin laitteisiin vain esikatselun kanssa olevat ilmoitukset</string>
+    <string name="title_advanced_wearable_preview">Lähetä ilmoitukset puettaviin laitteisiin vain esikatselun kanssa</string>
     <string name="title_advanced_biometrics_notify">Näytä ilmoituksen sisältö käytettäessä biometristä tunnistautumista</string>
     <string name="title_advanced_light">Käytä LED-ilmoitusta</string>
     <string name="title_advanced_sound">Valitse ilmoituksen ääni</string>
+    <string name="title_advanced_confirm_links">Vahvista linkkien avaaminen</string>
+    <string name="title_advanced_confirm_images">Vahvista kuvien näyttäminen</string>
+    <string name="title_advanced_confirm_html">Näytä oletuksena uudelleenmuotoillut viestit</string>
     <string name="title_advanced_tracking">Tunnista automaattisesti ja poista käytöstä seurantakuvat</string>
     <string name="title_advanced_display_hidden">Näytä piilotetut viestien tekstit</string>
     <string name="title_advanced_encrypt_method">Oletussalausmenetelmä</string>
@@ -368,7 +373,7 @@
     <string name="title_advanced_layout_hint">Tiiviimpään näkymään vaihtaminen ja viestin tekstin koon vaihtaminen voidaan tehdä viestinäkymän yläreunan toimintopalkista</string>
     <string name="title_advanced_date_hint">Viestit ryhmitellään päivämäärän mukaan vain, jos ne on lajiteltu ajan mukaan</string>
     <string name="title_advanced_threading_hint">Ryhmittele toisiinsa liittyvät viestit</string>
-    <string name="title_advanced_gravatars_hint">On mahdollinen yksityisyysuhka</string>
+    <string name="title_advanced_gravatars_hint">Mahdollinen uhka yksityisyydelle</string>
     <string name="title_advanced_name_email_hint">Vain saatavilla olevat nimet näytetään, kun pois käytöstä</string>
     <string name="title_advanced_preview_hint">Saatavilla vain, kun viestin teksti on ladattu</string>
     <string name="title_advanced_preview_issue">Vierittäminen voi olla hidasta joissakin Android-versioissa olevan bugin takia, kun rivien lukumäärä on enemmän kuin yksi</string>
@@ -377,6 +382,7 @@
     <string name="title_advanced_autoseen_hint">Viestien merkitseminen luetuksi laajennettaessa voidaan kytkeä erikseen pois tilien asetuksissa</string>
     <string name="title_advanced_autoclose_hint">Sulje keskustelut, kun kaikki viestit on arkistoitu, lähetetty tai siirretty roskakoriin</string>
     <string name="title_advanced_sender_hint">Useimmat palveluntarjoajat eivät salli muokattuja lähetysosotteita</string>
+    <string name="title_advanced_display_harmful_hint">Tämän valinnan pois kytkeminen voi olla haitallista yksityisyydellesi</string>
     <string name="title_advanced_display_hidden_hint">Tämä voi näyttää omituiselta ja näyttää tekstejä kahteen kertaan</string>
     <string name="title_advanced_display_pin_hint">PIN on ensisijainen ennen biometristä tunnistautumista</string>
     <string name="title_advanced_badge_hint">Käytössä vain tuetuissa käynnistinsovelluksissa</string>

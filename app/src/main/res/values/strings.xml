@@ -819,6 +819,7 @@
     <string name="title_sort_on_sender">Sender</string>
     <string name="title_sort_on_subject">Subject</string>
     <string name="title_sort_on_size">Size</string>
+    <string name="title_sort_on_attachments">Attachments</string>
     <string name="title_sort_on_hidden">Hidden</string>
     <string name="title_sort_ascending">Oldest first</string>
 

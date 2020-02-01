@@ -84,6 +84,7 @@
     <string name="title_setup_select_account">Vybrat účet</string>
     <string name="title_setup_instructions">Pokyny pro nastavení</string>
     <string name="title_setup_no_settings">Pro doménu \'%1$s\' nebylo nalezeno žádné nastavení</string>
+    <string name="title_setup_no_settings_hint">Zkuste prosím nastavit účet a identitu v krocích 1 a 2 nastavení, s použitím nastavení poskytnutých vaším poskytovatelem e-mailu</string>
     <string name="title_setup_no_auth_hint">Zkontrolujte prosím zadanou e-mailovou adresu a heslo a ujistěte se, že u daného účtu máte povolen externí přístup (IMAP/SMTP)</string>
     <string name="title_setup_no_system_folders">Složka doručené či koncepty nebyla nalezena</string>
     <string name="title_setup_quick_success">Účet a identita byly úspěšně přidány</string>
@@ -337,6 +338,7 @@
     <string name="title_advanced_autoseen_hint">Automatické označování zpráv jako přečtených při rozbalení lze zakázat v nastavení jednotlivých účtů</string>
     <string name="title_advanced_autoclose_hint">Automaticky zavírat konverzace, když jsou všechny zprávy archivovány, odeslány nebo v koši</string>
     <string name="title_advanced_sender_hint">Většina poskytovatelů nepovoluje pozměněné adresy odesílatele</string>
+    <string name="title_advanced_display_harmful_hint">Zákazem této volby můžete uškodit svému soukromí</string>
     <string name="title_advanced_display_hidden_hint">Může mít za následek neobvykle vypadající a zdvojené texty</string>
     <string name="title_advanced_display_pin_hint">PIN má přednost před biometrickým ověřením</string>
     <string name="title_advanced_badge_hint">K dispozici pouze v podporovaných spouštěčích aplikací</string>

@@ -128,6 +128,8 @@
     <string name="title_setup_select_account">Изберане на профил</string>
     <string name="title_setup_instructions">Инструкции за настройка</string>
     <string name="title_setup_no_settings">Не са намерени настройки за домейн %1$s</string>
+    <string name="title_setup_no_settings_hint">Моля, опитайте да настроите профил и самоличност в стъпки за настройка 1 и 2, като използвате настройките, предоставени от вашия доставчик на електронна поща</string>
+    <string name="title_setup_no_auth_hint">Моля, проверете два пъти имейл адреса и паролата си и се уверете, че външният достъп (IMAP/SMTP) е активиран за вашия профил</string>
     <string name="title_setup_no_system_folders">Папките вх. поща или чернова не са намерени</string>
     <string name="title_setup_quick_success">Профил и идентичност бяха успешно добавени</string>
     <string name="title_setup_quick_failed">Можете да опитате да конфигурирате профил и идентичност по долу</string>
@@ -280,6 +282,7 @@
     <string name="title_advanced_autoscroll">Превърти в началото при нови съобщения</string>
     <string name="title_advanced_double_tap">Двойно натискане за маркиране на съобщението прочетено/непрочетено</string>
     <string name="title_advanced_swipenav">Плъзни наляво/надясно за следващ/предишен разговор</string>
+    <string name="title_advanced_volumenav">Сила на звука нагоре/надолу за да преминаване към следващ/предишен разговор</string>
     <string name="title_advanced_reversed">Смени посоката на навигация</string>
     <string name="title_advanced_autoexpand">Автоматично разгъване на съобщения</string>
     <string name="title_advanced_expand_all">Автоматично разгъване на всички прочетени съобщения</string>
@@ -317,6 +320,9 @@
     <string name="title_advanced_biometrics_notify">Показване на съдържание в известията при използване на биометрична проверка</string>
     <string name="title_advanced_light">Светлинна индикация на известия</string>
     <string name="title_advanced_sound">Избери звук за известяване</string>
+    <string name="title_advanced_confirm_links">Потвърдете отварянето на връзката</string>
+    <string name="title_advanced_confirm_images">Потвърдете показването на изображения</string>
+    <string name="title_advanced_confirm_html">Показване на преформатирани съобщения по подразбиране</string>
     <string name="title_advanced_tracking">Автоматично разпознаване и деактивиране на проследяващи изображения</string>
     <string name="title_advanced_display_hidden">Показване на скрит текст в съобщение</string>
     <string name="title_advanced_encrypt_method">Метод на криптиране по подразбиране</string>
@@ -377,6 +383,7 @@
     <string name="title_advanced_autoseen_hint">Автоматичното маркиране на съобщенията, прочетени при разширяване, може да бъде деактивирано в настройките на отделните профили</string>
     <string name="title_advanced_autoclose_hint">Автоматично затваряй разговорите, когато всички съобщения са архивирани, изпратени или преместени в кошчето</string>
     <string name="title_advanced_sender_hint">Повечето доставчици не разрешават модифициране адреса на подателя</string>
+    <string name="title_advanced_display_harmful_hint">Деактивирането на тази опция може да бъде вредно за поверителността ви</string>
     <string name="title_advanced_display_hidden_hint">Това може да доведе до странен изглед и размазан текст</string>
     <string name="title_advanced_display_pin_hint">ПИН има предимство пред удостоверяването с биометрични данни</string>
     <string name="title_advanced_badge_hint">Предлага се само на поддържани начални екрани</string>

@@ -705,6 +705,7 @@ PlayストアでFairEmailを評価できれば幸いです。
     <string name="title_sort_on_sender">送信者</string>
     <string name="title_sort_on_subject">件名</string>
     <string name="title_sort_on_size">サイズ</string>
+    <string name="title_sort_on_attachments">添付ファイル</string>
     <string name="title_sort_on_hidden">非表示</string>
     <string name="title_sort_ascending">古い順から</string>
     <string name="title_filter">除外する</string>

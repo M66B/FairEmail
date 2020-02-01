@@ -128,6 +128,8 @@
     <string name="title_setup_select_account">Seleccionar cuenta</string>
     <string name="title_setup_instructions">Instrucciones de configuración</string>
     <string name="title_setup_no_settings">No se encontraron ajustes para el dominio \'%1$s\'</string>
+    <string name="title_setup_no_settings_hint">Por favor, intente configurar una cuenta e identidad en los pasos de configuración 1 y 2 utilizando los ajustes proporcionados por su proveedor de correo electrónico</string>
+    <string name="title_setup_no_auth_hint">Por favor, compruebe su dirección de correo electrónico y contraseña y asegúrese de que el acceso externo (IMAP/SMTP) está habilitado para su cuenta</string>
     <string name="title_setup_no_system_folders">Carpeta de entrada o borradores no encontrada</string>
     <string name="title_setup_quick_success">Una cuenta y una identidad han sido añadidas con éxito</string>
     <string name="title_setup_quick_failed">Puede intentar configurar una cuenta y una identidad a continuación también</string>
@@ -318,6 +320,9 @@
     <string name="title_advanced_biometrics_notify">Mostrar contenido de notificación al usar autenticación biométrica</string>
     <string name="title_advanced_light">Usar luz de notificación</string>
     <string name="title_advanced_sound">Seleccionar sonido de notificación</string>
+    <string name="title_advanced_confirm_links">Confirmar abrir enlaces</string>
+    <string name="title_advanced_confirm_images">Confirmar mostrar imágenes</string>
+    <string name="title_advanced_confirm_html">Mostrar mensajes reformateados por defecto</string>
     <string name="title_advanced_tracking">Reconocer y desactivar automáticamente imágenes de rastreo</string>
     <string name="title_advanced_display_hidden">Mostrar textos de mensajes ocultos</string>
     <string name="title_advanced_encrypt_method">Método de cifrado por defecto</string>
@@ -379,6 +384,7 @@
     <string name="title_advanced_autoseen_hint">El marcado automático de los mensajes como leídos al expandirlos se puede desactivar en la configuración individual de la cuenta</string>
     <string name="title_advanced_autoclose_hint">Cerrar automáticamente hilos de conversación cuando todos los mensajes son archivados, enviados o eliminados</string>
     <string name="title_advanced_sender_hint">La mayoría de los proveedores no permiten direcciones de remitente modificadas</string>
+    <string name="title_advanced_display_harmful_hint">Desactivar esta opción podría ser perjudicial para su privacidad</string>
     <string name="title_advanced_display_hidden_hint">Esto puede resultar en textos dobles o de apariencia extraña</string>
     <string name="title_advanced_display_pin_hint">Un PIN tiene prioridad sobre la autenticación biométrica</string>
     <string name="title_advanced_badge_hint">Sólo disponible en lanzadores soportados</string>

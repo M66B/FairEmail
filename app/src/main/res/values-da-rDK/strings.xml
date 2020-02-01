@@ -127,6 +127,8 @@
     <string name="title_setup_select_account">Vælg konto</string>
     <string name="title_setup_instructions">Opsætningsinstruktioner</string>
     <string name="title_setup_no_settings">Ingen indstillinger fundet for domænet \'%1$s\'</string>
+    <string name="title_setup_no_settings_hint">Prøv at opsætte en konto og identitet i opsætningstrin 1 og 2 vha. indstillingerne leveret af din e-mailudbyder</string>
+    <string name="title_setup_no_auth_hint">Dobbelttjek din e-mailadresse og adgangskode, og sørg for, at ekstern adgang (IMAP/SMTP) er aktiveret for din konto</string>
     <string name="title_setup_no_system_folders">Indbakke- eller Udkastmappe ikke fundet</string>
     <string name="title_setup_quick_success">En konto og identitet er nu blevet tilføjet</string>
     <string name="title_setup_quick_failed">Du kan også prøve at opsætte en konto og identitet nedenfor</string>
@@ -317,6 +319,9 @@
     <string name="title_advanced_biometrics_notify">Vis notifikationsindhold ved brug af biometrisk godkendelse</string>
     <string name="title_advanced_light">Benyt notifikations-LED</string>
     <string name="title_advanced_sound">Vælg notifikationslyd</string>
+    <string name="title_advanced_confirm_links">Bekræft åbning af links</string>
+    <string name="title_advanced_confirm_images">Bekræft visning af billeder</string>
+    <string name="title_advanced_confirm_html">Vis som standard omformaterede beskeder</string>
     <string name="title_advanced_tracking">Genkend og deaktivér automatisk sporingsbilleder</string>
     <string name="title_advanced_display_hidden">Vis skjulte beskedtekster</string>
     <string name="title_advanced_encrypt_method">Standardkrypteringsmetode</string>
@@ -378,6 +383,7 @@
     <string name="title_advanced_autoseen_hint">Automarkering af læste beskeder ved udvidelse kan deaktiveres i de individuelle kontoindstillinger</string>
     <string name="title_advanced_autoclose_hint">Luk automatisk samtaler, når alle beskeder arkiveres, sendes eller kasseres</string>
     <string name="title_advanced_sender_hint">De fleste udbydere tillader ikke ændrede afsenderadresser</string>
+    <string name="title_advanced_display_harmful_hint">Deaktivering af denne indstilling kan være skadelig for din datafortrolighed</string>
     <string name="title_advanced_display_hidden_hint">Dette kan resultere i underligt udseende/dobbelte tekster</string>
     <string name="title_advanced_display_pin_hint">PIN-kode har forrang frem for biometrisk godkendelse</string>
     <string name="title_advanced_badge_hint">Kun tilgængelig i understøttede launchers</string>
