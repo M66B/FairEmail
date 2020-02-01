@@ -13,7 +13,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
+    <eu.faircode.email.ViewImageHint
         android:id="@+id/ivPlain"
         android:layout_width="21dp"
         android:layout_height="21dp"
@@ -23,7 +23,7 @@
         app:layout_constraintTop_toBottomOf="@id/ibExpanderAddress"
         app:srcCompat="@drawable/baseline_notes_24" />
 
-    <ImageView
+    <eu.faircode.email.ViewImageHint
         android:id="@+id/ivReceipt"
         android:layout_width="21dp"
         android:layout_height="21dp"
@@ -33,7 +33,7 @@
         app:layout_constraintTop_toBottomOf="@id/ibExpanderAddress"
         app:srcCompat="@drawable/baseline_playlist_add_check_24" />
 
-    <ImageView
+    <eu.faircode.email.ViewImageHint
         android:id="@+id/ivBrowsed"
         android:layout_width="21dp"
         android:layout_height="21dp"
