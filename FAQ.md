@@ -1326,6 +1326,8 @@ so you'll need to select one account to be the primary account and/or you'll nee
 This can also happen when you try to reply to a message or to forward a message from an account with no drafts folder
 while there is no primary account or when the primary account does not have a drafts folder.
 
+Please see [this FAQ](#user-content-faq141) for some more information.
+
 <br />
 
 <a name="faq48"></a>
@@ -2652,6 +2654,11 @@ but this might fail if the drafts folder has an unusual name or is not present a
 You can fix this problem by manually selecting the drafts folder in the account settings (Setup, step 1, tap account, at the bottom).
 If there is no drafts folder at all,
 you can create a drafts folder by tapping on the '+' button in the folder list of the account (tap on the account name in the navigation menu).
+
+Some providers, like Gmail, allow enabling/disabling IMAP for individual folders.
+So, if a folder is not visible, you might need to enable IMAP for the folder.
+
+Quick link for Gmail: [https://mail.google.com/mail/u/0/#settings/labels](https://mail.google.com/mail/u/0/#settings/labels)
 
 <br />
 
