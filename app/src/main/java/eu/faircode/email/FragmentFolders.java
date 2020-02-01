@@ -58,6 +58,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.text.NumberFormat;
+import java.util.Collections;
 import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
@@ -340,6 +341,9 @@ public class FragmentFolders extends FragmentBase {
                         folders = db.folder().getFoldersUnified(null, true);
                     else
                         folders = db.folder().getSynchronizingFolders(aid);
+
+                    if (folders.size() > 0)
+                        Collections.sort(folders, folders.get(0).getComparator(context));
 
                     for (EntityFolder folder : folders) {
                         EntityOperation.sync(context, folder.id, true);

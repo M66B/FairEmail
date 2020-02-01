@@ -52,6 +52,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class FragmentAccounts extends FragmentBase {
@@ -351,6 +352,10 @@ public class FragmentAccounts extends FragmentBase {
 
                     // Unified inbox
                     List<EntityFolder> folders = db.folder().getFoldersUnified(null, true);
+
+                    if (folders.size() > 0)
+                        Collections.sort(folders, folders.get(0).getComparator(context));
+
                     for (EntityFolder folder : folders) {
                         EntityOperation.sync(context, folder.id, true);
 

@@ -949,18 +949,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                     // Open synchronizing folders
                     List<EntityFolder> folders = db.folder().getFolders(account.id, false, true);
-                    Collections.sort(folders, new Comparator<EntityFolder>() {
-                        @Override
-                        public int compare(EntityFolder f1, EntityFolder f2) {
-                            int s1 = EntityFolder.FOLDER_SORT_ORDER.indexOf(f1.type);
-                            int s2 = EntityFolder.FOLDER_SORT_ORDER.indexOf(f2.type);
-                            int s = Integer.compare(s1, s2);
-                            if (s != 0)
-                                return s;
-
-                            return f1.name.compareTo(f2.name);
-                        }
-                    });
+                    if (folders.size() > 0)
+                        Collections.sort(folders, folders.get(0).getComparator(ServiceSynchronize.this));
 
                     for (final EntityFolder folder : folders) {
                         if (folder.synchronize && !folder.poll && capIdle && sync) {
