@@ -3029,6 +3029,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             menu.findItem(R.id.menu_sort_on_sender).setVisible(false);
             menu.findItem(R.id.menu_sort_on_subject).setVisible(false);
             menu.findItem(R.id.menu_sort_on_size).setVisible(false);
+            menu.findItem(R.id.menu_sort_on_attachments).setVisible(false);
             menu.findItem(R.id.menu_sort_on_snoozed).setVisible(false);
         }
 
@@ -3044,6 +3045,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             menu.findItem(R.id.menu_sort_on_subject).setChecked(true);
         else if ("size".equals(sort))
             menu.findItem(R.id.menu_sort_on_size).setChecked(true);
+        else if ("attachments".equals(sort))
+            menu.findItem(R.id.menu_sort_on_attachments).setChecked(true);
         else if ("snoozed".equals(sort))
             menu.findItem(R.id.menu_sort_on_snoozed).setChecked(true);
         menu.findItem(R.id.menu_ascending).setChecked(ascending);
@@ -3119,6 +3122,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             case R.id.menu_sort_on_size:
                 item.setChecked(true);
                 onMenuSort("size");
+                return true;
+
+            case R.id.menu_sort_on_attachments:
+                item.setChecked(true);
+                onMenuSort("attachments");
                 return true;
 
             case R.id.menu_sort_on_snoozed:

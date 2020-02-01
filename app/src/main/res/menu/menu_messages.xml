@@ -41,6 +41,9 @@
                     android:id="@+id/menu_sort_on_size"
                     android:title="@string/title_sort_on_size" />
                 <item
+                    android:id="@+id/menu_sort_on_attachments"
+                    android:title="@string/title_sort_on_attachments" />
+                <item
                     android:id="@+id/menu_sort_on_snoozed"
                     android:title="@string/title_sort_on_hidden" />
             </group>

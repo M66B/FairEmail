@@ -82,6 +82,7 @@ public interface DaoMessage {
             "  WHEN 'sender' = :sort THEN LOWER(message.sender)" +
             "  WHEN 'subject' = :sort THEN LOWER(message.subject)" +
             "  WHEN 'size' = :sort THEN -SUM(message.total)" +
+            "  WHEN 'attachments' = :sort THEN -SUM(message.attachments)" +
             "  WHEN 'snoozed' = :sort THEN SUM(CASE WHEN message.ui_snoozed IS NULL THEN 0 ELSE 1 END) = 0" +
             "  ELSE 0" +
             " END, CASE WHEN :ascending THEN message.received ELSE -message.received END")
@@ -129,6 +130,7 @@ public interface DaoMessage {
             "  WHEN 'sender' = :sort THEN LOWER(message.sender)" +
             "  WHEN 'subject' = :sort THEN LOWER(message.subject)" +
             "  WHEN 'size' = :sort THEN -SUM(message.total)" +
+            "  WHEN 'attachments' = :sort THEN -SUM(message.attachments)" +
             "  WHEN 'snoozed' = :sort THEN SUM(CASE WHEN message.ui_snoozed IS NULL THEN 0 ELSE 1 END) = 0" +
             "  ELSE 0" +
             " END, CASE WHEN :ascending THEN message.received ELSE -message.received END")

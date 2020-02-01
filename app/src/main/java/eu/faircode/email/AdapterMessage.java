@@ -886,7 +886,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvFrom.setText(MessageHelper.formatAddresses(addresses, name_email, false));
             tvFrom.setPaintFlags(tvFrom.getPaintFlags() & ~Paint.UNDERLINE_TEXT_FLAG);
             tvSize.setText(message.totalSize == null ? null : Helper.humanReadableByteCount(message.totalSize, true));
-            tvSize.setVisibility(message.totalSize != null && "size".equals(sort) ? View.VISIBLE : View.GONE);
+            tvSize.setVisibility(
+                    message.totalSize != null && ("size".equals(sort) || "attachments".equals(sort))
+                            ? View.VISIBLE : View.GONE);
             tvTime.setText(date && "time".equals(sort)
                     ? TF.format(message.received)
                     : Helper.getRelativeTimeSpanString(context, message.received));
