@@ -500,7 +500,7 @@ public class EntityRule {
 
     private boolean onActionImportance(Context context, EntityMessage message, JSONObject jargs) throws JSONException {
         Integer importance = jargs.getInt("value");
-        if (importance == EntityMessage.PRIORITIY_NORMAL)
+        if (EntityMessage.PRIORITIY_NORMAL.equals(importance))
             importance = null;
 
         DB db = DB.getInstance(context);
