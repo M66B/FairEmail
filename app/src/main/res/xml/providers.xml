@@ -59,6 +59,7 @@
     <!-- no IMAP IDLE -->
     <provider
         name="Yahoo!"
+        domain="yahoo.*"
         id="yahoo"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq88">
         <imap
