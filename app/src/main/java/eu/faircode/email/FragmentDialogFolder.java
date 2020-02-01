@@ -34,6 +34,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.constraintlayout.widget.Group;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -57,6 +58,7 @@ public class FragmentDialogFolder extends FragmentDialogBase {
         final ImageButton ibNext = dview.findViewById(R.id.ibNext);
         final RecyclerView rvFolder = dview.findViewById(R.id.rvFolder);
         final ContentLoadingProgressBar pbWait = dview.findViewById(R.id.pbWait);
+        final Group grpReady = dview.findViewById(R.id.grpReady);
 
         rvFolder.setHasFixedSize(false);
         final LinearLayoutManager llm = new LinearLayoutManager(getContext());
@@ -115,7 +117,7 @@ public class FragmentDialogFolder extends FragmentDialogBase {
             @Override
             protected void onPreExecute(Bundle args) {
                 tvNoFolder.setVisibility(View.GONE);
-                rvFolder.setVisibility(View.GONE);
+                grpReady.setVisibility(View.GONE);
                 pbWait.setVisibility(View.VISIBLE);
             }
 
@@ -139,7 +141,7 @@ public class FragmentDialogFolder extends FragmentDialogBase {
                 else {
                     adapter.setDisabled(Helper.fromLongArray(disabled));
                     adapter.set(folders);
-                    rvFolder.setVisibility(View.VISIBLE);
+                    grpReady.setVisibility(View.VISIBLE);
                 }
             }
 
