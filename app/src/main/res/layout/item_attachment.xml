@@ -27,10 +27,9 @@
             app:srcCompat="@drawable/baseline_delete_24" />
 
         <ImageView
-            android:id="@+id/ivAttachments"
+            android:id="@+id/ivType"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:contentDescription="@string/title_legend_attachment"
             app:layout_constraintBottom_toBottomOf="@+id/tvType"
             app:layout_constraintStart_toEndOf="@id/ibDelete"
             app:layout_constraintTop_toTopOf="parent"
@@ -48,7 +47,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintEnd_toStartOf="@+id/tvSize"
             app:layout_constraintHorizontal_weight="4"
-            app:layout_constraintStart_toEndOf="@id/ivAttachments"
+            app:layout_constraintStart_toEndOf="@id/ivType"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
@@ -108,7 +107,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?attr/colorWarning"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/ivAttachments"
+            app:layout_constraintStart_toEndOf="@id/ivType"
             app:layout_constraintTop_toBottomOf="@id/tvType" />
 
         <ProgressBar
