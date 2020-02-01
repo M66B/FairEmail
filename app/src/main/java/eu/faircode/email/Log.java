@@ -286,7 +286,8 @@ public class Log {
 
                 if (ex instanceof IllegalStateException &&
                         ("Not connected".equals(ex.getMessage()) ||
-                                "This operation is not allowed on a closed folder".equals(ex.getMessage())))
+                                "This operation is not allowed on a closed folder".equals(ex.getMessage()) ||
+                                context.getString(R.string.title_no_internet).equals(ex.getMessage())))
                     return false;
 
                 if (ex instanceof FileNotFoundException &&
