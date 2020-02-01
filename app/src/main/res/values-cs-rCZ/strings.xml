@@ -237,7 +237,8 @@
     <string name="title_advanced_pull_refresh">Aktualizovat tažením dolů</string>
     <string name="title_advanced_autoscroll">Posun na začátek při příjmu nových zpráv</string>
     <string name="title_advanced_double_tap">Dvojstisk pro označení zprávy jako přečtené/nepřečtené</string>
-    <string name="title_advanced_swipenav">Tažením doleva/doprava přejít na předešlou/následující konverzaci</string>
+    <string name="title_advanced_swipenav">Tahem vlevo/vpravo přejít na další/předešlou konverzaci</string>
+    <string name="title_advanced_volumenav">Hlasitostí nahoru/dolů přejít na další/předešlou konverzaci</string>
     <string name="title_advanced_reversed">Obrátit směr navigace</string>
     <string name="title_advanced_autoexpand">Automaticky rozbalovat zprávy</string>
     <string name="title_advanced_expand_all">Automaticky rozbalovat všechny přečtené zprávy</string>
@@ -277,6 +278,7 @@
     <string name="title_advanced_sound">Vybrat zvuk oznámení</string>
     <string name="title_advanced_confirm_links">Potvrzovat otevírání odkazů</string>
     <string name="title_advanced_confirm_images">Potvrzovat zobrazení obrázků</string>
+    <string name="title_advanced_confirm_html">Automaticky zobrazit zprávy přeformátované</string>
     <string name="title_advanced_tracking">Automaticky rozpoznat a zakázat sledovací obrázky</string>
     <string name="title_advanced_display_hidden">Zobrazit skryté texty zpráv</string>
     <string name="title_advanced_encrypt_method">Výchozí metoda šifrování</string>
@@ -602,7 +604,7 @@
     <string name="title_send_with_options">Odeslat &#8230;</string>
     <string name="title_send_at">Odeslat později &#8230;</string>
     <string name="title_send_encryption">Šifrování</string>
-    <string name="title_send_priority">Důležitost</string>
+    <string name="title_send_priority">Priorita</string>
     <string name="title_no_server">Nenalezen žádný server na \'%1$s\'</string>
     <string name="title_style_bold">Tučně</string>
     <string name="title_style_italic">Kurzíva</string>
@@ -672,9 +674,11 @@
     <string name="title_sort_on_time">Čas</string>
     <string name="title_sort_on_unread">Nepřečteno</string>
     <string name="title_sort_on_starred">S hvězdičkou</string>
+    <string name="title_sort_on_priority">Priorita</string>
     <string name="title_sort_on_sender">Odesílatel</string>
     <string name="title_sort_on_subject">Předmět</string>
     <string name="title_sort_on_size">Velikost</string>
+    <string name="title_sort_on_attachments">Přílohy</string>
     <string name="title_sort_on_hidden">Skryté</string>
     <string name="title_sort_ascending">Od nejstarších</string>
     <string name="title_filter">Odfiltrovat</string>
@@ -704,6 +708,7 @@
     <string name="title_rule_ignore">Potlačit oznámení</string>
     <string name="title_rule_snooze">Odložit</string>
     <string name="title_rule_flag">Přidat hvězdičku</string>
+    <string name="title_rule_importance">Nastavit důležitost</string>
     <string name="title_rule_keyword">Přidat klíčové slovo</string>
     <string name="title_rule_move">Přesunout</string>
     <string name="title_rule_copy">Kopírovat (štítek)</string>
@@ -836,7 +841,7 @@
     <string name="title_hint_folder_actions">Dlouze podržet složku pro možnosti, např. přidání složky do navigačního menu pro rychlý přístup</string>
     <string name="title_hint_folder_sync">Pro omezení spotřeby baterie a dat nebudou ve výchozím stavu synchronizovány všechny zprávy ani složky</string>
     <string name="title_hint_support">Máte-li dotaz nebo problém, použijte prosím menu podpory pro získání pomoci</string>
-    <string name="title_hint_message_actions">Tažením doleva hodit do koše; Tažením doprava archivovat (pokud je k dispozici); Akce tažením lze změnit v nastavení účtu</string>
+    <string name="title_hint_message_actions">Tažením doleva hodit do koše; Tažením doprava archivovat (je-li k dispozici); Akce tažením lze změnit v nastavení účtu</string>
     <string name="title_hint_message_selection">Dlouhým podržením zprávy zahájíte násobný výběr zpráv; Držte a táhněte nahoru či dolů pro výběr více zpráv</string>
     <string name="title_hint_sync">Stažení zpráv může nějakou dobu trvat, v závislosti na rychlosti poskytovatele, internetového připojení a zařízení a na počtu zpráv. V průběhu stahování může aplikace reagovat pomaleji.</string>
     <string name="title_hint_contact_actions">Dlouze podržet pro možnosti</string>

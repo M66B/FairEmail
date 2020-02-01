@@ -717,9 +717,11 @@
     <string name="title_sort_on_time">Време</string>
     <string name="title_sort_on_unread">Непрочетени</string>
     <string name="title_sort_on_starred">Със звезда</string>
+    <string name="title_sort_on_priority">Приоритет</string>
     <string name="title_sort_on_sender">Подател</string>
     <string name="title_sort_on_subject">Тема</string>
     <string name="title_sort_on_size">Големина</string>
+    <string name="title_sort_on_attachments">Прикачени файлове</string>
     <string name="title_sort_on_hidden">Скрити</string>
     <string name="title_sort_ascending">Първо най-старите</string>
     <string name="title_filter">Филтрирай по</string>
@@ -749,6 +751,7 @@
     <string name="title_rule_ignore">Спри уведомлението</string>
     <string name="title_rule_snooze">Отложи</string>
     <string name="title_rule_flag">Добави звезда</string>
+    <string name="title_rule_importance">Задайте важност</string>
     <string name="title_rule_keyword">Добави ключова дума</string>
     <string name="title_rule_move">Премести</string>
     <string name="title_rule_copy">Копирай (етикет)</string>

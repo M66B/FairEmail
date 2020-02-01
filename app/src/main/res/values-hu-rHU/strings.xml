@@ -471,6 +471,9 @@
     <string name="title_submitter">Feladó:</string>
     <string name="title_resync">Újraszinkronizálás</string>
     <string name="title_signature_invalid_reason">Az üzenet aláírása nem hiteles: %1$s</string>
+    <string name="title_sort_on_priority">Prioritás</string>
+    <string name="title_sort_on_attachments">Csatolmányok</string>
+    <string name="title_rule_importance">Fontosság beállítása</string>
     <string name="title_legend_junk">Spam</string>
     <string name="title_legend_show_junk">Megjelölés spamként</string>
     <string name="title_widget_folder_unified">Összesített bejövő mappák</string>

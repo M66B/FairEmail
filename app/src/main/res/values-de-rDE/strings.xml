@@ -752,6 +752,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_rule_ignore">Benachrichtigungen unterdrücken</string>
     <string name="title_rule_snooze">Zurückstellen</string>
     <string name="title_rule_flag">Kennzeichnung hinzufügen</string>
+    <string name="title_rule_importance">Setze die Wichtigkeit (niedrig, mittel oder hoch) für diese Nachricht</string>
     <string name="title_rule_keyword">Schlagwort hinzufügen</string>
     <string name="title_rule_move">Verschieben</string>
     <string name="title_rule_copy">Kategorie kopieren</string>
