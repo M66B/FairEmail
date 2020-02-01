@@ -56,6 +56,8 @@ public interface DaoMessage {
             ", (message.ui_encrypt IN (1, 3)) AS encrypted" +
             ", COUNT(DISTINCT CASE WHEN message.msgid IS NULL THEN message.id ELSE message.msgid END) AS visible" +
             ", SUM(message.total) AS totalSize" +
+            ", MAX(message.priority) AS ui_priority" +
+            ", MAX(message.importance) AS ui_importance" +
             ", MAX(CASE WHEN" +
             "   ((:found AND folder.type <> '" + EntityFolder.ARCHIVE + "' AND folder.type <> '" + EntityFolder.DRAFTS + "')" +
             "   OR (NOT :found AND :type IS NULL AND folder.unified)" +
@@ -112,6 +114,8 @@ public interface DaoMessage {
             ", (message.ui_encrypt IN (1, 3)) AS encrypted" +
             ", COUNT(DISTINCT CASE WHEN message.msgid IS NULL THEN message.id ELSE message.msgid END) AS visible" +
             ", SUM(message.total) AS totalSize" +
+            ", MAX(message.priority) AS ui_priority" +
+            ", MAX(message.importance) AS ui_importance" +
             ", MAX(CASE WHEN folder.id = :folder THEN message.received ELSE 0 END) AS dummy" +
             " FROM (SELECT * FROM message ORDER BY received DESC) AS message" +
             " JOIN account_view AS account ON account.id = message.account" +
@@ -162,6 +166,8 @@ public interface DaoMessage {
             ", (message.ui_encrypt IN (1, 3)) AS encrypted" +
             ", 1 AS visible" +
             ", message.total AS totalSize" +
+            ", message.priority AS ui_priority" +
+            ", message.importance AS ui_importance" +
             " FROM message" +
             " JOIN account_view AS account ON account.id = message.account" +
             " LEFT JOIN identity_view AS identity ON identity.id = message.identity" +
@@ -316,6 +322,8 @@ public interface DaoMessage {
             ", (message.ui_encrypt IN (1, 3)) AS encrypted" +
             ", 1 AS visible" +
             ", message.total AS totalSize" +
+            ", message.priority AS ui_priority" +
+            ", message.importance AS ui_importance" +
             " FROM message" +
             " JOIN account_view AS account ON account.id = message.account" +
             " LEFT JOIN identity_view AS identity ON identity.id = message.identity" +
@@ -367,6 +375,8 @@ public interface DaoMessage {
             ", (message.ui_encrypt IN (1, 3)) AS encrypted" +
             ", 1 AS visible" +
             ", message.total AS totalSize" +
+            ", message.priority AS ui_priority" +
+            ", message.importance AS ui_importance" +
             " FROM message" +
             " JOIN account_view AS account ON account.id = message.account" +
             " LEFT JOIN identity_view AS identity ON identity.id = message.identity" +

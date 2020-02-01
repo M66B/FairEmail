@@ -777,6 +777,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             Boolean.FALSE.equals(message.dmarc) ||
                             Boolean.FALSE.equals(message.mx));
             boolean expanded = (viewType == ViewType.THREAD && properties.getValue("expanded", message.id));
+            Integer priority = (message.ui_importance == null ? message.ui_priority : message.ui_importance);
 
             // Text size
             if (textSize != 0) {
@@ -878,7 +879,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibAvatar.setVisibility(avatars ? View.INVISIBLE : View.GONE);
 
             // Line 1
-            Integer priority = (message.importance == null ? message.priority : message.importance);
             ibAuth.setVisibility(authentication && !authenticated ? View.VISIBLE : View.GONE);
             ivPriorityHigh.setVisibility(EntityMessage.PRIORITIY_HIGH.equals(priority) ? View.VISIBLE : View.GONE);
             ivPriorityLow.setVisibility(EntityMessage.PRIORITIY_LOW.equals(priority) ? View.VISIBLE : View.GONE);
@@ -3969,9 +3969,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         result.add(context.getString(R.string.title_accessibility_flagged));
                 }
 
-                if (EntityMessage.PRIORITIY_HIGH.equals(message.priority))
+                Integer priority = (message.ui_importance == null ? message.ui_priority : message.ui_importance);
+                if (EntityMessage.PRIORITIY_HIGH.equals(priority))
                     result.add(context.getString(R.string.title_legend_priority));
-                else if (EntityMessage.PRIORITIY_LOW.equals(message.priority))
+                else if (EntityMessage.PRIORITIY_LOW.equals(priority))
                     result.add(context.getString(R.string.title_legend_priority_low));
 
                 if (message.attachments > 0)
@@ -4284,13 +4285,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         same = false;
                         Log.i("thread changed id=" + next.id);
                     }
-                    if (!Objects.equals(prev.priority, next.priority)) {
+                    if (!Objects.equals(prev.ui_priority, next.ui_priority)) {
                         same = false;
-                        Log.i("priority changed id=" + next.id);
+                        Log.i("ui_priority changed id=" + next.id);
                     }
-                    if (!Objects.equals(prev.importance, next.importance)) {
+                    if (!Objects.equals(prev.ui_importance, next.ui_importance)) {
                         same = false;
-                        Log.i("importance changed id=" + next.id);
+                        Log.i("ui_importance changed id=" + next.id);
                     }
                     if (!Objects.equals(prev.receipt_request, next.receipt_request)) {
                         same = false;

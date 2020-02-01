@@ -54,6 +54,8 @@ public class TupleMessageEx extends EntityMessage {
     public int encrypted;
     public int visible;
     public Long totalSize;
+    public Integer ui_priority;
+    public Integer ui_importance;
 
     @Ignore
     boolean duplicate;
@@ -109,6 +111,8 @@ public class TupleMessageEx extends EntityMessage {
                     this.encrypted == other.encrypted &&
                     this.visible == other.visible &&
                     Objects.equals(this.totalSize, other.totalSize) &&
+                    Objects.equals(this.ui_priority, other.ui_priority) &&
+                    Objects.equals(this.ui_importance, other.ui_importance) &&
                     this.duplicate == other.duplicate);
         }
         return false;
