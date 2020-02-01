@@ -304,6 +304,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageButton ibAuth;
         private ImageView ivPriorityHigh;
         private ImageView ivPriorityLow;
+        private ImageView ivImportance;
         private ImageView ivSigned;
         private ImageView ivEncrypted;
         private TextView tvFrom;
@@ -437,6 +438,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibAuth = itemView.findViewById(R.id.ibAuth);
             ivPriorityHigh = itemView.findViewById(R.id.ivPriorityHigh);
             ivPriorityLow = itemView.findViewById(R.id.ivPriorityLow);
+            ivImportance = itemView.findViewById(R.id.ivImportance);
             ivSigned = itemView.findViewById(R.id.ivSigned);
             ivEncrypted = itemView.findViewById(R.id.ivEncrypted);
             tvFrom = itemView.findViewById(subject_top ? R.id.tvSubject : R.id.tvFrom);
@@ -742,6 +744,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibAuth.setVisibility(View.GONE);
             ivPriorityHigh.setVisibility(View.GONE);
             ivPriorityLow.setVisibility(View.GONE);
+            ivImportance.setVisibility(View.GONE);
             ivSigned.setVisibility(View.GONE);
             ivEncrypted.setVisibility(View.GONE);
             tvFrom.setText(null);
@@ -777,7 +780,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             Boolean.FALSE.equals(message.dmarc) ||
                             Boolean.FALSE.equals(message.mx));
             boolean expanded = (viewType == ViewType.THREAD && properties.getValue("expanded", message.id));
-            Integer priority = (message.ui_importance == null ? message.ui_priority : message.ui_importance);
 
             // Text size
             if (textSize != 0) {
@@ -814,6 +816,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibAuth.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ivPriorityHigh.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ivPriorityLow.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
+                ivImportance.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ivSigned.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ivEncrypted.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 tvFrom.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
@@ -880,8 +883,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             // Line 1
             ibAuth.setVisibility(authentication && !authenticated ? View.VISIBLE : View.GONE);
-            ivPriorityHigh.setVisibility(EntityMessage.PRIORITIY_HIGH.equals(priority) ? View.VISIBLE : View.GONE);
-            ivPriorityLow.setVisibility(EntityMessage.PRIORITIY_LOW.equals(priority) ? View.VISIBLE : View.GONE);
+            ivPriorityHigh.setVisibility(
+                    EntityMessage.PRIORITIY_HIGH.equals(message.ui_priority)
+                            ? View.VISIBLE : View.GONE);
+            ivPriorityLow.setVisibility(
+                    EntityMessage.PRIORITIY_LOW.equals(message.ui_priority)
+                            ? View.VISIBLE : View.GONE);
+            ivImportance.setImageLevel(
+                    EntityMessage.PRIORITIY_HIGH.equals(message.ui_importance) ? 0 : 1);
+            ivImportance.setVisibility(
+                    EntityMessage.PRIORITIY_LOW.equals(message.ui_importance) ||
+                            EntityMessage.PRIORITIY_HIGH.equals(message.ui_importance)
+                            ? View.VISIBLE : View.GONE);
             ivSigned.setVisibility(message.signed > 0 ? View.VISIBLE : View.GONE);
             ivEncrypted.setVisibility(message.encrypted > 0 ? View.VISIBLE : View.GONE);
             tvFrom.setText(MessageHelper.formatAddresses(addresses, name_email, false));
@@ -3969,10 +3982,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         result.add(context.getString(R.string.title_accessibility_flagged));
                 }
 
-                Integer priority = (message.ui_importance == null ? message.ui_priority : message.ui_importance);
-                if (EntityMessage.PRIORITIY_HIGH.equals(priority))
+                if (EntityMessage.PRIORITIY_HIGH.equals(message.ui_priority))
                     result.add(context.getString(R.string.title_legend_priority));
-                else if (EntityMessage.PRIORITIY_LOW.equals(priority))
+                else if (EntityMessage.PRIORITIY_LOW.equals(message.ui_priority))
                     result.add(context.getString(R.string.title_legend_priority_low));
 
                 if (message.attachments > 0)

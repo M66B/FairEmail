@@ -93,13 +93,24 @@
         app:srcCompat="@drawable/baseline_low_priority_24" />
 
     <ImageView
+        android:id="@+id/ivImportance"
+        android:layout_width="21dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="6dp"
+        android:contentDescription="@string/title_legend_priority_low"
+        app:layout_constraintBottom_toBottomOf="@+id/tvFrom"
+        app:layout_constraintStart_toEndOf="@id/ivPriorityLow"
+        app:layout_constraintTop_toTopOf="@+id/tvFrom"
+        app:srcCompat="@drawable/importance" />
+
+    <ImageView
         android:id="@+id/ivSigned"
         android:layout_width="21dp"
         android:layout_height="21dp"
         android:layout_marginStart="6dp"
         android:contentDescription="@string/title_legend_signed"
         app:layout_constraintBottom_toBottomOf="@+id/tvFrom"
-        app:layout_constraintStart_toEndOf="@id/ivPriorityLow"
+        app:layout_constraintStart_toEndOf="@id/ivImportance"
         app:layout_constraintTop_toTopOf="@+id/tvFrom"
         app:srcCompat="@drawable/baseline_gesture_24" />
 
