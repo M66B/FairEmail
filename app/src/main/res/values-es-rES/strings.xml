@@ -718,9 +718,11 @@
     <string name="title_sort_on_time">Tiempo</string>
     <string name="title_sort_on_unread">No leído</string>
     <string name="title_sort_on_starred">Destacado</string>
+    <string name="title_sort_on_priority">Prioridad</string>
     <string name="title_sort_on_sender">Remitente</string>
     <string name="title_sort_on_subject">Asunto</string>
     <string name="title_sort_on_size">Tamaño</string>
+    <string name="title_sort_on_attachments">Adjuntos</string>
     <string name="title_sort_on_hidden">Oculto</string>
     <string name="title_sort_ascending">Más antiguo primero</string>
     <string name="title_filter">Filtrar</string>
@@ -750,6 +752,7 @@
     <string name="title_rule_ignore">Suprimir notificación</string>
     <string name="title_rule_snooze">Posponer</string>
     <string name="title_rule_flag">Destacar</string>
+    <string name="title_rule_importance">Establecer importancia</string>
     <string name="title_rule_keyword">Añadir palabra clave</string>
     <string name="title_rule_move">Mover</string>
     <string name="title_rule_copy">Copiar (etiqueta)</string>

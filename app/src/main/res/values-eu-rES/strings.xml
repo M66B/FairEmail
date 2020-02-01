@@ -716,6 +716,7 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_sort_on_time">Denbora</string>
     <string name="title_sort_on_unread">Irakurri gabea</string>
     <string name="title_sort_on_starred">Izarduna</string>
+    <string name="title_sort_on_priority">Lehentasuna</string>
     <string name="title_sort_on_sender">Igorlea</string>
     <string name="title_sort_on_subject">Mintzagaia</string>
     <string name="title_sort_on_size">Tamaina</string>

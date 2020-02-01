@@ -740,9 +740,11 @@
     <string name="title_sort_on_time">Время</string>
     <string name="title_sort_on_unread">Не прочитано</string>
     <string name="title_sort_on_starred">Избранные</string>
+    <string name="title_sort_on_priority">Приоритет</string>
     <string name="title_sort_on_sender">Отправитель</string>
     <string name="title_sort_on_subject">Тема</string>
     <string name="title_sort_on_size">Размер</string>
+    <string name="title_sort_on_attachments">Вложения</string>
     <string name="title_sort_on_hidden">Скрытые</string>
     <string name="title_sort_ascending">Сначала старые</string>
     <string name="title_filter">Фильтровать</string>
@@ -772,6 +774,7 @@
     <string name="title_rule_ignore">Подавить уведомление</string>
     <string name="title_rule_snooze">Отложить</string>
     <string name="title_rule_flag">В избранное</string>
+    <string name="title_rule_importance">Установить важность</string>
     <string name="title_rule_keyword">Добавить ключ (слово)</string>
     <string name="title_rule_move">Переместить</string>
     <string name="title_rule_copy">Копировать (пометить)</string>

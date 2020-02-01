@@ -719,6 +719,7 @@
     <string name="title_sort_on_sender">Lähettäjä</string>
     <string name="title_sort_on_subject">Aihe</string>
     <string name="title_sort_on_size">Koko</string>
+    <string name="title_sort_on_attachments">Liitteet</string>
     <string name="title_sort_on_hidden">Piilotettu</string>
     <string name="title_sort_ascending">Vanhin ensin</string>
     <string name="title_filter">Suodata pois</string>

@@ -717,9 +717,11 @@ Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anme
     <string name="title_sort_on_time">Tid</string>
     <string name="title_sort_on_unread">Ulest</string>
     <string name="title_sort_on_starred">Stjernemerkede</string>
+    <string name="title_sort_on_priority">Prioritet</string>
     <string name="title_sort_on_sender">Avsender</string>
     <string name="title_sort_on_subject">Emne</string>
     <string name="title_sort_on_size">Størrelse</string>
+    <string name="title_sort_on_attachments">Tillegg</string>
     <string name="title_sort_on_hidden">Skjult</string>
     <string name="title_sort_ascending">Eldst først</string>
     <string name="title_filter">Filtrere ut</string>
@@ -749,6 +751,7 @@ Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anme
     <string name="title_rule_ignore">Undertrykke varsling</string>
     <string name="title_rule_snooze">Utsett</string>
     <string name="title_rule_flag">Legg til stjerne</string>
+    <string name="title_rule_importance">Sett viktighet</string>
     <string name="title_rule_keyword">Legg til nøkkelord</string>
     <string name="title_rule_move">Flytt</string>
     <string name="title_rule_copy">Kopier (etikett)</string>

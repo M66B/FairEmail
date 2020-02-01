@@ -718,9 +718,11 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_sort_on_time">Uhrzeit</string>
     <string name="title_sort_on_unread">Ungelesen</string>
     <string name="title_sort_on_starred">Gekennzeichnet</string>
+    <string name="title_sort_on_priority">Priorität</string>
     <string name="title_sort_on_sender">Absender</string>
     <string name="title_sort_on_subject">Betreff</string>
     <string name="title_sort_on_size">Größe</string>
+    <string name="title_sort_on_attachments">Anhänge</string>
     <string name="title_sort_on_hidden">Verborgen</string>
     <string name="title_sort_ascending">Älteste zuerst</string>
     <string name="title_filter">Ausfiltern</string>

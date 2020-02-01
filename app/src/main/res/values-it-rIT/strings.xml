@@ -716,6 +716,7 @@
     <string name="title_sort_on_time">Ora</string>
     <string name="title_sort_on_unread">Non letti</string>
     <string name="title_sort_on_starred">Stellati</string>
+    <string name="title_sort_on_priority">Priorità</string>
     <string name="title_sort_on_sender">Mittente</string>
     <string name="title_sort_on_subject">Soggetto</string>
     <string name="title_sort_on_size">Dimensioni</string>
@@ -749,6 +750,7 @@
     <string name="title_rule_ignore">Sopprimi notifica</string>
     <string name="title_rule_snooze">Posticipa</string>
     <string name="title_rule_flag">Aggiungi ai preferiti</string>
+    <string name="title_rule_importance">Imposta l\'importanza</string>
     <string name="title_rule_keyword">Aggiungi parola chiave</string>
     <string name="title_rule_move">Muovi</string>
     <string name="title_rule_copy">Copia (etichetta)</string>
