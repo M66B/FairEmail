@@ -179,7 +179,9 @@ public class Helper {
                 protected <T> RunnableFuture<T> newTaskFor(Runnable runnable, T value) {
                     RunnableFuture<T> task = super.newTaskFor(runnable, value);
                     if (runnable instanceof PriorityRunnable)
-                        return new PriorityFuture<T>(task, ((PriorityRunnable) runnable).getPriority());
+                        return new PriorityFuture<T>(task,
+                                ((PriorityRunnable) runnable).getPriority(),
+                                ((PriorityRunnable) runnable).getOrder());
                     else
                         return task;
                 }
@@ -221,17 +223,22 @@ public class Helper {
 
     private static class PriorityFuture<T> implements RunnableFuture<T> {
         private int priority;
+        private long order;
         private RunnableFuture<T> wrapped;
 
-        PriorityFuture(RunnableFuture<T> wrapped, int priority) {
-            this.priority = priority;
+        PriorityFuture(RunnableFuture<T> wrapped, int priority, long order) {
             this.wrapped = wrapped;
+            this.priority = priority;
+            this.order = order;
         }
 
         public int getPriority() {
-            return priority;
+            return this.priority;
         }
 
+        public long getOrder() {
+            return this.order;
+        }
 
         @Override
         public void run() {
@@ -270,8 +277,13 @@ public class Helper {
             if (r1 instanceof PriorityFuture<?> && r2 instanceof PriorityFuture<?>) {
                 Integer p1 = ((PriorityFuture<?>) r1).getPriority();
                 Integer p2 = ((PriorityFuture<?>) r2).getPriority();
-                Log.i("Priority " + p1 + "/" + p2 + "=" + p1.compareTo(p2));
-                return p1.compareTo(p2);
+                int p = p1.compareTo(p2);
+                if (p == 0) {
+                    Long o1 = ((PriorityFuture<?>) r1).getOrder();
+                    Long o2 = ((PriorityFuture<?>) r2).getOrder();
+                    return o1.compareTo(o2);
+                } else
+                    return p;
             } else
                 return 0;
         }
@@ -279,13 +291,19 @@ public class Helper {
 
     static class PriorityRunnable implements Runnable {
         private int priority;
+        private long order;
 
         int getPriority() {
-            return priority;
+            return this.priority;
         }
 
-        PriorityRunnable(int priority) {
+        long getOrder() {
+            return this.order;
+        }
+
+        PriorityRunnable(int priority, long order) {
             this.priority = priority;
+            this.order = order;
         }
 
         @Override

@@ -1161,9 +1161,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                     Integer p2 = k2.getPriority();
                                                     int priority = p1.compareTo(p2);
                                                     if (priority == 0) {
-                                                        Long t1 = k1.getTime();
-                                                        Long t2 = k2.getTime();
-                                                        return t1.compareTo(t2);
+                                                        Long o1 = k1.getOrder();
+                                                        Long o2 = k2.getOrder();
+                                                        return o1.compareTo(o2);
                                                     } else
                                                         return priority;
                                                 }
@@ -1177,7 +1177,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                 }
 
                                                 try {
-                                                    executor.submit(new Helper.PriorityRunnable(key.getPriority()) {
+                                                    executor.submit(new Helper.PriorityRunnable(key.getPriority(), key.getOrder()) {
                                                         @Override
                                                         public void run() {
                                                             super.run();

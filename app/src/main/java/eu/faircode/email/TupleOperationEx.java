@@ -48,7 +48,7 @@ public class TupleOperationEx extends EntityOperation {
     PartitionKey getPartitionKey(boolean offline) {
         PartitionKey key = new PartitionKey();
 
-        key.time = this.created;
+        key.order = this.id;
 
         if (offline) {
             // open/close folder is expensive
@@ -75,13 +75,13 @@ public class TupleOperationEx extends EntityOperation {
     }
 
     class PartitionKey {
-        public long time;
+        private long order;
         private int priority;
         private String id;
         private String operation;
 
-        long getTime() {
-            return time;
+        long getOrder() {
+            return this.order;
         }
 
         int getPriority() {
