@@ -1685,6 +1685,7 @@ You can select one of these actions to apply to matching messages:
 * Suppress notification
 * Snooze
 * Add star
+* Set importance (local priority)
 * Add keyword
 * Move
 * Copy (Gmail: label)

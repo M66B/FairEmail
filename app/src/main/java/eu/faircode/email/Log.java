@@ -256,6 +256,8 @@ public class Log {
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
+        String no_internet = context.getString(R.string.title_no_internet);
+
         config.beforeSend(new BeforeSend() {
             @Override
             public boolean run(@NonNull Report report) {
@@ -285,9 +287,9 @@ public class Log {
                     return false;
 
                 if (ex instanceof IllegalStateException &&
-                        ("Not connected".equals(ex.getMessage()) ||
-                                "This operation is not allowed on a closed folder".equals(ex.getMessage()) ||
-                                context.getString(R.string.title_no_internet).equals(ex.getMessage())))
+                        (no_internet.equals(ex.getMessage()) ||
+                                "Not connected".equals(ex.getMessage()) ||
+                                "This operation is not allowed on a closed folder".equals(ex.getMessage())))
                     return false;
 
                 if (ex instanceof FileNotFoundException &&
