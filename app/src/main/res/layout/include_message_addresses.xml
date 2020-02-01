@@ -18,6 +18,7 @@
         android:layout_width="21dp"
         android:layout_height="21dp"
         android:layout_marginStart="6dp"
+        android:contentDescription="@string/title_legend_plain_only"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ibExpanderAddress"
         app:srcCompat="@drawable/baseline_notes_24" />
@@ -27,6 +28,7 @@
         android:layout_width="21dp"
         android:layout_height="21dp"
         android:layout_marginStart="6dp"
+        android:contentDescription="@string/title_legend_receipt"
         app:layout_constraintStart_toEndOf="@id/ivPlain"
         app:layout_constraintTop_toBottomOf="@id/ibExpanderAddress"
         app:srcCompat="@drawable/baseline_playlist_add_check_24" />
@@ -36,6 +38,7 @@
         android:layout_width="21dp"
         android:layout_height="21dp"
         android:layout_marginStart="6dp"
+        android:contentDescription="@string/title_legend_browsed"
         app:layout_constraintStart_toEndOf="@id/ivReceipt"
         app:layout_constraintTop_toBottomOf="@id/ibExpanderAddress"
         app:srcCompat="@drawable/baseline_playlist_add_24" />
