@@ -1255,7 +1255,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                         }
                                                     });
                                                 } catch (RejectedExecutionException ex) {
-                                                    Log.w(ex);
+                                                    Log.i(ex);
                                                     break;
                                                 }
                                             }
