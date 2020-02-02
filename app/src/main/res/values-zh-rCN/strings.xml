@@ -705,9 +705,11 @@
     <string name="title_sort_on_time">时间</string>
     <string name="title_sort_on_unread">未读</string>
     <string name="title_sort_on_starred">星标记</string>
+    <string name="title_sort_on_priority">优先级</string>
     <string name="title_sort_on_sender">发件人</string>
     <string name="title_sort_on_subject">主题</string>
     <string name="title_sort_on_size">大小</string>
+    <string name="title_sort_on_attachments">附件</string>
     <string name="title_sort_on_hidden">隐藏</string>
     <string name="title_sort_ascending">最旧的在最前</string>
     <string name="title_filter">筛选</string>
@@ -737,6 +739,7 @@
     <string name="title_rule_ignore">禁止通知</string>
     <string name="title_rule_snooze">打盹</string>
     <string name="title_rule_flag">添加星标</string>
+    <string name="title_rule_importance">设置重要性</string>
     <string name="title_rule_keyword">添加关键字</string>
     <string name="title_rule_move">移动</string>
     <string name="title_rule_copy">复制（标签）</string>

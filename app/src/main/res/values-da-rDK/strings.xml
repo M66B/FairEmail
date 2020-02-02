@@ -717,9 +717,11 @@
     <string name="title_sort_on_time">Tid</string>
     <string name="title_sort_on_unread">Ulæst</string>
     <string name="title_sort_on_starred">Stjernemarkeret</string>
+    <string name="title_sort_on_priority">Prioritet</string>
     <string name="title_sort_on_sender">Afsender</string>
     <string name="title_sort_on_subject">Emne</string>
     <string name="title_sort_on_size">Størrelse</string>
+    <string name="title_sort_on_attachments">Vedhæftninger</string>
     <string name="title_sort_on_hidden">Skjult</string>
     <string name="title_sort_ascending">Ældste først</string>
     <string name="title_filter">Filtrér fra</string>
@@ -749,6 +751,7 @@
     <string name="title_rule_ignore">Undertryk notifikationer</string>
     <string name="title_rule_snooze">Udsæt</string>
     <string name="title_rule_flag">Tilføj stjerne</string>
+    <string name="title_rule_importance">Angiv vigtighed</string>
     <string name="title_rule_keyword">Tilføj nøgleord</string>
     <string name="title_rule_move">Flyt</string>
     <string name="title_rule_copy">Kopiér (etiket)</string>

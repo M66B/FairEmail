@@ -716,6 +716,7 @@
     <string name="title_sort_on_time">Aika</string>
     <string name="title_sort_on_unread">Lukematon</string>
     <string name="title_sort_on_starred">Tähdellinen</string>
+    <string name="title_sort_on_priority">Tärkeysjärjestys</string>
     <string name="title_sort_on_sender">Lähettäjä</string>
     <string name="title_sort_on_subject">Aihe</string>
     <string name="title_sort_on_size">Koko</string>
@@ -749,6 +750,7 @@
     <string name="title_rule_ignore">Vaimenna ilmoitus</string>
     <string name="title_rule_snooze">Torkuta</string>
     <string name="title_rule_flag">Lisää tähti</string>
+    <string name="title_rule_importance">Aseta oma tärkeysjärjestys</string>
     <string name="title_rule_keyword">Lisää avainsana</string>
     <string name="title_rule_move">Siirrä</string>
     <string name="title_rule_copy">Kopioi (lisää tunniste)</string>
@@ -825,7 +827,7 @@
     <string name="title_legend_zoom">Muuta tekstin kokoa</string>
     <string name="title_legend_draft">Sisältää luonnoksen</string>
     <string name="title_legend_priority">Tärkeysjärjestyksessä korkealla</string>
-    <string name="title_legend_priority_low">Alhainen prioriteetti</string>
+    <string name="title_legend_priority_low">Tärkeysjärjestyksessä alhaalla</string>
     <string name="title_legend_signed">Salattu</string>
     <string name="title_legend_encrypted">Salattu</string>
     <string name="title_legend_auth">Tunnistautuminen epäonnistui</string>

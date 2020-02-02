@@ -58,6 +58,7 @@
     <string name="title_ask_spam_who">%1$s からのメッセージを迷惑メールとして扱いますか？</string>
     <string name="title_block">ブロック %1$s</string>
     <string name="title_block_sender">送信者をブロック</string>
+    <string name="title_block_domain">送信者ドメインをブロック</string>
     <string name="title_block_sender_hint">送信者をブロックすると次以降のメッセージを迷惑メールフォルダーに自動的に移動するルールが作成されます。
 ルールの作成と使用はプロ機能です。</string>
     <string name="title_notification_waiting">接続を待機中</string>

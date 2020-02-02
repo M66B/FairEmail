@@ -728,9 +728,11 @@
     <string name="title_sort_on_time">Dată</string>
     <string name="title_sort_on_unread">Necitit</string>
     <string name="title_sort_on_starred">Cu stea</string>
+    <string name="title_sort_on_priority">Prioritate</string>
     <string name="title_sort_on_sender">Expeditor</string>
     <string name="title_sort_on_subject">Subiect</string>
     <string name="title_sort_on_size">Mărime</string>
+    <string name="title_sort_on_attachments">Atașamente</string>
     <string name="title_sort_on_hidden">Ascuns</string>
     <string name="title_sort_ascending">Întâi cele mai vechi</string>
     <string name="title_filter">Exclude</string>
@@ -760,6 +762,7 @@
     <string name="title_rule_ignore">Suprimă notificare</string>
     <string name="title_rule_snooze">Amână</string>
     <string name="title_rule_flag">Adaugă stea</string>
+    <string name="title_rule_importance">Setare importanță</string>
     <string name="title_rule_keyword">Adăugă cuvânt cheie</string>
     <string name="title_rule_move">Mută</string>
     <string name="title_rule_copy">Copiere (etichetă)</string>

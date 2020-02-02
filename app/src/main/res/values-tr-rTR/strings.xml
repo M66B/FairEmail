@@ -69,6 +69,7 @@
     <string name="title_ask_spam_who">%1$s\' in iletisi istenmeyen posta olarak kabul edilsin mi?</string>
     <string name="title_block">Engelle: %1$s</string>
     <string name="title_block_sender">Göndereni engelle</string>
+    <string name="title_block_domain">Gönderenin alan adını engelle</string>
     <string name="title_block_sender_hint">        Göndereni engellemek, gelecekteki iletileri otomatik olarak spam klasörüne taşımak için bir kural oluşturacaktır.
         Kural oluşturma ve kullanma, pro sürümüne has bir özelliktir.
     </string>
@@ -718,9 +719,11 @@
     <string name="title_sort_on_time">Zaman</string>
     <string name="title_sort_on_unread">Okunmadı</string>
     <string name="title_sort_on_starred">Yıldızlı</string>
+    <string name="title_sort_on_priority">Öncelik</string>
     <string name="title_sort_on_sender">Gönderen</string>
     <string name="title_sort_on_subject">Konu</string>
     <string name="title_sort_on_size">Boyut</string>
+    <string name="title_sort_on_attachments">Ekler</string>
     <string name="title_sort_on_hidden">Gizli</string>
     <string name="title_sort_ascending">Önce en eski</string>
     <string name="title_filter">Filtreleme</string>
@@ -750,6 +753,7 @@
     <string name="title_rule_ignore">Bildirimi gizle</string>
     <string name="title_rule_snooze">Erteleme</string>
     <string name="title_rule_flag">Yıldız Ekle</string>
+    <string name="title_rule_importance">Önem derecesini ayarla</string>
     <string name="title_rule_keyword">Anahtar sözcük ekle</string>
     <string name="title_rule_move">Taşı</string>
     <string name="title_rule_copy">Kopyala (etiket)</string>

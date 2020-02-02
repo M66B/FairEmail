@@ -91,6 +91,7 @@
     <string name="title_ask_spam_who">Считать сообщение от %1$s спамом?</string>
     <string name="title_block">Блокировать %1$s</string>
     <string name="title_block_sender">Блокировать отправителя</string>
+    <string name="title_block_domain">Заблокировать домен отправителя</string>
     <string name="title_block_sender_hint">        Блокировка отправителя создаст правило для автоматического перемещения будущих сообщений в папку со спамом.
         Создание и использование правил является Pro-функцией.
     </string>

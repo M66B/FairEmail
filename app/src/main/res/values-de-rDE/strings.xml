@@ -69,6 +69,7 @@
     <string name="title_ask_spam_who">Nachricht von %1$s als Spam behandeln?</string>
     <string name="title_block">%1$s sperren</string>
     <string name="title_block_sender">Absender sperren</string>
+    <string name="title_block_domain">Gesamte Domain sperren</string>
     <string name="title_block_sender_hint">        Das Sperren eines Absenders erstellt eine Regel, um zukünftige Nachrichten
         von dieser Absenderadresse automatisch in den Spam-Ordner zu verschieben.
         Regeln erstellen und verwenden ist eine Pro-Funktion.
@@ -86,7 +87,7 @@
     <string name="menu_legend">Legende</string>
     <string name="menu_test">Test-Programm</string>
     <string name="menu_faq">Unterstützung</string>
-    <string name="menu_translate">Beim Übersetzen helfen</string>
+    <string name="menu_translate">Hilf beim Übersetzen</string>
     <string name="menu_issue">Problem melden</string>
     <string name="menu_attribution">Danksagung</string>
     <string name="menu_privacy">Datenschutz</string>

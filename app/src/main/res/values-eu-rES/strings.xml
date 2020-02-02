@@ -720,6 +720,7 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_sort_on_sender">Igorlea</string>
     <string name="title_sort_on_subject">Mintzagaia</string>
     <string name="title_sort_on_size">Tamaina</string>
+    <string name="title_sort_on_attachments">Eranskinak</string>
     <string name="title_sort_on_hidden">Ezkutuan</string>
     <string name="title_sort_ascending">Zaharrena lehena</string>
     <string name="title_filter">Iragazi</string>
@@ -749,6 +750,7 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_rule_ignore">Ez jakinarazi</string>
     <string name="title_rule_snooze">Atzeratu</string>
     <string name="title_rule_flag">Gehitu izarra</string>
+    <string name="title_rule_importance">Ezarri garrantzia</string>
     <string name="title_rule_keyword">Gehitu hitz gakoa</string>
     <string name="title_rule_move">Mugitu</string>
     <string name="title_rule_copy">Kopiatu (etiketa)</string>

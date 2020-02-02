@@ -69,6 +69,7 @@
     <string name="title_ask_spam_who">Behandel bericht van %1$s als spam?</string>
     <string name="title_block">Blokkeer %1$s</string>
     <string name="title_block_sender">Blokkeer afzender</string>
+    <string name="title_block_domain">Afzender domein blokkeren</string>
     <string name="title_block_sender_hint">        Het blokkeren van een afzender maakt een regel om toekomstige berichten automatisch naar de spam map te verplaatsen.
         Het maken en gebruiken van regels is een pro-functie.
     </string>

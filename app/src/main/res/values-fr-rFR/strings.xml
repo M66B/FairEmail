@@ -69,6 +69,7 @@
     <string name="title_ask_spam_who">Traiter le message de %1$s comme spam ?</string>
     <string name="title_block">Bloquer %1$s</string>
     <string name="title_block_sender">Bloquer l\'expéditeur</string>
+    <string name="title_block_domain">Bloquer le domaine de l\'expéditeur</string>
     <string name="title_block_sender_hint">        Bloquer un expéditeur créera une règle pour déplacer automatiquement les futurs messages vers le dossier spam.
         La création et l\'utilisation de règles sont des fonctionnalités Pro.
     </string>

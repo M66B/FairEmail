@@ -69,6 +69,7 @@
     <string name="title_ask_spam_who">Megjelöli az üzenetet %1$s-től spam-ként?</string>
     <string name="title_block">%1$s tiltása</string>
     <string name="title_block_sender">Feladó tiltása</string>
+    <string name="title_block_domain">Feladó domain tiltása</string>
     <string name="title_block_sender_hint">        Ha letilt egy feladót, azzal létrehoz egy szabályt, ami az összes tőle származó jövőbeli üzenetet automatikusan a spam mappába mozgatja.
         A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     </string>

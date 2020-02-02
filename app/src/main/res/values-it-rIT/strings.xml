@@ -69,6 +69,7 @@
     <string name="title_ask_spam_who">Tratta il messaggio da %1$s come spam?</string>
     <string name="title_block">Blocca %1$s</string>
     <string name="title_block_sender">Blocco mittente</string>
+    <string name="title_block_domain">Blocca dominio mittente</string>
     <string name="title_block_sender_hint">        Bloccare un mittente creerà una regola per spostare automaticamente i messaggi futuri nella cartella spam.
         Creare e utilizzare le regole è una funzionalità pro.
     </string>
