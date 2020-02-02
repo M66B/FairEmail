@@ -5353,7 +5353,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             @Override
             protected Void onExecute(Context context, Bundle args) throws JSONException {
                 long id = args.getLong("id");
-                boolean block = args.getBoolean("block");
+                boolean block_sender = args.getBoolean("block_sender");
+                boolean block_domain = args.getBoolean("block_domain");
 
                 DB db = DB.getInstance(context);
                 try {
@@ -5369,33 +5370,38 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                     EntityOperation.queue(context, message, EntityOperation.MOVE, junk.id);
 
-                    if (block && message.from != null)
-                        for (Address from : message.from) {
-                            String sender = ((InternetAddress) from).getAddress();
-                            String name = MessageHelper.formatAddresses(new Address[]{from});
+                    if ((block_sender || block_domain) &&
+                            (message.from != null && message.from.length > 0)) {
+                        String sender = ((InternetAddress) message.from[0]).getAddress();
+                        String name = MessageHelper.formatAddresses(new Address[]{message.from[0]});
 
-                            JSONObject jsender = new JSONObject();
-                            jsender.put("value", sender);
-                            jsender.put("regex", false);
-
-                            JSONObject jcondition = new JSONObject();
-                            jcondition.put("sender", jsender);
-
-                            JSONObject jaction = new JSONObject();
-                            jaction.put("type", EntityRule.TYPE_MOVE);
-                            jaction.put("target", junk.id);
-
-                            EntityRule rule = new EntityRule();
-                            rule.folder = message.folder;
-                            rule.name = context.getString(R.string.title_block, name);
-                            rule.order = 1000;
-                            rule.enabled = true;
-                            rule.stop = true;
-                            rule.condition = jcondition.toString();
-                            rule.action = jaction.toString();
-                            rule.id = db.rule().insertRule(rule);
+                        if (block_domain) {
+                            int at = sender.indexOf('@');
+                            if (at > 0)
+                                sender = sender.substring(at);
                         }
 
+                        JSONObject jsender = new JSONObject();
+                        jsender.put("value", sender);
+                        jsender.put("regex", false);
+
+                        JSONObject jcondition = new JSONObject();
+                        jcondition.put("sender", jsender);
+
+                        JSONObject jaction = new JSONObject();
+                        jaction.put("type", EntityRule.TYPE_MOVE);
+                        jaction.put("target", junk.id);
+
+                        EntityRule rule = new EntityRule();
+                        rule.folder = message.folder;
+                        rule.name = context.getString(R.string.title_block, name);
+                        rule.order = 1000;
+                        rule.enabled = true;
+                        rule.stop = true;
+                        rule.condition = jcondition.toString();
+                        rule.action = jaction.toString();
+                        rule.id = db.rule().insertRule(rule);
+                    }
 
                     db.setTransactionSuccessful();
                 } finally {

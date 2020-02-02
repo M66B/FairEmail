@@ -4951,17 +4951,27 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_junk, null);
             final TextView tvMessage = view.findViewById(R.id.tvMessage);
-            final CheckBox cbBlock = view.findViewById(R.id.cbBlock);
+            final CheckBox cbBlockSender = view.findViewById(R.id.cbBlockSender);
+            final CheckBox cbBlockDomain = view.findViewById(R.id.cbBlockDomain);
 
             tvMessage.setText(getString(R.string.title_ask_spam_who, from));
-            cbBlock.setEnabled(ActivityBilling.isPro(getContext()));
+            cbBlockSender.setEnabled(ActivityBilling.isPro(getContext()));
+            cbBlockDomain.setEnabled(false);
+
+            cbBlockSender.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    cbBlockDomain.setEnabled(isChecked);
+                }
+            });
 
             return new AlertDialog.Builder(getContext())
                     .setView(view)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            getArguments().putBoolean("block", cbBlock.isChecked());
+                            getArguments().putBoolean("block_sender", cbBlockSender.isChecked());
+                            getArguments().putBoolean("block_domain", cbBlockDomain.isChecked());
                             sendResult(RESULT_OK);
                         }
                     })
