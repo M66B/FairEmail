@@ -101,7 +101,6 @@
             app:layout_constraintStart_toEndOf="@id/ivAuth"
             app:layout_constraintTop_toTopOf="@id/ivAuth" />
 
-
         <ImageView
             android:id="@+id/ivHighPriority"
             android:layout_width="wrap_content"
@@ -148,13 +147,57 @@
             app:layout_constraintTop_toTopOf="@id/ivLowPriority" />
 
         <ImageView
-            android:id="@+id/ivSigned"
+            android:id="@+id/ivHighImportance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/title_legend_priority"
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivLowPriority"
+            app:srcCompat="@drawable/baseline_arrow_upward_24" />
+
+        <TextView
+            android:id="@+id/tvHighImportance"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:text="@string/title_legend_importance"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivHighImportance"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivHighImportance"
+            app:layout_constraintTop_toTopOf="@id/ivHighImportance" />
+
+        <ImageView
+            android:id="@+id/ivLowImportance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/title_legend_priority"
+            android:padding="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivHighImportance"
+            app:srcCompat="@drawable/baseline_arrow_downward_24" />
+
+        <TextView
+            android:id="@+id/tvLowImportance"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:text="@string/title_legend_importance_low"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivLowImportance"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivLowImportance"
+            app:layout_constraintTop_toTopOf="@id/ivLowImportance" />
+
+        <ImageView
+            android:id="@+id/ivSigned"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/title_legend_priority"
+            android:padding="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivLowImportance"
             app:srcCompat="@drawable/baseline_gesture_24" />
 
         <TextView

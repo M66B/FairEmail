@@ -941,6 +941,8 @@
     <string name="title_legend_draft">Has draft</string>
     <string name="title_legend_priority">Has high priority</string>
     <string name="title_legend_priority_low">Has low priority</string>
+    <string name="title_legend_importance">Is important</string>
+    <string name="title_legend_importance_low">Is not important</string>
     <string name="title_legend_signed">Is signed</string>
     <string name="title_legend_encrypted">Is encrypted</string>
     <string name="title_legend_auth">Authentication failed</string>
