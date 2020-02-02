@@ -831,6 +831,8 @@
     <string name="title_legend_draft">A un brouillon</string>
     <string name="title_legend_priority">A une priorité élevée</string>
     <string name="title_legend_priority_low">A une priorité basse</string>
+    <string name="title_legend_importance">Est important</string>
+    <string name="title_legend_importance_low">N\'est pas important</string>
     <string name="title_legend_signed">Est signé</string>
     <string name="title_legend_encrypted">Est chiffré</string>
     <string name="title_legend_auth">Échec de l\'authentification</string>

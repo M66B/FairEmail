@@ -831,6 +831,8 @@
     <string name="title_legend_draft">Heeft concept</string>
     <string name="title_legend_priority">Heeft hoge prioriteit</string>
     <string name="title_legend_priority_low">Heeft lage prioriteit</string>
+    <string name="title_legend_importance">Is belangrijk</string>
+    <string name="title_legend_importance_low">Is niet belangrijk</string>
     <string name="title_legend_signed">Is ondertekend</string>
     <string name="title_legend_encrypted">Is versleuteld</string>
     <string name="title_legend_auth">Authenticatie mislukt</string>

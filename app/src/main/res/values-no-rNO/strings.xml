@@ -830,6 +830,8 @@ Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anme
     <string name="title_legend_draft">Kladd finnes</string>
     <string name="title_legend_priority">Har høy prioritet</string>
     <string name="title_legend_priority_low">Har lav prioritet</string>
+    <string name="title_legend_importance">Er viktig</string>
+    <string name="title_legend_importance_low">Er ikke viktig</string>
     <string name="title_legend_signed">Er signert</string>
     <string name="title_legend_encrypted">Er kryptert</string>
     <string name="title_legend_auth">Godkjenning mislyktes</string>

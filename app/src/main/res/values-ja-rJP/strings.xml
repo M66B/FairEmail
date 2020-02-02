@@ -815,6 +815,8 @@ PlayストアでFairEmailを評価できれば幸いです。
     <string name="title_legend_draft">下書き有り</string>
     <string name="title_legend_priority">優先度が高い</string>
     <string name="title_legend_priority_low">優先度が低い</string>
+    <string name="title_legend_importance">重要</string>
+    <string name="title_legend_importance_low">重要では有りません</string>
     <string name="title_legend_signed">署名されています</string>
     <string name="title_legend_encrypted">暗号化されています</string>
     <string name="title_legend_auth">認証に失敗しました</string>

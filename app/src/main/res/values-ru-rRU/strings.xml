@@ -853,6 +853,8 @@
     <string name="title_legend_draft">Имеет черновик</string>
     <string name="title_legend_priority">Имеет высокий приоритет</string>
     <string name="title_legend_priority_low">Имеет низкий приоритет</string>
+    <string name="title_legend_importance">Важное</string>
+    <string name="title_legend_importance_low">Не важное</string>
     <string name="title_legend_signed">Подписано</string>
     <string name="title_legend_encrypted">Зашифровано</string>
     <string name="title_legend_auth">Ошибка аутентификации</string>

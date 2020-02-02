@@ -829,6 +829,8 @@
     <string name="title_legend_draft">Ha bozza</string>
     <string name="title_legend_priority">Ha priorità alta</string>
     <string name="title_legend_priority_low">Ha priorità bassa</string>
+    <string name="title_legend_importance">È importante</string>
+    <string name="title_legend_importance_low">Non è importante</string>
     <string name="title_legend_signed">È firmato</string>
     <string name="title_legend_encrypted">È criptato</string>
     <string name="title_legend_auth">Autenticazione fallita</string>
