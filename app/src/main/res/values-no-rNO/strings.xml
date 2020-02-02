@@ -69,6 +69,7 @@
     <string name="title_ask_spam_who">Behandle melding fra %1$s som spam?</string>
     <string name="title_block">Blokkere %1$s</string>
     <string name="title_block_sender">Blokker avsender</string>
+    <string name="title_block_domain">Blokker avsenderdomenet</string>
     <string name="title_block_sender_hint">        Blokkering av avsender vil opprette en regel for automatisk å flytte fremtidige meldinger til spam-mappen.
         Å lage og bruke regler er en pro-funksjon.
     </string>
