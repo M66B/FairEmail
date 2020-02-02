@@ -23,18 +23,21 @@ import android.app.Dialog;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.Spanned;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -43,6 +46,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.Group;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.snackbar.Snackbar;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -52,17 +56,17 @@ public class FragmentAnswer extends FragmentBase {
     private CheckBox cbFavorite;
     private CheckBox cbHide;
     private EditTextCompose etText;
-    private ImageButton ibInfo;
     private BottomNavigationView style_bar;
-    private BottomNavigationView bottom_navigation;
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
 
     private long id = -1;
     private long copy = -1;
+    private boolean dirty = false;
 
     private static final int REQUEST_LINK = 1;
-    private final static int REQUEST_DELETE = 2;
+    private final static int REQUEST_SAVE = 2;
+    private final static int REQUEST_DELETE = 3;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -81,6 +85,7 @@ public class FragmentAnswer extends FragmentBase {
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setSubtitle(R.string.title_answer_caption);
+        setHasOptionsMenu(true);
 
         view = (ViewGroup) inflater.inflate(R.layout.fragment_answer, container, false);
 
@@ -89,36 +94,16 @@ public class FragmentAnswer extends FragmentBase {
         cbFavorite = view.findViewById(R.id.cbFavorite);
         cbHide = view.findViewById(R.id.cbHide);
         etText = view.findViewById(R.id.etText);
-        ibInfo = view.findViewById(R.id.ibInfo);
 
         style_bar = view.findViewById(R.id.style_bar);
-        bottom_navigation = view.findViewById(R.id.bottom_navigation);
 
         pbWait = view.findViewById(R.id.pbWait);
         grpReady = view.findViewById(R.id.grpReady);
-
-        int height = getContext().getResources().getDisplayMetrics().heightPixels;
-        View decor = getActivity().getWindow().getDecorView();
-        decor.getViewTreeObserver()
-                .addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-                    public void onGlobalLayout() {
-                        Rect rect = new Rect();
-                        decor.getWindowVisibleDisplayFrame(rect);
-                        view.setPadding(0, 0, 0, height - rect.bottom);
-                    }
-                });
 
         etText.setSelectionListener(new EditTextCompose.ISelection() {
             @Override
             public void onSelected(boolean selection) {
                 style_bar.setVisibility(selection ? View.VISIBLE : View.GONE);
-            }
-        });
-
-        ibInfo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new FragmentInfo().show(getParentFragmentManager(), "rule:info");
             }
         });
 
@@ -129,19 +114,25 @@ public class FragmentAnswer extends FragmentBase {
             }
         });
 
-        bottom_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+        addKeyPressedListener(new ActivityBase.IKeyPressedListener() {
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId()) {
-                    case R.id.action_delete:
-                        onActionDelete();
-                        return true;
-                    case R.id.action_save:
-                        onActionSave();
-                        return true;
-                    default:
-                        return false;
-                }
+            public boolean onKeyPressed(int keyCode) {
+                return false;
+            }
+
+            @Override
+            public boolean onBackPressed() {
+                if (dirty) {
+                    Bundle aargs = new Bundle();
+                    aargs.putString("question", getString(R.string.title_ask_save));
+
+                    FragmentDialogAsk fragment = new FragmentDialogAsk();
+                    fragment.setArguments(aargs);
+                    fragment.setTargetFragment(FragmentAnswer.this, REQUEST_SAVE);
+                    fragment.show(getParentFragmentManager(), "account:save");
+                    return true;
+                } else
+                    return false;
             }
         });
 
@@ -173,7 +164,35 @@ public class FragmentAnswer extends FragmentBase {
                 cbFavorite.setChecked(answer == null ? false : answer.favorite);
                 cbHide.setChecked(answer == null ? false : answer.hide);
                 etText.setText(answer == null ? null : HtmlHelper.fromHtml(answer.text));
-                bottom_navigation.findViewById(R.id.action_delete).setVisibility(answer == null ? View.GONE : View.VISIBLE);
+
+                TextWatcher watcher = new TextWatcher() {
+                    @Override
+                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                        // Do nothing
+                    }
+
+                    @Override
+                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+                        dirty = true;
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable s) {
+                        // Do nothing
+                    }
+                };
+
+                CompoundButton.OnCheckedChangeListener checker = new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                        dirty = true;
+                    }
+                };
+
+                etName.addTextChangedListener(watcher);
+                cbFavorite.setOnCheckedChangeListener(checker);
+                cbHide.setOnCheckedChangeListener(checker);
+                etText.addTextChangedListener(watcher);
 
                 pbWait.setVisibility(View.GONE);
                 grpReady.setVisibility(View.VISIBLE);
@@ -186,7 +205,37 @@ public class FragmentAnswer extends FragmentBase {
         }.execute(this, args, "answer:get");
     }
 
-    private void onActionDelete() {
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_operations, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public void onPrepareOptionsMenu(@NonNull Menu menu) {
+        super.onPrepareOptionsMenu(menu);
+        menu.findItem(R.id.menu_delete).setVisible(id > 0);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_help:
+                onMenuHelp();
+                return true;
+            case R.id.menu_delete:
+                onMenuDelete();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void onMenuHelp() {
+        new FragmentInfo().show(getParentFragmentManager(), "answer:info");
+    }
+
+    private void onMenuDelete() {
         Bundle args = new Bundle();
         args.putString("question", getString(R.string.title_ask_delete_answer));
 
@@ -196,12 +245,43 @@ public class FragmentAnswer extends FragmentBase {
         fragment.show(getParentFragmentManager(), "answer:delete");
     }
 
-    private void onActionSave() {
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        try {
+            switch (requestCode) {
+                case REQUEST_LINK:
+                    if (resultCode == RESULT_OK && data != null)
+                        onLinkSelected(data.getBundleExtra("args"));
+                    break;
+                case REQUEST_SAVE:
+                    if (resultCode == RESULT_OK)
+                        onSave();
+                    else
+                        finish();
+                    break;
+                case REQUEST_DELETE:
+                    if (resultCode == RESULT_OK)
+                        onDelete();
+                    break;
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+    }
+
+    private void onLinkSelected(Bundle args) {
+        String link = args.getString("link");
+        StyleHelper.apply(R.id.menu_link, etText, link);
+    }
+
+    private void onSave() {
         etText.clearComposingText();
 
         Bundle args = new Bundle();
         args.putLong("id", id);
-        args.putString("name", etName.getText().toString());
+        args.putString("name", etName.getText().toString().trim());
         args.putBoolean("favorite", cbFavorite.isChecked());
         args.putBoolean("hide", cbHide.isChecked());
         args.putString("text", HtmlHelper.toHtml(etText.getText()));
@@ -224,6 +304,9 @@ public class FragmentAnswer extends FragmentBase {
                 boolean favorite = args.getBoolean("favorite");
                 boolean hide = args.getBoolean("hide");
                 String text = args.getString("text");
+
+                if (TextUtils.isEmpty(name))
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_name));
 
                 DB db = DB.getInstance(context);
                 if (id < 0) {
@@ -252,34 +335,12 @@ public class FragmentAnswer extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Log.unexpectedError(getParentFragmentManager(), ex);
+                if (ex instanceof IllegalArgumentException)
+                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                else
+                    Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "answer:save");
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        try {
-            switch (requestCode) {
-                case REQUEST_LINK:
-                    if (resultCode == RESULT_OK && data != null)
-                        onLinkSelected(data.getBundleExtra("args"));
-                    break;
-                case REQUEST_DELETE:
-                    if (resultCode == RESULT_OK)
-                        onDelete();
-                    break;
-            }
-        } catch (Throwable ex) {
-            Log.e(ex);
-        }
-    }
-
-    private void onLinkSelected(Bundle args) {
-        String link = args.getString("link");
-        StyleHelper.apply(R.id.menu_link, etText, link);
     }
 
     private void onDelete() {

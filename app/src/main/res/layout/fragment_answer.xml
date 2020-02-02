@@ -68,15 +68,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/vSeparator" />
 
-    <ImageButton
-        android:id="@+id/ibInfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/title_setup_help"
-        app:layout_constraintBottom_toBottomOf="@id/etText"
-        app:layout_constraintEnd_toEndOf="@id/etText"
-        app:srcCompat="@drawable/baseline_info_24" />
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/style_bar"
         android:layout_width="0dp"
@@ -85,23 +76,11 @@
         app:itemIconTint="@color/action_foreground"
         app:itemTextColor="@color/action_foreground"
         app:labelVisibilityMode="unlabeled"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/action_answer_style" />
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        app:itemIconTint="@color/action_foreground"
-        app:itemTextColor="@color/action_foreground"
-        app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/action_answer" />
+        app:layout_constraintTop_toBottomOf="@id/etText"
+        app:menu="@menu/action_answer_style" />
 
     <eu.faircode.email.ContentLoadingProgressBar
         android:id="@+id/pbWait"
@@ -118,5 +97,5 @@
         android:id="@+id/grpReady"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:constraint_referenced_ids="etName,vSeparator,etText,bottom_navigation" />
+        app:constraint_referenced_ids="etName,cbFavorite,cbHide,vSeparator,etText" />
 </androidx.constraintlayout.widget.ConstraintLayout>
