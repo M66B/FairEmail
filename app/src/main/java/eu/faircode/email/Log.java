@@ -99,6 +99,7 @@ import javax.mail.MessagingException;
 import javax.mail.Part;
 import javax.mail.StoreClosedException;
 import javax.mail.internet.InternetAddress;
+import javax.net.ssl.SSLPeerUnverifiedException;
 
 public class Log {
     private static final int MAX_CRASH_REPORTS = 5;
@@ -302,6 +303,10 @@ public class Log {
                 if (ex instanceof IOException &&
                         ("NetworkError".equals(ex.getMessage()) || // account manager
                                 "Resetting to invalid mark".equals(ex.getMessage())))
+                    return false;
+
+                if (ex instanceof SSLPeerUnverifiedException ||
+                        ex instanceof EmailService.UntrustedException)
                     return false;
 
                 // Rate limit
