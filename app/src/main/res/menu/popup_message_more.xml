@@ -33,6 +33,10 @@
         android:title="@string/title_create_rule" />
 
     <item
+        android:id="@+id/menu_set_importance"
+        android:title="@string/title_rule_importance" />
+
+    <item
         android:id="@+id/menu_manage_keywords"
         android:title="@string/title_manage_keywords" />
 
