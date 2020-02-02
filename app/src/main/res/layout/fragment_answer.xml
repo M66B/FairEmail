@@ -67,6 +67,7 @@
             android:hint="@string/title_answer_text"
             android:imeOptions="actionDone"
             android:inputType="textCapSentences|textMultiLine|textAutoCorrect"
+            android:isScrollContainer="true"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintBottom_toTopOf="@+id/style_bar"
             app:layout_constraintEnd_toEndOf="parent"
