@@ -262,6 +262,7 @@ public class FragmentQuickSetup extends FragmentBase {
                     throw new IllegalArgumentException(context.getString(R.string.title_no_password));
 
                 EmailProvider provider = EmailProvider.fromEmail(context, email, EmailProvider.Discover.ALL);
+                args.putBoolean("appPassword", provider.appPassword);
 
                 if (provider.link != null)
                     args.putString("link", provider.link);
@@ -404,9 +405,13 @@ public class FragmentQuickSetup extends FragmentBase {
             protected void onException(final Bundle args, Throwable ex) {
                 Log.e(ex);
 
-                if (ex instanceof AuthenticationFailedException)
-                    tvErrorHint.setText(R.string.title_setup_no_auth_hint);
-                else
+                if (ex instanceof AuthenticationFailedException) {
+                    boolean appPassword = args.getBoolean("appPassword");
+                    String message = getString(R.string.title_setup_no_auth_hint);
+                    if (appPassword)
+                        message += " - " + getString(R.string.title_setup_app_password_hint);
+                    tvErrorHint.setText(message);
+                } else
                     tvErrorHint.setText(R.string.title_setup_no_settings_hint);
 
                 if (ex instanceof IllegalArgumentException || ex instanceof UnknownHostException) {

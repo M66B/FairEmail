@@ -66,6 +66,7 @@ public class EmailProvider {
     public int keepalive;
     public boolean partial;
     public boolean useip;
+    public boolean appPassword;
     public String link;
     public Server imap = new Server();
     public Server smtp = new Server();
@@ -127,6 +128,7 @@ public class EmailProvider {
                         provider.keepalive = xml.getAttributeIntValue(null, "keepalive", 0);
                         provider.partial = xml.getAttributeBooleanValue(null, "partial", true);
                         provider.useip = xml.getAttributeBooleanValue(null, "useip", true);
+                        provider.appPassword = xml.getAttributeBooleanValue(null, "appPassword", false);
                         provider.link = xml.getAttributeValue(null, "link");
                         provider.type = xml.getAttributeValue(null, "type");
                         String user = xml.getAttributeValue(null, "user");
