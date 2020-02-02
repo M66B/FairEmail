@@ -6,9 +6,4 @@
         android:icon="@drawable/baseline_help_24"
         android:title=""
         app:showAsAction="always" />
-
-    <item
-        android:id="@+id/menu_delete"
-        android:title="@string/title_delete"
-        app:showAsAction="never" />
 </menu>

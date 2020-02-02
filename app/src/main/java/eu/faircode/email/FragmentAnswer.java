@@ -25,10 +25,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.Editable;
 import android.text.Spanned;
 import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -36,7 +34,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -57,16 +54,15 @@ public class FragmentAnswer extends FragmentBase {
     private CheckBox cbHide;
     private EditTextCompose etText;
     private BottomNavigationView style_bar;
+    private BottomNavigationView bottom_navigation;
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
 
     private long id = -1;
     private long copy = -1;
-    private boolean dirty = false;
 
     private static final int REQUEST_LINK = 1;
-    private final static int REQUEST_SAVE = 2;
-    private final static int REQUEST_DELETE = 3;
+    private final static int REQUEST_DELETE = 2;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -96,6 +92,7 @@ public class FragmentAnswer extends FragmentBase {
         etText = view.findViewById(R.id.etText);
 
         style_bar = view.findViewById(R.id.style_bar);
+        bottom_navigation = view.findViewById(R.id.bottom_navigation);
 
         pbWait = view.findViewById(R.id.pbWait);
         grpReady = view.findViewById(R.id.grpReady);
@@ -114,25 +111,19 @@ public class FragmentAnswer extends FragmentBase {
             }
         });
 
-        addKeyPressedListener(new ActivityBase.IKeyPressedListener() {
+        bottom_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public boolean onKeyPressed(int keyCode) {
-                return false;
-            }
-
-            @Override
-            public boolean onBackPressed() {
-                if (dirty) {
-                    Bundle aargs = new Bundle();
-                    aargs.putString("question", getString(R.string.title_ask_save));
-
-                    FragmentDialogAsk fragment = new FragmentDialogAsk();
-                    fragment.setArguments(aargs);
-                    fragment.setTargetFragment(FragmentAnswer.this, REQUEST_SAVE);
-                    fragment.show(getParentFragmentManager(), "account:save");
-                    return true;
-                } else
-                    return false;
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.action_delete:
+                        onActionDelete();
+                        return true;
+                    case R.id.action_save:
+                        onActionSave();
+                        return true;
+                    default:
+                        return false;
+                }
             }
         });
 
@@ -164,35 +155,7 @@ public class FragmentAnswer extends FragmentBase {
                 cbFavorite.setChecked(answer == null ? false : answer.favorite);
                 cbHide.setChecked(answer == null ? false : answer.hide);
                 etText.setText(answer == null ? null : HtmlHelper.fromHtml(answer.text));
-
-                TextWatcher watcher = new TextWatcher() {
-                    @Override
-                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                        // Do nothing
-                    }
-
-                    @Override
-                    public void onTextChanged(CharSequence s, int start, int before, int count) {
-                        dirty = true;
-                    }
-
-                    @Override
-                    public void afterTextChanged(Editable s) {
-                        // Do nothing
-                    }
-                };
-
-                CompoundButton.OnCheckedChangeListener checker = new CompoundButton.OnCheckedChangeListener() {
-                    @Override
-                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                        dirty = true;
-                    }
-                };
-
-                etName.addTextChangedListener(watcher);
-                cbFavorite.setOnCheckedChangeListener(checker);
-                cbHide.setOnCheckedChangeListener(checker);
-                etText.addTextChangedListener(watcher);
+                bottom_navigation.findViewById(R.id.action_delete).setVisibility(answer == null ? View.GONE : View.VISIBLE);
 
                 pbWait.setVisibility(View.GONE);
                 grpReady.setVisibility(View.VISIBLE);
@@ -207,14 +170,8 @@ public class FragmentAnswer extends FragmentBase {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_operations, menu);
+        inflater.inflate(R.menu.menu_answer, menu);
         super.onCreateOptionsMenu(menu, inflater);
-    }
-
-    @Override
-    public void onPrepareOptionsMenu(@NonNull Menu menu) {
-        super.onPrepareOptionsMenu(menu);
-        menu.findItem(R.id.menu_delete).setVisible(id > 0);
     }
 
     @Override
@@ -222,9 +179,6 @@ public class FragmentAnswer extends FragmentBase {
         switch (item.getItemId()) {
             case R.id.menu_help:
                 onMenuHelp();
-                return true;
-            case R.id.menu_delete:
-                onMenuDelete();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -235,7 +189,7 @@ public class FragmentAnswer extends FragmentBase {
         new FragmentInfo().show(getParentFragmentManager(), "answer:info");
     }
 
-    private void onMenuDelete() {
+    private void onActionDelete() {
         Bundle args = new Bundle();
         args.putString("question", getString(R.string.title_ask_delete_answer));
 
@@ -245,38 +199,7 @@ public class FragmentAnswer extends FragmentBase {
         fragment.show(getParentFragmentManager(), "answer:delete");
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        try {
-            switch (requestCode) {
-                case REQUEST_LINK:
-                    if (resultCode == RESULT_OK && data != null)
-                        onLinkSelected(data.getBundleExtra("args"));
-                    break;
-                case REQUEST_SAVE:
-                    if (resultCode == RESULT_OK)
-                        onSave();
-                    else
-                        finish();
-                    break;
-                case REQUEST_DELETE:
-                    if (resultCode == RESULT_OK)
-                        onDelete();
-                    break;
-            }
-        } catch (Throwable ex) {
-            Log.e(ex);
-        }
-    }
-
-    private void onLinkSelected(Bundle args) {
-        String link = args.getString("link");
-        StyleHelper.apply(R.id.menu_link, etText, link);
-    }
-
-    private void onSave() {
+    private void onActionSave() {
         etText.clearComposingText();
 
         Bundle args = new Bundle();
@@ -341,6 +264,31 @@ public class FragmentAnswer extends FragmentBase {
                     Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "answer:save");
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        try {
+            switch (requestCode) {
+                case REQUEST_LINK:
+                    if (resultCode == RESULT_OK && data != null)
+                        onLinkSelected(data.getBundleExtra("args"));
+                    break;
+                case REQUEST_DELETE:
+                    if (resultCode == RESULT_OK)
+                        onDelete();
+                    break;
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+    }
+
+    private void onLinkSelected(Bundle args) {
+        String link = args.getString("link");
+        StyleHelper.apply(R.id.menu_link, etText, link);
     }
 
     private void onDelete() {
