@@ -331,8 +331,8 @@ public class HtmlHelper {
                     if (kv.length == 2) {
                         String key = kv[0].trim().toLowerCase(Locale.ROOT);
                         String value = kv[1].toLowerCase(Locale.ROOT)
-                                .trim()
                                 .replace("!important", "")
+                                .trim()
                                 .replaceAll("\\s+", " ");
                         switch (key) {
                             case "color":
@@ -355,7 +355,7 @@ public class HtmlHelper {
 
                             case "display":
                                 if (!display_hidden && "none".equals(value)) {
-                                    Log.i("Removing element " + element.tagName());
+                                    Log.i("Removing hidden element " + element.tagName());
                                     element.empty();
                                 }
                                 if ("inline".equals(value) || "inline-block".equals(value))
@@ -368,7 +368,7 @@ public class HtmlHelper {
                                 //case "line-height":
                                 if (!display_hidden &&
                                         ("0".equals(value) || "0px".equals(value))) {
-                                    Log.i("Removing element " + element.tagName());
+                                    Log.i("Removing hidden element " + element.tagName());
                                     element.empty();
                                 }
                                 break;
