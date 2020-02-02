@@ -69,6 +69,7 @@ import io.requery.android.database.sqlite.SQLiteDatabase;
 
 public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMessageEx> {
     private Context context;
+    private Long account;
     private Long folder;
     private boolean server;
     private String query;
@@ -91,8 +92,9 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         void onException(@NonNull Throwable ex);
     }
 
-    BoundaryCallbackMessages(Context context, long folder, boolean server, String query, int pageSize) {
+    BoundaryCallbackMessages(Context context, long account, long folder, boolean server, String query, int pageSize) {
         this.context = context.getApplicationContext();
+        this.account = (account < 0 ? null : account);
         this.folder = (folder < 0 ? null : folder);
         this.server = server;
         this.query = query;
@@ -191,7 +193,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         if (fts && pro && seen == null && flagged == null && snoozed == null && encrypted == null) {
             if (state.ids == null) {
                 SQLiteDatabase sdb = FtsDbHelper.getInstance(context);
-                state.ids = FtsDbHelper.match(sdb, folder, query);
+                state.ids = FtsDbHelper.match(sdb, account, folder, query);
             }
 
             try {
@@ -217,7 +219,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 if (state.matches == null ||
                         (state.matches.size() > 0 && state.index >= state.matches.size())) {
                     state.matches = db.message().matchMessages(
-                            folder,
+                            account, folder,
                             "%" + find + "%",
                             seen, flagged, snoozed, encrypted,
                             SEARCH_LIMIT, state.offset);

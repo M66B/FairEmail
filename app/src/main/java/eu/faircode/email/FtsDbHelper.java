@@ -37,7 +37,7 @@ import io.requery.android.database.sqlite.SQLiteOpenHelper;
 public class FtsDbHelper extends SQLiteOpenHelper {
     private static FtsDbHelper instance = null;
 
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
     private static final String DATABASE_NAME = "fts.db";
 
     private FtsDbHelper(Context context) {
@@ -54,12 +54,14 @@ public class FtsDbHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         Log.i("FTS create");
         db.execSQL("CREATE VIRTUAL TABLE `message`" +
-                " USING fts5 (`folder` UNINDEXED, `time` UNINDEXED, `address`, `subject`, `keyword`, `text`)");
+                " USING fts5 (`account` UNINDEXED, `folder` UNINDEXED, `time` UNINDEXED, `address`, `subject`, `keyword`, `text`)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        // Do nothing
+        Log.i("FTS upgrade from " + oldVersion + " to " + newVersion);
+        db.execSQL("DROP TABLE `message`");
+        onCreate(db);
     }
 
     static void insert(SQLiteDatabase db, EntityMessage message, String text) {
@@ -76,6 +78,7 @@ public class FtsDbHelper extends SQLiteOpenHelper {
 
         ContentValues cv = new ContentValues();
         cv.put("rowid", message.id);
+        cv.put("account", message.account);
         cv.put("folder", message.folder);
         cv.put("time", message.received);
         cv.put("address", MessageHelper.formatAddresses(address.toArray(new Address[0]), true, false));
@@ -93,7 +96,7 @@ public class FtsDbHelper extends SQLiteOpenHelper {
         db.delete("message", "rowid = ?", new Object[]{id});
     }
 
-    static List<Long> match(SQLiteDatabase db, Long folder, String query) {
+    static List<Long> match(SQLiteDatabase db, Long account, Long folder, String query) {
         StringBuilder sb = new StringBuilder();
         for (String or : query.split(",")) {
             if (sb.length() > 0)
@@ -117,12 +120,19 @@ public class FtsDbHelper extends SQLiteOpenHelper {
         }
 
         String search = sb.toString();
-        Log.i("FTS folder=" + folder + " search=" + search);
+
+        String select = "";
+        if (account != null)
+            select += "account = " + account + " AND ";
+        if (folder != null)
+            select += "folder = " + folder + " AND ";
+
+        Log.i("FTS select=" + select + " search=" + search);
         List<Long> result = new ArrayList<>();
         try (Cursor cursor = db.query(
                 "message", new String[]{"rowid"},
-                folder == null ? "message MATCH ?" : "folder = ? AND message MATCH ?",
-                folder == null ? new Object[]{search} : new Object[]{folder, search},
+                select + "message MATCH ?",
+                new Object[]{search},
                 null, null, "time DESC", null)) {
             while (cursor != null && cursor.moveToNext())
                 result.add(cursor.getLong(0));

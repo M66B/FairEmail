@@ -264,6 +264,7 @@ public interface DaoMessage {
             " OR `preview` LIKE :find COLLATE NOCASE) AS matched" +
             " FROM message" +
             " WHERE NOT ui_hide" +
+            " AND (:account IS NULL OR account = :account)" +
             " AND (:folder IS NULL OR folder = :folder)" +
             " AND (:seen IS NULL OR ui_seen = :seen)" +
             " AND (:flagged IS NULL OR ui_flagged = :flagged)" +
@@ -272,7 +273,7 @@ public interface DaoMessage {
             " ORDER BY received DESC" +
             " LIMIT :limit OFFSET :offset")
     List<TupleMatch> matchMessages(
-            Long folder, String find,
+            Long account, Long folder, String find,
             Boolean seen, Boolean flagged, Boolean hidden, Boolean encrypted,
             int limit, int offset);
 

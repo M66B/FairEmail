@@ -79,10 +79,10 @@ public class ViewModelMessages extends ViewModel {
             BoundaryCallbackMessages boundary = null;
             if (viewType == AdapterMessage.ViewType.FOLDER)
                 boundary = new BoundaryCallbackMessages(context,
-                        args.folder, true, args.query, REMOTE_PAGE_SIZE);
+                        args.account, args.folder, true, args.query, REMOTE_PAGE_SIZE);
             else if (viewType == AdapterMessage.ViewType.SEARCH)
                 boundary = new BoundaryCallbackMessages(context,
-                        args.folder, args.server, args.query,
+                        args.account, args.folder, args.server, args.query,
                         args.server ? REMOTE_PAGE_SIZE : SEARCH_PAGE_SIZE);
 
             LivePagedListBuilder<Integer, TupleMessageEx> builder = null;
