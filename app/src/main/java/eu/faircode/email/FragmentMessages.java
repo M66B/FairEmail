@@ -5623,7 +5623,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             @Override
             protected void onExecuted(Bundle args, ArrayList<MessageTarget> result) {
-                moveAsk(result, false, true);
+                boolean nocanundo = args.getBoolean("nocanundo");
+                moveAsk(result, false, !nocanundo);
             }
 
             @Override

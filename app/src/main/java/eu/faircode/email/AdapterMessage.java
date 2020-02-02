@@ -3138,6 +3138,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             args.putLong("message", message.id);
             args.putBoolean("copy", copy);
             args.putBoolean("similar", false);
+            args.putBoolean("nocanundo", true);
 
             FragmentDialogFolder fragment = new FragmentDialogFolder();
             fragment.setArguments(args);
