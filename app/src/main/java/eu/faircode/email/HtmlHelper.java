@@ -331,7 +331,9 @@ public class HtmlHelper {
                     if (kv.length == 2) {
                         String key = kv[0].trim().toLowerCase(Locale.ROOT);
                         String value = kv[1].toLowerCase(Locale.ROOT)
-                                .replaceAll("\\s", "");
+                                .trim()
+                                .replace("!important", "")
+                                .replaceAll("\\s+", " ");
                         switch (key) {
                             case "color":
                                 Integer color = parseColor(value, dark);
@@ -637,8 +639,7 @@ public class HtmlHelper {
                 .replace("initial", "")
                 .replace("windowtext", "")
                 .replace("transparent", "")
-                .replace("!important", "")
-                .replaceAll("[^a-z0-9(),.%]", "");
+                .replaceAll("[^a-z0-9(),.%#]", "");
 
         Integer color = null;
         try {
