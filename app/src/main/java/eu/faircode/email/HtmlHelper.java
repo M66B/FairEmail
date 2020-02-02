@@ -43,12 +43,14 @@ import androidx.core.util.PatternsCompat;
 import androidx.preference.PreferenceManager;
 
 import org.jsoup.nodes.Attribute;
+import org.jsoup.nodes.Comment;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 import org.jsoup.nodes.TextNode;
 import org.jsoup.safety.Cleaner;
 import org.jsoup.safety.Whitelist;
+import org.jsoup.select.NodeFilter;
 import org.jsoup.select.NodeTraversor;
 import org.jsoup.select.NodeVisitor;
 
@@ -256,6 +258,32 @@ public class HtmlHelper {
         boolean disable_tracking = prefs.getBoolean("disable_tracking", true);
 
         Document parsed = JsoupEx.parse(html);
+
+        // <!--[if ...]><!--> ... <!--<![endif]-->
+        if (!display_hidden && BuildConfig.DEBUG)
+            parsed.filter(new NodeFilter() {
+                private boolean remove = false;
+
+                @Override
+                public FilterResult head(Node node, int depth) {
+                    if (node instanceof Comment) {
+                        String data = ((Comment) node).getData().trim();
+                        if (data.startsWith("[if") && !data.endsWith("endif]")) {
+                            remove = true;
+                            return FilterResult.REMOVE;
+                        } else if (remove && data.endsWith("endif]")) {
+                            remove = false;
+                            return FilterResult.REMOVE;
+                        }
+                    }
+                    return (remove ? FilterResult.REMOVE : FilterResult.CONTINUE);
+                }
+
+                @Override
+                public FilterResult tail(Node node, int depth) {
+                    return FilterResult.CONTINUE;
+                }
+            });
 
         // <html xmlns:v="urn:schemas-microsoft-com:vml"
         //   xmlns:o="urn:schemas-microsoft-com:office:office"
