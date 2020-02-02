@@ -34,6 +34,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.PopupMenu;
@@ -275,6 +276,11 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                     args.putLong("id", rule.id);
 
                     new SimpleTask<Integer>() {
+                        @Override
+                        protected void onPreExecute(Bundle args) {
+                            ToastEx.makeText(context, R.string.title_executing, Toast.LENGTH_LONG).show();
+                        }
+
                         @Override
                         protected Integer onExecute(Context context, Bundle args) throws JSONException, MessagingException, IOException {
                             long id = args.getLong("id");

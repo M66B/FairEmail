@@ -1144,6 +1144,11 @@ public class FragmentRule extends FragmentBase {
                 public void onClick(View v) {
                     new SimpleTask<Integer>() {
                         @Override
+                        protected void onPreExecute(Bundle args) {
+                            ToastEx.makeText(getContext(), R.string.title_executing, Toast.LENGTH_LONG).show();
+                        }
+
+                        @Override
                         protected Integer onExecute(Context context, Bundle args) throws Throwable {
                             EntityRule rule = new EntityRule();
                             rule.folder = args.getLong("folder");
