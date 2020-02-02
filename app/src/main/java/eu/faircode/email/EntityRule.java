@@ -19,13 +19,10 @@ package eu.faircode.email;
     Copyright 2018-2020 by Marcel Bokhorst (M66B)
 */
 
-import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.net.Uri;
-import android.provider.ContactsContract;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
@@ -139,22 +136,11 @@ public class EntityRule {
                                 }
                             }
 
-                            boolean contacts = Helper.hasPermission(context, Manifest.permission.READ_CONTACTS);
-                            if (contacts) {
-                                Cursor cursor = context.getContentResolver().query(
-                                        ContactsContract.CommonDataKinds.Email.CONTENT_URI,
-                                        new String[]{ContactsContract.CommonDataKinds.Email.CONTACT_ID},
-                                        ContactsContract.CommonDataKinds.Email.DATA + " = ? COLLATE NOCASE",
-                                        new String[]{email},
-                                        null);
-
-                                while (cursor != null && cursor.moveToNext()) {
-                                    Log.i(email + " is Android contact");
-                                    matches = true;
-                                    break;
-                                }
+                            if (!TextUtils.isEmpty(message.avatar)) {
+                                Log.i(email + " is Android contact");
+                                matches = true;
+                                break;
                             }
-
                         } else {
                             String formatted = ((personal == null ? "" : personal + " ") + "<" + email + ">");
                             if (matches(context, value, formatted, regex)) {
