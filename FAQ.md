@@ -207,7 +207,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(90) Why are some texts linked while not being a link?](#user-content-faq90)
 * [~~(91) Can you add periodical synchronization to save battery power?~~](#user-content-faq91)
 * [(92) Can you add spam filtering, verification of the DKIM signature and SPF authorization?](#user-content-faq92)
-* [(93) Can you allow installation on external storage?](#user-content-faq93)
+* [(93) Can you allow installation/data storage on external storage media (sdcard)?](#user-content-faq93)
 * [(94) What does the red/orange stripe at the end of the header mean?](#user-content-faq94)
 * [(95) Why are not all apps shown when selecting an attachment or image?](#user-content-faq95)
 * [(96) Where can I find the IMAP and SMTP settings?](#user-content-faq96)
@@ -2026,9 +2026,10 @@ The sender might use [this tool](https://www.mail-tester.com/) to check authenti
 <br />
 
 <a name="faq93"></a>
-**(93) Can you allow installation on external storage?**
+**(93) Can you allow installation/data storage on external storage media (sdcard)?**
 
-FairEmail uses services and alarms, provides widgets and listens for the boot completed event to be started on device start, so this is not possible.
+FairEmail uses services and alarms, provides widgets and listens for the boot completed event to be started on device start,
+so it is not possible to store FairEmail or its data on external storage media, like an sdcard.
 See also [here](https://developer.android.com/guide/topics/data/install-location).
 
 <br />
