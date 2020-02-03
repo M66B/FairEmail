@@ -172,6 +172,7 @@ public class EntityOperation {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean autoread = prefs.getBoolean("autoread", false);
                 boolean autounflag = prefs.getBoolean("autounflag", false);
+                boolean reset_importance = prefs.getBoolean("reset_importance", false);
 
                 if (jargs.opt(1) != null) // rules
                     autoread = jargs.getBoolean(1);
@@ -188,12 +189,14 @@ public class EntityOperation {
                         " target=" + target.id + ":" + target.name +
                         " auto read=" + autoread + " flag=" + autounflag);
 
-                if (autoread || autounflag)
+                if (autoread || autounflag || reset_importance)
                     for (EntityMessage similar : db.message().getMessagesBySimilarity(message.account, message.id, message.msgid)) {
                         if (autoread)
                             db.message().setMessageUiSeen(similar.id, true);
                         if (autounflag)
                             db.message().setMessageUiFlagged(similar.id, false, null);
+                        if (reset_importance)
+                            db.message().setMessageImportance(similar.id, null);
                     }
 
 
@@ -220,8 +223,11 @@ public class EntityOperation {
                     long uid = message.uid;
                     int notifying = message.notifying;
                     boolean fts = message.fts;
+                    Integer importance = message.importance;
                     boolean seen = message.seen;
+                    boolean flagged = message.flagged;
                     boolean ui_seen = message.ui_seen;
+                    boolean ui_flagged = message.ui_flagged;
                     Boolean ui_hide = message.ui_hide;
                     boolean ui_browsed = message.ui_browsed;
                     String error = message.error;
@@ -233,9 +239,15 @@ public class EntityOperation {
                     message.uid = null;
                     message.notifying = 0;
                     message.fts = false;
+                    if (reset_importance)
+                        message.importance = null;
                     if (autoread) {
                         message.seen = true;
                         message.ui_seen = true;
+                    }
+                    if (autounflag) {
+                        message.flagged = false;
+                        message.ui_flagged = false;
                     }
                     message.ui_hide = false;
                     message.ui_browsed = false;
@@ -252,8 +264,11 @@ public class EntityOperation {
                     message.uid = uid;
                     message.notifying = notifying;
                     message.fts = fts;
+                    message.importance = importance;
                     message.seen = seen;
+                    message.flagged = flagged;
                     message.ui_seen = ui_seen;
+                    message.ui_flagged = ui_flagged;
                     message.ui_hide = ui_hide;
                     message.ui_browsed = ui_browsed;
                     message.error = error;
