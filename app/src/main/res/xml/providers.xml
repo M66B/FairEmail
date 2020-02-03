@@ -549,6 +549,18 @@
             starttls="false" />
     </provider>
     <provider
+        name="Servercow.de"
+        link="https://cp.servercow.de/plugin/support_manager/knowledgebase/view/13/imap-pop3-und-smtp-zugriff/3/">
+        <imap
+            host="hosted.mailcow.de"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="hosted.mailcow.de"
+            port="465"
+            starttls="false" />
+    </provider>
+    <provider
         name="Ziggo"
         domain="ziggo\\.nl,quicknet\\.nl,home\\.nl,casema\\.nl,upcmail\\.nl,chello\\.nl,a2000\\.nl"
         link="https://www.ziggo.nl/klantenservice/internet/e-mail/serverinstellingen">
