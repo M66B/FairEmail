@@ -260,7 +260,7 @@ public class HtmlHelper {
         Document parsed = JsoupEx.parse(html);
 
         // <!--[if ...]><!--> ... <!--<![endif]-->
-        if (!display_hidden)
+        if (!display_hidden && false)
             parsed.filter(new NodeFilter() {
                 private boolean remove = false;
 
