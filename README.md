@@ -136,7 +136,7 @@ To get updates in a timely fashion you are advised to use the GitHub release.
 
 Because F-Droid builds and GitHub releases are signed differently, an F-Droid build needs to be uninstalled first to be able to update to a GitHub release.
 
-The Gmail quick setup wizard can be used in official releases only (Play store or GitHub) because Google approved the use of OAuth for one signature only.
+The Gmail quick setup wizard can be used in official releases only (Play store or GitHub) because Google approved the use of OAuth for one app signature only.
 
 **Important**: Gsuite accounts authorized with a username/password will stop working
 in the [near future](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
