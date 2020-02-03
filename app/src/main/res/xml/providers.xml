@@ -252,6 +252,7 @@
     </provider>
     <provider
         name="T-Online.de"
+        appPassword="true"
         domain="magenta\\.de,t-online\\.de"
         link="https://www.telekom.de/hilfe/festnetz-internet-tv/e-mail/e-mail-server-e-mail-protokolle-und-e-mail-einrichtung/imap/einrichtung-imap">
         <imap
