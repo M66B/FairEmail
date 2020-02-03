@@ -1,16 +1,16 @@
-# Setup help
+# Telepítő súgó
 
-Setting up FairEmail is fairly simple. You'll need to add at least one account to receive email and at least one identity if you want to send email. The quick setup will add an account and an identity in one go for most major providers.
+A FairEmail telepítése nagyon egyszerű. Hozzá kell adnia legalább egy fiókot, hogy fogadhasson, és egy identitást, hogy küldhessen emaileket. A gyors beállítás egyszerre hoz létre egy fiókot és egy identitást a legtöbb fő szolgáltató esetében.
 
-## Requirements
+## Követelmények
 
-An internet connection is required to set up accounts and identities.
+Internetcsatlakozás szükséges a fiókok és az identitások létrehozásához.
 
-## Quick setup
+## Gyors beállítás
 
 Just enter your name, email address and password and tap *Go*.
 
-This will work for most major email providers.
+Ez műkodni fog a legtöbb email szolgáltató esetében.
 
 If the quick setup doesn't work, you'll need to setup an account and an identity in another way, see below for instructions.
 

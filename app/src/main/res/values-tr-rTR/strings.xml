@@ -131,6 +131,7 @@
     <string name="title_setup_no_settings">\'%1$s\' alan adı için ayar bulunamadı</string>
     <string name="title_setup_no_settings_hint">Lütfen e-posta sağlayıcınız tarafından sağlanan ayarları kullanarak 1. ve 2. kurulum adımında bir hesap ve kimlik ayarlamaya çalışın</string>
     <string name="title_setup_no_auth_hint">Lütfen e-posta adresinizi ve parolanızı tekrar kontrol edin ve hesabınız için harici erişimin (IMAP/SMTP) etkinleştirilmiş olduğundan emin olun</string>
+    <string name="title_setup_app_password_hint">Bu sağlayıcı hesap parolası yerine bir uygulama parolası istemektedir</string>
     <string name="title_setup_no_system_folders">Gelen kutusu veya taslaklar klasörü bulunamadı</string>
     <string name="title_setup_quick_success">Bir hesap ve bir kimlik başarıyla eklendi</string>
     <string name="title_setup_quick_failed">Bir hesap ve kimlik yapılandırmayı aşağıdan da deneyebilirsiniz</string>
@@ -831,6 +832,8 @@
     <string name="title_legend_draft">Taslak var</string>
     <string name="title_legend_priority">Yüksek önceliğe sahip</string>
     <string name="title_legend_priority_low">Düşük önceliğe sahip</string>
+    <string name="title_legend_importance">Önemli</string>
+    <string name="title_legend_importance_low">Önemli değil</string>
     <string name="title_legend_signed">İmzalı</string>
     <string name="title_legend_encrypted">Şifrelenmiş</string>
     <string name="title_legend_auth">Kimlik doğrulama başarısız</string>

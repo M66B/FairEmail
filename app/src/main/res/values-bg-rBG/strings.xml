@@ -69,6 +69,7 @@
     <string name="title_ask_spam_who">Третирай съобщението от %1$s като спам?</string>
     <string name="title_block">Блокиране %1$s</string>
     <string name="title_block_sender">Блокиране на подателя</string>
+    <string name="title_block_domain">Блокиране домейна на подателя</string>
     <string name="title_block_sender_hint">        Блокирането на подател ще създаде правило за автоматично преместване на бъдещи съобщения в папката със спам.
         Създаването и използването на правила е професионална функция.
     </string>
@@ -829,6 +830,8 @@
     <string name="title_legend_draft">Има чернова</string>
     <string name="title_legend_priority">Има висок приоритет</string>
     <string name="title_legend_priority_low">Има висок приоритет</string>
+    <string name="title_legend_importance">Е важно</string>
+    <string name="title_legend_importance_low">Не е важно</string>
     <string name="title_legend_signed">Подписан</string>
     <string name="title_legend_encrypted">Криптирано е</string>
     <string name="title_legend_auth">Неуспешно удостоверяване</string>

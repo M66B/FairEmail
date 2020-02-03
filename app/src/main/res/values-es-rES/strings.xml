@@ -69,6 +69,7 @@
     <string name="title_ask_spam_who">¿Tratar el mensaje de %1$s como spam?</string>
     <string name="title_block">Bloquear %1$s</string>
     <string name="title_block_sender">Bloquear remitente</string>
+    <string name="title_block_domain">Bloquear dominio del remitente</string>
     <string name="title_block_sender_hint">        Bloquear un remitente creará una regla para mover automáticamente los mensajes futuros a la carpeta de spam.
         Crear y usar reglas es una característica Pro.
     </string>
@@ -130,6 +131,7 @@
     <string name="title_setup_no_settings">No se encontraron ajustes para el dominio \'%1$s\'</string>
     <string name="title_setup_no_settings_hint">Por favor, intente configurar una cuenta e identidad en los pasos de configuración 1 y 2 utilizando los ajustes proporcionados por su proveedor de correo electrónico</string>
     <string name="title_setup_no_auth_hint">Por favor, compruebe su dirección de correo electrónico y contraseña y asegúrese de que el acceso externo (IMAP/SMTP) está habilitado para su cuenta</string>
+    <string name="title_setup_app_password_hint">Este proveedor requiere una contraseña de aplicación en lugar de la contraseña de la cuenta</string>
     <string name="title_setup_no_system_folders">Carpeta de entrada o borradores no encontrada</string>
     <string name="title_setup_quick_success">Una cuenta y una identidad han sido añadidas con éxito</string>
     <string name="title_setup_quick_failed">Puede intentar configurar una cuenta y una identidad a continuación también</string>
@@ -830,6 +832,8 @@
     <string name="title_legend_draft">Tiene borrador</string>
     <string name="title_legend_priority">Tiene prioridad alta</string>
     <string name="title_legend_priority_low">Tiene prioridad baja</string>
+    <string name="title_legend_importance">Es importante</string>
+    <string name="title_legend_importance_low">No es importante</string>
     <string name="title_legend_signed">Está firmado</string>
     <string name="title_legend_encrypted">Está cifrado</string>
     <string name="title_legend_auth">Error de autenticación</string>

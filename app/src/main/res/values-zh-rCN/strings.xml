@@ -58,6 +58,7 @@
     <string name="title_ask_spam_who">将来自%1$s的消息标为垃圾邮件？</string>
     <string name="title_block">屏蔽 %1$s</string>
     <string name="title_block_sender">屏蔽发件人</string>
+    <string name="title_block_domain">封禁发件人域名</string>
     <string name="title_block_sender_hint">        拉黑某发件人将创建一条规则来自动将未来消息移动至垃圾邮件文件夹
         创建和使用规则属于专业版功能</string>
     <string name="title_notification_waiting">等待网络连接</string>
@@ -117,6 +118,7 @@
     <string name="title_setup_no_settings">找不到域名\"%1$s\"的设置</string>
     <string name="title_setup_no_settings_hint">请尝试使用您的电子邮件提供商提供的设置，在设置步骤1和步骤2中设置一个帐户和身份</string>
     <string name="title_setup_no_auth_hint">请仔细检查您的电子邮件地址和密码，并确保您的帐户启用外部访问 (IMAP/SMTP)</string>
+    <string name="title_setup_app_password_hint">此提供商需要一个应用密码而不是帐户密码</string>
     <string name="title_setup_no_system_folders">找不到收件箱或草稿文件夹</string>
     <string name="title_setup_quick_success">已成功添加了一个账户和身份</string>
     <string name="title_setup_quick_failed">您也可以尝试在下方配置一个账户和身份</string>
@@ -817,6 +819,8 @@
     <string name="title_legend_draft">有草稿</string>
     <string name="title_legend_priority">具备高优先级</string>
     <string name="title_legend_priority_low">低优先级</string>
+    <string name="title_legend_importance">重要</string>
+    <string name="title_legend_importance_low">不重要</string>
     <string name="title_legend_signed">已签名</string>
     <string name="title_legend_encrypted">已加密</string>
     <string name="title_legend_auth">认证失败</string>

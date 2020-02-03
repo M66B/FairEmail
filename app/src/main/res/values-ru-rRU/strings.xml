@@ -153,6 +153,7 @@
     <string name="title_setup_no_settings">Не найдено настроек для домена \'%1$s\'</string>
     <string name="title_setup_no_settings_hint">Пожалуйста, попробуйте настроить учётную запись и идентификатор в шагах 1 и 2, используя настройки, предоставленные вашим провайдером электронной почты</string>
     <string name="title_setup_no_auth_hint">Пожалуйста, проверьте свой адрес электронной почты и пароль и убедитесь, что внешний доступ (IMAP/SMTP) включён для вашей учётной записи</string>
+    <string name="title_setup_app_password_hint">Этот провайдер требует пароль приложения вместо пароля учётной записи</string>
     <string name="title_setup_no_system_folders">Папка \"Входящие\" или \"Черновики\" не найдена</string>
     <string name="title_setup_quick_success">Учётная запись и идентификатор добавлены успешно</string>
     <string name="title_setup_quick_failed">Вы также можете настроить учётную запись и идентификатор ниже</string>

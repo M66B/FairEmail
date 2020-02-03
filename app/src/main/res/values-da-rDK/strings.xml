@@ -69,6 +69,7 @@
     <string name="title_ask_spam_who">Håndtér besked fra %1$s som spam?</string>
     <string name="title_block">Blokér %1$s</string>
     <string name="title_block_sender">Blokér afsender</string>
+    <string name="title_block_domain">Blokér afsenderdomænet</string>
     <string name="title_block_sender_hint">        Blokering af en afsender opretter en regel, der automatisk flytter fremtidige beskeder til Spam-mappen.
         Oprettelse og brug af regler er en Pro-funktion.
     </string>
@@ -129,6 +130,7 @@
     <string name="title_setup_no_settings">Ingen indstillinger fundet for domænet \'%1$s\'</string>
     <string name="title_setup_no_settings_hint">Prøv at opsætte en konto og identitet i opsætningstrin 1 og 2 vha. indstillingerne leveret af din e-mailudbyder</string>
     <string name="title_setup_no_auth_hint">Dobbelttjek din e-mailadresse og adgangskode, og sørg for, at ekstern adgang (IMAP/SMTP) er aktiveret for din konto</string>
+    <string name="title_setup_app_password_hint">Denne udbyder kræver en app-adgangskode i stedet for kontoadgangskoden</string>
     <string name="title_setup_no_system_folders">Indbakke- eller Udkastmappe ikke fundet</string>
     <string name="title_setup_quick_success">En konto og identitet er nu blevet tilføjet</string>
     <string name="title_setup_quick_failed">Du kan også prøve at opsætte en konto og identitet nedenfor</string>
@@ -829,6 +831,8 @@
     <string name="title_legend_draft">Har kladde</string>
     <string name="title_legend_priority">Har høj prioritet</string>
     <string name="title_legend_priority_low">Har lav prioritet</string>
+    <string name="title_legend_importance">Er vigtig</string>
+    <string name="title_legend_importance_low">Er ikke vigtig</string>
     <string name="title_legend_signed">Er signeret</string>
     <string name="title_legend_encrypted">Er krypteret</string>
     <string name="title_legend_auth">Godkendelse mislykkedes</string>

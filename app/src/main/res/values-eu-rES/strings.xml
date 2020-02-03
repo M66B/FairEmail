@@ -829,6 +829,8 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_legend_draft">Zirriborroa du</string>
     <string name="title_legend_priority">Lehentasun altua du</string>
     <string name="title_legend_priority_low">Lehentasun baxua du</string>
+    <string name="title_legend_importance">Garrantzitsua da</string>
+    <string name="title_legend_importance_low">Ez da garrantzitsua</string>
     <string name="title_legend_signed">Sinatuta dago</string>
     <string name="title_legend_encrypted">Zifratuta dago</string>
     <string name="title_legend_auth">Autentifikazioak huts egin du</string>

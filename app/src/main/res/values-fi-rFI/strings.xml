@@ -69,6 +69,7 @@
     <string name="title_ask_spam_who">Käsittele viesti lähettäjältä %1$s roskapostina?</string>
     <string name="title_block">Estä %1$s</string>
     <string name="title_block_sender">Estä lähettäjä</string>
+    <string name="title_block_domain">Estä lähettäjän verkkotunnus</string>
     <string name="title_block_sender_hint">Lähettäjän estäminen luo säännön viestien käsittelemiseksi roskapostina.
         Sääntöjen luominen ja käyttö ovat pro-ominaisuuksia.    </string>
     <string name="title_notification_waiting">Odotetaan sopivaa yhteyttä</string>
@@ -828,6 +829,8 @@
     <string name="title_legend_draft">Sisältää luonnoksen</string>
     <string name="title_legend_priority">Tärkeysjärjestyksessä korkealla</string>
     <string name="title_legend_priority_low">Tärkeysjärjestyksessä alhaalla</string>
+    <string name="title_legend_importance">Tärkeä</string>
+    <string name="title_legend_importance_low">Ei tärkeä</string>
     <string name="title_legend_signed">Salattu</string>
     <string name="title_legend_encrypted">Salattu</string>
     <string name="title_legend_auth">Tunnistautuminen epäonnistui</string>

@@ -25,6 +25,7 @@
     <string name="title_ask_spam_who">Považovat zprávy od %1$s za nevyžádané?</string>
     <string name="title_block">Blokovat %1$s</string>
     <string name="title_block_sender">Blokovat odesílatele</string>
+    <string name="title_block_domain">Blokovat doménu odesílatele</string>
     <string name="title_block_sender_hint">        Blokování odesílatele vytvoří pravidlo pro automatický přesun budoucích zpráv do složky nevyžádané pošty.
         Vytváření a používání pravidel je Pro funkcí.
     </string>
@@ -86,6 +87,7 @@
     <string name="title_setup_no_settings">Pro doménu \'%1$s\' nebylo nalezeno žádné nastavení</string>
     <string name="title_setup_no_settings_hint">Zkuste prosím nastavit účet a identitu v krocích 1 a 2 nastavení, s použitím nastavení poskytnutých vaším poskytovatelem e-mailu</string>
     <string name="title_setup_no_auth_hint">Zkontrolujte prosím zadanou e-mailovou adresu a heslo a ujistěte se, že u daného účtu máte povolen externí přístup (IMAP/SMTP)</string>
+    <string name="title_setup_app_password_hint">Tento poskytovatel požaduje heslo pro aplikaci namísto hesla k účtu</string>
     <string name="title_setup_no_system_folders">Složka doručené či koncepty nebyla nalezena</string>
     <string name="title_setup_quick_success">Účet a identita byly úspěšně přidány</string>
     <string name="title_setup_quick_failed">Účet a identitu můžete také zkusit nastavit níže</string>
@@ -786,6 +788,8 @@
     <string name="title_legend_draft">Má koncept</string>
     <string name="title_legend_priority">Má vysokou prioritu</string>
     <string name="title_legend_priority_low">Má nízkou prioritu</string>
+    <string name="title_legend_importance">Je důležité</string>
+    <string name="title_legend_importance_low">Není důležité</string>
     <string name="title_legend_signed">Je podepsáno</string>
     <string name="title_legend_encrypted">Je šifrováno</string>
     <string name="title_legend_auth">Ověřování selhalo</string>
