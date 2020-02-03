@@ -409,7 +409,7 @@ public class FragmentQuickSetup extends FragmentBase {
                     boolean appPassword = args.getBoolean("appPassword");
                     String message = getString(R.string.title_setup_no_auth_hint);
                     if (appPassword)
-                        message += " - " + getString(R.string.title_setup_app_password_hint);
+                        message += "\n" + getString(R.string.title_setup_app_password_hint);
                     tvErrorHint.setText(message);
                 } else
                     tvErrorHint.setText(R.string.title_setup_no_settings_hint);
