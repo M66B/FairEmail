@@ -210,7 +210,7 @@ dependencies {
     def jsoup_version = "1.12.1"
     def dnsjava_version = "2.1.9"
     def openpgp_version = "12.0"
-    def requery_version = "3.30.1"
+    def requery_version = "3.31.0"
     def badge_version = "1.1.22"
     def bugsnag_version = "4.17.2"
     def biweekly_version = "0.6.3"
