@@ -1221,6 +1221,17 @@ public class FragmentCompose extends FragmentBase {
         Bundle args = new Bundle();
         args.putLong("working", working);
 
+        int focussed = 0;
+        View v = view.findFocus();
+        if (v != null) {
+            if (v.getId() == R.id.etCc)
+                focussed = 1;
+            else if (v.getId() == R.id.etBcc)
+                focussed = 2;
+        }
+
+        args.putInt("focussed", focussed);
+
         FragmentDialogContactGroup fragment = new FragmentDialogContactGroup();
         fragment.setArguments(args);
         fragment.setTargetFragment(this, REQUEST_CONTACT_GROUP);
@@ -4184,6 +4195,7 @@ public class FragmentCompose extends FragmentBase {
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             final long working = getArguments().getLong("working");
+            int focussed = getArguments().getInt("focussed");
 
             View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_contact_group, null);
             final Spinner spGroup = dview.findViewById(R.id.spGroup);
@@ -4210,6 +4222,8 @@ public class FragmentCompose extends FragmentBase {
                     new int[]{android.R.id.text1},
                     0);
             spGroup.setAdapter(adapter);
+
+            spTarget.setSelection(focussed);
 
             return new AlertDialog.Builder(getContext())
                     .setView(dview)
