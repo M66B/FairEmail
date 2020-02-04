@@ -743,7 +743,9 @@ public class HtmlHelper {
             else if (node instanceof Element) {
                 Element element = (Element) node;
                 if (!element.isBlock() &&
-                        (element.hasText() || element.selectFirst("img") != null))
+                        (element.hasText() ||
+                                element.selectFirst("a") != null ||
+                                element.selectFirst("img") != null))
                     return true;
             }
         return false;
