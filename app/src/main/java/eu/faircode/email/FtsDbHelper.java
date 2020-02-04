@@ -37,7 +37,7 @@ import io.requery.android.database.sqlite.SQLiteOpenHelper;
 public class FtsDbHelper extends SQLiteOpenHelper {
     private static FtsDbHelper instance = null;
 
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 3;
     private static final String DATABASE_NAME = "fts.db";
 
     private FtsDbHelper(Context context) {
@@ -54,7 +54,16 @@ public class FtsDbHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         Log.i("FTS create");
         db.execSQL("CREATE VIRTUAL TABLE `message`" +
-                " USING fts5 (`account` UNINDEXED, `folder` UNINDEXED, `time` UNINDEXED, `address`, `subject`, `keyword`, `text`)");
+                " USING fts5" +
+                " (`account` UNINDEXED" +
+                ", `folder` UNINDEXED" +
+                ", `time` UNINDEXED" +
+                ", `address`" +
+                ", `subject`" +
+                ", `keyword`" +
+                ", `text`" +
+                ", tokenize = \"unicode61 remove_diacritics 2\")");
+        // https://www.sqlite.org/fts5.html#unicode61_tokenizer
     }
 
     @Override
