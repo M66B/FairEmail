@@ -2020,6 +2020,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         else
                             result.unflagged = true;
 
+                        int i = (message.importance == null ? EntityMessage.PRIORITIY_NORMAL : message.importance);
+                        if (result.importance == null)
+                            result.importance = i;
+                        else if (!result.importance.equals(i))
+                            result.importance = -1; // mixed
+
                         if (threaded.folder.equals(message.folder))
                             if (message.ui_snoozed == null)
                                 result.visible = true;
@@ -2092,9 +2098,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 SubMenu importance = popupMenu.getMenu()
                         .addSubMenu(Menu.NONE, Menu.NONE, order++, R.string.title_set_importance);
-                importance.add(Menu.NONE, R.string.title_importance_low, 1, R.string.title_importance_low);
-                importance.add(Menu.NONE, R.string.title_importance_normal, 2, R.string.title_importance_normal);
-                importance.add(Menu.NONE, R.string.title_importance_high, 3, R.string.title_importance_high);
+                importance.add(Menu.NONE, R.string.title_importance_low, 1, R.string.title_importance_low)
+                        .setEnabled(!EntityMessage.PRIORITIY_LOW.equals(result.importance));
+                importance.add(Menu.NONE, R.string.title_importance_normal, 2, R.string.title_importance_normal)
+                        .setEnabled(!EntityMessage.PRIORITIY_NORMAL.equals(result.importance));
+                importance.add(Menu.NONE, R.string.title_importance_high, 3, R.string.title_importance_high)
+                        .setEnabled(!EntityMessage.PRIORITIY_HIGH.equals(result.importance));
 
                 if (result.hasArchive && !result.isArchive) // has archive and not is archive/drafts
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_archive, order++, R.string.title_archive);
@@ -5927,6 +5936,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         boolean hidden;
         boolean flagged;
         boolean unflagged;
+        Integer importance;
         Boolean hasArchive;
         Boolean hasTrash;
         Boolean hasJunk;
