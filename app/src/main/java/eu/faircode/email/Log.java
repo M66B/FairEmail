@@ -301,7 +301,9 @@ public class Log {
                     return false;
 
                 if (ex instanceof IOException &&
-                        ("NetworkError".equals(ex.getMessage()) || // account manager
+                        ex.getMessage() != null &&
+                        (ex.getMessage().startsWith("HTTP status=") ||
+                                "NetworkError".equals(ex.getMessage()) || // account manager
                                 "Resetting to invalid mark".equals(ex.getMessage())))
                     return false;
 
