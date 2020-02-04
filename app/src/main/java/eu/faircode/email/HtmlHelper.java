@@ -662,24 +662,28 @@ public class HtmlHelper {
     private static Integer parseColor(@NonNull String value, boolean dark) {
         // https://developer.mozilla.org/en-US/docs/Web/CSS/color_value
         String c = value
+                .replace("null", "")
                 .replace("none", "")
                 .replace("unset", "")
                 .replace("inherit", "")
                 .replace("initial", "")
                 .replace("windowtext", "")
                 .replace("transparent", "")
-                .replaceAll("[^a-z0-9(),.%#]", "");
+                .replaceAll("[^a-z0-9(),.%#]", "")
+                .replaceAll("#+", "#");
 
         Integer color = null;
         try {
             if (TextUtils.isEmpty(c))
                 return null;
             else if (c.startsWith("#")) {
-                String code = c.substring(1);
-                if (x11ColorMap.containsKey(code)) // workaround
-                    color = x11ColorMap.get(code) | 0xFF000000;
-                else
-                    color = Integer.decode(c) | 0xFF000000;
+                if (c.length() > 1) {
+                    String code = c.substring(1);
+                    if (x11ColorMap.containsKey(code)) // workaround
+                        color = x11ColorMap.get(code) | 0xFF000000;
+                    else
+                        color = Integer.decode(c) | 0xFF000000;
+                }
             } else if (c.startsWith("rgb") || c.startsWith("hsl")) {
                 int s = c.indexOf("(");
                 int e = c.indexOf(")");
