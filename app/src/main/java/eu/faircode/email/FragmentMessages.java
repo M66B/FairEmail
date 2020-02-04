@@ -4777,11 +4777,20 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             int sresult = (sigResult == null ? RESULT_NO_SIGNATURE : sigResult.getResult());
                             if (sresult == RESULT_NO_SIGNATURE)
                                 Snackbar.make(view, R.string.title_signature_none, Snackbar.LENGTH_LONG).show();
-                            else if (sresult == RESULT_VALID_KEY_CONFIRMED)
-                                Snackbar.make(view, R.string.title_signature_valid, Snackbar.LENGTH_LONG).show();
-                            else if (sresult == RESULT_VALID_KEY_UNCONFIRMED)
-                                Snackbar.make(view, R.string.title_signature_unconfirmed, Snackbar.LENGTH_LONG).show();
-                            else
+                            else if (sresult == RESULT_VALID_KEY_CONFIRMED || sresult == RESULT_VALID_KEY_UNCONFIRMED) {
+                                List<String> users = sigResult.getConfirmedUserIds();
+                                String text;
+                                if (users.size() > 0)
+                                    text = getString(sresult == RESULT_VALID_KEY_UNCONFIRMED
+                                                    ? R.string.title_signature_unconfirmed_from
+                                                    : R.string.title_signature_valid_from,
+                                            TextUtils.join(", ", users));
+                                else
+                                    text = getString(sresult == RESULT_VALID_KEY_UNCONFIRMED
+                                            ? R.string.title_signature_unconfirmed
+                                            : R.string.title_signature_valid);
+                                Snackbar.make(view, text, Snackbar.LENGTH_LONG).show();
+                            } else
                                 Snackbar.make(view, R.string.title_signature_invalid, Snackbar.LENGTH_LONG).show();
 
                             break;

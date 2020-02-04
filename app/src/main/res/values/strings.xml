@@ -802,7 +802,9 @@
 
     <string name="title_signature_none">Message not signed</string>
     <string name="title_signature_valid">Message signature valid</string>
+    <string name="title_signature_valid_from">Message signature valid: %1$s</string>
     <string name="title_signature_unconfirmed">Message signature valid but not confirmed</string>
+    <string name="title_signature_unconfirmed_from">Message signature valid but not confirmed: %1$s</string>
     <string name="title_signature_invalid">Message signature invalid</string>
     <string name="title_signature_invalid_reason">Message signature invalid: %1$s</string>
     <string name="title_signature_certificate_invalid">Certificate chain invalid</string>
