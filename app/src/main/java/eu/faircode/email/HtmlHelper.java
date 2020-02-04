@@ -260,6 +260,7 @@ public class HtmlHelper {
         Document parsed = JsoupEx.parse(html);
 
         // <!--[if ...]><!--> ... <!--<![endif]-->
+        // https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/hh801214(v=vs.85)
         if (!display_hidden && false)
             parsed.filter(new NodeFilter() {
                 private boolean remove = false;
