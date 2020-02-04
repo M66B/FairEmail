@@ -606,7 +606,7 @@ public class EmailService implements AutoCloseable {
                                 }
 
                             String error = server + " not in certificate: " + TextUtils.join(",", names);
-                            Log.e(error);
+                            Log.i(error);
                             throw new CertificateException(error);
                         }
                     }
