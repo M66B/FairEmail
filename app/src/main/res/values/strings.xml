@@ -633,6 +633,10 @@
     <string name="title_flag">Add star</string>
     <string name="title_flag_color">Colored star &#8230;</string>
     <string name="title_unflag">Remove star</string>
+    <string name="title_set_importance">Set importance</string>
+    <string name="title_importance_low">Low</string>
+    <string name="title_importance_normal">Normal</string>
+    <string name="title_importance_high">High</string>
     <string name="title_forward">Forward</string>
     <string name="title_new_message">New message</string>
     <string name="title_editasnew">Edit as new</string>

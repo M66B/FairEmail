@@ -17,6 +17,22 @@
         android:title="@string/title_flag_color" />
 
     <item
+        android:id="@+id/menu_set_importance"
+        android:title="@string/title_set_importance">
+        <menu>
+            <item
+                android:id="@+id/menu_set_importance_low"
+                android:title="@string/title_importance_low" />
+            <item
+                android:id="@+id/menu_set_importance_normal"
+                android:title="@string/title_importance_normal" />
+            <item
+                android:id="@+id/menu_set_importance_high"
+                android:title="@string/title_importance_high" />
+        </menu>
+    </item>
+
+    <item
         android:id="@+id/menu_copy"
         android:title="@string/title_copy" />
 
@@ -31,10 +47,6 @@
     <item
         android:id="@+id/menu_create_rule"
         android:title="@string/title_create_rule" />
-
-    <item
-        android:id="@+id/menu_set_importance"
-        android:title="@string/title_rule_importance" />
 
     <item
         android:id="@+id/menu_manage_keywords"

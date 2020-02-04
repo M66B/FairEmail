@@ -92,7 +92,6 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -3292,6 +3291,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         case R.id.menu_flag_color:
                             onMenuColoredStar(message);
                             return true;
+                        case R.id.menu_set_importance_low:
+                            onMenuSetImportance(message, EntityMessage.PRIORITIY_LOW);
+                            return true;
+                        case R.id.menu_set_importance_normal:
+                            onMenuSetImportance(message, EntityMessage.PRIORITIY_NORMAL);
+                            return true;
+                        case R.id.menu_set_importance_high:
+                            onMenuSetImportance(message, EntityMessage.PRIORITIY_HIGH);
+                            return true;
                         case R.id.menu_copy:
                             onActionMove(message, true);
                             return true;
@@ -3303,9 +3311,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             return true;
                         case R.id.menu_create_rule:
                             onMenuCreateRule(message);
-                            return true;
-                        case R.id.menu_set_importance:
-                            onMenuSetImportance(message);
                             return true;
                         case R.id.menu_manage_keywords:
                             onMenuManageKeywords(message);
@@ -3566,6 +3571,32 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             fragment.show(parentFragment.getParentFragmentManager(), "message:color");
         }
 
+        private void onMenuSetImportance(TupleMessageEx message, int importance) {
+            Bundle args = new Bundle();
+            args.putLong("id", message.id);
+            args.putInt("importance", importance);
+
+            new SimpleTask<Void>() {
+                @Override
+                protected Void onExecute(Context context, Bundle args) throws Throwable {
+                    long id = args.getLong("id");
+                    Integer importance = args.getInt("importance");
+                    if (EntityMessage.PRIORITIY_NORMAL.equals(importance))
+                        importance = null;
+
+                    DB db = DB.getInstance(context);
+                    db.message().setMessageImportance(id, importance);
+
+                    return null;
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                }
+            }.execute(context, owner, args, "importance:set");
+        }
+
         private void onMenuDelete(final TupleMessageEx message) {
             Bundle aargs = new Bundle();
             aargs.putString("question", context.getString(R.string.title_ask_delete));
@@ -3632,17 +3663,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             lbm.sendBroadcast(rule);
-        }
-
-        private void onMenuSetImportance(TupleMessageEx message) {
-            Bundle args = new Bundle();
-            args.putLong("id", message.id);
-            if (message.importance != null)
-                args.putInt("importance", message.importance);
-
-            FragmentDialogSetImportance fragment = new FragmentDialogSetImportance();
-            fragment.setArguments(args);
-            fragment.show(parentFragment.getParentFragmentManager(), "keyword:importance");
         }
 
         private void onMenuManageKeywords(TupleMessageEx message) {
@@ -4988,50 +5008,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             getArguments().putBoolean("block_sender", cbBlockSender.isChecked());
                             getArguments().putBoolean("block_domain", cbBlockDomain.isChecked());
                             sendResult(RESULT_OK);
-                        }
-                    })
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .create();
-        }
-    }
-
-    public static class FragmentDialogSetImportance extends FragmentDialogBase {
-        @NonNull
-        @Override
-        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            int importance = getArguments().getInt("importance", EntityMessage.PRIORITIY_NORMAL);
-
-            View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_importance, null);
-            final Spinner spImportance = view.findViewById(R.id.spImportance);
-            spImportance.setSelection(importance);
-
-            return new AlertDialog.Builder(getContext())
-                    .setView(view)
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Bundle args = getArguments();
-                            args.putInt("importance", spImportance.getSelectedItemPosition());
-
-                            new SimpleTask<Void>() {
-                                @Override
-                                protected Void onExecute(Context context, Bundle args) throws Throwable {
-                                    long id = args.getLong("id");
-                                    Integer importance = args.getInt("importance");
-                                    if (EntityMessage.PRIORITIY_NORMAL.equals(importance))
-                                        importance = null;
-
-                                    DB db = DB.getInstance(context);
-                                    db.message().setMessageImportance(id, importance);
-
-                                    return null;
-                                }
-
-                                @Override
-                                protected void onException(Bundle args, Throwable ex) {
-                                    Log.unexpectedError(getParentFragmentManager(), ex);
-                                }
-                            }.execute(getContext(), getViewLifecycleOwner(), args, "importance: set");
                         }
                     })
                     .setNegativeButton(android.R.string.cancel, null)
