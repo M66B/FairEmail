@@ -995,9 +995,10 @@ public class MessageHelper {
         if (subject == null)
             return null;
 
+        // https://github.com/eclipse-ee4j/mail/issues/423
+
         subject = subject.replaceAll("\\?=\\r?\\n\\s+=\\?", "\\?==\\?");
         subject = MimeUtility.unfold(subject);
-        subject = new String(subject.getBytes(StandardCharsets.ISO_8859_1));
         subject = decodeMime(subject);
 
         return subject;
