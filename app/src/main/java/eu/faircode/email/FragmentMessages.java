@@ -2090,7 +2090,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (result.unflagged || result.flagged)
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_flag_color, order++, R.string.title_flag_color);
 
-                SubMenu importance = popupMenu.getMenu().addSubMenu(R.string.title_set_importance);
+                SubMenu importance = popupMenu.getMenu()
+                        .addSubMenu(Menu.NONE, Menu.NONE, order++, R.string.title_set_importance);
                 importance.add(Menu.NONE, R.string.title_importance_low, 1, R.string.title_importance_low);
                 importance.add(Menu.NONE, R.string.title_importance_normal, 2, R.string.title_importance_normal);
                 importance.add(Menu.NONE, R.string.title_importance_high, 3, R.string.title_importance_high);
