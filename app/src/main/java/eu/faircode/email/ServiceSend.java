@@ -174,6 +174,7 @@ public class ServiceSend extends ServiceBase {
                         .setContentIntent(pi)
                         .setAutoCancel(false)
                         .setShowWhen(true)
+                        .setLocalOnly(true)
                         .setPriority(NotificationCompat.PRIORITY_MIN)
                         .setCategory(NotificationCompat.CATEGORY_SERVICE)
                         .setVisibility(NotificationCompat.VISIBILITY_SECRET);
