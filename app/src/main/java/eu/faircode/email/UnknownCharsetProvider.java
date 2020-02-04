@@ -74,6 +74,12 @@ public class UnknownCharsetProvider extends CharsetProvider {
             if ("UTF-8//TRANSLIT".equalsIgnoreCase(name))
                 return StandardCharsets.UTF_8;
 
+            if ("BASE64".equalsIgnoreCase(name) ||
+                    "ISO".equalsIgnoreCase(name) ||
+                    "latin".equalsIgnoreCase(name) ||
+                    "windows-1252".equalsIgnoreCase(name))
+                return StandardCharsets.ISO_8859_1;
+
             // Android will prevent recursion
             String jname = MimeUtility.javaCharset(name);
             return Charset.forName(jname);
