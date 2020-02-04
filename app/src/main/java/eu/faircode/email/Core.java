@@ -1159,11 +1159,6 @@ class Core {
                     Log.w(ex);
                 }
             }
-
-            DB db = DB.getInstance(context);
-            message = db.message().getMessage(message.id);
-            if (message == null || message.uid != null)
-                return;
         }
 
         Message[] imessages = ifolder.search(new MessageIDTerm(message.msgid));
