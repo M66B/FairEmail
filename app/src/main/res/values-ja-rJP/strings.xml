@@ -228,7 +228,7 @@
     <string name="title_advanced_landscape">横向きモードで2列を使用</string>
     <string name="title_advanced_landscape3">横向きモードで固定ナビゲーションメニューを許可</string>
     <string name="title_advanced_startup">スタート画面に表示</string>
-    <string name="title_advanced_cards">カードを表示</string>
+    <string name="title_advanced_cards">表形式では無くカード形式を使用</string>
     <string name="title_advanced_date_header">日付毎にグループ化</string>
     <string name="title_advanced_threading">会話スレッド</string>
     <string name="title_advanced_indentation">会話の受信/送信メッセージの左/右インデント</string>
@@ -282,6 +282,7 @@
     <string name="title_advanced_quick_scroll">目立たないクイックスクロールアップ/ダウンアイコンを表示</string>
     <string name="title_advanced_autoread">移動するメッセージを既読にします</string>
     <string name="title_advanced_autounstar">移動するメッセージのスターを取り消します</string>
+    <string name="title_advanced_reset_importance">移動メッセージの重要度をリセット</string>
     <string name="title_advanced_automove">メッセージを移動する時に確認</string>
     <string name="title_advanced_discard_delete">下書きを破棄する場合、下書きを完全に削除</string>
     <string name="title_advanced_default_snooze">デフォルトのスヌーズ時間</string>
@@ -533,6 +534,10 @@
     <string name="title_flag">スターを付けます</string>
     <string name="title_flag_color">色付きのスター &#8230;</string>
     <string name="title_unflag">スターを削除</string>
+    <string name="title_set_importance">重要度を設定</string>
+    <string name="title_importance_low">低</string>
+    <string name="title_importance_normal">中</string>
+    <string name="title_importance_high">高</string>
     <string name="title_forward">転送</string>
     <string name="title_new_message">新着メッセージ</string>
     <string name="title_editasnew">新規として編集</string>
@@ -685,7 +690,9 @@ PlayストアでFairEmailを評価できれば幸いです。
     <string name="title_reset_sign_key">署名キーをリセット</string>
     <string name="title_signature_none">メッセージが署名されていません</string>
     <string name="title_signature_valid">メッセージ署名が有効</string>
+    <string name="title_signature_valid_from">メッセージ署名が有効:%1$s</string>
     <string name="title_signature_unconfirmed">メッセージ署名は有効ですが確認されていません</string>
+    <string name="title_signature_unconfirmed_from">メッセージ署名は有効ですが確認されていません:%1$s</string>
     <string name="title_signature_invalid">メッセージ署名が無効です</string>
     <string name="title_signature_invalid_reason">メッセージ署名が無効です:%1$s</string>
     <string name="title_signature_certificate_invalid">証明書が無効</string>
@@ -714,6 +721,7 @@ PlayストアでFairEmailを評価できれば幸いです。
     <string name="title_filter">除外する</string>
     <string name="title_filter_seen">読む</string>
     <string name="title_filter_unflagged">スター無し</string>
+    <string name="title_filter_unknown">不明な送信者</string>
     <string name="title_filter_hidden">非表示</string>
     <string name="title_filter_duplicates">重複</string>
     <string name="title_compact">簡易表示</string>

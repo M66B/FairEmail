@@ -240,7 +240,7 @@
     <string name="title_advanced_landscape">Erabili bi zutabe modu horizontalean</string>
     <string name="title_advanced_landscape3">Baimendu nabigazio menu finkoa horizontalean</string>
     <string name="title_advanced_startup">Erakutsi hasiera pantailan</string>
-    <string name="title_advanced_cards">Erakutsi txartelak</string>
+    <string name="title_advanced_cards">Erabili txartela estiloa tabulazio estiloaren ordez</string>
     <string name="title_advanced_date_header">Taldekatu dataren arabera</string>
     <string name="title_advanced_threading">Elkarrizketak haritzea</string>
     <string name="title_advanced_indentation">Ezker/eskuin marjina elkarrizketetan jaso/bidalitako mezuetan</string>
@@ -294,6 +294,7 @@
     <string name="title_advanced_quick_scroll">Erakutsi azkar gora/behera korritzeko ikonoak</string>
     <string name="title_advanced_autoread">Markatu mezuak irakurrita gisa hauek mugitzean</string>
     <string name="title_advanced_autounstar">Kendu izarrak mezuetatik hauek mugitzean</string>
+    <string name="title_advanced_reset_importance">Berrezarri garrantzia mezuak mugitzean</string>
     <string name="title_advanced_automove">Baieztatu mezuak mugitzea</string>
     <string name="title_advanced_discard_delete">Zirriborroa baztertzean ezabatu zirriborroa behin betiko</string>
     <string name="title_advanced_default_snooze">Lehenetsitako atzeratze denbora</string>
@@ -545,6 +546,10 @@
     <string name="title_flag">Gehitu izarra</string>
     <string name="title_flag_color">Kolorezko izarra &#8230;</string>
     <string name="title_unflag">Kendu izarra</string>
+    <string name="title_set_importance">Ezarri garrantzia</string>
+    <string name="title_importance_low">Txikia</string>
+    <string name="title_importance_normal">Normala</string>
+    <string name="title_importance_high">Handia</string>
     <string name="title_forward">Birbidali</string>
     <string name="title_new_message">Mezu berria</string>
     <string name="title_editasnew">Editatu berri gisa</string>
@@ -698,7 +703,9 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_reset_sign_key">Berrezarri sinadura gakoa</string>
     <string name="title_signature_none">Mezua ez dago sinatuta</string>
     <string name="title_signature_valid">Mezuaren sinadura baliozkoa</string>
+    <string name="title_signature_valid_from">Mezuaren sinadura baliozkoa: %1$s</string>
     <string name="title_signature_unconfirmed">Mezuaren sinadura baliozkoa da baina ez da baieztatu</string>
+    <string name="title_signature_unconfirmed_from">Mezuaren sinadura baliozkoa da baina ez da baieztatu: %1$s</string>
     <string name="title_signature_invalid">Mezuaren sinadura baliogabea</string>
     <string name="title_signature_invalid_reason">Mezuaren sinadura baliogabea da: %1$s</string>
     <string name="title_signature_certificate_invalid">Ziurtagiri kate baliogabea</string>
@@ -727,6 +734,7 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_filter">Iragazi</string>
     <string name="title_filter_seen">Irakurrita</string>
     <string name="title_filter_unflagged">Izarrik gabe</string>
+    <string name="title_filter_unknown">Bidaltzaile ezezagunak</string>
     <string name="title_filter_hidden">Ezkutuan</string>
     <string name="title_filter_duplicates">Bikoiztutakoak</string>
     <string name="title_compact">Ikuspegi trinkoa</string>

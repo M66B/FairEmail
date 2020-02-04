@@ -80,6 +80,7 @@
     <string name="title_ask_spam_who">Tratează mesajul de la %1$s ca spam?</string>
     <string name="title_block">Blochează %1$s</string>
     <string name="title_block_sender">Blochează expeditor</string>
+    <string name="title_block_domain">Blocare domeniu expeditor</string>
     <string name="title_block_sender_hint">        Blocarea unui expeditor va crea o regulă ce mută automat orice mesaj viitor în dosarul de spam.
         Crearea și utilizarea regulilor este o caracteristică Pro.
     </string>
@@ -140,6 +141,7 @@
     <string name="title_setup_no_settings">Nu s-au găsit setări pentru domeniul \'%1$s\'</string>
     <string name="title_setup_no_settings_hint">Încercați să configurați un cont și o identitate în etapele 1 și 2 de configurare utilizând setările furnizate de furnizorul de e-mail</string>
     <string name="title_setup_no_auth_hint">Vă rugăm să verificați iar adresa de e-mail și parola și asigurați-vă că accesul extern (IMAP/SMTP) este activat pentru contul dumneavoastră</string>
+    <string name="title_setup_app_password_hint">Acest furnizor necesită o parolă pentru aplicație în loc de parola contului</string>
     <string name="title_setup_no_system_folders">Dosarul de primite sau ciorne nu a fost găsit</string>
     <string name="title_setup_quick_success">Un cont şi o identitate au fost adăugate cu succes</string>
     <string name="title_setup_quick_failed">Puteţi încerca de asemenea să configurați un cont şi o identitate mai jos</string>
@@ -250,7 +252,7 @@
     <string name="title_advanced_landscape">Folosește două coloane în modul portret</string>
     <string name="title_advanced_landscape3">Permite meniul de navigare fix în modul panoramă</string>
     <string name="title_advanced_startup">Arată pe ecranul de start</string>
-    <string name="title_advanced_cards">Arată carduri</string>
+    <string name="title_advanced_cards">Folosește stilul carduri în loc de cel tabular</string>
     <string name="title_advanced_date_header">Grupare după dată</string>
     <string name="title_advanced_threading">Aranjare mesaje în conversație</string>
     <string name="title_advanced_indentation">Aliniere mesaje primite/trimise în stânga/dreapta în conversații</string>
@@ -304,6 +306,7 @@
     <string name="title_advanced_quick_scroll">Arată iconițele de derulare sus/jos rapidă</string>
     <string name="title_advanced_autoread">Marchează automat mesajele mutate ca citite</string>
     <string name="title_advanced_autounstar">Elimină automat steaua mesajelor mutate</string>
+    <string name="title_advanced_reset_importance">Resetează importanța la mutarea mesajelor</string>
     <string name="title_advanced_automove">Confirmă mutarea mesajelor</string>
     <string name="title_advanced_discard_delete">Ciorna se șterge când renunțați la ea</string>
     <string name="title_advanced_default_snooze">Timpul implicit de amânare</string>
@@ -556,6 +559,10 @@
     <string name="title_flag">Adaugă stea</string>
     <string name="title_flag_color">Stea colorată &#8230;</string>
     <string name="title_unflag">Elimină stea</string>
+    <string name="title_set_importance">Setare importanță</string>
+    <string name="title_importance_low">Redusă</string>
+    <string name="title_importance_normal">Normală</string>
+    <string name="title_importance_high">Ridicată</string>
     <string name="title_forward">Redirecționează</string>
     <string name="title_new_message">Mesaj nou</string>
     <string name="title_editasnew">Editare ca nou</string>
@@ -840,6 +847,8 @@
     <string name="title_legend_draft">Are ciornă</string>
     <string name="title_legend_priority">Prioritate ridicată</string>
     <string name="title_legend_priority_low">Are prioritate redusă</string>
+    <string name="title_legend_importance">Este important</string>
+    <string name="title_legend_importance_low">Nu este important</string>
     <string name="title_legend_signed">Este semnat</string>
     <string name="title_legend_encrypted">Este criptat</string>
     <string name="title_legend_auth">Autentificare eșuată</string>

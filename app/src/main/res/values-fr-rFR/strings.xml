@@ -242,7 +242,7 @@
     <string name="title_advanced_landscape">Utiliser deux colonnes en mode paysage</string>
     <string name="title_advanced_landscape3">Afficher le menu de navigation fixe en mode paysage</string>
     <string name="title_advanced_startup">Afficher sur l\'écran de démarrage</string>
-    <string name="title_advanced_cards">Afficher sous forme de cartes</string>
+    <string name="title_advanced_cards">Utiliser le style carte au lieu du style tableau</string>
     <string name="title_advanced_date_header">Grouper par date</string>
     <string name="title_advanced_threading">Afficher en mode conversation</string>
     <string name="title_advanced_indentation">Décaler les messages reçus/envoyés vers la gauche/droite dans les conversations</string>
@@ -296,6 +296,7 @@
     <string name="title_advanced_quick_scroll">Afficher les icônes discrètes de défilement rapide vers le haut/bas</string>
     <string name="title_advanced_autoread">Marquer automatiquement les messages comme lus lors de leur déplacement</string>
     <string name="title_advanced_autounstar">Retirer automatiquement l\'étoile de suivi des messages lors de leur déplacement</string>
+    <string name="title_advanced_reset_importance">Réinitialiser l\'importance lors du déplacement des messages</string>
     <string name="title_advanced_automove">Confirmer le déplacement des messages</string>
     <string name="title_advanced_discard_delete">Lors de la suppression d\'un brouillon, le supprimer définitivement</string>
     <string name="title_advanced_default_snooze">Délai de report par défaut</string>
@@ -548,6 +549,10 @@
     <string name="title_flag">Marquer comme suivi</string>
     <string name="title_flag_color">Couleur de suivi&#8230;</string>
     <string name="title_unflag">Marquer comme non suivi</string>
+    <string name="title_set_importance">Définir l\'importance</string>
+    <string name="title_importance_low">Basse</string>
+    <string name="title_importance_normal">Normale</string>
+    <string name="title_importance_high">Haute</string>
     <string name="title_forward">Transférer</string>
     <string name="title_new_message">Nouveau message</string>
     <string name="title_editasnew">Modifier comme nouveau mail</string>
@@ -701,7 +706,9 @@
     <string name="title_reset_sign_key">Réinitialiser la clé de signature</string>
     <string name="title_signature_none">Message non signé</string>
     <string name="title_signature_valid">Signature de message valide</string>
+    <string name="title_signature_valid_from">Signature de message valide : %1$s</string>
     <string name="title_signature_unconfirmed">Signature du message valide mais non confirmée</string>
+    <string name="title_signature_unconfirmed_from">Signature de message valide mais non confirmée : %1$s</string>
     <string name="title_signature_invalid">Signature de message invalide</string>
     <string name="title_signature_invalid_reason">Signature de message invalide : %1$s</string>
     <string name="title_signature_certificate_invalid">Chaîne de certificats invalide</string>
@@ -730,6 +737,7 @@
     <string name="title_filter">Filtrer (exclure)</string>
     <string name="title_filter_seen">Lu</string>
     <string name="title_filter_unflagged">Non suivi</string>
+    <string name="title_filter_unknown">Expéditeurs inconnus</string>
     <string name="title_filter_hidden">Masqué</string>
     <string name="title_filter_duplicates">Doublons</string>
     <string name="title_compact">Vue compacte</string>

@@ -242,7 +242,7 @@
     <string name="title_advanced_landscape">Yatay modda iki sütun kullanın</string>
     <string name="title_advanced_landscape3">Yatay modda sabit navigasyon menüsüne izin ver</string>
     <string name="title_advanced_startup">Başlangıç ekranında göster</string>
-    <string name="title_advanced_cards">Kartları göster</string>
+    <string name="title_advanced_cards">Tablo stili yerine kart stilini kullan</string>
     <string name="title_advanced_date_header">Tarihe göre grup</string>
     <string name="title_advanced_threading">İletişim iş parçacığı</string>
     <string name="title_advanced_indentation">Sohbetlerde alınan/gönderilen mesajları sola/sağa girintile</string>
@@ -296,6 +296,7 @@
     <string name="title_advanced_quick_scroll">Rahatsız edici olmayan hızlı yukarı/aşağı kaydırma simgelerini göster</string>
     <string name="title_advanced_autoread">İleti taşındığında otomatik olarak okundu diye işaretle</string>
     <string name="title_advanced_autounstar">Mesajları taşırken otomatik olarak yıldızı kaldır</string>
+    <string name="title_advanced_reset_importance">Mesajları taşırken önem derecesini sıfırla</string>
     <string name="title_advanced_automove">İletileri taşımayı onaylayın</string>
     <string name="title_advanced_discard_delete">Taslak gönderildiğinde taslağı kalıcı olarak sil</string>
     <string name="title_advanced_default_snooze">Varsayılan erteleme süresi</string>
@@ -548,6 +549,10 @@
     <string name="title_flag">Yıldız Ekle</string>
     <string name="title_flag_color">Renkli yıldız&#8230;</string>
     <string name="title_unflag">Yıldızı Kaldır</string>
+    <string name="title_set_importance">Önem derecesini ayarla</string>
+    <string name="title_importance_low">Düşük</string>
+    <string name="title_importance_normal">Normal</string>
+    <string name="title_importance_high">Yüksek</string>
     <string name="title_forward">İlet</string>
     <string name="title_new_message">Yeni ileti</string>
     <string name="title_editasnew">Yeni olarak düzenle</string>

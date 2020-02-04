@@ -91,6 +91,7 @@
     <string name="title_ask_spam_who">Traktuj wiadomość od %1$s jako spam?</string>
     <string name="title_block">Zablokuj %1$s</string>
     <string name="title_block_sender">Zablokuj nadawcę</string>
+    <string name="title_block_domain">Blokuj domenę nadawcy</string>
     <string name="title_block_sender_hint">        Blokowanie nadawcy utworzy regułę, aby automatycznie przenosić przyszłe wiadomości do folderu spam.
         Tworzenie i używanie reguł jest funkcją Pro.    </string>
     <string name="title_notification_waiting">Oczekiwanie na odpowiednie połączenie</string>
@@ -151,6 +152,7 @@
     <string name="title_setup_no_settings">Nie ma ustawień dla domeny \'%1$s\'</string>
     <string name="title_setup_no_settings_hint">Spróbuj skonfigurować konto i tożsamość w krokach konfiguracji 1 i 2, korzystając z ustawień dostarczonych przez dostawcę poczty e-mail</string>
     <string name="title_setup_no_auth_hint">Sprawdź dokładnie swój adres e-mail i hasło oraz upewnij się, że dostęp zewnętrzny (IMAP/SMTP) jest włączony dla Twojego konta</string>
+    <string name="title_setup_app_password_hint">Ten dostawca wymaga hasła aplikacji zamiast hasła do konta</string>
     <string name="title_setup_no_system_folders">Nie znaleziono folderu skrzynki odbiorczej lub szkiców</string>
     <string name="title_setup_quick_success">Pomyślnie dodano konto i tożsamość</string>
     <string name="title_setup_quick_failed">Możesz ustawić konto i tożsamość w krokach poniżej</string>
@@ -261,7 +263,7 @@
     <string name="title_advanced_landscape">Użyj dwóch kolumn w trybie poziomym</string>
     <string name="title_advanced_landscape3">Zezwalaj na stałe menu nawigacji w trybie poziomym</string>
     <string name="title_advanced_startup">Pokaż na ekranie początkowym</string>
-    <string name="title_advanced_cards">Pokaż karty</string>
+    <string name="title_advanced_cards">Użyj stylu karty zamiast stylu tabelarycznego</string>
     <string name="title_advanced_date_header">Grupuj według dat</string>
     <string name="title_advanced_threading">Konwersacje w wątkach</string>
     <string name="title_advanced_indentation">Lewe/prawe wcięcie otrzymane/wysłane wiadomości w rozmowach</string>
@@ -851,6 +853,8 @@
     <string name="title_legend_draft">Posiada szkic</string>
     <string name="title_legend_priority">Posiada wysoki priorytet</string>
     <string name="title_legend_priority_low">Ma niski priorytet</string>
+    <string name="title_legend_importance">Jest ważne</string>
+    <string name="title_legend_importance_low">Jest nieważne</string>
     <string name="title_legend_signed">Jest podpisana</string>
     <string name="title_legend_encrypted">Jest zaszyfrowana</string>
     <string name="title_legend_auth">Uwierzytelnianie nie powiodło się</string>

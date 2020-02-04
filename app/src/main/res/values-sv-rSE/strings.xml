@@ -190,7 +190,6 @@
     <string name="title_advanced_manage_connectivity">Hantera anslutning</string>
     <string name="title_advanced_landscape">Använd två kolumner i landskapsläge</string>
     <string name="title_advanced_startup">Visa på startskärmen</string>
-    <string name="title_advanced_cards">Visa kort</string>
     <string name="title_advanced_date_header">Gruppera efter datum</string>
     <string name="title_advanced_threading">Konversationstrådar</string>
     <string name="title_advanced_highlight_unread">Markera olästa meddelanden</string>

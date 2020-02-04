@@ -241,7 +241,7 @@
     <string name="title_advanced_landscape">Usa due colonne in modalità orizzontale</string>
     <string name="title_advanced_landscape3">Consenti menu di navigazione fisso in modalità orizzontale</string>
     <string name="title_advanced_startup">Mostra nella schermata iniziale</string>
-    <string name="title_advanced_cards">Mostra carte</string>
+    <string name="title_advanced_cards">Utilizza lo stile della carta al posto dello stile tabulare</string>
     <string name="title_advanced_date_header">Raggruppa per data</string>
     <string name="title_advanced_threading">Thread di conversazione</string>
     <string name="title_advanced_indentation">Messaggi ricevuti/inviati con rientro a sinistra/destra nelle conversazioni</string>
@@ -295,6 +295,7 @@
     <string name="title_advanced_quick_scroll">Mostra icone di scorrimento rapido non vistose</string>
     <string name="title_advanced_autoread">Segna automaticamente i messaggi come letti quando si spostano</string>
     <string name="title_advanced_autounstar">Rimuovi automaticamente la stella dai messaggi sullo spostamento dei messaggi</string>
+    <string name="title_advanced_reset_importance">Ripristina l\'importanza dei messaggi spostati</string>
     <string name="title_advanced_automove">Conferma lo spostamento dei messaggi</string>
     <string name="title_advanced_discard_delete">In caso la bozza venga scartata, eliminala definitivamente</string>
     <string name="title_advanced_default_snooze">Tempo di rinvio predefinito</string>
@@ -547,6 +548,10 @@
     <string name="title_flag">Aggiungi stella</string>
     <string name="title_flag_color">Stella colorata &#8230;</string>
     <string name="title_unflag">Rimuovi stella</string>
+    <string name="title_set_importance">Imposta l\'importanza</string>
+    <string name="title_importance_low">Bassa</string>
+    <string name="title_importance_normal">Normale</string>
+    <string name="title_importance_high">Elevato</string>
     <string name="title_forward">Inoltra</string>
     <string name="title_new_message">Nuovo messaggio</string>
     <string name="title_editasnew">Modifica come nuovo</string>
@@ -699,7 +704,9 @@
     <string name="title_reset_sign_key">Reimposta il tasto del segno</string>
     <string name="title_signature_none">Messaggio non firmato</string>
     <string name="title_signature_valid">Firma messaggio valida</string>
+    <string name="title_signature_valid_from">Firma messaggio valida: %1$s</string>
     <string name="title_signature_unconfirmed">Firma del messaggio valida ma non confermata</string>
+    <string name="title_signature_unconfirmed_from">Firma di messaggio valida ma non confermata: %1$s</string>
     <string name="title_signature_invalid">Firma messaggio non valida</string>
     <string name="title_signature_invalid_reason">Firma del messaggio non valida: %1$s</string>
     <string name="title_signature_certificate_invalid">Catena di certificati non valida</string>
@@ -728,6 +735,7 @@
     <string name="title_filter">Filtra</string>
     <string name="title_filter_seen">Leggi</string>
     <string name="title_filter_unflagged">Senza stella</string>
+    <string name="title_filter_unknown">Mittenti sconosciuti</string>
     <string name="title_filter_hidden">Nascosto</string>
     <string name="title_filter_duplicates">Duplicati</string>
     <string name="title_compact">Vista compatta</string>

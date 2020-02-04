@@ -218,7 +218,6 @@
     <string name="title_advanced_manage_connectivity">Управљање конекцијама</string>
     <string name="title_advanced_landscape">Користи две колоне у пејзажном режиму</string>
     <string name="title_advanced_startup">На почетном екрану прикажи</string>
-    <string name="title_advanced_cards">Прикажи картице</string>
     <string name="title_advanced_date_header">Групиши по датуму</string>
     <string name="title_advanced_threading">Увезивање разговора</string>
     <string name="title_advanced_indentation">Увуци лево/десно примљене/послате поруке у разговору</string>

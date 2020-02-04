@@ -15,6 +15,18 @@
     <string name="channel_error">Chyby</string>
     <string name="channel_alert">Upozornění serveru</string>
     <string name="channel_group_contacts">Kontakty</string>
+    <plurals name="page_conversation">
+        <item quantity="one">Konverzace</item>
+        <item quantity="few">Konverzace</item>
+        <item quantity="many">Konverzací</item>
+        <item quantity="other">Konverzací</item>
+    </plurals>
+    <plurals name="page_message">
+        <item quantity="one">Zpráva</item>
+        <item quantity="few">Zprávy</item>
+        <item quantity="many">Zpráv</item>
+        <item quantity="other">Zpráv</item>
+    </plurals>
     <string name="page_folders">Složky</string>
     <string name="page_compose">Napsat zprávu</string>
     <string name="tile_synchronize">Synchronizovat</string>
@@ -22,6 +34,60 @@
     <string name="shortcut_refresh">Načíst znovu</string>
     <string name="shortcut_compose">Napsat zprávu</string>
     <string name="shortcut_setup">Nastavení</string>
+    <plurals name="title_notification_synchronizing">
+        <item quantity="one">Monitorování %1$d účtu</item>
+        <item quantity="few">Monitorování %1$d účtů</item>
+        <item quantity="many">Monitorování %1$d účtů</item>
+        <item quantity="other">Monitorování %1$d účtů</item>
+    </plurals>
+    <plurals name="title_notification_operations">
+        <item quantity="one">Probíhá %1$d operace</item>
+        <item quantity="few">Probíhají %1$d operace</item>
+        <item quantity="many">Probíhá %1$d operací</item>
+        <item quantity="other">Probíhá %1$d operací</item>
+    </plurals>
+    <plurals name="title_notification_unseen">
+        <item quantity="one">%1$d nová zpráva</item>
+        <item quantity="few">%1$d nové zprávy</item>
+        <item quantity="many">%1$d nových zpráv</item>
+        <item quantity="other">%1$d nových zpráv</item>
+    </plurals>
+    <plurals name="title_notification_unsent">
+        <item quantity="one">%1$d zpráva k odeslání</item>
+        <item quantity="few">%1$d zprávy k odeslání</item>
+        <item quantity="many">%1$d zpráv k odeslání</item>
+        <item quantity="other">%1$d zpráv k odeslání</item>
+    </plurals>
+    <plurals name="title_tile_unseen">
+        <item quantity="one">%1$d nová</item>
+        <item quantity="few">%1$d nové</item>
+        <item quantity="many">%1$d nových</item>
+        <item quantity="other">%1$d nových</item>
+    </plurals>
+    <plurals name="title_selected_conversations">
+        <item quantity="one">Vybrána %1$d konverzace</item>
+        <item quantity="few">Vybrány %1$d konverzace</item>
+        <item quantity="many">Vybráno %1$d konverzací</item>
+        <item quantity="other">Vybráno %1$d konverzací</item>
+    </plurals>
+    <plurals name="title_moving_messages">
+        <item quantity="one">Přesunout %1$d zprávu do %2$s?</item>
+        <item quantity="few">Přesunout %1$d zprávy do %2$s?</item>
+        <item quantity="many">Přesunout %1$d zpráv do %2$s?</item>
+        <item quantity="other">Přesunout %1$d zpráv do %2$s?</item>
+    </plurals>
+    <plurals name="title_deleting_messages">
+        <item quantity="one">Trvale odstranit %1$d zprávu?</item>
+        <item quantity="few">Trvale odstranit %1$d zprávy?</item>
+        <item quantity="many">Trvale odstranit %1$d zpráv?</item>
+        <item quantity="other">Trvale odstranit %1$d zpráv?</item>
+    </plurals>
+    <plurals name="title_ask_spam">
+        <item quantity="one">Považovat %1$d zprávu za nevyžádanou?</item>
+        <item quantity="few">Považovat %1$d zprávy za nevyžádané?</item>
+        <item quantity="many">Považovat %1$d zpráv za nevyžádaných?</item>
+        <item quantity="other">Považovat %1$d zpráv za nevyžádaných?</item>
+    </plurals>
     <string name="title_ask_spam_who">Považovat zprávy od %1$s za nevyžádané?</string>
     <string name="title_block">Blokovat %1$s</string>
     <string name="title_block_sender">Blokovat odesílatele</string>
@@ -198,7 +264,6 @@
     <string name="title_advanced_landscape">Dvou-sloupcové rozvržení v režimu na šířku</string>
     <string name="title_advanced_landscape3">Povolit ukotvené navigační menu v režimu na šířku</string>
     <string name="title_advanced_startup">Na úvodní obrazovce zobrazit</string>
-    <string name="title_advanced_cards">Zobrazit karty</string>
     <string name="title_advanced_date_header">Seskupit podle data</string>
     <string name="title_advanced_threading">Vlákna konverzací</string>
     <string name="title_advanced_indentation">Levé/pravé odsazení přijatých/odeslaných zpráv v konverzacích</string>
@@ -252,6 +317,7 @@
     <string name="title_advanced_quick_scroll">Zobrazit neobtěžující ikony pro rychlý posun nahoru/dolů</string>
     <string name="title_advanced_autoread">Při přesunu automaticky označit zprávy jako přečtené</string>
     <string name="title_advanced_autounstar">Při přesunu automaticky odebrat zprávám hvězdičku</string>
+    <string name="title_advanced_reset_importance">Obnovit důležitost při přesunu zpráv</string>
     <string name="title_advanced_automove">Potvrzovat přesun zpráv</string>
     <string name="title_advanced_discard_delete">Při zahození konceptu jej permanentně smazat</string>
     <string name="title_advanced_default_snooze">Výchozí délka odložení</string>
@@ -504,6 +570,10 @@
     <string name="title_flag">Přidat hvězdičku</string>
     <string name="title_flag_color">Barevná hvězdička &#8230;</string>
     <string name="title_unflag">Odebrat hvězdičku</string>
+    <string name="title_set_importance">Nastavit důležitost</string>
+    <string name="title_importance_low">Nízká</string>
+    <string name="title_importance_normal">Normální</string>
+    <string name="title_importance_high">Vysoká</string>
     <string name="title_forward">Přeposlat</string>
     <string name="title_new_message">Nová zpráva</string>
     <string name="title_editasnew">Upravit jako novou</string>
@@ -657,7 +727,9 @@
     <string name="title_reset_sign_key">Vynulovat podpisový klíč</string>
     <string name="title_signature_none">Zpráva není podepsána</string>
     <string name="title_signature_valid">Podpis zprávy je platný</string>
+    <string name="title_signature_valid_from">Podpis zprávy je platný: %1$s</string>
     <string name="title_signature_unconfirmed">Podpis zprávy je platný, ale nepotvrzený</string>
+    <string name="title_signature_unconfirmed_from">Podpis zprávy je platný, ale nepotvrzený: %1$s</string>
     <string name="title_signature_invalid">Neplatný podpis zprávy</string>
     <string name="title_signature_invalid_reason">Neplatný podpis zprávy: %1$s</string>
     <string name="title_signature_certificate_invalid">Neplatný řetězec certifikátů</string>
@@ -686,6 +758,7 @@
     <string name="title_filter">Odfiltrovat</string>
     <string name="title_filter_seen">Přečteno</string>
     <string name="title_filter_unflagged">Bez hvězdičky</string>
+    <string name="title_filter_unknown">Neznámí odesílatelé</string>
     <string name="title_filter_hidden">Skryté</string>
     <string name="title_filter_duplicates">Duplikáty</string>
     <string name="title_compact">Kompaktní zobrazení</string>
@@ -940,6 +1013,12 @@
     <string name="title_accessibility_expanded">Rozbaleno</string>
     <string name="title_accessibility_seen">Přečteno</string>
     <string name="title_accessibility_unseen">Nepřečteno</string>
+    <plurals name="title_accessibility_messages">
+        <item quantity="one">%1$d zpráva</item>
+        <item quantity="few">%1$d zprávy</item>
+        <item quantity="many">%1$d zpráv</item>
+        <item quantity="other">%1$d zpráv</item>
+    </plurals>
     <string name="title_accessibility_flagged">S hvězdičkou</string>
     <string name="title_accessibility_unflagged">Bez hvězdičky</string>
     <string name="title_accessibility_collapse">Sbalit</string>

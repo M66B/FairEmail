@@ -242,7 +242,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_landscape">Zwei Spalten im Querformat verwenden</string>
     <string name="title_advanced_landscape3">Fixiertes Navigationsmenü im Querformat erlauben</string>
     <string name="title_advanced_startup">Auf Startbildschirm anzeigen</string>
-    <string name="title_advanced_cards">E-Mails und Ordner im Stil von Kärtchen anzeigen statt als Tabelle</string>
+    <string name="title_advanced_cards">Ordner und Unterhaltungen mit Rahmen (breit) statt in Tabellendesign (schmal) zeigen</string>
     <string name="title_advanced_date_header">Nach Datum gruppieren</string>
     <string name="title_advanced_threading">Konversationsansicht</string>
     <string name="title_advanced_indentation">In der Unterhaltungsansicht empfangene Nachrichten nach links und Gesendete nach rechts einrücken</string>
@@ -296,6 +296,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_quick_scroll">Nicht aufdringliche Symbole für schnellen Bildlauf nach oben oder unten anzeigen</string>
     <string name="title_advanced_autoread">Nachrichten beim Verschieben automatisch als gelesen kennzeichnen</string>
     <string name="title_advanced_autounstar">Sterne automatisch von Nachrichten entfernen, wenn sie verschoben werden</string>
+    <string name="title_advanced_reset_importance">Wichtigkeit beim Verschieben von Nachrichten zurücksetzen</string>
     <string name="title_advanced_automove">Verschieben von Nachrichten bestätigen</string>
     <string name="title_advanced_discard_delete">Entwürfe beim Verwerfen dauerhaft löschen</string>
     <string name="title_advanced_default_snooze">Standard-Schlummer-Zeit</string>
@@ -548,6 +549,10 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_flag">Kennzeichnen</string>
     <string name="title_flag_color">Farbige Kennzeichnung &#8230;</string>
     <string name="title_unflag">Kennzeichnung entfernen</string>
+    <string name="title_set_importance">Wichtigkeit festlegen</string>
+    <string name="title_importance_low">Niedrig</string>
+    <string name="title_importance_normal">Normal</string>
+    <string name="title_importance_high">Hoch</string>
     <string name="title_forward">Weiterleiten</string>
     <string name="title_new_message">Neue Nachricht</string>
     <string name="title_editasnew">Als neu bearbeiten</string>
@@ -701,7 +706,9 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_reset_sign_key">Sign-Schlüssel zurücksetzen</string>
     <string name="title_signature_none">Unsignierte Nachricht</string>
     <string name="title_signature_valid">Gültige Nachrichtensignatur</string>
+    <string name="title_signature_valid_from">Signatur gültig: %1$s</string>
     <string name="title_signature_unconfirmed">Die Signatur der Nachricht ist zwar gültig, aber nicht bestätigt</string>
+    <string name="title_signature_unconfirmed_from">Signatur gültig aber nicht bestätigt: %1$s</string>
     <string name="title_signature_invalid">Ungültige Nachrichtensignatur</string>
     <string name="title_signature_invalid_reason">Nachrichten-Signatur ungültig: %1$s</string>
     <string name="title_signature_certificate_invalid">Zertifikatskette ungültig</string>
@@ -730,6 +737,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_filter">Ausfiltern</string>
     <string name="title_filter_seen">Gelesen</string>
     <string name="title_filter_unflagged">Nicht markiert</string>
+    <string name="title_filter_unknown">Unbekannte Absender</string>
     <string name="title_filter_hidden">Verborgen</string>
     <string name="title_filter_duplicates">Duplikate</string>
     <string name="title_compact">Kompaktansicht</string>

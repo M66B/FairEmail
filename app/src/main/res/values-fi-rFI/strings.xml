@@ -130,6 +130,7 @@
     <string name="title_setup_no_settings">Asetuksia ei löytynyt verkkotunnukselle \'%1$s\'</string>
     <string name="title_setup_no_settings_hint">Yritä asettaa tili ja identiteetti asetusvaiheissa 1 ja 2 käyttäen sähköpostipalveluntarjoajasi antamia asetuksia</string>
     <string name="title_setup_no_auth_hint">Tarkista sähköpostiosoitteesi ja salasanasi ja varmista, että ulkopuolinen yhteys (IMAP/SMTP) on käytössä tilillesi</string>
+    <string name="title_setup_app_password_hint">Tämä palveluntarjoaja vaatii sovelluksen salasanan tilin salasanan sijaan</string>
     <string name="title_setup_no_system_folders">Saapuneet- tai luonnokset-kansiota ei löytynyt</string>
     <string name="title_setup_quick_success">Tili ja identiteetti on lisätty onnistuneesti</string>
     <string name="title_setup_quick_failed">Voit yrittää määrittää tilin ja identiteetin alla</string>
@@ -239,7 +240,7 @@
     <string name="title_advanced_landscape">Käytä kahta saraketta vaakatilassa</string>
     <string name="title_advanced_landscape3">Salli kiinteä navigointivalikko vaakatilassa</string>
     <string name="title_advanced_startup">Näytä aloitusnäytössä</string>
-    <string name="title_advanced_cards">Näytä kortit</string>
+    <string name="title_advanced_cards">Käytä korttityyliä taulukkotyylin sijaan</string>
     <string name="title_advanced_date_header">Ryhmittely päivämäärän mukaan</string>
     <string name="title_advanced_threading">Keskustelujen ketjuttaminen</string>
     <string name="title_advanced_indentation">Tasaa vastaanotetut/lähetetyt viestit keskusteluissa vasemmalle/oikealle</string>
@@ -293,6 +294,7 @@
     <string name="title_advanced_quick_scroll">Näytä huomaamattomat ylös-/alaspikavierityskuvakkeet</string>
     <string name="title_advanced_autoread">Siirtäessä viestejä merkitse ne luetuiksi</string>
     <string name="title_advanced_autounstar">Poista tähti viestejä siirrettäessä</string>
+    <string name="title_advanced_reset_importance">Palauta oma tärkeysjärjestys oletusasetukseen siirrettäessä</string>
     <string name="title_advanced_automove">Vahvista viestien siirto</string>
     <string name="title_advanced_discard_delete">Poista luonnos hylättäessä</string>
     <string name="title_advanced_default_snooze">Torkutuksen oletusaika</string>
@@ -545,6 +547,10 @@
     <string name="title_flag">Lisää tähti</string>
     <string name="title_flag_color">Lisää värillinen tähti &#8230;</string>
     <string name="title_unflag">Poista tähti</string>
+    <string name="title_set_importance">Aseta oma tärkeysjärjestys</string>
+    <string name="title_importance_low">Alhainen</string>
+    <string name="title_importance_normal">Tavanomainen</string>
+    <string name="title_importance_high">Korkea</string>
     <string name="title_forward">Lähetä edelleen</string>
     <string name="title_new_message">Uusi viesti</string>
     <string name="title_editasnew">Muokkaa uutena</string>

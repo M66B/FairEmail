@@ -264,7 +264,7 @@
     <string name="title_advanced_landscape">Использовать две колонки в альбомном режиме</string>
     <string name="title_advanced_landscape3">Разрешить фиксированное меню навигации в альбомном режиме</string>
     <string name="title_advanced_startup">При запуске показывать</string>
-    <string name="title_advanced_cards">\"Карточная\" компоновка</string>
+    <string name="title_advanced_cards">Использовать карточный стиль вместо табличного</string>
     <string name="title_advanced_date_header">Группировать по дате</string>
     <string name="title_advanced_threading">Связанные диалоги</string>
     <string name="title_advanced_indentation">Левый/правый отступ для полученных/отправленных сообщений в диалогах</string>
@@ -318,6 +318,7 @@
     <string name="title_advanced_quick_scroll">Показывать ненавязчивые иконки быстрой прокрутки вверх/вниз</string>
     <string name="title_advanced_autoread">Автоматически помечать сообщения прочитанными при перемещении</string>
     <string name="title_advanced_autounstar">Автоматически удалять отметку избранного при перемещении сообщений</string>
+    <string name="title_advanced_reset_importance">Сбросить важность при перемещении сообщений</string>
     <string name="title_advanced_automove">Подтверждать перемещение сообщений</string>
     <string name="title_advanced_discard_delete">Удалять черновик навсегда</string>
     <string name="title_advanced_default_snooze">Время повтора по умолчанию</string>
@@ -570,6 +571,10 @@
     <string name="title_flag">В избранное</string>
     <string name="title_flag_color">Цветная метка&#8230;</string>
     <string name="title_unflag">Удалить из избранного</string>
+    <string name="title_set_importance">Установить важность</string>
+    <string name="title_importance_low">Низкая</string>
+    <string name="title_importance_normal">Обычная</string>
+    <string name="title_importance_high">Высокая</string>
     <string name="title_forward">Переслать</string>
     <string name="title_new_message">Новое сообщение</string>
     <string name="title_editasnew">Редактировать как новое</string>
@@ -723,7 +728,9 @@
     <string name="title_reset_sign_key">Сброс ключа подписи</string>
     <string name="title_signature_none">Сообщение не подписано</string>
     <string name="title_signature_valid">Подпись сообщения действительна</string>
+    <string name="title_signature_valid_from">Подпись сообщения верна: %1$s</string>
     <string name="title_signature_unconfirmed">Подпись сообщения действительна, но не подтверждена</string>
+    <string name="title_signature_unconfirmed_from">Подпись сообщения верна, но не подтверждена: %1$s</string>
     <string name="title_signature_invalid">Подпись сообщения недействительна</string>
     <string name="title_signature_invalid_reason">Некорректная подпись сообщения: %1$s</string>
     <string name="title_signature_certificate_invalid">Некорректная цепочка сертификатов</string>
@@ -752,6 +759,7 @@
     <string name="title_filter">Фильтровать</string>
     <string name="title_filter_seen">Прочитанные</string>
     <string name="title_filter_unflagged">Не избранные</string>
+    <string name="title_filter_unknown">Неизвестные отправители</string>
     <string name="title_filter_hidden">Скрытые</string>
     <string name="title_filter_duplicates">Дубликаты</string>
     <string name="title_compact">Компактный вид</string>

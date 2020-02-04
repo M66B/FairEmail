@@ -241,7 +241,7 @@
     <string name="title_advanced_landscape">Benyt to kolonner i liggende tilstand</string>
     <string name="title_advanced_landscape3">Tillad fastgjort navigeringsmenu i liggende tilstand</string>
     <string name="title_advanced_startup">Vis på startskærmen</string>
-    <string name="title_advanced_cards">Vis Kort</string>
+    <string name="title_advanced_cards">Brug kortstil i stedet for tabelform</string>
     <string name="title_advanced_date_header">Gruppér efter dato</string>
     <string name="title_advanced_threading">Samtaler i tråde</string>
     <string name="title_advanced_indentation">Venstre-/-højreindryk modtagne/sendte beskeder i samtaler</string>
@@ -295,6 +295,7 @@
     <string name="title_advanced_quick_scroll">Vis ikke-påtrængende hurtige rul op/ned ikoner</string>
     <string name="title_advanced_autoread">Auto-markér beskeder som læst, når de flyttes</string>
     <string name="title_advanced_autounstar">Fjern automatisk stjerner fra beskeder, når de flyttes</string>
+    <string name="title_advanced_reset_importance">Nulstil vigtighed, når beskeder flyttes</string>
     <string name="title_advanced_automove">Bekræft flytning af beskeder</string>
     <string name="title_advanced_discard_delete">Ved kassering af udkast, slet dette permanent</string>
     <string name="title_advanced_default_snooze">Standard udsættelsestid</string>
@@ -547,6 +548,10 @@
     <string name="title_flag">Tilføj stjerne</string>
     <string name="title_flag_color">Farvet stjerne &#8230;</string>
     <string name="title_unflag">Fjern stjerne</string>
+    <string name="title_set_importance">Angiv vigtighed</string>
+    <string name="title_importance_low">Lav</string>
+    <string name="title_importance_normal">Normal</string>
+    <string name="title_importance_high">Høj</string>
     <string name="title_forward">Videresend</string>
     <string name="title_new_message">Ny besked</string>
     <string name="title_editasnew">Redigér som ny</string>
@@ -700,7 +705,9 @@
     <string name="title_reset_sign_key">Nulstil sign key</string>
     <string name="title_signature_none">Besked ikke signeret</string>
     <string name="title_signature_valid">Beskedsignatur gyldig</string>
+    <string name="title_signature_valid_from">Beskedsignatur gyldig: %1$s</string>
     <string name="title_signature_unconfirmed">Beskedsignatur gyldig, men ubekræftet</string>
+    <string name="title_signature_unconfirmed_from">Beskedsignatur gyldig, men ubekræftet: %1$s</string>
     <string name="title_signature_invalid">Beskedsignatur ugyldig</string>
     <string name="title_signature_invalid_reason">Beskedsignatur ugyldig: %1$s</string>
     <string name="title_signature_certificate_invalid">Certifikatkæde ugyldig</string>
@@ -729,6 +736,7 @@
     <string name="title_filter">Filtrér fra</string>
     <string name="title_filter_seen">Læst</string>
     <string name="title_filter_unflagged">Fjernet stjernemarkering</string>
+    <string name="title_filter_unknown">Ukendte afsendere</string>
     <string name="title_filter_hidden">Skjult</string>
     <string name="title_filter_duplicates">Dubletter</string>
     <string name="title_compact">Kompaktvisning</string>

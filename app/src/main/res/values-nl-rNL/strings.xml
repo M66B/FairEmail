@@ -242,7 +242,7 @@
     <string name="title_advanced_landscape">Twee kolommen gebruiken in liggende modus</string>
     <string name="title_advanced_landscape3">Vaste navigatiemenu toestaan in liggende modus</string>
     <string name="title_advanced_startup">Toon op het startscherm</string>
-    <string name="title_advanced_cards">Toon kaarten</string>
+    <string name="title_advanced_cards">Gebruik kaart-stijl in plaats van tabulaire stijl</string>
     <string name="title_advanced_date_header">Op datum groeperen</string>
     <string name="title_advanced_threading">Gesprekken groeperen</string>
     <string name="title_advanced_indentation">Links/rechts inspringen van ontvangen/verzonden berichten in gesprekken</string>
@@ -296,6 +296,7 @@
     <string name="title_advanced_quick_scroll">Toon niet-opdringerige snelle scroll omhoog/omlaag pictogrammen</string>
     <string name="title_advanced_autoread">Markeer berichten automatisch als gelezen bij het verplaatsen van berichten</string>
     <string name="title_advanced_autounstar">Automatisch ster verwijderen van berichten bij verplaatsende berichten</string>
+    <string name="title_advanced_reset_importance">Reset belang bij verplaatsen van berichten</string>
     <string name="title_advanced_automove">Bevestig het verplaatsen van berichten</string>
     <string name="title_advanced_discard_delete">Bij het verwijderen van een concept het concept definitief verwijderen</string>
     <string name="title_advanced_default_snooze">Standaard sluimertijd</string>
@@ -548,6 +549,10 @@
     <string name="title_flag">Ster toevoegen</string>
     <string name="title_flag_color">Gekleurde ster &#8230;</string>
     <string name="title_unflag">Ster verwijderen</string>
+    <string name="title_set_importance">Stel belang in</string>
+    <string name="title_importance_low">Laag</string>
+    <string name="title_importance_normal">Normaal</string>
+    <string name="title_importance_high">Hoog</string>
     <string name="title_forward">Doorsturen</string>
     <string name="title_new_message">Nieuw bericht</string>
     <string name="title_editasnew">Bewerken als nieuw</string>
@@ -701,7 +706,9 @@
     <string name="title_reset_sign_key">Reset tekensleutel</string>
     <string name="title_signature_none">Bericht niet ondertekend</string>
     <string name="title_signature_valid">Handtekening bericht geldig</string>
+    <string name="title_signature_valid_from">Handtekening bericht geldig: %1$s</string>
     <string name="title_signature_unconfirmed">Handtekening bericht geldig maar niet bevestigd</string>
+    <string name="title_signature_unconfirmed_from">Handtekening bericht geldig maar niet bevestigd: %1$s</string>
     <string name="title_signature_invalid">Handtekening bericht ongeldig</string>
     <string name="title_signature_invalid_reason">Handtekening bericht ongeldig: %1$s</string>
     <string name="title_signature_certificate_invalid">Certificaatketen ongeldig</string>
@@ -730,6 +737,7 @@
     <string name="title_filter">Uitfilteren</string>
     <string name="title_filter_seen">Gelezen</string>
     <string name="title_filter_unflagged">Zonder ster</string>
+    <string name="title_filter_unknown">Onbekende afzenders</string>
     <string name="title_filter_hidden">Verborgen</string>
     <string name="title_filter_duplicates">Duplicaten</string>
     <string name="title_compact">Compacte weergave</string>

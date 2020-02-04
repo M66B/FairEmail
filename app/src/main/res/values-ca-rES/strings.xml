@@ -209,7 +209,6 @@
     <string name="title_advanced_manage_connectivity">Gestiona la connectivitat</string>
     <string name="title_advanced_landscape">Utilitzeu dues columnes en mode horitzontal</string>
     <string name="title_advanced_startup">Mostra a la pantalla d\'inici</string>
-    <string name="title_advanced_cards">Mostra les targetes</string>
     <string name="title_advanced_date_header">Agrupa per data</string>
     <string name="title_advanced_threading">Fil de conversa</string>
     <string name="title_advanced_indentation">Sagnat dret/esquerra als missatges enviats/rebuts en les converses</string>

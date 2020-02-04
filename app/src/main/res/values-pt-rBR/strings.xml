@@ -238,7 +238,6 @@
     <string name="title_advanced_landscape">Usar duas colunas no modo paisagem</string>
     <string name="title_advanced_landscape3">Permitir o menu de navegação fixa em modo paisagem</string>
     <string name="title_advanced_startup">Mostrar na Tela de bloqueio</string>
-    <string name="title_advanced_cards">Mostrar cartões</string>
     <string name="title_advanced_date_header">Agrupar por data</string>
     <string name="title_advanced_threading">Encadeamento de conversas</string>
     <string name="title_advanced_indentation">Indentatação esquerda/direita para mensagens recebido/enviado em conversas</string>
