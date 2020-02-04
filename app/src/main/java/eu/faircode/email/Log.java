@@ -296,8 +296,8 @@ public class Log {
                 if (ex instanceof FileNotFoundException &&
                         ex.getMessage() != null &&
                         (ex.getMessage().startsWith("Download image failed") ||
-                                ex.getMessage().startsWith("https://ipinfo.io/") ||
-                                ex.getMessage().startsWith("https://autoconfig.thunderbird.net/")))
+                                ex.getMessage().startsWith("http://") ||
+                                ex.getMessage().startsWith("https://")))
                     return false;
 
                 if (ex instanceof IOException &&
