@@ -93,7 +93,10 @@ public class ViewModelMessages extends ViewModel {
                                     args.type,
                                     args.threading,
                                     args.sort, args.ascending,
-                                    args.filter_seen, args.filter_unflagged, args.filter_snoozed,
+                                    args.filter_seen,
+                                    args.filter_unflagged,
+                                    args.filter_unknown,
+                                    args.filter_snoozed,
                                     false,
                                     args.debug),
                             LOCAL_PAGE_SIZE);
@@ -109,7 +112,10 @@ public class ViewModelMessages extends ViewModel {
                             db.message().pagedFolder(
                                     args.folder, args.threading,
                                     args.sort, args.ascending,
-                                    args.filter_seen, args.filter_unflagged, args.filter_snoozed,
+                                    args.filter_seen,
+                                    args.filter_unflagged,
+                                    args.filter_unknown,
+                                    args.filter_snoozed,
                                     false,
                                     args.debug),
                             configFolder);
@@ -136,7 +142,7 @@ public class ViewModelMessages extends ViewModel {
                                         null,
                                         args.threading,
                                         "time", false,
-                                        false, false, false,
+                                        false, false, false, false,
                                         true,
                                         args.debug),
                                 configSearch);
@@ -145,7 +151,7 @@ public class ViewModelMessages extends ViewModel {
                                 db.message().pagedFolder(
                                         args.folder, args.threading,
                                         "time", false,
-                                        false, false, false,
+                                        false, false, false, false,
                                         true,
                                         args.debug),
                                 configSearch);
@@ -311,6 +317,7 @@ public class ViewModelMessages extends ViewModel {
         private boolean ascending;
         private boolean filter_seen;
         private boolean filter_unflagged;
+        private boolean filter_unknown;
         private boolean filter_snoozed;
         private boolean debug;
 
@@ -335,6 +342,7 @@ public class ViewModelMessages extends ViewModel {
                     viewType == AdapterMessage.ViewType.THREAD ? "ascending_thread" : "ascending_list", false);
             this.filter_seen = prefs.getBoolean("filter_seen", false);
             this.filter_unflagged = prefs.getBoolean("filter_unflagged", false);
+            this.filter_unknown = prefs.getBoolean("filter_unknown", false);
             this.filter_snoozed = prefs.getBoolean("filter_snoozed", true);
             this.debug = prefs.getBoolean("debug", false);
         }
@@ -356,6 +364,7 @@ public class ViewModelMessages extends ViewModel {
                         this.ascending == other.ascending &&
                         this.filter_seen == other.filter_seen &&
                         this.filter_unflagged == other.filter_unflagged &&
+                        this.filter_unknown == other.filter_unknown &&
                         this.filter_snoozed == other.filter_snoozed &&
                         this.debug == other.debug);
             } else
@@ -370,7 +379,10 @@ public class ViewModelMessages extends ViewModel {
                     " query=" + query + ":" + server + "" +
                     " threading=" + threading +
                     " sort=" + sort + ":" + ascending +
-                    " filter seen=" + filter_seen + " unflagged=" + filter_unflagged + " snoozed=" + filter_snoozed +
+                    " filter seen=" + filter_seen +
+                    " unflagged=" + filter_unflagged +
+                    " unknown=" + filter_unknown +
+                    " snoozed=" + filter_snoozed +
                     " debug=" + debug;
         }
     }

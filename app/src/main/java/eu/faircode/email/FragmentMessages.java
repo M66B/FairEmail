@@ -3066,6 +3066,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 viewType == AdapterMessage.ViewType.THREAD ? "ascending_thread" : "ascending_list", false);
         boolean filter_seen = prefs.getBoolean("filter_seen", false);
         boolean filter_unflagged = prefs.getBoolean("filter_unflagged", false);
+        boolean filter_unknown = prefs.getBoolean("filter_unknown", false);
         boolean filter_snoozed = prefs.getBoolean("filter_snoozed", true);
         boolean filter_duplicates = prefs.getBoolean("filter_duplicates", true);
         boolean compact = prefs.getBoolean("compact", false);
@@ -3129,10 +3130,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         menu.findItem(R.id.menu_filter).setVisible(viewType != AdapterMessage.ViewType.SEARCH && !outbox);
         menu.findItem(R.id.menu_filter_seen).setVisible(viewType != AdapterMessage.ViewType.THREAD);
         menu.findItem(R.id.menu_filter_unflagged).setVisible(viewType != AdapterMessage.ViewType.THREAD);
+        menu.findItem(R.id.menu_filter_unknown).setVisible(viewType != AdapterMessage.ViewType.THREAD);
         menu.findItem(R.id.menu_filter_snoozed).setVisible(viewType != AdapterMessage.ViewType.THREAD && canSnooze);
         menu.findItem(R.id.menu_filter_duplicates).setVisible(viewType == AdapterMessage.ViewType.THREAD);
         menu.findItem(R.id.menu_filter_seen).setChecked(filter_seen);
         menu.findItem(R.id.menu_filter_unflagged).setChecked(filter_unflagged);
+        menu.findItem(R.id.menu_filter_unknown).setChecked(filter_unknown);
         menu.findItem(R.id.menu_filter_snoozed).setChecked(filter_snoozed);
         menu.findItem(R.id.menu_filter_duplicates).setChecked(filter_duplicates);
 
@@ -3224,6 +3227,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             case R.id.menu_filter_unflagged:
                 onMenuFilter("filter_unflagged", !item.isChecked());
+                return true;
+
+            case R.id.menu_filter_unknown:
+                onMenuFilter("filter_unknown", !item.isChecked());
                 return true;
 
             case R.id.menu_filter_snoozed:
@@ -4137,7 +4144,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         boolean filter_seen = prefs.getBoolean("filter_seen", false);
         boolean filter_unflagged = prefs.getBoolean("filter_unflagged", false);
-        return (filter_seen || filter_unflagged);
+        boolean filter_unknown = prefs.getBoolean("filter_unknown", false);
+        return (filter_seen || filter_unflagged || filter_unknown);
     }
 
     private ActivityBase.IKeyPressedListener onBackPressedListener = new ActivityBase.IKeyPressedListener() {
