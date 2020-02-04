@@ -68,6 +68,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
+import android.view.SubMenu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -2089,6 +2090,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (result.unflagged || result.flagged)
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_flag_color, order++, R.string.title_flag_color);
 
+                SubMenu importance = popupMenu.getMenu().addSubMenu(R.string.title_set_importance);
+                importance.add(Menu.NONE, R.string.title_importance_low, 1, R.string.title_importance_low);
+                importance.add(Menu.NONE, R.string.title_importance_normal, 2, R.string.title_importance_normal);
+                importance.add(Menu.NONE, R.string.title_importance_high, 3, R.string.title_importance_high);
+
                 if (result.hasArchive && !result.isArchive) // has archive and not is archive/drafts
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_archive, order++, R.string.title_archive);
 
@@ -2135,6 +2141,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 return true;
                             case R.string.title_flag_color:
                                 onActionFlagColorSelection();
+                                return true;
+                            case R.string.title_importance_low:
+                                onActionSetImportanceSelection(EntityMessage.PRIORITIY_LOW);
+                                return true;
+                            case R.string.title_importance_normal:
+                                onActionSetImportanceSelection(EntityMessage.PRIORITIY_NORMAL);
+                                return true;
+                            case R.string.title_importance_high:
+                                onActionSetImportanceSelection(EntityMessage.PRIORITIY_HIGH);
                                 return true;
                             case R.string.title_archive:
                                 onActionMoveSelection(EntityFolder.ARCHIVE);
@@ -2370,6 +2385,53 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         fragment.setArguments(args);
         fragment.setTargetFragment(FragmentMessages.this, REQUEST_MESSAGES_COLOR);
         fragment.show(getParentFragmentManager(), "messages:color");
+    }
+
+    private void onActionSetImportanceSelection(int importance) {
+        Bundle args = new Bundle();
+        args.putLongArray("selected", getSelection());
+        args.putInt("importance", importance);
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) {
+                long[] selected = args.getLongArray("selected");
+                Integer importance = args.getInt("importance");
+                if (EntityMessage.PRIORITIY_NORMAL.equals(importance))
+                    importance = null;
+
+                DB db = DB.getInstance(context);
+                try {
+                    db.beginTransaction();
+
+                    for (long id : selected) {
+                        EntityMessage message = db.message().getMessage(id);
+                        if (message == null)
+                            continue;
+
+                        EntityAccount account = db.account().getAccount(message.account);
+                        if (account == null)
+                            continue;
+
+                        List<EntityMessage> messages = db.message().getMessagesByThread(
+                                message.account, message.thread, threading ? null : id, message.folder);
+                        for (EntityMessage threaded : messages)
+                            db.message().setMessageImportance(threaded.id, importance);
+                    }
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+
+                return null;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, args, "messages:set:importance");
     }
 
     private void onActionDeleteSelection() {
