@@ -673,9 +673,13 @@ public class HtmlHelper {
         try {
             if (TextUtils.isEmpty(c))
                 return null;
-            else if (c.startsWith("#"))
-                color = Integer.decode(c) | 0xFF000000;
-            else if (c.startsWith("rgb") || c.startsWith("hsl")) {
+            else if (c.startsWith("#")) {
+                String code = c.substring(1);
+                if (x11ColorMap.containsKey(code)) // workaround
+                    color = x11ColorMap.get(code) | 0xFF000000;
+                else
+                    color = Integer.decode(c) | 0xFF000000;
+            } else if (c.startsWith("rgb") || c.startsWith("hsl")) {
                 int s = c.indexOf("(");
                 int e = c.indexOf(")");
                 if (s > 0 && e > s) {
@@ -706,6 +710,7 @@ public class HtmlHelper {
                 try {
                     color = Color.parseColor(c);
                 } catch (IllegalArgumentException ex) {
+                    // Workaround
                     color = Integer.decode("#" + c) | 0xFF000000;
                 }
 
