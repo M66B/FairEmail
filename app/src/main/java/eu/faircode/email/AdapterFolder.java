@@ -29,6 +29,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.Settings;
 import android.text.SpannableString;
 import android.text.TextUtils;
@@ -865,17 +866,46 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         diff.dispatchUpdatesTo(this);
     }
 
-    public int search(String query, int result) {
-        int pos = 0;
-        if (!TextUtils.isEmpty(query))
-            for (int i = 0; i < items.size(); i++)
-                if (items.get(i).getDisplayName(context).toLowerCase().contains(query.toLowerCase())) {
-                    pos = i;
-                    if (--result < 0)
-                        break;
-                }
+    public void search(String query, final int result, final ISearchResult intf) {
+        if (TextUtils.isEmpty(query)) {
+            intf.onNotFound();
+            return;
+        }
 
-        return pos;
+        // Expand all
+        for (TupleFolderEx folder : all)
+            folder.collapsed = false;
+        set(all);
+
+        // Delay search until after expanding
+        new Handler().post(new Runnable() {
+            @Override
+            public void run() {
+                int pos = -1;
+                int next = -1;
+                int count = result + 1;
+                for (int i = 0; i < items.size(); i++)
+                    if (items.get(i).getDisplayName(context).toLowerCase().contains(query.toLowerCase())) {
+                        count--;
+                        if (count == 0)
+                            pos = i;
+                        else if (count < 0) {
+                            next = i;
+                            break;
+                        }
+                    }
+                if (pos < 0)
+                    intf.onNotFound();
+                else
+                    intf.onFound(pos, next >= 0);
+            }
+        });
+    }
+
+    interface ISearchResult {
+        void onFound(int pos, boolean hasNext);
+
+        void onNotFound();
     }
 
     private List<TupleFolderEx> getHierarchical(List<TupleFolderEx> parents, int indentation) {

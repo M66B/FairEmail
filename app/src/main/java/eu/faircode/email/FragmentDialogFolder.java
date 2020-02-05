@@ -23,7 +23,6 @@ import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
-import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -87,9 +86,18 @@ public class FragmentDialogFolder extends FragmentDialogBase {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 result = 0;
                 String query = s.toString().toLowerCase();
-                int pos = adapter.search(query, result);
-                llm.scrollToPositionWithOffset(pos, 0);
-                ibNext.setEnabled(!TextUtils.isEmpty(query));
+                adapter.search(query, result, new AdapterFolder.ISearchResult() {
+                    @Override
+                    public void onFound(int pos, boolean hasNext) {
+                        ibNext.setEnabled(hasNext);
+                        llm.scrollToPositionWithOffset(pos, 0);
+                    }
+
+                    @Override
+                    public void onNotFound() {
+                        ibNext.setEnabled(false);
+                    }
+                });
             }
 
             @Override
@@ -103,10 +111,18 @@ public class FragmentDialogFolder extends FragmentDialogBase {
             public void onClick(View v) {
                 result++;
                 String query = etSearch.getText().toString();
-                int pos = adapter.search(query, result);
-                llm.scrollToPositionWithOffset(pos, 0);
-                if (pos == adapter.search(query, result + 1))
-                    result = 0;
+                adapter.search(query, result, new AdapterFolder.ISearchResult() {
+                    @Override
+                    public void onFound(int pos, boolean hasNext) {
+                        ibNext.setEnabled(hasNext);
+                        llm.scrollToPositionWithOffset(pos, 0);
+                    }
+
+                    @Override
+                    public void onNotFound() {
+                        ibNext.setEnabled(false);
+                    }
+                });
             }
         });
 
