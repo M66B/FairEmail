@@ -1429,7 +1429,10 @@ public class MessageHelper {
                     throw new MessagingException("downloadAttachment", ex);
                 } catch (Throwable ex) {
                     // Reset progress on failure
-                    Log.e(ex);
+                    if (ex instanceof IOException)
+                        Log.i(ex);
+                    else
+                        Log.e(ex);
                     db.attachment().setError(local.id, Log.formatThrowable(ex));
                     throw ex;
                 }
