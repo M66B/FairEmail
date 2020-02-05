@@ -854,7 +854,6 @@ public class MessageHelper {
         if (header == null)
             return null;
 
-        header = new String(header.getBytes(StandardCharsets.ISO_8859_1));
         Address[] addresses = InternetAddress.parseHeader(header, false);
 
         for (Address address : addresses) {
