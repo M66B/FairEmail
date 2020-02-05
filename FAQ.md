@@ -1139,7 +1139,7 @@ so all data, including usernames, passwords, messages, etc, is stored encrypted.
 **(39) How can I reduce the battery usage of FairEmail?**
 
 Recent Android versions by default report *app usage* as a percentage in the Android battery settings screen.
-Confusingly, *app usage* is not the same as *battery usage* and is not even directly related to battery usage!
+**Confusingly, *app usage* is not the same as *battery usage* and is not even directly related to battery usage!**
 The app usage (while in use) will be very high because FairEmail is using a foreground service which is considered as constant app usage by Android.
 However, this doesn't mean that FairEmail is constantly using battery power.
 The real battery usage can be seen by navigating to this screen:
