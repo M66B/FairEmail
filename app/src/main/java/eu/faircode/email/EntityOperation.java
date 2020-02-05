@@ -230,6 +230,7 @@ public class EntityOperation {
                     boolean ui_flagged = message.ui_flagged;
                     Boolean ui_hide = message.ui_hide;
                     boolean ui_browsed = message.ui_browsed;
+                    Integer color = message.color;
                     String error = message.error;
 
                     message.id = null;
@@ -248,6 +249,7 @@ public class EntityOperation {
                     if (autounflag) {
                         message.flagged = false;
                         message.ui_flagged = false;
+                        message.color = null;
                     }
                     message.ui_hide = false;
                     message.ui_browsed = false;
@@ -271,6 +273,7 @@ public class EntityOperation {
                     message.ui_flagged = ui_flagged;
                     message.ui_hide = ui_hide;
                     message.ui_browsed = ui_browsed;
+                    message.color = color;
                     message.error = error;
 
                     if (message.content)
