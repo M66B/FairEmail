@@ -217,6 +217,13 @@ public class FragmentGmail extends FragmentBase {
 
         etName.setEnabled(granted);
         btnSelect.setEnabled(granted);
+
+        new Handler().post(new Runnable() {
+            @Override
+            public void run() {
+                etName.requestFocus();
+            }
+        });
     }
 
     private void onAccountSelected(Intent data) {
