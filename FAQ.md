@@ -823,11 +823,14 @@ There are general errors and errors specific to Gmail accounts (see below).
 
 **General errors**
 
-The error *... Authentication failed ...* or *... AUTHENTICATE failed ...* likely means your username or password was incorrect.
+The error *... Authentication failed ...* or *... AUTHENTICATE failed ...* likely means that your username or password was incorrect.
 Some providers expect as username just *username* and others your full email address *username@example.com*.
 When using copy/paste to enter a username or password, invisible characters might be copied, which could cause this problem as well.
 Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way,
 for example by allowing to logging from certain networks / IP addresses only.
+
+The error *... Too many bad auth attempts ...* likely means that you are using a Yahoo! account password instead of an app password.
+Please see [this FAQ](#user-content-faq88) about how to setup a Yahoo! account.
 
 The errors *... invalid greeting ...*, *... requires valid address ...* and *... Parameter to HELO does not conform to RFC syntax ...*
 can likely be solved by changing the advanced identity setting *Use local IP address instead of host name*.
