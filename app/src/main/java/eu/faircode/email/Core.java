@@ -3221,7 +3221,7 @@ class Core {
             mbuilder.extend(new NotificationCompat.WearableExtender()
                     .addActions(wactions)
                     .setDismissalId(BuildConfig.APPLICATION_ID + ":" + id)
-                    .setBridgeTag(id < 0 ? "header" : "body"));
+                    /* .setBridgeTag(id < 0 ? "header" : "body") */);
 
             notifications.add(mbuilder);
         }
