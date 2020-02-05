@@ -240,6 +240,7 @@ public class FragmentCompose extends FragmentBase {
     private boolean show_images = false;
     private boolean autosave = false;
     private boolean busy = false;
+    private boolean saved = false;
 
     private Uri photoURI = null;
 
@@ -2451,7 +2452,7 @@ public class FragmentCompose extends FragmentBase {
     private void onExit() {
         if (state != State.LOADED)
             finish();
-        else if (isEmpty())
+        else if (isEmpty() && !saved)
             onAction(R.id.action_delete);
         else {
             autosave = false;
@@ -3277,6 +3278,8 @@ public class FragmentCompose extends FragmentBase {
                     for (EntityAttachment attachment : attachments)
                         if (!attachment.available)
                             EntityOperation.queue(context, data.draft, EntityOperation.ATTACHMENT, attachment.id);
+
+                    args.putBoolean("saved", true);
                 }
 
                 db.setTransactionSuccessful();
@@ -3291,8 +3294,9 @@ public class FragmentCompose extends FragmentBase {
 
         @Override
         protected void onExecuted(Bundle args, final DraftData data) {
+            saved = args.getBoolean("saved");
             final String action = getArguments().getString("action");
-            Log.i("Loaded draft id=" + data.draft.id + " action=" + action);
+            Log.i("Loaded draft id=" + data.draft.id + " action=" + action + " saved=" + saved);
 
             working = data.draft.id;
             encrypt = data.draft.encrypt;
@@ -3765,6 +3769,8 @@ public class FragmentCompose extends FragmentBase {
                                     }
                             }
                         } else {
+                            args.putBoolean("saved", true);
+
                             Handler handler = new Handler(context.getMainLooper());
                             handler.post(new Runnable() {
                                 public void run() {
@@ -3857,8 +3863,13 @@ public class FragmentCompose extends FragmentBase {
 
         @Override
         protected void onExecuted(Bundle args, EntityMessage draft) {
+            boolean wasSaved = args.getBoolean("saved");
             int action = args.getInt("action");
-            Log.i("Loaded action id=" + (draft == null ? null : draft.id) + " action=" + getActionName(action));
+            Log.i("Loaded action id=" + (draft == null ? null : draft.id) +
+                    " action=" + getActionName(action) + " saved=" + wasSaved);
+
+            if (wasSaved)
+                saved = true;
 
             etTo.setText(MessageHelper.formatAddressesCompose(draft.to));
             etCc.setText(MessageHelper.formatAddressesCompose(draft.cc));
