@@ -3173,6 +3173,15 @@ class Core {
             }
 
             if (message.content && notify_preview) {
+                // Android will truncate the text
+                String text = null;
+                try {
+                    String html = Helper.readText(message.getFile(context));
+                    text = HtmlHelper.getText(html);
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+
                 // Wearables
                 StringBuilder sb = new StringBuilder();
                 if (!TextUtils.isEmpty(message.subject))
@@ -3180,8 +3189,8 @@ class Core {
                 if (wearable_preview) {
                     if (sb.length() != 0)
                         sb.append(" - ");
-                    if (!TextUtils.isEmpty(message.preview))
-                        sb.append(message.preview);
+                    if (!TextUtils.isEmpty(text))
+                        sb.append(text);
                 }
                 if (sb.length() > 0)
                     mbuilder.setContentText(sb.toString());
@@ -3191,15 +3200,17 @@ class Core {
                 if (!TextUtils.isEmpty(message.subject))
                     sbm.append("<em>").append(message.subject).append("</em>").append("<br>");
 
-                if (!TextUtils.isEmpty(message.preview))
-                    sbm.append(message.preview);
+                if (!TextUtils.isEmpty(text))
+                    sbm.append(text);
 
-                NotificationCompat.BigTextStyle bigText = new NotificationCompat.BigTextStyle()
-                        .bigText(HtmlHelper.fromHtml(sbm.toString()));
-                if (!TextUtils.isEmpty(message.subject))
-                    bigText.setSummaryText(message.subject);
+                if (sbm.length() > 0) {
+                    NotificationCompat.BigTextStyle bigText = new NotificationCompat.BigTextStyle()
+                            .bigText(HtmlHelper.fromHtml(sbm.toString()));
+                    if (!TextUtils.isEmpty(message.subject))
+                        bigText.setSummaryText(message.subject);
 
-                mbuilder.setStyle(bigText);
+                    mbuilder.setStyle(bigText);
+                }
             } else {
                 if (!TextUtils.isEmpty(message.subject))
                     mbuilder.setContentText(message.subject);
@@ -3219,8 +3230,8 @@ class Core {
             // https://developer.android.com/training/wearables/notifications
             // https://developer.android.com/reference/android/app/Notification.WearableExtender
             mbuilder.extend(new NotificationCompat.WearableExtender()
-                    .addActions(wactions)
-                    .setDismissalId(BuildConfig.APPLICATION_ID + ":" + id)
+                            .addActions(wactions)
+                            .setDismissalId(BuildConfig.APPLICATION_ID + ":" + id)
                     /* .setBridgeTag(id < 0 ? "header" : "body") */);
 
             notifications.add(mbuilder);
