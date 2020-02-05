@@ -920,7 +920,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                         keywords.append(message.keywords[i]);
 
-                        if (message.keyword_colors[i] != null) {
+                        if (message.keyword_colors != null &&
+                                message.keyword_colors[i] != null) {
                             int len = keywords.length();
                             keywords.setSpan(
                                     new ForegroundColorSpan(message.keyword_colors[i]),
