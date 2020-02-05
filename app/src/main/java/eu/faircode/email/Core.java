@@ -3180,6 +3180,7 @@ class Core {
                     text = HtmlHelper.getText(html);
                 } catch (Throwable ex) {
                     Log.e(ex);
+                    text = message.preview;
                 }
 
                 // Wearables
