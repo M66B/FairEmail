@@ -3433,7 +3433,7 @@ class Core {
         public String toString() {
             return "[running=" + running +
                     ",recoverable=" + recoverable +
-                    ",activity=" + new Date(lastActivity == null ? 0 : lastActivity) + "]";
+                    ",idle=" + getIdleTime() + "]";
         }
     }
 }
