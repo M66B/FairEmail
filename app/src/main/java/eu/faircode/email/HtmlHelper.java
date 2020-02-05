@@ -387,8 +387,10 @@ public class HtmlHelper {
                                     Log.i("Removing hidden element " + element.tagName());
                                     element.empty();
                                 }
-                                if ("inline".equals(value) || "inline-block".equals(value))
-                                    element.attr("inline", "true");
+                                if ("inline".equals(value) || "inline-block".equals(value)) {
+                                    if (element.nextSibling() != null)
+                                        element.attr("inline", "true");
+                                }
                                 break;
 
                             case "height":
