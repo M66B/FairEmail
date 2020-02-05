@@ -165,6 +165,17 @@
             app:layout_constraintTop_toBottomOf="@id/swUsenetSignature" />
 
         <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swRemoveSignatures"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_remove_signatures"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvUsenetSignatureHint"
+            app:switchPadding="12dp" />
+
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swResizeImages"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -173,7 +184,7 @@
             android:text="@string/title_advanced_resize_images"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvUsenetSignatureHint"
+            app:layout_constraintTop_toBottomOf="@id/swRemoveSignatures"
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat

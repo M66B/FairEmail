@@ -3065,8 +3065,8 @@ public class FragmentCompose extends FragmentBase {
                             Document d = JsoupEx.parse(Helper.readText(ref.getFile(context)));
 
                             // Remove signature separators
-                            boolean usenet = prefs.getBoolean("usenet_signature", false);
-                            if (usenet)
+                            boolean remove_signatures = prefs.getBoolean("remove_signatures", false);
+                            if (remove_signatures)
                                 d.body().filter(new NodeFilter() {
                                     private boolean remove = false;
 
