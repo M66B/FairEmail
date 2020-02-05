@@ -3311,6 +3311,7 @@ class Core {
         private Semaphore semaphore = new Semaphore(0);
         private boolean running = true;
         private boolean recoverable = true;
+        private boolean maxConnections = false;
         private Long lastActivity = null;
 
         State(ConnectionHelper.NetworkState networkState) {
@@ -3373,8 +3374,17 @@ class Core {
             yield();
         }
 
+        void setMaxConnections() {
+            maxConnections = true;
+        }
+
+        boolean getMaxConnections() {
+            return maxConnections;
+        }
+
         void reset() {
             recoverable = true;
+            maxConnections = false;
             lastActivity = null;
         }
 

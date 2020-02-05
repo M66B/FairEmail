@@ -819,7 +819,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                                 EntityLog.log(ServiceSynchronize.this, account.name + " alert: " + message);
 
-                                if (!isMaxConnections(message) || state.getBackoff() > CONNECT_BACKOFF_MAX) {
+                                boolean max = isMaxConnections(message);
+                                if (max)
+                                    state.setMaxConnections();
+                                if (!max || state.getBackoff() > CONNECT_BACKOFF_MAX) {
                                     NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                                     nm.notify("alert:" + account.id, 1,
                                             getNotificationAlert(account.name, message).build());
@@ -849,7 +852,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             boolean ioError = false;
                             Throwable c = ex;
                             while (c != null) {
-                                if (c instanceof IOException || isMaxConnections(c.getMessage())) {
+                                boolean max = isMaxConnections(c.getMessage());
+                                if (max)
+                                    state.setMaxConnections();
+                                if (c instanceof IOException || max) {
                                     ioError = true;
                                     break;
                                 }
@@ -1456,8 +1462,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         // Short back-off period, keep device awake
                         EntityLog.log(this, account.name + " backoff=" + backoff);
                         try {
-                            state.acquire(backoff *
-                                    ("imap.gmail.com".equalsIgnoreCase(account.host) ? 2000L : 1000L));
+                            state.acquire(backoff * 1000L * (state.getMaxConnections() ? 2 : 1));
                         } catch (InterruptedException ex) {
                             Log.w(account.name + " backoff " + ex.toString());
                         }
