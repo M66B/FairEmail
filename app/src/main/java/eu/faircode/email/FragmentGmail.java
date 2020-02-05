@@ -109,17 +109,20 @@ public class FragmentGmail extends FragmentBase {
                     if (TextUtils.isEmpty(name))
                         throw new IllegalArgumentException(getString(R.string.title_no_name));
 
-                    startActivityForResult(
-                            Helper.getChooser(getContext(), newChooseAccountIntent(
-                                    null,
-                                    null,
-                                    new String[]{"com.google"},
-                                    false,
-                                    null,
-                                    null,
-                                    null,
-                                    null)),
-                            ActivitySetup.REQUEST_CHOOSE_ACCOUNT);
+
+                    Intent intent = newChooseAccountIntent(
+                            null,
+                            null,
+                            new String[]{"com.google"},
+                            false,
+                            null,
+                            null,
+                            null,
+                            null);
+                    PackageManager pm = getContext().getPackageManager();
+                    if (intent.resolveActivity(pm) == null)
+                        throw new IllegalArgumentException(getString(R.string.title_no_viewer, intent));
+                    startActivityForResult(intent, ActivitySetup.REQUEST_CHOOSE_ACCOUNT);
                 } catch (Throwable ex) {
                     if (ex instanceof IllegalArgumentException)
                         tvError.setText(ex.getMessage());
