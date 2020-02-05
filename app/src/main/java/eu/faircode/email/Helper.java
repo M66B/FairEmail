@@ -741,6 +741,38 @@ public class Helper {
         return false;
     }
 
+    static boolean isUTF8(String text) {
+        // Get extended ASCII characters
+        byte[] octets = text.getBytes(StandardCharsets.ISO_8859_1);
+
+        for (int i = 0; i < octets.length; i++) {
+            int bytes;
+            if ((octets[i] & 0b10000000) == 0b00000000)
+                bytes = 1;
+            else if ((octets[i] & 0b11100000) == 0b11000000)
+                bytes = 2;
+            else if ((octets[i] & 0b11110000) == 0b11100000)
+                bytes = 3;
+            else if ((octets[i] & 0b11111000) == 0b11110000)
+                bytes = 4;
+            else if ((octets[i] & 0b11111100) == 0b11111000)
+                bytes = 5;
+            else if ((octets[i] & 0b11111110) == 0b11111100)
+                bytes = 6;
+            else
+                return false;
+
+            if (i + bytes > octets.length)
+                return false;
+
+            while (--bytes > 0)
+                if ((octets[++i] & 0b11000000) != 0b10000000)
+                    return false;
+        }
+
+        return true;
+    }
+
     // Files
 
     static String sanitizeFilename(String name) {

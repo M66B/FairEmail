@@ -854,7 +854,10 @@ public class MessageHelper {
         if (header == null)
             return null;
 
-        header = new String(header.getBytes(StandardCharsets.ISO_8859_1));
+        if (!Helper.isUTF8(header)) {
+            Log.w("Converting header '" + name + "' to ISO8859-1");
+            header = new String(header.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.ISO_8859_1);
+        }
         Address[] addresses = InternetAddress.parseHeader(header, false);
 
         for (Address address : addresses) {
@@ -995,7 +998,10 @@ public class MessageHelper {
         if (subject == null)
             return null;
 
-        subject = new String(subject.getBytes(StandardCharsets.ISO_8859_1));
+        if (!Helper.isUTF8(subject)) {
+            Log.w("Converting subject to ISO8859-1");
+            subject = new String(subject.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.ISO_8859_1);
+        }
         subject = subject.replaceAll("\\?=\\r?\\n\\s+=\\?", "\\?==\\?");
         subject = MimeUtility.unfold(subject);
         subject = decodeMime(subject);
