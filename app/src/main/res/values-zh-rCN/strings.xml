@@ -213,6 +213,7 @@
     <string name="title_advanced_signature_end">在引用/转发消息后添加签名</string>
     <string name="title_advanced_plain_only">默认仅发送纯文本</string>
     <string name="title_advanced_usenet_signature">Usenet签名公约（RFC3676）</string>
+    <string name="title_advanced_remove_signatures">删除公认的签名</string>
     <string name="title_advanced_resize_images">自动调整嵌入图像大小</string>
     <string name="title_advanced_resize_attachments">自动调整图像附件大小</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d像素</string>
@@ -693,7 +694,9 @@
     <string name="title_reset_sign_key">重置签名密钥</string>
     <string name="title_signature_none">消息未签名</string>
     <string name="title_signature_valid">消息签名有效</string>
+    <string name="title_signature_valid_from">消息签名有效:%1$s</string>
     <string name="title_signature_unconfirmed">消息签名有效但未确认</string>
+    <string name="title_signature_unconfirmed_from">消息签名有效但未确认:%1$s</string>
     <string name="title_signature_invalid">消息签名无效</string>
     <string name="title_signature_invalid_reason">消息签名无效： %1$s</string>
     <string name="title_signature_certificate_invalid">证书链无效</string>
@@ -722,6 +725,7 @@
     <string name="title_filter">筛选</string>
     <string name="title_filter_seen">已读</string>
     <string name="title_filter_unflagged">未标星</string>
+    <string name="title_filter_unknown">未知发件人</string>
     <string name="title_filter_hidden">隐藏</string>
     <string name="title_filter_duplicates">重复项</string>
     <string name="title_compact">紧凑视图</string>

@@ -226,6 +226,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_signature_end">Signatur NACH zitierter/weitergeleiteter Nachricht hinzufügen</string>
     <string name="title_advanced_plain_only">Immer als Reintext senden, nicht als HTML</string>
     <string name="title_advanced_usenet_signature">Usenet-Signaturkonvention</string>
+    <string name="title_advanced_remove_signatures">Erkannte Signaturen entfernen</string>
     <string name="title_advanced_resize_images">Größe eingebetteter Bilder automatisch anpassen</string>
     <string name="title_advanced_resize_attachments">Größe angehängter Bilder automatisch anpassen</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d Pixel</string>
@@ -762,7 +763,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_rule_ignore">Benachrichtigungen unterdrücken</string>
     <string name="title_rule_snooze">Zurückstellen</string>
     <string name="title_rule_flag">Kennzeichnung hinzufügen</string>
-    <string name="title_rule_importance">Setze die Wichtigkeit</string>
+    <string name="title_rule_importance">Wichtigkeit festlegen</string>
     <string name="title_rule_keyword">Schlagwort hinzufügen</string>
     <string name="title_rule_move">Verschieben</string>
     <string name="title_rule_copy">Kategorie kopieren</string>

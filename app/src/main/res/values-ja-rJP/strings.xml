@@ -212,6 +212,7 @@
     <string name="title_advanced_signature_end">引用/転送されたメッセージの後に署名を追加</string>
     <string name="title_advanced_plain_only">デフォルトでプレーンテキストのみを送信</string>
     <string name="title_advanced_usenet_signature">署名の区切</string>
+    <string name="title_advanced_remove_signatures">認識された署名を削除</string>
     <string name="title_advanced_resize_images">埋込画像のサイズを自動的に変更</string>
     <string name="title_advanced_resize_attachments">画像添付ファイルの自動サイズ変更</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>

@@ -248,6 +248,7 @@
     <string name="title_advanced_signature_end">Добавлять подпись после цитаты/пересылаемого сообщения</string>
     <string name="title_advanced_plain_only">По умолчанию отправлять простым текстом</string>
     <string name="title_advanced_usenet_signature">Стиль подписи Usenet</string>
+    <string name="title_advanced_remove_signatures">Удалить распознанные подписи</string>
     <string name="title_advanced_resize_images">Автоматически изменять размер встроенных изображений</string>
     <string name="title_advanced_resize_attachments">Автоматически изменять размер прикреплённых изображений</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d пикселей</string>

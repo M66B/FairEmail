@@ -226,6 +226,7 @@
     <string name="title_advanced_signature_end">Legg til signatur etter sitert/videresendt melding</string>
     <string name="title_advanced_plain_only">Send bare vanlig tekst som standard</string>
     <string name="title_advanced_usenet_signature">Usenet signaturkonvensjon</string>
+    <string name="title_advanced_remove_signatures">Fjern gjenkjennte signaturer</string>
     <string name="title_advanced_resize_images">Endre størrelse på innebygde bilder automatisk</string>
     <string name="title_advanced_resize_attachments">Endre størrelse på bilder i vedlegg automatisk</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d piksler</string>

@@ -226,6 +226,7 @@
     <string name="title_advanced_signature_end">Añadir firma después de mensaje citado/reenviado</string>
     <string name="title_advanced_plain_only">Enviar sólo texto plano por defecto</string>
     <string name="title_advanced_usenet_signature">Convención de firma Usenet</string>
+    <string name="title_advanced_remove_signatures">Eliminar firmas reconocidas</string>
     <string name="title_advanced_resize_images">Redimensionar automáticamente las imágenes incrustadas</string>
     <string name="title_advanced_resize_attachments">Redimensionar automáticamente las imágenes adjuntas</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d píxeles</string>

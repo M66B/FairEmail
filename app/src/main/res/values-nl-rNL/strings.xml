@@ -226,6 +226,7 @@
     <string name="title_advanced_signature_end">Handtekening toevoegen na geciteerd/doorgestuurd bericht</string>
     <string name="title_advanced_plain_only">Verstuur standaard alleen tekst</string>
     <string name="title_advanced_usenet_signature">Usenet handtekening conventie</string>
+    <string name="title_advanced_remove_signatures">Verwijder herkende handtekeningen</string>
     <string name="title_advanced_resize_images">Automatisch ingesloten afbeeldingen verkleinen</string>
     <string name="title_advanced_resize_attachments">Automatisch afbeeldingen in bijlagen verkleinen</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>

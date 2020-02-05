@@ -226,6 +226,7 @@
     <string name="title_advanced_signature_end">Ajouter la signature après le message cité/transféré</string>
     <string name="title_advanced_plain_only">Envoyer le texte brut uniquement par défaut</string>
     <string name="title_advanced_usenet_signature">Utiliser la convention de signature Usenet</string>
+    <string name="title_advanced_remove_signatures">Supprimer les signatures reconnues</string>
     <string name="title_advanced_resize_images">Redimensionner automatiquement les images incluses</string>
     <string name="title_advanced_resize_attachments">Redimensionner automatiquement les images en pièce jointe</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>
