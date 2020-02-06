@@ -1016,7 +1016,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     @Override
                     protected void onExecuted(Bundle args, List<EntityAccount> accounts) {
                         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                        boolean search_text = prefs.getBoolean("search_text", true);
+                        boolean search_text = prefs.getBoolean("search_text", false);
 
                         PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), fabSearch);
 
@@ -1038,7 +1038,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             public boolean onMenuItemClick(MenuItem target) {
                                 if (target.getItemId() == 1) {
                                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                                    boolean search_text = prefs.getBoolean("search_text", true);
+                                    boolean search_text = prefs.getBoolean("search_text", false);
                                     prefs.edit().putBoolean("search_text", !search_text).apply();
                                     return true;
                                 }

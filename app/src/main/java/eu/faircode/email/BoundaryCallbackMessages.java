@@ -285,7 +285,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         DB db = DB.getInstance(context);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        final boolean search_text = prefs.getBoolean("search_text", true);
+        final boolean search_text = prefs.getBoolean("search_text", false);
         final boolean debug = (prefs.getBoolean("debug", false) || BuildConfig.BETA_RELEASE);
 
         final EntityFolder browsable = db.folder().getBrowsableFolder(folder, query != null);
