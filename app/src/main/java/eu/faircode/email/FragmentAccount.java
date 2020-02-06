@@ -1156,6 +1156,8 @@ public class FragmentAccount extends FragmentBase {
                             folder.account = account.id;
                             EntityLog.log(context, "Added folder=" + folder.name + " type=" + folder.type);
                             folder.id = db.folder().insertFolder(folder);
+                            if (folder.synchronize)
+                                EntityOperation.sync(context, folder.id, false);
                         } else {
                             EntityLog.log(context, "Updated folder=" + folder.name + " type=" + folder.type);
                             db.folder().setFolderType(existing.id, folder.type);
