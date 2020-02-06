@@ -454,8 +454,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_trust">Serverzertifikat mit Fingerabdruck %1$s vertrauen</string>
     <string name="title_no_name">Name fehlt</string>
     <string name="title_no_email">E-Mail-Adresse fehlt</string>
-    <string name="title_email_invalid">E-Mail-Adresse ungültig: »%1$s«</string>
-    <string name="title_address_parse_error">Adresse »%1$s« ungültig: %2$s</string>
+    <string name="title_email_invalid">E-Mail-Adresse ungültig: \'%1$s\'</string>
+    <string name="title_address_parse_error">Adresse \'%1$s\' ungültig: %2$s</string>
     <string name="title_no_account">Konto fehlt</string>
     <string name="title_no_host">Hostname fehlt</string>
     <string name="title_no_user">Benutzername fehlt</string>
@@ -795,7 +795,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_rule_cc">Den CC-Adressen antworten</string>
     <string name="title_rule_name_missing">Regelname fehlt</string>
     <string name="title_rule_condition_missing">Voraussetzung fehlt</string>
-    <string name="title_rule_automation_hint">Das wird die Absicht »%1$s« mit den Extras »%2$s« senden</string>
+    <string name="title_rule_automation_hint">Dies sendet de Intent \'%1$s\' mit den Extras \'%2$s\'</string>
     <string name="title_rule_execute">Jetzt ausführen</string>
     <string name="title_rule_applied">Betroffene Nachrichten: %1$d</string>
     <string name="title_rule_check">Prüfen</string>

@@ -453,7 +453,7 @@
     <string name="title_trust">Certificato server fidato con impronta digitale %1$s</string>
     <string name="title_no_name">Nome mancante</string>
     <string name="title_no_email">Indirizzo email mancante</string>
-    <string name="title_email_invalid">Indirizzo email non valido: »%1$s\'</string>
+    <string name="title_email_invalid">Indirizzo email non valido: \'%1$s\'</string>
     <string name="title_address_parse_error">Indirizzo \'%1$s\' non valido: %2$s</string>
     <string name="title_no_account">Account mancante</string>
     <string name="title_no_host">Nome dell\'host mancante</string>
