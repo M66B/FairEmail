@@ -446,7 +446,7 @@ public class HtmlHelper {
         // Pre formatted text
         for (Element pre : document.select("pre")) {
             pre.html(formatPre(pre.wholeText()));
-            pre.tagName("tt");
+            pre.tagName("div");
         }
 
         // Code
