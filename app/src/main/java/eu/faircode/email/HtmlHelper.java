@@ -646,7 +646,7 @@ public class HtmlHelper {
         // Selective new lines
         for (Element div : document.select("div")) {
             Node prev = div.previousSibling();
-            if (prev instanceof Element && !((Element) prev).isBlock())
+            if (prev != null && hasVisibleContent(Arrays.asList(prev)))
                 div.prependElement("br");
 
             if (hasVisibleContent(div.childNodes()))
