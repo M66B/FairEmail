@@ -236,6 +236,7 @@
     <string name="title_advanced_signature_end">Adaugă semnătură după mesajul citat/redirecționat</string>
     <string name="title_advanced_plain_only">Trimite implicit ca text simplu</string>
     <string name="title_advanced_usenet_signature">Semnatură conform Usenet</string>
+    <string name="title_advanced_remove_signatures">Elimină semnăturile cunoscute</string>
     <string name="title_advanced_resize_images">Redimensionează automat imaginile încorporate</string>
     <string name="title_advanced_resize_attachments">Redimensionează automat imaginile atașate</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixeli</string>
@@ -716,7 +717,9 @@
     <string name="title_reset_sign_key">Resetare cheie de semnare</string>
     <string name="title_signature_none">Mesaj nesemnat</string>
     <string name="title_signature_valid">Semnătura mesaj validă</string>
+    <string name="title_signature_valid_from">Semnătura mesaj validă: %1$s</string>
     <string name="title_signature_unconfirmed">Semnătura mesajului este validă dar nu este confirmată</string>
+    <string name="title_signature_unconfirmed_from">Semnătura mesajului este validă dar nu este confirmată: %1$s</string>
     <string name="title_signature_invalid">Semnătura mesaj invalidă</string>
     <string name="title_signature_invalid_reason">Semnătura mesaj invalidă: %1$s</string>
     <string name="title_signature_certificate_invalid">Lanț de certificate invalid</string>
@@ -745,6 +748,7 @@
     <string name="title_filter">Exclude</string>
     <string name="title_filter_seen">Citit</string>
     <string name="title_filter_unflagged">Fără stea</string>
+    <string name="title_filter_unknown">Expeditori necunoscuți</string>
     <string name="title_filter_hidden">Ascuns</string>
     <string name="title_filter_duplicates">Duplicate</string>
     <string name="title_compact">Vizualizare compactă</string>

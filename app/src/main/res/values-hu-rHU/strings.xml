@@ -152,7 +152,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_setup_doze_battery">Magas akkumulátorhasználat?</string>
     <string name="title_setup_doze_stopped">Már nem szinkronizál?</string>
     <string name="title_setup_data">Adatkapcsolat csökkentő bekapcsolva</string>
-    <string name="title_setup_inbox">Ugorjon az üzenetekhez</string>
+    <string name="title_setup_inbox">Ugrás az üzenetekhez</string>
     <string name="title_setup_go">Tovább</string>
     <string name="title_setup_to_do">Teendő</string>
     <string name="title_setup_done">Kész</string>
@@ -248,7 +248,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_highlight_unread">Olvasatlan üzenetek kiemelése</string>
     <string name="title_advanced_distinguish_contacts">Húzza alá a küldőt, ha az egy ismert, korábban megcímzett helyi névjegy</string>
     <string name="title_advanced_color_stripe">Színszalag megjelenítése</string>
-    <string name="title_advanced_avatars">Névjegyzék fotóinak megjelenítése</string>
+    <string name="title_advanced_avatars">Névjegyzék fényképeinek megjelenítése</string>
     <string name="title_advanced_gravatars">Gravatar képek megjelenítése</string>
     <string name="title_advanced_generated_icons">Generált ikonok megjelenítése</string>
     <string name="title_advanced_identicons">Azonosító-ikonok megjelenítése</string>
@@ -525,6 +525,10 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_unhide">Megjelenítés</string>
     <string name="title_flag">Csillagozás</string>
     <string name="title_unflag">Csillag törlése</string>
+    <string name="title_set_importance">Fontosság beállítása</string>
+    <string name="title_importance_low">Alacsony</string>
+    <string name="title_importance_normal">Normál</string>
+    <string name="title_importance_high">Magas</string>
     <string name="title_forward">Továbbítás</string>
     <string name="title_new_message">Új üzenet</string>
     <string name="title_share">Megosztás</string>
@@ -695,6 +699,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_rule_action">Művelet</string>
     <string name="title_rule_hours">Óra</string>
     <string name="title_rule_folder">Mappa</string>
+    <string name="title_rule_thread">Az összes beszélgetéshez és mappához tartozó üzenet</string>
     <string name="title_rule_identity">Identitás</string>
     <string name="title_rule_template">Válaszsablon</string>
     <string name="title_rule_cc">Válasz a másolatok címzetteinek</string>
@@ -721,17 +726,28 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_legend_primary">Elsődleges</string>
     <string name="title_legend_subscribed">Feliratkozva a következőre:</string>
     <string name="title_legend_similar">Hasonló üzenetek keresése</string>
+    <string name="title_legend_thread">Beszélgetés</string>
     <string name="title_legend_priority">Magas prioritású</string>
     <string name="title_legend_priority_low">Alacsony prioritású</string>
     <string name="title_legend_importance">Fontos</string>
     <string name="title_legend_importance_low">Nem fontos</string>
+    <string name="title_legend_encrypted">Titkosított</string>
+    <string name="title_legend_answered">Megválaszolt</string>
     <string name="title_legend_attachment">Rendelkezik melléklettel</string>
     <string name="title_legend_contacts">Névjegyzék kezelése</string>
     <string name="title_legend_search">Keresés feladó alapján</string>
     <string name="title_legend_pick">Névjegy választása</string>
+    <string name="title_legend_file">Fájl csatolása</string>
+    <string name="title_legend_photo">Fénykép készítése</string>
+    <string name="title_legend_underline">Szöveg aláhúzása</string>
+    <string name="title_legend_text_size">Szövegméret beállítása</string>
+    <string name="title_legend_text_color">Szövegszín beállítása</string>
+    <string name="title_legend_avatar">Profilkép</string>
     <string name="title_legend_show_junk">Megjelölés spamként</string>
+    <string name="title_legend_show_images">Képek megjelenítése</string>
     <string name="title_legend_edit">Szerkesztés</string>
     <string name="title_legend_default_color">Alapértelmezett szín</string>
+    <string name="title_legend_close_hint">Tipp bezárása</string>
     <string name="title_legend_sync_state">Szinkronizálás állapota</string>
     <string name="title_legend_download_state">Letöltés állapota</string>
     <string name="title_legend_save">Mentés</string>
@@ -804,8 +820,8 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     </string-array>
     <string-array name="onCloseNames">
         <item>Nincs művelet</item>
-        <item>Go to previous conversation</item>
-        <item>Go to next conversation</item>
+        <item>Ugrás az előző beszélgetéshez</item>
+        <item>Ugrás a következő beszélgetéshez</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
