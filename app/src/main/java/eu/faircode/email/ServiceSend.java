@@ -420,7 +420,7 @@ public class ServiceSend extends ServiceBase {
 
         // Create transport
         try (EmailService iservice = new EmailService(
-                this, ident.getProtocol(), ident.realm, ident.insecure, false, debug)) {
+                this, ident.getProtocol(), ident.realm, ident.insecure, debug)) {
             iservice.setUseIp(ident.use_ip);
 
             // Connect transport

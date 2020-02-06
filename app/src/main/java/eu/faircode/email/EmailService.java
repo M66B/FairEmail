@@ -87,7 +87,12 @@ public class EmailService implements AutoCloseable {
     static final int AUTH_TYPE_GMAIL = 2;
     static final int AUTH_TYPE_OAUTH = 3;
 
+    static final int PURPOSE_CHECK = 1;
+    static final int PURPOSE_USE = 2;
+    static final int PURPOSE_SEARCH = 3;
+
     private final static int CHECK_TIMEOUT = 20 * 1000; // milliseconds
+    private final static int SEARCH_TIMEOUT = 2 * 60 * 1000; // milliseconds
     private final static int CONNECT_TIMEOUT = 20 * 1000; // milliseconds
     private final static int WRITE_TIMEOUT = 60 * 1000; // milliseconds
     private final static int READ_TIMEOUT = 60 * 1000; // milliseconds
@@ -104,7 +109,11 @@ public class EmailService implements AutoCloseable {
         // Prevent instantiation
     }
 
-    EmailService(Context context, String protocol, String realm, boolean insecure, boolean check, boolean debug) throws NoSuchProviderException {
+    EmailService(Context context, String protocol, String realm, boolean insecure, boolean debug) throws NoSuchProviderException {
+        this(context, protocol, realm, insecure, PURPOSE_USE, debug);
+    }
+
+    EmailService(Context context, String protocol, String realm, boolean insecure, int purpose, boolean debug) throws NoSuchProviderException {
         this.context = context.getApplicationContext();
         this.protocol = protocol;
         this.insecure = insecure;
@@ -141,9 +150,20 @@ public class EmailService implements AutoCloseable {
         properties.put("mail." + protocol + ".auth.ntlm.domain", realm == null ? "" : realm);
 
         // TODO: make timeouts configurable?
-        properties.put("mail." + protocol + ".connectiontimeout", Integer.toString(check ? CHECK_TIMEOUT : CONNECT_TIMEOUT));
-        properties.put("mail." + protocol + ".writetimeout", Integer.toString(check ? CHECK_TIMEOUT : WRITE_TIMEOUT)); // one thread overhead
-        properties.put("mail." + protocol + ".timeout", Integer.toString(check ? CHECK_TIMEOUT : READ_TIMEOUT));
+        // writetimeout: one thread overhead
+        if (purpose == PURPOSE_CHECK) {
+            properties.put("mail." + protocol + ".connectiontimeout", Integer.toString(CHECK_TIMEOUT));
+            properties.put("mail." + protocol + ".writetimeout", Integer.toString(CHECK_TIMEOUT));
+            properties.put("mail." + protocol + ".timeout", Integer.toString(CHECK_TIMEOUT));
+        } else if (purpose == PURPOSE_SEARCH) {
+            properties.put("mail." + protocol + ".connectiontimeout", Integer.toString(SEARCH_TIMEOUT));
+            properties.put("mail." + protocol + ".writetimeout", Integer.toString(SEARCH_TIMEOUT));
+            properties.put("mail." + protocol + ".timeout", Integer.toString(SEARCH_TIMEOUT));
+        } else {
+            properties.put("mail." + protocol + ".connectiontimeout", Integer.toString(CONNECT_TIMEOUT));
+            properties.put("mail." + protocol + ".writetimeout", Integer.toString(WRITE_TIMEOUT));
+            properties.put("mail." + protocol + ".timeout", Integer.toString(READ_TIMEOUT));
+        }
 
         if (debug && BuildConfig.DEBUG)
             properties.put("mail.debug.auth", "true");

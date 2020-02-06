@@ -415,7 +415,7 @@ public class ActivityEML extends ActivityBase {
                                             Session isession = Session.getInstance(props, null);
                                             MimeMessage imessage = new MimeMessage(isession, is);
 
-                                            try (EmailService iservice = new EmailService(context, account.getProtocol(), account.realm, account.insecure, false, true)) {
+                                            try (EmailService iservice = new EmailService(context, account.getProtocol(), account.realm, account.insecure, true)) {
                                                 iservice.setPartialFetch(account.partial_fetch);
                                                 iservice.setIgnoreBodyStructureSize(account.ignore_size);
                                                 iservice.connect(account);
