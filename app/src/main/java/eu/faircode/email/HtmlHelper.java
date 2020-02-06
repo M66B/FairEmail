@@ -649,12 +649,8 @@ public class HtmlHelper {
             if (prev instanceof Element && !((Element) prev).isBlock())
                 div.prependElement("br");
 
-            int childs = div.childNodeSize();
-            Node last = (childs > 0 ? div.childNode(childs - 1) : null);
-            if ((last == null || !"div".equals(last.nodeName())) &&
-                    hasVisibleContent(div.childNodes())) {
+            if (hasVisibleContent(div.childNodes()))
                 div.appendElement("br");
-            }
         }
 
         for (Element div : document.select("div"))
