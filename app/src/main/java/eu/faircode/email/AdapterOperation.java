@@ -108,7 +108,7 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
                     (operation.accountName == null ? "" : operation.accountName + "/") + operation.folderName;
 
             ivState.setVisibility(operation.state == null ? View.INVISIBLE : View.VISIBLE);
-            tvFolder.setText(folderName);
+            tvFolder.setText(folderName + ":" + operation.folder);
             tvOperation.setText(sb.toString());
             tvTime.setText(Helper.getRelativeTimeSpanString(context, operation.created));
             tvError.setText(operation.error);

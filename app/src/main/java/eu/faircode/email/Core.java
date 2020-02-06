@@ -1076,12 +1076,16 @@ class Core {
 
         if (jargs.length() > 0) {
             // Cross account move
-            long target = jargs.getLong(0);
-            Log.i(folder.name + " queuing ADD id=" + message.id + ":" + target);
+            long tid = jargs.getLong(0);
+            EntityFolder target = db.folder().getFolder(tid);
+            if (target == null)
+                throw new FolderNotFoundException();
+
+            Log.i(folder.name + " queuing ADD id=" + message.id + ":" + target.id);
 
             EntityOperation operation = new EntityOperation();
-            operation.account = message.account;
-            operation.folder = target;
+            operation.account = target.account;
+            operation.folder = target.id;
             operation.message = message.id;
             operation.name = EntityOperation.ADD;
             operation.args = jargs.toString();
