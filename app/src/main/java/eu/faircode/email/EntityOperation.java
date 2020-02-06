@@ -221,6 +221,7 @@ public class EntityOperation {
                     long id = message.id;
                     Long identity = message.identity;
                     long uid = message.uid;
+                    Boolean raw = message.raw;
                     int notifying = message.notifying;
                     boolean fts = message.fts;
                     Integer importance = message.importance;
@@ -238,6 +239,7 @@ public class EntityOperation {
                     message.folder = target.id;
                     message.identity = null;
                     message.uid = null;
+                    message.raw = null;
                     message.notifying = 0;
                     message.fts = false;
                     if (reset_importance)
@@ -264,6 +266,7 @@ public class EntityOperation {
                     message.folder = source.id;
                     message.identity = identity;
                     message.uid = uid;
+                    message.raw = raw;
                     message.notifying = notifying;
                     message.fts = fts;
                     message.importance = importance;
