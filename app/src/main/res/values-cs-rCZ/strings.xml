@@ -248,6 +248,7 @@
     <string name="title_advanced_signature_end">Připojit podpis za citovanou/přeposílanou zprávu</string>
     <string name="title_advanced_plain_only">Automaticky odeslat pouze prostý text</string>
     <string name="title_advanced_usenet_signature">Používat Usenet konvenci pro podpisy</string>
+    <string name="title_advanced_remove_signatures">Odebrat rozpoznané podpisy</string>
     <string name="title_advanced_resize_images">Automaticky upravit velikost vložených obrázků</string>
     <string name="title_advanced_resize_attachments">Automaticky upravit velikost obrazových příloh</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixelů</string>
@@ -264,6 +265,7 @@
     <string name="title_advanced_landscape">Dvou-sloupcové rozvržení v režimu na šířku</string>
     <string name="title_advanced_landscape3">Povolit ukotvené navigační menu v režimu na šířku</string>
     <string name="title_advanced_startup">Na úvodní obrazovce zobrazit</string>
+    <string name="title_advanced_cards">Použít styl karet namísto tabulkového zobrazení</string>
     <string name="title_advanced_date_header">Seskupit podle data</string>
     <string name="title_advanced_threading">Vlákna konverzací</string>
     <string name="title_advanced_indentation">Levé/pravé odsazení přijatých/odeslaných zpráv v konverzacích</string>

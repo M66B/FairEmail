@@ -247,6 +247,7 @@
     <string name="title_advanced_signature_end">Dodaj podpis po cytowanej/przesyłanej wiadomości</string>
     <string name="title_advanced_plain_only">Domyślnie wysyłaj czystym tekstem</string>
     <string name="title_advanced_usenet_signature">Konwencja podpisu Usenet</string>
+    <string name="title_advanced_remove_signatures">Usuń rozpoznane podpisy</string>
     <string name="title_advanced_resize_images">Automatycznie zmień rozmiar osadzonych obrazów</string>
     <string name="title_advanced_resize_attachments">Automatycznie zmień rozmiar załączonych obrazów</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixeli</string>
@@ -317,6 +318,7 @@
     <string name="title_advanced_quick_scroll">Pokaż nienatarczywe ikony szybkiego przewijania w górę/w dół</string>
     <string name="title_advanced_autoread">Automatycznie oznacz wiadomość jako przeczytaną przy przenoszeniu</string>
     <string name="title_advanced_autounstar">Automatycznie usuwaj gwiazdki z wiadomości przy ich przenoszeniu</string>
+    <string name="title_advanced_reset_importance">Resetuj ważność przy przenoszeniu wiadomości</string>
     <string name="title_advanced_automove">Potwierdź przenoszenie wiadomości</string>
     <string name="title_advanced_discard_delete">Po odrzuceniu wersji roboczej trwale usuń wersję roboczą</string>
     <string name="title_advanced_default_snooze">Domyślny czas odłożenia</string>
@@ -569,6 +571,10 @@
     <string name="title_flag">Dodaj gwiazdkę</string>
     <string name="title_flag_color">Kolorowa gwiazdka &#8230;</string>
     <string name="title_unflag">Usuń gwiazdkę</string>
+    <string name="title_set_importance">Ustaw ważność</string>
+    <string name="title_importance_low">Niska</string>
+    <string name="title_importance_normal">Normalna</string>
+    <string name="title_importance_high">Wysoka</string>
     <string name="title_forward">Prześlij dalej</string>
     <string name="title_new_message">Nowa wiadomość</string>
     <string name="title_editasnew">Edytuj jako nową</string>
@@ -722,7 +728,9 @@
     <string name="title_reset_sign_key">Resetuj klucz podpisu</string>
     <string name="title_signature_none">Wiadomość niepodpisana</string>
     <string name="title_signature_valid">Ważny podpis wiadomości</string>
+    <string name="title_signature_valid_from">Podpis wiadomości prawidłowy: %1$s</string>
     <string name="title_signature_unconfirmed">Podpis wiadomości prawidłowy, ale nie potwierdzony</string>
+    <string name="title_signature_unconfirmed_from">Podpis wiadomości prawidłowy, ale niepotwierdzony: %1$s</string>
     <string name="title_signature_invalid">Nieważny podpis wiadomości</string>
     <string name="title_signature_invalid_reason">Niepoprawny podpis wiadomości: %1$s</string>
     <string name="title_signature_certificate_invalid">Nieprawidłowy łańcuch certyfikatu</string>
@@ -751,6 +759,7 @@
     <string name="title_filter">Odfiltruj</string>
     <string name="title_filter_seen">Przeczytana</string>
     <string name="title_filter_unflagged">Nie oznaczona</string>
+    <string name="title_filter_unknown">Nieznani nadawcy</string>
     <string name="title_filter_hidden">Ukryty</string>
     <string name="title_filter_duplicates">Duplikaty</string>
     <string name="title_compact">Widok kompaktowy</string>

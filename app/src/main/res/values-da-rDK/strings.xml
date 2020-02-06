@@ -225,6 +225,7 @@
     <string name="title_advanced_signature_end">Tilføj signatur efter citeret/videresendt besked</string>
     <string name="title_advanced_plain_only">Send kun simpel tekst som standard</string>
     <string name="title_advanced_usenet_signature">Usenet-signaturkonvention</string>
+    <string name="title_advanced_remove_signatures">Fjern genkedte signaturer</string>
     <string name="title_advanced_resize_images">Skalér automatisk indlejrede billeder</string>
     <string name="title_advanced_resize_attachments">Skalér automatisk billedvedhæftnninger</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>

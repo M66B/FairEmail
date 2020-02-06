@@ -367,7 +367,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_suggest_local_hint">Zusätzlich zu den von Android bereitgestellten Kontakten werden weitere Kontaktdaten für neue gesendete oder erhaltene Nachrichten nur dann gespeichert, wenn dies aktiviert ist.</string>
     <string name="title_advanced_usenet_hint">Signatur-Trenner (\'-- \') zwischen Text und Signatur einfügen</string>
     <string name="title_advanced_send_reminders_hint">Zeige eine Warnung, wenn der Nachrichtentext oder der Betreff leer ist oder wenn ein Anhang zu fehlen scheint</string>
-    <string name="title_advanced_lookup_mx_hint">Überprüft, ob DNS MX-Eintrag existiert</string>
+    <string name="title_advanced_lookup_mx_hint">Überprüft, ob DNS-MX-Einträge vorhanden sind</string>
     <string name="title_advanced_check_reply_hint">Überprüft, ob die Domain des Absenders und der Antwort-An-Adresse gleich sind</string>
     <string name="title_advanced_metered_hint">Getaktete Verbindungen sind in der Regel mobile Verbindungen oder bezahlte Wi-Fi Hotspots</string>
     <string name="title_advanced_metered_warning">Das Deaktivieren dieser Option deaktiviert das Empfangen und Senden von Nachrichten über mobile Internetverbindungen</string>
@@ -594,7 +594,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_receipt_text">Diese Lesebestätigung bestätigt nur, dass die Nachricht angezeigt wurde. Es gibt keine Garantie, dass der Empfänger den Nachrichteninhalt gelesen hat.</string>
     <string name="title_no_answers">Keine Antwortvorlagen definiert</string>
     <string name="title_no_viewer">Keine App zum Betrachten von %1$s</string>
-    <string name="title_no_recorder">Keine passende Audio-Recorder App verfügbar</string>
+    <string name="title_no_recorder">Keine geeignete Audioaufnahme-App verfügbar</string>
     <string name="title_no_camera">Keine passende Kamera-App verfügbar</string>
     <string name="title_no_saf">Storage Access Framework nicht verfügbar</string>
     <string name="title_no_stream">Eine veraltete App verschickte den Dateinamen anstelle des Datenstroms</string>
@@ -820,7 +820,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_legend_synchronizing">wird synchronisiert</string>
     <string name="title_legend_downloading">Lade herunter</string>
     <string name="title_legend_closing">Schließen</string>
-    <string name="title_legend_waiting">Warten auf Synchronisation</string>
+    <string name="title_legend_waiting">Auf die nächste Synchronisation wird gewartet</string>
     <string name="title_legend_unified">Sammeleingang / primäres Konto</string>
     <string name="title_legend_inbox">Posteingang</string>
     <string name="title_legend_drafts">Entwürfe</string>

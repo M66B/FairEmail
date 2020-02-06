@@ -226,6 +226,7 @@
     <string name="title_advanced_signature_end">Alıntılanan/iletilen mesajdan sonra imza ekle</string>
     <string name="title_advanced_plain_only">Öntanımlı olarak yalnızca düz metin gönder</string>
     <string name="title_advanced_usenet_signature">Kullanıcı ağı imza sözleşmesi</string>
+    <string name="title_advanced_remove_signatures">Tanınan imzaları kaldır</string>
     <string name="title_advanced_resize_images">Gömülü resimleri otomatik olarak yeniden boyutlandır</string>
     <string name="title_advanced_resize_attachments">Ekli resimleri otomatik olarak yeniden boyutlandır</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d piksel</string>
@@ -706,7 +707,9 @@
     <string name="title_reset_sign_key">İmzalama anahtarını sıfırla</string>
     <string name="title_signature_none">İleti imzalı değil</string>
     <string name="title_signature_valid">İleti imzası geçerli</string>
-    <string name="title_signature_unconfirmed">Mesaj imzası geçerli ancak onaylanmamış</string>
+    <string name="title_signature_valid_from">Mesaj imzası geçerli: %1$s</string>
+    <string name="title_signature_unconfirmed">Mesaj imzası geçerli ancak doğrulanmamış</string>
+    <string name="title_signature_unconfirmed_from">Mesaj imzası geçerli ancak doğrulanmamış: %1$s</string>
     <string name="title_signature_invalid">İleti imzası geçersiz</string>
     <string name="title_signature_invalid_reason">Mesaj imzası geçersiz: %1$s</string>
     <string name="title_signature_certificate_invalid">Sertifika zinciri geçersiz</string>
@@ -735,6 +738,7 @@
     <string name="title_filter">Filtreleme</string>
     <string name="title_filter_seen">Oku</string>
     <string name="title_filter_unflagged">Yıldızlı Olmayan</string>
+    <string name="title_filter_unknown">Bilinmeyen gönderenler</string>
     <string name="title_filter_hidden">Gizli</string>
     <string name="title_filter_duplicates">Çift kopyalar</string>
     <string name="title_compact">Derlitoplu görünüm</string>

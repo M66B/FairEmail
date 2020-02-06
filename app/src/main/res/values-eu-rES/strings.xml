@@ -224,6 +224,7 @@
     <string name="title_advanced_signature_end">Gehitu sinadura aipatutako/bidalitako mezuaren ondoren</string>
     <string name="title_advanced_plain_only">Bidali testu soil hutsa lehenetsita</string>
     <string name="title_advanced_usenet_signature">Usenet sinaduren konbentzioa</string>
+    <string name="title_advanced_remove_signatures">Kendu ezagututako sinadurak</string>
     <string name="title_advanced_resize_images">Aldatu automatikoki kapsulatutako irudien neurria</string>
     <string name="title_advanced_resize_attachments">Aldatu automatikoki eranskinetako irudien neurria</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixel</string>
