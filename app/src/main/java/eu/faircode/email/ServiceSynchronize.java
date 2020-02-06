@@ -48,6 +48,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
 
+import com.sun.mail.iap.ConnectionException;
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPStore;
 
@@ -855,12 +856,18 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 boolean max = isMaxConnections(c.getMessage());
                                 if (max)
                                     state.setMaxConnections();
-                                if (c instanceof IOException || max) {
+                                if (max ||
+                                        c instanceof IOException ||
+                                        c instanceof ConnectionException ||
+                                        "failed to connect".equals(ex.getMessage())) {
                                     ioError = true;
                                     break;
                                 }
                                 c = c.getCause();
                             }
+
+                            if (!BuildConfig.PLAY_STORE_RELEASE)
+                                Log.e(ex);
 
                             if (!ioError) {
                                 NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
