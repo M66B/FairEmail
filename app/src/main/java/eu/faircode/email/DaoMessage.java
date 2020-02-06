@@ -78,7 +78,7 @@ public interface DaoMessage {
             "   ELSE SUM(CASE WHEN folder.type = :type THEN 1 ELSE 0 END) > 0 END)" +
             " AND (NOT :filter_seen OR SUM(1 - message.ui_seen) > 0)" +
             " AND (NOT :filter_unflagged OR COUNT(message.id) - SUM(1 - message.ui_flagged) > 0)" +
-            " AND (NOT :filter_unknown OR (message.avatar IS NOT NULL AND message.sender <> identity.email))" +
+            " AND (NOT :filter_unknown OR SUM(message.avatar IS NOT NULL AND message.sender <> identity.email) > 0)" +
             " AND (NOT :filter_snoozed OR message.ui_snoozed IS NULL OR " + is_drafts + ")" +
             " ORDER BY -IFNULL(MAX(message.importance), 1)" +
             ", CASE" +
@@ -132,7 +132,7 @@ public interface DaoMessage {
             " HAVING SUM(CASE WHEN folder.id = :folder THEN 1 ELSE 0 END) > 0" +
             " AND (NOT :filter_seen OR SUM(1 - message.ui_seen) > 0 OR " + is_outbox + ")" +
             " AND (NOT :filter_unflagged OR COUNT(message.id) - SUM(1 - message.ui_flagged) > 0 OR " + is_outbox + ")" +
-            " AND (NOT :filter_unknown OR (message.avatar IS NOT NULL AND message.sender <> identity.email)" +
+            " AND (NOT :filter_unknown OR SUM(message.avatar IS NOT NULL AND message.sender <> identity.email) > 0" +
             "   OR " + is_outbox + " OR " + is_drafts + " OR " + is_sent + ")" +
             " AND (NOT :filter_snoozed OR message.ui_snoozed IS NULL OR " + is_outbox + " OR " + is_drafts + ")" +
             " ORDER BY -IFNULL(MAX(message.importance), 1)" +
