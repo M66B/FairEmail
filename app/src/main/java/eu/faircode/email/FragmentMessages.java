@@ -1983,6 +1983,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         new SimpleTask<MoreResult>() {
             @Override
+            protected void onPreExecute(Bundle args) {
+                fabMore.setEnabled(false);
+            }
+
+            @Override
+            protected void onPostExecute(Bundle args) {
+                fabMore.setEnabled(true);
+            }
+
+            @Override
             protected MoreResult onExecute(Context context, Bundle args) {
                 long[] ids = args.getLongArray("ids");
 
