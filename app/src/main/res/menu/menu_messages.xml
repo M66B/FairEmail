@@ -51,6 +51,10 @@
                     android:title="@string/title_sort_on_hidden" />
             </group>
             <item
+                android:id="@+id/menu_use_sent_time"
+                android:checkable="true"
+                android:title="@string/title_sort_sent_time" />
+            <item
                 android:id="@+id/menu_ascending"
                 android:checkable="true"
                 android:title="@string/title_sort_ascending" />

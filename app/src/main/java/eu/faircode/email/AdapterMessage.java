@@ -174,7 +174,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean compact;
     private int zoom;
     private String sort;
-    private boolean ascending;
     private boolean filter_duplicates;
     private IProperties properties;
 
@@ -4095,7 +4094,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     AdapterMessage(Fragment parentFragment,
                    String type, boolean found, ViewType viewType,
-                   boolean compact, int zoom, String sort, boolean ascending, boolean filter_duplicates,
+                   boolean compact, int zoom, String sort, boolean filter_duplicates,
                    final IProperties properties) {
         this.parentFragment = parentFragment;
         this.type = type;
@@ -4104,7 +4103,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.compact = compact;
         this.zoom = zoom;
         this.sort = sort;
-        this.ascending = ascending;
         this.filter_duplicates = filter_duplicates;
         this.properties = properties;
 
@@ -4276,10 +4274,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     String getSort() {
         return this.sort;
-    }
-
-    void setAscending(boolean ascending) {
-        this.ascending = ascending;
     }
 
     void setFilterDuplicates(boolean filter_duplicates) {

@@ -92,12 +92,13 @@ public interface DaoMessage {
             "   WHEN 'snoozed' = :sort THEN SUM(CASE WHEN message.ui_snoozed IS NULL THEN 0 ELSE 1 END) = 0" +
             "   ELSE 0" +
             "  END" +
-            ", CASE WHEN :ascending THEN message.received ELSE -message.received END")
+            ", CASE WHEN :use_sent_time THEN message.sent ELSE message.received END" +
+            "  * CASE WHEN :ascending THEN 1 ELSE -1 END")
     @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
     DataSource.Factory<Integer, TupleMessageEx> pagedUnified(
             String type,
             boolean threading,
-            String sort, boolean ascending,
+            String sort, boolean use_sent_time, boolean ascending,
             boolean filter_seen, boolean filter_unflagged, boolean filter_unknown, boolean filter_snoozed,
             boolean found,
             boolean debug);
@@ -147,11 +148,12 @@ public interface DaoMessage {
             "   WHEN 'snoozed' = :sort THEN SUM(CASE WHEN message.ui_snoozed IS NULL THEN 0 ELSE 1 END) = 0" +
             "   ELSE 0" +
             "  END" +
-            ", CASE WHEN :ascending THEN message.received ELSE -message.received END")
+            ", CASE WHEN :use_sent_time THEN message.sent ELSE message.received END" +
+            "  * CASE WHEN :ascending THEN 1 ELSE -1 END")
     @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
     DataSource.Factory<Integer, TupleMessageEx> pagedFolder(
             long folder, boolean threading,
-            String sort, boolean ascending,
+            String sort, boolean use_sent_time, boolean ascending,
             boolean filter_seen, boolean filter_unflagged, boolean filter_unknown, boolean filter_snoozed,
             boolean found,
             boolean debug);
@@ -180,7 +182,8 @@ public interface DaoMessage {
             " AND message.thread = :thread" +
             " AND (:id IS NULL OR message.id = :id)" +
             " AND (NOT message.ui_hide OR :debug)" +
-            " ORDER BY CASE WHEN :ascending THEN message.received ELSE -message.received END" +
+            " ORDER BY CASE WHEN :use_sent_time THEN message.sent ELSE message.received END" +
+            " * CASE WHEN :ascending THEN 1 ELSE -1 END" +
             ", CASE" +
             " WHEN folder.type = '" + EntityFolder.INBOX + "' THEN 1" +
             " WHEN folder.type = '" + EntityFolder.OUTBOX + "' THEN 2" +
@@ -193,7 +196,8 @@ public interface DaoMessage {
             " WHEN folder.type = '" + EntityFolder.JUNK + "' THEN 9" +
             " ELSE 999 END")
         // The folder type sort order should match the duplicate algorithm
-    DataSource.Factory<Integer, TupleMessageEx> pagedThread(long account, String thread, Long id, boolean ascending, boolean debug);
+    DataSource.Factory<Integer, TupleMessageEx> pagedThread(
+            long account, String thread, Long id, boolean use_sent_time, boolean ascending, boolean debug);
 
     @Query("SELECT account.name AS accountName" +
             ", COUNT(message.id) AS count" +
