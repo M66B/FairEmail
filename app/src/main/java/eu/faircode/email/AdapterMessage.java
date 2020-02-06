@@ -2501,7 +2501,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 DateUtils.getRelativeTimeSpanString(
                                         message.ui_snoozed,
                                         System.currentTimeMillis(),
-                                        DateUtils.MINUTE_IN_MILLIS,
+                                        DateUtils.SECOND_IN_MILLIS,
                                         DateUtils.FORMAT_ABBREV_RELATIVE),
                         Toast.LENGTH_LONG).show();
             }
