@@ -310,8 +310,12 @@ public class FragmentGmail extends FragmentBase {
                 List<EntityFolder> folders;
 
                 String aprotocol = provider.imap.starttls ? "imap" : "imaps";
-                try (EmailService iservice = new EmailService(context, aprotocol, null, false, EmailService.PURPOSE_CHECK, true)) {
-                    iservice.connect(provider.imap.host, provider.imap.port, EmailService.AUTH_TYPE_GMAIL, null, user, password, null);
+                try (EmailService iservice = new EmailService(
+                        context, aprotocol, null, false, EmailService.PURPOSE_CHECK, true)) {
+                    iservice.connect(
+                            provider.imap.host, provider.imap.port,
+                            EmailService.AUTH_TYPE_GMAIL, null,
+                            user, password, null);
 
                     folders = iservice.getFolders();
 
@@ -320,8 +324,12 @@ public class FragmentGmail extends FragmentBase {
                 }
 
                 String iprotocol = provider.smtp.starttls ? "smtp" : "smtps";
-                try (EmailService iservice = new EmailService(context, iprotocol, null, false, EmailService.PURPOSE_CHECK, true)) {
-                    iservice.connect(provider.smtp.host, provider.smtp.port, EmailService.AUTH_TYPE_GMAIL, null, user, password, null);
+                try (EmailService iservice = new EmailService(
+                        context, iprotocol, null, false, EmailService.PURPOSE_CHECK, true)) {
+                    iservice.connect(
+                            provider.smtp.host, provider.smtp.port,
+                            EmailService.AUTH_TYPE_GMAIL, null,
+                            user, password, null);
                 }
 
                 DB db = DB.getInstance(context);

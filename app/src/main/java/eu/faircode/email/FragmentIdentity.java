@@ -776,7 +776,8 @@ public class FragmentIdentity extends FragmentBase {
                 if (check) {
                     // Create transport
                     String protocol = (starttls ? "smtp" : "smtps");
-                    try (EmailService iservice = new EmailService(context, protocol, realm, insecure, EmailService.PURPOSE_CHECK, true)) {
+                    try (EmailService iservice = new EmailService(
+                            context, protocol, realm, insecure, EmailService.PURPOSE_CHECK, true)) {
                         iservice.setUseIp(use_ip);
                         iservice.connect(host, Integer.parseInt(port), auth, provider, user, password, fingerprint);
                     }
