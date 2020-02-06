@@ -670,6 +670,7 @@ public class FragmentAccount extends FragmentBase {
                             }
                         if (!has) {
                             guess.type = gtype;
+                            guess.setProperties();
                             Log.i(guess.name + " guessed type=" + gtype);
                         }
                     }

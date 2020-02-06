@@ -197,7 +197,10 @@ public class EntityFolder extends EntityOrder implements Serializable {
     public EntityFolder(String fullName, String type) {
         this.name = fullName;
         this.type = type;
+        setProperties();
+    }
 
+    void setProperties() {
         int sync = EntityFolder.SYSTEM_FOLDER_SYNC.indexOf(type);
         this.synchronize = (sync >= 0);
         this.download = (sync < 0 || EntityFolder.SYSTEM_FOLDER_DOWNLOAD.get(sync));

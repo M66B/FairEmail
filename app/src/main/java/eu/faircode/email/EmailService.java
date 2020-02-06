@@ -496,6 +496,7 @@ public class EmailService implements AutoCloseable {
                 }
             if (!has) {
                 guess.type = gtype;
+                guess.setProperties();
                 Log.i(guess.name + " guessed type=" + gtype);
             }
         }
