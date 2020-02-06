@@ -638,12 +638,16 @@ public class HtmlHelper {
         }
 
         // Selective new lines
-        for (Element div : document.select("div"))
-            if (!Boolean.parseBoolean(div.attr("inline")) &&
-                    div.children().select("div").size() == 0 &&
+        for (Element div : document.select("div")) {
+            boolean inline = Boolean.parseBoolean(div.attr("inline"));
+            int childs = div.childNodeSize();
+            Node last = (childs > 0 ? div.childNode(childs - 1) : null);
+            if (!inline &&
+                    (last == null || !"div".equals(last.nodeName())) &&
                     hasVisibleContent(div.childNodes())) {
                 div.appendElement("br");
             }
+        }
 
         for (Element div : document.select("div"))
             div.tagName("span");
