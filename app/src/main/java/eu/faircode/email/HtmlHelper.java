@@ -637,17 +637,21 @@ public class HtmlHelper {
             }, document);
         }
 
+        for (Element div : document.select("div")) {
+            boolean inline = Boolean.parseBoolean(div.attr("inline"));
+            if (inline)
+                div.tagName("span");
+        }
+
         // Selective new lines
         for (Element div : document.select("div")) {
             Node prev = div.previousSibling();
             if (prev instanceof Element && !((Element) prev).isBlock())
                 div.prependElement("br");
 
-            boolean inline = Boolean.parseBoolean(div.attr("inline"));
             int childs = div.childNodeSize();
             Node last = (childs > 0 ? div.childNode(childs - 1) : null);
-            if (!inline &&
-                    (last == null || !"div".equals(last.nodeName())) &&
+            if ((last == null || !"div".equals(last.nodeName())) &&
                     hasVisibleContent(div.childNodes())) {
                 div.appendElement("br");
             }
