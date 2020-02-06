@@ -668,11 +668,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         boolean compact = prefs.getBoolean("compact", false);
         int zoom = prefs.getInt("view_zoom", compact ? 0 : 1);
         String sort = prefs.getString("sort", "time");
+        boolean ascending = prefs.getBoolean(
+                viewType == AdapterMessage.ViewType.THREAD ? "ascending_thread" : "ascending_list", false);
         boolean filter_duplicates = prefs.getBoolean("filter_duplicates", true);
 
         adapter = new AdapterMessage(
                 this, type, found, viewType,
-                compact, zoom, sort, filter_duplicates,
+                compact, zoom, sort, ascending, filter_duplicates,
                 iProperties);
         rvMessage.setAdapter(adapter);
 
@@ -3070,7 +3072,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     public void onPrepareOptionsMenu(Menu menu) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         String sort = prefs.getString("sort", "time");
-        boolean use_sent_time = prefs.getBoolean("use_sent_time", false);
         boolean ascending = prefs.getBoolean(
                 viewType == AdapterMessage.ViewType.THREAD ? "ascending_thread" : "ascending_list", false);
         boolean filter_seen = prefs.getBoolean("filter_seen", false);
@@ -3134,7 +3135,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             menu.findItem(R.id.menu_sort_on_attachments).setChecked(true);
         else if ("snoozed".equals(sort))
             menu.findItem(R.id.menu_sort_on_snoozed).setChecked(true);
-        menu.findItem(R.id.menu_use_sent_time).setChecked(use_sent_time);
         menu.findItem(R.id.menu_ascending).setChecked(ascending);
 
         menu.findItem(R.id.menu_filter).setVisible(viewType != AdapterMessage.ViewType.SEARCH && !outbox);
@@ -3227,10 +3227,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 onMenuSort("snoozed");
                 return true;
 
-            case R.id.menu_use_sent_time:
-                onMenuUseSentTime(!item.isChecked());
-                return true;
-
             case R.id.menu_ascending:
                 onMenuAscending(!item.isChecked());
                 return true;
@@ -3307,17 +3303,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         loadMessages(true);
     }
 
-    private void onMenuUseSentTime(boolean use_sent_time) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        prefs.edit().putBoolean("use_sent_time", use_sent_time).apply();
-        getActivity().invalidateOptionsMenu();
-        loadMessages(true);
-    }
-
     private void onMenuAscending(boolean ascending) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         prefs.edit().putBoolean(
                 viewType == AdapterMessage.ViewType.THREAD ? "ascending_thread" : "ascending_list", ascending).apply();
+        adapter.setAscending(ascending);
         getActivity().invalidateOptionsMenu();
         loadMessages(true);
     }

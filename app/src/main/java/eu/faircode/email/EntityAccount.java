@@ -117,7 +117,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
     @NonNull
     public Boolean ignore_size = false;
     @NonNull
-    public Boolean use_date = false; // Obsolete
+    public Boolean use_date = false;
     public String prefix; // namespace, obsolete
 
     public Long quota_usage;

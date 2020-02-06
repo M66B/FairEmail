@@ -92,7 +92,7 @@ public class ViewModelMessages extends ViewModel {
                             db.message().pagedUnified(
                                     args.type,
                                     args.threading,
-                                    args.sort, args.use_sent_time, args.ascending,
+                                    args.sort, args.ascending,
                                     args.filter_seen,
                                     args.filter_unflagged,
                                     args.filter_unknown,
@@ -111,7 +111,7 @@ public class ViewModelMessages extends ViewModel {
                     builder = new LivePagedListBuilder<>(
                             db.message().pagedFolder(
                                     args.folder, args.threading,
-                                    args.sort, args.use_sent_time, args.ascending,
+                                    args.sort, args.ascending,
                                     args.filter_seen,
                                     args.filter_unflagged,
                                     args.filter_unknown,
@@ -127,7 +127,7 @@ public class ViewModelMessages extends ViewModel {
                             db.message().pagedThread(
                                     args.account, args.thread,
                                     args.threading ? null : args.id,
-                                    args.use_sent_time, args.ascending,
+                                    args.ascending,
                                     args.debug), LOCAL_PAGE_SIZE);
                     break;
 
@@ -141,7 +141,7 @@ public class ViewModelMessages extends ViewModel {
                                 db.message().pagedUnified(
                                         null,
                                         args.threading,
-                                        "time", args.use_sent_time, false,
+                                        "time", false,
                                         false, false, false, false,
                                         true,
                                         args.debug),
@@ -150,7 +150,7 @@ public class ViewModelMessages extends ViewModel {
                         builder = new LivePagedListBuilder<>(
                                 db.message().pagedFolder(
                                         args.folder, args.threading,
-                                        "time", args.use_sent_time, false,
+                                        "time", false,
                                         false, false, false, false,
                                         true,
                                         args.debug),
@@ -314,7 +314,6 @@ public class ViewModelMessages extends ViewModel {
 
         private boolean threading;
         private String sort;
-        private boolean use_sent_time;
         private boolean ascending;
         private boolean filter_seen;
         private boolean filter_unflagged;
@@ -339,7 +338,6 @@ public class ViewModelMessages extends ViewModel {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             this.threading = prefs.getBoolean("threading", true);
             this.sort = prefs.getString("sort", "time");
-            this.use_sent_time = prefs.getBoolean("use_sent_time", false);
             this.ascending = prefs.getBoolean(
                     viewType == AdapterMessage.ViewType.THREAD ? "ascending_thread" : "ascending_list", false);
             this.filter_seen = prefs.getBoolean("filter_seen", false);
@@ -363,7 +361,6 @@ public class ViewModelMessages extends ViewModel {
 
                         this.threading == other.threading &&
                         Objects.equals(this.sort, other.sort) &&
-                        this.use_sent_time == other.use_sent_time &&
                         this.ascending == other.ascending &&
                         this.filter_seen == other.filter_seen &&
                         this.filter_unflagged == other.filter_unflagged &&
@@ -381,7 +378,7 @@ public class ViewModelMessages extends ViewModel {
                     " thread=" + thread + ":" + id +
                     " query=" + query + ":" + server + "" +
                     " threading=" + threading +
-                    " sort=" + sort + ":" + use_sent_time + ":" + ascending +
+                    " sort=" + sort + ":" + ascending +
                     " filter seen=" + filter_seen +
                     " unflagged=" + filter_unflagged +
                     " unknown=" + filter_unknown +

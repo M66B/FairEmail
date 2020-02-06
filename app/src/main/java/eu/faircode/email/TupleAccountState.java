@@ -42,6 +42,7 @@ public class TupleAccountState extends EntityAccount {
                     this.poll_interval.equals(other.poll_interval) &&
                     this.partial_fetch.equals(other.partial_fetch) &&
                     this.ignore_size.equals(other.ignore_size) &&
+                    this.use_date.equals(other.use_date) &&
                     this.folders == other.folders &&
                     Objects.equals(this.tbd, other.tbd));
         } else
