@@ -81,6 +81,7 @@ import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.net.SocketException;
+import java.security.cert.CertPathValidatorException;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -99,6 +100,7 @@ import javax.mail.MessagingException;
 import javax.mail.Part;
 import javax.mail.StoreClosedException;
 import javax.mail.internet.InternetAddress;
+import javax.net.ssl.SSLHandshakeException;
 import javax.net.ssl.SSLPeerUnverifiedException;
 
 public class Log {
@@ -249,6 +251,7 @@ public class Log {
         ignore.add("javax.mail.FolderNotFoundException");
         ignore.add("javax.mail.ReadOnlyFolderException");
         ignore.add("javax.mail.FolderClosedException");
+        ignore.add("com.sun.mail.util.FolderClosedIOException");
         ignore.add("javax.mail.StoreClosedException");
 
         ignore.add("org.xmlpull.v1.XmlPullParserException");
@@ -310,6 +313,10 @@ public class Log {
                 if (ex instanceof SSLPeerUnverifiedException ||
                         ex instanceof EmailService.UntrustedException)
                     return false;
+
+                if (ex instanceof SSLHandshakeException &&
+                        ex.getCause() instanceof CertPathValidatorException)
+                    return false; // checkUpdate!
 
                 // Rate limit
                 int count = prefs.getInt("crash_report_count", 0) + 1;
