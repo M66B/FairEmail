@@ -1078,12 +1078,16 @@ Note that this is independent of receiving messages.
 **(34) How are identities matched?**
 
 Identities are as expected matched by account.
-For incoming folders the *to*, *cc*, *bcc* and *from* addresses will be checked
-and for outgoing folders (drafts, outbox and sent) the *from* addresses will be checked.
+For incoming messages the *to*, *cc*, *bcc* and *from* addresses will be checked
+and for outgoing messages (drafts, outbox and sent) the *from* addresses will be checked.
 
 The matched address will be shown as *via* in the addresses section.
 
-Note that identities needs to be enabled to be able to be matched.
+Note that identities needs to be enabled to be able to be matched
+and that identities of other accounts will not be considered.
+
+It is possible to configure a [regex](https://en.wikipedia.org/wiki/Regular_expression) in the identity settings
+to match the username of an email address (the part before the @ sign).
 
 Matched identities can be used to color code messages.
 The identity color takes precedence over the account color.
