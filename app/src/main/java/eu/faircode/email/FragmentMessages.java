@@ -5723,7 +5723,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     db.endTransaction();
                 }
 
-                ServiceSynchronize.eval(context, "copy");
+                if (copy)
+                    ServiceSynchronize.eval(context, "copy");
 
                 return result;
             }
