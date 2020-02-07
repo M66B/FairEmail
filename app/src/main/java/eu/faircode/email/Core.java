@@ -103,6 +103,7 @@ import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.mail.Store;
 import javax.mail.UIDFolder;
+import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.mail.search.ComparisonTerm;
@@ -2434,6 +2435,12 @@ class Core {
                 addresses.addAll(Arrays.asList(message.bcc));
             if (message.from != null)
                 addresses.addAll(Arrays.asList(message.from));
+            if (message.deliveredto != null)
+                try {
+                    addresses.add(new InternetAddress(message.deliveredto));
+                } catch (AddressException ex) {
+                    Log.w(ex);
+                }
         }
 
         // Search for matching identity
