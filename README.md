@@ -108,6 +108,7 @@ Please see [here](https://email.faircode.eu/#screenshots) for screenshots.
 * [GitHub](https://github.com/M66B/FairEmail/releases)
 * [Play store](https://play.google.com/store/apps/details?id=eu.faircode.email)
 * ~~[Play store](https://play.google.com/apps/testing/eu.faircode.email) (test)~~
+* [AppGallery](https://wap3.hispace.hicloud.com/uowap/index.jsp#/detailApp/C101678151)
 
 To download a GitHub release you might need to expand the assets section to download the [APK file](https://en.wikipedia.org/wiki/Android_application_package).
 
