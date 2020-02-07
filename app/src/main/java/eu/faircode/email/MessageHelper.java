@@ -705,6 +705,13 @@ public class MessageHelper {
         String header = imessage.getHeader("Delivered-To", null);
         if (header == null)
             header = imessage.getHeader("X-Delivered-To", null);
+        if (header == null)
+            header = imessage.getHeader("Envelope-To", null);
+        if (header == null)
+            header = imessage.getHeader("X-Envelope-To", null);
+        if (header == null)
+            header = imessage.getHeader("X-Original-To", null);
+
         return (header == null ? null : MimeUtility.unfold(header));
     }
 
