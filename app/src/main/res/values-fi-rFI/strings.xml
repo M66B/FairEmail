@@ -224,6 +224,7 @@
     <string name="title_advanced_signature_end">Lisää allekirjoitus lainatun/edelleenlähetetyn viestin jälkeen</string>
     <string name="title_advanced_plain_only">Lähetä muotoilemattomana tekstinä oletuksena</string>
     <string name="title_advanced_usenet_signature">Usenetin allekirjoitustyyli</string>
+    <string name="title_advanced_remove_signatures">Poista tunnistetut allekirjoitukset</string>
     <string name="title_advanced_resize_images">Muuta upotettujen kuvien koot</string>
     <string name="title_advanced_resize_attachments">Muuta liitettyjen kuvien koot</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d kuvapistettä</string>
@@ -704,7 +705,9 @@
     <string name="title_reset_sign_key">Nollaa allekirjoitusavain</string>
     <string name="title_signature_none">Viestiä ei allekirjoitettu</string>
     <string name="title_signature_valid">Viestin allekirjoitus pätevä</string>
+    <string name="title_signature_valid_from">Viestin allekirjoitus pätevä: %1$s</string>
     <string name="title_signature_unconfirmed">Viestin allekirjoitus pätevä muttei vahvistettu</string>
+    <string name="title_signature_unconfirmed_from">Viestin allekirjoitus pätevä muttei vahvistettu: %1$s</string>
     <string name="title_signature_invalid">Viestin allekirjoitus virheellinen</string>
     <string name="title_signature_invalid_reason">Viestin allekirjoitus virheellinen: %1$s</string>
     <string name="title_signature_certificate_invalid">Virheellinen sertifikaattiketju</string>
@@ -733,6 +736,7 @@
     <string name="title_filter">Suodata pois</string>
     <string name="title_filter_seen">Luettu</string>
     <string name="title_filter_unflagged">Tähdetön</string>
+    <string name="title_filter_unknown">Tuntemattomat lähettäjät</string>
     <string name="title_filter_hidden">Piilotettu</string>
     <string name="title_filter_duplicates">Kaksoiskappaleet</string>
     <string name="title_compact">Tiivistetty näkymä</string>

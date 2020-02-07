@@ -754,13 +754,13 @@
     <string name="title_sort_on_subject">Temat</string>
     <string name="title_sort_on_size">Rozmiar</string>
     <string name="title_sort_on_attachments">Załączniki</string>
-    <string name="title_sort_on_hidden">Ukryty</string>
+    <string name="title_sort_on_hidden">Ukryta</string>
     <string name="title_sort_ascending">Od najstarszych</string>
     <string name="title_filter">Odfiltruj</string>
     <string name="title_filter_seen">Przeczytana</string>
     <string name="title_filter_unflagged">Nie oznaczona</string>
     <string name="title_filter_unknown">Nieznani nadawcy</string>
-    <string name="title_filter_hidden">Ukryty</string>
+    <string name="title_filter_hidden">Ukryta</string>
     <string name="title_filter_duplicates">Duplikaty</string>
     <string name="title_compact">Widok kompaktowy</string>
     <string name="title_zoom">Rozmiar tekstu</string>
@@ -1000,7 +1000,7 @@ FairEmail wyświetla o tym małą wiadomość przypominającą, która zostanie 
     <string name="title_search_special_prefix">specjalna</string>
     <string name="title_search_special_unseen">nieodczytana</string>
     <string name="title_search_special_flagged">oznaczona</string>
-    <string name="title_search_special_snoozed">ukryty</string>
+    <string name="title_search_special_snoozed">ukryta</string>
     <string name="title_search_special_encrypted">zaszyfrowana</string>
     <string name="title_widget_title_count">Liczba nowych wiadomości</string>
     <string name="title_widget_title_list">Lista wiadomości</string>

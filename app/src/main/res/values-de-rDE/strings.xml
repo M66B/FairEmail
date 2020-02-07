@@ -69,7 +69,7 @@
     <string name="title_ask_spam_who">Nachricht von %1$s als Spam behandeln?</string>
     <string name="title_block">%1$s sperren</string>
     <string name="title_block_sender">Absender sperren</string>
-    <string name="title_block_domain">Gesamte Domain sperren</string>
+    <string name="title_block_domain">Absenderdomain sperren</string>
     <string name="title_block_sender_hint">        Das Sperren eines Absenders erstellt eine Regel, um zukünftige Nachrichten
         von dieser Absenderadresse automatisch in den Spam-Ordner zu verschieben.
         Regeln erstellen und verwenden ist eine Pro-Funktion.
@@ -84,12 +84,12 @@
     <string name="menu_operations">Vorgänge</string>
     <string name="menu_contacts">Lokale Kontakte</string>
     <string name="menu_setup">Einstellungen</string>
-    <string name="menu_legend">Legende</string>
+    <string name="menu_legend">Symbolerklärung</string>
     <string name="menu_test">Test-Programm</string>
-    <string name="menu_faq">Unterstützung</string>
+    <string name="menu_faq">FAQ</string>
     <string name="menu_translate">Hilf beim Übersetzen</string>
     <string name="menu_issue">Problem melden</string>
-    <string name="menu_attribution">Danksagung</string>
+    <string name="menu_attribution">Danksagungen</string>
     <string name="menu_privacy">Datenschutz</string>
     <string name="menu_about">Über</string>
     <string name="menu_pro">Pro-Funktionen</string>
@@ -594,7 +594,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_receipt_text">Diese Lesebestätigung bestätigt nur, dass die Nachricht angezeigt wurde. Es gibt keine Garantie, dass der Empfänger den Nachrichteninhalt gelesen hat.</string>
     <string name="title_no_answers">Keine Antwortvorlagen definiert</string>
     <string name="title_no_viewer">Keine App zum Betrachten von %1$s</string>
-    <string name="title_no_recorder">Keine geeignete Audioaufnahme-App verfügbar</string>
+    <string name="title_no_recorder">Keine geeignete App zur Audioaufnahme verfügbar</string>
     <string name="title_no_camera">Keine passende Kamera-App verfügbar</string>
     <string name="title_no_saf">Storage Access Framework nicht verfügbar</string>
     <string name="title_no_stream">Eine veraltete App verschickte den Dateinamen anstelle des Datenstroms</string>
@@ -795,7 +795,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_rule_cc">Den CC-Adressen antworten</string>
     <string name="title_rule_name_missing">Regelname fehlt</string>
     <string name="title_rule_condition_missing">Voraussetzung fehlt</string>
-    <string name="title_rule_automation_hint">Dies sendet de Intent \'%1$s\' mit den Extras \'%2$s\'</string>
+    <string name="title_rule_automation_hint">Sende den Intent \'%1$s\' mit den Extras \'%2$s\'</string>
     <string name="title_rule_execute">Jetzt ausführen</string>
     <string name="title_rule_applied">Betroffene Nachrichten: %1$d</string>
     <string name="title_rule_check">Prüfen</string>
@@ -820,7 +820,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_legend_synchronizing">wird synchronisiert</string>
     <string name="title_legend_downloading">Lade herunter</string>
     <string name="title_legend_closing">Schließen</string>
-    <string name="title_legend_waiting">Auf die nächste Synchronisation wird gewartet</string>
+    <string name="title_legend_waiting">Warten auf Synchronisation</string>
     <string name="title_legend_unified">Sammeleingang / primäres Konto</string>
     <string name="title_legend_inbox">Posteingang</string>
     <string name="title_legend_drafts">Entwürfe</string>
