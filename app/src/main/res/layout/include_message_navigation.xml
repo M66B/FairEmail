@@ -141,6 +141,17 @@
         app:layout_constraintTop_toBottomOf="@id/vSeparatorBottom"
         app:srcCompat="@drawable/baseline_fullscreen_24" />
 
+    <TextView
+        android:id="@+id/tvSignedData"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/title_signed_data"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ibVerify" />
+
     <androidx.constraintlayout.widget.Group
         android:id="@+id/grpActions"
         android:layout_width="0dp"

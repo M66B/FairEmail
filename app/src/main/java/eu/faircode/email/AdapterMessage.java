@@ -382,6 +382,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageButton ibJunk;
         private ImageButton ibVerify;
         private ImageButton ibDecrypt;
+        private TextView tvSignedData;
 
         private TextView tvBody;
         private View wvBody;
@@ -571,6 +572,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibJunk = vsBody.findViewById(R.id.ibJunk);
             ibVerify = vsBody.findViewById(R.id.ibVerify);
             ibDecrypt = vsBody.findViewById(R.id.ibDecrypt);
+            tvSignedData = vsBody.findViewById(R.id.tvSignedData);
 
             tvBody = vsBody.findViewById(R.id.tvBody);
             wvBody = vsBody.findViewById(R.id.wvBody);
@@ -1160,6 +1162,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibJunk.setVisibility(View.GONE);
             ibVerify.setVisibility(View.GONE);
             ibDecrypt.setVisibility(View.GONE);
+            tvSignedData.setVisibility(View.GONE);
 
             tvBody.setVisibility(View.GONE);
             wvBody.setVisibility(View.GONE);
@@ -1284,8 +1287,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibUnsubscribe.setVisibility(View.GONE);
             ibJunk.setEnabled(false);
             ibJunk.setVisibility(View.GONE);
-            ibDecrypt.setVisibility(View.GONE);
             ibVerify.setVisibility(View.GONE);
+            ibDecrypt.setVisibility(View.GONE);
+            tvSignedData.setVisibility(View.GONE);
 
             // Addresses
             ibExpanderAddress.setImageLevel(show_addresses ? 0 /* less */ : 1 /* more */);
@@ -1641,11 +1645,25 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (message == null || !message.content)
                         return null;
 
+                    DB db = DB.getInstance(context);
+                    List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
+
+                    boolean signed_data = false;
+                    for (EntityAttachment attachment : attachments)
+                        if (EntityAttachment.SMIME_SIGNED_DATA.equals(attachment.encryption)) {
+                            signed_data = true;
+                            break;
+                        }
+
                     File file = message.getFile(context);
                     if (!file.exists())
                         return null;
 
                     String body = Helper.readText(file);
+                    if (!TextUtils.isEmpty(body))
+                        signed_data = false;
+                    args.putBoolean("signed_data", signed_data);
+
                     Document document = JsoupEx.parse(body);
 
                     // Check for inline encryption
@@ -1670,12 +1688,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     args.putBoolean("has_images", has_images);
 
                     // Download inline images
-                    if (show_images) {
-                        DB db = DB.getInstance(context);
+                    if (show_images)
                         try {
                             db.beginTransaction();
 
-                            List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
                             for (EntityAttachment attachment : attachments)
                                 if (attachment.isInline() && attachment.isImage() &&
                                         attachment.progress == null && !attachment.available)
@@ -1685,7 +1701,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         } finally {
                             db.endTransaction();
                         }
-                    }
 
                     // Format message
                     if (show_full) {
@@ -1838,6 +1853,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             EntityMessage.PGP_SIGNENCRYPT.equals(message.encrypt) ||
                             EntityMessage.SMIME_SIGNENCRYPT.equals(message.encrypt)
                             ? View.VISIBLE : View.GONE);
+
+                    boolean signed_data = args.getBoolean("signed_data");
+                    tvSignedData.setVisibility(signed_data ? View.VISIBLE : View.GONE);
                 }
 
                 @Override
