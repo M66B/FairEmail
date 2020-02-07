@@ -3936,8 +3936,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             return;
         }
 
+        String key = (result.size() == 1 ? "move_1_confirmed" : "move_n_confirmed");
+
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        if (prefs.getBoolean("automove", false)) {
+        if (prefs.getBoolean(key, false)) {
             if (canUndo)
                 moveUndo(result);
             else
@@ -3949,7 +3951,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         aargs.putString("question", getResources()
                 .getQuantityString(R.plurals.title_moving_messages,
                         result.size(), result.size(), getDisplay(result)));
-        aargs.putString("notagain", "automove");
+        aargs.putString("notagain", key);
         aargs.putParcelableArrayList("result", result);
 
         FragmentDialogAsk ask = new FragmentDialogAsk();

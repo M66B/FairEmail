@@ -230,6 +230,12 @@ public class ApplicationEx extends Application {
             boolean large = context.getResources().getConfiguration()
                     .isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_LARGE);
             editor.putBoolean("landscape3", large);
+        } else if (version < 949) {
+            if (prefs.contains("automove")) {
+                boolean automove = prefs.getBoolean("automove", false);
+                editor.putBoolean("move_1_confirmed", automove);
+                editor.remove("automove");
+            }
         }
 
         if (BuildConfig.DEBUG && false) {

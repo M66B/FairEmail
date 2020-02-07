@@ -59,7 +59,6 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private SwitchCompat swAutoRead;
     private SwitchCompat swAutoUnflag;
     private SwitchCompat swResetImportance;
-    private SwitchCompat swAutoMove;
     private SwitchCompat swDiscardDelete;
     private NumberPicker npDefaultSnooze;
 
@@ -67,7 +66,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             "double_back", "pull", "autoscroll", "doubletap", "swipenav", "volumenav", "reversed",
             "autoexpand", "expand_all", "expand_one", "collapse_multiple",
             "autoclose", "onclose", "quick_filter", "quick_scroll",
-            "autoread", "autounflag", "reset_importance", "automove", "discard_delete",
+            "autoread", "autounflag", "reset_importance", "discard_delete",
             "default_snooze"
     };
 
@@ -99,7 +98,6 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swAutoRead = view.findViewById(R.id.swAutoRead);
         swAutoUnflag = view.findViewById(R.id.swAutoUnflag);
         swResetImportance = view.findViewById(R.id.swResetImportance);
-        swAutoMove = view.findViewById(R.id.swAutoMove);
         swDiscardDelete = view.findViewById(R.id.swDiscardDelete);
         npDefaultSnooze = view.findViewById(R.id.npDefaultSnooze);
 
@@ -252,13 +250,6 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             }
         });
 
-        swAutoMove.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("automove", !checked).apply();
-            }
-        });
-
         swDiscardDelete.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -352,7 +343,6 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swAutoRead.setChecked(prefs.getBoolean("autoread", false));
         swAutoUnflag.setChecked(prefs.getBoolean("autounflag", false));
         swResetImportance.setChecked(prefs.getBoolean("reset_importance", false));
-        swAutoMove.setChecked(!prefs.getBoolean("automove", false));
         swDiscardDelete.setChecked(prefs.getBoolean("discard_delete", false));
 
         npDefaultSnooze.setValue(prefs.getInt("default_snooze", 1));
