@@ -401,7 +401,7 @@ public class ServiceSend extends ServiceBase {
                 if (body != null)
                     size = (long) body.length();
 
-                Long total = null;
+                Long total = size;
                 List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
                 for (EntityAttachment attachment : attachments)
                     if (attachment.size != null)
