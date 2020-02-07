@@ -124,6 +124,31 @@
         app:layout_constraintTop_toBottomOf="@id/barrier_action" />
 
     <TextView
+        android:id="@+id/tvDeliveredToTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:labelFor="@+id/tvFromEx"
+        android:text="@string/title_delivered_to"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSubmitter" />
+
+    <TextView
+        android:id="@+id/tvDeliveredTo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
+        android:text="Delivered to"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textIsSelectable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/barrier_addresses"
+        app:layout_constraintTop_toBottomOf="@id/tvSubmitter" />
+
+    <TextView
         android:id="@+id/tvFromExTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -133,7 +158,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvSubmitter" />
+        app:layout_constraintTop_toBottomOf="@id/tvDeliveredTo" />
 
     <TextView
         android:id="@+id/tvFromEx"
@@ -146,7 +171,7 @@
         android:textIsSelectable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/barrier_addresses"
-        app:layout_constraintTop_toBottomOf="@id/tvSubmitter" />
+        app:layout_constraintTop_toBottomOf="@id/tvDeliveredTo" />
 
     <TextView
         android:id="@+id/tvToTitle"
@@ -354,6 +379,7 @@
         android:layout_height="wrap_content"
         app:barrierDirection="end"
         app:constraint_referenced_ids="
+            tvSubmitterTitle,tvDeliveredToTitle,
             tvFromExTitle,tvToTitle,tvReplyToTitle,
             tvCcTitle,tvBccTitle,
             tvIdentityTitle,
