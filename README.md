@@ -108,7 +108,7 @@ Please see [here](https://email.faircode.eu/#screenshots) for screenshots.
 * [GitHub](https://github.com/M66B/FairEmail/releases)
 * [Play store](https://play.google.com/store/apps/details?id=eu.faircode.email)
 * ~~[Play store](https://play.google.com/apps/testing/eu.faircode.email) (test)~~
-* [AppGallery](https://wap3.hispace.hicloud.com/uowap/index.jsp#/detailApp/C101678151)
+* [AppGallery](https://wap3.hispace.hicloud.com/uowap/index.jsp#/detailApp/C101678151) (the AppGallery app can be downloaded [here](https://huaweimobileservices.com/appgallery/))
 
 To download a GitHub release you might need to expand the assets section to download the [APK file](https://en.wikipedia.org/wiki/Android_application_package).
 
@@ -130,7 +130,7 @@ One line command to display certificate fingerprints:
 
 I do not hand over the signing keys of my apps to Google.
 
-* [F-Droid](https://f-droid.org/en/packages/eu.faircode.email/) ([last build status](https://f-droid.org/wiki/page/eu.faircode.email/lastbuild))
+* [F-Droid](https://f-droid.org/en/packages/eu.faircode.email/) ([last build status](https://f-droid.org/wiki/page/eu.faircode.email/lastbuild)) (the F-Droid app can be downloaded [here](https://f-droid.org/))
 
 F-Droid builds new versions irregularly and you'll need the F-Droid client to get update notifications.
 To get updates in a timely fashion you are advised to use the GitHub release.
