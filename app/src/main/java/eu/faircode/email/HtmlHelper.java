@@ -678,6 +678,7 @@ public class HtmlHelper {
                 .replace("inherit", "")
                 .replace("initial", "")
                 .replace("windowtext", "")
+                .replace("currentcolor", "")
                 .replace("transparent", "")
                 .replaceAll("[^a-z0-9(),.%#]", "")
                 .replaceAll("#+", "#");
