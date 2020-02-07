@@ -1078,8 +1078,8 @@ Note that this is independent of receiving messages.
 **(34) How are identities matched?**
 
 Identities are as expected matched by account.
-For incoming messages the *to*, *cc*, *bcc*, *from* and *(X-)delivered/envelope/original-to* addresses will be checked
-and for outgoing messages (drafts, outbox and sent) the *from* addresses will be checked.
+For incoming messages the *to*, *cc*, *bcc*, *(X-)delivered/envelope/original-to* and *from* addresses will be checked (in this order)
+and for outgoing messages (drafts, outbox and sent) only the *from* addresses will be checked.
 
 The matched address will be shown as *via* in the addresses section.
 
