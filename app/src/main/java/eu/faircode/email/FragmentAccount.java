@@ -958,9 +958,6 @@ public class FragmentAccount extends FragmentBase {
                     if (!Objects.equals(account.move_to, move == null ? null : move.id))
                         return true;
 
-                    if (account.error != null)
-                        return true;
-
                     return false;
                 }
 

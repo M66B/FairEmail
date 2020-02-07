@@ -750,8 +750,6 @@ public class FragmentIdentity extends FragmentBase {
                         return true;
                     if (!Objects.equals(identity.bcc, bcc))
                         return true;
-                    if (identity.error != null)
-                        return true;
 
                     return false;
                 }
