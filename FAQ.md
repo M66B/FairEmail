@@ -260,6 +260,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(143) Can you add a trash folder for POP3 accounts?](#user-content-faq143)
 * [(144) How can I record voice notes?](#user-content-faq144)
 * [(145) How can I set a notification sound for an account, folder or sender?](#user-content-faq145)
+* [(146) How can I fix incorrect message times?](#user-content-faq146)
 
 [I have another question.](#user-content-support)
 
@@ -2733,6 +2734,23 @@ Sender:
 The order of precendence is: sender sound, folder sound, account sound and default sound.
 
 Setting a notification sound for an account, folder or sender requires Android 8 Oreo or later and is a pro feature.
+
+<br />
+
+<a name="faq146"></a>
+**(146) How can I fix incorrect message times?**
+
+Since the sent date/time is optional and can be manipulated by the sender,
+FairEmail uses the server received date/time.
+
+Sometimes the received date/time is incorrect, mostly because messages were incorrectly imported from another server
+and sometimes due to a bug in the email server.
+
+In this rare case you can enable the account option *Use date header sent time instead of server received time*
+(Setup, step 1, Manage, tap account, tap Advanced) as a workaround.
+
+This will not change the time of already synchronized messages.
+To solve this, long press the folder(s) in the folder list and select *Delete local messages* and *Synchronize now*.
 
 <br />
 
