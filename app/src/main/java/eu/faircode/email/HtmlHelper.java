@@ -375,8 +375,12 @@ public class HtmlHelper {
                                 }
                                 break;
 
-                            case "background":
-                            case "background-color":
+                            case "font-weight":
+                                if ("bold".equals(value)) {
+                                    Element strong = new Element("strong");
+                                    element.replaceWith(strong);
+                                    strong.appendChild(element);
+                                }
                                 break;
 
                             case "line-through":
