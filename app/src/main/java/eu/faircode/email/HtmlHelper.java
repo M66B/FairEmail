@@ -322,7 +322,7 @@ public class HtmlHelper {
         }
 
         Whitelist whitelist = Whitelist.relaxed()
-                .addTags("hr", "abbr", "big", "font")
+                .addTags("hr", "abbr", "big", "font", "dfn", "del", "s", "tt")
                 .removeTags("col", "colgroup", "thead", "tbody")
                 .removeAttributes("table", "width")
                 .removeAttributes("td", "colspan", "rowspan", "width")
@@ -441,29 +441,47 @@ public class HtmlHelper {
             p.tagName("div");
         }
 
-        // Short quotes
+        // Short inline quotes
+        // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q
         for (Element q : document.select("q")) {
-            q.prependText("\"");
-            q.appendText("\"");
-            q.tagName("em");
+            q.tagName("a");
+            q.attr("href", q.attr("cite"));
+            q.removeAttr("cite");
         }
 
+        // Citation
+        // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite
+        for (Element cite : document.select("cite")) {
+            cite.prependText("\"");
+            cite.appendText("\"");
+            cite.tagName("em");
+        }
+
+        // Definition
+        // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dfn
+        for (Element dfn : document.select("dfn"))
+            dfn.tagName("em");
+
         // Pre formatted text
+        // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre
         for (Element pre : document.select("pre")) {
             pre.html(formatPre(pre.wholeText()));
             pre.tagName("div");
         }
 
         // Code
+        // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/code
         document.select("code").tagName("strong");
 
         // Lines
+        // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr
         for (Element hr : document.select("hr")) {
             hr.tagName("div");
             hr.text("----------------------------------------");
         }
 
         // Descriptions
+        // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl
         document.select("dl").tagName("div");
         for (Element dt : document.select("dt")) {
             dt.tagName("strong");
@@ -475,9 +493,12 @@ public class HtmlHelper {
         }
 
         // Abbreviations
+        // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/abbr
         document.select("abbr").tagName("u");
 
         // Subscript/Superscript
+        // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sub
+        // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sup
         for (Element subp : document.select("sub,sup")) {
             Element small = document.createElement("small");
             small.html(subp.html());
@@ -485,6 +506,7 @@ public class HtmlHelper {
         }
 
         // Lists
+        // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li
         for (Element li : document.select("li")) {
             li.tagName("span");
             Element parent = li.parent();
@@ -498,6 +520,7 @@ public class HtmlHelper {
         document.select("ul").tagName("div");
 
         // Tables
+        // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table
         for (Element col : document.select("th,td")) {
             // separate columns
             if (hasVisibleContent(col.childNodes()))
@@ -532,6 +555,7 @@ public class HtmlHelper {
             removeTrackingPixels(context, document);
 
         // Images
+        // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img
         for (Element img : document.select("img")) {
             String alt = img.attr("alt");
             String src = img.attr("src");
