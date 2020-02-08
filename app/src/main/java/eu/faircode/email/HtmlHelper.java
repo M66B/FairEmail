@@ -371,7 +371,6 @@ public class HtmlHelper {
                                     sb.append("color:").append(c).append(";");
                                     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N)
                                         element.attr("color", c);
-                                    element.attr("x-color", c);
                                 }
                                 break;
 
@@ -656,21 +655,6 @@ public class HtmlHelper {
 
         for (Element div : document.select("div"))
             div.tagName("span");
-
-        // Workaround: fromHtml does not support nested colors
-        for (Element span : document.select("span")) {
-            String c = span.attr("x-color");
-            if (!TextUtils.isEmpty(c)) {
-                span.removeAttr("x-color");
-                for (Element cspan : span.children().select("span")) {
-                    String style = cspan.attr("style");
-                    if (TextUtils.isEmpty(style))
-                        cspan.attr("style", "color:" + c + ";");
-                    else if (!style.contains("color:"))
-                        cspan.attr(style + "color:" + c + ";");
-                }
-            }
-        }
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N)
             for (Element span : document.select("span"))
