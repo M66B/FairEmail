@@ -469,11 +469,12 @@ class Core {
                             ops.remove(op);
                         } else {
                             retry++;
-                            try {
-                                Thread.sleep(OPERATION_RETRY_DELAY);
-                            } catch (InterruptedException ex1) {
-                                Log.w(ex1);
-                            }
+                            if (retry < OPERATION_RETRY_MAX)
+                                try {
+                                    Thread.sleep(OPERATION_RETRY_DELAY);
+                                } catch (InterruptedException ex1) {
+                                    Log.w(ex1);
+                                }
                         }
                     } finally {
                         try {
