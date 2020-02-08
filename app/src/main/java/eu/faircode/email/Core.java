@@ -493,6 +493,9 @@ class Core {
                 }
             }
 
+            for (TupleOperationEx op : ops)
+                op.cleanup(context);
+
             if (ops.size() > 0 && state.isRunning() && state.isRecoverable())
                 Log.e("Operations failed=" + ops.size());
 
