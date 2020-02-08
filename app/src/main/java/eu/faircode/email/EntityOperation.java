@@ -440,6 +440,9 @@ public class EntityOperation {
                 Log.e(ex);
             }
 
+        if (EntityOperation.SYNC.equals(name))
+            db.folder().setFolderSyncState(folder, null);
+
         if (message != null) {
             EntityMessage m = db.message().getMessage(message);
             if (m == null || m.uid == null)
