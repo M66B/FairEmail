@@ -1089,6 +1089,13 @@ and that identities of other accounts will not be considered.
 It is possible to configure a [regex](https://en.wikipedia.org/wiki/Regular_expression) in the identity settings
 to match the username of an email address (the part before the @ sign).
 
+If you like to match the special purpose email addresses abc@example.com and xyx@example.com
+and like to have a fallback email address main@example.com as well, you could do something like this:
+
+* Identity: abc@example.com; regex: **(?i)abc**
+* Identity: xyz@example.com; regex: **(?i)xyz**
+* Identity: main@example.com; regex: **^(?i)((?!abc|xyz).)\*$**
+
 Matched identities can be used to color code messages.
 The identity color takes precedence over the account color.
 Setting identity colors is a pro feature.
