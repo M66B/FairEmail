@@ -493,7 +493,7 @@ class Core {
                 }
             }
 
-            if (ops.size() > 0)
+            if (ops.size() > 0 && state.isRunning() && state.isRecoverable())
                 Log.e("Operations failed=" + ops.size());
 
         } finally {
