@@ -397,8 +397,8 @@ class Core {
                         try {
                             db.beginTransaction();
 
-                            op.error = Log.formatThrowable(ex);
-                            db.operation().setOperationError(op.id, op.error);
+                            op.error = Log.formatThrowable(ex, false);
+                            db.operation().setOperationError(op.id, Log.formatThrowable(ex));
 
                             if (message != null && !(ex instanceof IllegalArgumentException))
                                 db.message().setMessageError(message.id, Log.formatThrowable(ex));
