@@ -492,7 +492,7 @@ class Core {
             }
 
             if (ops.size() > 0)
-                Log.w("Operations failed=" + ops.size());
+                Log.e("Operations failed=" + ops.size());
 
         } finally {
             Log.i(folder.name + " end process state=" + state);
