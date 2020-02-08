@@ -1240,9 +1240,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                                             iservice.getStore(), ifolder,
                                                                             state);
 
-                                                                } catch (FolderNotFoundException ex) {
-                                                                    Log.w(folder.name, ex);
-                                                                    db.folder().deleteFolder(folder.id);
                                                                 } catch (Throwable ex) {
                                                                     Log.e(folder.name, ex);
                                                                     EntityLog.log(

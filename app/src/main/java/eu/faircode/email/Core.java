@@ -389,6 +389,8 @@ class Core {
                         Log.e(folder.name, ex);
                         EntityLog.log(context, folder.name + " " + Log.formatThrowable(ex, false));
 
+                        state.error(ex);
+
                         try {
                             db.beginTransaction();
 
