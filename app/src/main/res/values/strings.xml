@@ -122,6 +122,7 @@
 
     <string name="title_welcome">Welcome</string>
     <string name="title_eula">End-user license agreement</string>
+    <string name="title_gplv3" translatable="false">GNU General Public License - Version 3</string>
     <string name="title_agree">I agree</string>
     <string name="title_disagree">I disagree</string>
 
