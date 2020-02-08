@@ -367,7 +367,8 @@ public class HtmlHelper {
                             case "color":
                                 Integer color = parseColor(value, dark);
                                 if (color != null) {
-                                    String c = String.format("#%06x", color);
+                                    // fromHtml does not support transparency
+                                    String c = String.format("#%08x", color | 0xFF000000);
                                     sb.append("color:").append(c).append(";");
                                     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N)
                                         element.attr("color", c);
@@ -691,9 +692,9 @@ public class HtmlHelper {
                 if (c.length() > 1) {
                     String code = c.substring(1);
                     if (x11ColorMap.containsKey(code)) // workaround
-                        color = x11ColorMap.get(code) | 0xFF000000;
+                        color = x11ColorMap.get(code);
                     else
-                        color = Integer.decode(c) | 0xFF000000;
+                        color = Integer.decode(c);
                 }
             } else if (c.startsWith("rgb") || c.startsWith("hsl")) {
                 int s = c.indexOf("(");
@@ -721,13 +722,13 @@ public class HtmlHelper {
                                 Integer.parseInt(component[2]) / 100f});
                 }
             } else if (x11ColorMap.containsKey(c))
-                color = x11ColorMap.get(c) | 0xFF000000;
+                color = x11ColorMap.get(c);
             else
                 try {
                     color = Color.parseColor(c);
                 } catch (IllegalArgumentException ex) {
                     // Workaround
-                    color = Integer.decode("#" + c) | 0xFF000000;
+                    color = Integer.decode("#" + c);
                 }
 
             if (BuildConfig.DEBUG)
