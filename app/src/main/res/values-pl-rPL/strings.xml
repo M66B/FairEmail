@@ -319,7 +319,6 @@
     <string name="title_advanced_autoread">Automatycznie oznacz wiadomość jako przeczytaną przy przenoszeniu</string>
     <string name="title_advanced_autounstar">Automatycznie usuwaj gwiazdki z wiadomości przy ich przenoszeniu</string>
     <string name="title_advanced_reset_importance">Resetuj ważność przy przenoszeniu wiadomości</string>
-    <string name="title_advanced_automove">Potwierdź przenoszenie wiadomości</string>
     <string name="title_advanced_discard_delete">Po odrzuceniu wersji roboczej trwale usuń wersję roboczą</string>
     <string name="title_advanced_default_snooze">Domyślny czas odłożenia</string>
     <string name="title_advanced_notifications">Zarządzaj powiadomieniami</string>
@@ -433,7 +432,6 @@
     <string name="title_identity_email">Twój adres e-mail</string>
     <string name="title_identity_color_hint">Kolory tożsamości mają pierwszeństwo przed kolorami folderów i kont</string>
     <string name="title_advanced_sender">Zezwól na edycję adresu nadawcy</string>
-    <string name="title_advanced_sender_regex">Wyrażenie regularne pasujące do edytowanych adresów</string>
     <string name="title_identity_reply_to">Odpowiedz na adres</string>
     <string name="title_identity_receipt">Domyślnie żądaj potwierdzenia odbioru/odczytu</string>
     <string name="title_identity_use_ip_hint">W przypadku „nieprawidłowego powitania”, „wymaga prawidłowego adresu” lub podobnego błędu spróbuj zmienić to ustawienie</string>

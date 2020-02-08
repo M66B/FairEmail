@@ -297,7 +297,6 @@
     <string name="title_advanced_autoread">Auto-markér beskeder som læst, når de flyttes</string>
     <string name="title_advanced_autounstar">Fjern automatisk stjerner fra beskeder, når de flyttes</string>
     <string name="title_advanced_reset_importance">Nulstil vigtighed, når beskeder flyttes</string>
-    <string name="title_advanced_automove">Bekræft flytning af beskeder</string>
     <string name="title_advanced_discard_delete">Ved kassering af udkast, slet dette permanent</string>
     <string name="title_advanced_default_snooze">Standard udsættelsestid</string>
     <string name="title_advanced_notifications">Håndtér notifikationer</string>
@@ -411,7 +410,7 @@
     <string name="title_identity_email">Din e-mailadresse</string>
     <string name="title_identity_color_hint">Identitetsfarver har forrang over kontofarver</string>
     <string name="title_advanced_sender">Tillad redigering af afsenderadresse</string>
-    <string name="title_advanced_sender_regex">Regex, der matcher redigerede adresser</string>
+    <string name="title_advanced_sender_regex">Regex, der skal matche brugernavn for indgående e-mailadresser</string>
     <string name="title_identity_reply_to">Svar til-adresse</string>
     <string name="title_identity_receipt">Bed automatisk om leverings/læstkvittering som standard</string>
     <string name="title_identity_use_ip_hint">I tilfælde af \'ugyldig hilsen\', \'kræver gyldig adresse\' eller lignende fejl, prøv da at ændre denne indstilling</string>
@@ -636,6 +635,7 @@
     <string name="title_download_message">Downloader &#8230;</string>
     <string name="title_compose">Skriv</string>
     <string name="title_submitter">Sendt af:</string>
+    <string name="title_delivered_to">Leveret til:</string>
     <string name="title_from">Fra:</string>
     <string name="title_to">Til:</string>
     <string name="title_reply_to">Svar til:</string>
@@ -702,6 +702,7 @@
     <string name="title_resync">Synkronisér igen</string>
     <string name="title_no_openpgp">OpenKeychain ikke fundet</string>
     <string name="title_user_interaction">Overfører til OpenKeychain</string>
+    <string name="title_signed_data">Bekræft signaturen for at vise beskedtekst</string>
     <string name="title_not_encrypted">Besked er ikke signeret eller krypteret</string>
     <string name="title_reset_sign_key">Nulstil sign key</string>
     <string name="title_signature_none">Besked ikke signeret</string>

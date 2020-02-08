@@ -255,7 +255,6 @@
     <string name="title_advanced_onclose">En tancar una conversa</string>
     <string name="title_advanced_autoread">Automàticament marca els missatges llegits en missatges moguts</string>
     <string name="title_advanced_autounstar">Elimina automàticament les estrelles dels missatges quan es moguin els missatges</string>
-    <string name="title_advanced_automove">Confirma moure missatges</string>
     <string name="title_advanced_discard_delete">En descartar l\'esborrany, suprimeix el projecte permanent</string>
     <string name="title_advanced_default_snooze">Temps de retard de la repetició predefinit</string>
     <string name="title_advanced_notifications">Gestiona les notificacions</string>
@@ -352,7 +351,6 @@
     <string name="title_identity_email">La teva adreça de correu electrònic</string>
     <string name="title_identity_color_hint">Els colors d’identitat tenen prioritat sobre els colors de carpeta i compte</string>
     <string name="title_advanced_sender">Permet editar l\'adreça del remitent</string>
-    <string name="title_advanced_sender_regex">Expressió regular per trobar adreces editades</string>
     <string name="title_identity_reply_to">Respon a l’adreça</string>
     <string name="title_identity_receipt">Sol·liciteu el lliurament/llegida del rebut per defecte</string>
     <string name="title_identity_use_ip_hint">En cas de \"salutació no vàlida\", \"requereix una adreça vàlida\" o un error similar, intenteu canviar aquesta configuració</string>

@@ -308,7 +308,6 @@
     <string name="title_advanced_autoread">Marchează automat mesajele mutate ca citite</string>
     <string name="title_advanced_autounstar">Elimină automat steaua mesajelor mutate</string>
     <string name="title_advanced_reset_importance">Resetează importanța la mutarea mesajelor</string>
-    <string name="title_advanced_automove">Confirmă mutarea mesajelor</string>
     <string name="title_advanced_discard_delete">Ciorna se șterge când renunțați la ea</string>
     <string name="title_advanced_default_snooze">Timpul implicit de amânare</string>
     <string name="title_advanced_notifications">Gestionarea notificărilor</string>
@@ -422,7 +421,6 @@
     <string name="title_identity_email">Adresa dvs. de e-mail</string>
     <string name="title_identity_color_hint">Culorile de identitate au întâietate în fața culorilor dosarului și ale contului</string>
     <string name="title_advanced_sender">Permite editarea adresei expeditorului</string>
-    <string name="title_advanced_sender_regex">Regex pentru găsirea adresei editate</string>
     <string name="title_identity_reply_to">Răspuns la adresa</string>
     <string name="title_identity_receipt">Solicită implicit confirmare la livrare/citire</string>
     <string name="title_identity_use_ip_hint">În cazul în care apare erori de tipul \'invalid greeting\', \'requires valid address\' sau similare, încercați să schimbați această setare</string>

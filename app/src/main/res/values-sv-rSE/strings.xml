@@ -231,7 +231,6 @@
     <string name="title_advanced_autoclose">Stäng konversationer automatiskt</string>
     <string name="title_advanced_onclose">När du stänger en konversation</string>
     <string name="title_advanced_autoread">Märk automatiskt meddelanden som lästa vid flyttning av meddelanden</string>
-    <string name="title_advanced_automove">Bekräfta flyttning av meddelanden</string>
     <string name="title_advanced_discard_delete">Ta bort utkastet permanent om du kastar det</string>
     <string name="title_advanced_notifications_default">Standard kanal</string>
     <string name="title_advanced_badge">Visa programstartarikon med antal nya meddelanden</string>

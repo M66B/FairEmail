@@ -298,7 +298,6 @@
     <string name="title_advanced_autoread">Markeer berichten automatisch als gelezen bij het verplaatsen van berichten</string>
     <string name="title_advanced_autounstar">Automatisch ster verwijderen van berichten bij verplaatsende berichten</string>
     <string name="title_advanced_reset_importance">Reset belang bij verplaatsen van berichten</string>
-    <string name="title_advanced_automove">Bevestig het verplaatsen van berichten</string>
     <string name="title_advanced_discard_delete">Bij het verwijderen van een concept het concept definitief verwijderen</string>
     <string name="title_advanced_default_snooze">Standaard sluimertijd</string>
     <string name="title_advanced_notifications">Beheer meldingen</string>
@@ -412,7 +411,7 @@
     <string name="title_identity_email">Uw e-mailadres</string>
     <string name="title_identity_color_hint">Identiteitskleuren prevaleren boven de map en de accountkleuren</string>
     <string name="title_advanced_sender">Bewerken verzendadres toestaan</string>
-    <string name="title_advanced_sender_regex">Regex om bewerkte adressen te matchen</string>
+    <string name="title_advanced_sender_regex">Regex om gebruikersnaam deel van inkomende e-mailadressen te matchen</string>
     <string name="title_identity_reply_to">Antwoord op adres</string>
     <string name="title_identity_receipt">Standaard ontvangst/leesbevestiging vragen</string>
     <string name="title_identity_use_ip_hint">In geval van \'invalid greeting\', \'requires valid address\' of een soortgelijke fout, probeer deze instelling te wijzigen</string>
@@ -637,6 +636,7 @@
     <string name="title_download_message">Downloaden &#8230;</string>
     <string name="title_compose">Opstellen</string>
     <string name="title_submitter">Verstuurd door:</string>
+    <string name="title_delivered_to">Afgeleverd aan:</string>
     <string name="title_from">Van:</string>
     <string name="title_to">Aan:</string>
     <string name="title_reply_to">Antwoord op:</string>
@@ -703,6 +703,7 @@
     <string name="title_resync">Resync</string>
     <string name="title_no_openpgp">OpenKeychain niet gevonden</string>
     <string name="title_user_interaction">Overdragen naar OpenKeychain</string>
+    <string name="title_signed_data">Verifieer de handtekening om de berichttekst te tonen</string>
     <string name="title_not_encrypted">Bericht is niet ondertekend of versleuteld</string>
     <string name="title_reset_sign_key">Reset tekensleutel</string>
     <string name="title_signature_none">Bericht niet ondertekend</string>

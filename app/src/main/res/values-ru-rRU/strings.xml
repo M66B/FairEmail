@@ -320,7 +320,6 @@
     <string name="title_advanced_autoread">Автоматически помечать сообщения прочитанными при перемещении</string>
     <string name="title_advanced_autounstar">Автоматически удалять отметку избранного при перемещении сообщений</string>
     <string name="title_advanced_reset_importance">Сбросить важность при перемещении сообщений</string>
-    <string name="title_advanced_automove">Подтверждать перемещение сообщений</string>
     <string name="title_advanced_discard_delete">Удалять черновик навсегда</string>
     <string name="title_advanced_default_snooze">Время повтора по умолчанию</string>
     <string name="title_advanced_notifications">Настроить уведомления</string>
@@ -434,7 +433,7 @@
     <string name="title_identity_email">Ваш адрес электронной почты</string>
     <string name="title_identity_color_hint">Цвета идентификаторов имеют приоритет над цветами папок учётных записей</string>
     <string name="title_advanced_sender">Разрешить редактирование адреса отправителя</string>
-    <string name="title_advanced_sender_regex">Регулярное выражение для сопоставления отредактированных адресов</string>
+    <string name="title_advanced_sender_regex">Регулярное выражение для имени в адресе входящей электронной почты</string>
     <string name="title_identity_reply_to">Обратный адрес</string>
     <string name="title_identity_receipt">Запрашивать уведомление о доставке/прочтении по умолчанию</string>
     <string name="title_identity_use_ip_hint">В случае ошибки \'invalid greeting\', \'requires valid address\' или аналогичной, попробуйте изменить этот параметр</string>
@@ -659,6 +658,7 @@
     <string name="title_download_message">Загрузка&#8230;</string>
     <string name="title_compose">Создать</string>
     <string name="title_submitter">Отправлено:</string>
+    <string name="title_delivered_to">Доставлено:</string>
     <string name="title_from">От:</string>
     <string name="title_to">Кому:</string>
     <string name="title_reply_to">Обратный адрес:</string>
@@ -725,6 +725,7 @@
     <string name="title_resync">Синхронизировать заново</string>
     <string name="title_no_openpgp">OpenKeychain не найдено</string>
     <string name="title_user_interaction">Перенос в OpenKeychain</string>
+    <string name="title_signed_data">Проверить подпись, чтобы показать текст сообщения</string>
     <string name="title_not_encrypted">Сообщение не подписано и не зашифровано</string>
     <string name="title_reset_sign_key">Сброс ключа подписи</string>
     <string name="title_signature_none">Сообщение не подписано</string>

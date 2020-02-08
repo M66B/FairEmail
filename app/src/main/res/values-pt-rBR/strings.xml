@@ -290,7 +290,6 @@
     <string name="title_advanced_quick_scroll">Mostrar ícones de rolagem rápida não obtrusiva para cima/baixo</string>
     <string name="title_advanced_autoread">Marcar mensagens como lidas automaticamente ao movê-las</string>
     <string name="title_advanced_autounstar">Remover estrelas automaticamente das mensagens ao movê-las</string>
-    <string name="title_advanced_automove">Confirmar ao mover mensagens</string>
     <string name="title_advanced_discard_delete">No rascunho de descarte, excluir permanentemente o rascunho</string>
     <string name="title_advanced_default_snooze">Tempo padrão de soneca</string>
     <string name="title_advanced_notifications">Gerenciar notificações</string>
@@ -403,7 +402,6 @@
     <string name="title_identity_email">Seu endereço de e-mail</string>
     <string name="title_identity_color_hint">Cores de identidade têm precedência sobre as cores de pasta e conta</string>
     <string name="title_advanced_sender">Permitir editar o endereço do remetente</string>
-    <string name="title_advanced_sender_regex">Regex para corresponder aos endereços editados</string>
     <string name="title_identity_reply_to">Resposta para o endereço</string>
     <string name="title_identity_receipt">Solicitar confirmação de entrega/leitura por padrão</string>
     <string name="title_identity_use_ip_hint">Em caso de \'saudação inválida\', \'requer um endereço válido\' ou um erro similar, tente alterar esta configuração</string>

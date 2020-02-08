@@ -297,7 +297,6 @@
     <string name="title_advanced_autoread">Markatu mezuak irakurrita gisa hauek mugitzean</string>
     <string name="title_advanced_autounstar">Kendu izarrak mezuetatik hauek mugitzean</string>
     <string name="title_advanced_reset_importance">Berrezarri garrantzia mezuak mugitzean</string>
-    <string name="title_advanced_automove">Baieztatu mezuak mugitzea</string>
     <string name="title_advanced_discard_delete">Zirriborroa baztertzean ezabatu zirriborroa behin betiko</string>
     <string name="title_advanced_default_snooze">Lehenetsitako atzeratze denbora</string>
     <string name="title_advanced_notifications">Kudeatu jakinarazpenak</string>
@@ -410,7 +409,7 @@
     <string name="title_identity_email">Zure e-mail helbidea</string>
     <string name="title_identity_color_hint">Identitate-koloreek karpetaren eta kontuaren koloreekiko lehentasuna dute</string>
     <string name="title_advanced_sender">Baimendu bidaltzailearen helbidea editatzea</string>
-    <string name="title_advanced_sender_regex">Adierazpen erregularrak erabili bat datozen editatutako helbideak topatzeko</string>
+    <string name="title_advanced_sender_regex">Regex sarrerako helbideen erabiltzaile izenarekin bat etortzeko</string>
     <string name="title_identity_reply_to">Erantzun-helbidea</string>
     <string name="title_identity_receipt">Eskatu defektuz bidalketa/irakurri izanaren egiaztagiria</string>
     <string name="title_identity_use_ip_hint">\'Baliogabeko agurra\', \'baliozko helbidea behar da\' edo antzeko mezurik jasotzen baduzu, saiatu ezarpen hau aldatzen</string>
@@ -635,6 +634,7 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_download_message">Deskargatzen &#8230;</string>
     <string name="title_compose">Idatzi</string>
     <string name="title_submitter">Honek bidalita:</string>
+    <string name="title_delivered_to">Bidalita honi:</string>
     <string name="title_from">Nork:</string>
     <string name="title_to">Nori:</string>
     <string name="title_reply_to">Erantzun honi:</string>
@@ -701,6 +701,7 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_resync">Birsinkronizatu</string>
     <string name="title_no_openpgp">Ez da OpenKeychain aurkitu</string>
     <string name="title_user_interaction">OpenKeychain-era transferitzen</string>
+    <string name="title_signed_data">Egiaztatu sinadura mezuaren testua erakusteko</string>
     <string name="title_not_encrypted">Mezua ez dago ez zifratuta ez sinatuta</string>
     <string name="title_reset_sign_key">Berrezarri sinadura gakoa</string>
     <string name="title_signature_none">Mezua ez dago sinatuta</string>

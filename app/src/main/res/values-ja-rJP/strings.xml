@@ -284,7 +284,6 @@
     <string name="title_advanced_autoread">移動するメッセージを既読にします</string>
     <string name="title_advanced_autounstar">移動するメッセージのスターを取り消します</string>
     <string name="title_advanced_reset_importance">移動メッセージの重要度をリセット</string>
-    <string name="title_advanced_automove">メッセージを移動する時に確認</string>
     <string name="title_advanced_discard_delete">下書きを破棄する場合、下書きを完全に削除</string>
     <string name="title_advanced_default_snooze">デフォルトのスヌーズ時間</string>
     <string name="title_advanced_notifications">通知の管理</string>
@@ -397,7 +396,7 @@
     <string name="title_identity_email">メールアドレス</string>
     <string name="title_identity_color_hint">IDカラーはフォルダとアカウントの色よりも優先されます</string>
     <string name="title_advanced_sender">送信者アドレスの編集を許可</string>
-    <string name="title_advanced_sender_regex">編集したアドレスと一致するように登録</string>
+    <string name="title_advanced_sender_regex">受信メールアドレスのユーザー名に一致する正規表現</string>
     <string name="title_identity_reply_to">返信先アドレス</string>
     <string name="title_identity_receipt">既定で送信/開封確認メッセージを要求</string>
     <string name="title_identity_use_ip_hint">\"無効な挨拶\" \"有効なアドレスが必要\"などのエラーが発生した場合は、この設定を変更してみてください</string>
@@ -621,6 +620,7 @@ PlayストアでFairEmailを評価できれば幸いです。
     <string name="title_download_message">&#8230; をダウンロード中</string>
     <string name="title_compose">作成する</string>
     <string name="title_submitter">送信者:</string>
+    <string name="title_delivered_to">配信先:</string>
     <string name="title_from">From:</string>
     <string name="title_to">To:</string>
     <string name="title_reply_to">返信先:</string>
@@ -687,6 +687,7 @@ PlayストアでFairEmailを評価できれば幸いです。
     <string name="title_resync">再同期</string>
     <string name="title_no_openpgp">オープンキーチェーンが見つかりません</string>
     <string name="title_user_interaction">OpenKeychainへの転送</string>
+    <string name="title_signed_data">署名を確認してメッセージテキストを表示</string>
     <string name="title_not_encrypted">メッセージは署名又は暗号化されていません</string>
     <string name="title_reset_sign_key">署名キーをリセット</string>
     <string name="title_signature_none">メッセージが署名されていません</string>

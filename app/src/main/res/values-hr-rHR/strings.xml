@@ -286,7 +286,6 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_quick_scroll">Pokaži nenametljive ikone za brzo pomicanje prema gore / dolje</string>
     <string name="title_advanced_autoread">Automatski označiti poruke kao pročitane u pokretu poruka</string>
     <string name="title_advanced_autounstar">Automatsko uklanjanje zvijezda iz poruka prema pokretu</string>
-    <string name="title_advanced_automove">Potvrditi pokret poruke</string>
     <string name="title_advanced_discard_delete">Pri odbacivanju skice trajno izbrisati skicu</string>
     <string name="title_advanced_default_snooze">Zadano vrijeme odgode</string>
     <string name="title_advanced_notifications">Upravljaj obavijestima</string>
@@ -386,7 +385,6 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_identity_email">Vaša adresa e-pošte</string>
     <string name="title_identity_color_hint">Boje identiteta imaju prednost nad bojama mapa i računa</string>
     <string name="title_advanced_sender">Dopusti uređivanje adrese pošiljatelja</string>
-    <string name="title_advanced_sender_regex">Regex za svrstavanje uređenih adresa</string>
     <string name="title_identity_reply_to">Odgovor na adresu</string>
     <string name="title_identity_receipt">Zatražite potvrdu isporuke/čitanja standardno</string>
     <string name="title_identity_use_ip_hint">U slučaju \'nevažećeg pozdravljanja\', \'zahtjeva valjanu adresu\' ili slične pogreške pokušajte promijeniti ovu postavku</string>

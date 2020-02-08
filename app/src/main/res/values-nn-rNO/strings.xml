@@ -298,7 +298,6 @@
     <string name="title_advanced_autoread">Merk automatisk meldinger som leste ved flytting</string>
     <string name="title_advanced_autounstar">Fjern stjernen automatisk fra meldinger som blir flyttet</string>
     <string name="title_advanced_reset_importance">Tilbakestill viktigheten for å flytte meldinger</string>
-    <string name="title_advanced_automove">Bekreft flytting av meldinger</string>
     <string name="title_advanced_discard_delete">Ved å kaste utkast permanent slett utkast</string>
     <string name="title_advanced_default_snooze">Standard slumretid</string>
     <string name="title_advanced_notifications">Administrer varsler</string>
@@ -412,7 +411,7 @@
     <string name="title_identity_email">Din e-postadresse</string>
     <string name="title_identity_color_hint">Identitetsfarger har forrang fremfor mappe og kontofarger</string>
     <string name="title_advanced_sender">Tillat redigering av avsenderadresse</string>
-    <string name="title_advanced_sender_regex">Regex for å matche redigerte adresser</string>
+    <string name="title_advanced_sender_regex">Regex for å matche brukernavn på innkommende e-postadresser</string>
     <string name="title_identity_reply_to">Svar til adressen</string>
     <string name="title_identity_receipt">Be om levert/lest kvittering som standard</string>
     <string name="title_identity_use_ip_hint">I tilfelle \'ugyldig hilsen\', \'krever gyldig adresse\' eller en lignende feil, prøv å endre denne innstillingen</string>
@@ -636,6 +635,7 @@ Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anme
     <string name="title_download_message">Laster ned &#8230;</string>
     <string name="title_compose">Skriv</string>
     <string name="title_submitter">Sendt av:</string>
+    <string name="title_delivered_to">Levert til:</string>
     <string name="title_from">Fra:</string>
     <string name="title_to">Til:</string>
     <string name="title_reply_to">Svar til:</string>
@@ -702,6 +702,7 @@ Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anme
     <string name="title_resync">Resync</string>
     <string name="title_no_openpgp">Finner ikke OpenKeychain</string>
     <string name="title_user_interaction">Overfører til OpenKeychain</string>
+    <string name="title_signed_data">Bekreft signaturen for å vise meldingsteksten</string>
     <string name="title_not_encrypted">Meldingen er ikke signert eller kryptert</string>
     <string name="title_reset_sign_key">Tilbakestill signert nøkkel</string>
     <string name="title_signature_none">Melding ikke signert</string>

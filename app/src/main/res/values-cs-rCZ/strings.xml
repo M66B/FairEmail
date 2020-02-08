@@ -320,7 +320,6 @@
     <string name="title_advanced_autoread">Při přesunu automaticky označit zprávy jako přečtené</string>
     <string name="title_advanced_autounstar">Při přesunu automaticky odebrat zprávám hvězdičku</string>
     <string name="title_advanced_reset_importance">Obnovit důležitost při přesunu zpráv</string>
-    <string name="title_advanced_automove">Potvrzovat přesun zpráv</string>
     <string name="title_advanced_discard_delete">Při zahození konceptu jej permanentně smazat</string>
     <string name="title_advanced_default_snooze">Výchozí délka odložení</string>
     <string name="title_advanced_notifications">Spravovat oznámení</string>
@@ -434,7 +433,6 @@
     <string name="title_identity_email">Vaše e-mailová adresa</string>
     <string name="title_identity_color_hint">Barvy identit mají přednost před barvami složek a účtů</string>
     <string name="title_advanced_sender">Umožnit úpravu adresy odesílatele</string>
-    <string name="title_advanced_sender_regex">Regulární výraz, který bude odpovídat upraveným adresám</string>
     <string name="title_identity_reply_to">Odpověď na adresu</string>
     <string name="title_identity_receipt">Automaticky požadovat potvrzení doručení/přečtení</string>
     <string name="title_identity_use_ip_hint">V případech \"neplatný pozdrav\", \"nutná platná adresa\" či podobné chyby zkuste změnit toto nastavení</string>

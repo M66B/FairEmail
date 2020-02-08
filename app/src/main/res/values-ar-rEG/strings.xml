@@ -140,7 +140,6 @@
     <string name="title_advanced_pull_refresh">اسحب لأسفل للتحديث</string>
     <string name="title_advanced_autoexpand">توسيع محتوى الرسائل تلقائيًا</string>
     <string name="title_advanced_autoclose">غلق المحادثات تلقائيا</string>
-    <string name="title_advanced_automove">تأكيد نقل الرسائل</string>
     <string name="title_advanced_notify_preview">إظهار معاينة للرسائل في الإشعارات</string>
     <string name="title_advanced_notify_action_trash">سلّة المهملات</string>
     <string name="title_advanced_notify_action_reply">رد</string>

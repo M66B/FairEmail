@@ -296,7 +296,6 @@
     <string name="title_advanced_autoread">Siirtäessä viestejä merkitse ne luetuiksi</string>
     <string name="title_advanced_autounstar">Poista tähti viestejä siirrettäessä</string>
     <string name="title_advanced_reset_importance">Palauta oma tärkeysjärjestys oletusasetukseen siirrettäessä</string>
-    <string name="title_advanced_automove">Vahvista viestien siirto</string>
     <string name="title_advanced_discard_delete">Poista luonnos hylättäessä</string>
     <string name="title_advanced_default_snooze">Torkutuksen oletusaika</string>
     <string name="title_advanced_notifications">Hallinnoi ilmoituksia</string>
@@ -410,7 +409,7 @@
     <string name="title_identity_email">Sähköpostiosoitteesi</string>
     <string name="title_identity_color_hint">Identiteettien värit ovat etusijalla ennen kansioiden ja tilien värejä</string>
     <string name="title_advanced_sender">Salli lähetysosoitteen muokkaaminen</string>
-    <string name="title_advanced_sender_regex">Regex muokattavien osoitteiden täsmäämiseen</string>
+    <string name="title_advanced_sender_regex">Regex saapuvien sähköpostien osoitteiden käyttäjänimen täsmäämiseen</string>
     <string name="title_identity_reply_to">Vastausosoite</string>
     <string name="title_identity_receipt">Pyydä toimitus-/lukukuittaus oletuksena</string>
     <string name="title_identity_use_ip_hint">Virheilmoituksen ollessa \'invalid greeting\', \'requires valid address\' tai muu samankaltainen yritä muuttaa tätä asetusta</string>
@@ -635,6 +634,7 @@
     <string name="title_download_message">Ladataan &#8230;</string>
     <string name="title_compose">Kirjoita viesti</string>
     <string name="title_submitter">Lähettäjä:</string>
+    <string name="title_delivered_to">Toimitettu osoitteeseen:</string>
     <string name="title_from">Lähettäjä:</string>
     <string name="title_to">Vastaanottaja:</string>
     <string name="title_reply_to">Vastausosoite:</string>
@@ -701,6 +701,7 @@
     <string name="title_resync">Synkronoi uudelleen</string>
     <string name="title_no_openpgp">OpenKeychain ei löytynyt</string>
     <string name="title_user_interaction">Siirretään OpenKeychain-sovellukseen</string>
+    <string name="title_signed_data">Todenna allekirjoitus viestin tekstin näyttämiseksi</string>
     <string name="title_not_encrypted">Viestiä ei ole allekirjoitettu tai salattu</string>
     <string name="title_reset_sign_key">Nollaa allekirjoitusavain</string>
     <string name="title_signature_none">Viestiä ei allekirjoitettu</string>

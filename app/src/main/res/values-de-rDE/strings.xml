@@ -76,7 +76,7 @@
     </string>
     <string name="title_notification_waiting">Warte auf eine geeignete Verbindung</string>
     <string name="title_notification_sending">Nachrichten werden gesendet</string>
-    <string name="title_notification_failed">„%1$s” fehlgeschlagen</string>
+    <string name="title_notification_failed">\'%1$s\' fehlgeschlagen</string>
     <string name="title_notification_alert">\'%1$s\' Server-Warnung</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="menu_exit">Beenden</string>
@@ -128,7 +128,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_setup_oauth_authorize">Autorisieren</string>
     <string name="title_setup_select_account">Konto wählen</string>
     <string name="title_setup_instructions">Einrichtungsanleitung</string>
-    <string name="title_setup_no_settings">Keine Einstellungen für Domain „%1$s” gefunden</string>
+    <string name="title_setup_no_settings">Keine Einstellungen für Domain \'%1$s\' gefunden</string>
     <string name="title_setup_no_settings_hint">Bitte versuchen Sie, ein Konto und eine Identität in Schritt 1 und 2 des Setups einzurichten, indem Sie die Einstellungen Ihres E-Mail-Anbieters nutzen</string>
     <string name="title_setup_no_auth_hint">Bitte überprüfen Sie Ihre E-Mail-Adresse und Ihr Passwort und stellen Sie sicher, dass der externe Zugriff (IMAP/SMTP) für Ihr Konto aktiviert ist</string>
     <string name="title_setup_app_password_hint">Bei diesem Anbieter ist ein App-Passwort anstatt des Konto-Passworts erforderlich</string>
@@ -298,7 +298,6 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_autoread">Nachrichten beim Verschieben automatisch als gelesen kennzeichnen</string>
     <string name="title_advanced_autounstar">Sterne automatisch von Nachrichten entfernen, wenn sie verschoben werden</string>
     <string name="title_advanced_reset_importance">Wichtigkeit beim Verschieben von Nachrichten zurücksetzen</string>
-    <string name="title_advanced_automove">Verschieben von Nachrichten bestätigen</string>
     <string name="title_advanced_discard_delete">Entwürfe beim Verwerfen dauerhaft löschen</string>
     <string name="title_advanced_default_snooze">Standard-Schlummer-Zeit</string>
     <string name="title_advanced_notifications">Benachrichtigungen verwalten</string>
@@ -349,7 +348,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_watchdog">Regelmäßig prüfen, ob FairEmail noch aktiv ist</string>
     <string name="title_advanced_updates">Nach Aktualisierungen suchen</string>
     <string name="title_advanced_experiments">Experimentelle Funktionen ermöglichen</string>
-    <string name="title_advanced_crash_reports">Fehlerbericht senden</string>
+    <string name="title_advanced_crash_reports">Fehlerberichte senden</string>
     <string name="title_advanced_debug">Debugmodus</string>
     <string name="title_advanced_cleanup">Bereinigen</string>
     <string name="title_advanced_last_cleanup">Letzte Bereinigung: %1$s</string>
@@ -412,7 +411,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_identity_email">Ihre E-Mail-Adresse</string>
     <string name="title_identity_color_hint">Identitätsfarben haben Vorrang vor Ordner- und Kontofarben</string>
     <string name="title_advanced_sender">Bearbeitung der Absenderadresse erlauben</string>
-    <string name="title_advanced_sender_regex">Regex um bearbeitete Adressen zu finden</string>
+    <string name="title_advanced_sender_regex">Regex stimmt mit Benutzername der eingehenden E-Mail-Adressen überein</string>
     <string name="title_identity_reply_to">Antwortadresse</string>
     <string name="title_identity_receipt">Auslieferungs-/Lesebestätigung standardmäßig anfordern</string>
     <string name="title_identity_use_ip_hint">Bei \'invalid greeting\', \'requires valid address\' oder einem ähnlichen Fehler, versuchen Sie, diese Einstellung zu ändern</string>
@@ -637,6 +636,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_download_message">Lädt herunter &#8230;</string>
     <string name="title_compose">Verfassen</string>
     <string name="title_submitter">Gesendet von:</string>
+    <string name="title_delivered_to">Zugestellt an:</string>
     <string name="title_from">Von:</string>
     <string name="title_to">An:</string>
     <string name="title_reply_to">Antworten an:</string>
@@ -703,6 +703,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_resync">Neu synchronisieren</string>
     <string name="title_no_openpgp">OpenKeychain wurde nicht gefunden</string>
     <string name="title_user_interaction">Übertragung zu OpenKeychain</string>
+    <string name="title_signed_data">Überprüfen Sie die Signatur, um den Nachrichtentext anzuzeigen</string>
     <string name="title_not_encrypted">Nachricht ist nicht signiert oder verschlüsselt</string>
     <string name="title_reset_sign_key">Sign-Schlüssel zurücksetzen</string>
     <string name="title_signature_none">Unsignierte Nachricht</string>
@@ -973,7 +974,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_unexpected_error">Unerwarteter Fehler</string>
     <string name="title_log">Protokoll</string>
     <string name="title_auto_scroll">Automatisches Blättern</string>
-    <string name="title_log_clear">Log Leeren</string>
+    <string name="title_log_clear">Log leeren</string>
     <string name="title_debug_info">Debuginformationen</string>
     <string name="title_debug_info_remark">Bitte beschreiben Sie das Problem und zu welchem Zeitpunkt es aufgetreten ist:</string>
     <string name="title_crash_info_remark">Bitte beschreiben Sie, was Sie getan haben, während die App abgestürzt ist:</string>

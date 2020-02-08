@@ -131,6 +131,7 @@
     <string name="title_setup_no_settings">Не са намерени настройки за домейн %1$s</string>
     <string name="title_setup_no_settings_hint">Моля, опитайте да настроите профил и самоличност в стъпки за настройка 1 и 2, като използвате настройките, предоставени от вашия доставчик на електронна поща</string>
     <string name="title_setup_no_auth_hint">Моля, проверете два пъти имейл адреса и паролата си и се уверете, че външният достъп (IMAP/SMTP) е активиран за вашия профил</string>
+    <string name="title_setup_app_password_hint">Този доставчик изисква парола за приложение вместо паролата за профила</string>
     <string name="title_setup_no_system_folders">Папките вх. поща или чернова не са намерени</string>
     <string name="title_setup_quick_success">Профил и идентичност бяха успешно добавени</string>
     <string name="title_setup_quick_failed">Можете да опитате да конфигурирате профил и идентичност по долу</string>
@@ -225,6 +226,7 @@
     <string name="title_advanced_signature_end">Добавете подпис след цитирано/препратено съобщение</string>
     <string name="title_advanced_plain_only">Изпращане на обикновен текст по подразбиране</string>
     <string name="title_advanced_usenet_signature">Конвенция за подпис на Usenet</string>
+    <string name="title_advanced_remove_signatures">Премахване на разпознатите подписи</string>
     <string name="title_advanced_resize_images">Автоматично оразмеряване на вградените изображения</string>
     <string name="title_advanced_resize_attachments">Автоматично оразмеряване на прикачените изображения</string>
     <string name="title_advanced_resize_pixels">&lt;%1$d пиксела</string>
@@ -241,6 +243,7 @@
     <string name="title_advanced_landscape">Две колони в легнал режим</string>
     <string name="title_advanced_landscape3">Разрешаване на фиксирано меню за навигация в пейзажен режим</string>
     <string name="title_advanced_startup">Показване при стартиране</string>
+    <string name="title_advanced_cards">Използвайте стил на карти вместо табличен стил</string>
     <string name="title_advanced_date_header">Групиране по дата</string>
     <string name="title_advanced_threading">Групиране на разговори</string>
     <string name="title_advanced_indentation">Ляв/десен отстъп на получени/изпратени съобщения в разговори</string>
@@ -294,7 +297,7 @@
     <string name="title_advanced_quick_scroll">Показване на ненатрапчиви икони за бързо превъртане нагоре/надолу</string>
     <string name="title_advanced_autoread">Автоматично маркиране на съобщения като прочетени при преместване им</string>
     <string name="title_advanced_autounstar">Автоматично премахване на звездите от съобщенията при преместване им</string>
-    <string name="title_advanced_automove">Потвърдете преместването на съобщенията</string>
+    <string name="title_advanced_reset_importance">Нулирай важността при преместване на съобщения</string>
     <string name="title_advanced_discard_delete">При отказване на чернова за постоянно изтрий черновата</string>
     <string name="title_advanced_default_snooze">Време за отлагане по подразбиране</string>
     <string name="title_advanced_notifications">Управление на известията</string>
@@ -407,7 +410,7 @@
     <string name="title_identity_email">Вашият имейл адрес</string>
     <string name="title_identity_color_hint">Цветовете на идентичността са с предимство пред цветовете на папките и профила</string>
     <string name="title_advanced_sender">Разрешаване редактиране на адреса на подателя</string>
-    <string name="title_advanced_sender_regex">Стринга да съответства на редактираните адреси</string>
+    <string name="title_advanced_sender_regex">Regex да отговаря на потребителското име на входящите имейл адреси</string>
     <string name="title_identity_reply_to">Отговори на адрес</string>
     <string name="title_identity_receipt">Заявка за доставка/четене по подразбиране</string>
     <string name="title_identity_use_ip_hint">В случай на „невалиден поздрав“, „заявка за валиден адрес“ или подобна грешка, променете тази настройка</string>
@@ -545,6 +548,10 @@
     <string name="title_flag">Добави звезда</string>
     <string name="title_flag_color">Цветна звезда &#8230;</string>
     <string name="title_unflag">Премахни звезда</string>
+    <string name="title_set_importance">Задайте важност</string>
+    <string name="title_importance_low">Ниско</string>
+    <string name="title_importance_normal">Нормално</string>
+    <string name="title_importance_high">Високо</string>
     <string name="title_forward">Препрати</string>
     <string name="title_new_message">Ново съобщение</string>
     <string name="title_editasnew">Редактирай като нов</string>
@@ -628,6 +635,7 @@
     <string name="title_download_message">Изтегляне &#8230;</string>
     <string name="title_compose">Ново съобщение</string>
     <string name="title_submitter">Изпратено от:</string>
+    <string name="title_delivered_to">Доставен до:</string>
     <string name="title_from">От:</string>
     <string name="title_to">До:</string>
     <string name="title_reply_to">Отговори на:</string>
@@ -694,11 +702,14 @@
     <string name="title_resync">Повторно синхронизиране</string>
     <string name="title_no_openpgp">OpenKeychain не е намерена</string>
     <string name="title_user_interaction">Прехвърляне към OpenKeychain</string>
+    <string name="title_signed_data">Потвърдете подписа, за да се покаже текста на съобщението</string>
     <string name="title_not_encrypted">Съобщението не е подписано или криптирано</string>
     <string name="title_reset_sign_key">Нулиране на ключ за подписване</string>
     <string name="title_signature_none">Съобщението не е подписано</string>
     <string name="title_signature_valid">Подписът на съобщението е валиден</string>
+    <string name="title_signature_valid_from">Валиден подпис на съобщението: %1$s</string>
     <string name="title_signature_unconfirmed">Подписът на съобщението е валиден, но не е потвърден</string>
+    <string name="title_signature_unconfirmed_from">Подписът на съобщението е валиден, но не е потвърден: %1$s</string>
     <string name="title_signature_invalid">Подписът на съобщението е невалиден</string>
     <string name="title_signature_invalid_reason">Подписът на съобщението е невалиден: %1$s</string>
     <string name="title_signature_certificate_invalid">Веригата на сертификата е невалидна</string>
@@ -727,6 +738,7 @@
     <string name="title_filter">Филтрирай по</string>
     <string name="title_filter_seen">Прочетени</string>
     <string name="title_filter_unflagged">Без звезда</string>
+    <string name="title_filter_unknown">Неизвестни податели</string>
     <string name="title_filter_hidden">Скрий</string>
     <string name="title_filter_duplicates">Дублирани</string>
     <string name="title_compact">Сбит изглед</string>

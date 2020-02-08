@@ -298,7 +298,6 @@
     <string name="title_advanced_autoread">İleti taşındığında otomatik olarak okundu diye işaretle</string>
     <string name="title_advanced_autounstar">Mesajları taşırken otomatik olarak yıldızı kaldır</string>
     <string name="title_advanced_reset_importance">Mesajları taşırken önem derecesini sıfırla</string>
-    <string name="title_advanced_automove">İletileri taşımayı onaylayın</string>
     <string name="title_advanced_discard_delete">Taslak gönderildiğinde taslağı kalıcı olarak sil</string>
     <string name="title_advanced_default_snooze">Varsayılan erteleme süresi</string>
     <string name="title_advanced_notifications">Bildirimleri yönet</string>
@@ -412,7 +411,7 @@
     <string name="title_identity_email">E-posta adresiniz</string>
     <string name="title_identity_color_hint">Kimlik renkleri, klasör ve hesap renklerinden önceliklidir</string>
     <string name="title_advanced_sender">Gönderici adresini düzenlemeye izin ver</string>
-    <string name="title_advanced_sender_regex">Düzenlenen adreslerle eşleşecek düzenli ifade (regex)</string>
+    <string name="title_advanced_sender_regex">Gelen e-posta adreslerinin kullanıcı adı bölümünü eşleştirmek için düzenli ifade</string>
     <string name="title_identity_reply_to">Yanıtlama adresi</string>
     <string name="title_identity_receipt">Varsayılan olarak iletildi/okundu bilgisi iste</string>
     <string name="title_identity_use_ip_hint">\'Geçersiz selamlaşma\', \'geçerli adres gerekir\' veya benzer bir hata olması durumunda, bu ayarı değiştirmeyi deneyin</string>

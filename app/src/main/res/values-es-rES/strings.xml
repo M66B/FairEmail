@@ -298,7 +298,6 @@
     <string name="title_advanced_autoread">Marcar mensaje como leído automáticamente al moverlo</string>
     <string name="title_advanced_autounstar">Eliminar automáticamente la estrella de los mensajes al ser movidos</string>
     <string name="title_advanced_reset_importance">Restablecer importancia al mover mensajes</string>
-    <string name="title_advanced_automove">Confirmar mover mensajes</string>
     <string name="title_advanced_discard_delete">Al descartar borrador eliminarlo permanentemente</string>
     <string name="title_advanced_default_snooze">Tiempo de posponer por defecto</string>
     <string name="title_advanced_notifications">Gestionar notificaciones</string>
@@ -412,7 +411,7 @@
     <string name="title_identity_email">Su dirección de correo electrónico</string>
     <string name="title_identity_color_hint">Los colores de indentidad tienen prioridad sobre los colores de carpeta y cuenta</string>
     <string name="title_advanced_sender">Permitir editar dirección del remitente</string>
-    <string name="title_advanced_sender_regex">Expresión regular que coincida con las direcciones editadas</string>
+    <string name="title_advanced_sender_regex">Expresión regular que coincida con el nombre de usuario de las direcciones de correo entrantes</string>
     <string name="title_identity_reply_to">Responder a la dirección</string>
     <string name="title_identity_receipt">Solicitar recibo de entrega/lectura por defecto</string>
     <string name="title_identity_use_ip_hint">En caso de \'saludo inválido\', \'requiere dirección válida\' o un error similar, intente cambiar esta configuración</string>
@@ -637,6 +636,7 @@
     <string name="title_download_message">Descargando &#8230;</string>
     <string name="title_compose">Redactar</string>
     <string name="title_submitter">Enviado por:</string>
+    <string name="title_delivered_to">Entregado a:</string>
     <string name="title_from">De:</string>
     <string name="title_to">A:</string>
     <string name="title_reply_to">Responder a:</string>
@@ -703,6 +703,7 @@
     <string name="title_resync">Resincronizar</string>
     <string name="title_no_openpgp">OpenKeychain no encontrado</string>
     <string name="title_user_interaction">Transfiriendo a OpenKeychain</string>
+    <string name="title_signed_data">Verificar la firma para mostrar el texto del mensaje</string>
     <string name="title_not_encrypted">El mensaje no está firmado ni cifrado</string>
     <string name="title_reset_sign_key">Restablecer clave de firma</string>
     <string name="title_signature_none">Mensaje no firmado</string>

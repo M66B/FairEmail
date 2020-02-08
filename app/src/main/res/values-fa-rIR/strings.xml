@@ -96,7 +96,6 @@
     <string name="title_advanced_autoexpand">بسط دادن خودکار پیام‌ها</string>
     <string name="title_advanced_autoclose">بستن خودکار مکالمات</string>
     <string name="title_advanced_autoread">به طور خودکار پیام‌های انتقال یافته به عنوان خوانده شده علامت گذاری شود</string>
-    <string name="title_advanced_automove">تایید انتقال پیام‌ها</string>
     <string name="title_advanced_light">استفاده از چراغ اعلان‌ها</string>
     <string name="title_advanced_sound">انتخاب صدای اعلان‌ها</string>
     <string name="title_advanced_updates">بررسی بروزرسانی ها</string>

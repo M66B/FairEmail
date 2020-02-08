@@ -264,7 +264,6 @@
     <string name="title_advanced_onclose">На затварање разговора</string>
     <string name="title_advanced_autoread">Аутоматски означи поруке као прочитане кад се померају</string>
     <string name="title_advanced_autounstar">Аутоматски уклони звездице са порука кад се померају</string>
-    <string name="title_advanced_automove">Потврди померање порука</string>
     <string name="title_advanced_discard_delete">Трајно избриши нацрт приликом одбацивања</string>
     <string name="title_advanced_default_snooze">Подразумевано време одлагања</string>
     <string name="title_advanced_notifications">Управљај обавештењима</string>
@@ -360,7 +359,6 @@
     <string name="title_identity_email">Ваша е-мејл адреса</string>
     <string name="title_identity_color_hint">Боје из идентитета имају предност над бојама фасцикли и налога</string>
     <string name="title_advanced_sender">Дозволи мењање адресе пошиљаоца</string>
-    <string name="title_advanced_sender_regex">Регуларни израз за тражење измењених адреса</string>
     <string name="title_identity_reply_to">Одговори на адресу</string>
     <string name="title_identity_receipt">Подразумевано тражи потврду о пријему поруке</string>
     <string name="title_identity_use_ip_hint">У случају да се добију грешке \'invalid greeting\', \'requires valid address\' или сличне, пробај да измениш ову поставку</string>

@@ -298,7 +298,6 @@
     <string name="title_advanced_autoread">Marquer automatiquement les messages comme lus lors de leur déplacement</string>
     <string name="title_advanced_autounstar">Retirer automatiquement l\'étoile de suivi des messages lors de leur déplacement</string>
     <string name="title_advanced_reset_importance">Réinitialiser l\'importance lors du déplacement des messages</string>
-    <string name="title_advanced_automove">Confirmer le déplacement des messages</string>
     <string name="title_advanced_discard_delete">Lors de la suppression d\'un brouillon, le supprimer définitivement</string>
     <string name="title_advanced_default_snooze">Délai de report par défaut</string>
     <string name="title_advanced_notifications">Gérer les notifications</string>
@@ -412,7 +411,7 @@
     <string name="title_identity_email">Votre adresse e-mail</string>
     <string name="title_identity_color_hint">Les couleurs d\'identité sont prioritaires par rapport aux couleurs de dossier et de compte</string>
     <string name="title_advanced_sender">Autoriser la modification de l\'adresse de l\'expéditeur</string>
-    <string name="title_advanced_sender_regex">Regex pour correspondre aux adresses modifiées</string>
+    <string name="title_advanced_sender_regex">Regex pour correspondre au nom d\'utilisateur des adresses e-mail entrantes</string>
     <string name="title_identity_reply_to">Répondre à l\'adresse</string>
     <string name="title_identity_receipt">Demander un accusé de réception/lecture par défaut</string>
     <string name="title_identity_use_ip_hint">En cas de \"message d\'accueil invalide\", \"nécessite une adresse valide\" ou une erreur similaire, essayez de modifier ce paramètre</string>
@@ -637,6 +636,7 @@
     <string name="title_download_message">Téléchargement&#8230;</string>
     <string name="title_compose">Rédiger</string>
     <string name="title_submitter">Envoyé par :</string>
+    <string name="title_delivered_to">Envoyé à :</string>
     <string name="title_from">De :</string>
     <string name="title_to">À :</string>
     <string name="title_reply_to">Répondre à :</string>
@@ -703,6 +703,7 @@
     <string name="title_resync">Resynchroniser</string>
     <string name="title_no_openpgp">OpenKeychain introuvable</string>
     <string name="title_user_interaction">Transfert vers OpenKeychain</string>
+    <string name="title_signed_data">Vérifier la signature pour afficher le texte du message</string>
     <string name="title_not_encrypted">Le message n\'est pas signé ou chiffré</string>
     <string name="title_reset_sign_key">Réinitialiser la clé de signature</string>
     <string name="title_signature_none">Message non signé</string>

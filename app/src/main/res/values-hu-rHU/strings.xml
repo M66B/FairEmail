@@ -296,7 +296,6 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_autoread">Üzenetek automatikus megjelölése olvasottként áthelyezéskor</string>
     <string name="title_advanced_autounstar">Csillagok automatikus eltávolítása az üzenetek áthelyezésekor</string>
     <string name="title_advanced_reset_importance">Fontosság törlése áthelyezéskor</string>
-    <string name="title_advanced_automove">Üzenetek áthelyezésének megerősítése</string>
     <string name="title_advanced_discard_delete">Piszkozat végleges törlése annak elvetésekor</string>
     <string name="title_advanced_default_snooze">Szundi alapértelmezett időtartama</string>
     <string name="title_advanced_notifications">Értesítések kezelése</string>

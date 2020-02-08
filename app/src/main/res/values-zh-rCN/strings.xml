@@ -213,7 +213,7 @@
     <string name="title_advanced_signature_end">在引用/转发消息后添加签名</string>
     <string name="title_advanced_plain_only">默认仅发送纯文本</string>
     <string name="title_advanced_usenet_signature">Usenet签名公约（RFC3676）</string>
-    <string name="title_advanced_remove_signatures">删除公认的签名</string>
+    <string name="title_advanced_remove_signatures">移除公认的签名</string>
     <string name="title_advanced_resize_images">自动调整嵌入图像大小</string>
     <string name="title_advanced_resize_attachments">自动调整图像附件大小</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d像素</string>
@@ -285,7 +285,6 @@
     <string name="title_advanced_autoread">移动消息时自动标记为已读</string>
     <string name="title_advanced_autounstar">移动消息时自动移除星标</string>
     <string name="title_advanced_reset_importance">在移动消息时重置其重要性</string>
-    <string name="title_advanced_automove">确认移动邮件</string>
     <string name="title_advanced_discard_delete">丢弃草稿时将其永久删除</string>
     <string name="title_advanced_default_snooze">默认打盹时间</string>
     <string name="title_advanced_notifications">管理通知</string>
@@ -399,7 +398,7 @@
     <string name="title_identity_email">邮箱地址</string>
     <string name="title_identity_color_hint">身份颜色优先于文件夹和帐户颜色</string>
     <string name="title_advanced_sender">允许编辑发件人地址</string>
-    <string name="title_advanced_sender_regex">正则匹配编辑的地址</string>
+    <string name="title_advanced_sender_regex">用正则表达式来匹配收到的邮箱地址的用户名</string>
     <string name="title_identity_reply_to">回复给该地址</string>
     <string name="title_identity_receipt">默认请求送达／已读回执</string>
     <string name="title_identity_use_ip_hint">如果遇到“无效问候”，“需要有效的地址”或类似错误，请尝试更改此设置</string>
@@ -624,6 +623,7 @@
     <string name="title_download_message">&#8230; 下载中</string>
     <string name="title_compose">撰写</string>
     <string name="title_submitter">发送自：</string>
+    <string name="title_delivered_to">发送给：</string>
     <string name="title_from">发件人：</string>
     <string name="title_to">收件人：</string>
     <string name="title_reply_to">回复：</string>
@@ -690,13 +690,14 @@
     <string name="title_resync">重新同步</string>
     <string name="title_no_openpgp">OpenKeychain 未找到</string>
     <string name="title_user_interaction">正传输到 OpenKeychain</string>
+    <string name="title_signed_data">验证签名以显示消息文本</string>
     <string name="title_not_encrypted">消息未签名或加密</string>
     <string name="title_reset_sign_key">重置签名密钥</string>
     <string name="title_signature_none">消息未签名</string>
     <string name="title_signature_valid">消息签名有效</string>
-    <string name="title_signature_valid_from">消息签名有效:%1$s</string>
+    <string name="title_signature_valid_from">消息签名有效： %1$s</string>
     <string name="title_signature_unconfirmed">消息签名有效但未确认</string>
-    <string name="title_signature_unconfirmed_from">消息签名有效但未确认:%1$s</string>
+    <string name="title_signature_unconfirmed_from">消息签名有效但未确认： %1$s</string>
     <string name="title_signature_invalid">消息签名无效</string>
     <string name="title_signature_invalid_reason">消息签名无效： %1$s</string>
     <string name="title_signature_certificate_invalid">证书链无效</string>
