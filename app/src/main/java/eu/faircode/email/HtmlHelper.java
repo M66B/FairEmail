@@ -365,6 +365,7 @@ public class HtmlHelper {
                                 .replaceAll("\\s+", " ");
                         switch (key) {
                             case "color":
+                                // https://developer.mozilla.org/en-US/docs/Web/CSS/color
                                 Integer color = parseColor(value, dark);
                                 if (color != null) {
                                     // fromHtml does not support transparency
@@ -375,19 +376,35 @@ public class HtmlHelper {
                                 }
                                 break;
 
+                            case "font-size":
+                                // https://developer.mozilla.org/en-US/docs/Web/CSS/font-size
+                                Float fsize = getFontSize(value);
+                                if (fsize != null && fsize != 0 &&
+                                        (fsize <= 0.8f || fsize >= 1.25)) {
+                                    Element e = new Element(fsize < 1 ? "small" : "big");
+                                    element.replaceWith(e);
+                                    e.appendChild(element);
+                                }
+                                break;
+
                             case "font-weight":
-                                if ("bold".equals(value)) {
+                                // https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight
+                                Integer fweight = getFontWeight(value);
+                                if (fweight != null && fweight >= 600) {
                                     Element strong = new Element("strong");
                                     element.replaceWith(strong);
                                     strong.appendChild(element);
                                 }
                                 break;
 
-                            case "line-through":
-                                sb.append(param).append(";");
+                            case "text-decoration":
+                                // https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration
+                                if (value.contains("line-through"))
+                                    sb.append("text-decoration:line-through;");
                                 break;
 
                             case "display":
+                                // https://developer.mozilla.org/en-US/docs/Web/CSS/display
                                 if (!display_hidden && "none".equals(value)) {
                                     Log.i("Removing hidden element " + element.tagName());
                                     element.empty();
@@ -402,10 +419,12 @@ public class HtmlHelper {
                             case "width":
                                 //case "font-size":
                                 //case "line-height":
-                                if (!display_hidden &&
-                                        ("0".equals(value) || "0px".equals(value))) {
-                                    Log.i("Removing hidden element " + element.tagName());
-                                    element.empty();
+                                if (!display_hidden) {
+                                    Float s = getFontSize(value);
+                                    if (s != null && s == 0) {
+                                        Log.i("Removing hidden element " + element.tagName());
+                                        element.empty();
+                                    }
                                 }
                                 break;
                         }
@@ -696,6 +715,50 @@ public class HtmlHelper {
         }
 
         return document;
+    }
+
+    private static Integer getFontWeight(String value) {
+        if (TextUtils.isEmpty(value))
+            return null;
+
+        value = value.toLowerCase(Locale.ROOT).trim();
+
+        switch (value) {
+            case "lighter":
+                return 300;
+            case "normal":
+                return 400;
+            case "bolder":
+                return 600;
+            case "bold":
+                return 700;
+        }
+
+        try {
+            return Integer.parseInt(value);
+        } catch (NumberFormatException ignored) {
+        }
+
+        return null;
+
+    }
+
+    private static Float getFontSize(String value) {
+        if (TextUtils.isEmpty(value))
+            return null;
+
+        value = value.toLowerCase(Locale.ROOT).trim();
+
+        try {
+            if (value.endsWith("em"))
+                return Float.parseFloat(value.substring(0, value.length() - 2).trim());
+            if (value.endsWith("px"))
+                return Integer.parseInt(value.substring(0, value.length() - 2).trim()) / 16f;
+        } catch (NumberFormatException ignored) {
+
+        }
+
+        return null;
     }
 
     private static Integer parseColor(@NonNull String value, boolean dark) {
