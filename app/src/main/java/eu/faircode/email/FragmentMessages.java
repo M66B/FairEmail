@@ -4813,8 +4813,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 Log.w("PGP signature result missing");
                             else
                                 Log.i("PGP signature result=" + sresult);
+
                             if (sresult == RESULT_NO_SIGNATURE)
-                                Snackbar.make(view, R.string.title_signature_none, Snackbar.LENGTH_LONG).show();
+                                args.putString("sigresult", context.getString(R.string.title_signature_none));
                             else if (sresult == RESULT_VALID_KEY_CONFIRMED || sresult == RESULT_VALID_KEY_UNCONFIRMED) {
                                 List<String> users = sigResult.getConfirmedUserIds();
                                 String text;
@@ -4827,11 +4828,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     text = getString(sresult == RESULT_VALID_KEY_UNCONFIRMED
                                             ? R.string.title_signature_unconfirmed
                                             : R.string.title_signature_valid);
-                                Snackbar.make(view, text, Snackbar.LENGTH_LONG).show();
+                                args.putString("sigresult", text);
                             } else if (sresult == RESULT_KEY_MISSING)
-                                Snackbar.make(view, R.string.title_signature_key_missing, Snackbar.LENGTH_LONG).show();
-                            else
-                                Snackbar.make(view, R.string.title_signature_invalid, Snackbar.LENGTH_LONG).show();
+                                args.putString("sigresult", context.getString(R.string.title_signature_key_missing));
+                            else {
+                                String text = getString(R.string.title_signature_invalid_reason, Integer.toString(sresult));
+                                args.putString("sigresult", text);
+                            }
 
                             break;
 
@@ -4859,6 +4862,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             @Override
             protected void onExecuted(Bundle args, PendingIntent pi) {
+                if (args.containsKey("sigresult")) {
+                    String text = args.getString("sigresult");
+                    Snackbar.make(view, text, Snackbar.LENGTH_LONG).show();
+                }
+
                 if (pi != null)
                     try {
                         Log.i("Executing pi=" + pi);
