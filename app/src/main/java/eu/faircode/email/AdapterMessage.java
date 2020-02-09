@@ -205,6 +205,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean avatars;
     private boolean color_stripe;
     private boolean name_email;
+    private boolean prefer_contact;
     private boolean distinguish_contacts;
     private Float font_size_sender;
     private Float font_size_subject;
@@ -1222,7 +1223,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     addresses != null && addresses.length == 1) {
                 String email = ((InternetAddress) addresses[0]).getAddress();
                 String personal = ((InternetAddress) addresses[0]).getPersonal();
-                if (TextUtils.isEmpty(personal))
+                if (TextUtils.isEmpty(personal) ||
+                        (prefer_contact && !personal.equals(displayName)))
                     try {
                         InternetAddress a = new InternetAddress(email, displayName, StandardCharsets.UTF_8.name());
                         tvFrom.setText(MessageHelper.formatAddresses(new Address[]{a}, name_email, false));
@@ -4176,6 +4178,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.avatars = (contacts && avatars) || generated;
         this.color_stripe = prefs.getBoolean("color_stripe", true);
         this.name_email = prefs.getBoolean("name_email", false);
+        this.prefer_contact = prefs.getBoolean("prefer_contact", false);
         this.distinguish_contacts = prefs.getBoolean("distinguish_contacts", false);
 
         this.subject_top = prefs.getBoolean("subject_top", false);
