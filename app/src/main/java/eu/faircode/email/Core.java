@@ -3385,6 +3385,7 @@ class Core {
 
             if (ex instanceof FolderClosedException ||
                     ex instanceof FolderNotFoundException)
+                // Lost folder connection to server
                 recoverable = false;
 
             if (ex instanceof IllegalStateException && (
