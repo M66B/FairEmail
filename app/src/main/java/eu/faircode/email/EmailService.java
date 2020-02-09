@@ -649,7 +649,7 @@ public class EmailService implements AutoCloseable {
                         KeyStore ks = KeyStore.getInstance("AndroidCAStore");
                         ks.load(null, null);
 
-                        KeyManagerFactory kmf = KeyManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+                        KeyManagerFactory kmf = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
                         kmf.init(ks, null);
                         km = kmf.getKeyManagers();
                     } catch (Throwable ex) {
