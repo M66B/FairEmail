@@ -3851,7 +3851,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         if (!message.content)
                             EntityOperation.queue(context, message, EntityOperation.BODY);
 
-                        if (account.auto_seen && !folder.read_only)
+                        int ops = db.operation().getOperationCount(message.folder, message.id, EntityOperation.SEEN);
+                        if (account.auto_seen && !folder.read_only && (!message.seen || ops > 0))
                             EntityOperation.queue(context, message, EntityOperation.SEEN, true);
                     }
 
