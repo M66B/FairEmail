@@ -257,6 +257,7 @@ public class HtmlHelper {
         boolean display_hidden = prefs.getBoolean("display_hidden", false);
         boolean disable_tracking = prefs.getBoolean("disable_tracking", true);
 
+        // https://chromium.googlesource.com/chromium/blink/+/master/Source/core/css/html.css
         Document parsed = JsoupEx.parse(html);
 
         // <!--[if ...]><!--> ... <!--<![endif]-->
