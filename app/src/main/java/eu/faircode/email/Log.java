@@ -247,6 +247,7 @@ public class Log {
 
         ignore.add("javax.mail.AuthenticationFailedException");
         ignore.add("javax.mail.internet.AddressException");
+        ignore.add("javax.mail.internet.ParseException");
         ignore.add("javax.mail.MessageRemovedException");
         ignore.add("javax.mail.FolderNotFoundException");
         ignore.add("javax.mail.ReadOnlyFolderException");
