@@ -202,6 +202,7 @@ import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 import static android.text.format.DateUtils.DAY_IN_MILLIS;
 import static android.text.format.DateUtils.FORMAT_SHOW_DATE;
 import static android.text.format.DateUtils.FORMAT_SHOW_WEEKDAY;
+import static org.openintents.openpgp.OpenPgpSignatureResult.RESULT_KEY_MISSING;
 import static org.openintents.openpgp.OpenPgpSignatureResult.RESULT_NO_SIGNATURE;
 import static org.openintents.openpgp.OpenPgpSignatureResult.RESULT_VALID_KEY_CONFIRMED;
 import static org.openintents.openpgp.OpenPgpSignatureResult.RESULT_VALID_KEY_UNCONFIRMED;
@@ -4808,6 +4809,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             // Check signature status
                             OpenPgpSignatureResult sigResult = result.getParcelableExtra(OpenPgpApi.RESULT_SIGNATURE);
                             int sresult = (sigResult == null ? RESULT_NO_SIGNATURE : sigResult.getResult());
+                            if (sigResult == null)
+                                Log.w("PGP signature result missing");
+                            else
+                                Log.i("PGP signature result=" + sresult);
                             if (sresult == RESULT_NO_SIGNATURE)
                                 Snackbar.make(view, R.string.title_signature_none, Snackbar.LENGTH_LONG).show();
                             else if (sresult == RESULT_VALID_KEY_CONFIRMED || sresult == RESULT_VALID_KEY_UNCONFIRMED) {
@@ -4823,7 +4828,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                             ? R.string.title_signature_unconfirmed
                                             : R.string.title_signature_valid);
                                 Snackbar.make(view, text, Snackbar.LENGTH_LONG).show();
-                            } else
+                            } else if (sresult == RESULT_KEY_MISSING)
+                                Snackbar.make(view, R.string.title_signature_key_missing, Snackbar.LENGTH_LONG).show();
+                            else
                                 Snackbar.make(view, R.string.title_signature_invalid, Snackbar.LENGTH_LONG).show();
 
                             break;
