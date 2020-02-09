@@ -1036,7 +1036,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
 
             // Contact info
-            ContactInfo info = ContactInfo.get(context, message.account, addresses, true);
+            ContactInfo[] info = ContactInfo.getCached(context, message.account, addresses);
             if (info == null) {
                 if (taskContactInfo != null)
                     taskContactInfo.cancel(context);
@@ -1046,17 +1046,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 aargs.putLong("account", message.account);
                 aargs.putSerializable("addresses", addresses);
 
-                taskContactInfo = new SimpleTask<ContactInfo>() {
+                taskContactInfo = new SimpleTask<ContactInfo[]>() {
                     @Override
-                    protected ContactInfo onExecute(Context context, Bundle args) {
+                    protected ContactInfo[] onExecute(Context context, Bundle args) {
                         long account = args.getLong("account");
                         Address[] addresses = (Address[]) args.getSerializable("addresses");
 
-                        return ContactInfo.get(context, account, addresses, false);
+                        return ContactInfo.get(context, account, addresses);
                     }
 
                     @Override
-                    protected void onExecuted(Bundle args, ContactInfo info) {
+                    protected void onExecuted(Bundle args, ContactInfo[] info) {
                         taskContactInfo = null;
 
                         long id = args.getLong("id");
@@ -1207,33 +1207,40 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibFlagged.setVisibility(View.GONE);
         }
 
-        private void bindContactInfo(ContactInfo info, Address[] addresses, boolean name_email) {
-            if (info.hasPhoto()) {
-                ibAvatar.setImageBitmap(info.getPhotoBitmap());
+        private void bindContactInfo(ContactInfo[] info, Address[] addresses, boolean name_email) {
+            if (info[0].hasPhoto()) {
+                ibAvatar.setImageBitmap(info[0].getPhotoBitmap());
                 ibAvatar.setVisibility(View.VISIBLE);
             } else
                 ibAvatar.setVisibility(View.GONE);
 
-            Uri lookupUri = info.getLookupUri();
+            Uri lookupUri = info[0].getLookupUri();
             ibAvatar.setTag(lookupUri);
             ibAvatar.setEnabled(lookupUri != null);
 
-            String displayName = info.getDisplayName();
-            if (!TextUtils.isEmpty(displayName) &&
-                    addresses != null && addresses.length == 1) {
-                String email = ((InternetAddress) addresses[0]).getAddress();
-                String personal = ((InternetAddress) addresses[0]).getPersonal();
-                if (TextUtils.isEmpty(personal) ||
-                        (prefer_contact && !personal.equals(displayName)))
-                    try {
-                        InternetAddress a = new InternetAddress(email, displayName, StandardCharsets.UTF_8.name());
-                        tvFrom.setText(MessageHelper.formatAddresses(new Address[]{a}, name_email, false));
-                    } catch (UnsupportedEncodingException ex) {
-                        Log.w(ex);
-                    }
+            boolean known = false;
+            boolean updated = false;
+            for (int i = 0; i < info.length; i++) {
+                if (info[i].isKnown())
+                    known = true;
+                String displayName = info[i].getDisplayName();
+                if (!TextUtils.isEmpty(displayName)) {
+                    String email = ((InternetAddress) addresses[i]).getAddress();
+                    String personal = ((InternetAddress) addresses[i]).getPersonal();
+                    if (TextUtils.isEmpty(personal) ||
+                            (prefer_contact && !personal.equals(displayName)))
+                        try {
+                            addresses[i] = new InternetAddress(email, displayName, StandardCharsets.UTF_8.name());
+                            updated = true;
+                        } catch (UnsupportedEncodingException ex) {
+                            Log.w(ex);
+                        }
+                }
             }
+            if (updated)
+                tvFrom.setText(MessageHelper.formatAddresses(addresses, name_email, false));
 
-            if (distinguish_contacts && info.isKnown())
+            if (distinguish_contacts && known)
                 tvFrom.setPaintFlags(tvFrom.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         }
 

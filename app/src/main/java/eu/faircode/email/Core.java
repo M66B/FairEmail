@@ -2864,9 +2864,9 @@ class Core {
         boolean alert_once = prefs.getBoolean("alert_once", true);
 
         // Get contact info
-        Map<Long, ContactInfo> messageContact = new HashMap<>();
+        Map<Long, ContactInfo[]> messageContact = new HashMap<>();
         for (TupleMessageEx message : messages)
-            messageContact.put(message.id, ContactInfo.get(context, message.account, message.from, false));
+            messageContact.put(message.id, ContactInfo.get(context, message.account, message.from));
 
         // Summary notification
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N || notify_summary) {
@@ -2939,8 +2939,8 @@ class Core {
                     DateFormat DTF = Helper.getDateTimeInstance(context, SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
                     StringBuilder sb = new StringBuilder();
                     for (EntityMessage message : messages) {
-                        ContactInfo info = messageContact.get(message.id);
-                        sb.append("<strong>").append(info.getDisplayName(name_email)).append("</strong>");
+                        ContactInfo[] info = messageContact.get(message.id);
+                        sb.append("<strong>").append(info[0].getDisplayName(name_email)).append("</strong>");
                         if (!TextUtils.isEmpty(message.subject))
                             sb.append(": ").append(message.subject);
                         sb.append(" ").append(DTF.format(message.received));
@@ -2964,7 +2964,7 @@ class Core {
 
         // Message notifications
         for (TupleMessageEx message : messages) {
-            ContactInfo info = messageContact.get(message.id);
+            ContactInfo[] info = messageContact.get(message.id);
 
             // Build arguments
             long id = (message.content ? message.id : -message.id);
@@ -3031,7 +3031,7 @@ class Core {
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
                 setLightAndSound(mbuilder, light, sound);
 
-            mbuilder.setContentTitle(info.getDisplayName(name_email))
+            mbuilder.setContentTitle(info[0].getDisplayName(name_email))
                     .setSubText(message.accountName + " · " + message.getFolderName(context));
 
             DB db = DB.getInstance(context);
@@ -3239,11 +3239,11 @@ class Core {
                     mbuilder.setContentText(message.subject);
             }
 
-            if (info.hasPhoto())
-                mbuilder.setLargeIcon(info.getPhotoBitmap());
+            if (info[0].hasPhoto())
+                mbuilder.setLargeIcon(info[0].getPhotoBitmap());
 
-            if (info.hasLookupUri())
-                mbuilder.addPerson(info.getLookupUri().toString());
+            if (info[0].hasLookupUri())
+                mbuilder.addPerson(info[0].getLookupUri().toString());
 
             if (pro && message.accountColor != null) {
                 mbuilder.setColor(message.accountColor);

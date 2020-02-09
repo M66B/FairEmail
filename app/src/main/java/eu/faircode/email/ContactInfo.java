@@ -32,6 +32,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.provider.ContactsContract;
 
+import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
 
 import java.io.IOException;
@@ -111,11 +112,30 @@ public class ContactInfo {
         }
     }
 
-    static ContactInfo get(Context context, long account, Address[] addresses, boolean cacheOnly) {
-        if (addresses == null || addresses.length == 0)
-            return new ContactInfo();
-        InternetAddress address = (InternetAddress) addresses[0];
+    @NonNull
+    static ContactInfo[] get(Context context, long account, Address[] addresses) {
+        return get(context, account, addresses, false);
+    }
 
+    static ContactInfo[] getCached(Context context, long account, Address[] addresses) {
+        return get(context, account, addresses, true);
+    }
+
+    private static ContactInfo[] get(Context context, long account, Address[] addresses, boolean cacheOnly) {
+        if (addresses == null || addresses.length == 0)
+            return new ContactInfo[]{new ContactInfo()};
+
+        ContactInfo[] result = new ContactInfo[addresses.length];
+        for (int i = 0; i < addresses.length; i++) {
+            result[i] = _get(context, account, (InternetAddress) addresses[i], cacheOnly);
+            if (result[i] == null)
+                return null;
+        }
+
+        return result;
+    }
+
+    private static ContactInfo _get(Context context, long account, InternetAddress address, boolean cacheOnly) {
         String key = MessageHelper.formatAddresses(new Address[]{address});
         synchronized (emailContactInfo) {
             ContactInfo info = emailContactInfo.get(key);
