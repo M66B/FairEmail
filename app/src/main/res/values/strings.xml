@@ -307,7 +307,7 @@
     <string name="title_advanced_color_value">Brightness</string>
     <string name="title_advanced_color_threshold">Threshold letter color</string>
     <string name="title_advanced_name_email">Show names and email addresses</string>
-    <string name="title_advanced_replace_name">Prefer the name of the contact over the sent name</string>
+    <string name="title_advanced_replace_name">Prefer a contact name over a sent name</string>
     <string name="title_advanced_distinguish_contacts">Underline the sender when the sender is known as local \'to\' contact</string>
     <string name="title_advanced_authentication">Show a warning when the receiving server could not authenticate the message</string>
     <string name="title_advanced_font_size_sender">Font size sender</string>
