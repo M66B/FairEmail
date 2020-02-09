@@ -205,6 +205,9 @@ public class EmailProvider {
         if (at < 0)
             email = "someone@" + domain;
 
+        if (TextUtils.isEmpty(domain))
+            throw new UnknownHostException(context.getString(R.string.title_setup_no_settings, domain));
+
         if (PROPRIETARY.contains(domain))
             throw new IllegalArgumentException(context.getString(R.string.title_no_standard));
 
