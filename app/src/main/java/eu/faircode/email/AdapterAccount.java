@@ -242,7 +242,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             popupMenu.getMenu().add(Menu.NONE, R.string.title_enabled, 1, R.string.title_enabled)
                     .setCheckable(true).setChecked(account.synchronize);
 
-            if (account.protocol == EntityAccount.TYPE_IMAP && account.notify &&
+            if (account.notify &&
                     Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 String channelId = EntityAccount.getNotificationChannelId(account.id);
                 NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);

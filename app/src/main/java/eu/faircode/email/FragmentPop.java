@@ -24,6 +24,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
@@ -73,6 +74,8 @@ public class FragmentPop extends FragmentBase {
     private TextView tvColorPro;
 
     private CheckBox cbSynchronize;
+    private CheckBox cbNotify;
+    private TextView tvNotifyPro;
     private CheckBox cbOnDemand;
     private CheckBox cbPrimary;
     private CheckBox cbLeaveServer;
@@ -126,6 +129,8 @@ public class FragmentPop extends FragmentBase {
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         cbOnDemand = view.findViewById(R.id.cbOnDemand);
         cbPrimary = view.findViewById(R.id.cbPrimary);
+        cbNotify = view.findViewById(R.id.cbNotify);
+        tvNotifyPro = view.findViewById(R.id.tvNotifyPro);
         cbLeaveServer = view.findViewById(R.id.cbLeaveServer);
         cbLeaveDevice = view.findViewById(R.id.cbLeaveDevice);
         etInterval = view.findViewById(R.id.etInterval);
@@ -185,6 +190,13 @@ public class FragmentPop extends FragmentBase {
             }
         });
 
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
+            Helper.hide(cbNotify);
+            Helper.hide(view.findViewById(R.id.tvNotifyPro));
+        }
+
+        Helper.linkPro(tvNotifyPro);
+
         etInterval.setHint(Integer.toString(EntityAccount.DEFAULT_POLL_INTERVAL));
 
         btnSave.setOnClickListener(new View.OnClickListener() {
@@ -221,6 +233,7 @@ public class FragmentPop extends FragmentBase {
         args.putBoolean("synchronize", cbSynchronize.isChecked());
         args.putBoolean("ondemand", cbOnDemand.isChecked());
         args.putBoolean("primary", cbPrimary.isChecked());
+        args.putBoolean("notify", cbNotify.isChecked());
         args.putBoolean("leave_server", cbLeaveServer.isChecked());
         args.putBoolean("leave_device", cbLeaveDevice.isChecked());
         args.putString("interval", etInterval.getText().toString());
@@ -259,6 +272,7 @@ public class FragmentPop extends FragmentBase {
                 boolean synchronize = args.getBoolean("synchronize");
                 boolean ondemand = args.getBoolean("ondemand");
                 boolean primary = args.getBoolean("primary");
+                boolean notify = args.getBoolean("notify");
                 boolean leave_server = args.getBoolean("leave_server");
                 boolean leave_device = args.getBoolean("leave_device");
                 String interval = args.getString("interval");
@@ -347,6 +361,7 @@ public class FragmentPop extends FragmentBase {
                     account.synchronize = synchronize;
                     account.ondemand = ondemand;
                     account.primary = (account.synchronize && primary);
+                    account.notify = notify;
                     account.leave_on_server = leave_server;
                     account.leave_on_device = leave_device;
                     account.poll_interval = Integer.parseInt(interval);
@@ -367,6 +382,15 @@ public class FragmentPop extends FragmentBase {
                         account.id = db.account().insertAccount(account);
                     EntityLog.log(context, (update ? "Updated" : "Added") + " account=" + account.name);
 
+                    // Make sure the channel exists on commit
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        if (account.notify) {
+                            // Add or update notification channel
+                            account.deleteNotificationChannel(context);
+                            account.createNotificationChannel(context);
+                        } else if (!account.synchronize)
+                            account.deleteNotificationChannel(context);
+                    }
 
                     EntityFolder inbox = db.folder().getFolderByType(account.id, EntityFolder.INBOX);
                     if (inbox == null) {
@@ -489,6 +513,10 @@ public class FragmentPop extends FragmentBase {
 
                     etName.setText(account == null ? null : account.name);
                     btnColor.setColor(account == null ? null : account.color);
+
+                    boolean pro = ActivityBilling.isPro(getContext());
+                    cbNotify.setChecked(account != null && account.notify && pro);
+                    cbNotify.setEnabled(pro);
 
                     cbSynchronize.setChecked(account == null ? true : account.synchronize);
                     cbOnDemand.setChecked(account == null ? false : account.ondemand);
