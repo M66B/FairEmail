@@ -242,7 +242,6 @@
     <string name="title_advanced_threading">Encadeamento de conversas</string>
     <string name="title_advanced_indentation">Indentatação esquerda/direita para mensagens recebido/enviado em conversas</string>
     <string name="title_advanced_highlight_unread">Destacar mensagens não lidas</string>
-    <string name="title_advanced_distinguish_contacts">Sublinhar o remetente quando o remetente é conhecido como contato local \'para\'</string>
     <string name="title_advanced_color_stripe">Mostrar faixa de cores</string>
     <string name="title_advanced_avatars">Mostrar fotos de contatos</string>
     <string name="title_advanced_gravatars">Mostrar Gravatares</string>
@@ -253,6 +252,7 @@
     <string name="title_advanced_color_value">Brilho</string>
     <string name="title_advanced_color_threshold">Limite da cor da carta</string>
     <string name="title_advanced_name_email">Mostrar os nomes e endereços de e-mail</string>
+    <string name="title_advanced_distinguish_contacts">Sublinhar o remetente quando o remetente é conhecido como contato local \'para\'</string>
     <string name="title_advanced_authentication">Mostrar um aviso quando o servidor de recebimento não puder autenticar a mensagem</string>
     <string name="title_advanced_font_size_sender">Remetente do tamanho da fonte</string>
     <string name="title_advanced_font_size_subject">Assunto do tamanho da fonte</string>

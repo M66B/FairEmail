@@ -248,7 +248,6 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_threading">Konversationsansicht</string>
     <string name="title_advanced_indentation">In der Unterhaltungsansicht empfangene Nachrichten nach links und Gesendete nach rechts einrücken</string>
     <string name="title_advanced_highlight_unread">Ungelesene Nachrichten hervorheben</string>
-    <string name="title_advanced_distinguish_contacts">Den Sender unterstrichen darstellen, wenn er ein bekannter lokaler \'An\'-Kontakt ist</string>
     <string name="title_advanced_color_stripe">Farbstreifen anzeigen</string>
     <string name="title_advanced_avatars">Kontaktfotos anzeigen</string>
     <string name="title_advanced_gravatars">Gravatare anzeigen</string>
@@ -259,6 +258,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_color_value">Helligkeit</string>
     <string name="title_advanced_color_threshold">Schwellenwert für Buchstabenfarbe</string>
     <string name="title_advanced_name_email">Namen und E-Mail-Adressen anzeigen</string>
+    <string name="title_advanced_replace_name">Bevorzuge einen Kontaktnamen gegenüber einem gesendeten Namen</string>
+    <string name="title_advanced_distinguish_contacts">Den Sender unterstrichen darstellen, wenn er ein bekannter lokaler \'An\'-Kontakt ist</string>
     <string name="title_advanced_authentication">Warnung anzeigen, wenn der empfangende Server die Nachricht nicht authentifizieren konnte</string>
     <string name="title_advanced_font_size_sender">Schriftgröße für den Absender</string>
     <string name="title_advanced_font_size_subject">Schriftgröße für den Betreff</string>
@@ -440,6 +441,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_port">Portnummer</string>
     <string name="title_user">Benutzername</string>
     <string name="title_password">Passwort</string>
+    <string name="title_use_certificate">Clientzertifikat verwenden</string>
     <string name="title_realm">Bereich</string>
     <string name="title_use_ip">Lokale IP-Adresse anstelle des Domain-Namens verwenden</string>
     <string name="title_primary_account">Primäres Konto</string>
@@ -713,6 +715,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_signature_unconfirmed_from">Signatur gültig aber nicht bestätigt: %1$s</string>
     <string name="title_signature_invalid">Ungültige Nachrichtensignatur</string>
     <string name="title_signature_invalid_reason">Nachrichten-Signatur ungültig: %1$s</string>
+    <string name="title_signature_key_missing">Schlüssel fehlt</string>
     <string name="title_signature_certificate_invalid">Zertifikatskette ungültig</string>
     <string name="title_signature_sender">E-Mail-Adresse des Absenders</string>
     <string name="title_signature_email">E-Mail-Adresse der Unterschrift</string>

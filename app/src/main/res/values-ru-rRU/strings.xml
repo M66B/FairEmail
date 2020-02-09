@@ -270,7 +270,6 @@
     <string name="title_advanced_threading">Связанные диалоги</string>
     <string name="title_advanced_indentation">Левый/правый отступ для полученных/отправленных сообщений в диалогах</string>
     <string name="title_advanced_highlight_unread">Выделять непрочитанные сообщения</string>
-    <string name="title_advanced_distinguish_contacts">Подчёркивать отправителя, если он известен как локальный контакт «кому»</string>
     <string name="title_advanced_color_stripe">Показать цветовую полосу</string>
     <string name="title_advanced_avatars">Показывать фотографии контакта</string>
     <string name="title_advanced_gravatars">Показывать Граватары</string>
@@ -281,6 +280,8 @@
     <string name="title_advanced_color_value">Яркость</string>
     <string name="title_advanced_color_threshold">Порог яркости отображения букв</string>
     <string name="title_advanced_name_email">Показывать имена и адреса электронной почты</string>
+    <string name="title_advanced_replace_name">Предпочитать имя контакта вместо имени отправителя</string>
+    <string name="title_advanced_distinguish_contacts">Подчёркивать отправителя, если он известен как локальный контакт «кому»</string>
     <string name="title_advanced_authentication">Показывать предупреждение, когда сервер не может аутентифицировать сообщение</string>
     <string name="title_advanced_font_size_sender">Размера шрифта поля \"Отправитель\"</string>
     <string name="title_advanced_font_size_subject">Размера шрифта поля \"Тема\"</string>
@@ -462,6 +463,7 @@
     <string name="title_port">Номер порта</string>
     <string name="title_user">Имя пользователя</string>
     <string name="title_password">Пароль</string>
+    <string name="title_use_certificate">Использовать сертификат клиента</string>
     <string name="title_realm">Реалм</string>
     <string name="title_use_ip">Использовать локальный IP-адрес вместо имени хоста</string>
     <string name="title_primary_account">Основная (учётная запись по умолчанию)</string>
@@ -735,6 +737,7 @@
     <string name="title_signature_unconfirmed_from">Подпись сообщения верна, но не подтверждена: %1$s</string>
     <string name="title_signature_invalid">Подпись сообщения недействительна</string>
     <string name="title_signature_invalid_reason">Некорректная подпись сообщения: %1$s</string>
+    <string name="title_signature_key_missing">Ключ отсутствует</string>
     <string name="title_signature_certificate_invalid">Некорректная цепочка сертификатов</string>
     <string name="title_signature_sender">Адрес отправителя</string>
     <string name="title_signature_email">Адрес подписи</string>

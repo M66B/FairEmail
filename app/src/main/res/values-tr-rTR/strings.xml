@@ -248,7 +248,6 @@
     <string name="title_advanced_threading">İletişim iş parçacığı</string>
     <string name="title_advanced_indentation">Sohbetlerde alınan/gönderilen mesajları sola/sağa girintile</string>
     <string name="title_advanced_highlight_unread">Okunmamış iletileri vurgula</string>
-    <string name="title_advanced_distinguish_contacts">Gönderen yerel \'alıcı\' kişisi olarak biliniyorsa gönderenin altını çiz</string>
     <string name="title_advanced_color_stripe">Renk şeridini göster</string>
     <string name="title_advanced_avatars">Kişi fotoğraflarını göster</string>
     <string name="title_advanced_gravatars">Gravatar\'ları göster</string>
@@ -259,6 +258,8 @@
     <string name="title_advanced_color_value">Parlaklık</string>
     <string name="title_advanced_color_threshold">Eşik harf rengi</string>
     <string name="title_advanced_name_email">Adları ve e-posta adreslarini göster</string>
+    <string name="title_advanced_replace_name">Gönderilen ad yerine kişi adı tercih et</string>
+    <string name="title_advanced_distinguish_contacts">Gönderen yerel \'alıcı\' kişisi olarak biliniyorsa gönderenin altını çiz</string>
     <string name="title_advanced_authentication">Alıcı sunucu iletinin kimliğini doğrulayamadığında bir uyarı göster</string>
     <string name="title_advanced_font_size_sender">Gönderen yazı boyutu</string>
     <string name="title_advanced_font_size_subject">Konu yazı boyutu</string>
@@ -440,6 +441,7 @@
     <string name="title_port">Port numarası</string>
     <string name="title_user">Kullanıcı adı</string>
     <string name="title_password">Parola</string>
+    <string name="title_use_certificate">İstemci sertifikası kullan</string>
     <string name="title_realm">Bölge</string>
     <string name="title_use_ip">Ana bilgisayar adı yerine yerel IP adresini kullan</string>
     <string name="title_primary_account">Birincil (varsayılan hesap)</string>
@@ -636,6 +638,7 @@
     <string name="title_download_message">İndiriliyor &#8230;</string>
     <string name="title_compose">Eposta Oluştur</string>
     <string name="title_submitter">Gönderen:</string>
+    <string name="title_delivered_to">Teslim edilen:</string>
     <string name="title_from">Gönderen:</string>
     <string name="title_to">Alıcı:</string>
     <string name="title_reply_to">Yanıt adresi:</string>
@@ -702,6 +705,7 @@
     <string name="title_resync">Yeniden eşzamanla</string>
     <string name="title_no_openpgp">OpenKeychain bulunamadı</string>
     <string name="title_user_interaction">OpenKeychain\'e gönderiliyor</string>
+    <string name="title_signed_data">Mesaj metnini göstermek için imzayı doğrula</string>
     <string name="title_not_encrypted">Mesaj imzalı veya şifreli değil</string>
     <string name="title_reset_sign_key">İmzalama anahtarını sıfırla</string>
     <string name="title_signature_none">İleti imzalı değil</string>
@@ -711,6 +715,7 @@
     <string name="title_signature_unconfirmed_from">Mesaj imzası geçerli ancak doğrulanmamış: %1$s</string>
     <string name="title_signature_invalid">İleti imzası geçersiz</string>
     <string name="title_signature_invalid_reason">Mesaj imzası geçersiz: %1$s</string>
+    <string name="title_signature_key_missing">Anahtar eksik</string>
     <string name="title_signature_certificate_invalid">Sertifika zinciri geçersiz</string>
     <string name="title_signature_sender">Gönderenin adresi</string>
     <string name="title_signature_email">İmzanın adresi</string>

@@ -248,7 +248,6 @@
     <string name="title_advanced_threading">Gesprekken groeperen</string>
     <string name="title_advanced_indentation">Links/rechts inspringen van ontvangen/verzonden berichten in gesprekken</string>
     <string name="title_advanced_highlight_unread">Ongelezen berichten markeren</string>
-    <string name="title_advanced_distinguish_contacts">Onderstreep de afzender wanneer de afzender bekend staat als lokaal \'aan\'-contact</string>
     <string name="title_advanced_color_stripe">Toon kleurenstreep</string>
     <string name="title_advanced_avatars">Toon foto\'s contacten</string>
     <string name="title_advanced_gravatars">Gravatars weergeven</string>
@@ -259,6 +258,8 @@
     <string name="title_advanced_color_value">Helderheid</string>
     <string name="title_advanced_color_threshold">Drempel letterkleur</string>
     <string name="title_advanced_name_email">Toon namen en e-mailadressen</string>
+    <string name="title_advanced_replace_name">Geef de voorkeur aan een contactnaam boven een verzonden naam</string>
+    <string name="title_advanced_distinguish_contacts">Onderstreep de afzender wanneer de afzender bekend staat als lokaal \'aan\'-contact</string>
     <string name="title_advanced_authentication">Toon een waarschuwing wanneer de ontvangende server het bericht niet kon verifiëren</string>
     <string name="title_advanced_font_size_sender">Tekengrootte afzender</string>
     <string name="title_advanced_font_size_subject">Tekengrootte onderwerp</string>
@@ -440,6 +441,7 @@
     <string name="title_port">Poortnummer</string>
     <string name="title_user">Gebruikersnaam</string>
     <string name="title_password">Wachtwoord</string>
+    <string name="title_use_certificate">Gebruik client certificaat</string>
     <string name="title_realm">Realm</string>
     <string name="title_use_ip">Gebruik lokaal IP-adres in plaats van hostnaam</string>
     <string name="title_primary_account">Primair account (standaard account)</string>
@@ -713,6 +715,7 @@
     <string name="title_signature_unconfirmed_from">Handtekening bericht geldig maar niet bevestigd: %1$s</string>
     <string name="title_signature_invalid">Handtekening bericht ongeldig</string>
     <string name="title_signature_invalid_reason">Handtekening bericht ongeldig: %1$s</string>
+    <string name="title_signature_key_missing">Sleutel ontbreekt</string>
     <string name="title_signature_certificate_invalid">Certificaatketen ongeldig</string>
     <string name="title_signature_sender">Adres van de afzender</string>
     <string name="title_signature_email">Adres van de handtekening</string>

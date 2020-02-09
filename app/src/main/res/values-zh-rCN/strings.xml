@@ -235,7 +235,6 @@
     <string name="title_advanced_threading">会话线程</string>
     <string name="title_advanced_indentation">左/右缩进接收/发送的消息</string>
     <string name="title_advanced_highlight_unread">高亮未读消息</string>
-    <string name="title_advanced_distinguish_contacts">下划线发件人(当其为本地发送给的联系人时)</string>
     <string name="title_advanced_color_stripe">头像前显示色彩条纹</string>
     <string name="title_advanced_avatars">显示联系人头像</string>
     <string name="title_advanced_gravatars">显示Gravatars头像</string>
@@ -246,6 +245,8 @@
     <string name="title_advanced_color_value">亮度</string>
     <string name="title_advanced_color_threshold">阈值字母颜色</string>
     <string name="title_advanced_name_email">显示名称和电子邮件地址</string>
+    <string name="title_advanced_replace_name">较之发送名称，更倾向联系人名称</string>
+    <string name="title_advanced_distinguish_contacts">下划线发件人(当其为本地发送给的联系人时)</string>
     <string name="title_advanced_authentication">当接收服务器无法验证消息时显示警告</string>
     <string name="title_advanced_font_size_sender">发件人字体大小</string>
     <string name="title_advanced_font_size_subject">邮件主题字体大小</string>
@@ -427,6 +428,7 @@
     <string name="title_port">端口号</string>
     <string name="title_user">用户名</string>
     <string name="title_password">密码</string>
+    <string name="title_use_certificate">使用客户端证书</string>
     <string name="title_realm">移动数据库</string>
     <string name="title_use_ip">使用本地IP地址而非主机名</string>
     <string name="title_primary_account">主账户 (默认帐户)</string>

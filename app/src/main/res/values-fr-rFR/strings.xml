@@ -248,7 +248,6 @@
     <string name="title_advanced_threading">Afficher en mode conversation</string>
     <string name="title_advanced_indentation">Décaler les messages reçus/envoyés vers la gauche/droite dans les conversations</string>
     <string name="title_advanced_highlight_unread">Surligner les messages non lus</string>
-    <string name="title_advanced_distinguish_contacts">Souligner l\'expéditeur lorsqu\'il est connu comme contact local</string>
     <string name="title_advanced_color_stripe">Afficher la bande de couleur</string>
     <string name="title_advanced_avatars">Afficher la photo des contacts</string>
     <string name="title_advanced_gravatars">Afficher les Gravatars</string>
@@ -259,6 +258,8 @@
     <string name="title_advanced_color_value">Luminosité</string>
     <string name="title_advanced_color_threshold">Seuil de couleur de lettre</string>
     <string name="title_advanced_name_email">Afficher les noms et les adresses e-mail</string>
+    <string name="title_advanced_replace_name">Préférer un nom de contact à un nom d\'envoi</string>
+    <string name="title_advanced_distinguish_contacts">Souligner l\'expéditeur lorsqu\'il est connu comme contact local</string>
     <string name="title_advanced_authentication">Afficher un avertissement lorsque le serveur de réception n\'a pas pu authentifier le message</string>
     <string name="title_advanced_font_size_sender">Taille de police de l\'expéditeur</string>
     <string name="title_advanced_font_size_subject">Taille de police de l\'objet</string>
@@ -440,6 +441,7 @@
     <string name="title_port">Numéro de port</string>
     <string name="title_user">Nom d\'utilisateur</string>
     <string name="title_password">Mot de passe</string>
+    <string name="title_use_certificate">Utiliser le certificat client</string>
     <string name="title_realm">Domaine</string>
     <string name="title_use_ip">Utiliser l\'adresse IP locale au lieu du nom de domaine</string>
     <string name="title_primary_account">Principal (compte par défaut)</string>
@@ -713,6 +715,7 @@
     <string name="title_signature_unconfirmed_from">Signature de message valide mais non confirmée : %1$s</string>
     <string name="title_signature_invalid">Signature de message invalide</string>
     <string name="title_signature_invalid_reason">Signature de message invalide : %1$s</string>
+    <string name="title_signature_key_missing">Clé manquante</string>
     <string name="title_signature_certificate_invalid">Chaîne de certificats invalide</string>
     <string name="title_signature_sender">Adresse de l\'expéditeur</string>
     <string name="title_signature_email">Adresse de la signature</string>

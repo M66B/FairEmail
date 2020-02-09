@@ -248,7 +248,6 @@
     <string name="title_advanced_threading">Konversasjonstråder</string>
     <string name="title_advanced_indentation">Venstre/høyre innrykk mottatt/sendt meldinger i samtaler</string>
     <string name="title_advanced_highlight_unread">Merk uleste meldinger</string>
-    <string name="title_advanced_distinguish_contacts">Understreke avsenderen når avsenderen er kjent som lokal \'til\' -kontakt</string>
     <string name="title_advanced_color_stripe">Vis fargestripe</string>
     <string name="title_advanced_avatars">Vis kontakt bilde</string>
     <string name="title_advanced_gravatars">Vis Gravatars</string>
@@ -259,6 +258,8 @@
     <string name="title_advanced_color_value">Lysstyrke</string>
     <string name="title_advanced_color_threshold">Terskelbokstavfarge</string>
     <string name="title_advanced_name_email">Vis navn og e-postadresser</string>
+    <string name="title_advanced_replace_name">Foretrekker et kontaktnavn fremfor et sendt navn</string>
+    <string name="title_advanced_distinguish_contacts">Understreke avsenderen når avsenderen er kjent som lokal \'til\' -kontakt</string>
     <string name="title_advanced_authentication">Vis en advarsel når mottakeren ikke kunne godkjenne meldingen</string>
     <string name="title_advanced_font_size_sender">Skriftstørrelse for avsender</string>
     <string name="title_advanced_font_size_subject">Skriftstørrelse emne</string>
@@ -440,6 +441,7 @@
     <string name="title_port">Portnummer</string>
     <string name="title_user">Brukernavn</string>
     <string name="title_password">Passord</string>
+    <string name="title_use_certificate">Bruk klientsertifikat</string>
     <string name="title_realm">Område</string>
     <string name="title_use_ip">Bruk lokal IP-adresse i stedet for vertsnavn</string>
     <string name="title_primary_account">Primær (standardkonto)</string>
@@ -712,6 +714,7 @@ Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anme
     <string name="title_signature_unconfirmed_from">Meldingssignatur er gyldig, men ikke bekreftet: %1$s</string>
     <string name="title_signature_invalid">Meldings signatur ugyldig</string>
     <string name="title_signature_invalid_reason">Meldingens signatur er ugyldig: %1$s</string>
+    <string name="title_signature_key_missing">Nøkkel mangler</string>
     <string name="title_signature_certificate_invalid">Sertifikatkjeden er ugyldig</string>
     <string name="title_signature_sender">Avsenders adresse</string>
     <string name="title_signature_email">Signaturens adresse</string>

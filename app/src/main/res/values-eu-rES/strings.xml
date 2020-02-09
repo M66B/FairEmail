@@ -247,7 +247,6 @@
     <string name="title_advanced_threading">Elkarrizketak haritzea</string>
     <string name="title_advanced_indentation">Ezker/eskuin marjina elkarrizketetan jaso/bidalitako mezuetan</string>
     <string name="title_advanced_highlight_unread">Nabarmendu irakurri gabeko mezuak</string>
-    <string name="title_advanced_distinguish_contacts">Azpimarratu igorlea kontaktua jasotzaile lokalki ezaguna bada</string>
     <string name="title_advanced_color_stripe">Erakutsi kolorezko marra</string>
     <string name="title_advanced_avatars">Erakutsi kontaktuen argazkiak</string>
     <string name="title_advanced_gravatars">Erakutsi gravatarrak</string>
@@ -258,6 +257,8 @@
     <string name="title_advanced_color_value">Distira</string>
     <string name="title_advanced_color_threshold">Letren kolorearen atalasea</string>
     <string name="title_advanced_name_email">Erakutsi izenak eta e-mail helbideak</string>
+    <string name="title_advanced_replace_name">Nahiago kontaktu-izena bidaltzaile-izena baino</string>
+    <string name="title_advanced_distinguish_contacts">Azpimarratu igorlea kontaktua jasotzaile lokalki ezaguna bada</string>
     <string name="title_advanced_authentication">Erakutsi abisua zerbitzari jasotzaileak ezin izan badu mezua autentifikatu</string>
     <string name="title_advanced_font_size_sender">Igorlearen letra tamaina</string>
     <string name="title_advanced_font_size_subject">Gaiaren letra tamaina</string>
@@ -438,6 +439,7 @@
     <string name="title_port">Ataka zenbakia</string>
     <string name="title_user">Erabiltzaile izena</string>
     <string name="title_password">Pasahitza</string>
+    <string name="title_use_certificate">Erabili bezeroaren ziurtagiria</string>
     <string name="title_realm">Domeinua</string>
     <string name="title_use_ip">Erabili IP lokala ostalari izenaren ordez</string>
     <string name="title_primary_account">Nagusia (kontu lehenetsia)</string>

@@ -270,7 +270,6 @@
     <string name="title_advanced_threading">Vlákna konverzací</string>
     <string name="title_advanced_indentation">Levé/pravé odsazení přijatých/odeslaných zpráv v konverzacích</string>
     <string name="title_advanced_highlight_unread">Zvýraznit nepřečtené zprávy</string>
-    <string name="title_advanced_distinguish_contacts">Podtrhnout odesílatele, je-li známý jako místní \"komu\" kontakt</string>
     <string name="title_advanced_color_stripe">Zobrazit barevný pruh</string>
     <string name="title_advanced_avatars">Zobrazit fotografie kontaktů</string>
     <string name="title_advanced_gravatars">Zobrazit Gravatary</string>
@@ -281,6 +280,7 @@
     <string name="title_advanced_color_value">Jas</string>
     <string name="title_advanced_color_threshold">Mezní hodnota barvy písmena</string>
     <string name="title_advanced_name_email">Zobrazit jména a e-mailové adresy</string>
+    <string name="title_advanced_distinguish_contacts">Podtrhnout odesílatele, je-li známý jako místní \"komu\" kontakt</string>
     <string name="title_advanced_authentication">Zobrazit upozornění, nemůže-li přijímající server zprávu ověřit</string>
     <string name="title_advanced_font_size_sender">Velikost písma odesílatele</string>
     <string name="title_advanced_font_size_subject">Velikost písma předmětu</string>

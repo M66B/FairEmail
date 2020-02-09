@@ -246,7 +246,6 @@
     <string name="title_advanced_threading">Keskustelujen ketjuttaminen</string>
     <string name="title_advanced_indentation">Tasaa vastaanotetut/lähetetyt viestit keskusteluissa vasemmalle/oikealle</string>
     <string name="title_advanced_highlight_unread">Korosta lukemattomat viestit</string>
-    <string name="title_advanced_distinguish_contacts">Alleviivaa lähettäjä tämän ollessa paikallisesti tunnettu vastaanottaja</string>
     <string name="title_advanced_color_stripe">Näytä väriliuska</string>
     <string name="title_advanced_avatars">Näytä yhteystietojen kuvat</string>
     <string name="title_advanced_gravatars">Näytä Gravatarit</string>
@@ -257,6 +256,8 @@
     <string name="title_advanced_color_value">Kirkkaus</string>
     <string name="title_advanced_color_threshold">Kirjasimen värin kynnysarvo</string>
     <string name="title_advanced_name_email">Näytä nimet ja sähköpostiosoitteet</string>
+    <string name="title_advanced_replace_name">Käytä ensisijaisesti yhteystiedon nimeä lähettäjän nimen sijaan</string>
+    <string name="title_advanced_distinguish_contacts">Alleviivaa lähettäjä tämän ollessa paikallisesti tunnettu vastaanottaja</string>
     <string name="title_advanced_authentication">Näytä varoitus, kun vastaanottava palvelin ei voinut todentaa viestiä</string>
     <string name="title_advanced_font_size_sender">Viestin lähettäjän kirjaisimen koko</string>
     <string name="title_advanced_font_size_subject">Viestin aiheen kirjaisimen koko</string>
@@ -293,7 +294,7 @@
     <string name="title_advanced_onclose">Keskustelua suljettaessa</string>
     <string name="title_advanced_quick_filter">Näytä huomaamattomat pikasuodatuskuvakkeet</string>
     <string name="title_advanced_quick_scroll">Näytä huomaamattomat ylös-/alaspikavierityskuvakkeet</string>
-    <string name="title_advanced_autoread">Siirtäessä viestejä merkitse ne luetuiksi</string>
+    <string name="title_advanced_autoread">Merkitse viestit luetuiksi siirrettäessä</string>
     <string name="title_advanced_autounstar">Poista tähti viestejä siirrettäessä</string>
     <string name="title_advanced_reset_importance">Palauta oma tärkeysjärjestys oletusasetukseen siirrettäessä</string>
     <string name="title_advanced_discard_delete">Poista luonnos hylättäessä</string>
@@ -438,6 +439,7 @@
     <string name="title_port">Porttinumero</string>
     <string name="title_user">Käyttäjätunnus</string>
     <string name="title_password">Salasana</string>
+    <string name="title_use_certificate">Käytä asiakasvarmennetta</string>
     <string name="title_realm">Toimialue</string>
     <string name="title_use_ip">Käytä paikallista IP-osoitetta verkkotunnuksen sijaan</string>
     <string name="title_primary_account">Ensisijainen (oletustili)</string>

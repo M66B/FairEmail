@@ -248,7 +248,6 @@
     <string name="title_advanced_threading">Hilos de conversación</string>
     <string name="title_advanced_indentation">Sangría izquierda/derecha para mensajes recibidos/enviados en conversaciones</string>
     <string name="title_advanced_highlight_unread">Resaltar mensajes no leídos</string>
-    <string name="title_advanced_distinguish_contacts">Subrayar el remitente cuando el remitente es conocido como contacto \'a:\' local</string>
     <string name="title_advanced_color_stripe">Mostrar raya de color</string>
     <string name="title_advanced_avatars">Mostrar fotos de contactos</string>
     <string name="title_advanced_gravatars">Mostrar Gravatares</string>
@@ -259,6 +258,8 @@
     <string name="title_advanced_color_value">Brillo</string>
     <string name="title_advanced_color_threshold">Umbral de color de letras</string>
     <string name="title_advanced_name_email">Mostrar nombres y direcciones de correo electrónico</string>
+    <string name="title_advanced_replace_name">Preferir un nombre de contacto sobre un nombre enviado</string>
+    <string name="title_advanced_distinguish_contacts">Subrayar el remitente cuando el remitente es conocido como contacto \'a:\' local</string>
     <string name="title_advanced_authentication">Mostrar una advertencia cuando el servidor de recepción no pudo autenticar el mensaje</string>
     <string name="title_advanced_font_size_sender">Tamaño de fuente de remitente</string>
     <string name="title_advanced_font_size_subject">Tamaño de fuente del asunto</string>
@@ -440,6 +441,7 @@
     <string name="title_port">Puerto</string>
     <string name="title_user">Nombre de usuario</string>
     <string name="title_password">Contraseña</string>
+    <string name="title_use_certificate">Usar certificado de cliente</string>
     <string name="title_realm">Dominio</string>
     <string name="title_use_ip">Usar dirección IP local en lugar de nombre de dominio</string>
     <string name="title_primary_account">Primaria (cuenta predeterminada)</string>

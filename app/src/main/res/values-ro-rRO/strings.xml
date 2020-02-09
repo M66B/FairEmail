@@ -258,7 +258,6 @@
     <string name="title_advanced_threading">Aranjare mesaje în conversație</string>
     <string name="title_advanced_indentation">Aliniere mesaje primite/trimise în stânga/dreapta în conversații</string>
     <string name="title_advanced_highlight_unread">Evidențiază mesajele necitite</string>
-    <string name="title_advanced_distinguish_contacts">Subliniază expeditorul atunci când este cunoscut drept un contact `către`</string>
     <string name="title_advanced_color_stripe">Arată banda de culori</string>
     <string name="title_advanced_avatars">Arată pozele contactelor</string>
     <string name="title_advanced_gravatars">Arată iconițe de pe Gravatar</string>
@@ -269,6 +268,7 @@
     <string name="title_advanced_color_value">Luminozitate</string>
     <string name="title_advanced_color_threshold">Limită culoare literă</string>
     <string name="title_advanced_name_email">Arată nume și adrese de e-mail</string>
+    <string name="title_advanced_distinguish_contacts">Subliniază expeditorul atunci când este cunoscut drept un contact `către`</string>
     <string name="title_advanced_authentication">Arată o avertizare atunci când serverul destinatar nu a putut autentifica mesajul</string>
     <string name="title_advanced_font_size_sender">Mărime font expeditor</string>
     <string name="title_advanced_font_size_subject">Mărime font subiect</string>

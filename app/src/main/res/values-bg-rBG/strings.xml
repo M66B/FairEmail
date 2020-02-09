@@ -248,7 +248,6 @@
     <string name="title_advanced_threading">Групиране на разговори</string>
     <string name="title_advanced_indentation">Ляв/десен отстъп на получени/изпратени съобщения в разговори</string>
     <string name="title_advanced_highlight_unread">Маркирай непрочетените съобщения</string>
-    <string name="title_advanced_distinguish_contacts">Подчертайте подателя, когато подателят е известен като локаленен „до“ контакт</string>
     <string name="title_advanced_color_stripe">Показване на цветна ивица</string>
     <string name="title_advanced_avatars">Покажи снимка на контакт</string>
     <string name="title_advanced_gravatars">Покажи Gravatars</string>
@@ -259,6 +258,8 @@
     <string name="title_advanced_color_value">Яркост</string>
     <string name="title_advanced_color_threshold">Бяла или черна буква в генерирани икони</string>
     <string name="title_advanced_name_email">Покажи имена и имейл адреси</string>
+    <string name="title_advanced_replace_name">Предпочитано име от контакти пред изпратено име</string>
+    <string name="title_advanced_distinguish_contacts">Подчертайте подателя, когато подателят е известен като локаленен „до“ контакт</string>
     <string name="title_advanced_authentication">Покажи предупреждение, когато получаващият сървър не може да удостовери съобщението</string>
     <string name="title_advanced_font_size_sender">Размер на текст на подател</string>
     <string name="title_advanced_font_size_subject">Размер на текст на тема</string>
@@ -439,6 +440,7 @@
     <string name="title_port">Номер на порт</string>
     <string name="title_user">Потрибител</string>
     <string name="title_password">Парола</string>
+    <string name="title_use_certificate">Използвай клиентски сертификат</string>
     <string name="title_realm">Област</string>
     <string name="title_use_ip">Използвай локален IP адрес вместо име на хост</string>
     <string name="title_primary_account">Основен (по подразбиране профил)</string>

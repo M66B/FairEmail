@@ -240,7 +240,6 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_threading">Prikaz razgovora</string>
     <string name="title_advanced_indentation">Uvlaka primljenih/poslanih poruka u razgovorima prema lijevo/desno</string>
     <string name="title_advanced_highlight_unread">Označiti nepročitane poruke</string>
-    <string name="title_advanced_distinguish_contacts">Podvucite pošiljatelja kada je pošiljalac poznat kao lokalni \"za\" kontakt</string>
     <string name="title_advanced_color_stripe">Pokaži prugu boje</string>
     <string name="title_advanced_avatars">Prikaži fotografije kontakata</string>
     <string name="title_advanced_generated_icons">Prikaži generirane ikone</string>
@@ -250,6 +249,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_color_value">Svjetlost</string>
     <string name="title_advanced_color_threshold">Prag za boju slova</string>
     <string name="title_advanced_name_email">Prikažite imena i adrese e-pošte</string>
+    <string name="title_advanced_distinguish_contacts">Podvucite pošiljatelja kada je pošiljalac poznat kao lokalni \"za\" kontakt</string>
     <string name="title_advanced_authentication">Pokaži upozorenje kada primateljski server nije mogao provjeriti autentičnost poruke</string>
     <string name="title_advanced_font_size_sender">Veličina fonta pošiljatelja</string>
     <string name="title_advanced_font_size_subject">Veličina fonta predmeta</string>
