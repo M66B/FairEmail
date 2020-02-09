@@ -468,13 +468,14 @@ public class FragmentOAuth extends FragmentBase {
                 List<EntityFolder> folders;
 
                 Log.i("OAuth checking IMAP provider=" + provider.id);
-                String aprotocol = provider.imap.starttls ? "imap" : "imaps";
+                String aprotocol = (provider.imap.starttls ? "imap" : "imaps");
                 try (EmailService iservice = new EmailService(
                         context, aprotocol, null, false, EmailService.PURPOSE_CHECK, true)) {
                     iservice.connect(
                             provider.imap.host, provider.imap.port,
                             EmailService.AUTH_TYPE_OAUTH, provider.id,
-                            primaryEmail, state, null);
+                            primaryEmail, state,
+                            false, null);
 
                     folders = iservice.getFolders();
 
@@ -483,13 +484,14 @@ public class FragmentOAuth extends FragmentBase {
                 }
 
                 Log.i("OAuth checking SMTP provider=" + provider.id);
-                String iprotocol = provider.smtp.starttls ? "smtp" : "smtps";
+                String iprotocol = (provider.smtp.starttls ? "smtp" : "smtps");
                 try (EmailService iservice = new EmailService(
                         context, iprotocol, null, false, EmailService.PURPOSE_CHECK, true)) {
                     iservice.connect(
                             provider.smtp.host, provider.smtp.port,
                             EmailService.AUTH_TYPE_OAUTH, provider.id,
-                            primaryEmail, state, null);
+                            primaryEmail, state,
+                            false, null);
                 }
 
                 Log.i("OAuth passed provider=" + provider.id);

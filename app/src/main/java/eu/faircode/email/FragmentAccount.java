@@ -91,6 +91,7 @@ public class FragmentAccount extends FragmentBase {
     private EditText etUser;
     private TextInputLayout tilPassword;
     private TextView tvCharacters;
+    private CheckBox cbCertificate;
     private Button btnOAuth;
     private TextView tvOAuthSupport;
     private EditText etRealm;
@@ -199,6 +200,7 @@ public class FragmentAccount extends FragmentBase {
         etUser = view.findViewById(R.id.etUser);
         tilPassword = view.findViewById(R.id.tilPassword);
         tvCharacters = view.findViewById(R.id.tvCharacters);
+        cbCertificate = view.findViewById(R.id.cbCertificate);
         btnOAuth = view.findViewById(R.id.btnOAuth);
         tvOAuthSupport = view.findViewById(R.id.tvOAuthSupport);
         etRealm = view.findViewById(R.id.etRealm);
@@ -282,6 +284,7 @@ public class FragmentAccount extends FragmentBase {
                 etUser.setTag(null);
                 etUser.setText(null);
                 tilPassword.getEditText().setText(null);
+                cbCertificate.setChecked(false);
                 btnOAuth.setEnabled(false);
                 etRealm.setText(null);
                 cbTrust.setChecked(false);
@@ -549,6 +552,7 @@ public class FragmentAccount extends FragmentBase {
         args.putString("provider", provider);
         args.putString("user", etUser.getText().toString().trim());
         args.putString("password", tilPassword.getEditText().getText().toString());
+        args.putBoolean("certificate", cbCertificate.isChecked());
         args.putString("realm", etRealm.getText().toString());
         args.putString("fingerprint", cbTrust.isChecked() ? (String) cbTrust.getTag() : null);
 
@@ -587,6 +591,7 @@ public class FragmentAccount extends FragmentBase {
                 String provider = args.getString("provider");
                 String user = args.getString("user");
                 String password = args.getString("password");
+                boolean certificate = args.getBoolean("certificate'");
                 String realm = args.getString("realm");
                 String fingerprint = args.getString("fingerprint");
 
@@ -601,7 +606,7 @@ public class FragmentAccount extends FragmentBase {
                     port = (starttls ? "143" : "993");
                 if (TextUtils.isEmpty(user))
                     throw new IllegalArgumentException(context.getString(R.string.title_no_user));
-                if (TextUtils.isEmpty(password) && !insecure)
+                if (TextUtils.isEmpty(password) && !insecure && !certificate)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_password));
 
                 if (TextUtils.isEmpty(realm))
@@ -620,7 +625,8 @@ public class FragmentAccount extends FragmentBase {
                     iservice.connect(
                             host, Integer.parseInt(port),
                             auth, provider,
-                            user, password, fingerprint);
+                            user, password,
+                            certificate, fingerprint);
 
                     result.idle = iservice.hasCapability("IDLE");
 
@@ -763,6 +769,7 @@ public class FragmentAccount extends FragmentBase {
         args.putString("provider", provider);
         args.putString("user", etUser.getText().toString().trim());
         args.putString("password", tilPassword.getEditText().getText().toString());
+        args.putBoolean("certificate", cbCertificate.isChecked());
         args.putString("realm", etRealm.getText().toString());
         args.putString("fingerprint", cbTrust.isChecked() ? (String) cbTrust.getTag() : null);
 
@@ -824,6 +831,7 @@ public class FragmentAccount extends FragmentBase {
                 String provider = args.getString("provider");
                 String user = args.getString("user").trim();
                 String password = args.getString("password");
+                boolean certificate = args.getBoolean("certificate");
                 String realm = args.getString("realm");
                 String fingerprint = args.getString("fingerprint");
 
@@ -864,7 +872,7 @@ public class FragmentAccount extends FragmentBase {
                     port = (starttls ? "143" : "993");
                 if (TextUtils.isEmpty(user) && !should)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_user));
-                if (synchronize && TextUtils.isEmpty(password) && !insecure && !should)
+                if (synchronize && TextUtils.isEmpty(password) && !insecure && !certificate && !should)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_password));
                 if (TextUtils.isEmpty(interval))
                     interval = Integer.toString(EntityAccount.DEFAULT_KEEP_ALIVE_INTERVAL);
@@ -900,6 +908,8 @@ public class FragmentAccount extends FragmentBase {
                     if (!Objects.equals(account.user, user))
                         return true;
                     if (!Objects.equals(account.password, password))
+                        return true;
+                    if (!Objects.equals(account.certificate, certificate))
                         return true;
                     if (!Objects.equals(account.realm, realm))
                         return true;
@@ -972,6 +982,7 @@ public class FragmentAccount extends FragmentBase {
                         !account.port.equals(Integer.parseInt(port)) ||
                         !account.user.equals(user) ||
                         !account.password.equals(password) ||
+                        !account.certificate.equals(certificate) ||
                         !Objects.equals(realm, accountRealm) ||
                         !Objects.equals(account.fingerprint, fingerprint)));
                 Log.i("Account check=" + check);
@@ -989,7 +1000,8 @@ public class FragmentAccount extends FragmentBase {
                         iservice.connect(
                                 host, Integer.parseInt(port),
                                 auth, provider,
-                                user, password, fingerprint);
+                                user, password,
+                                certificate, fingerprint);
 
                         for (Folder ifolder : iservice.getStore().getDefaultFolder().list("*")) {
                             // Check folder attributes
@@ -1033,6 +1045,7 @@ public class FragmentAccount extends FragmentBase {
                     account.auth_type = auth;
                     account.user = user;
                     account.password = password;
+                    account.certificate = certificate;
                     account.provider = provider;
                     account.realm = realm;
                     account.fingerprint = fingerprint;
@@ -1369,6 +1382,7 @@ public class FragmentAccount extends FragmentBase {
 
                     etUser.setText(account == null ? null : account.user);
                     tilPassword.getEditText().setText(account == null ? null : account.password);
+                    cbCertificate.setChecked(account == null ? false : account.certificate);
                     etRealm.setText(account == null ? null : account.realm);
 
                     if (account == null || account.fingerprint == null) {
@@ -1433,6 +1447,7 @@ public class FragmentAccount extends FragmentBase {
                 if (auth != EmailService.AUTH_TYPE_PASSWORD) {
                     etUser.setEnabled(false);
                     tilPassword.setEnabled(false);
+                    cbCertificate.setEnabled(false);
                 }
 
                 if (account == null || account.auth_type != EmailService.AUTH_TYPE_GMAIL)

@@ -100,6 +100,7 @@ public class FragmentIdentity extends FragmentBase {
     private EditText etUser;
     private TextInputLayout tilPassword;
     private TextView tvCharacters;
+    private CheckBox cbCertificate;
     private Button btnOAuth;
     private EditText etRealm;
     private CheckBox cbUseIp;
@@ -185,6 +186,7 @@ public class FragmentIdentity extends FragmentBase {
         etUser = view.findViewById(R.id.etUser);
         tilPassword = view.findViewById(R.id.tilPassword);
         tvCharacters = view.findViewById(R.id.tvCharacters);
+        cbCertificate = view.findViewById(R.id.cbCertificate);
         btnOAuth = view.findViewById(R.id.btnOAuth);
         etRealm = view.findViewById(R.id.etRealm);
         cbUseIp = view.findViewById(R.id.cbUseIp);
@@ -266,10 +268,12 @@ public class FragmentIdentity extends FragmentBase {
                 etEmail.setText(account.user);
                 etUser.setText(account.user);
                 tilPassword.getEditText().setText(account.password);
+                cbCertificate.setChecked(account.certificate);
                 etRealm.setText(account.realm);
 
                 etUser.setEnabled(auth == EmailService.AUTH_TYPE_PASSWORD);
                 tilPassword.setEnabled(auth == EmailService.AUTH_TYPE_PASSWORD);
+                cbCertificate.setEnabled(auth == EmailService.AUTH_TYPE_PASSWORD);
                 cbTrust.setChecked(false);
             }
 
@@ -402,6 +406,7 @@ public class FragmentIdentity extends FragmentBase {
 
                 etUser.setEnabled(auth == EmailService.AUTH_TYPE_PASSWORD);
                 tilPassword.setEnabled(auth == EmailService.AUTH_TYPE_PASSWORD);
+                cbCertificate.setEnabled(auth == EmailService.AUTH_TYPE_PASSWORD);
             }
 
             @Override
@@ -581,6 +586,7 @@ public class FragmentIdentity extends FragmentBase {
         args.putString("provider", provider);
         args.putString("user", etUser.getText().toString().trim());
         args.putString("password", tilPassword.getEditText().getText().toString());
+        args.putBoolean("certificate", cbCertificate.isChecked());
         args.putString("realm", etRealm.getText().toString());
         args.putString("fingerprint", cbTrust.isChecked() ? (String) cbTrust.getTag() : null);
         args.putBoolean("use_ip", cbUseIp.isChecked());
@@ -630,6 +636,7 @@ public class FragmentIdentity extends FragmentBase {
                 String provider = args.getString("provider");
                 String user = args.getString("user").trim();
                 String password = args.getString("password");
+                boolean certificate = args.getBoolean("certificate");
                 String realm = args.getString("realm");
                 String fingerprint = args.getString("fingerprint");
                 boolean use_ip = args.getBoolean("use_ip");
@@ -660,7 +667,7 @@ public class FragmentIdentity extends FragmentBase {
                     port = (starttls ? "587" : "465");
                 if (TextUtils.isEmpty(user) && !should)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_user));
-                if (synchronize && TextUtils.isEmpty(password) && !insecure && !should)
+                if (synchronize && TextUtils.isEmpty(password) && !insecure && !certificate && !should)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_password));
 
                 if (!TextUtils.isEmpty(replyto) && !should) {
@@ -732,6 +739,8 @@ public class FragmentIdentity extends FragmentBase {
                         return true;
                     if (!Objects.equals(identity.password, password))
                         return true;
+                    if (!Objects.equals(identity.certificate, certificate))
+                        return true;
                     if (!Objects.equals(identity.realm, realm))
                         return true;
                     if (!Objects.equals(identity.fingerprint, fingerprint))
@@ -761,6 +770,7 @@ public class FragmentIdentity extends FragmentBase {
                         !identity.insecure.equals(insecure) ||
                         !host.equals(identity.host) || Integer.parseInt(port) != identity.port ||
                         !user.equals(identity.user) || !password.equals(identity.password) ||
+                        !Objects.equals(identity.certificate, certificate) ||
                         !Objects.equals(realm, identityRealm) ||
                         !Objects.equals(identity.fingerprint, fingerprint) ||
                         use_ip != identity.use_ip));
@@ -777,7 +787,11 @@ public class FragmentIdentity extends FragmentBase {
                     try (EmailService iservice = new EmailService(
                             context, protocol, realm, insecure, EmailService.PURPOSE_CHECK, true)) {
                         iservice.setUseIp(use_ip);
-                        iservice.connect(host, Integer.parseInt(port), auth, provider, user, password, fingerprint);
+                        iservice.connect(
+                                host, Integer.parseInt(port),
+                                auth, provider,
+                                user, password,
+                                certificate, fingerprint);
                     }
                 }
 
@@ -809,6 +823,7 @@ public class FragmentIdentity extends FragmentBase {
                     identity.auth_type = auth;
                     identity.user = user;
                     identity.password = password;
+                    identity.certificate = certificate;
                     identity.provider = provider;
                     identity.realm = realm;
                     identity.fingerprint = fingerprint;
@@ -1004,6 +1019,7 @@ public class FragmentIdentity extends FragmentBase {
                     etPort.setText(identity == null ? null : Long.toString(identity.port));
                     etUser.setText(identity == null ? null : identity.user);
                     tilPassword.getEditText().setText(identity == null ? null : identity.password);
+                    cbCertificate.setChecked(identity != null && identity.certificate);
                     etRealm.setText(identity == null ? null : identity.realm);
 
                     if (identity == null || identity.fingerprint == null) {
@@ -1059,6 +1075,7 @@ public class FragmentIdentity extends FragmentBase {
                 if (auth != EmailService.AUTH_TYPE_PASSWORD) {
                     etUser.setEnabled(false);
                     tilPassword.setEnabled(false);
+                    cbCertificate.setEnabled(false);
                 }
 
                 if (identity == null || identity.auth_type != EmailService.AUTH_TYPE_GMAIL)

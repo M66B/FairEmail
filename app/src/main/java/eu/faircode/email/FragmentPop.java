@@ -328,7 +328,8 @@ public class FragmentPop extends FragmentBase {
                         iservice.connect(
                                 host, Integer.parseInt(port),
                                 EmailService.AUTH_TYPE_PASSWORD, null,
-                                user, password, null);
+                                user, password,
+                                false, null);
                     }
                 }
 

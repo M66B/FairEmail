@@ -284,13 +284,18 @@ public class FragmentQuickSetup extends FragmentBase {
                         iservice.connect(
                                 provider.imap.host, provider.imap.port,
                                 EmailService.AUTH_TYPE_PASSWORD, null,
-                                user, password, null);
+                                user, password,
+                                false, null);
                     } catch (AuthenticationFailedException ex) {
                         if (!user.equals(username)) {
                             Log.w(ex);
                             user = username;
                             Log.i("Retry with user=" + user);
-                            iservice.connect(provider.imap.host, provider.imap.port, EmailService.AUTH_TYPE_PASSWORD, null, user, password, null);
+                            iservice.connect(
+                                    provider.imap.host, provider.imap.port,
+                                    EmailService.AUTH_TYPE_PASSWORD, null,
+                                    user, password,
+                                    false, null);
                         } else
                             throw ex;
                     }
@@ -308,7 +313,8 @@ public class FragmentQuickSetup extends FragmentBase {
                     iservice.connect(
                             provider.smtp.host, provider.smtp.port,
                             EmailService.AUTH_TYPE_PASSWORD, null,
-                            user, password, null);
+                            user, password,
+                            false, null);
                 }
 
                 if (check)

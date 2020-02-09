@@ -442,6 +442,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tilPassword" />
 
+        <CheckBox
+            android:id="@+id/cbCertificate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_use_certificate"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCharacters" />
+
         <Button
             android:id="@+id/btnOAuth"
             style="@style/buttonStyleSmall"
@@ -453,7 +462,7 @@
             android:tag="disable"
             android:text="@string/title_setup_authentication"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvCharacters" />
+            app:layout_constraintTop_toBottomOf="@id/cbCertificate" />
 
         <TextView
             android:id="@+id/tvRealm"
@@ -714,7 +723,7 @@
                 tvProvider,spProvider,
                 tvDomain,tvDomainHint,etDomain,btnAutoConfig,
                 tvSmtp,tvHost,etHost,rgEncryption,cbInsecure,tvInsecureRemark,tvPort,etPort,
-                tvUser,etUser,tvPassword,tilPassword,btnOAuth,
+                tvUser,etUser,tvPassword,tilPassword,cbCertificate,btnOAuth,
                 tvRealm,etRealm,
                 cbUseIp,tvUseIpHint,
                 cbSynchronize,cbPrimary,

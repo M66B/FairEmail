@@ -77,6 +77,8 @@ public class EntityAccount extends EntityOrder implements Serializable {
     public String user;
     @NonNull
     public String password;
+    @NonNull
+    public Boolean certificate;
     public String realm;
     public String fingerprint;
 
@@ -195,6 +197,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
         json.put("provider", provider);
         json.put("user", user);
         json.put("password", password);
+        json.put("certificate", certificate);
         json.put("realm", realm);
         json.put("fingerprint", fingerprint);
 
@@ -253,6 +256,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
             account.provider = json.getString("provider");
         account.user = json.getString("user");
         account.password = json.getString("password");
+        account.certificate = json.optBoolean("certificate");
         if (json.has("realm"))
             account.realm = json.getString("realm");
         if (json.has("fingerprint"))
