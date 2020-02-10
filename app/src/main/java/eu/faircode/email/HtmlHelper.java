@@ -77,6 +77,7 @@ public class HtmlHelper {
     private static final float MIN_LUMINANCE = 0.5f;
     private static final int TAB_SIZE = 2;
     private static final int MAX_AUTO_LINK = 250;
+    private static final int MAX_TEXT_SIZE = 50 * 1024; // characters
     private static final int TRACKING_PIXEL_SURFACE = 25; // pixels
 
     private static final List<String> heads = Collections.unmodifiableList(Arrays.asList(
@@ -714,10 +715,27 @@ public class HtmlHelper {
                 if (!TextUtils.isEmpty(span.attr("color")))
                     span.tagName("font");
 
+        int length = 0;
+        for (Element elm : document.select("*")) {
+            for (Node child : elm.childNodes())
+                if (child instanceof TextNode)
+                    length += ((TextNode) child).text().length();
+            if (length > MAX_TEXT_SIZE)
+                elm.remove();
+        }
+
         if (document.body() == null) {
             Log.e("Sanitize without body");
             document.normalise();
         }
+
+        if (length > MAX_TEXT_SIZE)
+            document.body()
+                    .appendElement("p")
+                    .appendElement("big")
+                    .appendElement("a")
+                    .attr("href", "more:")
+                    .text(context.getString(R.string.title_show_more));
 
         return document;
     }

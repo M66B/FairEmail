@@ -247,8 +247,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private static final ExecutorService precompute =
             Helper.getBackgroundExecutor(1, "precompute");
 
-    private static final int LARGE_MESSAGE_SIZE = 250 * 1024;
-
     // https://github.com/newhouse/url-tracking-stripper
     private static final List<String> PARANOID_QUERY = Collections.unmodifiableList(Arrays.asList(
             // https://en.wikipedia.org/wiki/UTM_parameters
@@ -1749,9 +1747,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                         return document.html();
                     } else {
-                        if (body.length() > LARGE_MESSAGE_SIZE)
-                            return HtmlHelper.fromHtml("<em>" + context.getString(R.string.title_too_large) + "</em>");
-
                         // Cleanup message
                         document = HtmlHelper.sanitize(context, body, show_images, true);
 
@@ -3495,6 +3490,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
             } else {
+                if ("more".equals(uri.getScheme())) {
+                    TupleMessageEx message = getMessage();
+                    if (message != null)
+                        onShow(message, true);
+                    return (message != null);
+                }
+
                 if ("cid".equals(uri.getScheme()) || "data".equals(uri.getScheme()))
                     return false;
 
