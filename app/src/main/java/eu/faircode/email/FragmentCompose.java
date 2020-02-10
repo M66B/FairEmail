@@ -90,6 +90,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.FileProvider;
+import androidx.core.text.PrecomputedTextCompat;
+import androidx.core.widget.TextViewCompat;
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
 import androidx.documentfile.provider.DocumentFile;
 import androidx.fragment.app.Fragment;
@@ -4005,7 +4007,7 @@ public class FragmentCompose extends FragmentBase {
         args.putLong("id", draft.id);
         args.putBoolean("show_images", show_images);
 
-        new SimpleTask<Spanned[]>() {
+        new SimpleTask<Object[]>() {
             @Override
             protected void onPreExecute(Bundle args) {
                 // Needed to get width for images
@@ -4029,7 +4031,7 @@ public class FragmentCompose extends FragmentBase {
             }
 
             @Override
-            protected Spanned[] onExecute(final Context context, Bundle args) throws Throwable {
+            protected Object[] onExecute(final Context context, Bundle args) throws Throwable {
                 final long id = args.getLong("id");
                 final boolean show_images = args.getBoolean("show_images", false);
 
@@ -4094,12 +4096,24 @@ public class FragmentCompose extends FragmentBase {
                 args.putBoolean("ref_has_images", spannedRef != null &&
                         spannedRef.getSpans(0, spannedRef.length(), ImageSpan.class).length > 0);
 
-                return new Spanned[]{spannedBody, spannedRef};
+                PrecomputedTextCompat precomputed = null;
+                if (spannedRef != null)
+                    try {
+                        precomputed = PrecomputedTextCompat.getTextFuture(
+                                spannedRef,
+                                TextViewCompat.getTextMetricsParams(tvReference),
+                                null)
+                                .get();
+                    } catch (Throwable ex) {
+                        Log.w(ex);
+                    }
+
+                return new Spanned[]{spannedBody, precomputed == null ? spannedRef : precomputed};
             }
 
             @Override
-            protected void onExecuted(Bundle args, Spanned[] text) {
-                etBody.setText(text[0]);
+            protected void onExecuted(Bundle args, Object[] text) {
+                etBody.setText((Spanned) text[0]);
                 etBody.setSelection(0);
                 grpBody.setVisibility(View.VISIBLE);
 
@@ -4111,7 +4125,10 @@ public class FragmentCompose extends FragmentBase {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
                 boolean ref_hint = prefs.getBoolean("compose_reference", true);
 
-                tvReference.setText(text[1]);
+                if (text[1] instanceof PrecomputedTextCompat)
+                    TextViewCompat.setPrecomputedText(tvReference, (PrecomputedTextCompat) text[1]);
+                else
+                    tvReference.setText((Spanned) text[1]);
                 tvReference.setVisibility(text[1] == null ? View.GONE : View.VISIBLE);
                 grpReferenceHint.setVisibility(text[1] == null || !ref_hint ? View.GONE : View.VISIBLE);
                 ibReferenceEdit.setVisibility(text[1] == null ? View.GONE : View.VISIBLE);
