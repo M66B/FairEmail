@@ -440,7 +440,6 @@
     <string name="title_port">Номер на порт</string>
     <string name="title_user">Потрибител</string>
     <string name="title_password">Парола</string>
-    <string name="title_use_certificate">Използвай клиентски сертификат</string>
     <string name="title_realm">Област</string>
     <string name="title_use_ip">Използвай локален IP адрес вместо име на хост</string>
     <string name="title_primary_account">Основен (по подразбиране профил)</string>
@@ -605,7 +604,6 @@
     <string name="title_no_format">Оригиналното съобщение ще бъде добавено</string>
     <string name="title_no_image">Изображението не може да бъде декодирано</string>
     <string name="title_no_search">Търсенето в сървъра не е налично за този профил</string>
-    <string name="title_too_large">Съобщението е твърде голямо за да се преформатира, опитайте се да използвате оригиналния изглед на съобщение вместо иконата на цял екран</string>
     <string name="title_unused_inline">Неизползваните вградени изображения ще бъдат премахнати при изпращане</string>
     <string name="title_accross_remark">Съобщенията, преместени в други профили, ще бъдат изтеглени наново, което ще доведе до допълнително използване на данни</string>
     <string name="title_raw_saved">Необработеното съобщение е запазео</string>

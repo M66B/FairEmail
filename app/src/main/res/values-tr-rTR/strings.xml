@@ -441,7 +441,6 @@
     <string name="title_port">Port numarası</string>
     <string name="title_user">Kullanıcı adı</string>
     <string name="title_password">Parola</string>
-    <string name="title_use_certificate">İstemci sertifikası kullan</string>
     <string name="title_realm">Bölge</string>
     <string name="title_use_ip">Ana bilgisayar adı yerine yerel IP adresini kullan</string>
     <string name="title_primary_account">Birincil (varsayılan hesap)</string>
@@ -606,7 +605,6 @@
     <string name="title_no_format">Alınan özgün iletiye eklenecek</string>
     <string name="title_no_image">Görselin kodu çözülemedi</string>
     <string name="title_no_search">Bu hesap için sunucuda arama yapılamıyor</string>
-    <string name="title_too_large">Mesaj yeniden biçimlendirilemeyecek kadar büyük, bunun yerine orijinal mesaj görünümünü tam ekran simgesiyle kullanmayı deneyin</string>
     <string name="title_unused_inline">Kullanılmayan satır içi resimler gönderirken kaldırılacaktır</string>
     <string name="title_accross_remark">Hesaplar arasında taşınan iletiler daha fazla veri kullanımıyla sonuçlanacak şekilde tekrar indirilecek</string>
     <string name="title_raw_saved">Ham ileti kaydedildi</string>

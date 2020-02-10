@@ -441,7 +441,7 @@
     <string name="title_port">Portnummer</string>
     <string name="title_user">Brukernavn</string>
     <string name="title_password">Passord</string>
-    <string name="title_use_certificate">Bruk klientsertifikat</string>
+    <string name="title_client_certificate">Klientsertifikat</string>
     <string name="title_realm">Område</string>
     <string name="title_use_ip">Bruk lokal IP-adresse i stedet for vertsnavn</string>
     <string name="title_primary_account">Primær (standardkonto)</string>
@@ -606,7 +606,7 @@
     <string name="title_no_format">Den opprinnelig mottatte meldingen vil bli inkludert</string>
     <string name="title_no_image">Bildet kunne ikke dekodes</string>
     <string name="title_no_search">Søk på serveren er ikke tilgjengelig for denne kontoen</string>
-    <string name="title_too_large">Meldingen er for stor til å formatere på nytt, prøv å bruke den originale meldingsvisningen via ikonet på full skjerm i stedet</string>
+    <string name="title_show_more">Vis mer &#8230;</string>
     <string name="title_unused_inline">Ubrukte inline bilder blir fjernet ved sending</string>
     <string name="title_accross_remark">Meldinger som er flyttet over kontoer, lastes ned igjen, noe som resulterer i ekstra databruk</string>
     <string name="title_raw_saved">Rå melding lagret</string>

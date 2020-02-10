@@ -626,7 +626,6 @@
     <string name="title_no_format">Oryginalnie odebrana wiadomość zostanie dołączona</string>
     <string name="title_no_image">Nie można zdekodować obrazu</string>
     <string name="title_no_search">Wyszukiwanie na serwerze nie jest dostępne dla tego konta</string>
-    <string name="title_too_large">Wiadomość zbyt duża, aby ją ponownie sformatować, zamiast tego spróbuj użyć widoku oryginalnej wiadomości za pomocą ikony pełnego ekranu</string>
     <string name="title_unused_inline">Niewykorzystane wstawione obrazy zostaną usunięte podczas wysyłania</string>
     <string name="title_accross_remark">Wiadomości przenoszone pomiędzy kontami zostaną pobrane ponownie, wpływając na dodatkowe użycie danych</string>
     <string name="title_raw_saved">Zapisano nieprzetworzoną wiadomość</string>

@@ -625,7 +625,6 @@
     <string name="title_no_format">Původní zpráva bude zahrnuta</string>
     <string name="title_no_image">Obrázek nemohl být dekódován</string>
     <string name="title_no_search">Vyhledávání na serveru není pro tento účet k dispozici</string>
-    <string name="title_too_large">Zpráva je příliš velká pro přeformátování, zkuste zobrazení původní zprávy skrze ikonu zobrazení na celou obrazovku</string>
     <string name="title_unused_inline">Nepoužité vložené obrázky budou při odeslání odebrány</string>
     <string name="title_accross_remark">Zprávy přesunuté napříč účty budou opětovně staženy, což povede ke spotřebě dat navíc</string>
     <string name="title_raw_saved">Zdrojová zpráva uložena</string>
@@ -732,6 +731,7 @@
     <string name="title_signature_unconfirmed_from">Podpis zprávy je platný, ale nepotvrzený: %1$s</string>
     <string name="title_signature_invalid">Neplatný podpis zprávy</string>
     <string name="title_signature_invalid_reason">Neplatný podpis zprávy: %1$s</string>
+    <string name="title_signature_key_missing">Chybí klíč</string>
     <string name="title_signature_certificate_invalid">Neplatný řetězec certifikátů</string>
     <string name="title_signature_sender">Adresa odesílatele</string>
     <string name="title_signature_email">Adresa podpisu</string>

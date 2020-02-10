@@ -426,7 +426,6 @@
     <string name="title_port">ポート番号</string>
     <string name="title_user">ユーザー名</string>
     <string name="title_password">パスワード</string>
-    <string name="title_use_certificate">クライアント証明書を使用</string>
     <string name="title_realm">Realm(Ntlm認証に使用)</string>
     <string name="title_use_ip">ホスト名の代わりにローカルIPアドレスを使用</string>
     <string name="title_primary_account">基本(デフォルトアカウント)</string>
@@ -591,7 +590,6 @@
     <string name="title_no_format">受信したメッセージを引用しています</string>
     <string name="title_no_image">画像をデコード出来ませんでした</string>
     <string name="title_no_search">サーバでの検索はこのアカウントでは利用出来ません</string>
-    <string name="title_too_large">再フォーマットするには大き過ぎるメッセージです。代わりにフルスクリーンアイコンを使用し元のメッセージビューを使用して下さい</string>
     <string name="title_unused_inline">未使用のインライン画像は送信時に削除されます</string>
     <string name="title_accross_remark">アカウント間で移動されたメッセージは再度ダウンロードされる為、余分なデータが使用されます</string>
     <string name="title_raw_saved">素のメッセージを保存しました</string>

@@ -441,7 +441,7 @@
     <string name="title_port">Numéro de port</string>
     <string name="title_user">Nom d\'utilisateur</string>
     <string name="title_password">Mot de passe</string>
-    <string name="title_use_certificate">Utiliser le certificat client</string>
+    <string name="title_client_certificate">Certificat client</string>
     <string name="title_realm">Domaine</string>
     <string name="title_use_ip">Utiliser l\'adresse IP locale au lieu du nom de domaine</string>
     <string name="title_primary_account">Principal (compte par défaut)</string>
@@ -606,7 +606,7 @@
     <string name="title_no_format">Le message reçu initialement sera inclus</string>
     <string name="title_no_image">L\'image n\'a pas pu être décodée</string>
     <string name="title_no_search">La recherche sur le serveur n\'est pas disponible pour ce compte</string>
-    <string name="title_too_large">Message trop volumineux pour être reformaté, essayez d\'utiliser l\'affichage du message d\'origine via l\'icône plein écran à la place</string>
+    <string name="title_show_more">Afficher plus&#8230;</string>
     <string name="title_unused_inline">Les images incluses inutilisées seront supprimées lors de l\'envoi</string>
     <string name="title_accross_remark">Les messages déplacés entre comptes seront téléchargés à nouveau entraînant une utilisation supplémentaire des données</string>
     <string name="title_raw_saved">Message brut enregistré</string>

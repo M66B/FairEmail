@@ -441,7 +441,7 @@
     <string name="title_port">Poortnummer</string>
     <string name="title_user">Gebruikersnaam</string>
     <string name="title_password">Wachtwoord</string>
-    <string name="title_use_certificate">Gebruik client certificaat</string>
+    <string name="title_client_certificate">Cliëntcertificaat</string>
     <string name="title_realm">Realm</string>
     <string name="title_use_ip">Gebruik lokaal IP-adres in plaats van hostnaam</string>
     <string name="title_primary_account">Primair account (standaard account)</string>
@@ -606,7 +606,7 @@
     <string name="title_no_format">Het oorspronkelijke ontvangen bericht zal worden opgenomen</string>
     <string name="title_no_image">Afbeelding kon niet gedecodeerd worden</string>
     <string name="title_no_search">Zoeken op server is niet beschikbaar voor dit account</string>
-    <string name="title_too_large">Bericht te groot om opnieuw te formatteren, probeer de oorspronkelijke berichtweergave te gebruiken via het volledige scherm icoon</string>
+    <string name="title_show_more">Toon meer &#8230;</string>
     <string name="title_unused_inline">Ongebruikte inline afbeeldingen worden verwijderd bij verzenden</string>
     <string name="title_accross_remark">Berichten die worden verplaatst tussen accounts worden opnieuw gedownload en veroorzaken extra datagebruik</string>
     <string name="title_raw_saved">Ruw bericht opgeslagen</string>

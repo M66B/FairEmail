@@ -439,7 +439,6 @@
     <string name="title_port">Ataka zenbakia</string>
     <string name="title_user">Erabiltzaile izena</string>
     <string name="title_password">Pasahitza</string>
-    <string name="title_use_certificate">Erabili bezeroaren ziurtagiria</string>
     <string name="title_realm">Domeinua</string>
     <string name="title_use_ip">Erabili IP lokala ostalari izenaren ordez</string>
     <string name="title_primary_account">Nagusia (kontu lehenetsia)</string>
@@ -604,7 +603,6 @@
     <string name="title_no_format">Jasotako jatorrizko mezua gehituko da</string>
     <string name="title_no_image">Ezin izan da irudia deskodetu</string>
     <string name="title_no_search">Zerbitzariko bilaketa ez dago erabilgarri kontu honetarako</string>
-    <string name="title_too_large">Mezua handiegia da formateatzeko, saiatu haren ordez jatorrizko mezuaren ikuspegia erabiltzen pantaila osoaren ikonoaren bidez</string>
     <string name="title_unused_inline">Erabili gabeko txertatutako irudiak kenduko dira bidaltzean</string>
     <string name="title_accross_remark">Kontuen artean mugitutako mezuak berriro deskargatuko dira horrek dakarren datuen erabilera gehigarriarekin</string>
     <string name="title_raw_saved">Mezu gordina gorde da</string>

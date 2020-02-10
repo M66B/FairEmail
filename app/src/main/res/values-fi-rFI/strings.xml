@@ -439,7 +439,6 @@
     <string name="title_port">Porttinumero</string>
     <string name="title_user">Käyttäjätunnus</string>
     <string name="title_password">Salasana</string>
-    <string name="title_use_certificate">Käytä asiakasvarmennetta</string>
     <string name="title_realm">Toimialue</string>
     <string name="title_use_ip">Käytä paikallista IP-osoitetta verkkotunnuksen sijaan</string>
     <string name="title_primary_account">Ensisijainen (oletustili)</string>
@@ -604,7 +603,6 @@
     <string name="title_no_format">Alkuperäinen vastaanotettu viesti sisällytetään</string>
     <string name="title_no_image">Kuvan koodauksen purku epäonnistui</string>
     <string name="title_no_search">Palvelimelta haku ei ole saatavilla tällä tilillä</string>
-    <string name="title_too_large">Viesti liian suuri uudelleenmuotoiltavaksi, yritä katsoa alkuperäinen viesti koko näytön kuvakkeesta</string>
     <string name="title_unused_inline">Käyttämättömät upotetut kuvat poistetaan lähetettäessä</string>
     <string name="title_accross_remark">Tilien välillä siirretyt viestit ladataan uudelleen, mikä lisää datan käyttöä</string>
     <string name="title_raw_saved">Raakaviesti tallennettu</string>
