@@ -243,7 +243,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private static final ExecutorService executor =
             Helper.getBackgroundExecutor(2, "differ");
 
-    private static final int LARGE_MESSAGE_SIZE = 250 * 1024;
+    private static final int LARGE_MESSAGE_SIZE = 200 * 1024;
 
     // https://github.com/newhouse/url-tracking-stripper
     private static final List<String> PARANOID_QUERY = Collections.unmodifiableList(Arrays.asList(
