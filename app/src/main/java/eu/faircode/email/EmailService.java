@@ -35,8 +35,10 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.security.GeneralSecurityException;
 import java.security.KeyStore;
+import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.Principal;
+import java.security.cert.Certificate;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateParsingException;
@@ -646,12 +648,23 @@ public class EmailService implements AutoCloseable {
                 KeyManager[] km = null;
                 if (use_certificate)
                     try {
-                        KeyStore ks = KeyStore.getInstance("AndroidCAStore");
+                        Log.i("Client certificate init");
+                        KeyStore ca = KeyStore.getInstance("AndroidCAStore");
+                        ca.load(null, null);
+
+                        Certificate cert = ca.getCertificate(server);
+                        if (cert == null)
+                            throw new KeyStoreException("Certificate not found host=" + server);
+
+                        KeyStore ks = KeyStore.getInstance(KeyStore.getDefaultType());
                         ks.load(null, null);
+                        ks.setCertificateEntry(server, cert);
 
                         KeyManagerFactory kmf = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
                         kmf.init(ks, null);
                         km = kmf.getKeyManagers();
+
+                        Log.i("Client certificate initialized");
                     } catch (Throwable ex) {
                         Log.e(ex);
                     }
