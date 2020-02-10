@@ -1220,17 +1220,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             boolean known = false;
             boolean updated = false;
+            Address[] modified = Arrays.copyOf(addresses, addresses.length);
             for (int i = 0; i < info.length; i++) {
                 if (info[i].isKnown())
                     known = true;
                 String displayName = info[i].getDisplayName();
                 if (!TextUtils.isEmpty(displayName)) {
-                    String email = ((InternetAddress) addresses[i]).getAddress();
-                    String personal = ((InternetAddress) addresses[i]).getPersonal();
+                    String email = ((InternetAddress) modified[i]).getAddress();
+                    String personal = ((InternetAddress) modified[i]).getPersonal();
                     if (TextUtils.isEmpty(personal) ||
                             (prefer_contact && !personal.equals(displayName)))
                         try {
-                            addresses[i] = new InternetAddress(email, displayName, StandardCharsets.UTF_8.name());
+                            modified[i] = new InternetAddress(email, displayName, StandardCharsets.UTF_8.name());
                             updated = true;
                         } catch (UnsupportedEncodingException ex) {
                             Log.w(ex);
@@ -1238,7 +1239,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
             }
             if (updated)
-                tvFrom.setText(MessageHelper.formatAddresses(addresses, name_email, false));
+                tvFrom.setText(MessageHelper.formatAddresses(modified, name_email, false));
 
             if (distinguish_contacts && known)
                 tvFrom.setPaintFlags(tvFrom.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
