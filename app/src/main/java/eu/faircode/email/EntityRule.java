@@ -555,6 +555,7 @@ public class EntityRule {
         json.put("stop", stop);
         json.put("condition", condition);
         json.put("action", action);
+        json.put("applied", applied);
         return json;
     }
 
@@ -567,6 +568,7 @@ public class EntityRule {
         rule.stop = json.getBoolean("stop");
         rule.condition = json.getString("condition");
         rule.action = json.getString("action");
+        rule.applied = json.optInt("applied", 0);
         return rule;
     }
 }
