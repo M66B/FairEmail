@@ -849,9 +849,18 @@ public class MessageHelper {
         if (received == null || received.length == 0)
             return null;
 
-        String[] h = MimeUtility.unfold(received[received.length - 1]).split("\\s+");
-        if (h.length > 1 && h[0].equalsIgnoreCase("from"))
-            return h[1];
+        String origin = MimeUtility.unfold(received[received.length - 1]);
+
+        String[] h = origin.split("\\s+");
+        if (h.length > 1 && h[0].equalsIgnoreCase("from")) {
+            String host = h[1];
+            if (host.startsWith("["))
+                host = host.substring(1);
+            if (host.endsWith("]"))
+                host = host.substring(0, host.length() - 1);
+            if (!TextUtils.isEmpty(host))
+                return host;
+        }
 
         return null;
     }
