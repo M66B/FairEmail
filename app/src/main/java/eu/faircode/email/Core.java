@@ -2176,10 +2176,10 @@ class Core {
                 }
 
             boolean check_spam = prefs.getBoolean("check_spam", false);
-            if (check_spam)
-                try {
-                    String host = helper.getReceivedFromHost();
-                    if (host != null) {
+            if (check_spam) {
+                String host = helper.getReceivedFromHost();
+                if (host != null) {
+                    try {
                         InetAddress addr = InetAddress.getByName(host);
                         Log.i("Received from " + host + "=" + addr);
 
@@ -2208,13 +2208,15 @@ class Core {
                             else
                                 message.warning += ", " + lookup;
                         } catch (UnknownHostException ignore) {
+                            // Not blocked
                         }
+                    } catch (UnknownHostException ex) {
+                        Log.w(ex);
+                    } catch (Throwable ex) {
+                        Log.w(folder.name, ex);
                     }
-                } catch (UnknownHostException ex) {
-
-                } catch (Throwable ex) {
-                    Log.w(folder.name, ex);
                 }
+            }
 
             boolean check_reply = prefs.getBoolean("check_reply", false);
             if (check_reply &&
