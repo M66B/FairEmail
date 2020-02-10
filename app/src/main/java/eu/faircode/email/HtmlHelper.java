@@ -411,9 +411,10 @@ public class HtmlHelper {
 
                             case "display":
                                 // https://developer.mozilla.org/en-US/docs/Web/CSS/display
-                                if (!display_hidden && "none".equals(value)) {
-                                    Log.i("Removing hidden element " + element.tagName());
-                                    element.empty();
+                                if (element.parent() != null &&
+                                        !display_hidden && "none".equals(value)) {
+                                    Log.i("Removing display none " + element.tagName());
+                                    element.remove();
                                 }
                                 if ("inline".equals(value) || "inline-block".equals(value)) {
                                     if (element.nextSibling() != null)
@@ -425,11 +426,11 @@ public class HtmlHelper {
                             case "width":
                                 //case "font-size":
                                 //case "line-height":
-                                if (!display_hidden) {
+                                if (element.parent() != null && !display_hidden) {
                                     Float s = getFontSize(value);
                                     if (s != null && s == 0) {
-                                        Log.i("Removing hidden element " + element.tagName());
-                                        element.empty();
+                                        Log.i("Removing no height/width " + element.tagName());
+                                        element.remove();
                                     }
                                 }
                                 break;
