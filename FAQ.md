@@ -921,7 +921,8 @@ The poll interval can be configured in the account settings.
 
 The maximum number of simultaneous folder connections for Gmail is 15,
 so you can synchronize at most 15 folders simultaneously on *all* your devices at the same time.
-For this reason Gmail user folders are set to poll by default.
+For this reason Gmail *user* folders are set to poll by default instead of synchronize always.
+When needed or desired, you can change this by long pressing a folder in the folder list and selecting *Edit properties*.
 See [here](https://support.google.com/mail/answer/7126229) for details.
 
 When using a Dovecot server,
@@ -2022,6 +2023,7 @@ Spam filtering, verification of the [DKIM](https://en.wikipedia.org/wiki/DomainK
 and [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) authorization is a task of email servers, not of an email client.
 Servers generally have more memory and computing power, so are much better suited for this task.
 Also, you'll want spam filtered for all your email clients, possibly including web email, not just one email client.
+Moreover, email servers have access to information, like the IP address, etc of the connecting server, which an email client has no access to.
 
 Of course you can report messages as spam with FairEmail,
 which will move the reported messages to the spam folder and train the spam filter of the provider, which is how it is supposed to work.
