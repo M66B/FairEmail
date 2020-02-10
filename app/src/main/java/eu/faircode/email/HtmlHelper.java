@@ -583,7 +583,7 @@ public class HtmlHelper {
 
             if (!show_images && !TextUtils.isEmpty(alt))
                 if (TextUtils.isEmpty(tracking))
-                    img.appendText(" " + alt + " ");
+                    img.appendText("[" + alt + "]");
                 else {
                     img.append("&nbsp;");
                     Element a = document.createElement("a");
