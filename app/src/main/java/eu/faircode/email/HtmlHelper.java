@@ -772,6 +772,7 @@ public class HtmlHelper {
                 .replace("null", "")
                 .replace("none", "")
                 .replace("unset", "")
+                .replace("auto", "")
                 .replace("inherit", "")
                 .replace("initial", "")
                 .replace("windowtext", "")
