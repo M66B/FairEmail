@@ -78,7 +78,8 @@ public class EntityIdentity {
     @NonNull
     public String password;
     @NonNull
-    public boolean certificate;
+    public boolean certificate; // obsolete
+    public String certificate_alias;
     public String realm;
     public String fingerprint;
     @NonNull
@@ -175,7 +176,7 @@ public class EntityIdentity {
         json.put("provider", provider);
         json.put("user", user);
         json.put("password", password);
-        json.put("certificate", certificate);
+        json.put("certificate_alias", certificate_alias);
         json.put("realm", realm);
         json.put("fingerprint", fingerprint);
         json.put("use_ip", use_ip);
@@ -221,7 +222,7 @@ public class EntityIdentity {
             identity.provider = json.getString("provider");
         identity.user = json.getString("user");
         identity.password = json.getString("password");
-        identity.certificate = json.optBoolean("certificate");
+        identity.certificate_alias = json.getString("certificate_alias");
         if (json.has("realm") && !json.isNull("realm"))
             identity.realm = json.getString("realm");
         if (json.has("fingerprint"))

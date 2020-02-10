@@ -316,7 +316,7 @@ public class FragmentGmail extends FragmentBase {
                             provider.imap.host, provider.imap.port,
                             EmailService.AUTH_TYPE_GMAIL, null,
                             user, password,
-                            false, null);
+                            null, null);
 
                     folders = iservice.getFolders();
 
@@ -331,7 +331,7 @@ public class FragmentGmail extends FragmentBase {
                             provider.smtp.host, provider.smtp.port,
                             EmailService.AUTH_TYPE_GMAIL, null,
                             user, password,
-                            false, null);
+                            null, null);
                 }
 
                 DB db = DB.getInstance(context);

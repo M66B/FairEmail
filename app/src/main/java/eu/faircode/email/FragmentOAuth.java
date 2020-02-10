@@ -475,7 +475,7 @@ public class FragmentOAuth extends FragmentBase {
                             provider.imap.host, provider.imap.port,
                             EmailService.AUTH_TYPE_OAUTH, provider.id,
                             primaryEmail, state,
-                            false, null);
+                            null, null);
 
                     folders = iservice.getFolders();
 
@@ -491,7 +491,7 @@ public class FragmentOAuth extends FragmentBase {
                             provider.smtp.host, provider.smtp.port,
                             EmailService.AUTH_TYPE_OAUTH, provider.id,
                             primaryEmail, state,
-                            false, null);
+                            null, null);
                 }
 
                 Log.i("OAuth passed provider=" + provider.id);

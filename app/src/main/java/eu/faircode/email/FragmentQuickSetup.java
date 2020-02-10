@@ -285,7 +285,7 @@ public class FragmentQuickSetup extends FragmentBase {
                                 provider.imap.host, provider.imap.port,
                                 EmailService.AUTH_TYPE_PASSWORD, null,
                                 user, password,
-                                false, null);
+                                null, null);
                     } catch (AuthenticationFailedException ex) {
                         if (!user.equals(username)) {
                             Log.w(ex);
@@ -295,7 +295,7 @@ public class FragmentQuickSetup extends FragmentBase {
                                     provider.imap.host, provider.imap.port,
                                     EmailService.AUTH_TYPE_PASSWORD, null,
                                     user, password,
-                                    false, null);
+                                    null, null);
                         } else
                             throw ex;
                     }
@@ -314,7 +314,7 @@ public class FragmentQuickSetup extends FragmentBase {
                             provider.smtp.host, provider.smtp.port,
                             EmailService.AUTH_TYPE_PASSWORD, null,
                             user, password,
-                            false, null);
+                            null, null);
                 }
 
                 if (check)

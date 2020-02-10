@@ -517,7 +517,7 @@
     <string name="title_port">Port number</string>
     <string name="title_user">User name</string>
     <string name="title_password">Password</string>
-    <string name="title_use_certificate">Use client certificate</string>
+    <string name="title_client_certificate">Client certificate</string>
     <string name="title_realm">Realm</string>
     <string name="title_use_ip">Use local IP address instead of host name</string>
     <string name="title_primary_account">Primary (default account)</string>

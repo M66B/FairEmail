@@ -442,14 +442,30 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tilPassword" />
 
-        <CheckBox
-            android:id="@+id/cbCertificate"
+        <Button
+            android:id="@+id/btnCertificate"
+            style="@style/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="@string/title_use_certificate"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:tag="disable"
+            android:text="@string/title_client_certificate"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvCharacters" />
+
+        <TextView
+            android:id="@+id/tvCertificate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="@string/title_optional"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="@+id/btnCertificate"
+            app:layout_constraintStart_toEndOf="@id/btnCertificate"
+            app:layout_constraintTop_toTopOf="@id/btnCertificate" />
 
         <Button
             android:id="@+id/btnOAuth"
@@ -462,7 +478,7 @@
             android:tag="disable"
             android:text="@string/title_setup_authentication"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbCertificate" />
+            app:layout_constraintTop_toBottomOf="@id/btnCertificate" />
 
         <TextView
             android:id="@+id/tvRealm"
@@ -723,7 +739,7 @@
                 tvProvider,spProvider,
                 tvDomain,tvDomainHint,etDomain,btnAutoConfig,
                 tvSmtp,tvHost,etHost,rgEncryption,cbInsecure,tvInsecureRemark,tvPort,etPort,
-                tvUser,etUser,tvPassword,tilPassword,cbCertificate,btnOAuth,
+                tvUser,etUser,tvPassword,tilPassword,btnCertificate,tvCertificate,btnOAuth,
                 tvRealm,etRealm,
                 cbUseIp,tvUseIpHint,
                 cbSynchronize,cbPrimary,
