@@ -1022,7 +1022,10 @@ public class MessageHelper {
         subject = MimeUtility.unfold(subject);
         subject = decodeMime(subject);
 
-        return subject;
+        return subject
+                .trim()
+                .replace("\n", "")
+                .replace("\r", "");
     }
 
     Long getSize() throws MessagingException {
