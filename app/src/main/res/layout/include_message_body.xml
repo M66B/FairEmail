@@ -81,6 +81,7 @@
         android:layout_marginTop="3dp"
         android:layout_marginEnd="6dp"
         android:fontFamily="monospace"
+        android:hyphenationFrequency="none"
         android:minHeight="60dp"
         android:paddingBottom="6dp"
         android:text="Body"

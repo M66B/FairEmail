@@ -411,6 +411,7 @@
                     android:layout_marginTop="6dp"
                     android:layout_marginEnd="6dp"
                     android:fontFamily="monospace"
+                    android:hyphenationFrequency="none"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textIsSelectable="true"
                     app:layout_constraintEnd_toEndOf="parent"
