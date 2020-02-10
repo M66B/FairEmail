@@ -379,22 +379,26 @@ public class HtmlHelper {
 
                             case "font-size":
                                 // https://developer.mozilla.org/en-US/docs/Web/CSS/font-size
-                                Float fsize = getFontSize(value);
-                                if (fsize != null && fsize != 0 &&
-                                        (fsize <= 0.8f || fsize >= 1.25)) {
-                                    Element e = new Element(fsize < 1 ? "small" : "big");
-                                    element.replaceWith(e);
-                                    e.appendChild(element);
+                                if (element.parent() != null) {
+                                    Float fsize = getFontSize(value);
+                                    if (fsize != null && fsize != 0 &&
+                                            (fsize <= 0.8f || fsize >= 1.25)) {
+                                        Element e = new Element(fsize < 1 ? "small" : "big");
+                                        element.replaceWith(e);
+                                        e.appendChild(element);
+                                    }
                                 }
                                 break;
 
                             case "font-weight":
                                 // https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight
-                                Integer fweight = getFontWeight(value);
-                                if (fweight != null && fweight >= 600) {
-                                    Element strong = new Element("strong");
-                                    element.replaceWith(strong);
-                                    strong.appendChild(element);
+                                if (element.parent() != null) {
+                                    Integer fweight = getFontWeight(value);
+                                    if (fweight != null && fweight >= 600) {
+                                        Element strong = new Element("strong");
+                                        element.replaceWith(strong);
+                                        strong.appendChild(element);
+                                    }
                                 }
                                 break;
 
