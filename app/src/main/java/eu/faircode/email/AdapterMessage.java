@@ -1218,6 +1218,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibAvatar.setTag(lookupUri);
             ibAvatar.setEnabled(lookupUri != null);
 
+            if (addresses == null)
+                return;
+
             boolean known = false;
             boolean updated = false;
             Address[] modified = Arrays.copyOf(addresses, addresses.length);
