@@ -141,6 +141,7 @@ public class ServiceExternal extends Service {
                         .setContentTitle(getString(R.string.tile_synchronize))
                         .setAutoCancel(false)
                         .setShowWhen(false)
+                        .setDefaults(0) // disable sound on pre Android 8
                         .setPriority(NotificationCompat.PRIORITY_MIN)
                         .setCategory(NotificationCompat.CATEGORY_SERVICE)
                         .setVisibility(NotificationCompat.VISIBILITY_SECRET)

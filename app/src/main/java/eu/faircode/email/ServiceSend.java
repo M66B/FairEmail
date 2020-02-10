@@ -174,6 +174,7 @@ public class ServiceSend extends ServiceBase {
                         .setContentIntent(pi)
                         .setAutoCancel(false)
                         .setShowWhen(true)
+                        .setDefaults(0) // disable sound on pre Android 8
                         .setLocalOnly(true)
                         .setPriority(NotificationCompat.PRIORITY_MIN)
                         .setCategory(NotificationCompat.CATEGORY_SERVICE)
