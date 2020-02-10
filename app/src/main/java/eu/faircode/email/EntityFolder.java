@@ -153,11 +153,11 @@ public class EntityFolder extends EntityOrder implements Serializable {
             OUTBOX,
             DRAFTS,
             SENT,
-            ARCHIVE,
             TRASH,
             JUNK,
             SYSTEM,
-            USER
+            USER,
+            ARCHIVE
     ));
 
     private static Map<String, String> GUESS_FOLDER_TYPE = new HashMap<String, String>() {{
