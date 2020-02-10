@@ -713,6 +713,7 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_signature_unconfirmed_from">Mezuaren sinadura baliozkoa da baina ez da baieztatu: %1$s</string>
     <string name="title_signature_invalid">Mezuaren sinadura baliogabea</string>
     <string name="title_signature_invalid_reason">Mezuaren sinadura baliogabea da: %1$s</string>
+    <string name="title_signature_key_missing">Gakoa falta da</string>
     <string name="title_signature_certificate_invalid">Ziurtagiri kate baliogabea</string>
     <string name="title_signature_sender">Igorlearen helbidea</string>
     <string name="title_signature_email">Sinaduraren helbidea</string>

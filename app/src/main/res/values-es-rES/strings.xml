@@ -715,6 +715,7 @@
     <string name="title_signature_unconfirmed_from">Firma de mensaje válida pero no confirmada: %1$s</string>
     <string name="title_signature_invalid">Firma de mensaje no válida</string>
     <string name="title_signature_invalid_reason">Firma de mensaje inválida: %1$s</string>
+    <string name="title_signature_key_missing">Clave faltante</string>
     <string name="title_signature_certificate_invalid">Cadena de certificado inválida</string>
     <string name="title_signature_sender">Dirección del remitente</string>
     <string name="title_signature_email">Dirección de la firma</string>

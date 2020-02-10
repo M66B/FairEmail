@@ -245,7 +245,7 @@
     <string name="title_advanced_color_value">亮度</string>
     <string name="title_advanced_color_threshold">阈值字母颜色</string>
     <string name="title_advanced_name_email">显示名称和电子邮件地址</string>
-    <string name="title_advanced_replace_name">较之发送名称，更倾向联系人名称</string>
+    <string name="title_advanced_replace_name">优先使用联系人姓名而不是发送名称</string>
     <string name="title_advanced_distinguish_contacts">下划线发件人(当其为本地发送给的联系人时)</string>
     <string name="title_advanced_authentication">当接收服务器无法验证消息时显示警告</string>
     <string name="title_advanced_font_size_sender">发件人字体大小</string>
@@ -702,6 +702,7 @@
     <string name="title_signature_unconfirmed_from">消息签名有效但未确认： %1$s</string>
     <string name="title_signature_invalid">消息签名无效</string>
     <string name="title_signature_invalid_reason">消息签名无效： %1$s</string>
+    <string name="title_signature_key_missing">密钥缺失</string>
     <string name="title_signature_certificate_invalid">证书链无效</string>
     <string name="title_signature_sender">发件人地址：</string>
     <string name="title_signature_email">签名地址</string>

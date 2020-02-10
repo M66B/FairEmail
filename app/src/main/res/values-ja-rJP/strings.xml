@@ -699,6 +699,7 @@ PlayストアでFairEmailを評価できれば幸いです。
     <string name="title_signature_unconfirmed_from">メッセージ署名は有効ですが確認されていません:%1$s</string>
     <string name="title_signature_invalid">メッセージ署名が無効です</string>
     <string name="title_signature_invalid_reason">メッセージ署名が無効です:%1$s</string>
+    <string name="title_signature_key_missing">キーが有りません</string>
     <string name="title_signature_certificate_invalid">証明書が無効</string>
     <string name="title_signature_sender">差出人のメールアドレス</string>
     <string name="title_signature_email">署名のアドレス</string>

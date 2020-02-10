@@ -248,12 +248,12 @@
     <string name="title_advanced_signature_end">Добавлять подпись после цитаты/пересылаемого сообщения</string>
     <string name="title_advanced_plain_only">По умолчанию отправлять простым текстом</string>
     <string name="title_advanced_usenet_signature">Стиль подписи Usenet</string>
-    <string name="title_advanced_remove_signatures">Удалить распознанные подписи</string>
+    <string name="title_advanced_remove_signatures">Удалять распознанные подписи</string>
     <string name="title_advanced_resize_images">Автоматически изменять размер встроенных изображений</string>
     <string name="title_advanced_resize_attachments">Автоматически изменять размер прикреплённых изображений</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d пикселей</string>
     <string name="title_advanced_send_reminders">Показывать напоминания</string>
-    <string name="title_advanced_lookup_mx">Проверить адрес электронной почты получателя перед отправкой</string>
+    <string name="title_advanced_lookup_mx">Проверять адрес электронной почты получателя перед отправкой</string>
     <string name="title_advanced_send_delayed">Задержка отправки сообщений</string>
     <string name="title_advanced_metered">Использовать лимитированные подключения</string>
     <string name="title_advanced_download">Автоматически загружать сообщения и вложения для лимитного подключения до</string>
@@ -270,7 +270,7 @@
     <string name="title_advanced_threading">Связанные диалоги</string>
     <string name="title_advanced_indentation">Левый/правый отступ для полученных/отправленных сообщений в диалогах</string>
     <string name="title_advanced_highlight_unread">Выделять непрочитанные сообщения</string>
-    <string name="title_advanced_color_stripe">Показать цветовую полосу</string>
+    <string name="title_advanced_color_stripe">Показывать цветовую полосу</string>
     <string name="title_advanced_avatars">Показывать фотографии контакта</string>
     <string name="title_advanced_gravatars">Показывать Граватары</string>
     <string name="title_advanced_generated_icons">Показывать сгенерированные иконки</string>
@@ -299,11 +299,11 @@
     <string name="title_advanced_contrast">Использовать высокий контраст для текста сообщений</string>
     <string name="title_advanced_monospaced">Использовать моноширинный шрифт для текста сообщения</string>
     <string name="title_advanced_text_color">Показывать цвета текста</string>
-    <string name="title_advanced_collapse_quotes">Свернуть цитируемый текст</string>
+    <string name="title_advanced_collapse_quotes">Сворачивать цитируемый текст</string>
     <string name="title_advanced_images_inline">Автоматически показывать встроенные изображения</string>
     <string name="title_advanced_seekbar">Показывать относительное положение диалога точкой</string>
     <string name="title_advanced_actionbar">Показывать панель управления диалогами</string>
-    <string name="title_advanced_double_back">Двойное \"Назад\" для выхода</string>
+    <string name="title_advanced_double_back">Двойное нажатие \"Назад\" для выхода</string>
     <string name="title_advanced_pull_refresh">Потянуть вниз для обновления</string>
     <string name="title_advanced_autoscroll">Прокрутить к началу списка при получении новых сообщений</string>
     <string name="title_advanced_double_tap">Двойное нажатие для отметки сообщений прочитанными/непрочитанными</string>
@@ -365,7 +365,7 @@
     <string name="title_advanced_import_key">Импорт приватного ключа</string>
     <string name="title_advanced_manage_keys">Управление приватными ключами</string>
     <string name="title_advanced_external_search">Разрешить другим приложениям искать в сообщениях</string>
-    <string name="title_advanced_fts">Построить индекс поиска</string>
+    <string name="title_advanced_fts">Строить индекс поиска</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d сообщений проиндексировано (%3$s)</string>
     <string name="title_advanced_english">Принудительно использовать английский язык</string>
     <string name="title_advanced_watchdog">Регулярно проверять, активен ли FairEmail</string>
@@ -855,7 +855,7 @@
     <string name="title_legend_trash">Корзина</string>
     <string name="title_legend_junk">Спам</string>
     <string name="title_legend_primary">Основной</string>
-    <string name="title_legend_subscribed">Подписка на</string>
+    <string name="title_legend_subscribed">Подписка</string>
     <string name="title_legend_rule">Имеет правила</string>
     <string name="title_legend_similar">Поиск похожих сообщений</string>
     <string name="title_legend_notify">Уведомлять о новых сообщениях</string>
