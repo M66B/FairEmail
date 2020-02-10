@@ -244,6 +244,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     private static final ExecutorService executor =
             Helper.getBackgroundExecutor(2, "differ");
+    private static final ExecutorService precompute =
+            Helper.getBackgroundExecutor(1, "precompute");
 
     private static final int LARGE_MESSAGE_SIZE = 250 * 1024;
 
@@ -1816,7 +1818,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             return PrecomputedTextCompat.getTextFuture(
                                     builder,
                                     TextViewCompat.getTextMetricsParams(tvBody),
-                                    executor)
+                                    precompute)
                                     .get();
                         } catch (Throwable ex) {
                             Log.w(ex);
