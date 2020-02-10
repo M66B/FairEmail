@@ -2041,6 +2041,7 @@ class Core {
         // Find message by Message-ID (slow, headers required)
         // - messages in inbox have same id as message sent to self
         // - messages in archive have same id as original
+        Integer color = null;
         if (message == null) {
             String msgid = helper.getMessageID();
             Log.i(folder.name + " searching for " + msgid);
@@ -2072,6 +2073,9 @@ class Core {
                         process = true;
                     }
                 }
+
+                if (dup.flagged && dup.color != null)
+                    color = dup.color;
             }
         }
 
@@ -2139,6 +2143,9 @@ class Core {
             message.ui_found = false;
             message.ui_ignored = seen;
             message.ui_browsed = browsed;
+
+            if (message.flagged)
+                message.color = color;
 
             if (MessageHelper.equal(message.submitter, message.from))
                 message.submitter = null;
