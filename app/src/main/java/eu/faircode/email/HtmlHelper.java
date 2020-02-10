@@ -778,8 +778,8 @@ public class HtmlHelper {
                 return Float.parseFloat(value.substring(0, value.length() - 2).trim());
             if (value.endsWith("px"))
                 return Integer.parseInt(value.substring(0, value.length() - 2).trim()) / 16f;
+            return Integer.parseInt(value.trim()) / 16f;
         } catch (NumberFormatException ignored) {
-
         }
 
         return null;
