@@ -2996,7 +2996,7 @@ public class FragmentCompose extends FragmentBase {
 
                         if (ref.plain_only != null && ref.plain_only)
                             data.draft.plain_only = true;
-                        if (ref.ui_encrypt != null && ref.ui_encrypt != EntityMessage.ENCRYPT_NONE) {
+                        if (ref.ui_encrypt != null && !EntityMessage.ENCRYPT_NONE.equals(ref.ui_encrypt)) {
                             data.draft.encrypt = ref.ui_encrypt;
                             data.draft.ui_encrypt = ref.ui_encrypt;
                         }
