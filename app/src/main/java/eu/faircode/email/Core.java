@@ -36,6 +36,7 @@ import android.text.TextUtils;
 import android.util.Pair;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.RemoteInput;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
@@ -134,7 +135,7 @@ class Core {
             Context context,
             EntityAccount account, EntityFolder folder, List<TupleOperationEx> ops,
             Store istore, Folder ifolder,
-            State state)
+            State state, int priority, long sequence)
             throws JSONException {
         try {
             Log.i(folder.name + " start process");
@@ -145,7 +146,8 @@ class Core {
             boolean group = true;
             Log.i(folder.name + " executing operations=" + ops.size());
             while (retry < OPERATION_RETRY_MAX && ops.size() > 0 &&
-                    state.isRunning() && state.isRecoverable() && ifolder.isOpen()) {
+                    state.batchCanRun(folder.id, priority, sequence) &&
+                    state.isRunning() && state.isRecoverable()) {
                 TupleOperationEx op = ops.get(0);
 
                 try {
@@ -481,8 +483,9 @@ class Core {
                 }
             }
 
-            // Check account/folder
-            if (ops.size() > 0)
+            if (ops.size() == 0)
+                state.batchCompleted(folder.id, priority, sequence);
+            else // Check account/folder
                 state.error(new OperationCanceledException());
         } finally {
             Log.i(folder.name + " end process state=" + state);
@@ -3335,6 +3338,9 @@ class Core {
         private boolean maxConnections = false;
         private Long lastActivity = null;
 
+        private Map<FolderPriority, Long> sequence = new HashMap<>();
+        private Map<FolderPriority, Long> batch = new HashMap<>();
+
         State(ConnectionHelper.NetworkState networkState) {
             this.networkState = networkState;
         }
@@ -3408,6 +3414,10 @@ class Core {
             recoverable = true;
             maxConnections = false;
             lastActivity = null;
+            synchronized (this) {
+                for (FolderPriority key : sequence.keySet())
+                    batch.put(key, sequence.get(key));
+            }
         }
 
         private void yield() {
@@ -3460,12 +3470,71 @@ class Core {
             return (lastActivity == null ? 0 : SystemClock.elapsedRealtime() - lastActivity);
         }
 
+        long getSequence(long folder, int priority) {
+            synchronized (this) {
+                FolderPriority key = new FolderPriority(folder, priority);
+                if (!sequence.containsKey(key)) {
+                    sequence.put(key, 0L);
+                    batch.put(key, 0L);
+                }
+                long result = sequence.get(key);
+                sequence.put(key, result + 1);
+                if (BuildConfig.DEBUG)
+                    Log.i("=== Get " + folder + ":" + priority + " sequence=" + result);
+                return result;
+            }
+        }
+
+        boolean batchCanRun(long folder, int priority, long current) {
+            synchronized (this) {
+                FolderPriority key = new FolderPriority(folder, priority);
+                boolean can = batch.get(key).equals(current);
+                if (BuildConfig.DEBUG)
+                    Log.i("=== Can " + folder + ":" + priority + " can=" + can);
+                return can;
+            }
+        }
+
+        void batchCompleted(long folder, int priority, long current) {
+            synchronized (this) {
+                FolderPriority key = new FolderPriority(folder, priority);
+                if (batch.get(key).equals(current))
+                    batch.put(key, batch.get(key) + 1);
+                if (BuildConfig.DEBUG)
+                    Log.i("=== Completed " + folder + ":" + priority + " next=" + batch.get(key));
+            }
+        }
+
         @NonNull
         @Override
         public String toString() {
             return "[running=" + running +
                     ",recoverable=" + recoverable +
                     ",idle=" + getIdleTime() + "]";
+        }
+
+        private static class FolderPriority {
+            private long folder;
+            private int priority;
+
+            FolderPriority(long folder, int priority) {
+                this.folder = folder;
+                this.priority = priority;
+            }
+
+            @Override
+            public int hashCode() {
+                return (int) (this.folder * 37 + priority);
+            }
+
+            @Override
+            public boolean equals(@Nullable Object obj) {
+                if (obj instanceof FolderPriority) {
+                    FolderPriority other = (FolderPriority) obj;
+                    return (this.folder == other.folder && this.priority == other.priority);
+                } else
+                    return false;
+            }
         }
     }
 }

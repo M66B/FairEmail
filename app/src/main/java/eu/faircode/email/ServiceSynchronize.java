@@ -1195,6 +1195,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                 }
 
                                                 try {
+                                                    final long sequence = state.getSequence(folder.id, key.getPriority());
+
                                                     executor.submit(new Helper.PriorityRunnable(key.getPriority(), key.getOrder()) {
                                                         @Override
                                                         public void run() {
@@ -1243,7 +1245,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                                             account, folder,
                                                                             partition,
                                                                             iservice.getStore(), ifolder,
-                                                                            state);
+                                                                            state, key.getPriority(), sequence);
 
                                                                 } catch (Throwable ex) {
                                                                     Log.e(folder.name, ex);
