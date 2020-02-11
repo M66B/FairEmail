@@ -257,7 +257,8 @@ public class EntityAccount extends EntityOrder implements Serializable {
             account.provider = json.getString("provider");
         account.user = json.getString("user");
         account.password = json.getString("password");
-        account.certificate_alias = json.getString("certificate_alias");
+        if (json.has("certificate_alias"))
+            account.certificate_alias = json.getString("certificate_alias");
         if (json.has("realm"))
             account.realm = json.getString("realm");
         if (json.has("fingerprint"))
