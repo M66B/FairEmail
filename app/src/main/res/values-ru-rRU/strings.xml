@@ -628,7 +628,8 @@
     <string name="title_no_format">Оригинальное сообщение будет включено</string>
     <string name="title_no_image">Изображение не может быть декодировано</string>
     <string name="title_no_search">Поиск на сервере недоступен для этой учётной записи</string>
-    <string name="title_show_more">Показать ещё&#8230;</string>
+    <string name="title_too_large">Сообщение слишком большое для полного переформатирования</string>
+    <string name="title_show_full">Показать сообщение полностью</string>
     <string name="title_unused_inline">Неиспользуемые встроенные изображения будут удалены при отправке</string>
     <string name="title_accross_remark">Сообщения, перемещаемые между учётными записями, будут загружены заново, порождая дополнительный трафик</string>
     <string name="title_raw_saved">Оригинал сообщения сохранён</string>

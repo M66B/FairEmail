@@ -605,7 +605,6 @@
     <string name="title_no_format">Verrà incluso Il messaggio originale ricevuto</string>
     <string name="title_no_image">L\'immagine potrebbe non essere decodificata</string>
     <string name="title_no_search">La ricerca sul server non è disponibile per questo account</string>
-    <string name="title_show_more">Mostra di più &#8230;</string>
     <string name="title_unused_inline">Le immagini in linea inutilizzate verranno rimosse all\'invio</string>
     <string name="title_accross_remark">I messaggi spostati tra gli account verranno scaricati di nuovo causando un ulteriore utilizzo dei dati</string>
     <string name="title_raw_saved">Messaggio non elaborato salvato</string>

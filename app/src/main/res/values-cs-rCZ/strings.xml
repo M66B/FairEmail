@@ -626,7 +626,6 @@
     <string name="title_no_format">Původní zpráva bude zahrnuta</string>
     <string name="title_no_image">Obrázek nemohl být dekódován</string>
     <string name="title_no_search">Vyhledávání na serveru není pro tento účet k dispozici</string>
-    <string name="title_show_more">Zobrazit více &#8230;</string>
     <string name="title_unused_inline">Nepoužité vložené obrázky budou při odeslání odebrány</string>
     <string name="title_accross_remark">Zprávy přesunuté napříč účty budou opětovně staženy, což povede ke spotřebě dat navíc</string>
     <string name="title_raw_saved">Zdrojová zpráva uložena</string>
