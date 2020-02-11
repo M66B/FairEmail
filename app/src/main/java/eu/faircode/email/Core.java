@@ -882,7 +882,8 @@ class Core {
                                         icopy.setFlag(Flags.Flag.FLAGGED, false);
 
                                     // Set drafts flag
-                                    icopy.setFlag(Flags.Flag.DRAFT, EntityFolder.DRAFTS.equals(target.type));
+                                    if (flags.contains(Flags.Flag.DRAFT))
+                                        icopy.setFlag(Flags.Flag.DRAFT, EntityFolder.DRAFTS.equals(target.type));
                                 }
 
                                 if (fetch) {
