@@ -690,6 +690,7 @@ to check if the searched text is contained in the file, which is a relative expe
 
 In the *miscellaneous settings* you can enable *Build search index* to significantly increase the speed of searching on the device,
 but be aware that this will increase battery usage and significantly increase storage space usage too.
+The search index is based on words, so searching for partial text is not possible.
 Searching using the search index is by default AND, so searching for *apple orange* will search for apple AND orange.
 Words separated by commas results in searching for OR, so for example *apple, orange* will search for apple OR orange.
 Both can be combined, so searching for *apple, orange banana* will search for apple OR (orange AND banana).
