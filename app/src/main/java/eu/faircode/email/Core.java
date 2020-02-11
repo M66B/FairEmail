@@ -3215,7 +3215,7 @@ class Core {
                 if (notify_preview_all)
                     try {
                         String html = Helper.readText(message.getFile(context));
-                        preview = HtmlHelper.getPreviewText(html);
+                        preview = HtmlHelper.getFullText(html);
                     } catch (Throwable ex) {
                         Log.e(ex);
                     }

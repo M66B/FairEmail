@@ -1050,18 +1050,29 @@ public class HtmlHelper {
 
     static String getPreview(String body) {
         try {
-            return _getPreview(body);
+            return _getText(body, false);
         } catch (OutOfMemoryError ex) {
             Log.e(ex);
             return null;
         }
     }
 
-    private static String _getPreview(String body) {
+    static String getFullText(String body) {
+        try {
+            return _getText(body, true);
+        } catch (OutOfMemoryError ex) {
+            Log.e(ex);
+            return null;
+        }
+    }
+
+    private static String _getText(String body, boolean full) {
         if (body == null)
             return null;
 
         String text = JsoupEx.parse(body).text();
+        if (full)
+            return text;
 
         String preview = text.substring(0, Math.min(text.length(), PREVIEW_SIZE));
         if (preview.length() < text.length())
