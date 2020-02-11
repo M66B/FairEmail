@@ -222,7 +222,8 @@ public class EntityIdentity {
             identity.provider = json.getString("provider");
         identity.user = json.getString("user");
         identity.password = json.getString("password");
-        identity.certificate_alias = json.getString("certificate_alias");
+        if (json.has("certificate_alias"))
+            identity.certificate_alias = json.getString("certificate_alias");
         if (json.has("realm") && !json.isNull("realm"))
             identity.realm = json.getString("realm");
         if (json.has("fingerprint"))
