@@ -103,8 +103,6 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.FileProvider;
 import androidx.core.graphics.ColorUtils;
-import androidx.core.text.PrecomputedTextCompat;
-import androidx.core.widget.TextViewCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
@@ -1807,16 +1805,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                         s, e, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
                         }
 
-                        try {
-                            return PrecomputedTextCompat.getTextFuture(
-                                    builder,
-                                    TextViewCompat.getTextMetricsParams(tvBody),
-                                    executor)
-                                    .get();
-                        } catch (Throwable ex) {
-                            Log.w(ex);
-                            return builder;
-                        }
+                        return builder;
                     }
                 }
 
@@ -1834,12 +1823,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     boolean has_images = args.getBoolean("has_images");
 
-                    if (result instanceof PrecomputedTextCompat) {
-                        TextViewCompat.setPrecomputedText(tvBody, (PrecomputedTextCompat) result);
-                        tvBody.setTextIsSelectable(false);
-                        tvBody.setTextIsSelectable(true);
-                        tvBody.setMovementMethod(new TouchHandler(message));
-                    } else if (result instanceof Spanned) {
+                    if (result instanceof Spanned) {
                         tvBody.setText((Spanned) result);
                         tvBody.setTextIsSelectable(false);
                         tvBody.setTextIsSelectable(true);
