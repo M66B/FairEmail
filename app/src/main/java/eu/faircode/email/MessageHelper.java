@@ -658,25 +658,32 @@ public class MessageHelper {
                 String reportType = ct.getParameter("report-type");
                 if ("delivery-status".equalsIgnoreCase(reportType) ||
                         "disposition-notification".equalsIgnoreCase(reportType)) {
-                    String amsgid = null;
                     String arefs = null;
+                    String amsgid = null;
 
                     MessageParts parts = new MessageParts();
                     getMessageParts(imessage, parts, null);
                     for (AttachmentPart apart : parts.attachments)
                         if ("text/rfc822-headers".equalsIgnoreCase(apart.attachment.type)) {
                             InternetHeaders iheaders = new InternetHeaders(apart.part.getInputStream());
-                            amsgid = iheaders.getHeader("Message-Id", null);
                             arefs = iheaders.getHeader("References", null);
+                            amsgid = iheaders.getHeader("Message-Id", null);
                             break;
                         } else if ("message/rfc822".equalsIgnoreCase(apart.attachment.type)) {
                             Properties props = MessageHelper.getSessionProperties();
                             Session isession = Session.getInstance(props, null);
                             MimeMessage amessage = new MimeMessage(isession, apart.part.getInputStream());
-                            amsgid = amessage.getHeader("Message-Id", null);
                             arefs = amessage.getHeader("References", null);
+                            amsgid = amessage.getHeader("Message-Id", null);
                             break;
                         }
+
+                    if (arefs != null)
+                        for (String ref : MimeUtility.unfold(arefs).split("\\s+"))
+                            if (!result.contains(ref)) {
+                                Log.i("rfc822 ref=" + ref);
+                                result.add(ref);
+                            }
 
                     if (amsgid != null) {
                         String msgid = MimeUtility.unfold(amsgid);
@@ -685,13 +692,6 @@ public class MessageHelper {
                             result.add(msgid);
                         }
                     }
-
-                    if (arefs != null)
-                        for (String ref : MimeUtility.unfold(arefs).split("\\s+"))
-                            if (!result.contains(ref)) {
-                                Log.i("rfc822 ref=" + ref);
-                                result.add(ref);
-                            }
                 }
             }
         } catch (Throwable ex) {
