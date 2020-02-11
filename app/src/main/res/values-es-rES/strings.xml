@@ -441,6 +441,7 @@
     <string name="title_port">Puerto</string>
     <string name="title_user">Nombre de usuario</string>
     <string name="title_password">Contraseña</string>
+    <string name="title_client_certificate">Certificado de cliente</string>
     <string name="title_realm">Dominio</string>
     <string name="title_use_ip">Usar dirección IP local en lugar de nombre de dominio</string>
     <string name="title_primary_account">Primaria (cuenta predeterminada)</string>
@@ -605,6 +606,8 @@
     <string name="title_no_format">El mensaje recibido originalmente será incluido</string>
     <string name="title_no_image">La imagen no se pudo decodificar</string>
     <string name="title_no_search">La búsqueda en el servidor no está disponible para esta cuenta</string>
+    <string name="title_too_large">Mensaje demasiado grande para reformatear completamente</string>
+    <string name="title_show_full">Mostrar mensaje completo</string>
     <string name="title_unused_inline">Las imágenes embebidas no usadas serán eliminadas al enviar</string>
     <string name="title_accross_remark">Los mensajes movidos a otras cuentas serán descargados nuevamente causando uso adicional de datos</string>
     <string name="title_raw_saved">Mensaje raw guardado</string>

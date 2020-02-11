@@ -86,15 +86,15 @@
     <string name="menu_setup">Einstellungen</string>
     <string name="menu_legend">Symbolerklärung</string>
     <string name="menu_test">Test-Programm</string>
-    <string name="menu_faq">FAQ</string>
-    <string name="menu_translate">Hilf beim Übersetzen</string>
+    <string name="menu_faq">Hilfe</string>
+    <string name="menu_translate">Übersetzen helfen</string>
     <string name="menu_issue">Problem melden</string>
     <string name="menu_attribution">Danksagungen</string>
     <string name="menu_privacy">Datenschutz</string>
     <string name="menu_about">Über</string>
     <string name="menu_pro">Pro-Funktionen</string>
     <string name="menu_invite">Einladen</string>
-    <string name="menu_rate">Bewerte die App</string>
+    <string name="menu_rate">App bewerten</string>
     <string name="menu_other">Weitere Apps</string>
     <string name="title_welcome">Willkommen</string>
     <string name="title_eula">Endbenutzer-Lizenzvereinbarung</string>
@@ -146,7 +146,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_setup_identity_hint">Um Namen, Farbe, Signatur etc. zu ändern</string>
     <string name="title_setup_permissions">Berechtigungen erteilen</string>
     <string name="title_setup_permissions_remark">Um auf Kontaktinformationen zuzugreifen (optional)</string>
-    <string name="title_setup_doze">Akku-Optimierung einrichten</string>
+    <string name="title_setup_doze">Akkuoptimierungen einrichten</string>
     <string name="title_setup_doze_remark">Um kontinuierlich E-Mails zu empfangen (optional)</string>
     <string name="title_setup_doze_instructions">Rufen Sie im folgendem Auswahldialog (oben) \"Alle Apps\" auf; wählen Sie anschließend FairEmail aus und bestätigen Sie die Option \"Nicht optimieren\" mit Fertig.</string>
     <string name="title_setup_doze_battery">Hoher Akkuverbrauch?</string>
@@ -241,7 +241,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_socks">SOCKS Proxy verwenden</string>
     <string name="title_advanced_manage_connectivity">Konnektivität verwalten</string>
     <string name="title_advanced_landscape">Zwei Spalten im Querformat verwenden</string>
-    <string name="title_advanced_landscape3">Fixiertes Navigationsmenü im Querformat erlauben</string>
+    <string name="title_advanced_landscape3">Festes Navigationsmenü im Querformat erlauben</string>
     <string name="title_advanced_startup">Auf Startbildschirm anzeigen</string>
     <string name="title_advanced_cards">Ordner und Unterhaltungen mit Rahmen (breit) statt in Tabellendesign (schmal) zeigen</string>
     <string name="title_advanced_date_header">Nach Datum gruppieren</string>
@@ -251,7 +251,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_color_stripe">Farbstreifen anzeigen</string>
     <string name="title_advanced_avatars">Kontaktfotos anzeigen</string>
     <string name="title_advanced_gravatars">Gravatare anzeigen</string>
-    <string name="title_advanced_generated_icons">Zeige generierte Symbole (Anfangsbuchstaben)</string>
+    <string name="title_advanced_generated_icons">Anfangsbuchstabensymbole anzeigen</string>
     <string name="title_advanced_identicons">Identicons als Kontaktbilder anzeigen</string>
     <string name="title_advanced_circular">Runde Symbole anzeigen</string>
     <string name="title_advanced_color_saturation">Sättigung</string>
@@ -324,7 +324,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_biometrics_notify">Benachrichtigungsinhalt bei Nutzung der biometrischen Authentifizierung anzeigen</string>
     <string name="title_advanced_light">Benachrichtigungslicht verwenden</string>
     <string name="title_advanced_sound">Benachrichtigungston auswählen</string>
-    <string name="title_advanced_confirm_links">Öffnungslinks bestätigen</string>
+    <string name="title_advanced_confirm_links">Öffnende Verknüpfungen bestätigen</string>
     <string name="title_advanced_confirm_images">Bilder anzeigen bestätigen</string>
     <string name="title_advanced_confirm_html">Standardmäßig reformatierte Nachrichten anzeigen</string>
     <string name="title_advanced_tracking">Tracking-Bilder automatisch erkennen und deaktivieren</string>
@@ -342,7 +342,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_manage_certificates">Öffentliche Schlüssel verwalten</string>
     <string name="title_advanced_import_key">Privaten Schlüssel importieren</string>
     <string name="title_advanced_manage_keys">Private Schlüssel verwalten</string>
-    <string name="title_advanced_external_search">Erlaube anderen Apps, in Nachrichten zu suchen</string>
+    <string name="title_advanced_external_search">Anderen Apps erlauben in Nachrichten zu suchen</string>
     <string name="title_advanced_fts">Suchindex erstellen</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d Nachrichten indiziert (%3$s)</string>
     <string name="title_advanced_english">Englische Sprache erzwingen</string>
@@ -800,7 +800,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_rule_cc">Den CC-Adressen antworten</string>
     <string name="title_rule_name_missing">Regelname fehlt</string>
     <string name="title_rule_condition_missing">Voraussetzung fehlt</string>
-    <string name="title_rule_automation_hint">Sende den Intent \'%1$s\' mit den Extras \'%2$s\'</string>
+    <string name="title_rule_automation_hint">Das wird den Intent »%1$s« mit den Extras »%2$s« senden</string>
     <string name="title_rule_execute">Jetzt ausführen</string>
     <string name="title_rule_applied">Betroffene Nachrichten: %1$d</string>
     <string name="title_rule_check">Prüfen</string>
@@ -978,7 +978,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_unexpected_error">Unerwarteter Fehler</string>
     <string name="title_log">Protokoll</string>
     <string name="title_auto_scroll">Automatisches Blättern</string>
-    <string name="title_log_clear">Log leeren</string>
+    <string name="title_log_clear">Protokoll leeren</string>
     <string name="title_debug_info">Debuginformationen</string>
     <string name="title_debug_info_remark">Bitte beschreiben Sie das Problem und zu welchem Zeitpunkt es aufgetreten ist:</string>
     <string name="title_crash_info_remark">Bitte beschreiben Sie, was Sie getan haben, während die App abgestürzt ist:</string>
@@ -1062,7 +1062,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string-array name="onCloseNames">
         <item>Nichts tun</item>
         <item>Gehe zu vorheriger Unterhaltung</item>
-        <item>Gehe zur nächsten Unterhaltung</item>
+        <item>Zur nächsten Unterhaltung gehen</item>
     </string-array>
     <string-array name="resizeNames">
         <item>Klein</item>

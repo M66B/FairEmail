@@ -606,6 +606,8 @@
     <string name="title_no_format">Le message reçu initialement sera inclus</string>
     <string name="title_no_image">L\'image n\'a pas pu être décodée</string>
     <string name="title_no_search">La recherche sur le serveur n\'est pas disponible pour ce compte</string>
+    <string name="title_too_large">Message trop volumineux pour être complètement reformaté</string>
+    <string name="title_show_full">Afficher le message complet</string>
     <string name="title_unused_inline">Les images incluses inutilisées seront supprimées lors de l\'envoi</string>
     <string name="title_accross_remark">Les messages déplacés entre comptes seront téléchargés à nouveau entraînant une utilisation supplémentaire des données</string>
     <string name="title_raw_saved">Message brut enregistré</string>

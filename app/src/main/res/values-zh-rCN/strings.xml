@@ -593,6 +593,8 @@
     <string name="title_no_format">将包含最初收到的消息</string>
     <string name="title_no_image">无法解码图像</string>
     <string name="title_no_search">在服务器上搜索对该账户不可用</string>
+    <string name="title_too_large">消息太大，不能完全重写格式</string>
+    <string name="title_show_full">显示完整消息</string>
     <string name="title_unused_inline">未使用的内联图像将在发送时被删除</string>
     <string name="title_accross_remark">App会再次下载在不同账户间移动的消息，这将导致额外的数据使用</string>
     <string name="title_raw_saved">原始消息已保存</string>
