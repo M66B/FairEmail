@@ -3213,7 +3213,7 @@ class Core {
                 String text = null;
                 try {
                     String html = Helper.readText(message.getFile(context));
-                    text = HtmlHelper.getText(html);
+                    text = HtmlHelper.getPreviewText(html);
                 } catch (Throwable ex) {
                     Log.e(ex);
                     text = message.preview;

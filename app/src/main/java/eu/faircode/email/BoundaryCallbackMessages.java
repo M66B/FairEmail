@@ -252,7 +252,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                 if (file.exists()) {
                                     String html = Helper.readText(file);
                                     if (html.toLowerCase(Locale.ROOT).contains(find)) {
-                                        String text = HtmlHelper.getText(html);
+                                        String text = HtmlHelper.getPreviewText(html);
                                         if (text.toLowerCase(Locale.ROOT).contains(find))
                                             match.matched = true;
                                     }

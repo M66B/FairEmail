@@ -1070,6 +1070,10 @@ public class HtmlHelper {
         return preview;
     }
 
+    static String getPreviewText(String html) {
+        return JsoupEx.parse(html).text();
+    }
+
     static String getText(String html) {
         final StringBuilder sb = new StringBuilder();
 
