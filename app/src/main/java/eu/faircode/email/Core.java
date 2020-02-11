@@ -3415,8 +3415,11 @@ class Core {
             maxConnections = false;
             lastActivity = null;
             synchronized (this) {
-                for (FolderPriority key : sequence.keySet())
+                for (FolderPriority key : sequence.keySet()) {
                     batch.put(key, sequence.get(key));
+                    if (BuildConfig.DEBUG)
+                        Log.i("=== Reset " + key.folder + ":" + key.priority + " batch=" + batch.get(key));
+                }
             }
         }
 
