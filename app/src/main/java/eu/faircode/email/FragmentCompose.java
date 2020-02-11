@@ -159,7 +159,6 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
-import java.util.concurrent.ExecutorService;
 import java.util.regex.Pattern;
 
 import javax.activation.DataHandler;
@@ -251,9 +250,6 @@ public class FragmentCompose extends FragmentBase {
     private String[] pgpUserIds;
     private long[] pgpKeyIds;
     private long pgpSignKeyId;
-
-    private static final ExecutorService precompute =
-            Helper.getBackgroundExecutor(1, "precompute");
 
     static final int REDUCED_IMAGE_SIZE = 1440; // pixels
     static final int REDUCED_IMAGE_QUALITY = 90; // percent
@@ -4106,7 +4102,7 @@ public class FragmentCompose extends FragmentBase {
                         precomputed = PrecomputedTextCompat.getTextFuture(
                                 spannedRef,
                                 TextViewCompat.getTextMetricsParams(tvReference),
-                                precompute)
+                                null)
                                 .get();
                     } catch (Throwable ex) {
                         Log.w(ex);

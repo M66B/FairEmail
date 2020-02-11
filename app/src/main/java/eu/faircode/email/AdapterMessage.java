@@ -244,8 +244,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     private static final ExecutorService executor =
             Helper.getBackgroundExecutor(2, "differ");
-    private static final ExecutorService precompute =
-            Helper.getBackgroundExecutor(1, "precompute");
 
     // https://github.com/newhouse/url-tracking-stripper
     private static final List<String> PARANOID_QUERY = Collections.unmodifiableList(Arrays.asList(
@@ -1813,7 +1811,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             return PrecomputedTextCompat.getTextFuture(
                                     builder,
                                     TextViewCompat.getTextMetricsParams(tvBody),
-                                    precompute)
+                                    executor)
                                     .get();
                         } catch (Throwable ex) {
                             Log.w(ex);
