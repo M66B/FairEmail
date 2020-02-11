@@ -428,6 +428,7 @@
     <string name="title_port">端口号</string>
     <string name="title_user">用户名</string>
     <string name="title_password">密码</string>
+    <string name="title_client_certificate">客户端证书</string>
     <string name="title_realm">移动数据库</string>
     <string name="title_use_ip">使用本地IP地址而非主机名</string>
     <string name="title_primary_account">主账户 (默认帐户)</string>
@@ -592,6 +593,7 @@
     <string name="title_no_format">将包含最初收到的消息</string>
     <string name="title_no_image">无法解码图像</string>
     <string name="title_no_search">在服务器上搜索对该账户不可用</string>
+    <string name="title_show_more">显示更多 &#8230;</string>
     <string name="title_unused_inline">未使用的内联图像将在发送时被删除</string>
     <string name="title_accross_remark">App会再次下载在不同账户间移动的消息，这将导致额外的数据使用</string>
     <string name="title_raw_saved">原始消息已保存</string>
