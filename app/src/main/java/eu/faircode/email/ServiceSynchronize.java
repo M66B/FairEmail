@@ -1231,8 +1231,12 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                                         ifolder.open(Folder.READ_WRITE);
 
                                                                         db.folder().setFolderState(folder.id, "connected");
-
                                                                         db.folder().setFolderError(folder.id, null);
+
+                                                                        int count = ifolder.getMessageCount();
+                                                                        db.folder().setFolderTotal(folder.id, count < 0 ? null : count);
+
+                                                                        Log.i(account.name + " folder " + folder.name + " flags=" + ifolder.getPermanentFlags());
                                                                     }
 
                                                                     Core.processOperations(ServiceSynchronize.this,
