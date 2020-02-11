@@ -485,10 +485,10 @@ class Core {
 
             if (ops.size() == 0)
                 state.batchCompleted(folder.id, priority, sequence);
-            else // Check account/folder
+            else // abort
                 state.error(new OperationCanceledException());
         } finally {
-            Log.i(folder.name + " end process state=" + state);
+            Log.i(folder.name + " end process state=" + state + " pending=" + ops.size());
         }
     }
 
@@ -3396,6 +3396,9 @@ class Core {
             if (ex instanceof IllegalStateException && (
                     "Not connected".equals(ex.getMessage()) ||
                             "This operation is not allowed on a closed folder".equals(ex.getMessage())))
+                recoverable = false;
+
+            if (ex instanceof OperationCanceledException)
                 recoverable = false;
 
             thread.interrupt();
