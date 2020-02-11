@@ -141,7 +141,7 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
         tvPending.setVisibility(View.GONE);
         tvActivated.setVisibility(View.GONE);
         cbHide.setVisibility(View.GONE);
-        btnPurchase.setEnabled(false);
+        btnPurchase.setEnabled(!Helper.isPlayStoreInstall());
         tvPrice.setText(null);
         btnCheck.setEnabled(false);
         btnCheck.setVisibility(Helper.isPlayStoreInstall() && debug ? View.VISIBLE : View.GONE);
@@ -225,9 +225,6 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
             boolean pro = ActivityBilling.isPro(getContext());
             tvActivated.setVisibility(pro ? View.VISIBLE : View.GONE);
             cbHide.setVisibility(pro ? View.GONE : View.VISIBLE);
-
-            if (!Helper.isPlayStoreInstall())
-                btnPurchase.setEnabled(!pro || BuildConfig.DEBUG);
         } else if ("banner".equals(key))
             cbHide.setChecked(!prefs.getBoolean(key, true));
     }
