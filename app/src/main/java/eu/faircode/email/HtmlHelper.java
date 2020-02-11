@@ -730,13 +730,19 @@ public class HtmlHelper {
             document.normalise();
         }
 
-        if (length > MAX_TEXT_SIZE)
+        if (length > MAX_TEXT_SIZE) {
+            document.body()
+                    .appendElement("p")
+                    .appendElement("em")
+                    .text(context.getString(R.string.title_too_large));
+
             document.body()
                     .appendElement("p")
                     .appendElement("big")
                     .appendElement("a")
-                    .attr("href", "more:")
-                    .text(context.getString(R.string.title_show_more));
+                    .attr("href", "full:")
+                    .text(context.getString(R.string.title_show_full));
+        }
 
         return document;
     }

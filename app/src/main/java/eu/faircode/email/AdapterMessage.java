@@ -3472,7 +3472,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
             } else {
-                if ("more".equals(uri.getScheme())) {
+                if ("full".equals(uri.getScheme())) {
                     TupleMessageEx message = getMessage();
                     if (message != null)
                         onShow(message, true);
