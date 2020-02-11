@@ -126,8 +126,8 @@ class Core {
     private static final int DOWNLOAD_BATCH_SIZE = 20;
     private static final long YIELD_DURATION = 200L; // milliseconds
     private static final long FUTURE_RECEIVED = 30 * 24 * 3600 * 1000L; // milliseconds
-    private static final int OPERATION_RETRY_MAX = 10;
-    private static final long OPERATION_RETRY_DELAY = 15 * 1000L; // milliseconds
+    private static final int OPERATION_RETRY_MAX = 3;
+    private static final long OPERATION_RETRY_DELAY = 10 * 1000L; // milliseconds
 
     static void processOperations(
             Context context,
@@ -143,7 +143,8 @@ class Core {
             int retry = 0;
             boolean group = true;
             Log.i(folder.name + " executing operations=" + ops.size());
-            while (retry < OPERATION_RETRY_MAX && ops.size() > 0 && state.isRunning() && state.isRecoverable()) {
+            while (retry < OPERATION_RETRY_MAX && ops.size() > 0 &&
+                    state.isRunning() && state.isRecoverable() && ifolder.isOpen()) {
                 TupleOperationEx op = ops.get(0);
 
                 try {
@@ -481,19 +482,9 @@ class Core {
                 }
             }
 
-            if (state.isRunning() && state.isRecoverable())
-                try {
-                    db.beginTransaction();
-                    for (TupleOperationEx op : ops) {
-                        Log.e("Operation=" + op.name + " error=" + op.error);
-                        op.cleanup(context);
-                        db.operation().deleteOperation(op.id);
-                    }
-
-                    db.setTransactionSuccessful();
-                } finally {
-                    db.endTransaction();
-                }
+            if (state.isRunning() && state.isRecoverable() && ifolder.isOpen())
+                for (TupleOperationEx op : ops)
+                    Log.e("Operation=" + op.name + " error=" + op.error);
 
         } finally {
             Log.i(folder.name + " end process state=" + state);
