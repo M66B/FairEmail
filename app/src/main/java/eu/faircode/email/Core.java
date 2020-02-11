@@ -30,6 +30,7 @@ import android.database.sqlite.SQLiteConstraintException;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.OperationCanceledException;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Pair;
@@ -386,8 +387,6 @@ class Core {
                         Log.e(folder.name, ex);
                         EntityLog.log(context, folder.name + " " + Log.formatThrowable(ex, false));
 
-                        state.error(ex);
-
                         if (similar.size() > 0) {
                             // Retry individually
                             group = false;
@@ -482,10 +481,9 @@ class Core {
                 }
             }
 
-            if (state.isRunning() && state.isRecoverable() && ifolder.isOpen())
-                for (TupleOperationEx op : ops)
-                    Log.e("Operation=" + op.name + " error=" + op.error);
-
+            // Check account/folder
+            if (ops.size() > 0)
+                state.error(new OperationCanceledException());
         } finally {
             Log.i(folder.name + " end process state=" + state);
         }
