@@ -95,7 +95,10 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
             view.setAlpha(operation.synchronize ? 1.0f : Helper.LOW_LIGHT);
 
             StringBuilder sb = new StringBuilder();
-            sb.append(operation.name).append(':').append(operation.priority);
+            sb
+                    .append(operation.name).append(':')
+                    .append(operation.priority).append("/")
+                    .append(operation.tries);
             try {
                 JSONArray jarray = new JSONArray(operation.args);
                 if (jarray.length() > 0)

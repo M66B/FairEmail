@@ -128,8 +128,9 @@ class Core {
     private static final int DOWNLOAD_BATCH_SIZE = 20;
     private static final long YIELD_DURATION = 200L; // milliseconds
     private static final long FUTURE_RECEIVED = 30 * 24 * 3600 * 1000L; // milliseconds
-    private static final int OPERATION_RETRY_MAX = 3;
-    private static final long OPERATION_RETRY_DELAY = 10 * 1000L; // milliseconds
+    private static final int LOCAL_RETRY_MAX = 3;
+    private static final long LOCAL_RETRY_DELAY = 10 * 1000L; // milliseconds
+    private static final int TOTAL_RETRY_MAX = LOCAL_RETRY_MAX * 10;
 
     static void processOperations(
             Context context,
@@ -145,7 +146,7 @@ class Core {
             int retry = 0;
             boolean group = true;
             Log.i(folder.name + " executing operations=" + ops.size());
-            while (retry < OPERATION_RETRY_MAX && ops.size() > 0 &&
+            while (retry < LOCAL_RETRY_MAX && ops.size() > 0 &&
                     state.batchCanRun(folder.id, priority, sequence) &&
                     state.isRunning() && state.isRecoverable()) {
                 TupleOperationEx op = ops.get(0);
@@ -246,6 +247,7 @@ class Core {
                         try {
                             db.beginTransaction();
 
+                            db.operation().setOperationTries(op.id, ++op.tries);
                             db.operation().setOperationError(op.id, null);
 
                             if (message != null)
@@ -387,12 +389,22 @@ class Core {
                             ops.remove(s);
                     } catch (Throwable ex) {
                         Log.e(folder.name, ex);
-                        EntityLog.log(context, folder.name + " " + Log.formatThrowable(ex, false));
+                        EntityLog.log(context, folder.name +
+                                " op=" + op.name + " " +
+                                " try=" + op.tries + " " +
+                                Log.formatThrowable(ex, false));
 
                         if (similar.size() > 0) {
                             // Retry individually
                             group = false;
                             // Finally will reset state
+                            continue;
+                        }
+
+                        if (op.tries >= TOTAL_RETRY_MAX) {
+                            // Giving up
+                            db.operation().deleteOperation(op.id);
+                            ops.remove(op);
                             continue;
                         }
 
@@ -457,9 +469,9 @@ class Core {
                             ops.remove(op);
                         } else {
                             retry++;
-                            if (retry < OPERATION_RETRY_MAX)
+                            if (retry < LOCAL_RETRY_MAX)
                                 try {
-                                    Thread.sleep(OPERATION_RETRY_DELAY);
+                                    Thread.sleep(LOCAL_RETRY_DELAY);
                                 } catch (InterruptedException ex1) {
                                     Log.w(ex1);
                                 }

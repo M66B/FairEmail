@@ -1015,10 +1015,11 @@ public class Log {
             DateFormat TF = Helper.getTimeInstance(context);
 
             for (EntityOperation op : db.operation().getOperations())
-                size += write(os, String.format("%s %d %s %s %s\r\n",
+                size += write(os, String.format("%s %d %s/%d %s %s\r\n",
                         TF.format(op.created),
                         op.message == null ? -1 : op.message,
                         op.name,
+                        op.tries,
                         op.args,
                         op.error));
         }

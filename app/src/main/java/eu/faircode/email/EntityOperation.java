@@ -75,6 +75,8 @@ public class EntityOperation {
     public String args;
     @NonNull
     public Long created;
+    @NonNull
+    public int tries = 0;
     public String state;
     public String error;
 
