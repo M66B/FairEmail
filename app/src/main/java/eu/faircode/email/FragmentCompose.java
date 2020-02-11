@@ -2935,12 +2935,25 @@ public class FragmentCompose extends FragmentBase {
                                         if (recognized != null) {
                                             Address same = null;
                                             Address similar = null;
+
                                             for (Address from : data.draft.from) {
                                                 if (same == null && recognized.sameAddress(from))
                                                     same = from;
                                                 if (similar == null && recognized.similarAddress(from))
                                                     similar = from;
                                             }
+
+                                            if (ref.deliveredto != null)
+                                                try {
+                                                    Address deliveredto = new InternetAddress(ref.deliveredto);
+                                                    if (same == null && recognized.sameAddress(deliveredto))
+                                                        same = deliveredto;
+                                                    if (similar == null && recognized.similarAddress(deliveredto))
+                                                        similar = deliveredto;
+                                                } catch (AddressException ex) {
+                                                    Log.w(ex);
+                                                }
+
                                             preferred = (same == null ? similar : same);
                                         }
                                     }
