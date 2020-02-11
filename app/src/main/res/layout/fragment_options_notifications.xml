@@ -192,6 +192,29 @@
             app:layout_constraintTop_toBottomOf="@id/swNotifyPreview" />
 
         <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swNotifyPreviewAll"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_notify_preview_all"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvNotifyPreviewHint"
+            app:switchPadding="12dp" />
+
+        <TextView
+            android:id="@+id/tvNotifyPreviewAllHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_notify_preview_all_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swNotifyPreviewAll" />
+
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swWearablePreview"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -199,7 +222,7 @@
             android:text="@string/title_advanced_wearable_preview"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvNotifyPreviewHint"
+            app:layout_constraintTop_toBottomOf="@id/tvNotifyPreviewAllHint"
             app:switchPadding="12dp" />
 
         <TextView
