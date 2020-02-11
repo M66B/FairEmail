@@ -2774,9 +2774,11 @@ public class FragmentCompose extends FragmentBase {
                                 break;
                             }
 
-                    if (data.draft.from != null && data.draft.from.length > 0) {
+                    Address[] refto = (ref == null ? null
+                            : ref.replySelf(data.identities, ref.account) ? ref.from : ref.to);
+                    if (refto != null && refto.length > 0) {
                         if (selected == null)
-                            for (Address sender : data.draft.from)
+                            for (Address sender : refto)
                                 for (EntityIdentity identity : data.identities)
                                     if (identity.account.equals(aid) &&
                                             identity.sameAddress(sender)) {
@@ -2786,7 +2788,7 @@ public class FragmentCompose extends FragmentBase {
                                     }
 
                         if (selected == null)
-                            for (Address sender : data.draft.from)
+                            for (Address sender : refto)
                                 for (EntityIdentity identity : data.identities)
                                     if (identity.account.equals(aid) &&
                                             identity.similarAddress(sender)) {
@@ -2796,7 +2798,7 @@ public class FragmentCompose extends FragmentBase {
                                     }
 
                         if (selected == null)
-                            for (Address sender : data.draft.from)
+                            for (Address sender : refto)
                                 for (EntityIdentity identity : data.identities)
                                     if (identity.sameAddress(sender)) {
                                         selected = identity;
@@ -2805,7 +2807,7 @@ public class FragmentCompose extends FragmentBase {
                                     }
 
                         if (selected == null)
-                            for (Address sender : data.draft.from)
+                            for (Address sender : refto)
                                 for (EntityIdentity identity : data.identities)
                                     if (identity.similarAddress(sender)) {
                                         selected = identity;
