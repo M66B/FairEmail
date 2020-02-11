@@ -212,13 +212,6 @@ public class Helper {
         protected void beforeExecute(Thread t, Runnable r) {
             Log.d("Executing " + t.getName());
         }
-
-        @Override
-        public void shutdown() {
-            Log.i("Shutdown " + name);
-            super.getQueue().clear();
-            super.shutdown();
-        }
     }
 
     private static class PriorityFuture<T> implements RunnableFuture<T> {
