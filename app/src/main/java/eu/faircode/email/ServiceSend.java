@@ -257,6 +257,8 @@ public class ServiceSend extends ServiceBase {
                                 " msg=" + op.message +
                                 " args=" + op.args);
 
+                        db.operation().setOperationState(op.id, "executing");
+
                         Map<String, String> crumb = new HashMap<>();
                         crumb.put("name", op.name);
                         crumb.put("args", op.args);
@@ -306,6 +308,7 @@ public class ServiceSend extends ServiceBase {
                             throw ex;
                     } finally {
                         Log.i(outbox.name + " end op=" + op.id + "/" + op.name);
+                        db.operation().setOperationState(op.id, null);
                     }
 
                     if (!ConnectionHelper.getNetworkState(this).isSuitable())
