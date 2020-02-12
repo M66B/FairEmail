@@ -969,6 +969,8 @@ public class Log {
                 NetworkCapabilities caps = cm.getNetworkCapabilities(network);
                 size += write(os, (network.equals(active) ? "active=" : "network=") + network + " capabilities=" + caps + "\r\n\r\n");
             }
+
+            size += write(os, "VPN active=" + ConnectionHelper.vpnActive(context) + "\r\n\r\n");
         }
 
         db.attachment().setDownloaded(attachment.id, size);

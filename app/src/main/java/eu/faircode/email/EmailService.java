@@ -14,6 +14,8 @@ import androidx.preference.PreferenceManager;
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPStore;
 import com.sun.mail.smtp.SMTPTransport;
+import com.sun.mail.util.MailConnectException;
+import com.sun.mail.util.SocketConnectException;
 
 import net.openid.appauth.AuthState;
 import net.openid.appauth.AuthorizationException;
@@ -327,6 +329,18 @@ public class EmailService implements AutoCloseable {
                 AuthState authState = OAuthRefresh(context, provider, password);
                 connect(host, port, user, authState.getAccessToken(), factory);
                 return authState.jsonSerializeString();
+            } else
+                throw ex;
+        } catch (MailConnectException ex) {
+            if (ConnectionHelper.vpnActive(context)) {
+                MailConnectException mex = new MailConnectException(new SocketConnectException(
+                        "The might be caused by the VPN in use",
+                        new Exception(),
+                        ex.getHost(),
+                        ex.getPort(),
+                        ex.getConnectionTimeout()));
+                mex.setNextException(ex.getNextException());
+                throw mex;
             } else
                 throw ex;
         }

@@ -277,6 +277,24 @@ public class ConnectionHelper {
         return true;
     }
 
+    static boolean vpnActive(Context context) {
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (cm == null)
+            return false;
+
+        try {
+            for (Network network : cm.getAllNetworks()) {
+                NetworkCapabilities caps = cm.getNetworkCapabilities(network);
+                if (caps != null && caps.hasTransport(NetworkCapabilities.TRANSPORT_VPN))
+                    return true;
+            }
+        } catch (Throwable ex) {
+            Log.w(ex);
+        }
+
+        return false;
+    }
+
     static boolean airplaneMode(Context context) {
         return Settings.System.getInt(context.getContentResolver(),
                 Settings.Global.AIRPLANE_MODE_ON, 0) != 0;
