@@ -1867,9 +1867,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             EntityMessage.PGP_SIGNONLY.equals(message.encrypt) ||
                             EntityMessage.SMIME_SIGNONLY.equals(message.encrypt)
                             ? View.VISIBLE : View.GONE);
+                    ibDecrypt.setImageResource(false ||
+                            (EntityMessage.PGP_SIGNENCRYPT.equals(message.ui_encrypt) &&
+                                    !EntityMessage.PGP_SIGNENCRYPT.equals(message.encrypt)) ||
+                            (EntityMessage.SMIME_SIGNENCRYPT.equals(message.ui_encrypt) &&
+                                    !EntityMessage.SMIME_SIGNENCRYPT.equals(message.encrypt))
+                            ? R.drawable.baseline_lock_24 : R.drawable.baseline_lock_open_24
+                    );
                     ibDecrypt.setVisibility(args.getBoolean("inline_encrypted") ||
-                            EntityMessage.PGP_SIGNENCRYPT.equals(message.encrypt) ||
-                            EntityMessage.SMIME_SIGNENCRYPT.equals(message.encrypt)
+                            EntityMessage.PGP_SIGNENCRYPT.equals(message.ui_encrypt) ||
+                            EntityMessage.SMIME_SIGNENCRYPT.equals(message.ui_encrypt)
                             ? View.VISIBLE : View.GONE);
 
                     boolean signed_data = args.getBoolean("signed_data");
@@ -2317,8 +2324,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         onActionJunk(message);
                         break;
                     case R.id.ibVerify:
-                    case R.id.ibDecrypt:
                         onActionDecrypt(message, false);
+                        break;
+                    case R.id.ibDecrypt:
+                        boolean lock =
+                                (EntityMessage.PGP_SIGNENCRYPT.equals(message.ui_encrypt) &&
+                                        !EntityMessage.PGP_SIGNENCRYPT.equals(message.encrypt)) ||
+                                        (EntityMessage.SMIME_SIGNENCRYPT.equals(message.ui_encrypt) &&
+                                                !EntityMessage.SMIME_SIGNENCRYPT.equals(message.encrypt));
+                        if (lock)
+                            onMenuResync(message);
+                        else
+                            onActionDecrypt(message, false);
                         break;
 
                     case R.id.ibDownloading:
