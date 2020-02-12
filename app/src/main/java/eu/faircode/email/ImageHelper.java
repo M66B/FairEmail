@@ -431,9 +431,9 @@ class ImageHelper {
             if (semaphore.tryAcquire(FIT_DRAWABLE_TIMEOUT, TimeUnit.MILLISECONDS)) {
                 long elapsed = new Date().getTime() - start;
                 if (elapsed > FIT_DRAWABLE_WARNING)
-                    Log.e("fitDrawable failed elapsed=" + elapsed);
+                    Log.i("fitDrawable failed elapsed=" + elapsed);
             } else
-                Log.e("fitDrawable failed timeout=" + FIT_DRAWABLE_TIMEOUT);
+                Log.i("fitDrawable failed timeout=" + FIT_DRAWABLE_TIMEOUT);
         } catch (InterruptedException ex) {
             Log.w(ex);
         }
