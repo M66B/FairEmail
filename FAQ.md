@@ -2134,8 +2134,10 @@ category:forums
 category:promotions
 ```
 
-Pull down the folders list in FairEmail to refresh the folder list
-and long press the category folders to enable synchronization.
+Unfortunately, this is not possible for snoozed messages folder.
+
+You can use *Force sync* in the three-dots menu of the unified inbox to let FairEmail synchronize the folder list again
+and you can long press the folders to enable synchronization.
 
 <br />
 
@@ -2463,11 +2465,7 @@ Reformatting and displaying such messages will take too long. You can try to use
 <a name="faq125"></a>
 **(125) What are the current experimental features?**
 
-The current experimental features are:
-
-* Small, dimmed unread / read icon at the bottom of the messages to quicly toggle filtering of read messages
-* Small, dimmed starred / unstarred icon at the bottom of the messages to quicly toggle filtering of starred messages
-* Small, dimmed infinite / timelapse icon at the bottom of the messages to quicly toggle filtering of snoozed messages
+Currently, there are no experimental features.
 
 <br />
 
@@ -2489,6 +2487,9 @@ it is not possible to guarantee that a new message notification with a preview t
 If you think this is good enough, you can enable the notification option *Only send notifications with a message preview to wearables*.
 It is a good idea to review the connection setting *Automatically download messages and attachments on a metered connection up to ...* as well.
 For some odd reason notifications will work on [WearOS](https://wearos.google.com/) with this setting enabled only.
+
+If you want to have the full message text sent to your wearable, you can enable the notification option *Preview all text*.
+Note that some wearables are known to crash with this option enabled.
 
 <br />
 
