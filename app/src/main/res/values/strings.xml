@@ -1072,6 +1072,7 @@
     <string name="title_snooze_now">Snooze</string>
     <string name="title_loading">Loading &#8230;</string>
     <string name="title_set">Set</string>
+    <string name="title_fetching_again">Fetching message again from the server</string>
 
     <string name="title_icalendar_accept">Accept</string>
     <string name="title_icalendar_decline">Decline</string>

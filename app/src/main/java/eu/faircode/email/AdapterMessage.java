@@ -3716,6 +3716,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
 
                 @Override
+                protected void onExecuted(Bundle args, Void data) {
+                    ToastEx.makeText(context, R.string.title_fetching_again, Toast.LENGTH_LONG).show();
+                }
+
+                @Override
                 protected void onException(Bundle args, Throwable ex) {
                     Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
