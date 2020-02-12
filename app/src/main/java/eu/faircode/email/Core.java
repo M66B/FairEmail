@@ -253,11 +253,9 @@ class Core {
                             if (message != null)
                                 db.message().setMessageError(message.id, null);
 
-                            if (!EntityOperation.SYNC.equals(op.name)) {
-                                db.operation().setOperationState(op.id, "executing");
-                                for (TupleOperationEx s : similar.keySet())
-                                    db.operation().setOperationState(s.id, "executing");
-                            }
+                            db.operation().setOperationState(op.id, "executing");
+                            for (TupleOperationEx s : similar.keySet())
+                                db.operation().setOperationState(s.id, "executing");
 
                             db.setTransactionSuccessful();
                         } finally {
