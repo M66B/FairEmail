@@ -329,6 +329,7 @@
     <string name="title_advanced_unseen_ignored">Niech liczba nowych wiadomości odpowiada liczbie powiadomień</string>
     <string name="title_advanced_notify_summary">Pokaż tylko podsumowanie</string>
     <string name="title_advanced_notify_preview">Pokaż podgląd wiadomości w powiadomieniach</string>
+    <string name="title_advanced_notify_preview_all">Podgląd całego tekstu</string>
     <string name="title_advanced_notify_actions">Akcje powiadomień</string>
     <string name="title_advanced_notify_action_trash">Kosz</string>
     <string name="title_advanced_notify_action_junk">Spam</string>
@@ -418,6 +419,7 @@
     <string name="title_advanced_notify_manage_hint">Dotknij nazwę kanału, aby ustawić właściwości kanału</string>
     <string name="title_advanced_notify_manage_default_hint">Aby ustawić domyślny dźwięk, itp.</string>
     <string name="title_advanced_notify_manage_service_hint">Aby wyłączyć stałe powiadomienie</string>
+    <string name="title_advanced_notify_preview_all_hint">Dla urządzeń do noszenia, które mogą wyświetlać pełny tekst (do 5000 znaków)</string>
     <string name="title_advanced_wearable_hint">Powiadomienia są wysyłane na urządzenie do noszenia tylko po pobraniu treści wiadomości</string>
     <string name="title_advanced_move_hint">Folder docelowy można skonfigurować w ustawieniach konta</string>
     <string name="title_advanced_notify_no_grouping">Ta wersja Androida nie obsługuje grupowania powiadomień</string>
@@ -462,6 +464,7 @@
     <string name="title_port">Numer portu</string>
     <string name="title_user">Nazwa użytkownika</string>
     <string name="title_password">Hasło</string>
+    <string name="title_client_certificate">Certyfikat klienta</string>
     <string name="title_realm">Realm</string>
     <string name="title_use_ip">Użyj lokalnego adresu IP zamiast nazwy hosta</string>
     <string name="title_primary_account">Podstawowe (domyślne konto)</string>
@@ -626,6 +629,8 @@
     <string name="title_no_format">Oryginalnie odebrana wiadomość zostanie dołączona</string>
     <string name="title_no_image">Nie można zdekodować obrazu</string>
     <string name="title_no_search">Wyszukiwanie na serwerze nie jest dostępne dla tego konta</string>
+    <string name="title_too_large">Wiadomość jest zbyt duża, aby całkowicie sformatować</string>
+    <string name="title_show_full">Pokaż pełną wiadomość</string>
     <string name="title_unused_inline">Niewykorzystane wstawione obrazy zostaną usunięte podczas wysyłania</string>
     <string name="title_accross_remark">Wiadomości przenoszone pomiędzy kontami zostaną pobrane ponownie, wpływając na dodatkowe użycie danych</string>
     <string name="title_raw_saved">Zapisano nieprzetworzoną wiadomość</string>
@@ -734,6 +739,7 @@
     <string name="title_signature_unconfirmed_from">Podpis wiadomości prawidłowy, ale niepotwierdzony: %1$s</string>
     <string name="title_signature_invalid">Nieważny podpis wiadomości</string>
     <string name="title_signature_invalid_reason">Niepoprawny podpis wiadomości: %1$s</string>
+    <string name="title_signature_key_missing">Brakuje klucza</string>
     <string name="title_signature_certificate_invalid">Nieprawidłowy łańcuch certyfikatu</string>
     <string name="title_signature_sender">Adres nadawcy</string>
     <string name="title_signature_email">Adres podpisu</string>

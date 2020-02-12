@@ -307,6 +307,7 @@
     <string name="title_advanced_unseen_ignored">Lascia che il numero di nuovi messaggi corrisponda al numero di notifiche</string>
     <string name="title_advanced_notify_summary">Mostra solo le notifiche di riepilogo</string>
     <string name="title_advanced_notify_preview">Mostra anteprima messaggio nelle notifiche</string>
+    <string name="title_advanced_notify_preview_all">Visualizza tutto il testo</string>
     <string name="title_advanced_notify_actions">Azioni di notifica</string>
     <string name="title_advanced_notify_action_trash">Cestino</string>
     <string name="title_advanced_notify_action_junk">Spam</string>
@@ -396,6 +397,7 @@
     <string name="title_advanced_notify_manage_hint">Tocca il nome del canale per impostare le proprietà del canale</string>
     <string name="title_advanced_notify_manage_default_hint">Per impostare il suono predefinito, ecc</string>
     <string name="title_advanced_notify_manage_service_hint">Per disattivare la notifica permanente</string>
+    <string name="title_advanced_notify_preview_all_hint">Per gli indossabili che possono mostrare il testo completo (fino a 5.000 caratteri)</string>
     <string name="title_advanced_wearable_hint">Le notifiche sono inviate solo a un indossabile dopo che il testo del messaggio è stato scaricato</string>
     <string name="title_advanced_move_hint">La cartella di destinazione può essere configurata nelle impostazioni dell\'account</string>
     <string name="title_advanced_notify_no_grouping">Questa versione Android non supporta il raggruppamento di notifiche</string>
@@ -952,6 +954,7 @@
     <string name="title_snooze_now">Posticipa</string>
     <string name="title_loading">Caricamento &#8230;</string>
     <string name="title_set">Imposta</string>
+    <string name="title_fetching_again">Nuovo recupero messaggio dal server</string>
     <string name="title_icalendar_accept">Accetta</string>
     <string name="title_icalendar_decline">Rifiuta</string>
     <string name="title_icalendar_maybe">Forse</string>

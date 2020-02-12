@@ -308,6 +308,7 @@
     <string name="title_advanced_unseen_ignored">Permitir que el número de mensajes nuevos coincida con el número de notificaciones</string>
     <string name="title_advanced_notify_summary">Mostrar notificación resumen únicamente</string>
     <string name="title_advanced_notify_preview">Mostrar vista previa del mensaje en notificaciones</string>
+    <string name="title_advanced_notify_preview_all">Previsualizar todo el texto</string>
     <string name="title_advanced_notify_actions">Acciones de notificación</string>
     <string name="title_advanced_notify_action_trash">Papelera</string>
     <string name="title_advanced_notify_action_junk">Spam</string>
@@ -397,6 +398,7 @@
     <string name="title_advanced_notify_manage_hint">Toca en el nombre del canal para establecer las propiedades del canal</string>
     <string name="title_advanced_notify_manage_default_hint">Para configurar el sonido por defecto, etc</string>
     <string name="title_advanced_notify_manage_service_hint">Para deshabilitar la notificación permanente</string>
+    <string name="title_advanced_notify_preview_all_hint">Para los wearables que pueden mostrar el texto completo (hasta 5.000 caracteres)</string>
     <string name="title_advanced_wearable_hint">Las notificaciones sólo se envian a dispositivos llevables (wearable) luego de que el texto del mensaje haya sido descargado</string>
     <string name="title_advanced_move_hint">La carpeta destino puede establecerse en la configuración de la cuenta</string>
     <string name="title_advanced_notify_no_grouping">Esta versión de Android no es compatible con la agrupación de notificaciones</string>
@@ -954,6 +956,7 @@
     <string name="title_snooze_now">Posponer</string>
     <string name="title_loading">Cargando &#8230;</string>
     <string name="title_set">Aplicar</string>
+    <string name="title_fetching_again">Recuperando mensaje nuevamente del servidor</string>
     <string name="title_icalendar_accept">Aceptar</string>
     <string name="title_icalendar_decline">Rechazar</string>
     <string name="title_icalendar_maybe">Tal vez</string>

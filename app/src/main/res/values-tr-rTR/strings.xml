@@ -308,6 +308,7 @@
     <string name="title_advanced_unseen_ignored">Yeni iletilerin sayısıyla bildirimlerin sayısının eşleşmesine izin ver</string>
     <string name="title_advanced_notify_summary">Sadece özet bildirimini göster</string>
     <string name="title_advanced_notify_preview">Bildirimlerde ileti önizlemesini göster</string>
+    <string name="title_advanced_notify_preview_all">Tüm metni ön izle</string>
     <string name="title_advanced_notify_actions">Bildirim eylemleri</string>
     <string name="title_advanced_notify_action_trash">Çöp kutusu</string>
     <string name="title_advanced_notify_action_junk">İstenmeyen posta</string>
@@ -397,6 +398,7 @@
     <string name="title_advanced_notify_manage_hint">Kanal özelliklerini ayarlamak için kanal adına dokunun</string>
     <string name="title_advanced_notify_manage_default_hint">Varsayılan sesi ayarlamak için, vs</string>
     <string name="title_advanced_notify_manage_service_hint">Kalıcı bildirimi devre dışı bırakmak için</string>
+    <string name="title_advanced_notify_preview_all_hint">Tüm metni gösterebilen giyilebilir cihazlar için (5.000 karaktere kadar)</string>
     <string name="title_advanced_wearable_hint">Bildirimler, sadece mesaj metni indirildikten sonra giyilebilir cihazlara gönderilmektedir</string>
     <string name="title_advanced_move_hint">Hedef klasörü, hesap ayarlarından yapılandırılabilir</string>
     <string name="title_advanced_notify_no_grouping">Bu Android versiyonu bildirim gruplamayı desteklememektedir</string>

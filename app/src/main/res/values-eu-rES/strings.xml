@@ -307,6 +307,7 @@
     <string name="title_advanced_unseen_ignored">Mezu berri kopurua eta jakinarazpenen kopurua berdina izan dadila</string>
     <string name="title_advanced_notify_summary">Erakutsi laburpen jakinarazpen bat besterik ez</string>
     <string name="title_advanced_notify_preview">Erakutsi mezuaren aurrebista jakinarazpenetan</string>
+    <string name="title_advanced_notify_preview_all">Aurreikusi testu osoa</string>
     <string name="title_advanced_notify_actions">Jakinarazpenen ekintzak</string>
     <string name="title_advanced_notify_action_trash">Zakarrontzia</string>
     <string name="title_advanced_notify_action_junk">Spama</string>
@@ -395,6 +396,7 @@
     <string name="title_advanced_notify_manage_hint">Sakatu kanalaren izenean kanalaren ezaugarriak ezartzeko</string>
     <string name="title_advanced_notify_manage_default_hint">Soinu eta abar lehenetsiak ezartzeko</string>
     <string name="title_advanced_notify_manage_service_hint">Behin betiko jakinarazpenak desgaitzeko</string>
+    <string name="title_advanced_notify_preview_all_hint">Testu osoa erakutsi dezaketen gailu mugikorretarako (5.000 karaktere arte)</string>
     <string name="title_advanced_wearable_hint">Jakinarazpenak bakarrik bidaltzen dira mugikorrera mezuen testua deskargatu ondoren</string>
     <string name="title_advanced_move_hint">Helburuko karpeta kontuaren ezarpenetan konfigura daiteke</string>
     <string name="title_advanced_notify_no_grouping">Android bertsio honek ez du jakinarazpenen taldekatzea onartzen</string>
@@ -604,6 +606,8 @@
     <string name="title_no_format">Jasotako jatorrizko mezua gehituko da</string>
     <string name="title_no_image">Ezin izan da irudia deskodetu</string>
     <string name="title_no_search">Zerbitzariko bilaketa ez dago erabilgarri kontu honetarako</string>
+    <string name="title_too_large">Mezua luzeegia da guztiz birformulatzeko</string>
+    <string name="title_show_full">Erakutsi mezu osoa</string>
     <string name="title_unused_inline">Erabili gabeko txertatutako irudiak kenduko dira bidaltzean</string>
     <string name="title_accross_remark">Kontuen artean mugitutako mezuak berriro deskargatuko dira horrek dakarren datuen erabilera gehigarriarekin</string>
     <string name="title_raw_saved">Mezu gordina gorde da</string>

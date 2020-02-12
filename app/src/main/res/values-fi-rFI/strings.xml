@@ -439,6 +439,7 @@
     <string name="title_port">Porttinumero</string>
     <string name="title_user">Käyttäjätunnus</string>
     <string name="title_password">Salasana</string>
+    <string name="title_client_certificate">Asiakasvarmenne</string>
     <string name="title_realm">Toimialue</string>
     <string name="title_use_ip">Käytä paikallista IP-osoitetta verkkotunnuksen sijaan</string>
     <string name="title_primary_account">Ensisijainen (oletustili)</string>
@@ -603,6 +604,8 @@
     <string name="title_no_format">Alkuperäinen vastaanotettu viesti sisällytetään</string>
     <string name="title_no_image">Kuvan koodauksen purku epäonnistui</string>
     <string name="title_no_search">Palvelimelta haku ei ole saatavilla tällä tilillä</string>
+    <string name="title_too_large">Viesti liian suuri uudelleenmuotoiltavaksi kokonaisuudessaan</string>
+    <string name="title_show_full">Näytä koko viesti</string>
     <string name="title_unused_inline">Käyttämättömät upotetut kuvat poistetaan lähetettäessä</string>
     <string name="title_accross_remark">Tilien välillä siirretyt viestit ladataan uudelleen, mikä lisää datan käyttöä</string>
     <string name="title_raw_saved">Raakaviesti tallennettu</string>
@@ -711,6 +714,7 @@
     <string name="title_signature_unconfirmed_from">Viestin allekirjoitus pätevä muttei vahvistettu: %1$s</string>
     <string name="title_signature_invalid">Viestin allekirjoitus virheellinen</string>
     <string name="title_signature_invalid_reason">Viestin allekirjoitus virheellinen: %1$s</string>
+    <string name="title_signature_key_missing">Avain puuttuu</string>
     <string name="title_signature_certificate_invalid">Virheellinen sertifikaattiketju</string>
     <string name="title_signature_sender">Lähettäjän sähköpostiosoite</string>
     <string name="title_signature_email">Allekirjoituksen sähköpostiosoite</string>

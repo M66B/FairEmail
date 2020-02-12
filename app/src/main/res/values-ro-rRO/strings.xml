@@ -449,6 +449,7 @@
     <string name="title_port">Număr port</string>
     <string name="title_user">Nume utilizator</string>
     <string name="title_password">Parolă</string>
+    <string name="title_client_certificate">Certificat client</string>
     <string name="title_realm">Domeniu</string>
     <string name="title_use_ip">Folosește adresa IP în loc de numele gazdei</string>
     <string name="title_primary_account">Primară (identitatea implicită)</string>
@@ -613,6 +614,7 @@
     <string name="title_no_format">Mesajul primit inițial va fi inclus</string>
     <string name="title_no_image">Imaginea nu a putut fi decodată</string>
     <string name="title_no_search">Căutarea pe server nu este disponibilă pentru acest cont</string>
+    <string name="title_show_full">Arată mesajul întreg</string>
     <string name="title_unused_inline">Imaginile integrate nefolosite vor fi eliminate la trimitere</string>
     <string name="title_accross_remark">Mesajele mutate între conturi vor fi descărcate din nou consumând date în plus</string>
     <string name="title_raw_saved">Mesaj original salvat</string>

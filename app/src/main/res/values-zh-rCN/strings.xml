@@ -295,6 +295,7 @@
     <string name="title_advanced_unseen_ignored">让新消息数量匹配通知数量</string>
     <string name="title_advanced_notify_summary">仅显示摘要通知</string>
     <string name="title_advanced_notify_preview">通知中显示消息预览</string>
+    <string name="title_advanced_notify_preview_all">预览所有文本</string>
     <string name="title_advanced_notify_actions">通知操作</string>
     <string name="title_advanced_notify_action_trash">垃圾箱</string>
     <string name="title_advanced_notify_action_junk">垃圾邮件</string>
@@ -384,6 +385,7 @@
     <string name="title_advanced_notify_manage_hint">点击频道名称来设置频道属性</string>
     <string name="title_advanced_notify_manage_default_hint">设置默认声音等</string>
     <string name="title_advanced_notify_manage_service_hint">禁用永久通知</string>
+    <string name="title_advanced_notify_preview_all_hint">适用于可以显示完整文本的可穿戴设备(最多5,000个字符)</string>
     <string name="title_advanced_wearable_hint">通知仅在消息文本下载后发送到可穿戴设备</string>
     <string name="title_advanced_move_hint">可在账户设定中配置目标文件夹</string>
     <string name="title_advanced_notify_no_grouping">此Android版本不支持通知分组</string>
@@ -941,6 +943,7 @@
     <string name="title_snooze_now">打盹</string>
     <string name="title_loading">&#8230;加载中</string>
     <string name="title_set">设定</string>
+    <string name="title_fetching_again">再次从服务器获取消息</string>
     <string name="title_icalendar_accept">接受</string>
     <string name="title_icalendar_decline">拒绝</string>
     <string name="title_icalendar_maybe">待定</string>

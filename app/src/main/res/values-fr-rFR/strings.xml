@@ -308,6 +308,7 @@
     <string name="title_advanced_unseen_ignored">Faire correspondre le nombre de nouveaux messages et le nombre de notifications</string>
     <string name="title_advanced_notify_summary">Afficher uniquement une notification résumée</string>
     <string name="title_advanced_notify_preview">Afficher l\'aperçu du message dans les notifications</string>
+    <string name="title_advanced_notify_preview_all">Aperçu de tout le texte</string>
     <string name="title_advanced_notify_actions">Actions de notification</string>
     <string name="title_advanced_notify_action_trash">Supprimer</string>
     <string name="title_advanced_notify_action_junk">Indésirable</string>
@@ -397,6 +398,7 @@
     <string name="title_advanced_notify_manage_hint">Appuyez sur le nom du canal pour définir les propriétés du canal</string>
     <string name="title_advanced_notify_manage_default_hint">Pour définir le son par défaut, etc</string>
     <string name="title_advanced_notify_manage_service_hint">Pour désactiver la notification permanente</string>
+    <string name="title_advanced_notify_preview_all_hint">Pour les appareils connectés qui peuvent afficher le texte complet (jusqu\'à 5 000 caractères)</string>
     <string name="title_advanced_wearable_hint">Les notifications ne sont envoyées à un appareil connecté seulement après que le texte du message a été téléchargé</string>
     <string name="title_advanced_move_hint">Le dossier cible peut être configuré dans les paramètres du compte</string>
     <string name="title_advanced_notify_no_grouping">Cette version d\'Android ne supporte pas le regroupement de notifications</string>
@@ -741,10 +743,10 @@
     <string name="title_sort_on_hidden">Masqué</string>
     <string name="title_sort_ascending">Le plus ancien en premier</string>
     <string name="title_filter">Filtrer (exclure)</string>
-    <string name="title_filter_seen">Lu</string>
-    <string name="title_filter_unflagged">Non suivi</string>
+    <string name="title_filter_seen">Lus</string>
+    <string name="title_filter_unflagged">Non suivis</string>
     <string name="title_filter_unknown">Expéditeurs inconnus</string>
-    <string name="title_filter_hidden">Masqué</string>
+    <string name="title_filter_hidden">Masqués</string>
     <string name="title_filter_duplicates">Doublons</string>
     <string name="title_compact">Vue compacte</string>
     <string name="title_zoom">Taille du texte</string>
@@ -954,6 +956,7 @@
     <string name="title_snooze_now">Reporter</string>
     <string name="title_loading">Chargement&#8230;</string>
     <string name="title_set">Appliquer</string>
+    <string name="title_fetching_again">Nouvelle récupération du message depuis le serveur</string>
     <string name="title_icalendar_accept">Accepter</string>
     <string name="title_icalendar_decline">Refuser</string>
     <string name="title_icalendar_maybe">Peut-être</string>

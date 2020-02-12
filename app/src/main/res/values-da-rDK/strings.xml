@@ -307,6 +307,7 @@
     <string name="title_advanced_unseen_ignored">Lad antal Nye beskeder matche notifikationsantal</string>
     <string name="title_advanced_notify_summary">Vis kun resuménotifikationer</string>
     <string name="title_advanced_notify_preview">Beskedforhåndsvisning i notifikationer</string>
+    <string name="title_advanced_notify_preview_all">Forhåndsvis al tekst</string>
     <string name="title_advanced_notify_actions">Notifikationshandlinger</string>
     <string name="title_advanced_notify_action_trash">Papirkurv</string>
     <string name="title_advanced_notify_action_junk">Spam</string>
@@ -396,6 +397,7 @@
     <string name="title_advanced_notify_manage_hint">Tryk på kanalnavnet for at opsætte kanalegenskaberne</string>
     <string name="title_advanced_notify_manage_default_hint">For at opsætte standardlyd etc.</string>
     <string name="title_advanced_notify_manage_service_hint">For at deaktivere den permanente notifikation</string>
+    <string name="title_advanced_notify_preview_all_hint">For wearables, som kan vise den fulde tekst (op til 5.000 tegn)</string>
     <string name="title_advanced_wearable_hint">Notifikationer sendes kun til en wearable, når beskedteksten er blevet downloadet</string>
     <string name="title_advanced_move_hint">Målmappen kan opsættes i kontoindstillingerne</string>
     <string name="title_advanced_notify_no_grouping">Denne Android-version understøtter ikke notifikationsgruppering</string>
@@ -605,6 +607,8 @@
     <string name="title_no_format">Den oprindeligt modtagne besked bliver inkluderet</string>
     <string name="title_no_image">Billede kunne ikke afkodes</string>
     <string name="title_no_search">Søg på server er utilgængelig for denne konto</string>
+    <string name="title_too_large">Besked for stor til fuldstændig omformatering</string>
+    <string name="title_show_full">Vis fuld besked</string>
     <string name="title_unused_inline">Ubrugte inline-billeder fjernes ved afsendelsen</string>
     <string name="title_accross_remark">Beskeder flyttet mellem konti gen-downloades, hvilket betyder ekstra dataforbrug</string>
     <string name="title_raw_saved">Besked i råformat gemt</string>

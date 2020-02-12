@@ -294,6 +294,7 @@
     <string name="title_advanced_unseen_ignored">新着メッセージ数を通知数と一致</string>
     <string name="title_advanced_notify_summary">簡素な通知のみ表示</string>
     <string name="title_advanced_notify_preview">通知にメッセージプレビューを表示</string>
+    <string name="title_advanced_notify_preview_all">全てのテキストをプレビュー</string>
     <string name="title_advanced_notify_actions">通知アクション</string>
     <string name="title_advanced_notify_action_trash">ゴミ箱</string>
     <string name="title_advanced_notify_action_junk">迷惑メール</string>
@@ -382,6 +383,7 @@
     <string name="title_advanced_notify_manage_hint">チャンネル名をタップして、チャンネルのプロパティを設定します</string>
     <string name="title_advanced_notify_manage_default_hint">デフォルトの音などを設定</string>
     <string name="title_advanced_notify_manage_service_hint">永続的な通知を無効にします</string>
+    <string name="title_advanced_notify_preview_all_hint">全文を表示出来るウェアラブル(最大5,000文字)</string>
     <string name="title_advanced_wearable_hint">通知はメッセージテキストをダウンロード後、ウェアラブルにのみ送信されます</string>
     <string name="title_advanced_move_hint">ターゲットフォルダはアカウント設定で設定できます</string>
     <string name="title_advanced_notify_no_grouping">このAndroidバージョンは通知のグループ化をサポートしていません</string>
@@ -938,6 +940,7 @@ PlayストアでFairEmailを評価できれば幸いです。
     <string name="title_snooze_now">スヌーズ</string>
     <string name="title_loading">&#8230; を読み込んでいます</string>
     <string name="title_set">設定</string>
+    <string name="title_fetching_again">サーバーからメッセージの再取得</string>
     <string name="title_icalendar_accept">同意する</string>
     <string name="title_icalendar_decline">辞退する</string>
     <string name="title_icalendar_maybe">多分</string>

@@ -308,6 +308,7 @@
     <string name="title_advanced_unseen_ignored">La antallet nye meldinger samsvare med antall varsler</string>
     <string name="title_advanced_notify_summary">Vis bare sammendragsvarsel</string>
     <string name="title_advanced_notify_preview">Vis forhåndsvisning av melding i varsler</string>
+    <string name="title_advanced_notify_preview_all">Forhåndsvis all tekst</string>
     <string name="title_advanced_notify_actions">Varselshandlinger</string>
     <string name="title_advanced_notify_action_trash">Søppel</string>
     <string name="title_advanced_notify_action_junk">Søppelpost</string>
@@ -397,6 +398,7 @@
     <string name="title_advanced_notify_manage_hint">Trykk på kanalnavnet for å angi kanalegenskapene</string>
     <string name="title_advanced_notify_manage_default_hint">Slik angir du standardlyden, osv</string>
     <string name="title_advanced_notify_manage_service_hint">For å deaktivere den permanente varslingen</string>
+    <string name="title_advanced_notify_preview_all_hint">For wearables som kan vise fulltekst (opptil 5000 tegn)</string>
     <string name="title_advanced_wearable_hint">Varsler sendes bare til bærbare enheter etter at meldingsteksten er lastet ned</string>
     <string name="title_advanced_move_hint">Målmappen kan konfigureres i kontoinnstillingene</string>
     <string name="title_advanced_notify_no_grouping">Denne Android versjonen støtter ikke varslingsgruppering</string>
@@ -953,6 +955,7 @@ Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anme
     <string name="title_snooze_now">Utsett</string>
     <string name="title_loading">Laster &#8230;</string>
     <string name="title_set">Bruk</string>
+    <string name="title_fetching_again">Henter melding igjen fra serveren</string>
     <string name="title_icalendar_accept">Godta</string>
     <string name="title_icalendar_decline">Avslå</string>
     <string name="title_icalendar_maybe">Kanskje</string>
