@@ -306,6 +306,10 @@ public class Log {
                     return false;
 
                 if (ex instanceof IOException &&
+                        ex.getCause() instanceof MessageRemovedException)
+                    return false;
+
+                if (ex instanceof IOException &&
                         ex.getMessage() != null &&
                         (ex.getMessage().startsWith("HTTP status=") ||
                                 "NetworkError".equals(ex.getMessage()) || // account manager
