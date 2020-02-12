@@ -533,7 +533,7 @@ public interface DaoMessage {
     int setMessageRevisions(long id, Integer revisions);
 
     @Query("UPDATE message" +
-            " SET content = :content, fts = 0" +
+            " SET content = :content, fts = 0, preview = CASE WHEN :content THEN preview ELSE NULL END" +
             " WHERE id = :id")
     int setMessageContent(long id, boolean content);
 
