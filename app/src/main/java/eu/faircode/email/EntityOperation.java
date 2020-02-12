@@ -189,7 +189,7 @@ public class EntityOperation {
                 EntityLog.log(context, "Move message=" + message.id + ":" + message.subject +
                         " source=" + source.id + ":" + source.name + "" +
                         " target=" + target.id + ":" + target.name +
-                        " auto read=" + autoread + " flag=" + autounflag);
+                        " auto read=" + autoread + " flag=" + autounflag + " importance=" + reset_importance);
 
                 if (autoread || autounflag || reset_importance)
                     for (EntityMessage similar : db.message().getMessagesBySimilarity(message.account, message.id, message.msgid)) {

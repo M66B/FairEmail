@@ -844,7 +844,7 @@ class Core {
             itarget.appendMessages(icopies.toArray(new Message[0]));
         } else {
             for (Message imessage : map.keySet()) {
-                Log.i("Move seen=" + seen + " unflag=" + unflag);
+                Log.i("Move seen=" + seen + " unflag=" + unflag + " flags=" + imessage.getFlags());
 
                 // Mark read
                 if (seen && flags.contains(Flags.Flag.SEEN))
