@@ -2458,14 +2458,14 @@ class Core {
                 addresses.addAll(Arrays.asList(message.cc));
             if (message.bcc != null)
                 addresses.addAll(Arrays.asList(message.bcc));
+            if (message.from != null)
+                addresses.addAll(Arrays.asList(message.from));
             if (message.deliveredto != null)
                 try {
                     addresses.add(new InternetAddress(message.deliveredto));
                 } catch (AddressException ex) {
                     Log.w(ex);
                 }
-            if (message.from != null)
-                addresses.addAll(Arrays.asList(message.from));
         }
 
         // Search for matching identity
