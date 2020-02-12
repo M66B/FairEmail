@@ -272,6 +272,7 @@ public class ApplicationEx extends Application {
                     "send", getString(R.string.channel_send),
                     NotificationManager.IMPORTANCE_DEFAULT);
             send.setSound(null, Notification.AUDIO_ATTRIBUTES_DEFAULT);
+            send.setShowBadge(false);
             send.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
             nm.createNotificationChannel(send);
 
