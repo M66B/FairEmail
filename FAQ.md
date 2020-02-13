@@ -613,6 +613,9 @@ FairEmail was tested with OpenKeychain version 5.4. Later versions will most lik
 The OpenKeychain app is known to (silently) crash when the calling app (FairEmail) is not authorized yet and is getting an existing public key.
 You can workaround this by trying to send a signed/encrypted message to a sender with an unknown public key.
 
+If the OpenKeychain app cannot find a key (anymore), you might need to reset a previously selected key.
+This can be done by long pressing an identity in the list of identities (Setup, step 2, Manage).
+
 To let apps like FairEmail reliably connect to the OpenKeychain service to encrypt/decrypt messages,
 it might be necessary to disable battery optimizations for the OpenKeychain app.
 
