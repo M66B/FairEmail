@@ -3654,13 +3654,18 @@ public class FragmentCompose extends FragmentBase {
 
                     String p = Helper.readText(draft.getFile(context));
                     Document doc = JsoupEx.parse(p);
-                    if ((body != null && !body.equals(doc.html())) ||
+                    doc.select("div[fairemail=signature]").remove();
+                    Elements ref = doc.select("div[fairemail=reference]");
+                    ref.remove();
+
+                    if (body == null)
+                        body = Document.createShell("").html();
+                    Document b = HtmlHelper.sanitize(context, body, true, false);
+                    body = b.html();
+
+                    if (!b.body().html().equals(doc.body().html()) ||
                             (extras != null && extras.containsKey("html"))) {
                         dirty = true;
-
-                        doc.select("div[fairemail=signature]").remove();
-                        Elements ref = doc.select("div[fairemail=reference]");
-                        ref.remove();
 
                         boolean signature_end = prefs.getBoolean("signature_end", false);
 
@@ -3741,7 +3746,7 @@ public class FragmentCompose extends FragmentBase {
                             action == R.id.action_undo ||
                             action == R.id.action_redo ||
                             action == R.id.action_check) {
-                        if (BuildConfig.DEBUG || dirty)
+                        if (dirty)
                             EntityOperation.queue(context, draft, EntityOperation.ADD);
 
                         if (action == R.id.action_check) {
