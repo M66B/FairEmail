@@ -609,6 +609,7 @@
     <string name="title_no_image">Afbeelding kon niet gedecodeerd worden</string>
     <string name="title_no_search">Zoeken op server is niet beschikbaar voor dit account</string>
     <string name="title_too_large">Bericht te groot om volledig opnieuw te formatteren</string>
+    <string name="title_truncated">Bericht is te groot om volledig weer te geven</string>
     <string name="title_show_full">Toon volledig bericht</string>
     <string name="title_unused_inline">Ongebruikte inline afbeeldingen worden verwijderd bij verzenden</string>
     <string name="title_accross_remark">Berichten die worden verplaatst tussen accounts worden opnieuw gedownload en veroorzaken extra datagebruik</string>

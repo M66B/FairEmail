@@ -170,6 +170,7 @@
     <string name="title_synchronize_enabled">Συγχρονισμός</string>
     <string name="title_edit_properties">Επεξεργασία ιδιοτήτων</string>
     <string name="title_edit_rules">Επεξεργασία κανόνων</string>
+    <string name="title_truncated">Το μύνημα είναι πολύ μεγάλο για να προβληθεί ολόκληρο</string>
     <string name="title_reply_hint">Μπορείτε να απαντήσετε σε όλους, να προωθήσετε, κλπ χρησιμοποιώντας το μενού με τα διπλά βέλη ακριβώς κάτω από το τίτλο</string>
     <string name="title_submitter">Στάλθηκε από:</string>
     <string name="title_delivered_to">Παραδόθηκε σε:</string>

@@ -608,6 +608,7 @@
     <string name="title_no_image">L\'immagine potrebbe non essere decodificata</string>
     <string name="title_no_search">La ricerca sul server non è disponibile per questo account</string>
     <string name="title_too_large">Messaggio troppo grande per essere riformato completamente</string>
+    <string name="title_truncated">Messaggio troppo grande per essere visualizzato completamente</string>
     <string name="title_show_full">Mostra messaggio completo</string>
     <string name="title_unused_inline">Le immagini in linea inutilizzate verranno rimosse all\'invio</string>
     <string name="title_accross_remark">I messaggi spostati tra gli account verranno scaricati di nuovo causando un ulteriore utilizzo dei dati</string>

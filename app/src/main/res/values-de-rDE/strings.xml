@@ -85,8 +85,8 @@
     <string name="menu_contacts">Lokale Kontakte</string>
     <string name="menu_setup">Einstellungen</string>
     <string name="menu_legend">Symbolerklärung</string>
-    <string name="menu_test">Test-Programm</string>
-    <string name="menu_faq">Hilfe</string>
+    <string name="menu_test">Testprogramm</string>
+    <string name="menu_faq">Unterstützung</string>
     <string name="menu_translate">Übersetzen helfen</string>
     <string name="menu_issue">Problem melden</string>
     <string name="menu_attribution">Danksagungen</string>
@@ -164,7 +164,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_setup_password_chars">Passwort enthält Kontroll- oder Leerzeichen</string>
     <string name="title_setup_password_repeat">Passwort erneut eingeben</string>
     <string name="title_setup_password_missing">Passwort fehlt</string>
-    <string name="title_setup_password_different">Die Passworte stimmen nicht überein</string>
+    <string name="title_setup_password_different">Passwörter stimmen nicht überein</string>
     <string name="title_setup_password_invalid">Passwort ungültig</string>
     <string name="title_setup_exported">Einstellungen exportiert</string>
     <string name="title_setup_imported">Einstellungen importiert</string>
@@ -230,7 +230,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_resize_images">Größe eingebetteter Bilder automatisch anpassen</string>
     <string name="title_advanced_resize_attachments">Größe angehängter Bilder automatisch anpassen</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d Pixel</string>
-    <string name="title_advanced_send_reminders">Hinweise anzeigen</string>
+    <string name="title_advanced_send_reminders">Erinnerungen anzeigen</string>
     <string name="title_advanced_lookup_mx">Überprüft die Empfänger-E-Mail-Adressen vor dem Senden per DNS MX</string>
     <string name="title_advanced_send_delayed">Senden von Nachrichten verzögern</string>
     <string name="title_advanced_metered">Getaktete Verbindungen verwenden</string>
@@ -609,6 +609,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_no_image">Bild konnte nicht dekodiert werden</string>
     <string name="title_no_search">Die Suche auf dem Server ist für dieses Konto nicht verfügbar</string>
     <string name="title_too_large">Die Nachricht ist zu groß, um sie vollständig neu zu formatieren</string>
+    <string name="title_truncated">Die Nachricht ist zu groß um vollständig angezeigt werden zu können</string>
     <string name="title_show_full">Vollständige Nachricht anzeigen</string>
     <string name="title_unused_inline">Ungenutzte Inline-Bilder werden beim Senden entfernt</string>
     <string name="title_accross_remark">E-Mails, die über unterschiedliche Konten verschoben werden, werden erneut heruntergeladen, was zu einem erhöhtem Datenverbrauch führt</string>

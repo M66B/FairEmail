@@ -954,6 +954,7 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_snooze_now">Atzeratu</string>
     <string name="title_loading">Kargatzen &#8230;</string>
     <string name="title_set">Ezarri</string>
+    <string name="title_fetching_again">Mezua berriro zerbitzaritik jasotzen</string>
     <string name="title_icalendar_accept">Onartu</string>
     <string name="title_icalendar_decline">Errefusatu</string>
     <string name="title_icalendar_maybe">Agian</string>

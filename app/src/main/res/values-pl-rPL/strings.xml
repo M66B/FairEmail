@@ -977,6 +977,7 @@
     <string name="title_snooze_now">Odłóż</string>
     <string name="title_loading">Ładowanie &#8230;</string>
     <string name="title_set">Ustaw</string>
+    <string name="title_fetching_again">Ponowne pobieranie wiadomości z serwera</string>
     <string name="title_icalendar_accept">Akceptuj</string>
     <string name="title_icalendar_decline">Odrzuć</string>
     <string name="title_icalendar_maybe">Może</string>

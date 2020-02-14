@@ -955,6 +955,7 @@
     <string name="title_snooze_now">Udsæt</string>
     <string name="title_loading">Indlæser &#8230;</string>
     <string name="title_set">Indstil</string>
+    <string name="title_fetching_again">Henter beskeder igen fra server</string>
     <string name="title_icalendar_accept">Acceptér</string>
     <string name="title_icalendar_decline">Afvis</string>
     <string name="title_icalendar_maybe">Måske</string>
