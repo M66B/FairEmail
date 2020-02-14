@@ -1476,7 +1476,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }.setLog(false).execute(context, owner, sargs, "message:actions");
 
             // Message text
-            pbBody.setVisibility(suitable || message.content ? View.VISIBLE : View.GONE);
             tvNoInternetBody.setVisibility(suitable || message.content ? View.GONE : View.VISIBLE);
 
             cowner.recreate();
@@ -1655,6 +1654,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             args.putInt("zoom", zoom);
 
             new SimpleTask<Object>() {
+                @Override
+                protected void onPreExecute(Bundle args) {
+                    pbBody.setVisibility(View.VISIBLE);
+                }
+
+                @Override
+                protected void onPostExecute(Bundle args) {
+                    pbBody.setVisibility(View.GONE);
+                }
+
                 @Override
                 protected Object onExecute(final Context context, final Bundle args) throws IOException {
                     TupleMessageEx message = (TupleMessageEx) args.getSerializable("message");
@@ -1838,8 +1847,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             tvBody.setText(null);
                     } else
                         throw new IllegalStateException("Result=" + result);
-
-                    pbBody.setVisibility(View.GONE);
 
                     // Show attachments
                     cowner.start();
