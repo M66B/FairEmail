@@ -1198,13 +1198,15 @@ public class HtmlHelper {
     }
 
     static void cleanup(Document d) {
-        for (Element aspace : d.select(".Apple-converted-space"))
-            if (aspace.previousSibling() instanceof TextNode) {
-                TextNode tnode = (TextNode) aspace.previousSibling();
+        for (Element aspace : d.select(".Apple-converted-space")) {
+            Node next = aspace.nextSibling();
+            if (next instanceof TextNode) {
+                TextNode tnode = (TextNode) next;
                 tnode.text(tnode.text() + " ");
                 aspace.remove();
             } else
                 aspace.replaceWith(new TextNode(" "));
+        }
     }
 
     static boolean truncate(Document d, boolean reformat) {
