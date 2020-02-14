@@ -476,7 +476,7 @@ public class FragmentCompose extends FragmentBase {
                 if (activity != null)
                     activity.onUserInteraction();
 
-                if (before == 0 && count == 1 && text.charAt(start) == '\n') {
+                if (before == 0 && count == 1 && start > 0 && text.charAt(start) == '\n') {
                     // break block quotes
                     boolean broken = false;
                     SpannableStringBuilder ssb = new SpannableStringBuilder(text);
