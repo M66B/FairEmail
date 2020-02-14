@@ -1469,6 +1469,11 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             Log.w(account.name + " backoff " + ex.toString());
                         }
                     } else {
+                        // Stop retrying when polling
+                        int pollInterval = prefs.getInt("poll_interval", 0);
+                        if (pollInterval > 0 && !account.poll_exempted)
+                            break;
+
                         // Long back-off period, let device sleep
                         Intent intent = new Intent(ServiceSynchronize.this, ServiceSynchronize.class);
                         intent.setAction("backoff:" + account.id);
