@@ -1753,7 +1753,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         return document.html();
                     } else {
                         // Cleanup message
-                        document = HtmlHelper.sanitize(context, body, show_images, true);
+                        document = HtmlHelper.sanitize(context, body, show_images, true, true);
 
                         // Collapse quotes
                         if (!show_quotes) {

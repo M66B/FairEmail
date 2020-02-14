@@ -238,8 +238,12 @@ public class HtmlHelper {
     }
 
     static Document sanitize(Context context, String html, boolean show_images, boolean autolink) {
+        return sanitize(context, html, show_images, autolink, false);
+    }
+
+    static Document sanitize(Context context, String html, boolean show_images, boolean autolink, boolean more) {
         try {
-            return _sanitize(context, html, show_images, autolink);
+            return _sanitize(context, html, show_images, autolink, more);
         } catch (Throwable ex) {
             // OutOfMemoryError
             Log.e(ex);
@@ -251,7 +255,7 @@ public class HtmlHelper {
         }
     }
 
-    private static Document _sanitize(Context context, String html, boolean show_images, boolean autolink) {
+    private static Document _sanitize(Context context, String html, boolean show_images, boolean autolink, boolean more) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean text_color = prefs.getBoolean("text_color", true);
         boolean display_hidden = prefs.getBoolean("display_hidden", false);
@@ -339,12 +343,13 @@ public class HtmlHelper {
                     .appendElement("em")
                     .text(context.getString(R.string.title_too_large));
 
-            parsed.body()
-                    .appendElement("p")
-                    .appendElement("big")
-                    .appendElement("a")
-                    .attr("href", "full:")
-                    .text(context.getString(R.string.title_show_full));
+            if (more)
+                parsed.body()
+                        .appendElement("p")
+                        .appendElement("big")
+                        .appendElement("a")
+                        .attr("href", "full:")
+                        .text(context.getString(R.string.title_show_full));
         }
 
         Whitelist whitelist = Whitelist.relaxed()
