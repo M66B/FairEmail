@@ -239,12 +239,13 @@ public class HtmlHelper {
     }
 
     static Document sanitize(Context context, String html, boolean show_images, boolean autolink) {
-        return sanitize(context, html, show_images, autolink, false);
+        Document parsed = JsoupEx.parse(html);
+        return sanitize(context, parsed, show_images, autolink, false);
     }
 
-    static Document sanitize(Context context, String html, boolean show_images, boolean autolink, boolean more) {
+    static Document sanitize(Context context, Document parsed, boolean show_images, boolean autolink, boolean more) {
         try {
-            return _sanitize(context, html, show_images, autolink, more);
+            return _sanitize(context, parsed, show_images, autolink, more);
         } catch (Throwable ex) {
             // OutOfMemoryError
             Log.e(ex);
@@ -256,14 +257,13 @@ public class HtmlHelper {
         }
     }
 
-    private static Document _sanitize(Context context, String html, boolean show_images, boolean autolink, boolean more) {
+    private static Document _sanitize(Context context, Document parsed, boolean show_images, boolean autolink, boolean more) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean text_color = prefs.getBoolean("text_color", true);
         boolean display_hidden = prefs.getBoolean("display_hidden", false);
         boolean disable_tracking = prefs.getBoolean("disable_tracking", true);
 
         // https://chromium.googlesource.com/chromium/blink/+/master/Source/core/css/html.css
-        Document parsed = JsoupEx.parse(html);
 
         // <!--[if ...]><!--> ... <!--<![endif]-->
         // https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/hh801214(v=vs.85)
@@ -1195,6 +1195,16 @@ public class HtmlHelper {
             index += line.length() + 1;
         }
         return ssb;
+    }
+
+    static void cleanup(Document d) {
+        for (Element aspace : d.select(".Apple-converted-space"))
+            if (aspace.previousSibling() instanceof TextNode) {
+                TextNode tnode = (TextNode) aspace.previousSibling();
+                tnode.text(tnode.text() + " ");
+                aspace.remove();
+            } else
+                aspace.replaceWith(new TextNode(" "));
     }
 
     static boolean truncate(Document d, boolean reformat) {

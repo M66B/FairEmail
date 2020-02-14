@@ -1696,6 +1696,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     args.putBoolean("signed_data", signed_data);
 
                     Document document = JsoupEx.parse(body);
+                    HtmlHelper.cleanup(document);
 
                     // Check for inline encryption
                     int begin = body.indexOf(Helper.PGP_BEGIN_MESSAGE);
@@ -1760,7 +1761,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         return document.html();
                     } else {
                         // Cleanup message
-                        document = HtmlHelper.sanitize(context, body, show_images, true, true);
+                        document = HtmlHelper.sanitize(context, document, show_images, true, true);
 
                         // Collapse quotes
                         if (!show_quotes) {
