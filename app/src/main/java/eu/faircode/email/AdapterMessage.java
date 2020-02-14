@@ -1597,7 +1597,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     wvBody = webView;
                 }
 
-                int dp60 = Helper.dp2pixels(context, 60);
+                final int dp60 = Helper.dp2pixels(context, 60);
                 webView.setMinimumHeight(height == 0 ? dp60 : height);
 
                 webView.init(
@@ -1607,7 +1607,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         new WebViewEx.IWebView() {
                             @Override
                             public void onSizeChanged(int w, int h, int ow, int oh) {
-                                properties.setHeight(message.id, h);
+                                if (h > dp60)
+                                    properties.setHeight(message.id, h);
                             }
 
                             @Override
