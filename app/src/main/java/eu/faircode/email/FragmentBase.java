@@ -418,7 +418,7 @@ public class FragmentBase extends Fragment {
                         name = Long.toString(attachment.id);
                     DocumentFile document = tree.createFile(attachment.type, name);
                     if (document == null)
-                        throw new FileNotFoundException(uri + ":" + name);
+                        throw new FileNotFoundException("Could not save " + uri + ":" + name);
 
                     ParcelFileDescriptor pfd = null;
                     OutputStream os = null;
@@ -470,7 +470,10 @@ public class FragmentBase extends Fragment {
                         return;
                     }
 
-                Log.unexpectedError(getParentFragmentManager(), ex);
+                if (ex instanceof FileNotFoundException)
+                    ToastEx.makeText(getContext(), ex.getMessage(), Toast.LENGTH_LONG).show();
+                else
+                    Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "attachments:save");
     }
