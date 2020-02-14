@@ -1198,11 +1198,13 @@ public class HtmlHelper {
     }
 
     static void cleanup(Document d) {
+        // https://www.chromestatus.com/feature/5756335865987072
+        // Some messages contain 100 thousands of Apple spaces
         for (Element aspace : d.select(".Apple-converted-space")) {
             Node next = aspace.nextSibling();
             if (next instanceof TextNode) {
                 TextNode tnode = (TextNode) next;
-                tnode.text(tnode.text() + " ");
+                tnode.text(" " + tnode.text());
                 aspace.remove();
             } else
                 aspace.replaceWith(new TextNode(" "));
