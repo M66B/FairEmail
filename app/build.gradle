@@ -96,6 +96,7 @@ android {
         }
         play_beta {
             dimension "all"
+            minSdkVersion 23
             buildConfigField "boolean", "BETA_RELEASE", "true"
             buildConfigField "boolean", "PLAY_STORE_RELEASE", "true"
             buildConfigField "String", "INVITE_URI", "\"https://play.google.com/store/apps/details?id=eu.faircode.email\""
@@ -109,6 +110,7 @@ android {
         }
         play_release {
             dimension "all"
+            minSdkVersion 23
             buildConfigField "boolean", "BETA_RELEASE", "false"
             buildConfigField "boolean", "PLAY_STORE_RELEASE", "true"
             buildConfigField "String", "INVITE_URI", "\"https://play.google.com/store/apps/details?id=eu.faircode.email\""
