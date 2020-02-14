@@ -323,6 +323,31 @@ public class HtmlHelper {
             }
         }
 
+        // Limit length
+
+        int length = 0;
+        for (Element elm : parsed.select("*")) {
+            for (Node child : elm.childNodes())
+                if (child instanceof TextNode)
+                    length += ((TextNode) child).text().length();
+            if (length > MAX_TEXT_SIZE)
+                elm.remove();
+        }
+
+        if (length > MAX_TEXT_SIZE) {
+            parsed.body()
+                    .appendElement("p")
+                    .appendElement("em")
+                    .text(context.getString(R.string.title_too_large));
+
+            parsed.body()
+                    .appendElement("p")
+                    .appendElement("big")
+                    .appendElement("a")
+                    .attr("href", "full:")
+                    .text(context.getString(R.string.title_show_full));
+        }
+
         Whitelist whitelist = Whitelist.relaxed()
                 .addTags("hr", "abbr", "big", "font", "dfn", "del", "s", "tt")
                 .removeTags("col", "colgroup", "thead", "tbody")
@@ -330,7 +355,8 @@ public class HtmlHelper {
                 .removeAttributes("td", "colspan", "rowspan", "width")
                 .removeAttributes("th", "colspan", "rowspan", "width")
                 .addProtocols("img", "src", "cid")
-                .addProtocols("img", "src", "data");
+                .addProtocols("img", "src", "data")
+                .addProtocols("a", "href", "full");
         if (text_color)
             whitelist
                     .addAttributes(":all", "style")
@@ -716,32 +742,9 @@ public class HtmlHelper {
                 if (!TextUtils.isEmpty(span.attr("color")))
                     span.tagName("font");
 
-        int length = 0;
-        for (Element elm : document.select("*")) {
-            for (Node child : elm.childNodes())
-                if (child instanceof TextNode)
-                    length += ((TextNode) child).text().length();
-            if (length > MAX_TEXT_SIZE)
-                elm.remove();
-        }
-
         if (document.body() == null) {
             Log.e("Sanitize without body");
             document.normalise();
-        }
-
-        if (length > MAX_TEXT_SIZE) {
-            document.body()
-                    .appendElement("p")
-                    .appendElement("em")
-                    .text(context.getString(R.string.title_too_large));
-
-            document.body()
-                    .appendElement("p")
-                    .appendElement("big")
-                    .appendElement("a")
-                    .attr("href", "full:")
-                    .text(context.getString(R.string.title_show_full));
         }
 
         return document;
