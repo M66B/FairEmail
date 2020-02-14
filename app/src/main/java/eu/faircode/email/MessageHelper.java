@@ -452,7 +452,8 @@ public class MessageHelper {
             // https://www.ietf.org/rfc/rfc3798.txt
             Multipart report = new MimeMultipart("report; report-type=disposition-notification");
 
-            String plainContent = HtmlHelper.getText(Helper.readText(message.getFile(context)));
+            String html = Helper.readText(message.getFile(context));
+            String plainContent = HtmlHelper.getText(html);
 
             BodyPart plainPart = new MimeBodyPart();
             plainPart.setContent(plainContent, "text/plain; charset=" + Charset.defaultCharset().name());
@@ -483,7 +484,8 @@ public class MessageHelper {
         }
 
         // Build html body
-        Document document = JsoupEx.parse(Helper.readText(message.getFile(context)));
+        String html = Helper.readText(message.getFile(context));
+        Document document = JsoupEx.parse(html);
 
         // When sending message
         if (identity != null)

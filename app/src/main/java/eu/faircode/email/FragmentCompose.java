@@ -817,7 +817,8 @@ public class FragmentCompose extends FragmentBase {
                         boolean plain = args.getBoolean("plain");
                         String body = args.getString("body");
 
-                        Document doc = JsoupEx.parse(Helper.readText(EntityMessage.getFile(context, id)));
+                        String rhtml = Helper.readText(EntityMessage.getFile(context, id));
+                        Document doc = JsoupEx.parse(rhtml);
                         Elements ref = doc.select("div[fairemail=reference]");
                         ref.removeAttr("fairemail");
 
@@ -3078,7 +3079,8 @@ public class FragmentCompose extends FragmentBase {
                             div.appendChild(p);
 
                             // Get referenced message body
-                            Document d = JsoupEx.parse(Helper.readText(ref.getFile(context)));
+                            String rhtml = Helper.readText(ref.getFile(context));
+                            Document d = JsoupEx.parse(rhtml);
 
                             // Remove signature separators
                             boolean remove_signatures = prefs.getBoolean("remove_signatures", false);

@@ -3790,7 +3790,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (message.from != null && message.from.length > 0)
                         from = ((InternetAddress) message.from[0]).getAddress();
 
-                    String text = HtmlHelper.getText(Helper.readText(file));
+                    String html = Helper.readText(file);
+                    String text = HtmlHelper.getText(html);
 
                     return new String[]{from, message.subject, text};
                 }
