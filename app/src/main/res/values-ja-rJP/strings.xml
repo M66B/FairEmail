@@ -594,6 +594,7 @@
     <string name="title_no_image">画像をデコード出来ませんでした</string>
     <string name="title_no_search">サーバでの検索はこのアカウントでは利用出来ません</string>
     <string name="title_too_large">メッセージが大き過ぎて完全に再フォーマット出来ません</string>
+    <string name="title_truncated">完全に表示するには大き過ぎるメッセージです</string>
     <string name="title_show_full">メッセージ全体を表示</string>
     <string name="title_unused_inline">未使用のインライン画像は送信時に削除されます</string>
     <string name="title_accross_remark">アカウント間で移動されたメッセージは再度ダウンロードされる為、余分なデータが使用されます</string>
