@@ -169,7 +169,6 @@
                 android:text="@string/title_identity_required"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textColor="?attr/colorWarning"
-                android:textIsSelectable="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/vwColor"
                 app:layout_constraintTop_toBottomOf="@id/tvQuota" />
@@ -183,12 +182,11 @@
                 android:text="@string/title_drafts_required"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textColor="?attr/colorWarning"
-                android:textIsSelectable="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/vwColor"
                 app:layout_constraintTop_toBottomOf="@id/tvIdentity" />
 
-            <TextView
+            <eu.faircode.email.FixedTextView
                 android:id="@+id/tvWarning"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -202,7 +200,7 @@
                 app:layout_constraintStart_toEndOf="@id/vwColor"
                 app:layout_constraintTop_toBottomOf="@id/tvDrafts" />
 
-            <TextView
+            <eu.faircode.email.FixedTextView
                 android:id="@+id/tvError"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"

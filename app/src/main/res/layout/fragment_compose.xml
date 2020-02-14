@@ -310,7 +310,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/etBody" />
 
-                <TextView
+                <eu.faircode.email.FixedTextView
                     android:id="@+id/tvSignature"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -403,7 +403,7 @@
                     app:barrierDirection="bottom"
                     app:constraint_referenced_ids="ibCloseRefHint,tvReferenceHint,ibReferenceEdit,ibReferenceImages" />
 
-                <TextView
+                <eu.faircode.email.FixedTextView
                     android:id="@+id/tvReference"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"

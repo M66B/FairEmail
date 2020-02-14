@@ -156,7 +156,7 @@
             app:layout_constraintTop_toBottomOf="@id/tvExperimentsHint"
             app:switchPadding="12dp" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvUuid"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -270,7 +270,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvMemoryClass" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvFingerprint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

@@ -69,7 +69,6 @@
             android:text="@string/title_setup_password_chars"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?attr/colorWarning"
-            android:textIsSelectable="true"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tilPassword" />
 
@@ -116,7 +115,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnCheck" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvError"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -128,7 +127,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvErrorTitle" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvErrorHint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

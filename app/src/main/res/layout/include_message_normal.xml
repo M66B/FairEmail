@@ -331,7 +331,7 @@
         app:layout_constraintStart_toEndOf="@id/paddingStart"
         app:layout_constraintTop_toBottomOf="@id/tvExpand" />
 
-    <TextView
+    <eu.faircode.email.FixedTextView
         android:id="@+id/tvError"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

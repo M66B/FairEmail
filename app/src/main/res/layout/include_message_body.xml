@@ -73,7 +73,7 @@
         app:layout_constraintTop_toTopOf="@+id/tvDownloading"
         app:srcCompat="@drawable/baseline_info_24" />
 
-    <TextView
+    <eu.faircode.email.FixedTextView
         android:id="@+id/tvBody"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
