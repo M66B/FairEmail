@@ -86,6 +86,8 @@ public class WorkerFts extends Worker {
                             if (ids.size() > INDEX_BATCH_SIZE)
                                 markIndexed(db, ids);
                         } catch (Throwable ex) {
+                            if (ex instanceof OutOfMemoryError)
+                                ids.add(id);
                             Log.e(ex);
                         }
                 }
