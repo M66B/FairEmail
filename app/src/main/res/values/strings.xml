@@ -697,6 +697,7 @@
     <string name="title_no_image">Image could not be decoded</string>
     <string name="title_no_search">Search on server is not available for this account</string>
     <string name="title_too_large">Message too large to completely reformat</string>
+    <string name="title_truncated">Message too large to display completely</string>
     <string name="title_show_full">Show full message</string>
     <string name="title_unused_inline">Unused inline images will be removed on send</string>
     <string name="title_accross_remark">Messages moved across accounts will be downloaded again resulting in extra data usage</string>

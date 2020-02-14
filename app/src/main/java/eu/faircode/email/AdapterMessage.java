@@ -1734,6 +1734,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     // Format message
                     if (show_full) {
+                        if (HtmlHelper.truncate(document, false))
+                            document.body()
+                                    .appendElement("p")
+                                    .appendElement("em")
+                                    .text(context.getString(R.string.title_truncated));
+
                         HtmlHelper.setViewport(document);
                         if (inline || show_images)
                             HtmlHelper.embedInlineImages(context, message.id, document);

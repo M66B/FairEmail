@@ -76,7 +76,8 @@ public class HtmlHelper {
     private static final float MIN_LUMINANCE = 0.5f;
     private static final int TAB_SIZE = 2;
     private static final int MAX_AUTO_LINK = 250;
-    private static final int MAX_TEXT_SIZE = 50 * 1024; // characters
+    private static final int MAX_FORMAT_TEXT_SIZE = 50 * 1024; // characters
+    private static final int MAX_FULL_TEXT_SIZE = 1024 * 1024; // characters
     private static final int TRACKING_PIXEL_SURFACE = 25; // pixels
 
     private static final List<String> heads = Collections.unmodifiableList(Arrays.asList(
@@ -327,17 +328,7 @@ public class HtmlHelper {
         }
 
         // Limit length
-
-        int length = 0;
-        for (Element elm : parsed.select("*")) {
-            for (Node child : elm.childNodes())
-                if (child instanceof TextNode)
-                    length += ((TextNode) child).text().length();
-            if (length > MAX_TEXT_SIZE)
-                elm.remove();
-        }
-
-        if (length > MAX_TEXT_SIZE) {
+        if (truncate(parsed, true)) {
             parsed.body()
                     .appendElement("p")
                     .appendElement("em")
@@ -1082,7 +1073,11 @@ public class HtmlHelper {
         if (body == null)
             return null;
 
-        String text = JsoupEx.parse(body).text();
+        Document d = JsoupEx.parse(body);
+
+        truncate(d, !full);
+
+        String text = d.text();
         if (full)
             return text;
 
@@ -1097,6 +1092,10 @@ public class HtmlHelper {
         final StringBuilder sb = new StringBuilder();
 
         html = html.replace("<br> ", "<br>");
+
+        Document d = JsoupEx.parse(html);
+
+        truncate(d, true);
 
         NodeTraversor.traverse(new NodeVisitor() {
             private int qlevel = 0;
@@ -1176,7 +1175,7 @@ public class HtmlHelper {
                 for (int i = 0; i < qlevel; i++)
                     sb.append("> ");
             }
-        }, JsoupEx.parse(html));
+        }, d);
 
         sb.append("\n");
 
@@ -1196,6 +1195,20 @@ public class HtmlHelper {
             index += line.length() + 1;
         }
         return ssb;
+    }
+
+    static boolean truncate(Document d, boolean reformat) {
+        int at = (reformat ? MAX_FORMAT_TEXT_SIZE : MAX_FULL_TEXT_SIZE);
+
+        int length = 0;
+        for (Element elm : d.select("*")) {
+            for (Node child : elm.childNodes())
+                if (child instanceof TextNode)
+                    length += ((TextNode) child).text().length();
+            if (length > at)
+                elm.remove();
+        }
+        return (length > at);
     }
 
     static Spanned fromHtml(@NonNull String html) {

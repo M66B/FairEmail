@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 
 public class JsoupEx {
     static Document parse(String html) {
@@ -35,6 +36,15 @@ org.jsoup.UncheckedIOException: java.io.IOException: Input is binary and unsuppo
         at org.jsoup.parser.Parser.parse(SourceFile:107)
         at org.jsoup.Jsoup.parse(SourceFile:58)
 */
-        return Jsoup.parse(html.replace("\0", ""));
+        try {
+            return Jsoup.parse(html.replace("\0", ""));
+        } catch (OutOfMemoryError ex) {
+            Log.e(ex);
+            Document document = Document.createShell("");
+            Element strong = document.createElement("strong");
+            strong.text(Log.formatThrowable(ex));
+            document.body().appendChild(strong);
+            return document;
+        }
     }
 }
