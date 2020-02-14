@@ -106,7 +106,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private static final long QUIT_DELAY = 5 * 1000L; // milliseconds
     private static final int CONNECT_BACKOFF_START = 8; // seconds
     private static final int CONNECT_BACKOFF_MAX = 64; // seconds (totally 2 minutes)
-    private static final int CONNECT_BACKOFF_AlARM = 15; // minutes
+    private static final int CONNECT_BACKOFF_AlARM_START = 15; // minutes
+    private static final int CONNECT_BACKOFF_AlARM_MAX = 60; // minutes
     private static final long RECONNECT_BACKOFF = 90 * 1000L; // milliseconds
     private static final int ACCOUNT_ERROR_AFTER = 60; // minutes
     private static final int ACCOUNT_ERROR_AFTER_POLL = 3; // times
@@ -1460,9 +1461,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                 if (state.isRunning()) {
                     int backoff = state.getBackoff();
+                    EntityLog.log(this, account.name + " backoff=" + backoff);
                     if (backoff <= CONNECT_BACKOFF_MAX) {
                         // Short back-off period, keep device awake
-                        EntityLog.log(this, account.name + " backoff=" + backoff);
                         try {
                             state.acquire(backoff * 1000L * (state.getMaxConnections() ? 2 : 1));
                         } catch (InterruptedException ex) {
@@ -1482,15 +1483,13 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                         AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
                         try {
-                            long duration = CONNECT_BACKOFF_AlARM * 60 * 1000L;
-                            long trigger = System.currentTimeMillis() + duration;
-                            EntityLog.log(this, "### " + account.name + " backoff" +
-                                    " alarm=" + CONNECT_BACKOFF_AlARM + " until=" + new Date(trigger));
+                            long trigger = System.currentTimeMillis() + backoff * 1000L;
+                            EntityLog.log(this, "### " + account.name + " backoff until=" + new Date(trigger));
                             AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, trigger, pi);
 
                             try {
                                 wlAccount.release();
-                                state.acquire(2 * duration);
+                                state.acquire(2 * backoff * 1000L);
                                 Log.i("### " + account.name + " backoff done");
                             } catch (InterruptedException ex) {
                                 Log.w(account.name + " backoff " + ex.toString());
@@ -1502,7 +1501,11 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         }
                     }
 
-                    if (backoff <= CONNECT_BACKOFF_MAX)
+                    if (backoff < CONNECT_BACKOFF_MAX)
+                        state.setBackoff(backoff * 2);
+                    else if (backoff == CONNECT_BACKOFF_MAX)
+                        state.setBackoff(CONNECT_BACKOFF_AlARM_START * 60);
+                    else if (backoff < CONNECT_BACKOFF_AlARM_MAX * 60)
                         state.setBackoff(backoff * 2);
                 }
             }
