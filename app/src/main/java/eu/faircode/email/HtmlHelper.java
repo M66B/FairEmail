@@ -37,6 +37,7 @@ import android.util.Base64;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.text.HtmlCompat;
 import androidx.core.util.PatternsCompat;
@@ -56,9 +57,7 @@ import org.jsoup.select.NodeVisitor;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -1022,6 +1021,10 @@ public class HtmlHelper {
                 EntityAttachment attachment = db.attachment().getAttachment(id, cid);
                 if (attachment != null && attachment.available) {
                     File file = attachment.getFile(context);
+                    Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
+                    img.attr("src", uri.toString());
+                    Log.i("Inline image uri=" + uri);
+/*
                     try (InputStream is = new FileInputStream(file)) {
                         byte[] bytes = new byte[(int) file.length()];
                         if (is.read(bytes) != bytes.length)
@@ -1035,6 +1038,7 @@ public class HtmlHelper {
 
                         img.attr("src", sb.toString());
                     }
+*/
                 }
             }
         }
