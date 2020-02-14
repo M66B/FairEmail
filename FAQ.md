@@ -1208,7 +1208,7 @@ You can inspect the *Log* via the main navigation menu to check if there are fre
 You can workaround this by lowering the keep-alive interval in the advanced account settings to for example 9 or 15 minutes.
 Note that battery optimizations need to be disabled in setup step 4 to reliably keep connections alive.
 
-Some providers send every two minutes something like '*Still there*' resulting in network traffic and your device to wake up and causing unnecessary extra battery usage.
+Some providers send every two minutes something like '*Still here*' resulting in network traffic and your device to wake up and causing unnecessary extra battery usage.
 You can inspect the *Log* via the main navigation menu to check if your provider is doing this.
 If your provider is using [Dovecot](https://www.dovecot.org/) as IMAP server,
 you could ask your provider to change the [imap_idle_notify_interval](https://wiki.dovecot.org/Timeouts) setting to a higher value or better yet, to disable this.
