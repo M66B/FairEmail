@@ -41,6 +41,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
@@ -200,7 +201,7 @@ public class ContactInfo {
                 if (lookup) {
                     HttpURLConnection urlConnection = null;
                     try {
-                        String hash = Helper.md5(address.getAddress().toLowerCase().getBytes());
+                        String hash = Helper.md5(address.getAddress().toLowerCase(Locale.ROOT).getBytes());
                         URL url = new URL("https://www.gravatar.com/avatar/" + hash + "?d=404");
                         Log.i("Gravatar url=" + url);
 

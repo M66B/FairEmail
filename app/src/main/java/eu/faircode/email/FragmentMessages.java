@@ -4695,7 +4695,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         for (int i = 0; i < param.length; i++) {
                             int e = param[i].indexOf("=");
                             if (e > 0) {
-                                String key = param[i].substring(0, e).trim().toLowerCase();
+                                String key = param[i].substring(0, e).trim().toLowerCase(Locale.ROOT);
                                 String value = param[i].substring(e + 1);
                                 Log.i("Autocrypt " + key + "=" + value);
                                 switch (key) {
@@ -4703,7 +4703,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                         addr = value;
                                         break;
                                     case "prefer-encrypt":
-                                        mutual = value.trim().toLowerCase().equals("mutual");
+                                        mutual = value.trim().toLowerCase(Locale.ROOT).equals("mutual");
                                         break;
                                     case "keydata":
                                         keydata = Base64.decode(value, Base64.DEFAULT);

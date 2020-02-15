@@ -272,17 +272,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     // https://www.iana.org/assignments/imap-jmap-keywords/imap-jmap-keywords.xhtml
     private static final List<String> IMAP_KEYWORDS_BLACKLIST = Collections.unmodifiableList(Arrays.asList(
-            "$MDNSent".toLowerCase(),
-            "$Forwarded".toLowerCase(),
-            "$SubmitPending".toLowerCase(),
-            "$Submitted".toLowerCase(),
-            "$Junk".toLowerCase(),
-            "$NotJunk".toLowerCase(),
-            "$recent".toLowerCase(),
-            "DTAG_document".toLowerCase(),
-            "DTAG_image".toLowerCase(),
-            "$X-Me-Annot-1".toLowerCase(),
-            "$X-Me-Annot-2".toLowerCase()
+            "$MDNSent".toLowerCase(Locale.ROOT),
+            "$Forwarded".toLowerCase(Locale.ROOT),
+            "$SubmitPending".toLowerCase(Locale.ROOT),
+            "$Submitted".toLowerCase(Locale.ROOT),
+            "$Junk".toLowerCase(Locale.ROOT),
+            "$NotJunk".toLowerCase(Locale.ROOT),
+            "$recent".toLowerCase(Locale.ROOT),
+            "DTAG_document".toLowerCase(Locale.ROOT),
+            "DTAG_image".toLowerCase(Locale.ROOT),
+            "$X-Me-Annot-1".toLowerCase(Locale.ROOT),
+            "$X-Me-Annot-2".toLowerCase(Locale.ROOT)
     ));
 
     public class ViewHolder extends RecyclerView.ViewHolder implements
@@ -918,7 +918,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (keywords_header) {
                 SpannableStringBuilder keywords = new SpannableStringBuilder();
                 for (int i = 0; i < message.keywords.length; i++) {
-                    String k = message.keywords[i].toLowerCase();
+                    String k = message.keywords[i].toLowerCase(Locale.ROOT);
                     if (!IMAP_KEYWORDS_BLACKLIST.contains(k)) {
                         if (keywords.length() > 0)
                             keywords.append(" ");

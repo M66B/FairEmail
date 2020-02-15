@@ -287,7 +287,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
 
     static String getType(String[] attrs, String fullName, boolean selectable) {
         // https://tools.ietf.org/html/rfc3501#section-5.1
-        if ("INBOX".equals(fullName.toUpperCase()))
+        if ("INBOX".equals(fullName.toUpperCase(Locale.ROOT)))
             return INBOX;
 
         // https://www.iana.org/assignments/imap-mailbox-name-attributes/imap-mailbox-name-attributes.xhtml

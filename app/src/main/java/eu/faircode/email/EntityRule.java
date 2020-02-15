@@ -42,7 +42,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.List;
-import java.util.Locale;
 import java.util.regex.Pattern;
 
 import javax.mail.Address;
@@ -256,8 +255,7 @@ public class EntityRule {
                 Pattern pattern = Pattern.compile(needle, Pattern.DOTALL);
                 matched = pattern.matcher(haystack).matches();
             } else
-                matched = haystack.toLowerCase(Locale.ROOT)
-                        .contains(needle.trim().toLowerCase(Locale.ROOT));
+                matched = haystack.toLowerCase().contains(needle.trim().toLowerCase());
 
         Log.i("Rule=" + name + " matched=" + matched +
                 " needle=" + needle + " haystack=" + haystack + " regex=" + regex);

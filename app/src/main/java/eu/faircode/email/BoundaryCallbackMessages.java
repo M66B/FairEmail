@@ -43,7 +43,6 @@ import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 
 import javax.mail.FetchProfile;
@@ -172,7 +171,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         Boolean flagged = null;
         Boolean snoozed = null;
         Boolean encrypted = null;
-        String find = (TextUtils.isEmpty(query) ? null : query.toLowerCase(Locale.ROOT));
+        String find = (TextUtils.isEmpty(query) ? null : query.toLowerCase());
         if (find != null && find.startsWith(context.getString(R.string.title_search_special_prefix) + ":")) {
             String special = find.split(":")[1];
             if (context.getString(R.string.title_search_special_unseen).equals(special))
@@ -251,9 +250,9 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                 File file = EntityMessage.getFile(context, match.id);
                                 if (file.exists()) {
                                     String html = Helper.readText(file);
-                                    if (html.toLowerCase(Locale.ROOT).contains(find)) {
+                                    if (html.toLowerCase().contains(find)) {
                                         String text = HtmlHelper.getFullText(html);
-                                        if (text.toLowerCase(Locale.ROOT).contains(find))
+                                        if (text.toLowerCase().contains(find))
                                             match.matched = true;
                                     }
                                 }

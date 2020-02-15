@@ -153,7 +153,6 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
@@ -1464,7 +1463,7 @@ public class FragmentCompose extends FragmentBase {
                     pgpUserIds = new String[recipients.size()];
                     for (int i = 0; i < recipients.size(); i++) {
                         InternetAddress recipient = (InternetAddress) recipients.get(i);
-                        pgpUserIds[i] = recipient.getAddress().toLowerCase(Locale.ROOT);
+                        pgpUserIds[i] = recipient.getAddress().toLowerCase();
                     }
 
                     Intent intent;
@@ -3994,8 +3993,8 @@ public class FragmentCompose extends FragmentBase {
 
     private static String unprefix(String subject, String prefix) {
         subject = subject.trim();
-        prefix = prefix.trim().toLowerCase(Locale.ROOT);
-        while (subject.toLowerCase(Locale.ROOT).startsWith(prefix))
+        prefix = prefix.trim().toLowerCase();
+        while (subject.toLowerCase().startsWith(prefix))
             subject = subject.substring(prefix.length()).trim();
         return subject;
     }

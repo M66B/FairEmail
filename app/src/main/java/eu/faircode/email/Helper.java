@@ -669,7 +669,7 @@ public class Helper {
     }
 
     static String localizeFolderName(Context context, String name) {
-        if (name != null && "INBOX".equals(name.toUpperCase()))
+        if (name != null && "INBOX".equals(name.toUpperCase(Locale.ROOT)))
             return context.getString(R.string.title_folder_inbox);
         else if ("OUTBOX".equals(name))
             return context.getString(R.string.title_folder_outbox);
@@ -892,7 +892,7 @@ public class Helper {
             byte[] bytes = digest.digest(cert);
             StringBuilder sb = new StringBuilder();
             for (byte b : bytes)
-                sb.append(Integer.toString(b & 0xff, 16).toUpperCase());
+                sb.append(Integer.toString(b & 0xff, 16).toUpperCase(Locale.ROOT));
             return sb.toString();
         } catch (Throwable ex) {
             Log.e(ex);
