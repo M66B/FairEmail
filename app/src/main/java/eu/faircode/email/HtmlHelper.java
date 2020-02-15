@@ -817,7 +817,7 @@ public class HtmlHelper {
                     if (x11ColorMap.containsKey(code)) // workaround
                         color = x11ColorMap.get(code);
                     else
-                        color = Integer.decode(c);
+                        color = Long.decode(c).intValue();
                 }
             } else if (c.startsWith("rgb") || c.startsWith("hsl")) {
                 int s = c.indexOf("(");
@@ -851,7 +851,7 @@ public class HtmlHelper {
                     color = Color.parseColor(c);
                 } catch (IllegalArgumentException ex) {
                     // Workaround
-                    color = Integer.decode("#" + c);
+                    color = Long.decode("#" + c).intValue();
                 }
 
             if (BuildConfig.DEBUG)
