@@ -392,7 +392,7 @@ public class HtmlHelper {
                                 Integer color = parseColor(value, dark);
                                 if (color != null) {
                                     // fromHtml does not support transparency
-                                    String c = String.format("#%08x", color | 0xFF000000);
+                                    String c = String.format("#%06x", color);
                                     sb.append("color:").append(c).append(";");
                                     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N)
                                         element.attr("color", c);
