@@ -775,7 +775,10 @@ public class HtmlHelper {
         if (TextUtils.isEmpty(value))
             return null;
 
-        value = value.toLowerCase(Locale.ROOT).trim();
+        value = value
+                .toLowerCase(Locale.ROOT)
+                .trim()
+                .replace("rem", "em");
 
         try {
             if (value.endsWith("em"))
