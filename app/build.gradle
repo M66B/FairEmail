@@ -345,7 +345,6 @@ dependencies {
 
     // https://mvnrepository.com/artifact/org.bouncycastle/bcpkix-jdk15on
     implementation "org.bouncycastle:bcpkix-jdk15to18:$bouncycastle_version"
-    //implementation "org.bouncycastle:bcmail-jdk15to18:$bouncycastle_version"
 
     // https://github.com/openid/AppAuth-Android
     // https://mvnrepository.com/artifact/net.openid/appauth?repo=bt-openid
