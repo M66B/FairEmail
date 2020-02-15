@@ -1470,6 +1470,11 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             Log.w(account.name + " backoff " + ex.toString());
                         }
                     } else {
+                        // Stop retrying when executing operations only
+                        boolean enabled = prefs.getBoolean("enabled", true);
+                        if (!enabled)
+                            break;
+
                         // Stop retrying when polling
                         int pollInterval = prefs.getInt("poll_interval", 0);
                         if (pollInterval > 0 && !account.poll_exempted)
