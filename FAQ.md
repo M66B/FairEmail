@@ -547,6 +547,8 @@ if your provider allows this.
 
 FairEmail will automatically update the passwords of related identities when you update the password of the associated account or a related identity.
 
+See [this FAQ](#user-content-faq33) for editing the username of email addresses.
+
 <br />
 
 <a name="faq10"></a>
