@@ -92,10 +92,10 @@
     <color name="darkYellowPrimaryDark">#bc5100</color>
     <color name="darkPurpleAccent">#ba68c8</color>
 
-    <!-- Purple 900 / Yellow 300 -->
+    <!-- Purple 900 / Yellow 600 -->
     <color name="darkPurplePrimary">#4a148c</color>
     <color name="darkPurplePrimaryDark">#12005e</color>
-    <color name="darkYellowAccent">#fff176</color>
+    <color name="darkYellowAccent">#fdd835</color>
 
     <!-- Red 900 / Green 300 -->
     <color name="darkRedPrimary">#b71c1c</color>
