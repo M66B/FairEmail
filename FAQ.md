@@ -2055,6 +2055,9 @@ FairEmail uses services and alarms, provides widgets and listens for the boot co
 so it is not possible to store FairEmail or its data on external storage media, like an sdcard.
 See also [here](https://developer.android.com/guide/topics/data/install-location).
 
+If you need to save on storage space, you can limit the number of days messages are being synchronized and kept for.
+You can change these settings by long pressing a folder in the folder list and selecting *Edit properties*.
+
 <br />
 
 <a name="faq94"></a>
