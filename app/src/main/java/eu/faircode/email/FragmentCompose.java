@@ -3659,12 +3659,14 @@ public class FragmentCompose extends FragmentBase {
                     Elements ref = doc.select("div[fairemail=reference]");
                     ref.remove();
 
+                    Document b;
                     if (body == null)
-                        body = Document.createShell("").html();
-                    Document b = HtmlHelper.sanitize(context, body, true, false);
-                    body = b.html();
+                        b = Document.createShell("");
+                    else
+                        b = HtmlHelper.sanitize(context, body, true, false);
 
-                    if (!b.body().html().equals(doc.body().html()) ||
+                    if (TextUtils.isEmpty(body) ||
+                            !b.body().html().equals(doc.body().html()) ||
                             (extras != null && extras.containsKey("html"))) {
                         dirty = true;
 
@@ -3710,7 +3712,8 @@ public class FragmentCompose extends FragmentBase {
                         }
 
                         Helper.writeText(draft.getFile(context, draft.revision), body);
-                    }
+                    } else
+                        body = p;
 
                     if (action == R.id.action_undo || action == R.id.action_redo) {
                         if (action == R.id.action_undo) {
