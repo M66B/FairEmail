@@ -3726,6 +3726,8 @@ public class FragmentCompose extends FragmentBase {
                         body = Helper.readText(draft.getFile(context, draft.revision));
                     }
 
+                    Helper.writeText(draft.getFile(context), body);
+
                     db.message().setMessageContent(draft.id,
                             true,
                             draft.plain_only, // unchanged
