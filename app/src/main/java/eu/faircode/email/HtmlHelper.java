@@ -1215,17 +1215,40 @@ public class HtmlHelper {
     }
 
     static boolean truncate(Document d, boolean reformat) {
-        int at = (reformat ? MAX_FORMAT_TEXT_SIZE : MAX_FULL_TEXT_SIZE);
+        int max = (reformat ? MAX_FORMAT_TEXT_SIZE : MAX_FULL_TEXT_SIZE);
 
         int length = 0;
         for (Element elm : d.select("*")) {
-            for (Node child : elm.childNodes())
-                if (child instanceof TextNode)
-                    length += ((TextNode) child).text().length();
-            if (length > at)
+            boolean skip = false;
+
+            for (Node child : elm.childNodes()) {
+                if (child instanceof TextNode) {
+                    TextNode tnode = ((TextNode) child);
+                    String text = tnode.getWholeText();
+
+                    if (length < max) {
+                        if (length + text.length() >= max) {
+                            text = text.substring(0, max - length) + " ...";
+                            tnode.text(text);
+                            skip = true;
+                        }
+                    } else {
+                        if (skip)
+                            child.remove();
+                    }
+
+                    length += text.length();
+                } else {
+                    if (skip)
+                        child.remove();
+                }
+            }
+
+            if (length >= max && !skip)
                 elm.remove();
         }
-        return (length > at);
+
+        return (length >= max);
     }
 
     static Spanned fromHtml(@NonNull String html) {
