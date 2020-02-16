@@ -1738,6 +1738,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (show_full) {
                         if (HtmlHelper.truncate(document, false))
                             document.body()
+                                    .appendElement("br")
                                     .appendElement("p")
                                     .appendElement("em")
                                     .text(context.getString(R.string.title_truncated));

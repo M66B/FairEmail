@@ -330,6 +330,7 @@ public class HtmlHelper {
         // Limit length
         if (truncate(parsed, true)) {
             parsed.body()
+                    .appendElement("br")
                     .appendElement("p")
                     .appendElement("em")
                     .text(context.getString(R.string.title_too_large));
@@ -1234,13 +1235,10 @@ public class HtmlHelper {
                         }
                     } else {
                         if (skip)
-                            child.remove();
+                            tnode.text("");
                     }
 
                     length += text.length();
-                } else {
-                    if (skip)
-                        child.remove();
                 }
             }
 
