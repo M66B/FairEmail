@@ -23,6 +23,7 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -31,6 +32,8 @@ import com.flask.colorpicker.ColorPickerView;
 import com.flask.colorpicker.OnColorChangedListener;
 import com.flask.colorpicker.builder.ColorPickerClickListener;
 import com.flask.colorpicker.builder.ColorPickerDialogBuilder;
+
+import java.lang.reflect.Field;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -86,6 +89,17 @@ public class FragmentDialogColor extends FragmentDialogBase {
                 }
             });
 
-        return builder.build();
+        Dialog dialog = builder.build();
+
+        try {
+            Field fColorEdit = builder.getClass().getDeclaredField("colorEdit");
+            fColorEdit.setAccessible(true);
+            EditText colorEdit = (EditText) fColorEdit.get(builder);
+            colorEdit.setTextColor(Helper.resolveColor(getContext(), android.R.attr.textColorPrimary));
+        } catch (Throwable ex) {
+            Log.w(ex);
+        }
+
+        return dialog;
     }
 }
