@@ -244,6 +244,17 @@
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swFlagSnoozed"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_star_snoozed"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swAutoRead"
+            app:switchPadding="12dp" />
+
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swAutoUnflag"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -251,7 +262,7 @@
             android:text="@string/title_advanced_autounstar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swAutoRead"
+            app:layout_constraintTop_toBottomOf="@id/swFlagSnoozed"
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat

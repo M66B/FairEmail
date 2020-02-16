@@ -5629,6 +5629,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (wakeup < 0)
                     wakeup = null;
 
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean flag_snoozed = prefs.getBoolean("flag_snoozed", false);
+
                 DB db = DB.getInstance(context);
                 try {
                     db.beginTransaction();
@@ -5638,6 +5641,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     for (EntityMessage threaded : messages) {
                         db.message().setMessageSnoozed(threaded.id, wakeup);
                         db.message().setMessageUiIgnored(threaded.id, true);
+                        if (flag_snoozed)
+                            EntityOperation.queue(context, threaded, EntityOperation.FLAG, true);
                         EntityMessage.snooze(context, threaded.id, wakeup);
                     }
 
@@ -5683,6 +5688,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (wakeup < 0)
                     wakeup = null;
 
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean flag_snoozed = prefs.getBoolean("flag_snoozed", false);
+
                 DB db = DB.getInstance(context);
                 try {
                     db.beginTransaction();
@@ -5697,6 +5705,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         for (EntityMessage threaded : messages) {
                             db.message().setMessageSnoozed(threaded.id, wakeup);
                             db.message().setMessageUiIgnored(message.id, true);
+                            if (flag_snoozed)
+                                EntityOperation.queue(context, threaded, EntityOperation.FLAG, true);
                             EntityMessage.snooze(context, threaded.id, wakeup);
                         }
                     }

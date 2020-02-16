@@ -57,6 +57,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private SwitchCompat swQuickScroll;
     private SwitchCompat swCollapseMultiple;
     private SwitchCompat swAutoRead;
+    private SwitchCompat swFlagSnoozed;
     private SwitchCompat swAutoUnflag;
     private SwitchCompat swResetImportance;
     private SwitchCompat swDiscardDelete;
@@ -66,7 +67,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             "double_back", "pull", "autoscroll", "doubletap", "swipenav", "volumenav", "reversed",
             "autoexpand", "expand_all", "expand_one", "collapse_multiple",
             "autoclose", "onclose", "quick_filter", "quick_scroll",
-            "autoread", "autounflag", "reset_importance", "discard_delete",
+            "autoread", "flag_snoozed", "autounflag", "reset_importance", "discard_delete",
             "default_snooze"
     };
 
@@ -96,6 +97,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swQuickFilter = view.findViewById(R.id.swQuickFilter);
         swQuickScroll = view.findViewById(R.id.swQuickScroll);
         swAutoRead = view.findViewById(R.id.swAutoRead);
+        swFlagSnoozed = view.findViewById(R.id.swFlagSnoozed);
         swAutoUnflag = view.findViewById(R.id.swAutoUnflag);
         swResetImportance = view.findViewById(R.id.swResetImportance);
         swDiscardDelete = view.findViewById(R.id.swDiscardDelete);
@@ -236,6 +238,13 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             }
         });
 
+        swFlagSnoozed.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("flag_snoozed", checked).apply();
+            }
+        });
+
         swAutoUnflag.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -341,6 +350,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swQuickScroll.setChecked(prefs.getBoolean("quick_scroll", true));
 
         swAutoRead.setChecked(prefs.getBoolean("autoread", false));
+        swFlagSnoozed.setChecked(prefs.getBoolean("flag_snoozed", false));
         swAutoUnflag.setChecked(prefs.getBoolean("autounflag", false));
         swResetImportance.setChecked(prefs.getBoolean("reset_importance", false));
         swDiscardDelete.setChecked(prefs.getBoolean("discard_delete", false));
