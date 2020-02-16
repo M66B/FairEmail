@@ -450,12 +450,22 @@ public class FastScrollerEx extends RecyclerView.ItemDecoration implements Recyc
             return;
         }
 
-        int scrollbarLength = scrollbarRange[1] - scrollbarRange[0];
-        float percentage = (scrollbarLength == 0 ? 0 : y / (float) scrollbarLength);
         androidx.recyclerview.widget.RecyclerView.Adapter adapter = mRecyclerView.getAdapter();
         int count = (adapter == null ? 0 : adapter.getItemCount());
-        int pos = Math.round(count * percentage);
-        mRecyclerView.scrollToPosition(pos);
+        if (count == 1) {
+            int scrollingBy = scrollTo(mVerticalDragY, y, scrollbarRange,
+                    mRecyclerView.computeVerticalScrollRange(),
+                    mRecyclerView.computeVerticalScrollOffset(), mRecyclerViewHeight);
+            if (scrollingBy != 0) {
+                mRecyclerView.scrollBy(0, scrollingBy);
+            }
+        }
+        else {
+            int scrollbarLength = scrollbarRange[1] - scrollbarRange[0];
+            float percentage = (scrollbarLength == 0 ? 0 : y / (float) scrollbarLength);
+            int pos = Math.round(count * percentage);
+            mRecyclerView.scrollToPosition(pos);
+        }
 
         mVerticalDragY = y;
     }

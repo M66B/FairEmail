@@ -1,5 +1,5 @@
 --- /home/marcel/tmp/FastScroller.java	1980-02-01 00:00:00.000000000 +0100
-+++ app/src/main/java/androidx/recyclerview/widget/FastScrollerEx.java	2020-01-26 19:12:27.775546398 +0100
++++ app/src/main/java/androidx/recyclerview/widget/FastScrollerEx.java	2020-02-16 11:25:11.856872339 +0100
 @@ -37,8 +37,8 @@ import java.lang.annotation.RetentionPol
  /**
   * Class responsible to animate and provide a fast scroller.
@@ -28,7 +28,7 @@
          }
  
          if (mNeedHorizontalScrollbar) {
-@@ -448,12 +449,14 @@ class FastScroller extends RecyclerView.
+@@ -448,12 +449,24 @@ class FastScroller extends RecyclerView.
          if (Math.abs(mVerticalThumbCenterY - y) < 2) {
              return;
          }
@@ -37,19 +37,28 @@
 -                mRecyclerView.computeVerticalScrollOffset(), mRecyclerViewHeight);
 -        if (scrollingBy != 0) {
 -            mRecyclerView.scrollBy(0, scrollingBy);
--        }
 +
-+        int scrollbarLength = scrollbarRange[1] - scrollbarRange[0];
-+        float percentage = (scrollbarLength == 0 ? 0 : y / (float) scrollbarLength);
 +        androidx.recyclerview.widget.RecyclerView.Adapter adapter = mRecyclerView.getAdapter();
 +        int count = (adapter == null ? 0 : adapter.getItemCount());
-+        int pos = Math.round(count * percentage);
-+        mRecyclerView.scrollToPosition(pos);
++        if (count == 1) {
++            int scrollingBy = scrollTo(mVerticalDragY, y, scrollbarRange,
++                    mRecyclerView.computeVerticalScrollRange(),
++                    mRecyclerView.computeVerticalScrollOffset(), mRecyclerViewHeight);
++            if (scrollingBy != 0) {
++                mRecyclerView.scrollBy(0, scrollingBy);
++            }
+         }
++        else {
++            int scrollbarLength = scrollbarRange[1] - scrollbarRange[0];
++            float percentage = (scrollbarLength == 0 ? 0 : y / (float) scrollbarLength);
++            int pos = Math.round(count * percentage);
++            mRecyclerView.scrollToPosition(pos);
++        }
 +
          mVerticalDragY = y;
      }
  
-@@ -494,7 +497,7 @@ class FastScroller extends RecyclerView.
+@@ -494,7 +507,7 @@ class FastScroller extends RecyclerView.
      @VisibleForTesting
      boolean isPointInsideVerticalThumb(float x, float y) {
          return (isLayoutRTL() ? x <= mVerticalThumbWidth
