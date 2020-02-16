@@ -236,6 +236,13 @@ public class ApplicationEx extends Application {
                 editor.putBoolean("move_1_confirmed", automove);
                 editor.remove("automove");
             }
+        } else if (version < 972) {
+            if (prefs.contains("signature_end")) {
+                boolean signature_end = prefs.getBoolean("signature_end", false);
+                if (signature_end)
+                    editor.putInt("signature_location", 2);
+                editor.remove("signature_end");
+            }
         }
 
         if (BuildConfig.DEBUG && false) {

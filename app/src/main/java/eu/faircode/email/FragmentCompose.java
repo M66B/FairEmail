@@ -3264,16 +3264,11 @@ public class FragmentCompose extends FragmentBase {
                         EntityIdentity identity = null;
                         if (data.draft.identity != null)
                             identity = db.identity().getIdentity(data.draft.identity);
-                        boolean signature_end = prefs.getBoolean("signature_end", false);
-
-                        if (!signature_end && identity != null)
-                            addSignature(context, document, data.draft, identity);
 
                         for (Element e : ref)
                             document.body().appendChild(e);
 
-                        if (signature_end && identity != null)
-                            addSignature(context, document, data.draft, identity);
+                        addSignature(context, document, data.draft, identity);
 
                         String html = JsoupEx.parse(document.html()).html();
                         Helper.writeText(file, html);
@@ -3670,22 +3665,16 @@ public class FragmentCompose extends FragmentBase {
                             (extras != null && extras.containsKey("html"))) {
                         dirty = true;
 
-                        boolean signature_end = prefs.getBoolean("signature_end", false);
-
                         // Get saved body
                         Document d;
                         if (extras != null && extras.containsKey("html")) {
                             // Save current revision
                             Document c = JsoupEx.parse(body);
 
-                            if (!signature_end)
-                                addSignature(context, c, draft, identity);
-
                             for (Element e : ref)
                                 c.body().appendChild(e);
 
-                            if (signature_end)
-                                addSignature(context, c, draft, identity);
+                            addSignature(context, c, draft, identity);
 
                             Helper.writeText(draft.getFile(context, draft.revision), c.html());
 
@@ -3693,14 +3682,10 @@ public class FragmentCompose extends FragmentBase {
                         } else {
                             d = JsoupEx.parse(body);
 
-                            if (!signature_end)
-                                addSignature(context, d, draft, identity);
-
                             for (Element e : ref)
                                 d.body().appendChild(e);
 
-                            if (signature_end)
-                                addSignature(context, d, draft, identity);
+                            addSignature(context, d, draft, identity);
                         }
 
                         body = d.html();
@@ -4007,11 +3992,13 @@ public class FragmentCompose extends FragmentBase {
                 identity == null || TextUtils.isEmpty(identity.signature))
             return;
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        int signature_location = prefs.getInt("signature_location", 1);
+        boolean usenet = prefs.getBoolean("usenet_signature", false);
+
         Element div = document.createElement("div");
         div.attr("fairemail", "signature");
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean usenet = prefs.getBoolean("usenet_signature", false);
         if (usenet) {
             // https://www.ietf.org/rfc/rfc3676.txt
             Element span = document.createElement("span");
@@ -4021,7 +4008,14 @@ public class FragmentCompose extends FragmentBase {
         }
 
         div.append(identity.signature);
-        document.body().appendChild(div);
+
+        Elements ref = document.select("div[fairemail=reference]");
+        if (signature_location == 0)
+            document.body().prependChild(div);
+        else if (ref.size() == 0 || signature_location == 2)
+            document.body().appendChild(div);
+        else if (signature_location == 1)
+            ref.first().before(div);
     }
 
     private void showDraft(final EntityMessage draft) {

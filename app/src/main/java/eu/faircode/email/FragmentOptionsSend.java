@@ -51,7 +51,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private SwitchCompat swExtendedReply;
     private SwitchCompat swQuoteReply;
     private SwitchCompat swPlainOnly;
-    private SwitchCompat swSignatureEnd;
+    private Spinner spSignatureLocation;
     private SwitchCompat swUsenetSignature;
     private SwitchCompat swRemoveSignatures;
     private SwitchCompat swResizeImages;
@@ -65,8 +65,8 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
 
     private final static String[] RESET_OPTIONS = new String[]{
             "keyboard", "suggest_sent", "suggested_received",
-            "prefix_once", "extended_reply", "quote_reply", "signature_end",
-            "plain_only", "usenet_signature", "remove_signatures",
+            "prefix_once", "extended_reply", "quote_reply",
+            "plain_only", "signature_location", "usenet_signature", "remove_signatures",
             "resize_images", "resize_attachments", "send_reminders", "receipt_default", "resize", "lookup_mx", "send_delayed"
     };
 
@@ -88,7 +88,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swExtendedReply = view.findViewById(R.id.swExtendedReply);
         swQuoteReply = view.findViewById(R.id.swQuoteReply);
         swPlainOnly = view.findViewById(R.id.swPlainOnly);
-        swSignatureEnd = view.findViewById(R.id.swSignatureEnd);
+        spSignatureLocation = view.findViewById(R.id.spSignatureLocation);
         swUsenetSignature = view.findViewById(R.id.swUsenetSignature);
         swRemoveSignatures = view.findViewById(R.id.swRemoveSignatures);
         swResizeImages = view.findViewById(R.id.swResizeImages);
@@ -163,10 +163,15 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             }
         });
 
-        swSignatureEnd.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        spSignatureLocation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("signature_end", checked).apply();
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                prefs.edit().putInt("signature_location", position).apply();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                prefs.edit().remove("signature_location").apply();
             }
         });
 
@@ -301,7 +306,10 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swExtendedReply.setChecked(prefs.getBoolean("extended_reply", false));
         swQuoteReply.setChecked(prefs.getBoolean("quote_reply", true));
         swPlainOnly.setChecked(prefs.getBoolean("plain_only", false));
-        swSignatureEnd.setChecked(prefs.getBoolean("signature_end", false));
+
+        int signature_location = prefs.getInt("signature_location", 1);
+        spSignatureLocation.setSelection(signature_location);
+
         swUsenetSignature.setChecked(prefs.getBoolean("usenet_signature", false));
         swRemoveSignatures.setChecked(prefs.getBoolean("remove_signatures", false));
 
