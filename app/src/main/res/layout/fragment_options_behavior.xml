@@ -305,6 +305,5 @@
             app:layout_constraintBottom_toBottomOf="@+id/npDefaultSnooze"
             app:layout_constraintStart_toEndOf="@+id/npDefaultSnooze"
             app:layout_constraintTop_toTopOf="@+id/npDefaultSnooze" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
