@@ -244,7 +244,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_startup">Auf Startbildschirm anzeigen</string>
     <string name="title_advanced_cards">Ordner und Unterhaltungen mit Rahmen (breit) statt in Tabellendesign (schmal) zeigen</string>
     <string name="title_advanced_date_header">Nach Datum gruppieren</string>
-    <string name="title_advanced_threading">Konversationsansicht</string>
+    <string name="title_advanced_threading">Unterhaltungsfaden</string>
     <string name="title_advanced_indentation">In der Unterhaltungsansicht empfangene Nachrichten nach links und Gesendete nach rechts einrücken</string>
     <string name="title_advanced_highlight_unread">Ungelesene Nachrichten hervorheben</string>
     <string name="title_advanced_color_stripe">Farbstreifen anzeigen</string>
@@ -279,21 +279,21 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_collapse_quotes">Zitierten Text ausblenden</string>
     <string name="title_advanced_images_inline">Eingebettete Grafiken automatisch anzeigen</string>
     <string name="title_advanced_seekbar">Relative Gesprächsposition mit einem Punkt anzeigen</string>
-    <string name="title_advanced_actionbar">Navigationsleiste in Konversationen anzeigen</string>
+    <string name="title_advanced_actionbar">Navigationsleiste in Unterhaltung anzeigen</string>
     <string name="title_advanced_double_back">Zweifaches „Zurück” zum Beenden</string>
     <string name="title_advanced_pull_refresh">Zum Aktualisieren nach unten ziehen</string>
     <string name="title_advanced_autoscroll">Beim Empfang neuer Nachrichten nach oben rollen</string>
     <string name="title_advanced_double_tap">Doppelt antippen, um die Nachricht als gelesen bzw. ungelesen zu kennzeichnen</string>
-    <string name="title_advanced_swipenav">Nach links/rechts wischen, um nächstes/voriges Gespräch zu zeigen</string>
+    <string name="title_advanced_swipenav">Nach links/rechts wischen, um nächste/vorige Unterhaltung anzuzeigen</string>
     <string name="title_advanced_volumenav">Lautstärke hoch/runter, um zur nächsten/vorherigen Unterhaltung zu wechseln</string>
     <string name="title_advanced_reversed">Navigationsrichtung umkehren</string>
     <string name="title_advanced_autoexpand">Nachrichten automatisch erweitern</string>
     <string name="title_advanced_expand_all">Alle gelesenen Nachrichten automatisch erweitern</string>
     <string name="title_advanced_expand_one">Jeweils nur eine Nachricht erweitern</string>
     <string name="title_advanced_collapse_multiple">In Unterhaltungen mit mehreren Nachrichten diese bei „zurück” einklappen</string>
-    <string name="title_advanced_autoclose">Konversationen automatisch schließen</string>
+    <string name="title_advanced_autoclose">Unterhaltungen automatisch schließen</string>
     <string name="title_advanced_onclose">Beim Schließen einer Unterhaltung</string>
-    <string name="title_advanced_quick_filter">Zeige unaufdringliche Schnellfilter-Symbole</string>
+    <string name="title_advanced_quick_filter">Unaufdringliche Schnellfiltersymbole anzeigen</string>
     <string name="title_advanced_quick_scroll">Nicht aufdringliche Symbole für schnellen Bildlauf nach oben oder unten anzeigen</string>
     <string name="title_advanced_autoread">Nachrichten beim Verschieben automatisch als gelesen kennzeichnen</string>
     <string name="title_advanced_autounstar">Sterne automatisch von Nachrichten entfernen, wenn sie verschoben werden</string>
@@ -306,7 +306,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_badge">Startsymbol mit der Anzahl der neuen Nachrichten anzeigen</string>
     <string name="title_advanced_unseen_ignored">Lässt die Anzahl der neuen Nachrichten (im Widget) mit der Anzahl der Mails in den Benachrichtigungen übereinstimmen</string>
     <string name="title_advanced_notify_summary">Nur Benachrichtigungs-Zusammenfassung anzeigen</string>
-    <string name="title_advanced_notify_preview">Zeige die Nachrichten-Vorschau in den Benachrichtigungen</string>
+    <string name="title_advanced_notify_preview">Nachrichtenvorschau in den Benachrichtigungen anzeigen</string>
     <string name="title_advanced_notify_preview_all">Vorschau des ganzen Textes</string>
     <string name="title_advanced_notify_actions">Benachrichtigungsaktionen</string>
     <string name="title_advanced_notify_action_trash">Löschen</string>
@@ -366,10 +366,10 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_sync_delay_hint">Dies verzögert die Synchronisierung von Nachrichten</string>
     <string name="title_advanced_suggest_local_hint">Zusätzlich zu den von Android bereitgestellten Kontakten werden weitere Kontaktdaten für neue gesendete oder erhaltene Nachrichten nur dann gespeichert, wenn dies aktiviert ist.</string>
     <string name="title_advanced_usenet_hint">Signatur-Trenner (\'-- \') zwischen Text und Signatur einfügen</string>
-    <string name="title_advanced_send_reminders_hint">Zeige eine Warnung, wenn der Nachrichtentext oder der Betreff leer ist oder wenn ein Anhang zu fehlen scheint</string>
+    <string name="title_advanced_send_reminders_hint">Eine Warnung anzeigen, wenn der Nachrichtentext oder der Betreff leer ist oder wenn ein Anhang zu fehlen scheint</string>
     <string name="title_advanced_lookup_mx_hint">Überprüft, ob DNS-MX-Einträge vorhanden sind</string>
     <string name="title_advanced_check_reply_hint">Überprüft, ob die Domain des Absenders und der Antwort-An-Adresse gleich sind</string>
-    <string name="title_advanced_metered_hint">Getaktete Verbindungen sind in der Regel mobile Verbindungen oder bezahlte Wi-Fi Hotspots</string>
+    <string name="title_advanced_metered_hint">Getaktete Verbindungen sind in der Regel mobile Verbindungen oder bezahlte WLAN-Zugangspunkte</string>
     <string name="title_advanced_metered_warning">Das Deaktivieren dieser Option deaktiviert das Empfangen und Senden von Nachrichten über mobile Internetverbindungen</string>
     <string name="title_advanced_rlah_hint">Unter der Annahme, dass kein Roaming innerhalb der EU stattfindet</string>
     <string name="title_advanced_ssl_harden_hint">Wenn Sie dies aktivieren, werden schwache SSL-Protokolle und -Verschlüsselungen nicht zugelassen</string>
@@ -384,9 +384,9 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_preview_hint">Nur verfügbar, wenn der E-Mail-Text heruntergeladen wurde</string>
     <string name="title_advanced_preview_issue">Rollen kann aufgrund eines Fehlers in einigen Android-Versionen langsam sein, wenn die Anzahl der Zeilen mehr als eine ist</string>
     <string name="title_advanced_inline_hint">Eingebettete Grafiken sind Grafiken, die innerhalb der Nachricht enthalten sind</string>
-    <string name="title_advanced_autoexpand_hint">Eine (ungelesene) Nachricht wird automatisch geöffnet</string>
+    <string name="title_advanced_autoexpand_hint">Nachricht automatisch öffnen, wenn es nur eine Nachricht oder eine ungelesene Nachricht in einer Unterhaltung gibt</string>
     <string name="title_advanced_autoseen_hint">Das automatische Markieren von Nachrichten bei ihrer Erweiterung als gelesen kann in den einzelnen Kontoeinstellungen deaktiviert werden</string>
-    <string name="title_advanced_autoclose_hint">Automatisches Schließen des Unterhaltungsthreads, wenn alle E-Mails archiviert, gesendet oder gelöscht wurden</string>
+    <string name="title_advanced_autoclose_hint">Automatisch Unterhaltungen schließen, wenn alle E-Mails archiviert, gesendet oder gelöscht wurden</string>
     <string name="title_advanced_sender_hint">Die meisten Anbieter erlauben keine veränderten Absenderadressen</string>
     <string name="title_advanced_display_harmful_hint">Deaktivieren dieser Option kann für Ihre Privatsphäre schädlich sein</string>
     <string name="title_advanced_display_hidden_hint">Dies kann zu merkwürdigem Aussehen und doppelten Texten führen</string>
@@ -572,7 +572,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_save_all">Alles speichern</string>
     <string name="title_save_eml">Rohdaten speichern</string>
     <string name="title_trash">Löschen</string>
-    <string name="title_copy">Kopieren &#8230;</string>
+    <string name="title_copy">&#8230; kopieren</string>
     <string name="title_copy_to">Kopieren nach &#8230;</string>
     <string name="title_subscribe">Abonnieren</string>
     <string name="title_delete">Löschen</string>
@@ -796,7 +796,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_rule_hours">Stunden</string>
     <string name="title_rule_schedule_end">Vom Ende der Zeitbedingung</string>
     <string name="title_rule_folder">Ordner</string>
-    <string name="title_rule_thread">Alle Nachrichten zum selben Thema und im selben Ordner</string>
+    <string name="title_rule_thread">Alle Nachrichten zur selben Unterhaltung und Ordner</string>
     <string name="title_rule_identity">Identität</string>
     <string name="title_rule_template">Antwortvorlage</string>
     <string name="title_rule_cc">Den CC-Adressen antworten</string>
@@ -843,7 +843,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_legend_sync_keep">Anzahl der zu synchronisierenden Tage / aufzubewahrenden E-Mails</string>
     <string name="title_legend_download_fetch">Anzahl der heruntergeladenen Nachrichten / abgerufenen Kopfzeilen</string>
     <string name="title_legend_stop">Regelverarbeitung stoppen</string>
-    <string name="title_legend_thread">Konversation</string>
+    <string name="title_legend_thread">Unterhaltung</string>
     <string name="title_legend_zoom">Textgröße ändern</string>
     <string name="title_legend_draft">Entwurf vorhanden</string>
     <string name="title_legend_priority">Hat hohe Priorität</string>
@@ -939,7 +939,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_clipboard_copy">In die Zwischenablage kopieren</string>
     <string name="title_clipboard_copied">In die Zwischenablage kopiert</string>
     <string name="title_ask_what">Fragen, was getan werden soll</string>
-    <string name="title_no_ask_again">Dies nicht mehr anzeigen</string>
+    <string name="title_no_ask_again">Nicht noch einmal fragen</string>
     <string name="title_no_ask_for_again">Dieses für %1$s nicht mehr fragen</string>
     <string name="title_no_body">Kein Nachrichtentext gefunden</string>
     <string name="title_no_charset">Nicht unterstützte Codierung: %1$s</string>
@@ -1064,7 +1064,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     </string-array>
     <string-array name="onCloseNames">
         <item>Nichts tun</item>
-        <item>Gehe zu vorheriger Unterhaltung</item>
+        <item>Zur vorherigen Unterhaltung gehen</item>
         <item>Zur nächsten Unterhaltung gehen</item>
     </string-array>
     <string-array name="resizeNames">
