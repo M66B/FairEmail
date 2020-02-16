@@ -209,7 +209,7 @@ dependencies {
     def biometric_version = "1.0.1"
     def billingclient_version = "2.1.0"
     def javamail_version = "1.6.5-SNAPSHOT"
-    def jsoup_version = "1.12.2"
+    def jsoup_version = "1.12.1"
     def dnsjava_version = "2.1.9"
     def openpgp_version = "12.0"
     def requery_version = "3.31.0"
