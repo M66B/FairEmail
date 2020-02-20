@@ -1151,7 +1151,7 @@ Long version:
 <a name="faq37"></a>
 **(37) How are passwords stored?**
 
-All supported Android versions [encrypt all user data](https://source.android.com/security/encryption/full-disk.html),
+All supported Android versions [encrypt all user data](https://source.android.com/security/encryption),
 so all data, including usernames, passwords, messages, etc, is stored encrypted.
 
 <br />
