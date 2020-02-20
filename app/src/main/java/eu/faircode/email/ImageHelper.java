@@ -376,7 +376,8 @@ class ImageHelper {
                             lld.setBounds(0, 0, bounds.width(), bounds.height());
                             lld.setLevel(0);
 
-                            view.setText(view.getText());
+                            view.requestLayout();
+                            view.invalidate();
                         }
                     });
                 }
