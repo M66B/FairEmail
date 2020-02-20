@@ -382,7 +382,7 @@ public class FragmentBase extends Fragment {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
                     if (ex instanceof RecoverableSecurityException) {
                         handle((RecoverableSecurityException) ex);
                         return;
@@ -464,7 +464,7 @@ public class FragmentBase extends Fragment {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
                     if (ex instanceof RecoverableSecurityException) {
                         handle((RecoverableSecurityException) ex);
                         return;
@@ -478,7 +478,7 @@ public class FragmentBase extends Fragment {
         }.execute(this, args, "attachments:save");
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
+    @RequiresApi(api = Build.VERSION_CODES.Q)
     private void handle(RecoverableSecurityException ex) {
         new AlertDialog.Builder(getContext())
                 .setMessage(ex.getMessage())
