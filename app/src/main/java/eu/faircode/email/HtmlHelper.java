@@ -1056,30 +1056,53 @@ public class HtmlHelper {
         Log.i(document.head().html());
     }
 
+    static String getPreview(File file) throws IOException {
+        try {
+            Document d = JsoupEx.parse(file);
+            return _getText(d, false);
+        } catch (OutOfMemoryError ex) {
+            Log.e(ex);
+            return null;
+        }
+    }
+
+    @Deprecated
     static String getPreview(String body) {
         try {
-            return _getText(body, false);
+            if (body == null)
+                return null;
+            Document d = JsoupEx.parse(body);
+            return _getText(d, false);
         } catch (OutOfMemoryError ex) {
             Log.e(ex);
             return null;
         }
     }
 
+    @Deprecated
     static String getFullText(String body) {
         try {
-            return _getText(body, true);
+            if (body == null)
+                return null;
+            Document d = JsoupEx.parse(body);
+            return _getText(d, true);
         } catch (OutOfMemoryError ex) {
             Log.e(ex);
             return null;
         }
     }
 
-    private static String _getText(String body, boolean full) {
-        if (body == null)
+    static String getFullText(File file) throws IOException {
+        try {
+            Document d = JsoupEx.parse(file);
+            return _getText(d, true);
+        } catch (OutOfMemoryError ex) {
+            Log.e(ex);
             return null;
+        }
+    }
 
-        Document d = JsoupEx.parse(body);
-
+    private static String _getText(Document d, boolean full) {
         truncate(d, !full);
 
         String text = d.text();

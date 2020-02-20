@@ -701,11 +701,13 @@ public class Log {
             draft.seen = true;
             draft.ui_seen = true;
             draft.id = db.message().insertMessage(draft);
-            Helper.writeText(draft.getFile(context), body);
+
+            File file = draft.getFile(context);
+            Helper.writeText(file, body);
             db.message().setMessageContent(draft.id,
                     true,
                     false,
-                    HtmlHelper.getPreview(body),
+                    HtmlHelper.getPreview(file),
                     null);
 
             attachSettings(context, draft.id, 1);

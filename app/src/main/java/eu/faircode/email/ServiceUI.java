@@ -34,6 +34,7 @@ import androidx.core.app.AlarmManagerCompat;
 import androidx.core.app.RemoteInput;
 import androidx.preference.PreferenceManager;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.Date;
@@ -278,11 +279,14 @@ public class ServiceUI extends IntentService {
             reply.seen = true;
             reply.ui_seen = true;
             reply.id = db.message().insertMessage(reply);
-            Helper.writeText(reply.getFile(this), text);
+
+            File file = reply.getFile(this);
+            Helper.writeText(file, text);
+
             db.message().setMessageContent(reply.id,
                     true,
                     plain_only || ref.plain_only,
-                    HtmlHelper.getPreview(text),
+                    HtmlHelper.getPreview(file),
                     null);
 
             EntityOperation.queue(this, reply, EntityOperation.SEND);

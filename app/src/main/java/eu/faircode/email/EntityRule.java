@@ -35,6 +35,7 @@ import androidx.room.PrimaryKey;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -411,11 +412,12 @@ public class EntityRule {
         reply.id = db.message().insertMessage(reply);
 
         String body = answer.getText(message.from);
-        Helper.writeText(reply.getFile(context), body);
+        File file = reply.getFile(context);
+        Helper.writeText(file, body);
         db.message().setMessageContent(reply.id,
                 true,
                 false,
-                HtmlHelper.getPreview(body),
+                HtmlHelper.getPreview(file),
                 null);
 
         EntityOperation.queue(context, reply, EntityOperation.SEND);

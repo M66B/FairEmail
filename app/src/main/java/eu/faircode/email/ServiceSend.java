@@ -39,6 +39,7 @@ import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -392,11 +393,12 @@ public class ServiceSend extends ServiceBase {
                 message.error = null;
                 message.id = db.message().insertMessage(message);
 
-                Helper.writeText(EntityMessage.getFile(this, message.id), body);
+                File file = EntityMessage.getFile(this, message.id);
+                Helper.writeText(file, body);
                 db.message().setMessageContent(message.id,
                         true,
                         parts.isPlainOnly(),
-                        HtmlHelper.getPreview(body),
+                        HtmlHelper.getPreview(file),
                         parts.getWarnings(message.warning));
 
                 EntityAttachment.copy(this, id, message.id);

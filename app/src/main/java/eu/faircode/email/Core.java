@@ -1124,11 +1124,12 @@ class Core {
         MessageHelper helper = new MessageHelper((MimeMessage) imessage);
         MessageHelper.MessageParts parts = helper.getMessageParts(context);
         String body = parts.getHtml(context);
-        Helper.writeText(message.getFile(context), body);
+        File file = message.getFile(context);
+        Helper.writeText(file, body);
         db.message().setMessageContent(message.id,
                 true,
                 parts.isPlainOnly(),
-                HtmlHelper.getPreview(body),
+                HtmlHelper.getPreview(file),
                 parts.getWarnings(message.warning));
     }
 
@@ -1577,11 +1578,12 @@ class Core {
                     }
 
                     String body = parts.getHtml(context);
-                    Helper.writeText(message.getFile(context), body);
+                    File file = message.getFile(context);
+                    Helper.writeText(file, body);
                     db.message().setMessageContent(message.id,
                             true,
                             parts.isPlainOnly(),
-                            HtmlHelper.getPreview(body),
+                            HtmlHelper.getPreview(file),
                             parts.getWarnings(message.warning));
 
                     for (EntityAttachment attachment : parts.getAttachments())
@@ -2316,11 +2318,12 @@ class Core {
 
                 if (message.size < maxSize) {
                     String body = parts.getHtml(context);
-                    Helper.writeText(message.getFile(context), body);
+                    File file = message.getFile(context);
+                    Helper.writeText(file, body);
                     db.message().setMessageContent(message.id,
                             true,
                             parts.isPlainOnly(),
-                            HtmlHelper.getPreview(body),
+                            HtmlHelper.getPreview(file),
                             parts.getWarnings(message.warning));
                     Log.i(folder.name + " inline downloaded message id=" + message.id +
                             " size=" + message.size + "/" + (body == null ? null : body.length()));
@@ -2649,11 +2652,12 @@ class Core {
                 if (state.getNetworkState().isUnmetered() ||
                         (message.size != null && message.size < maxSize)) {
                     String body = parts.getHtml(context);
-                    Helper.writeText(message.getFile(context), body);
+                    File file = message.getFile(context);
+                    Helper.writeText(file, body);
                     db.message().setMessageContent(message.id,
                             true,
                             parts.isPlainOnly(),
-                            HtmlHelper.getPreview(body),
+                            HtmlHelper.getPreview(file),
                             parts.getWarnings(message.warning));
                     Log.i(folder.name + " downloaded message id=" + message.id +
                             " size=" + message.size + "/" + (body == null ? null : body.length()));
@@ -3212,8 +3216,8 @@ class Core {
                 String preview = message.preview;
                 if (notify_preview_all)
                     try {
-                        String html = Helper.readText(message.getFile(context));
-                        preview = HtmlHelper.getFullText(html);
+                        File file = message.getFile(context);
+                        preview = HtmlHelper.getFullText(file);
                     } catch (Throwable ex) {
                         Log.e(ex);
                     }
