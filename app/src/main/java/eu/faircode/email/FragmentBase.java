@@ -388,7 +388,9 @@ public class FragmentBase extends Fragment {
                         return;
                     }
 
-                if (ex instanceof IllegalArgumentException || ex instanceof FileNotFoundException)
+                if (ex instanceof IllegalArgumentException ||
+                        ex instanceof FileNotFoundException ||
+                        ex instanceof SecurityException)
                     ToastEx.makeText(getContext(), ex.getMessage(), Toast.LENGTH_LONG).show();
                 else
                     Log.unexpectedError(getParentFragmentManager(), ex);
@@ -406,6 +408,11 @@ public class FragmentBase extends Fragment {
             protected Void onExecute(Context context, Bundle args) throws Throwable {
                 long id = args.getLong("id");
                 Uri uri = args.getParcelable("uri");
+
+                if (!"content".equals(uri.getScheme())) {
+                    Log.w("Save attachment uri=" + uri);
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
+                }
 
                 DB db = DB.getInstance(context);
                 DocumentFile tree = DocumentFile.fromTreeUri(context, uri);
@@ -470,7 +477,9 @@ public class FragmentBase extends Fragment {
                         return;
                     }
 
-                if (ex instanceof FileNotFoundException)
+                if (ex instanceof IllegalArgumentException ||
+                        ex instanceof FileNotFoundException ||
+                        ex instanceof SecurityException)
                     ToastEx.makeText(getContext(), ex.getMessage(), Toast.LENGTH_LONG).show();
                 else
                     Log.unexpectedError(getParentFragmentManager(), ex);
