@@ -126,6 +126,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
     static final String SYSTEM = "System";
     static final String USER = "User";
 
+    // https://tools.ietf.org/html/rfc6154
     // https://www.iana.org/assignments/imap-mailbox-name-attributes/imap-mailbox-name-attributes.xhtml
     private static final List<String> SYSTEM_FOLDER_ATTR = Collections.unmodifiableList(Arrays.asList(
             "All",
