@@ -127,6 +127,9 @@ public interface DaoOperation {
     @Query("UPDATE operation SET state = :state WHERE id = :id")
     int setOperationState(long id, String state);
 
+    @Query("UPDATE operation SET state = NULL")
+    int resetOperationStates();
+
     @Query("UPDATE operation SET error = :error WHERE id = :id")
     int setOperationError(long id, String error);
 

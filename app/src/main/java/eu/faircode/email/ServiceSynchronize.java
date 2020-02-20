@@ -1678,6 +1678,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             db.folder().setFolderSyncState(folder.id, null);
                         }
 
+                        // Reset operations
+                        db.operation().resetOperationStates();
+
                         // Restore notifications
                         db.message().clearNotifyingMessages();
 
