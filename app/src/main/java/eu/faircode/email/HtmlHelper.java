@@ -405,8 +405,22 @@ public class HtmlHelper {
                                 // https://developer.mozilla.org/en-US/docs/Web/CSS/font-size
                                 Element parent = element.parent();
                                 if (parent != null) {
+                                    boolean set = false;
+                                    boolean small = false;
+                                    boolean big = false;
                                     Integer current = null;
                                     while (parent != null) {
+                                        if (!set) {
+                                            if ("small".equals(parent.tagName())) {
+                                                set = true;
+                                                small = true;
+                                            }
+                                            if ("big".equals(parent.tagName())) {
+                                                set = true;
+                                                big = true;
+                                            }
+                                        }
+
                                         String xFontSize = parent.attr("x-font-size");
                                         if (!TextUtils.isEmpty(xFontSize)) {
                                             current = Integer.parseInt(xFontSize);
@@ -417,7 +431,7 @@ public class HtmlHelper {
 
                                     Float fsize = getFontSize(value, current);
                                     if (fsize != null && fsize != 0 &&
-                                            (fsize <= 0.8f || fsize >= 1.25)) {
+                                            ((!small && fsize <= 0.8f) || (!big && fsize >= 1.25))) {
                                         Element e = new Element(fsize < 1 ? "small" : "big");
                                         e.attr("x-font-size", Integer.toString(Math.round(16 * fsize)));
                                         element.replaceWith(e);
