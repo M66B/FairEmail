@@ -25,6 +25,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -173,7 +174,7 @@ public class FragmentFolder extends FragmentBase {
 
         addKeyPressedListener(new ActivityBase.IKeyPressedListener() {
             @Override
-            public boolean onKeyPressed(int keyCode) {
+            public boolean onKeyPressed(KeyEvent event) {
                 return false;
             }
 

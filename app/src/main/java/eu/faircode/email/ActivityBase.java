@@ -372,7 +372,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     public boolean dispatchKeyEvent(KeyEvent event) {
         int keyCode = event.getKeyCode();
         for (IKeyPressedListener listener : keyPressedListeners)
-            if (listener.onKeyPressed(keyCode))
+            if (listener.onKeyPressed(event))
                 return true;
         return super.dispatchKeyEvent(event);
     }
@@ -397,7 +397,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     }
 
     public interface IKeyPressedListener {
-        boolean onKeyPressed(int keyCode);
+        boolean onKeyPressed(KeyEvent event);
 
         boolean onBackPressed();
     }

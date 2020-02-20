@@ -64,6 +64,7 @@ import android.text.style.ImageSpan;
 import android.text.style.QuoteSpan;
 import android.text.style.StyleSpan;
 import android.util.TypedValue;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -630,7 +631,7 @@ public class FragmentCompose extends FragmentBase {
 
         //view.getViewTreeObserver().addOnGlobalLayoutListener(layoutListener);
 
-        addKeyPressedListener(onBackPressedListener);
+        addKeyPressedListener(onKeyPressedListener);
 
         // Initialize
         setHasOptionsMenu(true);
@@ -4204,9 +4205,13 @@ public class FragmentCompose extends FragmentBase {
         }
     };
 
-    private ActivityBase.IKeyPressedListener onBackPressedListener = new ActivityBase.IKeyPressedListener() {
+    private ActivityBase.IKeyPressedListener onKeyPressedListener = new ActivityBase.IKeyPressedListener() {
         @Override
-        public boolean onKeyPressed(int keyCode) {
+        public boolean onKeyPressed(KeyEvent event) {
+            if (event.getKeyCode() == KeyEvent.KEYCODE_ENTER && event.isCtrlPressed()) {
+                onActionSend(false);
+                return true;
+            }
             return false;
         }
 

@@ -34,6 +34,7 @@ import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -442,7 +443,7 @@ public class FragmentAccount extends FragmentBase {
 
         addKeyPressedListener(new ActivityBase.IKeyPressedListener() {
             @Override
-            public boolean onKeyPressed(int keyCode) {
+            public boolean onKeyPressed(KeyEvent event) {
                 return false;
             }
 

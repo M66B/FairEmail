@@ -4182,7 +4182,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
     private ActivityBase.IKeyPressedListener onBackPressedListener = new ActivityBase.IKeyPressedListener() {
         @Override
-        public boolean onKeyPressed(int keyCode) {
+        public boolean onKeyPressed(KeyEvent event) {
             if (viewType != AdapterMessage.ViewType.THREAD)
                 return false;
 
@@ -4195,7 +4195,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (!volumenav)
                 return false;
 
-            switch (keyCode) {
+            switch (event.getKeyCode()) {
                 case KeyEvent.KEYCODE_VOLUME_UP:
                     if (next == null) {
                         Animation bounce = AnimationUtils.loadAnimation(getContext(), R.anim.bounce_left);
