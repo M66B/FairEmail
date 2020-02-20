@@ -1726,6 +1726,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 return;
             }
 
+            message.update = true;
+
             if (message.accountProtocol != EntityAccount.TYPE_IMAP)
                 if (direction == ItemTouchHelper.LEFT) {
                     adapter.notifyItemChanged(pos);
