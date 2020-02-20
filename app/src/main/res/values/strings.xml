@@ -350,6 +350,7 @@
     <string name="title_advanced_autoread">Automatically mark messages read on moving messages</string>
     <string name="title_advanced_star_snoozed">Automatically add star on snoozing messages</string>
     <string name="title_advanced_autounstar">Automatically remove stars from messages on moving messages</string>
+    <string name="title_advanced_auto_important">Automatically make starred messages important</string>
     <string name="title_advanced_reset_importance">Reset importance on moving messages</string>
     <string name="title_advanced_discard_delete">On discard draft permanently delete draft</string>
     <string name="title_advanced_default_snooze">Default snooze time</string>

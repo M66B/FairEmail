@@ -142,6 +142,12 @@ public class EntityOperation {
                     db.message().setMessageUiFlagged(similar.id, flagged, flagged ? color : null);
                     queue(context, similar.account, similar.folder, similar.id, name, jargs);
                 }
+
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean auto_important = prefs.getBoolean("auto_important", false);
+                if (auto_important && flagged)
+                    db.message().setMessageImportance(message.id, 2);
+
                 return;
 
             } else if (ANSWERED.equals(name)) {

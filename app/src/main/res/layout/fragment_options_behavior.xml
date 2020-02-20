@@ -266,6 +266,17 @@
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swAutoImportant"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_auto_important"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swAutoUnflag"
+            app:switchPadding="12dp" />
+
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swResetImportance"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -273,7 +284,7 @@
             android:text="@string/title_advanced_reset_importance"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swAutoUnflag"
+            app:layout_constraintTop_toBottomOf="@id/swAutoImportant"
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat
