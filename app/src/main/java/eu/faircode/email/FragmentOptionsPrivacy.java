@@ -263,7 +263,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
                             boolean pro = ActivityBilling.isPro(getContext());
                             if (pro) {
                                 prefs.edit().putBoolean("biometrics", !biometrics).apply();
-                                btnBiometrics.setText(biometrics
+                                btnBiometrics.setText(!biometrics
                                         ? R.string.title_setup_biometrics_disable
                                         : R.string.title_setup_biometrics_enable);
                             } else
