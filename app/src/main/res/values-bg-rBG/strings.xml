@@ -222,6 +222,7 @@
     <string name="title_advanced_prefix_once">Префикс в темата само веднъж при отговор или препращане</string>
     <string name="title_advanced_extended_reply">Използвай разширено заглавие за отговор/препращане</string>
     <string name="title_advanced_quote_reply">Цитирай текста в отговора</string>
+    <string name="title_advanced_signature_location">Позиция на подписа</string>
     <string name="title_advanced_signature_end">Добавете подпис след цитирано/препратено съобщение</string>
     <string name="title_advanced_plain_only">Изпращане на обикновен текст по подразбиране</string>
     <string name="title_advanced_usenet_signature">Конвенция за подпис на Usenet</string>
@@ -276,6 +277,7 @@
     <string name="title_advanced_contrast">Използвай висок контраст за текст на съобщението</string>
     <string name="title_advanced_monospaced">Използвай шрифт с еднакъв размер за текст на съобщението</string>
     <string name="title_advanced_text_color">Покажи текста с цветове</string>
+    <string name="title_advanced_text_size">Показвайте малки и големи текстове</string>
     <string name="title_advanced_collapse_quotes">Свиване на цитирания текст</string>
     <string name="title_advanced_images_inline">Автоматично показване на вградени изображения</string>
     <string name="title_advanced_seekbar">Покажи позицията на разговора с точка</string>
@@ -296,7 +298,9 @@
     <string name="title_advanced_quick_filter">Показване на ненатрапчиви икони за бърз филтър</string>
     <string name="title_advanced_quick_scroll">Показване на ненатрапчиви икони за бързо превъртане нагоре/надолу</string>
     <string name="title_advanced_autoread">Автоматично маркиране на съобщения като прочетени при преместване им</string>
+    <string name="title_advanced_star_snoozed">Автоматично добавяне на звезда при отхвърлени съобщения</string>
     <string name="title_advanced_autounstar">Автоматично премахване на звездите от съобщенията при преместване им</string>
+    <string name="title_advanced_auto_important">Автоматично прави съобщенията със звезда важни</string>
     <string name="title_advanced_reset_importance">Нулирай важността при преместване на съобщения</string>
     <string name="title_advanced_discard_delete">При отказване на чернова за постоянно изтрий черновата</string>
     <string name="title_advanced_default_snooze">Време за отлагане по подразбиране</string>
@@ -555,6 +559,7 @@
     <string name="title_importance_low">Ниско</string>
     <string name="title_importance_normal">Нормално</string>
     <string name="title_importance_high">Високо</string>
+    <string name="title_search_in_text">Търсене в текст &#8230;</string>
     <string name="title_forward">Препрати</string>
     <string name="title_new_message">Ново съобщение</string>
     <string name="title_editasnew">Редактирай като нов</string>
@@ -608,6 +613,7 @@
     <string name="title_no_search">Търсенето в сървъра не е налично за този профил</string>
     <string name="title_too_large">Съобщението е твърде голямо, за да се преформатира напълно</string>
     <string name="title_truncated">Съобщението е твърде голямо, за да се покаже напълно</string>
+    <string name="title_insufficient_memory">Съобщението е твърде голямо за да се побере в наличната памет</string>
     <string name="title_show_full">Покажи цялото съобщение</string>
     <string name="title_unused_inline">Неизползваните вградени изображения ще бъдат премахнати при изпращане</string>
     <string name="title_accross_remark">Съобщенията, преместени в други профили, ще бъдат изтеглени наново, което ще доведе до допълнително използване на данни</string>
@@ -1107,6 +1113,11 @@
         <item>Малък</item>
         <item>Среден</item>
         <item>Голям</item>
+    </string-array>
+    <string-array name="signatureNames">
+        <item>Над текста</item>
+        <item>Под текста</item>
+        <item>Най отдолу</item>
     </string-array>
     <string-array name="encryptNames">
         <item>Няма</item>

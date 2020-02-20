@@ -243,6 +243,7 @@
     <string name="title_advanced_prefix_once">Prefiksuj temat tylko raz przy odpowiedzi lub przesyłaniu dalej</string>
     <string name="title_advanced_extended_reply">Użyj rozszerzonego nagłówka odpowiedzi/przesyłania dalej</string>
     <string name="title_advanced_quote_reply">Cytuj tekst odpowiedzi</string>
+    <string name="title_advanced_signature_location">Pozycja podpisu</string>
     <string name="title_advanced_signature_end">Dodaj podpis po cytowanej/przesyłanej wiadomości</string>
     <string name="title_advanced_plain_only">Domyślnie wysyłaj czystym tekstem</string>
     <string name="title_advanced_usenet_signature">Konwencja podpisu Usenet</string>
@@ -317,6 +318,7 @@
     <string name="title_advanced_quick_filter">Pokaż nienatarczywe ikony szybkiego filtrowania</string>
     <string name="title_advanced_quick_scroll">Pokaż nienatarczywe ikony szybkiego przewijania w górę/w dół</string>
     <string name="title_advanced_autoread">Automatycznie oznacz wiadomość jako przeczytaną przy przenoszeniu</string>
+    <string name="title_advanced_star_snoozed">Automatycznie dodawaj gwiazdkę przy usypianiu wiadomości</string>
     <string name="title_advanced_autounstar">Automatycznie usuwaj gwiazdki z wiadomości przy ich przenoszeniu</string>
     <string name="title_advanced_reset_importance">Resetuj ważność przy przenoszeniu wiadomości</string>
     <string name="title_advanced_discard_delete">Po odrzuceniu wersji roboczej trwale usuń wersję roboczą</string>
@@ -577,6 +579,7 @@
     <string name="title_importance_low">Niska</string>
     <string name="title_importance_normal">Normalna</string>
     <string name="title_importance_high">Wysoka</string>
+    <string name="title_search_in_text">Szukaj w tekście &#8230;</string>
     <string name="title_forward">Prześlij dalej</string>
     <string name="title_new_message">Nowa wiadomość</string>
     <string name="title_editasnew">Edytuj jako nową</string>
@@ -1130,6 +1133,11 @@ FairEmail wyświetla o tym małą wiadomość przypominającą, która zostanie 
         <item>Mała</item>
         <item>Średnia</item>
         <item>Duża</item>
+    </string-array>
+    <string-array name="signatureNames">
+        <item>Powyżej tekstu</item>
+        <item>Poniżej tekstu</item>
+        <item>Na dole</item>
     </string-array>
     <string-array name="encryptNames">
         <item>Brak</item>

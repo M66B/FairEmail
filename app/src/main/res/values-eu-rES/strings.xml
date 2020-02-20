@@ -221,6 +221,7 @@
     <string name="title_advanced_prefix_once">Jarri aurrizkia mintzagaiari behin bakarrik erantzun edo birbidaltzean</string>
     <string name="title_advanced_extended_reply">Erabili erantzun/birbidali goiburu hedatua</string>
     <string name="title_advanced_quote_reply">Aipatu erantzundako testua</string>
+    <string name="title_advanced_signature_location">Sinaduraren kokapena</string>
     <string name="title_advanced_signature_end">Gehitu sinadura aipatutako/bidalitako mezuaren ondoren</string>
     <string name="title_advanced_plain_only">Bidali testu soil hutsa lehenetsita</string>
     <string name="title_advanced_usenet_signature">Usenet sinaduren konbentzioa</string>
@@ -295,6 +296,7 @@
     <string name="title_advanced_quick_filter">Erakutsi iragazki azkarren ikonoak</string>
     <string name="title_advanced_quick_scroll">Erakutsi azkar gora/behera korritzeko ikonoak</string>
     <string name="title_advanced_autoread">Markatu mezuak irakurrita gisa hauek mugitzean</string>
+    <string name="title_advanced_star_snoozed">Gehitu automatikoki izarra atzeratutako mezuetan</string>
     <string name="title_advanced_autounstar">Kendu izarrak mezuetatik hauek mugitzean</string>
     <string name="title_advanced_reset_importance">Berrezarri garrantzia mezuak mugitzean</string>
     <string name="title_advanced_discard_delete">Zirriborroa baztertzean ezabatu zirriborroa behin betiko</string>
@@ -554,6 +556,7 @@
     <string name="title_importance_low">Txikia</string>
     <string name="title_importance_normal">Normala</string>
     <string name="title_importance_high">Handia</string>
+    <string name="title_search_in_text">Bilatu testuan &#8230;</string>
     <string name="title_forward">Birbidali</string>
     <string name="title_new_message">Mezu berria</string>
     <string name="title_editasnew">Editatu berri gisa</string>
@@ -1106,6 +1109,11 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
         <item>Txikia</item>
         <item>Ertaina</item>
         <item>Handia</item>
+    </string-array>
+    <string-array name="signatureNames">
+        <item>Testuaren gainean</item>
+        <item>Testuaren azpian</item>
+        <item>Beheko aldean</item>
     </string-array>
     <string-array name="encryptNames">
         <item>Bat ere ez</item>

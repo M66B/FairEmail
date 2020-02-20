@@ -3,7 +3,7 @@
     <string name="app_search">FairEmail-Suche</string>
     <string name="app_changelog">Änderungsprotokoll</string>
     <string name="app_welcome">FairEmail ist eine Open-Source-E-Mail-App, die sich auf Privatsphäre und Sicherheit konzentriert. Aus diesem Grund könnten einige Dinge anders funktionieren, als Sie es gewohnt sind.</string>
-    <string name="app_limitations">Beispielsweise werden Nachrichten automatisch neu formatiert um unsichere Elemente zu entfernen und die Lesbarkeit zu erhöhen. Um die Sicherheit zusätzlich zu erhöhen, muss das Öffnen von Links vorab bestätigt werden.</string>
+    <string name="app_limitations">Beispielsweise werden Nachrichten automatisch neu formatiert, um unsichere Elemente zu entfernen und die Lesbarkeit zu erhöhen. Um die Sicherheit zusätzlich zu erhöhen, muss das Öffnen von Links vorab bestätigt werden.</string>
     <string name="app_crash">FairEmail wird auf diesem Gerät nicht unterstützt, da Fehler in der benutzten Android-Version Abstürze verursachen</string>
     <string name="app_exit">Zum Beenden erneut „Zurück” drücken</string>
     <string name="channel_service">Dienst</string>
@@ -54,8 +54,8 @@
         <item quantity="other">%1$d Unterhaltungen ausgewählt</item>
     </plurals>
     <plurals name="title_moving_messages">
-        <item quantity="one">Verschiebe eine E-Mail nach %2$s ?</item>
-        <item quantity="other">Verschiebe %1$d E-Mails nach %2$s ?</item>
+        <item quantity="one">%1$d Nachricht nach %2$s verschieben?</item>
+        <item quantity="other">%1$d Nachrichten nach %2$s verschieben?</item>
     </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">E-Mail unwiderruflich löschen?</item>
@@ -73,7 +73,7 @@
         von dieser Absenderadresse automatisch in den Spam-Ordner zu verschieben.
         Regeln erstellen und verwenden ist eine Pro-Funktion.
     </string>
-    <string name="title_notification_waiting">Warte auf eine geeignete Verbindung</string>
+    <string name="title_notification_waiting">Auf eine geeignete Verbindung wird gewartet</string>
     <string name="title_notification_sending">Nachrichten werden gesendet</string>
     <string name="title_notification_failed">\'%1$s\' fehlgeschlagen</string>
     <string name="title_notification_alert">\'%1$s\' Server-Warnung</string>
@@ -222,6 +222,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_prefix_once">Re: und Fwd: nur einmal beim Antworten oder Weiterleiten voranstellen</string>
     <string name="title_advanced_extended_reply">Erweiterte Antwort-/Weiterleitungs-Kopfzeile verwenden</string>
     <string name="title_advanced_quote_reply">Beantworteten Text zitieren</string>
+    <string name="title_advanced_signature_location">Signaturposition</string>
     <string name="title_advanced_signature_end">Signatur NACH zitierter/weitergeleiteter Nachricht hinzufügen</string>
     <string name="title_advanced_plain_only">Immer als Reintext senden, nicht als HTML</string>
     <string name="title_advanced_usenet_signature">Usenet-Signaturkonvention</string>
@@ -276,6 +277,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_contrast">Hohen Kontrast für den Nachrichtentext verwenden</string>
     <string name="title_advanced_monospaced">Unproportionale Schriftart für den Nachrichtentext verwenden</string>
     <string name="title_advanced_text_color">Textfarben anzeigen</string>
+    <string name="title_advanced_text_size">Zeige kleine und große Texte</string>
     <string name="title_advanced_collapse_quotes">Zitierten Text ausblenden</string>
     <string name="title_advanced_images_inline">Eingebettete Grafiken automatisch anzeigen</string>
     <string name="title_advanced_seekbar">Relative Gesprächsposition mit einem Punkt anzeigen</string>
@@ -296,7 +298,9 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_quick_filter">Unaufdringliche Schnellfiltersymbole anzeigen</string>
     <string name="title_advanced_quick_scroll">Nicht aufdringliche Symbole für schnellen Bildlauf nach oben oder unten anzeigen</string>
     <string name="title_advanced_autoread">Nachrichten beim Verschieben automatisch als gelesen kennzeichnen</string>
+    <string name="title_advanced_star_snoozed">Bei schlummernden Meldungen automatisch einen Stern hinzufügen</string>
     <string name="title_advanced_autounstar">Sterne automatisch von Nachrichten entfernen, wenn sie verschoben werden</string>
+    <string name="title_advanced_auto_important">Markierte Nachrichten automatisch wichtig machen</string>
     <string name="title_advanced_reset_importance">Wichtigkeit beim Verschieben von Nachrichten zurücksetzen</string>
     <string name="title_advanced_discard_delete">Entwürfe beim Verwerfen dauerhaft löschen</string>
     <string name="title_advanced_default_snooze">Standard-Schlummer-Zeit</string>
@@ -556,6 +560,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_importance_low">Niedrig</string>
     <string name="title_importance_normal">Normal</string>
     <string name="title_importance_high">Hoch</string>
+    <string name="title_search_in_text">Im Text suchen &#8230;</string>
     <string name="title_forward">Weiterleiten</string>
     <string name="title_new_message">Neue Nachricht</string>
     <string name="title_editasnew">Als neu bearbeiten</string>
@@ -609,6 +614,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_no_search">Die Suche auf dem Server ist für dieses Konto nicht verfügbar</string>
     <string name="title_too_large">Die Nachricht ist zu groß, um sie vollständig neu zu formatieren</string>
     <string name="title_truncated">Nachricht zu groß, um vollständig angezeigt zu werden</string>
+    <string name="title_insufficient_memory">Nachricht zu groß für den verfügbaren Arbeitsspeicher</string>
     <string name="title_show_full">Vollständige Nachricht anzeigen</string>
     <string name="title_unused_inline">Ungenutzte Inline-Bilder werden beim Senden entfernt</string>
     <string name="title_accross_remark">E-Mails, die über unterschiedliche Konten verschoben werden, werden erneut heruntergeladen, was zu einem erhöhtem Datenverbrauch führt</string>
@@ -1108,6 +1114,11 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
         <item>Klein</item>
         <item>Mittel</item>
         <item>Groß</item>
+    </string-array>
+    <string-array name="signatureNames">
+        <item>Über dem Text</item>
+        <item>Unter dem Text</item>
+        <item>Am Schluss</item>
     </string-array>
     <string-array name="encryptNames">
         <item>Keine Verschlüsselung</item>

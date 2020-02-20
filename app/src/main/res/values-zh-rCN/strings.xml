@@ -209,6 +209,7 @@
     <string name="title_advanced_prefix_once">答复或抄送邮件时, 主题前的Re或CC只出现一次</string>
     <string name="title_advanced_extended_reply">使用扩展回复/转发头</string>
     <string name="title_advanced_quote_reply">引用回复文本</string>
+    <string name="title_advanced_signature_location">签名位置</string>
     <string name="title_advanced_signature_end">在引用/转发消息后添加签名</string>
     <string name="title_advanced_plain_only">默认仅发送纯文本</string>
     <string name="title_advanced_usenet_signature">Usenet签名公约（RFC3676）</string>
@@ -283,6 +284,7 @@
     <string name="title_advanced_quick_filter">显示不显眼的快速过滤图标</string>
     <string name="title_advanced_quick_scroll">显示不显眼的快速上/下滚动图标</string>
     <string name="title_advanced_autoread">移动消息时自动标记为已读</string>
+    <string name="title_advanced_star_snoozed">自动给打盹消息添加星标</string>
     <string name="title_advanced_autounstar">移动消息时自动移除星标</string>
     <string name="title_advanced_reset_importance">在移动消息时重置其重要性</string>
     <string name="title_advanced_discard_delete">丢弃草稿时将其永久删除</string>
@@ -384,7 +386,7 @@
     <string name="title_advanced_notify_manage_hint">点击频道名称来设置频道属性</string>
     <string name="title_advanced_notify_manage_default_hint">设置默认声音等</string>
     <string name="title_advanced_notify_manage_service_hint">禁用永久通知</string>
-    <string name="title_advanced_notify_preview_all_hint">适用于可以显示完整文本的可穿戴设备(最多5,000个字符)</string>
+    <string name="title_advanced_notify_preview_all_hint">为可穿戴设备显示完整文本(最多5,000个字符)</string>
     <string name="title_advanced_wearable_hint">通知仅在消息文本下载后发送到可穿戴设备</string>
     <string name="title_advanced_move_hint">可在账户设定中配置目标文件夹</string>
     <string name="title_advanced_notify_no_grouping">此Android版本不支持通知分组</string>
@@ -543,6 +545,7 @@
     <string name="title_importance_low">低</string>
     <string name="title_importance_normal">正常</string>
     <string name="title_importance_high">高</string>
+    <string name="title_search_in_text">在文本中搜索 &#8230;</string>
     <string name="title_forward">转发</string>
     <string name="title_new_message">新消息</string>
     <string name="title_editasnew">作为新邮件编辑</string>
@@ -594,8 +597,9 @@
     <string name="title_no_format">将包含最初收到的消息</string>
     <string name="title_no_image">无法解码图像</string>
     <string name="title_no_search">在服务器上搜索对该账户不可用</string>
-    <string name="title_too_large">消息太大，不能完全重写格式</string>
-    <string name="title_truncated">消息太大，无法完全显示</string>
+    <string name="title_too_large">消息内容太多，不能完全重新格式化</string>
+    <string name="title_truncated">消息内容太多，无法完全显示</string>
+    <string name="title_insufficient_memory">内存不足以容纳消息</string>
     <string name="title_show_full">显示完整消息</string>
     <string name="title_unused_inline">未使用的内联图像将在发送时被删除</string>
     <string name="title_accross_remark">App会再次下载在不同账户间移动的消息，这将导致额外的数据使用</string>
@@ -1093,6 +1097,11 @@ FairEmail会显示一条消息来提醒您这一点，这条消息在您购买�
         <item>小</item>
         <item>中</item>
         <item>大</item>
+    </string-array>
+    <string-array name="signatureNames">
+        <item>文本上方</item>
+        <item>文本下方</item>
+        <item>在底部</item>
     </string-array>
     <string-array name="encryptNames">
         <item>无</item>

@@ -222,6 +222,7 @@
     <string name="title_advanced_prefix_once">Prefiks emne bare en gang på svar eller videresending</string>
     <string name="title_advanced_extended_reply">Bruk utvidet svar/videresendt overskrift</string>
     <string name="title_advanced_quote_reply">Sitat svarte tekst</string>
+    <string name="title_advanced_signature_location">Signaturposisjon</string>
     <string name="title_advanced_signature_end">Legg til signatur etter sitert/videresendt melding</string>
     <string name="title_advanced_plain_only">Send bare vanlig tekst som standard</string>
     <string name="title_advanced_usenet_signature">Usenet signaturkonvensjon</string>
@@ -276,6 +277,7 @@
     <string name="title_advanced_contrast">Bruk høy kontrast for meldingstekst</string>
     <string name="title_advanced_monospaced">Bruk monospaced skrift for meldingstekst</string>
     <string name="title_advanced_text_color">Vis tekstfarger</string>
+    <string name="title_advanced_text_size">Vis små og store tekster</string>
     <string name="title_advanced_collapse_quotes">Kollapse sitert tekst</string>
     <string name="title_advanced_images_inline">Vis automatisk innebygde bilder</string>
     <string name="title_advanced_seekbar">Vis relativ samtaleposisjon med en prikk</string>
@@ -296,7 +298,9 @@
     <string name="title_advanced_quick_filter">Vis ikke-påtrengende hurtigfilterikoner</string>
     <string name="title_advanced_quick_scroll">Vis ikke-påtrengende hurtigrulling opp/ned-ikoner</string>
     <string name="title_advanced_autoread">Merk automatisk meldinger som leste ved flytting</string>
+    <string name="title_advanced_star_snoozed">Legg automatisk til stjerne på slumrende meldinger</string>
     <string name="title_advanced_autounstar">Fjern stjernen automatisk fra meldinger som blir flyttet</string>
+    <string name="title_advanced_auto_important">Gjør stjernemerkede meldinger automatisk viktige</string>
     <string name="title_advanced_reset_importance">Tilbakestill viktigheten for å flytte meldinger</string>
     <string name="title_advanced_discard_delete">Ved å kaste utkast permanent slett utkast</string>
     <string name="title_advanced_default_snooze">Standard slumretid</string>
@@ -556,6 +560,7 @@
     <string name="title_importance_low">Lav</string>
     <string name="title_importance_normal">Normal</string>
     <string name="title_importance_high">Høy</string>
+    <string name="title_search_in_text">Søk i tekst &#8230;</string>
     <string name="title_forward">Videresend</string>
     <string name="title_new_message">Ny melding</string>
     <string name="title_editasnew">Rediger som ny</string>
@@ -609,6 +614,7 @@
     <string name="title_no_search">Søk på serveren er ikke tilgjengelig for denne kontoen</string>
     <string name="title_too_large">Melding for stor til å omformatere fullstendig</string>
     <string name="title_truncated">Meldingen er for stor til å vises fullstendig</string>
+    <string name="title_insufficient_memory">Meldingen er for stor til å passe inn i det tilgjengelige minnet</string>
     <string name="title_show_full">Vis full melding</string>
     <string name="title_unused_inline">Ubrukte inline bilder blir fjernet ved sending</string>
     <string name="title_accross_remark">Meldinger som er flyttet over kontoer, lastes ned igjen, noe som resulterer i ekstra databruk</string>
@@ -1107,6 +1113,11 @@ Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anme
         <item>Liten</item>
         <item>Medium</item>
         <item>Stor</item>
+    </string-array>
+    <string-array name="signatureNames">
+        <item>Over teksten</item>
+        <item>Under teksten</item>
+        <item>På bunnen</item>
     </string-array>
     <string-array name="encryptNames">
         <item>Ingen</item>
