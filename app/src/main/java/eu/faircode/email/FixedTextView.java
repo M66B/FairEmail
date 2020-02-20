@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.graphics.Rect;
 import android.util.AttributeSet;
 
 import androidx.annotation.NonNull;
@@ -37,6 +38,28 @@ public class FixedTextView extends AppCompatTextView {
 
     public FixedTextView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+    }
+
+    @Override
+    protected void onFocusChanged(boolean focused, int direction, Rect previouslyFocusedRect) {
+        try {
+            super.onFocusChanged(focused, direction, previouslyFocusedRect);
+        } catch (Throwable ex) {
+/*
+            java.lang.ClassCastException: android.text.SpannedString cannot be cast to android.text.Spannable
+              at android.widget.Editor.onFocusChanged(Editor.java:1058)
+              at android.widget.TextView.onFocusChanged(TextView.java:9262)
+              at android.view.View.handleFocusGainInternal(View.java:5388)
+              at android.view.View.requestFocusNoSearch(View.java:8131)
+              at android.view.View.requestFocus(View.java:8110)
+              at android.view.View.requestFocus(View.java:8077)
+              at android.view.View.requestFocus(View.java:8056)
+              at android.view.View.onTouchEvent(View.java:10359)
+              at android.widget.TextView.onTouchEvent(TextView.java:9580)
+              at android.view.View.dispatchTouchEvent(View.java:8981)
+*/
+            Log.w(ex);
+        }
     }
 
     @Override
