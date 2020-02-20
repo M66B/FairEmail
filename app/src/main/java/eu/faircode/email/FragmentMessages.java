@@ -5115,7 +5115,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                                     result = cert;
                                     break;
-                                }
+                                } else
+                                    Log.w("Signature invalid");
                             } catch (CMSException ex) {
                                 Log.w(ex);
                                 args.putString("reason", ex.getMessage());
