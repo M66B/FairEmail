@@ -93,6 +93,7 @@ public class MessageHelper {
     private MimeMessage imessage;
 
     static final int SMALL_MESSAGE_SIZE = 64 * 1024; // bytes
+    static final int MAX_MESSAGE_SIZE = 10 * 1024 * 1024; // bytes
     static final int DEFAULT_ATTACHMENT_DOWNLOAD_SIZE = 256 * 1024; // bytes
     static final long ATTACHMENT_PROGRESS_UPDATE = 1500L; // milliseconds
 
@@ -1250,6 +1251,10 @@ public class MessageHelper {
 
             String result;
             Part part = (html == null ? plain : html);
+            if (part.getSize() > MAX_MESSAGE_SIZE) {
+                warnings.add(context.getString(R.string.title_insufficient_memory));
+                return null;
+            }
 
             try {
                 Object content = part.getContent();
