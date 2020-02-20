@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2020 by Marcel Bokhorst (M66B)
 */
 
+import android.accounts.AccountsException;
 import android.app.AlarmManager;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -859,6 +860,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 if (max ||
                                         c instanceof IOException ||
                                         c instanceof ConnectionException ||
+                                        c instanceof AccountsException ||
                                         "failed to connect".equals(ex.getMessage())) {
                                     ioError = true;
                                     break;
