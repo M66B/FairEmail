@@ -66,7 +66,7 @@ public class FixedTextView extends AppCompatTextView {
     public boolean performLongClick() {
         try {
             return super.performLongClick();
-        } catch (IllegalStateException ex) {
+        } catch (Throwable ex) {
 /*
             java.lang.IllegalStateException: Drag shadow dimensions must be positive
                     at android.view.View.startDragAndDrop(View.java:27316)
@@ -75,6 +75,12 @@ public class FixedTextView extends AppCompatTextView {
                     at android.widget.TextView.performLongClick(TextView.java:13544)
                     at android.view.View.performLongClick(View.java:7928)
                     at android.view.View$CheckForLongPress.run(View.java:29321)
+*/
+/*
+            java.lang.NullPointerException: Attempt to invoke virtual method 'int android.widget.Editor$SelectionModifierCursorController.getMinTouchOffset()' on a null object reference
+                    at android.widget.Editor.touchPositionIsInSelection(Unknown:36)
+                    at android.widget.Editor.performLongClick(Unknown:72)
+                    at android.widget.TextView.performLongClick(Unknown:24)
 */
             Log.w(ex);
             return false;
