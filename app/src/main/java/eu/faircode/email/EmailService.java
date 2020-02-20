@@ -40,6 +40,7 @@ import java.security.GeneralSecurityException;
 import java.security.KeyStore;
 import java.security.NoSuchAlgorithmException;
 import java.security.Principal;
+import java.security.PrivateKey;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateParsingException;
@@ -268,17 +269,19 @@ public class EmailService implements AutoCloseable {
             String certificate, String fingerprint) throws MessagingException {
         SSLSocketFactoryService factory = null;
         try {
-            X509Certificate[] certs = null;
+            PrivateKey key = null;
+            X509Certificate[] chain = null;
             if (certificate != null) {
                 Log.i("Get client certificate alias=" + certificate);
                 try {
-                    certs = KeyChain.getCertificateChain(context, certificate);
+                    key = KeyChain.getPrivateKey(context, certificate);
+                    chain = KeyChain.getCertificateChain(context, certificate);
                 } catch (Throwable ex) {
                     Log.w(ex);
                 }
             }
 
-            factory = new SSLSocketFactoryService(host, insecure, harden, certs, fingerprint);
+            factory = new SSLSocketFactoryService(host, insecure, harden, key, chain, fingerprint);
             properties.put("mail." + protocol + ".ssl.socketFactory", factory);
             properties.put("mail." + protocol + ".socketFactory.fallback", "false");
             properties.put("mail." + protocol + ".ssl.checkserveridentity", "false");
@@ -599,7 +602,7 @@ public class EmailService implements AutoCloseable {
         private SSLSocketFactory factory;
         private X509Certificate certificate;
 
-        SSLSocketFactoryService(String host, boolean insecure, boolean harden, X509Certificate[] certs, String fingerprint) throws GeneralSecurityException {
+        SSLSocketFactoryService(String host, boolean insecure, boolean harden, PrivateKey key, X509Certificate[] chain, String fingerprint) throws GeneralSecurityException {
             this.server = host;
             this.secure = !insecure;
             this.harden = harden;
@@ -669,18 +672,16 @@ public class EmailService implements AutoCloseable {
                 };
 
                 KeyManager[] km = null;
-                if (certs != null)
+                if (key != null && chain != null)
                     try {
-                        Log.i("Client certificate init certs=" + certs.length);
+                        Log.i("Client certificate init");
 
-                        KeyStore ks = KeyStore.getInstance(KeyStore.getDefaultType());
-                        ks.load(null, null);
-
-                        for (int i = 0; i < certs.length; i++)
-                            ks.setCertificateEntry(server + ":" + i, certs[i]);
+                        KeyStore ks = KeyStore.getInstance("PKCS12");
+                        ks.load(null, new char[0]);
+                        ks.setKeyEntry(server, key, new char[0], chain);
 
                         KeyManagerFactory kmf = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
-                        kmf.init(ks, null);
+                        kmf.init(ks, new char[0]);
                         km = kmf.getKeyManagers();
 
                         Log.i("Client certificate initialized");
