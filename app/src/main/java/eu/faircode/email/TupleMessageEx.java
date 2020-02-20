@@ -39,6 +39,7 @@ public class TupleMessageEx extends EntityMessage {
     public boolean accountNotify;
     public boolean accountAutoSeen;
     public String folderName;
+    public Integer folderColor;
     public String folderDisplay;
     public String folderType;
     public boolean folderReadOnly;

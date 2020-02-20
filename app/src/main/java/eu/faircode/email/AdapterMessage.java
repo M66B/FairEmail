@@ -4724,6 +4724,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         if (filter_duplicates && message.duplicate) {
+            holder.card.setCardBackgroundColor(message.folderColor == null
+                    ? Color.TRANSPARENT
+                    : ColorUtils.setAlphaComponent(message.folderColor, 128));
             holder.tvFolder.setText(context.getString(R.string.title_duplicate_in, message.getFolderName(context)));
             holder.tvFolder.setTypeface(message.unseen > 0 ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
             holder.tvFolder.setTextColor(message.unseen > 0 ? colorUnread : colorRead);
