@@ -403,11 +403,23 @@ public class HtmlHelper {
 
                             case "font-size":
                                 // https://developer.mozilla.org/en-US/docs/Web/CSS/font-size
-                                if (element.parent() != null) {
-                                    Float fsize = getFontSize(value);
+                                Element parent = element.parent();
+                                if (parent != null) {
+                                    Integer current = null;
+                                    while (parent != null) {
+                                        String xFontSize = parent.attr("x-font-size");
+                                        if (!TextUtils.isEmpty(xFontSize)) {
+                                            current = Integer.parseInt(xFontSize);
+                                            break;
+                                        }
+                                        parent = parent.parent();
+                                    }
+
+                                    Float fsize = getFontSize(value, current);
                                     if (fsize != null && fsize != 0 &&
                                             (fsize <= 0.8f || fsize >= 1.25)) {
                                         Element e = new Element(fsize < 1 ? "small" : "big");
+                                        e.attr("x-font-size", Integer.toString(Math.round(16 * fsize)));
                                         element.replaceWith(e);
                                         e.appendChild(element);
                                     }
@@ -450,7 +462,7 @@ public class HtmlHelper {
                                 //case "font-size":
                                 //case "line-height":
                                 if (element.parent() != null && !display_hidden) {
-                                    Float s = getFontSize(value);
+                                    Float s = getFontSize(value, null);
                                     if (s != null && s == 0) {
                                         Log.i("Removing no height/width " + element.tagName());
                                         element.remove();
@@ -773,18 +785,18 @@ public class HtmlHelper {
 
     }
 
-    private static Float getFontSize(String value) {
+    private static Float getFontSize(String value, Integer current) {
         if (TextUtils.isEmpty(value))
             return null;
 
-        value = value
-                .toLowerCase(Locale.ROOT)
-                .trim()
-                .replace("rem", "em");
+        if (current == null)
+            current = 16;
 
         try {
             if (value.endsWith("em"))
-                return Float.parseFloat(value.substring(0, value.length() - 2).trim());
+                return Float.parseFloat(value.substring(0, value.length() - 2).trim()) * current / 16f;
+            if (value.endsWith("rem"))
+                return Float.parseFloat(value.substring(0, value.length() - 3).trim());
             if (value.endsWith("px"))
                 return Integer.parseInt(value.substring(0, value.length() - 2).trim()) / 16f;
             return Integer.parseInt(value.trim()) / 16f;
