@@ -74,6 +74,7 @@ import static androidx.core.text.HtmlCompat.TO_HTML_PARAGRAPH_LINES_CONSECUTIVE;
 public class HtmlHelper {
     private static final int PREVIEW_SIZE = 500; // characters
 
+    private static final int DEFAULT_FONT_SIZE = 16; // pixels
     private static final float MIN_LUMINANCE = 0.5f;
     private static final int TAB_SIZE = 2;
     private static final int MAX_AUTO_LINK = 250;
@@ -433,7 +434,8 @@ public class HtmlHelper {
                                     if (fsize != null && fsize != 0 &&
                                             ((!small && fsize <= 0.8f) || (!big && fsize >= 1.25))) {
                                         Element e = new Element(fsize < 1 ? "small" : "big");
-                                        e.attr("x-font-size", Integer.toString(Math.round(16 * fsize)));
+                                        int px = Math.round(DEFAULT_FONT_SIZE * fsize);
+                                        e.attr("x-font-size", Integer.toString(px));
                                         element.replaceWith(e);
                                         e.appendChild(element);
                                     }
@@ -804,16 +806,16 @@ public class HtmlHelper {
             return null;
 
         if (current == null)
-            current = 16;
+            current = DEFAULT_FONT_SIZE;
 
         try {
             if (value.endsWith("em"))
-                return Float.parseFloat(value.substring(0, value.length() - 2).trim()) * current / 16f;
+                return Float.parseFloat(value.substring(0, value.length() - 2).trim()) * current / (float) DEFAULT_FONT_SIZE;
             if (value.endsWith("rem"))
                 return Float.parseFloat(value.substring(0, value.length() - 3).trim());
             if (value.endsWith("px"))
-                return Integer.parseInt(value.substring(0, value.length() - 2).trim()) / 16f;
-            return Integer.parseInt(value.trim()) / 16f;
+                return Integer.parseInt(value.substring(0, value.length() - 2).trim()) / (float) DEFAULT_FONT_SIZE;
+            return Integer.parseInt(value.trim()) / (float) DEFAULT_FONT_SIZE;
         } catch (NumberFormatException ignored) {
         }
 
