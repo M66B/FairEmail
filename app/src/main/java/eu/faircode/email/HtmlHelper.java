@@ -1271,9 +1271,12 @@ public class HtmlHelper {
         int max = (reformat ? MAX_FORMAT_TEXT_SIZE : MAX_FULL_TEXT_SIZE);
 
         int length = 0;
+        int images = 0;
         for (Element elm : d.select("*")) {
-            boolean skip = false;
+            if ("img".equals(elm.tagName()))
+                images++;
 
+            boolean skip = false;
             for (Node child : elm.childNodes()) {
                 if (child instanceof TextNode) {
                     TextNode tnode = ((TextNode) child);
@@ -1297,6 +1300,8 @@ public class HtmlHelper {
             if (length >= max && !skip)
                 elm.remove();
         }
+
+        Log.i("Message size=" + length + " images=" + images);
 
         return (length >= max);
     }
