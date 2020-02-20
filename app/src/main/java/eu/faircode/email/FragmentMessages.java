@@ -5801,8 +5801,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (!file.exists())
                     return null;
 
-                String html = Helper.readText(file);
-                Document document = JsoupEx.parse(html);
+                Document document = JsoupEx.parse(file);
                 HtmlHelper.truncate(document, false);
                 HtmlHelper.embedInlineImages(context, id, document);
 

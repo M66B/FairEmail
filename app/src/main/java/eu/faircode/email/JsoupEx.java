@@ -23,6 +23,10 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+
 public class JsoupEx {
     static Document parse(String html) {
 
@@ -46,5 +50,9 @@ org.jsoup.UncheckedIOException: java.io.IOException: Input is binary and unsuppo
             document.body().appendChild(strong);
             return document;
         }
+    }
+
+    static Document parse(File in) throws IOException {
+        return Jsoup.parse(in, StandardCharsets.UTF_8.name());
     }
 }

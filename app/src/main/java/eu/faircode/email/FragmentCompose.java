@@ -3078,8 +3078,7 @@ public class FragmentCompose extends FragmentBase {
                             div.appendChild(p);
 
                             // Get referenced message body
-                            String rhtml = Helper.readText(ref.getFile(context));
-                            Document d = JsoupEx.parse(rhtml);
+                            Document d = JsoupEx.parse(ref.getFile(context));
 
                             // Remove signature separators
                             boolean remove_signatures = prefs.getBoolean("remove_signatures", false);

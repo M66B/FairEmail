@@ -64,6 +64,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -1247,6 +1248,36 @@ public class HtmlHelper {
         }
 
         return (length >= max);
+    }
+
+    static boolean contains(Document d, String[] texts) {
+        Map<String, Boolean> condition = new HashMap<>();
+        for (String t : texts)
+            condition.put(t, false);
+
+        for (Element elm : d.select("*"))
+            for (Node child : elm.childNodes()) {
+                if (child instanceof TextNode) {
+                    TextNode tnode = ((TextNode) child);
+                    String text = tnode.getWholeText();
+                    for (String t : texts)
+                        if (!condition.get(t) && text.contains(t)) {
+                            condition.put(t, true);
+
+                            boolean found = true;
+                            for (String c : texts)
+                                if (!condition.get(c)) {
+                                    found = false;
+                                    break;
+                                }
+
+                            if (found)
+                                return true;
+                        }
+                }
+            }
+
+        return false;
     }
 
     static Spanned fromHtml(@NonNull String html) {

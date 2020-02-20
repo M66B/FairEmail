@@ -484,8 +484,7 @@ public class MessageHelper {
         }
 
         // Build html body
-        String html = Helper.readText(message.getFile(context));
-        Document document = JsoupEx.parse(html);
+        Document document = JsoupEx.parse(message.getFile(context));
 
         // When sending message
         if (identity != null)
