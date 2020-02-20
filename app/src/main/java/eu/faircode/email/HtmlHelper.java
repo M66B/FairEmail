@@ -262,6 +262,7 @@ public class HtmlHelper {
     private static Document _sanitize(Context context, Document parsed, boolean show_images, boolean autolink, boolean more) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean text_color = prefs.getBoolean("text_color", true);
+        boolean text_size = prefs.getBoolean("text_size", true);
         boolean display_hidden = prefs.getBoolean("display_hidden", false);
         boolean disable_tracking = prefs.getBoolean("disable_tracking", true);
 
@@ -348,6 +349,7 @@ public class HtmlHelper {
 
         Whitelist whitelist = Whitelist.relaxed()
                 .addTags("hr", "abbr", "big", "font", "dfn", "del", "s", "tt")
+                .addAttributes(":all", "style")
                 .removeTags("col", "colgroup", "thead", "tbody")
                 .removeAttributes("table", "width")
                 .removeAttributes("td", "colspan", "rowspan", "width")
@@ -357,7 +359,6 @@ public class HtmlHelper {
                 .addProtocols("a", "href", "full");
         if (text_color)
             whitelist
-                    .addAttributes(":all", "style")
                     .addAttributes("font", "color");
 
         final Document document = new Cleaner(whitelist).clean(parsed);
@@ -392,6 +393,9 @@ public class HtmlHelper {
                         switch (key) {
                             case "color":
                                 // https://developer.mozilla.org/en-US/docs/Web/CSS/color
+                                if (!text_color)
+                                    continue;
+
                                 Integer color = parseColor(value, dark);
                                 if (color != null) {
                                     // fromHtml does not support transparency
@@ -400,10 +404,14 @@ public class HtmlHelper {
                                     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N)
                                         element.attr("color", c);
                                 }
+
                                 break;
 
                             case "font-size":
                                 // https://developer.mozilla.org/en-US/docs/Web/CSS/font-size
+                                if (!text_size)
+                                    continue;
+
                                 Element parent = element.parent();
                                 if (parent != null) {
                                     boolean set = false;
@@ -440,6 +448,7 @@ public class HtmlHelper {
                                         e.appendChild(element);
                                     }
                                 }
+
                                 break;
 
                             case "font-weight":
@@ -510,6 +519,13 @@ public class HtmlHelper {
                 Node last = div.childNode(div.childNodeSize() - 1);
                 if (last != null && "br".equals(last.nodeName()))
                     last.remove();
+            }
+
+        if (!text_size)
+            for (Element h : document.select("h1,h2,h3,h4,h5,h6")) {
+                h.appendElement("br");
+                h.appendElement("br");
+                h.tagName("strong");
             }
 
         // Paragraphs

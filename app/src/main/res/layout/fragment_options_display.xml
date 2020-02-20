@@ -667,6 +667,18 @@
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swTextSize"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:enabled="true"
+            android:text="@string/title_advanced_text_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swTextColor"
+            app:switchPadding="12dp" />
+
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swCollapseQuotes"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -674,7 +686,7 @@
             android:text="@string/title_advanced_collapse_quotes"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swTextColor"
+            app:layout_constraintTop_toBottomOf="@id/swTextSize"
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat

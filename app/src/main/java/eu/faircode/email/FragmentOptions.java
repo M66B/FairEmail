@@ -49,7 +49,7 @@ public class FragmentOptions extends FragmentBase {
             "subject_top", "font_size_sender", "font_size_subject", "subject_italic", "subject_ellipsize", "keywords_header",
             "flags", "flags_background", "preview", "preview_italic", "preview_lines",
             "addresses", "attachments_alt",
-            "contrast", "monospaced", "text_color",
+            "contrast", "monospaced", "text_color", "text_size",
             "inline_images", "collapse_quotes", "seekbar", "actionbar",
             "autoscroll", "swipenav", "autoexpand", "autoclose", "onclose",
             "quick_filter", "quick_scroll",

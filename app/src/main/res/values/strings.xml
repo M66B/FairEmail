@@ -327,6 +327,7 @@
     <string name="title_advanced_contrast">Use high contrast for message text</string>
     <string name="title_advanced_monospaced">Use monospaced font for message text</string>
     <string name="title_advanced_text_color">Show text colors</string>
+    <string name="title_advanced_text_size">Show small and large texts</string>
     <string name="title_advanced_collapse_quotes">Collapse quoted text</string>
     <string name="title_advanced_images_inline">Automatically show inline images</string>
     <string name="title_advanced_seekbar">Show relative conversation position with a dot</string>
