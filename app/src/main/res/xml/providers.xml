@@ -126,8 +126,9 @@
             starttls="false" />
         <smtp
             host="smtp.fastmail.com"
-            port="465"
+            port="565"
             starttls="false" />
+        <!-- https://twitter.com/fastmail/status/569046903855271937 -->
     </provider>
     <!-- no IMAP IDLE -->
     <provider
