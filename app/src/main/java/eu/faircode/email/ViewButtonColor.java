@@ -70,8 +70,12 @@ public class ViewButtonColor extends AppCompatButton {
                 Helper.resolveColor(getContext(), R.attr.colorSeparator));
         setBackground(background);
 
-        double lum = ColorUtils.calculateLuminance(color);
-        setTextColor(lum < 0.5 ? Color.WHITE : Color.BLACK);
+        if (color == Color.TRANSPARENT)
+            setTextColor(Helper.resolveColor(getContext(), android.R.attr.textColorPrimary));
+        else {
+            double lum = ColorUtils.calculateLuminance(color);
+            setTextColor(lum < 0.5 ? Color.WHITE : Color.BLACK);
+        }
     }
 
     int getColor() {
