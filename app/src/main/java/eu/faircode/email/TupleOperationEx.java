@@ -58,7 +58,9 @@ public class TupleOperationEx extends EntityOperation {
 
         key.priority = this.priority;
 
-        if (FETCH.equals(name))
+        if (ADD.equals(name) || DELETE.equals(name)) {
+            key.id = "msg:" + message;
+        } else if (FETCH.equals(name))
             try {
                 JSONArray jargs = new JSONArray(args);
                 long uid = jargs.getLong(0);
