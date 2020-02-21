@@ -104,6 +104,8 @@ public class EntityRule {
     static final String EXTRA_SENDER = "sender";
     static final String EXTRA_SUBJECT = "subject";
 
+    private static final long SEND_DELAY = 5000L; // milliseconds
+
     boolean matches(Context context, EntityMessage message, Message imessage) throws MessagingException {
         try {
             JSONObject jcondition = new JSONObject(condition);
@@ -421,6 +423,9 @@ public class EntityRule {
                 null);
 
         EntityOperation.queue(context, reply, EntityOperation.SEND);
+
+        // Batch send operations, wait until after commit
+        ServiceSend.schedule(context, SEND_DELAY);
 
         return true;
     }

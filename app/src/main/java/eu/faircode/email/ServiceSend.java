@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2020 by Marcel Bokhorst (M66B)
 */
 
+import android.app.AlarmManager;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
@@ -34,6 +35,7 @@ import android.os.PowerManager;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.AlarmManagerCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Observer;
@@ -67,6 +69,7 @@ public class ServiceSend extends ServiceBase {
     private PowerManager.WakeLock wlOutbox;
     private ExecutorService executor = Helper.getBackgroundExecutor(1, "send");
 
+    private static final int PI_SEND = 1;
     private static final int IDENTITY_ERROR_AFTER = 30; // minutes
 
     @Override
@@ -540,6 +543,17 @@ public class ServiceSend extends ServiceBase {
     static void start(Context context) {
         ContextCompat.startForegroundService(context,
                 new Intent(context, ServiceSend.class));
+    }
+
+    static void schedule(Context context, long delay) {
+        Intent intent = new Intent(context, ServiceSend.class);
+        PendingIntent pi = PendingIntentCompat.getForegroundService(
+                context, PI_SEND, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        long trigger = System.currentTimeMillis() + delay;
+        AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        am.cancel(pi);
+        AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, trigger, pi);
     }
 
     static void watchdog(Context context) {
