@@ -822,7 +822,7 @@
     <string name="title_signature_unconfirmed_from">Message signature valid but not confirmed: %1$s</string>
     <string name="title_signature_invalid">Message signature invalid</string>
     <string name="title_signature_invalid_reason">Message signature invalid: %1$s</string>
-    <string name="title_signature_key_missing">Key missing</string>
+    <string name="title_signature_key_missing">Key is missing for signature verification</string>
     <string name="title_signature_certificate_invalid">Certificate chain invalid</string>
     <string name="title_signature_sender">Sender\'s address</string>
     <string name="title_signature_email">Signature\'s address</string>
