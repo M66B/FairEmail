@@ -1182,6 +1182,9 @@ public class FragmentRule extends FragmentBase {
 
                         @Override
                         protected void onExecuted(Bundle args, Integer applied) {
+                            if (applied > 0)
+                                ServiceSynchronize.eval(getContext(), "rules/manual");
+
                             ToastEx.makeText(getContext(), getString(R.string.title_rule_applied, applied), Toast.LENGTH_LONG).show();
                         }
 

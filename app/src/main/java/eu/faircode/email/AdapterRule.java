@@ -320,6 +320,9 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
 
                         @Override
                         protected void onExecuted(Bundle args, Integer applied) {
+                            if (applied > 0)
+                                ServiceSynchronize.eval(context, "rules/manual");
+
                             Snackbar.make(
                                     parentFragment.getView(),
                                     context.getString(R.string.title_rule_applied, applied),
