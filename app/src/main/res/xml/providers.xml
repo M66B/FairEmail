@@ -575,16 +575,4 @@
             port="587"
             starttls="true" />
     </provider>
-    <provider
-        name="p≡p"
-        domain="pep.security">
-        <imap
-            host="mail.pep.security"
-            port="993"
-            starttls="false" />
-        <smtp
-            host="mail.pep.security"
-            port="465"
-            starttls="false" />
-    </provider>
 </providers>
