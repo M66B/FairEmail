@@ -723,7 +723,6 @@
     <string name="title_signature_unconfirmed_from">Подписът на съобщението е валиден, но не е потвърден: %1$s</string>
     <string name="title_signature_invalid">Подписът на съобщението е невалиден</string>
     <string name="title_signature_invalid_reason">Подписът на съобщението е невалиден: %1$s</string>
-    <string name="title_signature_key_missing">Ключът липсва</string>
     <string name="title_signature_certificate_invalid">Веригата на сертификата е невалидна</string>
     <string name="title_signature_sender">Адрес на подател</string>
     <string name="title_signature_email">Подписът е адрес</string>

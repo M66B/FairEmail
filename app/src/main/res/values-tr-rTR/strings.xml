@@ -724,7 +724,6 @@
     <string name="title_signature_unconfirmed_from">Mesaj imzası geçerli ancak doğrulanmamış: %1$s</string>
     <string name="title_signature_invalid">İleti imzası geçersiz</string>
     <string name="title_signature_invalid_reason">Mesaj imzası geçersiz: %1$s</string>
-    <string name="title_signature_key_missing">Anahtar eksik</string>
     <string name="title_signature_certificate_invalid">Sertifika zinciri geçersiz</string>
     <string name="title_signature_sender">Gönderenin adresi</string>
     <string name="title_signature_email">İmzanın adresi</string>

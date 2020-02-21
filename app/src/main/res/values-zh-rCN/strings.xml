@@ -264,6 +264,7 @@
     <string name="title_advanced_contrast">对消息文本使用高对比度颜色</string>
     <string name="title_advanced_monospaced">对邮件文本使用等宽字体</string>
     <string name="title_advanced_text_color">显示文本颜色</string>
+    <string name="title_advanced_text_size">显示大小文本</string>
     <string name="title_advanced_collapse_quotes">折叠引用文本</string>
     <string name="title_advanced_images_inline">自动显示内联图像</string>
     <string name="title_advanced_seekbar">在底部用一个圆点显示会话相对位置</string>
@@ -286,6 +287,7 @@
     <string name="title_advanced_autoread">移动消息时自动标记为已读</string>
     <string name="title_advanced_star_snoozed">自动给打盹消息添加星标</string>
     <string name="title_advanced_autounstar">移动消息时自动移除星标</string>
+    <string name="title_advanced_auto_important">自动使加星标消息变得重要</string>
     <string name="title_advanced_reset_importance">在移动消息时重置其重要性</string>
     <string name="title_advanced_discard_delete">丢弃草稿时将其永久删除</string>
     <string name="title_advanced_default_snooze">默认打盹时间</string>
@@ -709,7 +711,6 @@
     <string name="title_signature_unconfirmed_from">消息签名有效但未确认： %1$s</string>
     <string name="title_signature_invalid">消息签名无效</string>
     <string name="title_signature_invalid_reason">消息签名无效： %1$s</string>
-    <string name="title_signature_key_missing">密钥缺失</string>
     <string name="title_signature_certificate_invalid">证书链无效</string>
     <string name="title_signature_sender">发件人地址：</string>
     <string name="title_signature_email">签名地址</string>

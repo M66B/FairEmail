@@ -276,6 +276,7 @@
     <string name="title_advanced_contrast">Erabili kontraste altua mezuaren testuarentzat</string>
     <string name="title_advanced_monospaced">Erabili tipografia monoespaziatua mezuen testuan</string>
     <string name="title_advanced_text_color">Erakutsi testu-koloreak</string>
+    <string name="title_advanced_text_size">Erakutsi testu labur eta luzeak</string>
     <string name="title_advanced_collapse_quotes">Tolestu aipatutako testua</string>
     <string name="title_advanced_images_inline">Erakutsi automatikoki txertatutako irudiak</string>
     <string name="title_advanced_seekbar">Erakutsi posizio erlatiboa elkarrizketan puntu batekin</string>
@@ -298,6 +299,7 @@
     <string name="title_advanced_autoread">Markatu mezuak irakurrita gisa hauek mugitzean</string>
     <string name="title_advanced_star_snoozed">Gehitu automatikoki izarra atzeratutako mezuetan</string>
     <string name="title_advanced_autounstar">Kendu izarrak mezuetatik hauek mugitzean</string>
+    <string name="title_advanced_auto_important">Bihurtu izardun mezuak garrantzitsu automatikoki</string>
     <string name="title_advanced_reset_importance">Berrezarri garrantzia mezuak mugitzean</string>
     <string name="title_advanced_discard_delete">Zirriborroa baztertzean ezabatu zirriborroa behin betiko</string>
     <string name="title_advanced_default_snooze">Lehenetsitako atzeratze denbora</string>
@@ -610,6 +612,7 @@
     <string name="title_no_search">Zerbitzariko bilaketa ez dago erabilgarri kontu honetarako</string>
     <string name="title_too_large">Mezua luzeegia da guztiz birformulatzeko</string>
     <string name="title_truncated">Mezua luzeegia da osorik erakusteko</string>
+    <string name="title_insufficient_memory">Mezua handiegia da erabilgarri dagoen memorian sartzeko</string>
     <string name="title_show_full">Erakutsi mezu osoa</string>
     <string name="title_unused_inline">Erabili gabeko txertatutako irudiak kenduko dira bidaltzean</string>
     <string name="title_accross_remark">Kontuen artean mugitutako mezuak berriro deskargatuko dira horrek dakarren datuen erabilera gehigarriarekin</string>
@@ -719,7 +722,6 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_signature_unconfirmed_from">Mezuaren sinadura baliozkoa da baina ez da baieztatu: %1$s</string>
     <string name="title_signature_invalid">Mezuaren sinadura baliogabea</string>
     <string name="title_signature_invalid_reason">Mezuaren sinadura baliogabea da: %1$s</string>
-    <string name="title_signature_key_missing">Gakoa falta da</string>
     <string name="title_signature_certificate_invalid">Ziurtagiri kate baliogabea</string>
     <string name="title_signature_sender">Igorlearen helbidea</string>
     <string name="title_signature_email">Sinaduraren helbidea</string>

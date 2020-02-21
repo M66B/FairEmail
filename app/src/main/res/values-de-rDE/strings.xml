@@ -277,7 +277,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_contrast">Hohen Kontrast für den Nachrichtentext verwenden</string>
     <string name="title_advanced_monospaced">Unproportionale Schriftart für den Nachrichtentext verwenden</string>
     <string name="title_advanced_text_color">Textfarben anzeigen</string>
-    <string name="title_advanced_text_size">Zeige kleine und große Texte</string>
+    <string name="title_advanced_text_size">Kleine und große Texte anzeigen</string>
     <string name="title_advanced_collapse_quotes">Zitierten Text ausblenden</string>
     <string name="title_advanced_images_inline">Eingebettete Grafiken automatisch anzeigen</string>
     <string name="title_advanced_seekbar">Relative Gesprächsposition mit einem Punkt anzeigen</string>
@@ -724,7 +724,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_signature_unconfirmed_from">Signatur gültig aber nicht bestätigt: %1$s</string>
     <string name="title_signature_invalid">Ungültige Nachrichtensignatur</string>
     <string name="title_signature_invalid_reason">Nachrichten-Signatur ungültig: %1$s</string>
-    <string name="title_signature_key_missing">Schlüssel fehlt</string>
+    <string name="title_signature_key_missing">Schlüssel fehlt für die Signaturüberprüfung</string>
     <string name="title_signature_certificate_invalid">Zertifikatskette ungültig</string>
     <string name="title_signature_sender">E-Mail-Adresse des Absenders</string>
     <string name="title_signature_email">E-Mail-Adresse der Unterschrift</string>

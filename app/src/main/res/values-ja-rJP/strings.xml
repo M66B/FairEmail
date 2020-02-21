@@ -263,6 +263,7 @@
     <string name="title_advanced_contrast">メッセージテキストにハイコントラストを使用</string>
     <string name="title_advanced_monospaced">メッセージテキストに等幅フォントを使用</string>
     <string name="title_advanced_text_color">テキストの色を表示</string>
+    <string name="title_advanced_text_size">大小のテキストを表示</string>
     <string name="title_advanced_collapse_quotes">引用テキストを折りたたむ</string>
     <string name="title_advanced_images_inline">インライン画像を自動的に表示</string>
     <string name="title_advanced_seekbar">ドットで相対的な会話の位置を表示</string>
@@ -285,6 +286,7 @@
     <string name="title_advanced_autoread">移動するメッセージを既読にします</string>
     <string name="title_advanced_star_snoozed">スヌーズメッセージにスターを自動的に追加</string>
     <string name="title_advanced_autounstar">移動するメッセージのスターを取り消します</string>
+    <string name="title_advanced_auto_important">スター付きメッセージを自動的に重要にする</string>
     <string name="title_advanced_reset_importance">移動メッセージの重要度をリセット</string>
     <string name="title_advanced_discard_delete">下書きを破棄する場合、下書きを完全に削除</string>
     <string name="title_advanced_default_snooze">デフォルトのスヌーズ時間</string>
@@ -706,7 +708,7 @@ PlayストアでFairEmailを評価できれば幸いです。
     <string name="title_signature_unconfirmed_from">メッセージ署名は有効ですが確認されていません:%1$s</string>
     <string name="title_signature_invalid">メッセージ署名が無効です</string>
     <string name="title_signature_invalid_reason">メッセージ署名が無効です:%1$s</string>
-    <string name="title_signature_key_missing">キーが有りません</string>
+    <string name="title_signature_key_missing">署名検証にキーが有りません</string>
     <string name="title_signature_certificate_invalid">証明書が無効</string>
     <string name="title_signature_sender">差出人のメールアドレス</string>
     <string name="title_signature_email">署名のアドレス</string>

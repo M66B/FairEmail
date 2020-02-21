@@ -723,7 +723,7 @@ Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anme
     <string name="title_signature_unconfirmed_from">Meldingssignatur er gyldig, men ikke bekreftet: %1$s</string>
     <string name="title_signature_invalid">Meldings signatur ugyldig</string>
     <string name="title_signature_invalid_reason">Meldingens signatur er ugyldig: %1$s</string>
-    <string name="title_signature_key_missing">Nøkkel mangler</string>
+    <string name="title_signature_key_missing">Nøkkelen mangler for signaturbekreftelse</string>
     <string name="title_signature_certificate_invalid">Sertifikatkjeden er ugyldig</string>
     <string name="title_signature_sender">Avsenders adresse</string>
     <string name="title_signature_email">Signaturens adresse</string>

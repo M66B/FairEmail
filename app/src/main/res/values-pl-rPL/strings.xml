@@ -742,7 +742,6 @@
     <string name="title_signature_unconfirmed_from">Podpis wiadomości prawidłowy, ale niepotwierdzony: %1$s</string>
     <string name="title_signature_invalid">Nieważny podpis wiadomości</string>
     <string name="title_signature_invalid_reason">Niepoprawny podpis wiadomości: %1$s</string>
-    <string name="title_signature_key_missing">Brakuje klucza</string>
     <string name="title_signature_certificate_invalid">Nieprawidłowy łańcuch certyfikatu</string>
     <string name="title_signature_sender">Adres nadawcy</string>
     <string name="title_signature_email">Adres podpisu</string>

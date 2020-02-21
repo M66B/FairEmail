@@ -276,6 +276,7 @@
     <string name="title_advanced_contrast">Benyt høj kontrast til beskedtekst</string>
     <string name="title_advanced_monospaced">Benyt monospatieret skrifttype til beskedtekst</string>
     <string name="title_advanced_text_color">Vis skriftfarver</string>
+    <string name="title_advanced_text_size">Vis små og store tekster</string>
     <string name="title_advanced_collapse_quotes">Skjul citeret tekst</string>
     <string name="title_advanced_images_inline">Auto-vis indlejrede/vehæftede billeder</string>
     <string name="title_advanced_seekbar">Vis relativ samtaleposition med en prik</string>
@@ -298,6 +299,7 @@
     <string name="title_advanced_autoread">Auto-markér beskeder som læst, når de flyttes</string>
     <string name="title_advanced_star_snoozed">Auto-tilføj stjerne på udsatte beskeder</string>
     <string name="title_advanced_autounstar">Fjern automatisk stjerner fra beskeder, når de flyttes</string>
+    <string name="title_advanced_auto_important">Gør automatisk stjernemarkerede beskeder vigtige</string>
     <string name="title_advanced_reset_importance">Nulstil vigtighed, når beskeder flyttes</string>
     <string name="title_advanced_discard_delete">Ved kassering af udkast, slet dette permanent</string>
     <string name="title_advanced_default_snooze">Standard udsættelsestid</string>
@@ -611,6 +613,7 @@
     <string name="title_no_search">Søg på server er utilgængelig for denne konto</string>
     <string name="title_too_large">Besked for stor til fuldstændig omformatering</string>
     <string name="title_truncated">Besked for stor til fuldstændig visning</string>
+    <string name="title_insufficient_memory">Beksked for stor til at være i hukommelsen</string>
     <string name="title_show_full">Vis fuld besked</string>
     <string name="title_unused_inline">Ubrugte inline-billeder fjernes ved afsendelsen</string>
     <string name="title_accross_remark">Beskeder flyttet mellem konti gen-downloades, hvilket betyder ekstra dataforbrug</string>
@@ -720,7 +723,6 @@
     <string name="title_signature_unconfirmed_from">Beskedsignatur gyldig, men ubekræftet: %1$s</string>
     <string name="title_signature_invalid">Beskedsignatur ugyldig</string>
     <string name="title_signature_invalid_reason">Beskedsignatur ugyldig: %1$s</string>
-    <string name="title_signature_key_missing">Nøgle mangler</string>
     <string name="title_signature_certificate_invalid">Certifikatkæde ugyldig</string>
     <string name="title_signature_sender">Afsenderadresse</string>
     <string name="title_signature_email">Signaturadresse</string>

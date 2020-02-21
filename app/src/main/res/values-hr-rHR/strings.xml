@@ -728,7 +728,6 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_signature_unconfirmed_from">Potpis poruke je valjan, ali nije potvrđen: %1$s</string>
     <string name="title_signature_invalid">Nevažeći potpis poruke</string>
     <string name="title_signature_invalid_reason">Potpis poruke nije važeći: %1$s</string>
-    <string name="title_signature_key_missing">Ključ nedostaje</string>
     <string name="title_signature_certificate_invalid">Lanac potvrda nije valjan</string>
     <string name="title_signature_sender">Adresa pošiljatelja</string>
     <string name="title_signature_email">Adresa potpisa</string>

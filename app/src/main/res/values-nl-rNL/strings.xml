@@ -724,7 +724,7 @@
     <string name="title_signature_unconfirmed_from">Handtekening bericht geldig maar niet bevestigd: %1$s</string>
     <string name="title_signature_invalid">Handtekening bericht ongeldig</string>
     <string name="title_signature_invalid_reason">Handtekening bericht ongeldig: %1$s</string>
-    <string name="title_signature_key_missing">Sleutel ontbreekt</string>
+    <string name="title_signature_key_missing">Sleutel ontbreekt voor verificatie handtekening</string>
     <string name="title_signature_certificate_invalid">Certificaatketen ongeldig</string>
     <string name="title_signature_sender">Adres van de afzender</string>
     <string name="title_signature_email">Adres van de handtekening</string>

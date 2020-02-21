@@ -722,7 +722,7 @@
     <string name="title_signature_unconfirmed_from">Firma di messaggio valida ma non confermata: %1$s</string>
     <string name="title_signature_invalid">Firma messaggio non valida</string>
     <string name="title_signature_invalid_reason">Firma del messaggio non valida: %1$s</string>
-    <string name="title_signature_key_missing">Chiave mancante</string>
+    <string name="title_signature_key_missing">Chiave mancante per la verifica della firma</string>
     <string name="title_signature_certificate_invalid">Catena di certificati non valida</string>
     <string name="title_signature_sender">Indirizzo del mittente</string>
     <string name="title_signature_email">Indirizzo della firma</string>

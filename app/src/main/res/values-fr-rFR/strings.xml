@@ -724,7 +724,7 @@
     <string name="title_signature_unconfirmed_from">Signature de message valide mais non confirmée : %1$s</string>
     <string name="title_signature_invalid">Signature de message invalide</string>
     <string name="title_signature_invalid_reason">Signature de message invalide : %1$s</string>
-    <string name="title_signature_key_missing">Clé manquante</string>
+    <string name="title_signature_key_missing">La clé est manquante pour la vérification de la signature</string>
     <string name="title_signature_certificate_invalid">Chaîne de certificats invalide</string>
     <string name="title_signature_sender">Adresse de l\'expéditeur</string>
     <string name="title_signature_email">Adresse de la signature</string>

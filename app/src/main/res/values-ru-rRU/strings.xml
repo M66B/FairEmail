@@ -746,7 +746,7 @@
     <string name="title_signature_unconfirmed_from">Подпись сообщения верна, но не подтверждена: %1$s</string>
     <string name="title_signature_invalid">Подпись сообщения недействительна</string>
     <string name="title_signature_invalid_reason">Некорректная подпись сообщения: %1$s</string>
-    <string name="title_signature_key_missing">Ключ отсутствует</string>
+    <string name="title_signature_key_missing">Отсутствует ключ для проверки подписи</string>
     <string name="title_signature_certificate_invalid">Некорректная цепочка сертификатов</string>
     <string name="title_signature_sender">Адрес отправителя</string>
     <string name="title_signature_email">Адрес подписи</string>

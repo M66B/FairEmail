@@ -716,7 +716,6 @@
     <string name="title_signature_unconfirmed_from">Viestin allekirjoitus pätevä muttei vahvistettu: %1$s</string>
     <string name="title_signature_invalid">Viestin allekirjoitus virheellinen</string>
     <string name="title_signature_invalid_reason">Viestin allekirjoitus virheellinen: %1$s</string>
-    <string name="title_signature_key_missing">Avain puuttuu</string>
     <string name="title_signature_certificate_invalid">Virheellinen sertifikaattiketju</string>
     <string name="title_signature_sender">Lähettäjän sähköpostiosoite</string>
     <string name="title_signature_email">Allekirjoituksen sähköpostiosoite</string>
