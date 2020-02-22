@@ -93,9 +93,4 @@ public class ServiceTileUnseen extends TileService {
         Log.i("Stop tile unseen");
         owner.stop();
     }
-
-    public void onClick() {
-        Log.i("Click tile unseen");
-        ServiceUI.sync(this, null);
-    }
 }
