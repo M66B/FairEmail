@@ -206,6 +206,7 @@
     <string name="title_advanced_receive">Jaso mezuak</string>
     <string name="title_advanced_when">Noiz</string>
     <string name="title_advanced_always">Sinkronizatu beti kontu hauek</string>
+    <string name="title_advanced_optimize">Optimizatu ezarpenak automatikoki</string>
     <string name="title_advanced_schedule">Egitaraua</string>
     <string name="title_advanced_unseen">Irakurri gabeko mezu guztiak</string>
     <string name="title_advanced_flagged">Izardun mezu guztiak</string>
@@ -466,6 +467,7 @@
     <string name="title_no_password">Pasahitza falta da</string>
     <string name="title_no_inbox">Ez da sarrera ontzia aurkitu</string>
     <string name="title_no_primary_drafts">Kontu nagusirik edo zirriborroen karpetarik ez</string>
+    <string name="title_no_identities">Posta elektronikoak bidaltzeak gutxienez identitate bat eta zirriborroen karpeta behar ditu</string>
     <string name="title_no_standard">Hornitzaile honek e-posta protokolo jabeduna erabiltzen du eta, beraz, ezin da hirugarrenen bezeroak erabili</string>
     <string name="title_no_idle">Hornitzaile honek ez ditu push mezuak onartzen. Honek mezu berriak jasotzea atzeratuko du eta bateriaren erabilera areagotuko du.</string>
     <string name="title_no_utf8">Hornitzaile honek ez du UTF-8 onartzen</string>

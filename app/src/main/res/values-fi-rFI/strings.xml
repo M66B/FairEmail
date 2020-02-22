@@ -205,6 +205,7 @@
     <string name="title_advanced_receive">Vastaanota viestejä</string>
     <string name="title_advanced_when">Milloin</string>
     <string name="title_advanced_always">Synkronoi aina nämä tilit</string>
+    <string name="title_advanced_optimize">Optimoi asetukset automaattisesti</string>
     <string name="title_advanced_schedule">Aikataulu</string>
     <string name="title_advanced_unseen">Kaikki lukemattomat viestit</string>
     <string name="title_advanced_flagged">Kaikki tähdelliset viestit</string>
@@ -220,6 +221,7 @@
     <string name="title_advanced_prefix_once">Lisää aiheeseen etuliite vain kerran vastatessa ja edelleenlähetettäessä</string>
     <string name="title_advanced_extended_reply">Käytä laajennettuja tunnistetietoja vastauksessa/edelleenlähetettäessä</string>
     <string name="title_advanced_quote_reply">Lainaa vastattu teksti</string>
+    <string name="title_advanced_signature_location">Allekirjoituksen sijainti</string>
     <string name="title_advanced_signature_end">Lisää allekirjoitus lainatun/edelleenlähetetyn viestin jälkeen</string>
     <string name="title_advanced_plain_only">Lähetä muotoilemattomana tekstinä oletuksena</string>
     <string name="title_advanced_usenet_signature">Usenetin allekirjoitustyyli</string>
@@ -274,6 +276,7 @@
     <string name="title_advanced_contrast">Käytä voimakasta kontrastia viestien tekstille</string>
     <string name="title_advanced_monospaced">Käytä kiinteävälistä kirjaisinta viestien tekstille</string>
     <string name="title_advanced_text_color">Näytä tekstin värit</string>
+    <string name="title_advanced_text_size">Näytä pienet ja suuret tekstit</string>
     <string name="title_advanced_collapse_quotes">Tiivistä lainattu teksti</string>
     <string name="title_advanced_images_inline">Näytä tekstiin upotetut kuvat oletuksena</string>
     <string name="title_advanced_seekbar">Näytä suhteellinen sijainti keskustelussa pisteellä</string>
@@ -294,7 +297,9 @@
     <string name="title_advanced_quick_filter">Näytä huomaamattomat pikasuodatuskuvakkeet</string>
     <string name="title_advanced_quick_scroll">Näytä huomaamattomat ylös-/alaspikavierityskuvakkeet</string>
     <string name="title_advanced_autoread">Merkitse viestit luetuiksi siirrettäessä</string>
+    <string name="title_advanced_star_snoozed">Lisää tähti torkutettaessa viestejä</string>
     <string name="title_advanced_autounstar">Poista tähti viestejä siirrettäessä</string>
+    <string name="title_advanced_auto_important">Merkitse tähdelliset viestit tärkeiksi</string>
     <string name="title_advanced_reset_importance">Palauta oma tärkeysjärjestys oletusasetukseen siirrettäessä</string>
     <string name="title_advanced_discard_delete">Poista luonnos hylättäessä</string>
     <string name="title_advanced_default_snooze">Torkutuksen oletusaika</string>
@@ -462,6 +467,7 @@
     <string name="title_no_password">Salasana puuttuu</string>
     <string name="title_no_inbox">Saapuneet-kansiota ei löydy</string>
     <string name="title_no_primary_drafts">Ei ensisijainen tili tai ei luonnokset-kansiota</string>
+    <string name="title_no_identities">Viestien lähettäminen vaatii vähintään yhden identiteetin ja luonnoskansion</string>
     <string name="title_no_standard">Tämä palveluntarjoaja käyttää omaa sähköpostiprotokollaansa ja siksi kolmansien osapuolten sähköpostiohjelmien käyttö ei ole mahdollista</string>
     <string name="title_no_idle">Tämä palveluntarjoaja ei tue push-viestejä. Tämä viivästyttää uusien viestien vastaanottamista ja lisää akun käyttöä.</string>
     <string name="title_no_utf8">Tämä palveluntarjoaja ei tue UTF-8:aa</string>
@@ -553,6 +559,7 @@
     <string name="title_importance_low">Alhainen</string>
     <string name="title_importance_normal">Tavanomainen</string>
     <string name="title_importance_high">Korkea</string>
+    <string name="title_search_in_text">Haetaan tekstistä &#8230;</string>
     <string name="title_forward">Lähetä edelleen</string>
     <string name="title_new_message">Uusi viesti</string>
     <string name="title_editasnew">Muokkaa uutena</string>
@@ -606,6 +613,7 @@
     <string name="title_no_search">Palvelimelta haku ei ole saatavilla tällä tilillä</string>
     <string name="title_too_large">Viesti liian suuri uudelleenmuotoiltavaksi kokonaisuudessaan</string>
     <string name="title_truncated">Viesti liian suuri näytettäväksi kokonaisuudessaan</string>
+    <string name="title_insufficient_memory">Viesti liian iso mahtuakseen käytettävissä olevaan muistiin</string>
     <string name="title_show_full">Näytä koko viesti</string>
     <string name="title_unused_inline">Käyttämättömät upotetut kuvat poistetaan lähetettäessä</string>
     <string name="title_accross_remark">Tilien välillä siirretyt viestit ladataan uudelleen, mikä lisää datan käyttöä</string>
@@ -715,6 +723,7 @@
     <string name="title_signature_unconfirmed_from">Viestin allekirjoitus pätevä muttei vahvistettu: %1$s</string>
     <string name="title_signature_invalid">Viestin allekirjoitus virheellinen</string>
     <string name="title_signature_invalid_reason">Viestin allekirjoitus virheellinen: %1$s</string>
+    <string name="title_signature_key_missing">Avain allekirjoituksen todentamiseksi puuttuu</string>
     <string name="title_signature_certificate_invalid">Virheellinen sertifikaattiketju</string>
     <string name="title_signature_sender">Lähettäjän sähköpostiosoite</string>
     <string name="title_signature_email">Allekirjoituksen sähköpostiosoite</string>
@@ -1104,6 +1113,11 @@
         <item>Pieni</item>
         <item>Keskikokoinen</item>
         <item>Suuri</item>
+    </string-array>
+    <string-array name="signatureNames">
+        <item>Tekstin yläpuolella</item>
+        <item>Tekstin alapuolella</item>
+        <item>Alimmaisena</item>
     </string-array>
     <string-array name="encryptNames">
         <item>Ei mitään</item>

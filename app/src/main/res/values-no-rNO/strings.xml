@@ -207,6 +207,7 @@
     <string name="title_advanced_receive">Motta meldinger</string>
     <string name="title_advanced_when">Når</string>
     <string name="title_advanced_always">Synkroniser alltid disse kontoene</string>
+    <string name="title_advanced_optimize">Optimaliser innstillinger automatisk</string>
     <string name="title_advanced_schedule">Tidsplan</string>
     <string name="title_advanced_unseen">Alle uleste meldinger</string>
     <string name="title_advanced_flagged">Alle stjernemerkede meldinger</string>

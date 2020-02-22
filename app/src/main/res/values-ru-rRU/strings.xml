@@ -229,6 +229,7 @@
     <string name="title_advanced_receive">Получить сообщения</string>
     <string name="title_advanced_when">Когда</string>
     <string name="title_advanced_always">Всегда синхронизировать эти учётные записи</string>
+    <string name="title_advanced_optimize">Автоматически оптимизировать настройки</string>
     <string name="title_advanced_schedule">Расписание</string>
     <string name="title_advanced_unseen">Все непрочитанные сообщения</string>
     <string name="title_advanced_flagged">Все избранные сообщения</string>

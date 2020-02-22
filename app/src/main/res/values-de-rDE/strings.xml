@@ -207,6 +207,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_receive">Empfang von Nachrichten</string>
     <string name="title_advanced_when">Wann</string>
     <string name="title_advanced_always">Diese Konten immer synchronisieren</string>
+    <string name="title_advanced_optimize">Einstellungen automatisch optimieren</string>
     <string name="title_advanced_schedule">Zeitplan</string>
     <string name="title_advanced_unseen">Alle ungelesenen Nachrichten</string>
     <string name="title_advanced_flagged">Alle markierten Nachrichten</string>

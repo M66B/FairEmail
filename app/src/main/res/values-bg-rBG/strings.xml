@@ -207,6 +207,7 @@
     <string name="title_advanced_receive">Получени съобщения</string>
     <string name="title_advanced_when">Кога</string>
     <string name="title_advanced_always">Винаги синхронизирай тези профили</string>
+    <string name="title_advanced_optimize">Автоматично оптимизиране на настройките</string>
     <string name="title_advanced_schedule">График</string>
     <string name="title_advanced_unseen">Всички непрочетени съобщения</string>
     <string name="title_advanced_flagged">Всички съобщения със звезда</string>
@@ -467,6 +468,7 @@
     <string name="title_no_password">Липсва парола</string>
     <string name="title_no_inbox">Не е намерена входяща кутия</string>
     <string name="title_no_primary_drafts">Няма първичен профил или няма папка чернови</string>
+    <string name="title_no_identities">Изпращането на имейли изисква поне една самоличност и папка за чернови</string>
     <string name="title_no_standard">Този доставчик използва собствен имейл протокол и следователно не е възможно да се използват имейл клиенти на трети страни</string>
     <string name="title_no_idle">Този доставчик не поддържа push съобщения. Това ще забави получаването на нови съобщения и ще увеличи консумацията на батерията.</string>
     <string name="title_no_utf8">Този доставчик не поддържа UTF-8</string>

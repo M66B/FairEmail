@@ -207,6 +207,7 @@
     <string name="title_advanced_receive">Berichten ontvangen</string>
     <string name="title_advanced_when">Wanneer</string>
     <string name="title_advanced_always">Synchroniseer deze accounts altijd</string>
+    <string name="title_advanced_optimize">Automatisch instellingen optimaliseren</string>
     <string name="title_advanced_schedule">Schema</string>
     <string name="title_advanced_unseen">Alle ongelezen berichten</string>
     <string name="title_advanced_flagged">Alle berichten met een ster</string>

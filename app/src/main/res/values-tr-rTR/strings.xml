@@ -207,6 +207,7 @@
     <string name="title_advanced_receive">Mesajları al</string>
     <string name="title_advanced_when">Ne zaman</string>
     <string name="title_advanced_always">Bu hesapları her zaman senkronize et</string>
+    <string name="title_advanced_optimize">Ayarları otomatik olarak optimize et</string>
     <string name="title_advanced_schedule">Program</string>
     <string name="title_advanced_unseen">Tüm okunmamış iletiler</string>
     <string name="title_advanced_flagged">Tüm yıldızlı iletiler</string>
