@@ -44,7 +44,7 @@ Related questions:
 
 * Change the account name: Setup, step 1, Manage, tap account
 * Change the swipe left/right target: Setup, step 1, Manage, tap account, at the bottom
-* Set a signature: Setup, step 2, Manage, tap identity
+* Set a signature: Setup, step 2, Manage, tap identity. See [this FAQ](#user-content-faq57) about how to insert an image, etc.
 * Go to the next/previous message on archive/delete: in the behavior settings disable *Automatically close conversations* and select *Go to next/previous conversation* for *On closing a conversation*
 * Add a folder to the unified inbox: long press the folder in the folder list and check *Show in unified inbox*
 * Add a folder to the navigation menu: long press the folder in the folder list and check *Show in navigation menu*
@@ -1469,13 +1469,20 @@ so it is not worth a lot of effort to add support for this to FairEmail.
 
 Yes, you can use HTML in signatures if you paste HTML formatted text into the signature field or use the *Edit as HTML* button.
 
-See [here](https://stackoverflow.com/questions/44410675/supported-html-tags-on-android-textview) for which HTML tags are supported.
-
 You can for example paste this into the signature field:
 
 This is *italic*, this is *bold* and this is [a link](https://example.org).
 
-Alternatively, you can use the button *Edit as HTML*.
+To add an image to a signature you can use an HTML fragment similar to this:
+
+```
+<img src="https://www.faircode.eu/FairCode.png" />
+```
+
+Note that including links and images in messages will increase the likelihood that a message will be seen as spam,
+especially when you send a message to someone for the first time.
+
+See [here](https://stackoverflow.com/questions/44410675/supported-html-tags-on-android-textview) for which HTML tags are supported.
 
 <br />
 
