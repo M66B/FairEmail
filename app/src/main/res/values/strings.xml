@@ -547,7 +547,7 @@
     <string name="title_no_password">Password missing</string>
     <string name="title_no_inbox">Inbox not found</string>
     <string name="title_no_primary_drafts">No primary account or no drafts folder</string>
-    <string name="title_no_identities">Sending emails requires at least one identity</string>
+    <string name="title_no_identities">Sending emails requires at least one identity and a drafts folder</string>
     <string name="title_no_standard">This provider uses a proprietary email protocol and therefore it is not possible to use third party email clients</string>
     <string name="title_no_idle">This provider does not support push messages. This will delay reception of new messages and increase battery usage.</string>
     <string name="title_no_utf8">This provider does not support UTF-8</string>

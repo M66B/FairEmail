@@ -394,7 +394,7 @@ public class FragmentSetup extends FragmentBase {
             }
         });
 
-        db.identity().liveIdentities(true).observe(getViewLifecycleOwner(), new Observer<List<TupleIdentityEx>>() {
+        db.identity().liveComposableIdentities().observe(getViewLifecycleOwner(), new Observer<List<TupleIdentityEx>>() {
             @Override
             public void onChanged(@Nullable List<TupleIdentityEx> identities) {
                 boolean done = (identities != null && identities.size() > 0);

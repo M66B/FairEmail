@@ -128,7 +128,7 @@ public class FragmentIdentities extends FragmentBase {
         super.onActivityCreated(savedInstanceState);
 
         // Observe identities
-        DB.getInstance(getContext()).identity().liveIdentities(false).observe(getViewLifecycleOwner(), new Observer<List<TupleIdentityEx>>() {
+        DB.getInstance(getContext()).identity().liveIdentities().observe(getViewLifecycleOwner(), new Observer<List<TupleIdentityEx>>() {
             @Override
             public void onChanged(@Nullable List<TupleIdentityEx> identities) {
                 if (identities == null)
