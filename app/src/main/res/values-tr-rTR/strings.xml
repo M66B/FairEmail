@@ -468,7 +468,7 @@
     <string name="title_no_password">Parola Eksik</string>
     <string name="title_no_inbox">Gelen kutusu bulunamadı</string>
     <string name="title_no_primary_drafts">Birincil hesap veya taslak klasörü yok</string>
-    <string name="title_no_identities">E-posta göndermek için en az bir kimlik gereklidir</string>
+    <string name="title_no_identities">E-posta göndermek için en az bir kimlik ve bir taslaklar klasörü gerekmektedir</string>
     <string name="title_no_standard">Bu sağlayıcı, açık olmayan bir e-posta protokolü kullanıyor ve bu nedenle üçüncü taraf e-posta istemcilerini kullanmak mümkün değil</string>
     <string name="title_no_idle">Bu sağlayıcı anlık mesajları desteklemiyor. Bu, yeni mesajların alınmasını geciktirecek ve pil kullanımını artıracaktır.</string>
     <string name="title_no_utf8">Bu sağlayıcı UTF-8\'i desteklemiyor</string>
@@ -724,6 +724,7 @@
     <string name="title_signature_unconfirmed_from">Mesaj imzası geçerli ancak doğrulanmamış: %1$s</string>
     <string name="title_signature_invalid">İleti imzası geçersiz</string>
     <string name="title_signature_invalid_reason">Mesaj imzası geçersiz: %1$s</string>
+    <string name="title_signature_key_missing">İmza doğrulaması için anahtar eksik</string>
     <string name="title_signature_certificate_invalid">Sertifika zinciri geçersiz</string>
     <string name="title_signature_sender">Gönderenin adresi</string>
     <string name="title_signature_email">İmzanın adresi</string>

@@ -468,7 +468,7 @@
     <string name="title_no_password">Passor mangler</string>
     <string name="title_no_inbox">Finner ikke innboks</string>
     <string name="title_no_primary_drafts">Ingen primærkonto eller ingen utkast-mappe</string>
-    <string name="title_no_identities">Sende e-post krever minst en identitet</string>
+    <string name="title_no_identities">Å sende e-postmeldinger krever minst en identitet og en kladd mappe</string>
     <string name="title_no_standard">Denne leverandøren bruker en proprietær e-postprotokoll, og det er derfor ikke mulig å bruke tredjeparts e-postklienter</string>
     <string name="title_no_idle">Denne leverandøren støtter ikke push-meldinger. Dette vil forsinke mottak av nye meldinger og øke batteriforbruket.</string>
     <string name="title_no_utf8">Denne leverandøren støtter ikke UTF-8</string>

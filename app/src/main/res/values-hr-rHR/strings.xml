@@ -307,6 +307,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_autoread">Automatski označiti poruke kao pročitane u pokretu poruka</string>
     <string name="title_advanced_star_snoozed">Automatski dodaj zvjezdicu pri odgađaju poruka</string>
     <string name="title_advanced_autounstar">Automatsko uklanjanje zvijezda iz poruka prema pokretu</string>
+    <string name="title_advanced_auto_important">Automatically make starred messages important</string>
     <string name="title_advanced_reset_importance">Povrati važnost pri pokretu poruke</string>
     <string name="title_advanced_discard_delete">Pri odbacivanju skice trajno izbrisati skicu</string>
     <string name="title_advanced_default_snooze">Zadano vrijeme odgode</string>
@@ -474,7 +475,6 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_no_password">Nedostaje lozinka</string>
     <string name="title_no_inbox">Ulazni spremnik nije pronađen</string>
     <string name="title_no_primary_drafts">Nema primarnog računa ili mape skica</string>
-    <string name="title_no_identities">Slanje e-pošte zahtijeva barem jedan identitet</string>
     <string name="title_no_standard">Ovaj davatelj koristi vlasnički protokol e-pošte i stoga nije moguće koristiti klijente e-pošte trećih strana</string>
     <string name="title_no_idle">Ovaj davatelj usluga ne podržava push poruke. To će odgoditi prijem novih poruka i povećati potrošnju baterije.</string>
     <string name="title_no_utf8">Ovaj davatelj ne podržava UTF-8</string>

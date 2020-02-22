@@ -488,7 +488,7 @@
     <string name="title_no_password">Chybí heslo</string>
     <string name="title_no_inbox">Složka \"Doručené\" nenalezena</string>
     <string name="title_no_primary_drafts">Žádný hlavní účet nebo žádná složka konceptů</string>
-    <string name="title_no_identities">Odesílání e-mailů vyžaduje alespoň jednu identitu</string>
+    <string name="title_no_identities">Odesílání e-mailů vyžaduje alespoň jednu identitu a složku konceptů</string>
     <string name="title_no_standard">Tento poskytovatel používá proprietární e-mailový protokol, a proto není možné použít e-mailové klienty třetích stran</string>
     <string name="title_no_idle">Tento poskytovatel nepodporuje okamžité zprávy. Následkem bude opožděný příjem nových zpráv a zvýšená spotřeba baterie.</string>
     <string name="title_no_utf8">Tento poskytovatel nepodporuje UTF-8</string>
@@ -634,6 +634,7 @@
     <string name="title_no_search">Vyhledávání na serveru není pro tento účet k dispozici</string>
     <string name="title_too_large">Zpráva je příliš velká pro úplné přeformátování</string>
     <string name="title_truncated">Zpráva je příliš velká pro úplné zobrazení</string>
+    <string name="title_insufficient_memory">Zpráva je příliš velká, nevejde se do dostupné paměti</string>
     <string name="title_show_full">Zobrazit celou zprávu</string>
     <string name="title_unused_inline">Nepoužité vložené obrázky budou při odeslání odebrány</string>
     <string name="title_accross_remark">Zprávy přesunuté napříč účty budou opětovně staženy, což povede ke spotřebě dat navíc</string>
@@ -742,6 +743,7 @@
     <string name="title_signature_unconfirmed_from">Podpis zprávy je platný, ale nepotvrzený: %1$s</string>
     <string name="title_signature_invalid">Neplatný podpis zprávy</string>
     <string name="title_signature_invalid_reason">Neplatný podpis zprávy: %1$s</string>
+    <string name="title_signature_key_missing">Pro ověření podpisu chybí klíč</string>
     <string name="title_signature_certificate_invalid">Neplatný řetězec certifikátů</string>
     <string name="title_signature_sender">Adresa odesílatele</string>
     <string name="title_signature_email">Adresa podpisu</string>

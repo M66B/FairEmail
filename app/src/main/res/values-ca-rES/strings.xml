@@ -398,7 +398,6 @@
     <string name="title_no_password">Falta la contrasenya</string>
     <string name="title_no_inbox">No s\'ha trobat la bustia</string>
     <string name="title_no_primary_drafts">No hi ha cap compte principal ni cap carpeta d\'esborranys</string>
-    <string name="title_no_identities">L’enviament de correus electrònics requereix almenys una identitat</string>
     <string name="title_no_idle">Aquest proveïdor no admet missatges push. Això retardarà la recepció de nous missatges i augmentarà l’ús de la bateria.</string>
     <string name="title_no_utf8">Aquest proveïdor no és compatible amb UTF-8</string>
     <string name="title_no_sync">Errors de sincronització des de %1$s</string>

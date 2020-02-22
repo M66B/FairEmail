@@ -455,7 +455,7 @@
     <string name="title_no_password">缺少密码</string>
     <string name="title_no_inbox">未找到收件箱</string>
     <string name="title_no_primary_drafts">没有主帐户或草稿文件夹</string>
-    <string name="title_no_identities">发送邮件至少需要一个身份</string>
+    <string name="title_no_identities">发送电子邮件需要至少一个身份和一个草稿文件夹</string>
     <string name="title_no_standard">此提供商使用专有的电子邮件协议，因此无法使用第三方电子邮件客户端</string>
     <string name="title_no_idle">该提供商不支持消息推送，这将延迟新消息的接收并增加电池用量</string>
     <string name="title_no_utf8">该邮件服务供应商不支持UTF-8字符集</string>
@@ -711,6 +711,7 @@
     <string name="title_signature_unconfirmed_from">消息签名有效但未确认： %1$s</string>
     <string name="title_signature_invalid">消息签名无效</string>
     <string name="title_signature_invalid_reason">消息签名无效： %1$s</string>
+    <string name="title_signature_key_missing">缺少用于签名验证的密钥</string>
     <string name="title_signature_certificate_invalid">证书链无效</string>
     <string name="title_signature_sender">发件人地址：</string>
     <string name="title_signature_email">签名地址</string>

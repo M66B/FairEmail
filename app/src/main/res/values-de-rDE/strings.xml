@@ -468,7 +468,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_no_password">Passwort fehlt</string>
     <string name="title_no_inbox">Posteingang nicht gefunden</string>
     <string name="title_no_primary_drafts">Kein Hauptkonto oder kein Entwürfe-Ordner</string>
-    <string name="title_no_identities">Senden von E-Mails erfordert mindestens eine konfigurierte Identität</string>
+    <string name="title_no_identities">Das Senden von E-Mails erfordert mindestens eine Identität und einen Entwürfe-Ordner</string>
     <string name="title_no_standard">Dieser Provider verwendet ein proprietäres E-Mail-Protokoll, so dass es nicht möglich ist, E-Mail-Clients von Drittanbietern zu nutzen</string>
     <string name="title_no_idle">Dieser Anbieter unterstützt keine Pushnachrichten. Dies verzögert den Empfang neuer E-Mails und erhöht den Akkuverbrauch.</string>
     <string name="title_no_utf8">Dieser Anbieter unterstützt UTF-8 nicht</string>
@@ -724,7 +724,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_signature_unconfirmed_from">Signatur gültig aber nicht bestätigt: %1$s</string>
     <string name="title_signature_invalid">Ungültige Nachrichtensignatur</string>
     <string name="title_signature_invalid_reason">Nachrichten-Signatur ungültig: %1$s</string>
-    <string name="title_signature_key_missing">Schlüssel fehlt für die Signaturüberprüfung</string>
+    <string name="title_signature_key_missing">Schlüssel für die Signaturüberprüfung fehlt</string>
     <string name="title_signature_certificate_invalid">Zertifikatskette ungültig</string>
     <string name="title_signature_sender">E-Mail-Adresse des Absenders</string>
     <string name="title_signature_email">E-Mail-Adresse der Unterschrift</string>

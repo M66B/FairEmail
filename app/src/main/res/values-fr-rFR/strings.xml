@@ -468,7 +468,7 @@
     <string name="title_no_password">Mot de passe manquant</string>
     <string name="title_no_inbox">Boîte de réception introuvable</string>
     <string name="title_no_primary_drafts">Pas de compte principal ou pas de dossier Brouillons</string>
-    <string name="title_no_identities">L\'envoi d\'e-mails nécessite au moins une identité</string>
+    <string name="title_no_identities">L\'envoi d\'e-mails nécessite au moins une identité et un dossier Brouillons</string>
     <string name="title_no_standard">Ce fournisseur utilise un protocole de messagerie propriétaire et il n\'est donc pas possible d\'utiliser des clients de messagerie tiers</string>
     <string name="title_no_idle">Ce fournisseur ne gère pas les messages en mode push. Cela va retarder la réception de nouveaux messages et augmenter l\'utilisation de la batterie.</string>
     <string name="title_no_utf8">Ce fournisseur ne prend pas en charge l\'UTF-8</string>

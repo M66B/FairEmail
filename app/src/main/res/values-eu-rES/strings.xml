@@ -466,7 +466,6 @@
     <string name="title_no_password">Pasahitza falta da</string>
     <string name="title_no_inbox">Ez da sarrera ontzia aurkitu</string>
     <string name="title_no_primary_drafts">Kontu nagusirik edo zirriborroen karpetarik ez</string>
-    <string name="title_no_identities">Mezuak bidaltzeko gutxienez identitate bat behar da</string>
     <string name="title_no_standard">Hornitzaile honek e-posta protokolo jabeduna erabiltzen du eta, beraz, ezin da hirugarrenen bezeroak erabili</string>
     <string name="title_no_idle">Hornitzaile honek ez ditu push mezuak onartzen. Honek mezu berriak jasotzea atzeratuko du eta bateriaren erabilera areagotuko du.</string>
     <string name="title_no_utf8">Hornitzaile honek ez du UTF-8 onartzen</string>
@@ -722,6 +721,7 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_signature_unconfirmed_from">Mezuaren sinadura baliozkoa da baina ez da baieztatu: %1$s</string>
     <string name="title_signature_invalid">Mezuaren sinadura baliogabea</string>
     <string name="title_signature_invalid_reason">Mezuaren sinadura baliogabea da: %1$s</string>
+    <string name="title_signature_key_missing">Sinadura egiaztatzeko gakoa falta da</string>
     <string name="title_signature_certificate_invalid">Ziurtagiri kate baliogabea</string>
     <string name="title_signature_sender">Igorlearen helbidea</string>
     <string name="title_signature_email">Sinaduraren helbidea</string>

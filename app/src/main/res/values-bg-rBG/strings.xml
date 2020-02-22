@@ -467,7 +467,6 @@
     <string name="title_no_password">Липсва парола</string>
     <string name="title_no_inbox">Не е намерена входяща кутия</string>
     <string name="title_no_primary_drafts">Няма първичен профил или няма папка чернови</string>
-    <string name="title_no_identities">Изпращането на имейли изисква поне една идентичност</string>
     <string name="title_no_standard">Този доставчик използва собствен имейл протокол и следователно не е възможно да се използват имейл клиенти на трети страни</string>
     <string name="title_no_idle">Този доставчик не поддържа push съобщения. Това ще забави получаването на нови съобщения и ще увеличи консумацията на батерията.</string>
     <string name="title_no_utf8">Този доставчик не поддържа UTF-8</string>
@@ -723,6 +722,7 @@
     <string name="title_signature_unconfirmed_from">Подписът на съобщението е валиден, но не е потвърден: %1$s</string>
     <string name="title_signature_invalid">Подписът на съобщението е невалиден</string>
     <string name="title_signature_invalid_reason">Подписът на съобщението е невалиден: %1$s</string>
+    <string name="title_signature_key_missing">Липсва ключ за потвърждаване на подписа</string>
     <string name="title_signature_certificate_invalid">Веригата на сертификата е невалидна</string>
     <string name="title_signature_sender">Адрес на подател</string>
     <string name="title_signature_email">Подписът е адрес</string>

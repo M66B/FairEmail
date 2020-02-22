@@ -490,7 +490,7 @@
     <string name="title_no_password">Отсутствует пароль</string>
     <string name="title_no_inbox">Папка \"Входящие\" не найдена</string>
     <string name="title_no_primary_drafts">Нет основной учётной записи или папки черновиков</string>
-    <string name="title_no_identities">Отправка писем требует хотя бы одного идентификатора</string>
+    <string name="title_no_identities">Отправка писем требует наличия хотя бы одного идентификатора и папки черновиков</string>
     <string name="title_no_standard">Этот провайдер использует проприетарный протокол электронной почты, что не позволяет использовать сторонние почтовые клиенты</string>
     <string name="title_no_idle">Этот провайдер не поддерживает push-сообщения. Это задержит получение новых сообщений и увеличит расход заряда батареи.</string>
     <string name="title_no_utf8">Этот провайдер не поддерживает UTF-8</string>

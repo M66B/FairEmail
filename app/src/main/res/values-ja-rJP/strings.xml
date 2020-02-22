@@ -453,7 +453,7 @@
     <string name="title_no_password">パスワードを入力して下さい</string>
     <string name="title_no_inbox">受信トレイが見つかりません</string>
     <string name="title_no_primary_drafts">プライマリアカウントもドラフトフォルダも有りません</string>
-    <string name="title_no_identities">メールを送信するには少なくとも1つのIDが必要です</string>
+    <string name="title_no_identities">メールを送信するには少なくとも1つのIDと下書きフォルダーが必要です</string>
     <string name="title_no_standard">このプロバイダーは独自の電子メールプロトコルを使用している為、サードパーティの電子メールクライアントを使用することは出来ません</string>
     <string name="title_no_idle">このプロバイダーはプッシュメッセージをサポートしていません。 これにより新しいメッセージの受信が遅れバッテリーの使用量が増加します</string>
     <string name="title_no_utf8">このプロバイダーはUTF-8をサポートしていません</string>

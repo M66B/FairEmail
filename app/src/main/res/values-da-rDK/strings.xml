@@ -467,7 +467,6 @@
     <string name="title_no_password">Adgangskode mangler</string>
     <string name="title_no_inbox">Indbakke ikke fundet</string>
     <string name="title_no_primary_drafts">Ingen primærkonto eller kladdemappe</string>
-    <string name="title_no_identities">E-mailafsendelse kræver mindst én identitet</string>
     <string name="title_no_standard">Denne udbyder benytter en proprietær e-mailprotokol, og det er derfor ikke muligt at benytte tredjeparts e-mailklienter</string>
     <string name="title_no_idle">Denne udbyder understøtter ikke push-beskeder. Dette vil forsinke modtagelsen af nye beskeder samt forøge strømforbruget.</string>
     <string name="title_no_utf8">Denne udbyder understøtter ikke UTF-8</string>

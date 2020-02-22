@@ -450,7 +450,6 @@
     <string name="title_no_password">Senha faltante</string>
     <string name="title_no_inbox">Caixa de entrada não encontrada</string>
     <string name="title_no_primary_drafts">Nenhuma conta primária ou pasta de rascunhos</string>
-    <string name="title_no_identities">O envio de e-mails requer pelo menos uma identidade</string>
     <string name="title_no_standard">Este provedor utiliza um protocolo de e-mail proprietário e, portanto, não é possível usar clientes de e-mail de terceiros</string>
     <string name="title_no_idle">Este provedor não suporta mensagens push. Isso irá atrasar o recebimento de novas mensagens e aumentar o uso da bateria.</string>
     <string name="title_no_utf8">Este provedor de e-mail não suporta UTF-8</string>

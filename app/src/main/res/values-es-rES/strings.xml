@@ -468,7 +468,6 @@
     <string name="title_no_password">Falta contraseña</string>
     <string name="title_no_inbox">Bandeja de entrada no encontrada</string>
     <string name="title_no_primary_drafts">No hay cuenta primaria o no hay carpeta de borradores</string>
-    <string name="title_no_identities">Enviar correos electrónicos requiere al menos una identidad</string>
     <string name="title_no_standard">Este proveedor utiliza un protocolo de correo electrónico propietario y por lo tanto no es posible utilizar clientes de correo de terceros</string>
     <string name="title_no_idle">Este proveedor no es compatible con mensajes push. Esto retrasará la recepción de nuevos mensajes y aumentará el uso de batería.</string>
     <string name="title_no_utf8">Este proveedor no es compatible con UTF-8</string>
@@ -724,6 +723,7 @@
     <string name="title_signature_unconfirmed_from">Firma de mensaje válida pero no confirmada: %1$s</string>
     <string name="title_signature_invalid">Firma de mensaje no válida</string>
     <string name="title_signature_invalid_reason">Firma de mensaje inválida: %1$s</string>
+    <string name="title_signature_key_missing">Falta la clave para la verificación de la firma</string>
     <string name="title_signature_certificate_invalid">Cadena de certificado inválida</string>
     <string name="title_signature_sender">Dirección del remitente</string>
     <string name="title_signature_email">Dirección de la firma</string>

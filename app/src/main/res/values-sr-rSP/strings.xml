@@ -405,7 +405,6 @@
     <string name="title_no_password">Недостаје лозинка</string>
     <string name="title_no_inbox">Примљено сандуче није нађено</string>
     <string name="title_no_primary_drafts">Нема главног налога или нема фасцикле за нацрте</string>
-    <string name="title_no_identities">Слање е-мејлова захтева бар један идентитет</string>
     <string name="title_no_idle">Овај провајдер не подржава гурање порука. Ово ће одложити примање нових порука и повећати потрошњу батерије.</string>
     <string name="title_no_utf8">Овај провајдер не подржава UTF-8</string>
     <string name="title_no_sync">Грешке у синхронизацији од %1$s</string>
