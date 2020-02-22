@@ -3318,6 +3318,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void onActionMore(TupleMessageEx message) {
             boolean show_headers = properties.getValue("headers", message.id);
+            boolean full = properties.getValue("full", message.id);
 
             View anchor = bnvActions.findViewById(R.id.action_more);
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, anchor);
@@ -3343,7 +3344,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_delete).setEnabled(message.uid == null || !message.folderReadOnly);
             popupMenu.getMenu().findItem(R.id.menu_delete).setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
 
-            popupMenu.getMenu().findItem(R.id.menu_search_in_text).setEnabled(message.content);
+            popupMenu.getMenu().findItem(R.id.menu_search_in_text).setEnabled(message.content && !full);
 
             popupMenu.getMenu().findItem(R.id.menu_resync).setEnabled(message.uid != null);
             popupMenu.getMenu().findItem(R.id.menu_resync).setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
