@@ -829,7 +829,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 if (now - start > STILL_THERE_THRESHOLD)
                                     return;
 
-                                boolean auto_optimize = prefs.getBoolean("auto_optimize", true);
+                                boolean auto_optimize = prefs.getBoolean("auto_optimize", false);
                                 if (!auto_optimize)
                                     return;
 
