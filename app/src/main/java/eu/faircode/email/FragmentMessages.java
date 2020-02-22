@@ -1508,6 +1508,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             });
         }
 
+        public void scrollTo(final int pos, final int y) {
+            new Handler().post(new Runnable() {
+                @Override
+                public void run() {
+                    LinearLayoutManager llm = (LinearLayoutManager) rvMessage.getLayoutManager();
+                    llm.scrollToPositionWithOffset(pos, -y);
+                }
+            });
+        }
+
         @Override
         public void move(long id, String type) {
             Bundle args = new Bundle();

@@ -55,6 +55,7 @@ import android.text.Editable;
 import android.text.Html;
 import android.text.Layout;
 import android.text.Spannable;
+import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
@@ -62,6 +63,7 @@ import android.text.TextWatcher;
 import android.text.format.DateUtils;
 import android.text.method.ArrowKeyMovementMethod;
 import android.text.method.LinkMovementMethod;
+import android.text.style.BackgroundColorSpan;
 import android.text.style.DynamicDrawableSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
@@ -69,6 +71,7 @@ import android.text.style.QuoteSpan;
 import android.text.style.URLSpan;
 import android.util.Pair;
 import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -92,6 +95,7 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -956,7 +960,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ivType.setImageResource(icon);
             }
 
-            ivFound.setVisibility(message.ui_found && found ? View.VISIBLE : View.GONE);
+            ivFound.setVisibility(message.ui_found && AdapterMessage.this.found ? View.VISIBLE : View.GONE);
 
             ibSnoozed.setImageResource(
                     message.ui_snoozed != null && message.ui_snoozed == Long.MAX_VALUE
@@ -3338,6 +3342,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_delete).setEnabled(message.uid == null || !message.folderReadOnly);
             popupMenu.getMenu().findItem(R.id.menu_delete).setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
 
+            popupMenu.getMenu().findItem(R.id.menu_search_in_text).setEnabled(message.content);
+
             popupMenu.getMenu().findItem(R.id.menu_resync).setEnabled(message.uid != null);
             popupMenu.getMenu().findItem(R.id.menu_resync).setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
 
@@ -3393,6 +3399,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             return true;
                         case R.id.menu_resync:
                             onMenuResync(message);
+                            return true;
+                        case R.id.menu_search_in_text:
+                            onMenuSearch(message);
                             return true;
                         case R.id.menu_create_rule:
                             onMenuCreateRule(message);
@@ -3745,6 +3754,106 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "message:share");
+        }
+
+        private int found = 0;
+
+        private void onMenuSearch(TupleMessageEx message) {
+            LayoutInflater inflater = LayoutInflater.from(context);
+            View dview = inflater.inflate(R.layout.popup_search_in_text, null, false);
+            EditText etSearch = dview.findViewById(R.id.etSearch);
+            ImageButton ibNext = dview.findViewById(R.id.ibNext);
+
+            etSearch.setText(null);
+            ibNext.setEnabled(false);
+
+            etSearch.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                    // Do nothing
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    found = find(s.toString(), 1);
+                    ibNext.setEnabled(found > 0);
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+                    // Do nothing
+                }
+            });
+
+            ibNext.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    found = find(etSearch.getText().toString(), ++found);
+                }
+            });
+
+            PopupWindow pw = new PopupWindow(dview, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            pw.setFocusable(true);
+            pw.setOnDismissListener(new PopupWindow.OnDismissListener() {
+                @Override
+                public void onDismiss() {
+                    SpannableString ss = new SpannableString(tvBody.getText());
+                    for (BackgroundColorSpan span : ss.getSpans(0, ss.length(), BackgroundColorSpan.class))
+                        ss.removeSpan(span);
+                    tvBody.setText(ss);
+                }
+            });
+            pw.showAtLocation(parentFragment.getView(), Gravity.TOP | Gravity.END, 0, 0);
+        }
+
+        private int find(String query, int result) {
+            query = query.toLowerCase();
+
+            SpannableString ss = new SpannableString(tvBody.getText());
+            for (BackgroundColorSpan span : ss.getSpans(0, ss.length(), BackgroundColorSpan.class))
+                ss.removeSpan(span);
+
+            int p = -1;
+            String text = tvBody.getText().toString().toLowerCase();
+            for (int i = 0; i < result; i++)
+                p = (p < 0 ? text.indexOf(query) : text.indexOf(query, p + 1));
+
+            if (p < 0 && result > 1) {
+                result = 1;
+                p = text.indexOf(query);
+            }
+            if (p < 0)
+                result = 0;
+
+            final int pos = p;
+            if (pos > 0) {
+                int color = Helper.resolveColor(context, R.attr.colorHighlight);
+                ss.setSpan(new BackgroundColorSpan(color), pos, pos + query.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                tvBody.setText(ss);
+
+                final int apos = getAdapterPosition();
+
+                tvBody.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            int line = tvBody.getLayout().getLineForOffset(pos);
+                            int y = Math.round(line * tvBody.getLineHeight());
+
+                            Rect rect = new Rect();
+                            tvBody.getDrawingRect(rect);
+                            ((ViewGroup) view).offsetDescendantRectToMyCoords(tvBody, rect);
+
+                            properties.scrollTo(apos, rect.top + y);
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        }
+                    }
+                });
+            } else
+                tvBody.setText(ss, TextView.BufferType.SPANNABLE);
+
+            return result;
         }
 
         private void onMenuCreateRule(TupleMessageEx message) {
@@ -4839,6 +4948,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         List<EntityAttachment> getAttachments(long id);
 
         void scrollTo(int pos);
+
+        void scrollTo(int pos, int y);
 
         void move(long id, String type);
 
