@@ -828,6 +828,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 if (now - start > STILL_THERE_DELAY)
                                     return;
 
+                                boolean auto_optimize = prefs.getBoolean("auto_optimize", true);
+                                if (!auto_optimize)
+                                    return;
+
                                 int pollInterval = prefs.getInt("poll_interval", 0);
                                 if (pollInterval == 0) {
                                     prefs.edit().putInt("poll_interval", 30).apply();

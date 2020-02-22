@@ -107,6 +107,18 @@
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swOptimize"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/title_advanced_optimize"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swWatchdog"
+            app:switchPadding="12dp" />
+
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swUpdates"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -115,7 +127,7 @@
             android:text="@string/title_advanced_updates"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swWatchdog"
+            app:layout_constraintTop_toBottomOf="@id/swOptimize"
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat
