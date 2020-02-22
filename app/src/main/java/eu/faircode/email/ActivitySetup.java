@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2020 by Marcel Bokhorst (M66B)
 */
 
+import android.accounts.Account;
+import android.accounts.AccountManager;
 import android.app.Dialog;
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -729,6 +731,22 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                     for (int a = 0; a < jaccounts.length(); a++) {
                         JSONObject jaccount = (JSONObject) jaccounts.get(a);
                         EntityAccount account = EntityAccount.fromJSON(jaccount);
+
+                        if (account.auth_type == EmailService.AUTH_TYPE_GMAIL) {
+                            AccountManager am = AccountManager.get(context);
+                            boolean found = false;
+                            for (Account google : am.getAccountsByType("com.google"))
+                                if (account.user.equals(google.name)) {
+                                    found = true;
+                                    break;
+                                }
+
+                            if (!found) {
+                                Log.i("Google account not found email=" + account.user);
+                                continue;
+                            }
+                        }
+
                         Long aid = account.id;
                         account.id = null;
 
