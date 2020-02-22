@@ -816,9 +816,28 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         String message = e.getMessage();
                         if (TextUtils.isEmpty(message))
                             message = "?";
-                        if (e.getMessageType() == StoreEvent.NOTICE)
+                        if (e.getMessageType() == StoreEvent.NOTICE) {
                             EntityLog.log(ServiceSynchronize.this, account.name + " notice: " + message);
-                        else
+
+                            if ("Still here".equals(message) && !account.ondemand) {
+                                int pollInterval = prefs.getInt("poll_interval", 0);
+                                if (pollInterval == 0) {
+                                    prefs.edit().putInt("poll_interval", 30).apply();
+                                    try {
+                                        db.beginTransaction();
+                                        for (EntityAccount a : db.account().getAccounts())
+                                            db.account().setAccountPollExempted(a.id, !a.id.equals(account.id));
+                                        db.setTransactionSuccessful();
+                                    } finally {
+                                        db.endTransaction();
+                                    }
+                                    ServiceSynchronize.eval(ServiceSynchronize.this, message);
+                                } else if (account.poll_exempted) {
+                                    db.account().setAccountPollExempted(account.id, false);
+                                    ServiceSynchronize.eval(ServiceSynchronize.this, message);
+                                }
+                            }
+                        } else
                             try {
                                 wlFolder.acquire();
 
