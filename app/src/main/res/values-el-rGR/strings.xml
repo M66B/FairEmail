@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_search">Αναζήτηση FairEmail</string>
     <string name="app_changelog">Αρχείο αλλαγών</string>
     <string name="app_welcome">Το FairEmail είναι μια open source εφαρμογή email που επικεντρώνεται στην προστασία του απορρήτου σας και την ασφάλεια. Για τον λόγο αυτό ορισμένες δυνατότητες ενδέχεται να λειτουργούν διαφορετικά από ό,τι έχετε συνηθίσει.</string>
     <string name="app_limitations">Για παράδειγμα, τα μηνύματα θα πρέπει πάντα να επαναδιαμορφώνονται προκειμένου να αφαιρεθούν τυχόν μη ασφαλή στοιχεία και να κατασταθεί το περιεχόμενο πιο ευανάγνωστο. Ακόμη, το άνοιγμα συνδέσμων θα πρέπει να επιβεβαιώνεται για λόγους ασφαλείας.</string>
@@ -31,6 +32,7 @@
     <string name="title_ask_spam_who">Καταχωρείται το μύνημα από %1$s σαν ανεπιθύμητο;</string>
     <string name="title_block">Μπλοκάρισμα %1$s</string>
     <string name="title_block_sender">Μπλοκάρισμα αποστολέα</string>
+    <string name="title_block_domain">Αποκλεισμός domain αποστολέα</string>
     <string name="title_block_sender_hint">   Να μπλοκάρεις κάποιον αποστολέα, θα έχει ός συνέπεια την μεταφορά όλων των μελλοντικών μύνηματων στον φάκελο ανεπιθύμητων.                       </string>
     <string name="title_notification_waiting">Αναμονή για την κατάλληλη σύνδεση</string>
     <string name="title_notification_sending">Αποστολή μηνυμάτων</string>
@@ -70,14 +72,17 @@
    Λογαριασμοί και ταυτότητες (ψευδώνυμο)  μπορεί να ρυθμίζονται και χειροκίνητα αν χρειαστεί.    </string>
     <string name="title_setup_quick">Γρήγορη ρύθμιση</string>
     <string name="title_setup_quick_remark">Για να ρυθμίζετε γρήγορα έναν λογαριασμό και την ταυτοποίηση για τους περισσότερους παροχείς</string>
+    <string name="title_setup_quick_hint">Η γρήγορη ρύθμιση θα αντλήσει πληροφορίες εγκατάστασης από το autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">ΙΜΑP διακομιστής για να λαμβάνετε μυνήματα</string>
     <string name="title_setup_quick_smtp">SMTP διακομιστής για να στέλνεις μηνύματα</string>
     <string name="title_setup_wizard">Οδηγός</string>
+    <string name="title_setup_wizard_multiple">Ο οδηγός εγκατάστασης μπορεί να χρησιμοποιηθεί πολλές φορές για τη ρύθμιση πολλαπλών λογαριασμών</string>
     <string name="title_setup_wizard_remark">Πηγαίνετε \'πισω\' στα εισερχόμενα</string>
     <string name="title_setup_other">Άλλος πάροχος</string>
     <string name="title_setup_gmail_support">Οι εξουσιοδοτημένοι λογαριασμοί Google θα λειτουργήσουν σε επίσημη έκδοση μόνο γιατί το Android ελέγχει την ηλεκτρονική υπογραφή της εφαρμογής</string>
     <string name="title_setup_gmail_rationale">Παρακαλώ δώστε ολα τα δικαιώματα για να επιλέξετε λογαριασμό και να διαβάσετε το όνομα σας</string>
     <string name="title_setup_gmail_permissions">Το Google θα σας ζητήσει για δικαιώματα να διαβάσετε, να συντάξετε, να στέλνετε και μόνιμη διαγραφή των μύνηματων. FairEmail δεν θα διαγράψει ποτέ τα μυνήματα σας χωρίς την εξουσιοδότηση σας.</string>
+    <string name="title_setup_gmail_drafts">Αν ο φάκελλος με τα πρόχειρα δεν είναι διαθέσιμος μέσω IMAP, μπορείτε να το διορθώσετε στις ρυθμίσεις ετικετών του Gmail</string>
     <string name="title_setup_oauth_rationale">Παραχωρήσετε πρόσβαση στο %1$s λογαριασμό</string>
     <string name="title_setup_oauth_authorize">Έγκριση</string>
     <string name="title_setup_select_account">Επιλογή λογαριασμού</string>

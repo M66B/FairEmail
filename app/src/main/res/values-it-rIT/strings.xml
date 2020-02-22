@@ -206,6 +206,7 @@
     <string name="title_advanced_receive">Ricevi messaggi</string>
     <string name="title_advanced_when">Quando</string>
     <string name="title_advanced_always">Sincronizza sempre questi account</string>
+    <string name="title_advanced_optimize">Ottimizza automaticamente le impostazioni</string>
     <string name="title_advanced_schedule">Pianificazione</string>
     <string name="title_advanced_unseen">Tutti i messaggi non letti</string>
     <string name="title_advanced_flagged">Tutti i messaggi preferiti</string>

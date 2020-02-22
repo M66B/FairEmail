@@ -207,6 +207,7 @@
     <string name="title_advanced_receive">Recibir mensajes</string>
     <string name="title_advanced_when">Cuando</string>
     <string name="title_advanced_always">Siempre sincronizar estas cuentas</string>
+    <string name="title_advanced_optimize">Optimizar automáticamente los ajustes</string>
     <string name="title_advanced_schedule">Programar</string>
     <string name="title_advanced_unseen">Todos los mensajes no leídos</string>
     <string name="title_advanced_flagged">Todos los mensajes destacados</string>
@@ -468,6 +469,7 @@
     <string name="title_no_password">Falta contraseña</string>
     <string name="title_no_inbox">Bandeja de entrada no encontrada</string>
     <string name="title_no_primary_drafts">No hay cuenta primaria o no hay carpeta de borradores</string>
+    <string name="title_no_identities">El envío de correos electrónicos requiere al menos una identidad y una carpeta de borradores</string>
     <string name="title_no_standard">Este proveedor utiliza un protocolo de correo electrónico propietario y por lo tanto no es posible utilizar clientes de correo de terceros</string>
     <string name="title_no_idle">Este proveedor no es compatible con mensajes push. Esto retrasará la recepción de nuevos mensajes y aumentará el uso de batería.</string>
     <string name="title_no_utf8">Este proveedor no es compatible con UTF-8</string>
