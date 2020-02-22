@@ -105,6 +105,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
     private static final long YIELD_DURATION = 200L; // milliseconds
     private static final long QUIT_DELAY = 5 * 1000L; // milliseconds
+    private static final long STILL_THERE_DELAY = 3 * 60 * 1000L; // milliseconds
     private static final int CONNECT_BACKOFF_START = 8; // seconds
     private static final int CONNECT_BACKOFF_MAX = 64; // seconds (totally 2 minutes)
     private static final int CONNECT_BACKOFF_AlARM_START = 15; // minutes
@@ -810,6 +811,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 iservice.setIgnoreBodyStructureSize(account.ignore_size);
                 if (account.protocol != EntityAccount.TYPE_IMAP)
                     iservice.setLeaveOnServer(account.leave_on_server);
+
+                final long start = new Date().getTime();
+
                 iservice.setListener(new StoreListener() {
                     @Override
                     public void notification(StoreEvent e) {
@@ -820,6 +824,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             EntityLog.log(ServiceSynchronize.this, account.name + " notice: " + message);
 
                             if ("Still here".equals(message) && !account.ondemand) {
+                                long now = new Date().getTime();
+                                if (now - start > STILL_THERE_DELAY)
+                                    return;
+
                                 int pollInterval = prefs.getInt("poll_interval", 0);
                                 if (pollInterval == 0) {
                                     prefs.edit().putInt("poll_interval", 30).apply();
