@@ -234,6 +234,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private int answers = -1;
     private boolean gotoTop = false;
     private boolean firstClick = false;
+    private int searchResult = 0;
     private AsyncPagedListDiffer<TupleMessageEx> differ;
     private Map<Long, Integer> keyPosition = new HashMap<>();
     private SelectionTracker<Long> selectionTracker = null;
@@ -960,7 +961,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ivType.setImageResource(icon);
             }
 
-            ivFound.setVisibility(message.ui_found && AdapterMessage.this.found ? View.VISIBLE : View.GONE);
+            ivFound.setVisibility(message.ui_found && found ? View.VISIBLE : View.GONE);
 
             ibSnoozed.setImageResource(
                     message.ui_snoozed != null && message.ui_snoozed == Long.MAX_VALUE
@@ -3756,8 +3757,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }.execute(context, owner, args, "message:share");
         }
 
-        private int found = 0;
-
         private void onMenuSearch(TupleMessageEx message) {
             LayoutInflater inflater = LayoutInflater.from(context);
             View dview = inflater.inflate(R.layout.popup_search_in_text, null, false);
@@ -3775,8 +3774,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
-                    found = find(s.toString(), 1);
-                    ibNext.setEnabled(found > 0);
+                    searchResult = find(s.toString(), 1);
+                    ibNext.setEnabled(searchResult > 0);
                 }
 
                 @Override
@@ -3788,7 +3787,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibNext.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    found = find(etSearch.getText().toString(), ++found);
+                    searchResult = find(etSearch.getText().toString(), ++searchResult);
                 }
             });
 
