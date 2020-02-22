@@ -4691,10 +4691,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         same = false;
                         Log.i("keyword colors changed id=" + next.id);
                     }
-                    if (prev.update) {
-                        Log.i("Always update");
-                        same = false;
-                    }
 
                     return same;
                 }
