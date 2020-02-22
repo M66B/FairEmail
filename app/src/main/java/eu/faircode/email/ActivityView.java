@@ -826,8 +826,12 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     builder.setContentIntent(piUpdate);
                 }
 
-                NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                nm.notify(Helper.NOTIFICATION_UPDATE, builder.build());
+                try {
+                    NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                    nm.notify(Helper.NOTIFICATION_UPDATE, builder.build());
+                } catch (Throwable ex) {
+                    Log.w(ex);
+                }
             }
 
             @Override

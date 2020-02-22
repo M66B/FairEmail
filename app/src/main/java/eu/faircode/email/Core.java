@@ -2838,7 +2838,11 @@ class Core {
                     Notification notification = builder.build();
                     Log.i("Notifying tag=" + tag + " id=" + id +
                             (Build.VERSION.SDK_INT < Build.VERSION_CODES.O ? "" : " channel=" + notification.getChannelId()));
-                    nm.notify(tag, 1, notification);
+                    try {
+                        nm.notify(tag, 1, notification);
+                    } catch (Throwable ex) {
+                        Log.w(ex);
+                    }
                 }
             }
         }

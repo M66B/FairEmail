@@ -89,8 +89,12 @@ public class ServiceSend extends ServiceBase {
                 if (unsent != null && lastUnsent != unsent) {
                     lastUnsent = unsent;
 
-                    NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                    nm.notify(Helper.NOTIFICATION_SEND, getNotificationService().build());
+                    try {
+                        NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                        nm.notify(Helper.NOTIFICATION_SEND, getNotificationService().build());
+                    } catch (Throwable ex) {
+                        Log.w(ex);
+                    }
                 }
             }
         });
@@ -228,8 +232,12 @@ public class ServiceSend extends ServiceBase {
             lastSuitable = suitable;
             EntityLog.log(ServiceSend.this, "Service send suitable=" + suitable);
 
-            NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-            nm.notify(Helper.NOTIFICATION_SEND, getNotificationService().build());
+            try {
+                NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                nm.notify(Helper.NOTIFICATION_SEND, getNotificationService().build());
+            } catch (Throwable ex) {
+                Log.w(ex);
+            }
 
             if (suitable)
                 executor.submit(new Runnable() {
@@ -495,10 +503,14 @@ public class ServiceSend extends ServiceBase {
 
             if (ex instanceof AuthenticationFailedException ||
                     ex instanceof SendFailedException) {
-                NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                nm.notify("send:" + message.identity, 1,
-                        Core.getNotificationError(this, "error", ident.name, ex)
-                                .build());
+                try {
+                    NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                    nm.notify("send:" + message.identity, 1,
+                            Core.getNotificationError(this, "error", ident.name, ex)
+                                    .build());
+                } catch (Throwable ex1) {
+                    Log.w(ex1);
+                }
                 throw ex;
             }
 
@@ -508,9 +520,13 @@ public class ServiceSend extends ServiceBase {
             long delayed = now - message.last_attempt;
             if (delayed > IDENTITY_ERROR_AFTER * 60 * 1000L) {
                 Log.i("Reporting send error after=" + delayed);
-                NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                nm.notify("send:" + message.identity, 1,
-                        Core.getNotificationError(this, "warning", ident.name, ex).build());
+                try {
+                    NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                    nm.notify("send:" + message.identity, 1,
+                            Core.getNotificationError(this, "warning", ident.name, ex).build());
+                } catch (Throwable ex1) {
+                    Log.w(ex1);
+                }
             }
 
             throw ex;
