@@ -277,6 +277,7 @@ public class ActivitySignature extends ActivityBase {
         ImageSpan is = new ImageSpan(getDrawableByUri(this, uri), uri.toString(), ImageSpan.ALIGN_BASELINE);
         ssb.setSpan(is, start, start + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         etText.setText(ssb);
+        etText.setSelection(start + 1);
     }
 
     static Drawable getDrawableByUri(Context context, Uri uri) {
