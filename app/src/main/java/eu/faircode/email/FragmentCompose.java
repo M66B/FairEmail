@@ -1874,8 +1874,11 @@ public class FragmentCompose extends FragmentBase {
                                     } else if (OpenPgpApi.ACTION_DETACHED_SIGN.equals(data.getAction())) {
                                         name = "signature.asc";
                                         encryption = EntityAttachment.PGP_SIGNATURE;
+                                        String micalg = result.getStringExtra(OpenPgpApi.RESULT_SIGNATURE_MICALG);
+                                        if (TextUtils.isEmpty(micalg))
+                                            throw new IllegalArgumentException("micalg missing");
                                         ct = new ContentType("application/pgp-signature");
-                                        ct.setParameter("micalg", result.getStringExtra(OpenPgpApi.RESULT_SIGNATURE_MICALG));
+                                        ct.setParameter("micalg", micalg);
                                     } else if (OpenPgpApi.ACTION_SIGN_AND_ENCRYPT.equals(data.getAction())) {
                                         name = "encrypted.asc";
                                         encryption = EntityAttachment.PGP_MESSAGE;

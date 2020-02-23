@@ -297,8 +297,11 @@ public class MessageHelper {
 
                         final ContentType cts = new ContentType(attachment.type);
                         String micalg = cts.getParameter("micalg");
+                        if (TextUtils.isEmpty(micalg))
+                            Log.e("PGP micalg missing");
                         ParameterList params = cts.getParameterList();
-                        params.remove("micalg");
+                        if (params != null)
+                            params.remove("micalg");
                         cts.setParameterList(params);
 
                         // Build signature
@@ -378,8 +381,13 @@ public class MessageHelper {
 
                         final ContentType cts = new ContentType(attachment.type);
                         String micalg = cts.getParameter("micalg");
+                        if (TextUtils.isEmpty(micalg)) {
+                            Log.e("S/MIME micalg missing");
+                            micalg = "sha-256";
+                        }
                         ParameterList params = cts.getParameterList();
-                        params.remove("micalg");
+                        if (params != null)
+                            params.remove("micalg");
                         cts.setParameterList(params);
 
                         // Build signature
