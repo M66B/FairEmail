@@ -834,6 +834,31 @@ public class Helper {
             out.write(buf, 0, len);
     }
 
+    static long copy(Context context, Uri uri, File file) throws IOException {
+        long size = 0;
+        InputStream is = null;
+        OutputStream os = null;
+        try {
+            is = context.getContentResolver().openInputStream(uri);
+            os = new FileOutputStream(file);
+
+            byte[] buffer = new byte[Helper.BUFFER_SIZE];
+            for (int len = is.read(buffer); len != -1; len = is.read(buffer)) {
+                size += len;
+                os.write(buffer, 0, len);
+            }
+        } finally {
+            try {
+                if (is != null)
+                    is.close();
+            } finally {
+                if (os != null)
+                    os.close();
+            }
+        }
+        return size;
+    }
+
     static long getAvailableStorageSpace() {
         StatFs stats = new StatFs(Environment.getDataDirectory().getAbsolutePath());
         return stats.getAvailableBlocksLong() * stats.getBlockSizeLong();

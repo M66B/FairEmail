@@ -63,7 +63,6 @@ import java.util.TimeZone;
 import java.util.regex.Pattern;
 
 import javax.activation.DataHandler;
-import javax.activation.DataSource;
 import javax.activation.FileDataSource;
 import javax.activation.FileTypeMap;
 import javax.mail.Address;
@@ -499,48 +498,59 @@ public class MessageHelper {
         Document document = JsoupEx.parse(message.getFile(context));
 
         // When sending message
-        List<BodyPart> contents = new ArrayList<>();
         if (identity != null) {
             document.select("div[fairemail=signature],div[fairemail=reference]").removeAttr("fairemail");
 
-            for (Element img : document.select("img")) {
-                String source = img.attr("src");
-                if (!source.startsWith("content:"))
-                    continue;
+            DB db = DB.getInstance(context);
+            try {
+                db.beginTransaction();
 
-                String cid = BuildConfig.APPLICATION_ID + ".content." + contents.size();
-                img.attr("src", "cid:" + cid);
+                for (Element img : document.select("img")) {
+                    String source = img.attr("src");
+                    if (!source.startsWith("content:"))
+                        continue;
 
-                final Uri uri = Uri.parse(source);
-                final DocumentFile dfile = DocumentFile.fromSingleUri(context, uri);
+                    Uri uri = Uri.parse(source);
+                    DocumentFile dfile = DocumentFile.fromSingleUri(context, uri);
+                    if (dfile == null)
+                        continue;
 
-                BodyPart part = new MimeBodyPart();
-                part.setFileName(uri.getLastPathSegment());
-                part.setDisposition(Part.INLINE);
-                part.setHeader("Content-ID", "<" + cid + ">");
-                part.setDataHandler(new DataHandler(new DataSource() {
-                    @Override
-                    public InputStream getInputStream() throws IOException {
-                        return context.getContentResolver().openInputStream(uri);
-                    }
+                    String name = dfile.getName();
+                    String type = dfile.getType();
 
-                    @Override
-                    public OutputStream getOutputStream() throws IOException {
-                        return null;
-                    }
+                    if (TextUtils.isEmpty(name))
+                        name = uri.getLastPathSegment();
+                    if (TextUtils.isEmpty(type))
+                        type = "image/*";
 
-                    @Override
-                    public String getContentType() {
-                        return dfile.getType();
-                    }
+                    EntityAttachment attachment = new EntityAttachment();
+                    attachment.message = message.id;
+                    attachment.sequence = db.attachment().getAttachmentSequence(message.id) + 1;
+                    attachment.name = name;
+                    attachment.type = type;
+                    attachment.disposition = Part.INLINE;
+                    attachment.cid = null;
+                    attachment.size = null;
+                    attachment.progress = 0;
 
-                    @Override
-                    public String getName() {
-                        return uri.getLastPathSegment();
-                    }
-                }));
+                    attachment.id = db.attachment().insertAttachment(attachment);
 
-                contents.add(part);
+                    String cid = BuildConfig.APPLICATION_ID + "." + attachment.id;
+                    attachment.cid = "<" + BuildConfig.APPLICATION_ID + "." + attachment.id + ">";
+                    db.attachment().setCid(attachment.id, attachment.cid);
+
+                    attachment.size = Helper.copy(context, uri, attachment.getFile(context));
+                    attachment.progress = null;
+                    attachment.available = true;
+                    db.attachment().setDownloaded(attachment.id, attachment.size);
+
+                    attachments.add(attachment);
+                    img.attr("src", "cid:" + cid);
+                }
+
+                db.setTransactionSuccessful();
+            } finally {
+                db.endTransaction();
             }
         }
 
@@ -565,8 +575,8 @@ public class MessageHelper {
         altMultiPart.addBodyPart(plainPart);
         altMultiPart.addBodyPart(htmlPart);
 
-        int availableAttachments = contents.size();
-        boolean hasInline = contents.size() > 0;
+        int availableAttachments = 0;
+        boolean hasInline = false;
         for (EntityAttachment attachment : attachments)
             if (attachment.available) {
                 availableAttachments++;
@@ -644,9 +654,6 @@ public class MessageHelper {
                     else
                         mixedMultiPart.addBodyPart(attachmentPart);
                 }
-
-            for (BodyPart content : contents)
-                relatedMultiPart.addBodyPart(content);
 
             imessage.setContent(mixedMultiPart);
         }
