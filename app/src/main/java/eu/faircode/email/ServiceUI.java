@@ -494,7 +494,7 @@ public class ServiceUI extends IntentService {
         am.cancel(piSync);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        int pollInterval = prefs.getInt("poll_interval", 0);
+        int pollInterval = prefs.getInt("poll_interval", ServiceSynchronize.DEFAULT_POLL_INTERVAL);
         if (enabled && pollInterval > 0) {
             long now = new Date().getTime();
             long interval = pollInterval * 60 * 1000L;
