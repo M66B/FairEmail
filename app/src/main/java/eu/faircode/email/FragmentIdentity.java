@@ -21,17 +21,14 @@ package eu.faircode.email;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
-import android.app.Dialog;
 import android.app.NotificationManager;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
-import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
@@ -57,7 +54,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.Group;
 import androidx.lifecycle.Lifecycle;
 
@@ -86,8 +82,7 @@ public class FragmentIdentity extends FragmentBase {
     private EditText etDisplay;
     private ViewButtonColor btnColor;
     private TextView tvColorPro;
-    private EditText etSignature;
-    private Button btnHtml;
+    private Button btnSignature;
 
     private Button btnAdvanced;
     private Spinner spProvider;
@@ -135,12 +130,13 @@ public class FragmentIdentity extends FragmentBase {
     private int auth = EmailService.AUTH_TYPE_PASSWORD;
     private String provider = null;
     private String certificate = null;
+    private String signature = null;
     private boolean saving = false;
 
     private static final int REQUEST_COLOR = 1;
     private static final int REQUEST_SAVE = 2;
     private static final int REQUEST_DELETE = 3;
-    private static final int REQUEST_HTML = 4;
+    private static final int REQUEST_SIGNATURE = 4;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -172,8 +168,7 @@ public class FragmentIdentity extends FragmentBase {
         etDisplay = view.findViewById(R.id.etDisplay);
         btnColor = view.findViewById(R.id.btnColor);
         tvColorPro = view.findViewById(R.id.tvColorPro);
-        etSignature = view.findViewById(R.id.etSignature);
-        btnHtml = view.findViewById(R.id.btnHtml);
+        btnSignature = view.findViewById(R.id.btnSignature);
 
         btnAdvanced = view.findViewById(R.id.btnAdvanced);
         spProvider = view.findViewById(R.id.spProvider);
@@ -337,36 +332,12 @@ public class FragmentIdentity extends FragmentBase {
 
         Helper.linkPro(tvColorPro);
 
-        etSignature.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                SpannableStringBuilder ssb = new SpannableStringBuilder(editable);
-                Helper.clearComposingText(ssb);
-                if (TextUtils.isEmpty(editable.toString()))
-                    etSignature.setTag(null);
-                else
-                    etSignature.setTag(HtmlHelper.toHtml(ssb));
-            }
-        });
-
-        btnHtml.setOnClickListener(new View.OnClickListener() {
+        btnSignature.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle args = new Bundle();
-                args.putString("html", (String) etSignature.getTag());
-
-                FragmentDialogHtml fragment = new FragmentDialogHtml();
-                fragment.setArguments(args);
-                fragment.setTargetFragment(FragmentIdentity.this, REQUEST_HTML);
-                fragment.show(getParentFragmentManager(), "identity:html");
+                Intent intent = new Intent(getContext(), ActivitySignature.class);
+                intent.putExtra("html", signature);
+                startActivityForResult(intent, REQUEST_SIGNATURE);
             }
         });
 
@@ -589,8 +560,6 @@ public class FragmentIdentity extends FragmentBase {
                 name = hint.toString();
         }
 
-        etSignature.clearComposingText();
-
         Bundle args = new Bundle();
         args.putLong("id", id);
         args.putString("name", name);
@@ -614,7 +583,7 @@ public class FragmentIdentity extends FragmentBase {
         args.putString("realm", etRealm.getText().toString());
         args.putString("fingerprint", cbTrust.isChecked() ? (String) cbTrust.getTag() : null);
         args.putBoolean("use_ip", cbUseIp.isChecked());
-        args.putString("signature", (String) etSignature.getTag());
+        args.putString("signature", signature);
         args.putBoolean("synchronize", cbSynchronize.isChecked());
         args.putBoolean("primary", cbPrimary.isChecked());
 
@@ -1006,7 +975,7 @@ public class FragmentIdentity extends FragmentBase {
         outState.putInt("fair:advanced", grpAdvanced.getVisibility());
         outState.putInt("fair:auth", auth);
         outState.putString("fair:authprovider", provider);
-        outState.putString("fair:html", (String) etSignature.getTag());
+        outState.putString("fair:html", signature);
         super.onSaveInstanceState(outState);
     }
 
@@ -1033,9 +1002,7 @@ public class FragmentIdentity extends FragmentBase {
                     etDisplay.setText(identity == null ? null : identity.display);
                     btnColor.setColor(identity == null ? null : identity.color);
 
-                    String signature = (identity == null ? null : identity.signature);
-                    etSignature.setText(TextUtils.isEmpty(signature) ? null : HtmlHelper.fromHtml(signature));
-                    etSignature.setTag(signature);
+                    signature = (identity == null ? null : identity.signature);
 
                     etHost.setText(identity == null ? null : identity.host);
                     rgEncryption.check(identity != null && identity.starttls ? R.id.radio_starttls : R.id.radio_ssl);
@@ -1092,7 +1059,7 @@ public class FragmentIdentity extends FragmentBase {
                     grpAdvanced.setVisibility(savedInstanceState.getInt("fair:advanced"));
                     auth = savedInstanceState.getInt("fair:auth");
                     provider = savedInstanceState.getString("fair:authprovider");
-                    etSignature.setTag(savedInstanceState.getString("fair:html"));
+                    signature = savedInstanceState.getString("fair:html");
                 }
 
                 Helper.setViewsEnabled(view, true);
@@ -1257,9 +1224,9 @@ public class FragmentIdentity extends FragmentBase {
                     if (resultCode == RESULT_OK)
                         onDelete();
                     break;
-                case REQUEST_HTML:
-                    if (resultCode == RESULT_OK && data != null)
-                        onHtml(data.getBundleExtra("args"));
+                case REQUEST_SIGNATURE:
+                    if (resultCode == RESULT_OK)
+                        onHtml(data.getExtras());
                     break;
             }
         } catch (Throwable ex) {
@@ -1302,46 +1269,6 @@ public class FragmentIdentity extends FragmentBase {
     }
 
     private void onHtml(Bundle args) {
-        String html = args.getString("html");
-        etSignature.setText(HtmlHelper.fromHtml(html));
-        etSignature.setTag(html);
-    }
-
-    public static class FragmentDialogHtml extends FragmentDialogBase {
-        private EditText etHtml;
-
-        @Override
-        public void onSaveInstanceState(@NonNull Bundle outState) {
-            outState.putString("fair:html", etHtml.getText().toString());
-            super.onSaveInstanceState(outState);
-        }
-
-        @NonNull
-        @Override
-        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            String html;
-            if (savedInstanceState == null)
-                html = getArguments().getString("html");
-            else
-                html = savedInstanceState.getString("fair:html");
-
-            View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_signature, null);
-            etHtml = dview.findViewById(R.id.etHtml);
-            etHtml.setText(html);
-
-            return new AlertDialog.Builder(getContext())
-                    .setTitle(R.string.title_edit_html)
-                    .setView(dview)
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            String html = etHtml.getText().toString();
-                            getArguments().putString("html", html);
-                            sendResult(RESULT_OK);
-                        }
-                    })
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .create();
-        }
+        signature = args.getString("html");
     }
 }

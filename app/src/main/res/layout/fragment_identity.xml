@@ -149,39 +149,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvColorHint" />
 
-        <TextView
-            android:id="@+id/tvSignature"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_account_signature"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvColorPro" />
-
-        <EditText
-            android:id="@+id/etSignature"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="monospace"
-            android:hint="@string/title_optional"
-            android:inputType="textCapSentences|textMultiLine|textAutoCorrect"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvSignature" />
-
         <Button
-            android:id="@+id/btnHtml"
+            android:id="@+id/btnSignature"
             style="@style/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
             android:minWidth="0dp"
             android:minHeight="0dp"
             android:tag="disable"
-            android:text="@string/title_edit_html"
+            android:text="@string/title_edit_signature"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etSignature" />
+            app:layout_constraintTop_toBottomOf="@id/tvColorPro" />
 
         <Button
             android:id="@+id/btnAdvanced"
@@ -193,7 +172,7 @@
             android:minHeight="0dp"
             android:text="@string/title_setup_advanced"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnHtml" />
+            app:layout_constraintTop_toBottomOf="@id/btnSignature" />
 
         <!--- provider -->
 
@@ -727,7 +706,7 @@
             app:constraint_referenced_ids="
                 tvName,etName,tvEmail,etEmail,tvDisplay,etDisplay,
                 tvColor,btnColor,tvColorHint,tvColorPro,
-                tvSignature,etSignature,btnHtml,
+                btnSignature,
                 btnAdvanced,btnSave" />
 
         <androidx.constraintlayout.widget.Group

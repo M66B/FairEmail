@@ -501,7 +501,6 @@
     <string name="title_account_name_hint">Used to differentiate folders</string>
     <string name="title_account_interval_hint">Frequency of refreshing the connection for push messages or frequency of checking for new messages</string>
     <string name="title_account_partial_fetch_hint">Disable this only in case of empty messages or corrupt attachments</string>
-    <string name="title_account_signature">Signature text</string>
     <string name="title_color">Color</string>
     <string name="title_account_ondemand">Synchronize manually</string>
     <string name="title_account_notify">Separate notifications</string>
@@ -866,6 +865,10 @@
 
     <string name="title_previous">Previous</string>
     <string name="title_next">Next</string>
+
+    <string name="title_edit_signature">Edit signature</string>
+    <string name="title_edit_signature_text">Signature text</string>
+    <string name="title_edit_signature_image">Insert image</string>
 
     <string name="title_answer_caption">Edit template</string>
     <string name="title_answer_reply">Reply template</string>
