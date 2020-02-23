@@ -411,7 +411,6 @@
     <string name="title_account_name_hint">Usada para diferenciar pastas</string>
     <string name="title_account_interval_hint">Frequência de atualizar a conexão para mensagens push ou frequência de verificação de novas mensagens</string>
     <string name="title_account_partial_fetch_hint">Desativar isto somente em caso de mensagens vazias ou anexos corrompidos</string>
-    <string name="title_account_signature">Texto da assinatura</string>
     <string name="title_color">Cor</string>
     <string name="title_account_ondemand">Sincronizar manualmente</string>
     <string name="title_account_notify">Notificações separadas</string>
@@ -459,7 +458,6 @@
     <string name="title_drafts_required">Uma pasta de rascunhos é necessário para enviar mensagens</string>
     <string name="title_account_delete">Excluir esta conta permanentemente?</string>
     <string name="title_identity_delete">Excluir esta identidade permanentemente?</string>
-    <string name="title_edit_html">Editar como HTML</string>
     <string name="title_sign_key">Assinar chave: %1$s</string>
     <string name="title_last_connected">Última vez conectado: %1$s</string>
     <string name="title_storage_quota">Uso do armazenamento do servidor: %1$s/%2$s</string>

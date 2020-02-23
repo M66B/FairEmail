@@ -360,7 +360,6 @@
     <string name="title_account_name_hint">Emprat per diferenciar carpetes</string>
     <string name="title_account_interval_hint">Freqüència d’actualització de la connexió de missatges push o freqüència de comprovació de missatges nous</string>
     <string name="title_account_partial_fetch_hint">Desactiveu-ho només en cas de missatges buits o fitxers adjunts corruptes</string>
-    <string name="title_account_signature">Text de signatura</string>
     <string name="title_color">Color</string>
     <string name="title_account_ondemand">Sincronitza manualment</string>
     <string name="title_account_notify">Notificacions independents</string>
@@ -405,7 +404,6 @@
     <string name="title_drafts_required">Cal enviar una carpeta d\'esborranys per enviar missatges</string>
     <string name="title_account_delete">Esborrar aquest compte per sempre?</string>
     <string name="title_identity_delete">Esborrar aquesta identitat per sempre?</string>
-    <string name="title_edit_html">Edita com HTML</string>
     <string name="title_sign_key">Clau signada: %1$s</string>
     <string name="title_last_connected">Darrera connexió: %1$s</string>
     <string name="title_pop_support">El protocol POP3 només permet descarregar i esborrar missatges de la safata d\'entrada. No deixa marcar missatges com a llegits, moure missatges, etc. Com que POP3 també necessita més bateria i dades, pot ser preferible utilitzar el protocol IMAP.</string>

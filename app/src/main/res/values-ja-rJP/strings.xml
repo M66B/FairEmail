@@ -337,6 +337,7 @@
     <string name="title_advanced_fts_indexed">%1$d/%2$d個のメッセージがインデックス付けされました(%3$s)</string>
     <string name="title_advanced_english">強制的に英語表示</string>
     <string name="title_advanced_watchdog">FairEmailがアクティブか定期的に確認</string>
+    <string name="title_advanced_optimize">設定を自動的に最適化する</string>
     <string name="title_advanced_updates">更新を確認</string>
     <string name="title_advanced_experiments">実験的な機能を試す</string>
     <string name="title_advanced_crash_reports">エラーレポートを送信</string>
@@ -413,7 +414,6 @@
     <string name="title_account_name_hint">フォルダを区別する為に使用</string>
     <string name="title_account_interval_hint">プッシュメッセージの接続を更新する頻度又は新しいメッセージを確認する頻度</string>
     <string name="title_account_partial_fetch_hint">空のメッセージ又は破損した添付ファイルの場合にのみ無効</string>
-    <string name="title_account_signature">署名のテキスト</string>
     <string name="title_color">カラー</string>
     <string name="title_account_ondemand">手動で同期</string>
     <string name="title_account_notify">個別の通知</string>
@@ -463,7 +463,6 @@
     <string name="title_drafts_required">メッセージを送信するには下書きフォルダが必要です</string>
     <string name="title_account_delete">このアカウントを完全に削除しますか？</string>
     <string name="title_identity_delete">このIDを完全に削除しますか？</string>
-    <string name="title_edit_html">HTMLとして編集</string>
     <string name="title_sign_key">署名キー:%1$s</string>
     <string name="title_last_connected">最終接続:%1$s</string>
     <string name="title_storage_quota">サーバストレージ使用量:%1$s/%2$s</string>

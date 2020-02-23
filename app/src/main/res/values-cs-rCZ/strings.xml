@@ -448,7 +448,6 @@
     <string name="title_account_name_hint">Použito k odlišení složek</string>
     <string name="title_account_interval_hint">Četnost obnovy spojení pro okamžité zprávy nebo četnost kontroly nových zpráv</string>
     <string name="title_account_partial_fetch_hint">Vypnout pouze v případě prázdných zpráv nebo poškozených příloh</string>
-    <string name="title_account_signature">Text podpisu</string>
     <string name="title_color">Barva</string>
     <string name="title_account_ondemand">Synchronizovat ručně</string>
     <string name="title_account_notify">Samostatná oznámení</string>
@@ -498,7 +497,6 @@
     <string name="title_drafts_required">Složka konceptů je nutná pro odesílání zpráv</string>
     <string name="title_account_delete">Trvale smazat tento účet?</string>
     <string name="title_identity_delete">Trvale smazat tuto identitu?</string>
-    <string name="title_edit_html">Upravit jako HTML</string>
     <string name="title_sign_key">Podpisový klíč: %1$s</string>
     <string name="title_last_connected">Poslední připojení: %1$s</string>
     <string name="title_storage_quota">Využití úložiště serveru: %1$s/%2$s</string>

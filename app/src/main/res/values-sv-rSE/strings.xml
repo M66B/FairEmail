@@ -319,7 +319,6 @@
     <string name="title_account_name_hint">Används för att differentiera mappar</string>
     <string name="title_account_interval_hint">Frekvens för att uppdatera anslutningen för pushmeddelanden eller frekvens för att söka efter nya meddelanden</string>
     <string name="title_account_partial_fetch_hint">Inaktivera detta endast vid tomma meddelanden eller korrupta bilagor</string>
-    <string name="title_account_signature">Signaturtext</string>
     <string name="title_color">Färg</string>
     <string name="title_account_notify">Separera aviseringar</string>
     <string name="title_account_left">Svep åt vänster</string>
@@ -358,7 +357,6 @@
     <string name="title_drafts_required">En mapp för utkast krävs för att skicka meddelanden</string>
     <string name="title_account_delete">Ta bort detta konto permanent?</string>
     <string name="title_identity_delete">Ta bort denna identitet permanent?</string>
-    <string name="title_edit_html">Redigera som HTML</string>
     <string name="title_last_connected">Senast ansluten: %1$s</string>
     <string name="title_oauth_support">OAuth stöds inte</string>
     <string name="title_review">Granska</string>

@@ -207,7 +207,6 @@
     <string name="title_advanced_receive">Motta meldinger</string>
     <string name="title_advanced_when">Når</string>
     <string name="title_advanced_always">Synkroniser alltid disse kontoene</string>
-    <string name="title_advanced_optimize">Optimaliser innstillinger automatisk</string>
     <string name="title_advanced_schedule">Tidsplan</string>
     <string name="title_advanced_unseen">Alle uleste meldinger</string>
     <string name="title_advanced_flagged">Alle stjernemerkede meldinger</string>
@@ -352,6 +351,7 @@
     <string name="title_advanced_fts_indexed">%1$d / %2$d meldinger indeksert (%3$s)</string>
     <string name="title_advanced_english">Tving bruk av engelsk</string>
     <string name="title_advanced_watchdog">Kontroller regelmessig om FairEmail fortsatt er aktiv</string>
+    <string name="title_advanced_optimize">Optimaliser innstillinger automatisk</string>
     <string name="title_advanced_updates">Se etter oppdateringer</string>
     <string name="title_advanced_experiments">Prøv eksperimentelle funksjoner</string>
     <string name="title_advanced_crash_reports">Send feilrapporter</string>
@@ -429,7 +429,6 @@
     <string name="title_account_name_hint">Brukes til å skille mellom mapper</string>
     <string name="title_account_interval_hint">Frekvens for å forfriske forbindelsen for push meldinger eller hyppigheten av å sjekke nye meldinger</string>
     <string name="title_account_partial_fetch_hint">Deaktiver kun dette ved tomme meldinger eller korrupte vedlegg</string>
-    <string name="title_account_signature">Signaturtekst</string>
     <string name="title_color">Farge</string>
     <string name="title_account_ondemand">Synkroniser manuelt</string>
     <string name="title_account_notify">Separate meldinger</string>
@@ -716,6 +715,7 @@ Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anme
     <string name="title_user_interaction">Overfører til OpenKeychain</string>
     <string name="title_signed_data">Bekreft signaturen for å vise meldingsteksten</string>
     <string name="title_not_encrypted">Meldingen er ikke signert eller kryptert</string>
+    <string name="title_no_sign_key">Ingen signert nøkkel valgt</string>
     <string name="title_reset_sign_key">Tilbakestill signert nøkkel</string>
     <string name="title_signature_none">Melding ikke signert</string>
     <string name="title_signature_valid">Meldings signatur gyldig</string>
@@ -761,6 +761,9 @@ Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anme
     <string name="title_force_sync">Tving synkronisering</string>
     <string name="title_previous">Forrige</string>
     <string name="title_next">Neste</string>
+    <string name="title_edit_signature">Rediger signatur</string>
+    <string name="title_edit_signature_text">Signaturtekst</string>
+    <string name="title_edit_signature_image">Sett inn bilde</string>
     <string name="title_answer_caption">Rediger mal</string>
     <string name="title_answer_reply">Svarmal</string>
     <string name="title_answer_name">Navn på mal</string>

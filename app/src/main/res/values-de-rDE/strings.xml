@@ -207,7 +207,6 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_receive">Empfang von Nachrichten</string>
     <string name="title_advanced_when">Wann</string>
     <string name="title_advanced_always">Diese Konten immer synchronisieren</string>
-    <string name="title_advanced_optimize">Einstellungen automatisch optimieren</string>
     <string name="title_advanced_schedule">Zeitplan</string>
     <string name="title_advanced_unseen">Alle ungelesenen Nachrichten</string>
     <string name="title_advanced_flagged">Alle markierten Nachrichten</string>
@@ -352,6 +351,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_fts_indexed">%1$d / %2$d Nachrichten indiziert (%3$s)</string>
     <string name="title_advanced_english">Englische Sprache erzwingen</string>
     <string name="title_advanced_watchdog">Regelmäßig prüfen, ob FairEmail noch aktiv ist</string>
+    <string name="title_advanced_optimize">Einstellungen automatisch optimieren</string>
     <string name="title_advanced_updates">Nach Aktualisierungen suchen</string>
     <string name="title_advanced_experiments">Experimentelle Funktionen ermöglichen</string>
     <string name="title_advanced_crash_reports">Fehlerberichte senden</string>
@@ -429,7 +429,6 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_account_name_hint">Wird verwendet, um Ordner zu unterscheiden</string>
     <string name="title_account_interval_hint">Häufigkeit der Aktualisierung der Verbindung für Push-Meldungen oder Häufigkeit der Überprüfung auf neue Nachrichten</string>
     <string name="title_account_partial_fetch_hint">Deaktivieren Sie dies nur bei Nachrichten ohne Inhalt oder beschädigten Anhängen</string>
-    <string name="title_account_signature">Signaturtext</string>
     <string name="title_color">Farbe</string>
     <string name="title_account_ondemand">Manuell synchronisieren</string>
     <string name="title_account_notify">Separate Benachrichtigungen</string>
@@ -717,6 +716,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_user_interaction">Übertragung zu OpenKeychain</string>
     <string name="title_signed_data">Überprüfen Sie die Signatur, um den Nachrichtentext anzuzeigen</string>
     <string name="title_not_encrypted">Nachricht ist nicht signiert oder verschlüsselt</string>
+    <string name="title_no_sign_key">Kein Signaturschlüssel ausgewählt</string>
     <string name="title_reset_sign_key">Sign-Schlüssel zurücksetzen</string>
     <string name="title_signature_none">Unsignierte Nachricht</string>
     <string name="title_signature_valid">Gültige Nachrichtensignatur</string>
@@ -762,6 +762,9 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_force_sync">Synchronisation erzwingen</string>
     <string name="title_previous">Vorherige</string>
     <string name="title_next">Nächste</string>
+    <string name="title_edit_signature">Signatur bearbeiten</string>
+    <string name="title_edit_signature_text">Signaturtext</string>
+    <string name="title_edit_signature_image">Bild einfügen</string>
     <string name="title_answer_caption">Vorlage bearbeiten</string>
     <string name="title_answer_reply">Antwortvorlage</string>
     <string name="title_answer_name">Vorlagenname</string>

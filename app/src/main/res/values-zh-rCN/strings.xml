@@ -338,6 +338,7 @@
     <string name="title_advanced_fts_indexed">%1$d / %2$d 的消息已索引(%3$s)</string>
     <string name="title_advanced_english">强制使用英语</string>
     <string name="title_advanced_watchdog">定期检查FairEmail是否仍在运行</string>
+    <string name="title_advanced_optimize">自动优化设置</string>
     <string name="title_advanced_updates">检查更新</string>
     <string name="title_advanced_experiments">尝试实验性功能</string>
     <string name="title_advanced_crash_reports">发送错误报告</string>
@@ -415,7 +416,6 @@
     <string name="title_account_name_hint">用于区分文件夹</string>
     <string name="title_account_interval_hint">刷新连接推送消息的频率或检查新消息的频率</string>
     <string name="title_account_partial_fetch_hint">仅在空消息或损坏的附件时禁用此功能</string>
-    <string name="title_account_signature">签名文本</string>
     <string name="title_color">颜色</string>
     <string name="title_account_ondemand">手动同步</string>
     <string name="title_account_notify">单独的通知</string>
@@ -703,6 +703,7 @@
     <string name="title_user_interaction">正传输到 OpenKeychain</string>
     <string name="title_signed_data">验证签名以显示消息文本</string>
     <string name="title_not_encrypted">消息未签名或加密</string>
+    <string name="title_no_sign_key">未选择签名密钥</string>
     <string name="title_reset_sign_key">重置签名密钥</string>
     <string name="title_signature_none">消息未签名</string>
     <string name="title_signature_valid">消息签名有效</string>
@@ -748,6 +749,9 @@
     <string name="title_force_sync">强制同步</string>
     <string name="title_previous">上一则</string>
     <string name="title_next">下一则</string>
+    <string name="title_edit_signature">编辑签名</string>
+    <string name="title_edit_signature_text">签名文本</string>
+    <string name="title_edit_signature_image">插入图片</string>
     <string name="title_answer_caption">编辑模板</string>
     <string name="title_answer_reply">回复模板</string>
     <string name="title_answer_name">模板名称</string>

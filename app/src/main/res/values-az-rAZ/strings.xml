@@ -171,7 +171,6 @@
     <string name="title_account_linked">Birləşdirilmiş hesablar</string>
     <string name="title_account_name">Hesab adı</string>
     <string name="title_account_name_hint">Qovluqları fərqləndirmək üçün istifadə edilir</string>
-    <string name="title_account_signature">İmza mətni</string>
     <string name="title_account_notify">Ayrı bildirişlər</string>
     <string name="title_domain">Domen adı</string>
     <string name="title_autoconfig">Tənzimləmələri al</string>
@@ -195,7 +194,6 @@
     <string name="title_no_idle">Bu təchizatçı ani mesajları dəstəkləmir. Bu, yeni mesajların alınmasını gecikdirəcək və batareyanın istifadəsini artıracaq.</string>
     <string name="title_account_delete">Bu hesab birdəfəlik silinsin?</string>
     <string name="title_identity_delete">Bu kimlik birdəfəlik silinsin?</string>
-    <string name="title_edit_html">HTML kimi düzəliş et</string>
     <string name="title_advanced_browse">Serverdəki mesajlara nəzər yetir</string>
     <string name="title_synchronize_now">İndi eyniləşdir</string>
     <string name="title_delete_local">Yerli mesajları sil</string>

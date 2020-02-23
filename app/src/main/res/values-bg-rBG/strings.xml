@@ -207,7 +207,6 @@
     <string name="title_advanced_receive">Получени съобщения</string>
     <string name="title_advanced_when">Кога</string>
     <string name="title_advanced_always">Винаги синхронизирай тези профили</string>
-    <string name="title_advanced_optimize">Автоматично оптимизиране на настройките</string>
     <string name="title_advanced_schedule">График</string>
     <string name="title_advanced_unseen">Всички непрочетени съобщения</string>
     <string name="title_advanced_flagged">Всички съобщения със звезда</string>
@@ -352,6 +351,7 @@
     <string name="title_advanced_fts_indexed">%1$d / %2$d индексирани съобщения (%3$s)</string>
     <string name="title_advanced_english">Принудително на английски език</string>
     <string name="title_advanced_watchdog">Периодична проверка дали FairEmail е активен</string>
+    <string name="title_advanced_optimize">Автоматично оптимизиране на настройките</string>
     <string name="title_advanced_updates">Проверка за актуализация</string>
     <string name="title_advanced_experiments">Пробвай експерименталните функции</string>
     <string name="title_advanced_crash_reports">Изпрати репорт с грешки</string>
@@ -428,7 +428,6 @@
     <string name="title_account_name_hint">Използва се за разграничаване на папки</string>
     <string name="title_account_interval_hint">Честота на опресняване на връзката за push съобщения или честота на проверка за нови съобщения</string>
     <string name="title_account_partial_fetch_hint">Деактивирайте това само в случай на празни съобщения или повредени прикачени файлове</string>
-    <string name="title_account_signature">Текст на подписа</string>
     <string name="title_color">Цвят</string>
     <string name="title_account_ondemand">Синхронизирай ръчно</string>
     <string name="title_account_notify">Отделни известявания</string>
@@ -478,10 +477,9 @@
     <string name="title_drafts_required">За изпращане на съобщения е необходима папка за чернови</string>
     <string name="title_account_delete">Искате ли да изтриете този профил за постоянно?</string>
     <string name="title_identity_delete">Да се изтрие ли идентичността за постоянно?</string>
-    <string name="title_edit_html">Редактиране като HTML</string>
     <string name="title_sign_key">Ключ за подписване:%1$s</string>
     <string name="title_last_connected">Последна проверка: %1$s</string>
-    <string name="title_storage_quota">Използване на сървъра за съхранение: %1$s/%2$s</string>
+    <string name="title_storage_quota">Използвано място на сървъра: %1$s/%2$s</string>
     <string name="title_pop_support">POP3 протокола поддържа изтегляне и изтриване на съобщенията само във входяща поща. POP3 не може да маркира съобщенията като прочетени, не може да премества съобщения, т. н. POP3 използва повече батерия и данни от IMAP. Моля използвайте IMAP протокола когато е възможно.</string>
     <string name="title_oauth_support">OAuth не се поддържа</string>
     <string name="title_review">Преглед</string>

@@ -229,7 +229,6 @@
     <string name="title_advanced_receive">Получить сообщения</string>
     <string name="title_advanced_when">Когда</string>
     <string name="title_advanced_always">Всегда синхронизировать эти учётные записи</string>
-    <string name="title_advanced_optimize">Автоматически оптимизировать настройки</string>
     <string name="title_advanced_schedule">Расписание</string>
     <string name="title_advanced_unseen">Все непрочитанные сообщения</string>
     <string name="title_advanced_flagged">Все избранные сообщения</string>
@@ -374,6 +373,7 @@
     <string name="title_advanced_fts_indexed">%1$d / %2$d сообщений проиндексировано (%3$s)</string>
     <string name="title_advanced_english">Принудительно использовать английский язык</string>
     <string name="title_advanced_watchdog">Регулярно проверять, активен ли FairEmail</string>
+    <string name="title_advanced_optimize">Автоматически оптимизировать настройки</string>
     <string name="title_advanced_updates">Проверять наличие обновлений</string>
     <string name="title_advanced_experiments">Попробовать экспериментальные функции</string>
     <string name="title_advanced_crash_reports">Отправлять отчёты об ошибках</string>
@@ -451,7 +451,6 @@
     <string name="title_account_name_hint">Используется для разграничения папок</string>
     <string name="title_account_interval_hint">Частота обновления соединения для push-сообщений или частота проверки новых сообщений</string>
     <string name="title_account_partial_fetch_hint">Отключайте это только в случае пустых сообщений или повреждённых вложений</string>
-    <string name="title_account_signature">Текст подписи</string>
     <string name="title_color">Цвет</string>
     <string name="title_account_ondemand">Синхронизировать вручную</string>
     <string name="title_account_notify">Раздельные уведомления</string>
@@ -739,6 +738,7 @@
     <string name="title_user_interaction">Перенос в OpenKeychain</string>
     <string name="title_signed_data">Проверить подпись, чтобы показать текст сообщения</string>
     <string name="title_not_encrypted">Сообщение не подписано и не зашифровано</string>
+    <string name="title_no_sign_key">Ключ подписи не выбран</string>
     <string name="title_reset_sign_key">Сброс ключа подписи</string>
     <string name="title_signature_none">Сообщение не подписано</string>
     <string name="title_signature_valid">Подпись сообщения действительна</string>
@@ -784,6 +784,9 @@
     <string name="title_force_sync">Принудительная синхронизация</string>
     <string name="title_previous">Назад</string>
     <string name="title_next">Вперёд</string>
+    <string name="title_edit_signature">Изменить подпись</string>
+    <string name="title_edit_signature_text">Текст подписи</string>
+    <string name="title_edit_signature_image">Вставить изображение</string>
     <string name="title_answer_caption">Изменить шаблон</string>
     <string name="title_answer_reply">Шаблон ответа</string>
     <string name="title_answer_name">Название шаблона</string>

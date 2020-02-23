@@ -368,7 +368,6 @@
     <string name="title_account_name_hint">Користи се да разликује фасцикле</string>
     <string name="title_account_interval_hint">Фреквенција освежавања везе за гурање порука или фреквенција проверавања за нове поруке</string>
     <string name="title_account_partial_fetch_hint">Искључите ово само у случају празних порука или оштећених прилога</string>
-    <string name="title_account_signature">Текст потписа</string>
     <string name="title_color">Боја</string>
     <string name="title_account_ondemand">Синхронизуј ручно</string>
     <string name="title_account_notify">Одвојена обавештења</string>
@@ -412,7 +411,6 @@
     <string name="title_drafts_required">За слање порука је потребна фасцикла нацрта</string>
     <string name="title_account_delete">Трајно избрисати овај налог?</string>
     <string name="title_identity_delete">Трајно избрисати овај идентитет?</string>
-    <string name="title_edit_html">Измени као HTML</string>
     <string name="title_sign_key">Кључ потписа: %1$s</string>
     <string name="title_last_connected">Последње повезан: %1$s</string>
     <string name="title_pop_support">POP3 протокол подржава преузимање и брисање порука само из пријемног сандучета. POP3 не може да означава поруке као прочитане, да премешта поруке, итд. POP3 ће више трошити батерију и користити више података него IMAP. Размислите да користите IMAP протокол кад год можете.</string>

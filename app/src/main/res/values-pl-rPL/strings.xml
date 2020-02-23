@@ -449,7 +449,6 @@
     <string name="title_account_name_hint">Używany do odróżnienia folderów</string>
     <string name="title_account_interval_hint">Częstotliwość odświeżania połączenia dla wiadomości Push lub częstotliwość sprawdzania nowych wiadomości</string>
     <string name="title_account_partial_fetch_hint">Wyłącz to tylko w przypadku pustych wiadomości lub uszkodzonych załączników</string>
-    <string name="title_account_signature">Tekst podpisu</string>
     <string name="title_color">Kolor</string>
     <string name="title_account_ondemand">Synchronizuj ręcznie</string>
     <string name="title_account_notify">Oddzielne powiadomienia</string>
@@ -498,7 +497,6 @@
     <string name="title_drafts_required">Folder szkiców jest wymagany do wysyłania wiadomości</string>
     <string name="title_account_delete">Usunąć to konto bezpowrotnie?</string>
     <string name="title_identity_delete">Usunąć tożsamość bezpowrotnie?</string>
-    <string name="title_edit_html">Edytuj jako HTML</string>
     <string name="title_sign_key">Klucz podpisu: %1$s</string>
     <string name="title_last_connected">Ostatnio połączony: %1$s</string>
     <string name="title_storage_quota">Wykorzystane miejsce: %1$s/%2$s</string>

@@ -156,7 +156,6 @@
     <string name="title_recommended">موصى به</string>
     <string name="title_account_linked">الحساب المرتبط</string>
     <string name="title_account_name">اسم الحساب</string>
-    <string name="title_account_signature">نص التوقيع</string>
     <string name="title_color">اللون</string>
     <string name="title_account_left">مرر يسارا</string>
     <string name="title_account_right">مرر يمينا</string>
@@ -183,7 +182,6 @@
     <string name="title_drafts_required">مجلد للمسودات مطلوب لغرض إرسال رسائل</string>
     <string name="title_account_delete">حذف هذا الحساب نهائيا؟</string>
     <string name="title_identity_delete">حذف هذه الهوية نهائيا؟</string>
-    <string name="title_edit_html">تعديل كـ HTML</string>
     <string name="title_last_connected">آخر ربط: %1$s</string>
     <string name="title_advanced_browse">تصفح الرسائل على الخادم</string>
     <string name="title_synchronize_now">زامن الآن</string>

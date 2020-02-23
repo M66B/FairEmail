@@ -205,7 +205,6 @@
     <string name="title_advanced_receive">Vastaanota viestejä</string>
     <string name="title_advanced_when">Milloin</string>
     <string name="title_advanced_always">Synkronoi aina nämä tilit</string>
-    <string name="title_advanced_optimize">Optimoi asetukset automaattisesti</string>
     <string name="title_advanced_schedule">Aikataulu</string>
     <string name="title_advanced_unseen">Kaikki lukemattomat viestit</string>
     <string name="title_advanced_flagged">Kaikki tähdelliset viestit</string>
@@ -350,6 +349,7 @@
     <string name="title_advanced_fts_indexed">%1$d / %2$d viestiä indeksoitu (%3$s)</string>
     <string name="title_advanced_english">Pakota englannin kieli</string>
     <string name="title_advanced_watchdog">Tarkista toistuvasti, että FairEmail on edelleen aktiivinen</string>
+    <string name="title_advanced_optimize">Optimoi asetukset automaattisesti</string>
     <string name="title_advanced_updates">Päivitysten tarkastus</string>
     <string name="title_advanced_experiments">Käytä kokeellisia ominaisuuksia</string>
     <string name="title_advanced_crash_reports">Lähetä virheraportit</string>
@@ -427,7 +427,6 @@
     <string name="title_account_name_hint">Käytetään kansioiden tunnistamiseen</string>
     <string name="title_account_interval_hint">Push-viestien tai uusien viestien tarkistuksen aikaväli</string>
     <string name="title_account_partial_fetch_hint">Kytke tämä pois ainoastaan, jos ilmenee tyhjiä viestejä tai korruptoituneita liitteitä</string>
-    <string name="title_account_signature">Allekirjoituksen teksti</string>
     <string name="title_color">Väri</string>
     <string name="title_account_ondemand">Synkronoi manuaalisesti</string>
     <string name="title_account_notify">Erilliset ilmoitukset</string>
@@ -477,7 +476,6 @@
     <string name="title_drafts_required">Viestien lähettämiseen tarvitaan luonnoskansio</string>
     <string name="title_account_delete">Poistetaanko tämä tili pysyvästi?</string>
     <string name="title_identity_delete">Poistetaanko tämä identiteetti pysyvästi?</string>
-    <string name="title_edit_html">Muokkaa HTML-muodossa</string>
     <string name="title_sign_key">Allekirjoitusavain: %1$s</string>
     <string name="title_last_connected">Viimeksi yhdistetty: %1$s</string>
     <string name="title_storage_quota">Palvelimen tallennustilan käyttö: %1$s/%2$s</string>

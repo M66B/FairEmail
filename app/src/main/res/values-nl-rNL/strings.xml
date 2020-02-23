@@ -207,7 +207,6 @@
     <string name="title_advanced_receive">Berichten ontvangen</string>
     <string name="title_advanced_when">Wanneer</string>
     <string name="title_advanced_always">Synchroniseer deze accounts altijd</string>
-    <string name="title_advanced_optimize">Automatisch instellingen optimaliseren</string>
     <string name="title_advanced_schedule">Schema</string>
     <string name="title_advanced_unseen">Alle ongelezen berichten</string>
     <string name="title_advanced_flagged">Alle berichten met een ster</string>
@@ -352,6 +351,7 @@
     <string name="title_advanced_fts_indexed">%1$d / %2$d berichten geïndexeerd (%3$s)</string>
     <string name="title_advanced_english">Forceer Engelse taal</string>
     <string name="title_advanced_watchdog">Periodiek controleren of FairEmail nog actief is</string>
+    <string name="title_advanced_optimize">Automatisch instellingen optimaliseren</string>
     <string name="title_advanced_updates">Controleren op updates</string>
     <string name="title_advanced_experiments">Probeer experimentele functies</string>
     <string name="title_advanced_crash_reports">Foutrapporten verzenden</string>
@@ -429,7 +429,6 @@
     <string name="title_account_name_hint">Wordt gebruikt voor het onderscheiden van mappen</string>
     <string name="title_account_interval_hint">Frequentie van het verversen van de verbinding voor push berichten of frequentie van het controleren op nieuwe berichten</string>
     <string name="title_account_partial_fetch_hint">Schakel dit alleen uit in het geval van lege berichten of corrupte bijlagen</string>
-    <string name="title_account_signature">Tekst handtekening</string>
     <string name="title_color">Kleur</string>
     <string name="title_account_ondemand">Handmatig synchroniseren</string>
     <string name="title_account_notify">Afzonderlijke meldingen</string>
@@ -479,7 +478,7 @@
     <string name="title_drafts_required">Een concepten map is vereist om berichten te verzenden</string>
     <string name="title_account_delete">Verwijder dit account definitief?</string>
     <string name="title_identity_delete">Verwijder deze identiteit definitief?</string>
-    <string name="title_edit_html">Bewerk HTML</string>
+    <string name="title_edit_html">Bewerk als HTML</string>
     <string name="title_sign_key">Tekensleutel: %1$s</string>
     <string name="title_last_connected">Laatst verbonden: %1$s</string>
     <string name="title_storage_quota">Opslaggebruik server: %1$s/%2$s</string>
@@ -717,6 +716,7 @@
     <string name="title_user_interaction">Overdragen naar OpenKeychain</string>
     <string name="title_signed_data">Verifieer de handtekening om de berichttekst te tonen</string>
     <string name="title_not_encrypted">Bericht is niet ondertekend of versleuteld</string>
+    <string name="title_no_sign_key">Geen tekensleutel geselecteerd</string>
     <string name="title_reset_sign_key">Reset tekensleutel</string>
     <string name="title_signature_none">Bericht niet ondertekend</string>
     <string name="title_signature_valid">Handtekening bericht geldig</string>
@@ -762,6 +762,9 @@
     <string name="title_force_sync">Forceer verversen</string>
     <string name="title_previous">Vorige</string>
     <string name="title_next">Volgende</string>
+    <string name="title_edit_signature">Handtekening bewerken</string>
+    <string name="title_edit_signature_text">Tekst handtekening</string>
+    <string name="title_edit_signature_image">Afbeelding invoegen</string>
     <string name="title_answer_caption">Bewerk sjabloon</string>
     <string name="title_answer_reply">Antwoord sjabloon</string>
     <string name="title_answer_name">Sjabloonnaam</string>

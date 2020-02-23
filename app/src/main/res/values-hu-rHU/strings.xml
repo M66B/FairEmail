@@ -411,7 +411,6 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_account_name_hint">Mappák elkülönítésére használatos</string>
     <string name="title_account_interval_hint">A push üzenetek fogadásának, vagy az új üzenetek ellenőrzésének gyakorisága</string>
     <string name="title_account_partial_fetch_hint">Csak hiányzó üzenet szövegek vagy hibás mellékletek esetén kapcsolja ki ezt az opciót</string>
-    <string name="title_account_signature">Aláírás szövege</string>
     <string name="title_color">Szín</string>
     <string name="title_account_ondemand">Manuális szinkronizálás</string>
     <string name="title_account_notify">Értesítések elkülönítése</string>
@@ -454,7 +453,6 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_drafts_required">Az üzenetek küldéséhez piszkozat mappa szükséges</string>
     <string name="title_account_delete">Véglegesen törli a fiókot?</string>
     <string name="title_identity_delete">Véglegesen törli az identitást?</string>
-    <string name="title_edit_html">Szerkesztés HTML-ként</string>
     <string name="title_sign_key">Aláíró kulcs: %1$s</string>
     <string name="title_last_connected">Utoljára csatlakozva: %1$s</string>
     <string name="title_storage_quota">Szerver tárhely használatban: %1$s/%2$s</string>

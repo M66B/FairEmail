@@ -427,7 +427,6 @@
     <string name="title_account_name_hint">Benyttes til mappedifferentiering</string>
     <string name="title_account_interval_hint">Opfriskningsfrekvensen af forbindelsen til push-beskeder eller frekvensen for tjek af nye beskeder</string>
     <string name="title_account_partial_fetch_hint">Deaktivér dette kun i tilfælde af tomme beskeder eller ødelagte vedhæftninger</string>
-    <string name="title_account_signature">Signaturtekst</string>
     <string name="title_color">Farve</string>
     <string name="title_account_ondemand">Synkronisér manuelt</string>
     <string name="title_account_notify">Separate notifikationer</string>
@@ -477,7 +476,6 @@
     <string name="title_drafts_required">Kladdemappe kræves for at kunne sende beskeder</string>
     <string name="title_account_delete">Slet denne konto permanent?</string>
     <string name="title_identity_delete">Slet denne identitet permanent?</string>
-    <string name="title_edit_html">Redigér som HTML</string>
     <string name="title_sign_key">Signér nøgle: %1$s</string>
     <string name="title_last_connected">Sidst forbundet: %1$s</string>
     <string name="title_storage_quota">Serverlagerpladsforbrug: %1$s/%2$s</string>

@@ -115,7 +115,6 @@
     <string name="title_account_linked">حساب مرتبط</string>
     <string name="title_account_name">نام حساب</string>
     <string name="title_account_name_hint">برای افتراق پوشه‌ها استفاده می‌شود</string>
-    <string name="title_account_signature">متن امضا</string>
     <string name="title_account_notify">اعلانات جداگانه</string>
     <string name="title_account_left">کشیدن به چپ</string>
     <string name="title_account_right">کشیدن به راست</string>
@@ -146,7 +145,6 @@
     <string name="title_drafts_required">برای ارسال پیام‌ها به پوشه پیش‌نویس‌ها نیاز است</string>
     <string name="title_account_delete">حذف همیشگی این حساب؟</string>
     <string name="title_identity_delete">حذف همیشگی این هویت؟</string>
-    <string name="title_edit_html">ویرایش به صورت HTML</string>
     <string name="title_last_connected">آخرین اتصال: %1$s</string>
     <string name="title_advanced_browse">مرور پیام‌های روی سرور</string>
     <string name="title_synchronize_now">هم اکنون همگام سازی شود</string>

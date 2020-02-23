@@ -285,6 +285,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_contrast">Koristi visoki kontrast za tekst poruke</string>
     <string name="title_advanced_monospaced">Upotrijebiti font u jednolikim razmjerima za tekst poruke</string>
     <string name="title_advanced_text_color">Pokaži boje teksta</string>
+    <string name="title_advanced_text_size">Prikaži male i velike tekstove</string>
     <string name="title_advanced_collapse_quotes">Sažmi citirani tekst</string>
     <string name="title_advanced_images_inline">Automatski prikaz uključenih slika</string>
     <string name="title_advanced_seekbar">Prikaži relativni položaj razgovora s točkom</string>
@@ -358,6 +359,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_fts_indexed">%1$d / %2$d poruke indeksirane (%3$s)</string>
     <string name="title_advanced_english">Prisiliti engleski jezik</string>
     <string name="title_advanced_watchdog">Povremeno provjeriti je li je FairEmail još uvijek aktivan</string>
+    <string name="title_advanced_optimize">Postavke automatski optimizirati</string>
     <string name="title_advanced_updates">Provjeri ažuriranja</string>
     <string name="title_advanced_experiments">Probaj eksperimentalne značajke</string>
     <string name="title_advanced_crash_reports">Pošalji izvješća o pogrešci</string>
@@ -435,7 +437,6 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_account_name_hint">Koristi se za razlikovanje mapa</string>
     <string name="title_account_interval_hint">Učestalost osvježavanja veze za push poruke ili učestalost provjere novih poruka</string>
     <string name="title_account_partial_fetch_hint">Onemogućite ovo samo u slučaju praznih poruka ili oštećenih privitaka</string>
-    <string name="title_account_signature">Tekst potpisa</string>
     <string name="title_color">Boja</string>
     <string name="title_account_ondemand">Ručno sinkroniziranje</string>
     <string name="title_account_notify">Odvojene obavijesti</string>
@@ -475,6 +476,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_no_password">Nedostaje lozinka</string>
     <string name="title_no_inbox">Ulazni spremnik nije pronađen</string>
     <string name="title_no_primary_drafts">Nema primarnog računa ili mape skica</string>
+    <string name="title_no_identities">Za slanje e-poruka potreban je barem jedan identitet i mapa za skice</string>
     <string name="title_no_standard">Ovaj davatelj koristi vlasnički protokol e-pošte i stoga nije moguće koristiti klijente e-pošte trećih strana</string>
     <string name="title_no_idle">Ovaj davatelj usluga ne podržava push poruke. To će odgoditi prijem novih poruka i povećati potrošnju baterije.</string>
     <string name="title_no_utf8">Ovaj davatelj ne podržava UTF-8</string>
@@ -620,6 +622,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_no_search">Pretraživanje na poslužitelju nije dostupno za ovaj račun</string>
     <string name="title_too_large">Poruka je prevelika da bi se u potpunosti preoblikovala</string>
     <string name="title_truncated">Poruka je prevelika da bi se u potpunosti prikazala</string>
+    <string name="title_insufficient_memory">Poruka je prevelika da bi se uklopila u dostupnu memoriju</string>
     <string name="title_show_full">Prikaži cijelu poruku</string>
     <string name="title_unused_inline">Neiskorištene umetnute slike uklanjaju se prilikom slanja</string>
     <string name="title_accross_remark">Poruke prebačene preko računa ponovno će se preuzeti, što će rezultirati dodatnom upotrebom podataka</string>
@@ -728,6 +731,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_signature_unconfirmed_from">Potpis poruke je valjan, ali nije potvrđen: %1$s</string>
     <string name="title_signature_invalid">Nevažeći potpis poruke</string>
     <string name="title_signature_invalid_reason">Potpis poruke nije važeći: %1$s</string>
+    <string name="title_signature_key_missing">Nedostaje ključ za provjeru potpisa</string>
     <string name="title_signature_certificate_invalid">Lanac potvrda nije valjan</string>
     <string name="title_signature_sender">Adresa pošiljatelja</string>
     <string name="title_signature_email">Adresa potpisa</string>

@@ -170,7 +170,6 @@
     <string name="title_leave_on_device">Αφήστε μηνύματα στη συσκευή</string>
     <string name="title_check">Έλεγχος</string>
     <string name="title_no_standard">Αυτός ο πάροχος χρησιμοποιεί ιδιόκτητο ηλεκτρονικό ταχυδρομείο και το πρωτόκολλο δεν επιτρέπει να χρησιμοποιήσετε ηλεκτρονικό ταχυδρομείο τρίτου μέρους</string>
-    <string name="title_edit_html">Επεξεργασία ως HTML</string>
     <string name="title_synchronize_enabled">Συγχρονισμός</string>
     <string name="title_edit_properties">Επεξεργασία ιδιοτήτων</string>
     <string name="title_edit_rules">Επεξεργασία κανόνων</string>

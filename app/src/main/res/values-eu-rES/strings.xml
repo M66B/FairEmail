@@ -206,7 +206,6 @@
     <string name="title_advanced_receive">Jaso mezuak</string>
     <string name="title_advanced_when">Noiz</string>
     <string name="title_advanced_always">Sinkronizatu beti kontu hauek</string>
-    <string name="title_advanced_optimize">Optimizatu ezarpenak automatikoki</string>
     <string name="title_advanced_schedule">Egitaraua</string>
     <string name="title_advanced_unseen">Irakurri gabeko mezu guztiak</string>
     <string name="title_advanced_flagged">Izardun mezu guztiak</string>
@@ -351,6 +350,7 @@
     <string name="title_advanced_fts_indexed">%1$d / %2$d mezu indexatuak (%3$s)</string>
     <string name="title_advanced_english">Behartu hizkuntza ingelesa</string>
     <string name="title_advanced_watchdog">Aldiro egiaztatu FairEmail aktibo dagoen</string>
+    <string name="title_advanced_optimize">Optimizatu ezarpenak automatikoki</string>
     <string name="title_advanced_updates">Egiaztatu eguneraketarik dagoen</string>
     <string name="title_advanced_experiments">Probatu ezaugarri esperimentalak</string>
     <string name="title_advanced_crash_reports">Bidali errore txostenak</string>
@@ -427,7 +427,6 @@
     <string name="title_account_name_hint">Karpetak bereizteko erabilia</string>
     <string name="title_account_interval_hint">Mezu berrien arazketa freskatzeko maiztasuna</string>
     <string name="title_account_partial_fetch_hint">Ezgaitu hau mezu hutsak edo eranskinak hondatuta badaude</string>
-    <string name="title_account_signature">Sinaduraren testua</string>
     <string name="title_color">Kolorea</string>
     <string name="title_account_ondemand">Sinkronizatu eskuz</string>
     <string name="title_account_notify">Banatutako jakinarazpenak</string>
@@ -477,7 +476,6 @@
     <string name="title_drafts_required">Zirriborroen karpeta beharrezkoa da mezuak bidaltzeko</string>
     <string name="title_account_delete">Ezabatu kontu hau behin betiko?</string>
     <string name="title_identity_delete">Ezabatu identitate hau behin betiko?</string>
-    <string name="title_edit_html">Editatu HTML gisa</string>
     <string name="title_sign_key">Sinadura-gakoa: %1$s</string>
     <string name="title_last_connected">Azken konexioa: %1$s</string>
     <string name="title_storage_quota">Zerbitzariko biltegiratze erabilera: %1$s/%2$s</string>

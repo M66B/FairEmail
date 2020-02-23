@@ -207,7 +207,6 @@
     <string name="title_advanced_receive">Recibir mensajes</string>
     <string name="title_advanced_when">Cuando</string>
     <string name="title_advanced_always">Siempre sincronizar estas cuentas</string>
-    <string name="title_advanced_optimize">Optimizar automáticamente los ajustes</string>
     <string name="title_advanced_schedule">Programar</string>
     <string name="title_advanced_unseen">Todos los mensajes no leídos</string>
     <string name="title_advanced_flagged">Todos los mensajes destacados</string>
@@ -352,6 +351,7 @@
     <string name="title_advanced_fts_indexed">%1$d / %2$d mensajes indexados (%3$s)</string>
     <string name="title_advanced_english">Forzar idioma inglés</string>
     <string name="title_advanced_watchdog">Comprobar periódicamente si FairEmail sigue activo</string>
+    <string name="title_advanced_optimize">Optimizar automáticamente los ajustes</string>
     <string name="title_advanced_updates">Buscar actualizaciones</string>
     <string name="title_advanced_experiments">Probar características experimentales</string>
     <string name="title_advanced_crash_reports">Enviar informes de errores</string>
@@ -429,7 +429,6 @@
     <string name="title_account_name_hint">Usado para diferenciar carpetas</string>
     <string name="title_account_interval_hint">Frecuencia de actualizar la conexión para mensajes push o frecuencia de comprobación de nuevos mensajes</string>
     <string name="title_account_partial_fetch_hint">Desactivar esto sólo en caso de mensajes vacíos o adjuntos corruptos</string>
-    <string name="title_account_signature">Texto de la firma</string>
     <string name="title_color">Color</string>
     <string name="title_account_ondemand">Sincronizar manualmente</string>
     <string name="title_account_notify">Notificaciones separadas</string>
@@ -479,7 +478,6 @@
     <string name="title_drafts_required">Una carpeta de borradores es necesaria para enviar mensajes</string>
     <string name="title_account_delete">¿Eliminar esta cuenta permanentemente?</string>
     <string name="title_identity_delete">¿Eliminar esta identidad permanentemente?</string>
-    <string name="title_edit_html">Editar como HTML</string>
     <string name="title_sign_key">Clave de firma: %1$s</string>
     <string name="title_last_connected">Última conexión: %1$s</string>
     <string name="title_storage_quota">Uso de almacenamiento del servidor: %1$s/%2$s</string>

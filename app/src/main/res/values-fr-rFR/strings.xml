@@ -207,7 +207,6 @@
     <string name="title_advanced_receive">Recevoir des messages</string>
     <string name="title_advanced_when">Quand</string>
     <string name="title_advanced_always">Toujours synchroniser ces comptes</string>
-    <string name="title_advanced_optimize">Optimiser automatiquement les paramètres</string>
     <string name="title_advanced_schedule">Planification</string>
     <string name="title_advanced_unseen">Tous les messages non lus</string>
     <string name="title_advanced_flagged">Tous les messages suivis</string>
@@ -352,6 +351,7 @@
     <string name="title_advanced_fts_indexed">%1$d / %2$d messages indexés (%3$s)</string>
     <string name="title_advanced_english">Forcer la langue anglaise</string>
     <string name="title_advanced_watchdog">Vérifier périodiquement si FairEmail est toujours actif</string>
+    <string name="title_advanced_optimize">Optimiser automatiquement les paramètres</string>
     <string name="title_advanced_updates">Vérifier les mises à jour</string>
     <string name="title_advanced_experiments">Essayer les fonctionnalités expérimentales</string>
     <string name="title_advanced_crash_reports">Envoyer des rapports d\'erreur</string>
@@ -429,7 +429,6 @@
     <string name="title_account_name_hint">Utilisé pour différencier les dossiers</string>
     <string name="title_account_interval_hint">Fréquence de rafraîchissement de la connexion pour les messages push ou la fréquence de vérification des nouveaux messages</string>
     <string name="title_account_partial_fetch_hint">Désactiver ceci seulement dans le cas de messages vides ou de pièces jointes corrompues</string>
-    <string name="title_account_signature">Texte de la signature</string>
     <string name="title_color">Couleur</string>
     <string name="title_account_ondemand">Synchroniser manuellement</string>
     <string name="title_account_notify">Notifications séparées</string>
@@ -717,6 +716,7 @@
     <string name="title_user_interaction">Transfert vers OpenKeychain</string>
     <string name="title_signed_data">Vérifier la signature pour afficher le texte du message</string>
     <string name="title_not_encrypted">Le message n\'est pas signé ou chiffré</string>
+    <string name="title_no_sign_key">Aucune clé de signature sélectionnée</string>
     <string name="title_reset_sign_key">Réinitialiser la clé de signature</string>
     <string name="title_signature_none">Message non signé</string>
     <string name="title_signature_valid">Signature de message valide</string>
@@ -762,6 +762,9 @@
     <string name="title_force_sync">Forcer la synchronisation</string>
     <string name="title_previous">Précédent</string>
     <string name="title_next">Suivant</string>
+    <string name="title_edit_signature">Modifier la signature</string>
+    <string name="title_edit_signature_text">Texte de la signature</string>
+    <string name="title_edit_signature_image">Insérer une image</string>
     <string name="title_answer_caption">Modifier le modèle</string>
     <string name="title_answer_reply">Modèle de réponse</string>
     <string name="title_answer_name">Nom du modèle</string>
