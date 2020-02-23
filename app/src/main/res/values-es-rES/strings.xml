@@ -478,6 +478,7 @@
     <string name="title_drafts_required">Una carpeta de borradores es necesaria para enviar mensajes</string>
     <string name="title_account_delete">¿Eliminar esta cuenta permanentemente?</string>
     <string name="title_identity_delete">¿Eliminar esta identidad permanentemente?</string>
+    <string name="title_edit_html">Editar como HTML</string>
     <string name="title_sign_key">Clave de firma: %1$s</string>
     <string name="title_last_connected">Última conexión: %1$s</string>
     <string name="title_storage_quota">Uso de almacenamiento del servidor: %1$s/%2$s</string>
@@ -715,6 +716,7 @@
     <string name="title_user_interaction">Transfiriendo a OpenKeychain</string>
     <string name="title_signed_data">Verificar la firma para mostrar el texto del mensaje</string>
     <string name="title_not_encrypted">El mensaje no está firmado ni cifrado</string>
+    <string name="title_no_sign_key">Ninguna clave de firma seleccionada</string>
     <string name="title_reset_sign_key">Restablecer clave de firma</string>
     <string name="title_signature_none">Mensaje no firmado</string>
     <string name="title_signature_valid">Firma de mensaje válida</string>
@@ -760,6 +762,9 @@
     <string name="title_force_sync">Forzar sincronización</string>
     <string name="title_previous">Anterior</string>
     <string name="title_next">Siguiente</string>
+    <string name="title_edit_signature">Editar firma</string>
+    <string name="title_edit_signature_text">Texto de la firma</string>
+    <string name="title_edit_signature_image">Insertar imagen</string>
     <string name="title_answer_caption">Editar plantilla</string>
     <string name="title_answer_reply">Plantilla de respuesta</string>
     <string name="title_answer_name">Nombre de plantilla</string>

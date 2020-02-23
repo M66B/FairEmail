@@ -476,6 +476,7 @@
     <string name="title_drafts_required">Zirriborroen karpeta beharrezkoa da mezuak bidaltzeko</string>
     <string name="title_account_delete">Ezabatu kontu hau behin betiko?</string>
     <string name="title_identity_delete">Ezabatu identitate hau behin betiko?</string>
+    <string name="title_edit_html">Editatu HTML gisa</string>
     <string name="title_sign_key">Sinadura-gakoa: %1$s</string>
     <string name="title_last_connected">Azken konexioa: %1$s</string>
     <string name="title_storage_quota">Zerbitzariko biltegiratze erabilera: %1$s/%2$s</string>
@@ -713,6 +714,7 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_user_interaction">OpenKeychain-era transferitzen</string>
     <string name="title_signed_data">Egiaztatu sinadura mezuaren testua erakusteko</string>
     <string name="title_not_encrypted">Mezua ez dago ez zifratuta ez sinatuta</string>
+    <string name="title_no_sign_key">Sinatzeko gakorik ez da hautatu</string>
     <string name="title_reset_sign_key">Berrezarri sinadura gakoa</string>
     <string name="title_signature_none">Mezua ez dago sinatuta</string>
     <string name="title_signature_valid">Mezuaren sinadura baliozkoa</string>
@@ -758,6 +760,9 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_force_sync">Behartu sinkronizazioa</string>
     <string name="title_previous">Aurrekoa</string>
     <string name="title_next">Hurrengoa</string>
+    <string name="title_edit_signature">Editatu sinadura</string>
+    <string name="title_edit_signature_text">Sinaduraren testua</string>
+    <string name="title_edit_signature_image">Txertatu irudia</string>
     <string name="title_answer_caption">Editatu txantiloia</string>
     <string name="title_answer_reply">Erantzun txantiloia</string>
     <string name="title_answer_name">Txantiloi-izena</string>
