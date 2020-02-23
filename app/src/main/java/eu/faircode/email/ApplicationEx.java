@@ -246,6 +246,7 @@ public class ApplicationEx extends Application {
         } else if (version < 978) {
             if (!prefs.contains("poll_interval"))
                 editor.putInt("poll_interval", 0);
+            editor.remove("first");
         }
 
         if (BuildConfig.DEBUG && false) {
