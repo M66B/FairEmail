@@ -332,7 +332,7 @@ public class FragmentAnswer extends FragmentBase {
             Uri uri = null;
 
             ClipboardManager cbm = (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
-            if (cbm.hasPrimaryClip()) {
+            if (cbm != null && cbm.hasPrimaryClip()) {
                 String link = cbm.getPrimaryClip().getItemAt(0).coerceToText(getContext()).toString();
                 uri = Uri.parse(link);
                 if (uri.getScheme() == null)
@@ -345,7 +345,7 @@ public class FragmentAnswer extends FragmentBase {
             FragmentDialogLink fragment = new FragmentDialogLink();
             fragment.setArguments(args);
             fragment.setTargetFragment(this, REQUEST_LINK);
-            fragment.show(getParentFragmentManager(), "compose:link");
+            fragment.show(getParentFragmentManager(), "answer:link");
 
             return true;
         } else

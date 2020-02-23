@@ -1356,7 +1356,7 @@ public class FragmentCompose extends FragmentBase {
         Uri uri = null;
 
         ClipboardManager cbm = (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
-        if (cbm.hasPrimaryClip()) {
+        if (cbm != null && cbm.hasPrimaryClip()) {
             String link = cbm.getPrimaryClip().getItemAt(0).coerceToText(getContext()).toString();
             uri = Uri.parse(link);
             if (uri.getScheme() == null)

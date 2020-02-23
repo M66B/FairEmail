@@ -67,9 +67,9 @@ public class EditTextCompose extends AppCompatEditText {
         try {
             if (id == android.R.id.paste) {
                 Context context = getContext();
-                ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
-                if (clipboard.hasPrimaryClip()) {
-                    ClipData.Item item = clipboard.getPrimaryClip().getItemAt(0);
+                ClipboardManager cbm = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+                if (cbm != null && cbm.hasPrimaryClip()) {
+                    ClipData.Item item = cbm.getPrimaryClip().getItemAt(0);
 
                     String html = item.getHtmlText();
                     if (html == null) {
