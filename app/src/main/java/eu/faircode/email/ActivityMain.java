@@ -23,6 +23,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 
@@ -88,6 +89,20 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                 @Override
                 protected void onExecuted(Bundle args, Boolean hasAccounts) {
                     if (hasAccounts) {
+                        Intent intent = getIntent();
+                        String action = intent.getAction();
+                        Uri uri = intent.getData();
+                        boolean mailto = (uri != null && "mailto".equals(uri.getScheme()));
+                        if ((Intent.ACTION_VIEW.equals(action) && mailto) ||
+                                (Intent.ACTION_SENDTO.equals(action) && mailto) ||
+                                Intent.ACTION_SEND.equals(action) ||
+                                Intent.ACTION_SEND_MULTIPLE.equals(action)) {
+                            intent.setClass(ActivityMain.this, ActivityCompose.class);
+                            startActivity(intent);
+                            finish();
+                            return;
+                        }
+
                         Log.logBundle(args);
 
                         Intent view = new Intent(ActivityMain.this, ActivityView.class);
