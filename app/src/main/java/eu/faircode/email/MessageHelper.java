@@ -25,12 +25,14 @@ import android.net.MailTo;
 import android.net.Uri;
 import android.text.TextUtils;
 
+import androidx.documentfile.provider.DocumentFile;
 import androidx.preference.PreferenceManager;
 
 import com.sun.mail.util.FolderClosedIOException;
 import com.sun.mail.util.MessageRemovedIOException;
 
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -61,6 +63,7 @@ import java.util.TimeZone;
 import java.util.regex.Pattern;
 
 import javax.activation.DataHandler;
+import javax.activation.DataSource;
 import javax.activation.FileDataSource;
 import javax.activation.FileTypeMap;
 import javax.mail.Address;
@@ -488,8 +491,50 @@ public class MessageHelper {
         Document document = JsoupEx.parse(message.getFile(context));
 
         // When sending message
-        if (identity != null)
+        List<BodyPart> contents = new ArrayList<>();
+        if (identity != null) {
             document.select("div[fairemail=signature],div[fairemail=reference]").removeAttr("fairemail");
+
+            for (Element img : document.select("img")) {
+                String source = img.attr("src");
+                if (!source.startsWith("content:"))
+                    continue;
+
+                String cid = BuildConfig.APPLICATION_ID + ".content." + contents.size();
+                img.attr("src", "cid:" + cid);
+
+                final Uri uri = Uri.parse(source);
+                final DocumentFile dfile = DocumentFile.fromSingleUri(context, uri);
+
+                BodyPart part = new MimeBodyPart();
+                part.setFileName(uri.getLastPathSegment());
+                part.setDisposition(Part.INLINE);
+                part.setHeader("Content-ID", "<" + cid + ">");
+                part.setDataHandler(new DataHandler(new DataSource() {
+                    @Override
+                    public InputStream getInputStream() throws IOException {
+                        return context.getContentResolver().openInputStream(uri);
+                    }
+
+                    @Override
+                    public OutputStream getOutputStream() throws IOException {
+                        return null;
+                    }
+
+                    @Override
+                    public String getContentType() {
+                        return dfile.getType();
+                    }
+
+                    @Override
+                    public String getName() {
+                        return uri.getLastPathSegment();
+                    }
+                }));
+
+                contents.add(part);
+            }
+        }
 
         // multipart/mixed
         //   multipart/related
@@ -512,8 +557,8 @@ public class MessageHelper {
         altMultiPart.addBodyPart(plainPart);
         altMultiPart.addBodyPart(htmlPart);
 
-        int availableAttachments = 0;
-        boolean hasInline = false;
+        int availableAttachments = contents.size();
+        boolean hasInline = contents.size() > 0;
         for (EntityAttachment attachment : attachments)
             if (attachment.available) {
                 availableAttachments++;
@@ -591,6 +636,9 @@ public class MessageHelper {
                     else
                         mixedMultiPart.addBodyPart(attachmentPart);
                 }
+
+            for (BodyPart content : contents)
+                relatedMultiPart.addBodyPart(content);
 
             imessage.setContent(mixedMultiPart);
         }
