@@ -134,7 +134,7 @@ public class ActivitySignature extends ActivityBase {
             etText.setText(HtmlHelper.fromHtml(html, new Html.ImageGetter() {
                 @Override
                 public Drawable getDrawable(String source) {
-                    return getDrawableByUri(Uri.parse(source));
+                    return getDrawableByUri(ActivitySignature.this, Uri.parse(source));
                 }
             }, null));
     }
@@ -207,26 +207,32 @@ public class ActivitySignature extends ActivityBase {
         int start = etText.getSelectionStart();
         SpannableStringBuilder ssb = new SpannableStringBuilder(etText.getText());
         ssb.insert(start, " ");
-        ImageSpan is = new ImageSpan(getDrawableByUri(uri), uri.toString(), ImageSpan.ALIGN_BASELINE);
+        ImageSpan is = new ImageSpan(getDrawableByUri(this, uri), uri.toString(), ImageSpan.ALIGN_BASELINE);
         ssb.setSpan(is, start, start + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         etText.setText(ssb);
     }
 
-    private Drawable getDrawableByUri(Uri uri) {
-        Drawable d;
-        try {
-            Log.i("Loading image source=" + uri);
-            InputStream inputStream = getContentResolver().openInputStream(uri);
-            d = Drawable.createFromStream(inputStream, uri.toString());
-        } catch (FileNotFoundException ex) {
-            Log.w(ex);
-            d = getResources().getDrawable(R.drawable.baseline_broken_image_24);
+    static Drawable getDrawableByUri(Context context, Uri uri) {
+        if ("content".equals(uri.getScheme())) {
+            Drawable d;
+            try {
+                Log.i("Loading image source=" + uri);
+                InputStream inputStream = context.getContentResolver().openInputStream(uri);
+                d = Drawable.createFromStream(inputStream, uri.toString());
+            } catch (FileNotFoundException ex) {
+                Log.w(ex);
+                d = context.getResources().getDrawable(R.drawable.baseline_broken_image_24);
+            }
+
+            int w = Helper.dp2pixels(context, d.getIntrinsicWidth());
+            int h = Helper.dp2pixels(context, d.getIntrinsicHeight());
+
+            d.setBounds(0, 0, w, h);
+            return d;
+        } else {
+            Drawable d = context.getResources().getDrawable(R.drawable.baseline_image_24);
+            d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
+            return d;
         }
-
-        int w = Helper.dp2pixels(this, d.getIntrinsicWidth());
-        int h = Helper.dp2pixels(this, d.getIntrinsicHeight());
-
-        d.setBounds(0, 0, w, h);
-        return d;
     }
 }

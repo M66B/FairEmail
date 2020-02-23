@@ -4185,11 +4185,7 @@ public class FragmentCompose extends FragmentBase {
                 signature = HtmlHelper.fromHtml(identity.signature, new Html.ImageGetter() {
                     @Override
                     public Drawable getDrawable(String source) {
-                        int px = Helper.dp2pixels(getContext(), 24);
-                        Drawable d = getContext().getResources()
-                                .getDrawable(R.drawable.baseline_image_24, getContext().getTheme());
-                        d.setBounds(0, 0, px, px);
-                        return d;
+                        return ActivitySignature.getDrawableByUri(getContext(), Uri.parse(source));
                     }
                 }, null);
             tvSignature.setText(signature);
