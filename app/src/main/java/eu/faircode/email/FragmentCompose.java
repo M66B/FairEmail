@@ -1927,6 +1927,8 @@ public class FragmentCompose extends FragmentBase {
                                 }
                             } else if (OpenPgpApi.ACTION_GET_SIGN_KEY_ID.equals(data.getAction())) {
                                 pgpSignKeyId = result.getLongExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, -1);
+                                if (pgpSignKeyId == 0)
+                                    throw new IllegalArgumentException(context.getString(R.string.title_no_sign_key));
                                 db.identity().setIdentitySignKey(identity.id, pgpSignKeyId);
 
                                 // Get public key

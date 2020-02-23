@@ -814,6 +814,7 @@
     <string name="title_user_interaction">Transferring to OpenKeychain</string>
     <string name="title_signed_data">Verify the signature to show the message text</string>
     <string name="title_not_encrypted">Message is not signed or encrypted</string>
+    <string name="title_no_sign_key">No sign key selected</string>
     <string name="title_reset_sign_key">Reset sign key</string>
 
     <string name="title_signature_none">Message not signed</string>
