@@ -1180,6 +1180,8 @@ In this case you might want to synchronize periodically, for example each hour, 
 Note that polling frequently (more than every 30-60 minutes) will likely use more battery power than synchronizing always
 because connecting to the server and comparing the local and remotes messages are expensive operations.
 
+On some devices it is necessary to *disable* battery optimizations (setup step 4) to keep connections to email servers open.
+
 Most of the battery usage, not considering viewing messages, is due to synchronization (receiving and sending) of messages.
 So, to reduce the battery usage, set the number of days to synchronize message for to a lower value,
 especially if there are a lot of recent messages in a folder.
