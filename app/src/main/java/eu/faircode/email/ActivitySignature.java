@@ -26,9 +26,11 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.Html;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
+import android.text.TextWatcher;
 import android.text.style.ImageSpan;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -53,6 +55,7 @@ public class ActivitySignature extends ActivityBase {
     private BottomNavigationView bottom_navigation;
 
     private boolean raw = false;
+    private boolean dirty = false;
 
     private static final int REQUEST_IMAGE = 1;
 
@@ -74,6 +77,23 @@ public class ActivitySignature extends ActivityBase {
             @Override
             public void onSelected(boolean selection) {
                 style_bar.setVisibility(selection ? View.VISIBLE : View.GONE);
+            }
+        });
+
+        etText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Do nothing
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                dirty = true;
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // Do nothing
             }
         });
 
@@ -136,8 +156,7 @@ public class ActivitySignature extends ActivityBase {
         switch (item.getItemId()) {
             case R.id.menu_edit_html:
                 item.setChecked(!item.isChecked());
-                raw = item.isChecked();
-                load();
+                html(item.isChecked());
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -173,6 +192,7 @@ public class ActivitySignature extends ActivityBase {
                     return getDrawableByUri(ActivitySignature.this, Uri.parse(source));
                 }
             }, null));
+        dirty = false;
     }
 
     private void delete() {
@@ -189,6 +209,17 @@ public class ActivitySignature extends ActivityBase {
         result.putExtra("html", html);
         setResult(RESULT_OK, result);
         finish();
+    }
+
+    private void html(boolean raw) {
+        this.raw = raw;
+
+        if (!raw || dirty) {
+            String html = (raw ? HtmlHelper.toHtml(etText.getText()) : etText.getText().toString());
+            getIntent().putExtra("html", html);
+        }
+
+        load();
     }
 
     private void insertImage() {
