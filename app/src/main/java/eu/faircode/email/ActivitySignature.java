@@ -31,6 +31,8 @@ import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.ImageSpan;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -50,11 +52,16 @@ public class ActivitySignature extends ActivityBase {
     private BottomNavigationView style_bar;
     private BottomNavigationView bottom_navigation;
 
+    private boolean raw = false;
+
     private static final int REQUEST_IMAGE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (savedInstanceState != null)
+            raw = savedInstanceState.getBoolean("fair:raw");
 
         getSupportActionBar().setSubtitle(getString(R.string.title_edit_signature));
         setContentView(R.layout.activity_signature);
@@ -111,6 +118,33 @@ public class ActivitySignature extends ActivityBase {
     }
 
     @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putBoolean("fair:raw", raw);
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_signature, menu);
+        return true;
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_edit_html:
+                item.setChecked(!item.isChecked());
+                raw = item.isChecked();
+                load();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
@@ -130,6 +164,8 @@ public class ActivitySignature extends ActivityBase {
         String html = getIntent().getStringExtra("html");
         if (html == null)
             etText.setText(null);
+        else if (raw)
+            etText.setText(html);
         else
             etText.setText(HtmlHelper.fromHtml(html, new Html.ImageGetter() {
                 @Override
@@ -148,7 +184,7 @@ public class ActivitySignature extends ActivityBase {
 
     private void save() {
         etText.clearComposingText();
-        String html = HtmlHelper.toHtml(etText.getText());
+        String html = (raw ? etText.getText().toString() : HtmlHelper.toHtml(etText.getText()));
         Intent result = new Intent();
         result.putExtra("html", html);
         setResult(RESULT_OK, result);
