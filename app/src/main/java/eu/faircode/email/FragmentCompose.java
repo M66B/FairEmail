@@ -1334,7 +1334,7 @@ public class FragmentCompose extends FragmentBase {
         Helper.openAdvanced(intent);
         PackageManager pm = getContext().getPackageManager();
         if (intent.resolveActivity(pm) == null)
-            Snackbar.make(view, R.string.title_no_saf, Snackbar.LENGTH_LONG).show();
+            noStorageAccessFramework();
         else
             startActivityForResult(Helper.getChooser(getContext(), intent), REQUEST_IMAGE);
     }
@@ -1347,9 +1347,20 @@ public class FragmentCompose extends FragmentBase {
         Helper.openAdvanced(intent);
         PackageManager pm = getContext().getPackageManager();
         if (intent.resolveActivity(pm) == null)
-            Snackbar.make(view, R.string.title_no_saf, Snackbar.LENGTH_LONG).show();
+            noStorageAccessFramework();
         else
             startActivityForResult(Helper.getChooser(getContext(), intent), REQUEST_ATTACHMENT);
+    }
+
+    private void noStorageAccessFramework() {
+        Snackbar snackbar = Snackbar.make(view, R.string.title_no_saf, Snackbar.LENGTH_LONG);
+        snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.viewFAQ(getContext(), 25);
+            }
+        });
+        snackbar.show();
     }
 
     private void onActionLink() {
