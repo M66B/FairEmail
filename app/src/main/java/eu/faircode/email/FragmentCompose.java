@@ -47,6 +47,7 @@ import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.net.NetworkRequest;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.OperationCanceledException;
@@ -575,6 +576,12 @@ public class FragmentCompose extends FragmentBase {
 
         etBody.setTypeface(monospaced ? Typeface.MONOSPACE : Typeface.DEFAULT);
         tvReference.setTypeface(monospaced ? Typeface.MONOSPACE : Typeface.DEFAULT);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1) {
+            etBody.setRevealOnFocusHint(false); // Doesn't work
+            tvSignature.setRevealOnFocusHint(false);
+            tvReference.setRevealOnFocusHint(false);
+        }
 
         style_bar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
