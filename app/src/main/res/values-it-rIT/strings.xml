@@ -915,7 +915,9 @@
     <string name="title_hint_support">Se hai una domanda o un problema, usa il menu di supporto per ottenere aiuto</string>
     <string name="title_hint_message_actions">Scorri a sinistra per cestinare; Scorri a destra per archiviare (se disponibile); Le azioni di scorrimento possono essere configurate nelle impostazioni dell\'account</string>
     <string name="title_hint_message_selection">Premi a lungo su di un messaggio per iniziare a selezionare più messaggi; Tieni premuto e scorri verso l\'alto o verso il basso per selezionare più messaggi</string>
+    <string name="title_hint_important">Importante</string>
     <string name="title_hint_sync">Scaricare i messaggi può richiedere molto tempo, a seconda della velocità del provider, della connessione internet e del dispositivo e dal numero di messaggi. Durante il download l\'app potrebbe funzionare più lentamente.</string>
+    <string name="title_hint_battery">Poiché FairEmail per impostazione predefinita riceve sempre messaggi, Android segnalerà FairEmail come sempre attivo. Potrebbe quindi sembrare che FairEmail utilizzi sempre la carica della batteria, ma in realtà non è così.</string>
     <string name="title_hint_contact_actions">Tieni premuto per le opzioni</string>
     <string name="title_hint_eml">Questo è un riepilogo del contenuto di un file di messaggio grezzo. Salva il messaggio grezzo con l\'icona di salvataggio nella barra azioni per vedere tutto il contenuto.</string>
     <string name="title_open_link">Apri collegamento</string>

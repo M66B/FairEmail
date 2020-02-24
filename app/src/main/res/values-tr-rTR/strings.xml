@@ -145,7 +145,7 @@
     <string name="title_setup_identity_hint">Ad, renk, imza vb. değiştirmek için</string>
     <string name="title_setup_permissions">Verilen izinler</string>
     <string name="title_setup_permissions_remark">İletişim bilgilerine erişim için (isteğe bağlı)</string>
-    <string name="title_setup_doze">Pil eniyileme ayarları</string>
+    <string name="title_setup_doze">Pil optimizasyonlarını ayarla</string>
     <string name="title_setup_doze_remark">Sürekli e-posta almak için (isteğe bağlı)</string>
     <string name="title_setup_doze_instructions">Sonraki iletişim kutusunda, en üstteki \"Tüm uygulamalar\" seçeneğini işaretleyin, bu uygulamayı seçin ve \"optimize etme\" seçeneğini onaylayın</string>
     <string name="title_setup_doze_battery">Yüksek pil kullanımı?</string>
@@ -917,7 +917,9 @@
     <string name="title_hint_support">Bir soru ya da bir probleminiz varsa, lütfen yardım almak için destek menüsünü kullanın</string>
     <string name="title_hint_message_actions">Çöp için sola kaydırın; Arşiv için sağa kaydırın (mevcut ise); Kaydırma eylemleri hesap ayarlarından yapılandırılabilir</string>
     <string name="title_hint_message_selection">Birden fazla ileti seçmeye başlamak için bir mesaja uzun basın; basılı tutarak ve yukarı veya aşağı kaydırın ve iletileri seçin</string>
+    <string name="title_hint_important">Önemli</string>
     <string name="title_hint_sync">Mesajların indirilmesi, sağlayıcının hızına, internet bağlantısına ve cihazın hızına ve mesaj sayısına bağlı olarak biraz zaman alabilir. Mesajları indirirken uygulama daha yavaş yanıt verebilir.</string>
+    <string name="title_hint_battery">FairEmail varsayılan olarak her zaman mesaj aldığından, Android FairEmail\'in her zaman etkin olduğunu bildirecektir. Bu nedenle, FairEmail sürekli pil gücünü kullanıyor gibi görünebilir, ancak aslında durum böyle değildir.</string>
     <string name="title_hint_contact_actions">Seçenekler için uzun basın</string>
     <string name="title_hint_eml">Bu, ham mesaj dosyasının içeriğinin bir özetidir. Tüm içeriği görüntülemek için ham iletiyi işlem çubuğundaki kaydet simgesiyle kaydedin.</string>
     <string name="title_open_link">Bağlantıyı aç</string>

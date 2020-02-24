@@ -463,6 +463,7 @@
     <string name="title_drafts_required">メッセージを送信するには下書きフォルダが必要です</string>
     <string name="title_account_delete">このアカウントを完全に削除しますか？</string>
     <string name="title_identity_delete">このIDを完全に削除しますか？</string>
+    <string name="title_edit_html">HTMLとして編集</string>
     <string name="title_sign_key">署名キー:%1$s</string>
     <string name="title_last_connected">最終接続:%1$s</string>
     <string name="title_storage_quota">サーバストレージ使用量:%1$s/%2$s</string>
@@ -699,6 +700,7 @@ PlayストアでFairEmailを評価できれば幸いです。
     <string name="title_user_interaction">OpenKeychainへの転送</string>
     <string name="title_signed_data">署名を確認してメッセージテキストを表示</string>
     <string name="title_not_encrypted">メッセージは署名又は暗号化されていません</string>
+    <string name="title_no_sign_key">署名キーが選択されていません</string>
     <string name="title_reset_sign_key">署名キーをリセット</string>
     <string name="title_signature_none">メッセージが署名されていません</string>
     <string name="title_signature_valid">メッセージ署名が有効</string>
@@ -744,6 +746,9 @@ PlayストアでFairEmailを評価できれば幸いです。
     <string name="title_force_sync">強制同期</string>
     <string name="title_previous">前へ</string>
     <string name="title_next">次へ</string>
+    <string name="title_edit_signature">署名を編集</string>
+    <string name="title_edit_signature_text">署名テキスト</string>
+    <string name="title_edit_signature_image">画像を挿入</string>
     <string name="title_answer_caption">テンプレートを編集</string>
     <string name="title_answer_reply">テンプレートで返信</string>
     <string name="title_answer_name">テンプレート名</string>
@@ -896,7 +901,9 @@ PlayストアでFairEmailを評価できれば幸いです。
     <string name="title_hint_support">質問や問題がある場合はサポートメニューを使用してヘルプを取得して下さい</string>
     <string name="title_hint_message_actions">左にスワイプしてゴミ箱に移動します。アーカイブするには右にスワイプします(利用可能な場合)。スワイプアクションはアカウント設定で構成できます</string>
     <string name="title_hint_message_selection">メッセージを長押し複数のメッセージの選択を開始します。押し続けて上下にスワイプし更にメッセージを選択します</string>
+    <string name="title_hint_important">重要</string>
     <string name="title_hint_sync">プロバイダーの速度、ネット接続、デバイス、及びメッセージ数によりメッセージのダウンロードに時間がかかる場合があります。メッセージのダウンロード中アプリの応答が遅くなる場合があります</string>
+    <string name="title_hint_battery">FairEmailはデフォルトで常にメッセージを受信する為AndroidはFairEmailが常にアクティブで有ると報告します。 故にFairEmailは常にバッテリー電源を使用しているように見えますが実際にはそうでは有りません</string>
     <string name="title_hint_contact_actions">長押しでオプションへ</string>
     <string name="title_hint_eml">これは素のメッセージファイルの内容の要約です。全てのコンテンツを表示するにはアクションバーの保存アイコンで素のメッセージを保存します</string>
     <string name="title_open_link">リンクを開く</string>

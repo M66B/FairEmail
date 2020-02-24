@@ -917,7 +917,9 @@
     <string name="title_hint_support">Si vous avez une question ou un problème, veuillez utiliser le menu Support pour obtenir de l\'aide</string>
     <string name="title_hint_message_actions">Balayer vers la gauche pour mettre à la corbeille ; balayer vers la droite pour archiver (si disponible) ; les actions de balayage peuvent être configurées dans les paramètres du compte</string>
     <string name="title_hint_message_selection">Appuyez longuement sur un message pour commencer à sélectionner plusieurs messages ; maintenez et faites glisser vers le haut ou vers le bas pour sélectionner plus de messages</string>
-    <string name="title_hint_sync">Le téléchargement des messages peut prendre un certain temps selon la vitesse du fournisseur d\'accès, la connexion internet et le périphérique et selon le nombre de messages. Lors du téléchargement des messages, l\'application peut répondre plus lentement.</string>
+    <string name="title_hint_important">Important</string>
+    <string name="title_hint_sync">Le téléchargement des messages peut prendre du temps selon la vitesse du fournisseur d\'accès, la connexion internet et le périphérique ainsi que selon le nombre de messages. Lors du téléchargement des messages, l\'application peut répondre plus lentement.</string>
+    <string name="title_hint_battery">Étant donné que FairEmail par défaut reçoit toujours des messages, Android signalera que FairEmail est toujours actif. Par conséquent, FairEmail semble utiliser de la batterie en permanence mais en fait, ce n\'est pas le cas.</string>
     <string name="title_hint_contact_actions">Appui long pour les options</string>
     <string name="title_hint_eml">Ceci est un résumé du contenu d\'un fichier de message brut. Enregistrez le message brut au moyen de l\'icône de sauvegarde dans la barre d\'action pour afficher tout le contenu.</string>
     <string name="title_open_link">Ouvrir le lien</string>

@@ -915,7 +915,9 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_hint_support">Galdera edo arazoren bat baduzu, erabili laguntza menua laguntza jasotzeko</string>
     <string name="title_hint_message_actions">Pasatu hatza ezkerrera zakarrontzira botatzeko, pasatu hatza eskuinera artxibatzeko (eskuragarri badago). Hatza pasatzeko ekintzak kontuaren ezarpenetan konfiguratu daitezke</string>
     <string name="title_hint_message_selection">Sakatu luze mezu bat hainbat mezu hautatzen hasteko. Mantendu eta pasatu hatza gora edo behera mezu gehiago hautatzeko</string>
+    <string name="title_hint_important">Garrantzitsua</string>
     <string name="title_hint_sync">Mezuak deskargatzeak denbora hartu dezake, hornitzailearen abiadura, internet konexioa, gailua eta mezu kopuruaren arabera. Mezuak deskargatu bitartean aplikazioa motel erantzun lezake.</string>
+    <string name="title_hint_battery">FairEmail-ek berez mezuak beti jasotzen dituenez, Android-ek esaten du FairEmai beti aktibo dagoela. Ematen du FairEmail bateriako energia beti erabiltzen ari dela, baina hori ez da horrela.</string>
     <string name="title_hint_contact_actions">Sakatu luze aukeretarako</string>
     <string name="title_hint_eml">Hau mezu gordin fitxategi baten edukiaren laburpena da. Gorde mezu gordina ekintza-barrako \'gorde\' ikonoarekin eduki osoa ikusteko.</string>
     <string name="title_open_link">Ireki esteka</string>

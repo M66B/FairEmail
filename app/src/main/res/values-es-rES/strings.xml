@@ -917,7 +917,9 @@
     <string name="title_hint_support">Si tiene una pregunta o problema, por favor use el menú de soporte para obtener ayuda</string>
     <string name="title_hint_message_actions">Desliza a la izquierda para enviar a la papelera; Desliza a la derecha para archivar (si está disponible); las acciones de deslizamiento pueden configurarse en la configuración de la cuenta</string>
     <string name="title_hint_message_selection">Mantenga pulsado un mensaje para empezar a seleccionar varios mensajes; mantenga pulsado y deslice hacia arriba o abajo para seleccionar más mensajes</string>
+    <string name="title_hint_important">Importante</string>
     <string name="title_hint_sync">Descargar mensajes puede llevar algún tiempo, dependiendo de la velocidad del proveedor, la conexión a internet, dispositivo y el número de mensajes. Mientras se descargan mensajes, la aplicación puede responder más lentamente.</string>
+    <string name="title_hint_battery">Dado que por defecto FairEmail recibe mensajes permanentemente, Android reportará a FairEmail como siempre activo. Por lo tanto, puede parecer que FairEmail siempre está usando la batería, pero de hecho no es así.</string>
     <string name="title_hint_contact_actions">Mantenga pulsado para opciones</string>
     <string name="title_hint_eml">Este es un resumen del contenido de un archivo de mensaje crudo. Guarde el mensaje raw con el icono guardar en la barra de acción para ver todo el contenido.</string>
     <string name="title_open_link">Abrir enlace</string>
