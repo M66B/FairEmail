@@ -4986,6 +4986,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_open_link, null);
             TextView tvTitle = dview.findViewById(R.id.tvTitle);
+            ImageButton ibShare = dview.findViewById(R.id.ibShare);
             ImageButton ibCopy = dview.findViewById(R.id.ibCopy);
             final EditText etLink = dview.findViewById(R.id.etLink);
             TextView tvDifferent = dview.findViewById(R.id.tvDifferent);
@@ -4997,6 +4998,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             final TextView tvHost = dview.findViewById(R.id.tvHost);
             final TextView tvOwner = dview.findViewById(R.id.tvOwner);
             final Group grpOwner = dview.findViewById(R.id.grpOwner);
+
+            ibShare.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent send = new Intent();
+                    send.setAction(Intent.ACTION_SEND);
+                    send.putExtra(Intent.EXTRA_TEXT, uri.toString());
+                    send.setType("text/plain");
+                    startActivity(Intent.createChooser(send, title));
+                }
+            });
 
             ibCopy.setOnClickListener(new View.OnClickListener() {
                 @Override

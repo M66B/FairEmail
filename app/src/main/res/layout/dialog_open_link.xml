@@ -20,15 +20,28 @@
 
         <TextView
             android:id="@+id/tvTitle"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            android:layout_marginEnd="12dp"
             android:labelFor="@+id/etLink"
             android:text="Link title"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textStyle="italic"
+            app:layout_constraintEnd_toStartOf="@+id/ibShare"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvCaption" />
+
+        <ImageButton
+            android:id="@+id/ibShare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_share"
+            app:layout_constraintBottom_toBottomOf="@id/tvTitle"
+            app:layout_constraintEnd_toStartOf="@+id/ibCopy"
+            app:srcCompat="@drawable/baseline_share_24" />
 
         <ImageButton
             android:id="@+id/ibCopy"
