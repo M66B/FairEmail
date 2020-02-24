@@ -920,10 +920,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 c = c.getCause();
                             }
 
-                            if (!BuildConfig.PLAY_STORE_RELEASE)
-                                Log.e(ex);
-
                             if (!ioError) {
+                                Log.e(ex);
                                 try {
                                     NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                                     nm.notify("receive:" + account.id, 1,
