@@ -2387,7 +2387,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             continue;
 
                         List<EntityMessage> messages = db.message().getMessagesByThread(
-                                message.account, message.thread, threading ? null : id, null);
+                                message.account, message.thread, threading ? null : id, message.folder);
                         for (EntityMessage threaded : messages)
                             if (threaded.ui_flagged != flagged || !Objects.equals(threaded.color, color))
                                 EntityOperation.queue(context, threaded, EntityOperation.FLAG, flagged, color);
@@ -5650,12 +5650,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 try {
                     db.beginTransaction();
 
+                    EntityMessage message = db.message().getMessage(id);
+                    if (message == null)
+                        return wakeup;
+
                     List<EntityMessage> messages = db.message().getMessagesByThread(
                             account, thread, threading ? null : id, null);
                     for (EntityMessage threaded : messages) {
                         db.message().setMessageSnoozed(threaded.id, wakeup);
                         db.message().setMessageUiIgnored(threaded.id, true);
-                        if (flag_snoozed)
+                        if (flag_snoozed && threaded.folder.equals(message.folder))
                             EntityOperation.queue(context, threaded, EntityOperation.FLAG, true);
                         EntityMessage.snooze(context, threaded.id, wakeup);
                     }
@@ -5719,7 +5723,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         for (EntityMessage threaded : messages) {
                             db.message().setMessageSnoozed(threaded.id, wakeup);
                             db.message().setMessageUiIgnored(message.id, true);
-                            if (flag_snoozed)
+                            if (flag_snoozed && threaded.folder.equals(message.folder))
                                 EntityOperation.queue(context, threaded, EntityOperation.FLAG, true);
                             EntityMessage.snooze(context, threaded.id, wakeup);
                         }
