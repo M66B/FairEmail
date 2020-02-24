@@ -1127,6 +1127,7 @@
     <string name="title_search_special_flagged">starred</string>
     <string name="title_search_special_snoozed">hidden</string>
     <string name="title_search_special_encrypted">encrypted</string>
+    <string name="title_search_special_attachments">attachments</string>
 
     <string name="title_widget_title_count">New message count</string>
     <string name="title_widget_title_list">Message list</string>

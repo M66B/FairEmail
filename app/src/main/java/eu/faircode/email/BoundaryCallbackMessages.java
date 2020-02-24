@@ -171,6 +171,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         Boolean flagged = null;
         Boolean snoozed = null;
         Boolean encrypted = null;
+        Boolean attachments = null;
         String find = (TextUtils.isEmpty(query) ? null : query.toLowerCase());
         if (find != null && find.startsWith(context.getString(R.string.title_search_special_prefix) + ":")) {
             String special = find.split(":")[1];
@@ -182,6 +183,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 snoozed = true;
             else if (context.getString(R.string.title_search_special_encrypted).equals(special))
                 encrypted = true;
+            else if (context.getString(R.string.title_search_special_attachments).equals(special))
+                attachments = true;
         }
 
         int found = 0;
@@ -189,7 +192,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean fts = prefs.getBoolean("fts", false);
         boolean pro = ActivityBilling.isPro(context);
-        if (fts && pro && seen == null && flagged == null && snoozed == null && encrypted == null) {
+        if (fts && pro && seen == null && flagged == null && snoozed == null && encrypted == null && attachments == null) {
             if (state.ids == null) {
                 SQLiteDatabase sdb = FtsDbHelper.getInstance(context);
                 state.ids = FtsDbHelper.match(sdb, account, folder, query);
@@ -220,7 +223,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     state.matches = db.message().matchMessages(
                             account, folder,
                             "%" + find + "%",
-                            seen, flagged, snoozed, encrypted,
+                            seen, flagged, snoozed, encrypted, attachments,
                             SEARCH_LIMIT, state.offset);
                     Log.i("Boundary device folder=" + folder +
                             " query=" + query +
@@ -228,6 +231,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                             " flagged=" + flagged +
                             " snoozed=" + snoozed +
                             " encrypted=" + encrypted +
+                            " attachments=" + attachments +
                             " offset=" + state.offset +
                             " size=" + state.matches.size());
                     state.offset += Math.min(state.matches.size(), SEARCH_LIMIT);
@@ -242,7 +246,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
                     TupleMatch match = state.matches.get(i);
 
-                    if (find == null || seen != null || flagged != null || snoozed != null || encrypted != null)
+                    if (find == null || seen != null || flagged != null || snoozed != null || encrypted != null || attachments!=null)
                         match.matched = true;
                     else {
                         if (match.matched == null || !match.matched)
