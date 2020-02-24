@@ -233,6 +233,9 @@ public interface DaoFolder {
     @Query("UPDATE folder SET selectable = :selectable WHERE id = :id")
     int setFolderSelectable(long id, Boolean selectable);
 
+    @Query("UPDATE folder SET inferiors = :inferiors WHERE id = :id")
+    int setFolderInferiors(long id, Boolean inferiors);
+
     @Query("UPDATE folder SET type = :type WHERE id = :id")
     int setFolderType(long id, String type);
 

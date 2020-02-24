@@ -113,6 +113,8 @@ public class EntityFolder extends EntityOrder implements Serializable {
     public Boolean read_only = false;
     @NonNull
     public Boolean selectable = true;
+    @NonNull
+    public Boolean inferiors = true;
     public String error;
     public Long last_sync;
 
@@ -129,14 +131,14 @@ public class EntityFolder extends EntityOrder implements Serializable {
     // https://tools.ietf.org/html/rfc6154
     // https://www.iana.org/assignments/imap-mailbox-name-attributes/imap-mailbox-name-attributes.xhtml
     private static final List<String> SYSTEM_FOLDER_ATTR = Collections.unmodifiableList(Arrays.asList(
-            "All",
-            "Archive",
-            "Drafts",
-            "Trash",
-            "Junk",
-            "Sent",
-            "Important",
-            "Flagged"
+            "all",
+            "archive",
+            "drafts",
+            "trash",
+            "junk",
+            "sent",
+            "important",
+            "flagged"
     ));
     private static final List<String> SYSTEM_FOLDER_TYPE = Collections.unmodifiableList(Arrays.asList(
             ARCHIVE, // All
@@ -293,11 +295,11 @@ public class EntityFolder extends EntityOrder implements Serializable {
 
         // https://www.iana.org/assignments/imap-mailbox-name-attributes/imap-mailbox-name-attributes.xhtml
         for (String attr : attrs) {
-            if ((selectable && "\\Noselect".equals(attr)) || "\\NonExistent".equals(attr))
+            if ((selectable && "\\NoSelect".equalsIgnoreCase(attr)) || "\\NonExistent".equalsIgnoreCase(attr))
                 return null;
 
             if (attr.startsWith("\\")) {
-                int index = SYSTEM_FOLDER_ATTR.indexOf(attr.substring(1));
+                int index = SYSTEM_FOLDER_ATTR.indexOf(attr.substring(1).toLowerCase());
                 if (index >= 0)
                     return SYSTEM_FOLDER_TYPE.get(index);
             }

@@ -1297,14 +1297,26 @@ class Core {
         Map<String, List<EntityFolder>> parentFolders = new HashMap<>();
         for (Folder ifolder : ifolders) {
             String fullName = ifolder.getFullName();
-            String[] attr = ((IMAPFolder) ifolder).getAttributes();
-            String type = EntityFolder.getType(attr, fullName, false);
+            String[] attrs = ((IMAPFolder) ifolder).getAttributes();
+            String type = EntityFolder.getType(attrs, fullName, false);
             boolean subscribed = subscription.contains(fullName);
-            boolean selectable = !Arrays.asList(attr).contains("\\Noselect") &&
-                    ((ifolder.getType() & IMAPFolder.HOLDS_MESSAGES) != 0);
 
-            Log.i(account.name + ":" + fullName + " subscribed=" + subscribed +
-                    " type=" + type + " attrs=" + TextUtils.join(" ", attr));
+            boolean selectable = true;
+            boolean inferiors = true;
+            for (String attr : attrs) {
+                if (attr.equalsIgnoreCase("\\NoSelect"))
+                    selectable = false;
+                if (attr.equalsIgnoreCase("\\NoInferiors"))
+                    inferiors = false;
+            }
+            selectable = selectable && ((ifolder.getType() & IMAPFolder.HOLDS_MESSAGES) != 0);
+            inferiors = inferiors && ((ifolder.getType() & IMAPFolder.HOLDS_FOLDERS) != 0);
+
+            Log.i(account.name + ":" + fullName + " type=" + type +
+                    " subscribed=" + subscribed +
+                    " selectable=" + selectable +
+                    " inferiors=" + inferiors +
+                    " attrs=" + TextUtils.join(" ", attrs));
 
             if (type != null) {
                 local.remove(fullName);
@@ -1325,6 +1337,7 @@ class Core {
                         folder.sync_days = EntityFolder.DEFAULT_SYNC;
                         folder.keep_days = EntityFolder.DEFAULT_KEEP;
                         folder.selectable = selectable;
+                        folder.inferiors = inferiors;
                         folder.id = db.folder().insertFolder(folder);
                         Log.i(folder.name + " added type=" + folder.type);
                     } else {
@@ -1335,6 +1348,9 @@ class Core {
 
                         if (folder.selectable != selectable)
                             db.folder().setFolderSelectable(folder.id, selectable);
+
+                        if (folder.inferiors != inferiors)
+                            db.folder().setFolderInferiors(folder.id, inferiors);
 
                         // Compatibility
                         if (EntityFolder.USER.equals(folder.type) && EntityFolder.SYSTEM.equals(type))
