@@ -372,6 +372,7 @@
     <string name="title_advanced_fts_indexed">Zindeksowano %1$d / %2$d Wiadomości (%3$s)</string>
     <string name="title_advanced_english">Wymuś język angielski</string>
     <string name="title_advanced_watchdog">Okresowo sprawdzaj, czy FairEmail jest nadal aktywny</string>
+    <string name="title_advanced_optimize">Automatycznie optymalizuj ustawienia</string>
     <string name="title_advanced_updates">Sprawdź aktualizacje</string>
     <string name="title_advanced_experiments">Wypróbuj funkcje eksperymentalne</string>
     <string name="title_advanced_crash_reports">Wyślij raport o błędach</string>
@@ -488,6 +489,7 @@
     <string name="title_no_password">Brak hasła</string>
     <string name="title_no_inbox">Nie znaleziono skrzynki odbiorczej</string>
     <string name="title_no_primary_drafts">Brak konta podstawowego lub brak folderu szkiców</string>
+    <string name="title_no_identities">Wysyłanie wiadomości e-mail wymaga co najmniej jednej tożsamości i folderu kopii roboczych</string>
     <string name="title_no_standard">Ten dostawca korzysta z zastrzeżonego protokołu e-mail i dlatego nie jest możliwe korzystanie z klientów e-mail firm trzecich</string>
     <string name="title_no_idle">Ten dostawca nie obsługuje wiadomości push. To opóźni otrzymywanie nowych wiadomości i zwiększy zużycie baterii.</string>
     <string name="title_no_utf8">Ten dostawca nie wspiera UTF-8</string>
@@ -497,6 +499,7 @@
     <string name="title_drafts_required">Folder szkiców jest wymagany do wysyłania wiadomości</string>
     <string name="title_account_delete">Usunąć to konto bezpowrotnie?</string>
     <string name="title_identity_delete">Usunąć tożsamość bezpowrotnie?</string>
+    <string name="title_edit_html">Edytuj jako HTML</string>
     <string name="title_sign_key">Klucz podpisu: %1$s</string>
     <string name="title_last_connected">Ostatnio połączony: %1$s</string>
     <string name="title_storage_quota">Wykorzystane miejsce: %1$s/%2$s</string>
@@ -734,6 +737,7 @@
     <string name="title_user_interaction">Przenoszenie do OpenKeychain</string>
     <string name="title_signed_data">Sprawdź podpis, aby wyświetlić tekst wiadomości</string>
     <string name="title_not_encrypted">Wiadomość nie jest podpisana lub zaszyfrowana</string>
+    <string name="title_no_sign_key">Nie wybrano klucza podpisu</string>
     <string name="title_reset_sign_key">Resetuj klucz podpisu</string>
     <string name="title_signature_none">Wiadomość niepodpisana</string>
     <string name="title_signature_valid">Ważny podpis wiadomości</string>
@@ -779,6 +783,9 @@
     <string name="title_force_sync">Wymuś synchronizację</string>
     <string name="title_previous">Poprzedni</string>
     <string name="title_next">Następny</string>
+    <string name="title_edit_signature">Edytuj podpis</string>
+    <string name="title_edit_signature_text">Tekst podpisu</string>
+    <string name="title_edit_signature_image">Wstaw obraz</string>
     <string name="title_answer_caption">Edytuj szablon</string>
     <string name="title_answer_reply">Szablon odpowiedzi</string>
     <string name="title_answer_name">Nazwa szablonu</string>
@@ -931,7 +938,9 @@
     <string name="title_hint_support">Jeśli masz pytanie lub problem, użyj menu Pomoc, aby uzyskać pomoc</string>
     <string name="title_hint_message_actions">Przesuń w lewo, aby wyrzucić do kosza; Przesuń w prawo, aby zarchiwizować (jeśli dostępne); Działania przeciągnięcia można skonfigurować w ustawieniach konta</string>
     <string name="title_hint_message_selection">Naciśnij długo wiadomość, aby rozpocząć wybieranie wielu wiadomości; Przytrzymaj i przeciągnij w górę lub w dół, aby wybrać więcej wiadomości</string>
+    <string name="title_hint_important">Ważne</string>
     <string name="title_hint_sync">Pobieranie wiadomości może trochę potrwać, zależnie od prędkości dostawcy, połączenie internetowego i urządzenia oraz liczby wiadomości. Podczas pobierania wiadomości aplikacja może odpowiadać wolniej.</string>
+    <string name="title_hint_battery">Ponieważ FairEmail domyślnie zawsze odbiera wiadomości, Android zgłasza, że FairEmail jest zawsze aktywny. Dlatego może się wydawać, że FairEmail ciągle zużywa energię baterii, ale w rzeczywistości tak nie jest.</string>
     <string name="title_hint_contact_actions">Przytrzymaj, aby uzyskać więcej opcji</string>
     <string name="title_hint_eml">To jest podsumowanie zawartości nieprzetworzonego pliku wiadomości. Zapisz nieprzetworzoną wiadomość używając ikony zapisu na pasku akcji, aby wyświetlić całą zawartość.</string>
     <string name="title_open_link">Otwórz link</string>

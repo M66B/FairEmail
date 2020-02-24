@@ -477,6 +477,7 @@
     <string name="title_drafts_required">За изпращане на съобщения е необходима папка за чернови</string>
     <string name="title_account_delete">Искате ли да изтриете този профил за постоянно?</string>
     <string name="title_identity_delete">Да се изтрие ли идентичността за постоянно?</string>
+    <string name="title_edit_html">Редактиране като HTML</string>
     <string name="title_sign_key">Ключ за подписване:%1$s</string>
     <string name="title_last_connected">Последна проверка: %1$s</string>
     <string name="title_storage_quota">Използвано място на сървъра: %1$s/%2$s</string>
@@ -714,6 +715,7 @@
     <string name="title_user_interaction">Прехвърляне към OpenKeychain</string>
     <string name="title_signed_data">Потвърдете подписа, за да се покаже текста на съобщението</string>
     <string name="title_not_encrypted">Съобщението не е подписано или криптирано</string>
+    <string name="title_no_sign_key">Няма избран ключ за подписване</string>
     <string name="title_reset_sign_key">Нулиране на ключ за подписване</string>
     <string name="title_signature_none">Съобщението не е подписано</string>
     <string name="title_signature_valid">Подписът на съобщението е валиден</string>
@@ -759,6 +761,9 @@
     <string name="title_force_sync">Принудително синхронизиране</string>
     <string name="title_previous">Предишен</string>
     <string name="title_next">Следващ</string>
+    <string name="title_edit_signature">Редактиране на подписа</string>
+    <string name="title_edit_signature_text">Текст на подписа</string>
+    <string name="title_edit_signature_image">Вмъкни изображение</string>
     <string name="title_answer_caption">Ред. шаблон</string>
     <string name="title_answer_reply">Отговор с шаблони</string>
     <string name="title_answer_name">Име на шаблон</string>
@@ -911,7 +916,9 @@
     <string name="title_hint_support">Ако имате въпрос или проблем, моля изполвайте меню поддръжка за да получите помощ</string>
     <string name="title_hint_message_actions">Плъзнете наляво за преместване в кошчето; Плъзнето надясно за архивирне (ако е налично); Плъзгането можете да конфигурирате в настройките на профила</string>
     <string name="title_hint_message_selection">Натиснете и задръжте по дълго върху съобщението, за да започнете да избирате няколко съобщения; Задръжте и прекарайте пръст нагоре или надолу, за да изберете няколко съобщения</string>
+    <string name="title_hint_important">Важно</string>
     <string name="title_hint_sync">Изтеглянето на съобщения може да отнеме известно време, в зависимост от скоростта на доставчика, интернет връзката и устройството и броя на съобщенията. Докато изтегляте съобщения, приложението може да реагира по-бавно.</string>
+    <string name="title_hint_battery">Тъй като FairEmail по подразбиране винаги получава съобщения, Android ще докладва, че FairEmail е винаги активен. Следователно може да изглежда, че FairEmail винаги консумира от батерията, но всъщност това не е така.</string>
     <string name="title_hint_contact_actions">Натиснете продължително за повече опции</string>
     <string name="title_hint_eml">Това е обобщение на съдържанието на необработен файл със съобщение. Запишете необработеното съобщение с иконата за запис в лентата за действие, за да видите цялото съдържание.</string>
     <string name="title_open_link">Отваряне не връзката</string>

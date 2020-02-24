@@ -568,7 +568,7 @@
     <string name="title_no_folders">Нет папок</string>
     <string name="title_no_messages">Нет сообщений</string>
     <string name="title_filters_active">Один или несколько фильтров активны</string>
-    <string name="title_duplicate_in">Дублировать сообщение в %1$s</string>
+    <string name="title_duplicate_in">Дубликат сообщения в %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_seen">Отметить как прочитанное</string>
