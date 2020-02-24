@@ -20,8 +20,8 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
-import android.graphics.Rect;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.ScrollView;
 
 public class FixedScrollView extends ScrollView {
@@ -42,7 +42,6 @@ public class FixedScrollView extends ScrollView {
     }
 
     @Override
-    protected int computeScrollDeltaToGetChildRectOnScreen(Rect rect) {
-        return 0;
+    public void requestChildFocus(View child, View focused) {
     }
 }
