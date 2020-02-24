@@ -82,15 +82,6 @@ public class ContactInfo {
         return displayName;
     }
 
-    String getDisplayName(boolean name_email) {
-        if (!name_email && displayName != null)
-            return displayName;
-        else if (displayName == null)
-            return (email == null ? "" : email);
-        else
-            return displayName + " <" + email + ">";
-    }
-
     boolean hasLookupUri() {
         return (lookupUri != null);
     }

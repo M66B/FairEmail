@@ -71,11 +71,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
 import java.net.Inet4Address;
 import java.net.Inet6Address;
 import java.net.InetAddress;
 import java.net.SocketException;
 import java.net.UnknownHostException;
+import java.nio.charset.StandardCharsets;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -2882,6 +2884,7 @@ class Core {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean name_email = prefs.getBoolean("name_email", false);
+        boolean prefer_contact = prefs.getBoolean("prefer_contact", false);
         boolean flags = prefs.getBoolean("flags", true);
         boolean notify_preview = prefs.getBoolean("notify_preview", true);
         boolean notify_preview_all = prefs.getBoolean("notify_preview_all", false);
@@ -2901,9 +2904,31 @@ class Core {
         boolean alert_once = prefs.getBoolean("alert_once", true);
 
         // Get contact info
-        Map<Long, ContactInfo[]> messageContact = new HashMap<>();
-        for (TupleMessageEx message : messages)
-            messageContact.put(message.id, ContactInfo.get(context, message.account, message.from));
+        Map<Long, Address[]> messageFrom = new HashMap<>();
+        Map<Long, ContactInfo[]> messageInfo = new HashMap<>();
+        for (TupleMessageEx message : messages) {
+            ContactInfo[] info = ContactInfo.get(context, message.account, message.from);
+
+            Address[] modified = (message.from == null
+                    ? new InternetAddress[0]
+                    : Arrays.copyOf(message.from, message.from.length));
+            for (int i = 0; i < modified.length; i++) {
+                String displayName = info[i].getDisplayName();
+                if (!TextUtils.isEmpty(displayName)) {
+                    String email = ((InternetAddress) modified[i]).getAddress();
+                    String personal = ((InternetAddress) modified[i]).getPersonal();
+                    if (TextUtils.isEmpty(personal) || prefer_contact)
+                        try {
+                            modified[i] = new InternetAddress(email, displayName, StandardCharsets.UTF_8.name());
+                        } catch (UnsupportedEncodingException ex) {
+                            Log.w(ex);
+                        }
+                }
+            }
+
+            messageInfo.put(message.id, info);
+            messageFrom.put(message.id, modified);
+        }
 
         // Summary notification
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N || notify_summary) {
@@ -2976,8 +3001,9 @@ class Core {
                     DateFormat DTF = Helper.getDateTimeInstance(context, SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
                     StringBuilder sb = new StringBuilder();
                     for (EntityMessage message : messages) {
-                        ContactInfo[] info = messageContact.get(message.id);
-                        sb.append("<strong>").append(info[0].getDisplayName(name_email)).append("</strong>");
+                        Address[] afrom = messageFrom.get(message.id);
+                        String from = MessageHelper.formatAddresses(afrom, name_email, false);
+                        sb.append("<strong>").append(from).append("</strong>");
                         if (!TextUtils.isEmpty(message.subject))
                             sb.append(": ").append(message.subject);
                         sb.append(" ").append(DTF.format(message.received));
@@ -3001,7 +3027,7 @@ class Core {
 
         // Message notifications
         for (TupleMessageEx message : messages) {
-            ContactInfo[] info = messageContact.get(message.id);
+            ContactInfo[] info = messageInfo.get(message.id);
 
             // Build arguments
             long id = (message.content ? message.id : -message.id);
@@ -3068,7 +3094,9 @@ class Core {
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
                 setLightAndSound(mbuilder, light, sound);
 
-            mbuilder.setContentTitle(info[0].getDisplayName(name_email))
+            Address[] afrom = messageFrom.get(message.id);
+            String from = MessageHelper.formatAddresses(afrom, name_email, false);
+            mbuilder.setContentTitle(from)
                     .setSubText(message.accountName + " · " + message.getFolderName(context));
 
             DB db = DB.getInstance(context);
