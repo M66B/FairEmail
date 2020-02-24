@@ -999,6 +999,7 @@
     <string name="title_search_special_flagged">ster</string>
     <string name="title_search_special_snoozed">verborgen</string>
     <string name="title_search_special_encrypted">versleuteld</string>
+    <string name="title_search_special_attachments">bijlagen</string>
     <string name="title_widget_title_count">Aantal nieuwe berichten</string>
     <string name="title_widget_title_list">Berichtenlijst</string>
     <string name="title_widget_account">Account</string>

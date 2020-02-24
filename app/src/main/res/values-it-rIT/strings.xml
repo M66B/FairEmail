@@ -1000,6 +1000,7 @@
     <string name="title_search_special_flagged">stellato</string>
     <string name="title_search_special_snoozed">nascosto</string>
     <string name="title_search_special_encrypted">criptato</string>
+    <string name="title_search_special_attachments">allegati</string>
     <string name="title_widget_title_count">Nuovo conteggio dei messaggi</string>
     <string name="title_widget_title_list">Elenco messaggi</string>
     <string name="title_widget_account">Account</string>

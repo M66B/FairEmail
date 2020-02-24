@@ -919,7 +919,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_hint_message_selection">Um mehrere Nachrichten auszuwählen, drücken Sie zunächst lange auf eine Nachricht, halten und wischen Sie sodann nach oben oder unten, um weitere Nachrichten auszuwählen</string>
     <string name="title_hint_important">Wichtig</string>
     <string name="title_hint_sync">Das Herunterladen von E-Mails kann einige Zeit in Anspruch nehmen, abhängig von der Geschwindigkeit des Providers, der Internetverbindung, des Gerätes und von der Anzahl der E-Mails. Beim Herunterladen der E-Mails kann die App träge reagieren.</string>
-    <string name="title_hint_battery">Android meldet FairEmail als ständig aktiv, da es immer dazu bereit ist, Nachrichten zu empfangen. Deshalb mag es so aussehen als würde es stetig Akkuleistung verbrauchen. Dies ist jedoch nicht der Fall.</string>
+    <string name="title_hint_battery">Da FairEmail standardmäßig immer bereit ist Nachrichten zu erhalten, meldet Android FairEmail als immer aktiv. Daher mag es so aussehen, als ob FairEmail immer Akkuleistung verbraucht, aber das ist nicht der Fall.</string>
     <string name="title_hint_contact_actions">Gedrückt halten für weitere Optionen</string>
     <string name="title_hint_eml">Dies ist eine Zusammenfassung des Inhalts einer Rohnachrichtendatei. Speichern Sie die Rohnachricht mit dem Speichern-Symbol in der Aktionsleiste, um alle Inhalte anzuzeigen.</string>
     <string name="title_open_link">Link öffnen</string>
@@ -974,7 +974,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_icalendar_maybe">Vielleicht</string>
     <string name="title_icalendar_calendar">Kalender</string>
     <string name="title_try">Teste FairEmail, eine Open-Source und datenschutzfreundliche E-Mail-App für Android</string>
-    <string name="title_pro_feature">Dies ist eine Pro-Funktion</string>
+    <string name="title_pro_feature">Das ist eine Pro-Funktion</string>
     <string name="title_pro_list">Liste der Pro-Funktionen</string>
     <string name="title_pro_purchase">Kaufen</string>
     <string name="title_pro_once">Nur einmal</string>
@@ -982,7 +982,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
         Um FairEmail langfristig mit Support verfügbar zu halten, sind einige Komfort- und erweiterte Funktionen nicht kostenlos.
         Zur Erinnerung zeigt FairEmail ein kleines Banner an, dies verschwindet beim Kauf der Pro-Funktionen.
     </string>
-    <string name="title_pro_hide">Kleine Hinweis-Nachricht für eine Woche ausblenden</string>
+    <string name="title_pro_hide">Kleine Hinweisnachricht für eine Woche ausblenden</string>
     <string name="title_pro_hint">Der Erwerb der Pro-Funktionen erlaubt es Ihnen alle momentan und zukünftig verfügbaren Pro-Funktionen zu nutzen und ermöglicht die Weiterentwicklung und Pflege der App.</string>
     <string name="title_pro_price">Informationen zum Preis der Pro-Funktionen finden Sie in der <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">Hilfe</a></string>
     <string name="title_pro_pending">Kauf ausstehend</string>
@@ -1002,6 +1002,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_search_special_flagged">markiert</string>
     <string name="title_search_special_snoozed">verborgen</string>
     <string name="title_search_special_encrypted">verschlüsselt</string>
+    <string name="title_search_special_attachments">Anhänge</string>
     <string name="title_widget_title_count">Anzahl neuer Nachrichten</string>
     <string name="title_widget_title_list">Nachrichtenliste</string>
     <string name="title_widget_account">Konto</string>

@@ -1002,6 +1002,7 @@
     <string name="title_search_special_flagged">suivis</string>
     <string name="title_search_special_snoozed">masqués</string>
     <string name="title_search_special_encrypted">chiffrés</string>
+    <string name="title_search_special_attachments">pièces jointes</string>
     <string name="title_widget_title_count">Nombre de nouveaux messages</string>
     <string name="title_widget_title_list">Liste des messages</string>
     <string name="title_widget_account">Compte</string>

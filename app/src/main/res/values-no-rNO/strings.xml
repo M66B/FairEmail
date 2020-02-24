@@ -1001,6 +1001,7 @@ Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anme
     <string name="title_search_special_flagged">stjernemerkede</string>
     <string name="title_search_special_snoozed">skjult</string>
     <string name="title_search_special_encrypted">kryptert</string>
+    <string name="title_search_special_attachments">vedlegg</string>
     <string name="title_widget_title_count">Ny melding teller</string>
     <string name="title_widget_title_list">Meldingsliste</string>
     <string name="title_widget_account">Konto</string>

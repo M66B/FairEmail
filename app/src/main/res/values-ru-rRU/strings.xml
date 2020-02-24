@@ -1024,6 +1024,7 @@
     <string name="title_search_special_flagged">избранное</string>
     <string name="title_search_special_snoozed">скрыто</string>
     <string name="title_search_special_encrypted">зашифровано</string>
+    <string name="title_search_special_attachments">вложения</string>
     <string name="title_widget_title_count">Количество новых сообщений</string>
     <string name="title_widget_title_list">Список сообщений</string>
     <string name="title_widget_account">Учётная запись</string>
