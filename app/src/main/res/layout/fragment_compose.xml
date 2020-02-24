@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         app:layout_behavior="eu.faircode.email.BehaviorBottomPadding">
 
-        <ScrollView
+        <eu.faircode.email.FixedScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintBottom_toTopOf="@+id/style_bar"
@@ -466,7 +466,7 @@
                     android:layout_height="0dp"
                     app:constraint_referenced_ids="ibCloseRefHint,tvReferenceHint" />
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </ScrollView>
+        </eu.faircode.email.FixedScrollView>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/style_bar"
