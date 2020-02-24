@@ -313,7 +313,7 @@ public class ServiceUI extends IntentService {
                 return;
 
             List<EntityMessage> messages = db.message().getMessagesByThread(
-                    message.account, message.thread, threading ? null : id, null);
+                    message.account, message.thread, threading ? null : id, message.folder);
             for (EntityMessage threaded : messages) {
                 EntityOperation.queue(this, threaded, EntityOperation.FLAG, true);
                 EntityOperation.queue(this, threaded, EntityOperation.SEEN, true);
