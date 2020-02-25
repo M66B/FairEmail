@@ -23,6 +23,7 @@ import android.app.ActivityManager;
 import android.app.NotificationManager;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Paint;
@@ -44,6 +45,7 @@ import androidx.appcompat.widget.SwitchCompat;
 import androidx.constraintlayout.widget.Group;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 
 import io.requery.android.database.sqlite.SQLiteDatabase;
@@ -65,6 +67,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private Button btnReset;
     private Button btnCleanup;
     private TextView tvLastCleanup;
+    private Button btnMore;
 
     private TextView tvProcessors;
     private TextView tvMemoryClass;
@@ -110,6 +113,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         btnReset = view.findViewById(R.id.btnReset);
         btnCleanup = view.findViewById(R.id.btnCleanup);
         tvLastCleanup = view.findViewById(R.id.tvLastCleanup);
+        btnMore = view.findViewById(R.id.btnMore);
 
         tvProcessors = view.findViewById(R.id.tvProcessors);
         tvMemoryClass = view.findViewById(R.id.tvMemoryClass);
@@ -251,6 +255,14 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onClick(View view) {
                 onCleanup();
+            }
+        });
+
+        btnMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_SETUP_MORE));
             }
         });
 
