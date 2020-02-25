@@ -611,11 +611,11 @@
     <string name="title_snooze">Отложить&#8230;</string>
     <string name="title_archive">Архив</string>
     <string name="title_reply">Ответить</string>
-    <string name="title_reply_to_sender">Отправителю</string>
-    <string name="title_reply_to_all">Всем</string>
-    <string name="title_reply_list">Список</string>
-    <string name="title_reply_receipt">Уведомление о прочтении</string>
-    <string name="title_reply_template">Шаблон</string>
+    <string name="title_reply_to_sender">Ответить отправителю</string>
+    <string name="title_reply_to_all">Ответить всем</string>
+    <string name="title_reply_list">Ответить в рассылку</string>
+    <string name="title_reply_receipt">Отправить квитанцию о прочтении</string>
+    <string name="title_reply_template">Ответить с шаблоном</string>
     <string name="title_moving">Переместить в %1$s</string>
     <string name="title_open_with">Открыть с помощью</string>
     <string name="title_authentication_failed">Ошибка аутентификации %1$s</string>

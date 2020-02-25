@@ -586,11 +586,6 @@
     <string name="title_snooze">Torkuta &#8230;</string>
     <string name="title_archive">Arkistoi</string>
     <string name="title_reply">Vastaa</string>
-    <string name="title_reply_to_sender">Lähettäjä</string>
-    <string name="title_reply_to_all">Kaikki</string>
-    <string name="title_reply_list">Lista</string>
-    <string name="title_reply_receipt">Vastaanottokuittaus</string>
-    <string name="title_reply_template">Viestipohja</string>
     <string name="title_moving">Siirretään kansioon %1$s</string>
     <string name="title_open_with">Avaa sovelluksessa</string>
     <string name="title_authentication_failed">%1$s tunnistautuminen epäonnistui</string>

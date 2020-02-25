@@ -513,11 +513,6 @@
     <string name="title_snooze">Одложи &#8230;</string>
     <string name="title_archive">Архива</string>
     <string name="title_reply">Одговори</string>
-    <string name="title_reply_to_sender">Пошиљаоцу</string>
-    <string name="title_reply_to_all">Свима</string>
-    <string name="title_reply_list">Листи</string>
-    <string name="title_reply_receipt">Потврда пријема</string>
-    <string name="title_reply_template">Шаблон</string>
     <string name="title_moving">Премештам у %1$s</string>
     <string name="title_open_with">Отворите помоћу</string>
     <string name="title_authentication_failed">%1$s неуспела провера идентитета</string>

@@ -589,11 +589,6 @@
     <string name="title_snooze">Posponer &#8230;</string>
     <string name="title_archive">Archivar</string>
     <string name="title_reply">Responder</string>
-    <string name="title_reply_to_sender">Remitente</string>
-    <string name="title_reply_to_all">Todos</string>
-    <string name="title_reply_list">Lista</string>
-    <string name="title_reply_receipt">Confirmación de lectura</string>
-    <string name="title_reply_template">Plantilla</string>
     <string name="title_moving">Moviendo a %1$s</string>
     <string name="title_open_with">Abrir con</string>
     <string name="title_authentication_failed">Fallo en autenticación %1$s</string>

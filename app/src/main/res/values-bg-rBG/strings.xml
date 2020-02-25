@@ -588,11 +588,6 @@
     <string name="title_snooze">Дрямка &#8230;</string>
     <string name="title_archive">Архив</string>
     <string name="title_reply">Отговори</string>
-    <string name="title_reply_to_sender">Подател</string>
-    <string name="title_reply_to_all">Всички</string>
-    <string name="title_reply_list">Списък</string>
-    <string name="title_reply_receipt">Разписка за прочетено</string>
-    <string name="title_reply_template">Шаблон</string>
     <string name="title_moving">Премести в %1$s</string>
     <string name="title_open_with">Отвори с</string>
     <string name="title_authentication_failed">%1$s неуспешна идентификация</string>

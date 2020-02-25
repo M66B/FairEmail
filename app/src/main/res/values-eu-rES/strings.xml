@@ -587,11 +587,6 @@
     <string name="title_snooze">Atzeratu &#8230;</string>
     <string name="title_archive">Artxiboa</string>
     <string name="title_reply">Erantzun</string>
-    <string name="title_reply_to_sender">Igorlea</string>
-    <string name="title_reply_to_all">Denak</string>
-    <string name="title_reply_list">Zerrenda</string>
-    <string name="title_reply_receipt">Irakuragiria</string>
-    <string name="title_reply_template">Txantiloia</string>
     <string name="title_moving">%1$s helburura mugitzen</string>
     <string name="title_open_with">Ireki honekin</string>
     <string name="title_authentication_failed">%1$s autentifikazioak huts egin du</string>

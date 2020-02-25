@@ -588,11 +588,6 @@
     <string name="title_snooze">Udsæt &#8230;</string>
     <string name="title_archive">Arkivér</string>
     <string name="title_reply">Besvar</string>
-    <string name="title_reply_to_sender">Afsender</string>
-    <string name="title_reply_to_all">Alle</string>
-    <string name="title_reply_list">Oversigt</string>
-    <string name="title_reply_receipt">Læsningskvittering</string>
-    <string name="title_reply_template">Skabelon</string>
     <string name="title_moving">Flytter til %1$s</string>
     <string name="title_open_with">Åbn med</string>
     <string name="title_authentication_failed">%1$s godkendelse mislykkedes</string>

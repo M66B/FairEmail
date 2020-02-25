@@ -588,11 +588,6 @@
     <string name="title_snooze">Posticipa &#8230;</string>
     <string name="title_archive">Archivio</string>
     <string name="title_reply">Rispondi</string>
-    <string name="title_reply_to_sender">Mittente</string>
-    <string name="title_reply_to_all">Tutti</string>
-    <string name="title_reply_list">Elenco</string>
-    <string name="title_reply_receipt">Conferma di lettura</string>
-    <string name="title_reply_template">Modello</string>
     <string name="title_moving">Spostamento in %1$s</string>
     <string name="title_open_with">Apri con</string>
     <string name="title_authentication_failed">%1$s autenticazione fallita</string>

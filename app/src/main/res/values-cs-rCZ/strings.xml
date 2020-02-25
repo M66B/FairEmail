@@ -609,11 +609,6 @@
     <string name="title_snooze">Odložit &#8230;</string>
     <string name="title_archive">Archiv</string>
     <string name="title_reply">Odpovědět</string>
-    <string name="title_reply_to_sender">Odesílatel</string>
-    <string name="title_reply_to_all">Všichni</string>
-    <string name="title_reply_list">Seznam</string>
-    <string name="title_reply_receipt">Potvrzení o přečtení</string>
-    <string name="title_reply_template">Šablona</string>
     <string name="title_moving">Přesouvám do %1$s</string>
     <string name="title_open_with">Otevřít v aplikaci</string>
     <string name="title_authentication_failed">%1$s ověření se nezdařilo</string>

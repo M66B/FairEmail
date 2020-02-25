@@ -610,11 +610,6 @@
     <string name="title_snooze">Odłóż &#8230;</string>
     <string name="title_archive">Archiwum</string>
     <string name="title_reply">Odpowiedz</string>
-    <string name="title_reply_to_sender">Nadawca</string>
-    <string name="title_reply_to_all">Wszyscy</string>
-    <string name="title_reply_list">Lista</string>
-    <string name="title_reply_receipt">Potwierdzenie</string>
-    <string name="title_reply_template">Szablon</string>
     <string name="title_moving">Przenoszę do %1$s</string>
     <string name="title_open_with">Otwórz z</string>
     <string name="title_authentication_failed">%1$s uwierzytelnianie nie powiodło się</string>

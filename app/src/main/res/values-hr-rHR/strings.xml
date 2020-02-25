@@ -597,11 +597,6 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_snooze">Utišaj &#8230;</string>
     <string name="title_archive">Arhiva</string>
     <string name="title_reply">Odgovor</string>
-    <string name="title_reply_to_sender">Pošiljatelj</string>
-    <string name="title_reply_to_all">Sve</string>
-    <string name="title_reply_list">Popis</string>
-    <string name="title_reply_receipt">Potvrda o Čitanju</string>
-    <string name="title_reply_template">Predložak</string>
     <string name="title_moving">Premjesti u %1$s</string>
     <string name="title_open_with">Otvori sa</string>
     <string name="title_authentication_failed">%1$s provjera autentičnosti nije uspjela</string>

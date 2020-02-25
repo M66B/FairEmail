@@ -506,11 +506,6 @@
     <string name="title_snooze">Posposa &#8230;</string>
     <string name="title_archive">Arxivar</string>
     <string name="title_reply">Respon</string>
-    <string name="title_reply_to_sender">Remitent</string>
-    <string name="title_reply_to_all">Tots</string>
-    <string name="title_reply_list">Llista</string>
-    <string name="title_reply_receipt">Llegir informes</string>
-    <string name="title_reply_template">Plantilla</string>
     <string name="title_moving">Movent a %1$s</string>
     <string name="title_open_with">Obre amb</string>
     <string name="title_authentication_failed">%1$s autenticació ha fallat</string>

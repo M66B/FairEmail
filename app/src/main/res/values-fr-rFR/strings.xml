@@ -591,9 +591,9 @@
     <string name="title_reply">Répondre</string>
     <string name="title_reply_to_sender">Répondre à l\'expéditeur</string>
     <string name="title_reply_to_all">Répondre à tous</string>
-    <string name="title_reply_list">Liste</string>
-    <string name="title_reply_receipt">Accusé de réception</string>
-    <string name="title_reply_template">Modèle</string>
+    <string name="title_reply_list">Répondre à la liste</string>
+    <string name="title_reply_receipt">Envoyer une confirmation de lecture</string>
+    <string name="title_reply_template">Répondre avec un modèle</string>
     <string name="title_moving">Déplacement vers %1$s</string>
     <string name="title_open_with">Ouvrir avec</string>
     <string name="title_authentication_failed">L\'authentification %1$s a échoué</string>

@@ -567,11 +567,6 @@
     <string name="title_snooze">Adiar &#8230;</string>
     <string name="title_archive">Arquivar</string>
     <string name="title_reply">Responder</string>
-    <string name="title_reply_to_sender">Remetente</string>
-    <string name="title_reply_to_all">Todos</string>
-    <string name="title_reply_list">Lista</string>
-    <string name="title_reply_receipt">Confirmação de leitura</string>
-    <string name="title_reply_template">Modelo</string>
     <string name="title_moving">Movendo para %1$s</string>
     <string name="title_open_with">Abrir com</string>
     <string name="title_authentication_failed">%1$s a autenticação falhou</string>

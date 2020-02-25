@@ -548,11 +548,6 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_move_to_account">Áthelyezés ide: %1$s &#8230;</string>
     <string name="title_archive">Archiválás</string>
     <string name="title_reply">Válasz</string>
-    <string name="title_reply_to_sender">Feladó</string>
-    <string name="title_reply_to_all">Összes</string>
-    <string name="title_reply_list">Lista</string>
-    <string name="title_reply_receipt">Olvasási visszajelzés</string>
-    <string name="title_reply_template">Sablon</string>
     <string name="title_moving">Áthelyezés folyamatban ide: %1$s</string>
     <string name="title_open_with">Megnyitás a következővel</string>
     <string name="title_authentication_failed">%1$s azonosítás sikertelen</string>

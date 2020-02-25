@@ -589,11 +589,6 @@
     <string name="title_snooze">Ertele &#8230;</string>
     <string name="title_archive">Arşivle</string>
     <string name="title_reply">Yanıtla</string>
-    <string name="title_reply_to_sender">Gönderici</string>
-    <string name="title_reply_to_all">Hepsi</string>
-    <string name="title_reply_list">Liste</string>
-    <string name="title_reply_receipt">Okundu bilgisi</string>
-    <string name="title_reply_template">Kalıp</string>
     <string name="title_moving">%1$s\'e taşınıyor</string>
     <string name="title_open_with">Birlikte aç</string>
     <string name="title_authentication_failed">%1$s kimlik doğrulama başarısız</string>

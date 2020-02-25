@@ -574,11 +574,6 @@
     <string name="title_snooze">スヌーズ &#8230;</string>
     <string name="title_archive">アーカイブ</string>
     <string name="title_reply">返信</string>
-    <string name="title_reply_to_sender">送信者</string>
-    <string name="title_reply_to_all">すべて</string>
-    <string name="title_reply_list">リスト</string>
-    <string name="title_reply_receipt">受取を読む</string>
-    <string name="title_reply_template">テンプレート</string>
     <string name="title_moving">%1$s に移動</string>
     <string name="title_open_with">開く</string>
     <string name="title_authentication_failed">%1$sの認証に失敗しました</string>

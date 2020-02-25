@@ -300,8 +300,6 @@
     <string name="title_move">نقل</string>
     <string name="title_archive">أرشيف</string>
     <string name="title_reply">رد</string>
-    <string name="title_reply_to_sender">المُرسِل</string>
-    <string name="title_reply_to_all">الكل</string>
     <string name="title_moving">جارٍ النقل إلى %1$s</string>
     <string name="title_open_with">افتح باستخدام</string>
     <string name="title_no_viewer">لا يوجد عارض التطبيق متاح ل %1$s</string>

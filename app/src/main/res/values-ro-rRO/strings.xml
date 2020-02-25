@@ -589,11 +589,6 @@
     <string name="title_snooze">Amână &#8230;</string>
     <string name="title_archive">Arhivă</string>
     <string name="title_reply">Răspunde</string>
-    <string name="title_reply_to_sender">Expeditor</string>
-    <string name="title_reply_to_all">Toate</string>
-    <string name="title_reply_list">Listă</string>
-    <string name="title_reply_receipt">Confirmare de citire</string>
-    <string name="title_reply_template">Șablon</string>
     <string name="title_moving">Mutare în %1$s</string>
     <string name="title_open_with">Deschide cu</string>
     <string name="title_authentication_failed">Autentificare %1$s eșuată</string>

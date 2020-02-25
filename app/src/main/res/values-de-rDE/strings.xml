@@ -589,11 +589,11 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_snooze">Zurückstellen &#8230;</string>
     <string name="title_archive">Archivieren</string>
     <string name="title_reply">Antworten</string>
-    <string name="title_reply_to_sender">Absender</string>
-    <string name="title_reply_to_all">Allen</string>
-    <string name="title_reply_list">Liste</string>
-    <string name="title_reply_receipt">Lesebestätigung</string>
-    <string name="title_reply_template">Vorlage</string>
+    <string name="title_reply_to_sender">Nur an den Absender antworten</string>
+    <string name="title_reply_to_all">Allen antworten</string>
+    <string name="title_reply_list">An Liste antworten</string>
+    <string name="title_reply_receipt">Lesebestätigung senden</string>
+    <string name="title_reply_template">Mit Vorlage antworten</string>
     <string name="title_moving">Verschiebe nach %1$s</string>
     <string name="title_open_with">Öffnen mit</string>
     <string name="title_authentication_failed">%1$s Authentifizierung fehlgeschlagen</string>
