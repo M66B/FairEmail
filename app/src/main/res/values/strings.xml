@@ -676,11 +676,11 @@
     <string name="title_snooze">Snooze &#8230;</string>
     <string name="title_archive">Archive</string>
     <string name="title_reply">Reply</string>
-    <string name="title_reply_to_sender">Sender</string>
-    <string name="title_reply_to_all">All</string>
-    <string name="title_reply_list">List</string>
-    <string name="title_reply_receipt">Read receipt</string>
-    <string name="title_reply_template">Template</string>
+    <string name="title_reply_to_sender">Reply to sender</string>
+    <string name="title_reply_to_all">Reply to all</string>
+    <string name="title_reply_list">Reply to list</string>
+    <string name="title_reply_receipt">Send read receipt</string>
+    <string name="title_reply_template">Reply with template</string>
     <string name="title_moving">Moving to %1$s</string>
     <string name="title_open_with">Open with</string>
     <string name="title_authentication_failed">%1$s authentication failed</string>
