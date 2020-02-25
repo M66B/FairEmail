@@ -78,6 +78,10 @@ public class EntityFolder extends EntityOrder implements Serializable {
     @NonNull
     public Boolean poll = false;
     @NonNull
+    public Integer poll_factor = 1;
+    @NonNull
+    public Integer poll_count = 0;
+    @NonNull
     public Boolean download = true;
     public Boolean subscribed;
     @NonNull

@@ -265,6 +265,7 @@ public interface DaoFolder {
             ", hide = :hide" +
             ", synchronize = :synchronize" +
             ", poll = :poll" +
+            ", poll_factor = :poll_factor" +
             ", download = :download" +
             ", `sync_days` = :sync_days" +
             ", `keep_days` = :keep_days" +
@@ -273,7 +274,7 @@ public interface DaoFolder {
     int setFolderProperties(
             long id, String rename,
             String display, Integer color, boolean unified, boolean navigation, boolean notify, boolean hide,
-            boolean synchronize, boolean poll, boolean download,
+            boolean synchronize, boolean poll, int poll_factor, boolean download,
             int sync_days, int keep_days, boolean auto_delete);
 
     @Query("UPDATE folder" +
@@ -314,6 +315,9 @@ public interface DaoFolder {
 
     @Query("UPDATE folder SET tbd = 1 WHERE id = :id")
     int setFolderTbd(long id);
+
+    @Query("UPDATE folder SET poll_count = :count WHERE id = :id")
+    int setFolderPollCount(long id, int count);
 
     @Query("DELETE FROM folder WHERE id = :id")
     void deleteFolder(long id);

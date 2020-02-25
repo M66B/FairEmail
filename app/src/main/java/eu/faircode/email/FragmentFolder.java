@@ -64,6 +64,8 @@ public class FragmentFolder extends FragmentBase {
     private CheckBox cbNotify;
     private CheckBox cbSynchronize;
     private CheckBox cbPoll;
+    private EditText etPoll;
+    private TextView tvPoll;
     private CheckBox cbDownload;
     private Button btnInfo;
     private EditText etSyncDays;
@@ -74,6 +76,7 @@ public class FragmentFolder extends FragmentBase {
     private ContentLoadingProgressBar pbSave;
     private ContentLoadingProgressBar pbWait;
     private Group grpParent;
+    private Group grpPoll;
 
     private long id = -1;
     private long account = -1;
@@ -116,6 +119,8 @@ public class FragmentFolder extends FragmentBase {
         cbNotify = view.findViewById(R.id.cbNotify);
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         cbPoll = view.findViewById(R.id.cbPoll);
+        etPoll = view.findViewById(R.id.etPoll);
+        tvPoll = view.findViewById(R.id.tvPoll);
         cbDownload = view.findViewById(R.id.cbDownload);
         btnInfo = view.findViewById(R.id.btnInfo);
         etSyncDays = view.findViewById(R.id.etSyncDays);
@@ -126,6 +131,7 @@ public class FragmentFolder extends FragmentBase {
         pbSave = view.findViewById(R.id.pbSave);
         pbWait = view.findViewById(R.id.pbWait);
         grpParent = view.findViewById(R.id.grpParent);
+        grpPoll = view.findViewById(R.id.grpPoll);
 
         btnColor.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -146,7 +152,16 @@ public class FragmentFolder extends FragmentBase {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 cbPoll.setEnabled(isChecked);
+                etPoll.setEnabled(isChecked);
+                tvPoll.setEnabled(isChecked);
                 cbDownload.setEnabled(isChecked);
+            }
+        });
+
+        cbPoll.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                grpPoll.setVisibility(isChecked ? View.VISIBLE : View.GONE);
             }
         });
 
@@ -208,12 +223,23 @@ public class FragmentFolder extends FragmentBase {
             @Override
             protected EntityFolder onExecute(Context context, Bundle args) {
                 long id = args.getLong("id");
-                return DB.getInstance(context).folder().getFolder(id);
+
+                DB db = DB.getInstance(context);
+                EntityFolder folder = db.folder().getFolder(id);
+
+                if (folder != null) {
+                    EntityAccount account = db.account().getAccount(folder.account);
+                    if (account != null)
+                        args.putInt("interval", account.poll_interval);
+                }
+
+                return folder;
             }
 
             @Override
             protected void onExecuted(Bundle args, EntityFolder folder) {
                 if (savedInstanceState == null) {
+                    int interval = args.getInt("interval", EntityAccount.DEFAULT_KEEP_ALIVE_INTERVAL);
                     etName.setText(folder == null ? null : folder.name);
                     etDisplay.setText(folder == null ? null : folder.display);
                     etDisplay.setHint(folder == null ? null : Helper.localizeFolderName(getContext(), folder.name));
@@ -224,6 +250,10 @@ public class FragmentFolder extends FragmentBase {
                     cbNotify.setChecked(folder == null ? false : folder.notify);
                     cbSynchronize.setChecked(folder == null || folder.synchronize);
                     cbPoll.setChecked(folder == null ? false : folder.poll);
+                    etPoll.setText(folder == null ? null : Integer.toString(folder.poll_factor));
+                    etPoll.setHint(Integer.toString(EntityAccount.DEFAULT_POLL_INTERVAL));
+                    tvPoll.setText(getString(R.string.title_factor_minutes, interval));
+                    grpPoll.setVisibility(cbPoll.isChecked() ? View.VISIBLE : View.GONE);
                     cbDownload.setChecked(folder == null ? true : folder.download);
                     etSyncDays.setText(Integer.toString(folder == null ? EntityFolder.DEFAULT_SYNC : folder.sync_days));
                     if (folder != null && folder.keep_days == Integer.MAX_VALUE)
@@ -248,6 +278,8 @@ public class FragmentFolder extends FragmentBase {
 
                 etName.setEnabled(folder == null || EntityFolder.USER.equals(folder.type));
                 cbPoll.setEnabled(cbSynchronize.isChecked());
+                etPoll.setEnabled(cbSynchronize.isChecked());
+                tvPoll.setEnabled(cbSynchronize.isChecked());
                 cbDownload.setEnabled(cbSynchronize.isChecked());
                 etKeepDays.setEnabled(!cbKeepAll.isChecked());
                 cbAutoDelete.setEnabled(!cbKeepAll.isChecked());
@@ -349,6 +381,7 @@ public class FragmentFolder extends FragmentBase {
         args.putBoolean("notify", cbNotify.isChecked());
         args.putBoolean("synchronize", cbSynchronize.isChecked());
         args.putBoolean("poll", cbPoll.isChecked());
+        args.putString("factor", etPoll.getText().toString());
         args.putBoolean("download", cbDownload.isChecked());
         args.putString("sync", etSyncDays.getText().toString());
         args.putString("keep", cbKeepAll.isChecked()
@@ -389,6 +422,7 @@ public class FragmentFolder extends FragmentBase {
                 boolean notify = args.getBoolean("notify");
                 boolean synchronize = args.getBoolean("synchronize");
                 boolean poll = args.getBoolean("poll");
+                String factor = args.getString("factor");
                 boolean download = args.getBoolean("download");
                 String sync = args.getString("sync");
                 String keep = args.getString("keep");
@@ -406,6 +440,9 @@ public class FragmentFolder extends FragmentBase {
                 int keep_days = (TextUtils.isEmpty(keep) ? EntityFolder.DEFAULT_KEEP : Integer.parseInt(keep));
                 if (keep_days < sync_days)
                     keep_days = sync_days;
+                int poll_factor = (TextUtils.isEmpty(factor) ? EntityAccount.DEFAULT_POLL_INTERVAL : Integer.parseInt(factor));
+                if (poll_factor < 1)
+                    poll_factor = 1;
 
                 boolean reload;
                 DB db = DB.getInstance(context);
@@ -435,6 +472,8 @@ public class FragmentFolder extends FragmentBase {
                         if (!Objects.equals(folder.synchronize, synchronize))
                             return true;
                         if (!Objects.equals(folder.poll, poll))
+                            return true;
+                        if (!Objects.equals(folder.poll_factor, poll_factor))
                             return true;
                         if (!Objects.equals(folder.download, download))
                             return true;
@@ -478,6 +517,7 @@ public class FragmentFolder extends FragmentBase {
                         create.hide = hide;
                         create.synchronize = synchronize;
                         create.poll = poll;
+                        create.poll_factor = poll_factor;
                         create.download = download;
                         create.sync_days = sync_days;
                         create.keep_days = keep_days;
@@ -498,7 +538,7 @@ public class FragmentFolder extends FragmentBase {
                         db.folder().setFolderProperties(id,
                                 folder.name.equals(name) ? null : name,
                                 display, color, unified, navigation, notify, hide,
-                                synchronize, poll, download,
+                                synchronize, poll, poll_factor, download,
                                 sync_days, keep_days, auto_delete);
                         db.folder().setFolderError(id, null);
 

@@ -99,6 +99,7 @@
     <string name="title_notification_alert">\'%1$s\' server alert</string>
 
     <string name="title_name_count">%1$s (%2$s)</string>
+    <string name="title_factor_minutes" translatable="false">X %1$d minutes</string>
 
     <string name="menu_exit">Exit</string>
     <string name="menu_answers">Templates</string>
