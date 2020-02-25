@@ -1,9 +1,0 @@
-#
-# This metadata allows com.sun.mail.util.logging.MailHandler to be
-# configured in the logging.properties file and used in GlassFish.
-# This file was created by hand to avoid a compile time dependency
-# on the HK2 annotations.
-#
-[com.sun.mail.util.logging.MailHandler]
-contract={java.util.logging.Handler}
-scope=javax.inject.Singleton
