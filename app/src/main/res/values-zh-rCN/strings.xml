@@ -988,6 +988,7 @@ FairEmail会显示一条消息来提醒您这一点，这条消息在您购买�
     <string name="title_search_special_flagged">星标</string>
     <string name="title_search_special_snoozed">隐藏</string>
     <string name="title_search_special_encrypted">已加密</string>
+    <string name="title_search_special_attachments">附件</string>
     <string name="title_widget_title_count">新消息计数</string>
     <string name="title_widget_title_list">消息列表</string>
     <string name="title_widget_account">账户</string>

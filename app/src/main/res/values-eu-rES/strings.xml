@@ -1000,6 +1000,7 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_search_special_flagged">izarduna</string>
     <string name="title_search_special_snoozed">ezkutuan</string>
     <string name="title_search_special_encrypted">zifratuta</string>
+    <string name="title_search_special_attachments">eranskinak</string>
     <string name="title_widget_title_count">Mezu berrien kopurua</string>
     <string name="title_widget_title_list">Mezuen zerrenda</string>
     <string name="title_widget_account">Kontua</string>

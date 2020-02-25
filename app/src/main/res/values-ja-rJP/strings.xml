@@ -985,6 +985,7 @@ FairEmailは、Pro機能購入の為に上部に小さなメッセージを表�
     <string name="title_search_special_flagged">スター付き</string>
     <string name="title_search_special_snoozed">非表示</string>
     <string name="title_search_special_encrypted">暗号化</string>
+    <string name="title_search_special_attachments">添付ファイル</string>
     <string name="title_widget_title_count">新しいメッセージ数</string>
     <string name="title_widget_title_list">メッセージリスト</string>
     <string name="title_widget_account">アカウント</string>

@@ -372,6 +372,7 @@
     <string name="title_advanced_fts_indexed">Indexováno %1$d / %2$d zpráv (%3$s)</string>
     <string name="title_advanced_english">Vynutit anglický jazyk</string>
     <string name="title_advanced_watchdog">Pravidelně kontrolovat, zda je FairEmail stále aktivní</string>
+    <string name="title_advanced_optimize">Automaticky optimalizovat nastavení</string>
     <string name="title_advanced_updates">Kontrolovat aktualizace</string>
     <string name="title_advanced_experiments">Vyzkoušet experimentální funkce</string>
     <string name="title_advanced_crash_reports">Odesílat zprávy o chybách</string>
@@ -497,6 +498,7 @@
     <string name="title_drafts_required">Složka konceptů je nutná pro odesílání zpráv</string>
     <string name="title_account_delete">Trvale smazat tento účet?</string>
     <string name="title_identity_delete">Trvale smazat tuto identitu?</string>
+    <string name="title_edit_html">Upravit jako HTML</string>
     <string name="title_sign_key">Podpisový klíč: %1$s</string>
     <string name="title_last_connected">Poslední připojení: %1$s</string>
     <string name="title_storage_quota">Využití úložiště serveru: %1$s/%2$s</string>
@@ -733,6 +735,7 @@
     <string name="title_no_openpgp">OpenKeychain nenalezena</string>
     <string name="title_user_interaction">Přenášení do OpenKeychain</string>
     <string name="title_not_encrypted">Zpráva není podepsána ani šifrována</string>
+    <string name="title_no_sign_key">Nebyl vybrán žádný podpisový klíč</string>
     <string name="title_reset_sign_key">Vynulovat podpisový klíč</string>
     <string name="title_signature_none">Zpráva není podepsána</string>
     <string name="title_signature_valid">Podpis zprávy je platný</string>
@@ -778,6 +781,9 @@
     <string name="title_force_sync">Vynutit synchronizaci</string>
     <string name="title_previous">Předchozí</string>
     <string name="title_next">Další</string>
+    <string name="title_edit_signature">Upravit podpis</string>
+    <string name="title_edit_signature_text">Text podpisu</string>
+    <string name="title_edit_signature_image">Vložit obrázek</string>
     <string name="title_answer_caption">Upravit šablonu</string>
     <string name="title_answer_reply">Šablona odpovědi</string>
     <string name="title_answer_name">Název šablony</string>
@@ -930,6 +936,7 @@
     <string name="title_hint_support">Máte-li dotaz nebo problém, použijte prosím menu podpory pro získání pomoci</string>
     <string name="title_hint_message_actions">Tažením doleva hodit do koše; Tažením doprava archivovat (je-li k dispozici); Akce tažením lze změnit v nastavení účtu</string>
     <string name="title_hint_message_selection">Dlouhým podržením zprávy zahájíte násobný výběr zpráv; Držte a táhněte nahoru či dolů pro výběr více zpráv</string>
+    <string name="title_hint_important">Důležité</string>
     <string name="title_hint_sync">Stažení zpráv může nějakou dobu trvat, v závislosti na rychlosti poskytovatele, internetového připojení a zařízení a na počtu zpráv. V průběhu stahování může aplikace reagovat pomaleji.</string>
     <string name="title_hint_contact_actions">Dlouze podržet pro možnosti</string>
     <string name="title_hint_eml">Toto je souhrn obsahu souboru zdrojové zprávy. Uložte zdrojovou zprávu pomocí ikony uložit v panelu akcí pro zobrazení celého obsahu.</string>
@@ -1012,6 +1019,7 @@
     <string name="title_search_special_flagged">hvězdička</string>
     <string name="title_search_special_snoozed">skryto</string>
     <string name="title_search_special_encrypted">šifrováno</string>
+    <string name="title_search_special_attachments">přílohy</string>
     <string name="title_widget_title_count">Počet nových zpráv</string>
     <string name="title_widget_title_list">Seznam zpráv</string>
     <string name="title_widget_account">Účet</string>

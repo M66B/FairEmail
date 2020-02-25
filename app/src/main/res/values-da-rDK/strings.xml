@@ -1000,6 +1000,7 @@
     <string name="title_search_special_flagged">stjernemarkeret</string>
     <string name="title_search_special_snoozed">skjult</string>
     <string name="title_search_special_encrypted">krypteret</string>
+    <string name="title_search_special_attachments">vedhæftninger</string>
     <string name="title_widget_title_count">Ny besked-tæller</string>
     <string name="title_widget_title_list">Beskedliste</string>
     <string name="title_widget_account">Konto</string>
