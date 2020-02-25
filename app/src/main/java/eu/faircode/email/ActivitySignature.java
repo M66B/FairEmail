@@ -46,7 +46,6 @@ import androidx.appcompat.app.AlertDialog;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 public class ActivitySignature extends ActivityBase {
@@ -287,7 +286,8 @@ public class ActivitySignature extends ActivityBase {
                 Log.i("Loading image source=" + uri);
                 InputStream inputStream = context.getContentResolver().openInputStream(uri);
                 d = Drawable.createFromStream(inputStream, uri.toString());
-            } catch (FileNotFoundException ex) {
+            } catch (Throwable ex) {
+                // FileNotFound, Security
                 Log.w(ex);
                 d = context.getResources().getDrawable(R.drawable.baseline_broken_image_24);
             }
