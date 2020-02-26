@@ -77,6 +77,7 @@
     <string name="title_notification_failed">\'%1$s\' mislykkedes</string>
     <string name="title_notification_alert">\'%1$s\'-serveradvarsel</string>
     <string name="title_name_count">%1$s (%2$s)</string>
+    <string name="title_factor_minutes">%1$d minutter</string>
     <string name="menu_exit">Afslut</string>
     <string name="menu_answers">Skabeloner</string>
     <string name="menu_operations">Operationer</string>
@@ -453,6 +454,7 @@
     <string name="title_primary_identity">Primær (standardidentitet)</string>
     <string name="title_leave_on_server">Lad beskeder forblive på server</string>
     <string name="title_leave_on_device">Lad beskeder forblive på enhed</string>
+    <string name="title_max_messages">Maks. antal beskeder at downloade (tomt for samtlige)</string>
     <string name="title_keep_alive_interval">Hold i live/hentningsinterval (minutter)</string>
     <string name="title_use_date">Benyt datooverskriftadsendelsestid i stedet for servermodtagelsestid</string>
     <string name="title_related_identity">Tilføj relateret identitet</string>
