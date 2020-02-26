@@ -1469,17 +1469,7 @@ so it is not worth a lot of effort to add support for this to FairEmail.
 <a name="faq57"></a>
 **(57) Can I use HTML in signatures?**
 
-Yes, you can use HTML in signatures if you paste HTML formatted text into the signature field or use the *Edit as HTML* button.
-
-You can for example paste this into the signature field:
-
-This is *italic*, this is *bold* and this is [a link](https://example.org).
-
-To add an image to a signature you can use an HTML fragment similar to this:
-
-```
-<img src="https://www.faircode.eu/FairCode.png" />
-```
+Yes, you can use HTML in signatures if you paste formatted text into the signature field or use the *Edit as HTML* menu to enter HTML manually.
 
 Note that including links and images in messages will increase the likelihood that a message will be seen as spam,
 especially when you send a message to someone for the first time.
