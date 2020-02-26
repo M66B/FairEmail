@@ -103,6 +103,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
     public Boolean leave_on_server = true;
     @NonNull
     public Boolean leave_on_device = false;
+    public Integer max_messages; // POP3
     @NonNull
     public Boolean auto_seen = true;
     public Character separator;

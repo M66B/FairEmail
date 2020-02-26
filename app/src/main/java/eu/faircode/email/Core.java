@@ -1462,10 +1462,14 @@ class Core {
             List<String> existing = db.message().getMsgIds(folder.id);
             Log.i(folder.name + " POP existing=" + existing.size());
 
+            int count = 0;
             for (Message imessage : imessages)
                 try {
                     if (!state.isRunning())
                         return;
+
+                    if (account.max_messages != null && ++count > account.max_messages)
+                        break;
 
                     MessageHelper helper = new MessageHelper((MimeMessage) imessage);
 
@@ -1609,7 +1613,6 @@ class Core {
 
                     if (message.received > account.created)
                         updateContactInfo(context, folder, message);
-
                 } catch (Throwable ex) {
                     db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
                 } finally {

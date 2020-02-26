@@ -40,6 +40,9 @@ public class TupleAccountState extends EntityAccount {
                     Objects.equals(this.realm, other.realm) &&
                     Objects.equals(this.fingerprint, other.fingerprint) &&
                     this.notify.equals(other.notify) &&
+                    this.leave_on_server == other.leave_on_server &&
+                    this.leave_on_device == other.leave_on_device &&
+                    Objects.equals(this.max_messages, other.max_messages) &&
                     this.poll_interval.equals(other.poll_interval) &&
                     this.partial_fetch.equals(other.partial_fetch) &&
                     this.ignore_size.equals(other.ignore_size) &&

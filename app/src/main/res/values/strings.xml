@@ -532,6 +532,7 @@
     <string name="title_primary_identity">Primary (default identity)</string>
     <string name="title_leave_on_server">Leave messages on server</string>
     <string name="title_leave_on_device">Leave messages on device</string>
+    <string name="title_max_messages">Maximum number of messages to download (blank for all)</string>
     <string name="title_keep_alive_interval">Keep-alive/poll interval (minutes)</string>
     <string name="title_partial_fetch" translatable="false">Partial fetch</string>
     <string name="title_ignore_size" translatable="false">Ignore bodystructure size</string>
