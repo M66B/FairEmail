@@ -58,7 +58,7 @@ public interface DaoContact {
             " AND email = :email COLLATE NOCASE")
     EntityContact getContact(long account, int type, String email);
 
-    @Query("SELECT id AS _id, name, email, name || ' *' AS display" +
+    @Query("SELECT id AS _id, name, email, NULL AS photo, 1 AS local" +
             " FROM contact" +
             " WHERE (:account IS NULL OR account = :account)" +
             " AND (:type IS NULL OR type = :type)" +

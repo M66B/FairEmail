@@ -26,12 +26,12 @@ public class AdapterIdentitySelect extends ArrayAdapter<TupleIdentityEx> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        return getLayout(position, convertView, parent, R.layout.spinner_item2);
+        return getLayout(position, convertView, parent, R.layout.spinner_identity);
     }
 
     @Override
     public View getDropDownView(int position, View convertView, @NonNull ViewGroup parent) {
-        return getLayout(position, convertView, parent, R.layout.spinner_item2_dropdown);
+        return getLayout(position, convertView, parent, R.layout.spinner_identity_dropdown);
     }
 
     private View getLayout(int position, View convertView, ViewGroup parent, int resid) {

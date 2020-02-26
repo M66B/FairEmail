@@ -81,6 +81,7 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.FilterQueryProvider;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.MultiAutoCompleteTextView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -670,11 +671,31 @@ public class FragmentCompose extends FragmentBase {
 
         SimpleCursorAdapter cadapter = new SimpleCursorAdapter(
                 getContext(),
-                R.layout.spinner_item2_dropdown,
+                R.layout.spinner_contact,
                 null,
-                new String[]{"display", "email"},
-                new int[]{android.R.id.text1, android.R.id.text2},
+                new String[]{"name", "email", "photo"},
+                new int[]{R.id.tvName, R.id.tvEmail, R.id.ivPhoto},
                 0);
+
+        cadapter.setViewBinder(new SimpleCursorAdapter.ViewBinder() {
+            @Override
+            public boolean setViewValue(View view, Cursor cursor, int columnIndex) {
+                if (view.getId() == R.id.ivPhoto) {
+                    ImageView photo = (ImageView) view;
+                    if (cursor.getInt(cursor.getColumnIndex("local")) == 1)
+                        photo.setImageDrawable(null);
+                    else {
+                        String uri = cursor.getString(columnIndex);
+                        if (uri == null)
+                            photo.setImageResource(R.drawable.baseline_person_24);
+                        else
+                            photo.setImageURI(Uri.parse(uri));
+                    }
+                    return true;
+                }
+                return false;
+            }
+        });
 
         cadapter.setCursorToStringConverter(new SimpleCursorAdapter.CursorToStringConverter() {
             public CharSequence convertToString(Cursor cursor) {
@@ -705,7 +726,7 @@ public class FragmentCompose extends FragmentBase {
                 String wildcard = "%" + typed + "%";
                 List<Cursor> cursors = new ArrayList<>();
 
-                MatrixCursor provided = new MatrixCursor(new String[]{"_id", "name", "email", "display"});
+                MatrixCursor provided = new MatrixCursor(new String[]{"_id", "name", "email", "photo", "local"});
                 boolean contacts = Helper.hasPermission(getContext(), Manifest.permission.READ_CONTACTS);
                 if (contacts) {
                     Cursor cursor = resolver.query(
@@ -713,7 +734,8 @@ public class FragmentCompose extends FragmentBase {
                             new String[]{
                                     ContactsContract.CommonDataKinds.Email.CONTACT_ID,
                                     ContactsContract.Contacts.DISPLAY_NAME,
-                                    ContactsContract.CommonDataKinds.Email.DATA
+                                    ContactsContract.CommonDataKinds.Email.DATA,
+                                    ContactsContract.Contacts.PHOTO_THUMBNAIL_URI
                             },
                             ContactsContract.CommonDataKinds.Email.DATA + " <> ''" +
                                     " AND (" + ContactsContract.Contacts.DISPLAY_NAME + " LIKE ?" +
@@ -725,10 +747,11 @@ public class FragmentCompose extends FragmentBase {
 
                     while (cursor != null && cursor.moveToNext())
                         provided.newRow()
-                                .add(cursor.getLong(0))
-                                .add(cursor.getString(1))
-                                .add(cursor.getString(2))
-                                .add(cursor.getString(1));
+                                .add(cursor.getLong(0)) // id
+                                .add(cursor.getString(1)) // name
+                                .add(cursor.getString(2)) // email
+                                .add(cursor.getString(3)) // photo
+                                .add(0); // local
                 }
                 cursors.add(provided);
 
