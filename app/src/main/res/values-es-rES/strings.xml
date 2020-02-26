@@ -455,6 +455,7 @@
     <string name="title_primary_identity">Primaria (identidad predeterminada)</string>
     <string name="title_leave_on_server">Dejar mensajes en el servidor</string>
     <string name="title_leave_on_device">Dejar mensajes en el dispositivo</string>
+    <string name="title_max_messages">Número máximo de mensajes a descargar (en blanco para descargar todos)</string>
     <string name="title_keep_alive_interval">Intervalo de comprobación (minutos)</string>
     <string name="title_use_date">Usar fecha y hora de envío del encabezado en lugar de la hora de recibido del servidor</string>
     <string name="title_related_identity">Añadir identidad relacionada</string>
