@@ -42,6 +42,7 @@ import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
@@ -669,6 +670,13 @@ public class FragmentCompose extends FragmentBase {
 
         final DB db = DB.getInstance(getContext());
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        final boolean suggest_sent = prefs.getBoolean("suggest_sent", true);
+        final boolean suggest_received = prefs.getBoolean("suggest_received", false);
+        final boolean cc_bcc = prefs.getBoolean("cc_bcc", false);
+        final boolean circular = prefs.getBoolean("circular", true);
+        final float dp3 = Helper.dp2pixels(getContext(), 3);
+
         SimpleCursorAdapter cadapter = new SimpleCursorAdapter(
                 getContext(),
                 R.layout.spinner_contact,
@@ -682,6 +690,15 @@ public class FragmentCompose extends FragmentBase {
             public boolean setViewValue(View view, Cursor cursor, int columnIndex) {
                 if (view.getId() == R.id.ivPhoto) {
                     ImageView photo = (ImageView) view;
+
+                    GradientDrawable bg = new GradientDrawable();
+                    if (circular)
+                        bg.setShape(GradientDrawable.OVAL);
+                    else
+                        bg.setCornerRadius(dp3);
+                    photo.setBackground(bg);
+                    photo.setClipToOutline(true);
+
                     if (cursor.getInt(cursor.getColumnIndex("local")) == 1)
                         photo.setImageDrawable(null);
                     else {
@@ -713,11 +730,6 @@ public class FragmentCompose extends FragmentBase {
                 return sb.toString();
             }
         });
-
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        boolean suggest_sent = prefs.getBoolean("suggest_sent", true);
-        boolean suggest_received = prefs.getBoolean("suggest_received", false);
-        boolean cc_bcc = prefs.getBoolean("cc_bcc", false);
 
         cadapter.setFilterQueryProvider(new FilterQueryProvider() {
             public Cursor runQuery(CharSequence typed) {
