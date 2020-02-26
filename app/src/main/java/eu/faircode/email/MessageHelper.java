@@ -1712,10 +1712,13 @@ public class MessageHelper {
                         contentType = new ContentType(Helper.guessMimeType(filename));
                 }
 
-                if (!Part.ATTACHMENT.equalsIgnoreCase(disposition) && TextUtils.isEmpty(filename)) {
-                    if ("text/plain".equalsIgnoreCase(contentType.getBaseType()))
+                boolean plain = "text/plain".equalsIgnoreCase(contentType.getBaseType());
+                boolean html = "text/html".equalsIgnoreCase(contentType.getBaseType());
+                if ((plain || html) &&
+                        !Part.ATTACHMENT.equalsIgnoreCase(disposition) && TextUtils.isEmpty(filename)) {
+                    if (plain)
                         parts.plain.add(part);
-                    else if ("text/html".equalsIgnoreCase(contentType.getBaseType()))
+                    else if (html)
                         parts.html.add(part);
                 } else {
                     AttachmentPart apart = new AttachmentPart();
