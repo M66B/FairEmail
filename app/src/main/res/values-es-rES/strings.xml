@@ -77,6 +77,7 @@
     <string name="title_notification_failed">\'%1$s\' falló</string>
     <string name="title_notification_alert">Alerta del servidor \'%1$s\'</string>
     <string name="title_name_count">%1$s (%2$s)</string>
+    <string name="title_factor_minutes">%1$d minutos</string>
     <string name="menu_exit">Salir</string>
     <string name="menu_answers">Plantillas</string>
     <string name="menu_operations">Operaciones</string>
@@ -357,6 +358,7 @@
     <string name="title_advanced_crash_reports">Enviar informes de errores</string>
     <string name="title_advanced_debug">Modo de depuración</string>
     <string name="title_advanced_cleanup">Limpieza</string>
+    <string name="title_advanced_more">Más opciones</string>
     <string name="title_advanced_last_cleanup">Última limpieza: %1$s</string>
     <string name="title_advanced_enabled_hint">Desactivar o activar globalmente la recepción de mensajes</string>
     <string name="title_advanced_manual_hint">Si la sincronización está desactivasa, todavía es posible sincronizar manualmente tirando hacía bajando la lista de mensajes.</string>
@@ -589,6 +591,11 @@
     <string name="title_snooze">Posponer &#8230;</string>
     <string name="title_archive">Archivar</string>
     <string name="title_reply">Responder</string>
+    <string name="title_reply_to_sender">Responder al remitente</string>
+    <string name="title_reply_to_all">Responder a todos</string>
+    <string name="title_reply_list">Responder a la lista</string>
+    <string name="title_reply_receipt">Enviar confirmación de lectura</string>
+    <string name="title_reply_template">Responder con plantilla</string>
     <string name="title_moving">Moviendo a %1$s</string>
     <string name="title_open_with">Abrir con</string>
     <string name="title_authentication_failed">Fallo en autenticación %1$s</string>
@@ -997,6 +1004,7 @@
     <string name="title_search_special_flagged">destacado</string>
     <string name="title_search_special_snoozed">oculto</string>
     <string name="title_search_special_encrypted">cifrado</string>
+    <string name="title_search_special_attachments">adjuntos</string>
     <string name="title_widget_title_count">Recuento de mensajes</string>
     <string name="title_widget_title_list">Lista de mensajes</string>
     <string name="title_widget_account">Cuenta</string>

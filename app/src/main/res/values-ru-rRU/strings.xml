@@ -379,6 +379,7 @@
     <string name="title_advanced_crash_reports">Отправлять отчёты об ошибках</string>
     <string name="title_advanced_debug">Режим отладки</string>
     <string name="title_advanced_cleanup">Очистка</string>
+    <string name="title_advanced_more">Другие возможности</string>
     <string name="title_advanced_last_cleanup">Последняя очистка: %1$s</string>
     <string name="title_advanced_enabled_hint">Глобальное включение/отключение получения сообщений</string>
     <string name="title_advanced_manual_hint">Если синхронизация отключена, она может быть произведена вручную, потянув вниз список сообщений.</string>

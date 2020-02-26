@@ -296,9 +296,13 @@
     <string name="title_advanced_autounstar">Ta automatiskt bort stjärnmarkeringar från meddelanden när meddelanden flyttas</string>
     <string name="title_advanced_auto_important">Gör automatiskt stjärnmärkta meddelanden viktiga</string>
     <string name="title_advanced_discard_delete">Ta bort utkastet permanent om du kastar det</string>
+    <string name="title_advanced_default_snooze">Standardsnoozelängd</string>
+    <string name="title_advanced_notifications">Hantera aviseringar</string>
     <string name="title_advanced_notifications_default">Standard kanal</string>
+    <string name="title_advanced_notifications_service">Servicekanal</string>
     <string name="title_advanced_badge">Visa programstartarikon med antal nya meddelanden</string>
     <string name="title_advanced_unseen_ignored">Låt antalet nya meddelanden matcha antalet aviseringar</string>
+    <string name="title_advanced_notify_summary">Visa enbart en sammanställning av aviseringar</string>
     <string name="title_advanced_notify_preview">Visa meddelandeförhandsvisning i aviseringar</string>
     <string name="title_advanced_notify_actions">Aviseringsåtgärd</string>
     <string name="title_advanced_notify_action_trash">Papperskorg</string>

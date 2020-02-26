@@ -77,6 +77,7 @@
     <string name="title_notification_failed">\'%1$s\' is mislukt</string>
     <string name="title_notification_alert">\'%1$s\' servermelding</string>
     <string name="title_name_count">%1$s (%2$s)</string>
+    <string name="title_factor_minutes">%1$d minuten</string>
     <string name="menu_exit">Afsluiten</string>
     <string name="menu_answers">Sjablonen</string>
     <string name="menu_operations">Bewerkingen</string>
@@ -357,6 +358,7 @@
     <string name="title_advanced_crash_reports">Foutrapporten verzenden</string>
     <string name="title_advanced_debug">Foutopsporing modus</string>
     <string name="title_advanced_cleanup">Opruimen</string>
+    <string name="title_advanced_more">Meer opties</string>
     <string name="title_advanced_last_cleanup">Laatste schoonmaak: %1$s</string>
     <string name="title_advanced_enabled_hint">Globaal in- of uitschakelen van het ontvangen van berichten</string>
     <string name="title_advanced_manual_hint">Als synchronisatie uitgeschakeld is, is het nog steeds mogelijk om handmatig te synchroniseren door het omlaag trekken van de berichtenlijst.</string>

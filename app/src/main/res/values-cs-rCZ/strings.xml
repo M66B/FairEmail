@@ -378,6 +378,7 @@
     <string name="title_advanced_crash_reports">Odesílat zprávy o chybách</string>
     <string name="title_advanced_debug">Režim ladění</string>
     <string name="title_advanced_cleanup">Úklid</string>
+    <string name="title_advanced_more">Více možností</string>
     <string name="title_advanced_last_cleanup">Poslední čištění: %1$s</string>
     <string name="title_advanced_enabled_hint">Globálně zakáže nebo povolí příjem zpráv</string>
     <string name="title_advanced_manual_hint">Je-li synchronizace vypnuta, stále je možné synchronizovat ručně tažením dolů v seznamu zpráv.</string>
@@ -609,6 +610,10 @@
     <string name="title_snooze">Odložit &#8230;</string>
     <string name="title_archive">Archiv</string>
     <string name="title_reply">Odpovědět</string>
+    <string name="title_reply_to_sender">Odpovědět odesílateli</string>
+    <string name="title_reply_to_all">Odpovědět všem</string>
+    <string name="title_reply_receipt">Odeslat potvrzení o přečtení</string>
+    <string name="title_reply_template">Odpovědět šablonou</string>
     <string name="title_moving">Přesouvám do %1$s</string>
     <string name="title_open_with">Otevřít v aplikaci</string>
     <string name="title_authentication_failed">%1$s ověření se nezdařilo</string>
