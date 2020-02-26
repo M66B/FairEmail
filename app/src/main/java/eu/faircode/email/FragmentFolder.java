@@ -251,7 +251,6 @@ public class FragmentFolder extends FragmentBase {
                     cbSynchronize.setChecked(folder == null || folder.synchronize);
                     cbPoll.setChecked(folder == null ? false : folder.poll);
                     etPoll.setText(folder == null ? null : Integer.toString(folder.poll_factor));
-                    etPoll.setHint(Integer.toString(EntityAccount.DEFAULT_POLL_INTERVAL));
                     tvPoll.setText(getString(R.string.title_factor_minutes, interval));
                     grpPoll.setVisibility(cbPoll.isChecked() ? View.VISIBLE : View.GONE);
                     cbDownload.setChecked(folder == null ? true : folder.download);
@@ -440,7 +439,7 @@ public class FragmentFolder extends FragmentBase {
                 int keep_days = (TextUtils.isEmpty(keep) ? EntityFolder.DEFAULT_KEEP : Integer.parseInt(keep));
                 if (keep_days < sync_days)
                     keep_days = sync_days;
-                int poll_factor = (TextUtils.isEmpty(factor) ? EntityAccount.DEFAULT_POLL_INTERVAL : Integer.parseInt(factor));
+                int poll_factor = (TextUtils.isEmpty(factor) ? 1 : Integer.parseInt(factor));
                 if (poll_factor < 1)
                     poll_factor = 1;
 

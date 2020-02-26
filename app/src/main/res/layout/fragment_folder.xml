@@ -154,21 +154,35 @@
 
         <EditText
             android:id="@+id/etPoll"
-            android:layout_width="100dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="12dp"
+            android:gravity="end"
+            android:hint="1"
             android:inputType="number"
+            android:text="1"
+            app:layout_constraintEnd_toStartOf="@+id/tvMultiply"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbPoll" />
+
+        <TextView
+            android:id="@+id/tvMultiply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:text="&#215;"
+            app:layout_constraintBottom_toBottomOf="@+id/etPoll"
+            app:layout_constraintEnd_toStartOf="@+id/tvPoll"
+            app:layout_constraintTop_toTopOf="@+id/etPoll" />
 
         <TextView
             android:id="@+id/tvPoll"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:text="x 15 min"
+            android:text="@string/title_factor_minutes"
             app:layout_constraintBottom_toBottomOf="@+id/etPoll"
-            app:layout_constraintStart_toEndOf="@+id/etPoll"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/etPoll" />
 
         <CheckBox
@@ -321,6 +335,6 @@
             android:id="@+id/grpPoll"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="etPoll,tvPoll" />
+            app:constraint_referenced_ids="etPoll,tvMultiply,tvPoll" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
