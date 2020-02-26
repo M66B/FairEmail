@@ -549,6 +549,8 @@ public class MessageHelper {
                 }
 
                 db.setTransactionSuccessful();
+            } catch (Throwable ex) {
+                Log.w(ex);
             } finally {
                 db.endTransaction();
             }
