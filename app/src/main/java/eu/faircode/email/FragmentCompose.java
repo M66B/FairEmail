@@ -723,10 +723,13 @@ public class FragmentCompose extends FragmentBase {
             public Cursor runQuery(CharSequence typed) {
                 Log.i("Suggest contact=" + typed);
 
+                MatrixCursor provided = new MatrixCursor(new String[]{"_id", "name", "email", "photo", "local"});
+                if (typed == null)
+                    return provided;
+
                 String wildcard = "%" + typed + "%";
                 List<Cursor> cursors = new ArrayList<>();
 
-                MatrixCursor provided = new MatrixCursor(new String[]{"_id", "name", "email", "photo", "local"});
                 boolean contacts = Helper.hasPermission(getContext(), Manifest.permission.READ_CONTACTS);
                 if (contacts) {
                     Cursor cursor = resolver.query(
