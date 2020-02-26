@@ -224,6 +224,8 @@ public class ActivitySignature extends ActivityBase {
     private void insertImage() {
         Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         intent.setType("image/*");
         Helper.openAdvanced(intent);
         startActivityForResult(intent, REQUEST_IMAGE);
