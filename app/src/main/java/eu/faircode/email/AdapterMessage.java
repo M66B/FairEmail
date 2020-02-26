@@ -29,6 +29,7 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.ClipData;
 import android.content.ClipboardManager;
+import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -103,6 +104,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
+import androidx.browser.customtabs.CustomTabsClient;
+import androidx.browser.customtabs.CustomTabsServiceConnection;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.FileProvider;
@@ -4962,6 +4965,27 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             final Uri uri = getArguments().getParcelable("uri");
             final String title = getArguments().getString("title");
+
+            try {
+                CustomTabsClient.bindCustomTabsService(getContext(), "com.android.chrome", new CustomTabsServiceConnection() {
+                    @Override
+                    public void onCustomTabsServiceConnected(@NonNull ComponentName name, @NonNull CustomTabsClient client) {
+                        Log.i("Warning up custom tabs");
+                        try {
+                            client.warmup(0);
+                        } catch (Throwable ex) {
+                            Log.w(ex);
+                        }
+                    }
+
+                    @Override
+                    public void onServiceDisconnected(ComponentName name) {
+                        // Do nothing
+                    }
+                });
+            } catch (Throwable ex) {
+                Log.w(ex);
+            }
 
             final Uri sanitized;
             if (uri.isOpaque())
