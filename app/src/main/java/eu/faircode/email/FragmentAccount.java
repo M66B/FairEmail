@@ -74,6 +74,8 @@ import java.util.Objects;
 import javax.mail.Folder;
 
 import static android.app.Activity.RESULT_OK;
+import static com.google.android.material.textfield.TextInputLayout.END_ICON_NONE;
+import static com.google.android.material.textfield.TextInputLayout.END_ICON_PASSWORD_TOGGLE;
 
 public class FragmentAccount extends FragmentBase {
     private ViewGroup view;
@@ -330,7 +332,8 @@ public class FragmentAccount extends FragmentBase {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                // Do nothing
+                if (TextUtils.isEmpty(s))
+                    tilPassword.setEndIconMode(END_ICON_PASSWORD_TOGGLE);
             }
 
             @Override
@@ -494,6 +497,7 @@ public class FragmentAccount extends FragmentBase {
 
         rgEncryption.setVisibility(View.GONE);
         cbInsecure.setVisibility(View.GONE);
+        tilPassword.setEndIconMode(id < 0 || Helper.isSecure(getContext()) ? END_ICON_PASSWORD_TOGGLE : END_ICON_NONE);
         tvCharacters.setVisibility(View.GONE);
 
         btnAdvanced.setVisibility(View.GONE);

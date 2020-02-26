@@ -378,6 +378,13 @@ public class Helper {
         return BuildConfig.PLAY_STORE_RELEASE;
     }
 
+    static boolean isSecure(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean biometrics = prefs.getBoolean("biometrics", false);
+        String pin = prefs.getString("pin", null);
+        return (biometrics || !TextUtils.isEmpty(pin));
+    }
+
     // View
 
     static Intent getChooser(Context context, Intent intent) {

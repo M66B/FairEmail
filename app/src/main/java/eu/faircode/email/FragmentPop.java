@@ -56,6 +56,8 @@ import java.util.Date;
 import java.util.Objects;
 
 import static android.app.Activity.RESULT_OK;
+import static com.google.android.material.textfield.TextInputLayout.END_ICON_NONE;
+import static com.google.android.material.textfield.TextInputLayout.END_ICON_PASSWORD_TOGGLE;
 
 public class FragmentPop extends FragmentBase {
     private ViewGroup view;
@@ -151,7 +153,8 @@ public class FragmentPop extends FragmentBase {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                // Do nothing
+                if (TextUtils.isEmpty(s))
+                    tilPassword.setEndIconMode(END_ICON_PASSWORD_TOGGLE);
             }
 
             @Override
@@ -209,6 +212,7 @@ public class FragmentPop extends FragmentBase {
         // Initialize
         Helper.setViewsEnabled(view, false);
 
+        tilPassword.setEndIconMode(id < 0 || Helper.isSecure(getContext()) ? END_ICON_PASSWORD_TOGGLE : END_ICON_NONE);
         tvCharacters.setVisibility(View.GONE);
         pbSave.setVisibility(View.GONE);
         grpError.setVisibility(View.GONE);

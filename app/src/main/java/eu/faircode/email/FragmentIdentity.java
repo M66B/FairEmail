@@ -69,6 +69,8 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 
 import static android.app.Activity.RESULT_OK;
+import static com.google.android.material.textfield.TextInputLayout.END_ICON_NONE;
+import static com.google.android.material.textfield.TextInputLayout.END_ICON_PASSWORD_TOGGLE;
 
 public class FragmentIdentity extends FragmentBase {
     private ViewGroup view;
@@ -267,6 +269,7 @@ public class FragmentIdentity extends FragmentBase {
                 etEmail.setText(account.user);
                 etUser.setText(account.user);
                 tilPassword.getEditText().setText(account.password);
+                tilPassword.setEndIconMode(Helper.isSecure(getContext()) ? END_ICON_PASSWORD_TOGGLE : END_ICON_NONE);
                 certificate = account.certificate_alias;
                 tvCertificate.setText(certificate == null ? getString(R.string.title_optional) : certificate);
                 etRealm.setText(account.realm);
@@ -306,7 +309,8 @@ public class FragmentIdentity extends FragmentBase {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                // Do nothing
+                if (TextUtils.isEmpty(s))
+                    tilPassword.setEndIconMode(END_ICON_PASSWORD_TOGGLE);
             }
 
             @Override
@@ -477,6 +481,7 @@ public class FragmentIdentity extends FragmentBase {
         btnAutoConfig.setEnabled(false);
         pbAutoConfig.setVisibility(View.GONE);
         cbInsecure.setVisibility(View.GONE);
+        tilPassword.setEndIconMode(Helper.isSecure(getContext()) ? END_ICON_PASSWORD_TOGGLE : END_ICON_NONE);
         tvCharacters.setVisibility(View.GONE);
 
         btnAdvanced.setVisibility(View.GONE);
