@@ -270,15 +270,19 @@ public class ActivitySignature extends ActivityBase {
     }
 
     private void onImageSelected(Uri uri) {
-        getContentResolver().takePersistableUriPermission(uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        try {
+            getContentResolver().takePersistableUriPermission(uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
 
-        int start = etText.getSelectionStart();
-        SpannableStringBuilder ssb = new SpannableStringBuilder(etText.getText());
-        ssb.insert(start, " ");
-        ImageSpan is = new ImageSpan(getDrawableByUri(this, uri), uri.toString(), ImageSpan.ALIGN_BASELINE);
-        ssb.setSpan(is, start, start + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        etText.setText(ssb);
-        etText.setSelection(start + 1);
+            int start = etText.getSelectionStart();
+            SpannableStringBuilder ssb = new SpannableStringBuilder(etText.getText());
+            ssb.insert(start, " ");
+            ImageSpan is = new ImageSpan(getDrawableByUri(this, uri), uri.toString(), ImageSpan.ALIGN_BASELINE);
+            ssb.setSpan(is, start, start + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            etText.setText(ssb);
+            etText.setSelection(start + 1);
+        } catch (Throwable ex) {
+            Log.unexpectedError(getSupportFragmentManager(), ex);
+        }
     }
 
     static Drawable getDrawableByUri(Context context, Uri uri) {
