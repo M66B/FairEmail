@@ -72,6 +72,7 @@ public interface DaoOperation {
     @Query(GET_OPS_FOLDER)
     List<TupleOperationEx> getOperations(Long folder);
 
+    @Transaction
     @Query(GET_OPS_FOLDER)
     LiveData<List<TupleOperationEx>> liveOperations(Long folder);
 
