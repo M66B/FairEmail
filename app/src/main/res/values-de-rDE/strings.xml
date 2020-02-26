@@ -455,6 +455,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_primary_identity">Primäre Identität</string>
     <string name="title_leave_on_server">Nachrichten auf Server belassen</string>
     <string name="title_leave_on_device">Nachrichten auf Gerät belassen</string>
+    <string name="title_max_messages">Maximale Anzahl der Nachrichten zum Herunterladen (leer für alle)</string>
     <string name="title_keep_alive_interval">Verbindung halten/Pollintervall (Minuten)</string>
     <string name="title_use_date">Sendezeit der Datumskopfzeilen anstelle der Empfangszeit des Servers verwenden</string>
     <string name="title_related_identity">Ähnliche Identität hinzufügen</string>
