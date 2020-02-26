@@ -466,7 +466,7 @@ public class Helper {
             CustomTabsClient.bindCustomTabsService(context, "com.android.chrome", new CustomTabsServiceConnection() {
                 @Override
                 public void onCustomTabsServiceConnected(@NonNull ComponentName name, @NonNull CustomTabsClient client) {
-                    Log.i("Warning up custom tabs");
+                    Log.i("Warming up custom tabs");
                     try {
                         client.warmup(0);
                     } catch (Throwable ex) {
