@@ -1530,7 +1530,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     if (backoff <= CONNECT_BACKOFF_MAX) {
                         // Short back-off period, keep device awake
                         try {
-                            state.acquire(backoff * 1000L * (state.getMaxConnections() ? 2 : 1));
+                            state.acquire(backoff * 1000L);
                         } catch (InterruptedException ex) {
                             Log.w(account.name + " backoff " + ex.toString());
                         }
