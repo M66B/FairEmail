@@ -246,7 +246,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
                     TupleMatch match = state.matches.get(i);
 
-                    if (find == null || seen != null || flagged != null || snoozed != null || encrypted != null || attachments!=null)
+                    if (find == null || seen != null || flagged != null || snoozed != null || encrypted != null || attachments != null)
                         match.matched = true;
                     else {
                         if (match.matched == null || !match.matched)
@@ -292,7 +292,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         final boolean debug = (prefs.getBoolean("debug", false) || BuildConfig.BETA_RELEASE);
 
         final EntityFolder browsable = db.folder().getBrowsableFolder(folder, query != null);
-        if (browsable == null)
+        if (browsable == null || !browsable.selectable)
             return 0;
 
         EntityAccount account = db.account().getAccount(browsable.account);

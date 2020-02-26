@@ -1225,7 +1225,7 @@ class Core {
                     Folder itarget = istore.getFolder(folder.rename);
                     ifolder.renameTo(itarget);
 
-                    if (subscribed)
+                    if (subscribed && folder.selectable)
                         try {
                             itarget.open(READ_WRITE);
                             itarget.setSubscribed(subscribed);
