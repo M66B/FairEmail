@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--
+
+    Copyright (c) 1997, 2019 Oracle and/or its affiliates. All rights reserved.
+
+    This program and the accompanying materials are made available under the
+    terms of the Eclipse Public License v. 2.0, which is available at
+    http://www.eclipse.org/legal/epl-2.0.
+
+    This Source Code may also be made available under the following Secondary
+    Licenses when the conditions for such availability set forth in the
+    Eclipse Public License v. 2.0 are satisfied: GNU General Public License,
+    version 2 with the GNU Classpath Exception, which is available at
+    https://www.gnu.org/software/classpath/license.html.
+
+    SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
+
+-->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+			    http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+	<groupId>com.sun.mail</groupId>
+	<artifactId>all</artifactId>
+	<version>1.6.5-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.sun.mail</groupId>
+    <artifactId>jakarta.mail</artifactId>
+    <packaging>jar</packaging>
+    <name>Jakarta Mail API</name>
+
+    <properties>
+	<mail.extensionName>
+	    jakarta.mail
+	</mail.extensionName>
+	<mail.moduleName>
+	    jakarta.mail
+	</mail.moduleName>
+	<mail.specificationTitle>
+	    Jakarta Mail API Design Specification
+	</mail.specificationTitle>
+	<mail.implementationTitle>
+	    javax.mail
+	</mail.implementationTitle>
+	<mail.packages.export>
+	    javax.mail.*; version=${mail.spec.version},
+	    com.sun.mail.imap; version=${mail.osgiversion},
+	    com.sun.mail.imap.protocol; version=${mail.osgiversion},
+	    com.sun.mail.iap; version=${mail.osgiversion},
+	    com.sun.mail.pop3; version=${mail.osgiversion},
+	    com.sun.mail.smtp; version=${mail.osgiversion},
+	    com.sun.mail.util; version=${mail.osgiversion},
+	    com.sun.mail.util.logging; version=${mail.osgiversion},
+	    com.sun.mail.handlers; version=${mail.osgiversion}
+	</mail.packages.export>
+	<mail.probeFile>
+	    META-INF/gfprobe-provider.xml
+	</mail.probeFile>
+	<findbugs.skip>
+	    false
+	</findbugs.skip>
+	<findbugs.exclude>
+	    ${project.basedir}/exclude.xml
+	</findbugs.exclude>
+    </properties>
+
+    <profiles>
+	<!--
+	    A special profile for compiling with the real JDK 1.7 compiler.
+	    Exclude MailSessionDefinition and MailSessionDefinitions since
+	    the former requires JDK 1.8 and the latter depends on the former.
+	-->
+	<profile>
+	    <id>1.7</id>
+	    <activation>
+		<jdk>1.7</jdk>
+	    </activation>
+	    <build>
+		<plugins>
+		    <plugin>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<executions>
+			    <execution>
+				<id>default-compile</id>
+				<configuration>
+				    <excludes>
+					<exclude>
+					  javax/mail/MailSessionDefinition.java
+					</exclude>
+					<exclude>
+					  javax/mail/MailSessionDefinitions.java
+					</exclude>
+					<exclude>
+					  module-info.java
+					</exclude>
+				    </excludes>
+				</configuration>
+			    </execution>
+			</executions>
+		    </plugin>
+		</plugins>
+	    </build>
+	</profile>
+
+	<!--
+	    A special profile used when compiling with the real JDK 11 compiler.
+	    Override the release setting from the parent's "11" profile so
+	    that we produce JDK 1.8 compatible class files.
+	-->
+	<profile>
+	    <id>11</id>
+	    <activation>
+		<jdk>11</jdk>
+	    </activation>
+	    <build>
+		<plugins>
+		    <plugin>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<configuration>
+			    <release combine.self="override"></release>
+			    <compilerArgs>
+				<arg>-Xlint</arg>
+				<arg>-Xlint:-options</arg>
+				<arg>-Xlint:-path</arg>
+				<!--
+				    Too many finalize warnings.
+				<arg>-Werror</arg>
+				-->
+			    </compilerArgs>
+			</configuration>
+		    </plugin>
+		</plugins>
+	    </build>
+	</profile>
+    </profiles>
+
+    <build>
+	<resources>
+	    <resource>
+		<directory>src/main/resources</directory>
+		<filtering>true</filtering>
+	    </resource>
+	</resources>
+	<plugins>
+	    <!--
+		Configure compiler plugin to print lint warnings.
+		Need to exclude options warning because bootstrap
+		classpath isn't set (on purpose).
+		Need to exclude path warnings because Maven includes
+		source directories that don't exist (e.g., generated-sources).
+	    -->
+	    <plugin>
+		<artifactId>maven-compiler-plugin</artifactId>
+		<configuration>
+		    <source>1.8</source>
+		    <target>1.8</target>
+		    <compilerArgs>
+			<arg>-Xlint</arg>
+			<arg>-Xlint:-options</arg>
+			<arg>-Xlint:-path</arg>
+			<arg>-Werror</arg>
+		    </compilerArgs>
+		    <showDeprecation>true</showDeprecation>
+		    <showWarnings>true</showWarnings>
+		    <excludes>
+			<exclude>
+			  module-info.java
+			</exclude>
+		    </excludes>
+		</configuration>
+	    </plugin>
+
+	    <!--
+		Configure test plugin to find *TestSuite classes.
+	    -->
+	    <plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-surefire-plugin</artifactId>
+		<configuration>
+		    <includes>
+			<include>**/*Test.java</include>
+			<include>**/*TestSuite.java</include>
+		    </includes>
+		</configuration>
+	    </plugin>
+
+	    <!--
+		Add the Automatic-Module-Name manifest header for JDK 9.
+	    -->
+	    <plugin>
+		<artifactId>maven-jar-plugin</artifactId>
+		<configuration>
+		    <archive>
+			<manifestEntries>
+			    <Automatic-Module-Name>
+				${mail.moduleName}
+			    </Automatic-Module-Name>
+			</manifestEntries>
+		    </archive>
+		</configuration>
+	    </plugin>
+	</plugins>
+    </build>
+
+    <dependencies>
+	<dependency>
+	    <groupId>com.sun.activation</groupId>
+	    <artifactId>jakarta.activation</artifactId>
+	</dependency>
+	<dependency>
+	    <groupId>junit</groupId>
+	    <artifactId>junit</artifactId>
+	    <version>4.12</version>
+	    <scope>test</scope>
+	    <optional>true</optional>
+	</dependency>
+    </dependencies>
+</project>
