@@ -422,7 +422,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_sender">Bearbeitung der Absenderadresse erlauben</string>
     <string name="title_advanced_sender_regex">Regex stimmt mit Benutzername der eingehenden E-Mail-Adressen überein</string>
     <string name="title_identity_reply_to">Antwortadresse</string>
-    <string name="title_identity_receipt">Auslieferungs-/Lesebestätigung standardmäßig anfordern</string>
+    <string name="title_identity_receipt">Empfangs-/Lesebestätigung standardmäßig anfordern</string>
     <string name="title_identity_use_ip_hint">Bei \'invalid greeting\', \'requires valid address\' oder einem ähnlichen Fehler, versuchen Sie, diese Einstellung zu ändern</string>
     <string name="title_optional">Optional</string>
     <string name="title_recommended">Empfohlen</string>
@@ -515,7 +515,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_folder_name">Ordnername</string>
     <string name="title_display_name">Anzeigename</string>
     <string name="title_show_folders">Ausgeblendete Ordner anzeigen</string>
-    <string name="title_apply_to_all">Auf alle &#8230; anwenden</string>
+    <string name="title_apply_to_all">Auf alle anwenden &#8230;</string>
     <string name="title_hide_folder">Ordner ausblenden</string>
     <string name="title_unified_folder">Im Sammeleingang anzeigen</string>
     <string name="title_navigation_folder">Im Navigationsmenü anzeigen</string>
@@ -610,7 +610,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_no_stream">Eine veraltete App verschickte den Dateinamen anstelle des Datenstroms</string>
     <string name="title_no_contacts">Kontaktauswahl nicht verfügbar</string>
     <string name="title_no_internet">Keine oder keine passende Internetverbindung</string>
-    <string name="title_no_connection">Verbinde mit einem oder mehreren Konten &#8230;</string>
+    <string name="title_no_connection">Zu einem oder mehreren Konten wird verbunden &#8230;</string>
     <string name="title_no_folder">Ordner nicht vorhanden</string>
     <string name="title_no_format">Die ursprünglich empfangene Nachricht wird miteinbezogen</string>
     <string name="title_no_image">Bild konnte nicht dekodiert werden</string>
@@ -646,9 +646,9 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
         Sofern Du zufrieden bist, wäre es nett, wenn du FairEmail im Play Store positiv bewerten könntest.
         Dies hilft ein Gleichgewicht zwischen guten und schlechten Bewertungen zu halten.
     </string>
-    <string name="title_third_party">Sie verwenden eine Version eines Dritten</string>
+    <string name="title_third_party">Sie verwenden eine Version eines Drittanbieters</string>
     <string name="title_expand_warning">Durch Erweitern dieser Nachricht wird %1$s heruntergeladen</string>
-    <string name="title_download_message">Lädt herunter &#8230;</string>
+    <string name="title_download_message">wird heruntergeladen &#8230;</string>
     <string name="title_compose">Verfassen</string>
     <string name="title_submitter">Gesendet von:</string>
     <string name="title_delivered_to">Zugestellt an:</string>
@@ -668,7 +668,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_send">Senden</string>
     <string name="title_send_now">Jetzt senden</string>
     <string name="title_send_via">Senden über</string>
-    <string name="title_send_with_options">Sende-Optionen &#8230;</string>
+    <string name="title_send_with_options">Senden &#8230;</string>
     <string name="title_send_at">Später senden &#8230;</string>
     <string name="title_send_encryption">Verschlüsselung</string>
     <string name="title_send_priority">Priorität</string>
@@ -697,8 +697,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_no_key">Kein privater Schlüssel</string>
     <string name="title_invalid_key">Ungültiger privater Schlüssel</string>
     <string name="title_send_plain_text">Nur Text</string>
-    <string name="title_send_receipt">Lieferung/Lesebestätigung anfordern</string>
-    <string name="title_send_receipt_remark">Die meisten Anbieter und E-Mail-Clients ignorieren Quittungsanfragen</string>
+    <string name="title_send_receipt">Empfangs-/Lesebestätigung anfordern</string>
+    <string name="title_send_receipt_remark">Die meisten Anbieter und E-Mail-Programme ignorieren Empfangsanforderungen</string>
     <string name="title_from_missing">Absender fehlt</string>
     <string name="title_to_missing">Empfänger fehlt</string>
     <string name="title_subject_reminder">Betreff ist leer</string>
@@ -970,7 +970,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_minutes">Minuten</string>
     <string name="title_dismiss">Abbrechen</string>
     <string name="title_snooze_now">Schlummern</string>
-    <string name="title_loading">Lade &#8230;</string>
+    <string name="title_loading">wird geladen &#8230;</string>
     <string name="title_set">Setzen</string>
     <string name="title_fetching_again">Nachricht wird erneut vom Server abgerufen</string>
     <string name="title_icalendar_accept">Akzeptieren</string>

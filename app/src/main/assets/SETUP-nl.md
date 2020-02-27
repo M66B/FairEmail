@@ -1,6 +1,6 @@
-# Help bij instellen
+# Instel help
 
-Het instellen van FairEmail is vrij eenvoudig. U moet ten minste één account toevoegen om e-mail te ontvangen en ten minste één identiteit om e-mail te verzenden. Snel instellen zal in één keer een account en een identiteit toevoegen voor de meeste grote providers.
+Het instellen van FairEmail is vrij eenvoudig. U moet tenminste één account toevoegen om e-mail te ontvangen en tenminste één identiteit om e-mail te verzenden. Snel instellen zal in één keer een account en een identiteit toevoegen voor de meeste grote providers.
 
 ## Vereisten
 
@@ -16,13 +16,13 @@ Als het snelle instellen niet werkt, moet je een account en een identiteit op ee
 
 ## Account instellen - om e-mail te ontvangen
 
-Om een account toe te voegen, tik op *Beheer accounts* en tik op de oranje *voeg toe* knop onderaan. Selecteer een provider uit de lijst, voer de gebruikersnaam in, meestal uw e-mailadres, en voer uw wachtwoord in. Tik *Controleer* om FairEmail te laten verbinden met de e-mailserver en een lijst van systeemmappen op te laten halen. Na het controleren van de selectie van systeemmappen kunt u het account toevoegen door op *Bewaren* te klikken.
+Om een account toe te voegen, tik op *Beheer accounts* en tik op de oranje *voeg toe* knop onderaan. Selecteer een provider uit de lijst, voer de gebruikersnaam in, meestal uw e-mailadres en voer uw wachtwoord in. Tik *Controleer* om FairEmail te laten verbinden met de e-mailserver en een lijst van systeemmappen op te laten halen. Na het controleren van de selectie van systeemmappen kunt u het account toevoegen door op *Bewaren* te klikken.
 
-Als uw provider niet in de lijst van providers staat, selecteer *Aangepast*. Voer de domeinnaam in, bijvoorbeeld *gmail.com* en tik op *Instellingen ophalen*. Als uw provider [auto-discovery](https://tools.ietf.org/html/rfc6186) ondersteunt, zal FairEmail de hostnaam en poortnummer invullen, controleer anders de instructies van uw provider voor de juiste IMAP host naam, poortnummer en protocol (SSL/TLS of STARTTLS). Voor meer informatie, zie [hier](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
+Als uw provider niet in de lijst van providers staat, selecteer *Aangepast*. Voer de domeinnaam in, bijvoorbeeld *gmail.com* en tik op *Instellingen ophalen*. Als uw provider [auto-discovery](https://tools.ietf.org/html/rfc6186) ondersteunt, zal FairEmail de hostnaam en poortnummer invullen, controleer zonodig de instructies van uw provider voor de juiste IMAP host naam, poortnummer en protocol (SSL/TLS of STARTTLS). Voor meer informatie, zie [hier](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
 
 ## Identiteit instellen - om e-mail te verzenden
 
-Om een identiteit toe te voegen, tik op *Beheer identiteit* en tik op de oranje *voeg toe* knop onderaan. Voer de naam in die u wilt laten verschijnen in het 'van' adres van de e-mails die u verzendt en selecteer een gekoppeld account. Tik op *Opslaan* om de identiteit toe te voegen.
+Vergelijkbaar, om een identiteit toe te voegen, tik op *Beheer identiteit* en tik op de oranje *voeg toe* knop onderaan. Voer de naam in die u wilt laten verschijnen in het 'van' adres van de e-mails die u verzendt en selecteer een gekoppeld account. Tik op *Opslaan* om de identiteit toe te voegen.
 
 Als het account handmatig werd geconfigureerd, moet u waarschijnlijk ook de identiteit handmatig configureren. Voer de domeinnaam in, bijvoorbeeld *gmail.com* en tik op *Instellingen ophalen*. Als uw provider [auto-discovery](https://tools.ietf.org/html/rfc6186) ondersteunt, zal FairEmail de hostnaam en poortnummer invullen, controleer anders de instructies van uw provider voor de juiste SMTP host naam, poortnummer en protocol (SSL/TLS of STARTTLS).
 
@@ -30,7 +30,7 @@ Zie [deze FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) over h
 
 ## Toestemmingen verlenen - om contact informatie op te vragen
 
-Als u e-mailadressen wilt opzoeken, contactfoto's wilt zien, enz. moet u aan FairEmail toestemmingen verlenen om contacten te lezen. Tik op *Toestemmingen verlenen* en selecteer *Toestaan*.
+Als u e-mailadressen wilt opzoeken, contactfoto's wilt zien, enz. zult u aan FairEmail toestemmingen moeten verlenen om contacten te lezen. Tik op *Toestemmingen verlenen* en selecteer *Toestaan*.
 
 ## Accuoptimalisaties instellen - om voortdurend e-mail te ontvangen
 
