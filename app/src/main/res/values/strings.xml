@@ -738,6 +738,8 @@
         This will help to maintain a balance between unfavorable and favorable reviews.
     </string>
 
+    <string name="title_third_party">You are using a version of a third party</string>
+
     <string name="title_expand_warning">Expanding this message will download %1$s</string>
     <string name="title_download_message">Downloading &#8230;</string>
 

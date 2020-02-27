@@ -261,6 +261,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(144) How can I record voice notes?](#user-content-faq144)
 * [(145) How can I set a notification sound for an account, folder or sender?](#user-content-faq145)
 * [(146) How can I fix incorrect message times?](#user-content-faq146)
+* [(147) What should I know about third party versions?](#user-content-faq147)
 
 [I have another question.](#user-content-support)
 
@@ -2780,6 +2781,25 @@ This will not change the time of already synchronized messages.
 To solve this, long press the folder(s) in the folder list and select *Delete local messages* and *Synchronize now*.
 
 <br />
+
+<a name="faq147"></a>
+**(147) What should I know about third party versions?**
+
+You likely came here because you are using a third party build of FairEmail.
+
+The F-Droid build is supported, but any other unofficial build is not supported.
+
+F-Droid builds irregularly, which can be problematic when there is an important update.
+Therefore you are advised to switch to the GitHub release.
+
+Note that the GitHub version will automatically check for updates.
+When desired, this can be turned off in the miscellaneous settings.
+
+Please [see here](https://github.com/M66B/FairEmail/blob/master/README.md#user-content-downloads) for all download options.
+
+If you have a problem with the F-Droid build, please check if there is a newer version first.
+
+<br>
 
 ## Support
 

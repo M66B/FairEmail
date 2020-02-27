@@ -2843,7 +2843,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             fabMore.hide();
 
         if (!checkReporting())
-            checkReview();
+            if (!checkReview())
+                checkFingerprint();
     }
 
     @Override
@@ -2985,7 +2986,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 prefs.edit().putBoolean("crash_reports_asked", true).apply();
             }
         });
-
         snackbar.show();
 
         return true;
@@ -3045,7 +3045,28 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 prefs.edit().putLong("review_later", new Date().getTime()).apply();
             }
         });
+        snackbar.show();
 
+        return true;
+    }
+
+    private boolean checkFingerprint() {
+        if (Helper.hasValidFingerprint(getContext()))
+            return false;
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        if (prefs.getBoolean("third_party_notified", false))
+            return false;
+
+        final Snackbar snackbar = Snackbar.make(view, R.string.title_third_party, Snackbar.LENGTH_INDEFINITE);
+        snackbar.setAction(R.string.title_info, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                snackbar.dismiss();
+                Helper.viewFAQ(getContext(), 147);
+                prefs.edit().putBoolean("third_party_notified", true).apply();
+            }
+        });
         snackbar.show();
 
         return true;
