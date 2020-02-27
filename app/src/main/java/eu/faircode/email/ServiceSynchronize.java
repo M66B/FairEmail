@@ -109,7 +109,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     static final int DEFAULT_POLL_INTERVAL = 0; // minutes
     private static final int STILL_THERE_POLL_INTERVAL = 15; // minutes
     private static final int CONNECT_BACKOFF_START = 8; // seconds
-    private static final int CONNECT_BACKOFF_MAX = 64; // seconds (totally 2 minutes)
+    private static final int CONNECT_BACKOFF_MAX = 32; // seconds (totally ~1 minutes)
     private static final int CONNECT_BACKOFF_AlARM_START = 15; // minutes
     private static final int CONNECT_BACKOFF_AlARM_MAX = 60; // minutes
     private static final long RECONNECT_BACKOFF = 90 * 1000L; // milliseconds
