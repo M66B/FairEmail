@@ -873,10 +873,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                                 EntityLog.log(ServiceSynchronize.this, account.name + " alert: " + message);
 
-                                boolean max = isMaxConnections(message);
-                                if (max)
-                                    state.setMaxConnections();
-                                if (!max || state.getBackoff() > CONNECT_BACKOFF_MAX)
+                                if (!isMaxConnections(message))
                                     try {
                                         NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                                         nm.notify("alert:" + account.id, 1,
@@ -906,10 +903,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             boolean ioError = false;
                             Throwable c = ex;
                             while (c != null) {
-                                boolean max = isMaxConnections(c.getMessage());
-                                if (max)
-                                    state.setMaxConnections();
-                                if (max ||
+                                if (isMaxConnections(c.getMessage()) ||
                                         c instanceof IOException ||
                                         c instanceof ConnectionException ||
                                         c instanceof AccountsException ||
