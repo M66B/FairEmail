@@ -29,6 +29,7 @@ android {
         // https://developer.android.com/guide/topics/graphics/vector-drawable-resources
         vectorDrawables.useSupportLibrary = true
 
+        ndkVersion "21.0.6113669"
         ndk {
             // Bugsnag
             abiFilters "armeabi-v7a", "x86", "arm64-v8a", "x86_64"
