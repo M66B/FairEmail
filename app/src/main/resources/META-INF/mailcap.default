@@ -1,0 +1,9 @@
+#
+# This is a very simple 'mailcap' file
+#
+# No default viewers are included so these entries are commented out.
+#
+#image/gif;;		x-java-view=com.sun.activation.viewers.ImageViewer
+#image/jpeg;;		x-java-view=com.sun.activation.viewers.ImageViewer
+#text/*;;		x-java-view=com.sun.activation.viewers.TextViewer
+#text/*;;		x-java-edit=com.sun.activation.viewers.TextEditor

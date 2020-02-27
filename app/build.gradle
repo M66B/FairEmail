@@ -170,7 +170,7 @@ repositories {
     jcenter()
     maven { url "https://repo1.maven.org/maven2/" }
     maven { url "https://jitpack.io" }
-    maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+    //maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
     //maven { url "https://jakarta.oss.sonatype.org/content/repositories/snapshots/" }
 }
 
@@ -297,7 +297,7 @@ dependencies {
     // https://projects.eclipse.org/projects/ee4j.javamail
     // https://mvnrepository.com/artifact/com.sun.mail
     //implementation "com.sun.mail:android-mail:$javamail_version"
-    implementation "com.sun.mail:android-activation:$javamail_version"
+    //implementation "com.sun.mail:android-activation:$javamail_version"
 
     // https://jsoup.org/news/
     implementation "org.jsoup:jsoup:$jsoup_version"
