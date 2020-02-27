@@ -2,14 +2,14 @@ apply plugin: 'com.android.library'
 //apply plugin: 'bintray-release' // must be applied after your artifact generating plugin (eg. java / com.android.library)
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 29
     //buildToolsVersion '27.0.3'
 
     defaultConfig {
         versionCode 9
         versionName '12.0' // API-Version . minor
         minSdkVersion 9
-        targetSdkVersion 25
+        targetSdkVersion 29
     }
 
     // Do not abort build if lint finds errors
