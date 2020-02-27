@@ -23,6 +23,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,7 +59,7 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
     private NumberFormat NF = NumberFormat.getNumberInstance();
     private DateFormat DTF;
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         private View view;
         private ImageView ivItem;
         private TextView tvItem;
@@ -79,10 +80,12 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
 
         private void wire() {
             view.setOnClickListener(this);
+            view.setOnLongClickListener(this);
         }
 
         private void unwire() {
             view.setOnClickListener(null);
+            view.setOnLongClickListener(null);
         }
 
         private void bindTo(TupleAccountEx account) {
@@ -124,6 +127,48 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
             lbm.sendBroadcast(
                     new Intent(ActivityView.ACTION_VIEW_FOLDERS)
                             .putExtra("id", account.id));
+        }
+
+        @Override
+        public boolean onLongClick(View v) {
+            int pos = getAdapterPosition();
+            if (pos == RecyclerView.NO_POSITION)
+                return false;
+
+            TupleAccountEx account = items.get(pos);
+            if (account == null)
+                return false;
+
+            Bundle args = new Bundle();
+            args.putLong("id", account.id);
+
+            new SimpleTask<EntityFolder>() {
+                @Override
+                protected EntityFolder onExecute(Context context, Bundle args) {
+                    long id = args.getLong("id");
+
+                    DB db = DB.getInstance(context);
+                    return db.folder().getFolderByType(id, EntityFolder.INBOX);
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, EntityFolder inbox) {
+                    if (inbox != null) {
+                        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                        lbm.sendBroadcast(
+                                new Intent(ActivityView.ACTION_VIEW_MESSAGES)
+                                        .putExtra("account", inbox.account)
+                                        .putExtra("folder", inbox.id)
+                                        .putExtra("type", inbox.type));
+                    }
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    // Ignored
+                }
+            }.execute(context, owner, args, "account:inbox");
+            return true;
         }
     }
 
