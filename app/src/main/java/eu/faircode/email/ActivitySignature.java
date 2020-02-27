@@ -75,7 +75,7 @@ public class ActivitySignature extends ActivityBase {
         etText.setSelectionListener(new EditTextCompose.ISelection() {
             @Override
             public void onSelected(boolean selection) {
-                style_bar.setVisibility(selection ? View.VISIBLE : View.GONE);
+                style_bar.setVisibility(selection && !raw ? View.VISIBLE : View.GONE);
             }
         });
 
@@ -217,6 +217,9 @@ public class ActivitySignature extends ActivityBase {
             String html = (raw ? HtmlHelper.toHtml(etText.getText()) : etText.getText().toString());
             getIntent().putExtra("html", html);
         }
+
+        if (raw)
+            style_bar.setVisibility(View.GONE);
 
         load();
     }
