@@ -288,7 +288,7 @@
     <string name="title_advanced_autoread">移动消息时自动标记为已读</string>
     <string name="title_advanced_star_snoozed">自动给打盹消息添加星标</string>
     <string name="title_advanced_autounstar">移动消息时自动移除星标</string>
-    <string name="title_advanced_auto_important">自动使加星标消息变得重要</string>
+    <string name="title_advanced_auto_important">自动标注星标消息为重要</string>
     <string name="title_advanced_reset_importance">在移动消息时重置其重要性</string>
     <string name="title_advanced_discard_delete">丢弃草稿时将其永久删除</string>
     <string name="title_advanced_default_snooze">默认打盹时间</string>
@@ -442,7 +442,7 @@
     <string name="title_primary_identity">主身份(默认身份)</string>
     <string name="title_leave_on_server">把消息留在服务器上</string>
     <string name="title_leave_on_device">把消息留在设备上</string>
-    <string name="title_max_messages">最多下载几条消息（留空则下载全部）</string>
+    <string name="title_max_messages">下载邮件的最大数（留空则下载全部）</string>
     <string name="title_keep_alive_interval">保持激活/轮询时间间隔(分钟)</string>
     <string name="title_use_date">使用日期头发送时间而非服务器接收时间</string>
     <string name="title_related_identity">添加相关身份</string>
@@ -579,7 +579,7 @@
     <string name="title_snooze">打盹 &#8230;</string>
     <string name="title_archive">存档</string>
     <string name="title_reply">回复</string>
-    <string name="title_reply_to_sender">回复给发件人</string>
+    <string name="title_reply_to_sender">回复发件人：</string>
     <string name="title_reply_to_all">回复全部</string>
     <string name="title_reply_list">回复列表</string>
     <string name="title_reply_receipt">发送已读回执</string>
@@ -604,7 +604,7 @@
     <string name="title_no_search">在服务器上搜索对该账户不可用</string>
     <string name="title_too_large">消息内容太多，不能完全重新格式化</string>
     <string name="title_truncated">消息内容太多，无法完全显示</string>
-    <string name="title_insufficient_memory">内存不足以容纳消息</string>
+    <string name="title_insufficient_memory">内存不足以容纳消息数量</string>
     <string name="title_show_full">显示完整消息</string>
     <string name="title_unused_inline">未使用的内联图像将在发送时被删除</string>
     <string name="title_accross_remark">App会再次下载在不同账户间移动的消息，这将导致额外的数据使用</string>
@@ -633,6 +633,7 @@
         如果您能在谷歌商店为FairEmail评分，我将感激不尽。
         这将有助于保持批评和赞同评论之间的平衡。
     </string>
+    <string name="title_third_party">您使用的是第三方版本</string>
     <string name="title_expand_warning">展开此消息将下载 %1$s</string>
     <string name="title_download_message">&#8230; 下载中</string>
     <string name="title_compose">撰写</string>
@@ -715,7 +716,7 @@
     <string name="title_signature_unconfirmed_from">消息签名有效但未确认： %1$s</string>
     <string name="title_signature_invalid">消息签名无效</string>
     <string name="title_signature_invalid_reason">消息签名无效： %1$s</string>
-    <string name="title_signature_key_missing">缺少用于签名验证的密钥</string>
+    <string name="title_signature_key_missing">缺少签名验证密钥</string>
     <string name="title_signature_certificate_invalid">证书链无效</string>
     <string name="title_signature_sender">发件人地址：</string>
     <string name="title_signature_email">签名地址</string>
@@ -909,7 +910,7 @@
     <string name="title_hint_message_selection">长按一则消息开始选择多条消息；按住并向上或向下滑动来选择更多消息</string>
     <string name="title_hint_important">重要</string>
     <string name="title_hint_sync">下载邮件可能需要一些时间, 具体取决于提供商的速度、网络连接、设备以及邮件数量。在下载邮件时, 应用的响应速度可能会变慢。</string>
-    <string name="title_hint_battery">由于FairEmail默认总是接受消息，安卓系统会报告FairEmail始终处于活动状态。 因此，FairEmail似乎总在消耗电量，但事实上情况并非如此。</string>
+    <string name="title_hint_battery">由于FairEmail默认总是接受消息，安卓系统会报告FE始终处于活动状态。 因此，FE看起来好像总在耗电，但事实上情况并非如此。</string>
     <string name="title_hint_contact_actions">长按以显示更多选项</string>
     <string name="title_hint_eml">这是一个原始消息文件内容的摘要。用操作栏中的保存图标保存原始消息以查看所有内容。</string>
     <string name="title_open_link">打开链接</string>

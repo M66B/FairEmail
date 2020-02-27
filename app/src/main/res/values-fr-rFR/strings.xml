@@ -646,6 +646,7 @@
         Je vous serais reconnaissant si vous pouviez noter FairEmail dans le Play Store.
         Cela aidera à maintenir un équilibre entre les avis défavorables et favorables.
     </string>
+    <string name="title_third_party">Vous utilisez une version d\'un tiers</string>
     <string name="title_expand_warning">Développer ce message téléchargera %1$s</string>
     <string name="title_download_message">Téléchargement&#8230;</string>
     <string name="title_compose">Rédiger</string>

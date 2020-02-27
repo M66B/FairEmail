@@ -630,6 +630,7 @@
     <string name="title_ask_review_rationale">FairEmailをしばらく使用しています。
 PlayストアでFairEmailを評価できれば幸いです。
 これは、好ましくないレビューと好ましいレビューのバランスを保つのに役立ちます。</string>
+    <string name="title_third_party">サードパーティバージョンを使用しています</string>
     <string name="title_expand_warning">このメッセージを展開すると、%1$sがダウンロードされます</string>
     <string name="title_download_message">&#8230; をダウンロード中</string>
     <string name="title_compose">作成する</string>

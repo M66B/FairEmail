@@ -668,6 +668,7 @@
         Будем признательны, если вы сможете оценить FairEmail в Play Store.
         Это поможет поддерживать баланс между неблагоприятными и благоприятными отзывами.
     </string>
+    <string name="title_third_party">Вы используете стороннюю версию</string>
     <string name="title_expand_warning">При развёртывании этого сообщения будет загружено %1$s</string>
     <string name="title_download_message">Загрузка&#8230;</string>
     <string name="title_compose">Создать</string>

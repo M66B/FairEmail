@@ -644,6 +644,7 @@
     <string name="title_ask_review_rationale">        Stai usando FairEmail da un po\'.
         Ti saremmo grati se potessi valutare FairEmail nel Play Store.
         Questo aiuterà a mantenere un equilibrio tra revisioni sfavorevoli e favorevoli.    </string>
+    <string name="title_third_party">Stai usando una versione di terze parti</string>
     <string name="title_expand_warning">Espandendo questo messaggio verrà scaricato %1$s</string>
     <string name="title_download_message">Download &#8230;</string>
     <string name="title_compose">Scrivi</string>

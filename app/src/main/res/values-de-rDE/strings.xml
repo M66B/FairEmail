@@ -646,6 +646,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
         Sofern Du zufrieden bist, wäre es nett, wenn du FairEmail im Play Store positiv bewerten könntest.
         Dies hilft ein Gleichgewicht zwischen guten und schlechten Bewertungen zu halten.
     </string>
+    <string name="title_third_party">Sie verwenden eine Version eines Dritten</string>
     <string name="title_expand_warning">Durch Erweitern dieser Nachricht wird %1$s heruntergeladen</string>
     <string name="title_download_message">Lädt herunter &#8230;</string>
     <string name="title_compose">Verfassen</string>
