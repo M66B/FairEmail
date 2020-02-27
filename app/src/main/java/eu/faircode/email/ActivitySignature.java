@@ -274,12 +274,16 @@ public class ActivitySignature extends ActivityBase {
             getContentResolver().takePersistableUriPermission(uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
 
             int start = etText.getSelectionStart();
-            SpannableStringBuilder ssb = new SpannableStringBuilder(etText.getText());
-            ssb.insert(start, " ");
-            ImageSpan is = new ImageSpan(getDrawableByUri(this, uri), uri.toString(), ImageSpan.ALIGN_BASELINE);
-            ssb.setSpan(is, start, start + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-            etText.setText(ssb);
-            etText.setSelection(start + 1);
+            if (raw)
+                etText.getText().insert(start, "<img src=\"" + Html.escapeHtml(uri.toString()) + "\" />");
+            else {
+                SpannableStringBuilder ssb = new SpannableStringBuilder(etText.getText());
+                ssb.insert(start, " ");
+                ImageSpan is = new ImageSpan(getDrawableByUri(this, uri), uri.toString(), ImageSpan.ALIGN_BASELINE);
+                ssb.setSpan(is, start, start + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                etText.setText(ssb);
+                etText.setSelection(start + 1);
+            }
         } catch (Throwable ex) {
             Log.unexpectedError(getSupportFragmentManager(), ex);
         }
