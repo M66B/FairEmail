@@ -16,6 +16,15 @@ android {
     lintOptions {
         abortOnError false
     }
+
+    buildTypes {
+        play {
+        }
+        github {
+        }
+        debug {
+        }
+    }
 }
 
 //publish {

@@ -54,21 +54,37 @@ android {
     }
 
     signingConfigs {
-        release {
+        play {
             storeFile file(keystoreProperties['storeFile'])
             storePassword keystoreProperties['storePassword']
             keyAlias keystoreProperties['keyAlias']
             keyPassword keystoreProperties['keyPassword']
         }
+        github {
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            v1SigningEnabled true
+            v2SigningEnabled false
+            v2SigningEnabled false
+        }
     }
 
     buildTypes {
-        release {
+        play {
             debuggable = false
             minifyEnabled = true
             useProguard = true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
+            signingConfig signingConfigs.play
+        }
+        github {
+            debuggable = false
+            minifyEnabled = true
+            useProguard = true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.github
         }
         debug {
             applicationIdSuffix '.debug'
@@ -122,6 +138,21 @@ android {
             buildConfigField "String", "CAMERA_URI", "\"https://play.google.com/store/apps/details?id=net.sourceforge.opencamera\""
             buildConfigField "String", "RECORDER_URI", "\"https://play.google.com/store/apps/details?id=com.github.axet.audiorecorder\""
             buildConfigField "String", "APPS_URI", "\"https://play.google.com/store/apps/dev?id=8420080860664580239\""
+        }
+    }
+
+    variantFilter { variant ->
+        def flavors = variant.flavors*.name
+        // Builds: play, github, debug
+        // Flavors: full, play_beta, play_release
+        if (variant.buildType.name == "play" && flavors.contains("full")) {
+            setIgnore(true)
+        }
+        if (variant.buildType.name == "github" && flavors.contains("play_beta")) {
+            setIgnore(true)
+        }
+        if (flavors.contains("play_release")) {
+            setIgnore(true)
         }
     }
 
