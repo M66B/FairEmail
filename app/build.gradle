@@ -13,8 +13,8 @@ android {
         applicationId "eu.faircode.email"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 993
-        versionName "1.993"
+        versionCode 994
+        versionName "1.994"
         archivesBaseName = "FairEmail-v$versionName"
 
         // https://en.wikipedia.org/wiki/List_of_dinosaur_genera
@@ -29,7 +29,8 @@ android {
         // https://developer.android.com/guide/topics/graphics/vector-drawable-resources
         vectorDrawables.useSupportLibrary = true
 
-        ndkVersion "21.0.6113669"
+        ndkVersion "20.0.5594570"
+        //ndkVersion "21.0.6113669"
         ndk {
             // Bugsnag
             abiFilters "armeabi-v7a", "x86", "arm64-v8a", "x86_64"
