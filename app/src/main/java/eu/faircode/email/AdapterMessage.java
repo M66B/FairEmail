@@ -784,6 +784,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean outbox = EntityFolder.OUTBOX.equals(message.folderType);
             boolean outgoing = isOutgoing(message);
             Address[] addresses = (outgoing && (viewType != ViewType.THREAD || !threading) ? message.to : message.senders);
+            int recipients = (message.to == null || message.to.length < 2 ? 0 : message.to.length - 1) +
+                    (message.cc == null ? 0 : message.cc.length) +
+                    (message.bcc == null ? 0 : message.bcc.length);
             boolean authenticated =
                     !(Boolean.FALSE.equals(message.dkim) ||
                             Boolean.FALSE.equals(message.spf) ||
@@ -907,7 +910,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             ? View.VISIBLE : View.GONE);
             ivSigned.setVisibility(message.signed > 0 ? View.VISIBLE : View.GONE);
             ivEncrypted.setVisibility(message.encrypted > 0 ? View.VISIBLE : View.GONE);
-            tvFrom.setText(MessageHelper.formatAddresses(addresses, name_email, false));
+            if (recipients == 0 || viewType != ViewType.THREAD)
+                tvFrom.setText(MessageHelper.formatAddresses(addresses, name_email, false));
+            else
+                tvFrom.setText(context.getString(R.string.title_name_plus,
+                        MessageHelper.formatAddresses(addresses, name_email, false), recipients));
             tvFrom.setPaintFlags(tvFrom.getPaintFlags() & ~Paint.UNDERLINE_TEXT_FLAG);
             tvSize.setText(message.totalSize == null ? null : Helper.humanReadableByteCount(message.totalSize, true));
             tvSize.setVisibility(

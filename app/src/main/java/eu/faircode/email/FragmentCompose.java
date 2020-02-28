@@ -4608,7 +4608,11 @@ public class FragmentCompose extends FragmentBase {
 
                     int to = (draft.to == null ? 0 : draft.to.length);
                     int cc = (draft.cc == null ? 0 : draft.cc.length) + (draft.bcc == null ? 0 : draft.bcc.length);
-                    tvTo.setText(MessageHelper.formatAddressesShort(draft.to) + (cc > 0 ? " +" + cc : ""));
+                    if (cc == 0)
+                        tvTo.setText(MessageHelper.formatAddressesShort(draft.to));
+                    else
+                        tvTo.setText(getString(R.string.title_name_plus,
+                                MessageHelper.formatAddressesShort(draft.to), cc));
                     tvTo.setTextColor(Helper.resolveColor(getContext(),
                             to + cc > RECIPIENTS_WARNING ? R.attr.colorWarning : android.R.attr.textColorPrimary));
                     tvVia.setText(draft.identityEmail);
