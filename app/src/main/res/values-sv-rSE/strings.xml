@@ -73,6 +73,8 @@
     <string name="title_notification_failed">\'%1$s\' misslyckades</string>
     <string name="title_notification_alert">\'%1$s\' servermeddelande</string>
     <string name="title_name_count">%1$s (%2$s)</string>
+    <string name="title_name_plus">%1$s +%2$d</string>
+    <string name="title_factor_minutes">%1$d minuter</string>
     <string name="menu_exit">Avsluta</string>
     <string name="menu_answers">Mallar</string>
     <string name="menu_operations">Aktiviteter</string>
@@ -291,6 +293,7 @@
     <string name="title_advanced_autoclose">Stäng konversationer automatiskt</string>
     <string name="title_advanced_onclose">När du stänger en konversation</string>
     <string name="title_advanced_quick_filter">Visa icke-påträngande snabbfilter-ikoner</string>
+    <string name="title_advanced_quick_scroll">Visa icke-påträngande snabba scrolla upp/ner ikoner</string>
     <string name="title_advanced_autoread">Märk automatiskt meddelanden som lästa vid flyttning av meddelanden</string>
     <string name="title_advanced_star_snoozed">Stjänrmarkera automatiskt vid snoozing av meddelanden</string>
     <string name="title_advanced_autounstar">Ta automatiskt bort stjärnmarkeringar från meddelanden när meddelanden flyttas</string>

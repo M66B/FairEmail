@@ -77,6 +77,7 @@
     <string name="title_notification_failed">\'%1$s\' mislyktes</string>
     <string name="title_notification_alert">\'%1$s\' servervarsling</string>
     <string name="title_name_count">%1$s (%2$s)</string>
+    <string name="title_name_plus">%1$s +%2$d</string>
     <string name="title_factor_minutes">%1$d minutter</string>
     <string name="menu_exit">Avslutt</string>
     <string name="menu_answers">Maler</string>
