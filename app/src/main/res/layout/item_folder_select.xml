@@ -41,7 +41,7 @@
             app:layout_constraintTop_toTopOf="@id/ibExpander"
             app:srcCompat="@drawable/baseline_inbox_24" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

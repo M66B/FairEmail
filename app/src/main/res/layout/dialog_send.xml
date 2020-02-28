@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvMessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -19,7 +19,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvRemindTo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvMessage" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvRemindSubject"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvRemindTo" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvRemindText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvRemindSubject" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvRemindAttachment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvRemindText" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvToTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -73,7 +73,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvRemindAttachment" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvTo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -84,7 +84,7 @@
             app:layout_constraintStart_toEndOf="@+id/tvToTitle"
             app:layout_constraintTop_toTopOf="@+id/tvToTitle" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvViaTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -94,7 +94,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvTo" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvVia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -125,7 +125,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbPlainOnly" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvReceipt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -135,7 +135,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbReceipt" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvEncrypt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -155,7 +155,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvEncrypt" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvPriority"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -175,7 +175,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvPriority" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvSendTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -186,7 +186,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/spPriority" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvSendAt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -220,7 +220,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ibSendAt" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvNotAgain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

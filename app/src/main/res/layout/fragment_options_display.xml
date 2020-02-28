@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvLayoutHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -59,7 +59,7 @@
             app:layout_constraintTop_toBottomOf="@id/swLandscape"
             app:switchPadding="12dp" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvStartup"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -117,7 +117,7 @@
             app:layout_constraintTop_toBottomOf="@id/swIndentation"
             app:switchPadding="12dp" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvDateHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -141,7 +141,7 @@
             app:layout_constraintTop_toBottomOf="@id/tvDateHint"
             app:switchPadding="12dp" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvThreadingHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -201,7 +201,7 @@
             app:layout_constraintTop_toBottomOf="@id/swAvatars"
             app:switchPadding="12dp" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvGravatarsHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -278,7 +278,7 @@
             app:layout_constraintStart_toEndOf="@id/ivGreen"
             app:layout_constraintTop_toBottomOf="@id/swCircular" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvSaturation"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -301,7 +301,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSaturation" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvBrightness"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -324,7 +324,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvBrightness" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvThreshold"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -358,7 +358,7 @@
             app:layout_constraintTop_toBottomOf="@id/sbThreshold"
             app:switchPadding="12dp" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvNameEmailHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -430,7 +430,7 @@
             app:layout_constraintTop_toBottomOf="@id/swAuthentication"
             app:switchPadding="12dp" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvFontSizeSender"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -452,7 +452,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvFontSizeSender" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvFontSizeSubject"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -486,7 +486,7 @@
             app:layout_constraintTop_toBottomOf="@id/spFontSizeSubject"
             app:switchPadding="12dp" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvSubjectEllipsize"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -552,7 +552,7 @@
             app:layout_constraintTop_toBottomOf="@id/swFlagsBackground"
             app:switchPadding="12dp" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvPreviewHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -576,7 +576,7 @@
             app:layout_constraintTop_toBottomOf="@id/tvPreviewHint"
             app:switchPadding="12dp" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvPreviewLines"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -597,7 +597,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvPreviewLines" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvPreviewIssue"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -700,7 +700,7 @@
             app:layout_constraintTop_toBottomOf="@id/swCollapseQuotes"
             app:switchPadding="12dp" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvImagesInlineHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

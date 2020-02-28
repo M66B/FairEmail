@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvGrantHint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -73,7 +73,7 @@
             app:layout_constraintStart_toEndOf="@id/btnOAuth"
             app:layout_constraintTop_toTopOf="@id/btnOAuth" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvAuthorized"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
             app:layout_constraintStart_toEndOf="@id/pbOAuth"
             app:layout_constraintTop_toTopOf="@id/btnOAuth" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvGmailHint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -98,7 +98,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnOAuth" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvErrorTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -121,7 +121,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvErrorTitle" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvGmailDraftsHint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

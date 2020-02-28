@@ -22,7 +22,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/baseline_folder_special_24" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvUnified"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -44,7 +44,7 @@
             app:layout_constraintTop_toBottomOf="@id/ivType"
             app:srcCompat="@drawable/baseline_inbox_24" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvInbox"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -66,7 +66,7 @@
             app:layout_constraintTop_toBottomOf="@id/ivInbox"
             app:srcCompat="@drawable/baseline_drafts_24" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvDrafts"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -88,7 +88,7 @@
             app:layout_constraintTop_toBottomOf="@id/ivDrafts"
             app:srcCompat="@drawable/baseline_forward_24" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvSent"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -110,7 +110,7 @@
             app:layout_constraintTop_toBottomOf="@id/ivSent"
             app:srcCompat="@drawable/baseline_archive_24" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvArchive"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -132,7 +132,7 @@
             app:layout_constraintTop_toBottomOf="@id/ivArchive"
             app:srcCompat="@drawable/baseline_delete_24" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvTrash"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -154,7 +154,7 @@
             app:layout_constraintTop_toBottomOf="@id/ivTrash"
             app:srcCompat="@drawable/baseline_flag_24" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvJunk"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -176,7 +176,7 @@
             app:layout_constraintTop_toBottomOf="@id/ivJunk"
             app:srcCompat="@drawable/baseline_star_24" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvPrimary"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -198,7 +198,7 @@
             app:layout_constraintTop_toBottomOf="@id/ivPrimary"
             app:srcCompat="@drawable/baseline_bookmark_24" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvSubscribed"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -220,7 +220,7 @@
             app:layout_constraintTop_toBottomOf="@id/ivSubscribed"
             app:srcCompat="@drawable/baseline_filter_list_24" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvRule"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -242,7 +242,7 @@
             app:layout_constraintTop_toBottomOf="@id/ivRule"
             app:srcCompat="@drawable/baseline_notifications_24" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvNotify"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -254,7 +254,7 @@
             app:layout_constraintStart_toEndOf="@id/ivNotify"
             app:layout_constraintTop_toTopOf="@id/ivNotify" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvDownloadFetch"
             android:layout_width="48dp"
             android:layout_height="0dp"
@@ -276,7 +276,7 @@
             app:layout_constraintTop_toTopOf="@+id/tvDownloadFetchLegend"
             app:srcCompat="@drawable/baseline_mail_outline_24" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvDownloadFetchLegend"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -288,7 +288,7 @@
             app:layout_constraintStart_toEndOf="@id/ivDownloadFetch"
             app:layout_constraintTop_toBottomOf="@id/ivNotify" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvSyncKeep"
             android:layout_width="48dp"
             android:layout_height="0dp"
@@ -310,7 +310,7 @@
             app:layout_constraintTop_toTopOf="@+id/tvSyncKeepLegend"
             app:srcCompat="@drawable/baseline_sync_24" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvSyncKeepLegend"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -332,7 +332,7 @@
             app:layout_constraintTop_toBottomOf="@id/tvSyncKeepLegend"
             app:srcCompat="@drawable/baseline_stop_24" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvStop"
             android:layout_width="0dp"
             android:layout_height="0dp"

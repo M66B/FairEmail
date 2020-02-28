@@ -105,7 +105,7 @@
             app:layout_constraintTop_toBottomOf="@id/swReversed"
             app:switchPadding="12dp" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvAutoExpandHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -139,7 +139,7 @@
             app:layout_constraintTop_toBottomOf="@id/swExpandAll"
             app:switchPadding="12dp" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvAutoSeenHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -175,7 +175,7 @@
             app:layout_constraintTop_toBottomOf="@id/swCollapseMultiple"
             app:switchPadding="12dp" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvAutoCloseHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -187,7 +187,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/swAutoClose" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvOnClose"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -298,7 +298,7 @@
             app:layout_constraintTop_toBottomOf="@id/swResetImportance"
             app:switchPadding="12dp" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvDefaultSnooze"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -318,7 +318,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvDefaultSnooze" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"

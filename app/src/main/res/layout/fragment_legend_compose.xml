@@ -22,7 +22,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/baseline_person_add_24" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvPick"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -44,7 +44,7 @@
             app:layout_constraintTop_toBottomOf="@id/ivPick"
             app:srcCompat="@drawable/baseline_people_24" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvCC"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -66,7 +66,7 @@
             app:layout_constraintTop_toBottomOf="@id/ivCC"
             app:srcCompat="@drawable/baseline_insert_link_24" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvLink"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -88,7 +88,7 @@
             app:layout_constraintTop_toBottomOf="@id/ivLink"
             app:srcCompat="@drawable/baseline_attachment_24" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvFile"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -110,7 +110,7 @@
             app:layout_constraintTop_toBottomOf="@id/ivFile"
             app:srcCompat="@drawable/baseline_image_24" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvPicture"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -132,7 +132,7 @@
             app:layout_constraintTop_toBottomOf="@id/ivPicture"
             app:srcCompat="@drawable/baseline_photo_camera_24" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvPhoto"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -154,7 +154,7 @@
             app:layout_constraintTop_toBottomOf="@id/ivPhoto"
             app:srcCompat="@drawable/baseline_record_voice_over_24" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvAudio"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -176,7 +176,7 @@
             app:layout_constraintTop_toBottomOf="@id/ivAudio"
             app:srcCompat="@drawable/baseline_format_bold_24" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvBold"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -198,7 +198,7 @@
             app:layout_constraintTop_toBottomOf="@id/ivBold"
             app:srcCompat="@drawable/baseline_format_italic_24" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvItalic"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -220,7 +220,7 @@
             app:layout_constraintTop_toBottomOf="@id/ivItalic"
             app:srcCompat="@drawable/baseline_format_underlined_24" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvUnderline"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -242,7 +242,7 @@
             app:layout_constraintTop_toBottomOf="@id/ivUnderline"
             app:srcCompat="@drawable/baseline_format_size_24" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvSize"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -264,7 +264,7 @@
             app:layout_constraintTop_toBottomOf="@id/ivSize"
             app:srcCompat="@drawable/baseline_format_color_text_24" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvColor"
             android:layout_width="0dp"
             android:layout_height="0dp"

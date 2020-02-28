@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
+            <eu.faircode.email.FixedTextView
                 android:id="@+id/tvHintActions"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvHintActions" />
 
-            <TextView
+            <eu.faircode.email.FixedTextView
                 android:id="@+id/tvHintSync"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"

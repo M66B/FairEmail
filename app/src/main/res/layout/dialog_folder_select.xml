@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:padding="12dp">
 
-    <TextView
+    <eu.faircode.email.FixedTextView
         android:id="@+id/tvNoFolder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

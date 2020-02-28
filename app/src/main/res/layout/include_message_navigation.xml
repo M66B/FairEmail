@@ -141,7 +141,7 @@
         app:layout_constraintTop_toBottomOf="@id/vSeparatorBottom"
         app:srcCompat="@drawable/baseline_fullscreen_24" />
 
-    <TextView
+    <eu.faircode.email.FixedTextView
         android:id="@+id/tvSignedData"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

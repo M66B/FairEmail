@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:padding="24dp">
 
-    <TextView
+    <eu.faircode.email.FixedTextView
         android:id="@+id/tvOpenLink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -31,7 +31,7 @@
         <requestFocus />
     </EditText>
 
-    <TextView
+    <eu.faircode.email.FixedTextView
         android:id="@+id/tvInsecure"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

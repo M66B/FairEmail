@@ -24,7 +24,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:switchPadding="12dp" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvConfirmLinksHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -49,7 +49,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tvConfirmLinksHint"
             app:switchPadding="12dp" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvConfirmImagesHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -74,7 +74,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tvConfirmImagesHint"
             app:switchPadding="12dp" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvConfirmHtmlHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -110,7 +110,7 @@
             app:layout_constraintTop_toBottomOf="@id/swDisableTracking"
             app:switchPadding="12dp" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvDisplayHiddenHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -122,7 +122,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/swDisplayHidden" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvEncryptMethod"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -144,7 +144,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvEncryptMethod" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvOpenPgp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -233,7 +233,7 @@
             app:layout_constraintTop_toBottomOf="@id/swAutoDecrypt"
             app:switchPadding="12dp" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvSecureHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -245,7 +245,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/swSecure" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvBiometrics"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -282,7 +282,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvBiometrics" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvPinHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -294,7 +294,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnPin" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvBiometricsTimeout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -326,7 +326,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/spBiometricsTimeout" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvSmime"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -375,7 +375,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnImportKey" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvKeySize"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

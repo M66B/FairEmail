@@ -21,7 +21,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/baseline_mail_outline_24" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvItem"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
             app:layout_constraintStart_toEndOf="@id/ivItem"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvItemExtra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

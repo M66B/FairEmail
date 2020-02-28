@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+    <eu.faircode.email.FixedTextView
         android:id="@+id/tvCalendarSummary"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/vSeparatorCalendar" />
 
-    <TextView
+    <eu.faircode.email.FixedTextView
         android:id="@+id/tvCalendarDescription"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -43,7 +43,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvCalendarSummary" />
 
-    <TextView
+    <eu.faircode.email.FixedTextView
         android:id="@+id/tvCalendarLocation"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -56,7 +56,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvCalendarDescription" />
 
-    <TextView
+    <eu.faircode.email.FixedTextView
         android:id="@+id/tvCalendarStart"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -69,7 +69,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvCalendarLocation" />
 
-    <TextView
+    <eu.faircode.email.FixedTextView
         android:id="@+id/tvCalendarEnd"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -82,7 +82,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvCalendarStart" />
 
-    <TextView
+    <eu.faircode.email.FixedTextView
         android:id="@+id/tvAttendees"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TextView
+            <eu.faircode.email.FixedTextView
                 android:id="@+id/tvHint"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -37,7 +37,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvHint" />
 
-            <TextView
+            <eu.faircode.email.FixedTextView
                 android:id="@+id/tvFromTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -59,7 +59,7 @@
                 app:layout_constraintStart_toEndOf="@id/tvFromTitle"
                 app:layout_constraintTop_toBottomOf="@id/vSeparatorHeader" />
 
-            <TextView
+            <eu.faircode.email.FixedTextView
                 android:id="@+id/tvToTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -81,7 +81,7 @@
                 app:layout_constraintStart_toEndOf="@id/tvToTitle"
                 app:layout_constraintTop_toBottomOf="@id/tvFrom" />
 
-            <TextView
+            <eu.faircode.email.FixedTextView
                 android:id="@+id/tvReplyToTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -103,7 +103,7 @@
                 app:layout_constraintStart_toEndOf="@id/tvReplyToTitle"
                 app:layout_constraintTop_toBottomOf="@id/tvTo" />
 
-            <TextView
+            <eu.faircode.email.FixedTextView
                 android:id="@+id/tvCcTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -125,7 +125,7 @@
                 app:layout_constraintStart_toEndOf="@id/tvCcTitle"
                 app:layout_constraintTop_toBottomOf="@id/tvReplyTo" />
 
-            <TextView
+            <eu.faircode.email.FixedTextView
                 android:id="@+id/tvSentTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -147,7 +147,7 @@
                 app:layout_constraintStart_toEndOf="@id/tvSentTitle"
                 app:layout_constraintTop_toBottomOf="@id/tvCc" />
 
-            <TextView
+            <eu.faircode.email.FixedTextView
                 android:id="@+id/tvReceivedTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

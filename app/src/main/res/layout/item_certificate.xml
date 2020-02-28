@@ -12,7 +12,7 @@
         android:foreground="?attr/selectableItemBackground"
         android:padding="6dp">
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvEmail"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -37,7 +37,7 @@
             app:barrierDirection="bottom"
             app:constraint_referenced_ids="tvEmail,ivIntermediate" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvSubject"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/barrier" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvAfter"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -57,7 +57,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvSubject" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvBefore"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -68,7 +68,7 @@
             app:layout_constraintStart_toEndOf="@id/tvAfter"
             app:layout_constraintTop_toBottomOf="@+id/tvSubject" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvExpired"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

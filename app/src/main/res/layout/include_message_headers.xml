@@ -41,7 +41,7 @@
         app:layout_constraintStart_toStartOf="@id/tvHeaders"
         app:layout_constraintTop_toTopOf="@id/tvHeaders" />
 
-    <TextView
+    <eu.faircode.email.FixedTextView
         android:id="@+id/tvNoInternetHeaders"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

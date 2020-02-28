@@ -46,7 +46,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/spIdentity" />
 
-                <TextView
+                <eu.faircode.email.FixedTextView
                     android:id="@+id/tvDomain"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -224,7 +224,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/vSeparatorAttachments" />
 
-                <TextView
+                <eu.faircode.email.FixedTextView
                     android:id="@+id/tvNoInternetAttachments"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -246,7 +246,7 @@
                     app:layout_constraintTop_toTopOf="@+id/tvUnusedImagesHint"
                     app:srcCompat="@drawable/baseline_close_24" />
 
-                <TextView
+                <eu.faircode.email.FixedTextView
                     android:id="@+id/tvUnusedImagesHint"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -289,7 +289,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/vSeparator" />
 
-                <TextView
+                <eu.faircode.email.FixedTextView
                     android:id="@+id/tvNoInternet"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -356,7 +356,7 @@
                     app:layout_constraintTop_toTopOf="@+id/tvReferenceHint"
                     app:srcCompat="@drawable/baseline_close_24" />
 
-                <TextView
+                <eu.faircode.email.FixedTextView
                     android:id="@+id/tvReferenceHint"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"

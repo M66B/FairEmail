@@ -111,7 +111,7 @@
                 app:layout_constraintTop_toTopOf="@+id/tvName"
                 app:srcCompat="@drawable/baseline_notifications_24" />
 
-            <TextView
+            <eu.faircode.email.FixedTextView
                 android:id="@+id/tvName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -126,7 +126,7 @@
                 app:layout_constraintStart_toEndOf="@id/ivNotify"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
+            <eu.faircode.email.FixedTextView
                 android:id="@+id/tvMessages"
                 android:layout_width="wrap_content"
                 android:layout_height="24dp"
@@ -158,7 +158,7 @@
                 app:layout_constraintTop_toTopOf="@+id/tvType"
                 app:srcCompat="@drawable/baseline_inbox_24" />
 
-            <TextView
+            <eu.faircode.email.FixedTextView
                 android:id="@+id/tvType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -172,7 +172,7 @@
                 app:layout_constraintStart_toEndOf="@id/ivType"
                 app:layout_constraintTop_toBottomOf="@id/tvName" />
 
-            <TextView
+            <eu.faircode.email.FixedTextView
                 android:id="@+id/tvTotal"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -188,7 +188,7 @@
                 app:layout_constraintStart_toEndOf="@id/tvType"
                 app:layout_constraintTop_toTopOf="@id/tvType" />
 
-            <TextView
+            <eu.faircode.email.FixedTextView
                 android:id="@+id/tvAfter"
                 android:layout_width="wrap_content"
                 android:layout_height="24dp"
@@ -210,7 +210,7 @@
                 app:layout_constraintTop_toTopOf="@+id/tvType"
                 app:srcCompat="@drawable/baseline_sync_24" />
 
-            <TextView
+            <eu.faircode.email.FixedTextView
                 android:id="@+id/tvKeywords"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"

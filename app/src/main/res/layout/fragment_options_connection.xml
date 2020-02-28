@@ -24,7 +24,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:switchPadding="12dp" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvMeteredHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/swMetered" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvMeteredWarning"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -49,7 +49,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvMeteredHint" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvDownload"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -83,7 +83,7 @@
             app:layout_constraintTop_toBottomOf="@id/spDownload"
             app:switchPadding="12dp" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvRoamingHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -107,7 +107,7 @@
             app:layout_constraintTop_toBottomOf="@id/tvRoamingHint"
             app:switchPadding="12dp" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvRlahHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -131,7 +131,7 @@
             app:layout_constraintTop_toBottomOf="@id/tvRlahHint"
             app:switchPadding="12dp" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvSslHardenHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -176,7 +176,7 @@
             app:layout_constraintBottom_toBottomOf="@id/etSocks"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvSocksHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -200,7 +200,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSocksHint" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvConnectionType"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -213,7 +213,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnManage" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvConnectionRoaming"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

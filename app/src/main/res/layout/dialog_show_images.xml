@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvMessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
             app:layout_constraintTop_toTopOf="@+id/tvTracking"
             app:srcCompat="@drawable/baseline_my_location_24" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvTracking"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

@@ -35,7 +35,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/baseline_attachment_24" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -71,7 +71,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/baseline_save_24" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvType"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -84,7 +84,7 @@
             app:layout_constraintStart_toStartOf="@id/tvName"
             app:layout_constraintTop_toBottomOf="@id/tvName" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvSize"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -97,7 +97,7 @@
             app:layout_constraintStart_toEndOf="@id/tvType"
             app:layout_constraintTop_toTopOf="@id/tvName" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvError"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

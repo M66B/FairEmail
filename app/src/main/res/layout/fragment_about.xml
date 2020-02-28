@@ -19,7 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+    <eu.faircode.email.FixedTextView
         android:id="@+id/tvRelease"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
         app:layout_constraintStart_toEndOf="@id/tvVersion"
         app:layout_constraintTop_toTopOf="@id/tvVersion" />
 
-    <TextView
+    <eu.faircode.email.FixedTextView
         android:id="@+id/tvCopyright"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

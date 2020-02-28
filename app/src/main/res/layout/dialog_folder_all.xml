@@ -9,7 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent">
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvCaption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -18,7 +18,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvUser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -46,7 +46,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbPoll" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvSyncDays"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -68,7 +68,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSyncDays" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvKeepDays"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

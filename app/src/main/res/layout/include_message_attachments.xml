@@ -63,7 +63,7 @@
         app:barrierDirection="bottom"
         app:constraint_referenced_ids="btnDownloadAttachments,btnSaveAttachments" />
 
-    <TextView
+    <eu.faircode.email.FixedTextView
         android:id="@+id/tvNoInternetAttachments"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

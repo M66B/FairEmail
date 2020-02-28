@@ -24,7 +24,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvManageHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -48,7 +48,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvManageHint" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvManageDefaultHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -72,7 +72,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvManageDefaultHint" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvManageServiceHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -96,7 +96,7 @@
             app:layout_constraintTop_toBottomOf="@id/tvManageServiceHint"
             app:switchPadding="12dp" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvBadgeHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -142,7 +142,7 @@
             app:layout_constraintTop_toBottomOf="@id/swNotifySummary"
             app:switchPadding="12dp" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvNotifyRemoveHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -179,7 +179,7 @@
             app:layout_constraintTop_toBottomOf="@id/swNotifyClear"
             app:switchPadding="12dp" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvNotifyPreviewHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -202,7 +202,7 @@
             app:layout_constraintTop_toBottomOf="@id/tvNotifyPreviewHint"
             app:switchPadding="12dp" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvNotifyPreviewAllHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -225,7 +225,7 @@
             app:layout_constraintTop_toBottomOf="@id/tvNotifyPreviewAllHint"
             app:switchPadding="12dp" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvWearablePreviewHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -237,7 +237,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/swWearablePreview" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvNotifyActions"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -286,7 +286,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbNotifyActionArchive" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvNotifyActionMoveHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -343,7 +343,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbNotifyActionSeen" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvNotifyActionsHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -356,7 +356,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbNotifyActionSnooze" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvNotifyActionsPro"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -413,7 +413,7 @@
             app:layout_constraintTop_toBottomOf="@id/btnSound"
             app:switchPadding="12dp" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvNoGrouping"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -426,7 +426,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/swAlertOnce" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvNoChannels"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

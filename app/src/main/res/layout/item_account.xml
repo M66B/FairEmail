@@ -77,7 +77,7 @@
                 app:layout_constraintTop_toTopOf="@+id/tvName"
                 app:srcCompat="@drawable/baseline_notifications_24" />
 
-            <TextView
+            <eu.faircode.email.FixedTextView
                 android:id="@+id/tvName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -104,7 +104,7 @@
                 app:layout_constraintTop_toTopOf="@+id/tvName"
                 app:srcCompat="@drawable/baseline_sync_24" />
 
-            <TextView
+            <eu.faircode.email.FixedTextView
                 android:id="@+id/tvUser"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -118,7 +118,7 @@
                 app:layout_constraintStart_toEndOf="@+id/ivState"
                 app:layout_constraintTop_toBottomOf="@id/tvName" />
 
-            <TextView
+            <eu.faircode.email.FixedTextView
                 android:id="@+id/tvHost"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -132,7 +132,7 @@
                 app:layout_constraintStart_toEndOf="@+id/ivState"
                 app:layout_constraintTop_toBottomOf="@id/tvUser" />
 
-            <TextView
+            <eu.faircode.email.FixedTextView
                 android:id="@+id/tvLast"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -146,7 +146,7 @@
                 app:layout_constraintStart_toEndOf="@+id/ivState"
                 app:layout_constraintTop_toBottomOf="@id/tvHost" />
 
-            <TextView
+            <eu.faircode.email.FixedTextView
                 android:id="@+id/tvQuota"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -160,7 +160,7 @@
                 app:layout_constraintStart_toEndOf="@+id/ivState"
                 app:layout_constraintTop_toBottomOf="@id/tvLast" />
 
-            <TextView
+            <eu.faircode.email.FixedTextView
                 android:id="@+id/tvIdentity"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -173,7 +173,7 @@
                 app:layout_constraintStart_toEndOf="@id/vwColor"
                 app:layout_constraintTop_toBottomOf="@id/tvQuota" />
 
-            <TextView
+            <eu.faircode.email.FixedTextView
                 android:id="@+id/tvDrafts"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
