@@ -437,6 +437,7 @@
     <string name="title_account_left">Sveip mot venstre</string>
     <string name="title_account_right">Sveip mot høyre</string>
     <string name="title_account_move">Standard flytt til</string>
+    <string name="title_account_gmail">For pålitelig synkronisering av en Gmail-konto, skal hurtigveiviseren for Gmail brukes når det er mulig</string>
     <string name="title_domain">Domenenavn</string>
     <string name="title_autoconfig">Hent innstillinger</string>
     <string name="title_aliases">Aliaser</string>

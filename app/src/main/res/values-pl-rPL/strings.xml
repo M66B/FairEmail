@@ -98,6 +98,7 @@
     <string name="title_notification_failed">%1$s nie powiodło się</string>
     <string name="title_notification_alert">Alert serwera \'%1$s\'</string>
     <string name="title_name_count">%1$s (%2$s)</string>
+    <string name="title_factor_minutes">%1$d minut</string>
     <string name="menu_exit">Wyjście</string>
     <string name="menu_answers">Szablony</string>
     <string name="menu_operations">Operacje</string>
@@ -378,6 +379,7 @@
     <string name="title_advanced_crash_reports">Wyślij raport o błędach</string>
     <string name="title_advanced_debug">Debuguj</string>
     <string name="title_advanced_cleanup">Oczyszczanie</string>
+    <string name="title_advanced_more">Więcej opcji</string>
     <string name="title_advanced_last_cleanup">Ostatnie czyszczenie: %1$s</string>
     <string name="title_advanced_enabled_hint">Globalnie wyłącz lub włącz odbieranie wiadomości</string>
     <string name="title_advanced_manual_hint">Jeśli synchronizacja jest wyłączona, nadal można synchronizować ręcznie, przeciągając listę wiadomości.</string>
@@ -456,6 +458,7 @@
     <string name="title_account_left">Przesuń w lewo</string>
     <string name="title_account_right">Przesuń w prawo</string>
     <string name="title_account_move">Domyślnie przenieś do</string>
+    <string name="title_account_gmail">W celu zapewnienia niezawodnej synchronizacji konta Gmail, należy w miarę możliwości używać kreatora szybkiej konfiguracji Gmaila</string>
     <string name="title_domain">Nazwa domeny</string>
     <string name="title_autoconfig">Pobierz ustawienia</string>
     <string name="title_aliases">Aliasy</string>
@@ -474,6 +477,7 @@
     <string name="title_primary_identity">Podstawowe (domyślna tożsamość)</string>
     <string name="title_leave_on_server">Pozostaw wiadomości na serwerze</string>
     <string name="title_leave_on_device">Pozostaw wiadomości na urządzeniu</string>
+    <string name="title_max_messages">Maksymalna liczba wiadomości do pobrania (puste dla wszystkich)</string>
     <string name="title_keep_alive_interval">Interwał utrzymywania aktywności/odpytywania (minuty)</string>
     <string name="title_use_date">Użyj czasu wysłania nagłówka daty zamiast czasu odebranego przez serwer</string>
     <string name="title_related_identity">Dodaj powiązaną tożsamość</string>
@@ -610,6 +614,11 @@
     <string name="title_snooze">Odłóż &#8230;</string>
     <string name="title_archive">Archiwum</string>
     <string name="title_reply">Odpowiedz</string>
+    <string name="title_reply_to_sender">Odpowiedz nadawcy</string>
+    <string name="title_reply_to_all">Odpowiedz wszystkim</string>
+    <string name="title_reply_list">Odpowiedz do listy</string>
+    <string name="title_reply_receipt">Wyślij potwierdzenie odczytu</string>
+    <string name="title_reply_template">Odpowiedz z szablonem</string>
     <string name="title_moving">Przenoszę do %1$s</string>
     <string name="title_open_with">Otwórz z</string>
     <string name="title_authentication_failed">%1$s uwierzytelnianie nie powiodło się</string>
@@ -659,6 +668,7 @@
         Byłoby mile widziane, gdybyś mógł ocenić FairEmail w Sklepie Play..
         Pomoże to utrzymać równowagę między niekorzystnymi a pozytywnymi ocenami.
     </string>
+    <string name="title_third_party">Używasz wersji od strony trzeciej</string>
     <string name="title_expand_warning">Rozwinięcie tej wiadomości spowoduje pobranie %1$s</string>
     <string name="title_download_message">Pobieranie &#8230;</string>
     <string name="title_compose">Napisz</string>
@@ -1017,6 +1027,7 @@ FairEmail wyświetla o tym małą wiadomość przypominającą, która zostanie 
     <string name="title_search_special_flagged">oznaczona</string>
     <string name="title_search_special_snoozed">ukryta</string>
     <string name="title_search_special_encrypted">zaszyfrowana</string>
+    <string name="title_search_special_attachments">załączniki</string>
     <string name="title_widget_title_count">Liczba nowych wiadomości</string>
     <string name="title_widget_title_list">Lista wiadomości</string>
     <string name="title_widget_account">Konto</string>

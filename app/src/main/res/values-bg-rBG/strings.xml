@@ -645,6 +645,7 @@
         Ще Ви бъде благодарен, ако можете да оцените FairEmail в Play Store.
         Това ще помогне да се поддържа баланс между неблагоприятните и благоприятните прегледи.
     </string>
+    <string name="title_third_party">Използвате версия на трета страна</string>
     <string name="title_expand_warning">Рзширеното съобщение ще се изтегли %1$s</string>
     <string name="title_download_message">Изтегляне &#8230;</string>
     <string name="title_compose">Ново съобщение</string>

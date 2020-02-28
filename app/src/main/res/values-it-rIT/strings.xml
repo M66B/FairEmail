@@ -436,6 +436,7 @@
     <string name="title_account_left">Scorri a sinistra</string>
     <string name="title_account_right">Scorri a destra</string>
     <string name="title_account_move">Spostare di default a</string>
+    <string name="title_account_gmail">Per una sincronizzazione affidabile di un account Gmail, la procedura guidata di configurazione rapida Gmail dovrebbe essere utilizzata quando possibile</string>
     <string name="title_domain">Nome dominio</string>
     <string name="title_autoconfig">Ottieni impostazioni</string>
     <string name="title_aliases">Alias</string>

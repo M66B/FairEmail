@@ -76,6 +76,7 @@
     <string name="title_notification_failed">\'%1$s\' epäonnistui</string>
     <string name="title_notification_alert">Palvelimen \'%1$s\' hälytys</string>
     <string name="title_name_count">%1$s (%2$s)</string>
+    <string name="title_factor_minutes">%1$d minuuttia</string>
     <string name="menu_exit">Poistu</string>
     <string name="menu_answers">Viestipohjat</string>
     <string name="menu_operations">Toimenpiteet</string>
@@ -355,6 +356,7 @@
     <string name="title_advanced_crash_reports">Lähetä virheraportit</string>
     <string name="title_advanced_debug">Debug-tila</string>
     <string name="title_advanced_cleanup">Siistiminen</string>
+    <string name="title_advanced_more">Lisää asetuksia</string>
     <string name="title_advanced_last_cleanup">Viimeisin puhdistus: %1$s</string>
     <string name="title_advanced_enabled_hint">Estä tai salli viestien vastaanotto globaalisti</string>
     <string name="title_advanced_manual_hint">Jos automaattinen synkronointi on pois käytöstä, synkronoinnin voi tehdä manuaalisesti vetämällä alaspäin viestilistassa.</string>
@@ -451,6 +453,7 @@
     <string name="title_primary_identity">Ensisijainen (oletusidentiteetti)</string>
     <string name="title_leave_on_server">Jätä viestit palvelimelle</string>
     <string name="title_leave_on_device">Jätä viestit laitteeseen</string>
+    <string name="title_max_messages">Ladattavien viestien maksimimäärä (tyhjä lataa kaikki)</string>
     <string name="title_keep_alive_interval">Yhteyden ylläpitokyselyn aikaväli (minuuttia)</string>
     <string name="title_use_date">Käytä päivämäärätunnisteen lähetysaikaa palvelimen vastaanottoajan sijaan</string>
     <string name="title_related_identity">Lisää liittyvä identiteetti</string>
@@ -476,6 +479,7 @@
     <string name="title_drafts_required">Viestien lähettämiseen tarvitaan luonnoskansio</string>
     <string name="title_account_delete">Poistetaanko tämä tili pysyvästi?</string>
     <string name="title_identity_delete">Poistetaanko tämä identiteetti pysyvästi?</string>
+    <string name="title_edit_html">Muokkaa HTML-muodossa</string>
     <string name="title_sign_key">Allekirjoitusavain: %1$s</string>
     <string name="title_last_connected">Viimeksi yhdistetty: %1$s</string>
     <string name="title_storage_quota">Palvelimen tallennustilan käyttö: %1$s/%2$s</string>
@@ -586,6 +590,11 @@
     <string name="title_snooze">Torkuta &#8230;</string>
     <string name="title_archive">Arkistoi</string>
     <string name="title_reply">Vastaa</string>
+    <string name="title_reply_to_sender">Vastaa lähettäjälle</string>
+    <string name="title_reply_to_all">Vastaa kaikille</string>
+    <string name="title_reply_list">Vastaa listalle</string>
+    <string name="title_reply_receipt">Lähetä vastaanottokuittaus</string>
+    <string name="title_reply_template">Vastaa viestipohjalla</string>
     <string name="title_moving">Siirretään kansioon %1$s</string>
     <string name="title_open_with">Avaa sovelluksessa</string>
     <string name="title_authentication_failed">%1$s tunnistautuminen epäonnistui</string>
@@ -635,6 +644,7 @@
         Olisi hienoa, jos voisit arvioida FairEmailin Play Kaupassa.
         Tämä auttaa pitämään tasapainon hyvien ja huonojen arvioiden välillä.
     </string>
+    <string name="title_third_party">Käytät kolmannen osapuolen versiota</string>
     <string name="title_expand_warning">Tämän viestin laajentaminen lataa %1$s</string>
     <string name="title_download_message">Ladataan &#8230;</string>
     <string name="title_compose">Kirjoita viesti</string>
@@ -708,6 +718,7 @@
     <string name="title_user_interaction">Siirretään OpenKeychain-sovellukseen</string>
     <string name="title_signed_data">Todenna allekirjoitus viestin tekstin näyttämiseksi</string>
     <string name="title_not_encrypted">Viestiä ei ole allekirjoitettu tai salattu</string>
+    <string name="title_no_sign_key">Allekirjoitusavainta ei valittuna</string>
     <string name="title_reset_sign_key">Nollaa allekirjoitusavain</string>
     <string name="title_signature_none">Viestiä ei allekirjoitettu</string>
     <string name="title_signature_valid">Viestin allekirjoitus pätevä</string>
@@ -753,6 +764,9 @@
     <string name="title_force_sync">Pakota synkronointi</string>
     <string name="title_previous">Edellinen</string>
     <string name="title_next">Seuraava</string>
+    <string name="title_edit_signature">Muokkaa allekirjoitusta</string>
+    <string name="title_edit_signature_text">Allekirjoituksen teksti</string>
+    <string name="title_edit_signature_image">Lisää kuva</string>
     <string name="title_answer_caption">Muokkaa viestipohjaa</string>
     <string name="title_answer_reply">Vastausviestipohja</string>
     <string name="title_answer_name">Viestipohjan nimi</string>
@@ -905,7 +919,9 @@
     <string name="title_hint_support">Jos sinulla on kysyttävää tai ongelma, ole hyvä ja käytä tukivalikkoa saadaksesi apua</string>
     <string name="title_hint_message_actions">Pyyhkäise vasemmalle siirtääksesi roskakoriin; Pyyhkäise oikealle arkistoidaksesi (kun mahdollista); Pyyhkäisytoimintoja voi muokata tilin asetuksissa</string>
     <string name="title_hint_message_selection">Paina viestiä pitkään aloittaaksesi useamman viestin valinnan; Paina ja vieritä ylös tai alas valitaksesi lisää viestejä</string>
+    <string name="title_hint_important">Tärkeä</string>
     <string name="title_hint_sync">Viestien lataaminen voi kestää riippuen verkkoyhteyden nopeudesta, käytettävästä laitteesta ja viestien lukumäärästä. Viestejä ladatessa sovellus voi toimia normaalia hitaammin.</string>
+    <string name="title_hint_battery">Koska FairEmail vastaanottaa viestit oletusarvoisesti aina, Android ilmoittaa FairEmailin olevan aina aktviininen. Saattaa vaikuttaa, että FairEmail käyttäisi aina akkua, vaikka niin ei olekaan.</string>
     <string name="title_hint_contact_actions">Pitkä painallus avaa asetukset</string>
     <string name="title_hint_eml">Tämä on tiivistelmä raakaviestistä. Tallenna raakaviesti toimintopalkin tallennuskuvakkeesta nähdäksesi koko sisällön.</string>
     <string name="title_open_link">Avaa linkki</string>
@@ -988,6 +1004,7 @@
     <string name="title_search_special_flagged">tähdellinen</string>
     <string name="title_search_special_snoozed">piilotettu</string>
     <string name="title_search_special_encrypted">salattu</string>
+    <string name="title_search_special_attachments">liitteet</string>
     <string name="title_widget_title_count">Uusien viestien lukumäärä</string>
     <string name="title_widget_title_list">Viestilista</string>
     <string name="title_widget_account">Tili</string>

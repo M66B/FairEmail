@@ -437,6 +437,7 @@
     <string name="title_account_left">Veeg links</string>
     <string name="title_account_right">Veeg rechts</string>
     <string name="title_account_move">Standaard verplaatsen naar</string>
+    <string name="title_account_gmail">Voor een betrouwbare synchronisatie van een Gmail-account moet waar mogelijk de wizard voor snelle installatie van Gmail worden gebruikt</string>
     <string name="title_domain">Domeinnaam</string>
     <string name="title_autoconfig">Instellingen ophalen</string>
     <string name="title_aliases">Aliassen</string>

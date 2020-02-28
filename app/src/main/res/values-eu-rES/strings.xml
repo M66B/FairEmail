@@ -644,6 +644,7 @@
 Eskertzekoa litzateke Play Storen FairEmail baloratuko bazenu.
 Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     </string>
+    <string name="title_third_party">Hirugarren baten bertsioa erabiltzen ari zara</string>
     <string name="title_expand_warning">Mezu hau hedatzean %1$s deskargatuko da</string>
     <string name="title_download_message">Deskargatzen &#8230;</string>
     <string name="title_compose">Idatzi</string>

@@ -224,7 +224,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_extended_reply">Erweiterte Antwort-/Weiterleitungs-Kopfzeile verwenden</string>
     <string name="title_advanced_quote_reply">Beantworteten Text zitieren</string>
     <string name="title_advanced_signature_location">Signaturposition</string>
-    <string name="title_advanced_signature_end">Signatur NACH zitierter/weitergeleiteter Nachricht hinzufügen</string>
+    <string name="title_advanced_signature_end">Signatur nach zitierter/weitergeleiteter Nachricht hinzufügen</string>
     <string name="title_advanced_plain_only">Immer als Reintext senden, nicht als HTML</string>
     <string name="title_advanced_usenet_signature">Usenet-Signaturkonvention</string>
     <string name="title_advanced_remove_signatures">Erkannte Signaturen entfernen</string>
@@ -259,7 +259,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_color_value">Helligkeit</string>
     <string name="title_advanced_color_threshold">Schwellenwert für Buchstabenfarbe</string>
     <string name="title_advanced_name_email">Namen und E-Mail-Adressen anzeigen</string>
-    <string name="title_advanced_replace_name">Bevorzuge einen Kontaktnamen gegenüber einem gesendeten Namen</string>
+    <string name="title_advanced_replace_name">Einen Kontaktnamen gegenüber einem gesendeten Namen bevorzugen</string>
     <string name="title_advanced_distinguish_contacts">Den Sender unterstrichen darstellen, wenn er ein bekannter lokaler \'An\'-Kontakt ist</string>
     <string name="title_advanced_authentication">Warnung anzeigen, wenn der empfangende Server die Nachricht nicht authentifizieren konnte</string>
     <string name="title_advanced_font_size_sender">Schriftgröße für den Absender</string>
@@ -274,7 +274,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_preview_italic">Nachrichtenvorschau kursiv anzeigen</string>
     <string name="title_advanced_preview_lines">Anzahl der Vorschauzeilen</string>
     <string name="title_advanced_addresses">Adressdetails standardmäßig anzeigen</string>
-    <string name="title_advanced_attachments_alt">Anhänge NACH dem Nachrichtentext anzeigen</string>
+    <string name="title_advanced_attachments_alt">Anhänge nach dem Nachrichtentext anzeigen</string>
     <string name="title_advanced_contrast">Hohen Kontrast für den Nachrichtentext verwenden</string>
     <string name="title_advanced_monospaced">Unproportionale Schriftart für den Nachrichtentext verwenden</string>
     <string name="title_advanced_text_color">Textfarben anzeigen</string>
@@ -341,7 +341,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_sign_default">Standardmäßig signieren</string>
     <string name="title_advanced_encrypt_default">Standardmäßig verschlüsseln</string>
     <string name="title_advanced_auto_decrypt">Nachrichten automatisch entschlüsseln</string>
-    <string name="title_advanced_secure">Verstecke im Anwendungsverlauf und verhindere das Aufnehmen von Bildschirmfotos</string>
+    <string name="title_advanced_secure">Im Anwendungsverlauf verbergen und das Aufnehmen von Bildschirmfotos verhindern</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Gültigkeitsdauer der biometrischen Authentifizierung</string>
     <string name="title_advanced_manage_certificates">Öffentliche Schlüssel verwalten</string>
@@ -372,7 +372,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_subscribed_only_hint">Wenn aktiviert, werden alle lokalen Ordner ohne Abonnement gelöscht</string>
     <string name="title_advanced_sync_delay_hint">Dies verzögert die Synchronisierung von Nachrichten</string>
     <string name="title_advanced_suggest_local_hint">Zusätzlich zu den von Android bereitgestellten Kontakten werden weitere Kontaktdaten für neue gesendete oder erhaltene Nachrichten nur dann gespeichert, wenn dies aktiviert ist.</string>
-    <string name="title_advanced_usenet_hint">Signatur-Trenner (\'-- \') zwischen Text und Signatur einfügen</string>
+    <string name="title_advanced_usenet_hint">Signaturtrenner »--« zwischen Text und Signatur einfügen</string>
     <string name="title_advanced_send_reminders_hint">Eine Warnung anzeigen, wenn der Nachrichtentext oder der Betreff leer ist oder wenn ein Anhang zu fehlen scheint</string>
     <string name="title_advanced_lookup_mx_hint">Überprüft, ob DNS-MX-Einträge vorhanden sind</string>
     <string name="title_advanced_check_reply_hint">Überprüft, ob die Domain des Absenders und der Antwort-An-Adresse gleich sind</string>
@@ -437,6 +437,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_account_left">Nach links wischen</string>
     <string name="title_account_right">Nach rechts wischen</string>
     <string name="title_account_move">Standardmäßig verschieben nach</string>
+    <string name="title_account_gmail">Für die zuverlässige Synchronisierung eines Gmail-Kontos sollte der Assistent für die schnelle Einrichtung von Gmail verwendet werden, wann immer dies möglich ist.</string>
     <string name="title_domain">Domainname</string>
     <string name="title_autoconfig">Einstellungen abrufen</string>
     <string name="title_aliases">Alias-Adressen</string>
@@ -451,8 +452,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_client_certificate">Clientzertifikat</string>
     <string name="title_realm">Bereich</string>
     <string name="title_use_ip">Lokale IP-Adresse anstelle des Domain-Namens verwenden</string>
-    <string name="title_primary_account">Primäres Konto</string>
-    <string name="title_primary_identity">Primäre Identität</string>
+    <string name="title_primary_account">Hauptkonto</string>
+    <string name="title_primary_identity">Hauptidentität</string>
     <string name="title_leave_on_server">Nachrichten auf Server belassen</string>
     <string name="title_leave_on_device">Nachrichten auf Gerät belassen</string>
     <string name="title_max_messages">Maximale Anzahl der Nachrichten zum Herunterladen (leer für alle)</string>
@@ -544,7 +545,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_folder_system">System</string>
     <string name="title_folder_user">Benutzer</string>
     <string name="title_folder_user_only">Nur Benutzerordner</string>
-    <string name="title_folder_primary">Ordner primäres Konto</string>
+    <string name="title_folder_primary">Hauptkontoordner</string>
     <string name="title_folders_unified">Sammeleingangsordner</string>
     <string name="title_no_folders">Keine Ordner</string>
     <string name="title_no_messages">Keine E-Mails</string>
@@ -554,10 +555,10 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_seen">Als gelesen kennzeichnen</string>
     <string name="title_unseen">Als ungelesen kennzeichnen</string>
-    <string name="title_hide">Verbergen</string>
+    <string name="title_hide">Ausblenden</string>
     <string name="title_unhide">Anzeigen</string>
     <string name="title_flag">Kennzeichnen</string>
-    <string name="title_flag_color">Farbige Kennzeichnung &#8230;</string>
+    <string name="title_flag_color">Farbigen Stern &#8230;</string>
     <string name="title_unflag">Kennzeichnung entfernen</string>
     <string name="title_set_importance">Wichtigkeit festlegen</string>
     <string name="title_importance_low">Niedrig</string>
@@ -780,10 +781,10 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_rule_noop">Keine Aktion</string>
     <string name="title_rule_seen">Als gelesen kennzeichnen</string>
     <string name="title_rule_unseen">Als ungelesen kennzeichnen</string>
-    <string name="title_rule_hide">Verbergen</string>
+    <string name="title_rule_hide">Ausblenden</string>
     <string name="title_rule_ignore">Benachrichtigungen unterdrücken</string>
     <string name="title_rule_snooze">Zurückstellen</string>
-    <string name="title_rule_flag">Kennzeichnung hinzufügen</string>
+    <string name="title_rule_flag">Stern hinzufügen</string>
     <string name="title_rule_importance">Wichtigkeit festlegen</string>
     <string name="title_rule_keyword">Schlagwort hinzufügen</string>
     <string name="title_rule_move">Verschieben</string>
@@ -842,7 +843,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_legend_downloading">wird heruntergeladen</string>
     <string name="title_legend_closing">Schließen</string>
     <string name="title_legend_waiting">Warten auf Synchronisation</string>
-    <string name="title_legend_unified">Sammeleingang / primäres Konto</string>
+    <string name="title_legend_unified">Sammeleingang / Hauptkonto</string>
     <string name="title_legend_inbox">Posteingang</string>
     <string name="title_legend_drafts">Entwürfe</string>
     <string name="title_legend_sent">Gesendet</string>
@@ -1065,7 +1066,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     </string-array>
     <string-array name="startupNames">
         <item>Sammeleingang</item>
-        <item>Zusammengeführte Ordner</item>
+        <item>Sammelordner</item>
         <item>Konten</item>
     </string-array>
     <string-array name="downloadNames">
@@ -1129,7 +1130,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string-array name="signatureNames">
         <item>Über dem Text</item>
         <item>Unter dem Text</item>
-        <item>Am Schluss</item>
+        <item>Ganz unten</item>
     </string-array>
     <string-array name="encryptNames">
         <item>Keine Verschlüsselung</item>

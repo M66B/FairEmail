@@ -422,6 +422,7 @@
     <string name="title_account_left">左にスワイプ</string>
     <string name="title_account_right">右にスワイプ</string>
     <string name="title_account_move">デフォルトの移動先</string>
+    <string name="title_account_gmail">Gmailアカウントを確実に同期するには可能な限りGmailクイックセットアップウィザードを使用する必要が有ります</string>
     <string name="title_domain">ドメイン名</string>
     <string name="title_autoconfig">設定を取得</string>
     <string name="title_aliases">エイリアス</string>

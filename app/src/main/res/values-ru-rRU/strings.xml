@@ -459,6 +459,7 @@
     <string name="title_account_left">Смахивание влево</string>
     <string name="title_account_right">Смахивание вправо</string>
     <string name="title_account_move">По умолчанию перемещать в</string>
+    <string name="title_account_gmail">Для надёжной синхронизации учётной записи Gmail следует по возможности использовать мастер быстрой настройки</string>
     <string name="title_domain">Имя домена</string>
     <string name="title_autoconfig">Получить параметры</string>
     <string name="title_aliases">Псевдонимы</string>

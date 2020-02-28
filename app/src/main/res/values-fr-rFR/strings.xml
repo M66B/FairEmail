@@ -437,6 +437,7 @@
     <string name="title_account_left">Balayer vers la gauche</string>
     <string name="title_account_right">Balayer vers la droite</string>
     <string name="title_account_move">Déplacement par défaut vers</string>
+    <string name="title_account_gmail">Pour une synchronisation fiable d\'un compte Gmail, l\'assistant d\'installation rapide de Gmail doit être utilisé dans la mesure du possible</string>
     <string name="title_domain">Nom de domaine</string>
     <string name="title_autoconfig">Obtenir les paramètres</string>
     <string name="title_aliases">Alias</string>

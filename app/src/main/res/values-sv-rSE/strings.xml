@@ -304,6 +304,7 @@
     <string name="title_advanced_unseen_ignored">Låt antalet nya meddelanden matcha antalet aviseringar</string>
     <string name="title_advanced_notify_summary">Visa enbart en sammanställning av aviseringar</string>
     <string name="title_advanced_notify_preview">Visa meddelandeförhandsvisning i aviseringar</string>
+    <string name="title_advanced_notify_preview_all">Förhandsgranska all text</string>
     <string name="title_advanced_notify_actions">Aviseringsåtgärd</string>
     <string name="title_advanced_notify_action_trash">Papperskorg</string>
     <string name="title_advanced_notify_action_junk">Skräppost</string>
@@ -320,6 +321,8 @@
     <string name="title_advanced_tracking">Automatiskt känna igen och inaktivera spårningsbilder</string>
     <string name="title_advanced_display_hidden">Visa dolda meddelandetexter</string>
     <string name="title_advanced_openpgp">OpenPGP-leverantör</string>
+    <string name="title_advanced_sign_default">Signera som standard</string>
+    <string name="title_advanced_encrypt_default">Kryptera som standard</string>
     <string name="title_advanced_auto_decrypt">Dekryptera meddelanden automatiskt</string>
     <string name="title_advanced_secure">Dölj dig från senaste appar-skärmen och förhindra tagning av skärmdumpar</string>
     <string name="title_advanced_pin">PIN-kod</string>
