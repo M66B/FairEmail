@@ -2824,7 +2824,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 .putExtra("id", message.id));
             else {
                 boolean expanded = !properties.getValue("expanded", message.id);
-                properties.setValue("expanded", message.id, expanded);
+                properties.setExpanded(message, expanded);
 
                 ibExpander.setTag(expanded);
                 ibExpander.setImageLevel(expanded ? 0 /* less*/ : 1 /* more */);
@@ -3585,7 +3585,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (amessage == null || !amessage.id.equals(id))
                         return;
 
-                    properties.setValue("expanded", message.id, false);
+                    properties.setExpanded(message, false);
                     message.ui_seen = args.getBoolean("seen");
                     message.unseen = (message.ui_seen ? 0 : message.count);
                     bindTo(message, getAdapterPosition());
@@ -4941,6 +4941,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         void setValue(String name, long id, boolean enabled);
 
         boolean getValue(String name, long id);
+
+        void setExpanded(TupleMessageEx message, boolean expanded);
 
         void setSize(long id, Float size);
 
