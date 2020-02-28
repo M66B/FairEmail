@@ -2030,6 +2030,7 @@ This is why texts with dots are sometimes incorrectly recognized as links, which
 Spam filtering, verification of the [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) signature
 and [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) authorization is a task of email servers, not of an email client.
 Servers generally have more memory and computing power, so are much better suited for this task.
+Battery powered devices are less suitable for this.
 Also, you'll want spam filtered for all your email clients, possibly including web email, not just one email client.
 Moreover, email servers have access to information, like the IP address, etc of the connecting server, which an email client has no access to.
 
