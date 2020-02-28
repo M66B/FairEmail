@@ -74,6 +74,8 @@ import java.util.Objects;
 import javax.mail.Folder;
 
 import static android.app.Activity.RESULT_OK;
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
 import static com.google.android.material.textfield.TextInputLayout.END_ICON_NONE;
 import static com.google.android.material.textfield.TextInputLayout.END_ICON_PASSWORD_TOGGLE;
 
@@ -82,6 +84,7 @@ public class FragmentAccount extends FragmentBase {
     private ScrollView scroll;
 
     private Spinner spProvider;
+    private TextView tvGmailHint;
 
     private EditText etDomain;
     private Button btnAutoConfig;
@@ -193,6 +196,7 @@ public class FragmentAccount extends FragmentBase {
 
         // Get controls
         spProvider = view.findViewById(R.id.spProvider);
+        tvGmailHint = view.findViewById(R.id.tvGmailHint);
 
         etDomain = view.findViewById(R.id.etDomain);
         btnAutoConfig = view.findViewById(R.id.btnAutoConfig);
@@ -267,6 +271,9 @@ public class FragmentAccount extends FragmentBase {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long itemid) {
                 EmailProvider provider = (EmailProvider) adapterView.getSelectedItem();
+                tvGmailHint.setVisibility(
+                        auth == EmailService.AUTH_TYPE_PASSWORD && "gmail".equals(provider.id)
+                                ? VISIBLE : GONE);
                 grpServer.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
                 grpAuthorize.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
 
@@ -491,6 +498,8 @@ public class FragmentAccount extends FragmentBase {
 
         // Initialize
         Helper.setViewsEnabled(view, false);
+
+        tvGmailHint.setVisibility(GONE);
 
         btnAutoConfig.setEnabled(false);
         pbAutoConfig.setVisibility(View.GONE);

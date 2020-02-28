@@ -509,6 +509,7 @@
     <string name="title_account_left">Swipe left</string>
     <string name="title_account_right">Swipe right</string>
     <string name="title_account_move">Default move to</string>
+    <string name="title_account_gmail">For reliable synchronisation of a Gmail account, the Gmail quick setup wizard should be used whenever possible</string>
     <string name="title_domain">Domain name</string>
     <string name="title_autoconfig">Get settings</string>
     <string name="title_imap" translatable="false">IMAP</string>
