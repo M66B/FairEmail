@@ -41,6 +41,24 @@ public class FixedTextView extends AppCompatTextView {
     }
 
     @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        try {
+            super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        } catch (Throwable ex) {
+/*
+        java.lang.ArrayIndexOutOfBoundsException: length=...; index=...
+                at android.text.TextLine.measure(TextLine.java:316)
+                at android.text.TextLine.metrics(TextLine.java:271)
+                at android.text.Layout.measurePara(Layout.java:2056)
+                at android.text.Layout.getDesiredWidth(Layout.java:164)
+                at android.widget.TextView.onMeasure(TextView.java:8291)
+                at androidx.appcompat.widget.AppCompatTextView.onMeasure(SourceFile:554)
+                at android.view.View.measure(View.java:22360)
+*/
+        }
+    }
+
+    @Override
     protected void onFocusChanged(boolean focused, int direction, Rect previouslyFocusedRect) {
         try {
             super.onFocusChanged(focused, direction, previouslyFocusedRect);
