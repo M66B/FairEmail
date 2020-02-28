@@ -1483,8 +1483,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         public void setExpanded(TupleMessageEx message, boolean value) {
             // Prevent flicker
             if (value &&
-                    message.accountProtocol != EntityAccount.TYPE_IMAP ||
-                    (message.accountAutoSeen && !message.ui_seen && !message.folderReadOnly)) {
+                    (message.accountProtocol != EntityAccount.TYPE_IMAP ||
+                            (message.accountAutoSeen && !message.ui_seen && !message.folderReadOnly))) {
                 message.unseen = 0;
                 message.ui_seen = true;
             }
@@ -1497,7 +1497,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             boolean expand_one = prefs.getBoolean("expand_one", true);
             if (!expand_all && expand_one) {
                 for (Long other : new ArrayList<>(values.get("expanded")))
-                    if (!other.equals(id)) {
+                    if (!other.equals(message.id)) {
                         values.get("expanded").remove(other);
                         int pos = adapter.getPositionForKey(other);
                         if (pos != RecyclerView.NO_POSITION)
@@ -1507,7 +1507,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             updateExpanded();
             if (value)
-                handleExpand(id);
+                handleExpand(message.id);
         }
 
         @Override
