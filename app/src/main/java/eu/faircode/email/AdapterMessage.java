@@ -1234,8 +1234,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void setFrom(TupleMessageEx message, Address[] addresses) {
             int recipients = 0;
-            if (viewType == ViewType.THREAD)
-                recipients = (message.cc == null ? 0 : message.cc.length) + (message.bcc == null ? 0 : message.bcc.length);
+            if (viewType == ViewType.THREAD) {
+                recipients = (message.to == null ? 0 : message.to.length) +
+                        (message.cc == null ? 0 : message.cc.length) + (message.bcc == null ? 0 : message.bcc.length);
+                boolean outgoing = isOutgoing(message);
+                if (!outgoing && message.to != null && message.to.length > 0)
+                    recipients--;
+            }
 
             if (recipients == 0)
                 tvFrom.setText(MessageHelper.formatAddresses(addresses, name_email, false));
