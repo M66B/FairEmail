@@ -57,7 +57,9 @@ import org.jsoup.select.NodeVisitor;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -1054,7 +1056,7 @@ public class HtmlHelper {
         }
     }
 
-    static void embedInlineImages(Context context, long id, Document document) throws IOException {
+    static void embedInlineImages(Context context, long id, Document document, boolean local) throws IOException {
         DB db = DB.getInstance(context);
         for (Element img : document.select("img")) {
             String src = img.attr("src");
@@ -1063,24 +1065,25 @@ public class HtmlHelper {
                 EntityAttachment attachment = db.attachment().getAttachment(id, cid);
                 if (attachment != null && attachment.available) {
                     File file = attachment.getFile(context);
-                    Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
-                    img.attr("src", uri.toString());
-                    Log.i("Inline image uri=" + uri);
-/*
-                    try (InputStream is = new FileInputStream(file)) {
-                        byte[] bytes = new byte[(int) file.length()];
-                        if (is.read(bytes) != bytes.length)
-                            throw new IOException("length");
+                    if (local) {
+                        Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
+                        img.attr("src", uri.toString());
+                        Log.i("Inline image uri=" + uri);
+                    } else {
+                        try (InputStream is = new FileInputStream(file)) {
+                            byte[] bytes = new byte[(int) file.length()];
+                            if (is.read(bytes) != bytes.length)
+                                throw new IOException("length");
 
-                        StringBuilder sb = new StringBuilder();
-                        sb.append("data:");
-                        sb.append(attachment.type);
-                        sb.append(";base64,");
-                        sb.append(Base64.encodeToString(bytes, Base64.NO_WRAP));
+                            StringBuilder sb = new StringBuilder();
+                            sb.append("data:");
+                            sb.append(attachment.type);
+                            sb.append(";base64,");
+                            sb.append(Base64.encodeToString(bytes, Base64.NO_WRAP));
 
-                        img.attr("src", sb.toString());
+                            img.attr("src", sb.toString());
+                        }
                     }
-*/
                 }
             }
         }
