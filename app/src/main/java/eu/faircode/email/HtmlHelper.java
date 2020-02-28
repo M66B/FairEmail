@@ -1149,6 +1149,11 @@ public class HtmlHelper {
     private static String _getText(Document d, boolean full) {
         truncate(d, !full);
 
+        for (Element bq : d.select("blockquote")) {
+            bq.prependChild(new TextNode("["));
+            bq.appendChild(new TextNode("]"));
+        }
+
         String text = d.text();
         if (full)
             return text;
