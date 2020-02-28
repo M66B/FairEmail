@@ -2825,17 +2825,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             else {
                 boolean expanded = !properties.getValue("expanded", message.id);
                 properties.setExpanded(message, expanded);
-
-                ibExpander.setTag(expanded);
-                ibExpander.setImageLevel(expanded ? 0 /* less*/ : 1 /* more */);
-
-                if (expanded)
-                    bindExpanded(message, true);
-                else
-                    clearExpanded(message);
-
-                bindFlagged(message, expanded);
-                bindExpandWarning(message, expanded);
+                bindTo(message, getAdapterPosition());
 
                 // Needed for expand one
                 properties.scrollTo(getAdapterPosition());
