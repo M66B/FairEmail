@@ -1226,7 +1226,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
             }
             if (updated)
-                setFrom(modified, message);
+                setFrom(message, modified);
 
             if (distinguish_contacts && known)
                 tvFrom.setPaintFlags(tvFrom.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
