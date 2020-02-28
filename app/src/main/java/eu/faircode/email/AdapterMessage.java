@@ -784,9 +784,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean outbox = EntityFolder.OUTBOX.equals(message.folderType);
             boolean outgoing = isOutgoing(message);
             Address[] addresses = (outgoing && (viewType != ViewType.THREAD || !threading) ? message.to : message.senders);
-            int recipients = (message.to == null || message.to.length < 2 ? 0 : message.to.length - 1) +
-                    (message.cc == null ? 0 : message.cc.length) +
-                    (message.bcc == null ? 0 : message.bcc.length);
             boolean authenticated =
                     !(Boolean.FALSE.equals(message.dkim) ||
                             Boolean.FALSE.equals(message.spf) ||
@@ -910,11 +907,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             ? View.VISIBLE : View.GONE);
             ivSigned.setVisibility(message.signed > 0 ? View.VISIBLE : View.GONE);
             ivEncrypted.setVisibility(message.encrypted > 0 ? View.VISIBLE : View.GONE);
-            if (recipients == 0 || viewType != ViewType.THREAD)
-                tvFrom.setText(MessageHelper.formatAddresses(addresses, name_email, false));
-            else
-                tvFrom.setText(context.getString(R.string.title_name_plus,
-                        MessageHelper.formatAddresses(addresses, name_email, false), recipients));
+            setFrom(message, addresses);
             tvFrom.setPaintFlags(tvFrom.getPaintFlags() & ~Paint.UNDERLINE_TEXT_FLAG);
             tvSize.setText(message.totalSize == null ? null : Helper.humanReadableByteCount(message.totalSize, true));
             tvSize.setVisibility(
@@ -1055,7 +1048,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         if (amessage == null || !amessage.id.equals(id))
                             return;
 
-                        bindContactInfo(info, addresses, name_email);
+                        bindContactInfo(amessage, info, addresses, name_email);
                     }
 
                     @Override
@@ -1065,7 +1058,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }.setLog(false);
                 taskContactInfo.execute(context, owner, aargs, "message:avatar");
             } else
-                bindContactInfo(info, addresses, name_email);
+                bindContactInfo(message, info, addresses, name_email);
 
             if (viewType == ViewType.THREAD)
                 if (expanded)
@@ -1198,7 +1191,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibFlagged.setVisibility(View.GONE);
         }
 
-        private void bindContactInfo(ContactInfo[] info, Address[] addresses, boolean name_email) {
+        private void bindContactInfo(TupleMessageEx message, ContactInfo[] info, Address[] addresses, boolean name_email) {
             if (info[0].hasPhoto()) {
                 ibAvatar.setImageBitmap(info[0].getPhotoBitmap());
                 ibAvatar.setVisibility(View.VISIBLE);
@@ -1233,10 +1226,22 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
             }
             if (updated)
-                tvFrom.setText(MessageHelper.formatAddresses(modified, name_email, false));
+                setFrom(modified, message);
 
             if (distinguish_contacts && known)
                 tvFrom.setPaintFlags(tvFrom.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        }
+
+        private void setFrom(TupleMessageEx message, Address[] addresses) {
+            int recipients = 0;
+            if (viewType == ViewType.THREAD)
+                recipients = (message.cc == null ? 0 : message.cc.length) + (message.bcc == null ? 0 : message.bcc.length);
+
+            if (recipients == 0)
+                tvFrom.setText(MessageHelper.formatAddresses(addresses, name_email, false));
+            else
+                tvFrom.setText(context.getString(R.string.title_name_plus,
+                        MessageHelper.formatAddresses(addresses, name_email, false), recipients));
         }
 
         private void bindExpandWarning(TupleMessageEx message, boolean expanded) {
