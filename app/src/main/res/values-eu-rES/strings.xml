@@ -76,6 +76,7 @@
     <string name="title_notification_failed">%1$s(e)k huts egin du</string>
     <string name="title_notification_alert">\'%1$s\' zerbitzariko alerta</string>
     <string name="title_name_count">%1$s (%2$s)</string>
+    <string name="title_name_plus">%1$s +%2$d</string>
     <string name="title_factor_minutes">%1$d minutu</string>
     <string name="menu_exit">Irten</string>
     <string name="menu_answers">Txantiloiak</string>
@@ -365,6 +366,7 @@
     <string name="title_advanced_check_mx">Egiaztatu bidaltzailearen helbide elektronikoak mezuak sinkronizatzean</string>
     <string name="title_advanced_check_reply">Egiaztatu erantzuteko helbide elektronikoak mezuak sinkronizatzean</string>
     <string name="title_advanced_unseen_hint">Hornitzaile batzuek ez dute hori behar bezala onartzen, eta horrek mezu bat edo guztiak ez sinkronizatzea eragin dezake</string>
+    <string name="title_advanced_deleted_unseen">Desaktibatuta dagoenean, irakurri gabeko mezuak gailuan gordeko dira betiko</string>
     <string name="title_advanced_sync_kept_hint">Honek datu gehigarriak transferituko ditu eta bateriaren energia gehigarria kontsumituko du, batez ere telefonoan mezu asko gordetzen badira</string>
     <string name="title_advanced_sync_folders_hint">Hori ezgaitzeak datuak eta bateriaren erabilera zertxobait murriztuko ditu, baina karpeten zerrenda eguneratzea ere ezgaituko du</string>
     <string name="title_advanced_subscribed_only_hint">Hori gaitzen baduzu, harpidetzarik ez duten tokiko karpeta guztiak ezabatu egingo dira</string>
@@ -435,6 +437,7 @@
     <string name="title_account_left">Pasatu hatza ezkerrera</string>
     <string name="title_account_right">Pasatu hatza eskumara</string>
     <string name="title_account_move">Lehenetsita mugitu hona</string>
+    <string name="title_account_gmail">Gmail kontu baten sinkronizazio fidagarria lortzeko, Gmail-en konfigurazio azkarreko morroia erabili behar da ahal den guztietan</string>
     <string name="title_domain">Domeinu-izena</string>
     <string name="title_autoconfig">Jaso ezarpenak</string>
     <string name="title_aliases">Ezizenak</string>

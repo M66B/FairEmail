@@ -65,6 +65,7 @@
     <string name="title_notification_failed">\'%1$s\' 失败</string>
     <string name="title_notification_alert">\'%1$s\' 服务器警告</string>
     <string name="title_name_count">%1$s (%2$s)</string>
+    <string name="title_name_plus">%1$s+%2$d</string>
     <string name="title_factor_minutes">%1$d分钟</string>
     <string name="menu_exit">退出</string>
     <string name="menu_answers">模板</string>
@@ -354,6 +355,7 @@
     <string name="title_advanced_check_mx">同步消息时检查发送者电子邮件地址</string>
     <string name="title_advanced_check_reply">同步消息时检查回复邮件地址</string>
     <string name="title_advanced_unseen_hint">一些邮件服务提供商对该功能支持不佳，这可能导致同步所有消息或一条消息也不同步</string>
+    <string name="title_advanced_deleted_unseen">当禁用时，未读消息将永远保留在设备上</string>
     <string name="title_advanced_sync_kept_hint">这将更耗数据与电量，特别是如果有大量消息存储在设备上</string>
     <string name="title_advanced_sync_folders_hint">禁用此功能某种程度上会减少数据和电量使用，但也会禁用更新文件夹列表</string>
     <string name="title_advanced_subscribed_only_hint">启用此功能将删除所有未订阅的本地文件夹</string>
@@ -424,6 +426,7 @@
     <string name="title_account_left">左滑</string>
     <string name="title_account_right">右滑</string>
     <string name="title_account_move">默认移动到</string>
+    <string name="title_account_gmail">为了可靠地同步Gmail帐户，应尽可能使用Gmail快速设置向导</string>
     <string name="title_domain">域名</string>
     <string name="title_autoconfig">获取设置</string>
     <string name="title_aliases">別名</string>

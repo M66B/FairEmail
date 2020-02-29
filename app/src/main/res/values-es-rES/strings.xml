@@ -77,6 +77,7 @@
     <string name="title_notification_failed">\'%1$s\' falló</string>
     <string name="title_notification_alert">Alerta del servidor \'%1$s\'</string>
     <string name="title_name_count">%1$s (%2$s)</string>
+    <string name="title_name_plus">%1$s +%2$d</string>
     <string name="title_factor_minutes">%1$d minutos</string>
     <string name="menu_exit">Salir</string>
     <string name="menu_answers">Plantillas</string>
@@ -437,6 +438,7 @@
     <string name="title_account_left">Deslizar a la izquierda</string>
     <string name="title_account_right">Deslizar hacia la derecha</string>
     <string name="title_account_move">Mover por defecto a</string>
+    <string name="title_account_gmail">Para una sincronización confiable de una cuenta de Gmail, el asistente de configuración rápida de Gmail debe ser usado siempre que sea posible</string>
     <string name="title_domain">Nombre de dominio</string>
     <string name="title_autoconfig">Obtener ajustes</string>
     <string name="title_aliases">Alias</string>

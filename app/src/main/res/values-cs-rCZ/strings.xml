@@ -99,6 +99,7 @@
     <string name="title_notification_failed">\"%1$s\" selhalo</string>
     <string name="title_notification_alert">\'%1$s\' upozornění serveru</string>
     <string name="title_name_count">%1$s (%2$s)</string>
+    <string name="title_name_plus">%1$s +%2$d</string>
     <string name="title_factor_minutes">%1$d minut</string>
     <string name="menu_exit">Ukončit</string>
     <string name="menu_answers">Šablony</string>
@@ -664,6 +665,7 @@
         Vážil bych si, kdyby jste mohli FairEmail ohodnotit v Obchodě Play.
         Pomůže to udržet rovnováhu mezi nepříznivými a příznivými recenzemi.
     </string>
+    <string name="title_third_party">Používáte verzi třetí strany</string>
     <string name="title_expand_warning">Rozbalení této zprávy stáhne %1$s</string>
     <string name="title_download_message">Stahování &#8230;</string>
     <string name="title_compose">Napsat zprávu</string>
