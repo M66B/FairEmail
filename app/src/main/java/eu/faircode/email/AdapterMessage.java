@@ -1395,7 +1395,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvKeywordsEx.setVisibility(show_addresses && message.keywords.length > 0 ? View.VISIBLE : View.GONE);
                 tvKeywordsEx.setText(TextUtils.join(" ", message.keywords));
             } else {
-                message.resolveKeywordColors(context);
                 SpannableStringBuilder keywords = getKeywords(message);
                 tvKeywordsEx.setVisibility(show_addresses && keywords.length() > 0 ? View.VISIBLE : View.GONE);
                 tvKeywordsEx.setText(keywords);
@@ -4766,12 +4765,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     void submitList(PagedList<TupleMessageEx> list) {
         keyPosition.clear();
 
-        if (keywords_header)
-            for (int i = 0; i < list.size(); i++) {
-                TupleMessageEx message = list.get(i);
-                if (message != null)
-                    message.resolveKeywordColors(context);
-            }
+        for (int i = 0; i < list.size(); i++) {
+            TupleMessageEx message = list.get(i);
+            if (message != null)
+                message.resolveKeywordColors(context);
+        }
 
         differ.submitList(list);
     }
