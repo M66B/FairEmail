@@ -1519,7 +1519,6 @@ but even Google's Chrome cannot handle this.
 * Did you know that you can long press the folder icon in the action bar to select an account?
 * Did you know that you can long press the star icon in a conversation thread to set a colored star?
 * Did you know that you can open the navigation drawer by swiping from the left, even when viewing a conversation?
-* Did you know that you can long press the floating reply button to reply to all?
 * Did you know that you can long press the people's icon to show/hide the CC/BCC fields and remember the visibility state for the next time?
 
 <br />
