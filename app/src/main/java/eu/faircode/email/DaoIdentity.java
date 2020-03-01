@@ -49,7 +49,7 @@ public interface DaoIdentity {
             " WHERE (:account IS NULL OR account.id = :account)" +
             " AND identity.synchronize" +
             " AND account.synchronize" +
-            " ORDER BY account.`order`, account.`primary` DESC, account.name COLLATE NOCASE" +
+            " ORDER BY account.`primary` DESC, account.name COLLATE NOCASE" +
             ", identity.`primary` DESC, identity.display COLLATE NOCASE, identity.name COLLATE NOCASE, identity.email COLLATE NOCASE")
     List<TupleIdentityEx> getComposableIdentities(Long account);
 
