@@ -730,7 +730,6 @@
             android:layout_marginTop="12dp"
             android:checked="true"
             android:text="@string/title_advanced_actionbar"
-            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/swSeekbar"
