@@ -17,7 +17,6 @@
         android:id="@+id/ibMore"
         android:layout_width="36dp"
         android:layout_height="36dp"
-        android:layout_marginEnd="12dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/title_more"
         android:foregroundTint="?android:attr/textColorSecondary"
@@ -28,6 +27,21 @@
         app:layout_constraintTop_toBottomOf="@id/vSeparator"
         app:srcCompat="@drawable/baseline_more_vert_24" />
 
+    <ImageButton
+        android:id="@+id/ibRemove"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="12dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/title_delete"
+        android:foregroundTint="?android:attr/textColorSecondary"
+        android:padding="3dp"
+        android:scaleType="fitCenter"
+        android:tooltipText="@string/title_delete"
+        app:layout_constraintStart_toEndOf="@id/ibMore"
+        app:layout_constraintTop_toBottomOf="@id/vSeparator"
+        app:srcCompat="@drawable/baseline_remove_circle_24" />
+
     <eu.faircode.email.ContentLoadingProgressBar
         android:id="@+id/pbBody"
         style="@style/Base.Widget.AppCompat.ProgressBar"
@@ -36,7 +50,7 @@
         android:layout_marginStart="6dp"
         android:indeterminate="true"
         app:layout_constraintBottom_toBottomOf="@+id/ibFull"
-        app:layout_constraintStart_toEndOf="@id/ibMore"
+        app:layout_constraintStart_toEndOf="@id/ibRemove"
         app:layout_constraintTop_toTopOf="@+id/ibFull" />
 
     <ImageButton
@@ -80,24 +94,9 @@
         android:padding="3dp"
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_decrypt"
-        app:layout_constraintEnd_toStartOf="@+id/ibJunk"
-        app:layout_constraintTop_toBottomOf="@id/vSeparator"
-        app:srcCompat="@drawable/baseline_lock_open_24" />
-
-    <ImageButton
-        android:id="@+id/ibJunk"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_marginEnd="12dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_legend_show_junk"
-        android:foregroundTint="?android:attr/textColorSecondary"
-        android:padding="3dp"
-        android:scaleType="fitCenter"
-        android:tooltipText="@string/title_legend_show_junk"
         app:layout_constraintEnd_toStartOf="@+id/ibUnsubscribe"
         app:layout_constraintTop_toBottomOf="@id/vSeparator"
-        app:srcCompat="@drawable/baseline_flag_24" />
+        app:srcCompat="@drawable/baseline_lock_open_24" />
 
     <ImageButton
         android:id="@+id/ibUnsubscribe"
