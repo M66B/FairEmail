@@ -533,6 +533,25 @@ public class Log {
                    at android.os.HandlerThread.run(HandlerThread.java:65)
          */
 
+        if (ex instanceof RuntimeException &&
+                "InputChannel is not initialized.".equals(ex.getMessage()))
+            return false;
+        /*
+                java.lang.RuntimeException: InputChannel is not initialized.
+                java.lang.RuntimeException: InputChannel is not initialized.
+                  at android.view.InputEventReceiver.nativeInit(Native Method)
+                  at android.view.InputEventReceiver.<init>(InputEventReceiver.java:72)
+                  at android.view.ViewRootImpl$WindowInputEventReceiver.<init>(ViewRootImpl.java:7612)
+                  at android.view.ViewRootImpl.setView(ViewRootImpl.java:957)
+                  at android.view.WindowManagerGlobal.addView(WindowManagerGlobal.java:387)
+                  at android.view.WindowManagerImpl.addView(WindowManagerImpl.java:96)
+                  at android.widget.Toast$TN.handleShow(Toast.java:514)
+                  at android.widget.Toast$TN$1.handleMessage(Toast.java:417)
+                  at android.os.Handler.dispatchMessage(Handler.java:107)
+                  at android.os.Looper.loop(Looper.java:214)
+                  at android.app.ActivityThread.main(ActivityThread.java:7397)
+         */
+
         if (ex.getMessage() != null &&
                 (ex.getMessage().startsWith("Bad notification posted") ||
                         ex.getMessage().contains("ActivityRecord not found") ||
