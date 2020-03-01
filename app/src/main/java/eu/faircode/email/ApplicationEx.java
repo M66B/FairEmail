@@ -249,6 +249,7 @@ public class ApplicationEx extends Application {
             editor.remove("first");
         } else if (version < 999) {
             editor.remove("actionbar");
+            editor.putBoolean("message_bar_removed", false);
         }
 
         if (BuildConfig.DEBUG && false) {

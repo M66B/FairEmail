@@ -385,6 +385,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageButton ibUndo;
         private ImageButton ibMore;
         private TextView tvSignedData;
+        private ImageButton ibActionBarHint;
+        private Group grpActionBarHint;
 
         private TextView tvBody;
         private View wvBody;
@@ -571,6 +573,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibUndo = vsBody.findViewById(R.id.ibUndo);
             ibMore = vsBody.findViewById(R.id.ibMore);
             tvSignedData = vsBody.findViewById(R.id.tvSignedData);
+            ibActionBarHint = vsBody.findViewById(R.id.ibActionBarHint);
+            grpActionBarHint = vsBody.findViewById(R.id.grpActionBarHint);
 
             tvBody = vsBody.findViewById(R.id.tvBody);
             wvBody = vsBody.findViewById(R.id.wvBody);
@@ -648,6 +652,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibVerify.setOnClickListener(this);
                 ibUndo.setOnClickListener(this);
                 ibMore.setOnClickListener(this);
+                ibActionBarHint.setOnClickListener(this);
 
                 ibDownloading.setOnClickListener(this);
 
@@ -716,6 +721,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibVerify.setOnClickListener(null);
                 ibUndo.setOnClickListener(null);
                 ibMore.setOnClickListener(null);
+                ibActionBarHint.setOnClickListener(null);
 
                 ibDownloading.setOnClickListener(null);
 
@@ -1144,6 +1150,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibUndo.setVisibility(View.GONE);
             ibMore.setVisibility(View.GONE);
             tvSignedData.setVisibility(View.GONE);
+            grpActionBarHint.setVisibility(View.GONE);
 
             tvBody.setVisibility(View.GONE);
             wvBody.setVisibility(View.GONE);
@@ -1298,6 +1305,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibUndo.setVisibility(EntityFolder.OUTBOX.equals(message.folderType) ? View.VISIBLE : View.GONE);
             ibMore.setVisibility(EntityFolder.OUTBOX.equals(message.folderType) ? View.GONE : View.VISIBLE);
             tvSignedData.setVisibility(View.GONE);
+            grpActionBarHint.setVisibility(View.GONE);
 
             // Addresses
             ibExpanderAddress.setImageLevel(show_addresses ? 0 /* less */ : 1 /* more */);
@@ -1872,6 +1880,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     boolean signed_data = args.getBoolean("signed_data");
                     tvSignedData.setVisibility(signed_data ? View.VISIBLE : View.GONE);
+
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    boolean message_bar_removed = prefs.getBoolean("message_bar_removed", true);
+                    grpActionBarHint.setVisibility(message_bar_removed ? View.GONE : View.VISIBLE);
                 }
 
                 @Override
@@ -2336,6 +2348,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         break;
                     case R.id.ibMore:
                         onActionMore(message);
+                        break;
+                    case R.id.ibActionBarHint:
+                        onActionBarHint();
                         break;
 
                     case R.id.ibDownloading:
@@ -3197,6 +3212,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
             });
             popupMenu.show();
+        }
+
+        private void onActionBarHint() {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            prefs.edit().putBoolean("message_bar_removed", true).apply();
+            grpActionBarHint.setVisibility(View.GONE);
         }
 
         private class TouchHandler extends ArrowKeyMovementMethod {
