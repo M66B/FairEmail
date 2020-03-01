@@ -2126,21 +2126,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }.execute(getContext(), getViewLifecycleOwner(), new Bundle(), "message:answer");
     }
 
-    private boolean _onReply(String action) {
-        if (values.containsKey("expanded") && values.get("expanded").size() > 0) {
-            Context context = getContext();
-            if (context == null)
-                return false;
-            long id = values.get("expanded").get(0);
-            Intent reply = new Intent(context, ActivityCompose.class)
-                    .putExtra("action", action)
-                    .putExtra("reference", id);
-            startActivity(reply);
-            return true;
-        } else
-            return false;
-    }
-
     private void onMore() {
         Bundle args = new Bundle();
         args.putLongArray("ids", getSelection());
