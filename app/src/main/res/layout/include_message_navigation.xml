@@ -40,7 +40,7 @@
         android:tooltipText="@string/title_delete"
         app:layout_constraintStart_toEndOf="@id/ibMore"
         app:layout_constraintTop_toBottomOf="@id/vSeparator"
-        app:srcCompat="@drawable/baseline_remove_circle_24" />
+        app:srcCompat="@drawable/baseline_highlight_off_24" />
 
     <eu.faircode.email.ContentLoadingProgressBar
         android:id="@+id/pbBody"
