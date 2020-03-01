@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 
@@ -45,6 +46,7 @@ public class FixedTextView extends AppCompatTextView {
         try {
             super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         } catch (Throwable ex) {
+            Log.w(ex);
 /*
         java.lang.ArrayIndexOutOfBoundsException: length=...; index=...
                 at android.text.TextLine.measure(TextLine.java:316)
@@ -54,6 +56,23 @@ public class FixedTextView extends AppCompatTextView {
                 at android.widget.TextView.onMeasure(TextView.java:8291)
                 at androidx.appcompat.widget.AppCompatTextView.onMeasure(SourceFile:554)
                 at android.view.View.measure(View.java:22360)
+*/
+        }
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        try {
+            super.onDraw(canvas);
+        } catch (Throwable ex) {
+            Log.w(ex);
+/*
+        java.lang.ArrayIndexOutOfBoundsException: length=74; index=74
+                at android.text.TextLine.draw(TextLine.java:241)
+                at android.text.Layout.drawText(Layout.java:545)
+                at android.text.Layout.draw(Layout.java:289)
+                at android.widget.TextView.onDraw(TextView.java:6972)
+                at android.view.View.draw(View.java:19380)
 */
         }
     }
