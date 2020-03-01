@@ -105,8 +105,8 @@ Please see [here](https://email.faircode.eu/#screenshots) for screenshots.
 
 ## Downloads
 
-* [GitHub](https://github.com/M66B/FairEmail/releases)
-* [Play store](https://play.google.com/store/apps/details?id=eu.faircode.email)
+* [GitHub](https://github.com/M66B/FairEmail/releases) (Android 5 and later)
+* [Play store](https://play.google.com/store/apps/details?id=eu.faircode.email) (Android 6 and later)
 * ~~[Play store](https://play.google.com/apps/testing/eu.faircode.email) (test)~~
 * [AppGallery](https://wap3.hispace.hicloud.com/uowap/index.jsp#/detailApp/C101678151) (the AppGallery app can be downloaded [here](https://huaweimobileservices.com/appgallery/))
 
