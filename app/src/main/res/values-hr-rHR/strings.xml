@@ -640,7 +640,6 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_ask_help">Pomozite poboljšati FairEmail</string>
     <string name="title_ask_reporting">Pošalji izvješća o pogreškama?</string>
     <string name="title_reporting_why">Izvješćivanje o pogreškama pomoći će u poboljšanju FairEmail aplikacije</string>
-    <string name="title_reply_hint">Možete odgovoriti svima, proslijediti itd. Preko akcijskog izbornika s dvostrukom strelicom odmah ispod zaglavlja poruke</string>
     <string name="title_ask_review">Molim ostavite recenziju o FairEmailu</string>
     <string name="title_ask_review_rationale">Već neko vrijeme upotrebljavate FairEmail.
          Bilo bi nam drago ako biste mogli ocijeniti FairEmail u PlayStore-u.

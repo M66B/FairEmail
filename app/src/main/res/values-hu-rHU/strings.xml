@@ -403,7 +403,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_identity_color_hint">Identitás színek elsőbbsége a mappa és fiók színekkel szemben</string>
     <string name="title_advanced_sender">Küldőként használt cím szerkesztésének engedélyezése</string>
     <string name="title_identity_reply_to">Válaszcím</string>
-    <string name="title_identity_receipt">Megérkezési/olvasási visszajelzés alapértelmezett kérése</string>
+    <string name="title_identity_receipt">Kézbesítési/olvasási visszajelzés alapértelmezett kérése</string>
     <string name="title_optional">Választható</string>
     <string name="title_recommended">Ajánlott</string>
     <string name="title_account_linked">Hozzárendelt fiók</string>
@@ -526,7 +526,10 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_importance_high">Magas</string>
     <string name="title_forward">Továbbítás</string>
     <string name="title_new_message">Új üzenet</string>
+    <string name="title_editasnew">Szerkesztés újként</string>
+    <string name="title_create_rule">&#8230; szabály létrehozása</string>
     <string name="title_share">Megosztás</string>
+    <string name="title_print">Nyomtatás</string>
     <string name="title_show_headers">Fejlécek megjelenítése</string>
     <string name="title_raw_save">Nyers üzenet mentése</string>
     <string name="title_raw_send">Küldés mellékletként</string>
@@ -544,18 +547,31 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_more">Továbbiak</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Áthelyezés</string>
+    <string name="title_no_junk">Nem levélszemét</string>
+    <string name="title_move_to">Áthelyezés ide: &#8230;</string>
     <string name="title_move_to_folder">Áthelyezés ide: &#8230;</string>
     <string name="title_move_to_account">Áthelyezés ide: %1$s &#8230;</string>
     <string name="title_archive">Archiválás</string>
     <string name="title_reply">Válasz</string>
+    <string name="title_reply_to_sender">Válasz a feladónak</string>
+    <string name="title_reply_to_all">Válasz mindenkinek</string>
+    <string name="title_reply_receipt">Olvasási visszaigazolás küldése</string>
+    <string name="title_reply_template">Válasz sablon használatával</string>
     <string name="title_moving">Áthelyezés folyamatban ide: %1$s</string>
     <string name="title_open_with">Megnyitás a következővel</string>
     <string name="title_authentication_failed">%1$s azonosítás sikertelen</string>
     <string name="title_receipt_subject">Olvasási visszajelzés: %1$s</string>
+    <string name="title_receipt_text">Az olvasási visszaigazolás csak az üzenet megjelenítését igazolja. Nem jelent garanciát arra, hogy a címzett valóban el is olvasta az üzenet tartalmát.</string>
     <string name="title_no_answers">Nincs elmentett válaszsablon</string>
+    <string name="title_no_viewer">Nincs elérhető megjenítő alkalmazás ehhez: %1$s</string>
     <string name="title_no_contacts">A névjegyválasztó nem elérhető</string>
     <string name="title_no_folder">A mappa nem létezik</string>
+    <string name="title_no_image">A kép nem dekódolható</string>
     <string name="title_no_search">Nem elérhető a szerveren keresés ezen a fiókon</string>
+    <string name="title_truncated">Az üzenet túl nagy a teljes megjelnítéshez</string>
+    <string name="title_insufficient_memory">Az üzenet túl nagy az elérhető memóriába való betöltéshez</string>
+    <string name="title_show_full">Teljes szöveg megjelnítése</string>
+    <string name="title_accross_remark">A különböző fiókok között átmozgatott üzenetek újra letöltsére kerülnek, amely további adatforgalmat eredményez</string>
     <string name="title_raw_saved">Nyers üzenet mentve</string>
     <string name="title_attachment_saved">A melléklet mentve</string>
     <string name="title_attachments_saved">A mellékletek mentve</string>
@@ -565,12 +581,17 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_ask_delete_answer">Véglegesen törli a válasz sablont?</string>
     <string name="title_ask_delete_rule">Véglegesen törli a szabályt?</string>
     <string name="title_ask_discard">Elveti a piszkozatot?</string>
+    <string name="title_ask_show_html">Az eredeti üzenet megjelenítése érzékeny adatok kiszivárgásával járhat</string>
     <string name="title_ask_show_html_images">Képek megjelenítése az eredeti üzenetek megjelenítésekor</string>
+    <string name="title_ask_show_image">A képek megjelenítése érzékeny adatok kiszivárgásával járhat</string>
     <string name="title_ask_delete_local">Törli a helyi üzeneteket? A szerver továbbra is megőrzi azokat.</string>
     <string name="title_ask_help">Segítsen a FairEmail jobbá tételében</string>
+    <string name="title_ask_reporting">Hibajelentések küldése?</string>
+    <string name="title_reporting_why">Hibajelentések küldésével segíthet a FairEmail fejlesztésében</string>
     <string name="title_expand_warning">Az üzenet kibontása %1$s letöltéssel jár</string>
     <string name="title_compose">Levélírás</string>
     <string name="title_submitter">Feladó:</string>
+    <string name="title_delivered_to">Kézbesítve ide:</string>
     <string name="title_from">Feladó:</string>
     <string name="title_to">Címzett:</string>
     <string name="title_reply_to">Válasz neki:</string>
@@ -615,7 +636,8 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_no_key">Nincs privát kulcs</string>
     <string name="title_invalid_key">Érvénytelen privát kulcs</string>
     <string name="title_send_plain_text">Csak egyszerű szöveg</string>
-    <string name="title_send_receipt">Megérkezési/olvasási visszajelzés kérése</string>
+    <string name="title_send_receipt">Kézbesítési/olvasási visszajelzés kérése</string>
+    <string name="title_send_receipt_remark">A legtöbb email szolgáltató és kliens figyelmen kívül hagyja a visszajelzés kéréseket</string>
     <string name="title_from_missing">A feladó hiányzik</string>
     <string name="title_to_missing">A címzett hiányzik</string>
     <string name="title_subject_reminder">A tárgy hiányzik</string>
@@ -633,6 +655,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_signature_invalid_reason">Az üzenet aláírása nem hiteles: %1$s</string>
     <string name="title_signature_certificate_invalid">Érvénytelen tanusítvány láncolat</string>
     <string name="title_signature_subject">Tárgy</string>
+    <string name="title_signature_validity">Érvényesség</string>
     <string name="title_signature_outdated">Ez a nyilvános kulcs jelenleg nem érvényes</string>
     <string name="title_search">Keresés</string>
     <string name="title_search_server">Keresés a szerveren</string>
@@ -651,12 +674,14 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_filter_unflagged">Csillagozatlan</string>
     <string name="title_filter_unknown">Ismeretlen feladók</string>
     <string name="title_filter_hidden">Rejtett</string>
+    <string name="title_filter_duplicates">Duplikátumok</string>
     <string name="title_compact">Kompakt nézet</string>
     <string name="title_zoom">Szövegméret</string>
     <string name="title_select_all">Összes kijelölése</string>
     <string name="title_select_found">Találatok kijelölése</string>
     <string name="title_previous">Előző</string>
     <string name="title_next">Következő</string>
+    <string name="title_edit_signature_image">Kép beillesztése</string>
     <string name="title_answer_caption">Sablon szerkesztése</string>
     <string name="title_answer_reply">Válaszsablon</string>
     <string name="title_answer_name">Sablon neve</string>
@@ -693,9 +718,11 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_rule_identity">Identitás</string>
     <string name="title_rule_template">Válaszsablon</string>
     <string name="title_rule_cc">Válasz a másolatok címzetteinek</string>
+    <string name="title_rule_name_missing">Hiányzó szabálynév</string>
     <string name="title_rule_execute">Végrehajtás most</string>
     <string name="title_rule_applied">Érintett üzenetek: %1$d</string>
     <string name="title_rule_check">Ellenőrzés</string>
+    <string name="title_legend_section_folders">Mappák</string>
     <string name="title_legend_section_compose">Levélírás</string>
     <string name="title_legend_download_on">Üzenetek tartalmának automatikus letöltése</string>
     <string name="title_legend_download_off">Üzenetek tartalmának letöltése amikor szükséges</string>
@@ -708,6 +735,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_legend_synchronizing">Szinkronizálás...</string>
     <string name="title_legend_downloading">Letöltés...</string>
     <string name="title_legend_waiting">Szinkronizálásra várakozás</string>
+    <string name="title_legend_inbox">Bejövő mappa</string>
     <string name="title_legend_drafts">Piszkozatok</string>
     <string name="title_legend_sent">Elküldött</string>
     <string name="title_legend_archive">Archiválás</string>
@@ -715,7 +743,9 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_legend_junk">Spam</string>
     <string name="title_legend_primary">Elsődleges</string>
     <string name="title_legend_subscribed">Feliratkozva a következőre:</string>
+    <string name="title_legend_rule">Rendelkezik szabályokkal</string>
     <string name="title_legend_similar">Hasonló üzenetek keresése</string>
+    <string name="title_legend_notify">Értesítés új üzenet érkezésekor</string>
     <string name="title_legend_thread">Beszélgetés</string>
     <string name="title_legend_priority">Magas prioritású</string>
     <string name="title_legend_priority_low">Alacsony prioritású</string>
@@ -729,12 +759,15 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_legend_pick">Névjegy választása</string>
     <string name="title_legend_file">Fájl csatolása</string>
     <string name="title_legend_photo">Fénykép készítése</string>
+    <string name="title_legend_bold">Szöveg félkövérré változtatása</string>
+    <string name="title_legend_italic">Szöveg dőltté változtatása</string>
     <string name="title_legend_underline">Szöveg aláhúzása</string>
     <string name="title_legend_text_size">Szövegméret beállítása</string>
     <string name="title_legend_text_color">Szövegszín beállítása</string>
     <string name="title_legend_avatar">Profilkép</string>
     <string name="title_legend_show_junk">Megjelölés spamként</string>
     <string name="title_legend_show_images">Képek megjelenítése</string>
+    <string name="title_legend_show_full">Teljes képernyős megjelenítés</string>
     <string name="title_legend_edit">Szerkesztés</string>
     <string name="title_legend_default_color">Alapértelmezett szín</string>
     <string name="title_legend_close_hint">Tipp bezárása</string>
@@ -742,24 +775,36 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_legend_download_state">Letöltés állapota</string>
     <string name="title_legend_save">Mentés</string>
     <string name="title_legend_delete">Tőrlés</string>
+    <string name="title_legend_folder_type">Mappatípus</string>
     <string name="title_hint_message_actions">Törlés balra csúsztatásra; Archiválás jobbra csúsztatásra (ha elérhető); A csúsztatáshoz tartozó műveletek módosíthatóak a fiók beállításai között</string>
     <string name="title_hint_contact_actions">Nyomja hosszan a további opciókért</string>
+    <string name="title_later">Később</string>
+    <string name="title_undo">Visszavonás</string>
+    <string name="title_redo">Mégis</string>
+    <string name="title_add">Hozzáadás</string>
+    <string name="title_browse">Megnyitás a következővel:</string>
     <string name="title_1hour">1 óra</string>
     <string name="title_1day">1 nap</string>
     <string name="title_1week">1 hét</string>
     <string name="title_now">Most</string>
+    <string name="title_hours">Óra</string>
+    <string name="title_minutes">Perc</string>
+    <string name="title_dismiss">Elvetés</string>
+    <string name="title_snooze_now">Szundi</string>
     <string name="title_icalendar_accept">Elfogadás</string>
     <string name="title_icalendar_decline">Elutasítás</string>
     <string name="title_icalendar_calendar">Naptár</string>
     <string name="title_pro_feature">Ez egy pro szolgáltatás</string>
     <string name="title_pro_list">Pro szolgáltatások listája</string>
     <string name="title_pro_purchase">Vásárlás</string>
+    <string name="title_pro_once">Csak egyszer</string>
     <string name="title_pro_pending">A vásárlás folyamatban van</string>
     <string name="title_pro_activated">Minden pro szolgáltatás aktiválva van</string>
     <string name="title_pro_valid">Minden pro szolgáltatás aktiválva</string>
     <string name="title_pro_invalid">Érvénytelen válasz</string>
     <string name="title_pro_support">A FairEmail-nek szüksége van a segítségére. Koppintson a pro szolgáltatások megvásárlásához, hogy a projekt fennmaradhasson.</string>
     <string name="title_unexpected_error">Váratlan hiba</string>
+    <string name="title_log">Napló</string>
     <string name="title_search_special_prefix">speciális</string>
     <string name="title_search_special_unseen">olvasatlan</string>
     <string name="title_search_special_flagged">csillagozott</string>
@@ -772,6 +817,9 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_accessibility_unflagged">Csillagozatlan</string>
     <string name="title_accessibility_expand">Kibontás</string>
     <string name="title_accessibility_view_contact">Névjegy megtekintése</string>
+    <string name="title_accessibility_scroll_down">Görgetés lefelé</string>
+    <string name="title_accessibility_scroll_up">Görgetés felfelé</string>
+    <string name="title_accessibility_edit">Szerkesztés</string>
     <string name="title_accessibility_attachment">Melléklet</string>
     <string-array name="pollIntervalNames">
         <item>Always</item>
@@ -794,7 +842,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     </string-array>
     <string-array name="startupNames">
         <item>Összesített bejövő mappa</item>
-        <item>Unified folders</item>
+        <item>Összesített mappák</item>
         <item>Fiókok</item>
     </string-array>
     <string-array name="downloadNames">
@@ -815,9 +863,33 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
+    <string-array name="biometricsTimeoutNames">
+        <item>Egy perc</item>
+        <item>2 perc</item>
+        <item>5 perc</item>
+        <item>10 perc</item>
+        <item>20 perc</item>
+    </string-array>
     <string-array name="priorityNames">
         <item>Alacsony</item>
         <item>Normál</item>
         <item>Magas</item>
+    </string-array>
+    <string-array name="linesNames">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+    <string-array name="fontSizeNames">
+        <item>Alapértelmezett</item>
+        <item>Kicsi</item>
+        <item>Közepes</item>
+        <item>Nagy</item>
+    </string-array>
+    <string-array name="signatureNames">
+        <item>A szöveg felett</item>
+        <item>A szöveg alatt</item>
+        <item>At the bottom</item>
     </string-array>
 </resources>

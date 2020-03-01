@@ -55,7 +55,7 @@
     </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Eraman mezu %1$d %2$s helburura?</item>
-        <item quantity="other">Eraman %1$d mezu %2$s helburura?</item>
+        <item quantity="other">Eraman %1$d mezu %2$s(e)ra?</item>
     </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">Ezabatu mezu %1$d behin betiko?</item>
@@ -588,8 +588,10 @@
     <string name="title_more">Gehiago</string>
     <string name="title_spam">Spama</string>
     <string name="title_move">Mugitu</string>
+    <string name="title_no_junk">Ez da spama</string>
+    <string name="title_move_to">Mugitu hona &#8230;</string>
     <string name="title_move_to_folder">Mugitu hona &#8230;</string>
-    <string name="title_move_to_account">Mugitu %1$s helburura &#8230;</string>
+    <string name="title_move_to_account">Mugitu %1$s kontura &#8230;</string>
     <string name="title_snooze">Atzeratu &#8230;</string>
     <string name="title_archive">Artxiboa</string>
     <string name="title_reply">Erantzun</string>
@@ -641,7 +643,6 @@
     <string name="title_ask_help">Lagundu FairEmail hobetzen</string>
     <string name="title_ask_reporting">Bidali errore txostenak?</string>
     <string name="title_reporting_why">Errore txostenek FairEmail hobetzen laguntzen dute</string>
-    <string name="title_reply_hint">Erantzun diezaiekezu guztiei, birbidali, etab. gezi bikoitzeko ekintza-menuaren bidez, mezuaren goiburuaren azpian</string>
     <string name="title_ask_review">Baloratu FairEmail mesedez</string>
     <string name="title_ask_review_rationale">FairEmail denbora batez erabili duzu.
 Eskertzekoa litzateke Play Storen FairEmail baloratuko bazenu.

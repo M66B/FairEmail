@@ -590,6 +590,8 @@
     <string name="title_more">Plus</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Déplacer</string>
+    <string name="title_no_junk">Non spam</string>
+    <string name="title_move_to">Déplacer vers&#8230;</string>
     <string name="title_move_to_folder">Déplacer vers&#8230;</string>
     <string name="title_move_to_account">Déplacer vers %1$s&#8230;</string>
     <string name="title_snooze">Reporter&#8230;</string>
@@ -643,7 +645,6 @@
     <string name="title_ask_help">Aider à améliorer FairEmail</string>
     <string name="title_ask_reporting">Envoyer des rapports d\'erreur ?</string>
     <string name="title_reporting_why">Un rapport d\'erreur aidera à améliorer FairEmail</string>
-    <string name="title_reply_hint">Vous pouvez répondre à tous, transférer, etc au moyen du menu d\'actions via la flèche double juste en dessous de l\'en-tête du message</string>
     <string name="title_ask_review">Veuillez évaluer FairEmail</string>
     <string name="title_ask_review_rationale">        Vous utilisez FairEmail depuis un moment.
         Je vous serais reconnaissant si vous pouviez noter FairEmail dans le Play Store.

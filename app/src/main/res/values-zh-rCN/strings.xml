@@ -577,6 +577,8 @@
     <string name="title_more">更多</string>
     <string name="title_spam">垃圾邮件</string>
     <string name="title_move">移动</string>
+    <string name="title_no_junk">不是垃圾邮件</string>
+    <string name="title_move_to">移动到 &#8230;</string>
     <string name="title_move_to_folder">移动到 &#8230;</string>
     <string name="title_move_to_account">移动到 %1$s &#8230;</string>
     <string name="title_snooze">打盹 &#8230;</string>
@@ -630,7 +632,6 @@
     <string name="title_ask_help">帮助改进FairEmail</string>
     <string name="title_ask_reporting">发送错误报告?</string>
     <string name="title_reporting_why">错误报告将有助于改进FairEmail</string>
-    <string name="title_reply_hint">您可以通过消息标题下方的双箭头动作菜单进行回复所有、转发等操作</string>
     <string name="title_ask_review">请给FairEmail评分</string>
     <string name="title_ask_review_rationale">        您已经使用FairEmail一段时间了。
         如果您能在谷歌商店为FairEmail评分，我将感激不尽。

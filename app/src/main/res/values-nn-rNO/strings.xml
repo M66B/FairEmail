@@ -590,6 +590,8 @@
     <string name="title_more">Mer</string>
     <string name="title_spam">Søppelpost</string>
     <string name="title_move">Flytt</string>
+    <string name="title_no_junk">Ikke spam</string>
+    <string name="title_move_to">Flytt til &#8230;</string>
     <string name="title_move_to_folder">Flytt til &#8230;</string>
     <string name="title_move_to_account">Flytt til %1$s &#8230;</string>
     <string name="title_snooze">Utsett &#8230;</string>
@@ -643,7 +645,6 @@
     <string name="title_ask_help">Hjelp til å forbedre FairEmail</string>
     <string name="title_ask_reporting">Send feilrapporter?</string>
     <string name="title_reporting_why">Feilrapportering vil bidra til å forbedre FairEmail</string>
-    <string name="title_reply_hint">Du kan svare på alle, videresende osv. Via handlingsmenyen med dobbel pil rett under meldingsoverskriften</string>
     <string name="title_ask_review">Vennligst anmeld FairEmail</string>
     <string name="title_ask_review_rationale">Du har brukt FairEmail en stund.
 Det vil bli satt pris på om du kunne rangere FairEmail i Play Store.

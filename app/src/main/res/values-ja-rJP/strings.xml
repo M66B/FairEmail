@@ -575,6 +575,8 @@
     <string name="title_more">その他</string>
     <string name="title_spam">スパム</string>
     <string name="title_move">移動します</string>
+    <string name="title_no_junk">迷惑メールでは無い</string>
+    <string name="title_move_to">&#8230; に移動</string>
     <string name="title_move_to_folder">&#8230; に移動します</string>
     <string name="title_move_to_account">%1$s &#8230; に移動します</string>
     <string name="title_snooze">スヌーズ &#8230;</string>
@@ -628,7 +630,6 @@
     <string name="title_ask_help">FairEmailの改善にご協力下さい</string>
     <string name="title_ask_reporting">エラーレポートを送信しますか？</string>
     <string name="title_reporting_why">エラー報告はFairEmailの改善に役立ちます</string>
-    <string name="title_reply_hint">メッセージヘッダーの下にある矢印アクションメニューを使用し全員に返信したり転送したりできます</string>
     <string name="title_ask_review">FairEmailを確認して下さい</string>
     <string name="title_ask_review_rationale">FairEmailをしばらく使用しています。
 PlayストアでFairEmailを評価できれば幸いです。
