@@ -127,8 +127,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.github.chrisbanes.photoview.PhotoView;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -231,7 +229,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean authentication;
     private static boolean debug;
 
-    private int answers = -1;
     private boolean gotoTop = false;
     private boolean firstClick = false;
     private int searchResult = 0;
@@ -295,8 +292,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             View.OnClickListener,
             View.OnLongClickListener,
             View.OnTouchListener,
-            View.OnLayoutChangeListener,
-            BottomNavigationView.OnNavigationItemSelectedListener {
+            View.OnLayoutChangeListener {
         private ViewCardOptional card;
         private View view;
         private View header;
@@ -379,15 +375,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private Button btnDownloadAttachments;
         private TextView tvNoInternetAttachments;
 
-        private BottomNavigationView bnvActions;
-        private Group grpActions;
-
+        private View vSeparator;
         private ImageButton ibFull;
         private ImageButton ibImages;
         private ImageButton ibUnsubscribe;
         private ImageButton ibJunk;
-        private ImageButton ibVerify;
         private ImageButton ibDecrypt;
+        private ImageButton ibVerify;
+        private ImageButton ibUndo;
+        private ImageButton ibMore;
         private TextView tvSignedData;
 
         private TextView tvBody;
@@ -565,21 +561,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             btnDownloadAttachments = attachments.findViewById(R.id.btnDownloadAttachments);
             tvNoInternetAttachments = attachments.findViewById(R.id.tvNoInternetAttachments);
 
-            bnvActions = vsBody.findViewById(R.id.bnvActions);
-            if (compact) {
-                bnvActions.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_UNLABELED);
-                ViewGroup.LayoutParams lparam = bnvActions.getLayoutParams();
-                lparam.height = dp36;
-                bnvActions.setLayoutParams(lparam);
-            }
-            grpActions = vsBody.findViewById(R.id.grpActions);
-
+            vSeparator = vsBody.findViewById(R.id.vSeparator);
             ibFull = vsBody.findViewById(R.id.ibFull);
             ibImages = vsBody.findViewById(R.id.ibImages);
             ibUnsubscribe = vsBody.findViewById(R.id.ibUnsubscribe);
             ibJunk = vsBody.findViewById(R.id.ibJunk);
-            ibVerify = vsBody.findViewById(R.id.ibVerify);
             ibDecrypt = vsBody.findViewById(R.id.ibDecrypt);
+            ibVerify = vsBody.findViewById(R.id.ibVerify);
+            ibUndo = vsBody.findViewById(R.id.ibUndo);
+            ibMore = vsBody.findViewById(R.id.ibMore);
             tvSignedData = vsBody.findViewById(R.id.tvSignedData);
 
             tvBody = vsBody.findViewById(R.id.tvBody);
@@ -650,14 +640,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 btnSaveAttachments.setOnClickListener(this);
                 btnDownloadAttachments.setOnClickListener(this);
 
-                bnvActions.setOnNavigationItemSelectedListener(this);
-
                 ibFull.setOnClickListener(this);
                 ibImages.setOnClickListener(this);
                 ibUnsubscribe.setOnClickListener(this);
                 ibJunk.setOnClickListener(this);
-                ibVerify.setOnClickListener(this);
                 ibDecrypt.setOnClickListener(this);
+                ibVerify.setOnClickListener(this);
+                ibUndo.setOnClickListener(this);
+                ibMore.setOnClickListener(this);
 
                 ibDownloading.setOnClickListener(this);
 
@@ -718,14 +708,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 btnSaveAttachments.setOnClickListener(null);
                 btnDownloadAttachments.setOnClickListener(null);
 
-                bnvActions.setOnNavigationItemSelectedListener(null);
-
                 ibFull.setOnClickListener(null);
                 ibImages.setOnClickListener(null);
                 ibUnsubscribe.setOnClickListener(null);
                 ibJunk.setOnClickListener(null);
-                ibVerify.setOnClickListener(null);
                 ibDecrypt.setOnClickListener(null);
+                ibVerify.setOnClickListener(null);
+                ibUndo.setOnClickListener(null);
+                ibMore.setOnClickListener(null);
 
                 ibDownloading.setOnClickListener(null);
 
@@ -1144,15 +1134,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             btnDownloadAttachments.setVisibility(View.GONE);
             tvNoInternetAttachments.setVisibility(View.GONE);
 
-            bnvActions.setVisibility(View.GONE);
-            grpActions.setVisibility(View.GONE);
-
+            vSeparator.setVisibility(View.GONE);
             ibFull.setVisibility(View.GONE);
             ibImages.setVisibility(View.GONE);
             ibUnsubscribe.setVisibility(View.GONE);
             ibJunk.setVisibility(View.GONE);
-            ibVerify.setVisibility(View.GONE);
             ibDecrypt.setVisibility(View.GONE);
+            ibVerify.setVisibility(View.GONE);
+            ibUndo.setVisibility(View.GONE);
+            ibMore.setVisibility(View.GONE);
             tvSignedData.setVisibility(View.GONE);
 
             tvBody.setVisibility(View.GONE);
@@ -1296,18 +1286,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvNoInternetHeaders.setVisibility(View.GONE);
             }
 
-            grpActions.setVisibility(View.VISIBLE);
-            for (int i = 0; i < bnvActions.getMenu().size(); i++)
-                bnvActions.getMenu().getItem(i).setVisible(false);
-
+            vSeparator.setVisibility(View.VISIBLE);
             ibFull.setEnabled(false);
             ibFull.setVisibility(View.VISIBLE);
             ibImages.setVisibility(View.GONE);
             ibUnsubscribe.setVisibility(View.GONE);
             ibJunk.setEnabled(false);
             ibJunk.setVisibility(View.GONE);
-            ibVerify.setVisibility(View.GONE);
             ibDecrypt.setVisibility(View.GONE);
+            ibVerify.setVisibility(View.GONE);
+            ibUndo.setVisibility(EntityFolder.OUTBOX.equals(message.folderType) ? View.VISIBLE : View.GONE);
+            ibMore.setVisibility(EntityFolder.OUTBOX.equals(message.folderType) ? View.GONE : View.VISIBLE);
             tvSignedData.setVisibility(View.GONE);
 
             // Addresses
@@ -1442,39 +1431,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         }
 
                     boolean inOutbox = EntityFolder.OUTBOX.equals(message.folderType);
-                    boolean inArchive = EntityFolder.ARCHIVE.equals(message.folderType);
                     boolean inTrash = EntityFolder.TRASH.equals(message.folderType);
-                    boolean inJunk = EntityFolder.JUNK.equals(message.folderType);
 
                     delete = (inTrash || !hasTrash || inOutbox);
 
                     ibJunk.setEnabled(hasJunk);
-
-                    bnvActions.getMenu().findItem(R.id.action_more).setVisible(!inOutbox);
-
-                    if (!message.folderReadOnly) {
-                        bnvActions.getMenu().findItem(R.id.action_delete).setVisible(
-                                (delete ? message.uid != null || !TextUtils.isEmpty(message.msgid) : message.uid != null));
-                        bnvActions.getMenu().findItem(R.id.action_delete).setTitle(
-                                delete ? R.string.title_delete : R.string.title_trash);
-
-                        bnvActions.getMenu().findItem(R.id.action_move).setVisible(
-                                message.uid != null || inOutbox);
-                        bnvActions.getMenu().findItem(R.id.action_move).setTitle(
-                                inOutbox ? R.string.title_folder_drafts : R.string.title_move);
-                        bnvActions.getMenu().findItem(R.id.action_move).setIcon(
-                                inOutbox ? R.drawable.baseline_drafts_24 : R.drawable.baseline_folder_24);
-
-                        bnvActions.getMenu().findItem(R.id.action_archive).setVisible(
-                                message.uid != null && (inJunk || (!inArchive && hasArchive)));
-                        bnvActions.getMenu().findItem(R.id.action_archive).setTitle(
-                                inJunk ? R.string.title_folder_inbox : R.string.title_archive);
-                        bnvActions.getMenu().findItem(R.id.action_archive).setIcon(
-                                inJunk ? R.drawable.baseline_inbox_24 : R.drawable.baseline_archive_24);
-                    }
-
-                    bnvActions.getMenu().findItem(R.id.action_reply).setEnabled(message.content);
-                    bnvActions.getMenu().findItem(R.id.action_reply).setVisible(!inOutbox);
                 }
 
                 @Override
@@ -2356,9 +2317,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     case R.id.ibJunk:
                         onActionJunk(message);
                         break;
-                    case R.id.ibVerify:
-                        onActionDecrypt(message, false);
-                        break;
                     case R.id.ibDecrypt:
                         boolean lock =
                                 (EntityMessage.PGP_SIGNENCRYPT.equals(message.ui_encrypt) &&
@@ -2369,6 +2327,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             onMenuResync(message);
                         else
                             onActionDecrypt(message, false);
+                        break;
+                    case R.id.ibVerify:
+                        onActionDecrypt(message, false);
+                        break;
+                    case R.id.ibUndo:
+                        onActionUndo(message);
+                        break;
+                    case R.id.ibMore:
+                        onActionMore(message);
                         break;
 
                     case R.id.ibDownloading:
@@ -2483,39 +2450,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         }.execute(context, owner, args, "message:seen");
                     }
                 }
-            }
-        }
-
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            final TupleMessageEx message = getMessage();
-            if (message == null)
-                return false;
-
-            switch (item.getItemId()) {
-                case R.id.action_more:
-                    onActionMore(message);
-                    return true;
-                case R.id.action_delete:
-                    onActionDelete(message);
-                    return true;
-                case R.id.action_move:
-                    if (EntityFolder.OUTBOX.equals(message.folderType))
-                        onActionMoveOutbox(message);
-                    else
-                        onActionMove(message, false);
-                    return true;
-                case R.id.action_archive:
-                    if (EntityFolder.JUNK.equals(message.folderType))
-                        onActionMoveJunk(message);
-                    else
-                        onActionArchive(message);
-                    return true;
-                case R.id.action_reply:
-                    onActionReplyMenu(message);
-                    return true;
-                default:
-                    return false;
             }
         }
 
@@ -3050,170 +2984,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             .putExtra("type", encrypt));
         }
 
-        private void onActionReplyMenu(TupleMessageEx message) {
-            Bundle args = new Bundle();
-            args.putSerializable("message", message);
-
-            new SimpleTask<List<TupleIdentityEx>>() {
-                @Override
-                protected List<TupleIdentityEx> onExecute(Context context, Bundle args) {
-                    TupleMessageEx message = (TupleMessageEx) args.getSerializable("message");
-                    if (message == null)
-                        return null;
-
-                    DB db = DB.getInstance(context);
-                    return db.identity().getComposableIdentities(message.account);
-                }
-
-                @Override
-                protected void onExecuted(Bundle args, List<TupleIdentityEx> identities) {
-                    TupleMessageEx message = (TupleMessageEx) args.getSerializable("message");
-
-                    TupleMessageEx amessage = getMessage();
-                    if (amessage == null || !amessage.id.equals(message.id))
-                        return;
-
-                    final Address[] to =
-                            message.replySelf(identities, message.account)
-                                    ? message.to
-                                    : (message.reply == null || message.reply.length == 0 ? message.from : message.reply);
-
-                    Address[] recipients = message.getAllRecipients(identities, message.account);
-
-                    View anchor = bnvActions.findViewById(R.id.action_reply);
-                    PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, anchor);
-                    popupMenu.inflate(R.menu.popup_reply);
-                    popupMenu.getMenu().findItem(R.id.menu_reply_to_all).setVisible(recipients.length > 0);
-                    popupMenu.getMenu().findItem(R.id.menu_reply_list).setVisible(message.list_post != null);
-                    popupMenu.getMenu().findItem(R.id.menu_reply_receipt).setVisible(message.receipt_to != null);
-                    popupMenu.getMenu().findItem(R.id.menu_new_message).setVisible(to != null && to.length > 0);
-                    popupMenu.getMenu().findItem(R.id.menu_reply_answer).setVisible(answers != 0 || !ActivityBilling.isPro(context));
-
-                    popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                        @Override
-                        public boolean onMenuItemClick(MenuItem target) {
-                            switch (target.getItemId()) {
-                                case R.id.menu_reply_to_sender:
-                                    onMenuReply(message, "reply");
-                                    return true;
-                                case R.id.menu_reply_to_all:
-                                    onMenuReply(message, "reply_all");
-                                    return true;
-                                case R.id.menu_reply_list:
-                                    onMenuReply(message, "list");
-                                    return true;
-                                case R.id.menu_reply_receipt:
-                                    onMenuReply(message, "receipt");
-                                    return true;
-                                case R.id.menu_forward:
-                                    onMenuReply(message, "forward");
-                                    return true;
-                                case R.id.menu_editasnew:
-                                    onMenuEditAsNew(message);
-                                    return true;
-                                case R.id.menu_new_message:
-                                    onMenuNew(message, to);
-                                    return true;
-                                case R.id.menu_reply_answer:
-                                    onMenuAnswer(message);
-                                    return true;
-                                default:
-                                    return false;
-                            }
-                        }
-                    });
-                    popupMenu.show();
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
-                }
-            }.execute(context, owner, args, "message:reply");
-        }
-
-        private void onMenuReply(TupleMessageEx message, String action) {
-            Intent reply = new Intent(context, ActivityCompose.class)
-                    .putExtra("action", action)
-                    .putExtra("reference", message.id);
-            context.startActivity(reply);
-        }
-
-        private void onMenuEditAsNew(final TupleMessageEx message) {
-            Intent asnew = new Intent(context, ActivityCompose.class)
-                    .putExtra("action", "editasnew")
-                    .putExtra("reference", message.id);
-            context.startActivity(asnew);
-        }
-
-        private void onMenuNew(TupleMessageEx message, Address[] to) {
-            Intent reply = new Intent(context, ActivityCompose.class)
-                    .putExtra("action", "new")
-                    .putExtra("to", MessageHelper.formatAddresses(to, true, true));
-            context.startActivity(reply);
-        }
-
-        private void onMenuAnswer(TupleMessageEx message) {
-            new SimpleTask<List<EntityAnswer>>() {
-                @Override
-                protected List<EntityAnswer> onExecute(Context context, Bundle args) {
-                    return DB.getInstance(context).answer().getAnswers(false);
-                }
-
-                @Override
-                protected void onExecuted(Bundle args, List<EntityAnswer> answers) {
-                    if (answers == null || answers.size() == 0) {
-                        Snackbar snackbar = Snackbar.make(
-                                parentFragment.getView(),
-                                context.getString(R.string.title_no_answers),
-                                Snackbar.LENGTH_LONG);
-                        snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-                                lbm.sendBroadcast(new Intent(ActivityView.ACTION_EDIT_ANSWERS));
-                            }
-                        });
-                        snackbar.show();
-                    } else {
-                        View anchor = bnvActions.findViewById(R.id.action_reply);
-                        PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, anchor);
-
-                        int order = 0;
-                        for (EntityAnswer answer : answers)
-                            popupMenu.getMenu().add(Menu.NONE, answer.id.intValue(), order++, answer.toString());
-
-                        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                            @Override
-                            public boolean onMenuItemClick(MenuItem target) {
-                                if (!ActivityBilling.isPro(context)) {
-                                    context.startActivity(new Intent(context, ActivityBilling.class));
-                                    return true;
-                                }
-
-                                context.startActivity(new Intent(context, ActivityCompose.class)
-                                        .putExtra("action", "reply")
-                                        .putExtra("reference", message.id)
-                                        .putExtra("answer", (long) target.getItemId()));
-                                return true;
-                            }
-                        });
-
-                        popupMenu.show();
-                    }
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
-                }
-            }.execute(context, owner, new Bundle(), "message:answer");
-        }
-
-        private void onActionArchive(TupleMessageEx message) {
-            properties.move(message.id, EntityFolder.ARCHIVE);
-        }
-
         private void onActionMove(TupleMessageEx message, final boolean copy) {
             Bundle args = new Bundle();
             args.putString("title", context.getString(copy ? R.string.title_copy_to : R.string.title_move_to_folder));
@@ -3229,7 +2999,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             fragment.show(parentFragment.getParentFragmentManager(), "message:move");
         }
 
-        private void onActionMoveOutbox(TupleMessageEx message) {
+        private void onActionUndo(TupleMessageEx message) {
             Bundle args = new Bundle();
             args.putLong("id", message.id);
 
@@ -3296,30 +3066,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }.execute(context, owner, args, "message:move:draft");
         }
 
-        private void onActionMoveJunk(TupleMessageEx message) {
+        private void onActionNoJunk(TupleMessageEx message) {
             properties.move(message.id, EntityFolder.INBOX);
-        }
-
-        private void onActionDelete(TupleMessageEx message) {
-            if (delete) {
-                Bundle aargs = new Bundle();
-                aargs.putString("question", context.getString(R.string.title_ask_delete));
-                aargs.putLong("id", message.id);
-
-                FragmentDialogAsk ask = new FragmentDialogAsk();
-                ask.setArguments(aargs);
-                ask.setTargetFragment(parentFragment, FragmentMessages.REQUEST_MESSAGE_DELETE);
-                ask.show(parentFragment.getParentFragmentManager(), "message:delete");
-            } else
-                properties.move(message.id, EntityFolder.TRASH);
         }
 
         private void onActionMore(TupleMessageEx message) {
             boolean show_headers = properties.getValue("headers", message.id);
             boolean full = properties.getValue("full", message.id);
 
-            View anchor = bnvActions.findViewById(R.id.action_more);
-            PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, anchor);
+            PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, ibMore);
             popupMenu.inflate(R.menu.popup_message_more);
 
             popupMenu.getMenu().findItem(R.id.menu_unseen).setTitle(message.ui_seen ? R.string.title_unseen : R.string.title_seen);
@@ -3335,6 +3090,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_set_importance_low).setEnabled(!EntityMessage.PRIORITIY_LOW.equals(i));
             popupMenu.getMenu().findItem(R.id.menu_set_importance_normal).setEnabled(!EntityMessage.PRIORITIY_NORMAL.equals(i));
             popupMenu.getMenu().findItem(R.id.menu_set_importance_high).setEnabled(!EntityMessage.PRIORITIY_HIGH.equals(i));
+
+            popupMenu.getMenu().findItem(R.id.menu_no_junk).setEnabled(message.uid != null && !message.folderReadOnly);
+            popupMenu.getMenu().findItem(R.id.menu_no_junk).setVisible(EntityFolder.JUNK.equals(message.folderType));
+
+            popupMenu.getMenu().findItem(R.id.menu_move).setEnabled(message.uid != null && !message.folderReadOnly);
+            popupMenu.getMenu().findItem(R.id.menu_move).setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
 
             popupMenu.getMenu().findItem(R.id.menu_copy).setEnabled(message.uid != null && !message.folderReadOnly);
             popupMenu.getMenu().findItem(R.id.menu_copy).setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
@@ -3390,6 +3151,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             return true;
                         case R.id.menu_set_importance_high:
                             onMenuSetImportance(message, EntityMessage.PRIORITIY_HIGH);
+                            return true;
+                        case R.id.menu_no_junk:
+                            onActionNoJunk(message);
+                            return true;
+                        case R.id.menu_move:
+                            onActionMove(message, false);
                             return true;
                         case R.id.menu_copy:
                             onActionMove(message, true);
@@ -4164,14 +3931,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             context.getString(R.string.title_accessibility_view_help)));
                 ibHelp.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
 
-                if (expanded && bnvActions != null)
-                    for (int i = 0; i < bnvActions.getMenu().size(); i++) {
-                        MenuItem menuItem = bnvActions.getMenu().getItem(i);
-                        if (menuItem.isVisible() && menuItem.isEnabled())
-                            info.addAction(new AccessibilityNodeInfo.AccessibilityAction(
-                                    menuItem.getItemId(), menuItem.getTitle()));
-                    }
-
                 info.setContentDescription(populateContentDescription(message));
             }
 
@@ -4203,14 +3962,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         onHelp(message);
                         return true;
                     default:
-                        if (expanded)
-                            for (int i = 0; i < bnvActions.getMenu().size(); i++) {
-                                MenuItem menuItem = bnvActions.getMenu().getItem(i);
-                                if (menuItem.getItemId() == action) {
-                                    bnvActions.getMenu().performIdentifierAction(action, 0);
-                                    return true;
-                                }
-                            }
                         return super.performAccessibilityAction(host, action, args);
                 }
             }
@@ -4827,11 +4578,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             this.unmetered = state.isUnmetered();
             notifyDataSetChanged();
         }
-    }
-
-    void setAnswerCount(int answers) {
-        this.answers = answers;
-        Log.i("Answer count=" + answers);
     }
 
     @Override

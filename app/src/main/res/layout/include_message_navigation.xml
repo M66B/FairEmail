@@ -5,7 +5,7 @@
     android:layout_height="wrap_content">
 
     <View
-        android:id="@+id/vSeparatorTop"
+        android:id="@+id/vSeparator"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="3dp"
@@ -13,27 +13,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bnvActions"
-        android:layout_width="0dp"
+    <ImageButton
+        android:id="@+id/ibMore"
+        android:layout_width="36dp"
         android:layout_height="36dp"
-        android:background="@android:color/transparent"
-        app:elevation="0dp"
-        app:itemIconTint="?android:attr/textColorSecondary"
-        app:itemTextColor="?android:attr/textColorSecondary"
-        app:labelVisibilityMode="unlabeled"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="12dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/title_more"
+        android:foregroundTint="?android:attr/textColorSecondary"
+        android:padding="3dp"
+        android:scaleType="fitCenter"
+        android:tooltipText="@string/title_more"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vSeparatorTop"
-        app:menu="@menu/action_message" />
-
-    <View
-        android:id="@+id/vSeparatorBottom"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="?attr/colorSeparator"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bnvActions" />
+        app:layout_constraintTop_toBottomOf="@id/vSeparator"
+        app:srcCompat="@drawable/baseline_more_vert_24" />
 
     <eu.faircode.email.ContentLoadingProgressBar
         android:id="@+id/pbBody"
@@ -43,14 +36,28 @@
         android:layout_marginStart="6dp"
         android:indeterminate="true"
         app:layout_constraintBottom_toBottomOf="@+id/ibFull"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ibMore"
         app:layout_constraintTop_toTopOf="@+id/ibFull" />
+
+    <ImageButton
+        android:id="@+id/ibUndo"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="12dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/title_undo"
+        android:foregroundTint="?android:attr/textColorSecondary"
+        android:padding="3dp"
+        android:scaleType="fitCenter"
+        android:tooltipText="@string/title_undo"
+        app:layout_constraintEnd_toStartOf="@+id/ibVerify"
+        app:layout_constraintTop_toBottomOf="@id/vSeparator"
+        app:srcCompat="@drawable/baseline_undo_24" />
 
     <ImageButton
         android:id="@+id/ibVerify"
         android:layout_width="36dp"
         android:layout_height="36dp"
-        android:layout_marginTop="3dp"
         android:layout_marginEnd="12dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/title_sign"
@@ -59,14 +66,13 @@
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_sign"
         app:layout_constraintEnd_toStartOf="@+id/ibDecrypt"
-        app:layout_constraintTop_toBottomOf="@id/vSeparatorBottom"
+        app:layout_constraintTop_toBottomOf="@id/vSeparator"
         app:srcCompat="@drawable/baseline_gesture_24" />
 
     <ImageButton
         android:id="@+id/ibDecrypt"
         android:layout_width="36dp"
         android:layout_height="36dp"
-        android:layout_marginTop="3dp"
         android:layout_marginEnd="12dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/title_decrypt"
@@ -75,14 +81,13 @@
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_decrypt"
         app:layout_constraintEnd_toStartOf="@+id/ibJunk"
-        app:layout_constraintTop_toBottomOf="@id/vSeparatorBottom"
+        app:layout_constraintTop_toBottomOf="@id/vSeparator"
         app:srcCompat="@drawable/baseline_lock_open_24" />
 
     <ImageButton
         android:id="@+id/ibJunk"
         android:layout_width="36dp"
         android:layout_height="36dp"
-        android:layout_marginTop="3dp"
         android:layout_marginEnd="12dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/title_legend_show_junk"
@@ -91,14 +96,13 @@
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_legend_show_junk"
         app:layout_constraintEnd_toStartOf="@+id/ibUnsubscribe"
-        app:layout_constraintTop_toBottomOf="@id/vSeparatorBottom"
+        app:layout_constraintTop_toBottomOf="@id/vSeparator"
         app:srcCompat="@drawable/baseline_flag_24" />
 
     <ImageButton
         android:id="@+id/ibUnsubscribe"
         android:layout_width="36dp"
         android:layout_height="36dp"
-        android:layout_marginTop="3dp"
         android:layout_marginEnd="12dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/title_legend_show_unsubscribe"
@@ -107,14 +111,13 @@
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_legend_show_unsubscribe"
         app:layout_constraintEnd_toStartOf="@+id/ibImages"
-        app:layout_constraintTop_toBottomOf="@id/vSeparatorBottom"
+        app:layout_constraintTop_toBottomOf="@id/vSeparator"
         app:srcCompat="@drawable/baseline_unsubscribe_24" />
 
     <ImageButton
         android:id="@+id/ibImages"
         android:layout_width="36dp"
         android:layout_height="36dp"
-        android:layout_marginTop="3dp"
         android:layout_marginEnd="12dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/title_legend_show_images"
@@ -123,14 +126,13 @@
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_legend_show_images"
         app:layout_constraintEnd_toStartOf="@+id/ibFull"
-        app:layout_constraintTop_toBottomOf="@id/vSeparatorBottom"
+        app:layout_constraintTop_toBottomOf="@id/vSeparator"
         app:srcCompat="@drawable/baseline_image_24" />
 
     <ImageButton
         android:id="@+id/ibFull"
         android:layout_width="36dp"
         android:layout_height="36dp"
-        android:layout_marginTop="3dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/title_legend_show_full"
         android:foregroundTint="?android:attr/textColorSecondary"
@@ -138,7 +140,7 @@
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_legend_show_full"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/vSeparatorBottom"
+        app:layout_constraintTop_toBottomOf="@id/vSeparator"
         app:srcCompat="@drawable/baseline_fullscreen_24" />
 
     <eu.faircode.email.FixedTextView
@@ -151,10 +153,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ibVerify" />
-
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/grpActions"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:constraint_referenced_ids="vSeparatorTop,bnvActions,vSeparatorBottom" />
 </androidx.constraintlayout.widget.ConstraintLayout>

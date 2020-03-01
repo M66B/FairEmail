@@ -33,6 +33,14 @@
     </item>
 
     <item
+        android:id="@+id/menu_no_junk"
+        android:title="@string/title_no_junk" />
+
+    <item
+        android:id="@+id/menu_move"
+        android:title="@string/title_move_to" />
+
+    <item
         android:id="@+id/menu_copy"
         android:title="@string/title_copy" />
 

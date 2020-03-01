@@ -43,7 +43,7 @@ public interface DaoAnswer {
 
     @Query("SELECT COUNT(*) FROM answer" +
             " WHERE NOT hide")
-    LiveData<Integer> liveAnswerCount();
+    Integer getAnswerCount();
 
     @Insert
     long insertAnswer(EntityAnswer answer);
