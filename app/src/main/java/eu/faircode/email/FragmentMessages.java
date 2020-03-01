@@ -1972,6 +1972,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             long id = values.get("expanded").get(0);
             int pos = adapter.getPositionForKey(id);
             TupleMessageEx message = adapter.getItemAtPosition(pos);
+            if (message == null)
+                return;
 
             Bundle args = new Bundle();
             args.putLong("id", id);
