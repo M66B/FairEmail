@@ -590,6 +590,8 @@
     <string name="title_more">Meer</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Verplaatsen</string>
+    <string name="title_no_junk">Geen spam</string>
+    <string name="title_move_to">Verplaats naar &#8230;</string>
     <string name="title_move_to_folder">Verplaats naar &#8230;</string>
     <string name="title_move_to_account">Verplaats naar %1$s &#8230;</string>
     <string name="title_snooze">Sluimeren &#8230;</string>
