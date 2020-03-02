@@ -49,6 +49,7 @@
         android:tooltipText="@string/title_delete"
         app:layout_constraintStart_toEndOf="@id/ibMore"
         app:layout_constraintTop_toBottomOf="@id/vSeparator"
+        app:layout_goneMarginStart="0dp"
         app:srcCompat="@drawable/baseline_close_24" />
 
     <ImageButton
