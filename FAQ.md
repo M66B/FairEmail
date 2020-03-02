@@ -45,6 +45,7 @@ Related questions:
 * Change the account name: Setup, step 1, Manage, tap account
 * Change the swipe left/right target: Setup, step 1, Manage, tap account, at the bottom
 * Set a signature: Setup, step 2, Manage, tap identity. See [this FAQ](#user-content-faq57) about how to insert an image, etc.
+* Add CC and BCC addresses: tap the people's icon at the end of the subject
 * Go to the next/previous message on archive/delete: in the behavior settings disable *Automatically close conversations* and select *Go to next/previous conversation* for *On closing a conversation*
 * Add a folder to the unified inbox: long press the folder in the folder list and check *Show in unified inbox*
 * Add a folder to the navigation menu: long press the folder in the folder list and check *Show in navigation menu*
