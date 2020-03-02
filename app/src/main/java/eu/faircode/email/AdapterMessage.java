@@ -1291,7 +1291,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibDecrypt.setVisibility(View.GONE);
             ibVerify.setVisibility(View.GONE);
             ibUndo.setVisibility(EntityFolder.OUTBOX.equals(message.folderType) ? View.VISIBLE : View.GONE);
-            ibRemove.setVisibility(EntityFolder.OUTBOX.equals(message.folderType) || message.folderReadOnly ? View.GONE : View.VISIBLE);
+            ibRemove.setVisibility(message.folderReadOnly ? View.GONE : View.VISIBLE);
             ibMore.setVisibility(EntityFolder.OUTBOX.equals(message.folderType) ? View.GONE : View.VISIBLE);
             tvSignedData.setVisibility(View.GONE);
 
