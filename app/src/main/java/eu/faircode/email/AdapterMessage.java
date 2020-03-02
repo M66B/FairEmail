@@ -3051,7 +3051,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     }
 
                     PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, ibMore);
-                    popupMenu.inflate(R.menu.popup_message_move);
+                    popupMenu.inflate(R.menu.popup_message_remove);
                     popupMenu.getMenu().findItem(R.id.menu_archive).setEnabled(message.uid != null && (hasArchive && !inArchive));
                     popupMenu.getMenu().findItem(R.id.menu_trash).setEnabled(message.uid != null);
                     popupMenu.getMenu().findItem(R.id.menu_junk).setEnabled(message.uid != null && (hasJunk && !inJunk));
