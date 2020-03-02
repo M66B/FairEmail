@@ -385,6 +385,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageButton ibRemove;
         private ImageButton ibMore;
         private TextView tvSignedData;
+        private TextView tvCrossHint;
 
         private TextView tvBody;
         private View wvBody;
@@ -568,6 +569,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibRemove = vsBody.findViewById(R.id.ibRemove);
             ibMore = vsBody.findViewById(R.id.ibMore);
             tvSignedData = vsBody.findViewById(R.id.tvSignedData);
+            tvCrossHint = vsBody.findViewById(R.id.tvCrossHint);
 
             tvBody = vsBody.findViewById(R.id.tvBody);
             wvBody = vsBody.findViewById(R.id.wvBody);
@@ -1141,6 +1143,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibRemove.setVisibility(View.GONE);
             ibMore.setVisibility(View.GONE);
             tvSignedData.setVisibility(View.GONE);
+            tvCrossHint.setVisibility(View.GONE);
 
             tvBody.setVisibility(View.GONE);
             wvBody.setVisibility(View.GONE);
@@ -1283,6 +1286,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvNoInternetHeaders.setVisibility(View.GONE);
             }
 
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean cross_hint = prefs.getBoolean("cross_hint", true);
+
             vSeparator.setVisibility(View.VISIBLE);
             ibFull.setEnabled(false);
             ibFull.setVisibility(View.VISIBLE);
@@ -1294,6 +1300,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibRemove.setVisibility(message.folderReadOnly ? View.GONE : View.VISIBLE);
             ibMore.setVisibility(EntityFolder.OUTBOX.equals(message.folderType) ? View.GONE : View.VISIBLE);
             tvSignedData.setVisibility(View.GONE);
+            tvCrossHint.setVisibility(cross_hint ? View.VISIBLE : View.GONE);
 
             // Addresses
             ibExpanderAddress.setImageLevel(show_addresses ? 0 /* less */ : 1 /* more */);
@@ -3006,6 +3013,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onActionRemove(TupleMessageEx message) {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            prefs.edit().putBoolean("cross_hint", false).apply();
+            tvCrossHint.setVisibility(View.GONE);
+
             // Setup actions
             Bundle sargs = new Bundle();
             sargs.putLong("id", message.id);
