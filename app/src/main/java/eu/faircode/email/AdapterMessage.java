@@ -3042,6 +3042,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean inJunk = EntityFolder.JUNK.equals(message.folderType);
                     final boolean delete = (inTrash || !hasTrash);
 
+                    if (!hasArchive && !hasJunk) {
+                        if (delete)
+                            onActionDelete(message);
+                        else
+                            properties.move(message.id, EntityFolder.TRASH);
+                        return;
+                    }
+
                     PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, ibMore);
                     popupMenu.inflate(R.menu.popup_message_move);
                     popupMenu.getMenu().findItem(R.id.menu_archive).setEnabled(message.uid != null && (hasArchive && !inArchive));
@@ -3069,6 +3077,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             }
                         }
                     });
+
                     popupMenu.show();
                 }
 
