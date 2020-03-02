@@ -608,6 +608,7 @@
     <string name="title_spam">Nevyžádané</string>
     <string name="title_move">Přesunout</string>
     <string name="title_no_junk">Není spam</string>
+    <string name="title_move_to">Přesunout do &#8230;</string>
     <string name="title_move_to_folder">Přesunout do &#8230;</string>
     <string name="title_move_to_account">Přesunout do %1$s &#8230;</string>
     <string name="title_snooze">Odložit &#8230;</string>

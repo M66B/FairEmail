@@ -38,4 +38,4 @@ På de senaste Android-versionerna kommer Android att sätta appar i viloläge n
 
 ## Frågor eller problem
 
-If you have a question or problem, please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) for help.
+Om du har en fråga eller ett problem, vänligen [se här](https://github.com/M66B/FairEmail/blob/master/FAQ.md) för hjälp.

@@ -77,6 +77,7 @@
     <string name="title_notification_failed">%1$s се провали</string>
     <string name="title_notification_alert">Сигнал от сървър \'%1$s\'</string>
     <string name="title_name_count">%1$s (%2$s)</string>
+    <string name="title_name_plus">%1$s +%2$d</string>
     <string name="title_factor_minutes">%1$d минутa</string>
     <string name="menu_exit">Изход</string>
     <string name="menu_answers">Шаблони</string>
@@ -366,6 +367,7 @@
     <string name="title_advanced_check_mx">Проверка имейл адреса на изпращача при синхронизиране на съобщенията</string>
     <string name="title_advanced_check_reply">Проверка имейл адреса на изпращача при синхронизиране на съобщенията</string>
     <string name="title_advanced_unseen_hint">Някои доставчици не поддържат това правилно, което може да доведе до синхронизиране всички или нито едно съобщение</string>
+    <string name="title_advanced_deleted_unseen">Когато са деактивирани, непрочетените съобщения се съхраняват на устройството завинаги</string>
     <string name="title_advanced_sync_kept_hint">Това ще прехвърли допълнителни данни и ще консумира допълнително батерията, особено ако на устройството се съхраняват много съобщения</string>
     <string name="title_advanced_sync_folders_hint">Деактивирането на това ще намали донякъде използването на данни и батерията, но ще деактивира и актуализирането на списъка с папки</string>
     <string name="title_advanced_subscribed_only_hint">Активирането ще изтрие всички локални папки без абонамент</string>
@@ -436,6 +438,7 @@
     <string name="title_account_left">Плъзгане на ляво</string>
     <string name="title_account_right">Плъзгане на дясно</string>
     <string name="title_account_move">Премести по подразбиране в</string>
+    <string name="title_account_gmail">За надеждна синхронизация на акаунт в Gmail трябва да се използва съветникът за бърза настройка на Gmail, когато е възможно</string>
     <string name="title_domain">Домейн име</string>
     <string name="title_autoconfig">Получи настройки</string>
     <string name="title_aliases">Псевдоним</string>
@@ -586,6 +589,8 @@
     <string name="title_more">Още</string>
     <string name="title_spam">Спам</string>
     <string name="title_move">Премести</string>
+    <string name="title_no_junk">Не е спам</string>
+    <string name="title_move_to">Премести в &#8230;</string>
     <string name="title_move_to_folder">Премести в &#8230;</string>
     <string name="title_move_to_account">Премести в %1$s &#8230;</string>
     <string name="title_snooze">Дрямка &#8230;</string>
