@@ -870,8 +870,11 @@ public class FragmentCompose extends FragmentBase {
                         Document document = JsoupEx.parse(body);
                         if (plain) {
                             String text = HtmlHelper.getText(ref.outerHtml());
+                            String[] line = text.split("\\r?\\n");
+                            for (int i = 0; i < line.length; i++)
+                                line[i] = Html.escapeHtml(line[i]);
                             Element p = document.createElement("p");
-                            p.html(text.replaceAll("\\r?\\n", "<br>"));
+                            p.html(TextUtils.join("<br>", line));
                             document.body().appendChild(p);
                         } else {
                             Document d = HtmlHelper.sanitize(context, ref.outerHtml(), true, false);
