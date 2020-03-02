@@ -4040,7 +4040,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 finish();
             else {
                 Log.i("Navigating to id=" + closeId);
-                navigate(closeId, "previous".equals(onclose));
+
+                Context context = getContext();
+                if (context == null)
+                    finish();
+
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean reversed = prefs.getBoolean("reversed", false);
+                navigate(closeId, "previous".equals(onclose) ^ reversed);
             }
         }
     }
