@@ -77,7 +77,8 @@ public class UnknownCharsetProvider extends CharsetProvider {
             if ("BASE64".equalsIgnoreCase(name) ||
                     "ISO".equalsIgnoreCase(name) ||
                     "latin".equalsIgnoreCase(name) ||
-                    "windows-1252".equalsIgnoreCase(name))
+                    "windows-1252".equalsIgnoreCase(name) ||
+                    "8bit".equals(name))
                 return StandardCharsets.ISO_8859_1;
 
             // Android will prevent recursion
