@@ -13,6 +13,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <eu.faircode.email.ContentLoadingProgressBar
+        android:id="@+id/pbBody"
+        style="@style/Base.Widget.AppCompat.ProgressBar"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:indeterminate="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vSeparator" />
+
     <ImageButton
         android:id="@+id/ibMore"
         android:layout_width="36dp"
@@ -41,17 +50,6 @@
         app:layout_constraintStart_toEndOf="@id/ibMore"
         app:layout_constraintTop_toBottomOf="@id/vSeparator"
         app:srcCompat="@drawable/baseline_highlight_off_24" />
-
-    <eu.faircode.email.ContentLoadingProgressBar
-        android:id="@+id/pbBody"
-        style="@style/Base.Widget.AppCompat.ProgressBar"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="6dp"
-        android:indeterminate="true"
-        app:layout_constraintBottom_toBottomOf="@+id/ibFull"
-        app:layout_constraintStart_toEndOf="@id/ibRemove"
-        app:layout_constraintTop_toTopOf="@+id/ibFull" />
 
     <ImageButton
         android:id="@+id/ibUndo"
