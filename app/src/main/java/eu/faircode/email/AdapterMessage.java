@@ -3025,6 +3025,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (amessage == null || !amessage.id.equals(id))
                         return;
 
+                    if (EntityFolder.OUTBOX.equals(message.folderType)) {
+                        onActionDelete(message);
+                        return;
+                    }
+
                     boolean hasArchive = false;
                     boolean hasTrash = false;
                     boolean hasJunk = false;
@@ -3040,6 +3045,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean inArchive = EntityFolder.ARCHIVE.equals(message.folderType);
                     boolean inTrash = EntityFolder.TRASH.equals(message.folderType);
                     boolean inJunk = EntityFolder.JUNK.equals(message.folderType);
+
                     final boolean delete = (inTrash || !hasTrash);
 
                     if (!hasArchive && !hasJunk) {
