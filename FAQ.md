@@ -1804,7 +1804,7 @@ so there is little room for performance improvements.
 <a name="faq78"></a>
 **(78) How do I use schedules?**
 
-In the receive settings you can enable scheduling and set the time period for when messages should be received.
+In the receive settings you can enable scheduling and set the time period and the day of weeks when messages should be received.
 
 Note that an end time equal to or earlier than the start time is considered to be 24 hours later.
 
