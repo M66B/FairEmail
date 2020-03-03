@@ -552,6 +552,24 @@ public class Log {
                   at android.app.ActivityThread.main(ActivityThread.java:7397)
          */
 
+        if (ex instanceof RuntimeException &&
+                "Failure from system".equals(ex.getMessage()))
+            /*
+                java.lang.RuntimeException: Failure from system
+                  at android.app.ContextImpl.bindServiceCommon(ContextImpl.java:1327)
+                  at android.app.ContextImpl.bindService(ContextImpl.java:1286)
+                  at android.content.ContextWrapper.bindService(ContextWrapper.java:604)
+                  at android.content.ContextWrapper.bindService(ContextWrapper.java:604)
+                  at hq.run(PG:15)
+                  at java.lang.Thread.run(Thread.java:818)
+                Caused by: android.os.DeadObjectException
+                  at android.os.BinderProxy.transactNative(Native Method)
+                  at android.os.BinderProxy.transact(Binder.java:503)
+                  at android.app.ActivityManagerProxy.bindService(ActivityManagerNative.java:3783)
+                  at android.app.ContextImpl.bindServiceCommon(ContextImpl.java:1317)
+             */
+            return false;
+
         if (ex.getMessage() != null &&
                 (ex.getMessage().startsWith("Bad notification posted") ||
                         ex.getMessage().contains("ActivityRecord not found") ||
