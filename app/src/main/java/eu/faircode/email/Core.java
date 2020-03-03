@@ -3503,6 +3503,10 @@ class Core {
             join(thread);
         }
 
+        boolean isAlive() {
+            return thread.isAlive();
+        }
+
         boolean isRunning() {
             return running;
         }
