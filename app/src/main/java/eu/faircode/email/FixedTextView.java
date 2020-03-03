@@ -57,6 +57,7 @@ public class FixedTextView extends AppCompatTextView {
                 at androidx.appcompat.widget.AppCompatTextView.onMeasure(SourceFile:554)
                 at android.view.View.measure(View.java:22360)
 */
+            setMeasuredDimension(0, 0);
         }
     }
 
