@@ -139,4 +139,7 @@ public interface DaoOperation {
 
     @Query("DELETE FROM operation WHERE id = :id")
     int deleteOperation(long id);
+
+    @Query("DELETE FROM operation WHERE account = :account AND name = :name")
+    int deleteOperations(long account, String name);
 }

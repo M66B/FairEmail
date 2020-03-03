@@ -1529,19 +1529,13 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             Log.w(account.name + " backoff " + ex.toString());
                         }
                     } else {
-                        // Stop retrying when on manual sync
-                        if (account.ondemand)
-                            break;
-
-                        // Stop retrying when executing operations only
+                        // Cancel transient sync operations
                         boolean enabled = prefs.getBoolean("enabled", true);
-                        if (!enabled)
-                            break;
-
-                        // Stop retrying when polling
                         int pollInterval = prefs.getInt("poll_interval", DEFAULT_POLL_INTERVAL);
-                        if (pollInterval > 0 && !account.poll_exempted)
-                            break;
+                        if (!enabled || account.ondemand || (pollInterval > 0 && !account.poll_exempted)) {
+                            int syncs = db.operation().deleteOperations(account.id, EntityOperation.SYNC);
+                            Log.i(account.name + " cancelled syncs=" + syncs);
+                        }
 
                         // Long back-off period, let device sleep
                         Intent intent = new Intent(ServiceSynchronize.this, ServiceSynchronize.class);
