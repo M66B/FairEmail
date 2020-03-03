@@ -284,6 +284,7 @@
     <string name="title_advanced_images_inline">Mostrar imágenes embebidas automáticamente</string>
     <string name="title_advanced_seekbar">Mostrar posición relativa de conversación con un punto</string>
     <string name="title_advanced_actionbar">Mostrar barra de acción de conversación</string>
+    <string name="title_advanced_navbar_colorize">Colorear la barra de navegación de Android</string>
     <string name="title_advanced_double_back">Doble \'atrás\' para salir</string>
     <string name="title_advanced_pull_refresh">Tire hacia abajo para actualizar</string>
     <string name="title_advanced_autoscroll">Desplazar hacia arriba al recibir nuevos mensajes</string>

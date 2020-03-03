@@ -283,6 +283,7 @@
     <string name="title_advanced_images_inline">Auto-vis indlejrede/vehæftede billeder</string>
     <string name="title_advanced_seekbar">Vis relativ samtaleposition med en prik</string>
     <string name="title_advanced_actionbar">Vis samtale-handlingsbjælke</string>
+    <string name="title_advanced_navbar_colorize">Farvelæg Abdroid-navigeringsbjælken</string>
     <string name="title_advanced_double_back">Dobbelttryk \"Tilbage\"/stryg for at lukke</string>
     <string name="title_advanced_pull_refresh">Træk ned for at opfriske</string>
     <string name="title_advanced_autoscroll">Rul til toppen, når ny besked modtages</string>
@@ -589,6 +590,8 @@
     <string name="title_more">Mere</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Flyt</string>
+    <string name="title_no_junk">Ikke spam</string>
+    <string name="title_move_to">Flyt til &#8230;</string>
     <string name="title_move_to_folder">Flyt til &#8230;</string>
     <string name="title_move_to_account">Flyt til %1$s &#8230;</string>
     <string name="title_snooze">Udsæt &#8230;</string>
@@ -642,6 +645,8 @@
     <string name="title_ask_help">Hjælp med at forbedre FairEmail</string>
     <string name="title_ask_reporting">Send fejlrapporter?</string>
     <string name="title_reporting_why">Rapportering af fejl vil hjælpe med at forbedre FairEmail</string>
+    <string name="title_message_bar_hint">Tryk på krydsikonet for at arkivere, slette eller rapportere en besked som spam og fjerne denne meddelelse</string>
+    <string name="title_answer_hint">Besvar alle, videresend mv. er flyttet til Besvar-knappen nederst</string>
     <string name="title_ask_review">Bedøm venligst FairEmail</string>
     <string name="title_ask_review_rationale">        Du har brugt FairEmail i et stykke tid nu.
         Det vil blive værdsat, hvis du kunne bedømme FairEmail i Play Butik.
