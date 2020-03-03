@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.Manifest;
 import android.content.ActivityNotFoundException;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -337,6 +338,25 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         } catch (ActivityNotFoundException ex) {
             Log.e(ex);
             ToastEx.makeText(this, getString(R.string.title_no_viewer, intent.getAction()), Toast.LENGTH_LONG).show();
+        }
+    }
+
+    @Override
+    public ComponentName startService(Intent service) {
+        try {
+            return super.startService(service);
+        } catch (Throwable ex) {
+            Log.w(ex);
+            /*
+                Caused by: java.lang.IllegalStateException: Not allowed to start service Intent { act=clear:0 cmp=eu.faircode.email/.ServiceUI }: app is in background uid UidRecord{cb19b35 u0a286 TRNB idle change:uncached procs:1 proclist:1344, seq(0,0,0)}
+                        at android.app.ContextImpl.startServiceCommon(ContextImpl.java:1666)
+                        at android.app.ContextImpl.startService(ContextImpl.java:1611)
+                        at android.content.ContextWrapper.startService(ContextWrapper.java:677)
+                        at android.content.ContextWrapper.startService(ContextWrapper.java:677)
+                        at eu.faircode.email.ActivityView.checkIntent(SourceFile:873)
+                        at eu.faircode.email.ActivityView.onResume(SourceFile:595)
+             */
+            return null;
         }
     }
 
