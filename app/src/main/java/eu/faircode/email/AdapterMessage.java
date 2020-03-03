@@ -2317,7 +2317,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         onActionTrash(message, (Boolean) ibTrash.getTag());
                         break;
                     case R.id.ibJunk:
-                        onActionJunk(message);
+                        if (EntityFolder.JUNK.equals(message.folderType))
+                            onActionUnjunk(message);
+                        else
+                            onActionJunk(message);
                         break;
                     case R.id.ibRemove:
                         onActionRemove(message, false);
@@ -3098,15 +3101,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean archive = (!message.folderReadOnly && message.uid != null && (hasArchive && !inArchive));
                     boolean trash = ((!message.folderReadOnly && message.uid != null) || outbox || debug);
                     boolean junk = (!message.folderReadOnly && message.uid != null && (hasJunk && !inJunk));
+                    boolean unjunk = (!message.folderReadOnly && message.uid != null && inJunk);
 
                     final boolean delete = (inTrash || !hasTrash || outbox || message.uid == null);
 
                     if (normal) {
                         ibTrash.setTag(delete);
+                        ibJunk.setImageResource(unjunk ? R.drawable.baseline_inbox_24 : R.drawable.baseline_flag_24);
 
                         ibArchive.setVisibility(archive ? View.VISIBLE : View.GONE);
                         ibTrash.setVisibility(trash ? View.VISIBLE : View.GONE);
-                        ibJunk.setVisibility(junk ? View.VISIBLE : View.GONE);
+                        ibJunk.setVisibility(junk || unjunk ? View.VISIBLE : View.GONE);
                     } else {
                         if (!hasArchive && !hasJunk) {
                             if (delete)
@@ -3183,6 +3188,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ask.setArguments(aargs);
             ask.setTargetFragment(parentFragment, FragmentMessages.REQUEST_MESSAGE_JUNK);
             ask.show(parentFragment.getParentFragmentManager(), "message:junk");
+        }
+
+        private void onActionUnjunk(TupleMessageEx message) {
+            properties.move(message.id, EntityFolder.INBOX);
         }
 
         private void onActionMore(TupleMessageEx message) {
