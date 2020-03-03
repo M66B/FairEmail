@@ -3108,6 +3108,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (normal) {
                         ibTrash.setTag(delete);
                         ibJunk.setImageResource(unjunk ? R.drawable.baseline_inbox_24 : R.drawable.baseline_flag_24);
+                        String title = context.getString(unjunk ? R.string.title_no_junk : R.string.title_spam);
+                        ibJunk.setContentDescription(title);
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+                            ibJunk.setTooltipText(title);
 
                         ibArchive.setVisibility(archive ? View.VISIBLE : View.GONE);
                         ibTrash.setVisibility(trash ? View.VISIBLE : View.GONE);
