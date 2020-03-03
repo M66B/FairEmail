@@ -843,6 +843,8 @@ for example by allowing to logging from certain networks / IP addresses only.
 The error *... Too many bad auth attempts ...* likely means that you are using a Yahoo! account password instead of an app password.
 Please see [this FAQ](#user-content-faq88) about how to setup a Yahoo! account.
 
+The message *... +OK ...* likely means that a POP3 port (usually port number 995) is being used for an IMAP account (usually port number 993).
+
 The errors *... invalid greeting ...*, *... requires valid address ...* and *... Parameter to HELO does not conform to RFC syntax ...*
 can likely be solved by changing the advanced identity setting *Use local IP address instead of host name*.
 
