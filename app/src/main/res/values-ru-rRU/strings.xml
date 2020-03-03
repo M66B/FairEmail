@@ -306,6 +306,7 @@
     <string name="title_advanced_images_inline">Автоматически показывать встроенные изображения</string>
     <string name="title_advanced_seekbar">Показывать относительное положение диалога точкой</string>
     <string name="title_advanced_actionbar">Показывать панель управления диалогами</string>
+    <string name="title_advanced_navbar_colorize">Раскрашивать панель навигации Android</string>
     <string name="title_advanced_double_back">Двойное нажатие \"Назад\" для выхода</string>
     <string name="title_advanced_pull_refresh">Потянуть вниз для обновления</string>
     <string name="title_advanced_autoscroll">Прокрутить к началу списка при получении новых сообщений</string>
@@ -667,6 +668,8 @@
     <string name="title_ask_help">Помогите улучшить FairEmail</string>
     <string name="title_ask_reporting">Отправлять отчёты об ошибках?</string>
     <string name="title_reporting_why">Отчёты об ошибках помогут улучшить FairEmail</string>
+    <string name="title_message_bar_hint">Нажмите на значок ×, чтобы архивировать, удалить или пометить сообщение как спам, а также удалить эту надпись</string>
+    <string name="title_answer_hint">Ответ на все, пересылка и т. д. был перемещён на кнопку «Ответить» внизу</string>
     <string name="title_ask_review">Пожалуйста, оцените FairEmail</string>
     <string name="title_ask_review_rationale">        Вы давно используете FairEmail.
         Будем признательны, если вы сможете оценить FairEmail в Play Store.

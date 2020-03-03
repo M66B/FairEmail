@@ -284,6 +284,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_images_inline">Eingebettete Grafiken automatisch anzeigen</string>
     <string name="title_advanced_seekbar">Relative Gesprächsposition mit einem Punkt anzeigen</string>
     <string name="title_advanced_actionbar">Navigationsleiste in Unterhaltung anzeigen</string>
+    <string name="title_advanced_navbar_colorize">Färben Sie die Android Navigationsleiste</string>
     <string name="title_advanced_double_back">Zweifaches „Zurück” zum Beenden</string>
     <string name="title_advanced_pull_refresh">Zum Aktualisieren nach unten ziehen</string>
     <string name="title_advanced_autoscroll">Beim Empfang neuer Nachrichten nach oben rollen</string>
@@ -645,6 +646,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_ask_help">Helfen Sie mit, FairEmail zu verbessern</string>
     <string name="title_ask_reporting">Fehlerberichte senden?</string>
     <string name="title_reporting_why">Fehlerberichte helfen uns, FairEmail zu verbessern</string>
+    <string name="title_message_bar_hint">Tippe auf das Kreuzsymbol um eine Nachricht zu archivieren, zu löschen oder als Spam zu melden und anschließend diesen Hinweis zu entfernen</string>
+    <string name="title_answer_hint">Antworten auf alle, Weiterleitung usw. wurden auf die Antwort-Schaltfläche am unteren Rand verschoben</string>
     <string name="title_ask_review">Bitte bewerten Sie FairEmail</string>
     <string name="title_ask_review_rationale">        Du benutzt FairEmail schon eine Weile.
         Sofern Du zufrieden bist, wäre es nett, wenn du FairEmail im Play Store positiv bewerten könntest.

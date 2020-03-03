@@ -645,6 +645,8 @@
     <string name="title_ask_help">Ayude a mejorar FairEmail</string>
     <string name="title_ask_reporting">¿Enviar informes de error?</string>
     <string name="title_reporting_why">Informar de errores ayudará a mejorar FairEmail</string>
+    <string name="title_message_bar_hint">Toque la cruz para archivar, borrar o reportar un mensaje como spam y eliminar este aviso</string>
+    <string name="title_answer_hint">Responder a todos, reenviar, etc. se han movido al botón de respuesta en la parte inferior</string>
     <string name="title_ask_review">Por favor califique FairEmail</string>
     <string name="title_ask_review_rationale">        Ha estado usando FairEmail durante un tiempo.
         Agradecería que pudiera calificar a FairEmail en Play Store.

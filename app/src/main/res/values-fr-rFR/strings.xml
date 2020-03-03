@@ -284,6 +284,7 @@
     <string name="title_advanced_images_inline">Afficher automatiquement les images incluses</string>
     <string name="title_advanced_seekbar">Afficher la position relative dans la conversation avec un point</string>
     <string name="title_advanced_actionbar">Afficher la barre d\'action de conversation</string>
+    <string name="title_advanced_navbar_colorize">Colorer la barre de navigation Android</string>
     <string name="title_advanced_double_back">Faire « Retour » deux fois pour quitter</string>
     <string name="title_advanced_pull_refresh">Tirer vers le bas pour actualiser</string>
     <string name="title_advanced_autoscroll">Faire défiler vers le haut lors de la réception de nouveaux messages</string>
@@ -645,6 +646,8 @@
     <string name="title_ask_help">Aider à améliorer FairEmail</string>
     <string name="title_ask_reporting">Envoyer des rapports d\'erreur ?</string>
     <string name="title_reporting_why">Un rapport d\'erreur aidera à améliorer FairEmail</string>
+    <string name="title_message_bar_hint">Appuyez sur l\'icône de la croix pour archiver, supprimer ou marquer un message comme spam et pour supprimer cet avis</string>
+    <string name="title_answer_hint">Répondre à tous, transférer, etc... ont été déplacés vers le bouton de réponse en bas</string>
     <string name="title_ask_review">Veuillez évaluer FairEmail</string>
     <string name="title_ask_review_rationale">        Vous utilisez FairEmail depuis un moment.
         Je vous serais reconnaissant si vous pouviez noter FairEmail dans le Play Store.

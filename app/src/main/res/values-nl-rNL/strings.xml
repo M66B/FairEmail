@@ -284,6 +284,7 @@
     <string name="title_advanced_images_inline">Automatisch inline afbeeldingen weergeven</string>
     <string name="title_advanced_seekbar">Toon relatieve gesprekspositie met een punt</string>
     <string name="title_advanced_actionbar">Toon actiebalk gesprek</string>
+    <string name="title_advanced_navbar_colorize">Kleur de Android-navigatiebalk in</string>
     <string name="title_advanced_double_back">Dubbel \'terug\' om te sluiten</string>
     <string name="title_advanced_pull_refresh">Omlaag schuiven om te verversen</string>
     <string name="title_advanced_autoscroll">Scroll naar boven bij het ontvangen van nieuwe berichten</string>
@@ -645,6 +646,8 @@
     <string name="title_ask_help">Help FairEmail te verbeteren</string>
     <string name="title_ask_reporting">Foutrapporten verzenden?</string>
     <string name="title_reporting_why">Foutrapportage helpt om FairEmail te verbeteren</string>
+    <string name="title_message_bar_hint">Klik op het kruisicoon om een bericht te archiveren, te verwijderen of te rapporteren als spam en om deze melding te verwijderen</string>
+    <string name="title_answer_hint">Allen beantwoorden, doorsturen, etc. zijn verplaatst naar de antwoordknop onderaan</string>
     <string name="title_ask_review">Beoordeel a.u.b. FairEmail</string>
     <string name="title_ask_review_rationale">        U heeft FairEmail al een tijdje gebruikt.
         Het wordt gewaardeerd als u FairEmail in de Play Store zou beoordelen.

@@ -270,6 +270,7 @@
     <string name="title_advanced_images_inline">インライン画像を自動的に表示</string>
     <string name="title_advanced_seekbar">ドットで相対的な会話の位置を表示</string>
     <string name="title_advanced_actionbar">会話アクションバーを表示</string>
+    <string name="title_advanced_navbar_colorize">Androidナビゲーションバーの色付け</string>
     <string name="title_advanced_double_back">\"戻る\"をダブルタップして終了</string>
     <string name="title_advanced_pull_refresh">プルダウンして更新</string>
     <string name="title_advanced_autoscroll">新着メッセージを受信したらトップにスクロール</string>
@@ -630,6 +631,8 @@
     <string name="title_ask_help">FairEmailの改善にご協力下さい</string>
     <string name="title_ask_reporting">エラーレポートを送信しますか？</string>
     <string name="title_reporting_why">エラー報告はFairEmailの改善に役立ちます</string>
+    <string name="title_message_bar_hint">十字アイコンをタップしメッセージをスパムとしてアーカイブ、削除、又は報告し、この通知を削除します</string>
+    <string name="title_answer_hint">全員への返信、転送などが下部の返信ボタンに移動しました</string>
     <string name="title_ask_review">FairEmailを確認して下さい</string>
     <string name="title_ask_review_rationale">FairEmailをしばらく使用しています。
 PlayストアでFairEmailを評価できれば幸いです。
