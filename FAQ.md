@@ -1266,6 +1266,8 @@ or by a too short DH key on the email server and can unfortunately not be fixed 
 The error '*Handshake failed ... HANDSHAKE_FAILURE_ON_CLIENT_HELLO*' might be caused by the provider still using RC4,
 which isn't supported since [Android 7](https://developer.android.com/about/versions/nougat/android-7.0-changes.html#tls-ssl) anymore.
 
+The error '*Handshake failed ... UNSUPPORTED_PROTOCOL* might be caused by enabling hardening connections in the connection settings.
+
 Android 8 Oreo and later [do not support](https://developer.android.com/about/versions/oreo/android-8.0-changes#security-all) SSLv3 anymore.
 
 There is no way to workaround lacking RC4 and SSLv3 support because it has completely been removed from Android (which should say something).
