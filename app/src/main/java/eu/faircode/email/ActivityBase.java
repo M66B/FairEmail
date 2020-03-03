@@ -377,11 +377,59 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     }
 
     public boolean dispatchKeyEvent(KeyEvent event) {
-        int keyCode = event.getKeyCode();
         for (IKeyPressedListener listener : keyPressedListeners)
             if (listener.onKeyPressed(event))
                 return true;
-        return super.dispatchKeyEvent(event);
+        try {
+            return super.dispatchKeyEvent(event);
+        } catch (Throwable ex) {
+            Log.w(ex);
+            /*
+            java.lang.IllegalArgumentException
+                    at com.android.internal.util.Preconditions.checkArgument(Preconditions.java:33)
+                    at android.widget.SelectionActionModeHelper$TextClassificationHelper.init(SelectionActionModeHelper.java:974)
+                    at android.widget.SelectionActionModeHelper.resetTextClassificationHelper(SelectionActionModeHelper.java:462)
+                    at android.widget.SelectionActionModeHelper.resetTextClassificationHelper(SelectionActionModeHelper.java:470)
+                    at android.widget.SelectionActionModeHelper.startSelectionActionModeAsync(SelectionActionModeHelper.java:118)
+                    at android.widget.Editor.startSelectionActionModeAsync(Editor.java:2131)
+                    at android.widget.Editor.refreshTextActionMode(Editor.java:2076)
+                    at android.widget.TextView.spanChange(TextView.java:9903)
+                    at android.widget.TextView$ChangeWatcher.onSpanChanged(TextView.java:12534)
+                    at android.text.SpannableStringBuilder.sendSpanChanged(SpannableStringBuilder.java:1303)
+                    at android.text.SpannableStringBuilder.setSpan(SpannableStringBuilder.java:750)
+                    at android.text.SpannableStringBuilder.setSpan(SpannableStringBuilder.java:674)
+                    at android.text.Selection.extendSelection(Selection.java:174)
+                    at android.text.Selection.setSelectionAndMemory(Selection.java:256)
+                    at android.text.Selection.extendUp(Selection.java:357)
+                    at android.text.method.ArrowKeyMovementMethod.up(ArrowKeyMovementMethod.java:92)
+                    at android.text.method.BaseMovementMethod.handleMovementKey(BaseMovementMethod.java:189)
+                    at android.text.method.ArrowKeyMovementMethod.handleMovementKey(ArrowKeyMovementMethod.java:65)
+                    at android.text.method.BaseMovementMethod.onKeyDown(BaseMovementMethod.java:42)
+                    at android.widget.TextView.doKeyDown(TextView.java:7691)
+                    at android.widget.TextView.onKeyDown(TextView.java:7442)
+                    at android.view.KeyEvent.dispatch(KeyEvent.java:2692)
+                    at android.view.View.dispatchKeyEvent(View.java:12471)
+                    at android.view.ViewGroup.dispatchKeyEvent(ViewGroup.java:1896)
+                    at android.view.ViewGroup.dispatchKeyEvent(ViewGroup.java:1896)
+                    at android.widget.ScrollView.dispatchKeyEvent(ScrollView.java:389)
+                    at android.view.ViewGroup.dispatchKeyEvent(ViewGroup.java:1896)
+                    at android.view.ViewGroup.dispatchKeyEvent(ViewGroup.java:1896)
+                    at android.view.ViewGroup.dispatchKeyEvent(ViewGroup.java:1896)
+                    at android.view.ViewGroup.dispatchKeyEvent(ViewGroup.java:1896)
+                    at android.view.ViewGroup.dispatchKeyEvent(ViewGroup.java:1896)
+                    at android.view.ViewGroup.dispatchKeyEvent(ViewGroup.java:1896)
+                    at android.view.ViewGroup.dispatchKeyEvent(ViewGroup.java:1896)
+                    at android.view.ViewGroup.dispatchKeyEvent(ViewGroup.java:1896)
+                    at com.android.internal.policy.DecorView.superDispatchKeyEvent(DecorView.java:451)
+                    at com.android.internal.policy.PhoneWindow.superDispatchKeyEvent(PhoneWindow.java:1830)
+                    at android.app.Activity.dispatchKeyEvent(Activity.java:3385)
+                    at androidx.core.app.ComponentActivity.superDispatchKeyEvent(SourceFile:122)
+                    at androidx.core.view.KeyEventDispatcher.dispatchKeyEvent(SourceFile:84)
+                    at androidx.core.app.ComponentActivity.dispatchKeyEvent(SourceFile:140)
+                    at androidx.appcompat.app.AppCompatActivity.dispatchKeyEvent(SourceFile:559)
+             */
+            return false;
+        }
     }
 
     @Override
