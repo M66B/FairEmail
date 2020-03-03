@@ -247,6 +247,8 @@ public class ApplicationEx extends Application {
             if (!prefs.contains("poll_interval"))
                 editor.putInt("poll_interval", 0);
             editor.remove("first");
+        } else if (version < 1003) {
+            editor.putBoolean("answer_hint", true);
         }
 
         if (BuildConfig.DEBUG && false) {

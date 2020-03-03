@@ -211,4 +211,28 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/ibRemove"
         app:layout_constraintTop_toBottomOf="@id/tvSignedData" />
+
+    <ImageButton
+        android:id="@+id/ibAnswerHint"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/title_legend_close_hint"
+        app:layout_constraintBottom_toBottomOf="@id/tvAnswerHint"
+        app:layout_constraintEnd_toStartOf="@+id/tvAnswerHint"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvAnswerHint"
+        app:srcCompat="@drawable/baseline_close_24" />
+
+    <eu.faircode.email.FixedTextView
+        android:id="@+id/tvAnswerHint"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="@string/title_answer_hint"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ibAnswerHint"
+        app:layout_constraintTop_toBottomOf="@id/tvCrossHint" />
 </androidx.constraintlayout.widget.ConstraintLayout>
