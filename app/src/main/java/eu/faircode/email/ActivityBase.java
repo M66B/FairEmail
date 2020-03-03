@@ -203,6 +203,13 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
 
         checkAuthentication();
 
+        boolean navbar_colorize = prefs.getBoolean("navbar_colorize", false);
+        if (navbar_colorize) {
+            Window window = getWindow();
+            if (window != null)
+                window.setNavigationBarColor(Helper.resolveColor(this, R.attr.colorPrimaryDark));
+        }
+
         super.onCreate(savedInstanceState);
     }
 

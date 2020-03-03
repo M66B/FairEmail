@@ -25,6 +25,7 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -33,6 +34,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -48,6 +50,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.SwitchCompat;
+import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Lifecycle;
 import androidx.preference.PreferenceManager;
 
@@ -100,6 +103,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swImagesInline;
     private SwitchCompat swSeekbar;
     private SwitchCompat swActionbar;
+    private SwitchCompat swNavBarColorize;
 
     private final static String[] RESET_OPTIONS = new String[]{
             "theme", "landscape", "landscape3", "startup", "cards", "indentation", "date", "threading", "highlight_unread", "color_stripe",
@@ -108,7 +112,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "subject_top", "font_size_sender", "font_size_subject", "subject_italic", "subject_ellipsize", "keywords_header",
             "flags", "flags_background", "preview", "preview_italic", "preview_lines", "addresses", "attachments_alt",
             "contrast", "monospaced", "text_color", "text_size",
-            "inline_images", "collapse_quotes", "seekbar", "actionbar",
+            "inline_images", "collapse_quotes", "seekbar", "actionbar", "navbar_colorize"
     };
 
     @Override
@@ -168,6 +172,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swImagesInline = view.findViewById(R.id.swImagesInline);
         swSeekbar = view.findViewById(R.id.swSeekbar);
         swActionbar = view.findViewById(R.id.swActionbar);
+        swNavBarColorize = view.findViewById(R.id.swNavBarColorize);
 
         setOptions();
 
@@ -566,6 +571,15 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
+        swNavBarColorize.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("navbar_colorize", checked).apply();
+                setNavigationBarColor(
+                        checked ? Helper.resolveColor(getContext(), R.attr.colorPrimaryDark) : Color.BLACK);
+            }
+        });
+
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 
         return view;
@@ -606,6 +620,9 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         for (String option : RESET_OPTIONS)
             editor.remove(option);
         editor.apply();
+
+        setNavigationBarColor(Color.BLACK);
+
         ToastEx.makeText(getContext(), R.string.title_setup_done, Toast.LENGTH_LONG).show();
     }
 
@@ -700,8 +717,19 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swImagesInline.setChecked(prefs.getBoolean("inline_images", false));
         swSeekbar.setChecked(prefs.getBoolean("seekbar", false));
         swActionbar.setChecked(prefs.getBoolean("actionbar", true));
+        swNavBarColorize.setChecked(prefs.getBoolean("navbar_colorize", false));
 
         updateColor();
+    }
+
+    private void setNavigationBarColor(int color) {
+        FragmentActivity activity = getActivity();
+        if (activity == null)
+            return;
+        Window window = activity.getWindow();
+        if (window == null)
+            return;
+        window.setNavigationBarColor(color);
     }
 
     private void updateColor() {
