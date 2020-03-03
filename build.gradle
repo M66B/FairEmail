@@ -5,7 +5,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.3'
+        classpath 'com.android.tools.build:gradle:3.6.1'
         // https://github.com/bugsnag/bugsnag-android-gradle-plugin
         classpath 'com.bugsnag:bugsnag-android-gradle-plugin:4.5.2'
     }
