@@ -236,16 +236,15 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                             // Some networks disallow email server connections:
                             // - reload on network type change when disconnected
-                            boolean isRunning = (state != null && state.isAlive());
                             if (reload ||
-                                    isRunning != current.canRun() ||
+                                    prev.canRun() != current.canRun() ||
                                     !prev.accountState.equals(current.accountState) ||
                                     (!"connected".equals(current.accountState.state) &&
                                             !Objects.equals(prev.networkState.getType(), current.networkState.getType()))) {
-                                if (isRunning || current.canRun())
+                                if (prev.canRun() || current.canRun())
                                     EntityLog.log(ServiceSynchronize.this, "### changed " + current +
                                             " reload=" + reload +
-                                            " stop=" + isRunning +
+                                            " stop=" + prev.canRun() +
                                             " start=" + current.canRun() +
                                             " sync=" + current.accountState.isEnabled(current.enabled) + "/" + sync +
                                             " changed=" + !prev.accountState.equals(current.accountState) +
@@ -256,7 +255,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                             " tbd=" + current.accountState.tbd +
                                             " state=" + current.accountState.state +
                                             " type=" + prev.networkState.getType() + "/" + current.networkState.getType());
-                                if (isRunning)
+                                if (prev.canRun())
                                     stop(prev);
                                 if (current.canRun())
                                     start(current, current.accountState.isEnabled(current.enabled) || sync);
