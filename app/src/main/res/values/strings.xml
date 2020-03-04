@@ -249,8 +249,9 @@
     <string name="title_advanced_section_connection">Connection</string>
     <string name="title_advanced_section_display">Display</string>
     <string name="title_advanced_section_behavior">Behavior</string>
-    <string name="title_advanced_section_notifications">Notifications</string>
     <string name="title_advanced_section_privacy">Privacy</string>
+    <string name="title_advanced_section_encryption">Encryption</string>
+    <string name="title_advanced_section_notifications">Notifications</string>
     <string name="title_advanced_section_misc">Miscellaneous</string>
 
     <string name="title_advanced_receive">Receive messages</string>
@@ -291,6 +292,11 @@
     <string name="title_advanced_ssl_harden">Harden SSL connections</string>
     <string name="title_advanced_socks">Use SOCKS proxy</string>
     <string name="title_advanced_manage_connectivity">Manage connectivity</string>
+
+    <string name="title_advanced_caption_general">General</string>
+    <string name="title_advanced_caption_folder">Folder</string>
+    <string name="title_advanced_caption_conversation">Conversation</string>
+    <string name="title_advanced_caption_message">Message</string>
 
     <string name="title_advanced_landscape">Use two columns in landscape mode</string>
     <string name="title_advanced_landscape3">Allow fixed navigation menu in landscape mode</string>
@@ -387,6 +393,9 @@
     <string name="title_advanced_sound">Select notification sound</string>
     <string name="title_advanced_alert_once" translatable="false">MIUI notification sound workaround</string>
 
+    <string name="title_advanced_caption_pgp" translatable="false">PGP</string>
+    <string name="title_advanced_caption_smime" translatable="false">S/MIME</string>
+
     <string name="title_advanced_confirm_links">Confirm opening links</string>
     <string name="title_advanced_confirm_images">Confirm showing images</string>
     <string name="title_advanced_confirm_html">Show reformatted messages by default</string>
@@ -402,7 +411,6 @@
     <string name="title_advanced_secure">Hide from recent apps screen and prevent taking screenshots</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Biometric authentication timeout</string>
-    <string name="title_advanced_smime" translatable="false">S/MIME</string>
     <string name="title_advanced_manage_certificates">Manage public keys</string>
     <string name="title_advanced_import_key">Import private key</string>
     <string name="title_advanced_manage_keys">Manage private keys</string>

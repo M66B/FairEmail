@@ -116,7 +116,7 @@ public class FragmentOptions extends FragmentBase {
 
         @Override
         public int getCount() {
-            return 9;
+            return 10;
         }
 
         @Override
@@ -137,8 +137,10 @@ public class FragmentOptions extends FragmentBase {
                 case 6:
                     return new FragmentOptionsPrivacy();
                 case 7:
-                    return new FragmentOptionsNotifications();
+                    return new FragmentOptionsEncryption();
                 case 8:
+                    return new FragmentOptionsNotifications();
+                case 9:
                     return new FragmentOptionsMisc();
                 default:
                     throw new IllegalArgumentException();
@@ -163,8 +165,10 @@ public class FragmentOptions extends FragmentBase {
                 case 6:
                     return getString(R.string.title_advanced_section_privacy);
                 case 7:
-                    return getString(R.string.title_advanced_section_notifications);
+                    return getString(R.string.title_advanced_section_encryption);
                 case 8:
+                    return getString(R.string.title_advanced_section_notifications);
+                case 9:
                     return getString(R.string.title_advanced_section_misc);
                 default:
                     throw new IllegalArgumentException();
