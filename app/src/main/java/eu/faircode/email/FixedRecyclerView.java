@@ -107,6 +107,18 @@ public class FixedRecyclerView extends RecyclerView {
             // Range start point not set
             Log.w(ex);
             return false;
+        } catch (IndexOutOfBoundsException ex) {
+            /*
+                java.lang.ArrayIndexOutOfBoundsException: length=5; index=7
+                        at java.util.Arrays$ArrayList.get(Arrays.java:3766)
+                        at androidx.recyclerview.selection.ToolHandlerRegistry.get(SourceFile:69)
+                        at androidx.recyclerview.selection.EventRouter.onInterceptTouchEvent(SourceFile:57)
+                        at androidx.recyclerview.widget.RecyclerView.findInterceptingOnItemTouchListener(SourceFile:3151)
+                        at androidx.recyclerview.widget.RecyclerView.dispatchToOnItemTouchListeners(SourceFile:3122)
+                        at androidx.recyclerview.widget.RecyclerView.onTouchEvent(SourceFile:3283)
+             */
+            Log.w(ex);
+            return false;
         }
     }
 
