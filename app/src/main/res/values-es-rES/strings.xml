@@ -204,6 +204,7 @@
     <string name="title_advanced_section_display">Mostrar</string>
     <string name="title_advanced_section_behavior">Comportamiento</string>
     <string name="title_advanced_section_privacy">Privacidad</string>
+    <string name="title_advanced_section_encryption">Cifrado</string>
     <string name="title_advanced_section_notifications">Notificaciones</string>
     <string name="title_advanced_section_misc">Miscelánea</string>
     <string name="title_advanced_receive">Recibir mensajes</string>
@@ -242,6 +243,9 @@
     <string name="title_advanced_ssl_harden">Endurecer conexiones SSL</string>
     <string name="title_advanced_socks">Usar proxy SOCKS</string>
     <string name="title_advanced_manage_connectivity">Administrar conectividad</string>
+    <string name="title_advanced_caption_general">General</string>
+    <string name="title_advanced_caption_conversation">Conversación</string>
+    <string name="title_advanced_caption_message">Mensaje</string>
     <string name="title_advanced_landscape">Usar dos columnas en modo horizontal</string>
     <string name="title_advanced_landscape3">Permitir menú de navegación fijo en modo horizontal</string>
     <string name="title_advanced_startup">Mostrar en pantalla de inicio</string>

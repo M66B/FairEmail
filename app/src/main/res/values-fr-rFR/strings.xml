@@ -193,8 +193,8 @@
     <string name="title_setup_options">Options</string>
     <string name="title_setup_defaults">Rétablir les paramètres par défaut</string>
     <string name="title_setup_reset_questions">Réinitialiser les questions</string>
-    <string name="title_advanced_hint_title">Options plus avancées</string>
-    <string name="title_advanced_hint_message">        Vous allez afficher les options les plus avancées.
+    <string name="title_advanced_hint_title">Options avancées</string>
+    <string name="title_advanced_hint_message">        Vous allez afficher les options avancées.
         Toutes les options ont des valeurs standard couramment utilisées qui peuvent être modifiées si vous avez une préférence différente.
     </string>
     <string name="title_advanced_section_main">Principal</string>

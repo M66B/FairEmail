@@ -58,8 +58,8 @@
         <item quantity="other">%1$d Nachrichten nach %2$s verschieben?</item>
     </plurals>
     <plurals name="title_deleting_messages">
-        <item quantity="one">E-Mail unwiderruflich löschen?</item>
-        <item quantity="other">%1$d E-Mails unwiderruflich löschen?</item>
+        <item quantity="one">%1$d E-Mail dauerhaft löschen?</item>
+        <item quantity="other">%1$d E-Mails dauerhaft löschen?</item>
     </plurals>
     <plurals name="title_ask_spam">
         <item quantity="one">%1$d Nachricht als Spam behandeln?</item>
@@ -123,7 +123,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_setup_other">Anderer Anbieter</string>
     <string name="title_setup_gmail_support">Die Autorisierung von Google-Konten funktioniert nur in offiziellen Versionen, weil Android die App-Signatur überprüft</string>
     <string name="title_setup_gmail_rationale">Bitte erteilen Sie die Berechtigung, ein Konto auszuwählen und Ihren Namen zu lesen</string>
-    <string name="title_setup_gmail_permissions">Google wird Sie um Erlaubnis bitten, alle Ihre E-Mails zu lesen, zu verfassen, zu senden und dauerhaft zu löschen. FairEmail löscht niemals Ihre Nachrichten ohne Ihre explizite Zustimmung.</string>
+    <string name="title_setup_gmail_permissions">Google wird Sie um Erlaubnis bitten, alle Ihre E-Mails zu lesen, zu verfassen, zu senden und dauerhaft zu löschen. FairEmail löscht niemals Ihre Nachrichten ohne Ihre ausdrückliche Zustimmung.</string>
     <string name="title_setup_gmail_drafts">Wenn der Entwürfe-Ordner für IMAP nicht zugänglich ist, kann dies in den Google Mail-Label-Einstellungen korrigiert werden</string>
     <string name="title_setup_oauth_rationale">Zugriff auf Ihr %1$s -Konto autorisieren</string>
     <string name="title_setup_oauth_authorize">Autorisieren</string>
@@ -291,6 +291,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_navbar_colorize">Android-Navigationsleiste farbig darstellen</string>
     <string name="title_advanced_double_back">Zweifaches „Zurück” zum Beenden</string>
     <string name="title_advanced_pull_refresh">Zum Aktualisieren nach unten ziehen</string>
+    <string name="title_advanced_hide_actionbar">Aktionsleiste beim Blättern ausblenden</string>
     <string name="title_advanced_autoscroll">Beim Empfang neuer Nachrichten nach oben rollen</string>
     <string name="title_advanced_double_tap">Doppelt antippen, um die Nachricht als gelesen bzw. ungelesen zu kennzeichnen</string>
     <string name="title_advanced_swipenav">Nach links/rechts wischen, um nächste/vorige Unterhaltung anzuzeigen</string>
@@ -487,8 +488,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_reply_domain">Absender (%1$s) und Antwort-Domain (%2$s) unterscheiden sich</string>
     <string name="title_identity_required">Für das Senden von Nachrichten ist das Erstellen einer Identität erforderlich</string>
     <string name="title_drafts_required">Ein Entwürfe-Ordner ist erforderlich, um Nachrichten zu senden</string>
-    <string name="title_account_delete">Möchten Sie dieses Konto unwiderruflich löschen?</string>
-    <string name="title_identity_delete">Möchten Sie diese Identität unwiderruflich löschen?</string>
+    <string name="title_account_delete">Möchten Sie dieses Konto dauerhaft löschen?</string>
+    <string name="title_identity_delete">Möchten Sie diese Identität dauerhaft löschen?</string>
     <string name="title_edit_html">Als HTML bearbeiten</string>
     <string name="title_sign_key">Signaturschlüssel: %1$s</string>
     <string name="title_last_connected">Zuletzt verbunden: %1$s</string>
@@ -502,8 +503,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_synchronize_now">Jetzt synchronisieren</string>
     <string name="title_synchronize_all">Alle Nachrichten synchronisieren</string>
     <string name="title_synchronize_enabled">Synchronisieren</string>
-    <string name="title_delete_local">Lösche lokale Nachrichten</string>
-    <string name="title_delete_browsed">Lösche durchsuchte Nachrichten</string>
+    <string name="title_delete_local">Lokale Nachrichten löschen</string>
+    <string name="title_delete_browsed">Durchsuchte Nachrichten löschen</string>
     <string name="title_empty_trash">Papierkorb leeren</string>
     <string name="title_empty_spam">Spam-Nachrichten löschen</string>
     <string name="title_edit_properties">Eigenschaften bearbeiten</string>
@@ -512,9 +513,9 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_edit_channel">Benachrichtigungskanal bearbeiten</string>
     <string name="title_delete_channel">Benachrichtigungskanal löschen</string>
     <string name="title_create_sub_folder">Unterordner erstellen</string>
-    <string name="title_empty_trash_ask">Alle E-Mails im Papierkorb unwiderruflich löschen?</string>
+    <string name="title_empty_trash_ask">Alle gelöschten Nachrichten dauerhaft löschen?</string>
     <string name="title_empty_spam_ask">Alle Spam-Nachrichten dauerhaft löschen?</string>
-    <string name="title_empty_trash_all_ask">Alle E-Mails im Papierkorb aller Konten unwiderruflich löschen?</string>
+    <string name="title_empty_trash_all_ask">Alle gelöschten Nachrichten aller Konten dauerhaft löschen?</string>
     <string name="title_empty_spam_all_ask">Alle Spam-Nachrichten aller Konten dauerhaft löschen?</string>
     <string name="title_delete_operation">Vorgänge mit einer Fehlermeldung löschen?</string>
     <string name="title_delete_contacts">Alle lokale Kontakte löschen?</string>
@@ -537,10 +538,10 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_keep_days_remark">Alte Nachrichten werden vom Gerät entfernt, aber auf dem Server belassen</string>
     <string name="title_keep_all">Alle E-Mails aufbewahren</string>
     <string name="title_auto_trash">Alte Nachrichten automatisch in den Papierkorb verschieben</string>
-    <string name="title_auto_delete">Alte Nachrichten automatisch dauerhaft löschen</string>
+    <string name="title_auto_delete">Automatisch alte Nachrichten dauerhaft löschen</string>
     <string name="title_folder_name_missing">Ordnername fehlt</string>
     <string name="title_folder_exists">Ordner %1$s bereits vorhanden</string>
-    <string name="title_folder_delete">Diesen Ordner und alle darin enthaltenen E-Mails unwiderruflich löschen?</string>
+    <string name="title_folder_delete">Diesen Ordner und alle darin enthaltenen E-Mails dauerhaft löschen?</string>
     <string name="title_folder_unified">Sammeleingang</string>
     <string name="title_folder_inbox">Posteingang</string>
     <string name="title_folder_outbox">Postausgang</string>
@@ -636,9 +637,9 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_attachments_saved">Anhang gespeichert</string>
     <string name="title_attachments_incomplete">Einige Anhänge oder Bilder wurden nicht heruntergeladen und konnten nicht hinzugefügt werden</string>
     <string name="title_ask_save">Änderungen speichern?</string>
-    <string name="title_ask_delete">E-Mail unwiderruflich löschen?</string>
-    <string name="title_ask_delete_answer">Antwortvorlage unwiderruflich löschen?</string>
-    <string name="title_ask_delete_rule">Regel unwiderruflich löschen?</string>
+    <string name="title_ask_delete">E-Mail dauerhaft löschen?</string>
+    <string name="title_ask_delete_answer">Antwortvorlage dauerhaft löschen?</string>
+    <string name="title_ask_delete_rule">Regel dauerhaft löschen?</string>
     <string name="title_ask_discard">Entwurf löschen?</string>
     <string name="title_ask_show_html">Das Anzeigen der originalen Nachricht kann datenschutzrelevante Informationen preisgeben</string>
     <string name="title_ask_show_html_remark">Das Anzeigen der Originalnachricht mit dunklem Hintergrund ist nicht möglich, da dadurch dunkle Texte und Bilder nicht sichtbar wären</string>
