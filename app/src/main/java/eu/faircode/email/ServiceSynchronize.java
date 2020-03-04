@@ -1486,6 +1486,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         }
                     });
 
+                    // Cancel running operations
+                    state.resetBatches();
+
                     // Close folders
                     for (EntityFolder folder : mapFolders.keySet())
                         if (folder.synchronize && !folder.poll && mapFolders.get(folder) != null) {
