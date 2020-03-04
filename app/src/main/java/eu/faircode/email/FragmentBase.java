@@ -232,13 +232,6 @@ public class FragmentBase extends Fragment {
         View focused = getActivity().getCurrentFocus();
         if (focused != null)
             im.hideSoftInputFromWindow(focused.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
-
-        AppCompatActivity activity = (AppCompatActivity) getActivity();
-        if (activity != null) {
-            ActionBar actionBar = activity.getSupportActionBar();
-            if (actionBar != null)
-                actionBar.show();
-        }
     }
 
     @Override
