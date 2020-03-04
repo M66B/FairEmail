@@ -42,7 +42,7 @@
 
     <item
         android:id="@+id/menu_copy"
-        android:title="@string/title_copy" />
+        android:title="@string/title_copy_to" />
 
     <item
         android:id="@+id/menu_delete"
