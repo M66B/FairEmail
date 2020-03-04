@@ -646,8 +646,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_ask_help">Helfen Sie mit, FairEmail zu verbessern</string>
     <string name="title_ask_reporting">Fehlerberichte senden?</string>
     <string name="title_reporting_why">Fehlerberichte helfen uns, FairEmail zu verbessern</string>
-    <string name="title_message_bar_hint">Auf das Kreuzsymbol tippen, um eine Nachricht zu archivieren, zu löschen oder als Spam zu melden und anschließend diesen Hinweis zu entfernen</string>
-    <string name="title_answer_hint">Allen antworten, Weiterleiten, &#8230; wurde auf die Antwortschaltfläche am unteren Rand verschoben</string>
+    <string name="title_message_bar_hint">Tippen Sie auf das Kreuz-Symbol, um eine Nachricht zu archivieren, zu löschen oder als Spam zu melden und um diesen Hinweis auszublenden</string>
+    <string name="title_answer_hint">„Allen antworten”, „Weiterleiten”, &#8230; wurde auf die Antwortschaltfläche am unteren Rand verschoben</string>
     <string name="title_ask_review">Bitte bewerten Sie FairEmail</string>
     <string name="title_ask_review_rationale">        Du benutzt FairEmail schon eine Weile.
         Sofern Du zufrieden bist, wäre es nett, wenn du FairEmail im Play Store positiv bewerten könntest.

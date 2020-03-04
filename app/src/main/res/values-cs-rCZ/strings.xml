@@ -305,6 +305,7 @@
     <string name="title_advanced_images_inline">Automaticky zobrazit vložené obrázky</string>
     <string name="title_advanced_seekbar">Zobrazit relativní pozici v konverzaci puntíkem</string>
     <string name="title_advanced_actionbar">Zobrazit panel akcí konverzací</string>
+    <string name="title_advanced_navbar_colorize">Obarvit navigační panel Androidu</string>
     <string name="title_advanced_double_back">Dvakrát \"zpět\" pro ukončení</string>
     <string name="title_advanced_pull_refresh">Aktualizovat tažením dolů</string>
     <string name="title_advanced_autoscroll">Posun na začátek při příjmu nových zpráv</string>
@@ -389,6 +390,7 @@
     <string name="title_advanced_check_mx">Kontrolovat e-mailové adresy odesílatelů při synchronizaci zpráv</string>
     <string name="title_advanced_check_reply">Kontrolovat e-mailové adresy pro odpověď při synchronizaci zpráv</string>
     <string name="title_advanced_unseen_hint">Někteří poskytovatelé toto nepodporují korektně, což může způsobit synchronizaci všech nebo žádných zpráv</string>
+    <string name="title_advanced_deleted_unseen">Je-li vypnuto, nepřečtené zprávy jsou v zařízení ponechány navždy</string>
     <string name="title_advanced_sync_kept_hint">Zvýší spotřebu dat a baterie, zvláště pokud v zařízení uchováváte velké množství zpráv</string>
     <string name="title_advanced_sync_folders_hint">Vypnutí o něco sníží množství přenesených dat a spotřebu baterie, zároveň však znemožní aktualizovat seznam složek</string>
     <string name="title_advanced_subscribed_only_hint">Povolení této volby vymaže všechny místní složky bez přihlášeného odběru</string>
@@ -458,6 +460,7 @@
     <string name="title_account_left">Tažení doleva</string>
     <string name="title_account_right">Tažení doprava</string>
     <string name="title_account_move">Výchozí cíl přesunu</string>
+    <string name="title_account_gmail">Pro spolehlivou synchronizaci Gmail účtu by měl být použit průvodce rychlým nastavením Gmail kdykoliv je to možné</string>
     <string name="title_domain">Název domény</string>
     <string name="title_autoconfig">Získat nastavení</string>
     <string name="title_aliases">Aliasy</string>
@@ -476,6 +479,7 @@
     <string name="title_primary_identity">Hlavní (výchozí identita)</string>
     <string name="title_leave_on_server">Ponechat zprávy na serveru</string>
     <string name="title_leave_on_device">Ponechat zprávy v zařízení</string>
+    <string name="title_max_messages">Maximální počet zpráv ke stažení (prázdné pro všechny)</string>
     <string name="title_keep_alive_interval">Interval udržování spojení/dotazování (minuty)</string>
     <string name="title_use_date">Použít datum hlavičky čas odeslání namísto čas přijetí serverem</string>
     <string name="title_related_identity">Přidat související identitu</string>
@@ -616,6 +620,7 @@
     <string name="title_reply">Odpovědět</string>
     <string name="title_reply_to_sender">Odpovědět odesílateli</string>
     <string name="title_reply_to_all">Odpovědět všem</string>
+    <string name="title_reply_list">Odpovědět seznamu</string>
     <string name="title_reply_receipt">Odeslat potvrzení o přečtení</string>
     <string name="title_reply_template">Odpovědět šablonou</string>
     <string name="title_moving">Přesouvám do %1$s</string>
@@ -661,6 +666,8 @@
     <string name="title_ask_help">Pomozte vylepšit FairEmail</string>
     <string name="title_ask_reporting">Odeslat zprávy o chybách?</string>
     <string name="title_reporting_why">Zprávami o chybách pomůžete zlepšit FairEmail</string>
+    <string name="title_message_bar_hint">Stisk křížku archivuje, smaže či označí zprávu jako nevyžádanou, a odeberte toto oznámení</string>
+    <string name="title_answer_hint">Odpověď všem, přeposlání, atd. byly přesunuty dolů, pod tlačítko odpovědi</string>
     <string name="title_ask_review">Prosím, ohodnoťte FairEmail</string>
     <string name="title_ask_review_rationale">        Již nějakou dobu FairEmail používáte.
         Vážil bych si, kdyby jste mohli FairEmail ohodnotit v Obchodě Play.
@@ -942,6 +949,7 @@
     <string name="title_hint_message_selection">Dlouhým podržením zprávy zahájíte násobný výběr zpráv; Držte a táhněte nahoru či dolů pro výběr více zpráv</string>
     <string name="title_hint_important">Důležité</string>
     <string name="title_hint_sync">Stažení zpráv může nějakou dobu trvat, v závislosti na rychlosti poskytovatele, internetového připojení a zařízení a na počtu zpráv. V průběhu stahování může aplikace reagovat pomaleji.</string>
+    <string name="title_hint_battery">Neboť FairEmail ve výchozím nastavení přijímá zprávy neustále, Android bude hlásit, že je stále aktivní. Díky tomu se může zdát, jako by FairEmail konstantně spotřebovával baterii, ačkoli tomu tak ve skutečnosti není.</string>
     <string name="title_hint_contact_actions">Dlouze podržet pro možnosti</string>
     <string name="title_hint_eml">Toto je souhrn obsahu souboru zdrojové zprávy. Uložte zdrojovou zprávu pomocí ikony uložit v panelu akcí pro zobrazení celého obsahu.</string>
     <string name="title_open_link">Otevřít odkaz</string>

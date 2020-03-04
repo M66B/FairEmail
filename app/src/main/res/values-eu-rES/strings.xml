@@ -283,6 +283,7 @@
     <string name="title_advanced_images_inline">Erakutsi automatikoki txertatutako irudiak</string>
     <string name="title_advanced_seekbar">Erakutsi posizio erlatiboa elkarrizketan puntu batekin</string>
     <string name="title_advanced_actionbar">Erakutsi elkarrizketako ekintza-barra</string>
+    <string name="title_advanced_navbar_colorize">Koloreztatu Android-en nabigazio barra</string>
     <string name="title_advanced_double_back">\'Atzera\' birritan irteteko</string>
     <string name="title_advanced_pull_refresh">Tiratu behera berritzeko</string>
     <string name="title_advanced_autoscroll">Korritu gora mezu berriak jasotzean</string>
@@ -643,6 +644,8 @@
     <string name="title_ask_help">Lagundu FairEmail hobetzen</string>
     <string name="title_ask_reporting">Bidali errore txostenak?</string>
     <string name="title_reporting_why">Errore txostenek FairEmail hobetzen laguntzen dute</string>
+    <string name="title_message_bar_hint">Tap egin gurutzearen ikonoan mezua gordetzeko, ezabatzeko edo spam gisa artxibatzeko eta ohar hau kentzeko</string>
+    <string name="title_answer_hint">Denei erantzutea, birbidaltzea eta abar behean dagoen erantzun-botoira eraman dira</string>
     <string name="title_ask_review">Baloratu FairEmail mesedez</string>
     <string name="title_ask_review_rationale">FairEmail denbora batez erabili duzu.
 Eskertzekoa litzateke Play Storen FairEmail baloratuko bazenu.
