@@ -84,6 +84,7 @@ import javax.mail.internet.MailDateFormat;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
+import javax.mail.internet.MimePart;
 import javax.mail.internet.MimeUtility;
 import javax.mail.internet.ParameterList;
 import javax.mail.internet.ParseException;
@@ -1587,13 +1588,26 @@ public class MessageHelper {
         }
 
         try {
-            if (imessage.isMimeType("multipart/signed")) {
-                ContentType ct = new ContentType(imessage.getContentType());
+            MimePart part = imessage;
+
+            if (part.isMimeType("multipart/mixed")) {
+                Multipart mp = (Multipart) part.getContent();
+                for (int i = 0; i < mp.getCount(); i++) {
+                    BodyPart bp = mp.getBodyPart(i);
+                    if (bp.isMimeType("multipart/signed") || bp.isMimeType("multipart/encrypted")) {
+                        part = (MimePart) bp;
+                        break;
+                    }
+                }
+            }
+
+            if (part.isMimeType("multipart/signed")) {
+                ContentType ct = new ContentType(part.getContentType());
                 String protocol = ct.getParameter("protocol");
                 if ("application/pgp-signature".equals(protocol) ||
                         "application/pkcs7-signature".equals(protocol) ||
                         "application/x-pkcs7-signature".equals(protocol)) {
-                    Multipart multipart = (Multipart) imessage.getContent();
+                    Multipart multipart = (Multipart) part.getContent();
                     if (multipart.getCount() == 2) {
                         getMessageParts(multipart.getBodyPart(0), parts, null);
                         getMessageParts(multipart.getBodyPart(1), parts,
@@ -1607,7 +1621,7 @@ public class MessageHelper {
                         apart.encrypt = "application/pgp-signature".equals(protocol)
                                 ? EntityAttachment.PGP_CONTENT
                                 : EntityAttachment.SMIME_CONTENT;
-                        apart.part = imessage;
+                        apart.part = part;
 
                         apart.attachment = new EntityAttachment();
                         apart.attachment.disposition = apart.disposition;
@@ -1621,26 +1635,26 @@ public class MessageHelper {
                         return parts;
                     }
                 }
-            } else if (imessage.isMimeType("multipart/encrypted")) {
-                ContentType ct = new ContentType(imessage.getContentType());
+            } else if (part.isMimeType("multipart/encrypted")) {
+                ContentType ct = new ContentType(part.getContentType());
                 String protocol = ct.getParameter("protocol");
                 if ("application/pgp-encrypted".equals(protocol)) {
-                    Multipart multipart = (Multipart) imessage.getContent();
+                    Multipart multipart = (Multipart) part.getContent();
                     if (multipart.getCount() == 2) {
                         // Ignore header
                         getMessageParts(multipart.getBodyPart(1), parts, EntityAttachment.PGP_MESSAGE);
                         return parts;
                     }
                 }
-            } else if (imessage.isMimeType("application/pkcs7-mime") ||
-                    imessage.isMimeType("application/x-pkcs7-mime")) {
-                ContentType ct = new ContentType(imessage.getContentType());
+            } else if (part.isMimeType("application/pkcs7-mime") ||
+                    part.isMimeType("application/x-pkcs7-mime")) {
+                ContentType ct = new ContentType(part.getContentType());
                 String smimeType = ct.getParameter("smime-type");
                 if ("enveloped-data".equals(smimeType)) {
-                    getMessageParts(imessage, parts, EntityAttachment.SMIME_MESSAGE);
+                    getMessageParts(part, parts, EntityAttachment.SMIME_MESSAGE);
                     return parts;
                 } else if ("signed-data".equals(smimeType)) {
-                    getMessageParts(imessage, parts, EntityAttachment.SMIME_SIGNED_DATA);
+                    getMessageParts(part, parts, EntityAttachment.SMIME_SIGNED_DATA);
                     return parts;
                 }
             }
