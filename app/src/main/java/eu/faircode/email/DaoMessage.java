@@ -179,6 +179,7 @@ public interface DaoMessage {
             " WHERE message.account = :account" +
             " AND message.thread = :thread" +
             " AND (:id IS NULL OR message.id = :id)" +
+            " AND (NOT :filter_archive OR folder.type <> '" + EntityFolder.ARCHIVE + "')" +
             " AND (NOT message.ui_hide OR :debug)" +
             " ORDER BY CASE WHEN :ascending THEN message.received ELSE -message.received END" +
             ", CASE" +
@@ -193,7 +194,10 @@ public interface DaoMessage {
             " WHEN folder.type = '" + EntityFolder.ARCHIVE + "' THEN 9" +
             " ELSE 999 END")
         // The folder type sort order should match the duplicate algorithm
-    DataSource.Factory<Integer, TupleMessageEx> pagedThread(long account, String thread, Long id, boolean ascending, boolean debug);
+    DataSource.Factory<Integer, TupleMessageEx> pagedThread(
+            long account, String thread, Long id,
+            boolean filter_archive,
+            boolean ascending, boolean debug);
 
     @Query("SELECT account.name AS accountName" +
             ", COUNT(message.id) AS count" +

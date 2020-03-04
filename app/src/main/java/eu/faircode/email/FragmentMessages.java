@@ -246,6 +246,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private boolean server;
     private String thread;
     private long id;
+    private boolean filter_archive;
     private boolean found;
     private String query;
     private boolean pane;
@@ -349,6 +350,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         server = args.getBoolean("server", false);
         thread = args.getString("thread");
         id = args.getLong("id", -1);
+        filter_archive = args.getBoolean("filter_archive", true);
         found = args.getBoolean("found", false);
         query = args.getString("query");
         pane = args.getBoolean("pane", false);
@@ -3711,7 +3713,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         ViewModelMessages.Model vmodel = model.getModel(
                 getContext(), getViewLifecycleOwner(),
-                viewType, type, account, folder, thread, id, query, server);
+                viewType, type, account, folder, thread, id, filter_archive, query, server);
 
         vmodel.setCallback(getViewLifecycleOwner(), callback);
         vmodel.setObserver(getViewLifecycleOwner(), observer);

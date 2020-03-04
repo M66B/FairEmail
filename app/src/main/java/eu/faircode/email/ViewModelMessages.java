@@ -60,10 +60,10 @@ public class ViewModelMessages extends ViewModel {
             final Context context, final LifecycleOwner owner,
             final AdapterMessage.ViewType viewType,
             String type, long account, long folder,
-            String thread, long id,
+            String thread, long id, boolean filter_archive,
             String query, boolean server) {
 
-        Args args = new Args(context, viewType, type, account, folder, thread, id, query, server);
+        Args args = new Args(context, viewType, type, account, folder, thread, id, filter_archive, query, server);
         Log.d("Get model=" + viewType + " " + args);
         dump();
 
@@ -127,6 +127,7 @@ public class ViewModelMessages extends ViewModel {
                             db.message().pagedThread(
                                     args.account, args.thread,
                                     args.threading ? null : args.id,
+                                    args.filter_archive,
                                     args.ascending,
                                     args.debug), LOCAL_PAGE_SIZE);
                     break;
@@ -319,12 +320,13 @@ public class ViewModelMessages extends ViewModel {
         private boolean filter_unflagged;
         private boolean filter_unknown;
         private boolean filter_snoozed;
+        private boolean filter_archive;
         private boolean debug;
 
         Args(Context context,
              AdapterMessage.ViewType viewType,
              String type, long account, long folder,
-             String thread, long id,
+             String thread, long id, boolean filter_archive,
              String query, boolean server) {
 
             this.type = type;
@@ -332,6 +334,7 @@ public class ViewModelMessages extends ViewModel {
             this.folder = folder;
             this.thread = thread;
             this.id = id;
+            this.filter_archive = filter_archive;
             this.query = query;
             this.server = server;
 
@@ -366,6 +369,7 @@ public class ViewModelMessages extends ViewModel {
                         this.filter_unflagged == other.filter_unflagged &&
                         this.filter_unknown == other.filter_unknown &&
                         this.filter_snoozed == other.filter_snoozed &&
+                        this.filter_archive == other.filter_archive &&
                         this.debug == other.debug);
             } else
                 return false;
@@ -383,6 +387,7 @@ public class ViewModelMessages extends ViewModel {
                     " unflagged=" + filter_unflagged +
                     " unknown=" + filter_unknown +
                     " snoozed=" + filter_snoozed +
+                    " archive=" + filter_archive +
                     " debug=" + debug;
         }
     }
