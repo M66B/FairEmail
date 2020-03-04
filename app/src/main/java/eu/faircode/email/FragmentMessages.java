@@ -2046,6 +2046,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     popupMenu.getMenu().findItem(R.id.menu_new_message).setVisible(to != null && to.length > 0);
                     popupMenu.getMenu().findItem(R.id.menu_reply_answer).setVisible(answers != 0 || !ActivityBilling.isPro(getContext()));
 
+                    popupMenu.getMenu().findItem(R.id.menu_reply_to_sender).setEnabled(message.content);
+                    popupMenu.getMenu().findItem(R.id.menu_reply_to_all).setEnabled(message.content);
+                    popupMenu.getMenu().findItem(R.id.menu_forward).setEnabled(message.content);
+                    popupMenu.getMenu().findItem(R.id.menu_editasnew).setEnabled(message.content);
+                    popupMenu.getMenu().findItem(R.id.menu_reply_answer).setEnabled(message.content);
+
                     popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                         @Override
                         public boolean onMenuItemClick(MenuItem target) {
@@ -3994,7 +4000,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             long id = values.get("expanded").get(0);
             int pos = adapter.getPositionForKey(id);
             TupleMessageEx message = adapter.getItemAtPosition(pos);
-            if (message != null && message.content && !EntityFolder.OUTBOX.equals(message.folderType))
+            if (message != null && !EntityFolder.OUTBOX.equals(message.folderType))
                 fabReply.show();
             else
                 fabReply.hide();
