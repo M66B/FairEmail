@@ -203,8 +203,8 @@
     <string name="title_advanced_section_connection">Свързване</string>
     <string name="title_advanced_section_display">Дисплей</string>
     <string name="title_advanced_section_behavior">Поведение</string>
-    <string name="title_advanced_section_notifications">Известия</string>
     <string name="title_advanced_section_privacy">Поверителност</string>
+    <string name="title_advanced_section_notifications">Известия</string>
     <string name="title_advanced_section_misc">Разни</string>
     <string name="title_advanced_receive">Получени съобщения</string>
     <string name="title_advanced_when">Кога</string>

@@ -175,8 +175,8 @@
     <string name="title_advanced_section_connection">Connexió</string>
     <string name="title_advanced_section_display">Visualització</string>
     <string name="title_advanced_section_behavior">Comportament</string>
-    <string name="title_advanced_section_notifications">Notificacions</string>
     <string name="title_advanced_section_privacy">Privacitat</string>
+    <string name="title_advanced_section_notifications">Notificacions</string>
     <string name="title_advanced_section_misc">Miscel·lània</string>
     <string name="title_advanced_receive">Rebre missatges</string>
     <string name="title_advanced_when">Quan</string>

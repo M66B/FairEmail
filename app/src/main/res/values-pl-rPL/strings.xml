@@ -224,8 +224,8 @@
     <string name="title_advanced_section_connection">Połączenie</string>
     <string name="title_advanced_section_display">Wyświetlanie</string>
     <string name="title_advanced_section_behavior">Zachowanie</string>
-    <string name="title_advanced_section_notifications">Powiadomienia</string>
     <string name="title_advanced_section_privacy">Prywatność</string>
+    <string name="title_advanced_section_notifications">Powiadomienia</string>
     <string name="title_advanced_section_misc">Różne</string>
     <string name="title_advanced_receive">Odbierz wiadomości</string>
     <string name="title_advanced_when">Kiedy</string>

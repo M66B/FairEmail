@@ -198,8 +198,8 @@
     <string name="title_advanced_section_connection">Anslutning</string>
     <string name="title_advanced_section_display">Visning</string>
     <string name="title_advanced_section_behavior">Beteende</string>
-    <string name="title_advanced_section_notifications">Aviseringar</string>
     <string name="title_advanced_section_privacy">Sekretess</string>
+    <string name="title_advanced_section_notifications">Aviseringar</string>
     <string name="title_advanced_section_misc">Diverse</string>
     <string name="title_advanced_receive">Ta emot meddelanden</string>
     <string name="title_advanced_when">När</string>

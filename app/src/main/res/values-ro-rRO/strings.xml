@@ -213,8 +213,8 @@
     <string name="title_advanced_section_connection">Conexiune</string>
     <string name="title_advanced_section_display">Afișare</string>
     <string name="title_advanced_section_behavior">Comportament</string>
-    <string name="title_advanced_section_notifications">Notificări</string>
     <string name="title_advanced_section_privacy">Confidențialitate</string>
+    <string name="title_advanced_section_notifications">Notificări</string>
     <string name="title_advanced_section_misc">Diverse</string>
     <string name="title_advanced_receive">Primire mesaje</string>
     <string name="title_advanced_when">Când</string>
@@ -294,6 +294,7 @@
     <string name="title_advanced_images_inline">Arată automat imaginile integrate</string>
     <string name="title_advanced_seekbar">Arată poziția relativă în conversație cu un punct</string>
     <string name="title_advanced_actionbar">Arată bara de acțiuni pentru conversație</string>
+    <string name="title_advanced_navbar_colorize">Colorează bara de navigație Android</string>
     <string name="title_advanced_double_back">Apăsați de două ori \'înapoi\' pentru a ieși</string>
     <string name="title_advanced_pull_refresh">Trageți în jos pentru a actualiza</string>
     <string name="title_advanced_autoscroll">Derulează sus când se primește un mesaj nou</string>
@@ -655,6 +656,8 @@
     <string name="title_ask_help">Ajută la îmbunătățirea FairEmail</string>
     <string name="title_ask_reporting">Trimite rapoarte de eroare?</string>
     <string name="title_reporting_why">Raportarea erorilor va ajuta la îmbunătățirea FairEmail</string>
+    <string name="title_message_bar_hint">Atingeți iconița plus pentru a arhiva, șterge sau raporta un mesaj ca spam și a elimina această notificare</string>
+    <string name="title_answer_hint">Răspundeți tuturor, redirecționare, etc. au fost mutate în butonul de răspuns de jos</string>
     <string name="title_ask_review">Vă rugăm să evaluați FairEmail</string>
     <string name="title_ask_review_rationale">        Utilizați FairEmail de ceva vreme.
         Vom aprecia dacă ați putea evalua FairEmail în Play Store.

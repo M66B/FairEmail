@@ -198,8 +198,8 @@
     <string name="title_advanced_section_connection">Conexão</string>
     <string name="title_advanced_section_display">Exibição</string>
     <string name="title_advanced_section_behavior">Comportamento</string>
-    <string name="title_advanced_section_notifications">Notificações</string>
     <string name="title_advanced_section_privacy">Privacidade</string>
+    <string name="title_advanced_section_notifications">Notificações</string>
     <string name="title_advanced_section_misc">Diversos</string>
     <string name="title_advanced_receive">Receber mensagens</string>
     <string name="title_advanced_when">Quando</string>

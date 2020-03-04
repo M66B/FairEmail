@@ -184,8 +184,8 @@
     <string name="title_advanced_section_connection">Конекција</string>
     <string name="title_advanced_section_display">Приказ</string>
     <string name="title_advanced_section_behavior">Понашање</string>
-    <string name="title_advanced_section_notifications">Обавештења</string>
     <string name="title_advanced_section_privacy">Приватност</string>
+    <string name="title_advanced_section_notifications">Обавештења</string>
     <string name="title_advanced_section_misc">Разно</string>
     <string name="title_advanced_receive">Прими поруке</string>
     <string name="title_advanced_when">Када</string>

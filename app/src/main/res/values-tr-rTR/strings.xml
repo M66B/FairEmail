@@ -201,8 +201,8 @@
     <string name="title_advanced_section_connection">Bağlantı</string>
     <string name="title_advanced_section_display">Görüntüle</string>
     <string name="title_advanced_section_behavior">Davranış</string>
-    <string name="title_advanced_section_notifications">Bildirimler</string>
     <string name="title_advanced_section_privacy">Gizlilik</string>
+    <string name="title_advanced_section_notifications">Bildirimler</string>
     <string name="title_advanced_section_misc">Çeşitli</string>
     <string name="title_advanced_receive">Mesajları al</string>
     <string name="title_advanced_when">Ne zaman</string>

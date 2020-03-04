@@ -209,8 +209,8 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_section_connection">Veza</string>
     <string name="title_advanced_section_display">Prikaz</string>
     <string name="title_advanced_section_behavior">Ponašanje</string>
-    <string name="title_advanced_section_notifications">Obavijesti</string>
     <string name="title_advanced_section_privacy">Privatnost</string>
+    <string name="title_advanced_section_notifications">Obavijesti</string>
     <string name="title_advanced_section_misc">Razno</string>
     <string name="title_advanced_receive">Primljane poruka</string>
     <string name="title_advanced_when">Kada</string>

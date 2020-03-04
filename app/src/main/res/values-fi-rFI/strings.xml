@@ -200,8 +200,8 @@
     <string name="title_advanced_section_connection">Yhteys</string>
     <string name="title_advanced_section_display">Ulkoasu</string>
     <string name="title_advanced_section_behavior">Toiminnot</string>
-    <string name="title_advanced_section_notifications">Ilmoitukset</string>
     <string name="title_advanced_section_privacy">Yksityisyys</string>
+    <string name="title_advanced_section_notifications">Ilmoitukset</string>
     <string name="title_advanced_section_misc">Sekalaiset</string>
     <string name="title_advanced_receive">Vastaanota viestejä</string>
     <string name="title_advanced_when">Milloin</string>

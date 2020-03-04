@@ -203,8 +203,9 @@
     <string name="title_advanced_section_connection">Verbinding</string>
     <string name="title_advanced_section_display">Weergave</string>
     <string name="title_advanced_section_behavior">Gedrag</string>
-    <string name="title_advanced_section_notifications">Meldingen</string>
     <string name="title_advanced_section_privacy">Privacy</string>
+    <string name="title_advanced_section_encryption">Versleuteling</string>
+    <string name="title_advanced_section_notifications">Meldingen</string>
     <string name="title_advanced_section_misc">Diversen</string>
     <string name="title_advanced_receive">Berichten ontvangen</string>
     <string name="title_advanced_when">Wanneer</string>
@@ -242,6 +243,9 @@
     <string name="title_advanced_ssl_harden">Verhard SSL-verbindingen</string>
     <string name="title_advanced_socks">Gebruik SOCKS proxy</string>
     <string name="title_advanced_manage_connectivity">Beheer connectiviteit</string>
+    <string name="title_advanced_caption_general">Algemeen</string>
+    <string name="title_advanced_caption_conversation">Gesprek</string>
+    <string name="title_advanced_caption_message">Bericht</string>
     <string name="title_advanced_landscape">Twee kolommen gebruiken in liggende modus</string>
     <string name="title_advanced_landscape3">Vaste navigatiemenu toestaan in liggende modus</string>
     <string name="title_advanced_startup">Toon op het startscherm</string>
@@ -287,6 +291,7 @@
     <string name="title_advanced_navbar_colorize">Kleur de Android-navigatiebalk in</string>
     <string name="title_advanced_double_back">Dubbel \'terug\' om te sluiten</string>
     <string name="title_advanced_pull_refresh">Omlaag schuiven om te verversen</string>
+    <string name="title_advanced_hide_actionbar">Actiebalk verbergen bij het omlaag scrollen</string>
     <string name="title_advanced_autoscroll">Scroll naar boven bij het ontvangen van nieuwe berichten</string>
     <string name="title_advanced_double_tap">Dubbel tik om bericht gelezen/ongelezen te markeren</string>
     <string name="title_advanced_swipenav">Veeg links/rechts om naar het volgende/vorige gesprek te gaan</string>

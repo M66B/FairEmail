@@ -225,8 +225,9 @@
     <string name="title_advanced_section_connection">Соединение</string>
     <string name="title_advanced_section_display">Отображение</string>
     <string name="title_advanced_section_behavior">Режимы</string>
-    <string name="title_advanced_section_notifications">Уведомления</string>
     <string name="title_advanced_section_privacy">Конфиденциальность</string>
+    <string name="title_advanced_section_encryption">Шифрование</string>
+    <string name="title_advanced_section_notifications">Уведомления</string>
     <string name="title_advanced_section_misc">Разное</string>
     <string name="title_advanced_receive">Получить сообщения</string>
     <string name="title_advanced_when">Когда</string>
@@ -264,6 +265,9 @@
     <string name="title_advanced_ssl_harden">Усиленные SSL-соединения</string>
     <string name="title_advanced_socks">Использовать SOCKS-прокси</string>
     <string name="title_advanced_manage_connectivity">Управление подключением</string>
+    <string name="title_advanced_caption_general">По умолчанию</string>
+    <string name="title_advanced_caption_conversation">Диалог</string>
+    <string name="title_advanced_caption_message">Сообщение</string>
     <string name="title_advanced_landscape">Использовать две колонки в альбомном режиме</string>
     <string name="title_advanced_landscape3">Разрешить фиксированное меню навигации в альбомном режиме</string>
     <string name="title_advanced_startup">При запуске показывать</string>
@@ -309,6 +313,7 @@
     <string name="title_advanced_navbar_colorize">Раскрашивать панель навигации Android</string>
     <string name="title_advanced_double_back">Двойное нажатие \"Назад\" для выхода</string>
     <string name="title_advanced_pull_refresh">Потянуть вниз для обновления</string>
+    <string name="title_advanced_hide_actionbar">Скрыть панель действий при прокрутке вниз</string>
     <string name="title_advanced_autoscroll">Прокрутить к началу списка при получении новых сообщений</string>
     <string name="title_advanced_double_tap">Двойное нажатие для отметки сообщений прочитанными/непрочитанными</string>
     <string name="title_advanced_swipenav">Смахивание влево/вправо для перехода к следующему/предыдущему диалогу</string>

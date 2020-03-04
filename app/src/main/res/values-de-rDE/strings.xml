@@ -203,8 +203,9 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_section_connection">Verbindung</string>
     <string name="title_advanced_section_display">Anzeige</string>
     <string name="title_advanced_section_behavior">Verhalten</string>
-    <string name="title_advanced_section_notifications">Benachrichtigungen</string>
     <string name="title_advanced_section_privacy">Datenschutz</string>
+    <string name="title_advanced_section_encryption">Verschlüsselung</string>
+    <string name="title_advanced_section_notifications">Benachrichtigungen</string>
     <string name="title_advanced_section_misc">Verschiedenes</string>
     <string name="title_advanced_receive">Empfang von Nachrichten</string>
     <string name="title_advanced_when">Wann</string>
@@ -242,6 +243,9 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_ssl_harden">SSL-Verbindungen stärken</string>
     <string name="title_advanced_socks">SOCKS Proxy verwenden</string>
     <string name="title_advanced_manage_connectivity">Konnektivität verwalten</string>
+    <string name="title_advanced_caption_general">Allgemein</string>
+    <string name="title_advanced_caption_conversation">Unterhaltung</string>
+    <string name="title_advanced_caption_message">Nachricht</string>
     <string name="title_advanced_landscape">Zwei Spalten im Querformat verwenden</string>
     <string name="title_advanced_landscape3">Festes Navigationsmenü im Querformat erlauben</string>
     <string name="title_advanced_startup">Auf Startbildschirm anzeigen</string>

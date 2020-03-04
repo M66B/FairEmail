@@ -190,8 +190,9 @@
     <string name="title_advanced_section_connection">连接</string>
     <string name="title_advanced_section_display">显示</string>
     <string name="title_advanced_section_behavior">行为</string>
-    <string name="title_advanced_section_notifications">通知</string>
     <string name="title_advanced_section_privacy">隐私</string>
+    <string name="title_advanced_section_encryption">加密</string>
+    <string name="title_advanced_section_notifications">通知</string>
     <string name="title_advanced_section_misc">杂项</string>
     <string name="title_advanced_receive">接收消息</string>
     <string name="title_advanced_when">何时</string>
@@ -229,6 +230,9 @@
     <string name="title_advanced_ssl_harden">加强 SSL 连接</string>
     <string name="title_advanced_socks">使用 SOCKS 代理</string>
     <string name="title_advanced_manage_connectivity">管理连接</string>
+    <string name="title_advanced_caption_general">常规​​​​​</string>
+    <string name="title_advanced_caption_conversation">会话</string>
+    <string name="title_advanced_caption_message">消息</string>
     <string name="title_advanced_landscape">在横屏模式下使用两列</string>
     <string name="title_advanced_landscape3">在横屏模式下允许固定的导航栏菜单</string>
     <string name="title_advanced_startup">在启动屏幕上显示</string>
@@ -274,6 +278,7 @@
     <string name="title_advanced_navbar_colorize">为安卓导航栏上色</string>
     <string name="title_advanced_double_back">双击返回键退出</string>
     <string name="title_advanced_pull_refresh">下拉刷新</string>
+    <string name="title_advanced_hide_actionbar">向下滚动时隐藏操作栏</string>
     <string name="title_advanced_autoscroll">在收到新消息时滚动至顶部</string>
     <string name="title_advanced_double_tap">双击标记消息已读/未读</string>
     <string name="title_advanced_swipenav">左右滑动切换邮件</string>

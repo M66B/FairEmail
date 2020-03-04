@@ -202,8 +202,8 @@
     <string name="title_advanced_section_connection">Konexioa</string>
     <string name="title_advanced_section_display">Bistaratzea</string>
     <string name="title_advanced_section_behavior">Portaera</string>
-    <string name="title_advanced_section_notifications">Jakinarazpenak</string>
     <string name="title_advanced_section_privacy">Pribatutasuna</string>
+    <string name="title_advanced_section_notifications">Jakinarazpenak</string>
     <string name="title_advanced_section_misc">Miszelanea</string>
     <string name="title_advanced_receive">Jaso mezuak</string>
     <string name="title_advanced_when">Noiz</string>

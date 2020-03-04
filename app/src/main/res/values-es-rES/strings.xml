@@ -203,8 +203,8 @@
     <string name="title_advanced_section_connection">Conexión</string>
     <string name="title_advanced_section_display">Mostrar</string>
     <string name="title_advanced_section_behavior">Comportamiento</string>
-    <string name="title_advanced_section_notifications">Notificaciones</string>
     <string name="title_advanced_section_privacy">Privacidad</string>
+    <string name="title_advanced_section_notifications">Notificaciones</string>
     <string name="title_advanced_section_misc">Miscelánea</string>
     <string name="title_advanced_receive">Recibir mensajes</string>
     <string name="title_advanced_when">Cuando</string>
@@ -287,6 +287,7 @@
     <string name="title_advanced_navbar_colorize">Colorear la barra de navegación de Android</string>
     <string name="title_advanced_double_back">Doble \'atrás\' para salir</string>
     <string name="title_advanced_pull_refresh">Tire hacia abajo para actualizar</string>
+    <string name="title_advanced_hide_actionbar">Ocultar barra de acción al desplazarse hacia abajo</string>
     <string name="title_advanced_autoscroll">Desplazar hacia arriba al recibir nuevos mensajes</string>
     <string name="title_advanced_double_tap">Doble toque para marcar mensaje leído/no leído</string>
     <string name="title_advanced_swipenav">Deslice a la izquierda/derecha para ir a la siguiente/anterior conversación</string>

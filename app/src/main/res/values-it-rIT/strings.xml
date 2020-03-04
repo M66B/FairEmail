@@ -202,8 +202,9 @@
     <string name="title_advanced_section_connection">Connessione</string>
     <string name="title_advanced_section_display">Schermo</string>
     <string name="title_advanced_section_behavior">Comportamento</string>
-    <string name="title_advanced_section_notifications">Notifiche</string>
     <string name="title_advanced_section_privacy">Privacy</string>
+    <string name="title_advanced_section_encryption">Crittografia</string>
+    <string name="title_advanced_section_notifications">Notifiche</string>
     <string name="title_advanced_section_misc">Altro</string>
     <string name="title_advanced_receive">Ricevi messaggi</string>
     <string name="title_advanced_when">Quando</string>
@@ -241,6 +242,9 @@
     <string name="title_advanced_ssl_harden">Connessioni SSL Harden</string>
     <string name="title_advanced_socks">Usa SOCKS proxy</string>
     <string name="title_advanced_manage_connectivity">Gestisci connettività</string>
+    <string name="title_advanced_caption_general">Generale</string>
+    <string name="title_advanced_caption_conversation">Conversazione</string>
+    <string name="title_advanced_caption_message">Messaggio</string>
     <string name="title_advanced_landscape">Usa due colonne in modalità orizzontale</string>
     <string name="title_advanced_landscape3">Consenti menu di navigazione fisso in modalità orizzontale</string>
     <string name="title_advanced_startup">Mostra nella schermata iniziale</string>
@@ -286,6 +290,7 @@
     <string name="title_advanced_navbar_colorize">Colora la barra di navigazione di Android</string>
     <string name="title_advanced_double_back">Doppio \'indietro\' per uscire</string>
     <string name="title_advanced_pull_refresh">Trascina in basso per aggiornare</string>
+    <string name="title_advanced_hide_actionbar">Nascondi la barra delle azioni quando scorri in basso</string>
     <string name="title_advanced_autoscroll">Scorri verso l\'alto quando ricevi nuovi messaggi</string>
     <string name="title_advanced_double_tap">Doppio tocco per segnare il messaggio letto/non letto</string>
     <string name="title_advanced_swipenav">Scorri a sinistra/destra per andare alla conversazione successiva/precedente</string>

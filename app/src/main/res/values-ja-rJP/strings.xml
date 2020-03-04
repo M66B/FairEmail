@@ -189,8 +189,9 @@
     <string name="title_advanced_section_connection">接続</string>
     <string name="title_advanced_section_display">表示</string>
     <string name="title_advanced_section_behavior">動作</string>
-    <string name="title_advanced_section_notifications">通知</string>
     <string name="title_advanced_section_privacy">プライバシー</string>
+    <string name="title_advanced_section_encryption">暗号化</string>
+    <string name="title_advanced_section_notifications">通知</string>
     <string name="title_advanced_section_misc">その他</string>
     <string name="title_advanced_receive">メッセージを受信する</string>
     <string name="title_advanced_when">同期</string>
@@ -228,6 +229,9 @@
     <string name="title_advanced_ssl_harden">SSL接続を有効</string>
     <string name="title_advanced_socks">SOCKS proxyを使用</string>
     <string name="title_advanced_manage_connectivity">接続の管理</string>
+    <string name="title_advanced_caption_general">全般</string>
+    <string name="title_advanced_caption_conversation">会話</string>
+    <string name="title_advanced_caption_message">メッセージ</string>
     <string name="title_advanced_landscape">横向きモードで2列を使用</string>
     <string name="title_advanced_landscape3">横向きモードで固定ナビゲーションメニューを許可</string>
     <string name="title_advanced_startup">スタート画面に表示</string>
@@ -273,6 +277,7 @@
     <string name="title_advanced_navbar_colorize">Androidナビゲーションバーの色付け</string>
     <string name="title_advanced_double_back">\"戻る\"をダブルタップして終了</string>
     <string name="title_advanced_pull_refresh">プルダウンして更新</string>
+    <string name="title_advanced_hide_actionbar">スクロールダウン時にアクションバーを非表示</string>
     <string name="title_advanced_autoscroll">新着メッセージを受信したらトップにスクロール</string>
     <string name="title_advanced_double_tap">ダブルタップでメッセージを既読/未読にします</string>
     <string name="title_advanced_swipenav">左/右にスワイプで次/前の会話に移動</string>

@@ -225,8 +225,8 @@
     <string name="title_advanced_section_connection">Připojení</string>
     <string name="title_advanced_section_display">Zobrazení</string>
     <string name="title_advanced_section_behavior">Chování</string>
-    <string name="title_advanced_section_notifications">Oznámení</string>
     <string name="title_advanced_section_privacy">Soukromí</string>
+    <string name="title_advanced_section_notifications">Oznámení</string>
     <string name="title_advanced_section_misc">Ostatní</string>
     <string name="title_advanced_receive">Přijímat zprávy</string>
     <string name="title_advanced_when">Kdy</string>

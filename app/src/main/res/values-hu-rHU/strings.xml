@@ -201,8 +201,8 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_section_connection">Kapcsolat</string>
     <string name="title_advanced_section_display">Megjelenés</string>
     <string name="title_advanced_section_behavior">Működés</string>
-    <string name="title_advanced_section_notifications">Értesítések</string>
     <string name="title_advanced_section_privacy">Adatvédelem</string>
+    <string name="title_advanced_section_notifications">Értesítések</string>
     <string name="title_advanced_section_misc">Egyebek</string>
     <string name="title_advanced_receive">Üzenetek fogadása</string>
     <string name="title_advanced_when">Mikor</string>

@@ -70,7 +70,7 @@
     <string name="title_block_sender">Bloquer l\'expéditeur</string>
     <string name="title_block_domain">Bloquer le domaine de l\'expéditeur</string>
     <string name="title_block_sender_hint">        Bloquer un expéditeur créera une règle pour déplacer automatiquement les futurs messages vers le dossier spam.
-        La création et l\'utilisation de règles sont des fonctionnalités Pro.
+        La création et l\'utilisation des règles sont des fonctionnalités Pro.
     </string>
     <string name="title_notification_waiting">En attente d\'une connexion réseau suffisante</string>
     <string name="title_notification_sending">Envoi des messages en cours</string>
@@ -203,8 +203,9 @@
     <string name="title_advanced_section_connection">Connexion</string>
     <string name="title_advanced_section_display">Affichage</string>
     <string name="title_advanced_section_behavior">Comportement</string>
-    <string name="title_advanced_section_notifications">Notifications</string>
     <string name="title_advanced_section_privacy">Confidentialité</string>
+    <string name="title_advanced_section_encryption">Chiffrement</string>
+    <string name="title_advanced_section_notifications">Notifications</string>
     <string name="title_advanced_section_misc">Divers</string>
     <string name="title_advanced_receive">Recevoir des messages</string>
     <string name="title_advanced_when">Quand</string>
@@ -242,6 +243,9 @@
     <string name="title_advanced_ssl_harden">Renforcer les connexions SSL</string>
     <string name="title_advanced_socks">Utiliser un proxy SOCKS</string>
     <string name="title_advanced_manage_connectivity">Gérer la connectivité</string>
+    <string name="title_advanced_caption_general">Général</string>
+    <string name="title_advanced_caption_conversation">Conversation</string>
+    <string name="title_advanced_caption_message">Message</string>
     <string name="title_advanced_landscape">Utiliser deux colonnes en mode paysage</string>
     <string name="title_advanced_landscape3">Afficher le menu de navigation fixe en mode paysage</string>
     <string name="title_advanced_startup">Afficher sur l\'écran de démarrage</string>
@@ -287,6 +291,7 @@
     <string name="title_advanced_navbar_colorize">Colorer la barre de navigation Android</string>
     <string name="title_advanced_double_back">Faire « Retour » deux fois pour quitter</string>
     <string name="title_advanced_pull_refresh">Tirer vers le bas pour actualiser</string>
+    <string name="title_advanced_hide_actionbar">Masquer la barre d\'action lors du défilement vers le bas</string>
     <string name="title_advanced_autoscroll">Faire défiler vers le haut lors de la réception de nouveaux messages</string>
     <string name="title_advanced_double_tap">Appuyer deux fois pour marquer le message lu/non lu</string>
     <string name="title_advanced_swipenav">Balayer vers la gauche/droite pour passer à la conversation suivante/précédente</string>

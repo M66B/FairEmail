@@ -202,8 +202,8 @@
     <string name="title_advanced_section_connection">Forbindelse</string>
     <string name="title_advanced_section_display">Vis</string>
     <string name="title_advanced_section_behavior">Adfærd</string>
-    <string name="title_advanced_section_notifications">Notifikationer</string>
     <string name="title_advanced_section_privacy">Fortrolighed</string>
+    <string name="title_advanced_section_notifications">Notifikationer</string>
     <string name="title_advanced_section_misc">Diverse</string>
     <string name="title_advanced_receive">Beskedmodtagelse</string>
     <string name="title_advanced_when">Når</string>
