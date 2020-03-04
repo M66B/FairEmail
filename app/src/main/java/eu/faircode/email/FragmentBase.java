@@ -27,6 +27,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.IntentSender;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Build;
@@ -48,6 +49,7 @@ import androidx.documentfile.provider.DocumentFile;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.preference.PreferenceManager;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -64,6 +66,7 @@ import static android.app.Activity.RESULT_OK;
 public class FragmentBase extends Fragment {
     private String title = null;
     private String subtitle = " ";
+    private boolean action = true;
     private boolean finish = false;
 
     private long message = -1;
@@ -92,6 +95,28 @@ public class FragmentBase extends Fragment {
     protected void setSubtitle(String subtitle) {
         this.subtitle = subtitle;
         updateSubtitle();
+    }
+
+    protected void setActionBar(boolean show) {
+        Log.i("Set action bar=" + show);
+
+        AppCompatActivity activity = (AppCompatActivity) getActivity();
+        if (activity == null)
+            return;
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity);
+        boolean hide_actionbar = prefs.getBoolean("hide_actionbar", false);
+
+        ActionBar actionBar = activity.getSupportActionBar();
+        if (actionBar == null)
+            return;
+
+        if (show || !hide_actionbar)
+            actionBar.show();
+        else
+            actionBar.hide();
+
+        this.action = show;
     }
 
     @Override
@@ -176,6 +201,7 @@ public class FragmentBase extends Fragment {
         Log.d("Resume " + this);
         super.onResume();
         updateSubtitle();
+        setActionBar(action);
         if (finish) {
             getParentFragmentManager().popBackStack();
             finish = false;
@@ -230,6 +256,13 @@ public class FragmentBase extends Fragment {
         View focused = getActivity().getCurrentFocus();
         if (focused != null)
             im.hideSoftInputFromWindow(focused.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+
+        AppCompatActivity activity = (AppCompatActivity) getActivity();
+        if (activity != null) {
+            ActionBar actionBar = activity.getSupportActionBar();
+            if (actionBar != null)
+                actionBar.show();
+        }
     }
 
     @Override

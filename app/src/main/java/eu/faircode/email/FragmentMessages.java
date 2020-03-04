@@ -90,6 +90,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
@@ -202,6 +203,8 @@ import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 import static android.text.format.DateUtils.DAY_IN_MILLIS;
 import static android.text.format.DateUtils.FORMAT_SHOW_DATE;
 import static android.text.format.DateUtils.FORMAT_SHOW_WEEKDAY;
+import static androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_IDLE;
+import static androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_SETTLING;
 import static org.openintents.openpgp.OpenPgpSignatureResult.RESULT_KEY_MISSING;
 import static org.openintents.openpgp.OpenPgpSignatureResult.RESULT_NO_SIGNATURE;
 import static org.openintents.openpgp.OpenPgpSignatureResult.RESULT_VALID_KEY_CONFIRMED;
@@ -552,8 +555,34 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     Log.w(ex);
                 }
             }
+
+            @Override
+            public void onScrollStateChanged(int state) {
+                super.onScrollStateChanged(state);
+
+                try {
+                    int y = rvMessage.computeVerticalScrollOffset();
+                    Log.i("Scroll state=" + state + " y=" + y);
+                    setActionBar(y == 0);
+                } catch (Throwable ex) {
+                    Log.w(ex);
+                }
+            }
         };
         rvMessage.setLayoutManager(llm);
+
+        rvMessage.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+            @Override
+            public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                try {
+                    int y = rvMessage.computeVerticalScrollOffset();
+                    Log.i("Layout completed y=" + y);
+                    setActionBar(y == 0);
+                } catch (Throwable ex) {
+                    Log.w(ex);
+                }
+            }
+        });
 
         if (!cards) {
             DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), llm.getOrientation()) {
