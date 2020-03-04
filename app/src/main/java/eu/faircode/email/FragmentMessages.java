@@ -557,34 +557,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     Log.w(ex);
                 }
             }
-
-            @Override
-            public void onScrollStateChanged(int state) {
-                super.onScrollStateChanged(state);
-
-                try {
-                    int y = rvMessage.computeVerticalScrollOffset();
-                    Log.i("Scroll state=" + state + " y=" + y);
-                    setActionBar(y == 0);
-                } catch (Throwable ex) {
-                    Log.w(ex);
-                }
-            }
         };
         rvMessage.setLayoutManager(llm);
-
-        rvMessage.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
-            @Override
-            public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
-                try {
-                    int y = rvMessage.computeVerticalScrollOffset();
-                    Log.i("Layout completed y=" + y);
-                    setActionBar(y == 0);
-                } catch (Throwable ex) {
-                    Log.w(ex);
-                }
-            }
-        });
 
         if (!cards) {
             DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), llm.getOrientation()) {

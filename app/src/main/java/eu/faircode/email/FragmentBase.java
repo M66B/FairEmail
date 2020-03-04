@@ -66,7 +66,6 @@ import static android.app.Activity.RESULT_OK;
 public class FragmentBase extends Fragment {
     private String title = null;
     private String subtitle = " ";
-    private boolean action = true;
     private boolean finish = false;
 
     private long message = -1;
@@ -95,28 +94,6 @@ public class FragmentBase extends Fragment {
     protected void setSubtitle(String subtitle) {
         this.subtitle = subtitle;
         updateSubtitle();
-    }
-
-    protected void setActionBar(boolean show) {
-        Log.i("Set action bar=" + show);
-
-        AppCompatActivity activity = (AppCompatActivity) getActivity();
-        if (activity == null)
-            return;
-
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity);
-        boolean hide_actionbar = prefs.getBoolean("hide_actionbar", false);
-
-        ActionBar actionBar = activity.getSupportActionBar();
-        if (actionBar == null)
-            return;
-
-        if (show || !hide_actionbar)
-            actionBar.show();
-        else
-            actionBar.hide();
-
-        this.action = show;
     }
 
     @Override
@@ -201,7 +178,6 @@ public class FragmentBase extends Fragment {
         Log.d("Resume " + this);
         super.onResume();
         updateSubtitle();
-        setActionBar(action);
         if (finish) {
             getParentFragmentManager().popBackStack();
             finish = false;
