@@ -1331,7 +1331,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibVerify.setVisibility(View.GONE);
             ibUndo.setVisibility(EntityFolder.OUTBOX.equals(message.folderType) ? View.VISIBLE : View.GONE);
 
-            ibAnswer.setVisibility(normal ? View.GONE : View.VISIBLE);
+            ibAnswer.setVisibility(normal || EntityFolder.OUTBOX.equals(message.folderType) ? View.GONE : View.VISIBLE);
             ibMove.setVisibility(normal || message.folderReadOnly || message.uid == null ? View.GONE : View.VISIBLE);
             ibArchive.setVisibility(View.GONE);
             ibTrash.setVisibility(View.GONE);
@@ -3155,7 +3155,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
                             ibJunk.setTooltipText(title);
 
-                        ibAnswer.setVisibility(View.VISIBLE);
+                        ibAnswer.setVisibility(outbox ? View.GONE : View.VISIBLE);
                         ibMove.setVisibility(move ? View.VISIBLE : View.GONE);
                         ibArchive.setVisibility(archive ? View.VISIBLE : View.GONE);
                         ibTrash.setVisibility(trash ? View.VISIBLE : View.GONE);
