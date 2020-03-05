@@ -106,7 +106,7 @@ public class IMAPSaslAuthenticator implements SaslAuthenticator {
             pr.handleLoginResult(r);
             pr.setCapabilities(r);
         } catch (ProtocolException ex) {
-            Log.w(ex);
+            Log.i(ex);
             throw new UnsupportedOperationException("SASL not authenticated");
         }
 
