@@ -2992,6 +2992,41 @@ public class FragmentCompose extends FragmentBase {
                                     data.draft.from = ref.to;
                                     data.draft.to = (ref.reply == null || ref.reply.length == 0 ? ref.from : ref.reply);
                                 }
+
+                                if (data.draft.from != null && data.draft.from.length > 0) {
+                                    Address preferred = null;
+                                    if (ref.identity != null) {
+                                        EntityIdentity recognized = db.identity().getIdentity(ref.identity);
+                                        if (recognized != null) {
+                                            Address same = null;
+                                            Address similar = null;
+
+                                            for (Address from : data.draft.from) {
+                                                if (same == null && recognized.sameAddress(from))
+                                                    same = from;
+                                                if (similar == null && recognized.similarAddress(from))
+                                                    similar = from;
+                                            }
+
+                                            if (ref.deliveredto != null)
+                                                try {
+                                                    Address deliveredto = new InternetAddress(ref.deliveredto);
+                                                    if (same == null && recognized.sameAddress(deliveredto))
+                                                        same = deliveredto;
+                                                    if (similar == null && recognized.similarAddress(deliveredto))
+                                                        similar = deliveredto;
+                                                } catch (AddressException ex) {
+                                                    Log.w(ex);
+                                                }
+
+                                            preferred = (same == null ? similar : same);
+                                        }
+                                    }
+                                    if (preferred != null) {
+                                        String from = ((InternetAddress) preferred).getAddress();
+                                        data.draft.extra = from.substring(0, from.indexOf("@"));
+                                    }
+                                }
                             }
 
                             if ("reply_all".equals(action))
@@ -3003,43 +3038,6 @@ public class FragmentCompose extends FragmentBase {
 
                         } else if ("forward".equals(action) || "editasnew".equals(action))
                             data.draft.thread = data.draft.msgid; // new thread
-
-                        // Set extra
-                        if (data.draft.from != null && data.draft.from.length > 0) {
-                            Address preferred = null;
-                            if (ref.identity != null) {
-                                EntityIdentity recognized = db.identity().getIdentity(ref.identity);
-                                if (recognized != null) {
-                                    Address same = null;
-                                    Address similar = null;
-
-                                    for (Address from : data.draft.from) {
-                                        if (same == null && recognized.sameAddress(from))
-                                            same = from;
-                                        if (similar == null && recognized.similarAddress(from))
-                                            similar = from;
-                                    }
-
-                                    if (ref.deliveredto != null)
-                                        try {
-                                            Address deliveredto = new InternetAddress(ref.deliveredto);
-                                            if (same == null && recognized.sameAddress(deliveredto))
-                                                same = deliveredto;
-                                            if (similar == null && recognized.similarAddress(deliveredto))
-                                                similar = deliveredto;
-                                        } catch (AddressException ex) {
-                                            Log.w(ex);
-                                        }
-
-                                    preferred = (same == null ? similar : same);
-                                }
-                            }
-
-                            if (preferred != null) {
-                                String from = ((InternetAddress) preferred).getAddress();
-                                data.draft.extra = from.substring(0, from.indexOf("@"));
-                            }
-                        }
 
                         String subject = (ref.subject == null ? "" : ref.subject);
                         if ("reply".equals(action) || "reply_all".equals(action)) {
