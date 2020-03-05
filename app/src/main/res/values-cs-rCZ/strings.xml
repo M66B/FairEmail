@@ -226,12 +226,14 @@
     <string name="title_advanced_section_display">Zobrazení</string>
     <string name="title_advanced_section_behavior">Chování</string>
     <string name="title_advanced_section_privacy">Soukromí</string>
+    <string name="title_advanced_section_encryption">Šifrování</string>
     <string name="title_advanced_section_notifications">Oznámení</string>
     <string name="title_advanced_section_misc">Ostatní</string>
     <string name="title_advanced_receive">Přijímat zprávy</string>
     <string name="title_advanced_when">Kdy</string>
     <string name="title_advanced_always">Tyto účty synchronizovat vždy</string>
     <string name="title_advanced_schedule">Plán</string>
+    <string name="title_advanced_advanced">Pokročilé</string>
     <string name="title_advanced_unseen">Všechny nepřečtené zprávy</string>
     <string name="title_advanced_flagged">Všechny zprávy s hvězdičkou</string>
     <string name="title_advanced_delete_unseen">Smazat staré nepřečtené zprávy</string>
@@ -264,6 +266,9 @@
     <string name="title_advanced_ssl_harden">Obrnit SSL připojení</string>
     <string name="title_advanced_socks">Použít SOCKS proxy</string>
     <string name="title_advanced_manage_connectivity">Spravovat připojení</string>
+    <string name="title_advanced_caption_general">Obecné</string>
+    <string name="title_advanced_caption_conversation">Konverzace</string>
+    <string name="title_advanced_caption_message">Zpráva</string>
     <string name="title_advanced_landscape">Dvou-sloupcové rozvržení v režimu na šířku</string>
     <string name="title_advanced_landscape3">Povolit ukotvené navigační menu v režimu na šířku</string>
     <string name="title_advanced_startup">Na úvodní obrazovce zobrazit</string>
@@ -308,6 +313,7 @@
     <string name="title_advanced_navbar_colorize">Obarvit navigační panel Androidu</string>
     <string name="title_advanced_double_back">Dvakrát \"zpět\" pro ukončení</string>
     <string name="title_advanced_pull_refresh">Aktualizovat tažením dolů</string>
+    <string name="title_advanced_hide_actionbar">Skrýt panel akcí při posouvání dolů</string>
     <string name="title_advanced_autoscroll">Posun na začátek při příjmu nových zpráv</string>
     <string name="title_advanced_double_tap">Dvojstisk pro označení zprávy jako přečtené/nepřečtené</string>
     <string name="title_advanced_swipenav">Tahem vlevo/vpravo přejít na další/předešlou konverzaci</string>
@@ -667,7 +673,6 @@
     <string name="title_ask_reporting">Odeslat zprávy o chybách?</string>
     <string name="title_reporting_why">Zprávami o chybách pomůžete zlepšit FairEmail</string>
     <string name="title_message_bar_hint">Stisk křížku archivuje, smaže či označí zprávu jako nevyžádanou, a odeberte toto oznámení</string>
-    <string name="title_answer_hint">Odpověď všem, přeposlání, atd. byly přesunuty dolů, pod tlačítko odpovědi</string>
     <string name="title_ask_review">Prosím, ohodnoťte FairEmail</string>
     <string name="title_ask_review_rationale">        Již nějakou dobu FairEmail používáte.
         Vážil bych si, kdyby jste mohli FairEmail ohodnotit v Obchodě Play.

@@ -211,6 +211,7 @@
     <string name="title_advanced_when">Wanneer</string>
     <string name="title_advanced_always">Synchroniseer deze accounts altijd</string>
     <string name="title_advanced_schedule">Schema</string>
+    <string name="title_advanced_advanced">Geavanceerd</string>
     <string name="title_advanced_unseen">Alle ongelezen berichten</string>
     <string name="title_advanced_flagged">Alle berichten met een ster</string>
     <string name="title_advanced_delete_unseen">Verwijder oude, ongelezen berichten</string>
@@ -652,7 +653,6 @@
     <string name="title_ask_reporting">Foutrapporten verzenden?</string>
     <string name="title_reporting_why">Foutrapportage helpt om FairEmail te verbeteren</string>
     <string name="title_message_bar_hint">Klik op het kruisicoon om een bericht te archiveren, te verwijderen of te rapporteren als spam en om deze melding te verwijderen</string>
-    <string name="title_answer_hint">Allen beantwoorden, doorsturen, etc. zijn verplaatst naar de antwoordknop onderaan</string>
     <string name="title_ask_review">Beoordeel a.u.b. FairEmail</string>
     <string name="title_ask_review_rationale">        U heeft FairEmail al een tijdje gebruikt.
         Het wordt gewaardeerd als u FairEmail in de Play Store zou beoordelen.

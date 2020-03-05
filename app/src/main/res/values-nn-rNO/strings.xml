@@ -204,12 +204,14 @@
     <string name="title_advanced_section_display">Vis</string>
     <string name="title_advanced_section_behavior">Oppførsel</string>
     <string name="title_advanced_section_privacy">Personvern</string>
+    <string name="title_advanced_section_encryption">Kryptering</string>
     <string name="title_advanced_section_notifications">Varslinger</string>
     <string name="title_advanced_section_misc">Diverse</string>
     <string name="title_advanced_receive">Motta meldinger</string>
     <string name="title_advanced_when">Når</string>
     <string name="title_advanced_always">Synkroniser alltid disse kontoene</string>
     <string name="title_advanced_schedule">Tidsplan</string>
+    <string name="title_advanced_advanced">Avansert</string>
     <string name="title_advanced_unseen">Alle uleste meldinger</string>
     <string name="title_advanced_flagged">Alle stjernemerkede meldinger</string>
     <string name="title_advanced_delete_unseen">Slett gamle uleste meldinger</string>
@@ -242,6 +244,9 @@
     <string name="title_advanced_ssl_harden">Styrke SSL-tilkoblinger</string>
     <string name="title_advanced_socks">Bruk SOCKS-proxy</string>
     <string name="title_advanced_manage_connectivity">Administrer tilkobling</string>
+    <string name="title_advanced_caption_general">Generelt</string>
+    <string name="title_advanced_caption_conversation">Samtale</string>
+    <string name="title_advanced_caption_message">Melding</string>
     <string name="title_advanced_landscape">Bruk to kolonner i liggende modus</string>
     <string name="title_advanced_landscape3">Tillat fast navigasjonsmeny i liggende modus</string>
     <string name="title_advanced_startup">Vis på startskjermen</string>
@@ -287,6 +292,7 @@
     <string name="title_advanced_navbar_colorize">Fargelegg Android-navigasjonslinjen</string>
     <string name="title_advanced_double_back">Dobbel \'tilbake\' for å avslutte</string>
     <string name="title_advanced_pull_refresh">Dra ned for å oppdatere</string>
+    <string name="title_advanced_hide_actionbar">Skjul handlingslinjen når du blar ned</string>
     <string name="title_advanced_autoscroll">Rull til toppen når du mottar nye meldinger</string>
     <string name="title_advanced_double_tap">Dobbeltklikk for å markere meldingen lest/ulest</string>
     <string name="title_advanced_swipenav">Sveip til venstre/høyre for å gå til neste/forrige samtale</string>
@@ -647,7 +653,6 @@
     <string name="title_ask_reporting">Send feilrapporter?</string>
     <string name="title_reporting_why">Feilrapportering vil bidra til å forbedre FairEmail</string>
     <string name="title_message_bar_hint">Trykk på kryssikonet for å arkivere, slette eller rapportere en melding som spam og for å fjerne dette varselet</string>
-    <string name="title_answer_hint">Svar til alle, videresending osv. Er flyttet til svar-knappen nederst</string>
     <string name="title_ask_review">Vennligst anmeld FairEmail</string>
     <string name="title_ask_review_rationale">Du har brukt FairEmail en stund.
 Det vil bli satt pris på om du kunne rangere FairEmail i Play Store.

@@ -646,7 +646,6 @@
     <string name="title_ask_reporting">Изпрати репорт с грешки?</string>
     <string name="title_reporting_why">Докладе с грешки ще помогне да се подобри FairEmail</string>
     <string name="title_message_bar_hint">Докоснете иконата, за да архивирате, изтриете или докладвате съобщение като спам и да премахнете това известие</string>
-    <string name="title_answer_hint">Отговорите на всички, пренасочването и т.н. са преместени в бутона за отговор в долната част</string>
     <string name="title_ask_review">Моля, прегледайте FairEmail</string>
     <string name="title_ask_review_rationale">        Използвате FairEmail от известно време.
         Ще Ви бъде благодарен, ако можете да оцените FairEmail в Play Store.

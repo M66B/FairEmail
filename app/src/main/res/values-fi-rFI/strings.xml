@@ -76,6 +76,7 @@
     <string name="title_notification_failed">\'%1$s\' epäonnistui</string>
     <string name="title_notification_alert">Palvelimen \'%1$s\' hälytys</string>
     <string name="title_name_count">%1$s (%2$s)</string>
+    <string name="title_name_plus">%1$s +%2$d</string>
     <string name="title_factor_minutes">%1$d minuuttia</string>
     <string name="menu_exit">Poistu</string>
     <string name="menu_answers">Viestipohjat</string>
@@ -201,12 +202,14 @@
     <string name="title_advanced_section_display">Ulkoasu</string>
     <string name="title_advanced_section_behavior">Toiminnot</string>
     <string name="title_advanced_section_privacy">Yksityisyys</string>
+    <string name="title_advanced_section_encryption">Salaus</string>
     <string name="title_advanced_section_notifications">Ilmoitukset</string>
     <string name="title_advanced_section_misc">Sekalaiset</string>
     <string name="title_advanced_receive">Vastaanota viestejä</string>
     <string name="title_advanced_when">Milloin</string>
     <string name="title_advanced_always">Synkronoi aina nämä tilit</string>
     <string name="title_advanced_schedule">Aikataulu</string>
+    <string name="title_advanced_advanced">Lisäasetukset</string>
     <string name="title_advanced_unseen">Kaikki lukemattomat viestit</string>
     <string name="title_advanced_flagged">Kaikki tähdelliset viestit</string>
     <string name="title_advanced_delete_unseen">Poista vanhat lukemattomat viestit</string>
@@ -239,6 +242,9 @@
     <string name="title_advanced_ssl_harden">Koveta SSL-yhteydet</string>
     <string name="title_advanced_socks">Käytä SOCKS-proxypalvelinta</string>
     <string name="title_advanced_manage_connectivity">Hallitse verkkoyhteyksiä</string>
+    <string name="title_advanced_caption_general">Yleiset</string>
+    <string name="title_advanced_caption_conversation">Keskustelu</string>
+    <string name="title_advanced_caption_message">Viesti</string>
     <string name="title_advanced_landscape">Käytä kahta saraketta vaakatilassa</string>
     <string name="title_advanced_landscape3">Salli kiinteä navigointivalikko vaakatilassa</string>
     <string name="title_advanced_startup">Näytä aloitusnäytössä</string>
@@ -281,8 +287,10 @@
     <string name="title_advanced_images_inline">Näytä tekstiin upotetut kuvat oletuksena</string>
     <string name="title_advanced_seekbar">Näytä suhteellinen sijainti keskustelussa pisteellä</string>
     <string name="title_advanced_actionbar">Näytä keskustelun toimintopalkki</string>
+    <string name="title_advanced_navbar_colorize">Väritä Androidin navigointipalkki</string>
     <string name="title_advanced_double_back">\'Takaisin\' kaksi kertaa sulkee sovelluksen</string>
     <string name="title_advanced_pull_refresh">Vedä alas päivittääksesi</string>
+    <string name="title_advanced_hide_actionbar">Piilota toimintopalkki alas vieritettäessä</string>
     <string name="title_advanced_autoscroll">Vieritä ylös, kun uusi viesti saapuu</string>
     <string name="title_advanced_double_tap">Tuplanäpäytys merkitsee viestin luetuksi/lukemattomaksi</string>
     <string name="title_advanced_swipenav">Pyyhkäise vasemmalle/oikealle siirtyäksesi seuraavaan/edelliseen keskusteluun</string>
@@ -365,6 +373,7 @@
     <string name="title_advanced_check_mx">Tarkista lähettäjien sähköpostiosoitteet viestejä synkronoitaessa</string>
     <string name="title_advanced_check_reply">Tarkista vastaussähköpostiosoitteet viestejä synkronoitaessa</string>
     <string name="title_advanced_unseen_hint">Jotkin palveluntarjoajat eivät tue tätä kunnolla, mikä voi aiheuttaa kaikkien tai ei minkään viestin synkronoinnin</string>
+    <string name="title_advanced_deleted_unseen">Lukemattomat viestit pidetään laitteessa ikuisesti, kun poissa käytöstä</string>
     <string name="title_advanced_sync_kept_hint">Tämä lisää datan ja akun käyttöä varsinkin, jos paikallisia viestejä on paljon</string>
     <string name="title_advanced_sync_folders_hint">Tämän kytkeminen pois vähentää datan ja akun käyttöä, mutta kytkee pois myös kansiolistan päivittymisen</string>
     <string name="title_advanced_subscribed_only_hint">Tämän käyttöönotto poistaa kaikki paikalliset kansiot, joita ei ole tilattu</string>
@@ -435,6 +444,7 @@
     <string name="title_account_left">Pyyhkäisy vasemmalle</string>
     <string name="title_account_right">Pyyhkäisy oikealle</string>
     <string name="title_account_move">Oletuskohdekansio</string>
+    <string name="title_account_gmail">Gmail-tilin luotettavasti synkronoimiseksi tulisi käyttää Gmail-pika-asetusvelhoa aina, kun mahdollista</string>
     <string name="title_domain">Verkkotunnus</string>
     <string name="title_autoconfig">Hae asetukset</string>
     <string name="title_aliases">Aliakset</string>
@@ -585,6 +595,8 @@
     <string name="title_more">Lisää</string>
     <string name="title_spam">Siirrä roskapostikansioon</string>
     <string name="title_move">Siirrä</string>
+    <string name="title_no_junk">Ei roskaposti</string>
+    <string name="title_move_to">Siirrä kansioon &#8230;</string>
     <string name="title_move_to_folder">Siirrä kansioon &#8230;</string>
     <string name="title_move_to_account">Siirrä tilillä %1$s &#8230;</string>
     <string name="title_snooze">Torkuta &#8230;</string>
@@ -638,6 +650,7 @@
     <string name="title_ask_help">Auta parantamaan FairEmailia</string>
     <string name="title_ask_reporting">Lähetetäänkö virheraportteja?</string>
     <string name="title_reporting_why">Virheraportointi auttaa FairEmailin kehittämisessä</string>
+    <string name="title_message_bar_hint">Napauta ristikuvaketta arkistoidaksesi, poistaaksesi tai merkitäksesi viestin roskapostiksi ja poistaaksesi tämän huomautuksen</string>
     <string name="title_ask_review">Ole hyvä ja arvostele FairEmail</string>
     <string name="title_ask_review_rationale">Olet käyttänyt FairEmailia jonkin aikaa.
         Olisi hienoa, jos voisit arvioida FairEmailin Play Kaupassa.

@@ -198,6 +198,7 @@
     <string name="title_advanced_when">何时</string>
     <string name="title_advanced_always">总是同步这些账户</string>
     <string name="title_advanced_schedule">计划任务</string>
+    <string name="title_advanced_advanced">高级</string>
     <string name="title_advanced_unseen">所有未读消息</string>
     <string name="title_advanced_flagged">所有已标星消息</string>
     <string name="title_advanced_delete_unseen">删除旧的未读消息</string>
@@ -639,7 +640,6 @@
     <string name="title_ask_reporting">发送错误报告?</string>
     <string name="title_reporting_why">错误报告将有助于改进FairEmail</string>
     <string name="title_message_bar_hint">点击十字图标可将邮件存档，删除或报告为垃圾邮件，并删除此通知</string>
-    <string name="title_answer_hint">回复所有人，转发等已移至底部的回复按钮</string>
     <string name="title_ask_review">请给FairEmail评分</string>
     <string name="title_ask_review_rationale">        您已经使用FairEmail一段时间了。
         如果您能在谷歌商店为FairEmail评分，我将感激不尽。

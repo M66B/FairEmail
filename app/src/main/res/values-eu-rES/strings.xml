@@ -203,12 +203,14 @@
     <string name="title_advanced_section_display">Bistaratzea</string>
     <string name="title_advanced_section_behavior">Portaera</string>
     <string name="title_advanced_section_privacy">Pribatutasuna</string>
+    <string name="title_advanced_section_encryption">Zifratzea</string>
     <string name="title_advanced_section_notifications">Jakinarazpenak</string>
     <string name="title_advanced_section_misc">Miszelanea</string>
     <string name="title_advanced_receive">Jaso mezuak</string>
     <string name="title_advanced_when">Noiz</string>
     <string name="title_advanced_always">Sinkronizatu beti kontu hauek</string>
     <string name="title_advanced_schedule">Egitaraua</string>
+    <string name="title_advanced_advanced">Aurreratua</string>
     <string name="title_advanced_unseen">Irakurri gabeko mezu guztiak</string>
     <string name="title_advanced_flagged">Izardun mezu guztiak</string>
     <string name="title_advanced_delete_unseen">Ezabatu irakurri gabeko mezu zaharrak</string>
@@ -241,6 +243,9 @@
     <string name="title_advanced_ssl_harden">Gogortu SSL konexioak</string>
     <string name="title_advanced_socks">Erabili SOCKS proxya</string>
     <string name="title_advanced_manage_connectivity">Kudeatu konektibitatea</string>
+    <string name="title_advanced_caption_general">Orokorra</string>
+    <string name="title_advanced_caption_conversation">Elkarrizketa</string>
+    <string name="title_advanced_caption_message">Mezua</string>
     <string name="title_advanced_landscape">Erabili bi zutabe modu horizontalean</string>
     <string name="title_advanced_landscape3">Baimendu nabigazio menu finkoa horizontalean</string>
     <string name="title_advanced_startup">Erakutsi hasiera pantailan</string>
@@ -286,6 +291,7 @@
     <string name="title_advanced_navbar_colorize">Koloreztatu Android-en nabigazio barra</string>
     <string name="title_advanced_double_back">\'Atzera\' birritan irteteko</string>
     <string name="title_advanced_pull_refresh">Tiratu behera berritzeko</string>
+    <string name="title_advanced_hide_actionbar">Ezkutatu ekintza barra beherantz korritzean</string>
     <string name="title_advanced_autoscroll">Korritu gora mezu berriak jasotzean</string>
     <string name="title_advanced_double_tap">Sakatu birritan mezua irakurrita/irakurri gabeko gisa markatzeko</string>
     <string name="title_advanced_swipenav">Pasatu hatza ezkerrera/eskuinera aurreko/hurrengo elkarrizketara joateko</string>
@@ -645,7 +651,6 @@
     <string name="title_ask_reporting">Bidali errore txostenak?</string>
     <string name="title_reporting_why">Errore txostenek FairEmail hobetzen laguntzen dute</string>
     <string name="title_message_bar_hint">Tap egin gurutzearen ikonoan mezua gordetzeko, ezabatzeko edo spam gisa artxibatzeko eta ohar hau kentzeko</string>
-    <string name="title_answer_hint">Denei erantzutea, birbidaltzea eta abar behean dagoen erantzun-botoira eraman dira</string>
     <string name="title_ask_review">Baloratu FairEmail mesedez</string>
     <string name="title_ask_review_rationale">FairEmail denbora batez erabili duzu.
 Eskertzekoa litzateke Play Storen FairEmail baloratuko bazenu.

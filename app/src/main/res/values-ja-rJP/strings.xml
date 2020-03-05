@@ -637,7 +637,6 @@
     <string name="title_ask_reporting">エラーレポートを送信しますか？</string>
     <string name="title_reporting_why">エラー報告はFairEmailの改善に役立ちます</string>
     <string name="title_message_bar_hint">十字アイコンをタップしメッセージをスパムとしてアーカイブ、削除、又は報告し、この通知を削除します</string>
-    <string name="title_answer_hint">全員への返信、転送などが下部の返信ボタンに移動しました</string>
     <string name="title_ask_review">FairEmailを確認して下さい</string>
     <string name="title_ask_review_rationale">FairEmailをしばらく使用しています。
 PlayストアでFairEmailを評価できれば幸いです。

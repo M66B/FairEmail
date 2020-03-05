@@ -211,6 +211,7 @@
     <string name="title_advanced_when">Quand</string>
     <string name="title_advanced_always">Toujours synchroniser ces comptes</string>
     <string name="title_advanced_schedule">Planification</string>
+    <string name="title_advanced_advanced">Avancé</string>
     <string name="title_advanced_unseen">Tous les messages non lus</string>
     <string name="title_advanced_flagged">Tous les messages suivis</string>
     <string name="title_advanced_delete_unseen">Supprimer les anciens messages non lus</string>
@@ -652,7 +653,6 @@
     <string name="title_ask_reporting">Envoyer des rapports d\'erreur ?</string>
     <string name="title_reporting_why">Un rapport d\'erreur aidera à améliorer FairEmail</string>
     <string name="title_message_bar_hint">Appuyez sur l\'icône de la croix pour archiver, supprimer ou marquer un message comme spam et pour supprimer cet avis</string>
-    <string name="title_answer_hint">Répondre à tous, transférer, etc... ont été déplacés vers le bouton de réponse en bas</string>
     <string name="title_ask_review">Veuillez évaluer FairEmail</string>
     <string name="title_ask_review_rationale">        Vous utilisez FairEmail depuis un moment.
         Je vous serais reconnaissant si vous pouviez noter FairEmail dans le Play Store.
