@@ -162,6 +162,9 @@ class Core {
                             " group=" + group +
                             " retry=" + retry);
 
+                    if (!ifolder.isOpen())
+                        state.error(new FolderClosedException(ifolder));
+
                     // Fetch most recent copy of message
                     EntityMessage message = null;
                     if (op.message != null)
