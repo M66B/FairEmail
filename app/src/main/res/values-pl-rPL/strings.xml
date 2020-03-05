@@ -225,12 +225,14 @@
     <string name="title_advanced_section_display">Wyświetlanie</string>
     <string name="title_advanced_section_behavior">Zachowanie</string>
     <string name="title_advanced_section_privacy">Prywatność</string>
+    <string name="title_advanced_section_encryption">Szyfrowanie</string>
     <string name="title_advanced_section_notifications">Powiadomienia</string>
     <string name="title_advanced_section_misc">Różne</string>
     <string name="title_advanced_receive">Odbierz wiadomości</string>
     <string name="title_advanced_when">Kiedy</string>
     <string name="title_advanced_always">Zawsze synchronizuj te konta</string>
     <string name="title_advanced_schedule">Harmonogram</string>
+    <string name="title_advanced_advanced">Zaawansowane</string>
     <string name="title_advanced_unseen">Wszystkie nieprzeczytane wiadomości</string>
     <string name="title_advanced_flagged">Wszystkie oznaczone wiadomości</string>
     <string name="title_advanced_delete_unseen">Usuń stare nieprzeczytane wiadomości</string>
@@ -263,6 +265,9 @@
     <string name="title_advanced_ssl_harden">Wzmocnij połączenia SSL</string>
     <string name="title_advanced_socks">Użyj serwera proxy SOCKS</string>
     <string name="title_advanced_manage_connectivity">Zarządzaj połączeniami</string>
+    <string name="title_advanced_caption_general">Ogólne</string>
+    <string name="title_advanced_caption_conversation">Wątek</string>
+    <string name="title_advanced_caption_message">Wiadomość</string>
     <string name="title_advanced_landscape">Użyj dwóch kolumn w trybie poziomym</string>
     <string name="title_advanced_landscape3">Zezwalaj na stałe menu nawigacji w trybie poziomym</string>
     <string name="title_advanced_startup">Pokaż na ekranie początkowym</string>
@@ -305,6 +310,7 @@
     <string name="title_advanced_images_inline">Automatycznie pokazuj wstawione obrazy</string>
     <string name="title_advanced_seekbar">Pokaż względną pozycję rozmowy za pomocą kropki</string>
     <string name="title_advanced_actionbar">Pokaż pasek akcji konwersacji</string>
+    <string name="title_advanced_navbar_colorize">Koloruj pasek nawigacji Androida</string>
     <string name="title_advanced_double_back">Podwójne \'wstecz\', aby wyjść</string>
     <string name="title_advanced_pull_refresh">Pociągnij w dół, aby odświeżyć</string>
     <string name="title_advanced_autoscroll">Przewiń do góry po otrzymaniu nowych wiadomości</string>
@@ -666,6 +672,7 @@
     <string name="title_ask_help">Pomóż udoskonalić FairEmail</string>
     <string name="title_ask_reporting">Wyślij raport o błędach?</string>
     <string name="title_reporting_why">Raportowanie błędów pomoże poprawić FairEmail</string>
+    <string name="title_message_bar_hint">Stuknij ikonę krzyżyka, aby zarchiwizować, usunąć lub zgłosić wiadomość jako spam i usunąć to powiadomienie</string>
     <string name="title_ask_review">Oceń FairEmail</string>
     <string name="title_ask_review_rationale">        Od pewnego czasu korzystasz z FairEmail.
         Byłoby mile widziane, gdybyś mógł ocenić FairEmail w Sklepie Play..

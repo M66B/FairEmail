@@ -279,7 +279,6 @@
     <string name="title_advanced_navbar_colorize">为安卓导航栏上色</string>
     <string name="title_advanced_double_back">双击返回键退出</string>
     <string name="title_advanced_pull_refresh">下拉刷新</string>
-    <string name="title_advanced_hide_actionbar">向下滚动时隐藏操作栏</string>
     <string name="title_advanced_autoscroll">在收到新消息时滚动至顶部</string>
     <string name="title_advanced_double_tap">双击标记消息已读/未读</string>
     <string name="title_advanced_swipenav">左右滑动切换邮件</string>

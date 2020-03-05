@@ -314,7 +314,6 @@
     <string name="title_advanced_navbar_colorize">Раскрашивать панель навигации Android</string>
     <string name="title_advanced_double_back">Двойное нажатие \"Назад\" для выхода</string>
     <string name="title_advanced_pull_refresh">Потянуть вниз для обновления</string>
-    <string name="title_advanced_hide_actionbar">Скрыть панель действий при прокрутке вниз</string>
     <string name="title_advanced_autoscroll">Прокрутить к началу списка при получении новых сообщений</string>
     <string name="title_advanced_double_tap">Двойное нажатие для отметки сообщений прочитанными/непрочитанными</string>
     <string name="title_advanced_swipenav">Смахивание влево/вправо для перехода к следующему/предыдущему диалогу</string>

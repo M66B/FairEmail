@@ -291,7 +291,6 @@
     <string name="title_advanced_navbar_colorize">Colora la barra di navigazione di Android</string>
     <string name="title_advanced_double_back">Doppio \'indietro\' per uscire</string>
     <string name="title_advanced_pull_refresh">Trascina in basso per aggiornare</string>
-    <string name="title_advanced_hide_actionbar">Nascondi la barra delle azioni quando scorri in basso</string>
     <string name="title_advanced_autoscroll">Scorri verso l\'alto quando ricevi nuovi messaggi</string>
     <string name="title_advanced_double_tap">Doppio tocco per segnare il messaggio letto/non letto</string>
     <string name="title_advanced_swipenav">Scorri a sinistra/destra per andare alla conversazione successiva/precedente</string>

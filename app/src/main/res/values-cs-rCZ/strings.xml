@@ -313,7 +313,6 @@
     <string name="title_advanced_navbar_colorize">Obarvit navigační panel Androidu</string>
     <string name="title_advanced_double_back">Dvakrát \"zpět\" pro ukončení</string>
     <string name="title_advanced_pull_refresh">Aktualizovat tažením dolů</string>
-    <string name="title_advanced_hide_actionbar">Skrýt panel akcí při posouvání dolů</string>
     <string name="title_advanced_autoscroll">Posun na začátek při příjmu nových zpráv</string>
     <string name="title_advanced_double_tap">Dvojstisk pro označení zprávy jako přečtené/nepřečtené</string>
     <string name="title_advanced_swipenav">Tahem vlevo/vpravo přejít na další/předešlou konverzaci</string>

@@ -292,7 +292,6 @@
     <string name="title_advanced_navbar_colorize">Fargelegg Android-navigasjonslinjen</string>
     <string name="title_advanced_double_back">Dobbel \'tilbake\' for å avslutte</string>
     <string name="title_advanced_pull_refresh">Dra ned for å oppdatere</string>
-    <string name="title_advanced_hide_actionbar">Skjul handlingslinjen når du blar ned</string>
     <string name="title_advanced_autoscroll">Rull til toppen når du mottar nye meldinger</string>
     <string name="title_advanced_double_tap">Dobbeltklikk for å markere meldingen lest/ulest</string>
     <string name="title_advanced_swipenav">Sveip til venstre/høyre for å gå til neste/forrige samtale</string>

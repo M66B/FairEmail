@@ -291,7 +291,6 @@
     <string name="title_advanced_navbar_colorize">Koloreztatu Android-en nabigazio barra</string>
     <string name="title_advanced_double_back">\'Atzera\' birritan irteteko</string>
     <string name="title_advanced_pull_refresh">Tiratu behera berritzeko</string>
-    <string name="title_advanced_hide_actionbar">Ezkutatu ekintza barra beherantz korritzean</string>
     <string name="title_advanced_autoscroll">Korritu gora mezu berriak jasotzean</string>
     <string name="title_advanced_double_tap">Sakatu birritan mezua irakurrita/irakurri gabeko gisa markatzeko</string>
     <string name="title_advanced_swipenav">Pasatu hatza ezkerrera/eskuinera aurreko/hurrengo elkarrizketara joateko</string>

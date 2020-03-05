@@ -277,7 +277,6 @@
     <string name="title_advanced_navbar_colorize">Androidナビゲーションバーの色付け</string>
     <string name="title_advanced_double_back">\"戻る\"をダブルタップして終了</string>
     <string name="title_advanced_pull_refresh">プルダウンして更新</string>
-    <string name="title_advanced_hide_actionbar">スクロールダウン時にアクションバーを非表示</string>
     <string name="title_advanced_autoscroll">新着メッセージを受信したらトップにスクロール</string>
     <string name="title_advanced_double_tap">ダブルタップでメッセージを既読/未読にします</string>
     <string name="title_advanced_swipenav">左/右にスワイプで次/前の会話に移動</string>

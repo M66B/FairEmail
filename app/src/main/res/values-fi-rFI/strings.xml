@@ -290,7 +290,6 @@
     <string name="title_advanced_navbar_colorize">Väritä Androidin navigointipalkki</string>
     <string name="title_advanced_double_back">\'Takaisin\' kaksi kertaa sulkee sovelluksen</string>
     <string name="title_advanced_pull_refresh">Vedä alas päivittääksesi</string>
-    <string name="title_advanced_hide_actionbar">Piilota toimintopalkki alas vieritettäessä</string>
     <string name="title_advanced_autoscroll">Vieritä ylös, kun uusi viesti saapuu</string>
     <string name="title_advanced_double_tap">Tuplanäpäytys merkitsee viestin luetuksi/lukemattomaksi</string>
     <string name="title_advanced_swipenav">Pyyhkäise vasemmalle/oikealle siirtyäksesi seuraavaan/edelliseen keskusteluun</string>
