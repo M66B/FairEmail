@@ -99,6 +99,7 @@ public class EmailService implements AutoCloseable {
 
     private final static int SEARCH_TIMEOUT = 2 * 60 * 1000; // milliseconds
     private final static int CONNECT_TIMEOUT = 60 * 1000; // milliseconds
+    private final static int CONNECT_TIMEOUT_CHECK = 30 * 1000; // milliseconds
     private final static int WRITE_TIMEOUT = 60 * 1000; // milliseconds
     private final static int READ_TIMEOUT = 60 * 1000; // milliseconds
     private final static int FETCH_SIZE = 1024 * 1024; // bytes, default 16K
@@ -157,9 +158,13 @@ public class EmailService implements AutoCloseable {
         // TODO: make timeouts configurable?
         // writetimeout: one thread overhead
         if (purpose == PURPOSE_SEARCH) {
-            properties.put("mail." + protocol + ".connectiontimeout", Integer.toString(SEARCH_TIMEOUT));
+            properties.put("mail." + protocol + ".connectiontimeout", Integer.toString(CONNECT_TIMEOUT));
             properties.put("mail." + protocol + ".writetimeout", Integer.toString(SEARCH_TIMEOUT));
             properties.put("mail." + protocol + ".timeout", Integer.toString(SEARCH_TIMEOUT));
+        } else if (purpose == PURPOSE_CHECK) {
+            properties.put("mail." + protocol + ".connectiontimeout", Integer.toString(CONNECT_TIMEOUT_CHECK));
+            properties.put("mail." + protocol + ".writetimeout", Integer.toString(WRITE_TIMEOUT));
+            properties.put("mail." + protocol + ".timeout", Integer.toString(READ_TIMEOUT));
         } else {
             properties.put("mail." + protocol + ".connectiontimeout", Integer.toString(CONNECT_TIMEOUT));
             properties.put("mail." + protocol + ".writetimeout", Integer.toString(WRITE_TIMEOUT));
