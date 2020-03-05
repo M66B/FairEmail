@@ -1209,23 +1209,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                             Log.i(folder.name + " queuing operations=" + added.size() +
                                                     " init=" + folder.initialize + " poll=" + folder.poll);
 
-                                            executor.submit(new Helper.PriorityRunnable(-1000, 0) {
-                                                @Override
-                                                public void run() {
-                                                    try {
-                                                        Folder ifolder = mapFolders.get(folder);
-                                                        if (ifolder != null) {
-                                                            boolean isOpen = ifolder.isOpen();
-                                                            Log.i(folder.name + " open=" + isOpen);
-                                                            if (!isOpen)
-                                                                state.error(new FolderClosedException(ifolder));
-                                                        }
-                                                    } catch (Throwable ex) {
-                                                        Log.w(ex);
-                                                    }
-                                                }
-                                            });
-
                                             // Partition operations by priority
                                             boolean offline = (mapFolders.get(folder) == null);
                                             List<TupleOperationEx.PartitionKey> keys = new ArrayList<>();
