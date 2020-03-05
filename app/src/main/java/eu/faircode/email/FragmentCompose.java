@@ -3854,11 +3854,12 @@ public class FragmentCompose extends FragmentBase {
                     } else if (action == R.id.action_send) {
                         // Remove unused inline images
                         List<String> cids = new ArrayList<>();
-                        for (Element element : JsoupEx.parse(body).select("img")) {
-                            String src = element.attr("src");
-                            if (src.startsWith("cid:"))
-                                cids.add("<" + src.substring(4) + ">");
-                        }
+                        if (!draft.plain_only)
+                            for (Element element : JsoupEx.parse(body).select("img")) {
+                                String src = element.attr("src");
+                                if (src.startsWith("cid:"))
+                                    cids.add("<" + src.substring(4) + ">");
+                            }
 
                         for (EntityAttachment attachment : new ArrayList<>(attachments))
                             if (attachment.isInline() && !cids.contains(attachment.cid)) {
@@ -4033,7 +4034,6 @@ public class FragmentCompose extends FragmentBase {
                     return Integer.toString(id);
             }
         }
-
 
         private void setBusy(boolean busy) {
             FragmentCompose.this.busy = busy;
