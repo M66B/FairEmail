@@ -3854,7 +3854,7 @@ public class FragmentCompose extends FragmentBase {
                     } else if (action == R.id.action_send) {
                         // Remove unused inline images
                         List<String> cids = new ArrayList<>();
-                        if (!draft.plain_only)
+                        if (draft.plain_only == null || !draft.plain_only)
                             for (Element element : JsoupEx.parse(body).select("img")) {
                                 String src = element.attr("src");
                                 if (src.startsWith("cid:"))
