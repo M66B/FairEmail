@@ -197,6 +197,7 @@
     <string name="title_advanced_when">同期</string>
     <string name="title_advanced_always">アカウントを常に同期</string>
     <string name="title_advanced_schedule">スケジュール</string>
+    <string name="title_advanced_advanced">詳細</string>
     <string name="title_advanced_unseen">すべての未読メッセージ</string>
     <string name="title_advanced_flagged">すべてのスター付きメッセージ</string>
     <string name="title_advanced_delete_unseen">古い未読メッセージを削除</string>
@@ -210,7 +211,7 @@
     <string name="title_advanced_suggest_received">受信したメッセージで見つかったアドレスを提案</string>
     <string name="title_advanced_prefix_once">返信または転送時にプレフィックスを1回だけにします</string>
     <string name="title_advanced_extended_reply">拡張した返信/転送ヘッダーを使用</string>
-    <string name="title_advanced_quote_reply">返信テキストを引用</string>
+    <string name="title_advanced_quote_reply">返信テキスト時を引用符を付ける</string>
     <string name="title_advanced_signature_location">署名の場所</string>
     <string name="title_advanced_signature_end">引用/転送されたメッセージの後に署名を追加</string>
     <string name="title_advanced_plain_only">デフォルトでプレーンテキストのみを送信</string>
