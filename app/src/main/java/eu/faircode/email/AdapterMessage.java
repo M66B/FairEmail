@@ -1318,7 +1318,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean cross_hint = prefs.getBoolean("cross_hint", true);
-            boolean normal = (context.getResources().getConfiguration().screenWidthDp >= 400);
+            boolean normal = (context.getResources().getConfiguration().screenWidthDp >= 9 * 39 - 3);
 
             vSeparator.setVisibility(View.VISIBLE);
             ibFull.setEnabled(false);
