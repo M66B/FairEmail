@@ -127,6 +127,21 @@
         app:srcCompat="@drawable/baseline_reply_24" />
 
     <ImageButton
+        android:id="@+id/ibUnsubscribe"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="9dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/title_legend_show_unsubscribe"
+        android:foregroundTint="?android:attr/textColorSecondary"
+        android:padding="6dp"
+        android:scaleType="fitCenter"
+        android:tooltipText="@string/title_legend_show_unsubscribe"
+        app:layout_constraintStart_toEndOf="@+id/ibAnswer"
+        app:layout_constraintTop_toBottomOf="@id/vSeparator"
+        app:srcCompat="@drawable/baseline_unsubscribe_24" />
+
+    <ImageButton
         android:id="@+id/ibUndo"
         android:layout_width="36dp"
         android:layout_height="36dp"
@@ -189,30 +204,15 @@
         android:id="@+id/ibDecrypt"
         android:layout_width="36dp"
         android:layout_height="36dp"
-        android:layout_marginEnd="9dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/title_decrypt"
         android:foregroundTint="?android:attr/textColorSecondary"
         android:padding="6dp"
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_decrypt"
-        app:layout_constraintEnd_toStartOf="@+id/ibUnsubscribe"
-        app:layout_constraintTop_toBottomOf="@id/ibFull"
-        app:srcCompat="@drawable/baseline_lock_open_24" />
-
-    <ImageButton
-        android:id="@+id/ibUnsubscribe"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_legend_show_unsubscribe"
-        android:foregroundTint="?android:attr/textColorSecondary"
-        android:padding="6dp"
-        android:scaleType="fitCenter"
-        android:tooltipText="@string/title_legend_show_unsubscribe"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ibFull"
-        app:srcCompat="@drawable/baseline_unsubscribe_24" />
+        app:srcCompat="@drawable/baseline_lock_open_24" />
 
     <eu.faircode.email.FixedTextView
         android:id="@+id/tvSignedData"

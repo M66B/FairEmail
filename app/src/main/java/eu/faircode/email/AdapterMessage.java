@@ -1318,17 +1318,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean cross_hint = prefs.getBoolean("cross_hint", true);
-            boolean normal = (context.getResources().getConfiguration().screenWidthDp >= 360);
+            boolean normal = (context.getResources().getConfiguration().screenWidthDp >= 400);
 
             vSeparator.setVisibility(View.VISIBLE);
             ibFull.setEnabled(false);
             ibFull.setVisibility(View.VISIBLE);
             ibImages.setVisibility(View.GONE);
-            ibUnsubscribe.setVisibility(View.GONE);
             ibDecrypt.setVisibility(View.GONE);
             ibVerify.setVisibility(View.GONE);
             ibUndo.setVisibility(EntityFolder.OUTBOX.equals(message.folderType) ? View.VISIBLE : View.GONE);
 
+            ibUnsubscribe.setVisibility(normal || message.unsubscribe == null ? View.GONE : View.VISIBLE);
             ibAnswer.setVisibility(normal || EntityFolder.OUTBOX.equals(message.folderType) ? View.GONE : View.VISIBLE);
             ibMove.setVisibility(normal || message.folderReadOnly || message.uid == null ? View.GONE : View.VISIBLE);
             ibArchive.setVisibility(View.GONE);
@@ -1854,8 +1854,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     // Show images
                     ibImages.setVisibility(has_images && !(show_full && always_images) ? View.VISIBLE : View.GONE);
-
-                    ibUnsubscribe.setVisibility(message.unsubscribe == null ? View.GONE : View.VISIBLE);
 
                     // Show encrypt actions
                     ibVerify.setVisibility(false ||
@@ -3153,6 +3151,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
                             ibJunk.setTooltipText(title);
 
+                        ibUnsubscribe.setVisibility(message.unsubscribe == null ? View.GONE : View.VISIBLE);
                         ibAnswer.setVisibility(outbox ? View.GONE : View.VISIBLE);
                         ibMove.setVisibility(move ? View.VISIBLE : View.GONE);
                         ibArchive.setVisibility(archive ? View.VISIBLE : View.GONE);
