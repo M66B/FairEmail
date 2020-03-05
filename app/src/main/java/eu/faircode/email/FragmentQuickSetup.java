@@ -256,7 +256,7 @@ public class FragmentQuickSetup extends FragmentBase {
                     throw new IllegalArgumentException(context.getString(R.string.title_no_name));
                 if (TextUtils.isEmpty(email))
                     throw new IllegalArgumentException(context.getString(R.string.title_no_email));
-                if (!Patterns.EMAIL_ADDRESS.matcher(email).matches())
+                if (!Helper.EMAIL_ADDRESS.matcher(email).matches())
                     throw new IllegalArgumentException(context.getString(R.string.title_email_invalid, email));
                 if (TextUtils.isEmpty(password))
                     throw new IllegalArgumentException(context.getString(R.string.title_no_password));

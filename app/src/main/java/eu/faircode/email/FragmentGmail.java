@@ -300,7 +300,7 @@ public class FragmentGmail extends FragmentBase {
                 String password = args.getString("password");
 
                 // Safety checks
-                if (!Patterns.EMAIL_ADDRESS.matcher(user).matches())
+                if (!Helper.EMAIL_ADDRESS.matcher(user).matches())
                     throw new IllegalArgumentException(context.getString(R.string.title_email_invalid, user));
                 if (TextUtils.isEmpty(password))
                     throw new IllegalArgumentException(context.getString(R.string.title_no_password));

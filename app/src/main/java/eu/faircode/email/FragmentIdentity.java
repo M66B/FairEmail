@@ -657,7 +657,7 @@ public class FragmentIdentity extends FragmentBase {
                     throw new IllegalArgumentException(context.getString(R.string.title_no_name));
                 if (TextUtils.isEmpty(email) && !should)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_email));
-                if (!Patterns.EMAIL_ADDRESS.matcher(email).matches() && !should)
+                if (!Helper.EMAIL_ADDRESS.matcher(email).matches() && !should)
                     throw new IllegalArgumentException(context.getString(R.string.title_email_invalid, email));
                 if (TextUtils.isEmpty(host) && !should)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_host));

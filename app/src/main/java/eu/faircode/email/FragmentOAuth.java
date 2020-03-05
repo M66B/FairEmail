@@ -217,7 +217,7 @@ public class FragmentOAuth extends FragmentBase {
 
                 if (TextUtils.isEmpty(email))
                     throw new IllegalArgumentException(getString(R.string.title_no_email));
-                if (!Patterns.EMAIL_ADDRESS.matcher(email).matches())
+                if (!Helper.EMAIL_ADDRESS.matcher(email).matches())
                     throw new IllegalArgumentException(getString(R.string.title_email_invalid, email));
             }
 
