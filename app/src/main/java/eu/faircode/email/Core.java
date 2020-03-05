@@ -162,7 +162,7 @@ class Core {
                             " group=" + group +
                             " retry=" + retry);
 
-                    if (!ifolder.isOpen())
+                    if (ifolder != null && !ifolder.isOpen())
                         state.error(new FolderClosedException(ifolder));
 
                     // Fetch most recent copy of message
