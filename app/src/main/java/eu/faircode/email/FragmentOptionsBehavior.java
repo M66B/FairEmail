@@ -43,7 +43,6 @@ import androidx.preference.PreferenceManager;
 public class FragmentOptionsBehavior extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private SwitchCompat swDoubleBack;
     private SwitchCompat swPull;
-    private SwitchCompat swHideActionBar;
     private SwitchCompat swAutoScroll;
     private SwitchCompat swDoubleTap;
     private SwitchCompat swSwipeNav;
@@ -66,7 +65,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private NumberPicker npDefaultSnooze;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "double_back", "pull", "hide_actionbar", "autoscroll", "doubletap", "swipenav", "volumenav", "reversed",
+            "double_back", "pull", "autoscroll", "doubletap", "swipenav", "volumenav", "reversed",
             "autoexpand", "expand_all", "expand_one", "collapse_multiple",
             "autoclose", "onclose", "quick_filter", "quick_scroll",
             "autoread", "flag_snoozed", "autounflag", "auto_important", "reset_importance", "discard_delete",
@@ -85,7 +84,6 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
 
         swDoubleBack = view.findViewById(R.id.swDoubleBack);
         swPull = view.findViewById(R.id.swPull);
-        swHideActionBar = view.findViewById(R.id.swHideActionBar);
         swAutoScroll = view.findViewById(R.id.swAutoScroll);
         swDoubleTap = view.findViewById(R.id.swDoubleTap);
         swSwipeNav = view.findViewById(R.id.swSwipeNav);
@@ -127,13 +125,6 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("pull", checked).apply();
-            }
-        });
-
-        swHideActionBar.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("hide_actionbar", checked).apply();
             }
         });
 
@@ -339,7 +330,6 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
 
         swDoubleBack.setChecked(prefs.getBoolean("double_back", true));
         swPull.setChecked(prefs.getBoolean("pull", true));
-        swHideActionBar.setChecked(prefs.getBoolean("hide_actionbar", false));
         swAutoScroll.setChecked(prefs.getBoolean("autoscroll", true));
         swDoubleTap.setChecked(prefs.getBoolean("doubletap", false));
         swSwipeNav.setChecked(prefs.getBoolean("swipenav", true));
