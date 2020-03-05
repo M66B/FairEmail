@@ -47,7 +47,6 @@
         android:padding="6dp"
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_delete"
-        android:visibility="gone"
         app:layout_constraintStart_toEndOf="@id/ibMore"
         app:layout_constraintTop_toBottomOf="@id/vSeparator"
         app:srcCompat="@drawable/baseline_close_24" />
@@ -138,8 +137,7 @@
         android:padding="6dp"
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_undo"
-        android:visibility="gone"
-        app:layout_constraintEnd_toStartOf="@+id/ibUnsubscribe"
+        app:layout_constraintEnd_toStartOf="@+id/ibImages"
         app:layout_constraintTop_toBottomOf="@id/vSeparator"
         app:srcCompat="@drawable/baseline_undo_24" />
 
