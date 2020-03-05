@@ -399,6 +399,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private TextView tvNoInternetBody;
         private ImageButton ibDownloading;
         private Group grpDownloading;
+        private ImageButton ibSeen;
 
         private TextView tvCalendarSummary;
         private TextView tvCalendarDescription;
@@ -588,6 +589,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvNoInternetBody = vsBody.findViewById(R.id.tvNoInternetBody);
             ibDownloading = vsBody.findViewById(R.id.ibDownloading);
             grpDownloading = vsBody.findViewById(R.id.grpDownloading);
+            ibSeen = vsBody.findViewById(R.id.ibSeen);
 
             rvImage = vsBody.findViewById(R.id.rvImage);
             rvImage.setHasFixedSize(false);
@@ -665,6 +667,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibMore.setOnClickListener(this);
 
                 ibDownloading.setOnClickListener(this);
+                ibSeen.setOnClickListener(this);
 
                 tvBody.setOnTouchListener(this);
                 tvBody.addOnLayoutChangeListener(this);
@@ -738,6 +741,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibMore.setOnClickListener(null);
 
                 ibDownloading.setOnClickListener(null);
+                ibSeen.setOnClickListener(null);
 
                 tvBody.setOnTouchListener(null);
                 tvBody.removeOnLayoutChangeListener(this);
@@ -1176,6 +1180,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             pbBody.setVisibility(View.GONE);
             tvNoInternetBody.setVisibility(View.GONE);
             grpDownloading.setVisibility(View.GONE);
+            ibSeen.setVisibility(View.GONE);
         }
 
         private void clearCalendar() {
@@ -1596,7 +1601,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     return false;
 
                                 Uri uri = Uri.parse(url);
-                                return AdapterMessage.ViewHolder.this.onOpenLink(uri, null);
+                                return ViewHolder.this.onOpenLink(uri, null);
                             }
                         });
                 webView.setOnTouchListener(ViewHolder.this);
@@ -1615,6 +1620,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvBody.setVisibility(View.VISIBLE);
                 wvBody.setVisibility(View.GONE);
             }
+
+            ibSeen.setImageResource(message.ui_seen
+                    ? R.drawable.baseline_visibility_off_24 : R.drawable.baseline_visibility_24);
+            ibSeen.setContentDescription(context.getString(message.ui_seen
+                    ? R.string.title_unseen : R.string.title_seen));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+                ibSeen.setTooltipText(context.getString(message.ui_seen
+                        ? R.string.title_unseen : R.string.title_seen));
+            ibSeen.setVisibility(message.folderReadOnly || message.uid == null
+                    ? View.GONE : View.VISIBLE);
 
             final Bundle args = new Bundle();
             args.putSerializable("message", message);
@@ -2349,6 +2364,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     case R.id.ibDownloading:
                         Helper.viewFAQ(context, 15);
+                        break;
+                    case R.id.ibSeen:
+                        onMenuUnseen(message);
                         break;
 
                     case R.id.btnCalendarAccept:
