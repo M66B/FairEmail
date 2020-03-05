@@ -36,7 +36,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
-import android.content.res.Configuration;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -1319,8 +1318,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean cross_hint = prefs.getBoolean("cross_hint", true);
-            boolean normal = context.getResources().getConfiguration()
-                    .isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_NORMAL);
+            boolean normal = (context.getResources().getConfiguration().screenWidthDp >= 360);
 
             vSeparator.setVisibility(View.VISIBLE);
             ibFull.setEnabled(false);
