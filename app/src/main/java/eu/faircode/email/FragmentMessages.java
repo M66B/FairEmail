@@ -1976,95 +1976,98 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             TupleMessageEx message = adapter.getItemAtPosition(pos);
             if (message == null)
                 return;
-
-            Bundle args = new Bundle();
-            args.putLong("id", id);
-
-            new SimpleTask<List<TupleIdentityEx>>() {
-                @Override
-                protected List<TupleIdentityEx> onExecute(Context context, Bundle args) {
-                    long id = args.getLong("id");
-
-                    DB db = DB.getInstance(context);
-                    EntityMessage message = db.message().getMessage(id);
-                    if (message == null)
-                        return null;
-
-                    args.putInt("answers", db.answer().getAnswerCount());
-
-                    return db.identity().getComposableIdentities(message.account);
-                }
-
-                @Override
-                protected void onExecuted(Bundle args, List<TupleIdentityEx> identities) {
-                    if (identities == null)
-                        identities = new ArrayList<>();
-
-                    final Address[] to =
-                            message.replySelf(identities, message.account)
-                                    ? message.to
-                                    : (message.reply == null || message.reply.length == 0 ? message.from : message.reply);
-
-                    Address[] recipients = message.getAllRecipients(identities, message.account);
-
-                    int answers = args.getInt("answers");
-
-                    PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), fabReply);
-                    popupMenu.inflate(R.menu.popup_reply);
-                    popupMenu.getMenu().findItem(R.id.menu_reply_to_all).setVisible(recipients.length > 0);
-                    popupMenu.getMenu().findItem(R.id.menu_reply_list).setVisible(message.list_post != null);
-                    popupMenu.getMenu().findItem(R.id.menu_reply_receipt).setVisible(message.receipt_to != null);
-                    popupMenu.getMenu().findItem(R.id.menu_new_message).setVisible(to != null && to.length > 0);
-                    popupMenu.getMenu().findItem(R.id.menu_reply_answer).setVisible(answers != 0 || !ActivityBilling.isPro(getContext()));
-
-                    popupMenu.getMenu().findItem(R.id.menu_reply_to_sender).setEnabled(message.content);
-                    popupMenu.getMenu().findItem(R.id.menu_reply_to_all).setEnabled(message.content);
-                    popupMenu.getMenu().findItem(R.id.menu_forward).setEnabled(message.content);
-                    popupMenu.getMenu().findItem(R.id.menu_editasnew).setEnabled(message.content);
-                    popupMenu.getMenu().findItem(R.id.menu_reply_answer).setEnabled(message.content);
-
-                    popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                        @Override
-                        public boolean onMenuItemClick(MenuItem target) {
-                            switch (target.getItemId()) {
-                                case R.id.menu_reply_to_sender:
-                                    onMenuReply(message, "reply");
-                                    return true;
-                                case R.id.menu_reply_to_all:
-                                    onMenuReply(message, "reply_all");
-                                    return true;
-                                case R.id.menu_reply_list:
-                                    onMenuReply(message, "list");
-                                    return true;
-                                case R.id.menu_reply_receipt:
-                                    onMenuReply(message, "receipt");
-                                    return true;
-                                case R.id.menu_forward:
-                                    onMenuReply(message, "forward");
-                                    return true;
-                                case R.id.menu_editasnew:
-                                    onMenuReply(message, "editasnew");
-                                    return true;
-                                case R.id.menu_new_message:
-                                    onMenuNew(message, to);
-                                    return true;
-                                case R.id.menu_reply_answer:
-                                    onMenuAnswer(message);
-                                    return true;
-                                default:
-                                    return false;
-                            }
-                        }
-                    });
-                    popupMenu.show();
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Log.unexpectedError(getParentFragmentManager(), ex);
-                }
-            }.execute(FragmentMessages.this, args, "messages:reply");
+            onReply(message, fabReply);
         }
+    }
+
+    void onReply(final TupleMessageEx message, final View anchor) {
+        Bundle args = new Bundle();
+        args.putLong("id", message.id);
+
+        new SimpleTask<List<TupleIdentityEx>>() {
+            @Override
+            protected List<TupleIdentityEx> onExecute(Context context, Bundle args) {
+                long id = args.getLong("id");
+
+                DB db = DB.getInstance(context);
+                EntityMessage message = db.message().getMessage(id);
+                if (message == null)
+                    return null;
+
+                args.putInt("answers", db.answer().getAnswerCount());
+
+                return db.identity().getComposableIdentities(message.account);
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, List<TupleIdentityEx> identities) {
+                if (identities == null)
+                    identities = new ArrayList<>();
+
+                final Address[] to =
+                        message.replySelf(identities, message.account)
+                                ? message.to
+                                : (message.reply == null || message.reply.length == 0 ? message.from : message.reply);
+
+                Address[] recipients = message.getAllRecipients(identities, message.account);
+
+                int answers = args.getInt("answers");
+
+                PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), anchor);
+                popupMenu.inflate(R.menu.popup_reply);
+                popupMenu.getMenu().findItem(R.id.menu_reply_to_all).setVisible(recipients.length > 0);
+                popupMenu.getMenu().findItem(R.id.menu_reply_list).setVisible(message.list_post != null);
+                popupMenu.getMenu().findItem(R.id.menu_reply_receipt).setVisible(message.receipt_to != null);
+                popupMenu.getMenu().findItem(R.id.menu_new_message).setVisible(to != null && to.length > 0);
+                popupMenu.getMenu().findItem(R.id.menu_reply_answer).setVisible(answers != 0 || !ActivityBilling.isPro(getContext()));
+
+                popupMenu.getMenu().findItem(R.id.menu_reply_to_sender).setEnabled(message.content);
+                popupMenu.getMenu().findItem(R.id.menu_reply_to_all).setEnabled(message.content);
+                popupMenu.getMenu().findItem(R.id.menu_forward).setEnabled(message.content);
+                popupMenu.getMenu().findItem(R.id.menu_editasnew).setEnabled(message.content);
+                popupMenu.getMenu().findItem(R.id.menu_reply_answer).setEnabled(message.content);
+
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem target) {
+                        switch (target.getItemId()) {
+                            case R.id.menu_reply_to_sender:
+                                onMenuReply(message, "reply");
+                                return true;
+                            case R.id.menu_reply_to_all:
+                                onMenuReply(message, "reply_all");
+                                return true;
+                            case R.id.menu_reply_list:
+                                onMenuReply(message, "list");
+                                return true;
+                            case R.id.menu_reply_receipt:
+                                onMenuReply(message, "receipt");
+                                return true;
+                            case R.id.menu_forward:
+                                onMenuReply(message, "forward");
+                                return true;
+                            case R.id.menu_editasnew:
+                                onMenuReply(message, "editasnew");
+                                return true;
+                            case R.id.menu_new_message:
+                                onMenuNew(message, to);
+                                return true;
+                            case R.id.menu_reply_answer:
+                                onMenuAnswer(message);
+                                return true;
+                            default:
+                                return false;
+                        }
+                    }
+                });
+                popupMenu.show();
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(FragmentMessages.this, args, "messages:reply");
     }
 
     private void onMenuReply(TupleMessageEx message, String action) {

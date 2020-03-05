@@ -745,7 +745,6 @@
     <string name="title_ask_reporting">Send error reports?</string>
     <string name="title_reporting_why">Error reporting will help improve FairEmail</string>
     <string name="title_message_bar_hint">Tap the cross icon to archive, delete or report a message as spam and to remove this notice</string>
-    <string name="title_answer_hint">Reply to all, forwarding, etc. have been moved to the reply button at the bottom</string>
 
     <string name="title_ask_review">Please review FairEmail</string>
     <string name="title_ask_review_rationale">
