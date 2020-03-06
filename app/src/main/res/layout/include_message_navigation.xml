@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -22,6 +23,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/vSeparator" />
 
+    <androidx.constraintlayout.helper.widget.Flow
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        app:constraint_referenced_ids="ibMore,ibJunk,ibTrash,ibArchive,ibMove,ibAnswer,ibUnsubscribe,ibUndo"
+        app:flow_horizontalBias="0"
+        app:flow_horizontalGap="6dp"
+        app:flow_horizontalStyle="packed"
+        app:flow_wrapMode="chain"
+        app:layout_constraintEnd_toStartOf="@+id/ibVerify"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vSeparator" />
+
     <ImageButton
         android:id="@+id/ibMore"
         android:layout_width="36dp"
@@ -32,131 +46,129 @@
         android:padding="6dp"
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_more"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/vSeparator"
-        app:srcCompat="@drawable/baseline_more_vert_24" />
-
-    <ImageButton
-        android:id="@+id/ibRemove"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="3dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_delete"
-        android:foregroundTint="?android:attr/textColorSecondary"
-        android:padding="6dp"
-        android:scaleType="fitCenter"
-        android:tooltipText="@string/title_delete"
-        android:visibility="gone"
-        app:layout_constraintStart_toEndOf="@id/ibMore"
-        app:layout_constraintTop_toBottomOf="@id/vSeparator"
-        app:srcCompat="@drawable/baseline_close_24" />
+        app:srcCompat="@drawable/baseline_more_vert_24"
+        tools:ignore="MissingConstraints" />
 
     <ImageButton
         android:id="@+id/ibJunk"
         android:layout_width="36dp"
         android:layout_height="36dp"
-        android:layout_marginStart="3dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/title_spam"
         android:foregroundTint="?android:attr/textColorSecondary"
         android:padding="6dp"
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_spam"
-        app:layout_constraintStart_toEndOf="@id/ibRemove"
-        app:layout_constraintTop_toBottomOf="@id/vSeparator"
-        app:srcCompat="@drawable/baseline_flag_24" />
+        app:srcCompat="@drawable/baseline_flag_24"
+        tools:ignore="MissingConstraints" />
 
     <ImageButton
         android:id="@+id/ibTrash"
         android:layout_width="36dp"
         android:layout_height="36dp"
-        android:layout_marginStart="3dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/title_delete"
         android:foregroundTint="?android:attr/textColorSecondary"
         android:padding="6dp"
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_delete"
-        app:layout_constraintStart_toEndOf="@id/ibJunk"
-        app:layout_constraintTop_toBottomOf="@id/vSeparator"
-        app:srcCompat="@drawable/baseline_delete_24" />
+        app:srcCompat="@drawable/baseline_delete_24"
+        tools:ignore="MissingConstraints" />
 
     <ImageButton
         android:id="@+id/ibArchive"
         android:layout_width="36dp"
         android:layout_height="36dp"
-        android:layout_marginStart="3dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/title_archive"
         android:foregroundTint="?android:attr/textColorSecondary"
         android:padding="6dp"
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_archive"
-        app:layout_constraintStart_toEndOf="@id/ibTrash"
-        app:layout_constraintTop_toBottomOf="@id/vSeparator"
-        app:srcCompat="@drawable/baseline_archive_24" />
+        app:srcCompat="@drawable/baseline_archive_24"
+        tools:ignore="MissingConstraints" />
 
     <ImageButton
         android:id="@+id/ibMove"
         android:layout_width="36dp"
         android:layout_height="36dp"
-        android:layout_marginStart="3dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/title_move"
         android:foregroundTint="?android:attr/textColorSecondary"
         android:padding="6dp"
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_move"
-        app:layout_constraintStart_toEndOf="@id/ibArchive"
-        app:layout_constraintTop_toBottomOf="@id/vSeparator"
-        app:srcCompat="@drawable/baseline_folder_24" />
+        app:srcCompat="@drawable/baseline_folder_24"
+        tools:ignore="MissingConstraints" />
 
     <ImageButton
         android:id="@+id/ibAnswer"
         android:layout_width="36dp"
         android:layout_height="36dp"
-        android:layout_marginStart="3dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/title_reply"
         android:foregroundTint="?android:attr/textColorSecondary"
         android:padding="6dp"
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_reply"
-        app:layout_constraintStart_toEndOf="@id/ibMove"
-        app:layout_constraintTop_toBottomOf="@id/vSeparator"
-        app:srcCompat="@drawable/baseline_reply_24" />
+        app:srcCompat="@drawable/baseline_reply_24"
+        tools:ignore="MissingConstraints" />
 
     <ImageButton
         android:id="@+id/ibUnsubscribe"
         android:layout_width="36dp"
         android:layout_height="36dp"
-        android:layout_marginStart="3dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/title_legend_show_unsubscribe"
         android:foregroundTint="?android:attr/textColorSecondary"
         android:padding="6dp"
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_legend_show_unsubscribe"
-        app:layout_constraintStart_toEndOf="@+id/ibAnswer"
-        app:layout_constraintTop_toBottomOf="@id/vSeparator"
-        app:srcCompat="@drawable/baseline_unsubscribe_24" />
+        app:srcCompat="@drawable/baseline_unsubscribe_24"
+        tools:ignore="MissingConstraints" />
 
     <ImageButton
         android:id="@+id/ibUndo"
         android:layout_width="36dp"
         android:layout_height="36dp"
-        android:layout_marginEnd="3dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/title_undo"
         android:foregroundTint="?android:attr/textColorSecondary"
         android:padding="6dp"
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_undo"
-        android:visibility="gone"
+        app:srcCompat="@drawable/baseline_undo_24"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/ibVerify"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="3dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/title_sign"
+        android:foregroundTint="?android:attr/textColorSecondary"
+        android:padding="6dp"
+        android:scaleType="fitCenter"
+        android:tooltipText="@string/title_sign"
+        app:layout_constraintEnd_toStartOf="@+id/ibDecrypt"
+        app:layout_constraintTop_toBottomOf="@id/vSeparator"
+        app:srcCompat="@drawable/baseline_gesture_24" />
+
+    <ImageButton
+        android:id="@+id/ibDecrypt"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="3dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/title_decrypt"
+        android:foregroundTint="?android:attr/textColorSecondary"
+        android:padding="6dp"
+        android:scaleType="fitCenter"
+        android:tooltipText="@string/title_decrypt"
         app:layout_constraintEnd_toStartOf="@+id/ibImages"
         app:layout_constraintTop_toBottomOf="@id/vSeparator"
-        app:srcCompat="@drawable/baseline_undo_24" />
+        app:srcCompat="@drawable/baseline_lock_open_24" />
 
     <ImageButton
         android:id="@+id/ibImages"
@@ -187,35 +199,6 @@
         app:layout_constraintTop_toBottomOf="@id/vSeparator"
         app:srcCompat="@drawable/baseline_fullscreen_24" />
 
-    <ImageButton
-        android:id="@+id/ibVerify"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_marginEnd="3dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_sign"
-        android:foregroundTint="?android:attr/textColorSecondary"
-        android:padding="6dp"
-        android:scaleType="fitCenter"
-        android:tooltipText="@string/title_sign"
-        app:layout_constraintEnd_toStartOf="@+id/ibDecrypt"
-        app:layout_constraintTop_toBottomOf="@id/ibFull"
-        app:srcCompat="@drawable/baseline_gesture_24" />
-
-    <ImageButton
-        android:id="@+id/ibDecrypt"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_decrypt"
-        android:foregroundTint="?android:attr/textColorSecondary"
-        android:padding="6dp"
-        android:scaleType="fitCenter"
-        android:tooltipText="@string/title_decrypt"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ibFull"
-        app:srcCompat="@drawable/baseline_lock_open_24" />
-
     <eu.faircode.email.FixedTextView
         android:id="@+id/tvSignedData"
         android:layout_width="0dp"
@@ -226,16 +209,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ibVerify" />
-
-    <eu.faircode.email.FixedTextView
-        android:id="@+id/tvCrossHint"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="3dp"
-        android:text="@string/title_message_bar_hint"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/ibRemove"
-        app:layout_constraintTop_toBottomOf="@id/tvSignedData" />
 </androidx.constraintlayout.widget.ConstraintLayout>
