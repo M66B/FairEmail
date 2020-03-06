@@ -51,6 +51,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private SwitchCompat swExtendedReply;
     private SwitchCompat swQuoteReply;
     private SwitchCompat swPlainOnly;
+    private Spinner spReceiptType;
     private Spinner spSignatureLocation;
     private SwitchCompat swUsenetSignature;
     private SwitchCompat swRemoveSignatures;
@@ -66,7 +67,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private final static String[] RESET_OPTIONS = new String[]{
             "keyboard", "suggest_sent", "suggested_received",
             "prefix_once", "extended_reply", "quote_reply",
-            "plain_only", "signature_location", "usenet_signature", "remove_signatures",
+            "plain_only", "receipt_type", "signature_location", "usenet_signature", "remove_signatures",
             "resize_images", "resize_attachments", "send_reminders", "receipt_default", "resize", "lookup_mx", "send_delayed"
     };
 
@@ -88,6 +89,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swExtendedReply = view.findViewById(R.id.swExtendedReply);
         swQuoteReply = view.findViewById(R.id.swQuoteReply);
         swPlainOnly = view.findViewById(R.id.swPlainOnly);
+        spReceiptType = view.findViewById(R.id.spReceiptType);
         spSignatureLocation = view.findViewById(R.id.spSignatureLocation);
         swUsenetSignature = view.findViewById(R.id.swUsenetSignature);
         swRemoveSignatures = view.findViewById(R.id.swRemoveSignatures);
@@ -160,6 +162,18 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("plain_only", checked).apply();
+            }
+        });
+
+        spReceiptType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                prefs.edit().putInt("receipt_type", position).apply();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                prefs.edit().remove("receipt_type").apply();
             }
         });
 
@@ -306,6 +320,9 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swExtendedReply.setChecked(prefs.getBoolean("extended_reply", false));
         swQuoteReply.setChecked(prefs.getBoolean("quote_reply", true));
         swPlainOnly.setChecked(prefs.getBoolean("plain_only", false));
+
+        int receipt_type = prefs.getInt("receipt_type", 2);
+        spReceiptType.setSelection(receipt_type);
 
         int signature_location = prefs.getInt("signature_location", 1);
         spSignatureLocation.setSelection(signature_location);

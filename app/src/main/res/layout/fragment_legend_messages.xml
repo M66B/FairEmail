@@ -333,7 +333,7 @@
             app:srcCompat="@drawable/baseline_playlist_add_check_24" />
 
         <eu.faircode.email.FixedTextView
-            android:id="@+id/tvReceipt"
+            android:id="@+id/tvReceiptType"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:gravity="center_vertical"

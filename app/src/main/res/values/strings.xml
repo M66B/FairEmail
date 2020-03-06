@@ -277,6 +277,7 @@
     <string name="title_advanced_signature_location">Signature position</string>
     <string name="title_advanced_signature_end">Add signature after quoted/forwarded message</string>
     <string name="title_advanced_plain_only">Send plain text only by default</string>
+    <string name="title_advanced_receipt">When requesting a receipt</string>
     <string name="title_advanced_usenet_signature">Usenet signature convention</string>
     <string name="title_advanced_remove_signatures">Remove recognized signatures</string>
     <string name="title_advanced_resize_images">Automatically resize embedded images</string>
@@ -807,7 +808,7 @@
     <string name="title_no_key">No private key</string>
     <string name="title_invalid_key">Invalid private key</string>
     <string name="title_send_plain_text">Plain text only</string>
-    <string name="title_send_receipt">Request delivery/read receipt</string>
+    <string name="title_send_receipt">Request receipt</string>
     <string name="title_send_receipt_remark">Most providers and email clients ignore receipt requests</string>
 
     <string name="title_from_missing">Sender missing</string>
@@ -1355,6 +1356,12 @@
         <item>Small</item>
         <item>Medium</item>
         <item>Large</item>
+    </string-array>
+
+    <string-array name="receiptNames">
+        <item>Read receipt</item>
+        <item>Delivery receipt</item>
+        <item>Read+delivery receipt</item>
     </string-array>
 
     <string-array name="signatureNames">

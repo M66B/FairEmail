@@ -231,11 +231,19 @@ public class MessageHelper {
             if (message.receipt_request != null && message.receipt_request) {
                 String to = (identity.replyto == null ? identity.email : identity.replyto);
 
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                int receipt_type = prefs.getInt("receipt_type", 2);
+                // 0=Read receipt
+                // 1=Delivery receipt
+                // 2=Read+delivery receipt
+
                 // defacto standard
-                imessage.addHeader("Return-Receipt-To", to);
+                if (receipt_type == 1 || receipt_type == 2) // Delivery receipt
+                    imessage.addHeader("Return-Receipt-To", to);
 
                 // https://tools.ietf.org/html/rfc3798
-                imessage.addHeader("Disposition-Notification-To", to);
+                if (receipt_type == 0 || receipt_type == 2) // Read receipt
+                    imessage.addHeader("Disposition-Notification-To", to);
             }
         }
 
