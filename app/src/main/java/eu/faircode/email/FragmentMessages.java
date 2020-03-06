@@ -5137,7 +5137,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     .getCertificate(certHolder);
                             try {
                                 Date signingTime;
-                                Attribute attr = signer.getSignedAttributes().get(CMSAttributes.signingTime);
+                                AttributeTable at = signer.getSignedAttributes();
+                                Attribute attr = (at == null ? null : at.get(CMSAttributes.signingTime));
                                 if (attr != null && attr.getAttrValues().size() == 1)
                                     signingTime = Time.getInstance(attr.getAttrValues()
                                             .getObjectAt(0).toASN1Primitive()).getDate();
