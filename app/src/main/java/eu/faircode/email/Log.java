@@ -519,7 +519,8 @@ public class Log {
 
         if (ex instanceof RuntimeException &&
                 ex.getMessage() != null &&
-                ex.getMessage().startsWith("Could not get application info"))
+                (ex.getMessage().startsWith("Could not get application info") ||
+                        ex.getMessage().startsWith("Unable to create service")))
             return false;
         /*
                 java.lang.RuntimeException: Could not get application info.
@@ -531,6 +532,10 @@ public class Log {
                    at android.os.Handler.dispatchMessage(Handler.java:100)
                    at android.os.Looper.loop(Looper.java:198)
                    at android.os.HandlerThread.run(HandlerThread.java:65)
+
+                java.lang.RuntimeException: Unable to create service eu.faircode.email.ServiceSynchronize: java.lang.NullPointerException: Attempt to invoke interface method 'java.util.List android.os.IUserManager.getProfiles(int, boolean)' on a null object reference
+                java.lang.RuntimeException: Unable to create service eu.faircode.email.ServiceSynchronize: java.lang.NullPointerException: Attempt to invoke interface method 'java.util.List android.os.IUserManager.getProfiles(int, boolean)' on a null object reference
+                  at android.app.ActivityThread.handleCreateService(ActivityThread.java:2739)
          */
 
         if (ex instanceof RuntimeException &&
