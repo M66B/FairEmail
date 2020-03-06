@@ -1481,6 +1481,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvBody.setText(null);
             grpDownloading.setVisibility(message.content ? View.GONE : View.VISIBLE);
 
+            ibSeen.setImageResource(message.ui_seen
+                    ? R.drawable.baseline_visibility_off_24 : R.drawable.baseline_visibility_24);
+            ibSeen.setContentDescription(context.getString(message.ui_seen
+                    ? R.string.title_unseen : R.string.title_seen));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+                ibSeen.setTooltipText(context.getString(message.ui_seen
+                        ? R.string.title_unseen : R.string.title_seen));
+            ibSeen.setVisibility(message.folderReadOnly || message.uid == null
+                    ? View.GONE : View.VISIBLE);
+
             if (!message.content)
                 return;
 
@@ -1618,16 +1628,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvBody.setVisibility(View.VISIBLE);
                 wvBody.setVisibility(View.GONE);
             }
-
-            ibSeen.setImageResource(message.ui_seen
-                    ? R.drawable.baseline_visibility_off_24 : R.drawable.baseline_visibility_24);
-            ibSeen.setContentDescription(context.getString(message.ui_seen
-                    ? R.string.title_unseen : R.string.title_seen));
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-                ibSeen.setTooltipText(context.getString(message.ui_seen
-                        ? R.string.title_unseen : R.string.title_seen));
-            ibSeen.setVisibility(message.folderReadOnly || message.uid == null
-                    ? View.GONE : View.VISIBLE);
 
             final Bundle args = new Bundle();
             args.putSerializable("message", message);
