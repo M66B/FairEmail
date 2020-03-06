@@ -771,6 +771,7 @@
     <string name="title_received">Received:</string>
     <string name="title_size">Size:</string>
     <string name="title_subject">Subject:</string>
+    <string name="title_attachment">Attachment:</string>
     <string name="title_body_hint">Your message</string>
     <string name="title_discard">Discard</string>
     <string name="title_save">Save</string>
