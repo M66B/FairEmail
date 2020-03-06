@@ -657,7 +657,6 @@
     <string name="title_no_key">Nenhuma chave privada</string>
     <string name="title_invalid_key">Chave privada inválida</string>
     <string name="title_send_plain_text">Somente texto simples</string>
-    <string name="title_send_receipt">Solicitar confirmação de entrega/leitura por padrão</string>
     <string name="title_send_receipt_remark">A maioria dos provedores e clientes de e-mail ignoram as solicitações de confirmação</string>
     <string name="title_from_missing">Remetente faltante</string>
     <string name="title_to_missing">Destinatário faltante</string>

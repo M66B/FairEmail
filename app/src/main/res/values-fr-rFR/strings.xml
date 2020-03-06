@@ -229,6 +229,7 @@
     <string name="title_advanced_signature_location">Emplacement de la signature</string>
     <string name="title_advanced_signature_end">Ajouter la signature après le message cité/transféré</string>
     <string name="title_advanced_plain_only">Envoyer le texte brut uniquement par défaut</string>
+    <string name="title_advanced_receipt">Lorsque vous demandez une confirmation</string>
     <string name="title_advanced_usenet_signature">Utiliser la convention de signature Usenet</string>
     <string name="title_advanced_remove_signatures">Supprimer les signatures reconnues</string>
     <string name="title_advanced_resize_images">Redimensionner automatiquement les images incluses</string>
@@ -430,7 +431,7 @@
     <string name="title_advanced_sender">Autoriser la modification de l\'adresse de l\'expéditeur</string>
     <string name="title_advanced_sender_regex">Regex pour correspondre au nom d\'utilisateur des adresses e-mail entrantes</string>
     <string name="title_identity_reply_to">Répondre à l\'adresse</string>
-    <string name="title_identity_receipt">Demander un accusé de réception/lecture par défaut</string>
+    <string name="title_identity_receipt">Demander une confirmation de réception/lecture par défaut</string>
     <string name="title_identity_use_ip_hint">En cas de \"message d\'accueil invalide\", \"nécessite une adresse valide\" ou une erreur similaire, essayez de modifier ce paramètre</string>
     <string name="title_optional">Facultatif</string>
     <string name="title_recommended">Recommandé</string>
@@ -611,8 +612,8 @@
     <string name="title_moving">Déplacement vers %1$s</string>
     <string name="title_open_with">Ouvrir avec</string>
     <string name="title_authentication_failed">L\'authentification %1$s a échoué</string>
-    <string name="title_receipt_subject">Accusé de réception : %1$s</string>
-    <string name="title_receipt_text">Cet accusé de réception atteste seulement que le message a été affiché. Il n\'y a aucune garantie que le destinataire ait lu le contenu du message.</string>
+    <string name="title_receipt_subject">Confirmation de lecture : %1$s</string>
+    <string name="title_receipt_text">Cette confirmation atteste seulement que le message a été affiché. Il n\'y a aucune garantie que le destinataire ait lu le contenu du message.</string>
     <string name="title_no_answers">Aucun modèle de réponse défini</string>
     <string name="title_no_viewer">Aucune application disponible pour visualiser %1$s</string>
     <string name="title_no_recorder">Aucune application d\'enregistrement audio disponible</string>
@@ -708,7 +709,7 @@
     <string name="title_no_key">Aucune clé privée</string>
     <string name="title_invalid_key">Clé privée invalide</string>
     <string name="title_send_plain_text">Texte brut seulement</string>
-    <string name="title_send_receipt">Demander un accusé de réception/lecture</string>
+    <string name="title_send_receipt">Demander une confirmation</string>
     <string name="title_send_receipt_remark">La plupart des fournisseurs et des clients de messagerie ignorent les demandes d\'accusé de réception</string>
     <string name="title_from_missing">Expéditeur manquant</string>
     <string name="title_to_missing">Destinataire manquant</string>
@@ -883,7 +884,7 @@
     <string name="title_legend_browsed">Est parcouru ou recherché</string>
     <string name="title_legend_answered">A reçu une réponse</string>
     <string name="title_legend_plain_only">Texte brut seulement</string>
-    <string name="title_legend_receipt">Un accusé de réception a été demandé</string>
+    <string name="title_legend_receipt">Une confirmation a été demandée</string>
     <string name="title_legend_attachment">A une pièce jointe</string>
     <string name="title_legend_flagged">Est suivi</string>
     <string name="title_legend_contacts">Gérer les contacts</string>
@@ -1136,6 +1137,11 @@
         <item>Petite</item>
         <item>Moyenne</item>
         <item>Grande</item>
+    </string-array>
+    <string-array name="receiptNames">
+        <item>Confirmation de lecture</item>
+        <item>Confirmation de réception</item>
+        <item>Confirmation de lecture et de réception</item>
     </string-array>
     <string-array name="signatureNames">
         <item>Au-dessus du texte</item>

@@ -636,7 +636,6 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_no_key">Nincs privát kulcs</string>
     <string name="title_invalid_key">Érvénytelen privát kulcs</string>
     <string name="title_send_plain_text">Csak egyszerű szöveg</string>
-    <string name="title_send_receipt">Kézbesítési/olvasási visszajelzés kérése</string>
     <string name="title_send_receipt_remark">A legtöbb email szolgáltató és kliens figyelmen kívül hagyja a visszajelzés kéréseket</string>
     <string name="title_from_missing">A feladó hiányzik</string>
     <string name="title_to_missing">A címzett hiányzik</string>

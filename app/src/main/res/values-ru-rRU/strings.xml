@@ -730,7 +730,6 @@
     <string name="title_no_key">Нет приватного ключа</string>
     <string name="title_invalid_key">Приватный ключ недействителен</string>
     <string name="title_send_plain_text">Только простой текст</string>
-    <string name="title_send_receipt">Запросить уведомление о доставке/прочтении</string>
     <string name="title_send_receipt_remark">Большинство провайдеров и клиентов электронной почты игнорируют запросы о доставке</string>
     <string name="title_from_missing">Отсутствует отправитель</string>
     <string name="title_to_missing">Отсутствует получатель</string>

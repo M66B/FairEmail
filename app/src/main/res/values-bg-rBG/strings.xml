@@ -702,7 +702,6 @@
     <string name="title_no_key">Няма частен ключ</string>
     <string name="title_invalid_key">Невалиден частен ключ</string>
     <string name="title_send_plain_text">Само обикновен текст</string>
-    <string name="title_send_receipt">Заявка за доставка/четене на полученото</string>
     <string name="title_send_receipt_remark">Повечето доставчици и имейл клиенти игнорират заявките за получаване</string>
     <string name="title_from_missing">Липсва изпращач</string>
     <string name="title_to_missing">Липсва получател</string>

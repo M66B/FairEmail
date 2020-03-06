@@ -729,7 +729,6 @@
     <string name="title_no_key">Brak klucza prywatnego</string>
     <string name="title_invalid_key">Nieprawidłowy klucz prywatny</string>
     <string name="title_send_plain_text">Tylko zwykły tekst</string>
-    <string name="title_send_receipt">Poproś o potwierdzenie odbioru/odczytu</string>
     <string name="title_send_receipt_remark">Większość dostawców i klientów e-mail ignoruje prośby o potwierdzenie</string>
     <string name="title_from_missing">Brak nadawcy</string>
     <string name="title_to_missing">Brak adresata</string>

@@ -708,7 +708,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_no_key">Kein privater Schlüssel</string>
     <string name="title_invalid_key">Ungültiger privater Schlüssel</string>
     <string name="title_send_plain_text">Nur Text</string>
-    <string name="title_send_receipt">Empfangs-/Lesebestätigung anfordern</string>
+    <string name="title_send_receipt">Bestätigung anfordern</string>
     <string name="title_send_receipt_remark">Die meisten Anbieter und E-Mail-Programme ignorieren Empfangsanforderungen</string>
     <string name="title_from_missing">Absender fehlt</string>
     <string name="title_to_missing">Empfänger fehlt</string>
@@ -1136,6 +1136,11 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
         <item>Klein</item>
         <item>Mittel</item>
         <item>Groß</item>
+    </string-array>
+    <string-array name="receiptNames">
+        <item>Lesebestätigung</item>
+        <item>Zustellungsbestätigung</item>
+        <item>Zustellungs- und Lesebestätigung</item>
     </string-array>
     <string-array name="signatureNames">
         <item>Über dem Text</item>

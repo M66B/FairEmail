@@ -590,7 +590,6 @@
     <string name="title_no_key">Sense clau privada</string>
     <string name="title_invalid_key">Clau privada invàlida</string>
     <string name="title_send_plain_text">Només text pla</string>
-    <string name="title_send_receipt">Sol·liciteu el lliurament/llegida del rebut</string>
     <string name="title_send_receipt_remark">La majoria de proveïdors i clients de correu electrònic ignoren les sol·licituds de recepció</string>
     <string name="title_from_missing">Falta l\'emissor</string>
     <string name="title_to_missing">Falta el receptor</string>

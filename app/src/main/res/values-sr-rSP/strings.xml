@@ -597,7 +597,6 @@
     <string name="title_no_key">Нема приватног кључа</string>
     <string name="title_invalid_key">Неисправан приватни кључ</string>
     <string name="title_send_plain_text">Само обични текст</string>
-    <string name="title_send_receipt">Захтевај потврду о пријему/читању</string>
     <string name="title_send_receipt_remark">Већина провајдера и е-мејл клијената игноришу потврде о пријему</string>
     <string name="title_from_missing">Недостаје пошиљалац</string>
     <string name="title_to_missing">Недостаје прималац</string>

@@ -692,7 +692,6 @@ PlayストアでFairEmailを評価できれば幸いです。
     <string name="title_no_key">秘密鍵無し</string>
     <string name="title_invalid_key">秘密鍵が無効です</string>
     <string name="title_send_plain_text">プレーンテキストのみ</string>
-    <string name="title_send_receipt">開封リクエスト/開封確認</string>
     <string name="title_send_receipt_remark">殆どのプロバイダーと電子メールクライアントは受信要求を無視します</string>
     <string name="title_from_missing">送信者がいません</string>
     <string name="title_to_missing">受信者がいません</string>

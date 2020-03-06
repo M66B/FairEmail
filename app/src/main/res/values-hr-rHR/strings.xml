@@ -694,7 +694,6 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_no_key">Nema privatnog ključa</string>
     <string name="title_invalid_key">Nevažeći privatni ključ</string>
     <string name="title_send_plain_text">Samo običan tekst</string>
-    <string name="title_send_receipt">Zatražite potvrdu o isporuci/čitanju</string>
     <string name="title_send_receipt_remark">Većina pružatelja usluga i klijenti e-pošte zanemaruju zahtjeve za primanjem</string>
     <string name="title_from_missing">Nedostaje pošiljatelj</string>
     <string name="title_to_missing">Nedostaje primatelj</string>

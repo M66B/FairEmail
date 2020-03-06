@@ -199,12 +199,14 @@
     <string name="title_advanced_section_display">Visning</string>
     <string name="title_advanced_section_behavior">Beteende</string>
     <string name="title_advanced_section_privacy">Sekretess</string>
+    <string name="title_advanced_section_encryption">Kryptering</string>
     <string name="title_advanced_section_notifications">Aviseringar</string>
     <string name="title_advanced_section_misc">Diverse</string>
     <string name="title_advanced_receive">Ta emot meddelanden</string>
     <string name="title_advanced_when">När</string>
     <string name="title_advanced_always">Synkronisera alltid dessa konton</string>
     <string name="title_advanced_schedule">Schema</string>
+    <string name="title_advanced_advanced">Avancerat</string>
     <string name="title_advanced_unseen">Alla olästa meddelanden</string>
     <string name="title_advanced_flagged">Alla stjärnmärkta meddelanden</string>
     <string name="title_advanced_delete_unseen">Ta bort gamla olästa meddelanden</string>
@@ -222,6 +224,7 @@
     <string name="title_advanced_signature_location">Signaturens position</string>
     <string name="title_advanced_signature_end">Lägg till signatur efter citat/vidarebefordrat meddelande</string>
     <string name="title_advanced_plain_only">Skicka bara vanlig text som standard</string>
+    <string name="title_advanced_receipt">När du begär ett kvitto</string>
     <string name="title_advanced_usenet_signature">Signaturkonvention för Usenet</string>
     <string name="title_advanced_remove_signatures">Ta bort igenkända signaturer</string>
     <string name="title_advanced_resize_images">Ändra storlek automatiskt på inbäddade bilder</string>
@@ -237,6 +240,9 @@
     <string name="title_advanced_ssl_harden">Strikta SSL-anslutningar</string>
     <string name="title_advanced_socks">Använd SOCKS-proxy</string>
     <string name="title_advanced_manage_connectivity">Hantera anslutning</string>
+    <string name="title_advanced_caption_general">Allmänt</string>
+    <string name="title_advanced_caption_conversation">Konversation</string>
+    <string name="title_advanced_caption_message">Meddelande</string>
     <string name="title_advanced_landscape">Använd två kolumner i landskapsläge</string>
     <string name="title_advanced_landscape3">Tillåt fast navigeringsmeny i landskapsläge</string>
     <string name="title_advanced_startup">Visa på startskärmen</string>
@@ -279,6 +285,7 @@
     <string name="title_advanced_images_inline">Visa automatiskt infogade bilder</string>
     <string name="title_advanced_seekbar">Visa relativ konversationsposition med en punkt</string>
     <string name="title_advanced_actionbar">Visa konversationsåtgärdsfältet</string>
+    <string name="title_advanced_navbar_colorize">Färglägg navigeringsfältet för Android</string>
     <string name="title_advanced_double_back">Dubbel \"tillbaka\" för att avsluta</string>
     <string name="title_advanced_pull_refresh">Dra ner för att uppdatera</string>
     <string name="title_advanced_autoscroll">Bläddra till toppen vid mottagning av nya meddelanden</string>
@@ -506,6 +513,9 @@
     <string name="title_flag">Lägg till stjärna</string>
     <string name="title_flag_color">Färgad stjärna &#8230;</string>
     <string name="title_unflag">Ta bort stjärna</string>
+    <string name="title_importance_low">Låg</string>
+    <string name="title_importance_normal">Normal</string>
+    <string name="title_importance_high">Hög</string>
     <string name="title_forward">Vidarebefordra</string>
     <string name="title_new_message">Nytt meddelande</string>
     <string name="title_editasnew">Redigera som ny</string>
@@ -729,6 +739,8 @@
     <string name="title_legend_draft">Har utkast</string>
     <string name="title_legend_priority">Har hög prioritet</string>
     <string name="title_legend_priority_low">Har låg prioritet</string>
+    <string name="title_legend_importance">Är viktigt</string>
+    <string name="title_legend_importance_low">Är inte viktigt</string>
     <string name="title_legend_auth">Autentisering misslyckades</string>
     <string name="title_legend_snoozed">Slumrar</string>
     <string name="title_legend_browsed">Bläddrat eller sökt</string>

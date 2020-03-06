@@ -229,6 +229,7 @@
     <string name="title_advanced_signature_location">Signaturposisjon</string>
     <string name="title_advanced_signature_end">Legg til signatur etter sitert/videresendt melding</string>
     <string name="title_advanced_plain_only">Send bare vanlig tekst som standard</string>
+    <string name="title_advanced_receipt">Når du ber om kvittering</string>
     <string name="title_advanced_usenet_signature">Usenet signaturkonvensjon</string>
     <string name="title_advanced_remove_signatures">Fjern gjenkjennte signaturer</string>
     <string name="title_advanced_resize_images">Endre størrelse på innebygde bilder automatisk</string>
@@ -707,7 +708,7 @@ Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anme
     <string name="title_no_key">Ingen privat nøkkel</string>
     <string name="title_invalid_key">Ugyldig privat nøkkel</string>
     <string name="title_send_plain_text">Bare vanlig tekst</string>
-    <string name="title_send_receipt">Be om levert/lest kvittering</string>
+    <string name="title_send_receipt">Be om kvittering</string>
     <string name="title_send_receipt_remark">De fleste tilbydere og e-post klienter ignorerer kvitterings forespørsler</string>
     <string name="title_from_missing">Avsender mangler</string>
     <string name="title_to_missing">Mottaker mangler</string>
@@ -1135,6 +1136,11 @@ Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anme
         <item>Liten</item>
         <item>Medium</item>
         <item>Stor</item>
+    </string-array>
+    <string-array name="receiptNames">
+        <item>Les kvittering</item>
+        <item>Leveringsbekreftelse</item>
+        <item>Les + leveringskvittering</item>
     </string-array>
     <string-array name="signatureNames">
         <item>Over teksten</item>

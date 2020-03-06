@@ -229,6 +229,7 @@
     <string name="title_advanced_signature_location">Positie ondertekening</string>
     <string name="title_advanced_signature_end">Handtekening toevoegen na geciteerd/doorgestuurd bericht</string>
     <string name="title_advanced_plain_only">Verstuur standaard alleen tekst</string>
+    <string name="title_advanced_receipt">Bij het aanvragen van een bevestiging</string>
     <string name="title_advanced_usenet_signature">Usenet handtekening conventie</string>
     <string name="title_advanced_remove_signatures">Verwijder herkende handtekeningen</string>
     <string name="title_advanced_resize_images">Automatisch ingesloten afbeeldingen verkleinen</string>
@@ -708,7 +709,7 @@
     <string name="title_no_key">Geen privé sleutel</string>
     <string name="title_invalid_key">Ongeldige privé sleutel</string>
     <string name="title_send_plain_text">Alleen platte tekst</string>
-    <string name="title_send_receipt">Vraag ontvangst/leesbevestiging</string>
+    <string name="title_send_receipt">Vraag bevestiging</string>
     <string name="title_send_receipt_remark">De meeste aanbieders en e-mail clients negeren bevestigingsverzoeken</string>
     <string name="title_from_missing">Zender ontbreekt</string>
     <string name="title_to_missing">Ontvanger ontbreekt</string>
@@ -1133,6 +1134,11 @@
         <item>Klein</item>
         <item>Gemiddeld</item>
         <item>Groot</item>
+    </string-array>
+    <string-array name="receiptNames">
+        <item>Leesbevestiging</item>
+        <item>Ontvangstbevestiging</item>
+        <item>Lees+ontvangstbevestiging</item>
     </string-array>
     <string-array name="signatureNames">
         <item>Boven de tekst</item>

@@ -706,7 +706,6 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_no_key">Ez dago gako pribaturik</string>
     <string name="title_invalid_key">Baliorik gabeko gako pribatua</string>
     <string name="title_send_plain_text">Testu soila besterik ez</string>
-    <string name="title_send_receipt">Eskatu bidaltze agiriak / irakurragiriak</string>
     <string name="title_send_receipt_remark">Hornitzaile eta bezero gehienek ez dituzte jasotze agiri eskariak aintzat hartzen</string>
     <string name="title_from_missing">Igorlea falta da</string>
     <string name="title_to_missing">Hartzailea falta da</string>

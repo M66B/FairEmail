@@ -216,6 +216,7 @@
     <string name="title_advanced_signature_location">签名位置</string>
     <string name="title_advanced_signature_end">在引用/转发消息后添加签名</string>
     <string name="title_advanced_plain_only">默认仅发送纯文本</string>
+    <string name="title_advanced_receipt">请求回执时</string>
     <string name="title_advanced_usenet_signature">Usenet签名公约（RFC3676）</string>
     <string name="title_advanced_remove_signatures">移除公认的签名</string>
     <string name="title_advanced_resize_images">自动调整嵌入图像大小</string>
@@ -695,7 +696,7 @@
     <string name="title_no_key">没有私钥</string>
     <string name="title_invalid_key">无效的私钥</string>
     <string name="title_send_plain_text">仅纯文本</string>
-    <string name="title_send_receipt">请求送达／已读回执</string>
+    <string name="title_send_receipt">请求回执</string>
     <string name="title_send_receipt_remark">大多数供应商和电子邮件客户都忽略回执请求</string>
     <string name="title_from_missing">缺少发件人</string>
     <string name="title_to_missing">缺少收件人</string>
@@ -1121,6 +1122,11 @@ FairEmail会显示一条消息来提醒您这一点，这条消息在您购买�
         <item>小</item>
         <item>中</item>
         <item>大</item>
+    </string-array>
+    <string-array name="receiptNames">
+        <item>已读收据</item>
+        <item>送达回执</item>
+        <item>已读+送达收据：</item>
     </string-array>
     <string-array name="signatureNames">
         <item>文本上方</item>
