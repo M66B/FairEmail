@@ -149,6 +149,9 @@ public interface DaoAccount {
     @Query("UPDATE account SET `order` = :order WHERE id = :id")
     int setAccountOrder(long id, Integer order);
 
+    @Query("UPDATE account SET partial_fetch = :partial_fetch WHERE id = :id")
+    int setAccountPartialFetch(long id, boolean partial_fetch);
+
     @Query("UPDATE account SET warning = :warning WHERE id = :id")
     int setAccountWarning(long id, String warning);
 

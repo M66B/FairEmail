@@ -106,6 +106,7 @@ import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.mail.Store;
+import javax.mail.StoreClosedException;
 import javax.mail.UIDFolder;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
@@ -2279,7 +2280,7 @@ class Core {
             }
 
             if (message.total != null && message.total == 0)
-                reportEmptyMessage(context, account, istore);
+                reportEmptyMessage(context, state, account, istore);
 
             try {
                 db.beginTransaction();
@@ -2352,7 +2353,7 @@ class Core {
 
                     Long size = parts.getBodySize();
                     if (TextUtils.isEmpty(body) && size != null && size > 0)
-                        reportEmptyMessage(context, account, istore);
+                        reportEmptyMessage(context, state, account, istore);
                 }
             }
 
@@ -2686,7 +2687,7 @@ class Core {
 
                     Long size = parts.getBodySize();
                     if (TextUtils.isEmpty(body) && size != null && size > 0)
-                        reportEmptyMessage(context, account, istore);
+                        reportEmptyMessage(context, state, account, istore);
                 }
             }
 
@@ -2703,7 +2704,7 @@ class Core {
         }
     }
 
-    private static void reportEmptyMessage(Context context, EntityAccount account, IMAPStore istore) {
+    private static void reportEmptyMessage(Context context, State state, EntityAccount account, IMAPStore istore) {
         try {
             if (istore.hasCapability("ID")) {
                 Map<String, String> id = new LinkedHashMap<>();
@@ -2720,6 +2721,14 @@ class Core {
                 Log.e("Empty message " + account.host + " partial=" + account.partial_fetch);
         } catch (Throwable ex) {
             Log.w(ex);
+        }
+
+        // Auto disable partial fetch
+        if (account.partial_fetch) {
+            account.partial_fetch = false;
+            DB db = DB.getInstance(context);
+            db.account().setAccountPartialFetch(account.id, account.partial_fetch);
+            state.error(new StoreClosedException(istore));
         }
     }
 
@@ -3454,7 +3463,8 @@ class Core {
                 // BYE, Socket is closed
                 recoverable = false;
 
-            if (ex instanceof FolderClosedException ||
+            if (ex instanceof StoreClosedException ||
+                    ex instanceof FolderClosedException ||
                     ex instanceof FolderNotFoundException)
                 // Lost folder connection to server
                 recoverable = false;
