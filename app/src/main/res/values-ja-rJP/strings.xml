@@ -215,6 +215,7 @@
     <string name="title_advanced_signature_location">署名の場所</string>
     <string name="title_advanced_signature_end">引用/転送されたメッセージの後に署名を追加</string>
     <string name="title_advanced_plain_only">デフォルトでプレーンテキストのみを送信</string>
+    <string name="title_advanced_receipt">受取をリクエストする時</string>
     <string name="title_advanced_usenet_signature">署名の区切</string>
     <string name="title_advanced_remove_signatures">認識された署名を削除</string>
     <string name="title_advanced_resize_images">埋込画像のサイズを自動的に変更</string>
@@ -636,7 +637,6 @@
     <string name="title_ask_help">FairEmailの改善にご協力下さい</string>
     <string name="title_ask_reporting">エラーレポートを送信しますか？</string>
     <string name="title_reporting_why">エラー報告はFairEmailの改善に役立ちます</string>
-    <string name="title_message_bar_hint">十字アイコンをタップしメッセージをスパムとしてアーカイブ、削除、又は報告し、この通知を削除します</string>
     <string name="title_ask_review">FairEmailを確認して下さい</string>
     <string name="title_ask_review_rationale">FairEmailをしばらく使用しています。
 PlayストアでFairEmailを評価できれば幸いです。
@@ -657,6 +657,7 @@ PlayストアでFairEmailを評価できれば幸いです。
     <string name="title_received">受信:</string>
     <string name="title_size">サイズ:</string>
     <string name="title_subject">件名:</string>
+    <string name="title_attachment">添付ファイル:</string>
     <string name="title_body_hint">メッセージ欄</string>
     <string name="title_discard">破棄</string>
     <string name="title_save">保存</string>
@@ -692,6 +693,7 @@ PlayストアでFairEmailを評価できれば幸いです。
     <string name="title_no_key">秘密鍵無し</string>
     <string name="title_invalid_key">秘密鍵が無効です</string>
     <string name="title_send_plain_text">プレーンテキストのみ</string>
+    <string name="title_send_receipt">受取をリクエストする</string>
     <string name="title_send_receipt_remark">殆どのプロバイダーと電子メールクライアントは受信要求を無視します</string>
     <string name="title_from_missing">送信者がいません</string>
     <string name="title_to_missing">受信者がいません</string>
@@ -1117,6 +1119,11 @@ FairEmailは、Pro機能購入の為に上部に小さなメッセージを表�
         <item>小</item>
         <item>標準</item>
         <item>大</item>
+    </string-array>
+    <string-array name="receiptNames">
+        <item>受取を読む</item>
+        <item>送達通知</item>
+        <item>送達通知</item>
     </string-array>
     <string-array name="signatureNames">
         <item>テキスト上</item>

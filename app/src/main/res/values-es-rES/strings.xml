@@ -229,6 +229,7 @@
     <string name="title_advanced_signature_location">Posición de la firma</string>
     <string name="title_advanced_signature_end">Añadir firma después de mensaje citado/reenviado</string>
     <string name="title_advanced_plain_only">Enviar sólo texto plano por defecto</string>
+    <string name="title_advanced_receipt">Al solicitar un acuse</string>
     <string name="title_advanced_usenet_signature">Convención de firma Usenet</string>
     <string name="title_advanced_remove_signatures">Eliminar firmas reconocidas</string>
     <string name="title_advanced_resize_images">Redimensionar automáticamente las imágenes incrustadas</string>
@@ -430,7 +431,7 @@
     <string name="title_advanced_sender">Permitir editar dirección del remitente</string>
     <string name="title_advanced_sender_regex">Expresión regular que coincida con el nombre de usuario de las direcciones de correo entrantes</string>
     <string name="title_identity_reply_to">Responder a la dirección</string>
-    <string name="title_identity_receipt">Solicitar recibo de entrega/lectura por defecto</string>
+    <string name="title_identity_receipt">Solicitar acuse de recibo/lectura por defecto</string>
     <string name="title_identity_use_ip_hint">En caso de \'saludo inválido\', \'requiere dirección válida\' o un error similar, intente cambiar esta configuración</string>
     <string name="title_optional">Opcional</string>
     <string name="title_recommended">Recomendado</string>
@@ -606,7 +607,7 @@
     <string name="title_reply_to_sender">Responder al remitente</string>
     <string name="title_reply_to_all">Responder a todos</string>
     <string name="title_reply_list">Responder a la lista</string>
-    <string name="title_reply_receipt">Enviar confirmación de lectura</string>
+    <string name="title_reply_receipt">Enviar acuse de lectura</string>
     <string name="title_reply_template">Responder con plantilla</string>
     <string name="title_moving">Moviendo a %1$s</string>
     <string name="title_open_with">Abrir con</string>
@@ -651,7 +652,6 @@
     <string name="title_ask_help">Ayude a mejorar FairEmail</string>
     <string name="title_ask_reporting">¿Enviar informes de error?</string>
     <string name="title_reporting_why">Informar de errores ayudará a mejorar FairEmail</string>
-    <string name="title_message_bar_hint">Toque la cruz para archivar, borrar o reportar un mensaje como spam y eliminar este aviso</string>
     <string name="title_ask_review">Por favor califique FairEmail</string>
     <string name="title_ask_review_rationale">        Ha estado usando FairEmail durante un tiempo.
         Agradecería que pudiera calificar a FairEmail en Play Store.
@@ -673,6 +673,7 @@
     <string name="title_received">Recibido:</string>
     <string name="title_size">Tamaño:</string>
     <string name="title_subject">Asunto:</string>
+    <string name="title_attachment">Adjunto:</string>
     <string name="title_body_hint">Su mensaje</string>
     <string name="title_discard">Descartar</string>
     <string name="title_save">Guardar</string>
@@ -708,6 +709,7 @@
     <string name="title_no_key">Ninguna clave privada</string>
     <string name="title_invalid_key">Clave privada inválida</string>
     <string name="title_send_plain_text">Sólo en texto plano</string>
+    <string name="title_send_receipt">Solicitar acuse</string>
     <string name="title_send_receipt_remark">La mayoría de los clientes y proveedores de email ignoran los pedidos de recibos</string>
     <string name="title_from_missing">Falta remitente</string>
     <string name="title_to_missing">Falta destinatario</string>
@@ -1135,6 +1137,11 @@
         <item>Pequeño</item>
         <item>Mediano</item>
         <item>Grande</item>
+    </string-array>
+    <string-array name="receiptNames">
+        <item>Acuse de lectura</item>
+        <item>Acuse de recibo</item>
+        <item>Acuse de recibo+lectura</item>
     </string-array>
     <string-array name="signatureNames">
         <item>Antes del texto</item>

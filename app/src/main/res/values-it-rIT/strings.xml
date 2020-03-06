@@ -651,7 +651,6 @@
     <string name="title_ask_help">Aiuta a migliorare FairEmail</string>
     <string name="title_ask_reporting">Inviare rapporti di errore?</string>
     <string name="title_reporting_why">Il report di errore aiuterà a migliorare FairEmail</string>
-    <string name="title_message_bar_hint">Tocca l\'icona a forma di croce per archiviare, eliminare o segnalare un messaggio come spam e per rimuovere questo avviso</string>
     <string name="title_ask_review">Si prega di valutare FairEmail</string>
     <string name="title_ask_review_rationale">        Stai usando FairEmail da un po\'.
         Ti saremmo grati se potessi valutare FairEmail nel Play Store.
@@ -672,6 +671,7 @@
     <string name="title_received">Ricevuto:</string>
     <string name="title_size">Dimensioni:</string>
     <string name="title_subject">Oggetto:</string>
+    <string name="title_attachment">Allegato:</string>
     <string name="title_body_hint">Il tuo messaggio</string>
     <string name="title_discard">Elimina</string>
     <string name="title_save">Salva</string>

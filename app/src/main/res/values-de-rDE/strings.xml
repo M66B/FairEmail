@@ -229,6 +229,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_signature_location">Signaturposition</string>
     <string name="title_advanced_signature_end">Signatur nach zitierter/weitergeleiteter Nachricht hinzufügen</string>
     <string name="title_advanced_plain_only">Immer als Reintext senden, nicht als HTML</string>
+    <string name="title_advanced_receipt">Folgende Bestätigung anfordern</string>
     <string name="title_advanced_usenet_signature">Usenet-Signaturkonvention</string>
     <string name="title_advanced_remove_signatures">Erkannte Signaturen entfernen</string>
     <string name="title_advanced_resize_images">Größe eingebetteter Bilder automatisch anpassen</string>
@@ -651,7 +652,6 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_ask_help">Helfen Sie mit, FairEmail zu verbessern</string>
     <string name="title_ask_reporting">Fehlerberichte senden?</string>
     <string name="title_reporting_why">Fehlerberichte helfen uns, FairEmail zu verbessern</string>
-    <string name="title_message_bar_hint">Tippen Sie auf das Kreuz-Symbol, um eine Nachricht zu archivieren, zu löschen oder als Spam zu melden und um diesen Hinweis auszublenden</string>
     <string name="title_ask_review">Bitte bewerten Sie FairEmail</string>
     <string name="title_ask_review_rationale">        Du benutzt FairEmail schon eine Weile.
         Sofern Du zufrieden bist, wäre es nett, wenn du FairEmail im Play Store positiv bewerten könntest.
@@ -673,6 +673,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_received">Empfangen:</string>
     <string name="title_size">Größe:</string>
     <string name="title_subject">Betreff:</string>
+    <string name="title_attachment">Anhang:</string>
     <string name="title_body_hint">Ihre Nachricht</string>
     <string name="title_discard">Verwerfen</string>
     <string name="title_save">Speichern</string>
@@ -1139,8 +1140,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     </string-array>
     <string-array name="receiptNames">
         <item>Lesebestätigung</item>
-        <item>Zustellungsbestätigung</item>
-        <item>Zustellungs- und Lesebestätigung</item>
+        <item>Übermittlungsbestätigung</item>
+        <item>Übermittlungs- und Lesebestätigung</item>
     </string-array>
     <string-array name="signatureNames">
         <item>Über dem Text</item>

@@ -228,6 +228,7 @@
     <string name="title_advanced_signature_location">Sinaduraren kokapena</string>
     <string name="title_advanced_signature_end">Gehitu sinadura aipatutako/bidalitako mezuaren ondoren</string>
     <string name="title_advanced_plain_only">Bidali testu soil hutsa lehenetsita</string>
+    <string name="title_advanced_receipt">Agiria eskatzean</string>
     <string name="title_advanced_usenet_signature">Usenet sinaduren konbentzioa</string>
     <string name="title_advanced_remove_signatures">Kendu ezagututako sinadurak</string>
     <string name="title_advanced_resize_images">Aldatu automatikoki kapsulatutako irudien neurria</string>
@@ -649,7 +650,6 @@
     <string name="title_ask_help">Lagundu FairEmail hobetzen</string>
     <string name="title_ask_reporting">Bidali errore txostenak?</string>
     <string name="title_reporting_why">Errore txostenek FairEmail hobetzen laguntzen dute</string>
-    <string name="title_message_bar_hint">Tap egin gurutzearen ikonoan mezua gordetzeko, ezabatzeko edo spam gisa artxibatzeko eta ohar hau kentzeko</string>
     <string name="title_ask_review">Baloratu FairEmail mesedez</string>
     <string name="title_ask_review_rationale">FairEmail denbora batez erabili duzu.
 Eskertzekoa litzateke Play Storen FairEmail baloratuko bazenu.
@@ -671,6 +671,7 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_received">Jasota:</string>
     <string name="title_size">Tamaina:</string>
     <string name="title_subject">Mintzagaia:</string>
+    <string name="title_attachment">Eranskina:</string>
     <string name="title_body_hint">Zure mezua</string>
     <string name="title_discard">Baztertu</string>
     <string name="title_save">Gorde</string>
@@ -706,6 +707,7 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_no_key">Ez dago gako pribaturik</string>
     <string name="title_invalid_key">Baliorik gabeko gako pribatua</string>
     <string name="title_send_plain_text">Testu soila besterik ez</string>
+    <string name="title_send_receipt">Eskatu agiria</string>
     <string name="title_send_receipt_remark">Hornitzaile eta bezero gehienek ez dituzte jasotze agiri eskariak aintzat hartzen</string>
     <string name="title_from_missing">Igorlea falta da</string>
     <string name="title_to_missing">Hartzailea falta da</string>
@@ -1133,6 +1135,11 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
         <item>Txikia</item>
         <item>Ertaina</item>
         <item>Handia</item>
+    </string-array>
+    <string-array name="receiptNames">
+        <item>Irakurragiria</item>
+        <item>Bidaltze agiria</item>
+        <item>Irakurtze eta bidaltze agiria</item>
     </string-array>
     <string-array name="signatureNames">
         <item>Testuaren gainean</item>

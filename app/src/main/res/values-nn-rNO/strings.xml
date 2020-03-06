@@ -652,7 +652,6 @@
     <string name="title_ask_help">Hjelp til å forbedre FairEmail</string>
     <string name="title_ask_reporting">Send feilrapporter?</string>
     <string name="title_reporting_why">Feilrapportering vil bidra til å forbedre FairEmail</string>
-    <string name="title_message_bar_hint">Trykk på kryssikonet for å arkivere, slette eller rapportere en melding som spam og for å fjerne dette varselet</string>
     <string name="title_ask_review">Vennligst anmeld FairEmail</string>
     <string name="title_ask_review_rationale">Du har brukt FairEmail en stund.
 Det vil bli satt pris på om du kunne rangere FairEmail i Play Store.
@@ -673,6 +672,7 @@ Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anme
     <string name="title_received">Mottatt:</string>
     <string name="title_size">Størrelse:</string>
     <string name="title_subject">Emne:</string>
+    <string name="title_attachment">Vedlegg:</string>
     <string name="title_body_hint">Din melding</string>
     <string name="title_discard">Forkast</string>
     <string name="title_save">Lagre</string>

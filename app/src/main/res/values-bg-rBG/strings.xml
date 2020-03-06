@@ -204,12 +204,14 @@
     <string name="title_advanced_section_display">Дисплей</string>
     <string name="title_advanced_section_behavior">Поведение</string>
     <string name="title_advanced_section_privacy">Поверителност</string>
+    <string name="title_advanced_section_encryption">Криптиране</string>
     <string name="title_advanced_section_notifications">Известия</string>
     <string name="title_advanced_section_misc">Разни</string>
     <string name="title_advanced_receive">Получени съобщения</string>
     <string name="title_advanced_when">Кога</string>
     <string name="title_advanced_always">Винаги синхронизирай тези профили</string>
     <string name="title_advanced_schedule">График</string>
+    <string name="title_advanced_advanced">Разширени</string>
     <string name="title_advanced_unseen">Всички непрочетени съобщения</string>
     <string name="title_advanced_flagged">Всички съобщения със звезда</string>
     <string name="title_advanced_delete_unseen">Изтрий старите непрочетени съобщения</string>
@@ -227,6 +229,7 @@
     <string name="title_advanced_signature_location">Позиция на подписа</string>
     <string name="title_advanced_signature_end">Добавете подпис след цитирано/препратено съобщение</string>
     <string name="title_advanced_plain_only">Изпращане на обикновен текст по подразбиране</string>
+    <string name="title_advanced_receipt">При искане на разписка</string>
     <string name="title_advanced_usenet_signature">Конвенция за подпис на Usenet</string>
     <string name="title_advanced_remove_signatures">Премахване на разпознатите подписи</string>
     <string name="title_advanced_resize_images">Автоматично оразмеряване на вградените изображения</string>
@@ -242,6 +245,9 @@
     <string name="title_advanced_ssl_harden">Твърди SSL връзки</string>
     <string name="title_advanced_socks">Използване на SOCKS прокси</string>
     <string name="title_advanced_manage_connectivity">Управление на свързаност</string>
+    <string name="title_advanced_caption_general">Основни</string>
+    <string name="title_advanced_caption_conversation">Разговор</string>
+    <string name="title_advanced_caption_message">Съобщение</string>
     <string name="title_advanced_landscape">Две колони в легнал режим</string>
     <string name="title_advanced_landscape3">Разрешаване на фиксирано меню за навигация в пейзажен режим</string>
     <string name="title_advanced_startup">Показване при стартиране</string>
@@ -645,7 +651,6 @@
     <string name="title_ask_help">Помогнете за подобряване на FairEmail</string>
     <string name="title_ask_reporting">Изпрати репорт с грешки?</string>
     <string name="title_reporting_why">Докладе с грешки ще помогне да се подобри FairEmail</string>
-    <string name="title_message_bar_hint">Докоснете иконата, за да архивирате, изтриете или докладвате съобщение като спам и да премахнете това известие</string>
     <string name="title_ask_review">Моля, прегледайте FairEmail</string>
     <string name="title_ask_review_rationale">        Използвате FairEmail от известно време.
         Ще Ви бъде благодарен, ако можете да оцените FairEmail в Play Store.
@@ -667,6 +672,7 @@
     <string name="title_received">Получаване:</string>
     <string name="title_size">Размер:</string>
     <string name="title_subject">Тема:</string>
+    <string name="title_attachment">Прикачен файл:</string>
     <string name="title_body_hint">Вашето съобщение</string>
     <string name="title_discard">Откажи</string>
     <string name="title_save">Запази</string>
@@ -702,6 +708,7 @@
     <string name="title_no_key">Няма частен ключ</string>
     <string name="title_invalid_key">Невалиден частен ключ</string>
     <string name="title_send_plain_text">Само обикновен текст</string>
+    <string name="title_send_receipt">Заявка за разписка</string>
     <string name="title_send_receipt_remark">Повечето доставчици и имейл клиенти игнорират заявките за получаване</string>
     <string name="title_from_missing">Липсва изпращач</string>
     <string name="title_to_missing">Липсва получател</string>
@@ -1129,6 +1136,11 @@
         <item>Малък</item>
         <item>Среден</item>
         <item>Голям</item>
+    </string-array>
+    <string-array name="receiptNames">
+        <item>Разписка за прочетено</item>
+        <item>Разписка за доставено</item>
+        <item>Разписка за прочетено+доставено</item>
     </string-array>
     <string-array name="signatureNames">
         <item>Над текста</item>

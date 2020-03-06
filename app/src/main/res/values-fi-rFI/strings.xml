@@ -227,6 +227,7 @@
     <string name="title_advanced_signature_location">Allekirjoituksen sijainti</string>
     <string name="title_advanced_signature_end">Lisää allekirjoitus lainatun/edelleenlähetetyn viestin jälkeen</string>
     <string name="title_advanced_plain_only">Lähetä muotoilemattomana tekstinä oletuksena</string>
+    <string name="title_advanced_receipt">Pyydettäessä kuittausta</string>
     <string name="title_advanced_usenet_signature">Usenetin allekirjoitustyyli</string>
     <string name="title_advanced_remove_signatures">Poista tunnistetut allekirjoitukset</string>
     <string name="title_advanced_resize_images">Muuta upotettujen kuvien koot</string>
@@ -649,7 +650,6 @@
     <string name="title_ask_help">Auta parantamaan FairEmailia</string>
     <string name="title_ask_reporting">Lähetetäänkö virheraportteja?</string>
     <string name="title_reporting_why">Virheraportointi auttaa FairEmailin kehittämisessä</string>
-    <string name="title_message_bar_hint">Napauta ristikuvaketta arkistoidaksesi, poistaaksesi tai merkitäksesi viestin roskapostiksi ja poistaaksesi tämän huomautuksen</string>
     <string name="title_ask_review">Ole hyvä ja arvostele FairEmail</string>
     <string name="title_ask_review_rationale">Olet käyttänyt FairEmailia jonkin aikaa.
         Olisi hienoa, jos voisit arvioida FairEmailin Play Kaupassa.
@@ -671,6 +671,7 @@
     <string name="title_received">Vastaanotettu:</string>
     <string name="title_size">Koko:</string>
     <string name="title_subject">Aihe:</string>
+    <string name="title_attachment">Liite:</string>
     <string name="title_body_hint">Viestisi</string>
     <string name="title_discard">Hylkää</string>
     <string name="title_save">Tallenna</string>
@@ -706,6 +707,7 @@
     <string name="title_no_key">Ei yksityistä avainta</string>
     <string name="title_invalid_key">Virheellinen yksityinen avain</string>
     <string name="title_send_plain_text">Lähetä muotoilemattomana tekstinä</string>
+    <string name="title_send_receipt">Pyydä kuittausta</string>
     <string name="title_send_receipt_remark">Useimmat palveluntarjoajat ja sähköpostisovellukset jättävät kuittauspyynnöt huomioimatta</string>
     <string name="title_from_missing">Lähettäjä puuttuu</string>
     <string name="title_to_missing">Vastaanottaja puuttuu</string>
@@ -1133,6 +1135,11 @@
         <item>Pieni</item>
         <item>Keskikokoinen</item>
         <item>Suuri</item>
+    </string-array>
+    <string-array name="receiptNames">
+        <item>Vastaanottokuittaus</item>
+        <item>Toimituskuittaus</item>
+        <item>Vastaanotto- ja toimituskuittaus</item>
     </string-array>
     <string-array name="signatureNames">
         <item>Tekstin yläpuolella</item>
