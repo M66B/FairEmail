@@ -1481,6 +1481,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (amessage == null || !amessage.id.equals(id))
                         return;
 
+                    boolean show_expanded = properties.getValue("expanded", message.id);
+                    if (!show_expanded)
+                        return;
+
                     boolean hasArchive = false;
                     boolean hasTrash = false;
                     boolean hasJunk = false;
@@ -2047,6 +2051,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     long id = args.getLong("id");
                     TupleMessageEx amessage = getMessage();
                     if (amessage == null || !amessage.id.equals(id))
+                        return;
+
+                    boolean show_expanded = properties.getValue("expanded", message.id);
+                    if (!show_expanded)
                         return;
 
                     if (icalendar == null ||
