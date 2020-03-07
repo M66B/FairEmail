@@ -1406,8 +1406,13 @@ public class MessageHelper {
                     Log.e(ex);
                 }
 
-                if (part.isMimeType("text/plain"))
+                if (part.isMimeType("text/plain")) {
+                    ContentType ct = new ContentType(part.getContentType());
+                    // https://tools.ietf.org/html/rfc3676
+                    if ("flowed".equalsIgnoreCase(ct.getParameter("format")))
+                        result = result.replaceAll(" \\r?\\n", " ");
                     result = "<div>" + HtmlHelper.formatPre(result) + "</div>";
+                }
 
                 sb.append(result);
             }
