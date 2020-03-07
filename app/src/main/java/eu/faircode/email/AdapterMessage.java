@@ -1370,6 +1370,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     final boolean delete = (inTrash || !hasTrash || outbox || message.uid == null);
 
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    boolean expand_all = prefs.getBoolean("expand_all", false);
+                    boolean expand_one = prefs.getBoolean("expand_one", true);
+
                     ibTrash.setTag(delete);
                     ibJunk.setImageResource(unjunk ? R.drawable.baseline_inbox_24 : R.drawable.baseline_flag_24);
                     String title = context.getString(unjunk ? R.string.title_no_junk : R.string.title_spam);
@@ -1378,7 +1382,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         ibJunk.setTooltipText(title);
 
                     ibUnsubscribe.setVisibility(message.unsubscribe == null ? View.GONE : View.VISIBLE);
-                    ibAnswer.setVisibility(outbox ? View.GONE : View.VISIBLE);
+                    ibAnswer.setVisibility(outbox || (!expand_all && expand_one) ? View.GONE : View.VISIBLE);
                     ibMove.setVisibility(move ? View.VISIBLE : View.GONE);
                     ibArchive.setVisibility(archive ? View.VISIBLE : View.GONE);
                     ibTrash.setVisibility(trash ? View.VISIBLE : View.GONE);
