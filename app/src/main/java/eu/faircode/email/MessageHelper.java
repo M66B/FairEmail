@@ -24,7 +24,6 @@ import android.content.SharedPreferences;
 import android.net.MailTo;
 import android.net.Uri;
 import android.text.TextUtils;
-import android.util.Base64;
 
 import androidx.documentfile.provider.DocumentFile;
 import androidx.preference.PreferenceManager;
