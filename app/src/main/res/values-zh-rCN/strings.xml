@@ -1124,9 +1124,9 @@ FairEmail会显示一条消息来提醒您这一点，这条消息在您购买�
         <item>大</item>
     </string-array>
     <string-array name="receiptNames">
-        <item>已读收据</item>
+        <item>已读回执</item>
         <item>送达回执</item>
-        <item>已读+送达收据：</item>
+        <item>已读+送达回执：</item>
     </string-array>
     <string-array name="signatureNames">
         <item>文本上方</item>

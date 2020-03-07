@@ -731,7 +731,7 @@
     <string name="title_no_key">Нет приватного ключа</string>
     <string name="title_invalid_key">Приватный ключ недействителен</string>
     <string name="title_send_plain_text">Только простой текст</string>
-    <string name="title_send_receipt">Запрос уведомления</string>
+    <string name="title_send_receipt">Запросить уведомление</string>
     <string name="title_send_receipt_remark">Большинство провайдеров и клиентов электронной почты игнорируют запросы о доставке</string>
     <string name="title_from_missing">Отсутствует отправитель</string>
     <string name="title_to_missing">Отсутствует получатель</string>
@@ -1164,8 +1164,8 @@
     </string-array>
     <string-array name="receiptNames">
         <item>Уведомление о прочтении</item>
-        <item>Уведомление о получении</item>
-        <item>Уведомление о получении и прочтении</item>
+        <item>Уведомление о доставке</item>
+        <item>Уведомление о доставке и прочтении</item>
     </string-array>
     <string-array name="signatureNames">
         <item>Над текстом</item>

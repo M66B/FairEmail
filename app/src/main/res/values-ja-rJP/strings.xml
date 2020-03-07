@@ -1123,7 +1123,7 @@ FairEmailは、Pro機能購入の為に上部に小さなメッセージを表�
     <string-array name="receiptNames">
         <item>受取を読む</item>
         <item>送達通知</item>
-        <item>送達通知</item>
+        <item>読み取り+配信確認</item>
     </string-array>
     <string-array name="signatureNames">
         <item>テキスト上</item>

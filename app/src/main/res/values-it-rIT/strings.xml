@@ -1139,7 +1139,7 @@
     <string-array name="receiptNames">
         <item>Conferma di lettura</item>
         <item>Ricevuta di consegna</item>
-        <item>Lettura+ricevuta di consegna</item>
+        <item>Ricevuta di lettura+consegna</item>
     </string-array>
     <string-array name="signatureNames">
         <item>Sopra il testo</item>

@@ -224,7 +224,6 @@
     <string name="title_advanced_signature_location">Signaturens position</string>
     <string name="title_advanced_signature_end">Lägg till signatur efter citat/vidarebefordrat meddelande</string>
     <string name="title_advanced_plain_only">Skicka bara vanlig text som standard</string>
-    <string name="title_advanced_receipt">När du begär ett kvitto</string>
     <string name="title_advanced_usenet_signature">Signaturkonvention för Usenet</string>
     <string name="title_advanced_remove_signatures">Ta bort igenkända signaturer</string>
     <string name="title_advanced_resize_images">Ändra storlek automatiskt på inbäddade bilder</string>

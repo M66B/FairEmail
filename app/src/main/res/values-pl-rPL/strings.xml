@@ -250,6 +250,7 @@
     <string name="title_advanced_signature_location">Pozycja podpisu</string>
     <string name="title_advanced_signature_end">Dodaj podpis po cytowanej/przesyłanej wiadomości</string>
     <string name="title_advanced_plain_only">Domyślnie wysyłaj czystym tekstem</string>
+    <string name="title_advanced_receipt">Podczas żądania potwierdzenia</string>
     <string name="title_advanced_usenet_signature">Konwencja podpisu Usenet</string>
     <string name="title_advanced_remove_signatures">Usuń rozpoznane podpisy</string>
     <string name="title_advanced_resize_images">Automatycznie zmień rozmiar osadzonych obrazów</string>
@@ -693,6 +694,7 @@
     <string name="title_received">Odebrano:</string>
     <string name="title_size">Rozmiar:</string>
     <string name="title_subject">Temat:</string>
+    <string name="title_attachment">Załącznik:</string>
     <string name="title_body_hint">Twoja wiadomość</string>
     <string name="title_discard">Odrzuć</string>
     <string name="title_save">Zapisz</string>
@@ -728,6 +730,7 @@
     <string name="title_no_key">Brak klucza prywatnego</string>
     <string name="title_invalid_key">Nieprawidłowy klucz prywatny</string>
     <string name="title_send_plain_text">Tylko zwykły tekst</string>
+    <string name="title_send_receipt">Poproś o potwierdzenie</string>
     <string name="title_send_receipt_remark">Większość dostawców i klientów e-mail ignoruje prośby o potwierdzenie</string>
     <string name="title_from_missing">Brak nadawcy</string>
     <string name="title_to_missing">Brak adresata</string>
@@ -1156,6 +1159,11 @@ FairEmail wyświetla o tym małą wiadomość przypominającą, która zostanie 
         <item>Mała</item>
         <item>Średnia</item>
         <item>Duża</item>
+    </string-array>
+    <string-array name="receiptNames">
+        <item>Potwierdzenie odczytu</item>
+        <item>Potwierdzenie dostarczenia</item>
+        <item>Potwierdzenie odczytu+dostarczenia</item>
     </string-array>
     <string-array name="signatureNames">
         <item>Powyżej tekstu</item>
