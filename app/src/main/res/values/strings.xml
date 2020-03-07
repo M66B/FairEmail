@@ -277,6 +277,7 @@
     <string name="title_advanced_signature_location">Signature position</string>
     <string name="title_advanced_signature_end">Add signature after quoted/forwarded message</string>
     <string name="title_advanced_plain_only">Send plain text only by default</string>
+    <string name="title_advanced_flow">\'format flowed\' for plain text</string>
     <string name="title_advanced_receipt">When requesting a receipt</string>
     <string name="title_advanced_usenet_signature">Usenet signature convention</string>
     <string name="title_advanced_remove_signatures">Remove recognized signatures</string>

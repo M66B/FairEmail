@@ -103,6 +103,7 @@ public class MessageHelper {
     static final int MAX_MESSAGE_SIZE = 10 * 1024 * 1024; // bytes
     static final int DEFAULT_ATTACHMENT_DOWNLOAD_SIZE = 256 * 1024; // bytes
     static final long ATTACHMENT_PROGRESS_UPDATE = 1500L; // milliseconds
+    static final int FORMAT_FLOWED_LINE_LENGTH = 72;
 
     // https://tools.ietf.org/html/rfc4021
 
@@ -569,6 +570,9 @@ public class MessageHelper {
             }
         }
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean format_flowed = prefs.getBoolean("format_flowed", false);
+
         // multipart/mixed
         //   multipart/related
         //     multipart/alternative
@@ -578,13 +582,40 @@ public class MessageHelper {
         //  attachments
 
         String htmlContent = document.html();
+        String htmlContentType = "text/html; charset=" + Charset.defaultCharset().name();
+
         String plainContent = HtmlHelper.getText(htmlContent);
+        String plainContentType = "text/plain; charset=" + Charset.defaultCharset().name();
+
+        if (format_flowed) {
+            List<String> flowed = new ArrayList<>();
+            for (String line : plainContent.split("\\r?\\n")) {
+                if (line.contains(" ")) {
+                    StringBuffer sb = new StringBuffer();
+                    for (String word : line.split(" ")) {
+                        if (sb.length() + word.length() > FORMAT_FLOWED_LINE_LENGTH) {
+                            sb.append(' ');
+                            flowed.add(sb.toString());
+                            sb = new StringBuffer();
+                        }
+                        if (sb.length() > 0)
+                            sb.append(' ');
+                        sb.append(word);
+                    }
+                    if (sb.length() > 0)
+                        flowed.add(sb.toString());
+                } else
+                    flowed.add(line);
+            }
+            plainContent = TextUtils.join("\r\n", flowed);
+            plainContentType += "; format=flowed";
+        }
 
         BodyPart plainPart = new MimeBodyPart();
-        plainPart.setContent(plainContent, "text/plain; charset=" + Charset.defaultCharset().name());
+        plainPart.setContent(plainContent, plainContentType);
 
         BodyPart htmlPart = new MimeBodyPart();
-        htmlPart.setContent(htmlContent, "text/html; charset=" + Charset.defaultCharset().name());
+        htmlPart.setContent(htmlContent, htmlContentType);
 
         Multipart altMultiPart = new MimeMultipart("alternative");
         altMultiPart.addBodyPart(plainPart);
@@ -601,7 +632,7 @@ public class MessageHelper {
 
         if (availableAttachments == 0)
             if (message.plain_only != null && message.plain_only)
-                imessage.setContent(plainContent, "text/plain; charset=" + Charset.defaultCharset().name());
+                imessage.setContent(plainContent, plainContentType);
             else
                 imessage.setContent(altMultiPart);
         else {
