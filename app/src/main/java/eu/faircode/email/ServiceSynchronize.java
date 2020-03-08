@@ -790,6 +790,14 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         try {
             wlAccount.acquire();
 
+            final DB db = DB.getInstance(this);
+            final ExecutorService executor =
+                    Helper.getBackgroundExecutor(1, "account_" + account.id);
+
+            long thread = Thread.currentThread().getId();
+            Long currentThread = thread;
+            db.account().setAccountThread(account.id, thread);
+
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 if (account.notify)
                     account.createNotificationChannel(ServiceSynchronize.this);
@@ -807,14 +815,11 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     Log.w(account.name + " backoff " + ex.toString());
                 }
 
-            final DB db = DB.getInstance(this);
-            final ExecutorService executor =
-                    Helper.getBackgroundExecutor(1, "account_" + account.id);
-
             state.setBackoff(CONNECT_BACKOFF_START);
-            while (state.isRunning()) {
+            while (state.isRunning() &&
+                    currentThread != null && currentThread.equals(thread)) {
                 state.reset();
-                Log.i(account.name + " run");
+                Log.i(account.name + " run thread=" + currentThread);
 
                 Handler handler = new Handler(getMainLooper());
                 final List<TwoStateOwner> cowners = new ArrayList<>();
@@ -1573,7 +1578,12 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     else if (backoff < CONNECT_BACKOFF_AlARM_MAX * 60)
                         state.setBackoff(backoff * 2);
                 }
+
+                currentThread = Thread.currentThread().getId();
             }
+
+            if (currentThread == null || !currentThread.equals(thread))
+                Log.e(account.name + " orphan thread id=" + currentThread + "/" + thread);
         } finally {
             EntityLog.log(this, account.name + " stopped");
             wlAccount.release();

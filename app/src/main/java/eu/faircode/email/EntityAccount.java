@@ -129,6 +129,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
 
     public Long created;
     public Boolean tbd;
+    public Long thread;
     public String state;
     public String warning;
     public String error;

@@ -122,6 +122,12 @@ public interface DaoAccount {
     @Query("UPDATE account SET synchronize = :synchronize WHERE id = :id")
     int setAccountSynchronize(long id, boolean synchronize);
 
+    @Query("UPDATE account SET thread = :thread WHERE id = :id")
+    int setAccountThread(long id, Long thread);
+
+    @Query("SELECT thread FROM account WHERE id = :id")
+    Long getAccountThread(long id);
+
     @Query("UPDATE account SET state = :state WHERE id = :id")
     int setAccountState(long id, String state);
 
