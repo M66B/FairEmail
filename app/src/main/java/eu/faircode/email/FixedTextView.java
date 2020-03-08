@@ -23,6 +23,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -74,6 +75,28 @@ public class FixedTextView extends AppCompatTextView {
                 at android.text.Layout.draw(Layout.java:289)
                 at android.widget.TextView.onDraw(TextView.java:6972)
                 at android.view.View.draw(View.java:19380)
+*/
+        }
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        try {
+            return super.onTouchEvent(event);
+        } catch (Throwable ex) {
+            Log.w(ex);
+            return false;
+/*
+        java.lang.IllegalArgumentException
+                at com.android.internal.util.Preconditions.checkArgument(Preconditions.java:33)
+                at android.widget.SelectionActionModeHelper$TextClassificationHelper.init(SelectionActionModeHelper.java:640)
+                at android.widget.SelectionActionModeHelper.resetTextClassificationHelper(SelectionActionModeHelper.java:203)
+                at android.widget.SelectionActionModeHelper.invalidateActionModeAsync(SelectionActionModeHelper.java:104)
+                at android.widget.Editor.invalidateActionModeAsync(Editor.java:2028)
+                at android.widget.Editor.showFloatingToolbar(Editor.java:1419)
+                at android.widget.Editor.updateFloatingToolbarVisibility(Editor.java:1397)
+                at android.widget.Editor.onTouchEvent(Editor.java:1367)
+                at android.widget.TextView.onTouchEvent(TextView.java:9701)
 */
         }
     }
