@@ -452,6 +452,15 @@ public class Log {
             return false;
 
         /*
+            java.lang.UnsatisfiedLinkError: dlopen failed: couldn't map "/mnt/asec/eu.faircode.email-1/base.apk!/lib/arm64-v8a/libsqlite3x.so" segment 0: Permission denied
+              at java.lang.Runtime.loadLibrary0(Runtime.java:1016)
+              at java.lang.System.loadLibrary(System.java:1657)
+              at io.requery.android.database.sqlite.SQLiteDatabase.<clinit>(SourceFile:91)
+         */
+        if (ex instanceof UnsatisfiedLinkError)
+            return false;
+
+        /*
             android.app.RemoteServiceException: Bad notification for startForeground: java.util.ConcurrentModificationException
             android.app.RemoteServiceException: Bad notification for startForeground: java.util.ConcurrentModificationException
             at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2204)
