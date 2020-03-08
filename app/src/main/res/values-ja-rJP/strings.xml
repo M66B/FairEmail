@@ -215,6 +215,7 @@
     <string name="title_advanced_signature_location">署名の場所</string>
     <string name="title_advanced_signature_end">引用/転送されたメッセージの後に署名を追加</string>
     <string name="title_advanced_plain_only">デフォルトでプレーンテキストのみを送信</string>
+    <string name="title_advanced_flow">プレーンテキストの \'フォーマットフロー\'</string>
     <string name="title_advanced_receipt">受取をリクエストする時</string>
     <string name="title_advanced_usenet_signature">署名の区切</string>
     <string name="title_advanced_remove_signatures">認識された署名を削除</string>

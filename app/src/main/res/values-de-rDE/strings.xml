@@ -229,7 +229,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_signature_location">Signaturposition</string>
     <string name="title_advanced_signature_end">Signatur nach zitierter/weitergeleiteter Nachricht hinzufügen</string>
     <string name="title_advanced_plain_only">Immer als Reintext senden, nicht als HTML</string>
-    <string name="title_advanced_receipt">Wenn eine Bestätigung angefordert wird, dann</string>
+    <string name="title_advanced_flow">„format flowed” für Reintext</string>
+    <string name="title_advanced_receipt">Folgende Bestätigung anfordern</string>
     <string name="title_advanced_usenet_signature">Usenet-Signaturkonvention</string>
     <string name="title_advanced_remove_signatures">Erkannte Signaturen entfernen</string>
     <string name="title_advanced_resize_images">Größe eingebetteter Bilder automatisch anpassen</string>
@@ -381,7 +382,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_subscribed_only_hint">Wenn aktiviert, werden alle lokalen Ordner ohne Abonnement gelöscht</string>
     <string name="title_advanced_sync_delay_hint">Dies verzögert die Synchronisierung von Nachrichten</string>
     <string name="title_advanced_suggest_local_hint">Zusätzlich zu den von Android bereitgestellten Kontakten werden weitere Kontaktdaten für neue gesendete oder erhaltene Nachrichten nur dann gespeichert, wenn dies aktiviert ist.</string>
-    <string name="title_advanced_usenet_hint">Signaturtrenner »--« zwischen Text und Signatur einfügen</string>
+    <string name="title_advanced_usenet_hint">Signaturtrenner »-- « zwischen Text und Signatur einfügen</string>
     <string name="title_advanced_send_reminders_hint">Eine Warnung anzeigen, wenn der Nachrichtentext oder der Betreff leer ist oder wenn ein Anhang zu fehlen scheint</string>
     <string name="title_advanced_lookup_mx_hint">Überprüft, ob DNS-MX-Einträge vorhanden sind</string>
     <string name="title_advanced_check_reply_hint">Überprüft, ob die Domain des Absenders und der Antwort-An-Adresse gleich sind</string>
@@ -884,7 +885,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_legend_browsed">Gesehen oder gesucht</string>
     <string name="title_legend_answered">Wurde beantwortet</string>
     <string name="title_legend_plain_only">Ist eine Nur-Text-Mail</string>
-    <string name="title_legend_receipt">Lesebestätigung wurde angefordert</string>
+    <string name="title_legend_receipt">Bestätigung wurde angefordert</string>
     <string name="title_legend_attachment">Anhang vorhanden</string>
     <string name="title_legend_flagged">Ist Favorit</string>
     <string name="title_legend_contacts">Kontakte verwalten</string>
@@ -903,7 +904,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_legend_picture">Bild hinzufügen</string>
     <string name="title_legend_photo">Foto aufnehmen</string>
     <string name="title_legend_audio">Audio aufnehmen</string>
-    <string name="title_legend_bold">\"Fett\" schreiben</string>
+    <string name="title_legend_bold">Fett schreiben</string>
     <string name="title_legend_italic">Kursiv schreiben</string>
     <string name="title_legend_underline">Text unterstreichen</string>
     <string name="title_legend_text_size">Textgröße festlegen</string>
@@ -1140,8 +1141,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     </string-array>
     <string-array name="receiptNames">
         <item>Lesebestätigung</item>
-        <item>Übermittlungsbestätigung</item>
-        <item>Übermittlungs- und Lesebestätigung</item>
+        <item>Empfangsbestätigung</item>
+        <item>Empfangs- und Lesebestätigung</item>
     </string-array>
     <string-array name="signatureNames">
         <item>Über dem Text</item>

@@ -251,6 +251,8 @@
     <string name="title_advanced_signature_location">Umístění podpisu</string>
     <string name="title_advanced_signature_end">Připojit podpis za citovanou/přeposílanou zprávu</string>
     <string name="title_advanced_plain_only">Automaticky odeslat pouze prostý text</string>
+    <string name="title_advanced_flow">\'format flowed\' pro prostý text</string>
+    <string name="title_advanced_receipt">Při žádosti o potvrzení</string>
     <string name="title_advanced_usenet_signature">Používat Usenet konvenci pro podpisy</string>
     <string name="title_advanced_remove_signatures">Odebrat rozpoznané podpisy</string>
     <string name="title_advanced_resize_images">Automaticky upravit velikost vložených obrázků</string>
@@ -692,6 +694,7 @@
     <string name="title_received">Přijato:</string>
     <string name="title_size">Velikost:</string>
     <string name="title_subject">Předmět:</string>
+    <string name="title_attachment">Příloha:</string>
     <string name="title_body_hint">Vaše zpráva</string>
     <string name="title_discard">Zahodit</string>
     <string name="title_save">Uložit</string>
@@ -727,6 +730,7 @@
     <string name="title_no_key">Žádný privátní klíč</string>
     <string name="title_invalid_key">Neplatný privátní klíč</string>
     <string name="title_send_plain_text">Pouze prostý text</string>
+    <string name="title_send_receipt">Požadovat potvrzení</string>
     <string name="title_send_receipt_remark">Většina poskytovatelů a e-mailových klientů ignoruje žádosti o potvrzení</string>
     <string name="title_from_missing">Chybí odesílatel</string>
     <string name="title_to_missing">Chybí příjemce</string>
@@ -1154,6 +1158,11 @@
         <item>Malé</item>
         <item>Střední</item>
         <item>Velké</item>
+    </string-array>
+    <string-array name="receiptNames">
+        <item>Potvrzení přečtení</item>
+        <item>Potvrzení doručení</item>
+        <item>Potvrzení přečtení + doručení</item>
     </string-array>
     <string-array name="signatureNames">
         <item>Nad textem</item>

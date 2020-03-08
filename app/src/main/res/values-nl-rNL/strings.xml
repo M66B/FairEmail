@@ -228,7 +228,8 @@
     <string name="title_advanced_quote_reply">Haal beantwoorde tekst aan</string>
     <string name="title_advanced_signature_location">Positie ondertekening</string>
     <string name="title_advanced_signature_end">Handtekening toevoegen na geciteerd/doorgestuurd bericht</string>
-    <string name="title_advanced_plain_only">Verstuur standaard alleen tekst</string>
+    <string name="title_advanced_plain_only">Verzend standaard platte tekst</string>
+    <string name="title_advanced_flow">\'format flowed\' voor platte tekst</string>
     <string name="title_advanced_receipt">Bij het aanvragen van een bevestiging</string>
     <string name="title_advanced_usenet_signature">Usenet handtekening conventie</string>
     <string name="title_advanced_remove_signatures">Verwijder herkende handtekeningen</string>

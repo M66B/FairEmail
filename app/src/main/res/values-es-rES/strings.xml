@@ -229,6 +229,7 @@
     <string name="title_advanced_signature_location">Posición de la firma</string>
     <string name="title_advanced_signature_end">Añadir firma después de mensaje citado/reenviado</string>
     <string name="title_advanced_plain_only">Enviar sólo texto plano por defecto</string>
+    <string name="title_advanced_flow">\'format flowed\' para texto plano</string>
     <string name="title_advanced_receipt">Al solicitar un acuse</string>
     <string name="title_advanced_usenet_signature">Convención de firma Usenet</string>
     <string name="title_advanced_remove_signatures">Eliminar firmas reconocidas</string>

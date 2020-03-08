@@ -216,6 +216,7 @@
     <string name="title_advanced_signature_location">签名位置</string>
     <string name="title_advanced_signature_end">在引用/转发消息后添加签名</string>
     <string name="title_advanced_plain_only">默认仅发送纯文本</string>
+    <string name="title_advanced_flow">用格式=长线流动(format flowed)改善纯文本阅读</string>
     <string name="title_advanced_receipt">请求回执时</string>
     <string name="title_advanced_usenet_signature">Usenet签名公约（RFC3676）</string>
     <string name="title_advanced_remove_signatures">移除公认的签名</string>
