@@ -124,6 +124,17 @@
             app:layout_constraintTop_toBottomOf="@id/swRlah" />
 
         <eu.faircode.email.FixedTextView
+            android:id="@+id/tvAdvanced"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/title_advanced_advanced"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvRlahHint" />
+
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvTimeout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -134,7 +145,7 @@
             android:textColor="?android:attr/textColorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvRlahHint" />
+            app:layout_constraintTop_toBottomOf="@id/tvAdvanced" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvTimeoutHint"
