@@ -36,6 +36,7 @@ import com.sun.mail.util.QDecoderStream;
 
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -513,7 +514,20 @@ public class MessageHelper {
 
         // When sending message
         if (identity != null) {
-            document.select("div[fairemail=signature],div[fairemail=reference]").removeAttr("fairemail");
+            Elements sig = document.select("div[fairemail=signature]");
+            Elements ref = document.select("div[fairemail=reference]");
+            sig.remove();
+            ref.remove();
+
+            HtmlHelper.convertLists(document);
+
+            sig.removeAttr("fairemail");
+            ref.removeAttr("fairemail");
+
+            for (Element e : sig)
+                document.body().appendChild(e);
+            for (Element e : ref)
+                document.body().appendChild(e);
 
             DB db = DB.getInstance(context);
             try {

@@ -1192,8 +1192,8 @@ public class HtmlHelper {
                         append(((TextNode) node).text());
                 else {
                     String name = node.nodeName();
-                    if ("li".equals(name))
-                        append("*");
+                    if ("li".equals(name) && node.parent() != null)
+                        append("ol".equals(node.parent().nodeName()) ? "-" : "*");
                     else if ("blockquote".equals(name))
                         qlevel++;
                     else if ("pre".equals(name))
@@ -1257,6 +1257,46 @@ public class HtmlHelper {
         sb.append("\n");
 
         return sb.toString();
+    }
+
+    static void convertLists(Document document) {
+        for (Element p : document.select("p")) {
+            Element list = null;
+            for (int i = 0; i < p.childNodeSize(); i++) {
+                boolean item = false;
+                Node node = p.childNode(i);
+                if (node instanceof TextNode) {
+                    String text = ((TextNode) node).text().trim();
+                    Node next = node.nextSibling();
+                    if ((text.startsWith("* ") || text.startsWith("- ")) &&
+                            (next == null || "br".equals(next.nodeName()))) {
+                        item = true;
+                        String type = (text.startsWith("* ") ? "ul" : "ol");
+
+                        Element li = document.createElement("li");
+                        li.text(text.substring(2));
+
+                        if (list == null || !list.tagName().equals(type)) {
+                            list = document.createElement(type);
+                            list.appendChild(li);
+                            node.replaceWith(list);
+                        } else {
+                            list.appendChild(li);
+                            node.remove();
+                            i--;
+                        }
+
+                        if (next != null)
+                            next.remove();
+                    }
+                }
+                if (!item)
+                    list = null;
+            }
+
+            p.tagName("div");
+            p.appendElement("br");
+        }
     }
 
     static Spanned highlightHeaders(Context context, String headers) {
