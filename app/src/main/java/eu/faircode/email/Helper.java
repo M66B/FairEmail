@@ -127,6 +127,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
 import java.util.regex.Pattern;
 
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
@@ -190,6 +191,8 @@ public class Helper {
                     0L, TimeUnit.MILLISECONDS,
                     new PriorityBlockingQueue<Runnable>(10, new PriorityComparator()),
                     factory) {
+                private final AtomicLong sequenceId = new AtomicLong();
+
                 @Override
                 protected <T> RunnableFuture<T> newTaskFor(Runnable runnable, T value) {
                     RunnableFuture<T> task = super.newTaskFor(runnable, value);
@@ -198,7 +201,7 @@ public class Helper {
                                 ((PriorityRunnable) runnable).getPriority(),
                                 ((PriorityRunnable) runnable).getOrder());
                     else
-                        return task;
+                        return new PriorityFuture<>(task, 0, sequenceId.getAndIncrement());
                 }
             };
         else
