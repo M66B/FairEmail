@@ -377,10 +377,25 @@ public class EmailService implements AutoCloseable {
             if (ioError) {
                 try {
                     // Some devices resolve IPv6 addresses while not having IPv6 connectivity
+                    InetAddress main = InetAddress.getByName(host);
                     InetAddress[] iaddrs = InetAddress.getAllByName(host);
-                    Log.i("Fallback count=" + iaddrs.length);
+                    boolean ip4 = (main instanceof Inet4Address);
+                    boolean ip6 = (main instanceof Inet6Address);
+                    Log.i("Fallback count=" + iaddrs.length + " ip4=" + ip4 + " ip6=" + ip6);
                     if (iaddrs.length > 1)
-                        for (InetAddress iaddr : iaddrs)
+                        for (InetAddress iaddr : iaddrs) {
+                            if (iaddr instanceof Inet4Address) {
+                                if (ip4)
+                                    continue;
+                                ip4 = true;
+                            }
+
+                            if (iaddr instanceof Inet6Address) {
+                                if (ip6)
+                                    continue;
+                                ip6 = true;
+                            }
+
                             try {
                                 Log.i("Falling back to " + iaddr.getHostAddress());
                                 _connect(iaddr.getHostAddress(), port, user, password, factory);
@@ -388,6 +403,7 @@ public class EmailService implements AutoCloseable {
                             } catch (MessagingException ex1) {
                                 Log.w(ex1);
                             }
+                        }
                 } catch (Throwable ex1) {
                     Log.w(ex1);
                 }
