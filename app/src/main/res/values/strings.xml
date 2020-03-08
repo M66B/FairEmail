@@ -466,6 +466,7 @@
 
     <string name="title_advanced_layout_hint">Switching to a more compact layout and changing the message text size can be done in the top action bar menu in the message view</string>
     <string name="title_advanced_date_hint">Messages are only grouped by date if they are sorted by time</string>
+    <string name="title_advanced_navbar_colorize_hint">If this works depends on the Android version and variant</string>
     <string name="title_advanced_threading_hint">Group messages related to each other</string>
     <string name="title_advanced_gravatars_hint">There might be a privacy risk</string>
     <string name="title_advanced_name_email_hint">When disabled only names will be shown when available</string>

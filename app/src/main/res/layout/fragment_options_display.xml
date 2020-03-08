@@ -120,6 +120,18 @@
             app:layout_constraintTop_toBottomOf="@id/tvDateHint"
             app:switchPadding="12dp" />
 
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvNavBarColorizeHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_navbar_colorize_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swNavBarColorize" />
+
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swLandscape"
             android:layout_width="0dp"
@@ -129,7 +141,7 @@
             android:text="@string/title_advanced_landscape"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swNavBarColorize"
+            app:layout_constraintTop_toBottomOf="@id/tvNavBarColorizeHint"
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat
