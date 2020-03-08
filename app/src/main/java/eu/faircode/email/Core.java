@@ -1019,7 +1019,7 @@ class Core {
         // Delete message
         DB db = DB.getInstance(context);
 
-        if (!account.leave_on_server && EntityFolder.INBOX.equals(folder.type)) {
+        if (EntityFolder.INBOX.equals(folder.type)) {
             Map<String, String> caps = istore.capabilities();
 
             Message[] imessages = ifolder.getMessages();
