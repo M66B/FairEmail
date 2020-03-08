@@ -341,7 +341,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         this.inflater = LayoutInflater.from(context);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean highlight_unread = prefs.getBoolean("highlight_unread", false);
+        boolean highlight_unread = prefs.getBoolean("highlight_unread", true);
         this.colorUnread = Helper.resolveColor(context, highlight_unread ? R.attr.colorUnreadHighlight : android.R.attr.textColorPrimary);
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
 

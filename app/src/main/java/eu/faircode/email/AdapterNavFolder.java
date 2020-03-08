@@ -160,7 +160,7 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
         this.inflater = LayoutInflater.from(context);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean highlight_unread = prefs.getBoolean("highlight_unread", false);
+        boolean highlight_unread = prefs.getBoolean("highlight_unread", true);
         this.debug = prefs.getBoolean("debug", false);
         this.colorUnread = Helper.resolveColor(context, highlight_unread ? R.attr.colorUnreadHighlight : android.R.attr.textColorPrimary);
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);

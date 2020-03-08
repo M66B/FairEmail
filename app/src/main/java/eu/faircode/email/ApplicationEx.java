@@ -247,6 +247,10 @@ public class ApplicationEx extends Application {
             if (!prefs.contains("poll_interval"))
                 editor.putInt("poll_interval", 0);
             editor.remove("first");
+        } else if (version < 1021) {
+            boolean highlight_unread = prefs.getBoolean("highlight_unread", false);
+            if (!highlight_unread)
+                prefs.edit().putBoolean("highlight_unread", highlight_unread);
         }
 
         if (BuildConfig.DEBUG && false) {
