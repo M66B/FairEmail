@@ -1930,7 +1930,7 @@ This is likely a confusing Microsoft Exchange (Office365) message telling that t
 Less likely is  that you are synchronizing too many folders.
 This can also happen due to abruptly losing connectivity resulting in not properly closed connections.
 
-So, double check the password or reduce the number of folders to synchronize.
+So, double check the password or reduce the number of folders to synchronize, see also [this FAQ](#user-content-faq24).
 
 <br />
 
