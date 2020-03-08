@@ -29,7 +29,9 @@ import android.net.NetworkRequest;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -56,6 +58,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     private Spinner spDownload;
     private SwitchCompat swRoaming;
     private SwitchCompat swRlah;
+    private EditText etTimeout;
     private SwitchCompat swSslHarden;
     private SwitchCompat swSocks;
     private EditText etSocks;
@@ -65,7 +68,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     private TextView tvConnectionRoaming;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "metered", "download", "roaming", "rlah", "ssl_harden", "socks_enabled", "socks_proxy"
+            "metered", "download", "roaming", "rlah", "timeout", "ssl_harden", "socks_enabled", "socks_proxy"
     };
 
     @Override
@@ -82,6 +85,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         spDownload = view.findViewById(R.id.spDownload);
         swRoaming = view.findViewById(R.id.swRoaming);
         swRlah = view.findViewById(R.id.swRlah);
+        etTimeout = view.findViewById(R.id.etTimeout);
         swSslHarden = view.findViewById(R.id.swSslHarden);
         swSocks = view.findViewById(R.id.swSocks);
         etSocks = view.findViewById(R.id.etSocks);
@@ -128,6 +132,31 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("rlah", checked).apply();
+            }
+        });
+
+        etTimeout.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Do nothing
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                try {
+                    int timeout = (s.length() > 0 ? Integer.parseInt(s.toString()) : 0);
+                    if (timeout == 0)
+                        prefs.edit().remove("timeout").apply();
+                    else
+                        prefs.edit().putInt("timeout", timeout).apply();
+                } catch (NumberFormatException ex) {
+                    Log.e(ex);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // Do nothing
             }
         });
 
@@ -186,6 +215,9 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
+        if ("timeout".equals(key))
+            return;
+
         if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
             setOptions();
     }
@@ -255,6 +287,11 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
 
         swRoaming.setChecked(prefs.getBoolean("roaming", true));
         swRlah.setChecked(prefs.getBoolean("rlah", true));
+
+        int timeout = prefs.getInt("timeout", 0);
+        etTimeout.setText(timeout == 0 ? null : Integer.toString(timeout));
+        etTimeout.setHint(Integer.toString(EmailService.DEFAULT_CONNECT_TIMEOUT));
+
         swSslHarden.setChecked(prefs.getBoolean("ssl_harden", false));
         swSocks.setChecked(prefs.getBoolean("socks_enabled", false));
         etSocks.setText(prefs.getString("socks_proxy", null));
