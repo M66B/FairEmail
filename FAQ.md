@@ -2796,6 +2796,9 @@ The F-Droid build is supported, but any other unofficial build is not supported.
 F-Droid builds irregularly, which can be problematic when there is an important update.
 Therefore you are advised to switch to the GitHub release.
 
+Note that you'll need to uninstall the F-Droid build first before you can install a GitHub release
+because Android refuses to install the same app with a different signature for security reasons.
+
 Note that the GitHub version will automatically check for updates.
 When desired, this can be turned off in the miscellaneous settings.
 
