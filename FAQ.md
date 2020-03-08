@@ -263,6 +263,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(145) How can I set a notification sound for an account, folder or sender?](#user-content-faq145)
 * [(146) How can I fix incorrect message times?](#user-content-faq146)
 * [(147) What should I know about third party versions?](#user-content-faq147)
+* [(148) What will happen when FairEmail cannot connect to an email server?](#user-content-faq148)
 
 [I have another question.](#user-content-support)
 
@@ -2805,6 +2806,24 @@ When desired, this can be turned off in the miscellaneous settings.
 Please [see here](https://github.com/M66B/FairEmail/blob/master/README.md#user-content-downloads) for all download options.
 
 If you have a problem with the F-Droid build, please check if there is a newer version first.
+
+<br>
+
+<a name="faq148"></a>
+**(148) What will happen when FairEmail cannot connect to an email server?**
+
+When FairEmail cannot connect to an email server to receive messages, for example when a firewall or a VPN is blocking the connection,
+FairEmail will wait 8, 16 and 32 seconds while keeping the device awake (=use battery power) and try again to connect.
+If this fails, FairEmail will schedule an alarm to retry after 15, 30 and 60 minutes and let the device sleep.
+
+Note that [Android doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby)
+does not allow to wake the device earlier than after 15 minutes.
+
+Sending messages will be retried on connectivity changes only
+(reconnecting to the same network or connecting to another network)
+to prevent the email server from blocking the connection permanently.
+
+*Force sync* in the three-dots menu of the unified inbox can be used to let FairEmail attempt to reconnect without waiting.
 
 <br>
 
