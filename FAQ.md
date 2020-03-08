@@ -1928,7 +1928,7 @@ Automatic recognition of tracking images can be disabled in the privacy settings
 This is likely a confusing Microsoft Exchange (Office365) message telling that the password is invalid.
 
 Less likely is  that you are synchronizing too many folders.
-This can also happen due to abruptly losing connectivity resulting in not properly closing connections.
+This can also happen due to abruptly losing connectivity resulting in not properly closed connections.
 
 So, double check the password or reduce the number of folders to synchronize.
 
