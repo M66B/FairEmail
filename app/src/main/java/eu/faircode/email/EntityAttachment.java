@@ -104,10 +104,10 @@ public class EntityAttachment {
 
     boolean isImage() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-            if (IMAGE_TYPES8.contains(type))
+            if (IMAGE_TYPES8.contains(getMimeType()))
                 return true;
 
-        return IMAGE_TYPES.contains(type);
+        return IMAGE_TYPES.contains(getMimeType());
     }
 
     File getFile(Context context) {
