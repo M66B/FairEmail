@@ -457,7 +457,8 @@ public class Log {
               at java.lang.System.loadLibrary(System.java:1657)
               at io.requery.android.database.sqlite.SQLiteDatabase.<clinit>(SourceFile:91)
          */
-        if (ex instanceof UnsatisfiedLinkError)
+        if (ex instanceof UnsatisfiedLinkError ||
+                ex.getCause() instanceof UnsatisfiedLinkError)
             return false;
 
         /*
