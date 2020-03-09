@@ -198,7 +198,6 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [~~(80) How can I fix 'Unable to load BODYSTRUCTURE'?~~](#user-content-faq80)
 * [~~(81) Can you make the background of the original message dark in the dark theme?~~](#user-content-faq81)
 * [(82) What is a tracking image?](#user-content-faq82)
-* [(83) What does 'User is authenticated but not connected' mean?](#user-content-faq83)
 * [(84) What are local contacts for?](#user-content-faq84)
 * [(85) Why is an identity not available?](#user-content-faq85)
 * [~~(86) What are 'extra privacy features'?~~](#user-content-faq86)
@@ -1922,18 +1921,6 @@ Automatic recognition of tracking images can be disabled in the privacy settings
 
 <br />
 
-<a name="faq83"></a>
-**(83) What does 'User is authenticated but not connected' mean?**
-
-This is likely a confusing Microsoft Exchange (Office365) message telling that the password is invalid.
-
-Less likely is  that you are synchronizing too many folders.
-This can also happen due to abruptly losing connectivity resulting in not properly closed connections.
-
-So, double check the password or reduce the number of folders to synchronize, see also [this FAQ](#user-content-faq23).
-
-<br />
-
 <a name="faq84"></a>
 **(84) What are local contacts for?**
 
@@ -2461,18 +2448,20 @@ because this could result in grouping unrelated messages and would be at the exp
 <a name="faq123"></a>
 **(123) What will happen when FairEmail cannot connect to an email server?**
 
-When FairEmail cannot connect to an email server to receive messages, for example when a firewall or a VPN is blocking the connection,
+When FairEmail cannot connect to an email server to receive messages,
+for example when the internet connection is bad or a firewall or a VPN is blocking the connection,
 FairEmail will wait 8, 16 and 32 seconds while keeping the device awake (=use battery power) and try again to connect.
 If this fails, FairEmail will schedule an alarm to retry after 15, 30 and 60 minutes and let the device sleep.
 
 Note that [Android doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby)
 does not allow to wake the device earlier than after 15 minutes.
 
+*Force sync* in the three-dots menu of the unified inbox can be used to let FairEmail attempt to reconnect without waiting.
+
 Sending messages will be retried on connectivity changes only
 (reconnecting to the same network or connecting to another network)
 to prevent the email server from blocking the connection permanently.
-
-*Force sync* in the three-dots menu of the unified inbox can be used to let FairEmail attempt to reconnect without waiting.
+You can pull down the outbox to retry manually.
 
 <br />
 
@@ -2664,6 +2653,7 @@ Note that FairEmail does support replying to calendar invites (a pro feature) an
 
 <br />
 
+<a name="faq83"></a>
 <a name="faq139"></a>
 **(139) How do I fix 'User is authenticated but not connected'?**
 
@@ -2672,7 +2662,8 @@ In fact this Microsoft Exchange specific error is an incorrect error message cau
 The error *User is authenticated but not connected* might occur if:
 
 * The account password was changed: changing it in FairEmail too should fix the problem
-* There are too many simultaneous connections: see [this FAQ](#user-content-faq23) for more information and a workaround
+* Push messages are enabled for too many folders: see [this FAQ](#user-content-faq23) for more information and a workaround
+* An incorrect login scheme is being used for a shared mailbox: the right scheme is *username@domain\SharedMailboxAlias*
 
 <br />
 
