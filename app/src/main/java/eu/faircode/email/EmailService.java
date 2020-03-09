@@ -414,12 +414,18 @@ public class EmailService implements AutoCloseable {
                                 ip6 = true;
                             }
 
+                            String prop = "mail." + protocol + ".connectiontimeout";
+                            String timeout = properties.getProperty(prop);
                             try {
                                 Log.i("Falling back to " + iaddr.getHostAddress());
+                                properties.put(prop, Integer.toString(DEFAULT_CONNECT_TIMEOUT / 2));
                                 _connect(iaddr.getHostAddress(), port, user, password, factory);
                                 return;
                             } catch (MessagingException ex1) {
                                 Log.w(ex1);
+                            } finally {
+                                if (timeout != null)
+                                    properties.put(prop, timeout);
                             }
                         }
                 } catch (Throwable ex1) {
