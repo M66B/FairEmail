@@ -2156,25 +2156,67 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             protected MoreResult onExecute(Context context, Bundle args) {
                 long[] ids = args.getLongArray("ids");
 
-                MoreResult result = new MoreResult();
+                Map<Long, EntityAccount> accounts = new HashMap<>();
+                Map<Long, EntityFolder> folders = new HashMap<>();
 
                 DB db = DB.getInstance(context);
 
                 boolean pop = false;
+                MoreResult result = new MoreResult();
                 result.folders = new ArrayList<>();
+
+                if (ids.length > 100) {
+                    result.seen = true;
+                    result.unseen = true;
+                    result.flagged = true;
+                    result.unflagged = true;
+                    result.importance = -1;
+                    result.visible = true;
+                    result.hidden = true;
+                }
+
                 for (long id : ids) {
                     EntityMessage message = db.message().getMessage(id);
                     if (message == null)
                         continue;
 
-                    EntityAccount account = db.account().getAccount(message.account);
-                    if (account == null)
-                        continue;
+                    EntityAccount account = accounts.get(message.account);
+                    if (account == null) {
+                        account = db.account().getAccount(message.account);
+                        if (account == null)
+                            continue;
+                        accounts.put(account.id, account);
+                    }
+
+                    EntityFolder folder = folders.get(message.folder);
+                    if (folder == null) {
+                        folder = db.folder().getFolder(message.folder);
+                        if (folder == null)
+                            continue;
+                        folders.put(folder.id, folder);
+                    }
+
                     if (account.protocol != EntityAccount.TYPE_IMAP)
                         pop = true;
 
                     if (!result.folders.contains(message.folder))
                         result.folders.add(message.folder);
+
+                    boolean isArchive = EntityFolder.ARCHIVE.equals(folder.type);
+                    boolean isTrash = (EntityFolder.TRASH.equals(folder.type) || account.protocol != EntityAccount.TYPE_IMAP);
+                    boolean isJunk = EntityFolder.JUNK.equals(folder.type);
+                    boolean isDrafts = EntityFolder.DRAFTS.equals(folder.type);
+
+                    result.isArchive = (result.isArchive == null ? isArchive : result.isArchive && isArchive);
+                    result.isTrash = (result.isTrash == null ? isTrash : result.isTrash && isTrash);
+                    result.isJunk = (result.isJunk == null ? isJunk : result.isJunk && isJunk);
+                    result.isDrafts = (result.isDrafts == null ? isDrafts : result.isDrafts && isDrafts);
+
+                    if (result.seen && result.unseen &&
+                            result.flagged && result.unflagged &&
+                            result.importance == -1 &&
+                            result.visible && result.hidden)
+                        continue;
 
                     List<EntityMessage> messages = db.message().getMessagesByThread(
                             message.account, message.thread, threading ? null : id, null);
@@ -2202,21 +2244,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             else
                                 result.hidden = true;
                     }
+                }
 
-                    EntityFolder folder = db.folder().getFolder(message.folder);
-                    boolean isArchive = EntityFolder.ARCHIVE.equals(folder.type);
-                    boolean isTrash = (EntityFolder.TRASH.equals(folder.type) || account.protocol != EntityAccount.TYPE_IMAP);
-                    boolean isJunk = EntityFolder.JUNK.equals(folder.type);
-                    boolean isDrafts = EntityFolder.DRAFTS.equals(folder.type);
-
-                    result.isArchive = (result.isArchive == null ? isArchive : result.isArchive && isArchive);
-                    result.isTrash = (result.isTrash == null ? isTrash : result.isTrash && isTrash);
-                    result.isJunk = (result.isJunk == null ? isJunk : result.isJunk && isJunk);
-                    result.isDrafts = (result.isDrafts == null ? isDrafts : result.isDrafts && isDrafts);
-
-                    boolean hasArchive = (db.folder().getFolderByType(message.account, EntityFolder.ARCHIVE) != null);
-                    boolean hasTrash = (db.folder().getFolderByType(message.account, EntityFolder.TRASH) != null);
-                    boolean hasJunk = (db.folder().getFolderByType(message.account, EntityFolder.JUNK) != null);
+                for (EntityAccount account : accounts.values()) {
+                    boolean hasArchive = (db.folder().getFolderByType(account.id, EntityFolder.ARCHIVE) != null);
+                    boolean hasTrash = (db.folder().getFolderByType(account.id, EntityFolder.TRASH) != null);
+                    boolean hasJunk = (db.folder().getFolderByType(account.id, EntityFolder.JUNK) != null);
 
                     result.hasArchive = (result.hasArchive == null ? hasArchive : result.hasArchive && hasArchive);
                     result.hasTrash = (result.hasTrash == null ? hasTrash : result.hasTrash && hasTrash);
