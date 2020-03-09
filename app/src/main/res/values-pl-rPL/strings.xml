@@ -263,6 +263,7 @@
     <string name="title_advanced_download">Automatycznie pobieraj wiadomości i załączniki przy połączeniach taryfowych do</string>
     <string name="title_advanced_roaming">Pobieraj wiadomości i załączniki podczas roamingu</string>
     <string name="title_advanced_rlah">Roaming jak w domu</string>
+    <string name="title_advanced_timeout">Limit czasu połączenia (sekundy)</string>
     <string name="title_advanced_ssl_harden">Wzmocnij połączenia SSL</string>
     <string name="title_advanced_socks">Użyj serwera proxy SOCKS</string>
     <string name="title_advanced_manage_connectivity">Zarządzaj połączeniami</string>
@@ -409,11 +410,14 @@
     <string name="title_advanced_metered_hint">Połączenia taryfowe to głównie połączenia komórkowe lub płatne hotspoty Wi-Fi</string>
     <string name="title_advanced_metered_warning">Wyłączenie tej opcji uniemożliwi odbieranie i wysyłanie wiadomości przy użyciu komórkowego połączenia internetowego</string>
     <string name="title_advanced_rlah_hint">Zakładając brak roamingu w UE</string>
+    <string name="title_advanced_timeout_hint">Limit czasu odczytu/zapisu zostanie ustawiony na dwukrotność limitu czasu połączenia. Wyższe wartości spowodują większe zużycie baterii.</string>
+    <string name="title_advanced_ssl_harden_hint">Włączenie tego spowoduje wyłączenie słabych protokołów SSL i szyfrowania, co może prowadzić do problemów z połączeniem</string>
     <string name="title_advanced_socks_hint">Korzystanie ze zdalnego serwera proxy jest niezabezpieczone, ponieważ połączenia proxy nie są szyfrowane</string>
     <string name="title_advanced_roaming_hint">Nagłówki wiadomości będą zawsze pobierane podczas roamingu. Możesz użyć ustawienia roamingu urządzenia, aby wyłączyć Internet podczas roamingu.</string>
     <string name="title_advanced_browse_hint">Pobierz więcej wiadomości podczas przewijania w dół</string>
     <string name="title_advanced_layout_hint">Przełączanie do bardziej zwartego układu i zmianę rozmiaru tekstu wiadomości można wykonać w menu górnego paska działań w widoku wiadomości</string>
     <string name="title_advanced_date_hint">Wiadomości są pogrupowane według daty, tylko jeśli są posortowane według czasu</string>
+    <string name="title_advanced_navbar_colorize_hint">To, czy to zadziała, zależy od wersji i wariantu Androida</string>
     <string name="title_advanced_threading_hint">Grupuj wiadomości powiązane ze sobą</string>
     <string name="title_advanced_gravatars_hint">Może istnieć ryzyko naruszenia prywatności</string>
     <string name="title_advanced_name_email_hint">Gdy wyłączone, tylko nazwy będą pokazywane, gdy dostępne</string>
