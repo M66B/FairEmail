@@ -34,6 +34,8 @@ import java.io.IOException;
 import java.net.Inet4Address;
 import java.net.Inet6Address;
 import java.net.InetAddress;
+import java.net.InterfaceAddress;
+import java.net.NetworkInterface;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.security.GeneralSecurityException;
@@ -49,6 +51,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -376,17 +379,37 @@ public class EmailService implements AutoCloseable {
                     InetAddress[] iaddrs = InetAddress.getAllByName(host);
                     boolean ip4 = (main instanceof Inet4Address);
                     boolean ip6 = (main instanceof Inet6Address);
-                    Log.i("Fallback count=" + iaddrs.length + " ip4=" + ip4 + " ip6=" + ip6);
+
+                    boolean has4 = false;
+                    boolean has6 = false;
+                    Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
+                    while (interfaces != null && interfaces.hasMoreElements()) {
+                        NetworkInterface ni = interfaces.nextElement();
+                        Log.i("Interface=" + ni);
+                        for (InterfaceAddress iaddr : ni.getInterfaceAddresses()) {
+                            InetAddress addr = iaddr.getAddress();
+                            if (!addr.isLoopbackAddress() && !addr.isLinkLocalAddress()) {
+                                if (addr instanceof Inet4Address)
+                                    has4 = true;
+                                else if (addr instanceof Inet6Address)
+                                    has6 = true;
+                            }
+                        }
+                    }
+
+                    Log.i("Fallback count=" + iaddrs.length +
+                            " ip4=" + ip4 + "/" + has4 +
+                            " ip6=" + ip6 + "/" + has6);
                     if (iaddrs.length > 1)
                         for (InetAddress iaddr : iaddrs) {
                             if (iaddr instanceof Inet4Address) {
-                                if (ip4)
+                                if (ip4 || !has4)
                                     continue;
                                 ip4 = true;
                             }
 
                             if (iaddr instanceof Inet6Address) {
-                                if (ip6)
+                                if (ip6 || !has6)
                                     continue;
                                 ip6 = true;
                             }
