@@ -1594,7 +1594,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         return (message != null &&
                 (message.contains("Too many simultaneous connections") /* Gmail */ ||
                         message.contains("Maximum number of connections") /* ... from user+IP exceeded */ /* Dovecot */ ||
-                        message.contains("Too many concurrent connections") /* ... to this mailbox */));
+                        message.contains("Too many concurrent connections") /* ... to this mailbox */ ||
+                        message.contains("User is authenticated but not connected") /* Outlook */));
     }
 
     private ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {
