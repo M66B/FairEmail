@@ -28,7 +28,6 @@ import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
-import android.util.Patterns;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -355,9 +354,12 @@ public class FragmentQuickSetup extends FragmentBase {
 
                     // Create folders
                     for (EntityFolder folder : folders) {
-                        folder.account = account.id;
-                        folder.id = db.folder().insertFolder(folder);
-                        EntityLog.log(context, "Quick added folder=" + folder.name + " type=" + folder.type);
+                        EntityFolder existing = db.folder().getFolderByName(account.id, folder.name);
+                        if (existing == null) {
+                            folder.account = account.id;
+                            folder.id = db.folder().insertFolder(folder);
+                            EntityLog.log(context, "Quick added folder=" + folder.name + " type=" + folder.type);
+                        }
                     }
 
                     // Set swipe left/right folder

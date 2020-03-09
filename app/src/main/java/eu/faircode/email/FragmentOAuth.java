@@ -28,7 +28,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Pair;
-import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -527,9 +526,12 @@ public class FragmentOAuth extends FragmentBase {
 
                     // Create folders
                     for (EntityFolder folder : folders) {
-                        folder.account = account.id;
-                        folder.id = db.folder().insertFolder(folder);
-                        EntityLog.log(context, "OAuth folder=" + folder.name + " type=" + folder.type);
+                        EntityFolder existing = db.folder().getFolderByName(account.id, folder.name);
+                        if (existing == null) {
+                            folder.account = account.id;
+                            folder.id = db.folder().insertFolder(folder);
+                            EntityLog.log(context, "OAuth folder=" + folder.name + " type=" + folder.type);
+                        }
                     }
 
                     // Set swipe left/right folder
