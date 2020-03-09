@@ -1363,8 +1363,8 @@
     </string-array>
 
     <string-array name="receiptNames">
-        <item>Read receipt</item>
-        <item>Delivery receipt</item>
+        <item>Read receipt only</item>
+        <item>Delivery receipt only</item>
         <item>Read+delivery receipt</item>
     </string-array>
 
