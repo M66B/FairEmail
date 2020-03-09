@@ -409,7 +409,6 @@
     <string name="title_advanced_metered_hint">Połączenia taryfowe to głównie połączenia komórkowe lub płatne hotspoty Wi-Fi</string>
     <string name="title_advanced_metered_warning">Wyłączenie tej opcji uniemożliwi odbieranie i wysyłanie wiadomości przy użyciu komórkowego połączenia internetowego</string>
     <string name="title_advanced_rlah_hint">Zakładając brak roamingu w UE</string>
-    <string name="title_advanced_ssl_harden_hint">Włączenie tego spowoduje wyłączenie słabych protokołów SSL i szyfrów</string>
     <string name="title_advanced_socks_hint">Korzystanie ze zdalnego serwera proxy jest niezabezpieczone, ponieważ połączenia proxy nie są szyfrowane</string>
     <string name="title_advanced_roaming_hint">Nagłówki wiadomości będą zawsze pobierane podczas roamingu. Możesz użyć ustawienia roamingu urządzenia, aby wyłączyć Internet podczas roamingu.</string>
     <string name="title_advanced_browse_hint">Pobierz więcej wiadomości podczas przewijania w dół</string>

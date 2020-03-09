@@ -243,6 +243,7 @@
     <string name="title_advanced_download">Automatisch downloaden van berichten en bijlagen op een gemeten verbinding tot</string>
     <string name="title_advanced_roaming">Download berichten en bijlagen tijdens roaming</string>
     <string name="title_advanced_rlah">Roam zoals thuis</string>
+    <string name="title_advanced_timeout">Verbinding timeout (seconden)</string>
     <string name="title_advanced_ssl_harden">Verhard SSL-verbindingen</string>
     <string name="title_advanced_socks">Gebruik SOCKS proxy</string>
     <string name="title_advanced_manage_connectivity">Beheer connectiviteit</string>
@@ -389,12 +390,14 @@
     <string name="title_advanced_metered_hint">Gemeten verbindingen zijn over het algemeen mobiele verbindingen of betaalde Wi-Fi hotspots</string>
     <string name="title_advanced_metered_warning">Uitschakelen van deze optie zal het ontvangen en verzenden van berichten op mobiele internetverbindingen uitschakelen</string>
     <string name="title_advanced_rlah_hint">Veronderstel geen roaming binnen de EU</string>
-    <string name="title_advanced_ssl_harden_hint">Dit inschakelen zal zwakke SSL protocollen en coderingen uitschakelen</string>
+    <string name="title_advanced_timeout_hint">De lees/schrijf time-out wordt ingesteld op de dubbele waarde van de verbinding time-out. Hogere waarden zullen leiden tot meer batterijgebruik.</string>
+    <string name="title_advanced_ssl_harden_hint">Door dit in te schakelen, worden zwakke SSL-protocollen en -coderingen uitgeschakeld, wat kan leiden tot verbindingsproblemen</string>
     <string name="title_advanced_socks_hint">Een externe proxy server gebruiken is onveilig omdat proxy verbindingen niet worden versleuteld</string>
     <string name="title_advanced_roaming_hint">Berichtkoppen zullen altijd worden opgehaald bij roaming. Je kunt de roaming-instelling van het apparaat gebruiken om internet uit te schakelen tijdens roaming.</string>
     <string name="title_advanced_browse_hint">Meer berichten ophalen bij het naar beneden scrollen</string>
     <string name="title_advanced_layout_hint">Overschakelen naar een compactere layout en het wijzigen van de berichttekst grootte kan worden gedaan in het menu van de top actiebalk in het berichtweergave</string>
     <string name="title_advanced_date_hint">Berichten worden alleen op datum gegroepeerd als ze op tijd zijn gesorteerd</string>
+    <string name="title_advanced_navbar_colorize_hint">Of dit werkt hangt af van de Android-versie en -variant</string>
     <string name="title_advanced_threading_hint">Groepeer gerelateerde berichten</string>
     <string name="title_advanced_gravatars_hint">Er is mogelijk een privacyrisico</string>
     <string name="title_advanced_name_email_hint">Indien uitgeschakeld, worden alleen namen weergegeven als deze beschikbaar zijn</string>

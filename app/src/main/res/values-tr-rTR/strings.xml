@@ -377,7 +377,6 @@
     <string name="title_advanced_metered_hint">Ölçülü bağlantılar genellikle mobil bağlantılar veya ücretli Wi-Fi noktalarıdır</string>
     <string name="title_advanced_metered_warning">Bu seçeneğin devre dışı bırakılması mobil internet bağlantısında ileti almayı ve göndermeyi devre dışı bırakacaktır</string>
     <string name="title_advanced_rlah_hint">AB içinde dolaşımda olmadığını varsayma</string>
-    <string name="title_advanced_ssl_harden_hint">Bunu etkinleştirmek zayıf SSL protokollerini ve şifrelemelerini devre dışı bırakacaktır</string>
     <string name="title_advanced_socks_hint">Proxy bağlantıları şifreli olmadığından uzak bir proxy sunucusu kullanmak güvensizdir</string>
     <string name="title_advanced_roaming_hint">Dolaşım halindeyken mesaj başlıkları her zaman alınacaktır. Cihazın dolaşım ayarlarından dolaşım halindeyken interneti devre dışı bırakabilirsiniz.</string>
     <string name="title_advanced_browse_hint">Aşağı doğru kaydırdığında daha çok ileti getirir</string>

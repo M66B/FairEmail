@@ -243,6 +243,7 @@
     <string name="title_advanced_download">Автоматично изтегляне на съобщения и прикачени файлове с големина до</string>
     <string name="title_advanced_roaming">Изтегляне на съобщения и прикачени файлове в роуминг</string>
     <string name="title_advanced_rlah">Роуминг като у дома</string>
+    <string name="title_advanced_timeout">Време на изчакване на връзката (секунди)</string>
     <string name="title_advanced_ssl_harden">Твърди SSL връзки</string>
     <string name="title_advanced_socks">Използване на SOCKS прокси</string>
     <string name="title_advanced_manage_connectivity">Управление на свързаност</string>
@@ -388,12 +389,14 @@
     <string name="title_advanced_metered_hint">Измерваните връзки обикновено са мобилен интернет или платени Wi-Fi точки</string>
     <string name="title_advanced_metered_warning">Деактивирането на тази опция ще деактивира получаването и изпращането на съобщения през мобилния интернет</string>
     <string name="title_advanced_rlah_hint">Ако не се допуска роуминг в рамките на ЕС</string>
-    <string name="title_advanced_ssl_harden_hint">Активирането на това ще деактивира слабите SSL протоколи и шифри</string>
+    <string name="title_advanced_timeout_hint">Времето за четене/запис ще бъде зададено двойно на времето за изчакване на връзката. По-високите стойности ще доведат до по-голяма консумация на батерията.</string>
+    <string name="title_advanced_ssl_harden_hint">Активирането на това ще деактивира слаби SSL протоколи и шифри, което може да доведе до проблеми с връзката</string>
     <string name="title_advanced_socks_hint">Използването на отдалечен прокси сървър е несигурно, тъй като прокси връзките не са криптирани</string>
     <string name="title_advanced_roaming_hint">Заглавките на съобщенията винаги ще се получават при роуминг. Можете да използвате настройката за роуминг на устройството, за да деактивирате интернет по време на роуминг.</string>
     <string name="title_advanced_browse_hint">Вземете още съобщения, когато превъртате надолу</string>
     <string name="title_advanced_layout_hint">Преминаване към по-компактно оформление и промяната на размера на текста на съобщение може да се извърши в менюто на горната лента за действие в изглед на съобщението</string>
     <string name="title_advanced_date_hint">Съобщенията са групирани по дата само ако са сортирани по време</string>
+    <string name="title_advanced_navbar_colorize_hint">За да работи това зависи от версията и варианта на Android</string>
     <string name="title_advanced_threading_hint">Групови съобщения, свързани помежду си</string>
     <string name="title_advanced_gravatars_hint">Възможно е да съществува риск за поверителността</string>
     <string name="title_advanced_name_email_hint">Когато са деактивирани ще се показват само имената когато са налични</string>

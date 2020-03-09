@@ -230,7 +230,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_signature_end">Signatur nach zitierter/weitergeleiteter Nachricht hinzufügen</string>
     <string name="title_advanced_plain_only">Immer als Reintext senden, nicht als HTML</string>
     <string name="title_advanced_flow">„format flowed” für Reintext</string>
-    <string name="title_advanced_receipt">Folgende Bestätigung anfordern</string>
+    <string name="title_advanced_receipt">Wenn eine Bestätigung angefordert wird, dann</string>
     <string name="title_advanced_usenet_signature">Usenet-Signaturkonvention</string>
     <string name="title_advanced_remove_signatures">Erkannte Signaturen entfernen</string>
     <string name="title_advanced_resize_images">Größe eingebetteter Bilder automatisch anpassen</string>
@@ -243,6 +243,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_download">Automatisches Herunterladen von E-Mails und Anhängen auf getakteten Verbindungen bis zu einer Größe von</string>
     <string name="title_advanced_roaming">Nachrichten und Anhänge bei Roaming herunterladen</string>
     <string name="title_advanced_rlah">Roaming wie zu Hause</string>
+    <string name="title_advanced_timeout">Zeitüberschreitung der Verbindung (Sekunden)</string>
     <string name="title_advanced_ssl_harden">SSL-Verbindungen stärken</string>
     <string name="title_advanced_socks">SOCKS Proxy verwenden</string>
     <string name="title_advanced_manage_connectivity">Konnektivität verwalten</string>
@@ -389,12 +390,14 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_metered_hint">Getaktete Verbindungen sind in der Regel mobile Verbindungen oder bezahlte WLAN-Zugangspunkte</string>
     <string name="title_advanced_metered_warning">Das Deaktivieren dieser Option deaktiviert das Empfangen und Senden von Nachrichten über mobile Internetverbindungen</string>
     <string name="title_advanced_rlah_hint">Unter der Annahme, dass kein Roaming innerhalb der EU stattfindet</string>
-    <string name="title_advanced_ssl_harden_hint">Wenn Sie dies aktivieren, werden schwache SSL-Protokolle und -Verschlüsselungen nicht zugelassen</string>
+    <string name="title_advanced_timeout_hint">Die Zeitüberschreitung beim Lesen oder Schreiben wird auf das Doppelte der Verbindungszeitüberschreitung festgelegt. Höhere Werte führen zu einem höheren Akkuverbrauch.</string>
+    <string name="title_advanced_ssl_harden_hint">Wenn dies eingeschaltet ist, werden schwache SSL-Protokolle und Chiffren deaktiviert, was zu Verbindungsproblemen führen kann</string>
     <string name="title_advanced_socks_hint">Die Benutzung eines Remote-Proxy-Servers ist unsicher, da Proxy-Verbindungen nicht verschlüsselt sind</string>
     <string name="title_advanced_roaming_hint">Die Kopfzeilen der Nachrichten werden beim Roaming immer abgeholt. Sie können die Roaming-Einstellung des Geräts verwenden, um das Internet während des Roaming zu deaktivieren.</string>
     <string name="title_advanced_browse_hint">Durch Herunterziehen weitere Nachrichten abholen</string>
     <string name="title_advanced_layout_hint">Das Wechseln zu einem kompakteren Layout und Ändern der Nachrichtentextgröße kann im oberen Aktionsleisten-Menü in der Nachrichtenansicht vorgenommen werden</string>
     <string name="title_advanced_date_hint">Nachrichten werden nur nach Datum gruppiert, wenn sie nach Zeit sortiert sind</string>
+    <string name="title_advanced_navbar_colorize_hint">Ob dies funktioniert, hängt von der Android-Version und Variante ab</string>
     <string name="title_advanced_threading_hint">E-Mails gruppieren, die miteinander verwandt sind</string>
     <string name="title_advanced_gravatars_hint">Es könnte ein Datenschutzrisiko geben</string>
     <string name="title_advanced_name_email_hint">Wenn deaktiviert, werden nur Namen angezeigt, sofern verfügbar</string>
@@ -1006,7 +1009,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_pro_activated">Alle Pro-Funktionen sind aktiviert</string>
     <string name="title_pro_valid">Alle Pro-Funktionen aktiviert</string>
     <string name="title_pro_invalid">Ungültige Antwort</string>
-    <string name="title_pro_support">FairEmail benötigt Ihre Unterstützung. Erwerben Sie die Pro-Funktionen, um das Projekt am laufen zu halten.</string>
+    <string name="title_pro_support">FairEmail benötigt Ihre Unterstützung. Erwerben Sie die Pro-Funktionen, um das Projekt am Laufen zu halten.</string>
     <string name="title_unexpected_error">Unerwarteter Fehler</string>
     <string name="title_log">Protokoll</string>
     <string name="title_auto_scroll">Automatisches Blättern</string>
@@ -1140,9 +1143,9 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
         <item>Groß</item>
     </string-array>
     <string-array name="receiptNames">
-        <item>Lesebestätigung</item>
-        <item>Empfangsbestätigung</item>
-        <item>Empfangs- und Lesebestätigung</item>
+        <item>Nur Lesebestätigung</item>
+        <item>Nur Übermittlungsbestätigung</item>
+        <item>Übermittlungs- und Lesebestätigung</item>
     </string-array>
     <string-array name="signatureNames">
         <item>Über dem Text</item>

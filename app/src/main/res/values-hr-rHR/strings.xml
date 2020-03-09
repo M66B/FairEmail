@@ -385,7 +385,6 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_metered_hint">Mjerne veze su obično mobilne veze ili plaćene Wi-Fi pristupne točke</string>
     <string name="title_advanced_metered_warning">Onemogućivanjem ove opcije onemogućit ćete primanje i slanje poruka na mobilnim internetskim vezama</string>
     <string name="title_advanced_rlah_hint">Ne pretpostavljajući roaming unutar EU</string>
-    <string name="title_advanced_ssl_harden_hint">Ako se to omogući, onemogućit će se slabi SSL protokoli i šifre</string>
     <string name="title_advanced_socks_hint">Upotreba udaljenog proxy poslužitelja nije sigurna jer proxy veze nisu šifrirane</string>
     <string name="title_advanced_roaming_hint">Zaglavlja poruka uvijek će se prikazivane prilikom roaminga. Postavku roaminga uređaja možete koristiti da biste onemogućili internet tijekom roaminga.</string>
     <string name="title_advanced_browse_hint">Dohvatite više poruka prilikom pomicanja prema dolje</string>

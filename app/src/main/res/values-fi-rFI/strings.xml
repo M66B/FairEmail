@@ -386,7 +386,6 @@
     <string name="title_advanced_metered_hint">Käytön mukaan laskutettavat yhteydet ovat yleensä mobiiliyhteyksiä tai maksullisia Wi-Fi-yhteyspisteitä</string>
     <string name="title_advanced_metered_warning">Tämän kytkeminen pois estää viestien vastaanoton ja lähetyksen mobiiliyhteyttä käytettessä</string>
     <string name="title_advanced_rlah_hint">Oletetaan, että EU:ssa on kotimaanhintaiset verkkovierailut</string>
-    <string name="title_advanced_ssl_harden_hint">Tämän käyttö poistaa käytöstä heikot SSL-protokollat ja salakirjoitukset</string>
     <string name="title_advanced_socks_hint">Välityspalvelimen käyttö ei ole turvallista, koska yhteys ei ole salattu</string>
     <string name="title_advanced_roaming_hint">Viestien tunnistetiedot haetaan aina myös verkkovierailun aikana. Laitteen asetuksista voi kytkeä verkkoyhteyden pois verkkovieraillessa.</string>
     <string name="title_advanced_browse_hint">Hae lisää viestejä alaspäin vieritettäessä</string>

@@ -243,6 +243,7 @@
     <string name="title_advanced_download">Last ned meldinger og vedlegg automatisk på en målingstilkobling opp til</string>
     <string name="title_advanced_roaming">Laste ned meldinger og vedlegg under roaming</string>
     <string name="title_advanced_rlah">Roam som hjemme</string>
+    <string name="title_advanced_timeout">Tilkoblingsavbrudd (sekunder)</string>
     <string name="title_advanced_ssl_harden">Styrke SSL-tilkoblinger</string>
     <string name="title_advanced_socks">Bruk SOCKS-proxy</string>
     <string name="title_advanced_manage_connectivity">Administrer tilkobling</string>
@@ -389,12 +390,14 @@
     <string name="title_advanced_metered_hint">Målte tilkoblinger er vanligvis mobile tilkoblinger eller betalte Wi-Fi-hotspots</string>
     <string name="title_advanced_metered_warning">Deaktivering av dette alternativet deaktiverer mottak og sending av meldinger på mobile internettforbindelser</string>
     <string name="title_advanced_rlah_hint">Forutsatt ingen roaming i EU</string>
-    <string name="title_advanced_ssl_harden_hint">Aktivering av dette vil deaktivere svake SSL-protokoller og krypteringer</string>
+    <string name="title_advanced_timeout_hint">Tidsavbrudd for lese/skriving blir satt til den doble av tilkoblings avbruddstiden. Høyere verdier vil føre til mer batteribruk.</string>
+    <string name="title_advanced_ssl_harden_hint">Aktivering av dette vil deaktivere svake SSL-protokoller og chiffer, noe som kan føre til tilkoblingsproblemer</string>
     <string name="title_advanced_socks_hint">Å bruke en ekstern proxy-server er usikker fordi proxy-tilkoblinger ikke er kryptert</string>
     <string name="title_advanced_roaming_hint">Meldingsoverskrifter vil alltid bli hentet når du roamer. Du kan bruke enhetens roaming-innstilling for å deaktivere Internett mens du roamer.</string>
     <string name="title_advanced_browse_hint">Hent flere meldinger når du ruller ned</string>
     <string name="title_advanced_layout_hint">Å bytte til en mer kompakt layout og endre meldingens tekststørrelse kan gjøres i den øverste handlingslinje menyen i meldingsvisningen</string>
     <string name="title_advanced_date_hint">Meldinger grupperes bare etter dato hvis de er sortert etter tid</string>
+    <string name="title_advanced_navbar_colorize_hint">Om dette fungerer avhenger av Android-versjonen og varianten</string>
     <string name="title_advanced_threading_hint">Gruppemeldinger knyttet til hverandre</string>
     <string name="title_advanced_gravatars_hint">Det kan være en personvernrisiko</string>
     <string name="title_advanced_name_email_hint">Når deaktivert, vil bare navn bli vist når det er tilgjengelig</string>

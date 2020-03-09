@@ -397,7 +397,6 @@
     <string name="title_advanced_metered_hint">Conexiunile contorizate sunt în general cele mobile sau punctele de acces Wi-Fi cu plată</string>
     <string name="title_advanced_metered_warning">Dezactivarea acestei opțiuni va opri primirea și trimiterea mesajelor pe conexiunile mobile de internet</string>
     <string name="title_advanced_rlah_hint">În zona UE nu se tratează ca roaming</string>
-    <string name="title_advanced_ssl_harden_hint">Activând veți dezactiva protocoalele și cifrurile SSL slabe</string>
     <string name="title_advanced_socks_hint">Este nesigură folosirea unui server proxy pentru că aceste conexiuni nu sunt criptate</string>
     <string name="title_advanced_roaming_hint">Antetele mesajelor vor fi mereu descărcate și în roaming. Puteți folosi setările roaming ale dispozitivului pentru a dezactiva internetul atunci când sunteți în roaming.</string>
     <string name="title_advanced_browse_hint">Descarcă mai multe mesaje când se derulează în jos</string>

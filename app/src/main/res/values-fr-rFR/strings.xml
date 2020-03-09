@@ -243,6 +243,7 @@
     <string name="title_advanced_download">Télécharger automatiquement les messages et les pièces jointes avec une connexion limitée jusqu\'à</string>
     <string name="title_advanced_roaming">Télécharger les messages et les pièces jointes en itinérance</string>
     <string name="title_advanced_rlah">Ignorer l\'itinérance en Europe</string>
+    <string name="title_advanced_timeout">Délai de connexion (secondes)</string>
     <string name="title_advanced_ssl_harden">Renforcer les connexions SSL</string>
     <string name="title_advanced_socks">Utiliser un proxy SOCKS</string>
     <string name="title_advanced_manage_connectivity">Gérer la connectivité</string>
@@ -389,12 +390,14 @@
     <string name="title_advanced_metered_hint">Les connexions limitées sont généralement des connexions mobiles ou des points d\'accès Wi-Fi payants</string>
     <string name="title_advanced_metered_warning">Désactiver cette option désactivera la réception et l\'envoi de messages sur les connexions Internet mobiles</string>
     <string name="title_advanced_rlah_hint">On considère qu\'il n\'y a pas d\'itinérance au sein de l\'UE (roam like at home)</string>
-    <string name="title_advanced_ssl_harden_hint">Activer ceci désactivera les protocoles et algorithmes SSL faibles</string>
+    <string name="title_advanced_timeout_hint">Le délai d\'attente de lecture/écriture sera fixé au double du délai de connexion. Des valeurs plus élevées entraîneront une plus grande utilisation de la batterie.</string>
+    <string name="title_advanced_ssl_harden_hint">Activer ceci désactivera les protocoles et algorithmes SSL faibles, ce qui peut entraîner des problèmes de connexion</string>
     <string name="title_advanced_socks_hint">L\'utilisation d\'un serveur proxy distant n\'est pas sécurisée car les connexions proxy ne sont pas chiffrées</string>
     <string name="title_advanced_roaming_hint">Les en-têtes des messages seront toujours récupérés en itinérance. Vous pouvez utiliser le paramètre d\'itinérance de l\'appareil pour désactiver internet pendant l\'itinérance.</string>
     <string name="title_advanced_browse_hint">Télécharger plus de messages en faisant défiler vers le bas</string>
     <string name="title_advanced_layout_hint">Passer à une disposition plus compacte et changer la taille du texte des messages peut être fait dans le menu de la barre d\'action en haut dans la vue message</string>
     <string name="title_advanced_date_hint">Les messages ne sont regroupés par date que s\'ils sont triés par ordre chronologique</string>
+    <string name="title_advanced_navbar_colorize_hint">Ceci fonctionne suivant la version et la variante d\'Android</string>
     <string name="title_advanced_threading_hint">Grouper les messages liés les uns aux autres</string>
     <string name="title_advanced_gravatars_hint">Il pourrait y avoir un risque pour la confidentialité</string>
     <string name="title_advanced_name_email_hint">Si désactivé, seuls les noms seront affichés si disponibles</string>

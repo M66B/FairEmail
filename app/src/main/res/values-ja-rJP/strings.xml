@@ -229,6 +229,7 @@
     <string name="title_advanced_download">従量制課金接続でメッセージと添付ファイルを自動的にダウンロードします</string>
     <string name="title_advanced_roaming">ローミング中にメッセージと添付ファイルをダウンロードします</string>
     <string name="title_advanced_rlah">EU内無制限ローミング(EUのみ)</string>
+    <string name="title_advanced_timeout">接続タイムアウト(秒)</string>
     <string name="title_advanced_ssl_harden">SSL接続を有効</string>
     <string name="title_advanced_socks">SOCKS proxyを使用</string>
     <string name="title_advanced_manage_connectivity">接続の管理</string>
@@ -374,12 +375,14 @@
     <string name="title_advanced_metered_hint">従量制課金接続とは一般的にモバイル接続または有料Wi-Fiホットスポットの事です</string>
     <string name="title_advanced_metered_warning">このオプションを無効にするとモバイルネットワークでのメッセージの送受信が無効になります</string>
     <string name="title_advanced_rlah_hint">EU内でのローミングのみ</string>
-    <string name="title_advanced_ssl_harden_hint">有効にすると弱いSSLプロトコルと暗号が無効になります</string>
+    <string name="title_advanced_timeout_hint">読み取り/書き込みタイムアウトは接続タイムアウトの2倍に設定されます。値を大きくするとバッテリーの使用量が増えます</string>
+    <string name="title_advanced_ssl_harden_hint">有効にすると弱いSSLプロトコルと暗号が無効になり接続の問題が発生する可能性が有ります</string>
     <string name="title_advanced_socks_hint">プロキシ接続は暗号化されていない為、リモートプロキシサーバ使用は安全ではありません</string>
     <string name="title_advanced_roaming_hint">ローミング時メッセージヘッダーが常に取得されます。 デバイスのローミング設定を使用して、ローミング中にインターネットを無効にする事が出来ます</string>
     <string name="title_advanced_browse_hint">下にスクロール時に、更にメッセージを取得</string>
     <string name="title_advanced_layout_hint">よりコンパクトなレイアウトへの切り替えとメッセージのテキストサイズの変更はメッセージビューの上部アクションバーメニューで行えます</string>
     <string name="title_advanced_date_hint">時間で並び替えをしている場合にのみ、メッセージは日付でグループ化されます</string>
+    <string name="title_advanced_navbar_colorize_hint">これが機能するかはAndroidのバージョンとバリアントによって異なります</string>
     <string name="title_advanced_threading_hint">互いに関連するグループメッセージ</string>
     <string name="title_advanced_gravatars_hint">プライバシーリスクが有るかもしれません</string>
     <string name="title_advanced_name_email_hint">無効にすると利用可能な場合にのみ名前が表示されます</string>

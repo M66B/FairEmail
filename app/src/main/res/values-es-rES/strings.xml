@@ -243,6 +243,7 @@
     <string name="title_advanced_download">Descargar automáticamente mensajes y adjuntos usando conexión de datos hasta</string>
     <string name="title_advanced_roaming">Descargar mensajes y adjuntos en itinerancia</string>
     <string name="title_advanced_rlah">Itinerancia como en casa</string>
+    <string name="title_advanced_timeout">Tiempo de espera de conexión (segundos)</string>
     <string name="title_advanced_ssl_harden">Endurecer conexiones SSL</string>
     <string name="title_advanced_socks">Usar proxy SOCKS</string>
     <string name="title_advanced_manage_connectivity">Administrar conectividad</string>
@@ -389,12 +390,14 @@
     <string name="title_advanced_metered_hint">Las conexiones medidas son generalmente conexiones móviles o puntos de acceso Wi-Fi de pago</string>
     <string name="title_advanced_metered_warning">Desactivar esta opción desactivará la recepción y envío de mensajes en conexiones móviles a Internet</string>
     <string name="title_advanced_rlah_hint">Suponiendo que no hay itinerancia dentro de la UE</string>
-    <string name="title_advanced_ssl_harden_hint">Activar esto desactivará los protocolos y cifrados SSL débiles</string>
+    <string name="title_advanced_timeout_hint">El tiempo de espera de lectura/escritura se establecerá al doble del tiempo de espera de conexión. Valores más altos resultarán en un mayor uso de la batería.</string>
+    <string name="title_advanced_ssl_harden_hint">Activar esto desactivará los protocolos SSL y cifrados débiles, lo que puede provocar problemas de conexión</string>
     <string name="title_advanced_socks_hint">El uso de un servidor proxy remoto es inseguro porque las conexiones proxy no están cifradas</string>
     <string name="title_advanced_roaming_hint">Los encabezados de mensajes siempre se obtendrán cuando en itinerancia. Puede usar la configuración de itinerancia del dispositivo para desactivar internet mientras se está en itinerancia.</string>
     <string name="title_advanced_browse_hint">Buscar más mensajes al desplazarse hacia abajo</string>
     <string name="title_advanced_layout_hint">Cambiar a un diseño más compacto y cambiar el tamaño del texto del mensaje puede hacerse en el menú de la barra de acción superior en la vista de mensaje</string>
     <string name="title_advanced_date_hint">Los mensajes sólo se agrupan por fecha si se ordenan por antigüedad</string>
+    <string name="title_advanced_navbar_colorize_hint">Que esto funcione dependerá de la versión y variante de Android</string>
     <string name="title_advanced_threading_hint">Agrupar mensajes relacionados entre sí</string>
     <string name="title_advanced_gravatars_hint">Puede haber un riesgo para la privacidad</string>
     <string name="title_advanced_name_email_hint">Si está desactivado, solo se mostrarán los nombres cuando estén disponibles</string>

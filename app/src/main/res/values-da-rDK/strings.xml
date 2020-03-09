@@ -242,6 +242,7 @@
     <string name="title_advanced_download">Download automatisk beskeder og vedhæftninger på forbrugsbaserede forbindelser</string>
     <string name="title_advanced_roaming">Download beskeder og vedhæftninger under roaming</string>
     <string name="title_advanced_rlah">Roam, som var du hjemme</string>
+    <string name="title_advanced_timeout">Forbindelses-timeout (sekunder)</string>
     <string name="title_advanced_ssl_harden">Hærd SSL-forbindelser</string>
     <string name="title_advanced_socks">Benyt SOCKS-proxy</string>
     <string name="title_advanced_manage_connectivity">Håndtér konnektivitet</string>
@@ -388,12 +389,14 @@
     <string name="title_advanced_metered_hint">Forbrugsbaserede forbindelser er typisk mobildataforbindelser eller betalte Wi-Fi hotspots</string>
     <string name="title_advanced_metered_warning">Deaktivering af denne indstilling vil ikke gøre det muligt at modtage og sende meddelelser på mobildataforbindelser</string>
     <string name="title_advanced_rlah_hint">Antager ingen roaming inden for EU</string>
-    <string name="title_advanced_ssl_harden_hint">Aktivering af dette vil deaktivere svage SSL-protokoller og Cipher Suites</string>
+    <string name="title_advanced_timeout_hint">Læse-/skrive-timeout indstilles til det dobbelte af forbindelses-timeout. Højere værdier vil resultere i øget batteriforbrug.</string>
+    <string name="title_advanced_ssl_harden_hint">Aktivering af dette vil deaktivere svage SSL-protokoller og algoritmer, hvilket kan føre til forbindelsesproblemer</string>
     <string name="title_advanced_socks_hint">Brug af en ekstern proxyserver er usikkert, da proxyforbindelser er ukrypterede</string>
     <string name="title_advanced_roaming_hint">Beskedoverskrifter hentes altid under roaming. Du kan benytte enhedens roamingindstilling til at deaktivere mobilnetværk under roaming.</string>
     <string name="title_advanced_browse_hint">Hent flere beskeder, når du ruller nedad</string>
     <string name="title_advanced_layout_hint">Skift til et mere kompakt layout og ændring af beskedtekststørrelse kan ske via den øverste handlingsbjælkemenu fra beskedvisning</string>
     <string name="title_advanced_date_hint">Beskeder grupperes kun efter dato, hvis de er sorteret efter tid</string>
+    <string name="title_advanced_navbar_colorize_hint">Hvorvidt dette fungerer afhænger af Android-version og -variant</string>
     <string name="title_advanced_threading_hint">Gruppér beskeder relateret til hinanden</string>
     <string name="title_advanced_gravatars_hint">Der kan være en fortrolighedsrisiko</string>
     <string name="title_advanced_name_email_hint">Når deaktiveret, vises kun navne, når de er tilgængelige</string>

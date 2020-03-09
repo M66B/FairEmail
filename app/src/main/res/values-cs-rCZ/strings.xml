@@ -265,6 +265,7 @@
     <string name="title_advanced_download">Automaticky stahovat zprávy a přílohy na účtovaném připojení až do velikosti</string>
     <string name="title_advanced_roaming">Stahovat zprávy a přílohy během roamingu</string>
     <string name="title_advanced_rlah">Roaming jako doma (RLAH)</string>
+    <string name="title_advanced_timeout">Časový limit připojení (sekundy)</string>
     <string name="title_advanced_ssl_harden">Obrnit SSL připojení</string>
     <string name="title_advanced_socks">Použít SOCKS proxy</string>
     <string name="title_advanced_manage_connectivity">Spravovat připojení</string>
@@ -410,12 +411,13 @@
     <string name="title_advanced_metered_hint">Účtovaná připojení jsou obecně mobilní připojení nebo placené Wi-Fi hotspoty</string>
     <string name="title_advanced_metered_warning">Vypnutí této volby zakáže přijímání a odesílání zpráv při mobilních datových přenosech</string>
     <string name="title_advanced_rlah_hint">Nepředpokládat žádný roaming v rámci EU</string>
-    <string name="title_advanced_ssl_harden_hint">Povolením zakážete slabé SSL protokoly a šifry</string>
+    <string name="title_advanced_ssl_harden_hint">Povolení této volby zakáže slabé SSL protokoly a šifry, což může vést k problémům s připojením</string>
     <string name="title_advanced_socks_hint">Použití vzdáleného proxy serveru není bezpečné, neboť proxy spojení nejsou šifrována</string>
     <string name="title_advanced_roaming_hint">Hlavičky zpráv budou během roamingu stahovány vždy. Použijte nastavení svého zařízení pro zakázání internetu při roamingu.</string>
     <string name="title_advanced_browse_hint">Načte další zprávy při posouvání dolů</string>
     <string name="title_advanced_layout_hint">Přepnutí na kompaktnější rozvržení a změnu velikosti textu lze provést v zobrazení zprávy skrze menu v horním panelu akcí</string>
     <string name="title_advanced_date_hint">Zprávy jsou seskupovány podle data, pouze pokud jsou řazeny dle času</string>
+    <string name="title_advanced_navbar_colorize_hint">Zda volba funguje, závisí na verzi a variantě Androidu</string>
     <string name="title_advanced_threading_hint">Seskupit související zprávy</string>
     <string name="title_advanced_gravatars_hint">Může dojít k ohrožení soukromí</string>
     <string name="title_advanced_name_email_hint">Při vypnutí se zobrazí pouze jména, budou-li k dispozici</string>

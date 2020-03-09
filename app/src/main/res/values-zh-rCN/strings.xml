@@ -216,7 +216,7 @@
     <string name="title_advanced_signature_location">签名位置</string>
     <string name="title_advanced_signature_end">在引用/转发消息后添加签名</string>
     <string name="title_advanced_plain_only">默认仅发送纯文本</string>
-    <string name="title_advanced_flow">用格式=长线流动(format flowed)改善纯文本阅读</string>
+    <string name="title_advanced_flow">对纯文本采用”格式流动式“（format flowed）引用文本换行</string>
     <string name="title_advanced_receipt">请求回执时</string>
     <string name="title_advanced_usenet_signature">Usenet签名公约（RFC3676）</string>
     <string name="title_advanced_remove_signatures">移除公认的签名</string>
@@ -230,6 +230,7 @@
     <string name="title_advanced_download">在计量的连接下自动下载邮件和附件, 最高可达</string>
     <string name="title_advanced_roaming">漫游时下载邮件和附件</string>
     <string name="title_advanced_rlah">国内漫游</string>
+    <string name="title_advanced_timeout">连接超时 (秒)</string>
     <string name="title_advanced_ssl_harden">加强 SSL 连接</string>
     <string name="title_advanced_socks">使用 SOCKS 代理</string>
     <string name="title_advanced_manage_connectivity">管理连接</string>
@@ -278,7 +279,7 @@
     <string name="title_advanced_images_inline">自动显示内联图像</string>
     <string name="title_advanced_seekbar">在底部用一个圆点显示会话相对位置</string>
     <string name="title_advanced_actionbar">显示对话操作栏</string>
-    <string name="title_advanced_navbar_colorize">为安卓导航栏上色</string>
+    <string name="title_advanced_navbar_colorize">导航栏着色</string>
     <string name="title_advanced_double_back">双击返回键退出</string>
     <string name="title_advanced_pull_refresh">下拉刷新</string>
     <string name="title_advanced_autoscroll">在收到新消息时滚动至顶部</string>
@@ -363,7 +364,7 @@
     <string name="title_advanced_check_mx">同步消息时检查发送者电子邮件地址</string>
     <string name="title_advanced_check_reply">同步消息时检查回复邮件地址</string>
     <string name="title_advanced_unseen_hint">一些邮件服务提供商对该功能支持不佳，这可能导致同步所有消息或一条消息也不同步</string>
-    <string name="title_advanced_deleted_unseen">当禁用时，未读消息将永远保留在设备上</string>
+    <string name="title_advanced_deleted_unseen">禁用后未读消息将永远保留在设备上</string>
     <string name="title_advanced_sync_kept_hint">这将更耗数据与电量，特别是如果有大量消息存储在设备上</string>
     <string name="title_advanced_sync_folders_hint">禁用此功能某种程度上会减少数据和电量使用，但也会禁用更新文件夹列表</string>
     <string name="title_advanced_subscribed_only_hint">启用此功能将删除所有未订阅的本地文件夹</string>
@@ -376,12 +377,14 @@
     <string name="title_advanced_metered_hint">计量连接通常是指移动连接或付费WiFi热点</string>
     <string name="title_advanced_metered_warning">禁用此选项将禁止在使用移动互联网连接时接收和发送消息</string>
     <string name="title_advanced_rlah_hint">假定欧盟境内不漫游</string>
-    <string name="title_advanced_ssl_harden_hint">启用此选项将禁用弱的 SSL 协议和密码套件</string>
+    <string name="title_advanced_timeout_hint">读/写超时时间将翻倍，值越高将越耗电</string>
+    <string name="title_advanced_ssl_harden_hint">启用此选项将禁用较弱的SSL协议和密码，这可能导致连接问题</string>
     <string name="title_advanced_socks_hint">使用远程代理服务器不安全，因为代理连接未加密</string>
     <string name="title_advanced_roaming_hint">当漫游时，将始终获取消息头。您可以使用设备的漫游设置在漫游时禁用互联网。</string>
     <string name="title_advanced_browse_hint">向下滚动时拉取更多邮件</string>
     <string name="title_advanced_layout_hint">切换到更为紧凑的布局，改变消息文本大小可以在邮件视图中的顶部动作栏菜单中完成</string>
     <string name="title_advanced_date_hint">若按时间对消息排序，将仅按日期对消息分组</string>
+    <string name="title_advanced_navbar_colorize_hint">这是否正常工作取决于Android版本和变体</string>
     <string name="title_advanced_threading_hint">合并相同主题为一封会话</string>
     <string name="title_advanced_gravatars_hint">可能存在隐私风险</string>
     <string name="title_advanced_name_email_hint">禁用该选项，将仅显示名称（如果可用）</string>
@@ -434,7 +437,7 @@
     <string name="title_account_left">左滑</string>
     <string name="title_account_right">右滑</string>
     <string name="title_account_move">默认移动到</string>
-    <string name="title_account_gmail">为了可靠地同步Gmail帐户，应尽可能使用Gmail快速设置向导</string>
+    <string name="title_account_gmail">为了更可靠地同步Gmail帐户，应尽可能使用Gmail快速设置向导</string>
     <string name="title_domain">域名</string>
     <string name="title_autoconfig">获取设置</string>
     <string name="title_aliases">別名</string>
@@ -1127,7 +1130,7 @@ FairEmail会显示一条消息来提醒您这一点，这条消息在您购买�
     <string-array name="receiptNames">
         <item>已读回执</item>
         <item>送达回执</item>
-        <item>已读+送达回执：</item>
+        <item>已读+送达回执</item>
     </string-array>
     <string-array name="signatureNames">
         <item>文本上方</item>
