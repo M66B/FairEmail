@@ -509,7 +509,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             try {
                 db.beginTransaction();
 
-                for (int j = isub.length - 1; j >= 0 && found < pageSize && !state.destroyed; j--)
+                Core.State astate = new Core.State(ConnectionHelper.getNetworkState(context));
+                for (int j = isub.length - 1; j >= 0 && found < pageSize && !state.destroyed && astate.isRecoverable(); j--)
                     try {
                         long uid = state.ifolder.getUID(isub[j]);
                         Log.i("Boundary server sync uid=" + uid);
@@ -519,7 +520,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                     account, browsable,
                                     (IMAPStore) state.iservice.getStore(), state.ifolder, (MimeMessage) isub[j],
                                     true, true,
-                                    rules, null);
+                                    rules, astate);
                             found++;
                         }
                         if (message != null && query != null /* browsed */)
