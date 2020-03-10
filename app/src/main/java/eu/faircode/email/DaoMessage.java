@@ -179,7 +179,8 @@ public interface DaoMessage {
             " WHERE message.account = :account" +
             " AND message.thread = :thread" +
             " AND (:id IS NULL OR message.id = :id)" +
-            " AND (NOT :filter_archive OR folder.type <> '" + EntityFolder.ARCHIVE + "')" +
+            " AND (NOT :filter_archive OR folder.type <> '" + EntityFolder.ARCHIVE +
+            "' OR (SELECT COUNT(m.id) FROM message m WHERE m.account = message.account AND m.msgid = message.msgid) = 1)" +
             " AND (NOT message.ui_hide OR :debug)" +
             " ORDER BY CASE WHEN :ascending THEN message.received ELSE -message.received END" +
             ", CASE" +
