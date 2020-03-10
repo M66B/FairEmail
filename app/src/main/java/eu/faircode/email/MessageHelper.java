@@ -1464,7 +1464,8 @@ public class MessageHelper {
                     if (TextUtils.isEmpty(charset)) {
                         // <meta charset="utf-8" />
                         // <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-                        Document d = JsoupEx.parse(result);
+                        String excerpt = result.substring(0, Math.min(1000, result.length()));
+                        Document d = JsoupEx.parse(excerpt);
                         for (Element meta : d.select("meta")) {
                             if ("Content-Type".equalsIgnoreCase(meta.attr("http-equiv"))) {
                                 try {
