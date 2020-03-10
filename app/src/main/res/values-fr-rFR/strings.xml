@@ -1082,6 +1082,7 @@
     <string-array name="startupNames">
         <item>Boîte de réception unifiée</item>
         <item>Dossiers unifiés</item>
+        <item>Dossiers du compte principal</item>
         <item>Comptes</item>
     </string-array>
     <string-array name="downloadNames">

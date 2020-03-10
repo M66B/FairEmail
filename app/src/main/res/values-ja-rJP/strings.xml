@@ -1064,6 +1064,7 @@ FairEmailは、Pro機能購入の為に上部に小さなメッセージを表�
     <string-array name="startupNames">
         <item>統合受信トレイ</item>
         <item>統合フォルダー</item>
+        <item>プライマリアカウントフォルダー</item>
         <item>アカウント</item>
     </string-array>
     <string-array name="downloadNames">

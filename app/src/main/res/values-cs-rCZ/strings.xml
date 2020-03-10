@@ -1102,7 +1102,8 @@
     <string-array name="startupNames">
         <item>Sjednocené doručené</item>
         <item>Sjednocené složky</item>
-        <item>Účty</item>
+        <item>Primary account folders</item>
+        <item>Accounts</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>

@@ -1240,12 +1240,14 @@
     <string-array name="startupValues" translatable="false">
         <item>unified</item>
         <item>folders</item>
+        <item>primary</item>
         <item>accounts</item>
     </string-array>
 
     <string-array name="startupNames">
         <item>Unified inbox</item>
         <item>Unified folders</item>
+        <item>Primary account folders</item>
         <item>Accounts</item>
     </string-array>
 

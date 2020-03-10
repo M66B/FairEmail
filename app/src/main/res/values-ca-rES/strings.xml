@@ -909,7 +909,8 @@
     <string-array name="startupNames">
         <item>Safata d\'entrada unificada</item>
         <item>Carpetes unificades</item>
-        <item>Comptes</item>
+        <item>Primary account folders</item>
+        <item>Accounts</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>

@@ -898,7 +898,8 @@
     <string-array name="startupNames">
         <item>Samlad inkorg</item>
         <item>Samlade mappar</item>
-        <item>Konton</item>
+        <item>Primary account folders</item>
+        <item>Accounts</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>

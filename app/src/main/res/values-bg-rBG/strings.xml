@@ -1081,7 +1081,8 @@
     <string-array name="startupNames">
         <item>Обединена входяща поща</item>
         <item>Обединени папки</item>
-        <item>Профили</item>
+        <item>Primary account folders</item>
+        <item>Accounts</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>

@@ -1080,7 +1080,8 @@
     <string-array name="startupNames">
         <item>Posta in arrivo unificata</item>
         <item>Cartelle unificate</item>
-        <item>Account</item>
+        <item>Primary account folders</item>
+        <item>Accounts</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>

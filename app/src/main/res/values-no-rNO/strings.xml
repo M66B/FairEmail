@@ -1081,6 +1081,7 @@ Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anme
     <string-array name="startupNames">
         <item>Enhetlig innboks</item>
         <item>Enhetlige mapper</item>
+        <item>Mapper til primærkontoer</item>
         <item>Kontoer</item>
     </string-array>
     <string-array name="downloadNames">

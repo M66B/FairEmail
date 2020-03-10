@@ -1067,7 +1067,8 @@ FairEmail会显示一条消息来提醒您这一点，这条消息在您购买�
     <string-array name="startupNames">
         <item>聚合收件箱</item>
         <item>聚合文件夹</item>
-        <item>账户</item>
+        <item>Primary account folders</item>
+        <item>Accounts</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>

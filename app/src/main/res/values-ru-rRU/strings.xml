@@ -1106,7 +1106,8 @@
     <string-array name="startupNames">
         <item>Единый почтовый ящик</item>
         <item>Единые папки</item>
-        <item>Учётные записи</item>
+        <item>Primary account folders</item>
+        <item>Accounts</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 КБ</item>

@@ -1082,6 +1082,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string-array name="startupNames">
         <item>Sammeleingang</item>
         <item>Sammelordner</item>
+        <item>Primäre Account-Ordner</item>
         <item>Konten</item>
     </string-array>
     <string-array name="downloadNames">

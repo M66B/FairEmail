@@ -1079,6 +1079,7 @@
     <string-array name="startupNames">
         <item>Gecombineerd postvak in</item>
         <item>Gecombineerde postvak in mappen</item>
+        <item>Primaire account mappen</item>
         <item>Accounts</item>
     </string-array>
     <string-array name="downloadNames">

@@ -1053,7 +1053,8 @@
     <string-array name="startupNames">
         <item>Birleşik Gelen Kutusu</item>
         <item>Birleşik klasörler</item>
-        <item>Hesaplar</item>
+        <item>Primary account folders</item>
+        <item>Accounts</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>

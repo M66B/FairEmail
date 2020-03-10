@@ -1054,7 +1054,8 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string-array name="startupNames">
         <item>Objedinjeni ulazni spremnik</item>
         <item>Mape objedinjenog ulaznog spremnika</item>
-        <item>Korisnički Računi</item>
+        <item>Primary account folders</item>
+        <item>Accounts</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>

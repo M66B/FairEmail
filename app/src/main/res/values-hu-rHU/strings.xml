@@ -841,7 +841,8 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string-array name="startupNames">
         <item>Összesített bejövő mappa</item>
         <item>Összesített mappák</item>
-        <item>Fiókok</item>
+        <item>Primary account folders</item>
+        <item>Accounts</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>

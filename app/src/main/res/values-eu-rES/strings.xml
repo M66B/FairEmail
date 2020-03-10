@@ -1076,7 +1076,8 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string-array name="startupNames">
         <item>Sarrera ontzi bateratua</item>
         <item>Karpeta bateratuak</item>
-        <item>Kontuak</item>
+        <item>Primary account folders</item>
+        <item>Accounts</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>

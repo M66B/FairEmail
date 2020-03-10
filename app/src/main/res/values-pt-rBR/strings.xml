@@ -1012,7 +1012,8 @@
     <string-array name="startupNames">
         <item>Caixa de entrada unificada</item>
         <item>Pastas unificadas</item>
-        <item>Contas</item>
+        <item>Primary account folders</item>
+        <item>Accounts</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>

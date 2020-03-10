@@ -317,6 +317,32 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void init() {
+        if ("primary".equals(startup)) {
+            new SimpleTask<EntityAccount>() {
+                @Override
+                protected EntityAccount onExecute(Context context, Bundle args) {
+                    DB db = DB.getInstance(context);
+                    return db.account().getPrimaryAccount();
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, EntityAccount account) {
+                    Bundle aargs = new Bundle();
+                    aargs.putLong("account", account == null ? -1 : account.id);
+                    FragmentBase fragment = new FragmentFolders();
+                    fragment.setArguments(aargs);
+                    init(fragment);
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(getSupportFragmentManager(), ex);
+                }
+            }.execute(this, new Bundle(), "view:primary");
+
+            return;
+        }
+
         Bundle args = new Bundle();
 
         FragmentBase fragment;
@@ -333,7 +359,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         }
 
         fragment.setArguments(args);
+        init(fragment);
+    }
 
+    private void init(FragmentBase fragment) {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
         for (Fragment existing : fm.getFragments())

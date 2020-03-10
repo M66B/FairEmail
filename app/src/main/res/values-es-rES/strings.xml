@@ -1082,7 +1082,8 @@
     <string-array name="startupNames">
         <item>Bandeja de entrada unificada</item>
         <item>Carpetas unificadas</item>
-        <item>Cuentas</item>
+        <item>Primary account folders</item>
+        <item>Accounts</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>

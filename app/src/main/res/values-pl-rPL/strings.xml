@@ -1103,7 +1103,8 @@ FairEmail wyświetla o tym małą wiadomość przypominającą, która zostanie 
     <string-array name="startupNames">
         <item>Wspólna skrzynka</item>
         <item>Wspólne foldery</item>
-        <item>Konta</item>
+        <item>Primary account folders</item>
+        <item>Accounts</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>

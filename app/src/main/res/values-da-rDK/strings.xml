@@ -1080,7 +1080,8 @@
     <string-array name="startupNames">
         <item>Samlet indbakke</item>
         <item>Samlede mapper</item>
-        <item>Konti</item>
+        <item>Primary account folders</item>
+        <item>Accounts</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>

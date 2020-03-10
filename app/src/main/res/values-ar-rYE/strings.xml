@@ -464,11 +464,6 @@
         <item>5 دقائق</item>
         <item>10 دقائق</item>
     </string-array>
-    <string-array name="startupNames">
-        <item>Unified inbox</item>
-        <item>Unified folders</item>
-        <item>الحسابات</item>
-    </string-array>
     <string-array name="downloadNames">
         <item>16 كيلوبايت</item>
         <item>32 كيلوبايت</item>

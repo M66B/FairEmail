@@ -921,7 +921,8 @@
     <string-array name="startupNames">
         <item>Обједињено пријемно сандуче</item>
         <item>Обједињене фасцикле</item>
-        <item>Налоге</item>
+        <item>Primary account folders</item>
+        <item>Accounts</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>
