@@ -65,7 +65,7 @@ public class Widget extends AppWidgetProvider {
                         view.putExtra("type", folder.type);
                         view.putExtra("refresh", true);
                     }
-                    view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     PendingIntent pi = PendingIntent.getActivity(context, ActivityView.REQUEST_UNIFIED, view, PendingIntent.FLAG_UPDATE_CURRENT);
 
                     TupleMessageStats stats = db.message().getUnseenWidget(account < 0 ? null : account);
