@@ -143,6 +143,7 @@
         Receiving and sending messages requires setting up an account and an identity like in any other email app.
         The quick setup will create both an account and identity by just asking for your name, email address and password.
         Accounts and identities (aliases) can be setup manually too if needed.
+        Non-standard protocols, like Microsoft Exchange Web Services and Microsoft ActiveSync, are not supported, see also the description of the app.
     </string>
     <string name="title_setup_quick">Quick setup</string>
     <string name="title_setup_quick_remark">To quickly setup an account and an identity for most providers</string>
