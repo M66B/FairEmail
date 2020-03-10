@@ -284,7 +284,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             "DTAG_document".toLowerCase(Locale.ROOT),
             "DTAG_image".toLowerCase(Locale.ROOT),
             "$X-Me-Annot-1".toLowerCase(Locale.ROOT),
-            "$X-Me-Annot-2".toLowerCase(Locale.ROOT)
+            "$X-Me-Annot-2".toLowerCase(Locale.ROOT),
+            "\\Unseen".toLowerCase(Locale.ROOT) // Mail.ru
     ));
 
     public class ViewHolder extends RecyclerView.ViewHolder implements
