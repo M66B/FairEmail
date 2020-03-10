@@ -32,6 +32,7 @@ import androidx.work.Worker;
 import androidx.work.WorkerParameters;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -85,7 +86,8 @@ public class WorkerFts extends Worker {
                             if (ids.size() > INDEX_BATCH_SIZE)
                                 markIndexed(db, ids);
                         } catch (Throwable ex) {
-                            if (ex instanceof OutOfMemoryError)
+                            if (ex instanceof FileNotFoundException ||
+                                    ex instanceof OutOfMemoryError)
                                 ids.add(id);
                             Log.e(ex);
                         }
