@@ -465,6 +465,7 @@
     <string name="title_advanced_browse_hint">Fetch more messages when scrolling down</string>
 
     <string name="title_advanced_layout_hint">Switching to a more compact layout and changing the message text size can be done in the top action bar menu in the message view</string>
+    <string name="title_advanced_startup_hint">Long press any folder in the folder list to add or remove it from the list of unified folders</string>
     <string name="title_advanced_date_hint">Messages are only grouped by date if they are sorted by time</string>
     <string name="title_advanced_navbar_colorize_hint">Whether this works depends on the Android version and variant</string>
     <string name="title_advanced_threading_hint">Group messages related to each other</string>
