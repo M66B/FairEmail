@@ -383,6 +383,7 @@
     <string name="title_advanced_roaming_hint">当漫游时，将始终获取消息头。您可以使用设备的漫游设置在漫游时禁用互联网。</string>
     <string name="title_advanced_browse_hint">向下滚动时拉取更多邮件</string>
     <string name="title_advanced_layout_hint">切换到更为紧凑的布局，改变消息文本大小可以在邮件视图中的顶部动作栏菜单中完成</string>
+    <string name="title_advanced_startup_hint">长按文件夹列表中的任何文件夹可将该文件夹添加到统一文件夹列表中(或从列表中删除）</string>
     <string name="title_advanced_date_hint">若按时间对消息排序，将仅按日期对消息分组</string>
     <string name="title_advanced_navbar_colorize_hint">这是否正常工作取决于Android版本和变体</string>
     <string name="title_advanced_threading_hint">合并相同主题为一封会话</string>
@@ -1067,8 +1068,8 @@ FairEmail会显示一条消息来提醒您这一点，这条消息在您购买�
     <string-array name="startupNames">
         <item>聚合收件箱</item>
         <item>聚合文件夹</item>
-        <item>Primary account folders</item>
-        <item>Accounts</item>
+        <item>主账户文件夹</item>
+        <item>账户</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>

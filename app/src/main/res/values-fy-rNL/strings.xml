@@ -54,6 +54,7 @@
         <item quantity="other">Behannelje %1$d berjochten as ûnpost?</item>
     </plurals>
     <string name="title_notification_sending">Ferstjoere berjochten</string>
+    <string name="menu_exit">Útgong</string>
     <string name="menu_setup">Ynstellingen</string>
     <string name="menu_legend">Leginde</string>
     <string-array name="startupNames">
