@@ -125,7 +125,7 @@
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
+        android:id="@+id/fabAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
@@ -135,6 +135,18 @@
         android:tooltipText="@string/title_add"
         app:backgroundTint="?attr/colorFabBackground"
         app:srcCompat="@drawable/baseline_create_new_folder_24" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabCompose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="@dimen/fab_padding"
+        android:contentDescription="@string/title_compose"
+        android:tint="?attr/colorFabForeground"
+        android:tooltipText="@string/title_compose"
+        app:backgroundTint="?attr/colorFabBackground"
+        app:srcCompat="@drawable/baseline_edit_24" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabError"

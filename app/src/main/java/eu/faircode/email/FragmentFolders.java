@@ -73,13 +73,15 @@ public class FragmentFolders extends FragmentBase {
     private Group grpHintActions;
     private Group grpHintSync;
     private Group grpReady;
-    private FloatingActionButton fab;
+    private FloatingActionButton fabAdd;
+    private FloatingActionButton fabCompose;
     private FloatingActionButton fabError;
 
     private boolean cards;
     private boolean compact;
 
     private long account;
+    private boolean primary;
     private boolean show_hidden = false;
     private String searching = null;
     private AdapterFolder adapter;
@@ -97,6 +99,7 @@ public class FragmentFolders extends FragmentBase {
         // Get arguments
         Bundle args = getArguments();
         account = args.getLong("account", -1);
+        primary = args.getBoolean("primary");
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         cards = prefs.getBoolean("cards", true);
@@ -121,7 +124,8 @@ public class FragmentFolders extends FragmentBase {
         grpHintActions = view.findViewById(R.id.grpHintActions);
         grpHintSync = view.findViewById(R.id.grpHintSync);
         grpReady = view.findViewById(R.id.grpReady);
-        fab = view.findViewById(R.id.fab);
+        fabAdd = view.findViewById(R.id.fabAdd);
+        fabCompose = view.findViewById(R.id.fabCompose);
         fabError = view.findViewById(R.id.fabError);
 
         // Wire controls
@@ -175,23 +179,55 @@ public class FragmentFolders extends FragmentBase {
         adapter = new AdapterFolder(this, account, compact, show_hidden, null);
         rvFolder.setAdapter(adapter);
 
-        fab.setOnClickListener(new View.OnClickListener() {
+        fabAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle args = new Bundle();
+                args.putLong("account", account);
+                FragmentFolder fragment = new FragmentFolder();
+                fragment.setArguments(args);
+                FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("folder");
+                fragmentTransaction.commit();
+            }
+        });
+
+        fabCompose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (account < 0) {
-                    startActivity(new Intent(getContext(), ActivityCompose.class)
-                            .putExtra("action", "new")
-                            .putExtra("account", account)
-                    );
-                } else {
-                    Bundle args = new Bundle();
-                    args.putLong("account", account);
-                    FragmentFolder fragment = new FragmentFolder();
-                    fragment.setArguments(args);
-                    FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("folder");
-                    fragmentTransaction.commit();
-                }
+                startActivity(new Intent(getContext(), ActivityCompose.class)
+                        .putExtra("action", "new")
+                        .putExtra("account", account)
+                );
+            }
+        });
+
+        fabCompose.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                new SimpleTask<EntityFolder>() {
+                    @Override
+                    protected EntityFolder onExecute(Context context, Bundle args) {
+                        return DB.getInstance(context).folder().getPrimaryDrafts();
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, EntityFolder drafts) {
+                        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                        lbm.sendBroadcast(
+                                new Intent(ActivityView.ACTION_VIEW_MESSAGES)
+                                        .putExtra("account", drafts.account)
+                                        .putExtra("folder", drafts.id)
+                                        .putExtra("type", drafts.type));
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Log.unexpectedError(getParentFragmentManager(), ex);
+                    }
+                }.execute(FragmentFolders.this, new Bundle(), "folders:drafts");
+
+                return true;
             }
         });
 
@@ -204,36 +240,6 @@ public class FragmentFolders extends FragmentBase {
             }
         });
 
-        if (account < 0)
-            fab.setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View v) {
-                    new SimpleTask<EntityFolder>() {
-                        @Override
-                        protected EntityFolder onExecute(Context context, Bundle args) {
-                            return DB.getInstance(context).folder().getPrimaryDrafts();
-                        }
-
-                        @Override
-                        protected void onExecuted(Bundle args, EntityFolder drafts) {
-                            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-                            lbm.sendBroadcast(
-                                    new Intent(ActivityView.ACTION_VIEW_MESSAGES)
-                                            .putExtra("account", drafts.account)
-                                            .putExtra("folder", drafts.id)
-                                            .putExtra("type", drafts.type));
-                        }
-
-                        @Override
-                        protected void onException(Bundle args, Throwable ex) {
-                            Log.unexpectedError(getParentFragmentManager(), ex);
-                        }
-                    }.execute(FragmentFolders.this, new Bundle(), "folders:drafts");
-
-                    return true;
-                }
-            });
-
         // Initialize
 
         if (cards && !Helper.isDarkTheme(getContext()))
@@ -241,7 +247,8 @@ public class FragmentFolders extends FragmentBase {
 
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
-        fab.hide();
+        fabAdd.hide();
+        fabCompose.hide();
         fabError.hide();
 
         return view;
@@ -267,12 +274,13 @@ public class FragmentFolders extends FragmentBase {
 
         DB db = DB.getInstance(getContext());
 
+        if (account < 0 || primary)
+            fabCompose.show();
+
         // Observe account
-        if (account < 0) {
+        if (account < 0)
             setSubtitle(R.string.title_folders_unified);
-            fab.setImageResource(R.drawable.baseline_edit_24);
-            fab.show();
-        } else
+        else
             db.account().liveAccount(account).observe(getViewLifecycleOwner(), new Observer<EntityAccount>() {
                 @Override
                 public void onChanged(@Nullable EntityAccount account) {
@@ -288,10 +296,12 @@ public class FragmentFolders extends FragmentBase {
                     else
                         fabError.hide();
 
-                    if (account == null || account.protocol != EntityAccount.TYPE_IMAP)
-                        fab.hide();
-                    else
-                        fab.show();
+                    if (!primary) {
+                        if (account == null || account.protocol != EntityAccount.TYPE_IMAP)
+                            fabAdd.hide();
+                        else
+                            fabAdd.show();
+                    }
                 }
             });
 

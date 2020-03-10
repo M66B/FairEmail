@@ -329,6 +329,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 protected void onExecuted(Bundle args, EntityAccount account) {
                     Bundle aargs = new Bundle();
                     aargs.putLong("account", account == null ? -1 : account.id);
+                    aargs.putBoolean("primary", true);
                     FragmentBase fragment = new FragmentFolders();
                     fragment.setArguments(aargs);
                     init(fragment);
