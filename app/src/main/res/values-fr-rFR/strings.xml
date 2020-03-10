@@ -229,7 +229,7 @@
     <string name="title_advanced_signature_location">Emplacement de la signature</string>
     <string name="title_advanced_signature_end">Ajouter la signature après le message cité/transféré</string>
     <string name="title_advanced_plain_only">Envoyer le texte brut uniquement par défaut</string>
-    <string name="title_advanced_flow">\'format flowed\' pour le texte brut</string>
+    <string name="title_advanced_flow">Utiliser \'format flowed\' pour le texte brut</string>
     <string name="title_advanced_receipt">Lorsque vous demandez une confirmation</string>
     <string name="title_advanced_usenet_signature">Utiliser la convention de signature Usenet</string>
     <string name="title_advanced_remove_signatures">Supprimer les signatures reconnues</string>

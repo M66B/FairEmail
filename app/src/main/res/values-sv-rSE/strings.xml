@@ -224,6 +224,8 @@
     <string name="title_advanced_signature_location">Signaturens position</string>
     <string name="title_advanced_signature_end">Lägg till signatur efter citat/vidarebefordrat meddelande</string>
     <string name="title_advanced_plain_only">Skicka bara vanlig text som standard</string>
+    <string name="title_advanced_flow">\'Formatera flöde\' för oformaterad text</string>
+    <string name="title_advanced_receipt">När du begär ett kvitto</string>
     <string name="title_advanced_usenet_signature">Signaturkonvention för Usenet</string>
     <string name="title_advanced_remove_signatures">Ta bort igenkända signaturer</string>
     <string name="title_advanced_resize_images">Ändra storlek automatiskt på inbäddade bilder</string>
@@ -236,6 +238,7 @@
     <string name="title_advanced_download">Hämta automatiskt meddelanden och bilagor på en uppmätt anslutning upp till</string>
     <string name="title_advanced_roaming">Hämta meddelanden och bilagor vid roaming</string>
     <string name="title_advanced_rlah">Roaming som hemma</string>
+    <string name="title_advanced_timeout">Timeout för anslutning (sekunder)</string>
     <string name="title_advanced_ssl_harden">Strikta SSL-anslutningar</string>
     <string name="title_advanced_socks">Använd SOCKS-proxy</string>
     <string name="title_advanced_manage_connectivity">Hantera anslutning</string>
@@ -304,6 +307,7 @@
     <string name="title_advanced_star_snoozed">Stjänrmarkera automatiskt vid snoozing av meddelanden</string>
     <string name="title_advanced_autounstar">Ta automatiskt bort stjärnmarkeringar från meddelanden när meddelanden flyttas</string>
     <string name="title_advanced_auto_important">Gör automatiskt stjärnmärkta meddelanden viktiga</string>
+    <string name="title_advanced_reset_importance">Återställ betydelsen när du flyttar meddelanden</string>
     <string name="title_advanced_discard_delete">Ta bort utkastet permanent om du kastar det</string>
     <string name="title_advanced_default_snooze">Standardsnoozelängd</string>
     <string name="title_advanced_notifications">Hantera aviseringar</string>
@@ -338,6 +342,7 @@
     <string name="title_advanced_encrypt_method">Standard krypteringsmetod</string>
     <string name="title_advanced_openpgp">OpenPGP-leverantör</string>
     <string name="title_advanced_autocrypt">Använd Autocrypt</string>
+    <string name="title_advanced_autocrypt_mutual">Autokryptera ömsesidigt läge</string>
     <string name="title_advanced_sign_default">Signera som standard</string>
     <string name="title_advanced_encrypt_default">Kryptera som standard</string>
     <string name="title_advanced_auto_decrypt">Dekryptera meddelanden automatiskt</string>
@@ -376,14 +381,23 @@
     <string name="title_advanced_usenet_hint">Infoga \'-- \' mellan texten och signaturen</string>
     <string name="title_advanced_send_reminders_hint">Visa en varning när meddelandetexten eller ämnet är tomt eller när en bilaga kanske saknas</string>
     <string name="title_advanced_lookup_mx_hint">Detta kommer att kontrollera om DNS MX-poster finns</string>
+    <string name="title_advanced_check_reply_hint">Detta kommer att kontrollera om domännamnet för avsändaren och svarsadresser är samma</string>
     <string name="title_advanced_metered_hint">Uppmätta anslutningar är generellt mobila anslutningar eller betalda Wi-Fi-hotspots</string>
     <string name="title_advanced_metered_warning">Inaktivering av det här alternativet inaktiverar mottagning och sändning av meddelanden på mobila internetanslutningar</string>
     <string name="title_advanced_rlah_hint">Förutsatt ingen roaming inom EU</string>
+    <string name="title_advanced_timeout_hint">Tidsgräns för läs/skriva kommer att ställas in på den dubbla av anslutningens tidsgräns. Högre värden kommer att resultera i mer batterianvändning.</string>
+    <string name="title_advanced_ssl_harden_hint">Aktivering av detta kommer att inaktivera svaga SSL-protokoll och chiffer, vilket kan leda till anslutningsproblem</string>
+    <string name="title_advanced_socks_hint">Användning av en proxyserver är osäker eftersom proxyanslutningar inte är krypterade</string>
     <string name="title_advanced_roaming_hint">Meddelanderubriker kommer alltid att hämtas vid roaming. Du kan använda enhetens roaminginställning för att inaktivera internet vid roaming.</string>
     <string name="title_advanced_browse_hint">Hämta fler meddelanden när du rullar ner</string>
+    <string name="title_advanced_layout_hint">Växla till en mer kompakt layout och ändra meddelandetextstorleken kan göras i menyn högst upp i meddelandevyn</string>
+    <string name="title_advanced_date_hint">Meddelanden grupperas endast efter datum om de sorteras efter tid</string>
+    <string name="title_advanced_navbar_colorize_hint">Om detta fungerar beror på Android-versionen och varianten</string>
     <string name="title_advanced_threading_hint">Gruppera meddelanden relaterade till varandra</string>
+    <string name="title_advanced_gravatars_hint">Det kan finnas en integritetsrisk</string>
     <string name="title_advanced_name_email_hint">När inaktiverad visas endast namn när det är tillgängligt</string>
     <string name="title_advanced_preview_hint">Endast tillgängligt när meddelandetexten hämtades</string>
+    <string name="title_advanced_preview_issue">Scrollningen kan vara långsam på grund av en bugg i vissa Android-versioner när antalet rader är mer än en</string>
     <string name="title_advanced_inline_hint">Infogade bilder är bilder som ingår i meddelandet</string>
     <string name="title_advanced_autoexpand_hint">Öppna automatiskt meddelandet när det bara finns ett meddelande eller bara ett oläst meddelande i en konversation</string>
     <string name="title_advanced_autoclose_hint">Stäng automatiskt konversationstrådar när alla meddelanden arkiveras, skickas eller kastas</string>
@@ -512,6 +526,7 @@
     <string name="title_flag">Lägg till stjärna</string>
     <string name="title_flag_color">Färgad stjärna &#8230;</string>
     <string name="title_unflag">Ta bort stjärna</string>
+    <string name="title_set_importance">Ställ in betydelsen</string>
     <string name="title_importance_low">Låg</string>
     <string name="title_importance_normal">Normal</string>
     <string name="title_importance_high">Hög</string>
@@ -663,6 +678,7 @@
     <string name="title_rule_hide">Dölj</string>
     <string name="title_rule_snooze">Slumra</string>
     <string name="title_rule_flag">Lägg till stjärna</string>
+    <string name="title_rule_importance">Sätt betydelsen</string>
     <string name="title_rule_move">Flytta</string>
     <string name="title_rule_copy">Kopiera (etikett)</string>
     <string name="title_rule_answer">Svara</string>
