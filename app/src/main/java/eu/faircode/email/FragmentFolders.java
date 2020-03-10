@@ -438,6 +438,9 @@ public class FragmentFolders extends FragmentBase {
             case R.id.menu_apply_all:
                 onMenuApplyToAll();
                 return true;
+            case R.id.menu_force_sync:
+                onMenuForceSync();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -466,6 +469,11 @@ public class FragmentFolders extends FragmentBase {
         FragmentDialogApply fragment = new FragmentDialogApply();
         fragment.setArguments(args);
         fragment.show(getParentFragmentManager(), "folders:apply");
+    }
+
+    private void onMenuForceSync() {
+        ServiceSynchronize.reload(getContext(), null, "force sync");
+        ToastEx.makeText(getContext(), R.string.title_executing, Toast.LENGTH_LONG).show();
     }
 
     @Override

@@ -25,4 +25,9 @@
         android:id="@+id/menu_apply_all"
         android:title="@string/title_apply_to_all"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_force_sync"
+        android:title="@string/title_force_sync"
+        app:showAsAction="never" />
 </menu>
