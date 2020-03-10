@@ -60,25 +60,21 @@ public class UnknownCharsetProvider extends CharsetProvider {
             if (sp > 0)
                 name = name.substring(0, sp);
 
-            name = name.trim();
+            name = name.trim().toUpperCase();
 
-            if (TextUtils.isEmpty(name))
-                return StandardCharsets.ISO_8859_1;
-
-            if ("x-IA5".equalsIgnoreCase(name))
-                return StandardCharsets.ISO_8859_1;
-            if ("ASCII".equalsIgnoreCase(name))
-                return StandardCharsets.ISO_8859_1;
-            if ("ISO8859-16".equalsIgnoreCase(name))
-                return StandardCharsets.ISO_8859_1;
-            if ("UTF-8//TRANSLIT".equalsIgnoreCase(name))
+            if (name.contains("UTF8") || name.contains("UTF-8")) // //TRANSLIT
                 return StandardCharsets.UTF_8;
 
-            if ("BASE64".equalsIgnoreCase(name) ||
+            if (TextUtils.isEmpty(name) ||
+                    name.contains("ASCII") ||
+                    "x-IA5".equalsIgnoreCase(name) ||
+                    "ISO8859-16".equalsIgnoreCase(name) ||
+                    "BASE64".equalsIgnoreCase(name) ||
                     "ISO".equalsIgnoreCase(name) ||
                     "latin".equalsIgnoreCase(name) ||
                     "windows-1252".equalsIgnoreCase(name) ||
-                    "8bit".equals(name))
+                    "8bit".equals(name) ||
+                    "unknown-8bit".equals(name))
                 return StandardCharsets.ISO_8859_1;
 
             // Android will prevent recursion
