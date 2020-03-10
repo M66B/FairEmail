@@ -1178,7 +1178,7 @@ public class HtmlHelper {
             private final List<String> heads = Collections.unmodifiableList(Arrays.asList(
                     "h1", "h2", "h3", "h4", "h5", "h6", "p", "ol", "ul", "table", "br", "hr"));
             private final List<String> tails = Collections.unmodifiableList(Arrays.asList(
-                    "h1", "h2", "h3", "h4", "h5", "h6", "p", "ol", "ul", "li"));
+                    "h1", "h2", "h3", "h4", "h5", "h6", "p", "ol", "ul", "li", "div"));
 
             public void head(Node node, int depth) {
                 if (node instanceof TextNode)
