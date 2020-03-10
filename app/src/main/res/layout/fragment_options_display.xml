@@ -78,6 +78,7 @@
             android:id="@+id/tvStartupHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
             android:layout_marginEnd="48dp"
             android:text="@string/title_advanced_startup_hint"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
