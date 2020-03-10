@@ -355,12 +355,17 @@ public class EmailService implements AutoCloseable {
     private void connect(
             String host, int port, String user, String password,
             SSLSocketFactoryService factory) throws MessagingException {
+        InetAddress main = null;
         try {
             //if (BuildConfig.DEBUG)
             //    throw new MailConnectException(
             //            new SocketConnectException("Debug", new IOException("Test"), host, port, 0));
 
-            _connect(host, port, user, password, factory);
+            main = InetAddress.getByName(host);
+            EntityLog.log(context, "Connecting to " + main);
+            _connect(main.getHostAddress(), port, user, password, factory);
+        } catch (UnknownHostException ex) {
+            throw new MessagingException("Unknown host " + host, ex);
         } catch (MessagingException ex) {
             boolean ioError = false;
             Throwable ce = ex;
@@ -375,7 +380,6 @@ public class EmailService implements AutoCloseable {
             if (ioError) {
                 try {
                     // Some devices resolve IPv6 addresses while not having IPv6 connectivity
-                    InetAddress main = InetAddress.getByName(host);
                     InetAddress[] iaddrs = InetAddress.getAllByName(host);
                     boolean ip4 = (main instanceof Inet4Address);
                     boolean ip6 = (main instanceof Inet6Address);
@@ -385,49 +389,55 @@ public class EmailService implements AutoCloseable {
                     Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
                     while (interfaces != null && interfaces.hasMoreElements()) {
                         NetworkInterface ni = interfaces.nextElement();
-                        Log.i("Interface=" + ni);
                         for (InterfaceAddress iaddr : ni.getInterfaceAddresses()) {
                             InetAddress addr = iaddr.getAddress();
-                            if (!addr.isLoopbackAddress() && !addr.isLinkLocalAddress()) {
+                            boolean local = (addr.isLoopbackAddress() || addr.isLinkLocalAddress());
+                            EntityLog.log(context, "Interface=" + ni + " addr=" + addr + " local=" + local);
+                            if (!local)
                                 if (addr instanceof Inet4Address)
                                     has4 = true;
                                 else if (addr instanceof Inet6Address)
                                     has6 = true;
-                            }
                         }
                     }
 
-                    Log.i("Fallback count=" + iaddrs.length +
+                    EntityLog.log(context, "Address main=" + main +
+                            " count=" + iaddrs.length +
                             " ip4=" + ip4 + "/" + has4 +
                             " ip6=" + ip6 + "/" + has6);
-                    if (iaddrs.length > 1)
-                        for (InetAddress iaddr : iaddrs) {
-                            if (iaddr instanceof Inet4Address) {
-                                if (ip4 || !has4)
-                                    continue;
-                                ip4 = true;
-                            }
 
-                            if (iaddr instanceof Inet6Address) {
-                                if (ip6 || !has6)
-                                    continue;
-                                ip6 = true;
-                            }
+                    for (InetAddress iaddr : iaddrs) {
+                        EntityLog.log(context, "Address resolved=" + iaddr);
 
-                            String prop = "mail." + protocol + ".connectiontimeout";
-                            String timeout = properties.getProperty(prop);
-                            try {
-                                Log.i("Falling back to " + iaddr.getHostAddress());
-                                properties.put(prop, Integer.toString(DEFAULT_CONNECT_TIMEOUT / 2));
-                                _connect(iaddr.getHostAddress(), port, user, password, factory);
-                                return;
-                            } catch (MessagingException ex1) {
-                                Log.w(ex1);
-                            } finally {
-                                if (timeout != null)
-                                    properties.put(prop, timeout);
-                            }
+                        if (iaddr.equals(main))
+                            continue;
+
+                        if (iaddr instanceof Inet4Address) {
+                            if (ip4 || !has4)
+                                continue;
+                            ip4 = true;
                         }
+
+                        if (iaddr instanceof Inet6Address) {
+                            if (ip6 || !has6)
+                                continue;
+                            ip6 = true;
+                        }
+
+                        String prop = "mail." + protocol + ".connectiontimeout";
+                        String timeout = properties.getProperty(prop);
+                        try {
+                            EntityLog.log(context, "Falling back to " + iaddr.getHostAddress());
+                            properties.put(prop, Integer.toString(DEFAULT_CONNECT_TIMEOUT / 2));
+                            _connect(iaddr.getHostAddress(), port, user, password, factory);
+                            return;
+                        } catch (MessagingException ex1) {
+                            Log.w(ex1);
+                        } finally {
+                            if (timeout != null)
+                                properties.put(prop, timeout);
+                        }
+                    }
                 } catch (Throwable ex1) {
                     Log.w(ex1);
                 }
