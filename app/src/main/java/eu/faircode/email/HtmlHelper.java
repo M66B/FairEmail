@@ -1199,7 +1199,10 @@ public class HtmlHelper {
                     else if ("pre".equals(name))
                         plevel++;
 
-                    if (heads.contains(name))
+                    if (heads.contains(name) &&
+                            !("br".equals(name) &&
+                                    node.nextSibling() == null &&
+                                    node.parent() != null && "div".equals(node.parent().nodeName())))
                         newline();
                 }
             }
