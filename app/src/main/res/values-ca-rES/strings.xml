@@ -99,10 +99,6 @@
     <string name="title_edit_folder">Edita la carpeta</string>
     <string name="title_setup">Preferències</string>
     <string name="title_setup_help">Ajuda</string>
-    <string name="title_setup_welcome">        Per rebre i enviar missatges cal configurar un compte i una identitat com en qualsevol altra aplicació de correu electrònic.
-        La configuració ràpida crearà tant un compte com una identitat només demanant el vostre nom, adreça de correu electrònic i contrasenya.
-        Si es necessita, també es poden configurar manualment comptes i identitats (àlies).
-    </string>
     <string name="title_setup_quick">Configuració ràpida</string>
     <string name="title_setup_quick_remark">Per configurar ràpidament un compte i una identitat per a la majoria de proveïdors</string>
     <string name="title_setup_quick_hint">La configuració ràpida aconseguirà informació de configuració a autoconfig.thunderbird.net</string>

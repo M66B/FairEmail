@@ -96,9 +96,6 @@
     <string name="title_edit_folder">编辑文件夹</string>
     <string name="title_setup">设置</string>
     <string name="title_setup_help">帮助</string>
-    <string name="title_setup_welcome">跟其他电子邮件App一样，接受和发送消息需要先设置一个账户和身份。
-快速设置只需您的姓名、邮箱地址和密码来创建一个账户和身份。
-如有需要，您也可以手动设置账户和身份 (别名)。    </string>
     <string name="title_setup_quick">快速设置</string>
     <string name="title_setup_quick_remark">为大多数邮件服务提供商快速设置账户和身份</string>
     <string name="title_setup_quick_hint">快速设置将从autoconfig.thunderbird.net 获取配置信息</string>

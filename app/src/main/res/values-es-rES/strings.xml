@@ -108,10 +108,6 @@
     <string name="title_edit_folder">Editar carpeta</string>
     <string name="title_setup">Ajustes</string>
     <string name="title_setup_help">Ayuda</string>
-    <string name="title_setup_welcome">        Recibir y enviar mensajes requiere configurar una cuenta y una identidad como en cualquier otra aplicación de correo electrónico.
-        La configuración rápida creará una cuenta e identidad simplemente pidiendo su nombre, dirección de correo electrónico y contraseña.
-        Las cuentas y identidades (alias) también se pueden configurar manualmente si es necesario.
-    </string>
     <string name="title_setup_quick">Configuración rápida</string>
     <string name="title_setup_quick_remark">Para configurar rápidamente una cuenta y una identidad para la mayoría de los proveedores</string>
     <string name="title_setup_quick_hint">La configuración rápida obtendrá información de configuración de autoconfig.thunderbird.net</string>

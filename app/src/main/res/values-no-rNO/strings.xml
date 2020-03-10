@@ -108,10 +108,6 @@
     <string name="title_edit_folder">Rediger mappe</string>
     <string name="title_setup">Innstillinger</string>
     <string name="title_setup_help">Hjelp</string>
-    <string name="title_setup_welcome">Motta og sende meldinger krever at du oppretter en konto og en identitet som i en annen e-postprogram.
-        Det raske oppsettet vil skape både en konto og en identitet ved bare å be om navn, e-postadresse og passord.
-         Kontoer og identiteter (aliaser) kan også konfigureres manuelt hvis det er nødvendig.
-    </string>
     <string name="title_setup_quick">Hurtig oppsett</string>
     <string name="title_setup_quick_remark">For å raskt sette opp en konto og en identitet for de fleste tilbydere</string>
     <string name="title_setup_quick_hint">Hurtig oppsettet henter konfigurasjons informasjon fra autoconfig.thunderbird.net</string>

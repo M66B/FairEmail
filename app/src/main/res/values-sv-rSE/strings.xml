@@ -104,10 +104,6 @@
     <string name="title_edit_folder">Redigera mapp</string>
     <string name="title_setup">Inställningar</string>
     <string name="title_setup_help">Hjälp</string>
-    <string name="title_setup_welcome">        För att ta emot och skicka meddelanden krävs att du konfigurerar ett konto och en identitet på samma sätt som i alla andra e-postappar.
-        Den snabba installationen kommer att skapa både ett konto och identitet genom att bara be om ditt namn, e-postadress och lösenord.
-        Konton och identiteter (alias) kan också ställas in manuellt om det behövs.
-    </string>
     <string name="title_setup_quick">Snabbinstallation</string>
     <string name="title_setup_quick_remark">För att snabbt konfigurera ett konto och en identitet för de flesta leverantörer</string>
     <string name="title_setup_quick_hint">Snabbinställningen hämtar konfigurationsinformation från autoconfig.thunderbird.net</string>

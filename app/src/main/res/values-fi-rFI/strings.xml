@@ -107,10 +107,6 @@
     <string name="title_edit_folder">Muokkaa kansiota</string>
     <string name="title_setup">Asetukset</string>
     <string name="title_setup_help">Ohje</string>
-    <string name="title_setup_welcome">        Viestien vastaanottaminen ja lähettäminen vaatii tilin ja identiteetin asettamisen, kuten missä tahansa sähköpostisovelluksessa.
-        Pika-asennus luo sekä tilin että identiteetin nimesi, sähköpostiosoitteesi, ja salasanasi perusteella.
-        Tilit ja identiteetit (aliakset) voi asettaa tarvittaessa myös erikseen.
-    </string>
     <string name="title_setup_quick">Pika-asennus</string>
     <string name="title_setup_quick_remark">Tilin ja identiteetin nopeaan asettamiseen useimmille palveluntarjoajille</string>
     <string name="title_setup_quick_hint">Pika-asennus hakee asetustiedot osoitteesta autoconfig.thunderbird.net</string>

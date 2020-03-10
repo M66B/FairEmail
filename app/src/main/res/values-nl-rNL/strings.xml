@@ -111,7 +111,7 @@
     <string name="title_setup_welcome">        Ontvangen en verzenden van berichten vereist een account en een identiteit zoals in elke andere e-mail app.
         De snelle instelling zal zowel een account als identiteit maken door alleen om uw naam, e-mailadres en wachtwoord te vragen.
         Accounts en identiteiten (aliassen) kunnen indien nodig ook handmatig worden ingesteld.
-    </string>
+    Niet-standaard protocollen, zoals Microsoft Exchange Web Services en Microsoft ActiveSync, worden niet ondersteund, zie ook de beschrijving van de app.</string>
     <string name="title_setup_quick">Snel instellen</string>
     <string name="title_setup_quick_remark">Voor het snel instellen van een account en een identiteit voor de meeste providers</string>
     <string name="title_setup_quick_hint">De snelle instelling zal configuratie-informatie ophalen van autoconfig.thunderbird.net</string>

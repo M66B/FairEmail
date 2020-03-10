@@ -96,9 +96,6 @@
     <string name="title_edit_folder">フォルダの編集</string>
     <string name="title_setup">設定</string>
     <string name="title_setup_help">ヘルプ</string>
-    <string name="title_setup_welcome">メッセージの送受信には他のメールアプリと同様にアカウントとIDを設定する必要があります。
-クイックセットアップでは、名前、メールアドレス、パスワードを要求するだけでアカウントとIDの両方が作成されます。
-必要に応じてアカウントとID(エイリアス)も手動でセットアップできます。</string>
     <string name="title_setup_quick">クイックセットアップ</string>
     <string name="title_setup_quick_remark">殆どのプロバイダーでアカウントとIDを素早く設定します</string>
     <string name="title_setup_quick_hint">クイックセットアップはautoconfig.thunderbird.netから構成情報を取得します</string>

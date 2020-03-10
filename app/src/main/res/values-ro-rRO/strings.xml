@@ -118,10 +118,6 @@
     <string name="title_edit_folder">Editare dosar</string>
     <string name="title_setup">Setări</string>
     <string name="title_setup_help">Ajutor</string>
-    <string name="title_setup_welcome">        Primirea și trimiterea de mesaje necesită configurarea unui cont și a unei identități ca în orice altă aplicație de e-mail.
-        Configurarea rapidă v-a crea atât un cont cât și o identitate folosindu-vă doar numele, adresa de e-mail și parola.
-        Conturile și identitățile (alias) pot fi setate și manual dacă se dorește.
-    </string>
     <string name="title_setup_quick">Configurare rapidă</string>
     <string name="title_setup_quick_remark">Permite setarea rapidă a unui cont și a unei identități pentru majoritatea furnizorilor</string>
     <string name="title_setup_quick_hint">Se vor descărca informațiile necesare de pe autoconfig.thunderbird.net</string>

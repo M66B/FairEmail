@@ -130,10 +130,6 @@
     <string name="title_edit_folder">Upravit složku</string>
     <string name="title_setup">Nastavení</string>
     <string name="title_setup_help">Nápověda</string>
-    <string name="title_setup_welcome">        Příjem a odesílání zpráv vyžaduje nastavení účtu a identity, stejně jako jakákoli jiná e-mailová aplikace.
-        Rychlé nastavení vytvoří současně účet i identitu pouhým dotazem na Vaše jméno, e-mailovou adresu a heslo.
-        Účty a identity (aliasy) lze v případě potřeby nastavit i ručně.
-    </string>
     <string name="title_setup_quick">Rychlé nastavení</string>
     <string name="title_setup_quick_remark">Pro rychlé nastavení účtu a identity pro většinu poskytovatelů</string>
     <string name="title_setup_quick_hint">Rychlé nastavení načte konfigurační údaje z autoconfig.thunderbird.net</string>
@@ -252,7 +248,7 @@
     <string name="title_advanced_signature_end">Připojit podpis za citovanou/přeposílanou zprávu</string>
     <string name="title_advanced_plain_only">Automaticky odeslat pouze prostý text</string>
     <string name="title_advanced_flow">\'format flowed\' pro prostý text</string>
-    <string name="title_advanced_receipt">Při žádosti o potvrzení</string>
+    <string name="title_advanced_receipt">Při požadování potvrzení</string>
     <string name="title_advanced_usenet_signature">Používat Usenet konvenci pro podpisy</string>
     <string name="title_advanced_remove_signatures">Odebrat rozpoznané podpisy</string>
     <string name="title_advanced_resize_images">Automaticky upravit velikost vložených obrázků</string>
@@ -403,7 +399,7 @@
     <string name="title_advanced_sync_folders_hint">Vypnutí o něco sníží množství přenesených dat a spotřebu baterie, zároveň však znemožní aktualizovat seznam složek</string>
     <string name="title_advanced_subscribed_only_hint">Povolení této volby vymaže všechny místní složky bez přihlášeného odběru</string>
     <string name="title_advanced_sync_delay_hint">Zpomalí synchronizaci zpráv</string>
-    <string name="title_advanced_suggest_local_hint">Jako doplněk ke kontaktům poskytnutých Androidem. Pokud je povoleno, kontaktní údaje budou ukládány pro nově odeslané či přijaté zprávy.</string>
+    <string name="title_advanced_suggest_local_hint">Jako dodatek ke kontaktům poskytnutých Androidem. Je-li povoleno, kontaktní údaje budou ukládány pro nově odeslané či přijaté zprávy.</string>
     <string name="title_advanced_usenet_hint">Vložit \'-- \' mezi text a podpis</string>
     <string name="title_advanced_send_reminders_hint">Zobrazit upozornění, je-li text zprávy či předmět prázdný nebo může-li chybět příloha</string>
     <string name="title_advanced_lookup_mx_hint">Ověří existenci DNS MX záznamů</string>
@@ -417,6 +413,7 @@
     <string name="title_advanced_roaming_hint">Hlavičky zpráv budou během roamingu stahovány vždy. Použijte nastavení svého zařízení pro zakázání internetu při roamingu.</string>
     <string name="title_advanced_browse_hint">Načte další zprávy při posouvání dolů</string>
     <string name="title_advanced_layout_hint">Přepnutí na kompaktnější rozvržení a změnu velikosti textu lze provést v zobrazení zprávy skrze menu v horním panelu akcí</string>
+    <string name="title_advanced_startup_hint">Podržením libovolné složky v seznamu složek ji přidáte nebo odeberete ze seznamu sjednocených složek</string>
     <string name="title_advanced_date_hint">Zprávy jsou seskupovány podle data, pouze pokud jsou řazeny dle času</string>
     <string name="title_advanced_navbar_colorize_hint">Zda volba funguje, závisí na verzi a variantě Androidu</string>
     <string name="title_advanced_threading_hint">Seskupit související zprávy</string>
@@ -454,6 +451,7 @@
     <string name="title_identity_email">Vaše e-mailová adresa</string>
     <string name="title_identity_color_hint">Barvy identit mají přednost před barvami složek a účtů</string>
     <string name="title_advanced_sender">Umožnit úpravu adresy odesílatele</string>
+    <string name="title_advanced_sender_regex">Reg. výraz odpovídající uživ. jménu příchozích e-mailových adres</string>
     <string name="title_identity_reply_to">Odpověď na adresu</string>
     <string name="title_identity_receipt">Automaticky požadovat potvrzení doručení/přečtení</string>
     <string name="title_identity_use_ip_hint">V případech \"neplatný pozdrav\", \"nutná platná adresa\" či podobné chyby zkuste změnit toto nastavení</string>
@@ -733,7 +731,7 @@
     <string name="title_no_key">Žádný privátní klíč</string>
     <string name="title_invalid_key">Neplatný privátní klíč</string>
     <string name="title_send_plain_text">Pouze prostý text</string>
-    <string name="title_send_receipt">Požadovat potvrzení</string>
+    <string name="title_send_receipt">Požádat o potvrzení</string>
     <string name="title_send_receipt_remark">Většina poskytovatelů a e-mailových klientů ignoruje žádosti o potvrzení</string>
     <string name="title_from_missing">Chybí odesílatel</string>
     <string name="title_to_missing">Chybí příjemce</string>
@@ -1102,8 +1100,8 @@
     <string-array name="startupNames">
         <item>Sjednocené doručené</item>
         <item>Sjednocené složky</item>
-        <item>Primary account folders</item>
-        <item>Accounts</item>
+        <item>Složky hlavního účtu</item>
+        <item>Účty</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>

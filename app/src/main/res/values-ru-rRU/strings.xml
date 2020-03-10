@@ -130,10 +130,6 @@
     <string name="title_edit_folder">Редактировать папку</string>
     <string name="title_setup">Настройки</string>
     <string name="title_setup_help">Справка</string>
-    <string name="title_setup_welcome">        Получение и отправка сообщений требует настройки учётной записи и идентификатора, как в любом другом приложении электронной почты.
-        Быстрая настройка создаст учётную запись и идентификатор, просто запросив имя, адрес электронной почты и пароль.
-        Учётные записи и идентификаторы (псевдонимы) могут быть также установлены вручную, если это необходимо.
-    </string>
     <string name="title_setup_quick">Быстрая настройка</string>
     <string name="title_setup_quick_remark">Быстрая настройка учётной записи и идентификатора для большинства провайдеров</string>
     <string name="title_setup_quick_hint">Быстрая настройка считывает информацию о конфигурации с autoconfig.thunderbird.net</string>

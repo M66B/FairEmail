@@ -107,10 +107,6 @@
     <string name="title_edit_folder">Editatu karpeta</string>
     <string name="title_setup">Ezarpenak</string>
     <string name="title_setup_help">Laguntza</string>
-    <string name="title_setup_welcome">        Mezuak jaso eta bidaltzeko kontu eta identitate bat ezarri behar da beste edozein e-mail aplikaziotan bezala.
-        Ezarpen azkarrak kontua eta identitatea sortuko ditu zure izena, e-mail helbidea eta pasahitza bakarrik galdetuta.
-        Kontuak eta identitateak (ezizenak) eskuz ezarri daitezke ere behar izatekotan.
-    </string>
     <string name="title_setup_quick">Ezarpen azkarra</string>
     <string name="title_setup_quick_remark">Kontu eta identitate bat azkar ezartzeko hornitzaile gehienekin</string>
     <string name="title_setup_quick_hint">Ezarpen azkar honek konfigurazioaren informazioa autoconfig.thunderbird.net helbidetik eskuratuko du</string>

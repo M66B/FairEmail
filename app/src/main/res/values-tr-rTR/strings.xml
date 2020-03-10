@@ -106,10 +106,6 @@
     <string name="title_edit_folder">Klasörü düzenle</string>
     <string name="title_setup">Ayarlar</string>
     <string name="title_setup_help">Yardım</string>
-    <string name="title_setup_welcome">Mesaj alma ve gönderme, başka bir e-posta uygulamasında olduğu gibi bir hesap ve kimlik kurmayı gerektirir.
-        Hızlı Kurulum, adınızı, e-posta adresinizi ve şifrenizi sorarak hem bir hesap hem de kimlik oluşturacaktır.
-        Hesaplar ve kimlikler (diğer adlar) gerekirse manüel olarak de kurulabilir.
-    </string>
     <string name="title_setup_quick">Hızlı Kurulum</string>
     <string name="title_setup_quick_remark">Bir hesabı çabucak kurmak için ve çoğu e posta sağlayıcı için kimlik ayarları</string>
     <string name="title_setup_quick_hint">Hızlı kurulum, yapılandırma bilgilerini autoconfig.thunderbird.net adresinden alır</string>

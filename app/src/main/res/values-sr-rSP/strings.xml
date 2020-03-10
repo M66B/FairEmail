@@ -110,10 +110,6 @@
     <string name="title_edit_folder">Измени фасциклу</string>
     <string name="title_setup">Поставке</string>
     <string name="title_setup_help">Помоћ</string>
-    <string name="title_setup_welcome">        Примање и слање порука захтева подешавање налога и идентитета, као и у свакој другој е-мејл апликацији.
-        Брзо подешавање ће направити и налог и идентитет, само Вас питајући за име, е-мејл адресу и лозинку.
-        Налози и идентитет (алијаси) се могу подесити и ручно, ако се жели.
-    </string>
     <string name="title_setup_quick">Брзо подешавање</string>
     <string name="title_setup_quick_remark">Да брзо подесите налог и идентитет за већину провајдера</string>
     <string name="title_setup_quick_hint">Брзо подешавање ће скинути конфигурационе информације са autoconfig.thunderbird.net</string>

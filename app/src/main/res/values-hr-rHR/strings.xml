@@ -118,9 +118,6 @@
     <string name="title_edit_folder">Uredi mapu</string>
     <string name="title_setup">Postavke</string>
     <string name="title_setup_help">Pomoć</string>
-    <string name="title_setup_welcome">Za primanje i slanje poruka potrebno je postaviti račun i identitet kao u bilo kojoj drugoj aplikaciji e-pošte. 
-Brzo postavljanje stvorit će i račun i identitet samo pitanjem za vaše ime, adresu e-pošte i zaporku.
-Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </string>
     <string name="title_setup_quick">Brzo postavljanje</string>
     <string name="title_setup_quick_remark">Za brzo postavljanje računa i identiteta za većinu pružatelja usluga</string>
     <string name="title_setup_quick_hint">Brzo postavljanje preuzet će informacije o konfiguraciji od autoconfig.thunderbird.net</string>

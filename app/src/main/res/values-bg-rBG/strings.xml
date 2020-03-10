@@ -108,10 +108,6 @@
     <string name="title_edit_folder">Редактиране на папка</string>
     <string name="title_setup">Настройки</string>
     <string name="title_setup_help">Помощ</string>
-    <string name="title_setup_welcome">Получаването и изпращане на съобщения изисква настройка на профил и самоличност, както във всяко друго имейл приложение.
-        Бързата настройка ще създаде и профил и самоличност само като поиска вашето име, имейл адрес и парола.
-        Профилите и самоличността (псевдонимите) могат да се настройват и ръчно, ако е необходимо.
-    </string>
     <string name="title_setup_quick">Бърза настройка</string>
     <string name="title_setup_quick_remark">За бърза настройка на профил и идентичност за повечето доставчици</string>
     <string name="title_setup_quick_hint">Бързата настройка ще извлече информация за конфигурацията от autoconfig.thunderbird.net</string>
@@ -395,6 +391,7 @@
     <string name="title_advanced_roaming_hint">Заглавките на съобщенията винаги ще се получават при роуминг. Можете да използвате настройката за роуминг на устройството, за да деактивирате интернет по време на роуминг.</string>
     <string name="title_advanced_browse_hint">Вземете още съобщения, когато превъртате надолу</string>
     <string name="title_advanced_layout_hint">Преминаване към по-компактно оформление и промяната на размера на текста на съобщение може да се извърши в менюто на горната лента за действие в изглед на съобщението</string>
+    <string name="title_advanced_startup_hint">Дълго натиснете която и да е папка в списъка с папки, за да я добавите или премахнете от списъка на обединените папки</string>
     <string name="title_advanced_date_hint">Съобщенията са групирани по дата само ако са сортирани по време</string>
     <string name="title_advanced_navbar_colorize_hint">За да работи това зависи от версията и варианта на Android</string>
     <string name="title_advanced_threading_hint">Групови съобщения, свързани помежду си</string>
@@ -1081,8 +1078,8 @@
     <string-array name="startupNames">
         <item>Обединена входяща поща</item>
         <item>Обединени папки</item>
-        <item>Primary account folders</item>
-        <item>Accounts</item>
+        <item>Основни папки на профила</item>
+        <item>Профили</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>

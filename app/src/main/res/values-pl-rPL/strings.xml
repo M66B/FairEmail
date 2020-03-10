@@ -129,10 +129,6 @@
     <string name="title_edit_folder">Edytuj folder</string>
     <string name="title_setup">Ustawienia</string>
     <string name="title_setup_help">Pomoc</string>
-    <string name="title_setup_welcome">        Odbieranie i wysyłanie wiadomości wymaga skonfigurowania konta i tożsamości, jak w każdej innej aplikacji pocztowej.
-        Szybka konfiguracja spowoduje utworzenie konta i tożsamości, po prostu pytając o imię i nazwisko, adres e-mail i hasło.
-        W razie potrzeby konta i tożsamości (aliasy) można również skonfigurować ręcznie.
-    </string>
     <string name="title_setup_quick">Szybkie ustawienia</string>
     <string name="title_setup_quick_remark">W celu szybkiego ustawienia konta i tożsamości dla większości dostawców</string>
     <string name="title_setup_quick_hint">Szybka konfiguracja pobierze informacje o ustawieniach z autoconfig.thunderbird.net</string>

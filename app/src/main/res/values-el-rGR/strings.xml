@@ -67,9 +67,6 @@
     <string name="title_edit_folder">Επεξεργασία φακέλου</string>
     <string name="title_setup">Ρυθμίσεις</string>
     <string name="title_setup_help">Βοήθεια</string>
-    <string name="title_setup_welcome">  Να λαμβάνεις και να στέλνεις μηνύματα χρειάζεται ένα email ένας λογαριασμός και μια ταυτότητα ακριβώς όπως και σε κάθε άλλη εφαρμογή email.                                      
-  Η σύντομη ρύθμιση θα δημιουργήσει και τα δύο έναν λογαριασμό και την ταυτότητα ζητώντας για τα στοιχεία σας όνομα, ηλεκτρονικό ταχυδρομείο και κωδικό πρόσβασης.                                                       
-   Λογαριασμοί και ταυτότητες (ψευδώνυμο)  μπορεί να ρυθμίζονται και χειροκίνητα αν χρειαστεί.    </string>
     <string name="title_setup_quick">Γρήγορη ρύθμιση</string>
     <string name="title_setup_quick_remark">Για να ρυθμίζετε γρήγορα έναν λογαριασμό και την ταυτοποίηση για τους περισσότερους παροχείς</string>
     <string name="title_setup_quick_hint">Η γρήγορη ρύθμιση θα αντλήσει πληροφορίες εγκατάστασης από το autoconfig.thunderbird.net</string>

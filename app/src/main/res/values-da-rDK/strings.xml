@@ -108,9 +108,6 @@
     <string name="title_edit_folder">Redigér mappe</string>
     <string name="title_setup">Indstillinger</string>
     <string name="title_setup_help">Hjælp</string>
-    <string name="title_setup_welcome">Modtagelse og afsendelse af beskederer kræver opsætning af en konto og en identitet som i enhver anden e-mail app.
-         Den hurtige opsætning opretter både en konto og identitet ved blot at bede om dit navn, e-mail og adgangskode.
-         Konti og identiteter (aliaser) kan også indstilles manuelt om nødvendigt.    </string>
     <string name="title_setup_quick">Hurtig opsætning</string>
     <string name="title_setup_quick_remark">For hurtigt at opsætte en konto og identitet for de fleste udbydere</string>
     <string name="title_setup_quick_hint">Hurtig opsætningen vil hente opsætningsoplysninger fra autoconfig.thunderbird.net</string>

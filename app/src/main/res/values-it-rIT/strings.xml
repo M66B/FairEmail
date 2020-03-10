@@ -108,9 +108,11 @@
     <string name="title_edit_folder">Modifica cartella</string>
     <string name="title_setup">Impostazioni</string>
     <string name="title_setup_help">Aiuto</string>
-    <string name="title_setup_welcome">        La ricezione e l\'invio di messaggi richiede l\'impostazione di un account e di un\'identità come in qualsiasi altra applicazione email.
-        La configurazione rapida creerà sia un account che un\'identità solo chiedendo il tuo nome, indirizzo email e password.
-        Account e identità (alias) possono anche  essere impostati manualmente se necessario.    </string>
+    <string name="title_setup_welcome">        Per ricevere e inviare messaggi è necessario impostare un account e un\'identità come in qualsiasi altra applicazione di posta elettronica.
+        La configurazione rapida creerà sia un account che un\'identità chiedendo semplicemente il tuo nome, l\'indirizzo email e la password.
+        Account e identità (alias) possono essere impostati anche  manualmente, se necessario.
+        Protocolli non standard, come Microsoft Exchange Web e Microsoft ActiveSync, non sono supportati, vedere anche la descrizione dell\'app.
+    </string>
     <string name="title_setup_quick">Configurazione rapida</string>
     <string name="title_setup_quick_remark">Per impostare rapidamente un account e un\'identità per la maggior parte dei provider</string>
     <string name="title_setup_quick_hint">La configurazione rapida recupererà le informazioni di configurazione da autoconfig.thunderbird.net</string>
