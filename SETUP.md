@@ -36,7 +36,7 @@ For more about this, please see [here](https://github.com/M66B/FairEmail/blob/ma
 ## Set up identity - to send email
 
 Similarly, to add an identity, tap *Manage identity* and tap the orange *add* button at the bottom.
-Enter the name you want to appear in de from address of the emails you send and select a linked account.
+Enter the name you want to appear in the from address of the emails you send and select a linked account.
 Tap *Save* to add the identity.
 
 If the account was configured manually, you likely need to configure the identity manually too.
