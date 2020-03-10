@@ -17,6 +17,18 @@
         android:paddingBottom="24dp">
 
         <eu.faircode.email.FixedTextView
+            android:id="@+id/tvCaptionGeneral"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:text="@string/title_advanced_caption_general"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvEncryptMethod"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -27,7 +39,7 @@
             android:textColor="?android:attr/textColorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/tvCaptionGeneral" />
 
         <Spinner
             android:id="@+id/spEncryptMethod"
@@ -79,7 +91,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:layout_marginEnd="48dp"
+            android:gravity="center"
             android:text="@string/title_advanced_caption_pgp"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintEnd_toEndOf="parent"
@@ -138,7 +150,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:layout_marginEnd="48dp"
+            android:gravity="center"
             android:text="@string/title_advanced_caption_smime"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintEnd_toEndOf="parent"

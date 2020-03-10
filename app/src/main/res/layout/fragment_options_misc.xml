@@ -16,6 +16,18 @@
         android:layout_height="wrap_content"
         android:paddingBottom="24dp">
 
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvCaptionGeneral"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:text="@string/title_advanced_caption_general"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swExternalSearch"
             android:layout_width="0dp"
@@ -25,7 +37,7 @@
             android:text="@string/title_advanced_external_search"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCaptionGeneral"
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat

@@ -17,6 +17,18 @@
         android:paddingBottom="24dp">
 
         <eu.faircode.email.FixedTextView
+            android:id="@+id/tvCaptionGeneral"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:text="@string/title_advanced_caption_general"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvLayoutHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -26,18 +38,7 @@
             android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <eu.faircode.email.FixedTextView
-            android:id="@+id/tvCaptionGeneral"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="@string/title_advanced_caption_general"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvLayoutHint" />
+            app:layout_constraintTop_toBottomOf="@id/tvCaptionGeneral" />
 
         <Button
             android:id="@+id/btnTheme"
@@ -49,7 +50,7 @@
             android:minHeight="0dp"
             android:text="@string/title_setup_theme"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvCaptionGeneral" />
+            app:layout_constraintTop_toBottomOf="@id/tvLayoutHint" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvStartup"
@@ -162,6 +163,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            android:gravity="center"
             android:text="@string/title_advanced_caption_conversation"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintEnd_toEndOf="parent"
@@ -223,6 +225,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            android:gravity="center"
             android:text="@string/title_advanced_caption_message"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintEnd_toEndOf="parent"
