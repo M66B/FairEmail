@@ -848,29 +848,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                             if ("Still here".equals(message) && !account.ondemand) {
                                 long now = new Date().getTime();
-                                if (now - start > STILL_THERE_THRESHOLD)
-                                    return;
-
-                                boolean auto_optimize = prefs.getBoolean("auto_optimize", false);
-                                if (!auto_optimize)
-                                    return;
-
-                                int pollInterval = prefs.getInt("poll_interval", DEFAULT_POLL_INTERVAL);
-                                if (pollInterval == 0) {
-                                    prefs.edit().putInt("poll_interval", STILL_THERE_POLL_INTERVAL).apply();
-                                    try {
-                                        db.beginTransaction();
-                                        for (EntityAccount a : db.account().getAccounts())
-                                            db.account().setAccountPollExempted(a.id, !a.id.equals(account.id));
-                                        db.setTransactionSuccessful();
-                                    } finally {
-                                        db.endTransaction();
-                                    }
-                                    ServiceSynchronize.eval(ServiceSynchronize.this, message);
-                                } else if (account.poll_exempted) {
-                                    db.account().setAccountPollExempted(account.id, false);
-                                    ServiceSynchronize.eval(ServiceSynchronize.this, message);
-                                }
+                                if (now - start < STILL_THERE_THRESHOLD)
+                                    optimizeAccount(ServiceSynchronize.this, account, message);
                             }
                         } else
                             try {
@@ -964,6 +943,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                     final boolean capIdle = iservice.hasCapability("IDLE");
                     Log.i(account.name + " idle=" + capIdle);
+                    if (!capIdle)
+                        optimizeAccount(ServiceSynchronize.this, account, "IDLE");
 
                     db.account().setAccountState(account.id, "connected");
                     db.account().setAccountError(account.id, null);
@@ -1596,6 +1577,32 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         message.contains("Maximum number of connections") /* ... from user+IP exceeded */ /* Dovecot */ ||
                         message.contains("Too many concurrent connections") /* ... to this mailbox */ ||
                         message.contains("User is authenticated but not connected") /* Outlook */));
+    }
+
+    private void optimizeAccount(Context context, EntityAccount account, String reason) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean auto_optimize = prefs.getBoolean("auto_optimize", false);
+        if (!auto_optimize)
+            return;
+
+        DB db = DB.getInstance(context);
+
+        int pollInterval = prefs.getInt("poll_interval", DEFAULT_POLL_INTERVAL);
+        if (pollInterval == 0) {
+            prefs.edit().putInt("poll_interval", STILL_THERE_POLL_INTERVAL).apply();
+            try {
+                db.beginTransaction();
+                for (EntityAccount a : db.account().getAccounts())
+                    db.account().setAccountPollExempted(a.id, !a.id.equals(account.id));
+                db.setTransactionSuccessful();
+            } finally {
+                db.endTransaction();
+            }
+            ServiceSynchronize.eval(ServiceSynchronize.this, "Optimize=" + reason);
+        } else if (account.poll_exempted) {
+            db.account().setAccountPollExempted(account.id, false);
+            ServiceSynchronize.eval(ServiceSynchronize.this, "Optimize=" + reason);
+        }
     }
 
     private ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {
