@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_search">FairEmail sykje</string>
+    <string name="app_changelog">Feroarjelog</string>
+    <string name="channel_service">Tsjinst</string>
+    <string name="channel_send">Stjoere</string>
+    <string name="channel_notification">Notifikaasjes</string>
+    <string name="channel_update">Bywurken</string>
+    <string name="channel_warning">Warskôging</string>
+    <string name="channel_error">Flaters</string>
+    <string-array name="startupNames">
+        <item>Unified inbox</item>
+        <item>Unified folders</item>
+        <item>Primêr mappen akkount</item>
+        <item>Akkounts</item>
+    </string-array>
+    <!-- https://en.wikipedia.org/wiki/Display_resolution -->
+    <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
+</resources>
