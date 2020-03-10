@@ -8,6 +8,54 @@
     <string name="channel_update">Bywurken</string>
     <string name="channel_warning">Warskôging</string>
     <string name="channel_error">Flaters</string>
+    <string name="channel_alert">Tsjinner warskôging</string>
+    <string name="channel_group_contacts">Kontakten</string>
+    <plurals name="page_conversation">
+        <item quantity="one">Konversaasje</item>
+        <item quantity="other">Konversaasjes</item>
+    </plurals>
+    <plurals name="page_message">
+        <item quantity="one">Berjochte</item>
+        <item quantity="other">Berjochten</item>
+    </plurals>
+    <string name="page_folders">Mappen</string>
+    <string name="page_compose">Gearstalle</string>
+    <string name="tile_synchronize">Syngronisearje</string>
+    <string name="tile_unseen">Nije berjochten</string>
+    <string name="shortcut_refresh">Fernije</string>
+    <string name="shortcut_compose">Gearstalle</string>
+    <string name="shortcut_setup">Ynstellingen</string>
+    <plurals name="title_notification_operations">
+        <item quantity="one">%1$d hanneling yn ôfwachting</item>
+        <item quantity="other">%1$d hannelingen yn ôfwachting</item>
+    </plurals>
+    <plurals name="title_notification_unseen">
+        <item quantity="one">%1$d nij berjocht</item>
+        <item quantity="other">%1$d nij berjochten</item>
+    </plurals>
+    <plurals name="title_notification_unsent">
+        <item quantity="one">%1$d berjocht te ferstjoeren</item>
+        <item quantity="other">%1$d berjochten te ferstjoeren</item>
+    </plurals>
+    <plurals name="title_tile_unseen">
+        <item quantity="one">%1$d nij</item>
+        <item quantity="other">%1$d nij</item>
+    </plurals>
+    <plurals name="title_moving_messages">
+        <item quantity="one">Ferpleatse %1$d berjocht nei %2$s?</item>
+        <item quantity="other">Ferpleatse %1$d berjochten nei %2$s?</item>
+    </plurals>
+    <plurals name="title_deleting_messages">
+        <item quantity="one">Ferwiderje %1$d berjocht permanint?</item>
+        <item quantity="other">Ferwiderje %1$d berjochten permanint?</item>
+    </plurals>
+    <plurals name="title_ask_spam">
+        <item quantity="one">Behannelje %1$d berjocht as ûnpost?</item>
+        <item quantity="other">Behannelje %1$d berjochten as ûnpost?</item>
+    </plurals>
+    <string name="title_notification_sending">Ferstjoere berjochten</string>
+    <string name="menu_setup">Ynstellingen</string>
+    <string name="menu_legend">Leginde</string>
     <string-array name="startupNames">
         <item>Unified inbox</item>
         <item>Unified folders</item>
