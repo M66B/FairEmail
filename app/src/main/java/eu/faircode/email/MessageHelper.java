@@ -1441,21 +1441,51 @@ public class MessageHelper {
                     return null;
                 }
 
+                // Get content type
+                ContentType ct;
                 try {
-                    ContentType ct = new ContentType(part.getContentType());
-                    String charset = ct.getParameter("charset");
-                    if (UnknownCharsetProvider.charsetForMime(charset) == null)
-                        warnings.add(context.getString(R.string.title_no_charset, charset));
+                    ct = new ContentType(part.getContentType());
                 } catch (ParseException ex) {
                     Log.e(ex);
+                    ct = new ContentType();
                 }
 
+                // Check character set
+                String charset = ct.getParameter("charset");
+                if (UnknownCharsetProvider.charsetForMime(charset) == null)
+                    warnings.add(context.getString(R.string.title_no_charset, charset));
+
                 if (part.isMimeType("text/plain")) {
-                    ContentType ct = new ContentType(part.getContentType());
                     // https://tools.ietf.org/html/rfc3676
                     if ("flowed".equalsIgnoreCase(ct.getParameter("format")))
                         result = result.replaceAll(" \\r?\\n", " ");
                     result = "<div>" + HtmlHelper.formatPre(result) + "</div>";
+                } else if (part.isMimeType("text/html")) {
+                    if (TextUtils.isEmpty(charset)) {
+                        // <meta charset="utf-8" />
+                        // <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                        Document d = JsoupEx.parse(result);
+                        for (Element meta : d.select("meta")) {
+                            if ("Content-Type".equalsIgnoreCase(meta.attr("http-equiv"))) {
+                                try {
+                                    ct = new ContentType(meta.attr("content"));
+                                    charset = ct.getParameter("charset");
+                                } catch (ParseException ex) {
+                                    Log.w(ex);
+                                }
+                            } else
+                                charset = meta.attr("charset");
+
+                            if (!TextUtils.isEmpty(charset))
+                                try {
+                                    Log.i("Charset=" + meta);
+                                    result = new String(result.getBytes(StandardCharsets.ISO_8859_1), charset);
+                                    break;
+                                } catch (UnsupportedEncodingException ex) {
+                                    Log.w(ex);
+                                }
+                        }
+                    }
                 }
 
                 sb.append(result);
