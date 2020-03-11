@@ -340,7 +340,7 @@ public class EmailService implements AutoCloseable {
         } catch (MailConnectException ex) {
             if (ConnectionHelper.vpnActive(context)) {
                 MailConnectException mex = new MailConnectException(new SocketConnectException(
-                        "The might be caused by the VPN in use",
+                        context.getString(R.string.title_service_vpn),
                         new Exception(),
                         ex.getHost(),
                         ex.getPort(),
@@ -351,7 +351,7 @@ public class EmailService implements AutoCloseable {
                 throw ex;
         } catch (MessagingException ex) {
             if (port == 995 && !("pop3".equals(protocol) || "pop3s".equals(protocol)))
-                throw new MessagingException("Please double check the port number", ex);
+                throw new MessagingException(context.getString(R.string.title_service_port), ex);
             else
                 throw ex;
         }
