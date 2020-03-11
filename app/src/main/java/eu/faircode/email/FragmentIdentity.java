@@ -32,7 +32,6 @@ import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
-import android.util.Patterns;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -1007,7 +1006,8 @@ public class FragmentIdentity extends FragmentBase {
                     etDisplay.setText(identity == null ? null : identity.display);
                     btnColor.setColor(identity == null ? null : identity.color);
 
-                    signature = (identity == null ? null : identity.signature);
+                    if (signature == null)
+                        signature = (identity == null ? null : identity.signature);
 
                     etHost.setText(identity == null ? null : identity.host);
                     rgEncryption.check(identity != null && identity.starttls ? R.id.radio_starttls : R.id.radio_ssl);
