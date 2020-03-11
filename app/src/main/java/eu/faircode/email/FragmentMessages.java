@@ -5396,7 +5396,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     if (is == null) {
                         if (message.identity != null)
                             db.identity().setIdentitySignKeyAlias(message.identity, null);
-                        throw new IllegalArgumentException(context.getString(R.string.title_invalid_key));
+                        throw new IllegalArgumentException(context.getString(R.string.title_unknown_key));
                     }
                 }
 
