@@ -1064,7 +1064,8 @@ public class FragmentIdentity extends FragmentBase {
                     grpAdvanced.setVisibility(savedInstanceState.getInt("fair:advanced"));
                     auth = savedInstanceState.getInt("fair:auth");
                     provider = savedInstanceState.getString("fair:authprovider");
-                    signature = savedInstanceState.getString("fair:html");
+                    if (signature == null)
+                        signature = savedInstanceState.getString("fair:html");
                 }
 
                 Helper.setViewsEnabled(view, true);
