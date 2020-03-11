@@ -90,7 +90,7 @@
     <string name="menu_faq">Support</string>
     <string name="menu_translate">Aider à traduire</string>
     <string name="menu_issue">Signaler un problème</string>
-    <string name="menu_attribution">Attribution</string>
+    <string name="menu_attribution">Crédits</string>
     <string name="menu_privacy">Confidentialité</string>
     <string name="menu_about">À propos</string>
     <string name="menu_pro">Fonctionnalités Pro</string>
@@ -718,6 +718,7 @@
     <string name="title_certificate_invalid">La clé publique de %1$s est invalide</string>
     <string name="title_no_key">Aucune clé privée</string>
     <string name="title_invalid_key">Clé privée invalide</string>
+    <string name="title_unknown_key">La clé privée ne correspond à aucune clé de chiffrement</string>
     <string name="title_send_plain_text">Texte brut seulement</string>
     <string name="title_send_receipt">Demander une confirmation</string>
     <string name="title_send_receipt_remark">La plupart des fournisseurs et des clients de messagerie ignorent les demandes d\'accusé de réception</string>
@@ -1100,7 +1101,7 @@
         <item>512 ko</item>
         <item>1 Mo</item>
         <item>2 Mo</item>
-        <item>&#8734;</item>
+        <item>∞</item>
     </string-array>
     <string-array name="onCloseNames">
         <item>Ne rien faire</item>

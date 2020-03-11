@@ -719,6 +719,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_certificate_invalid">Öffentlicher Schlüssel von %1$s ist ungültig</string>
     <string name="title_no_key">Kein privater Schlüssel</string>
     <string name="title_invalid_key">Ungültiger privater Schlüssel</string>
+    <string name="title_unknown_key">Der private Schlüssel passt zu keinem der verwendeten Schlüssel</string>
     <string name="title_send_plain_text">Nur Text</string>
     <string name="title_send_receipt">Bestätigung anfordern</string>
     <string name="title_send_receipt_remark">Die meisten Anbieter und E-Mail-Programme ignorieren Empfangsanforderungen</string>
@@ -1101,7 +1102,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
         <item>512 KB</item>
         <item>1 MB</item>
         <item>2 MB</item>
-        <item>&#8734;</item>
+        <item>∞</item>
     </string-array>
     <string-array name="onCloseNames">
         <item>Nichts tun</item>

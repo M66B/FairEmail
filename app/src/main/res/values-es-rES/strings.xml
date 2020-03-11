@@ -719,6 +719,7 @@
     <string name="title_certificate_invalid">La clave pública de %1$s no es válida</string>
     <string name="title_no_key">Ninguna clave privada</string>
     <string name="title_invalid_key">Clave privada inválida</string>
+    <string name="title_unknown_key">La clave privada no coincide con ninguna clave de cifrado</string>
     <string name="title_send_plain_text">Sólo en texto plano</string>
     <string name="title_send_receipt">Solicitar acuse</string>
     <string name="title_send_receipt_remark">La mayoría de los clientes y proveedores de email ignoran los pedidos de recibos</string>
@@ -1101,7 +1102,7 @@
         <item>512 KB</item>
         <item>1 MB</item>
         <item>2 MB</item>
-        <item>&#8734;</item>
+        <item>∞</item>
     </string-array>
     <string-array name="onCloseNames">
         <item>No hacer nada</item>

@@ -1088,7 +1088,7 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
         <item>512 KB</item>
         <item>1 MB</item>
         <item>2 MB</item>
-        <item>&#8734;</item>
+        <item>∞</item>
     </string-array>
     <string-array name="onCloseNames">
         <item>Ez egin ezer</item>

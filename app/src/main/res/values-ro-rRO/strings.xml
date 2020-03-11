@@ -1108,7 +1108,7 @@
         <item>512 Ko</item>
         <item>1 Mo</item>
         <item>2 Mo</item>
-        <item>&#8734;</item>
+        <item>∞</item>
     </string-array>
     <string-array name="onCloseNames">
         <item>Nicio acțiune</item>

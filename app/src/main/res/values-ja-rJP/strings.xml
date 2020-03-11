@@ -703,6 +703,7 @@ PlayストアでFairEmailを評価できれば幸いです。
     <string name="title_certificate_invalid">%1$sの公開鍵が無効です</string>
     <string name="title_no_key">秘密鍵無し</string>
     <string name="title_invalid_key">秘密鍵が無効です</string>
+    <string name="title_unknown_key">秘密キーがどの暗号化キーとも一致しません</string>
     <string name="title_send_plain_text">プレーンテキストのみ</string>
     <string name="title_send_receipt">受取をリクエストする</string>
     <string name="title_send_receipt_remark">殆どのプロバイダーと電子メールクライアントは受信要求を無視します</string>
@@ -1083,7 +1084,7 @@ FairEmailは、Pro機能購入の為に上部に小さなメッセージを表�
         <item>512 KB</item>
         <item>1 MB</item>
         <item>2 MB</item>
-        <item>&#8734;</item>
+        <item>∞</item>
     </string-array>
     <string-array name="onCloseNames">
         <item>何もしない</item>

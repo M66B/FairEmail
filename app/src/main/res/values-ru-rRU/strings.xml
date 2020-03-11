@@ -529,6 +529,8 @@
     <string name="title_oauth_support">OAuth не поддерживается</string>
     <string name="title_review">Пересмотр</string>
     <string name="title_hint_alias">Длительное нажатие для других действий, например, копирования для создания псевдонима идентификатора</string>
+    <string name="title_service_vpn">Это может быть вызвано использованием VPN</string>
+    <string name="title_service_port">Пожалуйста, дважды проверьте номер порта</string>
     <string name="title_advanced_browse">Просмотр сообщений на сервере</string>
     <string name="title_advanced_expand_read">Отмечать сообщения прочитанными при развёртывании</string>
     <string name="title_synchronize_now">Синхронизировать сейчас</string>
@@ -738,6 +740,7 @@
     <string name="title_certificate_invalid">Публичный ключ %1$s недействителен</string>
     <string name="title_no_key">Нет приватного ключа</string>
     <string name="title_invalid_key">Приватный ключ недействителен</string>
+    <string name="title_unknown_key">Приватный ключ не соответствует ни одному ключу шифрования</string>
     <string name="title_send_plain_text">Только простой текст</string>
     <string name="title_send_receipt">Запросить уведомление</string>
     <string name="title_send_receipt_remark">Большинство провайдеров и клиентов электронной почты игнорируют запросы о доставке</string>
@@ -1122,7 +1125,7 @@
         <item>512 КБ</item>
         <item>1 МБ</item>
         <item>2 МБ</item>
-        <item>&#8734;</item>
+        <item>∞</item>
     </string-array>
     <string-array name="onCloseNames">
         <item>Ничего не делать</item>

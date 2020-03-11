@@ -849,7 +849,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
         <item>512 KB</item>
         <item>1 MB</item>
         <item>2 MB</item>
-        <item>&#8734;</item>
+        <item>∞</item>
     </string-array>
     <string-array name="onCloseNames">
         <item>Nincs művelet</item>

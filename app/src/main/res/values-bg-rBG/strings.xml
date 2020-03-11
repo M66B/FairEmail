@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">FairEmail търсене</string>
-    <string name="app_changelog">Списък с промени</string>
+    <string name="app_changelog">Преглед на измененията</string>
     <string name="app_welcome">FairEmail е приложение за електронна поща с отворен код, фокусирано върху поверителността и сигурността. Поради тази причина някои функции могат да работят различно от това с което сте свикнали. Превод на български plimboster.</string>
     <string name="app_limitations">Например, съобщенията винаги ще се преформатират, за да се премахнат опасни елементи и да се подобри четенето, както и връзките за отваряне трябва да бъдат потвърдени за безопасност.</string>
     <string name="app_crash">FairEmail не се поддържа на това устройство поради срив, причинен от грешка в Android</string>
     <string name="app_exit">Натиснете отново \"назад\", за изход</string>
     <string name="channel_service">Услуга</string>
-    <string name="channel_send">Изпрати</string>
+    <string name="channel_send">Изпращане</string>
     <string name="channel_notification">Известия</string>
-    <string name="channel_update">Обновяване</string>
+    <string name="channel_update">Обновявания</string>
     <string name="channel_warning">Внимание</string>
-    <string name="channel_error">Грашки</string>
+    <string name="channel_error">Грешки</string>
     <string name="channel_alert">Сигнал от сървър</string>
     <string name="channel_group_contacts">Контакти</string>
     <plurals name="page_conversation">
@@ -19,15 +19,15 @@
         <item quantity="other">Разговори</item>
     </plurals>
     <plurals name="page_message">
-        <item quantity="one">Съобщения</item>
+        <item quantity="one">Съобщение</item>
         <item quantity="other">Съобщения</item>
     </plurals>
     <string name="page_folders">Папки</string>
-    <string name="page_compose">Ново съобщение</string>
-    <string name="tile_synchronize">Синхронизарай</string>
-    <string name="tile_unseen">Ново съобщение</string>
+    <string name="page_compose">Съчиняване</string>
+    <string name="tile_synchronize">Синхронизиране</string>
+    <string name="tile_unseen">Нови съобщения</string>
     <string name="shortcut_refresh">Опресняване</string>
-    <string name="shortcut_compose">Ново съобщение</string>
+    <string name="shortcut_compose">Съчиняване</string>
     <string name="shortcut_setup">Настройки</string>
     <plurals name="title_notification_synchronizing">
         <item quantity="one">Мониторинг на %1$d профил</item>
@@ -68,7 +68,7 @@
     <string name="title_ask_spam_who">Третирай съобщението от %1$s като спам?</string>
     <string name="title_block">Блокиране %1$s</string>
     <string name="title_block_sender">Блокиране на подателя</string>
-    <string name="title_block_domain">Блокиране домейна на подателя</string>
+    <string name="title_block_domain">Блокиране на домейна на подателя</string>
     <string name="title_block_sender_hint">        Блокирането на подател ще създаде правило за автоматично преместване на бъдещи съобщения в папката със спам.
         Създаването и използването на правила е професионална функция.
     </string>
@@ -78,7 +78,7 @@
     <string name="title_notification_alert">Сигнал от сървър \'%1$s\'</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
-    <string name="title_factor_minutes">%1$d минутa</string>
+    <string name="title_factor_minutes">%1$d минути</string>
     <string name="menu_exit">Изход</string>
     <string name="menu_answers">Шаблони</string>
     <string name="menu_operations">Процеси</string>
@@ -93,16 +93,16 @@
     <string name="menu_privacy">Поверителност</string>
     <string name="menu_about">За програмата</string>
     <string name="menu_pro">Платени функции</string>
-    <string name="menu_invite">Покани</string>
+    <string name="menu_invite">Покана</string>
     <string name="menu_rate">Оценете приложението</string>
     <string name="menu_other">Други приложения</string>
     <string name="title_welcome">Добре дошли</string>
     <string name="title_eula">Лицензно споразумение за потребители</string>
-    <string name="title_agree">Съгласен съм</string>
-    <string name="title_disagree">Не съм съгласен</string>
+    <string name="title_agree">Има съгласието ми</string>
+    <string name="title_disagree">Няма съгласието ми</string>
     <string name="title_version">Версия %1$s</string>
     <string name="title_list_accounts">Профили</string>
-    <string name="title_list_identities">Идентичностти</string>
+    <string name="title_list_identities">Самоличности</string>
     <string name="title_edit_account">Редактиране на профил</string>
     <string name="title_edit_identity">Редактиране на идентичност</string>
     <string name="title_edit_folder">Редактиране на папка</string>
@@ -127,9 +127,9 @@
     <string name="title_setup_gmail_permissions">Google ще поиска разрешения за четене, съставяне, изпращане и окончателно изтриване на целия ви имейл. FairEmail никога няма да изтрие вашите съобщения без вашето изрично съгласие.</string>
     <string name="title_setup_gmail_drafts">Ако папката за чернови не е достъпна от IMAP, това може да бъде коригирано в настройките на етикета на Gmail</string>
     <string name="title_setup_oauth_rationale">Разрешете достъп до вашия %1$s акаунт</string>
-    <string name="title_setup_oauth_authorize">Оторизирам</string>
+    <string name="title_setup_oauth_authorize">Упълномощявам</string>
     <string name="title_setup_select_account">Изберане на профил</string>
-    <string name="title_setup_instructions">Инструкции за настройка</string>
+    <string name="title_setup_instructions">Указания за настройка</string>
     <string name="title_setup_no_settings">Не са намерени настройки за домейн %1$s</string>
     <string name="title_setup_no_settings_hint">Моля, опитайте да настроите профил и самоличност в стъпки за настройка 1 и 2, като използвате настройките, предоставени от вашия доставчик на електронна поща</string>
     <string name="title_setup_no_auth_hint">Моля, проверете два пъти имейл адреса и паролата си и се уверете, че външният достъп (IMAP/SMTP) е активиран за вашия профил</string>
@@ -164,7 +164,7 @@
     <string name="title_setup_import_do">Импортираните профили ще се добавят, без да се презаписват съществуващите</string>
     <string name="title_setup_password">Парола</string>
     <string name="title_setup_password_chars">Паролата съдържа контролни символи или интервали</string>
-    <string name="title_setup_password_repeat">Повтори парола</string>
+    <string name="title_setup_password_repeat">Повторете паролата</string>
     <string name="title_setup_password_missing">Липсва парола</string>
     <string name="title_setup_password_different">Паролите не съвпадат</string>
     <string name="title_setup_password_invalid">Грешна парола</string>
@@ -191,7 +191,7 @@
     <string name="title_setup_theme_system">Използвай системните</string>
     <string name="title_setup_theme_system_hint">Системната тема ще превключи автоматично от светло/тъмно през деня/ноща, ако се поддържа от Андроид</string>
     <string name="title_setup_advanced">Разширени</string>
-    <string name="title_setup_options">Настройки</string>
+    <string name="title_setup_options">Опции</string>
     <string name="title_setup_defaults">Възстановяване по подразбиране</string>
     <string name="title_setup_reset_questions">Отказване на запитването</string>
     <string name="title_advanced_hint_title">Разширени настройки</string>
@@ -248,7 +248,7 @@
     <string name="title_advanced_ssl_harden">Твърди SSL връзки</string>
     <string name="title_advanced_socks">Използване на SOCKS прокси</string>
     <string name="title_advanced_manage_connectivity">Управление на свързаност</string>
-    <string name="title_advanced_caption_general">Основни</string>
+    <string name="title_advanced_caption_general">Общи</string>
     <string name="title_advanced_caption_conversation">Разговор</string>
     <string name="title_advanced_landscape">Две колони в легнал режим</string>
     <string name="title_advanced_landscape3">Разрешаване на фиксирано меню за навигация в пейзажен режим</string>
@@ -271,13 +271,13 @@
     <string name="title_advanced_replace_name">Предпочитано име от контакти пред изпратено име</string>
     <string name="title_advanced_distinguish_contacts">Подчертайте подателя, когато подателят е известен като локаленен „до“ контакт</string>
     <string name="title_advanced_authentication">Покажи предупреждение, когато получаващият сървър не може да удостовери съобщението</string>
-    <string name="title_advanced_font_size_sender">Размер на текст на подател</string>
-    <string name="title_advanced_font_size_subject">Размер на текст на тема</string>
+    <string name="title_advanced_font_size_sender">Големина на шрифта на подателя</string>
+    <string name="title_advanced_font_size_subject">Големина на шрифта на темата</string>
     <string name="title_advanced_subject_top">Покажи темата над подателя</string>
     <string name="title_advanced_subject_italic">Покажи темата наклонена</string>
     <string name="title_advanced_subject_elipsed">При нужда, съкрати темата</string>
     <string name="title_advanced_keywords">Показване на ключови думи в заглавката на съобщението</string>
-    <string name="title_advanced_flags">Покажи звезди</string>
+    <string name="title_advanced_flags">Показване на звездите</string>
     <string name="title_advanced_flags_background">Покажи цветен фон вместо цветни звезди</string>
     <string name="title_advanced_preview">Покажи преглед на съобщението</string>
     <string name="title_advanced_preview_italic">Покажи преглед на съобщението наклонено</string>
@@ -327,8 +327,8 @@
     <string name="title_advanced_notify_action_trash">Кошче</string>
     <string name="title_advanced_notify_action_junk">Спам</string>
     <string name="title_advanced_notify_action_archive">Архив</string>
-    <string name="title_advanced_notify_action_move">Премести</string>
-    <string name="title_advanced_notify_action_reply">Отговори</string>
+    <string name="title_advanced_notify_action_move">Преместване</string>
+    <string name="title_advanced_notify_action_reply">Отговор</string>
     <string name="title_advanced_notify_action_reply_direct">Бърз отговор</string>
     <string name="title_advanced_notify_action_flag">Звезда</string>
     <string name="title_advanced_notify_action_seen">Прочетено</string>
@@ -363,9 +363,9 @@
     <string name="title_advanced_english">Принудително на английски език</string>
     <string name="title_advanced_watchdog">Периодична проверка дали FairEmail е активен</string>
     <string name="title_advanced_optimize">Автоматично оптимизиране на настройките</string>
-    <string name="title_advanced_updates">Проверка за актуализация</string>
-    <string name="title_advanced_experiments">Пробвай експерименталните функции</string>
-    <string name="title_advanced_crash_reports">Изпрати репорт с грешки</string>
+    <string name="title_advanced_updates">Проверка за обновяване</string>
+    <string name="title_advanced_experiments">Пробване на експерименталните функции</string>
+    <string name="title_advanced_crash_reports">Изпращане на доклад с грешки</string>
     <string name="title_advanced_debug">Режим за отстраняване на грешки</string>
     <string name="title_advanced_cleanup">Почистване</string>
     <string name="title_advanced_more">Още опции</string>
@@ -430,7 +430,7 @@
     <string name="title_advanced_never_favorite">Никога в любими</string>
     <string name="title_select">Избери &#8230;</string>
     <string name="title_identity_name">Вашето име</string>
-    <string name="title_identity_email">Вашият имейл адрес</string>
+    <string name="title_identity_email">Вашият адрес на имейл</string>
     <string name="title_identity_color_hint">Цветовете на идентичността са с предимство пред цветовете на папките и профила</string>
     <string name="title_advanced_sender">Разрешаване редактиране на адреса на подателя</string>
     <string name="title_advanced_sender_regex">Regex да отговаря на потребителското име на входящите имейл адреси</string>
@@ -438,7 +438,7 @@
     <string name="title_identity_receipt">Заявка за доставка/четене по подразбиране</string>
     <string name="title_identity_use_ip_hint">В случай на „невалиден поздрав“, „заявка за валиден адрес“ или подобна грешка, променете тази настройка</string>
     <string name="title_optional">По избор</string>
-    <string name="title_recommended">Препоръчани</string>
+    <string name="title_recommended">Препоръчано</string>
     <string name="title_account_linked">Свързан профил</string>
     <string name="title_account_name">Име на профил</string>
     <string name="title_account_name_hint">Използва се за разграничаване на папки</string>
@@ -451,7 +451,7 @@
     <string name="title_account_right">Плъзгане на дясно</string>
     <string name="title_account_move">Премести по подразбиране в</string>
     <string name="title_account_gmail">За надеждна синхронизация на акаунт в Gmail трябва да се използва съветникът за бърза настройка на Gmail, когато е възможно</string>
-    <string name="title_domain">Домейн име</string>
+    <string name="title_domain">Име на домейн</string>
     <string name="title_autoconfig">Получи настройки</string>
     <string name="title_aliases">Псевдоним</string>
     <string name="title_provider">Доставчик</string>
@@ -460,9 +460,9 @@
     <string name="title_allow_insecure">Разрешаване на несигурни връзки</string>
     <string name="title_insecure_remark">Несигурните връзки трябва да се разрешават само в доверени мрежи и никога в обществени мрежи</string>
     <string name="title_port">Номер на порт</string>
-    <string name="title_user">Потрибител</string>
+    <string name="title_user">Потребителско име</string>
     <string name="title_password">Парола</string>
-    <string name="title_client_certificate">Клиентски сертификат</string>
+    <string name="title_client_certificate">Сертификат на клиента</string>
     <string name="title_realm">Област</string>
     <string name="title_use_ip">Използвай локален IP адрес вместо име на хост</string>
     <string name="title_primary_account">Основен (по подразбиране профил)</string>
@@ -481,7 +481,7 @@
     <string name="title_address_parse_error">Адреса \'%1$s\' е невалиден: %2$s</string>
     <string name="title_no_account">Липсва профил</string>
     <string name="title_no_host">Липсва име на host</string>
-    <string name="title_no_user">Липсва потребител</string>
+    <string name="title_no_user">Липсва потребителско име</string>
     <string name="title_no_password">Липсва парола</string>
     <string name="title_no_inbox">Не е намерена входяща кутия</string>
     <string name="title_no_primary_drafts">Няма първичен профил или няма папка чернови</string>
@@ -503,17 +503,18 @@
     <string name="title_oauth_support">OAuth не се поддържа</string>
     <string name="title_review">Преглед</string>
     <string name="title_hint_alias">Дълго натискане за опции, като копиране, за да се създаде псевдоним за идентичност</string>
+    <string name="title_service_port">Проверете два пъти номера на порта</string>
     <string name="title_advanced_browse">Търсене на съобщения на сървъра</string>
     <string name="title_advanced_expand_read">Маркирайте съобщенията като прочетени при разширяване</string>
     <string name="title_synchronize_now">Синхронизиране сега</string>
-    <string name="title_synchronize_all">Синхронизиране всичко</string>
+    <string name="title_synchronize_all">Синхронизиране на всички съобщения</string>
     <string name="title_synchronize_enabled">Синхронизиране</string>
     <string name="title_delete_local">Изтриване на локалните съобщения</string>
     <string name="title_delete_browsed">Изтриване на търсените съобщения</string>
     <string name="title_empty_trash">Изпразване на кошчето</string>
     <string name="title_empty_spam">Изтриване на спама</string>
-    <string name="title_edit_properties">Редактиране на свойства</string>
-    <string name="title_edit_rules">Редактиране на правила</string>
+    <string name="title_edit_properties">Редактиране на свойствата</string>
+    <string name="title_edit_rules">Редактиране на правилата</string>
     <string name="title_create_channel">Създаване на канал за известия</string>
     <string name="title_edit_channel">Редактиране на канал за известия</string>
     <string name="title_delete_channel">Изтриване на канал за известия</string>
@@ -530,7 +531,7 @@
     <string name="title_display_name">Име</string>
     <string name="title_show_folders">Показвана не скрити папки</string>
     <string name="title_apply_to_all">Приложи на всички &#8230;</string>
-    <string name="title_hide_folder">Скрий папка</string>
+    <string name="title_hide_folder">Скриване на папка</string>
     <string name="title_unified_folder">Показване в обединената входяща поща</string>
     <string name="title_navigation_folder">Покажи в менюто за навигация</string>
     <string name="title_synchronize_folder">Синхронизиране (получаване на съобщения)</string>
@@ -554,25 +555,25 @@
     <string name="title_folder_drafts">Чернови</string>
     <string name="title_folder_trash">Кошче</string>
     <string name="title_folder_junk">Спам</string>
-    <string name="title_folder_sent">Изпратени</string>
+    <string name="title_folder_sent">Изпратено</string>
     <string name="title_folder_system">Системни</string>
     <string name="title_folder_user">Потребител</string>
     <string name="title_folder_user_only">Само потребителски папки</string>
     <string name="title_folder_primary">Папките на първичния профил</string>
     <string name="title_folders_unified">Обща папка входящи</string>
-    <string name="title_no_folders">Няма папка</string>
+    <string name="title_no_folders">Няма папки</string>
     <string name="title_no_messages">Няма съобщения</string>
     <string name="title_filters_active">Един или повече филтри са активирани</string>
     <string name="title_duplicate_in">Дублиращо съобщение в %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
-    <string name="title_seen">Маркирай прочетено</string>
-    <string name="title_unseen">Маркирай непрочетено</string>
-    <string name="title_hide">Скрий</string>
-    <string name="title_unhide">Покажи</string>
-    <string name="title_flag">Добави звезда</string>
+    <string name="title_seen">Отбелязвам като прочетено</string>
+    <string name="title_unseen">Отбелязвам като непрочетено</string>
+    <string name="title_hide">Скриване</string>
+    <string name="title_unhide">Показване</string>
+    <string name="title_flag">Добавяне на звезда</string>
     <string name="title_flag_color">Цветна звезда &#8230;</string>
-    <string name="title_unflag">Премахни звезда</string>
+    <string name="title_unflag">Премахване на звезда</string>
     <string name="title_set_importance">Задайте важност</string>
     <string name="title_importance_low">Ниско</string>
     <string name="title_importance_normal">Нормално</string>
@@ -591,7 +592,7 @@
     <string name="title_add_keyword">Добавяне на ключова дума</string>
     <string name="title_show_inline">Показване на вградените прикачени файлове</string>
     <string name="title_download_all">Изтегляне на всичко</string>
-    <string name="title_save_all">Запиши всичко</string>
+    <string name="title_save_all">Запис на всичко</string>
     <string name="title_save_eml">Запиши необработено съобщение</string>
     <string name="title_trash">Кошче</string>
     <string name="title_copy">Копие &#8230;</string>
@@ -1094,7 +1095,7 @@
         <item>512 KB</item>
         <item>1 MB</item>
         <item>2 MB</item>
-        <item>&#8734;</item>
+        <item>∞</item>
     </string-array>
     <string-array name="onCloseNames">
         <item>Не прави нищо</item>

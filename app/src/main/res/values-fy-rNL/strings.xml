@@ -60,31 +60,171 @@
     <string name="menu_legend">Leginde</string>
     <string name="title_list_accounts">Brûkers</string>
     <string name="title_edit_account">Bewrukje brûker</string>
+    <string name="title_setup_help">Help</string>
+    <string name="title_setup_quick">Flugge opset</string>
+    <string name="title_setup_wizard">Tsjoender</string>
     <string name="title_setup_select_account">Selektearje brûker</string>
+    <string name="title_setup_manage">Beheare</string>
     <string name="title_setup_grant">Subsydzje</string>
     <string name="title_setup_account">Opset brûkers</string>
     <string name="title_setup_identity">Opset identiteiten</string>
     <string name="title_setup_permissions">Subsydzje ermissies</string>
     <string name="title_setup_go">Gean</string>
+    <string name="title_setup_to_do">Dwaan</string>
+    <string name="title_setup_done">Dien</string>
+    <string name="title_setup_error">Fersin</string>
+    <string name="title_setup_password">Wachtwurd</string>
     <string name="title_setup_reorder_accounts">Oarder brûkers</string>
+    <string name="title_setup_biometrics_enable">Ynskeakele</string>
+    <string name="title_setup_biometrics_disable">Utskeakele</string>
+    <string name="title_setup_options">Opsjes</string>
+    <string name="title_advanced_section_synchronize">Ûntfangen</string>
+    <string name="title_advanced_section_send">Stjoere</string>
+    <string name="title_advanced_section_display">Byld</string>
+    <string name="title_advanced_section_privacy">Privacy</string>
+    <string name="title_advanced_when">Wannear</string>
     <string name="title_advanced_caption_message_header">Berjochtkoptekst</string>
     <string name="title_advanced_caption_message_body">Berjochtynhâld</string>
+    <string name="title_advanced_notify_action_junk">Spam</string>
+    <string name="title_advanced_notify_action_move">Ferpleatse</string>
+    <string name="title_advanced_notify_action_flag">Stjer</string>
+    <string name="title_advanced_notify_action_seen">Lêze</string>
+    <string name="title_advanced_notify_action_snooze">Snooze</string>
+    <string name="title_advanced_pin">PIN</string>
+    <string name="title_identity_name">Jo namme</string>
+    <string name="title_identity_email">Jo e-postadres</string>
     <string name="title_account_linked">Keppele brûker</string>
     <string name="title_account_name">Brûker namme</string>
+    <string name="title_color">Kleur</string>
+    <string name="title_provider">Ynternetoanbieder</string>
+    <string name="title_custom">Oanpast</string>
+    <string name="title_host">Hostnamme</string>
+    <string name="title_port">Poartenûmer</string>
+    <string name="title_user">Brûkernamme</string>
+    <string name="title_password">Wachtwurd</string>
     <string name="title_primary_account">Primêr (standert brûker)</string>
+    <string name="title_check">Kontrolearje</string>
     <string name="title_no_account">Ûntbrekke brûker</string>
+    <string name="title_folder_junk">Spam</string>
+    <string name="title_folder_sent">Stjoerd</string>
+    <string name="title_folder_user">Brûker</string>
+    <string name="title_hide">Ferbergje</string>
+    <string name="title_importance_low">Leech</string>
+    <string name="title_more">Mear</string>
+    <string name="title_spam">Spam</string>
+    <string name="title_move">Ferpleatse</string>
+    <string name="title_to">Aon:</string>
+    <string name="title_cc">CC:</string>
+    <string name="title_bcc">BCC:</string>
+    <string name="title_via_identity">Via:</string>
+    <string name="title_received">Ûntfangen:</string>
+    <string name="title_body_hint">Jo berjocht</string>
+    <string name="title_save">Bewarje</string>
+    <string name="title_send">Stjoere</string>
+    <string name="title_style_bold">Dryst</string>
+    <string name="title_style_size">Grutte</string>
+    <string name="title_style_color">Kleur</string>
+    <string name="title_search">Sykje</string>
+    <string name="title_sort_on_time">Tiid</string>
+    <string name="title_sort_on_unread">Net lêzen</string>
+    <string name="title_sort_on_size">Grutte</string>
+    <string name="title_filter_seen">Lêze</string>
+    <string name="title_next">Folgjende</string>
+    <string name="title_rule_hide">Ferbergje</string>
+    <string name="title_rule_snooze">Snooze</string>
+    <string name="title_rule_move">Ferpleatse</string>
+    <string name="title_rule_name">Namme</string>
+    <string name="title_rule_and">EN</string>
+    <string name="title_rule_action">Aksje</string>
+    <string name="title_rule_identity">Identiteit</string>
+    <string name="title_rule_check">Kontrolearje</string>
+    <string name="title_legend_section_folders">Mappen</string>
+    <string name="title_legend_section_messages">Berjochten</string>
+    <string name="title_legend_section_compose">Gearstalle</string>
     <string name="title_legend_primary_connected">Brûker ferbûn</string>
     <string name="title_legend_primary_disconnected">Brûker net ferbûn</string>
+    <string name="title_legend_sent">Stjoerd</string>
+    <string name="title_legend_junk">Spam</string>
+    <string name="title_legend_thread">Konversaasje</string>
+    <string name="title_legend_edit">Bewurkje</string>
+    <string name="title_legend_default_color">Standertkleur</string>
+    <string name="title_legend_save">Bewarje</string>
+    <string name="title_yes">Ja</string>
+    <string name="title_no">Nee</string>
+    <string name="title_later">Letter</string>
+    <string name="title_undo">Ûngedien</string>
+    <string name="title_redo">Opnij</string>
+    <string name="title_add">Tafoegje</string>
+    <string name="title_info">Ynfo</string>
     <string name="title_report">Melde</string>
+    <string name="title_fix">Meitsje</string>
+    <string name="title_enable">Ynskeakele</string>
+    <string name="title_1hour">1 oere</string>
+    <string name="title_1day">1 dei</string>
+    <string name="title_1week">1 wike</string>
+    <string name="title_now">No</string>
+    <string name="title_hours">Oeren</string>
     <string name="title_dismiss">Wegerje</string>
+    <string name="title_snooze_now">Snooze</string>
+    <string name="title_set">Ynstelle</string>
+    <string name="title_pro_purchase">Keapje</string>
+    <string name="title_log">Lochboek</string>
     <string name="title_search_special_unseen">net lêzen</string>
     <string name="title_widget_account">Brûkers</string>
+    <string name="title_widget_account_all">Alle</string>
+    <string name="title_widget_folder">Map</string>
+    <string name="title_accessibility_seen">Lêze</string>
+    <string name="title_accessibility_unseen">Net lêzen</string>
+    <string name="title_accessibility_edit">Bewurkje</string>
+    <string-array name="sendDelayedNames">
+        <item>Gjin</item>
+        <item>15 sekonden</item>
+        <item>30 sekonden</item>
+        <item>1 minút</item>
+        <item>2 minuten</item>
+        <item>5 minuten</item>
+        <item>10 minuten</item>
+    </string-array>
     <string-array name="startupNames">
         <item>Unified inbox</item>
         <item>Unified folders</item>
         <item>Primêr brûker mappen</item>
         <item>Brûkers</item>
     </string-array>
+    <string-array name="downloadNames">
+        <item>16 KB</item>
+        <item>32 KB</item>
+        <item>64 KB</item>
+        <item>128 KB</item>
+        <item>256 KB</item>
+        <item>512 KB</item>
+        <item>1 MB</item>
+        <item>2 MB</item>
+        <item>∞</item>
+    </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
+    <string-array name="targetNames">
+        <item>Aon</item>
+        <item>Cc</item>
+        <item>Bcc</item>
+    </string-array>
+    <string-array name="biometricsTimeoutNames">
+        <item>One minute</item>
+        <item>2 minuten</item>
+        <item>5 minuten</item>
+        <item>10 minuten</item>
+        <item>20 minuten</item>
+    </string-array>
+    <string-array name="priorityNames">
+        <item>Leech</item>
+        <item>Normal</item>
+        <item>Heech</item>
+    </string-array>
+    <string-array name="linesNames">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
 </resources>

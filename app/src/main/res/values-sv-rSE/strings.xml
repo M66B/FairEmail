@@ -70,6 +70,7 @@
     </string>
     <string name="title_notification_sending">Skickar meddelanden</string>
     <string name="title_notification_waiting">Väntar på lämplig anslutning</string>
+    <string name="title_notification_idle">Inaktiv</string>
     <string name="title_notification_failed">\'%1$s\' misslyckades</string>
     <string name="title_notification_alert">\'%1$s\' servermeddelande</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -905,7 +906,7 @@
         <item>512 KB</item>
         <item>1 MB</item>
         <item>2 MB</item>
-        <item>&#8734;</item>
+        <item>∞</item>
     </string-array>
     <string-array name="onCloseNames">
         <item>Gör ingenting</item>

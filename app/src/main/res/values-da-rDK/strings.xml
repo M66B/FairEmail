@@ -74,6 +74,7 @@
     </string>
     <string name="title_notification_sending">Sender beskeder</string>
     <string name="title_notification_waiting">Afventer en passende forbindelse</string>
+    <string name="title_notification_idle">Inaktiv</string>
     <string name="title_notification_failed">\'%1$s\' mislykkedes</string>
     <string name="title_notification_alert">\'%1$s\'-serveradvarsel</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -250,6 +251,8 @@
     <string name="title_advanced_manage_connectivity">Håndtér konnektivitet</string>
     <string name="title_advanced_caption_general">Generelt</string>
     <string name="title_advanced_caption_conversation">Samtale</string>
+    <string name="title_advanced_caption_message_header">Beskedoverskrift</string>
+    <string name="title_advanced_caption_message_body">Beskedtekst</string>
     <string name="title_advanced_landscape">Benyt to kolonner i liggende tilstand</string>
     <string name="title_advanced_landscape3">Tillad fastgjort navigeringsmenu i liggende tilstand</string>
     <string name="title_advanced_startup">Vis på startskærmen</string>
@@ -504,6 +507,8 @@
     <string name="title_oauth_support">OAuth er uunderstøttet</string>
     <string name="title_review">Gennemse</string>
     <string name="title_hint_alias">Tryk og hold for indstillinger, såsom kopiér for at oprette aliasidentiteter</string>
+    <string name="title_service_vpn">Dette kan være forårsaget af den anvendte VPN</string>
+    <string name="title_service_port">Dobbelttjek portnummeret</string>
     <string name="title_advanced_browse">Gennemse beskeder på serveren</string>
     <string name="title_advanced_expand_read">Markér beskeder Læst ved udvidelse</string>
     <string name="title_synchronize_now">Synkronisér nu</string>
@@ -713,6 +718,7 @@
     <string name="title_certificate_invalid">Offentlig nøgle for %1$s er ugyldig</string>
     <string name="title_no_key">Ingen privat nøgle</string>
     <string name="title_invalid_key">Ugyldig privat nøgle</string>
+    <string name="title_unknown_key">Privat nøgle matcher ingen krypteringsnøgler</string>
     <string name="title_send_plain_text">Kun klartekst</string>
     <string name="title_send_receipt">Bed om kvittering</string>
     <string name="title_send_receipt_remark">De fleste udbydere og e-mailklienter ignorerer kvitteringsanmodninger</string>
@@ -1094,7 +1100,7 @@
         <item>512 KB</item>
         <item>1 MB</item>
         <item>2 MB</item>
-        <item>&#8734;</item>
+        <item>∞</item>
     </string-array>
     <string-array name="onCloseNames">
         <item>Gør intet</item>

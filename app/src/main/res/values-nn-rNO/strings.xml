@@ -717,6 +717,7 @@ Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anme
     <string name="title_certificate_invalid">Offentlig nøkkel på %1$s er ugyldig</string>
     <string name="title_no_key">Ingen privat nøkkel</string>
     <string name="title_invalid_key">Ugyldig privat nøkkel</string>
+    <string name="title_unknown_key">Privat nøkkel samsvarer ikke med noen krypteringsnøkler</string>
     <string name="title_send_plain_text">Bare vanlig tekst</string>
     <string name="title_send_receipt">Be om kvittering</string>
     <string name="title_send_receipt_remark">De fleste tilbydere og e-post klienter ignorerer kvitterings forespørsler</string>
@@ -1099,7 +1100,7 @@ Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anme
         <item>512 KB</item>
         <item>1 MB</item>
         <item>2 MB</item>
-        <item>&#8734;</item>
+        <item>∞</item>
     </string-array>
     <string-array name="onCloseNames">
         <item>Gjør ingenting</item>

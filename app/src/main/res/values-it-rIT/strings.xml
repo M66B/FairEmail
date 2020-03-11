@@ -717,6 +717,7 @@
     <string name="title_certificate_invalid">Chiave pubblica di %1$s non valida</string>
     <string name="title_no_key">Nessuna chiave privata</string>
     <string name="title_invalid_key">Chiave privata non valida</string>
+    <string name="title_unknown_key">La chiave privata non corrisponde ad alcuna chiave di crittografia</string>
     <string name="title_send_plain_text">Solo testo semplice</string>
     <string name="title_send_receipt">Richiedi ricevuta</string>
     <string name="title_send_receipt_remark">La maggior parte dei provider e dei client di posta elettronica ignora le richieste di ricevuta</string>
@@ -1099,7 +1100,7 @@
         <item>512 KB</item>
         <item>1 MB</item>
         <item>2 MB</item>
-        <item>&#8734;</item>
+        <item>∞</item>
     </string-array>
     <string-array name="onCloseNames">
         <item>Non fare nulla</item>
