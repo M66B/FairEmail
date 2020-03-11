@@ -54,16 +54,36 @@
         <item quantity="other">Behannelje %1$d berjochten as ûnpost?</item>
     </plurals>
     <string name="title_notification_sending">Ferstjoere berjochten</string>
+    <string name="title_notification_idle">Ynaktyf</string>
     <string name="menu_exit">Útgong</string>
     <string name="menu_setup">Ynstellingen</string>
     <string name="menu_legend">Leginde</string>
+    <string name="title_list_accounts">Brûkers</string>
+    <string name="title_edit_account">Bewrukje brûker</string>
+    <string name="title_setup_select_account">Selektearje brûker</string>
+    <string name="title_setup_grant">Subsydzje</string>
+    <string name="title_setup_account">Opset brûkers</string>
+    <string name="title_setup_identity">Opset identiteiten</string>
+    <string name="title_setup_permissions">Subsydzje ermissies</string>
+    <string name="title_setup_go">Gean</string>
+    <string name="title_setup_reorder_accounts">Oarder brûkers</string>
     <string name="title_advanced_caption_message_header">Berjochtkoptekst</string>
     <string name="title_advanced_caption_message_body">Berjochtynhâld</string>
+    <string name="title_account_linked">Keppele brûker</string>
+    <string name="title_account_name">Brûker namme</string>
+    <string name="title_primary_account">Primêr (standert brûker)</string>
+    <string name="title_no_account">Ûntbrekke brûker</string>
+    <string name="title_legend_primary_connected">Brûker ferbûn</string>
+    <string name="title_legend_primary_disconnected">Brûker net ferbûn</string>
+    <string name="title_report">Melde</string>
+    <string name="title_dismiss">Wegerje</string>
+    <string name="title_search_special_unseen">net lêzen</string>
+    <string name="title_widget_account">Brûkers</string>
     <string-array name="startupNames">
         <item>Unified inbox</item>
         <item>Unified folders</item>
-        <item>Primêr mappen akkount</item>
-        <item>Akkounts</item>
+        <item>Primêr brûker mappen</item>
+        <item>Brûkers</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

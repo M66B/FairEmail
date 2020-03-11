@@ -507,6 +507,8 @@
     <string name="title_oauth_support">OAuth n\'est pas pris en charge</string>
     <string name="title_review">Récapitulatif</string>
     <string name="title_hint_alias">Appuyer longuement pour les options, comme copier pour créer des identités alias</string>
+    <string name="title_service_vpn">Ceci pourrait être dû au VPN utilisé</string>
+    <string name="title_service_port">Veuillez vérifier le numéro de port</string>
     <string name="title_advanced_browse">Parcourir les messages sur le serveur</string>
     <string name="title_advanced_expand_read">Marquer les messages comme lus à l\'ouverture</string>
     <string name="title_synchronize_now">Synchroniser maintenant</string>

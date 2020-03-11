@@ -74,6 +74,7 @@
     </string>
     <string name="title_notification_sending">Invio messaggi in corso</string>
     <string name="title_notification_waiting">In attesa di una connessione adeguata</string>
+    <string name="title_notification_idle">Inattivo</string>
     <string name="title_notification_failed">\'%1$s\' fallito</string>
     <string name="title_notification_alert">\'%1$s\' avvisi sul server</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -250,6 +251,8 @@
     <string name="title_advanced_manage_connectivity">Gestisci connettività</string>
     <string name="title_advanced_caption_general">Generale</string>
     <string name="title_advanced_caption_conversation">Conversazione</string>
+    <string name="title_advanced_caption_message_header">Intestazione messaggio</string>
+    <string name="title_advanced_caption_message_body">Corpo del messaggio</string>
     <string name="title_advanced_landscape">Usa due colonne in modalità orizzontale</string>
     <string name="title_advanced_landscape3">Consenti menu di navigazione fisso in modalità orizzontale</string>
     <string name="title_advanced_startup">Mostra nella schermata iniziale</string>
@@ -504,6 +507,8 @@
     <string name="title_oauth_support">OAuth non è supportato</string>
     <string name="title_review">Revisione</string>
     <string name="title_hint_alias">Premi a lungo per le opzioni, come copia per creare le identità alias</string>
+    <string name="title_service_vpn">Questo potrebbe essere causato dalla VPN in uso</string>
+    <string name="title_service_port">Per favore ricontrolla il numero della porta</string>
     <string name="title_advanced_browse">Sfoglia i messaggi sul server</string>
     <string name="title_advanced_expand_read">Segna i messaggi come letti in fase di espansione</string>
     <string name="title_synchronize_now">Sincronizza ora</string>

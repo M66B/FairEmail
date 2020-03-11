@@ -85,6 +85,7 @@
     </string>
     <string name="title_notification_sending">Se trimit mesaje</string>
     <string name="title_notification_waiting">Se așteaptă o conexiune adecvată</string>
+    <string name="title_notification_idle">Inactiv</string>
     <string name="title_notification_failed">\'%1$s\' a eșuat</string>
     <string name="title_notification_alert">Alertă server %1$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -118,6 +119,10 @@
     <string name="title_edit_folder">Editare dosar</string>
     <string name="title_setup">Setări</string>
     <string name="title_setup_help">Ajutor</string>
+    <string name="title_setup_welcome">        Primirea și trimiterea de mesaje necesită configurarea unui cont și a unei identități ca în orice altă aplicație de e-mail.
+        Configurarea rapidă v-a crea atât un cont cât și o identitate folosindu-vă doar numele, adresa de e-mail și parola.
+        Conturile și identitățile (alias) pot fi setate și manual dacă se dorește.
+        Protocoale-le ne standard, precum Microsoft Exchange Web Services și Microsoft ActiveSync, nu sunt suportate, vedeți de asemenea și descrierea aplicației.    </string>
     <string name="title_setup_quick">Configurare rapidă</string>
     <string name="title_setup_quick_remark">Permite setarea rapidă a unui cont și a unei identități pentru majoritatea furnizorilor</string>
     <string name="title_setup_quick_hint">Se vor descărca informațiile necesare de pe autoconfig.thunderbird.net</string>
@@ -255,6 +260,8 @@
     <string name="title_advanced_manage_connectivity">Gestionare conexiuni</string>
     <string name="title_advanced_caption_general">Generale</string>
     <string name="title_advanced_caption_conversation">Conversație</string>
+    <string name="title_advanced_caption_message_header">Antet mesaj</string>
+    <string name="title_advanced_caption_message_body">Corp mesaj</string>
     <string name="title_advanced_landscape">Folosește două coloane în modul portret</string>
     <string name="title_advanced_landscape3">Permite meniul de navigare fix în modul panoramă</string>
     <string name="title_advanced_startup">Arată pe ecranul de start</string>
@@ -401,6 +408,7 @@
     <string name="title_advanced_roaming_hint">Antetele mesajelor vor fi mereu descărcate și în roaming. Puteți folosi setările roaming ale dispozitivului pentru a dezactiva internetul atunci când sunteți în roaming.</string>
     <string name="title_advanced_browse_hint">Descarcă mai multe mesaje când se derulează în jos</string>
     <string name="title_advanced_layout_hint">Selectarea unui aspect mai compact și mărimea textului se poate face din meniul paginii de mesaje</string>
+    <string name="title_advanced_startup_hint">Apăsați lung pe orice dosar dis listă pentru a-l adăuga sau elimina din lista de dosare unificate</string>
     <string name="title_advanced_date_hint">Mesajele sunt grupate după dată doar dacă sunt sortate așa</string>
     <string name="title_advanced_navbar_colorize_hint">Depinde de versiunea de Android și de variantă dacă va funcționa</string>
     <string name="title_advanced_threading_hint">Grupează mesajele asociate</string>
@@ -1088,8 +1096,8 @@
     <string-array name="startupNames">
         <item>Căsuță poștală comună</item>
         <item>Dosare unificate</item>
-        <item>Primary account folders</item>
-        <item>Accounts</item>
+        <item>Dosare cont primar</item>
+        <item>Conturi</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 Ko</item>

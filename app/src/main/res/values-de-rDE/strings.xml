@@ -508,6 +508,8 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_oauth_support">OAuth wird nicht unterstützt</string>
     <string name="title_review">Kontrolle</string>
     <string name="title_hint_alias">Lange Drücken für Optionen, wie z.B. Kopieren oder um Alias-Adressen zu erstellen</string>
+    <string name="title_service_vpn">Dies kann durch das verwendete VPN verursacht werden</string>
+    <string name="title_service_port">Bitte überprüfen Sie die Portnummer</string>
     <string name="title_advanced_browse">E-Mails auf dem Server durchsuchen</string>
     <string name="title_advanced_expand_read">Nachrichten beim Erweitern als gelesen markieren</string>
     <string name="title_synchronize_now">Jetzt synchronisieren</string>

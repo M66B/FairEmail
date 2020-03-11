@@ -96,6 +96,7 @@
     </string>
     <string name="title_notification_sending">Отправка сообщений</string>
     <string name="title_notification_waiting">Ожидание подходящего соединения</string>
+    <string name="title_notification_idle">Низкий</string>
     <string name="title_notification_failed">\"%1$s\" не удалось</string>
     <string name="title_notification_alert">\'%1$s\' предупреждение сервера</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -130,6 +131,11 @@
     <string name="title_edit_folder">Редактировать папку</string>
     <string name="title_setup">Настройки</string>
     <string name="title_setup_help">Справка</string>
+    <string name="title_setup_welcome">        Получение и отправка сообщений требует настройки учётной записи и идентификатора, как в любом другом приложении электронной почты.
+        Быстрая настройка создаст учётную запись и идентификатор, просто запросив имя, адрес электронной почты и пароль.
+        Учётные записи и идентификаторы (псевдонимы) могут быть также установлены вручную, если это необходимо.
+        Нестандартные протоколы, такие как Microsoft Exchange Web Services и Microsoft ActiveSync, не поддерживаются, см. также описание приложения.
+    </string>
     <string name="title_setup_quick">Быстрая настройка</string>
     <string name="title_setup_quick_remark">Быстрая настройка учётной записи и идентификатора для большинства провайдеров</string>
     <string name="title_setup_quick_hint">Быстрая настройка считывает информацию о конфигурации с autoconfig.thunderbird.net</string>
@@ -267,6 +273,8 @@
     <string name="title_advanced_manage_connectivity">Управление подключением</string>
     <string name="title_advanced_caption_general">По умолчанию</string>
     <string name="title_advanced_caption_conversation">Диалог</string>
+    <string name="title_advanced_caption_message_header">Заголовок сообщения</string>
+    <string name="title_advanced_caption_message_body">Текст сообщения</string>
     <string name="title_advanced_landscape">Использовать две колонки в альбомном режиме</string>
     <string name="title_advanced_landscape3">Разрешить фиксированное меню навигации в альбомном режиме</string>
     <string name="title_advanced_startup">При запуске показывать</string>
@@ -413,6 +421,7 @@
     <string name="title_advanced_roaming_hint">Заголовки сообщений всегда будут загружаться в роуминге. Вы можете использовать настройки устройства для отключения интернета в роуминге.</string>
     <string name="title_advanced_browse_hint">Получать больше сообщений при прокрутке вниз</string>
     <string name="title_advanced_layout_hint">Переключиться на компактный вид и изменить размера текста сообщения можно через верхнее меню панели действий при просмотре сообщения</string>
+    <string name="title_advanced_startup_hint">Длительное нажатие на любую папку в списке позволит добавить или удалить её из списка объединённых папок</string>
     <string name="title_advanced_date_hint">Сообщения группируются только по дате, если они сортируются по времени</string>
     <string name="title_advanced_navbar_colorize_hint">Это работает в зависимости от версии и варианта Android</string>
     <string name="title_advanced_threading_hint">Группировать сообщения, связанные друг с другом</string>
@@ -1101,8 +1110,8 @@
     <string-array name="startupNames">
         <item>Единый почтовый ящик</item>
         <item>Единые папки</item>
-        <item>Primary account folders</item>
-        <item>Accounts</item>
+        <item>Папки основной учётной записи</item>
+        <item>Учётные записи</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 КБ</item>

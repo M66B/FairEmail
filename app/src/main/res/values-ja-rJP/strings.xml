@@ -493,6 +493,8 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_oauth_support">OAuthはサポートされていません</string>
     <string name="title_review">レビュー</string>
     <string name="title_hint_alias">長押しアクションのオプション(エイリアスIDを作成するコピーなど)</string>
+    <string name="title_service_vpn">使用されているVPNが原因の可能性が有ります</string>
+    <string name="title_service_port">ポート番号を再確認して下さい</string>
     <string name="title_advanced_browse">サーバ上のメッセージを閲覧する</string>
     <string name="title_advanced_expand_read">エキスパンド時にメッセージを既読にする</string>
     <string name="title_synchronize_now">今すぐ同期</string>

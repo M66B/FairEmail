@@ -105,8 +105,29 @@
     <string name="menu_faq">תמיכה</string>
     <string name="menu_translate">עזור לתרגם</string>
     <string name="menu_issue">דווח על בעיה</string>
+    <string name="menu_attribution">מאפיינים</string>
+    <string name="menu_privacy">פרטיות</string>
+    <string name="menu_about">אודות</string>
+    <string name="menu_pro">מאפייני גירסת Pro</string>
+    <string name="menu_invite">הזמן</string>
+    <string name="menu_rate">דרגו את האפליקציה</string>
+    <string name="menu_other">אפליקציות אחרות</string>
+    <string name="title_welcome">ברוכים הבאים</string>
+    <string name="title_eula">הסכם רישיון למשתמש</string>
+    <string name="title_agree">אני מסכים</string>
+    <string name="title_disagree">אני לא מסכים</string>
+    <string name="title_version">‏גרסה %1$s</string>
+    <string name="title_list_accounts">חשבונות</string>
+    <string name="title_list_identities">זהויות</string>
+    <string name="title_edit_account">ערוך חשבון</string>
+    <string name="title_edit_identity">ערוך זהות</string>
+    <string name="title_edit_folder">ערוך תיקיה</string>
+    <string name="title_setup">הגדרות</string>
+    <string name="title_setup_help">עזרה</string>
     <string name="title_advanced_caption_message_header">כותרת ההודעה</string>
     <string name="title_advanced_caption_message_body">גוף ההודעה</string>
+    <string name="title_service_vpn">יתכן והסיבה לעניין היא רשת פרטית וירטואלית (vpn) אשר נמצאת בשימוש</string>
+    <string name="title_service_port">יש לבדוק שוב את מספר הפורט (יציאה וירטואלית)</string>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
 </resources>

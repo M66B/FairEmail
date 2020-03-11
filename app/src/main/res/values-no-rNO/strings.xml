@@ -507,6 +507,8 @@
     <string name="title_oauth_support">OAuth støttes ikke</string>
     <string name="title_review">Anmeldelse</string>
     <string name="title_hint_alias">Trykk lenge for å velge alternativer, for eksempel kopiere for å opprette aliasidentiteter</string>
+    <string name="title_service_vpn">Dette kan være forårsaket av VPN som blir brukt</string>
+    <string name="title_service_port">Kontroller portnummeret</string>
     <string name="title_advanced_browse">Bla gjennom meldinger på serveren</string>
     <string name="title_advanced_expand_read">Merk meldinger som er lest når de utvides</string>
     <string name="title_synchronize_now">Synkroniser nå</string>
