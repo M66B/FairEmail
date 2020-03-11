@@ -300,7 +300,8 @@
 
     <string name="title_advanced_caption_general">General</string>
     <string name="title_advanced_caption_conversation">Conversation</string>
-    <string name="title_advanced_caption_message">Message</string>
+    <string name="title_advanced_caption_message_header">Message header</string>
+    <string name="title_advanced_caption_message_body">Message body</string>
 
     <string name="title_advanced_landscape">Use two columns in landscape mode</string>
     <string name="title_advanced_landscape3">Allow fixed navigation menu in landscape mode</string>

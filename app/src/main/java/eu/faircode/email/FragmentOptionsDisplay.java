@@ -65,6 +65,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
     private SwitchCompat swThreading;
     private SwitchCompat swIndentation;
+    private SwitchCompat swSeekbar;
     private SwitchCompat swActionbar;
 
     private SwitchCompat swHighlightUnread;
@@ -105,18 +106,17 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swTextSize;
     private SwitchCompat swCollapseQuotes;
     private SwitchCompat swImagesInline;
-    private SwitchCompat swSeekbar;
 
     private final static String[] RESET_OPTIONS = new String[]{
             "theme", "startup", "cards", "date", "navbar_colorize", "landscape", "landscape3",
-            "threading", "indentation", "actionbar",
+            "threading", "indentation", "seekbar", "actionbar",
             "highlight_unread", "color_stripe",
             "avatars", "gravatars", "generated_icons", "identicons", "circular", "saturation", "brightness", "threshold",
             "name_email", "prefer_contact", "distinguish_contacts", "authentication",
             "subject_top", "font_size_sender", "font_size_subject", "subject_italic", "subject_ellipsize", "keywords_header",
             "flags", "flags_background", "preview", "preview_italic", "preview_lines", "addresses", "attachments_alt",
             "contrast", "monospaced", "text_color", "text_size",
-            "inline_images", "collapse_quotes", "seekbar"
+            "inline_images", "collapse_quotes"
     };
 
     @Override
@@ -139,6 +139,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
         swThreading = view.findViewById(R.id.swThreading);
         swIndentation = view.findViewById(R.id.swIndentation);
+        swSeekbar = view.findViewById(R.id.swSeekbar);
         swActionbar = view.findViewById(R.id.swActionbar);
 
         swHighlightUnread = view.findViewById(R.id.swHighlightUnread);
@@ -178,7 +179,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swTextSize = view.findViewById(R.id.swTextSize);
         swCollapseQuotes = view.findViewById(R.id.swCollapseQuotes);
         swImagesInline = view.findViewById(R.id.swImagesInline);
-        swSeekbar = view.findViewById(R.id.swSeekbar);
 
         setOptions();
 
@@ -257,6 +257,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("indentation", checked).apply();
+            }
+        });
+
+        swSeekbar.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("seekbar", checked).apply();
             }
         });
 
@@ -579,13 +586,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
-        swSeekbar.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("seekbar", checked).apply();
-            }
-        });
-
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 
         return view;
@@ -657,6 +657,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swThreading.setChecked(prefs.getBoolean("threading", true));
         swIndentation.setChecked(prefs.getBoolean("indentation", false));
         swIndentation.setEnabled(swCards.isChecked());
+        swSeekbar.setChecked(prefs.getBoolean("seekbar", false));
         swActionbar.setChecked(prefs.getBoolean("actionbar", true));
 
         swHighlightUnread.setChecked(prefs.getBoolean("highlight_unread", true));
@@ -724,7 +725,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swTextSize.setChecked(prefs.getBoolean("text_size", true));
         swCollapseQuotes.setChecked(prefs.getBoolean("collapse_quotes", false));
         swImagesInline.setChecked(prefs.getBoolean("inline_images", false));
-        swSeekbar.setChecked(prefs.getBoolean("seekbar", false));
 
         updateColor();
     }

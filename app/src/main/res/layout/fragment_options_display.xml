@@ -220,6 +220,17 @@
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swSeekbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_seekbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swIndentation"
+            app:switchPadding="12dp" />
+
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swActionbar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -228,18 +239,18 @@
             android:text="@string/title_advanced_actionbar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swIndentation"
+            app:layout_constraintTop_toBottomOf="@id/swSeekbar"
             app:switchPadding="12dp" />
 
         <!-- message -->
 
         <eu.faircode.email.FixedTextView
-            android:id="@+id/tvCaptionMessage"
+            android:id="@+id/tvCaptionHeader"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:gravity="center"
-            android:text="@string/title_advanced_caption_message"
+            android:text="@string/title_advanced_caption_message_header"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -254,7 +265,7 @@
             android:text="@string/title_advanced_highlight_unread"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvCaptionMessage"
+            app:layout_constraintTop_toBottomOf="@id/tvCaptionHeader"
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat
@@ -724,6 +735,18 @@
             app:layout_constraintTop_toBottomOf="@id/swAddresses"
             app:switchPadding="12dp" />
 
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvCaptionBody"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:text="@string/title_advanced_caption_message_body"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/swAttachmentsAlt" />
+
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swContrast"
             android:layout_width="0dp"
@@ -732,7 +755,7 @@
             android:text="@string/title_advanced_contrast"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swAttachmentsAlt"
+            app:layout_constraintTop_toBottomOf="@id/tvCaptionBody"
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat
@@ -803,16 +826,5 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/swImagesInline" />
-
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/swSeekbar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_advanced_seekbar"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvImagesInlineHint"
-            app:switchPadding="12dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
