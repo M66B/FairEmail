@@ -335,7 +335,7 @@ public class FragmentIdentity extends FragmentBase {
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), ActivitySignature.class);
                 intent.putExtra("html", signature);
-                startActivityForResult(intent, ActivitySetup.REQUEST_IDENITY_SIGNATURE);
+                startActivityForResult(Helper.getChooser(getContext(), intent), ActivitySetup.REQUEST_IDENITY_SIGNATURE);
             }
         });
 
