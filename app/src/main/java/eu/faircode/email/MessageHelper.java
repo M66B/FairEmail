@@ -101,10 +101,12 @@ public class MessageHelper {
     private MimeMessage imessage;
 
     static final int SMALL_MESSAGE_SIZE = 64 * 1024; // bytes
-    static final int MAX_MESSAGE_SIZE = 10 * 1024 * 1024; // bytes
     static final int DEFAULT_ATTACHMENT_DOWNLOAD_SIZE = 256 * 1024; // bytes
-    static final long ATTACHMENT_PROGRESS_UPDATE = 1500L; // milliseconds
-    static final int FORMAT_FLOWED_LINE_LENGTH = 72;
+
+    private static final int MAX_MESSAGE_SIZE = 10 * 1024 * 1024; // bytes
+    private static final long ATTACHMENT_PROGRESS_UPDATE = 1500L; // milliseconds
+    private static final int MAX_META_EXCERPT = 1024; // characters
+    private static final int FORMAT_FLOWED_LINE_LENGTH = 72;
 
     // https://tools.ietf.org/html/rfc4021
 
@@ -1464,7 +1466,7 @@ public class MessageHelper {
                     if (TextUtils.isEmpty(charset)) {
                         // <meta charset="utf-8" />
                         // <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-                        String excerpt = result.substring(0, Math.min(1000, result.length()));
+                        String excerpt = result.substring(0, Math.min(MAX_META_EXCERPT, result.length()));
                         Document d = JsoupEx.parse(excerpt);
                         for (Element meta : d.select("meta")) {
                             if ("Content-Type".equalsIgnoreCase(meta.attr("http-equiv"))) {
