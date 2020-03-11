@@ -1209,9 +1209,14 @@ public class HtmlHelper {
 
             public void tail(Node node, int depth) {
                 String name = node.nodeName();
-                if ("a".equals(name))
-                    append("[" + node.attr("href") + "]");
-                else if ("img".equals(name))
+                if ("a".equals(name)) {
+                    String addr = node.attr("href").toLowerCase();
+                    if (addr.startsWith("mailto:"))
+                        addr = addr.substring("mailto:".length());
+                    String text = ((Element) node).text().toLowerCase();
+                    if (!text.contains(addr))
+                        append("[" + node.attr("href") + "]");
+                } else if ("img".equals(name))
                     append("[" + node.attr("src") + "]");
                 else if ("th".equals(name) || "td".equals(name)) {
                     Node next = node.nextSibling();
