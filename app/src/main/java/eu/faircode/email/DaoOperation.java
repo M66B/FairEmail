@@ -100,6 +100,9 @@ public interface DaoOperation {
     @Query("SELECT * FROM operation WHERE name = :name")
     List<EntityOperation> getOperations(String name);
 
+    @Query("SELECT * FROM operation WHERE account = :account AND name = :name")
+    List<EntityOperation> getOperations(long account, String name);
+
     @Query("SELECT * FROM operation WHERE id = :id")
     EntityOperation getOperation(long id);
 
@@ -139,7 +142,4 @@ public interface DaoOperation {
 
     @Query("DELETE FROM operation WHERE id = :id")
     int deleteOperation(long id);
-
-    @Query("DELETE FROM operation WHERE account = :account AND name = :name")
-    int deleteOperations(long account, String name);
 }

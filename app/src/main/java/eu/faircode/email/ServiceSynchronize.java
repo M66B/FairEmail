@@ -1522,8 +1522,14 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         boolean enabled = prefs.getBoolean("enabled", true);
                         int pollInterval = prefs.getInt("poll_interval", DEFAULT_POLL_INTERVAL);
                         if (!enabled || account.ondemand || (pollInterval > 0 && !account.poll_exempted)) {
-                            int syncs = db.operation().deleteOperations(account.id, EntityOperation.SYNC);
-                            Log.i(account.name + " cancelled syncs=" + syncs);
+                            List<EntityOperation> syncs = db.operation().getOperations(account.id, EntityOperation.SYNC);
+                            if (syncs != null) {
+                                for (EntityOperation op : syncs) {
+                                    db.folder().setFolderSyncState(op.folder, null);
+                                    db.operation().deleteOperation(op.id);
+                                }
+                                Log.i(account.name + " cancelled syncs=" + syncs.size());
+                            }
                         }
 
                         // Long back-off period, let device sleep
