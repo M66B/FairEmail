@@ -124,6 +124,8 @@ public class ActivitySignature extends ActivityBase {
 
         style_bar.setVisibility(View.GONE);
 
+        setResult(RESULT_CANCELED, new Intent());
+
         load();
     }
 
