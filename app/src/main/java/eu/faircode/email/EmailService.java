@@ -349,6 +349,11 @@ public class EmailService implements AutoCloseable {
                 throw mex;
             } else
                 throw ex;
+        } catch (MessagingException ex) {
+            if (port == 995 && !("pop3".equals(protocol) || "pop3s".equals(protocol)))
+                throw new MessagingException("Please double check the port number", ex);
+            else
+                throw ex;
         }
     }
 
