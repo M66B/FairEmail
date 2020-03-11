@@ -74,6 +74,7 @@
     </string>
     <string name="title_notification_sending">Изпращане на съобщения</string>
     <string name="title_notification_waiting">Изчаква се подходяща връзка</string>
+    <string name="title_notification_idle">Празен</string>
     <string name="title_notification_failed">%1$s се провали</string>
     <string name="title_notification_alert">Сигнал от сървър \'%1$s\'</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -250,6 +251,8 @@
     <string name="title_advanced_manage_connectivity">Управление на свързаност</string>
     <string name="title_advanced_caption_general">Общи</string>
     <string name="title_advanced_caption_conversation">Разговор</string>
+    <string name="title_advanced_caption_message_header">Заглавка на съобщението</string>
+    <string name="title_advanced_caption_message_body">Тяло на съобщението</string>
     <string name="title_advanced_landscape">Две колони в легнал режим</string>
     <string name="title_advanced_landscape3">Разрешаване на фиксирано меню за навигация в пейзажен режим</string>
     <string name="title_advanced_startup">Показване при стартиране</string>
@@ -503,6 +506,7 @@
     <string name="title_oauth_support">OAuth не се поддържа</string>
     <string name="title_review">Преглед</string>
     <string name="title_hint_alias">Дълго натискане за опции, като копиране, за да се създаде псевдоним за идентичност</string>
+    <string name="title_service_vpn">Това може да бъде причинено от VPN, който се използва</string>
     <string name="title_service_port">Проверете два пъти номера на порта</string>
     <string name="title_advanced_browse">Търсене на съобщения на сървъра</string>
     <string name="title_advanced_expand_read">Маркирайте съобщенията като прочетени при разширяване</string>
@@ -713,6 +717,7 @@
     <string name="title_certificate_invalid">Публичният ключ от %1$s не е валиден</string>
     <string name="title_no_key">Няма частен ключ</string>
     <string name="title_invalid_key">Невалиден частен ключ</string>
+    <string name="title_unknown_key">Частният ключ не съвпада с нито един ключ за криптиране</string>
     <string name="title_send_plain_text">Само обикновен текст</string>
     <string name="title_send_receipt">Заявка за разписка</string>
     <string name="title_send_receipt_remark">Повечето доставчици и имейл клиенти игнорират заявките за получаване</string>

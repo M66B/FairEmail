@@ -3409,7 +3409,7 @@ class Core {
     static class State {
         private int backoff;
         private ConnectionHelper.NetworkState networkState;
-        private Thread thread;
+        private Thread thread = new Thread();
         private Semaphore semaphore = new Semaphore(0);
         private boolean running = true;
         private boolean recoverable = true;

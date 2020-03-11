@@ -272,6 +272,8 @@
     <string name="title_advanced_manage_connectivity">Spravovat připojení</string>
     <string name="title_advanced_caption_general">Obecné</string>
     <string name="title_advanced_caption_conversation">Konverzace</string>
+    <string name="title_advanced_caption_message_header">Hlavička zprávy</string>
+    <string name="title_advanced_caption_message_body">Tělo zprávy</string>
     <string name="title_advanced_landscape">Dvou-sloupcové rozvržení v režimu na šířku</string>
     <string name="title_advanced_landscape3">Povolit ukotvené navigační menu v režimu na šířku</string>
     <string name="title_advanced_startup">Na úvodní obrazovce zobrazit</string>
@@ -525,6 +527,7 @@
     <string name="title_oauth_support">OAuth není podporováno</string>
     <string name="title_review">Zkontrolovat</string>
     <string name="title_hint_alias">Dlouze podržet pro možnosti, např. kopírování pro vytvoření aliasu identity</string>
+    <string name="title_service_port">Překontrolujte prosím číslo portu</string>
     <string name="title_advanced_browse">Procházet zprávy na serveru</string>
     <string name="title_advanced_expand_read">Označit zprávy jako přečtené při rozbalení</string>
     <string name="title_synchronize_now">Synchronizovat nyní</string>
@@ -734,6 +737,7 @@
     <string name="title_certificate_invalid">Veřejný klíč %1$s je neplatný</string>
     <string name="title_no_key">Žádný privátní klíč</string>
     <string name="title_invalid_key">Neplatný privátní klíč</string>
+    <string name="title_unknown_key">Privátní klíč neodpovídá žádnému z šifrovacích klíčů</string>
     <string name="title_send_plain_text">Pouze prostý text</string>
     <string name="title_send_receipt">Požádat o potvrzení</string>
     <string name="title_send_receipt_remark">Většina poskytovatelů a e-mailových klientů ignoruje žádosti o potvrzení</string>
