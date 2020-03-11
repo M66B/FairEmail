@@ -162,6 +162,10 @@ public class FragmentAccount extends FragmentBase {
     private String certificate = null;
     private boolean saving = false;
 
+    private static final int REQUEST_COLOR = 1;
+    private static final int REQUEST_SAVE = 2;
+    private static final int REQUEST_DELETE = 3;
+
     static final Long SWIPE_ACTION_ASK = -1L;
     static final Long SWIPE_ACTION_SEEN = -2L;
     static final Long SWIPE_ACTION_SNOOZE = -3L;
@@ -394,7 +398,7 @@ public class FragmentAccount extends FragmentBase {
 
                 FragmentDialogColor fragment = new FragmentDialogColor();
                 fragment.setArguments(args);
-                fragment.setTargetFragment(FragmentAccount.this, ActivitySetup.REQUEST_ACCOUNT_COLOR);
+                fragment.setTargetFragment(FragmentAccount.this, REQUEST_COLOR);
                 fragment.show(getParentFragmentManager(), "account:color");
             }
         });
@@ -1236,7 +1240,7 @@ public class FragmentAccount extends FragmentBase {
 
                     FragmentDialogAsk fragment = new FragmentDialogAsk();
                     fragment.setArguments(aargs);
-                    fragment.setTargetFragment(FragmentAccount.this, ActivitySetup.REQUEST_ACCOUNT_SAVE);
+                    fragment.setTargetFragment(FragmentAccount.this, REQUEST_SAVE);
                     fragment.show(getParentFragmentManager(), "account:save");
                 } else if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
                     getParentFragmentManager().popBackStack();
@@ -1569,7 +1573,7 @@ public class FragmentAccount extends FragmentBase {
 
         FragmentDialogAsk fragment = new FragmentDialogAsk();
         fragment.setArguments(aargs);
-        fragment.setTargetFragment(FragmentAccount.this, ActivitySetup.REQUEST_ACCOUNT_DELETE);
+        fragment.setTargetFragment(FragmentAccount.this, REQUEST_DELETE);
         fragment.show(getParentFragmentManager(), "account:delete");
     }
 
@@ -1579,7 +1583,7 @@ public class FragmentAccount extends FragmentBase {
 
         try {
             switch (requestCode) {
-                case ActivitySetup.REQUEST_ACCOUNT_COLOR:
+                case REQUEST_COLOR:
                     if (resultCode == RESULT_OK && data != null) {
                         if (ActivityBilling.isPro(getContext())) {
                             Bundle args = data.getBundleExtra("args");
@@ -1588,7 +1592,7 @@ public class FragmentAccount extends FragmentBase {
                             startActivity(new Intent(getContext(), ActivityBilling.class));
                     }
                     break;
-                case ActivitySetup.REQUEST_ACCOUNT_SAVE:
+                case REQUEST_SAVE:
                     if (resultCode == RESULT_OK) {
                         final boolean save = (btnSave.getVisibility() == View.VISIBLE);
                         new Handler().post(new Runnable() {
@@ -1604,7 +1608,7 @@ public class FragmentAccount extends FragmentBase {
                     } else if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                         getParentFragmentManager().popBackStack();
                     break;
-                case ActivitySetup.REQUEST_ACCOUNT_DELETE:
+                case REQUEST_DELETE:
                     if (resultCode == RESULT_OK)
                         onDelete();
                     break;

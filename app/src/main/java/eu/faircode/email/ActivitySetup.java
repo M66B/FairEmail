@@ -128,18 +128,6 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     static final int REQUEST_IMPORT_CERTIFICATE = 7;
     static final int REQUEST_OAUTH = 8;
 
-    static final int REQUEST_ACCOUNT_COLOR = 21;
-    static final int REQUEST_ACCOUNT_SAVE = 22;
-    static final int REQUEST_ACCOUNT_DELETE = 23;
-
-    static final int REQUEST_IDENTITY_COLOR = 31;
-    static final int REQUEST_IDENTITY_SAVE = 32;
-    static final int REQUEST_IDENTITY_DELETE = 33;
-    static final int REQUEST_IDENITY_SIGNATURE = 34;
-
-    static final int REQUEST_POP_COLOR = 41;
-    static final int REQUEST_POP_DELETE = 42;
-
     static final String ACTION_QUICK_GMAIL = BuildConfig.APPLICATION_ID + ".ACTION_QUICK_GMAIL";
     static final String ACTION_QUICK_OAUTH = BuildConfig.APPLICATION_ID + ".ACTION_QUICK_OAUTH";
     static final String ACTION_QUICK_SETUP = BuildConfig.APPLICATION_ID + ".ACTION_QUICK_SETUP";

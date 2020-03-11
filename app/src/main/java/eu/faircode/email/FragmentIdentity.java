@@ -32,6 +32,7 @@ import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
+import android.util.Patterns;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -133,6 +134,11 @@ public class FragmentIdentity extends FragmentBase {
     private String certificate = null;
     private String signature = null;
     private boolean saving = false;
+
+    private static final int REQUEST_COLOR = 1;
+    private static final int REQUEST_SAVE = 2;
+    private static final int REQUEST_DELETE = 3;
+    private static final int REQUEST_SIGNATURE = 4;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -323,7 +329,7 @@ public class FragmentIdentity extends FragmentBase {
 
                 FragmentDialogColor fragment = new FragmentDialogColor();
                 fragment.setArguments(args);
-                fragment.setTargetFragment(FragmentIdentity.this, ActivitySetup.REQUEST_IDENTITY_COLOR);
+                fragment.setTargetFragment(FragmentIdentity.this, REQUEST_COLOR);
                 fragment.show(getParentFragmentManager(), "identity:color");
             }
         });
@@ -335,7 +341,7 @@ public class FragmentIdentity extends FragmentBase {
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), ActivitySignature.class);
                 intent.putExtra("html", signature);
-                startActivityForResult(intent, ActivitySetup.REQUEST_IDENITY_SIGNATURE);
+                startActivityForResult(intent, REQUEST_SIGNATURE);
             }
         });
 
@@ -864,7 +870,7 @@ public class FragmentIdentity extends FragmentBase {
 
                     FragmentDialogAsk fragment = new FragmentDialogAsk();
                     fragment.setArguments(aargs);
-                    fragment.setTargetFragment(FragmentIdentity.this, ActivitySetup.REQUEST_IDENTITY_SAVE);
+                    fragment.setTargetFragment(FragmentIdentity.this, REQUEST_SAVE);
                     fragment.show(getParentFragmentManager(), "identity:save");
                 } else if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                     getParentFragmentManager().popBackStack();
@@ -1188,7 +1194,7 @@ public class FragmentIdentity extends FragmentBase {
 
         FragmentDialogAsk fragment = new FragmentDialogAsk();
         fragment.setArguments(aargs);
-        fragment.setTargetFragment(FragmentIdentity.this, ActivitySetup.REQUEST_IDENTITY_DELETE);
+        fragment.setTargetFragment(FragmentIdentity.this, REQUEST_DELETE);
         fragment.show(getParentFragmentManager(), "identity:delete");
     }
 
@@ -1198,7 +1204,7 @@ public class FragmentIdentity extends FragmentBase {
 
         try {
             switch (requestCode) {
-                case ActivitySetup.REQUEST_IDENTITY_COLOR:
+                case REQUEST_COLOR:
                     if (resultCode == RESULT_OK && data != null) {
                         if (ActivityBilling.isPro(getContext())) {
                             Bundle args = data.getBundleExtra("args");
@@ -1207,7 +1213,7 @@ public class FragmentIdentity extends FragmentBase {
                             startActivity(new Intent(getContext(), ActivityBilling.class));
                     }
                     break;
-                case ActivitySetup.REQUEST_IDENTITY_SAVE:
+                case REQUEST_SAVE:
                     if (resultCode == RESULT_OK) {
                         new Handler().post(new Runnable() {
                             @Override
@@ -1219,11 +1225,11 @@ public class FragmentIdentity extends FragmentBase {
                     } else if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                         getParentFragmentManager().popBackStack();
                     break;
-                case ActivitySetup.REQUEST_IDENTITY_DELETE:
+                case REQUEST_DELETE:
                     if (resultCode == RESULT_OK)
                         onDelete();
                     break;
-                case ActivitySetup.REQUEST_IDENITY_SIGNATURE:
+                case REQUEST_SIGNATURE:
                     if (resultCode == RESULT_OK)
                         onHtml(data.getExtras());
                     break;
