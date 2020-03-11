@@ -294,6 +294,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
     private NumberFormat NF = NumberFormat.getNumberInstance();
 
+    private static final int MAX_MORE = 100; // messages
     private static final int UNDO_TIMEOUT = 5000; // milliseconds
     private static final int SWIPE_DISABLE_SELECT_DURATION = 1500; // milliseconds
 
@@ -2165,7 +2166,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 MoreResult result = new MoreResult();
                 result.folders = new ArrayList<>();
 
-                if (ids.length > 100) {
+                if (ids.length > MAX_MORE) {
                     result.seen = true;
                     result.unseen = true;
                     result.flagged = true;
