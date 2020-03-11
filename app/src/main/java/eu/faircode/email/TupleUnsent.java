@@ -21,6 +21,8 @@ package eu.faircode.email;
 
 import androidx.annotation.Nullable;
 
+import java.util.Objects;
+
 public class TupleUnsent {
     public Integer count;
     public Integer busy;
@@ -29,8 +31,8 @@ public class TupleUnsent {
     public boolean equals(@Nullable Object obj) {
         if (obj instanceof TupleUnsent) {
             TupleUnsent other = (TupleUnsent) obj;
-            return (this.count.equals(other.count) &&
-                    this.busy.equals(other.busy));
+            return (Objects.equals(this.count, other.count) &&
+                    Objects.equals(this.busy, other.busy));
         } else
             return false;
     }

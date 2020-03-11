@@ -188,10 +188,10 @@ public class ServiceSend extends ServiceBase {
                         .setCategory(NotificationCompat.CATEGORY_SERVICE)
                         .setVisibility(NotificationCompat.VISIBILITY_SECRET);
 
-        if (lastUnsent != null)
+        if (lastUnsent != null && lastUnsent.count != null)
             builder.setContentText(getResources().getQuantityString(
                     R.plurals.title_notification_unsent, lastUnsent.count, lastUnsent.count));
-        if (lastUnsent == null || lastUnsent.busy == 0)
+        if (lastUnsent == null || lastUnsent.busy == null || lastUnsent.busy == 0)
             builder.setSubText(getString(R.string.title_notification_idle));
         if (!lastSuitable)
             builder.setSubText(getString(R.string.title_notification_waiting));
