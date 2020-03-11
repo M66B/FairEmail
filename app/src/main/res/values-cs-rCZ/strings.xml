@@ -94,8 +94,8 @@
     <string name="title_block_sender_hint">        Blokování odesílatele vytvoří pravidlo pro automatický přesun budoucích zpráv do složky nevyžádané pošty.
         Vytváření a používání pravidel je Pro funkcí.
     </string>
-    <string name="title_notification_waiting">Čekám na vyhovující připojení</string>
     <string name="title_notification_sending">Odesílání zpráv</string>
+    <string name="title_notification_waiting">Čekám na vyhovující připojení</string>
     <string name="title_notification_failed">\"%1$s\" selhalo</string>
     <string name="title_notification_alert">\'%1$s\' upozornění serveru</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -130,6 +130,11 @@
     <string name="title_edit_folder">Upravit složku</string>
     <string name="title_setup">Nastavení</string>
     <string name="title_setup_help">Nápověda</string>
+    <string name="title_setup_welcome">        Příjem a odesílání zpráv vyžaduje nastavení účtu a identity, stejně jako jakákoli jiná e-mailová aplikace.
+        Rychlé nastavení vytvoří současně účet i identitu, pouhým dotazem na Vaše jméno, e-mailovou adresu a heslo.
+        Účty a identity (aliasy) lze v případě potřeby nastavit i ručně.
+        Nestandardní protokoly, jako jsou webové služby systému Microsoft Exchange a Microsoft ActiveSync, nejsou podporovány, viz. i popis této aplikace.
+    </string>
     <string name="title_setup_quick">Rychlé nastavení</string>
     <string name="title_setup_quick_remark">Pro rychlé nastavení účtu a identity pro většinu poskytovatelů</string>
     <string name="title_setup_quick_hint">Rychlé nastavení načte konfigurační údaje z autoconfig.thunderbird.net</string>
@@ -267,7 +272,6 @@
     <string name="title_advanced_manage_connectivity">Spravovat připojení</string>
     <string name="title_advanced_caption_general">Obecné</string>
     <string name="title_advanced_caption_conversation">Konverzace</string>
-    <string name="title_advanced_caption_message">Zpráva</string>
     <string name="title_advanced_landscape">Dvou-sloupcové rozvržení v režimu na šířku</string>
     <string name="title_advanced_landscape3">Povolit ukotvené navigační menu v režimu na šířku</string>
     <string name="title_advanced_startup">Na úvodní obrazovce zobrazit</string>

@@ -94,8 +94,8 @@
     <string name="title_block_sender_hint">        Блокировка отправителя создаст правило для автоматического перемещения будущих сообщений в папку со спамом.
         Создание и использование правил является Pro-функцией.
     </string>
-    <string name="title_notification_waiting">Ожидание подходящего соединения</string>
     <string name="title_notification_sending">Отправка сообщений</string>
+    <string name="title_notification_waiting">Ожидание подходящего соединения</string>
     <string name="title_notification_failed">\"%1$s\" не удалось</string>
     <string name="title_notification_alert">\'%1$s\' предупреждение сервера</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -267,7 +267,6 @@
     <string name="title_advanced_manage_connectivity">Управление подключением</string>
     <string name="title_advanced_caption_general">По умолчанию</string>
     <string name="title_advanced_caption_conversation">Диалог</string>
-    <string name="title_advanced_caption_message">Сообщение</string>
     <string name="title_advanced_landscape">Использовать две колонки в альбомном режиме</string>
     <string name="title_advanced_landscape3">Разрешить фиксированное меню навигации в альбомном режиме</string>
     <string name="title_advanced_startup">При запуске показывать</string>

@@ -71,8 +71,8 @@
     <string name="title_block_sender_hint">        Bloquear um remetente irá criar uma regra para mover automaticamente mensagens futuras para a pasta de spam.
         Criar e usar regras é um recurso pro.
     </string>
-    <string name="title_notification_waiting">Aguardando conexão adequada</string>
     <string name="title_notification_sending">Enviando mensagens</string>
+    <string name="title_notification_waiting">Aguardando conexão adequada</string>
     <string name="title_notification_failed">\'%1$s\' falhou</string>
     <string name="title_notification_alert">\'%1$s\' alerta de servidor</string>
     <string name="title_name_count">%1$s (%2$s)</string>

@@ -72,8 +72,8 @@
     <string name="title_block_sender_hint">        Блокирането на подател ще създаде правило за автоматично преместване на бъдещи съобщения в папката със спам.
         Създаването и използването на правила е професионална функция.
     </string>
-    <string name="title_notification_waiting">Изчаква се подходяща връзка</string>
     <string name="title_notification_sending">Изпращане на съобщения</string>
+    <string name="title_notification_waiting">Изчаква се подходяща връзка</string>
     <string name="title_notification_failed">%1$s се провали</string>
     <string name="title_notification_alert">Сигнал от сървър \'%1$s\'</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -108,6 +108,11 @@
     <string name="title_edit_folder">Редактиране на папка</string>
     <string name="title_setup">Настройки</string>
     <string name="title_setup_help">Помощ</string>
+    <string name="title_setup_welcome">        Получаването и изпращането на съобщения изисква настройка на профил и самоличност, като всяко друго имейл приложение.
+        Бързата настройка ще създаде както профил, така и самоличност, само като поиска вашето име, имейл адрес и парола.
+        Профилите и самоличносттите (псевдонимите) могат да се настройват и ръчно, ако е необходимо.
+        Нестандартни протоколи, като Microsoft Exchange Web Services и Microsoft ActiveSync, не се поддържат, вижте също описанието на приложението.
+    </string>
     <string name="title_setup_quick">Бърза настройка</string>
     <string name="title_setup_quick_remark">За бърза настройка на профил и идентичност за повечето доставчици</string>
     <string name="title_setup_quick_hint">Бързата настройка ще извлече информация за конфигурацията от autoconfig.thunderbird.net</string>
@@ -245,7 +250,6 @@
     <string name="title_advanced_manage_connectivity">Управление на свързаност</string>
     <string name="title_advanced_caption_general">Основни</string>
     <string name="title_advanced_caption_conversation">Разговор</string>
-    <string name="title_advanced_caption_message">Съобщение</string>
     <string name="title_advanced_landscape">Две колони в легнал режим</string>
     <string name="title_advanced_landscape3">Разрешаване на фиксирано меню за навигация в пейзажен режим</string>
     <string name="title_advanced_startup">Показване при стартиране</string>

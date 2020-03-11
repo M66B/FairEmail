@@ -1,5 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_search">חיפוש</string>
+    <string name="app_changelog">יומן שינויים</string>
+    <string name="app_welcome">תוכנת fairmail בנויה על קוד פתוח ונותנת חשיבות רבה לפרטיות ואבטחת המשתמש. מתוך כך, יתכן ומספר מאפיינים של התוכנה יעבדו באופן שונה מהמקובל.</string>
+    <string name="app_limitations">לדוגמה; חלקים המוגדרים \'לא בטוחים\' יוסרו מהודעות ובכך תשופר חווית הקריאה. כהגנה נוספת, ידרש אישור המשתמש לפתיחה של קישורים המצורפים להודעה.</string>
+    <string name="app_crash">אפליקצית fairmail אינה נתמכת במכשיר זה בגלל בעיות במערכת ההפעלה של אנדרואיד הגורמת לאפליקציה לקרוס</string>
+    <string name="app_exit">לחץ \'חזור\' שוב כדי לצאת</string>
+    <string name="channel_service">שירות</string>
+    <string name="channel_send">שלח</string>
+    <string name="channel_notification">התראות</string>
+    <string name="channel_update">עדכונים</string>
+    <string name="channel_warning">אזהרות</string>
+    <string name="channel_error">שגיאות</string>
+    <string name="channel_alert">התראות שרת</string>
+    <string name="channel_group_contacts">אנשי קשר</string>
+    <plurals name="page_conversation">
+        <item quantity="one">דיונים</item>
+        <item quantity="two">דיונים</item>
+        <item quantity="many">דיונים</item>
+        <item quantity="other">דיונים</item>
+    </plurals>
+    <plurals name="page_message">
+        <item quantity="one">הודעה</item>
+        <item quantity="two">הודעות</item>
+        <item quantity="many">הודעות</item>
+        <item quantity="other">הודעות</item>
+    </plurals>
+    <string name="page_folders">תיקיות</string>
+    <string name="page_compose">חבר הודעה</string>
+    <string name="tile_synchronize">סנכרון</string>
+    <string name="tile_unseen">הודעות חדשות</string>
+    <string name="shortcut_refresh">רענון</string>
+    <string name="shortcut_compose">חבר הודעה</string>
+    <string name="shortcut_setup">הגדרות</string>
+    <plurals name="title_notification_synchronizing">
+        <item quantity="one">מנטר חשבון %1$d</item>
+        <item quantity="two">מנטר %1$d חשבונות</item>
+        <item quantity="many">מנטר %1$d חשבונות</item>
+        <item quantity="other">מנטר %1$d חשבונות</item>
+    </plurals>
+    <plurals name="title_notification_operations">
+        <item quantity="one">%1$d פעולות בהמתנה</item>
+        <item quantity="two">%1$d פעולות בהמתנה</item>
+        <item quantity="many">%1$d פעולות בהמתנה</item>
+        <item quantity="other">%1$d פעולות בהמתנה</item>
+    </plurals>
+    <plurals name="title_notification_unseen">
+        <item quantity="one">%1$d הודעות חדשות</item>
+        <item quantity="two">%1$d הודעות חדשות</item>
+        <item quantity="many">%1$d הודעות חדשות</item>
+        <item quantity="other">%1$d הודעות חדשות</item>
+    </plurals>
+    <plurals name="title_notification_unsent">
+        <item quantity="one">%1$d הודעות ממתינות לשליחה</item>
+        <item quantity="two">%1$d הודעות ממתינות לשליחה</item>
+        <item quantity="many">%1$d הודעות ממתינות לשליחה</item>
+        <item quantity="other">%1$d הודעות ממתינות לשליחה</item>
+    </plurals>
+    <plurals name="title_tile_unseen">
+        <item quantity="one">%1$d הודעות חדשות</item>
+        <item quantity="two">%1$d הודעות חדשות</item>
+        <item quantity="many">%1$d הודעות חדשות</item>
+        <item quantity="other">%1$d הודעות חדשות</item>
+    </plurals>
+    <plurals name="title_moving_messages">
+        <item quantity="one">להעביר %1$d הודעות ל %2$s?</item>
+        <item quantity="two">להעביר %1$d הודעות ל %2$s?</item>
+        <item quantity="many">להעביר %1$d הודעות ל %2$s?</item>
+        <item quantity="other">להעביר %1$d הודעות ל %2$s?</item>
+    </plurals>
+    <plurals name="title_deleting_messages">
+        <item quantity="one">למחוק %1$d הודעות לצמיתות?</item>
+        <item quantity="two">למחוק %1$d הודעות לצמיתות?</item>
+        <item quantity="many">למחוק %1$d הודעות לצמיתות?</item>
+        <item quantity="other">למחוק %1$d הודעות לצמיתות?</item>
+    </plurals>
+    <plurals name="title_ask_spam">
+        <item quantity="one">האם לסמן %1$d הודעות כדואר זבל?</item>
+        <item quantity="two">האם לסמן %1$d הודעות כדואר זבל?</item>
+        <item quantity="many">האם לסמן %1$d הודעות כדואר זבל?</item>
+        <item quantity="other">האם לסמן %1$d הודעות כדואר זבל?</item>
+    </plurals>
+    <string name="title_ask_spam_who">האם לסמן את ההודעה מ %1$s כדואר זבל?</string>
+    <string name="title_block">חסום את %1$s</string>
+    <string name="title_block_sender">חסום את השולח</string>
+    <string name="title_block_domain">חסום את תחום השולח</string>
+    <string name="title_block_sender_hint">חסימה של השולח תיצור כלל שיעביר אוטומטית כל הודעה בעתיד של השולח לתיקיית דואר זבל.
+
+יצירה ושימוש בכללים אפשרית רק בגירסת התשלום של אפליקציה זו.    </string>
+    <string name="title_notification_sending">שולח הודעות</string>
+    <string name="title_notification_waiting">ממתין לחיבור רשת</string>
+    <string name="title_notification_failed">\'%1$s\' נכשלה</string>
+    <string name="title_notification_alert">\'%1$s\' התראת שרת</string>
+    <string name="title_advanced_caption_message_header">כותרת ההודעה</string>
+    <string name="title_advanced_caption_message_body">גוף ההודעה</string>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
 </resources>

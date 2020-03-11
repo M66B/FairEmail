@@ -42,8 +42,8 @@
         <item quantity="one">%1$d mesaj spam hesab edilsin?</item>
         <item quantity="other">%1$d mesaj spam hesab edilsin?</item>
     </plurals>
-    <string name="title_notification_waiting">Əlverişli bağlantı gözlənilir</string>
     <string name="title_notification_sending">Mesaj göndərilir</string>
+    <string name="title_notification_waiting">Əlverişli bağlantı gözlənilir</string>
     <string name="title_notification_failed">\'%1$s\' uğursuz oldu</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="menu_answers">Şablonlar</string>

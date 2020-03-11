@@ -66,8 +66,8 @@
         <item quantity="other">Vols tractar els missatges %1$d com Spam?</item>
     </plurals>
     <string name="title_ask_spam_who">Voleu tractar el missatge de %1$s com a correu brossa?</string>
-    <string name="title_notification_waiting">S\'està esperant la connexió</string>
     <string name="title_notification_sending">Enviant missatge</string>
+    <string name="title_notification_waiting">S\'està esperant la connexió</string>
     <string name="title_notification_failed">%1$s ha fallat</string>
     <string name="title_notification_alert">%1$s alerta del servidor</string>
     <string name="title_name_count">%1$s (%2$s)</string>

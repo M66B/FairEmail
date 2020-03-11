@@ -60,8 +60,8 @@
     <string name="title_block_domain">屏蔽发件人域名</string>
     <string name="title_block_sender_hint">        拉黑某发件人将创建一条规则来自动将未来消息移动至垃圾邮件文件夹
         创建和使用规则属于专业版功能</string>
-    <string name="title_notification_waiting">等待网络连接</string>
     <string name="title_notification_sending">正在发送消息</string>
+    <string name="title_notification_waiting">等待网络连接</string>
     <string name="title_notification_failed">\'%1$s\' 失败</string>
     <string name="title_notification_alert">\'%1$s\' 服务器警告</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -96,6 +96,11 @@
     <string name="title_edit_folder">编辑文件夹</string>
     <string name="title_setup">设置</string>
     <string name="title_setup_help">帮助</string>
+    <string name="title_setup_welcome">接收和发送消息需要像在其他任何电子邮件应用程序中一样设置一个帐户和一个身份。
+        快速设置将仅询问您的姓名，电子邮件地址和密码即可创建帐户和身份。
+        如果需要，也可以手动设置帐户和身份（别名）。
+        不支持非标准协议，例如Microsoft Exchange Web Services和Microsoft ActiveSync，另请参阅应用程序说明
+    </string>
     <string name="title_setup_quick">快速设置</string>
     <string name="title_setup_quick_remark">为大多数邮件服务提供商快速设置账户和身份</string>
     <string name="title_setup_quick_hint">快速设置将从autoconfig.thunderbird.net 获取配置信息</string>
@@ -233,7 +238,6 @@
     <string name="title_advanced_manage_connectivity">管理连接</string>
     <string name="title_advanced_caption_general">常规​​​​​</string>
     <string name="title_advanced_caption_conversation">会话</string>
-    <string name="title_advanced_caption_message">消息</string>
     <string name="title_advanced_landscape">在横屏模式下使用两列</string>
     <string name="title_advanced_landscape3">在横屏模式下允许固定的导航栏菜单</string>
     <string name="title_advanced_startup">在启动屏幕上显示</string>

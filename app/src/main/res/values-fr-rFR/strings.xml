@@ -72,8 +72,8 @@
     <string name="title_block_sender_hint">        Bloquer un expéditeur créera une règle pour déplacer automatiquement les futurs messages vers le dossier spam.
         La création et l\'utilisation des règles sont des fonctionnalités Pro.
     </string>
-    <string name="title_notification_waiting">En attente d\'une connexion réseau suffisante</string>
     <string name="title_notification_sending">Envoi des messages en cours</string>
+    <string name="title_notification_waiting">En attente d\'une connexion réseau suffisante</string>
     <string name="title_notification_failed">\'%1$s\' a échoué</string>
     <string name="title_notification_alert">Alerte serveur \'%1$s\'</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -108,6 +108,11 @@
     <string name="title_edit_folder">Modifier le dossier</string>
     <string name="title_setup">Paramètres</string>
     <string name="title_setup_help">Aide</string>
+    <string name="title_setup_welcome">        La réception et l\'envoi de messages nécessitent la mise en place d\'un compte et d\'une identité comme dans toute autre application de messagerie.
+        La configuration rapide créera à la fois un compte et une identité en demandant simplement votre nom, votre adresse e-mail et votre mot de passe.
+        Les comptes et les identités (alias) peuvent aussi être configurés manuellement si nécessaire.
+        Les protocoles non standard comme Microsoft Exchange Web Services et Microsoft ActiveSync ne sont pas pris en charge ; voir également la description de l\'application.
+    </string>
     <string name="title_setup_quick">Configuration rapide</string>
     <string name="title_setup_quick_remark">Pour configurer rapidement un compte et une identité pour la plupart des fournisseurs</string>
     <string name="title_setup_quick_hint">La configuration rapide récupérera les informations de configuration de autoconfig.thunderbird.net</string>
@@ -245,7 +250,8 @@
     <string name="title_advanced_manage_connectivity">Gérer la connectivité</string>
     <string name="title_advanced_caption_general">Général</string>
     <string name="title_advanced_caption_conversation">Conversation</string>
-    <string name="title_advanced_caption_message">Message</string>
+    <string name="title_advanced_caption_message_header">En-tête du message</string>
+    <string name="title_advanced_caption_message_body">Contenu du message</string>
     <string name="title_advanced_landscape">Utiliser deux colonnes en mode paysage</string>
     <string name="title_advanced_landscape3">Afficher le menu de navigation fixe en mode paysage</string>
     <string name="title_advanced_startup">Afficher sur l\'écran de démarrage</string>

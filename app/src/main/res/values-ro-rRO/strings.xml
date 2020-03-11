@@ -83,8 +83,8 @@
     <string name="title_block_sender_hint">        Blocarea unui expeditor va crea o regulă ce mută automat orice mesaj viitor în dosarul de spam.
         Crearea și utilizarea regulilor este o caracteristică Pro.
     </string>
-    <string name="title_notification_waiting">Se așteaptă o conexiune adecvată</string>
     <string name="title_notification_sending">Se trimit mesaje</string>
+    <string name="title_notification_waiting">Se așteaptă o conexiune adecvată</string>
     <string name="title_notification_failed">\'%1$s\' a eșuat</string>
     <string name="title_notification_alert">Alertă server %1$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -255,7 +255,6 @@
     <string name="title_advanced_manage_connectivity">Gestionare conexiuni</string>
     <string name="title_advanced_caption_general">Generale</string>
     <string name="title_advanced_caption_conversation">Conversație</string>
-    <string name="title_advanced_caption_message">Mesaj</string>
     <string name="title_advanced_landscape">Folosește două coloane în modul portret</string>
     <string name="title_advanced_landscape3">Permite meniul de navigare fix în modul panoramă</string>
     <string name="title_advanced_startup">Arată pe ecranul de start</string>

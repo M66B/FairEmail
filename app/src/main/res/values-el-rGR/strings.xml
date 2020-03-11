@@ -34,8 +34,8 @@
     <string name="title_block_sender">Μπλοκάρισμα αποστολέα</string>
     <string name="title_block_domain">Αποκλεισμός domain αποστολέα</string>
     <string name="title_block_sender_hint">   Να μπλοκάρεις κάποιον αποστολέα, θα έχει ός συνέπεια την μεταφορά όλων των μελλοντικών μύνηματων στον φάκελο ανεπιθύμητων.                       </string>
-    <string name="title_notification_waiting">Αναμονή για την κατάλληλη σύνδεση</string>
     <string name="title_notification_sending">Αποστολή μηνυμάτων</string>
+    <string name="title_notification_waiting">Αναμονή για την κατάλληλη σύνδεση</string>
     <string name="title_notification_failed">\'%1$s\' απέτυχε</string>
     <string name="title_notification_alert">\'%1$s\' συναγερμός διακομιστή</string>
     <string name="menu_exit">Έξοδος</string>

@@ -60,8 +60,8 @@
     <string name="title_block_domain">送信者ドメインをブロック</string>
     <string name="title_block_sender_hint">送信者をブロックすると次以降のメッセージを迷惑メールフォルダーに自動的に移動するルールが作成されます。
 ルールの作成と使用はプロ機能です。</string>
-    <string name="title_notification_waiting">接続を待機中</string>
     <string name="title_notification_sending">メールを送信中</string>
+    <string name="title_notification_waiting">接続を待機中</string>
     <string name="title_notification_failed">\'%1$s\' 失敗</string>
     <string name="title_notification_alert">%1$s サーバアラート</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -96,6 +96,11 @@
     <string name="title_edit_folder">フォルダの編集</string>
     <string name="title_setup">設定</string>
     <string name="title_setup_help">ヘルプ</string>
+    <string name="title_setup_welcome">メッセージの送受信には他のメールアプリと同様にアカウントとIDを設定する必要が有ります。
+クイックセットアップでは、名前、メールアドレス、パスワードを入力するだけでアカウントとIDの両方が作成されます。
+必要に応じてアカウントとID(エイリアス)も手動でセットアップ出来ます。
+Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プロトコルはサポートされていません。
+アプリの説明もご覧ください</string>
     <string name="title_setup_quick">クイックセットアップ</string>
     <string name="title_setup_quick_remark">殆どのプロバイダーでアカウントとIDを素早く設定します</string>
     <string name="title_setup_quick_hint">クイックセットアップはautoconfig.thunderbird.netから構成情報を取得します</string>
@@ -232,7 +237,8 @@
     <string name="title_advanced_manage_connectivity">接続の管理</string>
     <string name="title_advanced_caption_general">全般</string>
     <string name="title_advanced_caption_conversation">会話</string>
-    <string name="title_advanced_caption_message">メッセージ</string>
+    <string name="title_advanced_caption_message_header">メッセージヘッダー</string>
+    <string name="title_advanced_caption_message_body">本文</string>
     <string name="title_advanced_landscape">横向きモードで2列を使用</string>
     <string name="title_advanced_landscape3">横向きモードで固定ナビゲーションメニューを許可</string>
     <string name="title_advanced_startup">スタート画面に表示</string>

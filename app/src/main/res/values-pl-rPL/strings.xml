@@ -93,8 +93,8 @@
     <string name="title_block_domain">Blokuj domenę nadawcy</string>
     <string name="title_block_sender_hint">        Blokowanie nadawcy utworzy regułę, aby automatycznie przenosić przyszłe wiadomości do folderu spam.
         Tworzenie i używanie reguł jest funkcją Pro.    </string>
-    <string name="title_notification_waiting">Oczekiwanie na odpowiednie połączenie</string>
     <string name="title_notification_sending">Wysyłanie wiadomości</string>
+    <string name="title_notification_waiting">Oczekiwanie na odpowiednie połączenie</string>
     <string name="title_notification_failed">%1$s nie powiodło się</string>
     <string name="title_notification_alert">Alert serwera \'%1$s\'</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -265,7 +265,6 @@
     <string name="title_advanced_manage_connectivity">Zarządzaj połączeniami</string>
     <string name="title_advanced_caption_general">Ogólne</string>
     <string name="title_advanced_caption_conversation">Wątek</string>
-    <string name="title_advanced_caption_message">Wiadomość</string>
     <string name="title_advanced_landscape">Użyj dwóch kolumn w trybie poziomym</string>
     <string name="title_advanced_landscape3">Zezwalaj na stałe menu nawigacji w trybie poziomym</string>
     <string name="title_advanced_startup">Pokaż na ekranie początkowym</string>

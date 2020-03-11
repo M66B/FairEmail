@@ -71,8 +71,8 @@
     <string name="title_block_domain">Blokeatu bidaltzailearen domeinua</string>
     <string name="title_block_sender_hint">Bidaltzaile bat blokeatzeak etorkizuneko mezuak automatikoki spam karpetara eramateko arau bat sortuko du. Arauak sortu eta erabiltzea ordainpeko ezaugarri bat da.
     </string>
-    <string name="title_notification_waiting">Konexio erabilgarriaren zain</string>
     <string name="title_notification_sending">Mezuak bidaltzen</string>
+    <string name="title_notification_waiting">Konexio erabilgarriaren zain</string>
     <string name="title_notification_failed">%1$s(e)k huts egin du</string>
     <string name="title_notification_alert">\'%1$s\' zerbitzariko alerta</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -107,6 +107,10 @@
     <string name="title_edit_folder">Editatu karpeta</string>
     <string name="title_setup">Ezarpenak</string>
     <string name="title_setup_help">Laguntza</string>
+    <string name="title_setup_welcome">Mezuak jaso eta bidaltzeko kontu eta identitate bat ezarri behar da beste edozein e-mail aplikaziotan bezala.
+        Ezarpen azkarrak kontua eta identitatea sortuko ditu zure izena, e-mail helbidea eta pasahitza bakarrik galdetuta.
+        Kontuak eta identitateak (ezizenak) eskuz ezarri daitezke ere behar izatekotan.
+        Ez dira onartzen protokolo ez estandarrak, Microsoft Exchange Web Services eta Microsoft ActiveSync bezalakoak, ikus aplikazioaren deskribapena ere.    </string>
     <string name="title_setup_quick">Ezarpen azkarra</string>
     <string name="title_setup_quick_remark">Kontu eta identitate bat azkar ezartzeko hornitzaile gehienekin</string>
     <string name="title_setup_quick_hint">Ezarpen azkar honek konfigurazioaren informazioa autoconfig.thunderbird.net helbidetik eskuratuko du</string>
@@ -242,7 +246,6 @@
     <string name="title_advanced_manage_connectivity">Kudeatu konektibitatea</string>
     <string name="title_advanced_caption_general">Orokorra</string>
     <string name="title_advanced_caption_conversation">Elkarrizketa</string>
-    <string name="title_advanced_caption_message">Mezua</string>
     <string name="title_advanced_landscape">Erabili bi zutabe modu horizontalean</string>
     <string name="title_advanced_landscape3">Baimendu nabigazio menu finkoa horizontalean</string>
     <string name="title_advanced_startup">Erakutsi hasiera pantailan</string>
@@ -388,6 +391,7 @@
     <string name="title_advanced_roaming_hint">Mezuen goiburuak beti jasoko dira datuen ibiltaritza dagoenean. Telefonoaren datuen ibiltaritza ezarpena erabil dezakezu internet desgaitzeko.</string>
     <string name="title_advanced_browse_hint">Bilatu mezu gehiago korritzerakoan</string>
     <string name="title_advanced_layout_hint">Diseinua trinkotzea eta mezuaren testuaren tamaina alda daiteke mezuen ikuspegiko goiko ekintza-barran</string>
+    <string name="title_advanced_startup_hint">Sakatu luze karpetako zerrendako edozein karpeta, karpeta bateratuen zerrendatik gehitu edo kentzeko</string>
     <string name="title_advanced_date_hint">Mezuak dataren arabera multzokatzen dira soilik denboraren arabera ordenatuta badaude</string>
     <string name="title_advanced_navbar_colorize_hint">Hau funtzionatzea Android bertsioa eta aldaeraren araberakoa da</string>
     <string name="title_advanced_threading_hint">Harremana duten mezuak taldekatu</string>
@@ -1072,8 +1076,8 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string-array name="startupNames">
         <item>Sarrera ontzi bateratua</item>
         <item>Karpeta bateratuak</item>
-        <item>Primary account folders</item>
-        <item>Accounts</item>
+        <item>Kontu nagusiaren karpetak</item>
+        <item>Kontuak</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>

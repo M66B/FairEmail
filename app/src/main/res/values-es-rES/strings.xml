@@ -72,8 +72,8 @@
     <string name="title_block_sender_hint">        Bloquear un remitente creará una regla para mover automáticamente los mensajes futuros a la carpeta de spam.
         Crear y usar reglas es una característica Pro.
     </string>
-    <string name="title_notification_waiting">Esperando conexión</string>
     <string name="title_notification_sending">Enviando mensajes</string>
+    <string name="title_notification_waiting">Esperando conexión</string>
     <string name="title_notification_failed">\'%1$s\' falló</string>
     <string name="title_notification_alert">Alerta del servidor \'%1$s\'</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -108,6 +108,12 @@
     <string name="title_edit_folder">Editar carpeta</string>
     <string name="title_setup">Ajustes</string>
     <string name="title_setup_help">Ayuda</string>
+    <string name="title_setup_welcome">Recibir y enviar mensajes requiere configurar una cuenta y una identidad como en cualquier otra aplicación de correo electrónico.
+        La configuración rápida creará una cuenta e identidad simplemente pidiendo su nombre, dirección de correo electrónico y contraseña.
+        Las cuentas e identidades (alias) también se pueden configurar manualmente si es necesario.
+        Los protocolos no estándar, como Microsoft Exchange Web Services y Microsoft ActiveSync, no están soportados, vea la descripción de la app.
+    
+    </string>
     <string name="title_setup_quick">Configuración rápida</string>
     <string name="title_setup_quick_remark">Para configurar rápidamente una cuenta y una identidad para la mayoría de los proveedores</string>
     <string name="title_setup_quick_hint">La configuración rápida obtendrá información de configuración de autoconfig.thunderbird.net</string>
@@ -245,7 +251,6 @@
     <string name="title_advanced_manage_connectivity">Administrar conectividad</string>
     <string name="title_advanced_caption_general">General</string>
     <string name="title_advanced_caption_conversation">Conversación</string>
-    <string name="title_advanced_caption_message">Mensaje</string>
     <string name="title_advanced_landscape">Usar dos columnas en modo horizontal</string>
     <string name="title_advanced_landscape3">Permitir menú de navegación fijo en modo horizontal</string>
     <string name="title_advanced_startup">Mostrar en pantalla de inicio</string>
@@ -392,6 +397,7 @@
     <string name="title_advanced_roaming_hint">Los encabezados de mensajes siempre se obtendrán cuando en itinerancia. Puede usar la configuración de itinerancia del dispositivo para desactivar internet mientras se está en itinerancia.</string>
     <string name="title_advanced_browse_hint">Buscar más mensajes al desplazarse hacia abajo</string>
     <string name="title_advanced_layout_hint">Cambiar a un diseño más compacto y cambiar el tamaño del texto del mensaje puede hacerse en el menú de la barra de acción superior en la vista de mensaje</string>
+    <string name="title_advanced_startup_hint">Mantenga pulsada una carpeta de la lista para agregarla o quitarla de la lista de carpetas unificadas</string>
     <string name="title_advanced_date_hint">Los mensajes sólo se agrupan por fecha si se ordenan por antigüedad</string>
     <string name="title_advanced_navbar_colorize_hint">Que esto funcione dependerá de la versión y variante de Android</string>
     <string name="title_advanced_threading_hint">Agrupar mensajes relacionados entre sí</string>
@@ -1078,8 +1084,8 @@
     <string-array name="startupNames">
         <item>Bandeja de entrada unificada</item>
         <item>Carpetas unificadas</item>
-        <item>Primary account folders</item>
-        <item>Accounts</item>
+        <item>Carpetas de la cuenta principal</item>
+        <item>Cuentas</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>

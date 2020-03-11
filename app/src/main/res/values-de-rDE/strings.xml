@@ -73,8 +73,8 @@
         von dieser Absenderadresse automatisch in den Spam-Ordner zu verschieben.
         Regeln erstellen und verwenden ist eine Pro-Funktion.
     </string>
-    <string name="title_notification_waiting">Auf eine geeignete Verbindung wird gewartet</string>
     <string name="title_notification_sending">Nachrichten werden gesendet</string>
+    <string name="title_notification_waiting">Auf eine geeignete Verbindung wird gewartet</string>
     <string name="title_notification_failed">\'%1$s\' fehlgeschlagen</string>
     <string name="title_notification_alert">\'%1$s\' Server-Warnung</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -109,10 +109,10 @@
     <string name="title_edit_folder">Ordner bearbeiten</string>
     <string name="title_setup">Einstellungen</string>
     <string name="title_setup_help">Hilfe</string>
-    <string name="title_setup_welcome">        Das Empfangen und Senden von Nachrichten erfordert die Einrichtung eines Kontos und einer Identität, wie in jeder anderen E-Mail-App.
-        Der Assistent erstellt sowohl ein Konto als auch eine Identität, indem er Sie einfach nach Ihrem Namen, Ihrer e-Mail-Adresse und Ihrem Passwort fragt.
-        Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet werden.
-        Nicht-Standard-Protokolle wie Microsoft Exchange Web Services und Microsoft ActiveSync werden nicht unterstützt, siehe auch die Beschreibung der App.
+    <string name="title_setup_welcome">Das Empfangen und Senden von Nachrichten erfordert die Einrichtung eines Kontos und einer Identität, wie bei jeder anderen E-Mail-Anwendung.
+Der Assistent erstellt sowohl ein Konto als auch eine Identität, indem Sie nur nach Ihrem Namen, Ihrer E-Mail-Adresse und Ihrem Passwort gefragt werden.
+Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet werden.
+Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Services” und „Microsoft ActiveSync”, werden nicht unterstützt. (Siehe auch die Beschreibung der App).
     </string>
     <string name="title_setup_quick">Schnelleinrichtung</string>
     <string name="title_setup_quick_remark">Um schnell ein Konto und eine Identität für die meisten Anbieter einzurichten</string>
@@ -251,7 +251,8 @@
     <string name="title_advanced_manage_connectivity">Konnektivität verwalten</string>
     <string name="title_advanced_caption_general">Allgemein</string>
     <string name="title_advanced_caption_conversation">Unterhaltung</string>
-    <string name="title_advanced_caption_message">Nachricht</string>
+    <string name="title_advanced_caption_message_header">Nachrichtenkopfzeilen</string>
+    <string name="title_advanced_caption_message_body">Nachrichtentext</string>
     <string name="title_advanced_landscape">Zwei Spalten im Querformat verwenden</string>
     <string name="title_advanced_landscape3">Festes Navigationsmenü im Querformat erlauben</string>
     <string name="title_advanced_startup">Auf Startbildschirm anzeigen</string>

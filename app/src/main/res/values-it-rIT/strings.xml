@@ -72,8 +72,8 @@
     <string name="title_block_sender_hint">        Bloccare un mittente creerà una regola per spostare automaticamente i messaggi futuri nella cartella spam.
         Creare e utilizzare le regole è una funzionalità pro.
     </string>
-    <string name="title_notification_waiting">In attesa di una connessione adeguata</string>
     <string name="title_notification_sending">Invio messaggi in corso</string>
+    <string name="title_notification_waiting">In attesa di una connessione adeguata</string>
     <string name="title_notification_failed">\'%1$s\' fallito</string>
     <string name="title_notification_alert">\'%1$s\' avvisi sul server</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -250,7 +250,6 @@
     <string name="title_advanced_manage_connectivity">Gestisci connettività</string>
     <string name="title_advanced_caption_general">Generale</string>
     <string name="title_advanced_caption_conversation">Conversazione</string>
-    <string name="title_advanced_caption_message">Messaggio</string>
     <string name="title_advanced_landscape">Usa due colonne in modalità orizzontale</string>
     <string name="title_advanced_landscape3">Consenti menu di navigazione fisso in modalità orizzontale</string>
     <string name="title_advanced_startup">Mostra nella schermata iniziale</string>

@@ -30,12 +30,12 @@
     <string name="shortcut_compose">Opstellen</string>
     <string name="shortcut_setup">Instellingen</string>
     <plurals name="title_notification_synchronizing">
-        <item quantity="one">Monitoring één account</item>
+        <item quantity="one">Monitoring %1$d account</item>
         <item quantity="other">Monitoring %1$d accounts</item>
     </plurals>
     <plurals name="title_notification_operations">
         <item quantity="one">Eén openstaande bewerking</item>
-        <item quantity="other">%1$d openstaande bewerkingen</item>
+        <item quantity="other">%1$d bewerkingen resterend</item>
     </plurals>
     <plurals name="title_notification_unseen">
         <item quantity="one">Eén nieuw bericht</item>
@@ -50,7 +50,7 @@
         <item quantity="other">%1$d nieuw</item>
     </plurals>
     <plurals name="title_selected_conversations">
-        <item quantity="one">%1$d gesprek geselecteerd</item>
+        <item quantity="one">Eén gesprek geselecteerd</item>
         <item quantity="other">%1$d gesprekken geselecteerd</item>
     </plurals>
     <plurals name="title_moving_messages">
@@ -72,8 +72,9 @@
     <string name="title_block_sender_hint">        Het blokkeren van een afzender maakt een regel om toekomstige berichten automatisch naar de spam map te verplaatsen.
         Het maken en gebruiken van regels is een pro-functie.
     </string>
-    <string name="title_notification_waiting">Wachten op een geschikte verbinding</string>
     <string name="title_notification_sending">Berichten verzenden</string>
+    <string name="title_notification_waiting">Wachten op een geschikte verbinding</string>
+    <string name="title_notification_idle">Inactief</string>
     <string name="title_notification_failed">\'%1$s\' is mislukt</string>
     <string name="title_notification_alert">\'%1$s\' servermelding</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -249,7 +250,8 @@
     <string name="title_advanced_manage_connectivity">Beheer connectiviteit</string>
     <string name="title_advanced_caption_general">Algemeen</string>
     <string name="title_advanced_caption_conversation">Gesprek</string>
-    <string name="title_advanced_caption_message">Bericht</string>
+    <string name="title_advanced_caption_message_header">Berichtkop</string>
+    <string name="title_advanced_caption_message_body">Berichtinhoud</string>
     <string name="title_advanced_landscape">Twee kolommen gebruiken in liggende modus</string>
     <string name="title_advanced_landscape3">Vaste navigatiemenu toestaan in liggende modus</string>
     <string name="title_advanced_startup">Toon op het startscherm</string>

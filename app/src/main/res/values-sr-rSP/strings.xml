@@ -77,8 +77,8 @@
         <item quantity="other">Означи %1$d порука као нежељене?</item>
     </plurals>
     <string name="title_ask_spam_who">Означи поруке од %1$s као нежељене?</string>
-    <string name="title_notification_waiting">Чекам на погодну конекцију</string>
     <string name="title_notification_sending">Слање порука</string>
+    <string name="title_notification_waiting">Чекам на погодну конекцију</string>
     <string name="title_notification_failed">%1$s неуспело</string>
     <string name="title_notification_alert">Упозорење са сервера %1$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>

@@ -68,8 +68,8 @@
     <string name="title_block_sender_hint">        Att blockera en avsändare skapar en regel att framtida meddelanden automatiskt ska flyttas till skräppostmappen.
         Att skapa och använda regler är en pro-funktion.
     </string>
-    <string name="title_notification_waiting">Väntar på lämplig anslutning</string>
     <string name="title_notification_sending">Skickar meddelanden</string>
+    <string name="title_notification_waiting">Väntar på lämplig anslutning</string>
     <string name="title_notification_failed">\'%1$s\' misslyckades</string>
     <string name="title_notification_alert">\'%1$s\' servermeddelande</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -240,7 +240,6 @@
     <string name="title_advanced_manage_connectivity">Hantera anslutning</string>
     <string name="title_advanced_caption_general">Allmänt</string>
     <string name="title_advanced_caption_conversation">Konversation</string>
-    <string name="title_advanced_caption_message">Meddelande</string>
     <string name="title_advanced_landscape">Använd två kolumner i landskapsläge</string>
     <string name="title_advanced_landscape3">Tillåt fast navigeringsmeny i landskapsläge</string>
     <string name="title_advanced_startup">Visa på startskärmen</string>

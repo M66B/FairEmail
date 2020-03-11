@@ -82,8 +82,8 @@
     <string name="title_block_domain">Blokiraj domenu pošiljatelja</string>
     <string name="title_block_sender_hint">        Blokiranje pošiljatelja stvorit će pravilo za automatsko pomicanje budućih poruka u mapu neželjene pošte.
         Stvaranje i korištenje pravila profesionalna je značajka.    </string>
-    <string name="title_notification_waiting">Čeka se prikladna veza</string>
     <string name="title_notification_sending">Poruka se šalje</string>
+    <string name="title_notification_waiting">Čeka se prikladna veza</string>
     <string name="title_notification_failed">\'%1$s\' nije uspjelo</string>
     <string name="title_notification_alert">Upozorenje poslužitelja \'%1$s\'</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -254,7 +254,6 @@
     <string name="title_advanced_manage_connectivity">Upravljanje povezivanjem</string>
     <string name="title_advanced_caption_general">Općenito</string>
     <string name="title_advanced_caption_conversation">Konverzacija</string>
-    <string name="title_advanced_caption_message">Poruka</string>
     <string name="title_advanced_landscape">Koristi dva stupca u pejzažnom načinu</string>
     <string name="title_advanced_landscape3">Dopusti fiksni navigacijski izbornik u pejzažnom modusu</string>
     <string name="title_advanced_startup">Prikaži na početnom zaslonu</string>

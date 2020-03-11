@@ -57,6 +57,8 @@
     <string name="menu_exit">Útgong</string>
     <string name="menu_setup">Ynstellingen</string>
     <string name="menu_legend">Leginde</string>
+    <string name="title_advanced_caption_message_header">Berjochtkoptekst</string>
+    <string name="title_advanced_caption_message_body">Berjochtynhâld</string>
     <string-array name="startupNames">
         <item>Unified inbox</item>
         <item>Unified folders</item>

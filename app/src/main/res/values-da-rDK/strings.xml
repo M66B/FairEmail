@@ -72,8 +72,8 @@
     <string name="title_block_sender_hint">        Blokering af en afsender opretter en regel, der automatisk flytter fremtidige beskeder til Spam-mappen.
         Oprettelse og brug af regler er en Pro-funktion.
     </string>
-    <string name="title_notification_waiting">Afventer en passende forbindelse</string>
     <string name="title_notification_sending">Sender beskeder</string>
+    <string name="title_notification_waiting">Afventer en passende forbindelse</string>
     <string name="title_notification_failed">\'%1$s\' mislykkedes</string>
     <string name="title_notification_alert">\'%1$s\'-serveradvarsel</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -108,6 +108,11 @@
     <string name="title_edit_folder">Redigér mappe</string>
     <string name="title_setup">Indstillinger</string>
     <string name="title_setup_help">Hjælp</string>
+    <string name="title_setup_welcome">        Modtagelse og afsendelse af beskeder kræver opsætning af en konto og identitet som i enhver anden e-mail app.
+        Hurtig-opsætningen opretter både en konto og identitet ved blot at bede om dit navn, e-mail og adgangskode.
+        Konti og identiteter (aliasser) kan også opsættes manuelt om ønsket.
+        Ikke-standardprotokoller, såsom Microsoft Exchange Web Services og Microsoft ActiveSync, understøttes ikke. Se også app-beskrivelsen.
+    </string>
     <string name="title_setup_quick">Hurtig opsætning</string>
     <string name="title_setup_quick_remark">For hurtigt at opsætte en konto og identitet for de fleste udbydere</string>
     <string name="title_setup_quick_hint">Hurtig opsætningen vil hente opsætningsoplysninger fra autoconfig.thunderbird.net</string>
@@ -245,7 +250,6 @@
     <string name="title_advanced_manage_connectivity">Håndtér konnektivitet</string>
     <string name="title_advanced_caption_general">Generelt</string>
     <string name="title_advanced_caption_conversation">Samtale</string>
-    <string name="title_advanced_caption_message">Besked</string>
     <string name="title_advanced_landscape">Benyt to kolonner i liggende tilstand</string>
     <string name="title_advanced_landscape3">Tillad fastgjort navigeringsmenu i liggende tilstand</string>
     <string name="title_advanced_startup">Vis på startskærmen</string>
@@ -392,6 +396,7 @@
     <string name="title_advanced_roaming_hint">Beskedoverskrifter hentes altid under roaming. Du kan benytte enhedens roamingindstilling til at deaktivere mobilnetværk under roaming.</string>
     <string name="title_advanced_browse_hint">Hent flere beskeder, når du ruller nedad</string>
     <string name="title_advanced_layout_hint">Skift til et mere kompakt layout og ændring af beskedtekststørrelse kan ske via den øverste handlingsbjælkemenu fra beskedvisning</string>
+    <string name="title_advanced_startup_hint">Langt tryk på en vilkårlig mappe på mappelisten for at tilføje/fjerne den fra listen over samlede mapper</string>
     <string name="title_advanced_date_hint">Beskeder grupperes kun efter dato, hvis de er sorteret efter tid</string>
     <string name="title_advanced_navbar_colorize_hint">Hvorvidt dette fungerer afhænger af Android-version og -variant</string>
     <string name="title_advanced_threading_hint">Gruppér beskeder relateret til hinanden</string>
@@ -1077,8 +1082,8 @@
     <string-array name="startupNames">
         <item>Samlet indbakke</item>
         <item>Samlede mapper</item>
-        <item>Primary account folders</item>
-        <item>Accounts</item>
+        <item>Primære kontomapper</item>
+        <item>Konti</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>
