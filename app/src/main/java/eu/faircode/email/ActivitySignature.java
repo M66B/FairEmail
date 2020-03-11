@@ -229,7 +229,7 @@ public class ActivitySignature extends ActivityBase {
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         intent.setType("image/*");
         Helper.openAdvanced(intent);
-        startActivityForResult(Helper.getChooser(this, intent), REQUEST_IMAGE);
+        startActivityForResult(intent, REQUEST_IMAGE);
     }
 
     private boolean onActionStyle(int action) {

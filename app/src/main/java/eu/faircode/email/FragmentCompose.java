@@ -1339,7 +1339,7 @@ public class FragmentCompose extends FragmentBase {
             snackbar.show();
         } else
             try {
-                startActivityForResult(Helper.getChooser(getContext(), intent), REQUEST_RECORD_AUDIO);
+                startActivityForResult(intent, REQUEST_RECORD_AUDIO);
             } catch (SecurityException ex) {
                 Log.w(ex);
                 Snackbar.make(view, getString(R.string.title_no_viewer, intent.getAction()), Snackbar.LENGTH_INDEFINITE).show();
@@ -1368,7 +1368,7 @@ public class FragmentCompose extends FragmentBase {
             try {
                 photoURI = FileProvider.getUriForFile(getContext(), BuildConfig.APPLICATION_ID, file);
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
-                startActivityForResult(Helper.getChooser(getContext(), intent), REQUEST_TAKE_PHOTO);
+                startActivityForResult(intent, REQUEST_TAKE_PHOTO);
             } catch (SecurityException ex) {
                 Log.w(ex);
                 Snackbar.make(view, getString(R.string.title_no_viewer, intent.getAction()), Snackbar.LENGTH_LONG).show();
