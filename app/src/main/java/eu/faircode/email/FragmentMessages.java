@@ -3785,8 +3785,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (handleThreadActions(messages))
                     return;
 
-            checkNewMessages();
-
             Log.i("Submit messages=" + messages.size());
             adapter.submitList(messages);
 
@@ -4512,37 +4510,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         long fid = intent.getLongExtra("folder", -1);
         boolean unified = intent.getBooleanExtra("unified", false);
 
-        synchronized (Core.newMessages) {
-            Core.newMessages.remove(fid);
-        }
-
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         boolean autoscroll = prefs.getBoolean("autoscroll", true);
 
         if (autoscroll &&
                 ((viewType == AdapterMessage.ViewType.UNIFIED && unified) ||
                         (viewType == AdapterMessage.ViewType.FOLDER && folder == fid)))
-            adapter.gotoTop();
-    }
-
-    private void checkNewMessages() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        boolean autoscroll = prefs.getBoolean("autoscroll", true);
-
-        boolean newMessages = false;
-        synchronized (Core.newMessages) {
-            for (long fid : new ArrayList<>(Core.newMessages.keySet())) {
-                EntityFolder f = Core.newMessages.get(fid);
-                if (f != null &&
-                        ((viewType == AdapterMessage.ViewType.UNIFIED && f.unified) ||
-                                (viewType == AdapterMessage.ViewType.FOLDER && folder == f.id))) {
-                    newMessages = true;
-                    Core.newMessages.remove(fid);
-                }
-            }
-        }
-
-        if (autoscroll && newMessages)
             adapter.gotoTop();
     }
 

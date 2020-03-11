@@ -124,8 +124,6 @@ import static androidx.core.app.NotificationCompat.DEFAULT_SOUND;
 import static javax.mail.Folder.READ_WRITE;
 
 class Core {
-    static final Map<Long, EntityFolder> newMessages = new HashMap<>();
-
     private static final int MAX_NOTIFICATION_COUNT = 25; // per group
     private static final long AFTER_SEND_DELAY = 15 * 1000L; // milliseconds
     private static final int SYNC_CHUNCK_SIZE = 200;
@@ -2305,10 +2303,6 @@ class Core {
 
                 // Prepare scroll to top
                 if (!message.ui_seen && message.received > account.created) {
-                    synchronized (newMessages) {
-                        newMessages.put(folder.id, folder);
-                    }
-
                     Intent report = new Intent(FragmentMessages.ACTION_NEW_MESSAGE);
                     report.putExtra("folder", folder.id);
                     report.putExtra("unified", folder.unified);
