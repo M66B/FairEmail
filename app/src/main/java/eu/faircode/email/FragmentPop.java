@@ -95,9 +95,6 @@ public class FragmentPop extends FragmentBase {
     private long id = -1;
     private boolean saving = false;
 
-    private static final int REQUEST_COLOR = 1;
-    private static final int REQUEST_DELETE = 2;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -180,7 +177,7 @@ public class FragmentPop extends FragmentBase {
 
                 FragmentDialogColor fragment = new FragmentDialogColor();
                 fragment.setArguments(args);
-                fragment.setTargetFragment(FragmentPop.this, REQUEST_COLOR);
+                fragment.setTargetFragment(FragmentPop.this, ActivitySetup.REQUEST_POP_COLOR);
                 fragment.show(getParentFragmentManager(), "account:color");
             }
         });
@@ -601,7 +598,7 @@ public class FragmentPop extends FragmentBase {
 
         FragmentDialogAsk fragment = new FragmentDialogAsk();
         fragment.setArguments(aargs);
-        fragment.setTargetFragment(FragmentPop.this, REQUEST_DELETE);
+        fragment.setTargetFragment(FragmentPop.this, ActivitySetup.REQUEST_POP_DELETE);
         fragment.show(getParentFragmentManager(), "account:delete");
     }
 
@@ -611,7 +608,7 @@ public class FragmentPop extends FragmentBase {
 
         try {
             switch (requestCode) {
-                case REQUEST_COLOR:
+                case ActivitySetup.REQUEST_POP_COLOR:
                     if (resultCode == RESULT_OK && data != null) {
                         if (ActivityBilling.isPro(getContext())) {
                             Bundle args = data.getBundleExtra("args");
@@ -620,7 +617,7 @@ public class FragmentPop extends FragmentBase {
                             startActivity(new Intent(getContext(), ActivityBilling.class));
                     }
                     break;
-                case REQUEST_DELETE:
+                case ActivitySetup.REQUEST_POP_DELETE:
                     if (resultCode == RESULT_OK)
                         onDelete();
                     break;
