@@ -62,6 +62,7 @@
 ルールの作成と使用はプロ機能です。</string>
     <string name="title_notification_sending">メールを送信中</string>
     <string name="title_notification_waiting">接続を待機中</string>
+    <string name="title_notification_idle">待機</string>
     <string name="title_notification_failed">\'%1$s\' 失敗</string>
     <string name="title_notification_alert">%1$s サーバアラート</string>
     <string name="title_name_count">%1$s (%2$s)</string>

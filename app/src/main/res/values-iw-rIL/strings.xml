@@ -90,8 +90,21 @@
 יצירה ושימוש בכללים אפשרית רק בגירסת התשלום של אפליקציה זו.    </string>
     <string name="title_notification_sending">שולח הודעות</string>
     <string name="title_notification_waiting">ממתין לחיבור רשת</string>
+    <string name="title_notification_idle">לא פעיל</string>
     <string name="title_notification_failed">\'%1$s\' נכשלה</string>
     <string name="title_notification_alert">\'%1$s\' התראת שרת</string>
+    <string name="title_name_count">(%1$s (%2$s</string>
+    <string name="title_factor_minutes">%1$d דקות</string>
+    <string name="menu_exit">יציאה</string>
+    <string name="menu_answers">תבניות</string>
+    <string name="menu_operations">פעולות</string>
+    <string name="menu_contacts">אנשי קשר מקומיים</string>
+    <string name="menu_setup">הגדרות</string>
+    <string name="menu_legend">מקרא</string>
+    <string name="menu_test">תוכנת ניסוי</string>
+    <string name="menu_faq">תמיכה</string>
+    <string name="menu_translate">עזור לתרגם</string>
+    <string name="menu_issue">דווח על בעיה</string>
     <string name="title_advanced_caption_message_header">כותרת ההודעה</string>
     <string name="title_advanced_caption_message_body">גוף ההודעה</string>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->

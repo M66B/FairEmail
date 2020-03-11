@@ -74,6 +74,7 @@
     </string>
     <string name="title_notification_sending">Sender melding</string>
     <string name="title_notification_waiting">Venter på passende tilkobling</string>
+    <string name="title_notification_idle">Inaktiv</string>
     <string name="title_notification_failed">\'%1$s\' mislyktes</string>
     <string name="title_notification_alert">\'%1$s\' servervarsling</string>
     <string name="title_name_count">%1$s (%2$s)</string>

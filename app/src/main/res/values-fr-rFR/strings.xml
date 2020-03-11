@@ -74,6 +74,7 @@
     </string>
     <string name="title_notification_sending">Envoi des messages en cours</string>
     <string name="title_notification_waiting">En attente d\'une connexion réseau suffisante</string>
+    <string name="title_notification_idle">Inactif</string>
     <string name="title_notification_failed">\'%1$s\' a échoué</string>
     <string name="title_notification_alert">Alerte serveur \'%1$s\'</string>
     <string name="title_name_count">%1$s (%2$s)</string>

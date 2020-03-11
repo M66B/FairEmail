@@ -74,6 +74,7 @@
     </string>
     <string name="title_notification_sending">Enviando mensajes</string>
     <string name="title_notification_waiting">Esperando conexión</string>
+    <string name="title_notification_idle">Inactivo</string>
     <string name="title_notification_failed">\'%1$s\' falló</string>
     <string name="title_notification_alert">Alerta del servidor \'%1$s\'</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -251,6 +252,8 @@
     <string name="title_advanced_manage_connectivity">Administrar conectividad</string>
     <string name="title_advanced_caption_general">General</string>
     <string name="title_advanced_caption_conversation">Conversación</string>
+    <string name="title_advanced_caption_message_header">Encabezado del mensaje</string>
+    <string name="title_advanced_caption_message_body">Cuerpo del mensaje</string>
     <string name="title_advanced_landscape">Usar dos columnas en modo horizontal</string>
     <string name="title_advanced_landscape3">Permitir menú de navegación fijo en modo horizontal</string>
     <string name="title_advanced_startup">Mostrar en pantalla de inicio</string>
