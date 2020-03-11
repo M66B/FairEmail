@@ -1175,10 +1175,8 @@ public class HtmlHelper {
             private int plevel = 0;
             private int lindex = 0;
 
-            private final List<String> heads = Collections.unmodifiableList(Arrays.asList(
-                    "h1", "h2", "h3", "h4", "h5", "h6", "p", "ol", "ul", "table", "br", "hr"));
             private final List<String> tails = Collections.unmodifiableList(Arrays.asList(
-                    "h1", "h2", "h3", "h4", "h5", "h6", "p", "ol", "ul", "li", "div"));
+                    "h1", "h2", "h3", "h4", "h5", "h6", "p", "ol", "ul", "li", "div", "table", "br", "hr"));
 
             public void head(Node node, int depth) {
                 if (node instanceof TextNode)
@@ -1198,12 +1196,6 @@ public class HtmlHelper {
                         qlevel++;
                     else if ("pre".equals(name))
                         plevel++;
-
-                    if (heads.contains(name) &&
-                            !("br".equals(name) &&
-                                    node.nextSibling() == null &&
-                                    node.parent() != null && "div".equals(node.parent().nodeName())))
-                        newline();
                 }
             }
 
@@ -1229,7 +1221,10 @@ public class HtmlHelper {
                 else if ("pre".equals(name))
                     plevel--;
 
-                if (tails.contains(name))
+                if (tails.contains(name) &&
+                        !("br".equals(name) &&
+                                node.nextSibling() == null &&
+                                node.parent() != null && "div".equals(node.parent().nodeName())))
                     newline();
             }
 
