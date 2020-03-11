@@ -320,13 +320,13 @@ public class EmailService implements AutoCloseable {
                             am.invalidateAuthToken(type, password);
                             String token = am.blockingGetAuthToken(account, getAuthTokenType(type), true);
                             if (token == null)
-                                throw new AuthenticatorException("No token on refresh");
+                                throw new AuthenticatorException("No token on refresh for " + user);
 
                             connect(host, port, user, token, factory);
                             return token;
                         }
 
-                    throw new AuthenticatorException("Account not found");
+                    throw new AuthenticatorException("Account not found for " + user);
                 } catch (Exception ex1) {
                     Log.e(ex1);
                     throw new AuthenticationFailedException(ex.getMessage(), ex1);
