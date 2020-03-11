@@ -93,8 +93,9 @@
         Creating and using rules is a pro feature.
     </string>
 
-    <string name="title_notification_waiting">Waiting for suitable connection</string>
     <string name="title_notification_sending">Sending messages</string>
+    <string name="title_notification_waiting">Waiting for suitable connection</string>
+    <string name="title_notification_idle">Idle</string>
     <string name="title_notification_failed">\'%1$s\' failed</string>
     <string name="title_notification_alert">\'%1$s\' server alert</string>
 

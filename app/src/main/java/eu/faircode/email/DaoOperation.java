@@ -87,12 +87,15 @@ public interface DaoOperation {
             " AND (NOT folder.account IS NULL OR identity.synchronize IS NULL OR identity.synchronize)")
     LiveData<TupleOperationStats> liveStats();
 
-    @Query("SELECT COUNT(operation.id) FROM operation" +
+    @Query("SELECT" +
+            " COUNT(operation.id) AS count" +
+            ", SUM(CASE WHEN operation.state = 'executing' THEN 1 ELSE 0 END) AS busy" +
+            " FROM operation" +
             " JOIN message ON message.id = operation.message" +
             " JOIN identity ON identity.id = message.identity" +
             " WHERE operation.name = '" + EntityOperation.SEND + "'" +
             " AND identity.synchronize")
-    LiveData<Integer> liveUnsent();
+    LiveData<TupleUnsent> liveUnsent();
 
     @Query("SELECT * FROM operation ORDER BY id")
     List<EntityOperation> getOperations();

@@ -63,7 +63,7 @@ import javax.mail.internet.MimeMessage;
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 
 public class ServiceSend extends ServiceBase {
-    private int lastUnsent = 0;
+    private TupleUnsent lastUnsent = null;
     private boolean lastSuitable = false;
 
     private PowerManager.WakeLock wlOutbox;
@@ -83,10 +83,10 @@ public class ServiceSend extends ServiceBase {
 
         // Observe unsent count
         DB db = DB.getInstance(this);
-        db.operation().liveUnsent().observe(this, new Observer<Integer>() {
+        db.operation().liveUnsent().observe(this, new Observer<TupleUnsent>() {
             @Override
-            public void onChanged(Integer unsent) {
-                if (unsent != null && lastUnsent != unsent) {
+            public void onChanged(TupleUnsent unsent) {
+                if (unsent == null || !unsent.equals(lastUnsent)) {
                     lastUnsent = unsent;
 
                     try {
@@ -188,9 +188,11 @@ public class ServiceSend extends ServiceBase {
                         .setCategory(NotificationCompat.CATEGORY_SERVICE)
                         .setVisibility(NotificationCompat.VISIBILITY_SECRET);
 
-        if (lastUnsent > 0)
+        if (lastUnsent != null)
             builder.setContentText(getResources().getQuantityString(
-                    R.plurals.title_notification_unsent, lastUnsent, lastUnsent));
+                    R.plurals.title_notification_unsent, lastUnsent.count, lastUnsent.count));
+        if (lastUnsent == null || lastUnsent.busy == 0)
+            builder.setSubText(getString(R.string.title_notification_idle));
         if (!lastSuitable)
             builder.setSubText(getString(R.string.title_notification_waiting));
 
