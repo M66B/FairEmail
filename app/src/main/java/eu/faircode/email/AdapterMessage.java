@@ -2337,11 +2337,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         @Override
         public void onClick(View view) {
-            final TupleMessageEx message = getMessage();
-            if (message == null)
+            if (selectionTracker != null && selectionTracker.hasSelection())
                 return;
 
-            if (selectionTracker != null && selectionTracker.isSelected(message.id))
+            final TupleMessageEx message = getMessage();
+            if (message == null)
                 return;
 
             if (view.getId() == R.id.ibAvatar)
