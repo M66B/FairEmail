@@ -62,17 +62,17 @@ public class TwoStateOwner implements LifecycleOwner {
             }
         });
 
-        registry.setCurrentState(Lifecycle.State.CREATED);
+        setState(Lifecycle.State.CREATED);
     }
 
     void start() {
         if (!registry.getCurrentState().equals(Lifecycle.State.DESTROYED))
-            registry.setCurrentState(Lifecycle.State.STARTED);
+            setState(Lifecycle.State.STARTED);
     }
 
     void stop() {
         if (!registry.getCurrentState().equals(Lifecycle.State.DESTROYED))
-            registry.setCurrentState(Lifecycle.State.CREATED);
+            setState(Lifecycle.State.CREATED);
     }
 
     void restart() {
@@ -88,14 +88,34 @@ public class TwoStateOwner implements LifecycleOwner {
     void destroy() {
         Lifecycle.State state = registry.getCurrentState();
         if (!state.equals(Lifecycle.State.CREATED))
-            registry.setCurrentState(Lifecycle.State.CREATED);
+            setState(Lifecycle.State.CREATED);
         if (!state.equals(Lifecycle.State.DESTROYED))
-            registry.setCurrentState(Lifecycle.State.DESTROYED);
+            setState(Lifecycle.State.DESTROYED);
     }
 
     @NonNull
     @Override
     public Lifecycle getLifecycle() {
         return registry;
+    }
+
+    private void setState(@NonNull Lifecycle.State state) {
+        try {
+            registry.setCurrentState(state);
+        } catch (Throwable ex) {
+            Log.e(ex);
+            /*
+                java.lang.RuntimeException: Failed to call observer method
+                  at androidx.lifecycle.ClassesInfoCache$MethodReference.invokeCallback(SourceFile:226)
+                  at androidx.lifecycle.ClassesInfoCache$CallbackInfo.invokeMethodsForEvent(SourceFile:194)
+                  at androidx.lifecycle.ClassesInfoCache$CallbackInfo.invokeCallbacks(SourceFile:186)
+                  at androidx.lifecycle.ReflectiveGenericLifecycleObserver.onStateChanged(SourceFile:37)
+                  at androidx.lifecycle.LifecycleRegistry$ObserverWithState.dispatchEvent(SourceFile:361)
+                  at androidx.lifecycle.LifecycleRegistry.backwardPass(SourceFile:316)
+                  at androidx.lifecycle.LifecycleRegistry.sync(SourceFile:334)
+                  at androidx.lifecycle.LifecycleRegistry.moveToState(SourceFile:145)
+                  at androidx.lifecycle.LifecycleRegistry.setCurrentState(SourceFile:118)
+             */
+        }
     }
 }
