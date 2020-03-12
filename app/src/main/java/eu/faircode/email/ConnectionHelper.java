@@ -266,7 +266,8 @@ public class ConnectionHelper {
                 }
             } else {
                 // Workaround: active network = VPN, active network info = WiFi
-                if (network.equals(active) && !cm.isActiveNetworkMetered())
+                if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.M &&
+                        network.equals(active) && !cm.isActiveNetworkMetered())
                     return false;
             }
         }
