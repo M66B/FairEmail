@@ -409,7 +409,7 @@
     <string name="title_advanced_secure">Hide from recent apps screen and prevent taking screenshots</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Biometric authentication timeout</string>
-    <string name="title_advanced_safe_browsing" translatable="false">Safe browsing</string>
+    <string name="title_advanced_safe_browsing" translatable="false">Google Safe browsing</string>
 
     <string name="title_advanced_encrypt_method">Default encryption method</string>
     <string name="title_advanced_sign_default">Sign by default</string>
