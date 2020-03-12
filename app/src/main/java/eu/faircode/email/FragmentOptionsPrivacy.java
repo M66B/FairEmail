@@ -24,6 +24,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
@@ -61,11 +62,12 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private Button btnBiometrics;
     private Button btnPin;
     private Spinner spBiometricsTimeout;
+    private SwitchCompat swSafeBrowsing;
 
     private final static String[] RESET_OPTIONS = new String[]{
             "confirm_links", "confirm_images", "confirm_html",
             "disable_tracking", "display_hidden", "secure",
-            "biometrics", "pin", "biometrics_timeout"
+            "biometrics", "pin", "biometrics_timeout", "safe_browsing"
     };
 
     @Override
@@ -88,6 +90,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         btnBiometrics = view.findViewById(R.id.btnBiometrics);
         btnPin = view.findViewById(R.id.btnPin);
         spBiometricsTimeout = view.findViewById(R.id.spBiometricsTimeout);
+        swSafeBrowsing = view.findViewById(R.id.swSafeBrowsing);
 
         setOptions();
 
@@ -189,6 +192,14 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             }
         });
 
+        swSafeBrowsing.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.O ? View.GONE : View.VISIBLE);
+        swSafeBrowsing.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("safe_browsing", checked).apply();
+            }
+        });
+
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 
         return view;
@@ -255,6 +266,8 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
                 spBiometricsTimeout.setSelection(pos);
                 break;
             }
+
+        swSafeBrowsing.setChecked(prefs.getBoolean("safe_browsing", true));
     }
 
     public static class FragmentDialogPin extends FragmentDialogBase {

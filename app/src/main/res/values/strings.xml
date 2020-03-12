@@ -406,16 +406,18 @@
     <string name="title_advanced_confirm_html">Show reformatted messages by default</string>
     <string name="title_advanced_tracking">Automatically recognize and disable tracking images</string>
     <string name="title_advanced_display_hidden">Display hidden message texts</string>
-    <string name="title_advanced_encrypt_method">Default encryption method</string>
-    <string name="title_advanced_openpgp">OpenPGP provider</string>
-    <string name="title_advanced_autocrypt">Use Autocrypt</string>
-    <string name="title_advanced_autocrypt_mutual">Autocrypt mutual mode</string>
-    <string name="title_advanced_sign_default">Sign by default</string>
-    <string name="title_advanced_encrypt_default">Encrypt by default</string>
-    <string name="title_advanced_auto_decrypt">Automatically decrypt messages</string>
     <string name="title_advanced_secure">Hide from recent apps screen and prevent taking screenshots</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Biometric authentication timeout</string>
+    <string name="title_advanced_safe_browsing" translatable="false">Safe browsing</string>
+
+    <string name="title_advanced_encrypt_method">Default encryption method</string>
+    <string name="title_advanced_sign_default">Sign by default</string>
+    <string name="title_advanced_encrypt_default">Encrypt by default</string>
+    <string name="title_advanced_auto_decrypt">Automatically decrypt messages</string>
+    <string name="title_advanced_openpgp">OpenPGP provider</string>
+    <string name="title_advanced_autocrypt">Use Autocrypt</string>
+    <string name="title_advanced_autocrypt_mutual">Autocrypt mutual mode</string>
     <string name="title_advanced_manage_certificates">Manage public keys</string>
     <string name="title_advanced_import_key">Import private key</string>
     <string name="title_advanced_manage_keys">Manage private keys</string>
