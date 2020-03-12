@@ -267,7 +267,7 @@
     </provider>
     <provider
         name="Ionos (1und1)"
-        domain="ionos\\.de,online\\.de"
+        domain="ionos\\.de,ionos\\.com,online\\.de"
         link="https://www.ionos.de/hilfe/e-mail/allgemeine-themen/einstellungen-fuer-ihr-e-mail-programm/">
         <imap
             host="imap.ionos.de"
