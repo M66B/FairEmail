@@ -1090,7 +1090,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string-array name="startupNames">
         <item>Sammeleingang</item>
         <item>Sammelordner</item>
-        <item>Ordner des primären Kontos</item>
+        <item>Ordner des Hauptkontos</item>
         <item>Konten</item>
     </string-array>
     <string-array name="downloadNames">

@@ -73,6 +73,7 @@
     </string>
     <string name="title_notification_sending">Mezuak bidaltzen</string>
     <string name="title_notification_waiting">Konexio erabilgarriaren zain</string>
+    <string name="title_notification_idle">Inaktiboa</string>
     <string name="title_notification_failed">%1$s(e)k huts egin du</string>
     <string name="title_notification_alert">\'%1$s\' zerbitzariko alerta</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -246,6 +247,8 @@
     <string name="title_advanced_manage_connectivity">Kudeatu konektibitatea</string>
     <string name="title_advanced_caption_general">Orokorra</string>
     <string name="title_advanced_caption_conversation">Elkarrizketa</string>
+    <string name="title_advanced_caption_message_header">Mezuaren goiburua</string>
+    <string name="title_advanced_caption_message_body">Mezuaren gorputza</string>
     <string name="title_advanced_landscape">Erabili bi zutabe modu horizontalean</string>
     <string name="title_advanced_landscape3">Baimendu nabigazio menu finkoa horizontalean</string>
     <string name="title_advanced_startup">Erakutsi hasiera pantailan</string>
@@ -499,6 +502,8 @@
     <string name="title_oauth_support">Ez da OAuth onartzen</string>
     <string name="title_review">Berrikusi</string>
     <string name="title_hint_alias">Sakatu luze aukeratzeko, hala nola kopiatzeko ezizen identitateak sortzeko</string>
+    <string name="title_service_vpn">Hori erabiltzen ari den VPNak eragin dezake</string>
+    <string name="title_service_port">Mesedez, egiaztatu portuaren zenbakia</string>
     <string name="title_advanced_browse">Arakatu mezuak zerbitzarian</string>
     <string name="title_advanced_expand_read">Mezuak zabaltzean markatu irakurrita gisa</string>
     <string name="title_synchronize_now">Sinkronizatu orain</string>
@@ -707,6 +712,7 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_certificate_invalid">%1$s-ren gako publikoa baliogabea da</string>
     <string name="title_no_key">Ez dago gako pribaturik</string>
     <string name="title_invalid_key">Baliorik gabeko gako pribatua</string>
+    <string name="title_unknown_key">Gako pribatua ez dator bat zifratze-gakoekin</string>
     <string name="title_send_plain_text">Testu soila besterik ez</string>
     <string name="title_send_receipt_remark">Hornitzaile eta bezero gehienek ez dituzte jasotze agiri eskariak aintzat hartzen</string>
     <string name="title_from_missing">Igorlea falta da</string>

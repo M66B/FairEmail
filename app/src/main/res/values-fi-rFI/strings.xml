@@ -73,6 +73,7 @@
         Sääntöjen luominen ja käyttö ovat pro-ominaisuuksia.    </string>
     <string name="title_notification_sending">Lähetetään viestejä</string>
     <string name="title_notification_waiting">Odotetaan sopivaa yhteyttä</string>
+    <string name="title_notification_idle">Toimeton</string>
     <string name="title_notification_failed">\'%1$s\' epäonnistui</string>
     <string name="title_notification_alert">Palvelimen \'%1$s\' hälytys</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -248,6 +249,8 @@
     <string name="title_advanced_manage_connectivity">Hallitse verkkoyhteyksiä</string>
     <string name="title_advanced_caption_general">Yleiset</string>
     <string name="title_advanced_caption_conversation">Keskustelu</string>
+    <string name="title_advanced_caption_message_header">Viestin tunnistetiedot</string>
+    <string name="title_advanced_caption_message_body">Viestin sisältö</string>
     <string name="title_advanced_landscape">Käytä kahta saraketta vaakatilassa</string>
     <string name="title_advanced_landscape3">Salli kiinteä navigointivalikko vaakatilassa</string>
     <string name="title_advanced_startup">Näytä aloitusnäytössä</string>
@@ -502,6 +505,8 @@
     <string name="title_oauth_support">OAuth ei ole tuettu</string>
     <string name="title_review">Tarkista</string>
     <string name="title_hint_alias">Pitkä painallus näyttää vaihtoehdot, kuten kopioinnin aliasten luomiseksi</string>
+    <string name="title_service_vpn">Tämä voi olla käytössä olevan VPN-palvelun aiheuttama</string>
+    <string name="title_service_port">Tarkista porttinumero uudelleen</string>
     <string name="title_advanced_browse">Selaa palvelimella olevia viestejä</string>
     <string name="title_advanced_expand_read">Merkitse viestit luetuiksi laajennettaessa</string>
     <string name="title_synchronize_now">Synkronoi nyt</string>
@@ -711,6 +716,7 @@
     <string name="title_certificate_invalid">Sähköpostiosoitteen %1$s julkinen avain on virheellinen</string>
     <string name="title_no_key">Ei yksityistä avainta</string>
     <string name="title_invalid_key">Virheellinen yksityinen avain</string>
+    <string name="title_unknown_key">Yksityinen avain ei vastaa mitään salausavainta</string>
     <string name="title_send_plain_text">Lähetä muotoilemattomana tekstinä</string>
     <string name="title_send_receipt">Pyydä kuittausta</string>
     <string name="title_send_receipt_remark">Useimmat palveluntarjoajat ja sähköpostisovellukset jättävät kuittauspyynnöt huomioimatta</string>

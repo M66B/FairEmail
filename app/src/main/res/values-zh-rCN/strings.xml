@@ -97,10 +97,10 @@
     <string name="title_edit_folder">编辑文件夹</string>
     <string name="title_setup">设置</string>
     <string name="title_setup_help">帮助</string>
-    <string name="title_setup_welcome">接收和发送消息需要像在其他任何电子邮件应用程序中一样设置一个帐户和一个身份。
-        快速设置将仅询问您的姓名，电子邮件地址和密码即可创建帐户和身份。
-        如果需要，也可以手动设置帐户和身份（别名）。
-        不支持非标准协议，例如Microsoft Exchange Web Services和Microsoft ActiveSync，另请参阅应用程序说明
+    <string name="title_setup_welcome">接收和发送消息需要像在其他邮件 app 中一样设置一个帐户和一个身份
+快速设置通过询问您的姓名，邮箱地址和密码来创建一个帐户和身份
+如果有需要，也可以手动设置帐户和身份（别名）
+不支持非标准协议，例如Microsoft Exchange Web Services和Microsoft ActiveSync，另请参阅应用程序说明
     </string>
     <string name="title_setup_quick">快速设置</string>
     <string name="title_setup_quick_remark">为大多数邮件服务提供商快速设置账户和身份</string>
@@ -239,7 +239,7 @@
     <string name="title_advanced_manage_connectivity">管理连接</string>
     <string name="title_advanced_caption_general">常规​​​​​</string>
     <string name="title_advanced_caption_conversation">会话</string>
-    <string name="title_advanced_caption_message_header">邮件标头</string>
+    <string name="title_advanced_caption_message_header">消息标题</string>
     <string name="title_advanced_caption_message_body">消息正文</string>
     <string name="title_advanced_landscape">在横屏模式下使用两列</string>
     <string name="title_advanced_landscape3">在横屏模式下允许固定的导航栏菜单</string>
@@ -387,7 +387,7 @@
     <string name="title_advanced_roaming_hint">当漫游时，将始终获取消息头。您可以使用设备的漫游设置在漫游时禁用互联网。</string>
     <string name="title_advanced_browse_hint">向下滚动时拉取更多邮件</string>
     <string name="title_advanced_layout_hint">切换到更为紧凑的布局，改变消息文本大小可以在邮件视图中的顶部动作栏菜单中完成</string>
-    <string name="title_advanced_startup_hint">长按文件夹列表中的任何文件夹可将该文件夹添加到统一文件夹列表中(或从列表中删除）</string>
+    <string name="title_advanced_startup_hint">长按文件夹列表中的任何文件夹，可将其从添加到或移除出聚合文件夹列表</string>
     <string name="title_advanced_date_hint">若按时间对消息排序，将仅按日期对消息分组</string>
     <string name="title_advanced_navbar_colorize_hint">这是否正常工作取决于Android版本和变体</string>
     <string name="title_advanced_threading_hint">合并相同主题为一封会话</string>
@@ -495,7 +495,7 @@
     <string name="title_oauth_support">不支持OAuth</string>
     <string name="title_review">评论</string>
     <string name="title_hint_alias">长按出现选项，如复制以创建别名身份</string>
-    <string name="title_service_vpn">这可能是正在使用的 VPN 造成的。</string>
+    <string name="title_service_vpn">这可能是正在使用的 VPN 造成的</string>
     <string name="title_service_port">请再次检查端口号</string>
     <string name="title_advanced_browse">浏览服务器上的消息</string>
     <string name="title_advanced_expand_read">将展开的消息标记为已读</string>
@@ -706,6 +706,7 @@
     <string name="title_certificate_invalid">%1$s 的公钥无效</string>
     <string name="title_no_key">没有私钥</string>
     <string name="title_invalid_key">无效的私钥</string>
+    <string name="title_unknown_key">私钥与任何加密密钥不匹配</string>
     <string name="title_send_plain_text">仅纯文本</string>
     <string name="title_send_receipt">请求回执</string>
     <string name="title_send_receipt_remark">大多数供应商和电子邮件客户都忽略回执请求</string>

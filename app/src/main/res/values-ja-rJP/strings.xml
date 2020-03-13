@@ -676,7 +676,7 @@ PlayストアでFairEmailを評価できれば幸いです。
     <string name="title_send_now">今すぐ送信</string>
     <string name="title_send_via">～経由で送信</string>
     <string name="title_send_with_options">送信 &#8230;</string>
-    <string name="title_send_at">&#8230; に送信</string>
+    <string name="title_send_at">&#8230; 日時指定送信</string>
     <string name="title_send_encryption">暗号化</string>
     <string name="title_send_priority">優先度</string>
     <string name="title_no_server">\'%1$s\'にサーバが見つかりません</string>

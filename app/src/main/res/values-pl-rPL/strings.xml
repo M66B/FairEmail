@@ -95,6 +95,7 @@
         Tworzenie i używanie reguł jest funkcją Pro.    </string>
     <string name="title_notification_sending">Wysyłanie wiadomości</string>
     <string name="title_notification_waiting">Oczekiwanie na odpowiednie połączenie</string>
+    <string name="title_notification_idle">Bezczynny</string>
     <string name="title_notification_failed">%1$s nie powiodło się</string>
     <string name="title_notification_alert">Alert serwera \'%1$s\'</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -129,6 +130,11 @@
     <string name="title_edit_folder">Edytuj folder</string>
     <string name="title_setup">Ustawienia</string>
     <string name="title_setup_help">Pomoc</string>
+    <string name="title_setup_welcome">        Odbieranie i wysyłanie wiadomości wymaga skonfigurowania konta i tożsamości, tak jak w każdej innej aplikacji e-mail.
+        Szybka konfiguracja utworzy zarówno konto, jak i tożsamość, po prostu pytając o swoje imię i nazwisko, adres e-mail i hasło.
+        W razie potrzeby konta i tożsamości (aliasy) można również skonfigurować ręcznie.
+        Niestandardowe protokoły, takie jak Microsoft Exchange Web Services i Microsoft ActiveSync, nie są obsługiwane, zobacz także opis aplikacji.
+    </string>
     <string name="title_setup_quick">Szybkie ustawienia</string>
     <string name="title_setup_quick_remark">W celu szybkiego ustawienia konta i tożsamości dla większości dostawców</string>
     <string name="title_setup_quick_hint">Szybka konfiguracja pobierze informacje o ustawieniach z autoconfig.thunderbird.net</string>
@@ -265,6 +271,8 @@
     <string name="title_advanced_manage_connectivity">Zarządzaj połączeniami</string>
     <string name="title_advanced_caption_general">Ogólne</string>
     <string name="title_advanced_caption_conversation">Wątek</string>
+    <string name="title_advanced_caption_message_header">Nagłówek wiadomości</string>
+    <string name="title_advanced_caption_message_body">Treść wiadomości</string>
     <string name="title_advanced_landscape">Użyj dwóch kolumn w trybie poziomym</string>
     <string name="title_advanced_landscape3">Zezwalaj na stałe menu nawigacji w trybie poziomym</string>
     <string name="title_advanced_startup">Pokaż na ekranie początkowym</string>
@@ -411,6 +419,7 @@
     <string name="title_advanced_roaming_hint">Nagłówki wiadomości będą zawsze pobierane podczas roamingu. Możesz użyć ustawienia roamingu urządzenia, aby wyłączyć Internet podczas roamingu.</string>
     <string name="title_advanced_browse_hint">Pobierz więcej wiadomości podczas przewijania w dół</string>
     <string name="title_advanced_layout_hint">Przełączanie do bardziej zwartego układu i zmianę rozmiaru tekstu wiadomości można wykonać w menu górnego paska działań w widoku wiadomości</string>
+    <string name="title_advanced_startup_hint">Naciśnij długo dowolny folder na liście folderów, aby dodać lub usunąć go z listy wspólnych folderów</string>
     <string name="title_advanced_date_hint">Wiadomości są pogrupowane według daty, tylko jeśli są posortowane według czasu</string>
     <string name="title_advanced_navbar_colorize_hint">To, czy to zadziała, zależy od wersji i wariantu Androida</string>
     <string name="title_advanced_threading_hint">Grupuj wiadomości powiązane ze sobą</string>
@@ -518,6 +527,8 @@
     <string name="title_oauth_support">OAuth nie jest wspierane</string>
     <string name="title_review">Przejrzyj</string>
     <string name="title_hint_alias">Naciśnij długo, aby wyświetlić opcje, takie jak kopiuj, aby utworzyć alias tożsamości</string>
+    <string name="title_service_vpn">Może to być spowodowane przez używany VPN</string>
+    <string name="title_service_port">Zweryfikuj dokładnie numer portu</string>
     <string name="title_advanced_browse">Przeglądaj wiadomości na serwerze</string>
     <string name="title_advanced_expand_read">Oznacz wiadomości jako przeczytane przy rozwijaniu</string>
     <string name="title_synchronize_now">Synchronizuj teraz</string>
@@ -727,6 +738,7 @@
     <string name="title_certificate_invalid">Klucz publiczny %1$s jest nieprawidłowy</string>
     <string name="title_no_key">Brak klucza prywatnego</string>
     <string name="title_invalid_key">Nieprawidłowy klucz prywatny</string>
+    <string name="title_unknown_key">Klucz prywatny nie pasuje do żadnych kluczy szyfrowania</string>
     <string name="title_send_plain_text">Tylko zwykły tekst</string>
     <string name="title_send_receipt">Poproś o potwierdzenie</string>
     <string name="title_send_receipt_remark">Większość dostawców i klientów e-mail ignoruje prośby o potwierdzenie</string>
@@ -1098,8 +1110,8 @@ FairEmail wyświetla o tym małą wiadomość przypominającą, która zostanie 
     <string-array name="startupNames">
         <item>Wspólna skrzynka</item>
         <item>Wspólne foldery</item>
-        <item>Primary account folders</item>
-        <item>Accounts</item>
+        <item>Foldery konta głównego</item>
+        <item>Konta</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>
