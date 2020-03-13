@@ -764,6 +764,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 args.putLong("account", account);
                 args.putString("thread", thread);
                 args.putLong("id", id);
+                args.putBoolean("filter_archive", filter_archive);
 
                 new SimpleTask<List<Long>>() {
                     @Override
@@ -771,6 +772,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         long aid = args.getLong("account");
                         String thread = args.getString("thread");
                         long id = args.getLong("id");
+                        boolean filter_archive = args.getBoolean("filter_archive");
 
                         ArrayList<Long> result = new ArrayList<>();
 
@@ -783,6 +785,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             for (EntityMessage threaded : messages) {
                                 EntityFolder folder = db.folder().getFolder(threaded.folder);
                                 if (!folder.read_only &&
+                                        (!filter_archive || !EntityFolder.ARCHIVE.equals(folder.type)) &&
                                         !EntityFolder.DRAFTS.equals(folder.type) &&
                                         !EntityFolder.OUTBOX.equals(folder.type) &&
                                         // sent
@@ -825,6 +828,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 args.putString("thread", thread);
                 args.putLong("id", id);
                 args.putString("type", folderType);
+                args.putBoolean("filter_archive", filter_archive);
 
                 new SimpleTask<ArrayList<MessageTarget>>() {
                     @Override
@@ -833,6 +837,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         String thread = args.getString("thread");
                         long id = args.getLong("id");
                         String type = args.getString("type");
+                        boolean filter_archive = args.getBoolean("filter_archive");
 
                         ArrayList<MessageTarget> result = new ArrayList<>();
 
@@ -849,6 +854,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     EntityFolder folder = db.folder().getFolder(threaded.folder);
                                     if (!folder.read_only &&
                                             !target.id.equals(threaded.folder) &&
+                                            (!filter_archive || !EntityFolder.ARCHIVE.equals(folder.type)) &&
                                             !EntityFolder.DRAFTS.equals(folder.type) && !EntityFolder.OUTBOX.equals(folder.type) &&
                                             (!EntityFolder.SENT.equals(folder.type) || EntityFolder.TRASH.equals(target.type)) &&
                                             !EntityFolder.TRASH.equals(folder.type) && !EntityFolder.JUNK.equals(folder.type))
