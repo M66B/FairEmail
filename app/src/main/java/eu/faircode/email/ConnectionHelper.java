@@ -177,7 +177,7 @@ public class ConnectionHelper {
         if (cm == null)
             return null;
 
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.M) {
             NetworkInfo ani = cm.getActiveNetworkInfo();
             if (ani == null || !ani.isConnected())
                 return null;
@@ -264,11 +264,6 @@ public class ConnectionHelper {
                     Log.i("isMetered: underlying is unmetered");
                     return false;
                 }
-            } else {
-                // Workaround: active network = VPN, active network info = WiFi
-                if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.M &&
-                        network.equals(active) && !cm.isActiveNetworkMetered())
-                    return false;
             }
         }
 
