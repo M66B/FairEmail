@@ -431,18 +431,12 @@ public class EmailService implements AutoCloseable {
                             }
                         }
 
-                        String prop = "mail." + protocol + ".connectiontimeout";
-                        String timeout = properties.getProperty(prop);
                         try {
                             EntityLog.log(context, "Falling back to " + iaddr.getHostAddress());
-                            properties.put(prop, Integer.toString(DEFAULT_CONNECT_TIMEOUT / 2));
                             _connect(iaddr.getHostAddress(), port, user, password, factory);
                             return;
                         } catch (MessagingException ex1) {
                             EntityLog.log(context, "Fallback ex=" + ex.getMessage());
-                        } finally {
-                            if (timeout != null)
-                                properties.put(prop, timeout);
                         }
                     }
                 } catch (Throwable ex1) {
