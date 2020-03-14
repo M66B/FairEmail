@@ -490,7 +490,7 @@ public class FragmentCompose extends FragmentBase {
                         int f = ssb.getSpanFlags(span);
                         Log.i("Span " + s + "..." + e + " start=" + start);
 
-                        if (start - s > 0 && e - (start + 1) > 0 &&
+                        if (s > 0 && start - s > 0 && e - (start + 1) > 0 &&
                                 ssb.charAt(s - 1) == '\n' && ssb.charAt(start - 1) == '\n' &&
                                 ssb.charAt(start) == '\n' && ssb.charAt(e - 1) == '\n') {
                             broken = true;
