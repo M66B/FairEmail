@@ -95,6 +95,7 @@
     </provider>
     <provider
         name="free.fr"
+        appPassword="true"
         link="https://www.free.fr/assistance/597.html">
         <imap
             host="imap.free.fr"
