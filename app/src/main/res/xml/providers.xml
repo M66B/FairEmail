@@ -575,4 +575,17 @@
             port="587"
             starttls="true" />
     </provider>
+    <provider
+        name="Lilo"
+        domain="lilo\\.org"
+        link="https://mail.lilo.org/imap">
+        <imap
+            host="mail.lilo.org"
+            port="143"
+            starttls="true" />
+        <smtp
+            host="mail.lilo.org"
+            port="587"
+            starttls="true" />
+    </provider>
 </providers>
