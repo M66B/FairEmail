@@ -68,7 +68,10 @@ public class UnknownCharsetProvider extends CharsetProvider {
             if (TextUtils.isEmpty(name) ||
                     name.contains("ASCII") ||
                     "x-IA5".equalsIgnoreCase(name) ||
+                    "ISO8859-3".equals(name) ||
+                    "ISO-8859-3".equals(name) ||
                     "ISO8859-16".equalsIgnoreCase(name) ||
+                    "ISO-8859-16".equalsIgnoreCase(name) ||
                     "BASE64".equalsIgnoreCase(name) ||
                     "ISO".equalsIgnoreCase(name) ||
                     "latin".equalsIgnoreCase(name) ||
