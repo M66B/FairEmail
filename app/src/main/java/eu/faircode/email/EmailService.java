@@ -388,6 +388,7 @@ public class EmailService implements AutoCloseable {
                     InetAddress[] iaddrs = InetAddress.getAllByName(host);
                     boolean ip4 = (main instanceof Inet4Address);
                     boolean ip6 = (main instanceof Inet6Address);
+                    boolean vpn = ConnectionHelper.vpnActive(context);
 
                     boolean has4 = false;
                     boolean has6 = false;
@@ -409,7 +410,8 @@ public class EmailService implements AutoCloseable {
                     EntityLog.log(context, "Address main=" + main +
                             " count=" + iaddrs.length +
                             " ip4=" + ip4 + "/" + has4 +
-                            " ip6=" + ip6 + "/" + has6);
+                            " ip6=" + ip6 + "/" + has6 +
+                            " vpn=" + vpn);
 
                     for (InetAddress iaddr : iaddrs) {
                         EntityLog.log(context, "Address resolved=" + iaddr);
@@ -417,16 +419,18 @@ public class EmailService implements AutoCloseable {
                         if (iaddr.equals(main))
                             continue;
 
-                        if (iaddr instanceof Inet4Address) {
-                            if (ip4 || !has4)
-                                continue;
-                            ip4 = true;
-                        }
+                        if (!vpn) {
+                            if (iaddr instanceof Inet4Address) {
+                                if (ip4 || !has4)
+                                    continue;
+                                ip4 = true;
+                            }
 
-                        if (iaddr instanceof Inet6Address) {
-                            if (ip6 || !has6)
-                                continue;
-                            ip6 = true;
+                            if (iaddr instanceof Inet6Address) {
+                                if (ip6 || !has6)
+                                    continue;
+                                ip6 = true;
+                            }
                         }
 
                         String prop = "mail." + protocol + ".connectiontimeout";
@@ -437,7 +441,7 @@ public class EmailService implements AutoCloseable {
                             _connect(iaddr.getHostAddress(), port, user, password, factory);
                             return;
                         } catch (MessagingException ex1) {
-                            Log.w(ex1);
+                            EntityLog.log(context, "Fallback ex=" + ex.getMessage());
                         } finally {
                             if (timeout != null)
                                 properties.put(prop, timeout);
