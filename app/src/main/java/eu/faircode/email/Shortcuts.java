@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.Manifest;
 import android.annotation.TargetApi;
+import android.app.Person;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ShortcutInfo;
@@ -51,17 +52,17 @@ public class Shortcuts {
             @TargetApi(Build.VERSION_CODES.N_MR1)
             protected List<ShortcutInfo> onExecute(Context context, Bundle args) {
                 ShortcutManager sm = (ShortcutManager) context.getSystemService(Context.SHORTCUT_SERVICE);
-                int count = sm.getMaxShortcutCountPerActivity() - sm.getManifestShortcuts().size();
-                Log.i("Shortcuts count=" + count +
-                        " app=" + sm.getMaxShortcutCountPerActivity() +
-                        " manifest=" + sm.getManifestShortcuts().size());
+                int app = sm.getMaxShortcutCountPerActivity();
+                int manifest = sm.getManifestShortcuts().size();
+                int count = app - manifest;
+                Log.i("Shortcuts count=" + count + " app=" + app + " manifest=" + manifest);
 
                 List<ShortcutInfo> shortcuts = new ArrayList<>();
                 if (count > 0) {
                     DB db = DB.getInstance(context);
                     List<EntityContact> frequently = db.contact().getFrequentlyContacted(count);
                     for (EntityContact contact : frequently) {
-                        Intent intent = new Intent(context, ActivityCompose.class);
+                        Intent intent = new Intent(context, ActivityMain.class);
                         intent.setAction(Intent.ACTION_SEND);
                         intent.setData(Uri.parse("mailto:" + contact.email));
 
@@ -78,13 +79,29 @@ public class Shortcuts {
                         if (icon == null)
                             icon = Icon.createWithResource(context, R.drawable.ic_shortcut_email);
 
-                        shortcuts.add(
-                                new ShortcutInfo.Builder(context, Long.toString(contact.id))
-                                        .setIcon(icon)
-                                        .setRank(shortcuts.size() + 1)
-                                        .setShortLabel(TextUtils.isEmpty(contact.name) ? contact.email : contact.name)
-                                        .setIntent(intent)
-                                        .build());
+                        String name = (TextUtils.isEmpty(contact.name) ? contact.email : contact.name);
+
+                        //Set<String> categories = new HashSet<>(Arrays.asList(ShortcutInfo.SHORTCUT_CATEGORY_CONVERSATION));
+
+                        ShortcutInfo.Builder builder = new ShortcutInfo.Builder(context, Long.toString(contact.id))
+                                .setIcon(icon)
+                                .setRank(shortcuts.size() + 1)
+                                .setShortLabel(name)
+                                .setLongLabel(name)
+                                //.setCategories(categories)
+                                .setIntent(intent);
+
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                            Person.Builder person = new Person.Builder()
+                                    .setIcon(icon)
+                                    .setName(name)
+                                    .setImportant(true);
+                            if (contact.avatar != null)
+                                person.setUri(contact.avatar);
+                            builder.setPerson(person.build());
+                        }
+
+                        shortcuts.add(builder.build());
                     }
                 }
 
