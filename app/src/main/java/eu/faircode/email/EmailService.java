@@ -438,7 +438,7 @@ public class EmailService implements AutoCloseable {
                             _connect(iaddr.getHostAddress(), port, user, password, factory);
                             return;
                         } catch (MessagingException ex1) {
-                            EntityLog.log(context, "Fallback ex=" + ex.getMessage());
+                            EntityLog.log(context, "Fallback ex=" + ex1.getMessage());
                         }
                     }
                 } catch (Throwable ex1) {
