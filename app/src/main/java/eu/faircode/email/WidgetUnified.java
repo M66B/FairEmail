@@ -49,7 +49,7 @@ public class WidgetUnified extends AppWidgetProvider {
             view.putExtra("type", type);
             view.putExtra("refresh", true);
             view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            PendingIntent pi = PendingIntent.getActivity(context, ActivityView.REQUEST_FOLDER, view, PendingIntent.FLAG_UPDATE_CURRENT);
+            PendingIntent pi = PendingIntent.getActivity(context, appWidgetId, view, PendingIntent.FLAG_UPDATE_CURRENT);
 
             RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_unified);
 

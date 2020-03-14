@@ -55,18 +55,22 @@ public class Widget extends AppWidgetProvider {
 
                     EntityFolder folder = db.folder().getFolderByType(account, EntityFolder.INBOX);
 
-                    Intent view = new Intent(context, ActivityView.class);
+                    PendingIntent pi;
                     if (folder == null) {
+                        Intent view = new Intent(context, ActivityView.class);
                         view.setAction("unified");
                         view.putExtra("refresh", true);
+                        view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        pi = PendingIntent.getActivity(context, ActivityView.REQUEST_UNIFIED, view, PendingIntent.FLAG_UPDATE_CURRENT);
                     } else {
+                        Intent view = new Intent(context, ActivityView.class);
                         view.setAction("folder:" + folder.id);
                         view.putExtra("account", account);
                         view.putExtra("type", folder.type);
                         view.putExtra("refresh", true);
+                        view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        pi = PendingIntent.getActivity(context, appWidgetId, view, PendingIntent.FLAG_UPDATE_CURRENT);
                     }
-                    view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    PendingIntent pi = PendingIntent.getActivity(context, ActivityView.REQUEST_UNIFIED, view, PendingIntent.FLAG_UPDATE_CURRENT);
 
                     TupleMessageStats stats = db.message().getUnseenWidget(account < 0 ? null : account);
                     Integer unseen = (unseen_ignored ? stats.notifying : stats.unseen);
