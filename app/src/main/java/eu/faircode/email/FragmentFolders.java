@@ -306,7 +306,7 @@ public class FragmentFolders extends FragmentBase {
             });
 
         // Observe folders
-        db.folder().liveFolders(account < 0 ? null : account).observe(getViewLifecycleOwner(), new Observer<List<TupleFolderEx>>() {
+        db.folder().liveFolders(account < 0 ? null : account, primary).observe(getViewLifecycleOwner(), new Observer<List<TupleFolderEx>>() {
             @Override
             public void onChanged(@Nullable List<TupleFolderEx> folders) {
                 if (folders == null) {

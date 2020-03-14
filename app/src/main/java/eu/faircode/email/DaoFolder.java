@@ -80,16 +80,18 @@ public interface DaoFolder {
             ", COUNT(DISTINCT CASE WHEN NOT message.ui_seen AND NOT message.ui_hide THEN message.id ELSE NULL END) AS unseen" +
             ", COUNT(DISTINCT CASE WHEN operation.state = 'executing' THEN operation.id ELSE NULL END) AS executing" +
             " FROM folder" +
-            " LEFT JOIN account ON account.id = folder.account" +
+            " JOIN account ON account.id = folder.account" +
             " LEFT JOIN message ON message.folder = folder.id" +
             " LEFT JOIN rule ON rule.folder = folder.id" +
             " LEFT JOIN operation ON operation.folder = folder.id" +
-            " WHERE CASE WHEN :account IS NULL" +
-            "  THEN folder.unified AND account.synchronize" +
-            "  ELSE folder.account = :account AND account.synchronize" +
+            " WHERE CASE WHEN :primary THEN account.`primary` ELSE" +
+            "  CASE WHEN :account IS NULL" +
+            "   THEN folder.unified AND account.synchronize" +
+            "   ELSE folder.account = :account AND account.synchronize" +
+            "  END" +
             " END" +
             " GROUP BY folder.id")
-    LiveData<List<TupleFolderEx>> liveFolders(Long account);
+    LiveData<List<TupleFolderEx>> liveFolders(Long account, boolean primary);
 
     @Query("SELECT folder.*" +
             ", account.id AS accountId, account.pop AS accountProtocol, account.`order` AS accountOrder" +

@@ -317,33 +317,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void init() {
-        if ("primary".equals(startup)) {
-            new SimpleTask<EntityAccount>() {
-                @Override
-                protected EntityAccount onExecute(Context context, Bundle args) {
-                    DB db = DB.getInstance(context);
-                    return db.account().getPrimaryAccount();
-                }
-
-                @Override
-                protected void onExecuted(Bundle args, EntityAccount account) {
-                    Bundle aargs = new Bundle();
-                    aargs.putLong("account", account == null ? -1 : account.id);
-                    aargs.putBoolean("primary", true);
-                    FragmentBase fragment = new FragmentFolders();
-                    fragment.setArguments(aargs);
-                    init(fragment);
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Log.unexpectedError(getSupportFragmentManager(), ex);
-                }
-            }.execute(this, new Bundle(), "view:primary");
-
-            return;
-        }
-
         Bundle args = new Bundle();
 
         FragmentBase fragment;
@@ -355,15 +328,16 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             case "folders":
                 fragment = new FragmentFolders();
                 break;
+            case "primary":
+                fragment = new FragmentFolders();
+                args.putBoolean("primary", true);
+                break;
             default:
                 fragment = new FragmentMessages();
         }
 
         fragment.setArguments(args);
-        init(fragment);
-    }
 
-    private void init(FragmentBase fragment) {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
         for (Fragment existing : fm.getFragments())
