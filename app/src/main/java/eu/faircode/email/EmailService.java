@@ -417,18 +417,20 @@ public class EmailService implements AutoCloseable {
                         if (iaddr.equals(main))
                             continue;
 
-                        if (!vpn) {
-                            if (iaddr instanceof Inet4Address) {
-                                if (ip4 || !has4)
-                                    continue;
-                                ip4 = true;
-                            }
+                        if (iaddr instanceof Inet4Address) {
+                            if (!has4)
+                                continue;
+                            if (!vpn && ip4)
+                                continue;
+                            ip4 = true;
+                        }
 
-                            if (iaddr instanceof Inet6Address) {
-                                if (ip6 || !has6)
-                                    continue;
-                                ip6 = true;
-                            }
+                        if (iaddr instanceof Inet6Address) {
+                            if (!has6)
+                                continue;
+                            if (!vpn && ip6)
+                                continue;
+                            ip6 = true;
                         }
 
                         try {
