@@ -115,52 +115,6 @@
             app:layout_constraintTop_toBottomOf="@+id/tvConfirmHtmlHint"
             app:switchPadding="12dp" />
 
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/swDisplayHidden"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_advanced_display_hidden"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swDisableTracking"
-            app:switchPadding="12dp" />
-
-        <eu.faircode.email.FixedTextView
-            android:id="@+id/tvDisplayHiddenHint"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="48dp"
-            android:text="@string/title_advanced_display_hidden_hint"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textStyle="italic"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swDisplayHidden" />
-
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/swSecure"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_advanced_secure"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvDisplayHiddenHint"
-            app:switchPadding="12dp" />
-
-        <eu.faircode.email.FixedTextView
-            android:id="@+id/tvSecureHint"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="48dp"
-            android:text="@string/title_advanced_english_hint"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textStyle="italic"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swSecure" />
-
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvBiometrics"
             android:layout_width="0dp"
@@ -172,7 +126,7 @@
             android:textColor="?android:attr/textColorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvSecureHint" />
+            app:layout_constraintTop_toBottomOf="@id/swDisableTracking" />
 
         <Button
             android:id="@+id/btnBiometrics"
@@ -232,6 +186,64 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvBiometricsTimeout" />
 
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvAdvanced"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:text="@string/title_advanced_advanced"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spBiometricsTimeout" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swDisplayHidden"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_display_hidden"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAdvanced"
+            app:switchPadding="12dp" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvDisplayHiddenHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_display_hidden_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swDisplayHidden" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swSecure"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_secure"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDisplayHiddenHint"
+            app:switchPadding="12dp" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvSecureHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_english_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swSecure" />
+
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swSafeBrowsing"
             android:layout_width="0dp"
@@ -241,7 +253,7 @@
             android:text="@string/title_advanced_safe_browsing"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/spBiometricsTimeout"
+            app:layout_constraintTop_toBottomOf="@id/tvSecureHint"
             app:switchPadding="12dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

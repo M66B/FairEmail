@@ -57,17 +57,17 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private SwitchCompat swConfirmImages;
     private SwitchCompat swConfirmHtml;
     private SwitchCompat swDisableTracking;
-    private SwitchCompat swDisplayHidden;
-    private SwitchCompat swSecure;
     private Button btnBiometrics;
     private Button btnPin;
     private Spinner spBiometricsTimeout;
+    private SwitchCompat swDisplayHidden;
+    private SwitchCompat swSecure;
     private SwitchCompat swSafeBrowsing;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "confirm_links", "confirm_images", "confirm_html",
-            "disable_tracking", "display_hidden", "secure",
-            "biometrics", "pin", "biometrics_timeout", "safe_browsing"
+            "confirm_links", "confirm_images", "confirm_html", "disable_tracking",
+            "biometrics", "pin", "biometrics_timeout",
+            "display_hidden", "secure", "safe_browsing"
     };
 
     @Override
@@ -85,11 +85,11 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         swConfirmImages = view.findViewById(R.id.swConfirmImages);
         swConfirmHtml = view.findViewById(R.id.swConfirmHtml);
         swDisableTracking = view.findViewById(R.id.swDisableTracking);
-        swDisplayHidden = view.findViewById(R.id.swDisplayHidden);
-        swSecure = view.findViewById(R.id.swSecure);
         btnBiometrics = view.findViewById(R.id.btnBiometrics);
         btnPin = view.findViewById(R.id.btnPin);
         spBiometricsTimeout = view.findViewById(R.id.spBiometricsTimeout);
+        swDisplayHidden = view.findViewById(R.id.swDisplayHidden);
+        swSecure = view.findViewById(R.id.swSecure);
         swSafeBrowsing = view.findViewById(R.id.swSafeBrowsing);
 
         setOptions();
@@ -123,21 +123,6 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("disable_tracking", checked).apply();
-            }
-        });
-
-        swDisplayHidden.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("display_hidden", checked).apply();
-            }
-        });
-
-        swSecure.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("secure", checked).commit(); // apply won't work here
-                restart();
             }
         });
 
@@ -189,6 +174,21 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 prefs.edit().remove("biometrics_timeout").apply();
+            }
+        });
+
+        swDisplayHidden.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("display_hidden", checked).apply();
+            }
+        });
+
+        swSecure.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("secure", checked).commit(); // apply won't work here
+                restart();
             }
         });
 
@@ -250,8 +250,6 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         swConfirmImages.setChecked(prefs.getBoolean("confirm_images", true));
         swConfirmHtml.setChecked(prefs.getBoolean("confirm_html", true));
         swDisableTracking.setChecked(prefs.getBoolean("disable_tracking", true));
-        swDisplayHidden.setChecked(prefs.getBoolean("display_hidden", false));
-        swSecure.setChecked(prefs.getBoolean("secure", false));
 
         boolean biometrics = prefs.getBoolean("biometrics", false);
         btnBiometrics.setText(biometrics
@@ -267,6 +265,8 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
                 break;
             }
 
+        swDisplayHidden.setChecked(prefs.getBoolean("display_hidden", false));
+        swSecure.setChecked(prefs.getBoolean("secure", false));
         swSafeBrowsing.setChecked(prefs.getBoolean("safe_browsing", true));
     }
 
