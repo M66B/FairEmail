@@ -100,7 +100,7 @@ public class EmailService implements AutoCloseable {
     static final int PURPOSE_USE = 2;
     static final int PURPOSE_SEARCH = 3;
 
-    final static int DEFAULT_CONNECT_TIMEOUT = 20; // seconds
+    final static int DEFAULT_CONNECT_TIMEOUT = 15; // seconds
 
     private final static int SEARCH_TIMEOUT = 2 * 60 * 1000; // milliseconds
     private final static int FETCH_SIZE = 1024 * 1024; // bytes, default 16K
@@ -386,7 +386,6 @@ public class EmailService implements AutoCloseable {
                     InetAddress[] iaddrs = InetAddress.getAllByName(host);
                     boolean ip4 = (main instanceof Inet4Address);
                     boolean ip6 = (main instanceof Inet6Address);
-                    boolean vpn = ConnectionHelper.vpnActive(context);
 
                     boolean has4 = false;
                     boolean has6 = false;
@@ -408,8 +407,7 @@ public class EmailService implements AutoCloseable {
                     EntityLog.log(context, "Address main=" + main +
                             " count=" + iaddrs.length +
                             " ip4=" + ip4 + "/" + has4 +
-                            " ip6=" + ip6 + "/" + has6 +
-                            " vpn=" + vpn);
+                            " ip6=" + ip6 + "/" + has6);
 
                     for (InetAddress iaddr : iaddrs) {
                         EntityLog.log(context, "Address resolved=" + iaddr);
@@ -418,17 +416,13 @@ public class EmailService implements AutoCloseable {
                             continue;
 
                         if (iaddr instanceof Inet4Address) {
-                            if (!has4)
-                                continue;
-                            if (!vpn && ip4)
+                            if (!has4 || ip4)
                                 continue;
                             ip4 = true;
                         }
 
                         if (iaddr instanceof Inet6Address) {
-                            if (!has6)
-                                continue;
-                            if (!vpn && ip6)
+                            if (!has6 || ip6)
                                 continue;
                             ip6 = true;
                         }
