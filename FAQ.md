@@ -1231,8 +1231,6 @@ consider switching to a modern provider which supports push messages (IMAP IDLE)
 If your device has an [AMOLED](https://en.wikipedia.org/wiki/AMOLED) screen,
 you can save battery usage while viewing messages by switching to the black theme.
 
-Finally, make sure you are using [the latest version](https://github.com/M66B/FairEmail/releases/).
-
 <br />
 
 <a name="faq40"></a>
