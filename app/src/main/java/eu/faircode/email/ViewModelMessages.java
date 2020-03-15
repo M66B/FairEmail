@@ -218,7 +218,10 @@ public class ViewModelMessages extends ViewModel {
 
         Model model = models.get(last);
         if (model == null) {
-            Log.w("Observe previous/next without model");
+            // When showing accounts or folders
+            intf.onPrevious(false, null);
+            intf.onNext(false, null);
+            intf.onFound(-1, 0);
             return;
         }
 
