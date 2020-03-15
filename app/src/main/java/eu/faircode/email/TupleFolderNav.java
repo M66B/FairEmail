@@ -33,7 +33,6 @@ public class TupleFolderNav extends EntityFolder implements Serializable {
     public Integer accountColor;
     public int messages;
     public int unseen;
-    public int snoozed;
     public int operations;
     public int executing;
 
@@ -89,7 +88,6 @@ public class TupleFolderNav extends EntityFolder implements Serializable {
                     Objects.equals(this.accountColor, other.accountColor) &&
                     this.messages == other.messages &&
                     this.unseen == other.unseen &&
-                    this.snoozed == other.snoozed &&
                     this.operations == other.operations &&
                     this.executing == other.executing);
         } else

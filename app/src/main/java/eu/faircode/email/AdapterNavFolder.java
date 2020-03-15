@@ -112,9 +112,8 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
             }
 
             int count;
-            if (EntityFolder.OUTBOX.equals(folder.type))
-                count = folder.snoozed + folder.operations;
-            else if (EntityFolder.DRAFTS.equals(folder.type))
+            if (EntityFolder.DRAFTS.equals(folder.type) ||
+                    EntityFolder.OUTBOX.equals(folder.type))
                 count = folder.messages;
             else
                 count = folder.unseen;
