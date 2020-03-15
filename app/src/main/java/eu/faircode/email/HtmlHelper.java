@@ -1264,6 +1264,20 @@ public class HtmlHelper {
 
     static void convertLists(Document document) {
         for (Element p : document.select("p")) {
+            // Skip signature and referenced message
+            boolean body = true;
+            Element parent = p.parent();
+            while (parent != null) {
+                if ("div".equals(parent.tagName()) &&
+                        !TextUtils.isEmpty(parent.attr("fairemail"))) {
+                    body = false;
+                    break;
+                }
+                parent = parent.parent();
+            }
+            if (!body)
+                continue;
+
             Element list = null;
             for (int i = 0; i < p.childNodeSize(); i++) {
                 boolean item = false;
