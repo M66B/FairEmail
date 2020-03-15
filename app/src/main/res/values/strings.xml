@@ -302,6 +302,7 @@
     <string name="title_advanced_caption_general">General</string>
     <string name="title_advanced_caption_list">List</string>
     <string name="title_advanced_caption_conversation">Conversation</string>
+    <string name="title_advanced_caption_message">Message</string>
     <string name="title_advanced_caption_message_header">Message header</string>
     <string name="title_advanced_caption_message_body">Message body</string>
 
