@@ -378,44 +378,6 @@ public class FragmentOAuth extends FragmentBase {
                 if (askAccount) {
                     primaryEmail = address;
                     identities.add(new Pair<>(address, personal));
-                } else if ("gmail".equals(id)) {
-                    // https://developers.google.com/gmail/api/v1/reference/users/getProfile
-                    URL url = new URL("https://www.googleapis.com/gmail/v1/users/me/settings/sendAs");
-                    Log.i("Fetching " + url);
-
-                    HttpURLConnection request = (HttpURLConnection) url.openConnection();
-                    request.setRequestMethod("GET");
-                    request.setReadTimeout(OAUTH_TIMEOUT);
-                    request.setConnectTimeout(OAUTH_TIMEOUT);
-                    request.setDoInput(true);
-                    request.setRequestProperty("Authorization", "Bearer " + token);
-                    request.setRequestProperty("Accept", "application/json");
-                    request.connect();
-
-                    String json;
-                    try {
-                        json = Helper.readStream(request.getInputStream(), StandardCharsets.UTF_8.name());
-                        Log.i("Response=" + json);
-                    } finally {
-                        request.disconnect();
-                    }
-
-                    JSONObject data = new JSONObject(json);
-                    if (data.has("sendAs")) {
-                        JSONArray sendAs = (JSONArray) data.get("sendAs");
-                        for (int i = 0; i < sendAs.length(); i++) {
-                            JSONObject send = (JSONObject) sendAs.get(i);
-                            String sendAsEmail = send.optString("sendAsEmail");
-                            String displayName = send.optString("displayName");
-                            if (!TextUtils.isEmpty(sendAsEmail)) {
-                                if (send.optBoolean("isPrimary"))
-                                    primaryEmail = sendAsEmail;
-                                if (TextUtils.isEmpty(displayName))
-                                    displayName = name;
-                                identities.add(new Pair<>(sendAsEmail, displayName));
-                            }
-                        }
-                    }
                 } else if ("outlook".equals(id)) {
                     // https://docs.microsoft.com/en-us/graph/api/user-get?view=graph-rest-1.0&tabs=http#http-request
                     URL url = new URL("https://graph.microsoft.com/v1.0/me?$select=displayName,otherMails");
