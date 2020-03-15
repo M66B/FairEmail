@@ -40,6 +40,51 @@
             app:layout_constraintTop_toBottomOf="@id/tvCaptionGeneral"
             app:switchPadding="12dp" />
 
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvDefaultSnooze"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_default_snooze"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?android:attr/textColorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swDoubleBack" />
+
+        <EditText
+            android:id="@+id/etDefaultSnooze"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:hint="20"
+            android:inputType="number"
+            android:maxLength="4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDefaultSnooze" />
+
+        <eu.faircode.email.FixedTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="@string/title_hours"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintBottom_toBottomOf="@+id/etDefaultSnooze"
+            app:layout_constraintStart_toEndOf="@+id/etDefaultSnooze"
+            app:layout_constraintTop_toTopOf="@+id/etDefaultSnooze" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvCaptionList"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:text="@string/title_advanced_caption_list"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etDefaultSnooze" />
+
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swPull"
             android:layout_width="0dp"
@@ -49,7 +94,7 @@
             android:text="@string/title_advanced_pull_refresh"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swDoubleBack"
+            app:layout_constraintTop_toBottomOf="@id/tvCaptionList"
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat
@@ -65,6 +110,41 @@
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swQuickFilter"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_quick_filter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swAutoScroll"
+            app:switchPadding="12dp" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swQuickScroll"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:enabled="true"
+            android:text="@string/title_advanced_quick_scroll"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swQuickFilter"
+            app:switchPadding="12dp" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvCaptionConversation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:text="@string/title_advanced_caption_conversation"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/swQuickScroll" />
+
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swDoubleTap"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -72,7 +152,7 @@
             android:text="@string/title_advanced_double_tap"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swAutoScroll"
+            app:layout_constraintTop_toBottomOf="@id/tvCaptionConversation"
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat
@@ -227,29 +307,6 @@
             app:layout_constraintTop_toBottomOf="@id/tvOnClose" />
 
         <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/swQuickFilter"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_advanced_quick_filter"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/spOnClose"
-            app:switchPadding="12dp" />
-
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/swQuickScroll"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:enabled="true"
-            android:text="@string/title_advanced_quick_scroll"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swQuickFilter"
-            app:switchPadding="12dp" />
-
-        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swAutoRead"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -257,7 +314,7 @@
             android:text="@string/title_advanced_autoread"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swQuickScroll"
+            app:layout_constraintTop_toBottomOf="@id/spOnClose"
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat
@@ -314,35 +371,5 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/swResetImportance"
             app:switchPadding="12dp" />
-
-        <eu.faircode.email.FixedTextView
-            android:id="@+id/tvDefaultSnooze"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="48dp"
-            android:text="@string/title_advanced_default_snooze"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="?android:attr/textColorPrimary"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swDiscardDelete" />
-
-        <NumberPicker
-            android:id="@+id/npDefaultSnooze"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvDefaultSnooze" />
-
-        <eu.faircode.email.FixedTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:text="@string/title_hours"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintBottom_toBottomOf="@+id/npDefaultSnooze"
-            app:layout_constraintStart_toEndOf="@+id/npDefaultSnooze"
-            app:layout_constraintTop_toTopOf="@+id/npDefaultSnooze" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

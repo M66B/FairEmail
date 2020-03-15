@@ -21,7 +21,9 @@ package eu.faircode.email;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -30,7 +32,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.CompoundButton;
-import android.widget.NumberPicker;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -42,8 +44,11 @@ import androidx.preference.PreferenceManager;
 
 public class FragmentOptionsBehavior extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private SwitchCompat swDoubleBack;
+    private EditText etDefaultSnooze;
     private SwitchCompat swPull;
     private SwitchCompat swAutoScroll;
+    private SwitchCompat swQuickFilter;
+    private SwitchCompat swQuickScroll;
     private SwitchCompat swDoubleTap;
     private SwitchCompat swSwipeNav;
     private SwitchCompat swVolumeNav;
@@ -53,8 +58,6 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private SwitchCompat swExpandOne;
     private SwitchCompat swAutoClose;
     private Spinner spOnClose;
-    private SwitchCompat swQuickFilter;
-    private SwitchCompat swQuickScroll;
     private SwitchCompat swCollapseMultiple;
     private SwitchCompat swAutoRead;
     private SwitchCompat swFlagSnoozed;
@@ -62,14 +65,14 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private SwitchCompat swAutoImportant;
     private SwitchCompat swResetImportance;
     private SwitchCompat swDiscardDelete;
-    private NumberPicker npDefaultSnooze;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "double_back", "pull", "autoscroll", "doubletap", "swipenav", "volumenav", "reversed",
+            "double_back", "default_snooze",
+            "pull", "autoscroll", "quick_filter", "quick_scroll",
+            "doubletap", "swipenav", "volumenav", "reversed",
             "autoexpand", "expand_all", "expand_one", "collapse_multiple",
-            "autoclose", "onclose", "quick_filter", "quick_scroll",
+            "autoclose", "onclose",
             "autoread", "flag_snoozed", "autounflag", "auto_important", "reset_importance", "discard_delete",
-            "default_snooze"
     };
 
     @Override
@@ -83,8 +86,11 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         // Get controls
 
         swDoubleBack = view.findViewById(R.id.swDoubleBack);
+        etDefaultSnooze = view.findViewById(R.id.etDefaultSnooze);
         swPull = view.findViewById(R.id.swPull);
         swAutoScroll = view.findViewById(R.id.swAutoScroll);
+        swQuickFilter = view.findViewById(R.id.swQuickFilter);
+        swQuickScroll = view.findViewById(R.id.swQuickScroll);
         swDoubleTap = view.findViewById(R.id.swDoubleTap);
         swSwipeNav = view.findViewById(R.id.swSwipeNav);
         swVolumeNav = view.findViewById(R.id.swVolumeNav);
@@ -95,18 +101,12 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swCollapseMultiple = view.findViewById(R.id.swCollapseMultiple);
         swAutoClose = view.findViewById(R.id.swAutoClose);
         spOnClose = view.findViewById(R.id.spOnClose);
-        swQuickFilter = view.findViewById(R.id.swQuickFilter);
-        swQuickScroll = view.findViewById(R.id.swQuickScroll);
         swAutoRead = view.findViewById(R.id.swAutoRead);
         swFlagSnoozed = view.findViewById(R.id.swFlagSnoozed);
         swAutoUnflag = view.findViewById(R.id.swAutoUnflag);
         swAutoImportant = view.findViewById(R.id.swAutoImportant);
         swResetImportance = view.findViewById(R.id.swResetImportance);
         swDiscardDelete = view.findViewById(R.id.swDiscardDelete);
-        npDefaultSnooze = view.findViewById(R.id.npDefaultSnooze);
-
-        npDefaultSnooze.setMinValue(1);
-        npDefaultSnooze.setMaxValue(999);
 
         setOptions();
 
@@ -121,6 +121,31 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             }
         });
 
+        etDefaultSnooze.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Do nothing
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                try {
+                    int default_snooze = (s.length() > 0 ? Integer.parseInt(s.toString()) : 1);
+                    if (default_snooze == 1)
+                        prefs.edit().remove("default_snooze").apply();
+                    else
+                        prefs.edit().putInt("default_snooze", default_snooze).apply();
+                } catch (NumberFormatException ex) {
+                    Log.e(ex);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // Do nothing
+            }
+        });
+
         swPull.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -132,6 +157,20 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("autoscroll", checked).apply();
+            }
+        });
+
+        swQuickFilter.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("quick_filter", checked).apply();
+            }
+        });
+
+        swQuickScroll.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("quick_scroll", checked).apply();
             }
         });
 
@@ -219,20 +258,6 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             }
         });
 
-        swQuickFilter.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("quick_filter", checked).apply();
-            }
-        });
-
-        swQuickScroll.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("quick_scroll", checked).apply();
-            }
-        });
-
         swAutoRead.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -275,13 +300,6 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             }
         });
 
-        npDefaultSnooze.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
-            @Override
-            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-                prefs.edit().putInt("default_snooze", newVal).apply();
-            }
-        });
-
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 
         return view;
@@ -295,6 +313,9 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
+        if ("default_snooze".equals(key))
+            return;
+
         if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
             setOptions();
     }
@@ -329,8 +350,15 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         swDoubleBack.setChecked(prefs.getBoolean("double_back", true));
+        int default_snooze = prefs.getInt("default_snooze", 1);
+        etDefaultSnooze.setText(default_snooze == 1 ? null : Integer.toString(default_snooze));
+        etDefaultSnooze.setHint("1");
+
         swPull.setChecked(prefs.getBoolean("pull", true));
         swAutoScroll.setChecked(prefs.getBoolean("autoscroll", true));
+        swQuickFilter.setChecked(prefs.getBoolean("quick_filter", false));
+        swQuickScroll.setChecked(prefs.getBoolean("quick_scroll", true));
+
         swDoubleTap.setChecked(prefs.getBoolean("doubletap", false));
         swSwipeNav.setChecked(prefs.getBoolean("swipenav", true));
         swVolumeNav.setChecked(prefs.getBoolean("volumenav", false));
@@ -355,16 +383,11 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
 
         spOnClose.setEnabled(!swAutoClose.isChecked());
 
-        swQuickFilter.setChecked(prefs.getBoolean("quick_filter", false));
-        swQuickScroll.setChecked(prefs.getBoolean("quick_scroll", true));
-
         swAutoRead.setChecked(prefs.getBoolean("autoread", false));
         swFlagSnoozed.setChecked(prefs.getBoolean("flag_snoozed", false));
         swAutoUnflag.setChecked(prefs.getBoolean("autounflag", false));
         swAutoImportant.setChecked(prefs.getBoolean("auto_important", false));
         swResetImportance.setChecked(prefs.getBoolean("reset_importance", false));
         swDiscardDelete.setChecked(prefs.getBoolean("discard_delete", false));
-
-        npDefaultSnooze.setValue(prefs.getInt("default_snooze", 1));
     }
 }
