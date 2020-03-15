@@ -63,6 +63,7 @@ public class Shortcuts {
                     List<EntityContact> frequently = db.contact().getFrequentlyContacted(count);
                     for (EntityContact contact : frequently) {
                         Intent intent = new Intent(context, ActivityMain.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         intent.setAction(Intent.ACTION_SEND);
                         intent.setData(Uri.parse("mailto:" + contact.email));
 
