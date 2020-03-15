@@ -100,6 +100,172 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnManageService" />
 
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvNotifyActions"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_notify_actions"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?android:attr/textColorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvManageServiceHint" />
+
+        <CheckBox
+            android:id="@+id/cbNotifyActionTrash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/title_advanced_notify_action_trash"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvNotifyActions" />
+
+        <CheckBox
+            android:id="@+id/cbNotifyActionJunk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/title_advanced_notify_action_junk"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbNotifyActionTrash" />
+
+        <CheckBox
+            android:id="@+id/cbNotifyActionArchive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/title_advanced_notify_action_archive"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbNotifyActionJunk" />
+
+        <CheckBox
+            android:id="@+id/cbNotifyActionMove"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/title_advanced_notify_action_move"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbNotifyActionArchive" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvNotifyActionMoveHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_move_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbNotifyActionMove" />
+
+        <CheckBox
+            android:id="@+id/cbNotifyActionReply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/title_advanced_notify_action_reply"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvNotifyActionMoveHint" />
+
+        <CheckBox
+            android:id="@+id/cbNotifyActionReplyDirect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/title_advanced_notify_action_reply_direct"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbNotifyActionReply" />
+
+        <CheckBox
+            android:id="@+id/cbNotifyActionFlag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/title_advanced_notify_action_flag"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbNotifyActionReplyDirect" />
+
+        <CheckBox
+            android:id="@+id/cbNotifyActionSeen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/title_advanced_notify_action_seen"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbNotifyActionFlag" />
+
+        <CheckBox
+            android:id="@+id/cbNotifyActionSnooze"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/title_advanced_notify_action_snooze"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbNotifyActionSeen" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvNotifyActionsHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_notify_action_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbNotifyActionSnooze" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvNotifyActionsPro"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_pro_feature"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?android:attr/textColorLink"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvNotifyActionsHint" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swLight"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvNotifyActionsPro"
+            app:switchPadding="12dp" />
+
+        <Button
+            android:id="@+id/btnSound"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="@string/title_advanced_sound"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swLight" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvCaptionAdvanced"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:text="@string/title_setup_advanced"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnSound" />
+
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swBadge"
             android:layout_width="0dp"
@@ -109,7 +275,7 @@
             android:text="@string/title_advanced_badge"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvManageServiceHint"
+            app:layout_constraintTop_toBottomOf="@id/tvCaptionAdvanced"
             app:switchPadding="12dp" />
 
         <eu.faircode.email.FixedTextView
@@ -253,137 +419,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/swWearablePreview" />
 
-        <eu.faircode.email.FixedTextView
-            android:id="@+id/tvNotifyActions"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="48dp"
-            android:text="@string/title_advanced_notify_actions"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="?android:attr/textColorPrimary"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvWearablePreviewHint" />
-
-        <CheckBox
-            android:id="@+id/cbNotifyActionTrash"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="@string/title_advanced_notify_action_trash"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvNotifyActions" />
-
-        <CheckBox
-            android:id="@+id/cbNotifyActionJunk"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="@string/title_advanced_notify_action_junk"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbNotifyActionTrash" />
-
-        <CheckBox
-            android:id="@+id/cbNotifyActionArchive"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="@string/title_advanced_notify_action_archive"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbNotifyActionJunk" />
-
-        <CheckBox
-            android:id="@+id/cbNotifyActionMove"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="@string/title_advanced_notify_action_move"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbNotifyActionArchive" />
-
-        <eu.faircode.email.FixedTextView
-            android:id="@+id/tvNotifyActionMoveHint"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="48dp"
-            android:text="@string/title_advanced_move_hint"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textStyle="italic"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbNotifyActionMove" />
-
-        <CheckBox
-            android:id="@+id/cbNotifyActionReply"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="@string/title_advanced_notify_action_reply"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvNotifyActionMoveHint" />
-
-        <CheckBox
-            android:id="@+id/cbNotifyActionReplyDirect"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="@string/title_advanced_notify_action_reply_direct"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbNotifyActionReply" />
-
-        <CheckBox
-            android:id="@+id/cbNotifyActionFlag"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="@string/title_advanced_notify_action_flag"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbNotifyActionReplyDirect" />
-
-        <CheckBox
-            android:id="@+id/cbNotifyActionSeen"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="@string/title_advanced_notify_action_seen"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbNotifyActionFlag" />
-
-        <CheckBox
-            android:id="@+id/cbNotifyActionSnooze"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="@string/title_advanced_notify_action_snooze"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbNotifyActionSeen" />
-
-        <eu.faircode.email.FixedTextView
-            android:id="@+id/tvNotifyActionsHint"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:layout_marginEnd="48dp"
-            android:text="@string/title_advanced_notify_action_hint"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textStyle="italic"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbNotifyActionSnooze" />
-
-        <eu.faircode.email.FixedTextView
-            android:id="@+id/tvNotifyActionsPro"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="48dp"
-            android:text="@string/title_pro_feature"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="?android:attr/textColorLink"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvNotifyActionsHint" />
-
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swBiometricsNotify"
             android:layout_width="0dp"
@@ -392,31 +427,8 @@
             android:text="@string/title_advanced_biometrics_notify"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvNotifyActionsPro"
+            app:layout_constraintTop_toBottomOf="@id/tvWearablePreviewHint"
             app:switchPadding="12dp" />
-
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/swLight"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_advanced_light"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swBiometricsNotify"
-            app:switchPadding="12dp" />
-
-        <Button
-            android:id="@+id/btnSound"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:minWidth="0dp"
-            android:minHeight="0dp"
-            android:text="@string/title_advanced_sound"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swLight" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swAlertOnce"
@@ -426,7 +438,7 @@
             android:text="@string/title_advanced_alert_once"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnSound"
+            app:layout_constraintTop_toBottomOf="@id/swBiometricsNotify"
             app:switchPadding="12dp" />
 
         <eu.faircode.email.FixedTextView
