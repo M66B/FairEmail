@@ -134,7 +134,6 @@ I do not hand over the signing keys of my apps to Google.
 
 F-Droid builds new versions irregularly and you'll need the F-Droid client to get update notifications.
 To get updates in a timely fashion you are advised to use the GitHub release.
-Note that [the latest version](https://github.com/M66B/FairEmail/releases) is supported only.
 
 Because F-Droid builds and GitHub releases are signed differently, an F-Droid build needs to be uninstalled first to be able to update to a GitHub release.
 
