@@ -3,6 +3,8 @@
 If you have a question, please check the frequently asked questions below first.
 At the bottom you can find how to ask other questions, request features and report bugs.
 
+Note that [the latest version](https://github.com/M66B/FairEmail/releases) is supported only.
+
 ## Index
 
 * [Authorizing accounts](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
@@ -2805,6 +2807,7 @@ When desired, this can be turned off in the miscellaneous settings.
 Please [see here](https://github.com/M66B/FairEmail/blob/master/README.md#user-content-downloads) for all download options.
 
 If you have a problem with the F-Droid build, please check if there is a newer version first.
+Note that [the latest version](https://github.com/M66B/FairEmail/releases) is supported only.
 
 <br />
 
