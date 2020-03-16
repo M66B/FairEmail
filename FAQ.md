@@ -1670,7 +1670,7 @@ You can set or disable the maximum message size on the 'connection' settings tab
 
 Duplicate (archived) messages, trashed messages and draft messages are not counted.
 
-Messages will automatically be marked read on expanding, unless this was disabled in the behavior settings.
+Messages will automatically be marked read on expanding, unless this was disabled in the individual account settings.
 
 <br />
 
