@@ -4630,8 +4630,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         for (int i = 0; i < list.size(); i++) {
             TupleMessageEx message = list.get(i);
-            if (message != null)
+            if (message != null) {
+                keyPosition.put(message.id, i);
                 message.resolveKeywordColors(context);
+            }
         }
 
         differ.submitList(list);
@@ -4767,18 +4769,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     }
 
     int getPositionForKey(long key) {
-        if (keyPosition.isEmpty()) {
-            PagedList<TupleMessageEx> messages = getCurrentList();
-            if (messages != null) {
-                for (int i = 0; i < messages.size(); i++) {
-                    TupleMessageEx message = messages.get(i);
-                    if (message != null)
-                        keyPosition.put(message.id, i);
-                }
-                Log.i("Mapped keys=" + keyPosition.size());
-            }
-        }
-
         if (keyPosition.containsKey(key)) {
             int pos = keyPosition.get(key);
             Log.d("Position=" + pos + " @Key=" + key);
