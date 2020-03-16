@@ -21,14 +21,11 @@ package eu.faircode.email;
 
 import android.Manifest;
 import android.annotation.TargetApi;
-import android.app.Person;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ShortcutInfo;
 import android.content.pm.ShortcutManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.Icon;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -36,6 +33,10 @@ import android.provider.ContactsContract;
 import android.text.TextUtils;
 import android.widget.Toast;
 
+import androidx.core.app.Person;
+import androidx.core.content.pm.ShortcutInfoCompat;
+import androidx.core.content.pm.ShortcutManagerCompat;
+import androidx.core.graphics.drawable.IconCompat;
 import androidx.lifecycle.LifecycleOwner;
 
 import java.io.InputStream;
@@ -47,17 +48,17 @@ public class Shortcuts {
         if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.N_MR1)
             return;
 
-        new SimpleTask<List<ShortcutInfo>>() {
+        new SimpleTask<List<ShortcutInfoCompat>>() {
             @Override
             @TargetApi(Build.VERSION_CODES.N_MR1)
-            protected List<ShortcutInfo> onExecute(Context context, Bundle args) {
+            protected List<ShortcutInfoCompat> onExecute(Context context, Bundle args) {
                 ShortcutManager sm = (ShortcutManager) context.getSystemService(Context.SHORTCUT_SERVICE);
-                int app = sm.getMaxShortcutCountPerActivity();
+                int app = ShortcutManagerCompat.getMaxShortcutCountPerActivity(context);
                 int manifest = sm.getManifestShortcuts().size();
                 int count = app - manifest;
                 Log.i("Shortcuts count=" + count + " app=" + app + " manifest=" + manifest);
 
-                List<ShortcutInfo> shortcuts = new ArrayList<>();
+                List<ShortcutInfoCompat> shortcuts = new ArrayList<>();
                 if (count > 0) {
                     DB db = DB.getInstance(context);
                     List<EntityContact> frequently = db.contact().getFrequentlyContacted(count);
@@ -65,9 +66,10 @@ public class Shortcuts {
                         Intent intent = new Intent(context, ActivityMain.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         intent.setAction(Intent.ACTION_SEND);
+                        intent.addCategory(Intent.CATEGORY_DEFAULT);
                         intent.setData(Uri.parse("mailto:" + contact.email));
 
-                        Icon icon = null;
+                        IconCompat icon = null;
                         if (contact.avatar != null &&
                                 Helper.hasPermission(context, Manifest.permission.READ_CONTACTS)) {
                             // Create icon from bitmap because launcher might not have contacts permission
@@ -75,16 +77,16 @@ public class Shortcuts {
                                     context.getContentResolver(), Uri.parse(contact.avatar));
                             Bitmap bitmap = BitmapFactory.decodeStream(is);
                             if (bitmap != null)
-                                icon = Icon.createWithBitmap(bitmap);
+                                icon = IconCompat.createWithBitmap(bitmap);
                         }
                         if (icon == null)
-                            icon = Icon.createWithResource(context, R.drawable.ic_shortcut_email);
+                            icon = IconCompat.createWithResource(context, R.drawable.ic_shortcut_email);
 
                         String name = (TextUtils.isEmpty(contact.name) ? contact.email : contact.name);
 
                         //Set<String> categories = new HashSet<>(Arrays.asList(ShortcutInfo.SHORTCUT_CATEGORY_CONVERSATION));
 
-                        ShortcutInfo.Builder builder = new ShortcutInfo.Builder(context, Long.toString(contact.id))
+                        ShortcutInfoCompat.Builder builder = new ShortcutInfoCompat.Builder(context, Long.toString(contact.id))
                                 .setIcon(icon)
                                 .setRank(shortcuts.size() + 1)
                                 .setShortLabel(name)
@@ -111,9 +113,8 @@ public class Shortcuts {
 
             @Override
             @TargetApi(Build.VERSION_CODES.N_MR1)
-            protected void onExecuted(Bundle args, List<ShortcutInfo> shortcuts) {
-                ShortcutManager sm = (ShortcutManager) context.getSystemService(Context.SHORTCUT_SERVICE);
-                sm.setDynamicShortcuts(shortcuts);
+            protected void onExecuted(Bundle args, List<ShortcutInfoCompat> shortcuts) {
+                ShortcutManagerCompat.addDynamicShortcuts(context, shortcuts);
             }
 
             @Override
