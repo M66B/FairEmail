@@ -1688,6 +1688,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 ? R.drawable.baseline_visibility_24 : R.drawable.baseline_timer_off_24));
             else if (FragmentAccount.SWIPE_ACTION_MOVE.equals(action))
                 icon = R.drawable.baseline_folder_24;
+            else if (FragmentAccount.SWIPE_ACTION_DELETE.equals(action) ||
+                    (action.equals(message.folder) && EntityFolder.TRASH.equals(message.folderType)))
+                icon = R.drawable.baseline_delete_forever_24;
             else
                 icon = EntityFolder.getIcon(dX > 0 ? swipes.right_type : swipes.left_type);
             Drawable d = getResources().getDrawable(icon, getContext().getTheme()).mutate();
@@ -1771,7 +1774,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             else if (FragmentAccount.SWIPE_ACTION_MOVE.equals(action)) {
                 adapter.notifyItemChanged(pos);
                 onSwipeMove(message);
-            } else if (action.equals(message.folder) && EntityFolder.TRASH.equals(message.folderType)) {
+            } else if (FragmentAccount.SWIPE_ACTION_DELETE.equals(action) ||
+                    (action.equals(message.folder) && EntityFolder.TRASH.equals(message.folderType))) {
                 adapter.notifyItemChanged(pos);
                 onSwipeDelete(message);
             } else

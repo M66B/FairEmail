@@ -172,6 +172,7 @@ public class FragmentAccount extends FragmentBase {
     static final Long SWIPE_ACTION_HIDE = -4L;
     static final Long SWIPE_ACTION_MOVE = -5L;
     static final Long SWIPE_ACTION_FLAG = -6L;
+    static final Long SWIPE_ACTION_DELETE = -7L;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -1727,6 +1728,11 @@ public class FragmentAccount extends FragmentBase {
             move.id = SWIPE_ACTION_MOVE;
             move.name = getString(R.string.title_move);
             folders.add(move);
+
+            EntityFolder delete = new EntityFolder();
+            delete.id = SWIPE_ACTION_DELETE;
+            delete.name = getString(R.string.title_delete);
+            folders.add(delete);
 
             folders.addAll(_folders);
 
