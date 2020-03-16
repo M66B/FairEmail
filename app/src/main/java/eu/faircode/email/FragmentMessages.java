@@ -4965,7 +4965,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                         db.beginTransaction();
 
                                         // Write decrypted body
-                                        Helper.copy(plain, message.getFile(context));
+                                        String text = Helper.readText(plain);
+                                        String html = HtmlHelper.formatPre(text);
+                                        Helper.writeText(message.getFile(context), html);
                                         db.message().setMessageStored(message.id, new Date().getTime());
                                         db.message().setMessageFts(message.id, false);
 
