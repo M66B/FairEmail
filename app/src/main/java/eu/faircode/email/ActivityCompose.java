@@ -97,6 +97,17 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
                         args.putString("body", body);
                 }
 
+                if (intent.hasExtra(Intent.EXTRA_SHORTCUT_ID)) {
+                    String to = intent.getStringExtra(Intent.EXTRA_SHORTCUT_ID);
+                    if (to != null)
+                        try {
+                            InternetAddress.parse(to);
+                            args.putString("to", to);
+                        } catch (AddressException ex) {
+                            Log.w(ex);
+                        }
+                }
+
                 if (intent.hasExtra(Intent.EXTRA_EMAIL)) {
                     String[] to = intent.getStringArrayExtra(Intent.EXTRA_EMAIL);
                     if (to != null)

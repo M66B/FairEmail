@@ -34,4 +34,9 @@
             android:targetPackage="eu.faircode.email" />
         <categories android:name="android.shortcut.conversation" />
     </shortcut>
+
+    <share-target android:targetClass="eu.faircode.email.ActivityMain">
+        <category android:name="eu.faircode.email.TEXT_SHARE_TARGET" />
+        <data android:mimeType="text/plain" />
+    </share-target>
 </shortcuts>
