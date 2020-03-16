@@ -272,7 +272,9 @@
     <string name="title_advanced_socks">Использовать SOCKS-прокси</string>
     <string name="title_advanced_manage_connectivity">Управление подключением</string>
     <string name="title_advanced_caption_general">По умолчанию</string>
+    <string name="title_advanced_caption_list">Список</string>
     <string name="title_advanced_caption_conversation">Диалог</string>
+    <string name="title_advanced_caption_message">Сообщение</string>
     <string name="title_advanced_caption_message_header">Заголовок сообщения</string>
     <string name="title_advanced_caption_message_body">Текст сообщения</string>
     <string name="title_advanced_landscape">Использовать две колонки в альбомном режиме</string>

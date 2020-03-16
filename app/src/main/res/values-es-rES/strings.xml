@@ -251,7 +251,9 @@
     <string name="title_advanced_socks">Usar proxy SOCKS</string>
     <string name="title_advanced_manage_connectivity">Administrar conectividad</string>
     <string name="title_advanced_caption_general">General</string>
+    <string name="title_advanced_caption_list">Lista</string>
     <string name="title_advanced_caption_conversation">Conversación</string>
+    <string name="title_advanced_caption_message">Mensaje</string>
     <string name="title_advanced_caption_message_header">Encabezado del mensaje</string>
     <string name="title_advanced_caption_message_body">Cuerpo del mensaje</string>
     <string name="title_advanced_landscape">Usar dos columnas en modo horizontal</string>

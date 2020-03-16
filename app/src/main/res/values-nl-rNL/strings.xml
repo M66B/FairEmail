@@ -251,6 +251,7 @@
     <string name="title_advanced_caption_general">Algemeen</string>
     <string name="title_advanced_caption_list">Lijst</string>
     <string name="title_advanced_caption_conversation">Gesprek</string>
+    <string name="title_advanced_caption_message">Bericht</string>
     <string name="title_advanced_caption_message_header">Berichtkop</string>
     <string name="title_advanced_caption_message_body">Berichtinhoud</string>
     <string name="title_advanced_landscape">Twee kolommen gebruiken in liggende modus</string>

@@ -250,7 +250,9 @@
     <string name="title_advanced_socks">Benyt SOCKS-proxy</string>
     <string name="title_advanced_manage_connectivity">Håndtér konnektivitet</string>
     <string name="title_advanced_caption_general">Generelt</string>
+    <string name="title_advanced_caption_list">Liste</string>
     <string name="title_advanced_caption_conversation">Samtale</string>
+    <string name="title_advanced_caption_message">Besked</string>
     <string name="title_advanced_caption_message_header">Beskedoverskrift</string>
     <string name="title_advanced_caption_message_body">Beskedtekst</string>
     <string name="title_advanced_landscape">Benyt to kolonner i liggende tilstand</string>

@@ -129,6 +129,7 @@
     <string name="title_advanced_schedule">برمجة</string>
     <string name="title_advanced_send_reminders">إظهار التذكيرات</string>
     <string name="title_advanced_metered">استخدام اتصالات أجهزة الاستنشاق</string>
+    <string name="title_advanced_caption_list">قائمة</string>
     <string name="title_advanced_date_header">تجميع بحسب التاريخ</string>
     <string name="title_advanced_threading">مؤشر ترابط المحادثة</string>
     <string name="title_advanced_avatars">إظهار صور جهات الاتصال</string>

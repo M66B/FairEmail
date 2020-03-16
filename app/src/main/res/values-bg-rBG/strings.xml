@@ -250,7 +250,9 @@
     <string name="title_advanced_socks">Използване на SOCKS прокси</string>
     <string name="title_advanced_manage_connectivity">Управление на свързаност</string>
     <string name="title_advanced_caption_general">Общи</string>
+    <string name="title_advanced_caption_list">Списък</string>
     <string name="title_advanced_caption_conversation">Разговор</string>
+    <string name="title_advanced_caption_message">Съобщение</string>
     <string name="title_advanced_caption_message_header">Заглавка на съобщението</string>
     <string name="title_advanced_caption_message_body">Тяло на съобщението</string>
     <string name="title_advanced_landscape">Две колони в легнал режим</string>

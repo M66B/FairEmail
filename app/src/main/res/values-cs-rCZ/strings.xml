@@ -96,6 +96,7 @@
     </string>
     <string name="title_notification_sending">Odesílání zpráv</string>
     <string name="title_notification_waiting">Čekám na vyhovující připojení</string>
+    <string name="title_notification_idle">Nečinný</string>
     <string name="title_notification_failed">\"%1$s\" selhalo</string>
     <string name="title_notification_alert">\'%1$s\' upozornění serveru</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -271,7 +272,9 @@
     <string name="title_advanced_socks">Použít SOCKS proxy</string>
     <string name="title_advanced_manage_connectivity">Spravovat připojení</string>
     <string name="title_advanced_caption_general">Obecné</string>
+    <string name="title_advanced_caption_list">Seznam</string>
     <string name="title_advanced_caption_conversation">Konverzace</string>
+    <string name="title_advanced_caption_message">Zpráva</string>
     <string name="title_advanced_caption_message_header">Hlavička zprávy</string>
     <string name="title_advanced_caption_message_body">Tělo zprávy</string>
     <string name="title_advanced_landscape">Dvou-sloupcové rozvržení v režimu na šířku</string>

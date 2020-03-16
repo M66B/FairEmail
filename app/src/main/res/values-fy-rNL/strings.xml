@@ -153,7 +153,9 @@
     <string name="title_advanced_advanced">Avansearre</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d piksels</string>
     <string name="title_advanced_caption_general">Algemien</string>
+    <string name="title_advanced_caption_list">List</string>
     <string name="title_advanced_caption_conversation">Konversaasje</string>
+    <string name="title_advanced_caption_message">Berjochte</string>
     <string name="title_advanced_caption_message_header">Berjochtkoptekst</string>
     <string name="title_advanced_caption_message_body">Berjochtynhâld</string>
     <string name="title_advanced_color_value">Dúdlikens</string>
