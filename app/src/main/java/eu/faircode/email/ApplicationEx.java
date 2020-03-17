@@ -364,7 +364,7 @@ public class ApplicationEx extends Application {
                 if (changed) {
                     Log.i("Invalidating account view");
                     last = accounts;
-                    db.getInvalidationTracker().notifyObserversByTableNames("account_view");
+                    db.getInvalidationTracker().notifyObserversByTableNames("message");
                 }
             }
         });
@@ -390,7 +390,7 @@ public class ApplicationEx extends Application {
                 if (changed) {
                     Log.i("Invalidating identity view");
                     last = identities;
-                    db.getInvalidationTracker().notifyObserversByTableNames("identity_view");
+                    db.getInvalidationTracker().notifyObserversByTableNames("message");
                 }
             }
         });
@@ -416,7 +416,7 @@ public class ApplicationEx extends Application {
                 if (changed) {
                     Log.i("Invalidating folder view");
                     last = folders;
-                    db.getInvalidationTracker().notifyObserversByTableNames("folder_view");
+                    db.getInvalidationTracker().notifyObserversByTableNames("message");
                 }
             }
         });
