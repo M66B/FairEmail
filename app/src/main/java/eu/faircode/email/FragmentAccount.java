@@ -1732,12 +1732,12 @@ public class FragmentAccount extends FragmentBase {
 
             EntityFolder junk = new EntityFolder();
             junk.id = SWIPE_ACTION_JUNK;
-            junk.name = getString(R.string.title_spam);
+            junk.name = getString(R.string.title_report_spam);
             folders.add(junk);
 
             EntityFolder delete = new EntityFolder();
             delete.id = SWIPE_ACTION_DELETE;
-            delete.name = getString(R.string.title_delete);
+            delete.name = getString(R.string.title_delete_permanently);
             folders.add(delete);
 
             folders.addAll(_folders);
