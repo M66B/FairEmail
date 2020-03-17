@@ -1831,6 +1831,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             popupMenu.getMenu().add(Menu.NONE, R.string.title_flag_color, 5, R.string.title_flag_color);
             popupMenu.getMenu().add(Menu.NONE, R.string.title_move, 6, R.string.title_move);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, 7, R.string.title_delete);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
@@ -1860,6 +1861,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             return true;
                         case R.string.title_move:
                             onSwipeMove(message);
+                            return true;
+                        case R.string.title_delete:
+                            onSwipeDelete(message);
                             return true;
                         default:
                             return false;
