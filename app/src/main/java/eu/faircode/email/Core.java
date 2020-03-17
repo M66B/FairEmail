@@ -409,6 +409,7 @@ class Core {
 
                         if (op.tries >= TOTAL_RETRY_MAX) {
                             // Giving up
+                            op.cleanup(context);
                             db.operation().deleteOperation(op.id);
                             ops.remove(op);
                             continue;
