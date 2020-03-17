@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1997, 2018 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 1997, 2020 Oracle and/or its affiliates. All rights reserved.
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License v. 2.0, which is available at
@@ -16,7 +16,9 @@
 
 package com.sun.mail.pop3;
 
+import java.util.Locale;
 import java.util.Properties;
+import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.lang.reflect.*;
 
@@ -280,10 +282,15 @@ public class POP3Store extends Store {
 
 	supportsUidl = capabilities == null || capabilities.containsKey("UIDL");
 
-	String msg = null;
-	if ((msg = p.login(user, passwd)) != null) {
-	    throw cleanupAndThrow(p, new EOFException(msg));
+	try {
+	    if (!authenticate(p, user, passwd))
+		throw cleanupAndThrow(p, new EOFException("login failed"));
+	} catch (EOFException ex) {
+	    throw cleanupAndThrow(p, ex);
+	} catch (Exception ex) {
+	    throw cleanupAndThrow(p, new EOFException(ex.getMessage()));
 	}
+
 
 	/*
 	 * If a Folder closes the port, and then a Folder
@@ -320,6 +327,117 @@ public class POP3Store extends Store {
 	    }
 	}
 	return ife;
+    }
+
+    /**
+     * Authenticate to the server.
+     *
+     * XXX - This extensible authentication mechanism scheme was adapted
+     *	     from the SMTPTransport class.  The work was done at the last
+     *	     minute for the 1.6.5 release and so is not as clean as it
+     *	     could be.  There's great confusion over boolean success/failure
+     *	     return codes vs exceptions.  This should all be cleaned up at
+     *	     some point, and more testing should be done, but I'm leaving
+     *	     it in this "I believe it works" state for now.  I've tested
+     *	     it with LOGIN, PLAIN, and XOAUTH2 mechanisms, the latter being
+     *	     the primary motivation for the work right now.
+     *
+     * @param	p	the Protocol object to use
+     * @param	user	the user to authenticate as
+     * @param	passwd	the password for the user
+     * @return		true if authentication succeeds
+     * @exception	MessagingException	if authentication fails
+     * @since	Jakarta Mail 1.6.5
+     */
+    private boolean authenticate(Protocol p, String user, String passwd)
+				throws MessagingException {
+	// setting mail.pop3.auth.mechanisms controls which mechanisms will
+	// be used, and in what order they'll be considered.  only the first
+	// match is used.
+	String mechs = session.getProperty("mail." + name + ".auth.mechanisms");
+	boolean usingDefaultMechs = false;
+	if (mechs == null) {
+	    mechs = p.getDefaultMechanisms();
+	    usingDefaultMechs = true;
+	}
+
+	String authzid =
+		session.getProperty("mail." + name + ".sasl.authorizationid");
+	if (authzid == null)
+	    authzid = user;
+	/*
+	 * XXX - maybe someday
+	 *
+	if (enableSASL) {
+	    logger.fine("Authenticate with SASL");
+	    try {
+		if (sasllogin(getSASLMechanisms(), getSASLRealm(), authzid,
+				user, passwd)) {
+		    return true;	// success
+		} else {
+		    logger.fine("SASL authentication failed");
+		    return false;
+		}
+	    } catch (UnsupportedOperationException ex) {
+		logger.log(Level.FINE, "SASL support failed", ex);
+		// if the SASL support fails, fall back to non-SASL
+	    }
+	}
+	 */
+
+	if (logger.isLoggable(Level.FINE))
+	    logger.fine("Attempt to authenticate using mechanisms: " + mechs);
+
+	/*
+	 * Loop through the list of mechanisms supplied by the user
+	 * (or defaulted) and try each in turn.  If the server supports
+	 * the mechanism and we have an authenticator for the mechanism,
+	 * and it hasn't been disabled, use it.
+	 */
+	StringTokenizer st = new StringTokenizer(mechs);
+	while (st.hasMoreTokens()) {
+	    String m = st.nextToken();
+	    m = m.toUpperCase(Locale.ENGLISH);
+	    if (!p.supportsMechanism(m)) {
+		logger.log(Level.FINE, "no authenticator for mechanism {0}", m);
+		continue;
+	    }
+
+	    if (!p.supportsAuthentication(m)) {
+		logger.log(Level.FINE, "mechanism {0} not supported by server",
+					m);
+		continue;
+	    }
+
+	    /*
+	     * If using the default mechanisms, check if this one is disabled.
+	     */
+	    if (usingDefaultMechs) {
+		String dprop = "mail." + name + ".auth." +
+				    m.toLowerCase(Locale.ENGLISH) + ".disable";
+		boolean disabled = PropUtil.getBooleanProperty(
+					    session.getProperties(),
+					    dprop, !p.isMechanismEnabled(m));
+		if (disabled) {
+		    if (logger.isLoggable(Level.FINE))
+			logger.fine("mechanism " + m +
+					" disabled by property: " + dprop);
+		    continue;
+		}
+	    }
+
+	    // only the first supported and enabled mechanism is used
+	    logger.log(Level.FINE, "Using mechanism {0}", m);
+	    String msg =
+		p.authenticate(m, host, authzid, user, passwd);
+	    if (msg != null)
+		throw new AuthenticationFailedException(msg);
+	    return true;
+	}
+
+	// if no authentication mechanism found, fail
+	throw new AuthenticationFailedException(
+	    "No authentication mechanisms supported by both server and client");
     }
 
     private static boolean isRecoverable(Throwable t) {

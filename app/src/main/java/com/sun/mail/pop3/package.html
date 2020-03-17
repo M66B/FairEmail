@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <!--
 
-    Copyright (c) 1997, 2019 Oracle and/or its affiliates. All rights reserved.
+    Copyright (c) 1997, 2020 Oracle and/or its affiliates. All rights reserved.
 
     This program and the accompanying materials are made available under the
     terms of the Eclipse Public License v. 2.0, which is available at
@@ -295,6 +295,99 @@ POP3 server, if the POP3 server supports APOP.  APOP sends a
 digest of the password rather than the clear text password.
 Defaults to false.
 </TD>
+</TR>
+
+<TR>
+<TD><A ID="mail.pop3.auth.mechanisms">mail.pop3.auth.mechanisms</A></TD>
+<TD>String</TD>
+<TD>
+If set, lists the authentication mechanisms to consider, and the order
+in which to consider them.  Only mechanisms supported by the server and
+supported by the current implementation will be used.
+The default is <code>"LOGIN PLAIN DIGEST-MD5 NTLM"</code>, which includes all
+the authentication mechanisms supported by the current implementation
+except XOAUTH2.
+</TD>
+</TR>
+
+<TR>
+<TD><A ID="mail.pop3.auth.login.disable">mail.pop3.auth.login.disable</A></TD>
+<TD>boolean</TD>
+<TD>If true, prevents use of the <code>USER</code> and <code>PASS</code>
+commands.
+Default is false.</TD>
+</TR>
+
+<TR>
+<TD><A ID="mail.pop3.auth.plain.disable">mail.pop3.auth.plain.disable</A></TD>
+<TD>boolean</TD>
+<TD>If true, prevents use of the <code>AUTH PLAIN</code> command.
+Default is false.</TD>
+</TR>
+
+<TR>
+<TD><A ID="mail.pop3.auth.digest-md5.disable">mail.pop3.auth.digest-md5.disable</A></TD>
+<TD>boolean</TD>
+<TD>If true, prevents use of the <code>AUTH DIGEST-MD5</code> command.
+Default is false.</TD>
+</TR>
+
+<TR>
+<TD><A ID="mail.pop3.auth.ntlm.disable">mail.pop3.auth.ntlm.disable</A></TD>
+<TD>boolean</TD>
+<TD>If true, prevents use of the <code>AUTH NTLM</code> command.
+Default is false.</TD>
+</TR>
+
+<TR>
+<TD><A ID="mail.pop3.auth.ntlm.domain">mail.pop3.auth.ntlm.domain</A></TD>
+<TD>String</TD>
+<TD>
+The NTLM authentication domain.
+</TD>
+</TR>
+
+<TR>
+<TD><A ID="mail.pop3.auth.ntlm.flags">mail.pop3.auth.ntlm.flags</A></TD>
+<TD>int</TD>
+<TD>
+NTLM protocol-specific flags.
+See <A HREF="http://curl.haxx.se/rfc/ntlm.html#theNtlmFlags" TARGET="_top">
+http://curl.haxx.se/rfc/ntlm.html#theNtlmFlags</A> for details.
+</TD>
+</TR>
+
+<!--
+<TR>
+<TD><A ID="mail.pop3.auth.ntlm.unicode">mail.pop3.auth.ntlm.unicode</A></TD>
+<TD>boolean</TD>
+<TD>
+Set this to "true" if the username or password may use
+Unicode UTF-8 encoded characters.  Default is "true".
+Currently has no effect.
+</TD>
+</TR>
+
+<TR>
+<TD><A ID="mail.pop3.auth.ntlm.lmcompat">mail.pop3.auth.ntlm.lmcompat</A></TD>
+<TD>int</TD>
+<TD>
+Sets the LM compatibility level, as described here:
+<A HREF="http://curl.haxx.se/rfc/ntlm.html#ntlmVersion2" TARGET="_top">
+http://curl.haxx.se/rfc/ntlm.html#ntlmVersion2</A>
+Defaults to "3".  Currently not used.
+</TD>
+</TR>
+-->
+
+<TR>
+<TD><A ID="mail.pop3.auth.xoauth2.disable">mail.pop3.auth.xoauth2.disable</A></TD>
+<TD>boolean</TD>
+<TD>If true, prevents use of the <code>AUTHENTICATE XOAUTH2</code> command.
+Because the OAuth 2.0 protocol requires a special access token instead of
+a password, this mechanism is disabled by default.  Enable it by explicitly
+setting this property to "false" or by setting the "mail.pop3.auth.mechanisms"
+property to "XOAUTH2".</TD>
 </TR>
 
 <TR>
