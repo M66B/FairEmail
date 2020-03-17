@@ -261,13 +261,23 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             "utm_pubreferrer",
             "utm_swu",
 
+            "utm_datesent",
+            "utm_emailtype",
+            "utm_segment",
+            "utm_campaigntheme",
+            "utm_subjecttone",
+
             "icid", // Adobe
             "gclid", // Google
+            "gclsrc", // Google ads
+            "dclid", // DoubleClick (Google)
             "fbclid", // Facebook
             "igshid", // Instagram
 
             "mc_cid", // MailChimp
             "mc_eid", // MailChimp
+
+            "zanpid", // Zanox (Awin)
 
             "kclickid" // https://support.freespee.com/hc/en-us/articles/202577831-Kenshoo-integration
     ));
