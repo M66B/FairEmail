@@ -248,7 +248,9 @@
     <string name="title_advanced_socks">Erabili SOCKS proxya</string>
     <string name="title_advanced_manage_connectivity">Kudeatu konektibitatea</string>
     <string name="title_advanced_caption_general">Orokorra</string>
+    <string name="title_advanced_caption_list">Zerrenda</string>
     <string name="title_advanced_caption_conversation">Elkarrizketa</string>
+    <string name="title_advanced_caption_message">Mezua</string>
     <string name="title_advanced_caption_message_header">Mezuaren goiburua</string>
     <string name="title_advanced_caption_message_body">Mezuaren gorputza</string>
     <string name="title_advanced_landscape">Erabili bi zutabe modu horizontalean</string>

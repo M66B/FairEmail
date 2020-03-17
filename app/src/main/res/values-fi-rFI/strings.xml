@@ -248,7 +248,9 @@
     <string name="title_advanced_socks">Käytä SOCKS-proxypalvelinta</string>
     <string name="title_advanced_manage_connectivity">Hallitse verkkoyhteyksiä</string>
     <string name="title_advanced_caption_general">Yleiset</string>
+    <string name="title_advanced_caption_list">Lista</string>
     <string name="title_advanced_caption_conversation">Keskustelu</string>
+    <string name="title_advanced_caption_message">Viesti</string>
     <string name="title_advanced_caption_message_header">Viestin tunnistetiedot</string>
     <string name="title_advanced_caption_message_body">Viestin sisältö</string>
     <string name="title_advanced_landscape">Käytä kahta saraketta vaakatilassa</string>
