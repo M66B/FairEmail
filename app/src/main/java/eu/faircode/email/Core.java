@@ -2717,10 +2717,13 @@ class Core {
                     StringBuilder sb = new StringBuilder();
                     for (String key : sid.keySet())
                         sb.append(" ").append(key).append("=").append(sid.get(key));
-                    Log.e("Empty message" + sb.toString() + " partial=" + account.partial_fetch);
+                    if (!account.partial_fetch)
+                        Log.e("Empty message" + sb.toString());
                 }
-            } else
-                Log.e("Empty message " + account.host + " partial=" + account.partial_fetch);
+            } else {
+                if (!account.partial_fetch)
+                    Log.e("Empty message " + account.host);
+            }
         } catch (Throwable ex) {
             Log.w(ex);
         }
