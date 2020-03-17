@@ -2723,6 +2723,9 @@ It is not even possible to mark a message read.
 
 Since POP3 does not allow access to the trash folder at all, there is no way to restore trashed messages.
 
+Note that you can hide messages and search for hidden messages, which is similar to a local trash folder,
+without suggesting that trashed messages can be restored, while this is actually not possible.
+
 <br />
 
 <a name="faq144"></a>
