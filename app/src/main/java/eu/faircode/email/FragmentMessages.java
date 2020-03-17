@@ -1688,6 +1688,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 ? R.drawable.baseline_visibility_24 : R.drawable.baseline_timer_off_24));
             else if (FragmentAccount.SWIPE_ACTION_MOVE.equals(action))
                 icon = R.drawable.baseline_folder_24;
+            else if (FragmentAccount.SWIPE_ACTION_JUNK.equals(action))
+                icon = R.drawable.baseline_flag_24;
             else if (FragmentAccount.SWIPE_ACTION_DELETE.equals(action) ||
                     (action.equals(message.folder) && EntityFolder.TRASH.equals(message.folderType)))
                 icon = R.drawable.baseline_delete_forever_24;
@@ -1774,6 +1776,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             else if (FragmentAccount.SWIPE_ACTION_MOVE.equals(action)) {
                 adapter.notifyItemChanged(pos);
                 onSwipeMove(message);
+            } else if (FragmentAccount.SWIPE_ACTION_JUNK.equals(action)) {
+                adapter.notifyItemChanged(pos);
+                onSwipeJunk(message);
             } else if (FragmentAccount.SWIPE_ACTION_DELETE.equals(action) ||
                     (action.equals(message.folder) && EntityFolder.TRASH.equals(message.folderType))) {
                 adapter.notifyItemChanged(pos);
@@ -1831,7 +1836,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             popupMenu.getMenu().add(Menu.NONE, R.string.title_flag_color, 5, R.string.title_flag_color);
             popupMenu.getMenu().add(Menu.NONE, R.string.title_move, 6, R.string.title_move);
-            popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, 7, R.string.title_delete);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_spam, 7, R.string.title_spam);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, 8, R.string.title_delete);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
@@ -1861,6 +1867,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             return true;
                         case R.string.title_move:
                             onSwipeMove(message);
+                            return true;
+                        case R.string.title_spam:
+                            onSwipeJunk(message);
                             return true;
                         case R.string.title_delete:
                             onSwipeDelete(message);
@@ -1912,7 +1921,18 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             FragmentDialogFolder fragment = new FragmentDialogFolder();
             fragment.setArguments(args);
             fragment.setTargetFragment(FragmentMessages.this, REQUEST_MESSAGE_MOVE);
-            fragment.show(getParentFragmentManager(), "message:move");
+            fragment.show(getParentFragmentManager(), "swipe:move");
+        }
+
+        private void onSwipeJunk(final @NonNull TupleMessageEx message) {
+            Bundle aargs = new Bundle();
+            aargs.putLong("id", message.id);
+            aargs.putString("from", MessageHelper.formatAddresses(message.from));
+
+            AdapterMessage.FragmentDialogJunk ask = new AdapterMessage.FragmentDialogJunk();
+            ask.setArguments(aargs);
+            ask.setTargetFragment(FragmentMessages.this, REQUEST_MESSAGE_JUNK);
+            ask.show(getParentFragmentManager(), "swipe:junk");
         }
 
         private void onSwipeDelete(@NonNull TupleMessageEx message) {
@@ -1923,7 +1943,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             FragmentDialogAsk ask = new FragmentDialogAsk();
             ask.setArguments(args);
             ask.setTargetFragment(FragmentMessages.this, FragmentMessages.REQUEST_MESSAGE_DELETE);
-            ask.show(getParentFragmentManager(), "message:delete");
+            ask.show(getParentFragmentManager(), "swipe:delete");
         }
 
         private void swipeFolder(@NonNull TupleMessageEx message, @NonNull Long target) {
@@ -1980,7 +2000,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     else
                         Log.unexpectedError(getParentFragmentManager(), ex);
                 }
-            }.execute(FragmentMessages.this, args, "messages:swipe");
+            }.execute(FragmentMessages.this, args, "swipe:folder");
         }
     };
 
