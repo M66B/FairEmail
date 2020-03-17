@@ -1,4 +1,4 @@
-<img src="https://github.com/M66B/FairEmail/raw/master/images/banner_crying6.png" />
+<img src="https://github.com/M66B/FairEmail/raw/master/images/banner7_long.png" />
 
 <p align="center">
 	<a href="#downloads">Downloads</a> &bull;
