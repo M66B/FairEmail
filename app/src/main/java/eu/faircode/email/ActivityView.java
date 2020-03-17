@@ -1085,7 +1085,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 if (ex instanceof IllegalArgumentException)
                     ToastEx.makeText(ActivityView.this, ex.getMessage(), Toast.LENGTH_LONG).show();
                 else
-                    ToastEx.makeText(ActivityView.this, ex.toString(), Toast.LENGTH_LONG).show();
+                    Log.unexpectedError(getSupportFragmentManager(), ex);
             }
 
         }.execute(this, new Bundle(), "debug:info");

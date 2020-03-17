@@ -239,6 +239,12 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 drawerLayout.closeDrawer(drawerContainer);
                 onMenuFAQ();
             }
+        }, new Runnable() {
+            @Override
+            public void run() {
+                drawerLayout.closeDrawer(drawerContainer);
+                onDebugInfo();
+            }
         }).setExternal(true));
 
         menus.add(new NavMenuItem(R.drawable.baseline_account_box_24, R.string.menu_privacy, new Runnable() {
@@ -446,6 +452,31 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
     private void onMenuFAQ() {
         Helper.viewFAQ(this, 0);
+    }
+
+    private void onDebugInfo() {
+        new SimpleTask<Long>() {
+            @Override
+            protected Long onExecute(Context context, Bundle args) throws IOException {
+                return Log.getDebugInfo(context, R.string.title_debug_info_remark, null, null).id;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Long id) {
+                startActivity(new Intent(ActivitySetup.this, ActivityCompose.class)
+                        .putExtra("action", "edit")
+                        .putExtra("id", id));
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                if (ex instanceof IllegalArgumentException)
+                    ToastEx.makeText(ActivitySetup.this, ex.getMessage(), Toast.LENGTH_LONG).show();
+                else
+                    Log.unexpectedError(getSupportFragmentManager(), ex);
+            }
+
+        }.execute(this, new Bundle(), "debug:info");
     }
 
     private void onMenuPrivacy() {
