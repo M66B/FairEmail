@@ -3905,7 +3905,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     }
                 }
 
-                if (!(EntityFolder.OUTBOX.equals(message.folderType) && message.ui_snoozed != null) &&
+                if (!message.duplicate &&
+                        !(EntityFolder.OUTBOX.equals(message.folderType) && message.ui_snoozed != null) &&
                         !EntityFolder.ARCHIVE.equals(message.folderType) &&
                         !EntityFolder.SENT.equals(message.folderType) &&
                         !EntityFolder.TRASH.equals(message.folderType) &&
@@ -3944,7 +3945,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     TupleMessageEx message = messages.get(i);
                     if (message == null)
                         continue;
-                    if (!(EntityFolder.OUTBOX.equals(message.folderType) && message.ui_snoozed != null) &&
+                    if (!message.duplicate &&
+                            !(EntityFolder.OUTBOX.equals(message.folderType) && message.ui_snoozed != null) &&
                             !EntityFolder.ARCHIVE.equals(message.folderType) &&
                             !EntityFolder.SENT.equals(message.folderType) &&
                             !EntityFolder.TRASH.equals(message.folderType) &&
