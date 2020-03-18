@@ -243,8 +243,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="?attr/colorInfoBackground"
-                android:minWidth="0dp"
-                android:minHeight="0dp"
                 android:text="@string/title_setup_help"
                 android:textColor="?attr/colorInfoForeground"
                 android:textStyle="bold"

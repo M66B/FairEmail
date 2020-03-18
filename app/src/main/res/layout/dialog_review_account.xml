@@ -75,12 +75,10 @@
 
         <Button
             android:id="@+id/btnAccount"
-            style="@style/buttonStyleSmall"
+            style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:minWidth="0dp"
-            android:minHeight="0dp"
             android:tag="disable"
             android:text="@string/title_edit_account"
             app:layout_constraintStart_toStartOf="parent"

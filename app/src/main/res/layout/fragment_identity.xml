@@ -116,12 +116,10 @@
 
         <eu.faircode.email.ViewButtonColor
             android:id="@+id/btnColor"
-            style="@style/buttonStyleSmall"
+            style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:minWidth="0dp"
-            android:minHeight="0dp"
             android:tag="disable"
             android:text="@string/title_select"
             app:layout_constraintStart_toStartOf="parent"
@@ -151,12 +149,10 @@
 
         <Button
             android:id="@+id/btnSignature"
-            style="@style/buttonStyleSmall"
+            style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:minWidth="0dp"
-            android:minHeight="0dp"
             android:tag="disable"
             android:text="@string/title_edit_signature"
             app:layout_constraintStart_toStartOf="parent"
@@ -164,12 +160,10 @@
 
         <Button
             android:id="@+id/btnAdvanced"
-            style="@style/buttonStyleSmall"
+            style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:minWidth="0dp"
-            android:minHeight="0dp"
             android:text="@string/title_setup_advanced"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnSignature" />
@@ -231,12 +225,10 @@
 
         <Button
             android:id="@+id/btnAutoConfig"
-            style="@style/buttonStyleSmall"
+            style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:minWidth="0dp"
-            android:minHeight="0dp"
             android:tag="disable"
             android:text="@string/title_autoconfig"
             app:layout_constraintStart_toStartOf="parent"
@@ -421,12 +413,10 @@
 
         <Button
             android:id="@+id/btnCertificate"
-            style="@style/buttonStyleSmall"
+            style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:minWidth="0dp"
-            android:minHeight="0dp"
             android:tag="disable"
             android:text="@string/title_client_certificate"
             app:layout_constraintStart_toStartOf="parent"
@@ -446,12 +436,10 @@
 
         <Button
             android:id="@+id/btnOAuth"
-            style="@style/buttonStyleSmall"
+            style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:minWidth="0dp"
-            android:minHeight="0dp"
             android:tag="disable"
             android:text="@string/title_setup_authentication"
             app:layout_constraintEnd_toEndOf="parent"

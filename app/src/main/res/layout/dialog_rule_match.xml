@@ -35,8 +35,6 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:minWidth="0dp"
-        android:minHeight="0dp"
         android:padding="12dp"
         android:text="@string/title_rule_execute"
         app:layout_constraintBottom_toBottomOf="parent"
