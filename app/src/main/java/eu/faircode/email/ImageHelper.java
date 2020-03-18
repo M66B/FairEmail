@@ -593,13 +593,7 @@ class ImageHelper {
         while (options.outWidth / factor > scaleToPixels)
             factor *= 2;
 
-        Matrix rotation = null;
-        try {
-            rotation = getImageRotation(file);
-        } catch (IOException ex) {
-            Log.w(ex);
-        }
-
+        Matrix rotation = getImageRotation(file);
         if (factor > 1 || rotation != null) {
             Log.i("Decode image factor=" + factor);
             options.inJustDecodeBounds = false;
@@ -618,40 +612,55 @@ class ImageHelper {
         return BitmapFactory.decodeFile(file.getAbsolutePath());
     }
 
-    static Matrix getImageRotation(File file) throws IOException {
-        ExifInterface exif = new ExifInterface(file.getAbsolutePath());
-        int orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_UNDEFINED);
+    static Matrix getImageRotation(File file) {
+        try {
+            ExifInterface exif = new ExifInterface(file.getAbsolutePath());
+            int orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_UNDEFINED);
 
-        Matrix matrix = new Matrix();
-        switch (orientation) {
-            case ExifInterface.ORIENTATION_NORMAL:
-                return null;
-            case ExifInterface.ORIENTATION_FLIP_HORIZONTAL:
-                matrix.setScale(-1, 1);
-                return matrix;
-            case ExifInterface.ORIENTATION_FLIP_VERTICAL:
-                matrix.setRotate(180);
-                matrix.postScale(-1, 1);
-                return matrix;
-            case ExifInterface.ORIENTATION_TRANSPOSE:
-                matrix.setRotate(90);
-                matrix.postScale(-1, 1);
-                return matrix;
-            case ExifInterface.ORIENTATION_TRANSVERSE:
-                matrix.setRotate(-90);
-                matrix.postScale(-1, 1);
-                return matrix;
-            case ExifInterface.ORIENTATION_ROTATE_90:
-                matrix.setRotate(90);
-                return matrix;
-            case ExifInterface.ORIENTATION_ROTATE_180:
-                matrix.setRotate(180);
-                return matrix;
-            case ExifInterface.ORIENTATION_ROTATE_270:
-                matrix.setRotate(-90);
-                return matrix;
-            default:
-                return null;
+            Matrix matrix = new Matrix();
+            switch (orientation) {
+                case ExifInterface.ORIENTATION_NORMAL:
+                    return null;
+                case ExifInterface.ORIENTATION_FLIP_HORIZONTAL:
+                    matrix.setScale(-1, 1);
+                    return matrix;
+                case ExifInterface.ORIENTATION_FLIP_VERTICAL:
+                    matrix.setRotate(180);
+                    matrix.postScale(-1, 1);
+                    return matrix;
+                case ExifInterface.ORIENTATION_TRANSPOSE:
+                    matrix.setRotate(90);
+                    matrix.postScale(-1, 1);
+                    return matrix;
+                case ExifInterface.ORIENTATION_TRANSVERSE:
+                    matrix.setRotate(-90);
+                    matrix.postScale(-1, 1);
+                    return matrix;
+                case ExifInterface.ORIENTATION_ROTATE_90:
+                    matrix.setRotate(90);
+                    return matrix;
+                case ExifInterface.ORIENTATION_ROTATE_180:
+                    matrix.setRotate(180);
+                    return matrix;
+                case ExifInterface.ORIENTATION_ROTATE_270:
+                    matrix.setRotate(-90);
+                    return matrix;
+                default:
+                    return null;
+            }
+        } catch (Throwable ex /* IOException */) {
+            /*
+                java.lang.RuntimeException: setDataSourceCallback failed: status = 0x80000000
+                java.lang.RuntimeException: setDataSourceCallback failed: status = 0x80000000
+                  at android.media.MediaMetadataRetriever._setDataSource(Native Method)
+                  at android.media.MediaMetadataRetriever.setDataSource(MediaMetadataRetriever.java:226)
+                  at androidx.exifinterface.media.ExifInterface.getHeifAttributes(SourceFile:5716)
+                  at androidx.exifinterface.media.ExifInterface.loadAttributes(SourceFile:4556)
+                  at androidx.exifinterface.media.ExifInterface.initForFilename(SourceFile:5195)
+                  at androidx.exifinterface.media.ExifInterface.<init>(SourceFile:3926)
+             */
+            Log.w(ex);
+            return null;
         }
     }
 
