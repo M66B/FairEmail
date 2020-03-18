@@ -59,7 +59,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swWatchdog;
     private SwitchCompat swOptimize;
     private SwitchCompat swUpdates;
-    private SwitchCompat swUpdatesMain;
     private SwitchCompat swExperiments;
     private TextView tvExperimentsHint;
     private SwitchCompat swCrashReports;
@@ -75,11 +74,10 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private TextView tvStorageSpace;
     private TextView tvFingerprint;
 
-    private Group grpUpdates;
     private Group grpDebug;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "fts", "english", "watchdog", "auto_optimize", "updates", "updates_main", "experiments", "crash_reports", "debug"
+            "fts", "english", "watchdog", "auto_optimize", "updates", "experiments", "crash_reports", "debug"
     };
 
     private final static String[] RESET_QUESTIONS = new String[]{
@@ -107,7 +105,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swWatchdog = view.findViewById(R.id.swWatchdog);
         swOptimize = view.findViewById(R.id.swOptimize);
         swUpdates = view.findViewById(R.id.swUpdates);
-        swUpdatesMain = view.findViewById(R.id.swUpdatesMain);
         swExperiments = view.findViewById(R.id.swExperiments);
         tvExperimentsHint = view.findViewById(R.id.tvExperimentsHint);
         swCrashReports = view.findViewById(R.id.swCrashReports);
@@ -123,7 +120,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvStorageSpace = view.findViewById(R.id.tvStorageSpace);
         tvFingerprint = view.findViewById(R.id.tvFingerprint);
 
-        grpUpdates = view.findViewById(R.id.grpUpdates);
         grpDebug = view.findViewById(R.id.grpDebug);
 
         setOptions();
@@ -211,14 +207,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                     NotificationManager nm = (NotificationManager) getContext().getSystemService(Context.NOTIFICATION_SERVICE);
                     nm.cancel(Helper.NOTIFICATION_UPDATE);
                 }
-                swUpdatesMain.setEnabled(checked);
-            }
-        });
-
-        swUpdatesMain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("updates_main", checked).apply();
             }
         });
 
@@ -396,8 +384,9 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swWatchdog.setChecked(prefs.getBoolean("watchdog", true));
         swOptimize.setChecked(prefs.getBoolean("auto_optimize", false));
         swUpdates.setChecked(prefs.getBoolean("updates", true));
-        swUpdatesMain.setChecked(prefs.getBoolean("updates_main", false));
-        swUpdatesMain.setEnabled(swUpdates.isChecked());
+        swUpdates.setVisibility(
+                Helper.isPlayStoreInstall() || !Helper.hasValidFingerprint(getContext())
+                        ? View.GONE : View.VISIBLE);
         swExperiments.setChecked(prefs.getBoolean("experiments", false));
         swCrashReports.setChecked(prefs.getBoolean("crash_reports", false));
         tvUuid.setText(prefs.getString("uuid", null));
@@ -413,10 +402,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                 Helper.humanReadableByteCount(Helper.getAvailableStorageSpace(), true),
                 Helper.humanReadableByteCount(Helper.getTotalStorageSpace(), true)));
         tvFingerprint.setText(Helper.getFingerprint(getContext()));
-
-        grpUpdates.setVisibility(!BuildConfig.DEBUG &&
-                (Helper.isPlayStoreInstall() || !Helper.hasValidFingerprint(getContext()))
-                ? View.GONE : View.VISIBLE);
 
         grpDebug.setVisibility(swDebug.isChecked() || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
     }

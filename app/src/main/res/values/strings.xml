@@ -432,7 +432,6 @@
     <string name="title_advanced_watchdog">Periodically check if FairEmail is still active</string>
     <string name="title_advanced_optimize">Automatically optimize settings</string>
     <string name="title_advanced_updates">Check for updates</string>
-    <string name="title_advanced_updates_main">Check for main updates only</string>
     <string name="title_advanced_experiments">Try experimental features</string>
     <string name="title_advanced_crash_reports">Send error reports</string>
     <string name="title_advanced_debug">Debug mode</string>
