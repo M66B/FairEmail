@@ -67,17 +67,16 @@ public class UnknownCharsetProvider extends CharsetProvider {
 
             if (TextUtils.isEmpty(name) ||
                     name.contains("ASCII") ||
+                    name.startsWith("ISO8859") ||
+                    name.startsWith("ISO-8859") ||
                     "x-IA5".equalsIgnoreCase(name) ||
-                    "ISO8859-3".equals(name) ||
-                    "ISO-8859-3".equals(name) ||
-                    "ISO8859-16".equalsIgnoreCase(name) ||
-                    "ISO-8859-16".equalsIgnoreCase(name) ||
                     "BASE64".equalsIgnoreCase(name) ||
                     "ISO".equalsIgnoreCase(name) ||
                     "latin".equalsIgnoreCase(name) ||
                     "windows-1252".equalsIgnoreCase(name) ||
-                    "8bit".equals(name) ||
-                    "unknown-8bit".equals(name))
+                    "X-UNKNOWN".equalsIgnoreCase(name) ||
+                    "8bit".equalsIgnoreCase(name) ||
+                    "unknown-8bit".equalsIgnoreCase(name))
                 return StandardCharsets.ISO_8859_1;
 
             // Android will prevent recursion
