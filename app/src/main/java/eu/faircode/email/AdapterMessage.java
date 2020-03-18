@@ -27,6 +27,7 @@ import android.app.Dialog;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.RemoteAction;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.ContentResolver;
@@ -88,6 +89,9 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.textclassifier.ConversationAction;
+import android.view.textclassifier.ConversationActions;
+import android.view.textclassifier.TextClassificationManager;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -95,12 +99,14 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -142,6 +148,8 @@ import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -167,6 +175,7 @@ import biweekly.property.Organizer;
 import biweekly.util.ICalDate;
 
 import static android.app.Activity.RESULT_OK;
+import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
 public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHolder> {
     private Fragment parentFragment;
@@ -408,6 +417,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageButton ibDownloading;
         private Group grpDownloading;
         private ImageButton ibSeen;
+        private LinearLayout llAction;
 
         private TextView tvCalendarSummary;
         private TextView tvCalendarDescription;
@@ -596,6 +606,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibDownloading = vsBody.findViewById(R.id.ibDownloading);
             grpDownloading = vsBody.findViewById(R.id.grpDownloading);
             ibSeen = vsBody.findViewById(R.id.ibSeen);
+            llAction = vsBody.findViewById(R.id.llAction);
 
             rvImage = vsBody.findViewById(R.id.rvImage);
             rvImage.setHasFixedSize(false);
@@ -1183,6 +1194,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvNoInternetBody.setVisibility(View.GONE);
             grpDownloading.setVisibility(View.GONE);
             ibSeen.setVisibility(View.GONE);
+            llAction.setVisibility(View.GONE);
+            llAction.removeAllViews();
         }
 
         private void clearCalendar() {
@@ -1814,10 +1827,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             document.body().appendChild(pre);
                         }
 
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
+                            args.putParcelable("actions", getConversationActions(message, document));
+
                         return document.html();
                     } else {
                         // Cleanup message
                         document = HtmlHelper.sanitize(context, document, show_images, true, true);
+
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
+                            args.putParcelable("actions", getConversationActions(message, document));
 
                         // Collapse quotes
                         if (!show_quotes) {
@@ -1912,6 +1931,47 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     } else
                         throw new IllegalStateException("Result=" + result);
 
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                        ConversationActions cactions = args.getParcelable("actions");
+                        if (cactions != null) {
+                            List<ConversationAction> actions = cactions.getConversationActions();
+                            for (ConversationAction action : actions) {
+                                String type = action.getType();
+                                if (ConversationAction.TYPE_OPEN_URL.equals(type) ||
+                                        ConversationAction.TYPE_SEND_EMAIL.equals(type))
+                                    continue;
+
+                                final RemoteAction raction = action.getAction();
+                                final CharSequence title = (raction == null ? action.getTextReply() : raction.getTitle());
+
+                                Button button = new Button(context, null, android.R.attr.buttonStyleSmall);
+                                button.setId(View.generateViewId());
+                                button.setLayoutParams(new LinearLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT));
+                                button.setText(title);
+                                button.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        try {
+                                            if (raction == null) {
+                                                Intent reply = new Intent(context, ActivityCompose.class)
+                                                        .putExtra("action", "reply")
+                                                        .putExtra("reference", message.id)
+                                                        .putExtra("text", title);
+                                                context.startActivity(reply);
+                                            } else
+                                                raction.getActionIntent().send();
+                                        } catch (Throwable ex) {
+                                            Log.e(ex);
+                                        }
+                                    }
+                                });
+                                llAction.addView(button);
+                            }
+                            if (llAction.getChildCount() > 0)
+                                llAction.setVisibility(View.VISIBLE);
+                        }
+                    }
+
                     // Show attachments
                     cowner.start();
 
@@ -1954,6 +2014,30 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         Snackbar.make(parentFragment.getView(), ex.getMessage(), Snackbar.LENGTH_LONG).show();
                     else
                         Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                }
+
+                @RequiresApi(api = Build.VERSION_CODES.Q)
+                private ConversationActions getConversationActions(TupleMessageEx message, Document document) {
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    boolean conversation_actions = prefs.getBoolean("conversation_actions", true);
+                    if (!conversation_actions)
+                        return null;
+
+                    TextClassificationManager tcm = (TextClassificationManager) context.getSystemService(Context.TEXT_CLASSIFICATION_SERVICE);
+                    if (tcm == null)
+                        return null;
+
+                    ZonedDateTime dt = new Date(message.received).toInstant().atZone(ZoneId.systemDefault());
+                    ConversationActions.Message cmessage =
+                            new ConversationActions.Message.Builder(ConversationActions.Message
+                                    .PERSON_USER_OTHERS)
+                                    .setReferenceTime(dt)
+                                    .setText(document.text())
+                                    .build();
+                    ConversationActions.Request crequest =
+                            new ConversationActions.Request.Builder(Arrays.asList(cmessage)).build();
+
+                    return tcm.getTextClassifier().suggestConversationActions(crequest);
                 }
             }.execute(context, owner, args, "message:body");
         }
@@ -3681,7 +3765,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
             });
 
-            PopupWindow pw = new PopupWindow(dview, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            PopupWindow pw = new PopupWindow(dview, WRAP_CONTENT, WRAP_CONTENT);
             pw.setFocusable(true);
             pw.setOnDismissListener(new PopupWindow.OnDismissListener() {
                 @Override

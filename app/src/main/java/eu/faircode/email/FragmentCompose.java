@@ -970,6 +970,7 @@ public class FragmentCompose extends FragmentBase {
                 args.putString("bcc", a.getString("bcc"));
                 args.putString("subject", a.getString("subject"));
                 args.putString("body", a.getString("body"));
+                args.putString("text", a.getString("text"));
                 args.putParcelableArrayList("attachments", a.getParcelableArrayList("attachments"));
                 draftLoader.execute(this, args, "compose:new");
             } else {
@@ -3046,6 +3047,18 @@ public class FragmentCompose extends FragmentBase {
                                 for (String re : Helper.getStrings(context, R.string.title_subject_reply, ""))
                                     subject = unprefix(subject, re);
                             data.draft.subject = context.getString(R.string.title_subject_reply, subject);
+
+                            String t = args.getString("text");
+                            if (t != null) {
+                                Element div = document.createElement("div");
+                                for (String line : t.split("\\r?\\n")) {
+                                    Element span = document.createElement("span");
+                                    span.text(line);
+                                    div.appendChild(span);
+                                    div.appendElement("br");
+                                }
+                                document.body().appendChild(div);
+                            }
                         } else if ("forward".equals(action)) {
                             if (prefix_once)
                                 for (String fwd : Helper.getStrings(context, R.string.title_subject_forward, ""))

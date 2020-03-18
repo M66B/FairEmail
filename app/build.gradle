@@ -241,6 +241,7 @@ dependencies {
     def work_version = "2.3.3"
     def exif_version = "1.3.0-alpha01"
     def biometric_version = "1.0.1"
+    def textclassifier_version = "1.0.0-alpha03"
     def billingclient_version = "2.1.0"
     def javamail_version = "1.6.5"
     def jsoup_version = "1.12.1"
@@ -322,6 +323,10 @@ dependencies {
     // https://mvnrepository.com/artifact/androidx.biometric/biometric
     // https://developer.android.com/jetpack/androidx/releases/biometric
     implementation "androidx.biometric:biometric:$biometric_version"
+
+    // https://mvnrepository.com/artifact/androidx.textclassifier/textclassifier
+    // https://developer.android.com/jetpack/androidx/releases/textclassifier
+    //implementation "androidx.textclassifier:textclassifier:$textclassifier_version"
 
     // https://developer.android.com/google/play/billing/billing_library_releases_notes
     implementation "com.android.billingclient:billing:$billingclient_version"

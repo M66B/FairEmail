@@ -398,6 +398,8 @@
 
     <style name="buttonStyleSmall" parent="Base.Widget.AppCompat.Button.Small">
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Small</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:minWidth">0dp</item>
     </style>
 
     <style name="buttonStyleToggle" parent="Base.Widget.AppCompat.Button">
