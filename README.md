@@ -108,13 +108,27 @@ Please see [here](https://email.faircode.eu/#screenshots) for screenshots.
 * [GitHub](https://github.com/M66B/FairEmail/releases) (Android 5 and later)
 * [Play store](https://play.google.com/store/apps/details?id=eu.faircode.email) (Android 6 and later)
 * ~~[Play store](https://play.google.com/apps/testing/eu.faircode.email) (test)~~
+* [F-Droid](https://f-droid.org/en/packages/eu.faircode.email/) ([last build status](https://f-droid.org/wiki/page/eu.faircode.email/lastbuild)) (the F-Droid app can be downloaded [here](https://f-droid.org/))
 * [AppGallery](https://wap3.hispace.hicloud.com/uowap/index.jsp#/detailApp/C101678151) (the AppGallery app can be downloaded [here](https://huaweimobileservices.com/appgallery/))
+
+The Gmail quick setup wizard can be used in official releases only (Play store or GitHub) because Google approved the use of OAuth for one app signature only.
+
+**Important**: after enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/)
+the Gmail quick setup wizard (OAuth) will work only if FairEmail was downloaded from the Play store.
+
+**Important**: Gsuite accounts authorized with a username/password will stop working
+in the [near future](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
+Gsuite accounts authorized with the quick setup wizard (OAuth) will keep working.
 
 To download a GitHub release you might need to expand the assets section to download the [APK file](https://en.wikipedia.org/wiki/Android_application_package).
 
 The GitHub version is being updated more often than the Play store version.
-The GitHub release will automatically check for updates on GitHub.
-You can turn this off in the miscellaneous settings.
+The GitHub release will automatically check for updates on GitHub (this can be turned off in the miscellaneous settings).
+
+F-Droid builds new versions irregularly and you'll need the F-Droid client to get update notifications.
+To get updates in a timely fashion you are advised to use the GitHub release.
+
+Because F-Droid builds and GitHub releases are signed differently, an F-Droid build needs to be uninstalled first to be able to update to a GitHub release.
 
 Certificate fingerprints:
 
@@ -129,19 +143,6 @@ One line command to display certificate fingerprints:
 ```unzip -p fairemail.apk META-INF/CERT.RSA | keytool -printcert```
 
 I do not hand over the signing keys of my apps to Google.
-
-* [F-Droid](https://f-droid.org/en/packages/eu.faircode.email/) ([last build status](https://f-droid.org/wiki/page/eu.faircode.email/lastbuild)) (the F-Droid app can be downloaded [here](https://f-droid.org/))
-
-F-Droid builds new versions irregularly and you'll need the F-Droid client to get update notifications.
-To get updates in a timely fashion you are advised to use the GitHub release.
-
-Because F-Droid builds and GitHub releases are signed differently, an F-Droid build needs to be uninstalled first to be able to update to a GitHub release.
-
-The Gmail quick setup wizard can be used in official releases only (Play store or GitHub) because Google approved the use of OAuth for one app signature only.
-
-**Important**: Gsuite accounts authorized with a username/password will stop working
-in the [near future](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
-Gsuite accounts authorized with the quick setup wizard (OAuth) will keep working.
 
 ## Compatibility
 
