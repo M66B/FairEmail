@@ -611,6 +611,8 @@
     <string name="title_move_to">Siirrä kansioon &#8230;</string>
     <string name="title_move_to_folder">Siirrä kansioon &#8230;</string>
     <string name="title_move_to_account">Siirrä tilillä %1$s &#8230;</string>
+    <string name="title_report_spam">Käsittele roskapostina</string>
+    <string name="title_delete_permanently">Poista pysyvästi</string>
     <string name="title_snooze">Torkuta &#8230;</string>
     <string name="title_archive">Arkistoi</string>
     <string name="title_reply">Vastaa</string>

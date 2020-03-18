@@ -612,6 +612,7 @@
     <string name="title_move_to">Verplaats naar &#8230;</string>
     <string name="title_move_to_folder">Verplaats naar &#8230;</string>
     <string name="title_move_to_account">Verplaats naar %1$s &#8230;</string>
+    <string name="title_report_spam">Behandel als spam</string>
     <string name="title_snooze">Sluimeren &#8230;</string>
     <string name="title_archive">Archiveren</string>
     <string name="title_reply">Beantwoorden</string>

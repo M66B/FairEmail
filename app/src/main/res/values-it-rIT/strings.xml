@@ -613,6 +613,8 @@
     <string name="title_move_to">Sposta in &#8230;</string>
     <string name="title_move_to_folder">Sposta in &#8230;</string>
     <string name="title_move_to_account">Sposta in %1$s &#8230;</string>
+    <string name="title_report_spam">Tratta come spam</string>
+    <string name="title_delete_permanently">Elimina definitivamente</string>
     <string name="title_snooze">Posticipa &#8230;</string>
     <string name="title_archive">Archivio</string>
     <string name="title_reply">Rispondi</string>

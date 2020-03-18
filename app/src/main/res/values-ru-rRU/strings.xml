@@ -635,6 +635,8 @@
     <string name="title_move_to">Переместить в&#8230;</string>
     <string name="title_move_to_folder">Переместить в&#8230;</string>
     <string name="title_move_to_account">Переместить в %1$s&#8230;</string>
+    <string name="title_report_spam">Считать спамом</string>
+    <string name="title_delete_permanently">Удалить окончательно</string>
     <string name="title_snooze">Отложить&#8230;</string>
     <string name="title_archive">Архив</string>
     <string name="title_reply">Ответить</string>

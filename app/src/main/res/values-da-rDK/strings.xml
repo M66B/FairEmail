@@ -613,6 +613,8 @@
     <string name="title_move_to">Flyt til &#8230;</string>
     <string name="title_move_to_folder">Flyt til &#8230;</string>
     <string name="title_move_to_account">Flyt til %1$s &#8230;</string>
+    <string name="title_report_spam">Håndtér som spam</string>
+    <string name="title_delete_permanently">Slet permanent</string>
     <string name="title_snooze">Udsæt &#8230;</string>
     <string name="title_archive">Arkivér</string>
     <string name="title_reply">Besvar</string>

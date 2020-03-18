@@ -270,7 +270,9 @@
     <string name="title_advanced_socks">Użyj serwera proxy SOCKS</string>
     <string name="title_advanced_manage_connectivity">Zarządzaj połączeniami</string>
     <string name="title_advanced_caption_general">Ogólne</string>
+    <string name="title_advanced_caption_list">Lista</string>
     <string name="title_advanced_caption_conversation">Wątek</string>
+    <string name="title_advanced_caption_message">Wiadomość</string>
     <string name="title_advanced_caption_message_header">Nagłówek wiadomości</string>
     <string name="title_advanced_caption_message_body">Treść wiadomości</string>
     <string name="title_advanced_landscape">Użyj dwóch kolumn w trybie poziomym</string>
@@ -631,6 +633,8 @@
     <string name="title_move_to">Przenieś do &#8230;</string>
     <string name="title_move_to_folder">Przenieś do &#8230;</string>
     <string name="title_move_to_account">Przenieś do %1$s &#8230;</string>
+    <string name="title_report_spam">Traktuj jako spam</string>
+    <string name="title_delete_permanently">Usuń trwale</string>
     <string name="title_snooze">Odłóż &#8230;</string>
     <string name="title_archive">Archiwum</string>
     <string name="title_reply">Odpowiedz</string>

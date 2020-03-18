@@ -613,6 +613,8 @@
     <string name="title_move_to">Déplacer vers&#8230;</string>
     <string name="title_move_to_folder">Déplacer vers&#8230;</string>
     <string name="title_move_to_account">Déplacer vers %1$s&#8230;</string>
+    <string name="title_report_spam">Traiter comme spam</string>
+    <string name="title_delete_permanently">Supprimer définitivement</string>
     <string name="title_snooze">Reporter&#8230;</string>
     <string name="title_archive">Archiver</string>
     <string name="title_reply">Répondre</string>
