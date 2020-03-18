@@ -1927,6 +1927,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         private void onSwipeJunk(final @NonNull TupleMessageEx message) {
             Bundle aargs = new Bundle();
             aargs.putLong("id", message.id);
+            aargs.putLong("account", message.account);
+            aargs.putLong("folder", message.folder);
             aargs.putString("from", MessageHelper.formatAddresses(message.from));
 
             AdapterMessage.FragmentDialogJunk ask = new AdapterMessage.FragmentDialogJunk();

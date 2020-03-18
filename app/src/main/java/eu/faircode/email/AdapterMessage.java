@@ -3186,6 +3186,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private void onActionJunk(TupleMessageEx message) {
             Bundle aargs = new Bundle();
             aargs.putLong("id", message.id);
+            aargs.putLong("account", message.account);
+            aargs.putLong("folder", message.folder);
             aargs.putString("from", MessageHelper.formatAddresses(message.from));
 
             FragmentDialogJunk ask = new FragmentDialogJunk();
@@ -5110,12 +5112,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            String from = getArguments().getString("from");
+            Bundle args = getArguments();
+            final long account = args.getLong("account");
+            final long folder = args.getLong("folder");
+            final String from = args.getString("from");
 
             View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_junk, null);
             final TextView tvMessage = view.findViewById(R.id.tvMessage);
             final CheckBox cbBlockSender = view.findViewById(R.id.cbBlockSender);
             final CheckBox cbBlockDomain = view.findViewById(R.id.cbBlockDomain);
+            final Button btnEditRules = view.findViewById(R.id.btnEditRules);
 
             tvMessage.setText(getString(R.string.title_ask_spam_who, from));
             cbBlockSender.setEnabled(ActivityBilling.isPro(getContext()));
@@ -5125,6 +5131,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     cbBlockDomain.setEnabled(isChecked);
+                }
+            });
+
+            btnEditRules.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                    lbm.sendBroadcast(
+                            new Intent(ActivityView.ACTION_EDIT_RULES)
+                                    .putExtra("account", account)
+                                    .putExtra("folder", folder));
+                    dismiss();
                 }
             });
 
