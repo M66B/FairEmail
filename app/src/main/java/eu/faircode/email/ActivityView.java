@@ -724,23 +724,32 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void checkUpdate(boolean always) {
-        if (Helper.isPlayStoreInstall() || !Helper.hasValidFingerprint(this))
+        if (!BuildConfig.DEBUG &&
+                (Helper.isPlayStoreInstall() || !Helper.hasValidFingerprint(this)))
             return;
 
         long now = new Date().getTime();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        if (!always && !prefs.getBoolean("updates", true))
+        boolean updates = prefs.getBoolean("updates", true);
+        boolean updates_main = prefs.getBoolean("updates_main", false);
+        long last_update_check = prefs.getLong("last_update_check", 0);
+
+        if (!always && !updates)
             return;
-        if (!always && prefs.getLong("last_update_check", 0) + UPDATE_INTERVAL > now)
+        if (!always && last_update_check + UPDATE_INTERVAL > now)
             return;
+
         prefs.edit().putLong("last_update_check", now).apply();
 
         Bundle args = new Bundle();
         args.putBoolean("always", always);
+        args.putBoolean("updates_main", updates_main);
 
         new SimpleTask<UpdateInfo>() {
             @Override
             protected UpdateInfo onExecute(Context context, Bundle args) throws Throwable {
+                boolean updates_main = args.getBoolean("updates_main");
+
                 StringBuilder response = new StringBuilder();
                 HttpsURLConnection urlConnection = null;
                 try {
@@ -774,12 +783,18 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                     JSONObject jroot = new JSONObject(response.toString());
 
+                    if (!jroot.has("name") || jroot.isNull("name"))
+                        throw new IOException("name field missing");
                     if (!jroot.has("tag_name") || jroot.isNull("tag_name"))
                         throw new IOException("tag_name field missing");
                     if (!jroot.has("html_url") || jroot.isNull("html_url"))
                         throw new IOException("html_url field missing");
                     if (!jroot.has("assets") || jroot.isNull("assets"))
                         throw new IOException("assets section missing");
+
+                    String name = jroot.getString("name");
+                    if (updates_main && !name.contains("*"))
+                        return null;
 
                     // Get update info
                     UpdateInfo info = new UpdateInfo();
@@ -791,8 +806,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     for (int i = 0; i < jassets.length(); i++) {
                         JSONObject jasset = jassets.getJSONObject(i);
                         if (jasset.has("name") && !jasset.isNull("name")) {
-                            String name = jasset.getString("name");
-                            if (name.endsWith(".apk")) {
+                            String filename = jasset.getString("name");
+                            if (filename.endsWith(".apk")) {
                                 Log.i("Latest version=" + info.tag_name);
                                 if (BuildConfig.VERSION_NAME.equals(info.tag_name))
                                     return null;
@@ -812,6 +827,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             @Override
             protected void onExecuted(Bundle args, UpdateInfo info) {
                 boolean always = args.getBoolean("always");
+
                 if (info == null) {
                     if (always)
                         ToastEx.makeText(ActivityView.this, BuildConfig.VERSION_NAME, Toast.LENGTH_LONG).show();
