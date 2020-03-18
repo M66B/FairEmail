@@ -1697,7 +1697,7 @@ The following rule conditions are available:
 
 All the conditions of a rule need to be true for the rule action to be executed.
 All conditions are optional, but there needs to be at least one condition, to prevent matching all messages.
-Matching all messages is still possible by using a regex for the sender or recipient address, if you really want to.
+If you want to match all senders or all recipients, you can just use the @ character as condition because all email address will contain this character.
 
 You can use multiple rules, possibly with a *stop processing*, for an *or* or a *not* condition.
 
