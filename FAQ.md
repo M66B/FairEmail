@@ -851,6 +851,9 @@ can likely be solved by changing the advanced identity setting *Use local IP add
 The errors *... Couldn't connect to host ...*, *... Connection refused ...* or *... Network unreachable ...*
 mean that FairEmail was not able to connect to the email server.
 
+The error *... Host is unresolved ...* means that the address of the email server could not be resolved.
+This might be caused by ad blocking or an unreachable or not properly working [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) server.
+
 The error *... Software caused connection abort ...*
 means that the email server or something between FairEmail and the email server actively terminated an existing connection.
 This can for example happen when connectivity was abruptly lost. A typical example is turning on flight mode.
