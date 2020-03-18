@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         app:layout_behavior="eu.faircode.email.BehaviorBottomPadding">
 
-        <EditText
+        <eu.faircode.email.EditTextPlain
             android:id="@+id/etName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

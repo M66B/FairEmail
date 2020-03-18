@@ -47,7 +47,7 @@
             app:layout_constraintStart_toEndOf="@id/btnGrant"
             app:layout_constraintTop_toTopOf="@id/btnGrant" />
 
-        <EditText
+        <eu.faircode.email.EditTextPlain
             android:id="@+id/etName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -61,7 +61,7 @@
             app:layout_constraintTop_toBottomOf="@+id/btnGrant">
 
             <requestFocus />
-        </EditText>
+        </eu.faircode.email.EditTextPlain>
 
         <Button
             android:id="@+id/btnSelect"

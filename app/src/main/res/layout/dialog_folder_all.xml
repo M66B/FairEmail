@@ -56,7 +56,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbDownload" />
 
-        <EditText
+        <eu.faircode.email.EditTextPlain
             android:id="@+id/etSyncDays"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -78,7 +78,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etSyncDays" />
 
-        <EditText
+        <eu.faircode.email.EditTextPlain
             android:id="@+id/etKeepDays"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

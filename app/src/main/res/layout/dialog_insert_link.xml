@@ -15,7 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+    <eu.faircode.email.EditTextPlain
         android:id="@+id/etLink"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -29,7 +29,7 @@
         app:layout_constraintTop_toBottomOf="@id/tvOpenLink">
 
         <requestFocus />
-    </EditText>
+    </eu.faircode.email.EditTextPlain>
 
     <eu.faircode.email.FixedTextView
         android:id="@+id/tvInsecure"

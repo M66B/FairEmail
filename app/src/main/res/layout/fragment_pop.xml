@@ -33,7 +33,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvPopSupport" />
 
-        <EditText
+        <eu.faircode.email.EditTextPlain
             android:id="@+id/etHost"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -101,7 +101,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvInsecureRemark" />
 
-        <EditText
+        <eu.faircode.email.EditTextPlain
             android:id="@+id/etPort"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -125,7 +125,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etPort" />
 
-        <EditText
+        <eu.faircode.email.EditTextPlain
             android:id="@+id/etUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -196,7 +196,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvName" />
 
-        <EditText
+        <eu.faircode.email.EditTextPlain
             android:id="@+id/etName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -327,7 +327,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbLeaveDevice" />
 
-        <EditText
+        <eu.faircode.email.EditTextPlain
             android:id="@+id/etMax"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -349,7 +349,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etMax" />
 
-        <EditText
+        <eu.faircode.email.EditTextPlain
             android:id="@+id/etInterval"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -43,7 +43,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvParent" />
 
-        <EditText
+        <eu.faircode.email.EditTextPlain
             android:id="@+id/etName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -64,7 +64,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etName" />
 
-        <EditText
+        <eu.faircode.email.EditTextPlain
             android:id="@+id/etDisplay"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -152,7 +152,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbSynchronize" />
 
-        <EditText
+        <eu.faircode.email.EditTextPlain
             android:id="@+id/etPoll"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -230,7 +230,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/tvSyncDaysRemark" />
 
-        <EditText
+        <eu.faircode.email.EditTextPlain
             android:id="@+id/etSyncDays"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -264,7 +264,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvKeepDays" />
 
-        <EditText
+        <eu.faircode.email.EditTextPlain
             android:id="@+id/etKeepDays"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

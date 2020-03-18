@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <EditText
+        <eu.faircode.email.EditTextPlain
             android:id="@+id/etName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -27,9 +27,9 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <requestFocus />
-        </EditText>
+        </eu.faircode.email.EditTextPlain>
 
-        <EditText
+        <eu.faircode.email.EditTextPlain
             android:id="@+id/etEmail"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

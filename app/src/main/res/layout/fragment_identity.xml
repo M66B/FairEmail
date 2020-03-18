@@ -45,7 +45,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/spAccount" />
 
-        <EditText
+        <eu.faircode.email.EditTextPlain
             android:id="@+id/etName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -69,7 +69,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etName" />
 
-        <EditText
+        <eu.faircode.email.EditTextPlain
             android:id="@+id/etEmail"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -92,7 +92,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etEmail" />
 
-        <EditText
+        <eu.faircode.email.EditTextPlain
             android:id="@+id/etDisplay"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -218,7 +218,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvDomain" />
 
-        <EditText
+        <eu.faircode.email.EditTextPlain
             android:id="@+id/etDomain"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -275,7 +275,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSmtp" />
 
-        <EditText
+        <eu.faircode.email.EditTextPlain
             android:id="@+id/etHost"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -344,7 +344,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvInsecureRemark" />
 
-        <EditText
+        <eu.faircode.email.EditTextPlain
             android:id="@+id/etPort"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -369,7 +369,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etPort" />
 
-        <EditText
+        <eu.faircode.email.EditTextPlain
             android:id="@+id/etUser"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -467,7 +467,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnOAuth" />
 
-        <EditText
+        <eu.faircode.email.EditTextPlain
             android:id="@+id/etRealm"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -534,7 +534,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbSenderExtra" />
 
-        <EditText
+        <eu.faircode.email.EditTextPlain
             android:id="@+id/etSenderExtra"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -566,7 +566,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSenderExtraHint" />
 
-        <EditText
+        <eu.faircode.email.EditTextPlain
             android:id="@+id/etReplyTo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -588,7 +588,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etReplyTo" />
 
-        <EditText
+        <eu.faircode.email.EditTextPlain
             android:id="@+id/etBcc"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

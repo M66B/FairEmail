@@ -66,7 +66,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvDomain" />
 
-        <EditText
+        <eu.faircode.email.EditTextPlain
             android:id="@+id/etDomain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -124,7 +124,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvImap" />
 
-        <EditText
+        <eu.faircode.email.EditTextPlain
             android:id="@+id/etHost"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -192,7 +192,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvInsecureRemark" />
 
-        <EditText
+        <eu.faircode.email.EditTextPlain
             android:id="@+id/etPort"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -216,7 +216,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etPort" />
 
-        <EditText
+        <eu.faircode.email.EditTextPlain
             android:id="@+id/etUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -325,7 +325,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvOAuthSupport" />
 
-        <EditText
+        <eu.faircode.email.EditTextPlain
             android:id="@+id/etRealm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -358,7 +358,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvName" />
 
-        <EditText
+        <eu.faircode.email.EditTextPlain
             android:id="@+id/etName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -512,7 +512,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbAutoSeen" />
 
-        <EditText
+        <eu.faircode.email.EditTextPlain
             android:id="@+id/etInterval"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

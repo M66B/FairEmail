@@ -53,7 +53,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/swDoubleBack" />
 
-        <EditText
+        <eu.faircode.email.EditTextPlain
             android:id="@+id/etDefaultSnooze"
             android:layout_width="100dp"
             android:layout_height="wrap_content"

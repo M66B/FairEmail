@@ -172,7 +172,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvTimeout" />
 
-        <EditText
+        <eu.faircode.email.EditTextPlain
             android:id="@+id/etTimeout"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
@@ -218,7 +218,7 @@
             app:layout_constraintTop_toBottomOf="@id/tvSslHardenHint"
             app:switchPadding="12dp" />
 
-        <EditText
+        <eu.faircode.email.EditTextPlain
             android:id="@+id/etSocks"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
