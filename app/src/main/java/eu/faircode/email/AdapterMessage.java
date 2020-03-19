@@ -814,7 +814,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         @SuppressLint("WrongConstant")
-        private void bindTo(final TupleMessageEx message, int position) {
+        private void bindTo(final TupleMessageEx message, int position, boolean scroll) {
             boolean inbox = EntityFolder.INBOX.equals(message.folderType);
             boolean outbox = EntityFolder.OUTBOX.equals(message.folderType);
             boolean outgoing = isOutgoing(message);
@@ -1097,7 +1097,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             if (viewType == ViewType.THREAD)
                 if (expanded)
-                    bindExpanded(message, false);
+                    bindExpanded(message, scroll);
                 else
                     clearExpanded(message);
 
@@ -2615,7 +2615,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     } else {
                         message.ui_seen = !message.ui_seen;
                         message.unseen = (message.ui_seen ? 0 : message.count);
-                        bindTo(message, getAdapterPosition());
+                        bindTo(message, getAdapterPosition(), false);
 
                         Bundle args = new Bundle();
                         args.putLong("id", message.id);
@@ -2991,10 +2991,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             else {
                 boolean expanded = !properties.getValue("expanded", message.id);
                 properties.setExpanded(message, expanded);
-                bindTo(message, getAdapterPosition());
-
-                // Needed for expand one
-                properties.scrollTo(getAdapterPosition());
+                bindTo(message, getAdapterPosition(), expanded);
             }
         }
 
@@ -3603,7 +3600,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     properties.setExpanded(message, false);
                     message.ui_seen = args.getBoolean("seen");
                     message.unseen = (message.ui_seen ? 0 : message.count);
-                    bindTo(message, getAdapterPosition());
+                    bindTo(message, getAdapterPosition(), false);
                 }
 
                 @Override
@@ -4868,7 +4865,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         holder.unwire();
-        holder.bindTo(message, position);
+        holder.bindTo(message, position, false);
         holder.wire();
     }
 
