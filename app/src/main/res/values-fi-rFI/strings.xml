@@ -361,6 +361,7 @@
     <string name="title_advanced_import_key">Tuo yksityinen avain</string>
     <string name="title_advanced_manage_keys">Hallinnoi yksityisiä avaimia</string>
     <string name="title_advanced_external_search">Salli muiden sovellusten hakea viesteistä</string>
+    <string name="title_advanced_conversation_actions">Näytä keskustelun toiminnot</string>
     <string name="title_advanced_fts">Rakenna haun indeksi</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d viestiä indeksoitu (%3$s)</string>
     <string name="title_advanced_english">Pakota englannin kieli</string>

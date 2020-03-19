@@ -363,6 +363,7 @@
     <string name="title_advanced_import_key">Импортиране на частен ключ</string>
     <string name="title_advanced_manage_keys">Управление на частни ключове</string>
     <string name="title_advanced_external_search">Разрешаване на други приложения да търсят в съобщения</string>
+    <string name="title_advanced_conversation_actions">Покажи действията при разговор</string>
     <string name="title_advanced_fts">Изграждане индекс за търсене</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d индексирани съобщения (%3$s)</string>
     <string name="title_advanced_english">Принудително на английски език</string>
@@ -612,6 +613,8 @@
     <string name="title_move_to">Премести в &#8230;</string>
     <string name="title_move_to_folder">Премести в &#8230;</string>
     <string name="title_move_to_account">Премести в %1$s &#8230;</string>
+    <string name="title_report_spam">Третиране като спам</string>
+    <string name="title_delete_permanently">Изтрийте за постоянно</string>
     <string name="title_snooze">Дрямка &#8230;</string>
     <string name="title_archive">Архив</string>
     <string name="title_reply">Отговори</string>

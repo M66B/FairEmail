@@ -363,6 +363,7 @@
     <string name="title_advanced_import_key">Importer privat nøkkel</string>
     <string name="title_advanced_manage_keys">Administrer private nøkler</string>
     <string name="title_advanced_external_search">Tillat andre apper å søke i meldinger</string>
+    <string name="title_advanced_conversation_actions">Vis samtalehandlinger</string>
     <string name="title_advanced_fts">Bygg søkeindeks</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d meldinger indeksert (%3$s)</string>
     <string name="title_advanced_english">Tving bruk av engelsk</string>

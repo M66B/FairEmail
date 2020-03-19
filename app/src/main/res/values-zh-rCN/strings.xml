@@ -351,6 +351,7 @@
     <string name="title_advanced_import_key">导入私钥</string>
     <string name="title_advanced_manage_keys">管理私钥</string>
     <string name="title_advanced_external_search">允许其他应用在消息中搜索</string>
+    <string name="title_advanced_conversation_actions">显示会话操作</string>
     <string name="title_advanced_fts">创建搜索索引</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d 的消息已索引(%3$s)</string>
     <string name="title_advanced_english">强制使用英语</string>

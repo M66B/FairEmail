@@ -362,6 +362,7 @@
     <string name="title_advanced_import_key">Importeer privé sleutel</string>
     <string name="title_advanced_manage_keys">Privé sleutels beheren</string>
     <string name="title_advanced_external_search">Andere apps mogen zoeken in berichten</string>
+    <string name="title_advanced_conversation_actions">Toon conversatie-acties</string>
     <string name="title_advanced_fts">Zoekindex opbouwen</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d berichten geïndexeerd (%3$s)</string>
     <string name="title_advanced_english">Forceer Engelse taal</string>
@@ -613,6 +614,7 @@
     <string name="title_move_to_folder">Verplaats naar &#8230;</string>
     <string name="title_move_to_account">Verplaats naar %1$s &#8230;</string>
     <string name="title_report_spam">Behandel als spam</string>
+    <string name="title_delete_permanently">Definitief verwijderen</string>
     <string name="title_snooze">Sluimeren &#8230;</string>
     <string name="title_archive">Archiveren</string>
     <string name="title_reply">Beantwoorden</string>

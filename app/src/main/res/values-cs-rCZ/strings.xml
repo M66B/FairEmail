@@ -530,6 +530,7 @@
     <string name="title_oauth_support">OAuth není podporováno</string>
     <string name="title_review">Zkontrolovat</string>
     <string name="title_hint_alias">Dlouze podržet pro možnosti, např. kopírování pro vytvoření aliasu identity</string>
+    <string name="title_service_vpn">Toto může být zapříčiněno použitou VPN</string>
     <string name="title_service_port">Překontrolujte prosím číslo portu</string>
     <string name="title_advanced_browse">Procházet zprávy na serveru</string>
     <string name="title_advanced_expand_read">Označit zprávy jako přečtené při rozbalení</string>
@@ -633,6 +634,8 @@
     <string name="title_move_to">Přesunout do &#8230;</string>
     <string name="title_move_to_folder">Přesunout do &#8230;</string>
     <string name="title_move_to_account">Přesunout do %1$s &#8230;</string>
+    <string name="title_report_spam">Považovat za nevyžádané</string>
+    <string name="title_delete_permanently">Trvale odstranit</string>
     <string name="title_snooze">Odložit &#8230;</string>
     <string name="title_archive">Archiv</string>
     <string name="title_reply">Odpovědět</string>
