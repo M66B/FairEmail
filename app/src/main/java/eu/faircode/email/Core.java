@@ -2088,7 +2088,7 @@ class Core {
                             " uid=" + dup.uid + "/" + uid +
                             " msgid=" + msgid + " thread=" + thread);
 
-                    if (dup.uid == null) {
+                    if (dup.uid == null || dup.uid <= uid) {
                         Log.i(folder.name + " set uid=" + uid);
                         dup.uid = uid;
                         dup.thread = thread;
@@ -2101,8 +2101,10 @@ class Core {
                         dup.error = null;
 
                         message = dup;
-                        process = true;
-                    }
+                        update = true;
+                        process = (dup.uid == null);
+                    } else
+                        return null;
                 }
 
                 if (dup.flagged && dup.color != null)
