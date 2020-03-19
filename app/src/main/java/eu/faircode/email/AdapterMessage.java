@@ -27,6 +27,7 @@ import android.app.Dialog;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.Person;
 import android.app.RemoteAction;
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -92,6 +93,7 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.textclassifier.ConversationAction;
 import android.view.textclassifier.ConversationActions;
 import android.view.textclassifier.TextClassificationManager;
+import android.view.textclassifier.TextClassifier;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -155,10 +157,12 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 
@@ -1932,15 +1936,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         throw new IllegalStateException("Result=" + result);
 
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                        llAction.removeAllViews();
                         ConversationActions cactions = args.getParcelable("actions");
                         if (cactions != null) {
                             List<ConversationAction> actions = cactions.getConversationActions();
                             for (ConversationAction action : actions) {
-                                String type = action.getType();
-                                if (ConversationAction.TYPE_OPEN_URL.equals(type) ||
-                                        ConversationAction.TYPE_SEND_EMAIL.equals(type))
-                                    continue;
-
                                 final RemoteAction raction = action.getAction();
                                 final CharSequence title = (raction == null ? action.getTextReply() : raction.getTitle());
 
@@ -1967,8 +1967,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 });
                                 llAction.addView(button);
                             }
-                            if (llAction.getChildCount() > 0)
-                                llAction.setVisibility(View.VISIBLE);
+                            llAction.setVisibility(llAction.getChildCount() > 0 ? View.VISIBLE : View.GONE);
                         }
                     }
 
@@ -2027,15 +2026,30 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (tcm == null)
                         return null;
 
-                    ZonedDateTime dt = new Date(message.received).toInstant().atZone(ZoneId.systemDefault());
+                    Person person = isOutgoing(message)
+                            ? ConversationActions.Message.PERSON_USER_SELF
+                            : ConversationActions.Message.PERSON_USER_OTHERS;
+                    ZonedDateTime dt = new Date(message.received)
+                            .toInstant()
+                            .atZone(ZoneId.systemDefault());
+                    Set<String> excluded = Collections.unmodifiableSet(
+                            new HashSet<>(Arrays.asList(
+                                    ConversationAction.TYPE_OPEN_URL,
+                                    ConversationAction.TYPE_SEND_EMAIL
+                            )));
                     ConversationActions.Message cmessage =
-                            new ConversationActions.Message.Builder(ConversationActions.Message
-                                    .PERSON_USER_OTHERS)
+                            new ConversationActions.Message.Builder(person)
                                     .setReferenceTime(dt)
                                     .setText(document.text())
                                     .build();
+                    TextClassifier.EntityConfig config =
+                            new TextClassifier.EntityConfig.Builder()
+                                    .setExcludedTypes(excluded)
+                                    .build();
                     ConversationActions.Request crequest =
-                            new ConversationActions.Request.Builder(Arrays.asList(cmessage)).build();
+                            new ConversationActions.Request.Builder(Arrays.asList(cmessage))
+                                    .setTypeConfig(config)
+                                    .build();
 
                     return tcm.getTextClassifier().suggestConversationActions(crequest);
                 }
