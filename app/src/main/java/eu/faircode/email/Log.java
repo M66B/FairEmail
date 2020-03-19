@@ -512,6 +512,37 @@ public class Log {
         }
 
         if (ex instanceof IllegalArgumentException &&
+                ex.getCause() instanceof RemoteException)
+            /*
+                java.lang.IllegalArgumentException
+                  at android.os.Parcel.createException(Parcel.java:1954)
+                  at android.os.Parcel.readException(Parcel.java:1918)
+                  at android.os.Parcel.readException(Parcel.java:1868)
+                  at android.view.IWindowSession$Stub$Proxy.addToDisplay(IWindowSession.java:826)
+                  at android.view.ViewRootImpl.setView(ViewRootImpl.java:758)
+                  at android.view.WindowManagerGlobal.addView(WindowManagerGlobal.java:356)
+                  at android.view.WindowManagerImpl.addView(WindowManagerImpl.java:93)
+                  at android.app.ActivityThread.handleResumeActivity(ActivityThread.java:3906)
+                  at android.app.servertransaction.ResumeActivityItem.execute(ResumeActivityItem.java:51)
+                  at android.app.servertransaction.TransactionExecutor.executeLifecycleState(TransactionExecutor.java:145)
+                  at android.app.servertransaction.TransactionExecutor.execute(TransactionExecutor.java:70)
+                  at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1816)
+                  at android.os.Handler.dispatchMessage(Handler.java:106)
+                  at android.os.Looper.loop(Looper.java:193)
+                  at android.app.ActivityThread.main(ActivityThread.java:6718)
+                  at java.lang.reflect.Method.invoke(Native Method)
+                  at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:491)
+                  at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:858)
+                Caused by: android.os.RemoteException: Remote stack trace:
+                  at android.view.SurfaceControl.nativeCreate(Native Method)
+                  at android.view.SurfaceControl.<init>(SurfaceControl.java:630)
+                  at android.view.SurfaceControl.<init>(SurfaceControl.java:60)
+                  at android.view.SurfaceControl$Builder.build(SurfaceControl.java:386)
+                  at com.android.server.wm.WindowContainer.onParentSet(WindowContainer.java:184)
+             */
+            return false;
+
+        if (ex instanceof IllegalArgumentException &&
                 ex.getMessage() != null &&
                 ex.getMessage().startsWith("Tmp detached view should be removed from RecyclerView before it can be recycled"))
             /*
