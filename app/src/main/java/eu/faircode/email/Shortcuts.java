@@ -23,6 +23,7 @@ import android.Manifest;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ShortcutManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -38,6 +39,7 @@ import androidx.core.content.pm.ShortcutInfoCompat;
 import androidx.core.content.pm.ShortcutManagerCompat;
 import androidx.core.graphics.drawable.IconCompat;
 import androidx.lifecycle.LifecycleOwner;
+import androidx.preference.PreferenceManager;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -57,15 +59,22 @@ class Shortcuts {
             @Override
             @TargetApi(Build.VERSION_CODES.N_MR1)
             protected List<ShortcutInfoCompat> onExecute(Context context, Bundle args) {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean enabled = prefs.getBoolean("shortcuts", true);
+
                 ShortcutManager sm = (ShortcutManager) context.getSystemService(Context.SHORTCUT_SERVICE);
                 int app = sm.getMaxShortcutCountPerActivity();
                 int manifest = sm.getManifestShortcuts().size();
                 int count = Math.min(app - manifest, MAX_SHORTCUTS);
-                EntityLog.log(context, "Shortcuts count=" + count + " app=" + app + " manifest=" + manifest);
+                EntityLog.log(context, "Shortcuts count=" + count +
+                        " app=" + app + " manifest=" + manifest + " enabled=" + enabled);
+
+                List<ShortcutInfoCompat> shortcuts = new ArrayList<>();
+                if (!enabled)
+                    return shortcuts;
 
                 DB db = DB.getInstance(context);
                 List<String> emails = new ArrayList<>();
-                List<ShortcutInfoCompat> shortcuts = new ArrayList<>();
                 try (Cursor cursor = db.contact().getFrequentlyContacted()) {
                     int colEmail = cursor.getColumnIndex("email");
                     int colName = cursor.getColumnIndex("name");

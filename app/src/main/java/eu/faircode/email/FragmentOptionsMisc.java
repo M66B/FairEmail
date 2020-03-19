@@ -53,6 +53,7 @@ import io.requery.android.database.sqlite.SQLiteDatabase;
 
 public class FragmentOptionsMisc extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private SwitchCompat swExternalSearch;
+    private SwitchCompat swShortcuts;
     private SwitchCompat swConversationActions;
     private SwitchCompat swFts;
     private TextView tvFtsIndexed;
@@ -79,7 +80,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private Group grpDebug;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "conversation_actions", "fts", "english", "watchdog", "auto_optimize", "updates", "experiments", "crash_reports", "debug"
+            "shortcuts", "conversation_actions", "fts", "english", "watchdog", "auto_optimize", "updates", "experiments", "crash_reports", "debug"
     };
 
     private final static String[] RESET_QUESTIONS = new String[]{
@@ -100,6 +101,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         // Get controls
 
         swExternalSearch = view.findViewById(R.id.swExternalSearch);
+        swShortcuts = view.findViewById(R.id.swShortcuts);
         swConversationActions = view.findViewById(R.id.swConversationActions);
         swFts = view.findViewById(R.id.swFts);
         tvFtsIndexed = view.findViewById(R.id.tvFtsIndexed);
@@ -141,6 +143,14 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                                 ? PackageManager.COMPONENT_ENABLED_STATE_DEFAULT
                                 : PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
                         PackageManager.DONT_KILL_APP);
+            }
+        });
+
+        swShortcuts.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("shortcuts", checked).commit(); // apply won't work here
+                restart();
             }
         });
 
@@ -389,6 +399,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         int state = pm.getComponentEnabledSetting(new ComponentName(getContext(), ActivitySearch.class));
 
         swExternalSearch.setChecked(state != PackageManager.COMPONENT_ENABLED_STATE_DISABLED);
+        swShortcuts.setChecked(prefs.getBoolean("shortcuts", true));
         swConversationActions.setChecked(prefs.getBoolean("conversation_actions", true));
         swConversationActions.setVisibility(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q ? View.VISIBLE : View.GONE);
         swFts.setChecked(prefs.getBoolean("fts", false));
