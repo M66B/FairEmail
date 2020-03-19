@@ -468,7 +468,7 @@ public class ServiceUI extends IntentService {
         if (reschedule) {
             long now = new Date().getTime();
             long[] schedule = ServiceSynchronize.getSchedule(this);
-            boolean enabled = (schedule == null || (now >= schedule[0] && now < schedule[1]));
+            boolean enabled = (schedule != null && now >= schedule[0] && now < schedule[1]);
             schedule(this, enabled);
         }
     }

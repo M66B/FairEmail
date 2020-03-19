@@ -1726,7 +1726,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
             long[] schedule = getSchedule(ServiceSynchronize.this);
             long now = new Date().getTime();
-            boolean scheduled = (schedule == null || now >= schedule[0] && now < schedule[1]);
+            boolean scheduled = (schedule == null || (now >= schedule[0] && now < schedule[1]));
 
             if (command == null) {
                 command = new Bundle();
@@ -1807,7 +1807,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         boolean enabled;
         long[] schedule = getSchedule(context);
         if (schedule == null)
-            enabled = true;
+            enabled = false;
         else {
             long now = new Date().getTime();
             long next = (now < schedule[0] ? schedule[0] : schedule[1]);
@@ -1827,7 +1827,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
     static long[] getSchedule(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        if (!prefs.getBoolean("schedule", false))
+        boolean enabled = prefs.getBoolean("enabled", true);
+        boolean schedule = prefs.getBoolean("schedule", false);
+
+        if (!enabled || !schedule)
             return null;
 
         if (!ActivityBilling.isPro(context))
