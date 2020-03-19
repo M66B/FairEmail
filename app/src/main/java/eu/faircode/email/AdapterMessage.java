@@ -1955,6 +1955,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         boolean has = false;
                         ConversationActions cactions = args.getParcelable("actions");
                         if (cactions != null) {
+                            LinearLayout.LayoutParams lparam = new LinearLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT);
+
                             List<ConversationAction> actions = cactions.getConversationActions();
                             for (ConversationAction action : actions) {
                                 final RemoteAction raction = action.getAction();
@@ -1964,7 +1966,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                                 Button button = new Button(context, null, android.R.attr.buttonStyleSmall);
                                 button.setId(View.generateViewId());
-                                button.setLayoutParams(new LinearLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT));
+                                button.setLayoutParams(lparam);
                                 button.setText(title);
                                 button.setOnClickListener(new View.OnClickListener() {
                                     @Override
