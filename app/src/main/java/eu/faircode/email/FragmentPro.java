@@ -85,7 +85,7 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 prefs.edit().putBoolean("banner", !isChecked).apply();
-                ServiceUI.schedule(getContext(), isChecked);
+                ServiceUI.scheduleBanner(getContext(), isChecked);
             }
         });
 
