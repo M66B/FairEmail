@@ -46,7 +46,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Shortcuts {
+class Shortcuts {
+    private static final int MAX_SHORTCUTS = 4;
+
     static void update(final Context context, final LifecycleOwner owner) {
         if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.N_MR1)
             return;
@@ -56,9 +58,9 @@ public class Shortcuts {
             @TargetApi(Build.VERSION_CODES.N_MR1)
             protected List<ShortcutInfoCompat> onExecute(Context context, Bundle args) {
                 ShortcutManager sm = (ShortcutManager) context.getSystemService(Context.SHORTCUT_SERVICE);
-                int app = ShortcutManagerCompat.getMaxShortcutCountPerActivity(context);
+                int app = sm.getMaxShortcutCountPerActivity();
                 int manifest = sm.getManifestShortcuts().size();
-                int count = app - manifest;
+                int count = Math.min(app - manifest, MAX_SHORTCUTS);
                 EntityLog.log(context, "Shortcuts count=" + count + " app=" + app + " manifest=" + manifest);
 
                 DB db = DB.getInstance(context);
