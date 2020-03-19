@@ -439,6 +439,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private Group grpAddresses;
         private Group grpHeaders;
+        private Group grpAction;
         private Group grpCalendar;
         private Group grpCalendarResponse;
         private Group grpAttachments;
@@ -622,6 +623,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             grpAddresses = vsBody.findViewById(R.id.grpAddresses);
             grpHeaders = vsBody.findViewById(R.id.grpHeaders);
+            grpAction = vsBody.findViewById(R.id.grpAction);
             grpCalendar = vsBody.findViewById(R.id.grpCalendar);
             grpCalendarResponse = vsBody.findViewById(R.id.grpCalendarResponse);
             grpAttachments = attachments.findViewById(R.id.grpAttachments);
@@ -1127,6 +1129,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             grpAddresses.setVisibility(View.GONE);
             grpHeaders.setVisibility(View.GONE);
+            grpAction.setVisibility(View.GONE);
             grpCalendar.setVisibility(View.GONE);
             grpCalendarResponse.setVisibility(View.GONE);
             grpAttachments.setVisibility(View.GONE);
@@ -1198,8 +1201,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvNoInternetBody.setVisibility(View.GONE);
             grpDownloading.setVisibility(View.GONE);
             ibSeen.setVisibility(View.GONE);
-            llAction.setVisibility(View.GONE);
-            llAction.removeAllViews();
         }
 
         private void clearCalendar() {
@@ -1569,6 +1570,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private void bindBody(TupleMessageEx message) {
             tvBody.setText(null);
             grpDownloading.setVisibility(message.content ? View.GONE : View.VISIBLE);
+
+            grpAction.setVisibility(View.GONE);
 
             ibSeen.setImageResource(message.ui_seen
                     ? R.drawable.baseline_visibility_off_24 : R.drawable.baseline_visibility_24);
@@ -1942,7 +1945,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             List<ConversationAction> actions = cactions.getConversationActions();
                             for (ConversationAction action : actions) {
                                 final RemoteAction raction = action.getAction();
-                                final CharSequence title = (raction == null ? action.getTextReply() : raction.getTitle());
+                                final CharSequence title = (raction == null
+                                        ? context.getString(R.string.title_conversation_action_reply, action.getTextReply())
+                                        : raction.getTitle());
 
                                 Button button = new Button(context, null, android.R.attr.buttonStyleSmall);
                                 button.setId(View.generateViewId());
@@ -1967,7 +1972,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 });
                                 llAction.addView(button);
                             }
-                            llAction.setVisibility(llAction.getChildCount() > 0 ? View.VISIBLE : View.GONE);
+                            grpAction.setVisibility(llAction.getChildCount() > 0 ? View.VISIBLE : View.GONE);
                         }
                     }
 

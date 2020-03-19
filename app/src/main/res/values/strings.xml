@@ -427,7 +427,7 @@
 
     <string name="title_advanced_external_search">Allow other apps to search in messages</string>
     <string name="title_advanced_shortcuts">Show frequently used contacts in Android share menu</string>
-    <string name="title_advanced_conversation_actions">Show conversation actions</string>
+    <string name="title_advanced_conversation_actions">Show quick actions</string>
     <string name="title_advanced_fts">Build search index</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d messages indexed (%3$s)</string>
     <string name="title_advanced_english">Force English language</string>
@@ -1126,6 +1126,9 @@
     <string name="title_loading">Loading &#8230;</string>
     <string name="title_set">Set</string>
     <string name="title_fetching_again">Fetching message again from the server</string>
+
+    <string name="title_conversation_actions">Quick actions</string>
+    <string name="title_conversation_action_reply">Start reply with: \'%1$s\'</string>
 
     <string name="title_icalendar_accept">Accept</string>
     <string name="title_icalendar_decline">Decline</string>

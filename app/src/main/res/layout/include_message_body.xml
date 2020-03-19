@@ -101,11 +101,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvBody" />
 
-    <LinearLayout
-        android:id="@+id/llAction"
+    <include
+        android:id="@+id/InAction"
+        layout="@layout/include_message_action"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/wvBody" />
@@ -119,7 +119,7 @@
         android:padding="6dp"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/llAction"
+        app:layout_constraintTop_toBottomOf="@id/InAction"
         app:srcCompat="@drawable/baseline_visibility_24" />
 
     <include
