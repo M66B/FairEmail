@@ -32,6 +32,7 @@ For authorizing:
 * Outlook / Hotmail: see [question 14](#user-content-faq14)
 * Microsoft Exchange: see [question 8](#user-content-faq8)
 * Yahoo!: see [question 88](#user-content-faq88)
+* Apple iCloud: see [question 148](#user-content-faq148)
 
 Please see [here](#user-content-faq22) for common error messages.
 
@@ -262,6 +263,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(145) How can I set a notification sound for an account, folder or sender?](#user-content-faq145)
 * [(146) How can I fix incorrect message times?](#user-content-faq146)
 * [(147) What should I know about third party versions?](#user-content-faq147)
+* [(148) How can I use an Apple iCloud account?](#user-content-faq148)
 
 [I have another question.](#user-content-support)
 
@@ -2810,6 +2812,15 @@ When desired, this can be turned off in the miscellaneous settings.
 Please [see here](https://github.com/M66B/FairEmail/blob/master/README.md#user-content-downloads) for all download options.
 
 If you have a problem with the F-Droid build, please check if there is a newer version first.
+
+<br />
+
+<a name="faq148"></a>
+**(148) How can I use an Apple iCloud account?**
+
+There is a built-in profile for Apple iCloud, but if needed you can find the right settings [here](https://support.apple.com/en-us/HT202304).
+
+When using two-factor authentication you might need to use an [app-specific password](https://support.apple.com/en-us/HT204397).
 
 <br />
 
