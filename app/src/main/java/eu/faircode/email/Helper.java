@@ -44,6 +44,7 @@ import android.os.LocaleList;
 import android.os.Parcel;
 import android.os.PowerManager;
 import android.os.StatFs;
+import android.provider.DocumentsContract;
 import android.security.KeyChain;
 import android.security.KeyChainAliasCallback;
 import android.security.KeyChainException;
@@ -923,6 +924,8 @@ public class Helper {
         intent.putExtra("android.content.extra.FANCY", true);
         intent.putExtra("android.content.extra.SHOW_FILESIZE", true);
         intent.putExtra("android.provider.extra.SHOW_ADVANCED", true);
+        File initial = Environment.getExternalStorageDirectory();
+        intent.putExtra(DocumentsContract.EXTRA_INITIAL_URI, Uri.fromFile(initial));
     }
 
     // Cryptography
