@@ -475,7 +475,7 @@ public class ServiceUI extends IntentService {
 
     private void onBanner() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        prefs.edit().remove("banner").apply();
+        prefs.edit().remove("banner_hidden").apply();
     }
 
     static void sync(Context context, Long account) {
@@ -506,22 +506,37 @@ public class ServiceUI extends IntentService {
         }
     }
 
-    static void scheduleBanner(Context context, boolean set) {
+    private static PendingIntent getBannerIntent(Context context) {
         Intent banner = new Intent(context, ServiceUI.class);
         banner.setAction("banner");
-        PendingIntent pi = PendingIntent.getService(context, ServiceUI.PI_BANNER, banner, PendingIntent.FLAG_UPDATE_CURRENT);
+        return PendingIntent.getService(context, ServiceUI.PI_BANNER, banner, PendingIntent.FLAG_UPDATE_CURRENT);
+    }
 
+    static void scheduleBanner(Context context, boolean set) {
         AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         if (set) {
             long now = new Date().getTime();
             long interval = AlarmManager.INTERVAL_DAY * 7;
             long due = interval - (now % interval);
             long trigger = now + due;
             Log.i("Set banner alarm at " + new Date(trigger) + " due=" + due);
-            am.set(AlarmManager.RTC, trigger, pi);
+            am.set(AlarmManager.RTC, trigger, getBannerIntent(context));
+            prefs.edit().putLong("banner_hidden", trigger).apply();
         } else {
             Log.i("Cancel banner alarm");
-            am.cancel(pi);
+            am.cancel(getBannerIntent(context));
+            prefs.edit().remove("banner_hidden").apply();
+        }
+    }
+
+    static void boot(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        long banner_hidden = prefs.getLong("banner_hidden", 0);
+        if (banner_hidden > 0) {
+            Log.i("Restore banner alarm at " + new Date(banner_hidden));
+            AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+            am.set(AlarmManager.RTC, banner_hidden, getBannerIntent(context));
         }
     }
 }

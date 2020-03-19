@@ -3132,11 +3132,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
-        if ("pro".equals(key) || "banner".equals(key)) {
+        if ("pro".equals(key) || "banner_hidden".equals(key)) {
             boolean pro = ActivityBilling.isPro(getContext());
-            boolean banner = prefs.getBoolean("banner", true);
+            long banner_hidden = prefs.getLong("banner_hidden", 0);
             grpSupport.setVisibility(
-                    !pro && banner && viewType == AdapterMessage.ViewType.UNIFIED
+                    !pro && banner_hidden == 0 && viewType == AdapterMessage.ViewType.UNIFIED
                             ? View.VISIBLE : View.GONE);
         }
     }

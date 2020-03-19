@@ -78,13 +78,12 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
         tvInfo.setText(getString(R.string.title_pro_info)
                 .replaceAll("^\\s+", "").replaceAll("\\s+", " "));
 
-        boolean banner = prefs.getBoolean("banner", true);
-        cbHide.setChecked(!banner);
+        long banner_hidden = prefs.getLong("banner_hidden", 0);
+        cbHide.setChecked(banner_hidden > 0);
 
         cbHide.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                prefs.edit().putBoolean("banner", !isChecked).apply();
                 ServiceUI.scheduleBanner(getContext(), isChecked);
             }
         });
@@ -204,7 +203,9 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
             boolean pro = ActivityBilling.isPro(getContext());
             tvActivated.setVisibility(pro ? View.VISIBLE : View.GONE);
             cbHide.setVisibility(pro ? View.GONE : View.VISIBLE);
-        } else if ("banner".equals(key))
-            cbHide.setChecked(!prefs.getBoolean(key, true));
+        } else if ("banner_hidden".equals(key)) {
+            long banner_hidden = prefs.getLong("banner_hidden", 0);
+            cbHide.setChecked(banner_hidden > 0);
+        }
     }
 }

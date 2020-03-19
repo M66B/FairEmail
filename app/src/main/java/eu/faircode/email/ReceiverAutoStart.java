@@ -22,9 +22,6 @@ package eu.faircode.email;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-
-import androidx.preference.PreferenceManager;
 
 public class ReceiverAutoStart extends BroadcastReceiver {
     @Override
@@ -33,11 +30,9 @@ public class ReceiverAutoStart extends BroadcastReceiver {
                 Intent.ACTION_MY_PACKAGE_REPLACED.equals(intent.getAction())) {
             Log.i("Received " + intent);
 
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            prefs.edit().remove("banner").apply();
-
             ServiceSynchronize.boot(context);
             ServiceSend.boot(context);
+            ServiceUI.boot(context);
             WorkerCleanup.queueOnce(context);
         }
     }
