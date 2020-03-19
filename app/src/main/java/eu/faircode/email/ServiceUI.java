@@ -505,4 +505,23 @@ public class ServiceUI extends IntentService {
             AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, next, piSync);
         }
     }
+
+    static void scheduleBanner(Context context, boolean set) {
+        Intent banner = new Intent(context, ServiceUI.class);
+        banner.setAction("banner");
+        PendingIntent pi = PendingIntent.getService(context, ServiceUI.PI_BANNER, banner, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        if (set) {
+            long now = new Date().getTime();
+            long interval = AlarmManager.INTERVAL_DAY * 7;
+            long due = interval - (now % interval);
+            long trigger = now + due;
+            Log.i("Set banner alarm at " + new Date(trigger) + " due=" + due);
+            am.set(AlarmManager.RTC, trigger, pi);
+        } else {
+            Log.i("Cancel banner alarm");
+            am.cancel(pi);
+        }
+    }
 }
