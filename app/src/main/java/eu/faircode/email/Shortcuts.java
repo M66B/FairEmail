@@ -59,7 +59,7 @@ public class Shortcuts {
                 int app = ShortcutManagerCompat.getMaxShortcutCountPerActivity(context);
                 int manifest = sm.getManifestShortcuts().size();
                 int count = app - manifest;
-                Log.i("Shortcuts count=" + count + " app=" + app + " manifest=" + manifest);
+                EntityLog.log(context, "Shortcuts count=" + count + " app=" + app + " manifest=" + manifest);
 
                 DB db = DB.getInstance(context);
                 List<String> emails = new ArrayList<>();
@@ -76,6 +76,7 @@ public class Shortcuts {
                         if (emails.contains(email))
                             continue;
                         emails.add(email);
+                        EntityLog.log(context, "Shortcut email=" + email);
 
                         Intent intent = new Intent(context, ActivityMain.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
