@@ -908,6 +908,7 @@ means that the Android account manager was not able to refresh the authorization
 The error *... Authentication failed ... Invalid credentials ...* could be caused by having revoked the required account/contacts permissions.
 Just start the wizard (but do not select an account) to grant the required permissions again.
 
+The eror *... ServiceDisabled ...* might be caused by enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/).
 
 When in doubt, you can ask for [support](#user-content-support).
 

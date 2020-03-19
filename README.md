@@ -111,10 +111,9 @@ Please see [here](https://email.faircode.eu/#screenshots) for screenshots.
 * [F-Droid](https://f-droid.org/en/packages/eu.faircode.email/) ([last build status](https://f-droid.org/wiki/page/eu.faircode.email/lastbuild)) (the F-Droid app can be downloaded [here](https://f-droid.org/))
 * [AppGallery](https://wap3.hispace.hicloud.com/uowap/index.jsp#/detailApp/C101678151) (the AppGallery app can be downloaded [here](https://huaweimobileservices.com/appgallery/))
 
-The Gmail quick setup wizard can be used in official releases only (Play store or GitHub) because Google approved the use of OAuth for one app signature only.
+**Important**: after enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/) downloading/installing is possible from the Play store only.
 
-**Important**: after enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/)
-the Gmail quick setup wizard (OAuth) will work only if FairEmail was downloaded from the Play store.
+The Gmail quick setup wizard can be used in official releases only (Play store or GitHub) because Google approved the use of OAuth for one app signature only.
 
 **Important**: Gsuite accounts authorized with a username/password will stop working
 in the [near future](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
