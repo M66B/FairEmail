@@ -111,6 +111,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
+import androidx.constraintlayout.helper.widget.Flow;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.FileProvider;
@@ -421,7 +422,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageButton ibDownloading;
         private Group grpDownloading;
         private ImageButton ibSeen;
-        private LinearLayout llAction;
+        private Flow flow;
 
         private TextView tvCalendarSummary;
         private TextView tvCalendarDescription;
@@ -611,7 +612,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibDownloading = vsBody.findViewById(R.id.ibDownloading);
             grpDownloading = vsBody.findViewById(R.id.grpDownloading);
             ibSeen = vsBody.findViewById(R.id.ibSeen);
-            llAction = vsBody.findViewById(R.id.llAction);
+            flow = vsBody.findViewById(R.id.flow);
 
             rvImage = vsBody.findViewById(R.id.rvImage);
             rvImage.setHasFixedSize(false);
@@ -1201,6 +1202,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvNoInternetBody.setVisibility(View.GONE);
             grpDownloading.setVisibility(View.GONE);
             ibSeen.setVisibility(View.GONE);
+            clearActions();
+        }
+
+        private void clearActions() {
+            ConstraintLayout cl = (ConstraintLayout) flow.getParent();
+            for (int id : flow.getReferencedIds()) {
+                View v = cl.findViewById(id);
+                flow.removeView(v);
+                cl.removeView(v);
+            }
         }
 
         private void clearCalendar() {
@@ -1939,7 +1950,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         throw new IllegalStateException("Result=" + result);
 
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                        llAction.removeAllViews();
+                        clearActions();
+
+                        boolean has = false;
                         ConversationActions cactions = args.getParcelable("actions");
                         if (cactions != null) {
                             List<ConversationAction> actions = cactions.getConversationActions();
@@ -1970,9 +1983,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                         }
                                     }
                                 });
-                                llAction.addView(button);
+                                ((ConstraintLayout) flow.getParent()).addView(button);
+                                flow.addView(button);
+                                has = true;
                             }
-                            grpAction.setVisibility(llAction.getChildCount() > 0 ? View.VISIBLE : View.GONE);
+                            grpAction.setVisibility(has ? View.VISIBLE : View.GONE);
                         }
                     }
 

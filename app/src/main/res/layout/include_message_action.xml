@@ -29,12 +29,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/vSeparatorAction" />
 
-    <LinearLayout
-        android:id="@+id/llAction"
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/flow"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:orientation="vertical"
+        app:flow_horizontalBias="0"
+        app:flow_horizontalGap="6dp"
+        app:flow_horizontalStyle="packed"
+        app:flow_wrapMode="chain"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvActionTitle" />
@@ -43,5 +45,5 @@
         android:id="@+id/grpAction"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:constraint_referenced_ids="vSeparatorAction,tvActionTitle,llAction" />
+        app:constraint_referenced_ids="vSeparatorAction,tvActionTitle,flow" />
 </androidx.constraintlayout.widget.ConstraintLayout>
