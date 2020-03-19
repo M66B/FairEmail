@@ -2032,11 +2032,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ZonedDateTime dt = new Date(message.received)
                             .toInstant()
                             .atZone(ZoneId.systemDefault());
+                    Set<String> included = Collections.unmodifiableSet(
+                            new HashSet<>(Arrays.asList(
+                                    ConversationAction.TYPE_TEXT_REPLY
+                            )));
                     Set<String> excluded = Collections.unmodifiableSet(
                             new HashSet<>(Arrays.asList(
                                     ConversationAction.TYPE_OPEN_URL,
                                     ConversationAction.TYPE_SEND_EMAIL
                             )));
+                    List<String> hints = Collections.unmodifiableList(Arrays.asList(
+                            ConversationActions.Request.HINT_FOR_IN_APP
+                    ));
                     ConversationActions.Message cmessage =
                             new ConversationActions.Message.Builder(person)
                                     .setReferenceTime(dt)
@@ -2044,11 +2051,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     .build();
                     TextClassifier.EntityConfig config =
                             new TextClassifier.EntityConfig.Builder()
+                                    //.setIncludedTypes(included)
                                     .setExcludedTypes(excluded)
+                                    //.includeTypesFromTextClassifier(false)
+                                    //.setHints(included)
                                     .build();
                     ConversationActions.Request crequest =
                             new ConversationActions.Request.Builder(Arrays.asList(cmessage))
                                     .setTypeConfig(config)
+                                    .setHints(hints)
                                     .build();
 
                     return tcm.getTextClassifier().suggestConversationActions(crequest);
