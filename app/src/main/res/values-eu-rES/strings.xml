@@ -362,7 +362,6 @@
     <string name="title_advanced_manage_keys">Kudeatu gako pribatuak</string>
     <string name="title_advanced_external_search">Baimendu beste aplikazioei mezuetan bilatzea</string>
     <string name="title_advanced_shortcuts">Erakutsi maiz erabilitako kontaktuak Android partekatzeko menuan</string>
-    <string name="title_advanced_conversation_actions">Erakutsi ekintza azkarrak</string>
     <string name="title_advanced_fts">Sortu bilaketa-indizea</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d mezu indexatuak (%3$s)</string>
     <string name="title_advanced_english">Behartu hizkuntza ingelesa</string>
@@ -999,8 +998,6 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_loading">Kargatzen &#8230;</string>
     <string name="title_set">Ezarri</string>
     <string name="title_fetching_again">Mezua berriro zerbitzaritik jasotzen</string>
-    <string name="title_conversation_actions">Ekintza azkarrak</string>
-    <string name="title_conversation_action_reply">Hasi erantzuna honekin: \'%1$s\'</string>
     <string name="title_icalendar_accept">Onartu</string>
     <string name="title_icalendar_decline">Errefusatu</string>
     <string name="title_icalendar_maybe">Agian</string>

@@ -136,6 +136,7 @@
     <string name="title_setup_password_invalid">Wachtwurd ûnjildich</string>
     <string name="title_setup_reorder_accounts">Oarder akkounts</string>
     <string name="title_setup_reorder_folders">Oarder mappen</string>
+    <string name="title_reset_order">Reset folchoarder</string>
     <string name="title_setup_biometrics_enable">Ynskeakele</string>
     <string name="title_setup_biometrics_disable">Utskeakele</string>
     <string name="title_setup_biometrics_unlock">Losmeitsje</string>
@@ -161,26 +162,42 @@
     <string name="title_advanced_when">Wannear</string>
     <string name="title_advanced_schedule">Skema</string>
     <string name="title_advanced_advanced">Avansearre</string>
+    <string name="title_advanced_keyboard">Sjoch toetseboerd mei standert</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d piksels</string>
+    <string name="title_advanced_send_reminders">Sjoch herinneringen</string>
     <string name="title_advanced_caption_general">Algemien</string>
     <string name="title_advanced_caption_list">List</string>
     <string name="title_advanced_caption_conversation">Konversaasje</string>
     <string name="title_advanced_caption_message">Berjochte</string>
     <string name="title_advanced_caption_message_header">Berjochtkoptekst</string>
     <string name="title_advanced_caption_message_body">Berjochtynhâld</string>
+    <string name="title_advanced_startup">Sjoch op it startskerm</string>
+    <string name="title_advanced_color_stripe">Sjoch lit streep</string>
+    <string name="title_advanced_avatars">Sjoch kontaktfoto\'s</string>
+    <string name="title_advanced_gravatars">Sjoch gravatars</string>
+    <string name="title_advanced_generated_icons">Sjoch generearre ikoanen</string>
+    <string name="title_advanced_identicons">Sjoch identykons</string>
+    <string name="title_advanced_circular">Sjoch rûne ikoanen</string>
+    <string name="title_advanced_color_saturation">Sêding</string>
     <string name="title_advanced_color_value">Dúdlikens</string>
-    <string name="title_advanced_flags">Stjerren sjen litte</string>
+    <string name="title_advanced_name_email">Sjoch nammen en e-postadressen</string>
+    <string name="title_advanced_authentication">Lit in warskôging sjen doe\'t de ûntfangende server it berjocht net koe autentisearje</string>
+    <string name="title_advanced_flags">Sjoch stjerren</string>
+    <string name="title_advanced_preview">Sjoch berjochtfoarbyld</string>
+    <string name="title_advanced_text_color">Sjoch tekstkleuren</string>
+    <string name="title_advanced_images_inline">Inline ôfbyldings automatysk sjen litte</string>
     <string name="title_advanced_notify_action_trash">Jiskefet</string>
     <string name="title_advanced_notify_action_junk">Spam</string>
     <string name="title_advanced_notify_action_archive">Argyf</string>
     <string name="title_advanced_notify_action_move">Ferpleatse</string>
     <string name="title_advanced_notify_action_reply">Antwurdzje</string>
+    <string name="title_advanced_notify_action_reply_direct">Direkt antwurd</string>
     <string name="title_advanced_notify_action_flag">Stjer</string>
     <string name="title_advanced_notify_action_seen">Lêze</string>
     <string name="title_advanced_notify_action_snooze">Snooze</string>
+    <string name="title_advanced_confirm_images">Befêstigje werjaan fan ôfbyldings</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_shortcuts">Lit faak brûkte kontakten sjen yn Android-dielmenu</string>
-    <string name="title_advanced_conversation_actions">Fluch aksjes sjen litte</string>
     <string name="title_advanced_debug">Debug mode</string>
     <string name="title_advanced_cleanup">Skjinmeitsjen</string>
     <string name="title_advanced_more">Mear opsjes</string>
@@ -194,7 +211,9 @@
     <string name="title_account_name">Akkount namme</string>
     <string name="title_color">Kleur</string>
     <string name="title_account_left">Veeg links</string>
+    <string name="title_account_right">Veeg nei rjochts</string>
     <string name="title_domain">Domeinnamme</string>
+    <string name="title_autoconfig">Krij ynstellings</string>
     <string name="title_aliases">Aliases</string>
     <string name="title_provider">Ynternetoanbieder</string>
     <string name="title_custom">Oanpast</string>
@@ -211,9 +230,15 @@
     <string name="title_no_password">Wachtwurd ûntbrekt</string>
     <string name="title_review">Resinsje</string>
     <string name="title_synchronize_enabled">Syngronisearje</string>
+    <string name="title_empty_trash">Lege jiskefet</string>
+    <string name="title_empty_spam">Spam leech</string>
     <string name="title_edit_rules">Bewurkje regel</string>
     <string name="title_folder_name">Map namme</string>
     <string name="title_display_name">Display namme</string>
+    <string name="title_show_folders">Sjoch ferburgen mappen</string>
+    <string name="title_hide_folder">Map ferbergje</string>
+    <string name="title_unified_folder">Lit sjen yn unifoarme postfak</string>
+    <string name="title_navigation_folder">Lit sjen yn navigaasjemenu</string>
     <string name="title_folder_unified">Unifieare postfak</string>
     <string name="title_folder_inbox">Postfek YN</string>
     <string name="title_folder_outbox">Utfak</string>
@@ -230,15 +255,23 @@
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Foarút: %1$s</string>
     <string name="title_seen">Mark lêzen</string>
+    <string name="title_unseen">Markearje as net lêzen</string>
     <string name="title_hide">Ferbergje</string>
-    <string name="title_unhide">Fertoane</string>
+    <string name="title_unhide">Sjoch</string>
     <string name="title_flag">Stjer tafoegje</string>
+    <string name="title_unflag">Stjer fuortsmite</string>
     <string name="title_importance_low">Leech</string>
     <string name="title_importance_normal">Normaal</string>
     <string name="title_importance_high">Heech</string>
     <string name="title_forward">Foarút</string>
+    <string name="title_new_message">Nij berjocht</string>
+    <string name="title_editasnew">Bewurkje as nij</string>
     <string name="title_share">Diele</string>
     <string name="title_print">Ôfdrukke</string>
+    <string name="title_show_headers">Sjoch kopteksten</string>
+    <string name="title_add_keyword">Foegje kaaiwurd ta</string>
+    <string name="title_show_inline">Sjoch ynline taheaksels</string>
+    <string name="title_download_all">Download alles</string>
     <string name="title_save_all">Alles opslaan</string>
     <string name="title_trash">Jiskefet</string>
     <string name="title_copy">Kopy &#8230;</string>
@@ -252,6 +285,7 @@
     <string name="title_reply">Antwurdzje</string>
     <string name="title_open_with">Iepenje mei</string>
     <string name="title_authentication_failed">%1$s ferifikaasje mislearre</string>
+    <string name="title_show_full">Sjoch folsleine berjocht</string>
     <string name="title_ask_delete">Ferwiderje berjocht permanint?</string>
     <string name="title_compose">Gearstalle</string>
     <string name="title_submitter">Stjoerd troch:</string>
@@ -280,8 +314,13 @@
     <string name="title_style_underline">Ûnderstreekje</string>
     <string name="title_style_size">Grutte</string>
     <string name="title_style_color">Kleur</string>
+    <string name="title_style_link">Link ynfoegje</string>
+    <string name="title_style_image">Ofbylding ynfoegje</string>
+    <string name="title_attachment_file">Heakje bestân ta</string>
     <string name="title_attachment_photo">Nim foto</string>
     <string name="title_attachment_audio">Audio opnimme</string>
+    <string name="title_show_addresses">Sjoch CC / BCC</string>
+    <string name="title_draft_saved">Untwerp opslein</string>
     <string name="title_queued">Ferstjoere berjochten</string>
     <string name="title_sign">Ûndertekenje</string>
     <string name="title_encrypt">Fersiferje</string>
@@ -303,34 +342,43 @@
     <string name="title_sort_on_size">Grutte</string>
     <string name="title_sort_on_attachments">Taheaksels</string>
     <string name="title_sort_on_hidden">Ferburgen</string>
+    <string name="title_sort_ascending">Aldste earst</string>
     <string name="title_filter">Útfilterje</string>
     <string name="title_filter_seen">Lêze</string>
     <string name="title_filter_unflagged">Unstjerre</string>
     <string name="title_filter_hidden">Ferburgen</string>
     <string name="title_filter_duplicates">Duplikaten</string>
+    <string name="title_compact">Kompakt werjefte</string>
     <string name="title_zoom">Tekstgrutte</string>
     <string name="title_select_all">Alles selektearje</string>
+    <string name="title_select_found">Selektearje fûn</string>
+    <string name="title_force_sync">Krêft syngronisearje</string>
     <string name="title_previous">Foarige</string>
     <string name="title_next">Folgjende</string>
     <string name="title_answer_favorite">Favoryt</string>
     <string name="title_rule_noop">Gjin aksje</string>
     <string name="title_rule_seen">Mark lêzen</string>
+    <string name="title_rule_unseen">Markearje as net lêzen</string>
     <string name="title_rule_hide">Ferbergje</string>
     <string name="title_rule_snooze">Snooze</string>
     <string name="title_rule_flag">Stjer tafoegje</string>
+    <string name="title_rule_keyword">Foegje kaaiwurd ta</string>
     <string name="title_rule_move">Ferpleatse</string>
+    <string name="title_rule_copy">Kopiearje (label)</string>
     <string name="title_rule_answer">Antwurdzje</string>
     <string name="title_rule_automation">Automatisearring</string>
     <string name="title_rule_caption">Bewurkje regel</string>
     <string name="title_rule_name">Namme</string>
     <string name="title_rule_order">Sekwinsje</string>
     <string name="title_rule_enabled">Ynskeakele</string>
+    <string name="title_rule_time">Tiid tusken</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">EN</string>
     <string name="title_rule_action">Aksje</string>
     <string name="title_rule_hours">Oeren</string>
     <string name="title_rule_folder">Map</string>
     <string name="title_rule_identity">Identiteit</string>
+    <string name="title_rule_execute">No útfiere</string>
     <string name="title_rule_check">Kontrolearje</string>
     <string name="title_legend_section_synchronize">Syngronisearje</string>
     <string name="title_legend_section_folders">Mappen</string>
@@ -355,13 +403,27 @@
     <string name="title_legend_thread">Konversaasje</string>
     <string name="title_legend_draft">Hat konsept</string>
     <string name="title_legend_signed">Is tekene</string>
+    <string name="title_legend_encrypted">Is fersifere</string>
     <string name="title_legend_found">Is fûn</string>
     <string name="title_legend_snoozed">Is snoozed</string>
+    <string name="title_legend_flagged">Heakje bestân ta</string>
+    <string name="title_legend_view">Besjoch ynhâld</string>
+    <string name="title_legend_hide">Ferbergje ynhâld</string>
+    <string name="title_legend_broken_image">Brutsen ôfbylding</string>
+    <string name="title_legend_pick">Kies kontakt</string>
+    <string name="title_legend_cc">Sjoch CC / BCC</string>
+    <string name="title_legend_link">Link ynfoegje</string>
+    <string name="title_legend_file">Heakje bestân ta</string>
     <string name="title_legend_photo">Nim foto</string>
     <string name="title_legend_audio">Audio opnimme</string>
     <string name="title_legend_roaming">Roaming</string>
     <string name="title_legend_expander">Utwreidzje</string>
     <string name="title_legend_avatar">Avatar</string>
+    <string name="title_legend_show_quotes">Sjoch sitaten</string>
+    <string name="title_legend_show_junk">Behannelje as spam</string>
+    <string name="title_legend_show_unsubscribe">Abonnearje fan list</string>
+    <string name="title_legend_show_images">Sjoch ofbyldings</string>
+    <string name="title_legend_show_full">Sjoch folslein skerm</string>
     <string name="title_legend_edit">Bewurkje</string>
     <string name="title_legend_default_color">Standertkleur</string>
     <string name="title_legend_close_hint">Hint slute</string>
@@ -371,6 +433,7 @@
     <string name="title_legend_folder_type">Map type</string>
     <string name="title_hint_important">Belangryk</string>
     <string name="title_open_link">Open link</string>
+    <string name="title_check_owner">Kontrolearje eigner</string>
     <string name="title_select_app">App selektearje</string>
     <string name="title_yes">Ja</string>
     <string name="title_no">Nee</string>
@@ -391,14 +454,13 @@
     <string name="title_1day">1 dei</string>
     <string name="title_1week">1 wike</string>
     <string name="title_now">No</string>
+    <string name="title_after">Nei %1$s</string>
     <string name="title_reset">Weromsette</string>
     <string name="title_hours">Oeren</string>
     <string name="title_minutes">Minuten</string>
     <string name="title_dismiss">Wegerje</string>
     <string name="title_snooze_now">Snooze</string>
     <string name="title_set">Ynstelle</string>
-    <string name="title_conversation_actions">Fluch aksjes</string>
-    <string name="title_conversation_action_reply">Begjin antwurdzje mei: \'%1$s\'</string>
     <string name="title_icalendar_accept">Akseptearje</string>
     <string name="title_icalendar_decline">Efterútgong</string>
     <string name="title_icalendar_maybe">Miskien</string>
@@ -407,13 +469,16 @@
     <string name="title_pro_once">Allinne ien kear</string>
     <string name="title_pro_price">Sjoch asjebleaft <a href="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq19">dizze FAQ</a> oer de priis fan \'e pro-funksjes</string>
     <string name="title_log">Lochboek</string>
+    <string name="title_auto_scroll">Auto skowe</string>
     <string name="title_log_clear">Wiskje</string>
+    <string name="title_debug_info">Debug-ynfo</string>
     <string name="title_search_special_prefix">spesjaal</string>
     <string name="title_search_special_unseen">net lêzen</string>
     <string name="title_search_special_flagged">stjer</string>
     <string name="title_search_special_snoozed">ferburgen</string>
     <string name="title_search_special_encrypted">fersifere</string>
     <string name="title_search_special_attachments">taheaksels</string>
+    <string name="title_widget_title_list">Berjochtlist</string>
     <string name="title_widget_account">Akkount</string>
     <string name="title_widget_account_all">Alle</string>
     <string name="title_widget_folder">Map</string>
@@ -429,11 +494,17 @@
     <string name="title_accessibility_unflagged">Unstjerre</string>
     <string name="title_accessibility_collapse">Ynsakje</string>
     <string name="title_accessibility_expand">Útwreidzje</string>
+    <string name="title_accessibility_view_contact">Is fersifere</string>
+    <string name="title_accessibility_show_authentication_result">Sjoch ferifikaasje resultaat</string>
+    <string name="title_accessibility_show_snooze_time">Sjoch snooze tiid</string>
     <string name="title_accessibility_view_help">Besjoch help</string>
     <string name="title_accessibility_selected">Selektearre</string>
     <string name="title_accessibility_answered">Antwurde</string>
+    <string name="title_accessibility_scroll_down">Rôlje nei ûnderen</string>
     <string name="title_accessibility_scroll_up">Rôlje omheech</string>
     <string name="title_accessibility_edit">Bewurkje</string>
+    <string name="title_accessibility_show_addresses">Sjoch adressen</string>
+    <string name="title_accessibility_hide_addresses">Adressen ferbergje</string>
     <string name="title_accessibility_attachment">Taheaksel</string>
     <string name="title_accessibility_from">Stjoerder</string>
     <string name="title_accessibility_to">Ûntfanger</string>
@@ -482,7 +553,7 @@
         <item>Lyts</item>
         <item>Medium</item>
         <item>Grutte</item>
-        <item>Extra large</item>
+        <item>Ekstra grut</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
@@ -497,6 +568,11 @@
         <item>5 minuten</item>
         <item>10 minuten</item>
         <item>20 minuten</item>
+    </string-array>
+    <string-array name="ellipsizeNames">
+        <item>Oan it begjin</item>
+        <item>In the middle</item>
+        <item>Oan de ein</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Leech</item>

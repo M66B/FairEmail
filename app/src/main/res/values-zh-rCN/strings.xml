@@ -352,7 +352,8 @@
     <string name="title_advanced_manage_keys">管理私钥</string>
     <string name="title_advanced_external_search">允许其他应用在消息中搜索</string>
     <string name="title_advanced_shortcuts">在安卓共享菜单中显示常用联系人</string>
-    <string name="title_advanced_conversation_actions">显示快捷操作</string>
+    <string name="title_advanced_conversation_actions">建议操作</string>
+    <string name="title_advanced_conversation_actions_replies">建议回复文本</string>
     <string name="title_advanced_fts">创建搜索索引</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d 的消息已索引(%3$s)</string>
     <string name="title_advanced_english">强制使用英语</string>
@@ -990,7 +991,7 @@
     <string name="title_loading">&#8230;加载中</string>
     <string name="title_set">设定</string>
     <string name="title_fetching_again">再次从服务器获取消息</string>
-    <string name="title_conversation_actions">快捷操作</string>
+    <string name="title_conversation_actions">操作</string>
     <string name="title_conversation_action_reply">以 \'%1$s\' 开头进行回复</string>
     <string name="title_icalendar_accept">接受</string>
     <string name="title_icalendar_decline">拒绝</string>

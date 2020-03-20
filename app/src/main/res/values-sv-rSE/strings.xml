@@ -363,7 +363,6 @@
     <string name="title_advanced_manage_keys">Hantera privata nycklar</string>
     <string name="title_advanced_external_search">Tillåt andra appar att söka i meddelanden</string>
     <string name="title_advanced_shortcuts">Visa ofta använda kontakter i Android dela-menyn</string>
-    <string name="title_advanced_conversation_actions">Visa snabbåtgärder</string>
     <string name="title_advanced_fts">Bygg sökindex</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d meddelanden indexerade (%3$s)</string>
     <string name="title_advanced_english">Tvinga användning av engelska</string>
@@ -1001,8 +1000,6 @@
     <string name="title_loading">Läser in &#8230;</string>
     <string name="title_set">Ställ in</string>
     <string name="title_fetching_again">Hämtar meddelande igen från servern</string>
-    <string name="title_conversation_actions">Snabbåtgärder</string>
-    <string name="title_conversation_action_reply">Börja svar med: \'%1$s\'</string>
     <string name="title_icalendar_accept">Godkänn</string>
     <string name="title_icalendar_decline">Avfärda</string>
     <string name="title_icalendar_maybe">Kanske</string>

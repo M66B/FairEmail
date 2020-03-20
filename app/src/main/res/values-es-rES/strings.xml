@@ -365,7 +365,6 @@
     <string name="title_advanced_manage_keys">Administrar claves privadas</string>
     <string name="title_advanced_external_search">Permitir que otras aplicaciones busquen en mensajes</string>
     <string name="title_advanced_shortcuts">Mostrar contactos frecuentes en el menú compartir de Android</string>
-    <string name="title_advanced_conversation_actions">Mostrar acciones rápidas</string>
     <string name="title_advanced_fts">Crear índice de búsqueda</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d mensajes indexados (%3$s)</string>
     <string name="title_advanced_english">Forzar idioma inglés</string>
@@ -1003,8 +1002,6 @@
     <string name="title_loading">Cargando &#8230;</string>
     <string name="title_set">Aplicar</string>
     <string name="title_fetching_again">Recuperando mensaje nuevamente del servidor</string>
-    <string name="title_conversation_actions">Acciones rápidas</string>
-    <string name="title_conversation_action_reply">Comenzar respuesta con: \'%1$s\'</string>
     <string name="title_icalendar_accept">Aceptar</string>
     <string name="title_icalendar_decline">Rechazar</string>
     <string name="title_icalendar_maybe">Tal vez</string>

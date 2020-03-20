@@ -364,7 +364,6 @@
     <string name="title_advanced_manage_keys">Управление на частни ключове</string>
     <string name="title_advanced_external_search">Разрешаване на други приложения да търсят в съобщения</string>
     <string name="title_advanced_shortcuts">Показвайте често използвани контакти в менюто за споделяне на Android</string>
-    <string name="title_advanced_conversation_actions">Покажете бързи действия</string>
     <string name="title_advanced_fts">Изграждане индекс за търсене</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d индексирани съобщения (%3$s)</string>
     <string name="title_advanced_english">Принудително на английски език</string>
@@ -1001,8 +1000,6 @@
     <string name="title_loading">Зареждане &#8230;</string>
     <string name="title_set">Задай</string>
     <string name="title_fetching_again">Извличане на съобщението от сървъра отново</string>
-    <string name="title_conversation_actions">Бързи действия</string>
-    <string name="title_conversation_action_reply">Започнете отговора с: \'%1$s\'</string>
     <string name="title_icalendar_accept">Приемам</string>
     <string name="title_icalendar_decline">Не приемам</string>
     <string name="title_icalendar_maybe">Може би</string>

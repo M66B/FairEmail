@@ -364,13 +364,14 @@
     <string name="title_advanced_manage_keys">Gérer les clés privées</string>
     <string name="title_advanced_external_search">Autoriser les autres applications à rechercher dans les messages</string>
     <string name="title_advanced_shortcuts">Afficher les contacts fréquemment utilisés dans le menu de partage Android</string>
-    <string name="title_advanced_conversation_actions">Afficher les actions rapides</string>
+    <string name="title_advanced_conversation_actions">Suggérer des actions</string>
+    <string name="title_advanced_conversation_actions_replies">Suggérer des textes de réponse</string>
     <string name="title_advanced_fts">Construire l\'index de recherche</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d messages indexés (%3$s)</string>
     <string name="title_advanced_english">Forcer la langue anglaise</string>
     <string name="title_advanced_watchdog">Vérifier périodiquement si FairEmail est toujours actif</string>
     <string name="title_advanced_optimize">Optimiser automatiquement les paramètres</string>
-    <string name="title_advanced_updates">Vérifier les mises à jour</string>
+    <string name="title_advanced_updates">Rechercher les mises à jour</string>
     <string name="title_advanced_experiments">Essayer les fonctionnalités expérimentales</string>
     <string name="title_advanced_crash_reports">Envoyer des rapports d\'erreur</string>
     <string name="title_advanced_debug">Débogage</string>
@@ -1002,8 +1003,8 @@
     <string name="title_loading">Chargement&#8230;</string>
     <string name="title_set">Appliquer</string>
     <string name="title_fetching_again">Nouvelle récupération du message depuis le serveur</string>
-    <string name="title_conversation_actions">Actions rapides</string>
-    <string name="title_conversation_action_reply">Commencer la réponse avec : \'%1$s\'</string>
+    <string name="title_conversation_actions">Actions</string>
+    <string name="title_conversation_action_reply">Répondre avec : \'%1$s\'</string>
     <string name="title_icalendar_accept">Accepter</string>
     <string name="title_icalendar_decline">Refuser</string>
     <string name="title_icalendar_maybe">Peut-être</string>

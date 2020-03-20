@@ -384,7 +384,6 @@
     <string name="title_advanced_import_key">Importovat privátní klíč</string>
     <string name="title_advanced_manage_keys">Spravovat privátní klíče</string>
     <string name="title_advanced_external_search">Povolit ostatním aplikacím vyhledávat ve zprávách</string>
-    <string name="title_advanced_conversation_actions">Zobrazit rychlé akce</string>
     <string name="title_advanced_fts">Sestavit index vyhledávání</string>
     <string name="title_advanced_fts_indexed">Indexováno %1$d / %2$d zpráv (%3$s)</string>
     <string name="title_advanced_english">Vynutit anglický jazyk</string>
@@ -1021,8 +1020,6 @@
     <string name="title_loading">Načítání &#8230;</string>
     <string name="title_set">Nastavit</string>
     <string name="title_fetching_again">Opětovné získávání zprávy ze serveru</string>
-    <string name="title_conversation_actions">Rychlé akce</string>
-    <string name="title_conversation_action_reply">Začít odpověď s \'%1$s\'</string>
     <string name="title_icalendar_accept">Přijmout</string>
     <string name="title_icalendar_decline">Odmítnout</string>
     <string name="title_icalendar_maybe">Nezávazně</string>
