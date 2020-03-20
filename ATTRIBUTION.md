@@ -20,3 +20,4 @@ FairEmail uses:
 * [Color Picker](https://github.com/QuadFlask/colorpicker). Copyright 2014-2017 QuadFlask. [Apache License 2.0](https://github.com/QuadFlask/colorpicker#user-content-license).
 * [Bouncy Castle](https://www.bouncycastle.org/). Copyright (c) 2000 - 2019 The Legion of the Bouncy Castle Inc. [MIT License](https://www.bouncycastle.org/licence.html).
 * [AppAuth for Android](https://github.com/openid/AppAuth-Android). Copyright 2015 The AppAuth for Android Authors. All Rights Reserved. [Apache License 2.0](https://github.com/openid/AppAuth-Android/blob/master/LICENSE).
+* [JCharset](http://www.freeutils.net/source/jcharset/). Copyright (C) 1989, 1991 Free Software Foundation, Inc. [GNU General Public License](http://www.freeutils.net/source/jcharset/#license).

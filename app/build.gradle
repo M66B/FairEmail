@@ -257,6 +257,7 @@ dependencies {
     def bouncycastle_version = "1.64"
     def colorpicker_version = "0.0.15"
     def appauth_version = "0.7.1"
+    def jcharset_version = "2.1"
 
     // https://developer.android.com/jetpack/androidx/releases/
 
@@ -388,4 +389,7 @@ dependencies {
     // https://github.com/openid/AppAuth-Android
     // https://mvnrepository.com/artifact/net.openid/appauth?repo=bt-openid
     implementation "net.openid:appauth:$appauth_version"
+
+    // http://www.freeutils.net/source/jcharset/
+    implementation "net.freeutils:jcharset:$jcharset_version"
 }
