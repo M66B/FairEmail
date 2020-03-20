@@ -2054,6 +2054,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ZonedDateTime dt = new Date(message.received)
                             .toInstant()
                             .atZone(ZoneId.systemDefault());
+                    List<ConversationActions.Message> input = new ArrayList<>();
+                    if (!TextUtils.isEmpty(message.subject))
+                        input.add(new ConversationActions.Message.Builder(person)
+                                .setReferenceTime(dt)
+                                .setText(message.subject)
+                                .build());
+                    input.add(new ConversationActions.Message.Builder(person)
+                            .setReferenceTime(dt)
+                            .setText(document.text())
+                            .build());
+
                     Set<String> included = Collections.unmodifiableSet(
                             new HashSet<>(Arrays.asList(
                                     ConversationAction.TYPE_TEXT_REPLY
@@ -2063,14 +2074,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     ConversationAction.TYPE_OPEN_URL,
                                     ConversationAction.TYPE_SEND_EMAIL
                             )));
-                    List<String> hints = Collections.unmodifiableList(Arrays.asList(
-                            ConversationActions.Request.HINT_FOR_IN_APP
-                    ));
-                    ConversationActions.Message cmessage =
-                            new ConversationActions.Message.Builder(person)
-                                    .setReferenceTime(dt)
-                                    .setText(document.text())
-                                    .build();
                     TextClassifier.EntityConfig config =
                             new TextClassifier.EntityConfig.Builder()
                                     //.setIncludedTypes(included)
@@ -2078,8 +2081,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     //.includeTypesFromTextClassifier(false)
                                     //.setHints(included)
                                     .build();
+
+                    List<String> hints = Collections.unmodifiableList(Arrays.asList(
+                            ConversationActions.Request.HINT_FOR_IN_APP
+                    ));
+
                     ConversationActions.Request crequest =
-                            new ConversationActions.Request.Builder(Arrays.asList(cmessage))
+                            new ConversationActions.Request.Builder(input)
                                     .setTypeConfig(config)
                                     .setHints(hints)
                                     .build();
