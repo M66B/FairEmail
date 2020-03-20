@@ -87,12 +87,21 @@ public class NavMenuItem {
     }
 
     void onClick() {
-        click.run();
+        try {
+            click.run();
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
     }
 
     boolean onLongClick() {
-        if (longClick != null)
-            longClick.run();
-        return (longClick != null);
+        try {
+            if (longClick != null)
+                longClick.run();
+            return (longClick != null);
+        } catch (Throwable ex) {
+            Log.e(ex);
+            return false;
+        }
     }
 }
