@@ -250,7 +250,7 @@ public class ApplicationEx extends Application {
         } else if (version < 1021) {
             boolean highlight_unread = prefs.getBoolean("highlight_unread", false);
             if (!highlight_unread)
-                prefs.edit().putBoolean("highlight_unread", highlight_unread);
+                editor.putBoolean("highlight_unread", highlight_unread);
         }
 
         if (BuildConfig.DEBUG && false) {
