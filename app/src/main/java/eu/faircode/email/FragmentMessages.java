@@ -4432,6 +4432,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             Context context = getContext();
             if (context == null)
                 return false;
+            if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                return false;
 
             boolean up = (event.getAction() == ACTION_UP);
 
