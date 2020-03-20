@@ -1958,7 +1958,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             LinearLayout.LayoutParams lparam = new LinearLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT);
 
                             List<ConversationAction> actions = cactions.getConversationActions();
-                            for (ConversationAction action : actions) {
+                            for (final ConversationAction action : actions) {
                                 final RemoteAction raction = action.getAction();
                                 final CharSequence title = (raction == null
                                         ? context.getString(R.string.title_conversation_action_reply, action.getTextReply())
@@ -1976,7 +1976,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                                 Intent reply = new Intent(context, ActivityCompose.class)
                                                         .putExtra("action", "reply")
                                                         .putExtra("reference", message.id)
-                                                        .putExtra("text", title);
+                                                        .putExtra("text", action.getTextReply());
                                                 context.startActivity(reply);
                                             } else
                                                 raction.getActionIntent().send();
