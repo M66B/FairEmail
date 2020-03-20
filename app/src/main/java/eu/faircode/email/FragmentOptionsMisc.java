@@ -27,7 +27,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Paint;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -54,8 +53,6 @@ import io.requery.android.database.sqlite.SQLiteDatabase;
 public class FragmentOptionsMisc extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private SwitchCompat swExternalSearch;
     private SwitchCompat swShortcuts;
-    private SwitchCompat swConversationActions;
-    private SwitchCompat swConversationActionsReplies;
     private SwitchCompat swFts;
     private TextView tvFtsIndexed;
     private TextView tvFtsPro;
@@ -78,12 +75,10 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private TextView tvStorageSpace;
     private TextView tvFingerprint;
 
-    private Group grpConversationActions;
     private Group grpDebug;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "shortcuts", "conversation_actions", "conversation_actions_replies",
-            "fts", "english", "watchdog", "auto_optimize", "updates", "experiments", "crash_reports", "debug"
+            "shortcuts", "fts", "english", "watchdog", "auto_optimize", "updates", "experiments", "crash_reports", "debug"
     };
 
     private final static String[] RESET_QUESTIONS = new String[]{
@@ -105,8 +100,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         swExternalSearch = view.findViewById(R.id.swExternalSearch);
         swShortcuts = view.findViewById(R.id.swShortcuts);
-        swConversationActions = view.findViewById(R.id.swConversationActions);
-        swConversationActionsReplies = view.findViewById(R.id.swConversationActionsReplies);
         swFts = view.findViewById(R.id.swFts);
         tvFtsIndexed = view.findViewById(R.id.tvFtsIndexed);
         tvFtsPro = view.findViewById(R.id.tvFtsPro);
@@ -129,7 +122,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvStorageSpace = view.findViewById(R.id.tvStorageSpace);
         tvFingerprint = view.findViewById(R.id.tvFingerprint);
 
-        grpConversationActions = view.findViewById(R.id.grpConversationActions);
         grpDebug = view.findViewById(R.id.grpDebug);
 
         setOptions();
@@ -156,21 +148,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("shortcuts", checked).commit(); // apply won't work here
                 restart();
-            }
-        });
-
-        swConversationActions.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("conversation_actions", checked).apply();
-                swConversationActionsReplies.setEnabled(checked);
-            }
-        });
-
-        swConversationActionsReplies.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("conversation_actions_replies", checked).apply();
             }
         });
 
@@ -413,9 +390,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         swExternalSearch.setChecked(state != PackageManager.COMPONENT_ENABLED_STATE_DISABLED);
         swShortcuts.setChecked(prefs.getBoolean("shortcuts", true));
-        swConversationActions.setChecked(prefs.getBoolean("conversation_actions", true));
-        swConversationActionsReplies.setChecked(prefs.getBoolean("conversation_actions_replies", true));
-        swConversationActionsReplies.setEnabled(swConversationActions.isChecked());
         swFts.setChecked(prefs.getBoolean("fts", false));
         swEnglish.setChecked(prefs.getBoolean("english", false));
         swWatchdog.setChecked(prefs.getBoolean("watchdog", true));
@@ -440,7 +414,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                 Helper.humanReadableByteCount(Helper.getTotalStorageSpace(), true)));
         tvFingerprint.setText(Helper.getFingerprint(getContext()));
 
-        grpConversationActions.setVisibility(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q ? View.VISIBLE : View.GONE);
         grpDebug.setVisibility(swDebug.isChecked() || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
     }
 

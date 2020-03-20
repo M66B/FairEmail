@@ -40,6 +40,30 @@
             app:layout_constraintTop_toBottomOf="@id/tvCaptionGeneral"
             app:switchPadding="12dp" />
 
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swConversationActions"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/title_advanced_conversation_actions"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swDoubleBack"
+            app:switchPadding="12dp" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swConversationActionsReplies"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/title_advanced_conversation_actions_replies"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swConversationActions"
+            app:switchPadding="12dp" />
+
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvDefaultSnooze"
             android:layout_width="0dp"
@@ -51,7 +75,7 @@
             android:textColor="?android:attr/textColorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swDoubleBack" />
+            app:layout_constraintTop_toBottomOf="@id/swConversationActionsReplies" />
 
         <eu.faircode.email.EditTextPlain
             android:id="@+id/etDefaultSnooze"
@@ -371,5 +395,11 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/swResetImportance"
             app:switchPadding="12dp" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpConversationActions"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="swConversationActions,swConversationActionsReplies" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

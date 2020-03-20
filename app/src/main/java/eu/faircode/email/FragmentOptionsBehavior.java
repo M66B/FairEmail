@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -39,11 +40,14 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SwitchCompat;
+import androidx.constraintlayout.widget.Group;
 import androidx.lifecycle.Lifecycle;
 import androidx.preference.PreferenceManager;
 
 public class FragmentOptionsBehavior extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private SwitchCompat swDoubleBack;
+    private SwitchCompat swConversationActions;
+    private SwitchCompat swConversationActionsReplies;
     private EditText etDefaultSnooze;
     private SwitchCompat swPull;
     private SwitchCompat swAutoScroll;
@@ -65,9 +69,10 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private SwitchCompat swAutoImportant;
     private SwitchCompat swResetImportance;
     private SwitchCompat swDiscardDelete;
+    private Group grpConversationActions;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "double_back", "default_snooze",
+            "double_back", "conversation_actions", "conversation_actions_replies", "default_snooze",
             "pull", "autoscroll", "quick_filter", "quick_scroll",
             "doubletap", "swipenav", "volumenav", "reversed",
             "autoexpand", "expand_all", "expand_one", "collapse_multiple",
@@ -86,6 +91,8 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         // Get controls
 
         swDoubleBack = view.findViewById(R.id.swDoubleBack);
+        swConversationActions = view.findViewById(R.id.swConversationActions);
+        swConversationActionsReplies = view.findViewById(R.id.swConversationActionsReplies);
         etDefaultSnooze = view.findViewById(R.id.etDefaultSnooze);
         swPull = view.findViewById(R.id.swPull);
         swAutoScroll = view.findViewById(R.id.swAutoScroll);
@@ -107,6 +114,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swAutoImportant = view.findViewById(R.id.swAutoImportant);
         swResetImportance = view.findViewById(R.id.swResetImportance);
         swDiscardDelete = view.findViewById(R.id.swDiscardDelete);
+        grpConversationActions = view.findViewById(R.id.grpConversationActions);
 
         setOptions();
 
@@ -118,6 +126,21 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("double_back", checked).apply();
+            }
+        });
+
+        swConversationActions.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("conversation_actions", checked).apply();
+                swConversationActionsReplies.setEnabled(checked);
+            }
+        });
+
+        swConversationActionsReplies.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("conversation_actions_replies", checked).apply();
             }
         });
 
@@ -350,6 +373,9 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         swDoubleBack.setChecked(prefs.getBoolean("double_back", true));
+        swConversationActions.setChecked(prefs.getBoolean("conversation_actions", true));
+        swConversationActionsReplies.setChecked(prefs.getBoolean("conversation_actions_replies", true));
+        swConversationActionsReplies.setEnabled(swConversationActions.isChecked());
         int default_snooze = prefs.getInt("default_snooze", 1);
         etDefaultSnooze.setText(default_snooze == 1 ? null : Integer.toString(default_snooze));
         etDefaultSnooze.setHint("1");
@@ -389,5 +415,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swAutoImportant.setChecked(prefs.getBoolean("auto_important", false));
         swResetImportance.setChecked(prefs.getBoolean("reset_importance", false));
         swDiscardDelete.setChecked(prefs.getBoolean("discard_delete", false));
+
+        grpConversationActions.setVisibility(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q ? View.VISIBLE : View.GONE);
     }
 }
