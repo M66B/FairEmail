@@ -208,7 +208,9 @@ public class EntityOperation {
                     }
 
 
-                if (!EntityFolder.ARCHIVE.equals(source.type) ||
+                EntityAccount account = db.account().getAccount(message.account);
+                if (!"imap.gmail.com".equalsIgnoreCase(account == null ? null : account.host) ||
+                        !EntityFolder.ARCHIVE.equals(source.type) ||
                         EntityFolder.TRASH.equals(target.type) || EntityFolder.JUNK.equals(target.type))
                     db.message().setMessageUiHide(message.id, true);
 
