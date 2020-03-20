@@ -2041,6 +2041,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 private ConversationActions getConversationActions(TupleMessageEx message, Document document) {
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                     boolean conversation_actions = prefs.getBoolean("conversation_actions", true);
+                    boolean conversation_actions_replies = prefs.getBoolean("conversation_actions_replies", true);
                     if (!conversation_actions)
                         return null;
 
@@ -2065,27 +2066,20 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             .setText(document.text())
                             .build());
 
-                    Set<String> included = Collections.unmodifiableSet(
-                            new HashSet<>(Arrays.asList(
-                                    ConversationAction.TYPE_TEXT_REPLY
-                            )));
-                    Set<String> excluded = Collections.unmodifiableSet(
-                            new HashSet<>(Arrays.asList(
-                                    ConversationAction.TYPE_OPEN_URL,
-                                    ConversationAction.TYPE_SEND_EMAIL
-                            )));
+                    Set<String> excluded = new HashSet<>(Arrays.asList(
+                            ConversationAction.TYPE_OPEN_URL,
+                            ConversationAction.TYPE_SEND_EMAIL
+                    ));
+                    if (!conversation_actions_replies)
+                        excluded.add(ConversationAction.TYPE_TEXT_REPLY);
                     TextClassifier.EntityConfig config =
                             new TextClassifier.EntityConfig.Builder()
-                                    //.setIncludedTypes(included)
                                     .setExcludedTypes(excluded)
-                                    //.includeTypesFromTextClassifier(false)
-                                    //.setHints(included)
                                     .build();
 
                     List<String> hints = Collections.unmodifiableList(Arrays.asList(
                             ConversationActions.Request.HINT_FOR_IN_APP
                     ));
-
                     ConversationActions.Request crequest =
                             new ConversationActions.Request.Builder(input)
                                     .setTypeConfig(config)
