@@ -1253,10 +1253,9 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     }
 
     private void onImportCertificate(Intent intent) {
-        Intent open = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        Intent open = new Intent(Intent.ACTION_GET_CONTENT);
         open.addCategory(Intent.CATEGORY_OPENABLE);
         open.setType("*/*");
-        Helper.openAdvanced(open);
         if (open.resolveActivity(getPackageManager()) == null)
             ToastEx.makeText(this, R.string.title_no_saf, Toast.LENGTH_LONG).show();
         else
@@ -1286,10 +1285,9 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     }
 
     private static Intent getIntentImport() {
-        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         intent.setType("*/*");
-        Helper.openAdvanced(intent);
         return intent;
     }
 

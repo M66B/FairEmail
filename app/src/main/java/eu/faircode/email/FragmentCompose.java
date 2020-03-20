@@ -1378,10 +1378,9 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onActionImage() {
-        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         intent.setType("image/*");
-        Helper.openAdvanced(intent);
         PackageManager pm = getContext().getPackageManager();
         if (intent.resolveActivity(pm) == null)
             noStorageAccessFramework();
@@ -1390,11 +1389,10 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onActionAttachment() {
-        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         intent.setType("*/*");
         intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
-        Helper.openAdvanced(intent);
         PackageManager pm = getContext().getPackageManager();
         if (intent.resolveActivity(pm) == null)
             noStorageAccessFramework();
