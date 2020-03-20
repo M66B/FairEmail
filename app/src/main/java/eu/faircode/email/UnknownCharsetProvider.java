@@ -45,9 +45,8 @@ public class UnknownCharsetProvider extends CharsetProvider {
     public static Charset charsetForMime(String name) {
         // x-binaryenc
         // UseInqueCodePage
-        // none
-        // unknown-8bit
-        // X-UNKNOWN
+        // ISO3166-1
+        // EUCGB2312_CN
         // https://javaee.github.io/javamail/FAQ#unsupen
         // https://github.com/javaee/javamail/blob/master/mail/src/main/resources/META-INF/javamail.charset.map
         try {
@@ -69,11 +68,14 @@ public class UnknownCharsetProvider extends CharsetProvider {
                     name.contains("ASCII") ||
                     name.startsWith("ISO8859") ||
                     name.startsWith("ISO-8859") ||
+                    name.startsWith("WINDOWS-1252") ||
                     "x-IA5".equalsIgnoreCase(name) ||
                     "BASE64".equalsIgnoreCase(name) ||
                     "ISO".equalsIgnoreCase(name) ||
                     "latin".equalsIgnoreCase(name) ||
-                    "windows-1252".equalsIgnoreCase(name) ||
+                    "NONE".equalsIgnoreCase(name) ||
+                    "CHARSET".equalsIgnoreCase(name) ||
+                    "UNKNOWN".equalsIgnoreCase(name) ||
                     "X-UNKNOWN".equalsIgnoreCase(name) ||
                     "8bit".equalsIgnoreCase(name) ||
                     "unknown-8bit".equalsIgnoreCase(name))
