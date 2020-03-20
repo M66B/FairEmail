@@ -363,7 +363,8 @@
     <string name="title_advanced_import_key">Importa chiave privata</string>
     <string name="title_advanced_manage_keys">Gestisci le chiavi private</string>
     <string name="title_advanced_external_search">Consenti ad altre applicazioni di cercare nei messaggi</string>
-    <string name="title_advanced_conversation_actions">Mostra azioni di conversazione</string>
+    <string name="title_advanced_shortcuts">Mostra i contatti più usati nel menu di condivisione di Android</string>
+    <string name="title_advanced_conversation_actions">Mostra azioni rapide</string>
     <string name="title_advanced_fts">Crea indice di ricerca</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d messaggi indicizzati (%3$s)</string>
     <string name="title_advanced_english">Forza la lingua inglese</string>
@@ -1000,6 +1001,8 @@
     <string name="title_loading">Caricamento &#8230;</string>
     <string name="title_set">Imposta</string>
     <string name="title_fetching_again">Nuovo recupero messaggio dal server</string>
+    <string name="title_conversation_actions">Azioni rapide</string>
+    <string name="title_conversation_action_reply">Inizia la risposta con: \'%1$s\'</string>
     <string name="title_icalendar_accept">Accetta</string>
     <string name="title_icalendar_decline">Rifiuta</string>
     <string name="title_icalendar_maybe">Forse</string>

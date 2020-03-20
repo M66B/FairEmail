@@ -86,12 +86,17 @@
     <string name="menu_contacts">Lokale kontakten</string>
     <string name="menu_setup">Ynstellingen</string>
     <string name="menu_legend">Leginde</string>
+    <string name="menu_test">Testprogramma</string>
     <string name="menu_faq">Stut</string>
+    <string name="menu_translate">Help oersette</string>
+    <string name="menu_issue">Meld probleem</string>
     <string name="menu_attribution">Attribúsje</string>
     <string name="menu_privacy">Privacy</string>
     <string name="menu_about">Oer</string>
     <string name="menu_pro">Pro skaaimerken</string>
     <string name="menu_invite">Útnoegje</string>
+    <string name="menu_rate">Beoardielje dizze app</string>
+    <string name="menu_other">Oare apps</string>
     <string name="title_welcome">Wolkom</string>
     <string name="title_eula">Lisinsjeoerienkomst foar einbrûkers</string>
     <string name="title_agree">Ik bin it iens</string>
@@ -108,6 +113,7 @@
     <string name="title_setup_wizard">Tsjoender</string>
     <string name="title_setup_oauth_authorize">Autorisearje</string>
     <string name="title_setup_select_account">Selektearje akkount</string>
+    <string name="title_setup_instructions">Ynstel ynstruksjes</string>
     <string name="title_setup_manage">Beheare</string>
     <string name="title_setup_grant">Subsydzje</string>
     <string name="title_setup_grant_again">Subsydzje fereaske tagongsrjochten</string>
@@ -121,6 +127,8 @@
     <string name="title_setup_to_do">Dwaan</string>
     <string name="title_setup_done">Dien</string>
     <string name="title_setup_error">Fersin</string>
+    <string name="title_setup_export">Ynstellings eksportearje</string>
+    <string name="title_setup_import">Ynstellings ymportearje</string>
     <string name="title_setup_password">Wachtwurd</string>
     <string name="title_setup_password_repeat">Werhelje wachtwurd</string>
     <string name="title_setup_password_missing">Wachtwurd ûntbrekt</string>
@@ -131,6 +139,7 @@
     <string name="title_setup_biometrics_enable">Ynskeakele</string>
     <string name="title_setup_biometrics_disable">Utskeakele</string>
     <string name="title_setup_biometrics_unlock">Losmeitsje</string>
+    <string name="title_setup_theme">Selektearje tema</string>
     <string name="title_setup_theme_blue_orange">Blau/oranje</string>
     <string name="title_setup_theme_yellow_purple">Giel/pears</string>
     <string name="title_setup_theme_red_green">Rood/grien</string>
@@ -138,6 +147,7 @@
     <string name="title_setup_theme_black">Swart</string>
     <string name="title_setup_theme_dark">Tsjuster</string>
     <string name="title_setup_theme_black_background">Swarte eftergrûn</string>
+    <string name="title_setup_theme_system">Folgje systeem</string>
     <string name="title_setup_advanced">Avansearre</string>
     <string name="title_setup_options">Opsjes</string>
     <string name="title_advanced_section_main">Holle</string>
@@ -159,6 +169,7 @@
     <string name="title_advanced_caption_message_header">Berjochtkoptekst</string>
     <string name="title_advanced_caption_message_body">Berjochtynhâld</string>
     <string name="title_advanced_color_value">Dúdlikens</string>
+    <string name="title_advanced_flags">Stjerren sjen litte</string>
     <string name="title_advanced_notify_action_trash">Jiskefet</string>
     <string name="title_advanced_notify_action_junk">Spam</string>
     <string name="title_advanced_notify_action_archive">Argyf</string>
@@ -168,8 +179,12 @@
     <string name="title_advanced_notify_action_seen">Lêze</string>
     <string name="title_advanced_notify_action_snooze">Snooze</string>
     <string name="title_advanced_pin">PIN</string>
+    <string name="title_advanced_shortcuts">Lit faak brûkte kontakten sjen yn Android-dielmenu</string>
+    <string name="title_advanced_conversation_actions">Fluch aksjes sjen litte</string>
+    <string name="title_advanced_debug">Debug mode</string>
     <string name="title_advanced_cleanup">Skjinmeitsjen</string>
     <string name="title_advanced_more">Mear opsjes</string>
+    <string name="title_select">Selektearje &#8230;</string>
     <string name="title_identity_name">Jo namme</string>
     <string name="title_identity_email">Jo e-postadres</string>
     <string name="title_advanced_sender_regex">Regex om oerien te nimmen mei brûkersnamme fan ynkommende e-postadressen</string>
@@ -178,6 +193,7 @@
     <string name="title_account_linked">Keppele akkount</string>
     <string name="title_account_name">Akkount namme</string>
     <string name="title_color">Kleur</string>
+    <string name="title_account_left">Veeg links</string>
     <string name="title_domain">Domeinnamme</string>
     <string name="title_aliases">Aliases</string>
     <string name="title_provider">Ynternetoanbieder</string>
@@ -195,6 +211,7 @@
     <string name="title_no_password">Wachtwurd ûntbrekt</string>
     <string name="title_review">Resinsje</string>
     <string name="title_synchronize_enabled">Syngronisearje</string>
+    <string name="title_edit_rules">Bewurkje regel</string>
     <string name="title_folder_name">Map namme</string>
     <string name="title_display_name">Display namme</string>
     <string name="title_folder_unified">Unifieare postfak</string>
@@ -225,6 +242,7 @@
     <string name="title_save_all">Alles opslaan</string>
     <string name="title_trash">Jiskefet</string>
     <string name="title_copy">Kopy &#8230;</string>
+    <string name="title_subscribe">Ynskriuwe</string>
     <string name="title_delete">Ferwiderje</string>
     <string name="title_more">Mear</string>
     <string name="title_spam">Spam</string>
@@ -259,6 +277,7 @@
     <string name="title_send_priority">Prioriteit</string>
     <string name="title_style_bold">Dryst</string>
     <string name="title_style_italic">Kursyf</string>
+    <string name="title_style_underline">Ûnderstreekje</string>
     <string name="title_style_size">Grutte</string>
     <string name="title_style_color">Kleur</string>
     <string name="title_attachment_photo">Nim foto</string>
@@ -273,6 +292,7 @@
     <string name="title_signature_validity">Jildigens</string>
     <string name="title_signature_store">Bewarje</string>
     <string name="title_search">Sykje</string>
+    <string name="title_search_in">Sykje yn</string>
     <string name="title_sort_on">Sortearje op</string>
     <string name="title_sort_on_time">Tiid</string>
     <string name="title_sort_on_unread">Net lêzen</string>
@@ -283,18 +303,25 @@
     <string name="title_sort_on_size">Grutte</string>
     <string name="title_sort_on_attachments">Taheaksels</string>
     <string name="title_sort_on_hidden">Ferburgen</string>
+    <string name="title_filter">Útfilterje</string>
     <string name="title_filter_seen">Lêze</string>
+    <string name="title_filter_unflagged">Unstjerre</string>
     <string name="title_filter_hidden">Ferburgen</string>
     <string name="title_filter_duplicates">Duplikaten</string>
+    <string name="title_zoom">Tekstgrutte</string>
+    <string name="title_select_all">Alles selektearje</string>
     <string name="title_previous">Foarige</string>
     <string name="title_next">Folgjende</string>
     <string name="title_answer_favorite">Favoryt</string>
+    <string name="title_rule_noop">Gjin aksje</string>
+    <string name="title_rule_seen">Mark lêzen</string>
     <string name="title_rule_hide">Ferbergje</string>
     <string name="title_rule_snooze">Snooze</string>
     <string name="title_rule_flag">Stjer tafoegje</string>
     <string name="title_rule_move">Ferpleatse</string>
     <string name="title_rule_answer">Antwurdzje</string>
     <string name="title_rule_automation">Automatisearring</string>
+    <string name="title_rule_caption">Bewurkje regel</string>
     <string name="title_rule_name">Namme</string>
     <string name="title_rule_order">Sekwinsje</string>
     <string name="title_rule_enabled">Ynskeakele</string>
@@ -324,7 +351,11 @@
     <string name="title_legend_trash">Jiskefet</string>
     <string name="title_legend_junk">Spam</string>
     <string name="title_legend_primary">Primêr</string>
+    <string name="title_legend_rule">Hat regels</string>
     <string name="title_legend_thread">Konversaasje</string>
+    <string name="title_legend_draft">Hat konsept</string>
+    <string name="title_legend_signed">Is tekene</string>
+    <string name="title_legend_found">Is fûn</string>
     <string name="title_legend_snoozed">Is snoozed</string>
     <string name="title_legend_photo">Nim foto</string>
     <string name="title_legend_audio">Audio opnimme</string>
@@ -333,12 +364,14 @@
     <string name="title_legend_avatar">Avatar</string>
     <string name="title_legend_edit">Bewurkje</string>
     <string name="title_legend_default_color">Standertkleur</string>
+    <string name="title_legend_close_hint">Hint slute</string>
     <string name="title_legend_save">Bewarje</string>
     <string name="title_legend_delete">Ferwiderje</string>
     <string name="title_legend_count">Telle</string>
     <string name="title_legend_folder_type">Map type</string>
     <string name="title_hint_important">Belangryk</string>
     <string name="title_open_link">Open link</string>
+    <string name="title_select_app">App selektearje</string>
     <string name="title_yes">Ja</string>
     <string name="title_no">Nee</string>
     <string name="title_later">Letter</string>
@@ -351,6 +384,8 @@
     <string name="title_fix">Meitsje</string>
     <string name="title_enable">Ynskeakele</string>
     <string name="title_enabled">Ynskeakele</string>
+    <string name="title_executing">Eksekutearje</string>
+    <string name="title_completed">Klear</string>
     <string name="title_via">Fia: %1$s</string>
     <string name="title_1hour">1 oere</string>
     <string name="title_1day">1 dei</string>
@@ -362,11 +397,14 @@
     <string name="title_dismiss">Wegerje</string>
     <string name="title_snooze_now">Snooze</string>
     <string name="title_set">Ynstelle</string>
+    <string name="title_conversation_actions">Fluch aksjes</string>
+    <string name="title_conversation_action_reply">Begjin antwurdzje mei: \'%1$s\'</string>
     <string name="title_icalendar_accept">Akseptearje</string>
     <string name="title_icalendar_decline">Efterútgong</string>
     <string name="title_icalendar_maybe">Miskien</string>
     <string name="title_icalendar_calendar">Kalinder</string>
     <string name="title_pro_purchase">Keapje</string>
+    <string name="title_pro_once">Allinne ien kear</string>
     <string name="title_pro_price">Sjoch asjebleaft <a href="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq19">dizze FAQ</a> oer de priis fan \'e pro-funksjes</string>
     <string name="title_log">Lochboek</string>
     <string name="title_log_clear">Wiskje</string>
@@ -379,6 +417,7 @@
     <string name="title_widget_account">Akkount</string>
     <string name="title_widget_account_all">Alle</string>
     <string name="title_widget_folder">Map</string>
+    <string name="title_accessibility_collapsed">Ynsakje</string>
     <string name="title_accessibility_expanded">Utwreidzje</string>
     <string name="title_accessibility_seen">Lêze</string>
     <string name="title_accessibility_unseen">Net lêzen</string>
@@ -387,13 +426,17 @@
         <item quantity="other">%1$d berjochten</item>
     </plurals>
     <string name="title_accessibility_flagged">Stjer</string>
+    <string name="title_accessibility_unflagged">Unstjerre</string>
     <string name="title_accessibility_collapse">Ynsakje</string>
     <string name="title_accessibility_expand">Útwreidzje</string>
+    <string name="title_accessibility_view_help">Besjoch help</string>
     <string name="title_accessibility_selected">Selektearre</string>
     <string name="title_accessibility_answered">Antwurde</string>
+    <string name="title_accessibility_scroll_up">Rôlje omheech</string>
     <string name="title_accessibility_edit">Bewurkje</string>
     <string name="title_accessibility_attachment">Taheaksel</string>
     <string name="title_accessibility_from">Stjoerder</string>
+    <string name="title_accessibility_to">Ûntfanger</string>
     <string-array name="pollIntervalNames">
         <item>Altyd</item>
         <item>Every 15 minutes</item>
@@ -402,7 +445,7 @@
         <item>Every 2 hours</item>
         <item>Every 4 hours</item>
         <item>Every 8 hours</item>
-        <item>Every day</item>
+        <item>Eltse dei</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Gjin</item>

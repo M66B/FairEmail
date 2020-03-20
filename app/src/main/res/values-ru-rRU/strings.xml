@@ -385,7 +385,7 @@
     <string name="title_advanced_import_key">Импорт приватного ключа</string>
     <string name="title_advanced_manage_keys">Управление приватными ключами</string>
     <string name="title_advanced_external_search">Разрешить другим приложениям искать в сообщениях</string>
-    <string name="title_advanced_conversation_actions">Показывать действия с диалогом</string>
+    <string name="title_advanced_shortcuts">Показывать часто используемые контакты в меню \"Поделиться\" Android</string>
     <string name="title_advanced_fts">Строить индекс поиска</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d сообщений проиндексировано (%3$s)</string>
     <string name="title_advanced_english">Принудительно использовать английский язык</string>

@@ -363,7 +363,8 @@
     <string name="title_advanced_import_key">Importer privat nøkkel</string>
     <string name="title_advanced_manage_keys">Administrer private nøkler</string>
     <string name="title_advanced_external_search">Tillat andre apper å søke i meldinger</string>
-    <string name="title_advanced_conversation_actions">Vis samtalehandlinger</string>
+    <string name="title_advanced_shortcuts">Vis ofte brukte kontakter i Android-menyen</string>
+    <string name="title_advanced_conversation_actions">Vis raske handlinger</string>
     <string name="title_advanced_fts">Bygg søkeindeks</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d meldinger indeksert (%3$s)</string>
     <string name="title_advanced_english">Tving bruk av engelsk</string>
@@ -1000,6 +1001,8 @@ Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anme
     <string name="title_loading">Laster &#8230;</string>
     <string name="title_set">Bruk</string>
     <string name="title_fetching_again">Henter melding igjen fra serveren</string>
+    <string name="title_conversation_actions">Raske handlinger</string>
+    <string name="title_conversation_action_reply">Begynn å svare med: \'%1$s\'</string>
     <string name="title_icalendar_accept">Godta</string>
     <string name="title_icalendar_decline">Avslå</string>
     <string name="title_icalendar_maybe">Kanskje</string>

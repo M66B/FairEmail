@@ -364,7 +364,8 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_import_key">Privaten Schlüssel importieren</string>
     <string name="title_advanced_manage_keys">Private Schlüssel verwalten</string>
     <string name="title_advanced_external_search">Anderen Apps erlauben in Nachrichten zu suchen</string>
-    <string name="title_advanced_conversation_actions">Konversationsaktionen anzeigen</string>
+    <string name="title_advanced_shortcuts">Häufig verwendete Kontakte im Android Freigabemenü anzeigen</string>
+    <string name="title_advanced_conversation_actions">Schnellaktionen anzeigen</string>
     <string name="title_advanced_fts">Suchindex erstellen</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d Nachrichten indiziert (%3$s)</string>
     <string name="title_advanced_english">Englische Sprache erzwingen</string>
@@ -1002,6 +1003,8 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_loading">wird geladen &#8230;</string>
     <string name="title_set">Setzen</string>
     <string name="title_fetching_again">Nachricht wird erneut vom Server abgerufen</string>
+    <string name="title_conversation_actions">Schnellaktionen</string>
+    <string name="title_conversation_action_reply">Antwort beginnen mit: „%1$s”</string>
     <string name="title_icalendar_accept">Akzeptieren</string>
     <string name="title_icalendar_decline">Ablehnen</string>
     <string name="title_icalendar_maybe">Vielleicht</string>
