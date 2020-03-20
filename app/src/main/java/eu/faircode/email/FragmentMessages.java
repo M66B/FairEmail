@@ -203,6 +203,7 @@ import static android.text.format.DateUtils.DAY_IN_MILLIS;
 import static android.text.format.DateUtils.FORMAT_SHOW_DATE;
 import static android.text.format.DateUtils.FORMAT_SHOW_WEEKDAY;
 import static android.view.KeyEvent.ACTION_UP;
+import static androidx.recyclerview.widget.RecyclerView.NO_POSITION;
 import static org.openintents.openpgp.OpenPgpSignatureResult.RESULT_KEY_MISSING;
 import static org.openintents.openpgp.OpenPgpSignatureResult.RESULT_NO_SIGNATURE;
 import static org.openintents.openpgp.OpenPgpSignatureResult.RESULT_VALID_KEY_CONFIRMED;
@@ -604,7 +605,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (!date || !"time".equals(adapter.getSort()))
                     return null;
 
-                if (pos == RecyclerView.NO_POSITION)
+                if (pos == NO_POSITION)
                     return null;
 
                 TupleMessageEx prev = adapter.getItemAtPosition(pos - 1);
@@ -1219,7 +1220,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 @Override
                 public void onItemStateChanged(@NonNull Long key, boolean selected) {
                     int pos = adapter.getPositionForKey(key);
-                    if (pos == RecyclerView.NO_POSITION)
+                    if (pos == NO_POSITION)
                         return;
 
                     RecyclerView.ViewHolder viewHolder = rvMessage.findViewHolderForAdapterPosition(pos);
@@ -1279,7 +1280,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private void scrollToVisibleItem(LinearLayoutManager llm, boolean bottom) {
         int first = llm.findFirstVisibleItemPosition();
         int last = llm.findLastVisibleItemPosition();
-        if (first == RecyclerView.NO_POSITION || last == RecyclerView.NO_POSITION)
+        if (first == NO_POSITION || last == NO_POSITION)
             return;
 
         int pos = (bottom ? last : first);
@@ -1429,7 +1430,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     if (!other.equals(message.id)) {
                         values.get("expanded").remove(other);
                         int pos = adapter.getPositionForKey(other);
-                        if (pos != RecyclerView.NO_POSITION)
+                        if (pos != NO_POSITION)
                             adapter.notifyItemChanged(pos);
                     }
             }
@@ -1575,7 +1576,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         @Override
         public int getMovementFlags(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
             int pos = viewHolder.getAdapterPosition();
-            if (pos == RecyclerView.NO_POSITION)
+            if (pos == NO_POSITION)
                 return 0;
 
             TupleMessageEx message = getMessage(pos);
@@ -1633,7 +1634,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }
 
             int pos = viewHolder.getAdapterPosition();
-            if (pos == RecyclerView.NO_POSITION)
+            if (pos == NO_POSITION)
                 return;
 
             TupleMessageEx message = getMessage(pos);
@@ -1718,7 +1719,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         @Override
         public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
             int pos = viewHolder.getAdapterPosition();
-            if (pos == RecyclerView.NO_POSITION) {
+            if (pos == NO_POSITION) {
                 adapter.notifyDataSetChanged();
                 return;
             }
@@ -4442,6 +4443,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     return (!up || onNext(context));
                 case KeyEvent.KEYCODE_VOLUME_DOWN:
                     return (!up || onPrevious(context));
+                case KeyEvent.KEYCODE_ENTER:
+                case KeyEvent.KEYCODE_NUMPAD_ENTER:
+                    return (!up || onViewThread(context));
                 case KeyEvent.KEYCODE_A:
                     return (up && onArchive(context));
                 case KeyEvent.KEYCODE_C:
@@ -4510,6 +4514,33 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 return false;
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             return prefs.getBoolean("volumenav", false);
+        }
+
+        private boolean onViewThread(Context context) {
+            if (viewType == AdapterMessage.ViewType.THREAD)
+                return false;
+            View focussed = rvMessage.getFocusedChild();
+            if (focussed == null)
+                return false;
+            int pos = rvMessage.getChildAdapterPosition(focussed);
+            if (pos == NO_POSITION)
+                return false;
+            PagedList<TupleMessageEx> list = ((AdapterMessage) rvMessage.getAdapter()).getCurrentList();
+            if (pos >= list.size())
+                return false;
+            TupleMessageEx message = list.get(pos);
+            if (message == null)
+                return false;
+
+            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+            Intent viewThread = new Intent(ActivityView.ACTION_VIEW_THREAD)
+                    .putExtra("account", message.account)
+                    .putExtra("thread", message.thread)
+                    .putExtra("id", message.id)
+                    .putExtra("filter_archive", !EntityFolder.ARCHIVE.equals(message.folderType))
+                    .putExtra("found", viewType == AdapterMessage.ViewType.SEARCH);
+            lbm.sendBroadcast(viewThread);
+            return true;
         }
 
         private boolean onArchive(Context context) {
