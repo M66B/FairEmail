@@ -2049,7 +2049,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (tcm == null)
                         return null;
 
-                    Person person = isOutgoing(message)
+                    Person author = isOutgoing(message)
                             ? ConversationActions.Message.PERSON_USER_SELF
                             : ConversationActions.Message.PERSON_USER_OTHERS;
                     ZonedDateTime dt = new Date(message.received)
@@ -2057,11 +2057,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             .atZone(ZoneId.systemDefault());
                     List<ConversationActions.Message> input = new ArrayList<>();
                     if (!TextUtils.isEmpty(message.subject))
-                        input.add(new ConversationActions.Message.Builder(person)
+                        input.add(new ConversationActions.Message.Builder(author)
                                 .setReferenceTime(dt)
                                 .setText(message.subject)
                                 .build());
-                    input.add(new ConversationActions.Message.Builder(person)
+                    input.add(new ConversationActions.Message.Builder(author)
                             .setReferenceTime(dt)
                             .setText(document.text())
                             .build());
