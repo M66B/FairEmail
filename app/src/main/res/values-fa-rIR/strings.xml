@@ -149,10 +149,8 @@
     <string name="title_advanced_browse">مرور پیام‌های روی سرور</string>
     <string name="title_synchronize_now">هم اکنون همگام سازی شود</string>
     <string name="title_delete_local">حذف پیام های داخلی</string>
-    <string name="title_empty_trash">خالی کردن سطل آشغال</string>
     <string name="title_edit_properties">ویرایش ویژگی‌ها</string>
     <string name="title_edit_rules">ویرایش دستورات</string>
-    <string name="title_empty_trash_ask">حذف همیشگی کلیه پیام‌های سطل آشغال؟</string>
     <string name="title_delete_operation">حذف عملیات با دریافت پیام خطا؟</string>
     <string name="title_no_operations">عملیاتی در انتظار وجود ندارد </string>
     <string name="title_folder_name">نام پوشه</string>

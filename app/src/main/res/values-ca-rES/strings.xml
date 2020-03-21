@@ -413,16 +413,12 @@
     <string name="title_synchronize_enabled">Sincronitza</string>
     <string name="title_delete_local">Esborra els missatges locals</string>
     <string name="title_delete_browsed">Suprimeix els missatges cercats/navegats</string>
-    <string name="title_empty_trash">Buida la paperera</string>
-    <string name="title_empty_spam">Buidar Correu Brossa</string>
     <string name="title_edit_properties">Edita les propietats</string>
     <string name="title_edit_rules">Edita les regles</string>
     <string name="title_create_channel">Crea un canal de notificació</string>
     <string name="title_edit_channel">Edita un canal de notificació</string>
     <string name="title_delete_channel">Esborra un canal de notificació</string>
     <string name="title_create_sub_folder">Crea una nova carpeta</string>
-    <string name="title_empty_trash_ask">Vols buidar la paperera?</string>
-    <string name="title_empty_spam_ask">Vols buidar el correu brossa per sempre?</string>
     <string name="title_delete_operation">Vols suprimir les operacions amb un missatge d\'error?</string>
     <string name="title_delete_contacts">Esborrar tots els contactes locals?</string>
     <string name="title_no_operations">Sense operacions pendents</string>

@@ -362,6 +362,8 @@
     <string name="title_advanced_manage_keys">Kudeatu gako pribatuak</string>
     <string name="title_advanced_external_search">Baimendu beste aplikazioei mezuetan bilatzea</string>
     <string name="title_advanced_shortcuts">Erakutsi maiz erabilitako kontaktuak Android partekatzeko menuan</string>
+    <string name="title_advanced_conversation_actions">Iradoki ekintzak</string>
+    <string name="title_advanced_conversation_actions_replies">Iradoki erantzuteko testuak</string>
     <string name="title_advanced_fts">Sortu bilaketa-indizea</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d mezu indexatuak (%3$s)</string>
     <string name="title_advanced_english">Behartu hizkuntza ingelesa</string>
@@ -516,18 +518,12 @@
     <string name="title_synchronize_enabled">Sinkronizatu</string>
     <string name="title_delete_local">Ezabatu mezu lokalak</string>
     <string name="title_delete_browsed">Ezabatu ikusitako/bilatutako mezuak</string>
-    <string name="title_empty_trash">Hustu zakarrontzia</string>
-    <string name="title_empty_spam">Hustu spama</string>
     <string name="title_edit_properties">Editatu propietateak</string>
     <string name="title_edit_rules">Editatu arauak</string>
     <string name="title_create_channel">Sortu jakinarazpen kanala</string>
     <string name="title_edit_channel">Editatu jakinarazpen kanala</string>
     <string name="title_delete_channel">Ezabatu jakinarazpen kanala</string>
     <string name="title_create_sub_folder">Sortu azpi-karpeta</string>
-    <string name="title_empty_trash_ask">Ezabatu zakarrontziko mezuak behin betiko?</string>
-    <string name="title_empty_spam_ask">Ezabatu spam mezuak behin betiko?</string>
-    <string name="title_empty_trash_all_ask">Ezabatu kontu guztietako zaborrontziko mezu guztiak behin betiko?</string>
-    <string name="title_empty_spam_all_ask">Ezabatu kontu guztietako spam mezu guztiak behin betiko?</string>
     <string name="title_delete_operation">Ezabatu errore mezua duten eragiketak?</string>
     <string name="title_delete_contacts">Ezabatu kontaktu lokal guztiak?</string>
     <string name="title_no_operations">Ez dago eragiketarik egiteke</string>
@@ -998,6 +994,8 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_loading">Kargatzen &#8230;</string>
     <string name="title_set">Ezarri</string>
     <string name="title_fetching_again">Mezua berriro zerbitzaritik jasotzen</string>
+    <string name="title_conversation_actions">Ekintzak</string>
+    <string name="title_conversation_action_reply">Erantzun honekin: \'%1$s\'</string>
     <string name="title_icalendar_accept">Onartu</string>
     <string name="title_icalendar_decline">Errefusatu</string>
     <string name="title_icalendar_maybe">Agian</string>

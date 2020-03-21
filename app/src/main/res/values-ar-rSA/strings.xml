@@ -189,7 +189,6 @@
     <string name="title_synchronize_all">زامن كافة الرسائل</string>
     <string name="title_synchronize_enabled">مزامنة</string>
     <string name="title_delete_local">حذف الرسائل المحلية</string>
-    <string name="title_empty_trash">إفراغ سلّة المهملات</string>
     <string name="title_edit_properties">تعديل الخصائص</string>
     <string name="title_edit_rules">تعديل القواعد</string>
     <string name="title_folder_name">إسم المجلد</string>

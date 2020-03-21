@@ -228,9 +228,7 @@
     <string name="title_advanced_browse">Serverdəki mesajlara nəzər yetir</string>
     <string name="title_synchronize_now">İndi eyniləşdir</string>
     <string name="title_delete_local">Yerli mesajları sil</string>
-    <string name="title_empty_trash">Tullantı qovluğunu təmizlə</string>
     <string name="title_edit_properties">Xüsusiyyətlərə düzəliş et</string>
-    <string name="title_empty_trash_ask">Bütün tullantı mesajları birdəfəlik silinsin?</string>
     <string name="title_delete_operation">Bir xəta mesajı ilə əməliyyatlar silinsin?</string>
     <string name="title_folder_name">Qovluq adı</string>
     <string name="title_display_name">Ekran adı</string>

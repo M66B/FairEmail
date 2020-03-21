@@ -97,10 +97,10 @@
     <string name="title_edit_folder">编辑文件夹</string>
     <string name="title_setup">设置</string>
     <string name="title_setup_help">帮助</string>
-    <string name="title_setup_welcome">接收和发送消息需要像在其他邮件 app 中一样设置一个帐户和一个身份
-“快速设置”通过询问您的姓名、邮箱地址和密码来创建一个帐户和身份
-如果有需要，也可以手动设置帐户和身份(别名)
-不支持非标准协议，例如 Microsoft Exchange Web Services 和 Microsoft ActiveSync，另请参阅应用程序说明
+    <string name="title_setup_welcome">接收和发送消息需要像在其他邮件 app 中一样设置一个帐户和一个身份；
+        “快速设置”将仅通过询问您的姓名、邮箱地址和密码来创建一个帐户和身份；
+        如果有需要，也可以手动设置帐户和身份(别名)；
+        不支持非标准协议，例如 Microsoft Exchange Web Services 和 Microsoft ActiveSync，另请参阅应用程序说明
     </string>
     <string name="title_setup_quick">快速设置</string>
     <string name="title_setup_quick_remark">为大多数邮件服务提供商快速设置账户和身份</string>
@@ -150,6 +150,7 @@
     <string name="title_setup_error">出错</string>
     <string name="title_setup_export">导出设置</string>
     <string name="title_setup_import">导入设置</string>
+    <string name="title_setup_export_do">与设备上的Google帐户相连接的Gmail帐户无法被导出</string>
     <string name="title_setup_import_do">导入的账户不会覆盖任何现有的帐户</string>
     <string name="title_setup_password">密码</string>
     <string name="title_setup_password_chars">密码包含控制字符或空格字符</string>
@@ -509,18 +510,18 @@
     <string name="title_synchronize_enabled">同步</string>
     <string name="title_delete_local">删除本地消息</string>
     <string name="title_delete_browsed">删除浏览过/搜索过的消息</string>
-    <string name="title_empty_trash">清空回收站</string>
-    <string name="title_empty_spam">清空垃圾邮件</string>
+    <string name="title_empty_trash">清空本地回收站</string>
+    <string name="title_empty_spam">清空本地垃圾邮件</string>
     <string name="title_edit_properties">编辑属性</string>
     <string name="title_edit_rules">编辑规则</string>
     <string name="title_create_channel">创建通知通道</string>
     <string name="title_edit_channel">编辑通知通道</string>
     <string name="title_delete_channel">删除通知通道</string>
     <string name="title_create_sub_folder">创建子文件夹</string>
-    <string name="title_empty_trash_ask">是否永久删除所有垃圾邮件？</string>
-    <string name="title_empty_spam_ask">永久删除所有垃圾邮件？</string>
-    <string name="title_empty_trash_all_ask">永久删除所有账户的所有回收站消息？</string>
-    <string name="title_empty_spam_all_ask">永久删除所有帐户的所有垃圾邮件？</string>
+    <string name="title_empty_trash_ask">永久删除所有本地的已删除邮件吗？</string>
+    <string name="title_empty_spam_ask">永久删除所有本地垃圾邮件吗？</string>
+    <string name="title_empty_trash_all_ask">永久删除所有帐户的所有本地的已删除邮件吗？</string>
+    <string name="title_empty_spam_all_ask">永久删除所有帐户的所有本地垃圾邮件吗？</string>
     <string name="title_delete_operation">是否删除带有错误消息的操作？</string>
     <string name="title_delete_contacts">删除所有本地联系人？</string>
     <string name="title_no_operations">没有待执行操作</string>
@@ -992,7 +993,7 @@
     <string name="title_set">设定</string>
     <string name="title_fetching_again">再次从服务器获取消息</string>
     <string name="title_conversation_actions">操作</string>
-    <string name="title_conversation_action_reply">以 \'%1$s\' 开头进行回复</string>
+    <string name="title_conversation_action_reply">回复：\'%1$s\'</string>
     <string name="title_icalendar_accept">接受</string>
     <string name="title_icalendar_decline">拒绝</string>
     <string name="title_icalendar_maybe">待定</string>

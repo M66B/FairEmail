@@ -363,6 +363,9 @@
     <string name="title_advanced_import_key">Importér privat nøgle</string>
     <string name="title_advanced_manage_keys">Håndtér private nøgler</string>
     <string name="title_advanced_external_search">Tillad andre apps at søge i beskeder</string>
+    <string name="title_advanced_shortcuts">Vis ofte anvendte kontakter i Android-delingsmenuen</string>
+    <string name="title_advanced_conversation_actions">Foreslå handlinger</string>
+    <string name="title_advanced_conversation_actions_replies">Foreslå svartekster</string>
     <string name="title_advanced_fts">Opbyg søgeindeks</string>
     <string name="title_advanced_fts_indexed">%1$d/%2$d beskeder indekseret (%3$s)</string>
     <string name="title_advanced_english">Gennemtving engelsk sprog</string>
@@ -518,18 +521,12 @@
     <string name="title_synchronize_enabled">Synkroniserer</string>
     <string name="title_delete_local">Slet lokale beskeder</string>
     <string name="title_delete_browsed">Slet gennemsete/søgte beskeder</string>
-    <string name="title_empty_trash">Tøm papirkurven</string>
-    <string name="title_empty_spam">Tøm spam</string>
     <string name="title_edit_properties">Redigér egenskaber</string>
     <string name="title_edit_rules">Redigér regler</string>
     <string name="title_create_channel">Opret notifikationskanal</string>
     <string name="title_edit_channel">Redigér notifikationskanal</string>
     <string name="title_delete_channel">Slet notifikationskanal</string>
     <string name="title_create_sub_folder">Opret undermappe</string>
-    <string name="title_empty_trash_ask">Slet alt indhold i papirkurven permanent?</string>
-    <string name="title_empty_spam_ask">Slet alle spambeskeder permanent?</string>
-    <string name="title_empty_trash_all_ask">Slet permanent alt indhold i papirkurven for alle konti?</string>
-    <string name="title_empty_spam_all_ask">Slet permanent alle spam-meddelelser for alle konti?</string>
     <string name="title_delete_operation">Slet operationer med en fejlmeddelelse?</string>
     <string name="title_delete_contacts">Slet alle lokale kontakter?</string>
     <string name="title_no_operations">Ingen afventende handlinger</string>
@@ -1000,6 +997,8 @@
     <string name="title_loading">Indlæser &#8230;</string>
     <string name="title_set">Indstil</string>
     <string name="title_fetching_again">Henter beskeder igen fra server</string>
+    <string name="title_conversation_actions">Handlinger</string>
+    <string name="title_conversation_action_reply">Svar med: \'%1$s\'</string>
     <string name="title_icalendar_accept">Acceptér</string>
     <string name="title_icalendar_decline">Afvis</string>
     <string name="title_icalendar_maybe">Måske</string>

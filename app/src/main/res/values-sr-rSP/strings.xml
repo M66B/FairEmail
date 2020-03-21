@@ -420,16 +420,12 @@
     <string name="title_synchronize_enabled">Синхронизуј</string>
     <string name="title_delete_local">Избриши локалне поруке</string>
     <string name="title_delete_browsed">Избриши прегледане/претражене</string>
-    <string name="title_empty_trash">Испразни отпад</string>
-    <string name="title_empty_spam">Испразни нежељене</string>
     <string name="title_edit_properties">Измени својства</string>
     <string name="title_edit_rules">Измени правила</string>
     <string name="title_create_channel">Направи канал за обавештавање</string>
     <string name="title_edit_channel">Измени канал за обавештавање</string>
     <string name="title_delete_channel">Избриши канал за обавештавање</string>
     <string name="title_create_sub_folder">Направи подфасциклу</string>
-    <string name="title_empty_trash_ask">Заувек обрисати све поруке из отпада?</string>
-    <string name="title_empty_spam_ask">Обрисати све нежељене поруке заувек?</string>
     <string name="title_delete_operation">Обриши операције са поруком о грешци?</string>
     <string name="title_delete_contacts">Обриши све локалне контакте?</string>
     <string name="title_no_operations">Нема операција на чекању</string>
