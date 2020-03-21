@@ -13,7 +13,7 @@
         android:clipToPadding="false"
         android:paddingBottom="60dp"
         android:scrollbarStyle="outsideOverlay"
-        android:scrollbarThumbVertical="@drawable/scroll_thumb_dialog"
+        android:scrollbarThumbVertical="@drawable/scroll_thumb"
         android:scrollbars="vertical"
         app:layout_constrainedHeight="true"
         app:layout_constraintBottom_toTopOf="@+id/tvPro"

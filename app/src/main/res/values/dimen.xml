@@ -3,4 +3,5 @@
     <dimen name="fab_padding">15dp</dimen>
     <dimen name="design_bottom_navigation_text_size" tools:override="true">12sp</dimen>
     <dimen name="design_bottom_navigation_active_text_size" tools:override="true">12sp</dimen>
+    <dimen name="fastscroll_default_thickness" tools:override="true">6dp</dimen>
 </resources>

@@ -6,6 +6,7 @@
     <attr name="colorHighlight" format="reference" />
     <attr name="colorEncrypt" format="reference" />
     <attr name="colorSeparator" format="reference" />
+    <attr name="colorThumb" format="reference" />
     <attr name="colorWarning" format="reference" />
     <attr name="colorDrawerScrim" format="reference" />
     <attr name="colorDrawerText" format="reference" />
@@ -32,7 +33,7 @@
         <item name="colorEncrypt">@color/colorEncryptLight</item>
 
         <item name="colorSeparator">@color/lightColorSeparator</item>
-
+        <item name="colorThumb">@color/lightColorThumb</item>
         <item name="colorWarning">@color/lightColorWarning</item>
 
         <item name="colorDrawerScrim">@color/lightColorDrawerScrim</item>
@@ -74,7 +75,7 @@
         <item name="colorEncrypt">@color/colorEncryptDark</item>
 
         <item name="colorSeparator">@color/darkColorSeparator</item>
-
+        <item name="colorThumb">@color/darkColorThumb</item>
         <item name="colorWarning">@color/darkColorWarning</item>
 
         <item name="colorDrawerScrim">@color/darkColorDrawerScrim</item>

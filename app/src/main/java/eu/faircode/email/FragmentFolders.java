@@ -240,6 +240,15 @@ public class FragmentFolders extends FragmentBase {
             }
         });
 
+        swipeRefresh.setOnChildScrollUpCallback(new SwipeRefreshLayout.OnChildScrollUpCallback() {
+            @Override
+            public boolean canChildScrollUp(@NonNull SwipeRefreshLayout parent, @Nullable View child) {
+                if (!prefs.getBoolean("pull", true))
+                    return true;
+                return rvFolder.canScrollVertically(-1);
+            }
+        });
+
         // Initialize
 
         if (cards && !Helper.isDarkTheme(getContext()))

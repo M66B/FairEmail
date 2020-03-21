@@ -83,7 +83,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvHintSync" />
 
-            <androidx.recyclerview.widget.RecyclerView
+            <eu.faircode.email.FixedRecyclerView
                 android:id="@+id/rvFolder"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -91,7 +91,12 @@
                 android:paddingTop="6dp"
                 android:paddingBottom="90dp"
                 android:scrollbarStyle="outsideOverlay"
-                android:scrollbars="vertical"
+                android:scrollbars="none"
+                app:fastScrollEnabled="false"
+                app:fastScrollHorizontalThumbDrawable="@drawable/scroll_thumb"
+                app:fastScrollHorizontalTrackDrawable="@drawable/scroll_track"
+                app:fastScrollVerticalThumbDrawable="@drawable/scroll_thumb"
+                app:fastScrollVerticalTrackDrawable="@drawable/scroll_track"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
