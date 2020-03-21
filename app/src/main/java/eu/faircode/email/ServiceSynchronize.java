@@ -382,19 +382,20 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             }
 
             private void quit(final Integer startId) {
+                if (startId != null && lastOperations > 0)
+                    return;
+
                 if (lastQuitId != null && lastQuitId.equals(startId))
                     return;
+
                 lastQuitId = startId;
 
-                EntityLog.log(ServiceSynchronize.this,
-                        "Service quit startId=" + startId + " ops=" + lastOperations);
+                EntityLog.log(ServiceSynchronize.this, "Service quit startId=" + startId);
 
                 queue.submit(new Runnable() {
                     @Override
                     public void run() {
-                        Log.i("### quit startId=" + startId + "/" + lastQuitId + " ops=" + lastOperations);
-                        if (lastOperations != 0)
-                            return;
+                        Log.i("### quit startId=" + startId);
 
                         if (startId == null) {
                             // Service destroy
@@ -411,9 +412,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             }
 
                             // Stop service
-                            boolean stopped = (lastOperations == 0 && stopSelfResult(startId));
-                            EntityLog.log(ServiceSynchronize.this, "Service quited=" + stopped +
-                                    " startId=" + startId + "/" + lastQuitId + " ops=" + lastOperations);
+                            boolean stopped = stopSelfResult(startId);
+                            EntityLog.log(ServiceSynchronize.this,
+                                    "Service quited=" + stopped + " startId=" + startId);
                         }
                     }
                 });
