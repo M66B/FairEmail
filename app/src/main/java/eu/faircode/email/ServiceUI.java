@@ -468,8 +468,8 @@ public class ServiceUI extends IntentService {
         if (reschedule) {
             long now = new Date().getTime();
             long[] schedule = ServiceSynchronize.getSchedule(this);
-            boolean enabled = (schedule != null && now >= schedule[0] && now < schedule[1]);
-            schedule(this, enabled);
+            boolean poll = (schedule == null || (now >= schedule[0] && now < schedule[1]));
+            schedule(this, poll);
         }
     }
 
@@ -483,7 +483,7 @@ public class ServiceUI extends IntentService {
                 .setAction(account == null ? "sync" : "sync:" + account));
     }
 
-    static void schedule(Context context, boolean enabled) {
+    static void schedule(Context context, boolean poll) {
         Intent intent = new Intent(context, ServiceUI.class);
         intent.setAction("sync");
         intent.putExtra("reschedule", true);
@@ -494,8 +494,9 @@ public class ServiceUI extends IntentService {
         am.cancel(piSync);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean enabled = prefs.getBoolean("enabled", true);
         int pollInterval = prefs.getInt("poll_interval", ServiceSynchronize.DEFAULT_POLL_INTERVAL);
-        if (enabled && pollInterval > 0) {
+        if (poll && enabled && pollInterval > 0) {
             long now = new Date().getTime();
             long interval = pollInterval * 60 * 1000L;
             long next = now + interval - now % interval;
