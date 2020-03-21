@@ -403,10 +403,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private View vSeparator;
         private ImageButton ibFull;
         private ImageButton ibImages;
-        private ImageButton ibUnsubscribe;
         private ImageButton ibDecrypt;
         private ImageButton ibVerify;
         private ImageButton ibUndo;
+        private ImageButton ibUnsubscribe;
         private ImageButton ibAnswer;
         private ImageButton ibMove;
         private ImageButton ibArchive;
@@ -593,10 +593,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             vSeparator = vsBody.findViewById(R.id.vSeparator);
             ibFull = vsBody.findViewById(R.id.ibFull);
             ibImages = vsBody.findViewById(R.id.ibImages);
-            ibUnsubscribe = vsBody.findViewById(R.id.ibUnsubscribe);
             ibDecrypt = vsBody.findViewById(R.id.ibDecrypt);
             ibVerify = vsBody.findViewById(R.id.ibVerify);
             ibUndo = vsBody.findViewById(R.id.ibUndo);
+            ibUnsubscribe = vsBody.findViewById(R.id.ibUnsubscribe);
             ibAnswer = vsBody.findViewById(R.id.ibAnswer);
             ibMove = vsBody.findViewById(R.id.ibMove);
             ibArchive = vsBody.findViewById(R.id.ibArchive);
@@ -1184,10 +1184,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             vSeparator.setVisibility(View.GONE);
             ibFull.setVisibility(View.GONE);
             ibImages.setVisibility(View.GONE);
-            ibUnsubscribe.setVisibility(View.GONE);
             ibDecrypt.setVisibility(View.GONE);
             ibVerify.setVisibility(View.GONE);
             ibUndo.setVisibility(View.GONE);
+            ibUnsubscribe.setVisibility(View.GONE);
             ibAnswer.setVisibility(View.GONE);
             ibMove.setVisibility(View.GONE);
             ibArchive.setVisibility(View.GONE);
@@ -1196,13 +1196,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibMore.setVisibility(View.GONE);
             tvSignedData.setVisibility(View.GONE);
 
+            tvNoInternetBody.setVisibility(View.GONE);
+            grpDownloading.setVisibility(View.GONE);
             tvBody.setVisibility(View.GONE);
             wvBody.setVisibility(View.GONE);
             pbBody.setVisibility(View.GONE);
-            tvNoInternetBody.setVisibility(View.GONE);
-            grpDownloading.setVisibility(View.GONE);
-            ibSeen.setVisibility(View.GONE);
+            grpAction.setVisibility(View.GONE);
             clearActions();
+            ibSeen.setVisibility(View.GONE);
         }
 
         private void clearActions() {
@@ -1457,12 +1458,24 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibDecrypt.setVisibility(View.GONE);
             ibVerify.setVisibility(View.GONE);
             ibUndo.setVisibility(EntityFolder.OUTBOX.equals(message.folderType) ? View.VISIBLE : View.GONE);
-
+            ibUnsubscribe.setVisibility(View.GONE);
+            ibAnswer.setVisibility(View.GONE);
+            ibMove.setVisibility(View.GONE);
+            ibArchive.setVisibility(View.GONE);
+            ibTrash.setVisibility(View.GONE);
+            ibJunk.setVisibility(View.GONE);
             ibMore.setVisibility(EntityFolder.OUTBOX.equals(message.folderType) ? View.GONE : View.VISIBLE);
             tvSignedData.setVisibility(View.GONE);
 
             // Message text
             tvNoInternetBody.setVisibility(suitable || message.content ? View.GONE : View.VISIBLE);
+            grpDownloading.setVisibility(message.content ? View.GONE : View.VISIBLE);
+            tvBody.setVisibility(View.GONE);
+            wvBody.setVisibility(View.GONE);
+            pbBody.setVisibility(View.GONE);
+            grpAction.setVisibility(View.GONE);
+            clearActions();
+            ibSeen.setVisibility(View.GONE);
 
             db.attachment().liveAttachments(message.id).observe(cowner, new Observer<List<EntityAttachment>>() {
                 @Override
@@ -1495,16 +1508,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             sargs.putLong("account", message.account);
 
             new SimpleTask<List<EntityFolder>>() {
-                @Override
-                protected void onPreExecute(Bundle args) {
-                    ibUnsubscribe.setVisibility(View.GONE);
-                    ibAnswer.setVisibility(View.GONE);
-                    ibMove.setVisibility(View.GONE);
-                    ibArchive.setVisibility(View.GONE);
-                    ibTrash.setVisibility(View.GONE);
-                    ibJunk.setVisibility(View.GONE);
-                }
-
                 @Override
                 protected List<EntityFolder> onExecute(Context context, Bundle args) {
                     long account = args.getLong("account");
@@ -1577,9 +1580,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void bindBody(TupleMessageEx message) {
             tvBody.setText(null);
-            grpDownloading.setVisibility(message.content ? View.GONE : View.VISIBLE);
-
-            grpAction.setVisibility(View.GONE);
 
             ibSeen.setImageResource(message.ui_seen
                     ? R.drawable.baseline_visibility_off_24 : R.drawable.baseline_visibility_24);
