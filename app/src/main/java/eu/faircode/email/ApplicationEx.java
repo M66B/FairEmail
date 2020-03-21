@@ -253,15 +253,6 @@ public class ApplicationEx extends Application {
                 editor.putBoolean("highlight_unread", highlight_unread);
         }
 
-        if (BuildConfig.DEBUG && false) {
-            editor.remove("app_support");
-            editor.remove("notify_archive");
-            editor.remove("message_swipe");
-            editor.remove("message_select");
-            editor.remove("folder_actions");
-            editor.remove("folder_sync");
-        }
-
         if (version < BuildConfig.VERSION_CODE)
             editor.putInt("previous_version", version);
         editor.putInt("version", BuildConfig.VERSION_CODE);

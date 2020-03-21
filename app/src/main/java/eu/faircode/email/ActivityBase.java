@@ -53,6 +53,7 @@ import java.util.Map;
 
 abstract class ActivityBase extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
     private Context originalContext;
+    private boolean visible;
     private boolean contacts;
     private List<IKeyPressedListener> keyPressedListeners = new ArrayList<>();
 
@@ -235,6 +236,8 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     protected void onResume() {
         Log.d("Resume " + this.getClass().getName());
 
+        visible = true;
+
         boolean contacts = hasPermission(Manifest.permission.READ_CONTACTS);
         if (!this.getClass().equals(ActivitySetup.class) && this.contacts != contacts) {
             Log.i("Contacts permission=" + contacts);
@@ -250,6 +253,8 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     protected void onPause() {
         Log.d("Pause " + this.getClass().getName());
         super.onPause();
+
+        visible = false;
 
         if (!this.getClass().equals(ActivityMain.class) && Helper.shouldAuthenticate(this))
             finishAndRemoveTask();
@@ -367,7 +372,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
             finish();
             if (this.getClass().equals(ActivitySetup.class))
                 startActivity(getIntent());
-        } else if (!this.getClass().equals(ActivitySetup.class) &&
+        } else if (!this.getClass().equals(ActivitySetup.class) && !visible &&
                 Arrays.asList(FragmentOptions.OPTIONS_RESTART).contains(key))
             finish();
     }
