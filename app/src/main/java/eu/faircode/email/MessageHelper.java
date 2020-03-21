@@ -595,7 +595,7 @@ public class MessageHelper {
         if (format_flowed) {
             List<String> flowed = new ArrayList<>();
             for (String line : plainContent.split("\\r?\\n")) {
-                if (line.contains(" ")) {
+                if (line.contains(" ") && !"-- ".equals(line)) {
                     StringBuffer sb = new StringBuffer();
                     for (String word : line.split(" ")) {
                         if (sb.length() + word.length() > FORMAT_FLOWED_LINE_LENGTH) {
