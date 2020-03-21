@@ -112,6 +112,9 @@ public class EmailService implements AutoCloseable {
             "SSLv2", "SSLv3", "TLSv1", "TLSv1.1"
     ));
 
+    private static final Pattern SSL_CIPHER_BLACKLIST =
+            Pattern.compile(".*(_DES|DH_|DSS|EXPORT|MD5|NULL|RC4|TLS_FALLBACK_SCSV).*");
+
     private EmailService() {
         // Prevent instantiation
     }
@@ -794,9 +797,8 @@ public class EmailService implements AutoCloseable {
                 sslSocket.setEnabledProtocols(protocols.toArray(new String[0]));
 
                 ArrayList<String> ciphers = new ArrayList<>();
-                Pattern pattern = Pattern.compile(".*(_DES|DH_|DSS|EXPORT|MD5|NULL|RC4|TLS_FALLBACK_SCSV).*");
                 for (String cipher : sslSocket.getEnabledCipherSuites()) {
-                    if (pattern.matcher(cipher).matches())
+                    if (SSL_CIPHER_BLACKLIST.matcher(cipher).matches())
                         Log.i("SSL disabling cipher=" + cipher);
                     else
                         ciphers.add(cipher);
