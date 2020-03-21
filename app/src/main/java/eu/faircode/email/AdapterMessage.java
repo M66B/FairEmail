@@ -4886,6 +4886,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         holder.wire();
     }
 
+    public void focusBody(@NonNull ViewHolder holder, int position) {
+        if (holder.tvBody != null && holder.tvBody.getVisibility() == View.VISIBLE)
+            holder.tvBody.requestFocus();
+        if (holder.wvBody != null && holder.wvBody.getVisibility() == View.VISIBLE)
+            holder.wvBody.requestFocus();
+    }
+
     public void onItemSelected(@NonNull ViewHolder holder, boolean selected) {
         if (accessibility && holder.view != null)
             try {
