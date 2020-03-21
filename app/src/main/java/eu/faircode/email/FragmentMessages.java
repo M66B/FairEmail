@@ -1487,16 +1487,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             return attachments.get(id);
         }
 
-        @Override
-        public void scrollTo(final int pos) {
-            new Handler().post(new Runnable() {
-                @Override
-                public void run() {
-                    rvMessage.scrollToPosition(pos);
-                }
-            });
-        }
-
         public void scrollTo(final int pos, final int y) {
             new Handler().post(new Runnable() {
                 @Override

@@ -3008,7 +3008,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 boolean expanded = !properties.getValue("expanded", message.id);
                 properties.setExpanded(message, expanded);
                 bindTo(message, getAdapterPosition());
-                properties.scrollTo(getAdapterPosition());
+                properties.scrollTo(getAdapterPosition(), 0);
             }
         }
 
@@ -4722,7 +4722,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             public void onCurrentListChanged(@Nullable PagedList<TupleMessageEx> previousList, @Nullable PagedList<TupleMessageEx> currentList) {
                 if (gotoTop) {
                     gotoTop = false;
-                    properties.scrollTo(0);
+                    properties.scrollTo(0, 0);
                 }
             }
         });
@@ -4761,7 +4761,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     }
 
     void gotoTop() {
-        properties.scrollTo(0);
+        properties.scrollTo(0, 0);
         this.gotoTop = true;
     }
 
@@ -4977,8 +4977,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         void setAttachments(long id, List<EntityAttachment> attachments);
 
         List<EntityAttachment> getAttachments(long id);
-
-        void scrollTo(int pos);
 
         void scrollTo(int pos, int y);
 
