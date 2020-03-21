@@ -3011,6 +3011,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             else {
                 boolean expanded = !properties.getValue("expanded", message.id);
                 properties.setExpanded(message, expanded);
+                // Needed to scroll to item after collapsing other items
+                if (expanded)
+                    properties.scrollTo(getAdapterPosition(), 0);
                 bindTo(message, expanded);
             }
         }
