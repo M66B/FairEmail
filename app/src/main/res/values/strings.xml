@@ -974,6 +974,7 @@
     <string name="title_legend_section_folders">Folders</string>
     <string name="title_legend_section_messages">Messages</string>
     <string name="title_legend_section_compose">Compose</string>
+    <string name="title_legend_section_keyboard">Keyboard</string>
 
     <string name="title_legend_oauth">OAuth authorization</string>
     <string name="title_legend_primary_connected">Account connected</string>
@@ -1069,6 +1070,17 @@
     <string name="title_legend_delete">Delete</string>
     <string name="title_legend_count">Count</string>
     <string name="title_legend_folder_type">Folder type</string>
+
+    <string name="title_legend_enter">Open</string>
+    <string name="title_legend_a">Archive</string>
+    <string name="title_legend_c">Compose</string>
+    <string name="title_legend_d">Delete/trash</string>
+    <string name="title_legend_m">More/menu</string>
+    <string name="title_legend_n">Next</string>
+    <string name="title_legend_p">Previous</string>
+    <string name="title_legend_r">Reply/answer</string>
+    <string name="title_legend_s">Select/deselect</string>
+    <string name="title_legend_t">Focus text</string>
 
     <string name="title_hint_folder_actions">Long press a folder for options, like adding a folder to the navigation menu for quick access</string>
     <string name="title_hint_folder_sync">To limit battery and network usage not all folders and not all messages will be synchronized by default</string>

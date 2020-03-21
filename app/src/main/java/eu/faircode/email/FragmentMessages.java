@@ -4451,8 +4451,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     return (!up || onViewThread(context));
                 case KeyEvent.KEYCODE_A:
                     return (up && onArchive(context));
-                case KeyEvent.KEYCODE_B:
-                    return (up && onBody(context));
                 case KeyEvent.KEYCODE_C:
                     return (up && onCompose(context));
                 case KeyEvent.KEYCODE_D:
@@ -4467,6 +4465,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     return (up && onReply(context));
                 case KeyEvent.KEYCODE_S:
                     return (up && onSelect(context));
+                case KeyEvent.KEYCODE_T:
+                    return (up && onFocusText(context));
                 default:
                     return false;
             }
@@ -4568,7 +4568,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             return true;
         }
 
-        private boolean onBody(Context context) {
+        private boolean onFocusText(Context context) {
             int expanded = (values.containsKey("expanded") ? values.get("expanded").size() : 0);
             if (expanded != 1)
                 return false;

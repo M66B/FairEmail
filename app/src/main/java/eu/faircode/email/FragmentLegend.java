@@ -98,7 +98,7 @@ public class FragmentLegend extends FragmentBase {
 
         @Override
         public int getCount() {
-            return 4;
+            return 5;
         }
 
         @Override
@@ -112,6 +112,8 @@ public class FragmentLegend extends FragmentBase {
                     return new FragmentLegend().setLayout(R.layout.fragment_legend_messages);
                 case 3:
                     return new FragmentLegend().setLayout(R.layout.fragment_legend_compose);
+                case 4:
+                    return new FragmentLegend().setLayout(R.layout.fragment_legend_keyboard);
                 default:
                     throw new IllegalArgumentException();
             }
@@ -128,6 +130,8 @@ public class FragmentLegend extends FragmentBase {
                     return getString(R.string.title_legend_section_messages);
                 case 3:
                     return getString(R.string.title_legend_section_compose);
+                case 4:
+                    return getString(R.string.title_legend_section_keyboard);
                 default:
                     throw new IllegalArgumentException();
             }
