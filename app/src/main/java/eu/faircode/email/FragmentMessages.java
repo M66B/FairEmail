@@ -1429,9 +1429,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 for (Long other : new ArrayList<>(values.get("expanded")))
                     if (!other.equals(message.id)) {
                         values.get("expanded").remove(other);
+
                         int pos = adapter.getPositionForKey(other);
-                        if (pos != NO_POSITION)
-                            adapter.notifyItemChanged(pos);
+                        if (pos == NO_POSITION)
+                            continue;
+                        AdapterMessage.ViewHolder holder =
+                                (AdapterMessage.ViewHolder) rvMessage.findViewHolderForAdapterPosition(pos);
+                        if (holder == null)
+                            continue;
+                        adapter.collapse(holder, pos);
                     }
             }
 

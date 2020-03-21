@@ -815,7 +815,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         @SuppressLint("WrongConstant")
-        private void bindTo(final TupleMessageEx message, int position) {
+        private void bindTo(final TupleMessageEx message) {
             boolean inbox = EntityFolder.INBOX.equals(message.folderType);
             boolean outbox = EntityFolder.OUTBOX.equals(message.folderType);
             boolean outgoing = isOutgoing(message);
@@ -2631,7 +2631,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     } else {
                         message.ui_seen = !message.ui_seen;
                         message.unseen = (message.ui_seen ? 0 : message.count);
-                        bindTo(message, getAdapterPosition());
+                        bindTo(message);
 
                         Bundle args = new Bundle();
                         args.putLong("id", message.id);
@@ -3007,8 +3007,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             else {
                 boolean expanded = !properties.getValue("expanded", message.id);
                 properties.setExpanded(message, expanded);
-                bindTo(message, getAdapterPosition());
-                properties.scrollTo(getAdapterPosition(), 0);
+                bindTo(message);
+                if (expanded)
+                    properties.scrollTo(getAdapterPosition(), 0);
             }
         }
 
@@ -3617,7 +3618,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     properties.setExpanded(message, false);
                     message.ui_seen = args.getBoolean("seen");
                     message.unseen = (message.ui_seen ? 0 : message.count);
-                    bindTo(message, getAdapterPosition());
+                    bindTo(message);
                 }
 
                 @Override
@@ -4882,8 +4883,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         holder.unwire();
-        holder.bindTo(message, position);
+        holder.bindTo(message);
         holder.wire();
+    }
+
+    public void collapse(@NonNull ViewHolder holder, int position) {
+        TupleMessageEx message = getItemAtPosition(position);
+        if (message != null)
+            holder.clearExpanded(message);
     }
 
     public void focusBody(@NonNull ViewHolder holder, int position) {
