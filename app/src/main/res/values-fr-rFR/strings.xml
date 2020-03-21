@@ -858,6 +858,7 @@
     <string name="title_legend_section_folders">Dossiers</string>
     <string name="title_legend_section_messages">Messages</string>
     <string name="title_legend_section_compose">Rédaction</string>
+    <string name="title_legend_section_keyboard">Clavier</string>
     <string name="title_legend_oauth">Autorisation OAuth</string>
     <string name="title_legend_primary_connected">Compte connecté</string>
     <string name="title_legend_primary_disconnected">Compte déconnecté</string>
@@ -947,6 +948,16 @@
     <string name="title_legend_delete">Supprimer</string>
     <string name="title_legend_count">Nombre</string>
     <string name="title_legend_folder_type">Type de dossier</string>
+    <string name="title_legend_enter">Ouvrir</string>
+    <string name="title_legend_a">Archiver</string>
+    <string name="title_legend_c">Rédiger</string>
+    <string name="title_legend_d">Corbeille (supprimer)</string>
+    <string name="title_legend_m">Menu (sélection multiple)</string>
+    <string name="title_legend_n">Suivant</string>
+    <string name="title_legend_p">Précédent</string>
+    <string name="title_legend_r">Répondre</string>
+    <string name="title_legend_s">Sélectionner / désélectionner</string>
+    <string name="title_legend_t">Sélection sur le texte</string>
     <string name="title_hint_folder_actions">Appuyez longuement sur un dossier pour afficher les options, comme ajouter un dossier au menu de navigation pour un accès rapide</string>
     <string name="title_hint_folder_sync">Pour limiter l\'utilisation de la batterie et du réseau, les dossiers et les messages ne seront pas tous synchronisés par défaut</string>
     <string name="title_hint_support">Si vous avez une question ou un problème, veuillez utiliser le menu Support pour obtenir de l\'aide</string>

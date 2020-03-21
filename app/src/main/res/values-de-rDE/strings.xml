@@ -952,8 +952,11 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_legend_enter">Öffnen</string>
     <string name="title_legend_a">Archivieren</string>
     <string name="title_legend_c">Verfassen</string>
+    <string name="title_legend_d">Papierkorb (löschen)</string>
+    <string name="title_legend_m">Menü (Mehrfachauswahl)</string>
     <string name="title_legend_n">Weiter</string>
     <string name="title_legend_p">Zurück</string>
+    <string name="title_legend_r">Antworten</string>
     <string name="title_legend_s">Aus-/Abwählen</string>
     <string name="title_legend_t">Text fokussieren</string>
     <string name="title_hint_folder_actions">Drücken Sie lange auf einen Ordner für Optionen, wie das Hinzufügen eines Ordners in die Navigation für schnellen Zugriff</string>

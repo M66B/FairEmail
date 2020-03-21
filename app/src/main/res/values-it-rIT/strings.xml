@@ -857,6 +857,7 @@
     <string name="title_legend_section_folders">Cartelle</string>
     <string name="title_legend_section_messages">Messaggi</string>
     <string name="title_legend_section_compose">Scrivi</string>
+    <string name="title_legend_section_keyboard">Tastiera</string>
     <string name="title_legend_oauth">Autorizzazione OAuth</string>
     <string name="title_legend_primary_connected">Account connesso</string>
     <string name="title_legend_primary_disconnected">Account disconnesso</string>
@@ -946,6 +947,16 @@
     <string name="title_legend_delete">Elimina</string>
     <string name="title_legend_count">Quantità</string>
     <string name="title_legend_folder_type">Tipo di cartella</string>
+    <string name="title_legend_enter">Apri</string>
+    <string name="title_legend_a">Archivio</string>
+    <string name="title_legend_c">Componi</string>
+    <string name="title_legend_d">Cestino (elimina)</string>
+    <string name="title_legend_m">Menu (selezione multipla)</string>
+    <string name="title_legend_n">Successivo</string>
+    <string name="title_legend_p">Precedente</string>
+    <string name="title_legend_r">Rispondere</string>
+    <string name="title_legend_s">Seleziona/deseleziona</string>
+    <string name="title_legend_t">Focalizza testo</string>
     <string name="title_hint_folder_actions">Premi a lungo su una cartella per le opzioni, come aggiungere una cartella al menu di navigazione per un accesso rapido</string>
     <string name="title_hint_folder_sync">Per limitare l\'utilizzo della batteria e della rete, non tutte le cartelle e non tutti i messaggi verranno sincronizzati per impostazione predefinita</string>
     <string name="title_hint_support">Se hai una domanda o un problema, usa il menu di supporto per ottenere aiuto</string>

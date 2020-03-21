@@ -937,6 +937,9 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_legend_delete">Ezabatu</string>
     <string name="title_legend_count">Kopurua</string>
     <string name="title_legend_folder_type">Karpeta mota</string>
+    <string name="title_legend_d">Zakarrontzia (ezabatu)</string>
+    <string name="title_legend_m">Menua (aukera anitza)</string>
+    <string name="title_legend_r">Erantzun</string>
     <string name="title_hint_folder_actions">Sakatu luze karpetako aukerak ikusteko, hala nola karpeta bat gehitzeko abio bizkorreko nabigazio menuan</string>
     <string name="title_hint_folder_sync">Bateria eta sarearen erabilera mugatzeko ez dira karpeta eta mezu guztiak sinkronizatuko lehenetsita</string>
     <string name="title_hint_support">Galdera edo arazoren bat baduzu, erabili laguntza menua laguntza jasotzeko</string>
