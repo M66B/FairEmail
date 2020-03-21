@@ -198,6 +198,7 @@
 
     <string name="title_setup_export">Export settings</string>
     <string name="title_setup_import">Import settings</string>
+    <string name="title_setup_export_do">Gmail accounts linked to on-device Google accounts cannot be exported</string>
     <string name="title_setup_import_do">Imported accounts will be added without overwriting any existing ones</string>
     <string name="title_setup_password">Password</string>
     <string name="title_setup_password_chars">Password contains control or whitespace characters</string>

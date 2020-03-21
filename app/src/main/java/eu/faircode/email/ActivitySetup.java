@@ -1310,7 +1310,8 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_password, null);
             etPassword1 = dview.findViewById(R.id.tilPassword1);
             etPassword2 = dview.findViewById(R.id.tilPassword2);
-            TextView tvImportHint = dview.findViewById(R.id.tvImporthint);
+            TextView tvExportHint = dview.findViewById(R.id.tvExportHint);
+            TextView tvImportHint = dview.findViewById(R.id.tvImportHint);
 
             if (savedInstanceState != null) {
                 etPassword1.getEditText().setText(savedInstanceState.getString("fair:password1"));
@@ -1318,6 +1319,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             }
 
             etPassword2.setVisibility(export ? View.VISIBLE : View.GONE);
+            tvExportHint.setVisibility(export ? View.VISIBLE : View.GONE);
             tvImportHint.setVisibility(export ? View.GONE : View.VISIBLE);
 
             return new AlertDialog.Builder(getContext())
