@@ -815,7 +815,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         @SuppressLint("WrongConstant")
-        private void bindTo(final TupleMessageEx message, int position, boolean scroll) {
+        private void bindTo(final TupleMessageEx message, int position) {
             boolean inbox = EntityFolder.INBOX.equals(message.folderType);
             boolean outbox = EntityFolder.OUTBOX.equals(message.folderType);
             boolean outgoing = isOutgoing(message);
@@ -1098,7 +1098,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             if (viewType == ViewType.THREAD)
                 if (expanded)
-                    bindExpanded(message, scroll);
+                    bindExpanded(message);
                 else
                     clearExpanded(message);
 
@@ -1310,7 +1310,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
         }
 
-        private void bindExpanded(final TupleMessageEx message, final boolean scroll) {
+        private void bindExpanded(final TupleMessageEx message) {
             DB db = DB.getInstance(context);
 
             cowner.recreate();
@@ -1486,9 +1486,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         bindBody(message);
 
                     properties.setAttachments(message.id, attachments);
-
-                    if (scroll)
-                        properties.scrollTo(getAdapterPosition());
                 }
             });
 
@@ -2634,7 +2631,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     } else {
                         message.ui_seen = !message.ui_seen;
                         message.unseen = (message.ui_seen ? 0 : message.count);
-                        bindTo(message, getAdapterPosition(), false);
+                        bindTo(message, getAdapterPosition());
 
                         Bundle args = new Bundle();
                         args.putLong("id", message.id);
@@ -3010,14 +3007,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             else {
                 boolean expanded = !properties.getValue("expanded", message.id);
                 properties.setExpanded(message, expanded);
-                bindTo(message, getAdapterPosition(), expanded);
+                bindTo(message, getAdapterPosition());
+                properties.scrollTo(getAdapterPosition());
             }
         }
 
         private void onToggleAddresses(TupleMessageEx message) {
             boolean addresses = !properties.getValue("addresses", message.id);
             properties.setValue("addresses", message.id, addresses);
-            bindExpanded(message, false);
+            bindExpanded(message);
         }
 
         private void onDownloadAttachments(final TupleMessageEx message) {
@@ -3619,7 +3617,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     properties.setExpanded(message, false);
                     message.ui_seen = args.getBoolean("seen");
                     message.unseen = (message.ui_seen ? 0 : message.count);
-                    bindTo(message, getAdapterPosition(), false);
+                    bindTo(message, getAdapterPosition());
                 }
 
                 @Override
@@ -4024,7 +4022,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     }
                 }.execute(context, owner, args, "message:headers");
             } else
-                bindExpanded(message, false);
+                bindExpanded(message);
         }
 
         private void onMenuRawSave(TupleMessageEx message) {
@@ -4884,7 +4882,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         holder.unwire();
-        holder.bindTo(message, position, false);
+        holder.bindTo(message, position);
         holder.wire();
     }
 
