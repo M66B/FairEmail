@@ -418,6 +418,7 @@
     <string name="title_advanced_autoseen_hint">Automatisk merking av meldinger som lest ved utvidelse, kan deaktiveres i de enkelte kontoinnstillingene</string>
     <string name="title_advanced_autoclose_hint">Lukk samtaler automatisk når alle meldinger arkiveres, sendes eller kastet</string>
     <string name="title_advanced_sender_hint">De fleste leverandører tillater ikke endret avsender adresser</string>
+    <string name="title_advanced_bcc_hint">Adressen vises ikke, men legges til ved sending</string>
     <string name="title_advanced_display_harmful_hint">Deaktivering av dette alternativet kan være skadelig for personvernet ditt</string>
     <string name="title_advanced_display_hidden_hint">Dette kan resultere i merkelige utseende og doble tekster</string>
     <string name="title_advanced_display_pin_hint">En PIN-kode har forrang fremfor biometrisk autentisering</string>
@@ -857,6 +858,7 @@ Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anme
     <string name="title_legend_section_folders">Mapper</string>
     <string name="title_legend_section_messages">Meldinger</string>
     <string name="title_legend_section_compose">Skriv</string>
+    <string name="title_legend_section_keyboard">Tastatur</string>
     <string name="title_legend_oauth">OAuth autorisasjon</string>
     <string name="title_legend_primary_connected">Konto tilkoblet</string>
     <string name="title_legend_primary_disconnected">Konto frakoblet</string>
@@ -946,6 +948,16 @@ Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anme
     <string name="title_legend_delete">Slett</string>
     <string name="title_legend_count">Antall</string>
     <string name="title_legend_folder_type">Mappe type</string>
+    <string name="title_legend_enter">Åpne</string>
+    <string name="title_legend_a">Arkiv</string>
+    <string name="title_legend_c">Skriv</string>
+    <string name="title_legend_d">Papirkurv (slett)</string>
+    <string name="title_legend_m">Meny (flere valg)</string>
+    <string name="title_legend_n">Neste</string>
+    <string name="title_legend_p">Forrige</string>
+    <string name="title_legend_r">Svar</string>
+    <string name="title_legend_s">Velge/velge bort</string>
+    <string name="title_legend_t">Fokus tekst</string>
     <string name="title_hint_folder_actions">Trykk lenge på en mappe for alternativer, for eksempel å legge til en mappe i navigasjonsmenyen for rask tilgang</string>
     <string name="title_hint_folder_sync">For å begrense batteri- og nettverks bruk, vil ikke alle mapper og ikke alle meldinger synkroniseres som standard</string>
     <string name="title_hint_support">Hvis du har et spørsmål eller et problem, vennligst bruk support menyen for å få hjelp</string>
@@ -1005,6 +1017,7 @@ Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anme
     <string name="title_fetching_again">Henter melding igjen fra serveren</string>
     <string name="title_conversation_actions">Handlinger</string>
     <string name="title_conversation_action_reply">Svar med: \'%1$s\'</string>
+    <string name="title_conversation_action_copy">Kopiere: \'%1$s\'</string>
     <string name="title_icalendar_accept">Godta</string>
     <string name="title_icalendar_decline">Avslå</string>
     <string name="title_icalendar_maybe">Kanskje</string>

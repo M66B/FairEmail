@@ -418,6 +418,7 @@
     <string name="title_advanced_autoseen_hint">La marcatura automatica dei messaggi letti all\'apertura può essere disabilitata nelle impostazioni dei singoli account</string>
     <string name="title_advanced_autoclose_hint">Chiudi automaticamente le conversazioni raggruppate quando tutti i messaggi sono archiviati, inviati o cestinati</string>
     <string name="title_advanced_sender_hint">La maggior parte dei fornitori non consente indirizzi mittente modificati</string>
+    <string name="title_advanced_bcc_hint">L\'indirizzo non sarà mostrato, ma verrà aggiunto all\'invio</string>
     <string name="title_advanced_display_harmful_hint">Disabilitare questa opzione potrebbe essere dannoso per la tua privacy</string>
     <string name="title_advanced_display_hidden_hint">Ciò può comportare un aspetto strano e doppi testi</string>
     <string name="title_advanced_display_pin_hint">Un PIN ha la precedenza sull\'autenticazione biometrica</string>
@@ -1016,6 +1017,7 @@
     <string name="title_fetching_again">Nuovo recupero messaggio dal server</string>
     <string name="title_conversation_actions">Azioni</string>
     <string name="title_conversation_action_reply">Rispondi con: \'%1$s\'</string>
+    <string name="title_conversation_action_copy">Copia: \'%1$s\'</string>
     <string name="title_icalendar_accept">Accetta</string>
     <string name="title_icalendar_decline">Rifiuta</string>
     <string name="title_icalendar_maybe">Forse</string>

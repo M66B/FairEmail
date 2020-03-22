@@ -406,6 +406,7 @@
     <string name="title_advanced_autoseen_hint">可以在单独的账户设置中禁用展开消息时自动标记消息为已读</string>
     <string name="title_advanced_autoclose_hint">在所有邮件存档、发送或丢弃时自动关闭对话线程</string>
     <string name="title_advanced_sender_hint">大多数提供商不允许修改发件人地址</string>
+    <string name="title_advanced_bcc_hint">地址不会被显示，但会在发送时被添加</string>
     <string name="title_advanced_display_harmful_hint">禁用此选项可能会危害您的隐私</string>
     <string name="title_advanced_display_hidden_hint">这可能导致古怪的外观和双重文本</string>
     <string name="title_advanced_display_pin_hint">PIN码优先于生物验证</string>
@@ -846,6 +847,7 @@
     <string name="title_legend_section_folders">文件夹</string>
     <string name="title_legend_section_messages">消息</string>
     <string name="title_legend_section_compose">撰写</string>
+    <string name="title_legend_section_keyboard">键盘</string>
     <string name="title_legend_oauth">OAuth 授权</string>
     <string name="title_legend_primary_connected">帐户已连接</string>
     <string name="title_legend_primary_disconnected">帐户已断开连接</string>
@@ -935,6 +937,16 @@
     <string name="title_legend_delete">删除</string>
     <string name="title_legend_count">总数</string>
     <string name="title_legend_folder_type">文件夹类型</string>
+    <string name="title_legend_enter">打开</string>
+    <string name="title_legend_a">存档</string>
+    <string name="title_legend_c">撰写</string>
+    <string name="title_legend_d">回收站(删除)</string>
+    <string name="title_legend_m">菜单(多选)</string>
+    <string name="title_legend_n">下一封</string>
+    <string name="title_legend_p">上一封</string>
+    <string name="title_legend_r">回复</string>
+    <string name="title_legend_s">选择/取消选择</string>
+    <string name="title_legend_t">聚焦文本</string>
     <string name="title_hint_folder_actions">长按文件夹查看选项，例如将文件夹添加到导航菜单以便快速访问</string>
     <string name="title_hint_folder_sync">为了减少电池和网络的使用量, 默认情况下, 并非所有文件夹和邮件都将同步</string>
     <string name="title_hint_support">如果您要提问或有疑问，请使用支持选项获取帮助</string>
@@ -994,6 +1006,7 @@
     <string name="title_fetching_again">再次从服务器获取消息</string>
     <string name="title_conversation_actions">操作</string>
     <string name="title_conversation_action_reply">回复：\'%1$s\'</string>
+    <string name="title_conversation_action_copy">复制: \'%1$s\'</string>
     <string name="title_icalendar_accept">接受</string>
     <string name="title_icalendar_decline">拒绝</string>
     <string name="title_icalendar_maybe">待定</string>

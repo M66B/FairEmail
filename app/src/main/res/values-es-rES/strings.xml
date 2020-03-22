@@ -859,6 +859,7 @@
     <string name="title_legend_section_folders">Carpetas</string>
     <string name="title_legend_section_messages">Mensajes</string>
     <string name="title_legend_section_compose">Redactar</string>
+    <string name="title_legend_section_keyboard">Teclado</string>
     <string name="title_legend_oauth">Autorización OAuth</string>
     <string name="title_legend_primary_connected">Cuenta conectada</string>
     <string name="title_legend_primary_disconnected">Cuenta desconectada</string>
@@ -948,6 +949,16 @@
     <string name="title_legend_delete">Eliminar</string>
     <string name="title_legend_count">Cuenta</string>
     <string name="title_legend_folder_type">Tipo de carpeta</string>
+    <string name="title_legend_enter">Abrir</string>
+    <string name="title_legend_a">Archivar</string>
+    <string name="title_legend_c">Redactar</string>
+    <string name="title_legend_d">Enviar a Papelera (eliminar)</string>
+    <string name="title_legend_m">Menú (selección múltiple)</string>
+    <string name="title_legend_n">Siguiente</string>
+    <string name="title_legend_p">Anterior</string>
+    <string name="title_legend_r">Responder</string>
+    <string name="title_legend_s">Seleccionar/Deseleccionar</string>
+    <string name="title_legend_t">Enfocar texto</string>
     <string name="title_hint_folder_actions">Mantenga pulsada una carpeta para las opciones, como añadir una carpeta al menú de navegación para acceso rápido</string>
     <string name="title_hint_folder_sync">Para limitar el uso de batería y redes, no todas las carpetas y mensajes serán sincronizados por defecto</string>
     <string name="title_hint_support">Si tiene una pregunta o problema, por favor use el menú de soporte para obtener ayuda</string>

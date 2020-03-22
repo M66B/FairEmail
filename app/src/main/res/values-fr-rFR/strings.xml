@@ -531,7 +531,7 @@
     <string name="title_delete_channel">Supprimer un canal de notification</string>
     <string name="title_create_sub_folder">Créer un sous-dossier</string>
     <string name="title_empty_trash_ask">Supprimer définitivement tous les messages de la corbeille locale ?</string>
-    <string name="title_empty_spam_ask">Supprimer définitivement tous les spams locaux ?</string>
+    <string name="title_empty_spam_ask">Supprimer définitivement tous les messages de spam locaux ?</string>
     <string name="title_empty_trash_all_ask">Supprimer définitivement tous les messages de la corbeille locale de tous les comptes ?</string>
     <string name="title_empty_spam_all_ask">Supprimer définitivement tous les messages de spam locaux de tous les comptes ?</string>
     <string name="title_delete_operation">Supprimer les opérations avec un message d\'erreur ?</string>
@@ -1017,6 +1017,7 @@
     <string name="title_fetching_again">Nouvelle récupération du message depuis le serveur</string>
     <string name="title_conversation_actions">Actions</string>
     <string name="title_conversation_action_reply">Répondre avec : \'%1$s\'</string>
+    <string name="title_conversation_action_copy">Copier : \'%1$s\'</string>
     <string name="title_icalendar_accept">Accepter</string>
     <string name="title_icalendar_decline">Refuser</string>
     <string name="title_icalendar_maybe">Peut-être</string>

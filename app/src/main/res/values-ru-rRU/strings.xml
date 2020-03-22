@@ -440,6 +440,7 @@
     <string name="title_advanced_autoseen_hint">Автоматическая пометка сообщений прочитанными при развёртывании может быть отключена в настройках учётной записи</string>
     <string name="title_advanced_autoclose_hint">Автоматически закрывать диалог, если все сообщения удалены, отправлены или помещены в архив</string>
     <string name="title_advanced_sender_hint">Большинство провайдеров не разрешают изменять адреса отправителей</string>
+    <string name="title_advanced_bcc_hint">Адрес не будет показан, но будет добавлен при отправке</string>
     <string name="title_advanced_display_harmful_hint">Отключение этой функции может навредить вашей конфиденциальности</string>
     <string name="title_advanced_display_hidden_hint">Это может вызвать странное отображение и дублирование текста</string>
     <string name="title_advanced_display_pin_hint">PIN-код имеет приоритет над биометрической аутентификацией</string>
@@ -880,6 +881,7 @@
     <string name="title_legend_section_folders">Папки</string>
     <string name="title_legend_section_messages">Сообщения</string>
     <string name="title_legend_section_compose">Написание</string>
+    <string name="title_legend_section_keyboard">Клавиатура</string>
     <string name="title_legend_oauth">OAuth-авторизация</string>
     <string name="title_legend_primary_connected">Учётная запись подключена</string>
     <string name="title_legend_primary_disconnected">Учётная запись отключена</string>
@@ -969,6 +971,16 @@
     <string name="title_legend_delete">Удалить</string>
     <string name="title_legend_count">Количество</string>
     <string name="title_legend_folder_type">Тип папки</string>
+    <string name="title_legend_enter">Открыть</string>
+    <string name="title_legend_a">Архивировать</string>
+    <string name="title_legend_c">Написать</string>
+    <string name="title_legend_d">Корзина (удаление)</string>
+    <string name="title_legend_m">Меню (множественный выбор)</string>
+    <string name="title_legend_n">Вперёд</string>
+    <string name="title_legend_p">Назад</string>
+    <string name="title_legend_r">Oтветить</string>
+    <string name="title_legend_s">Выбрать/отменить выбор</string>
+    <string name="title_legend_t">Фокус на тексте</string>
     <string name="title_hint_folder_actions">Длительное нажатие на папку для других возможностей, например, добавление папки в меню навигации для быстрого доступа</string>
     <string name="title_hint_folder_sync">Для экономии заряда батареи и трафика по умолчанию синхронизируются не все папки и сообщения.</string>
     <string name="title_hint_support">Если у вас есть вопрос или проблема, пожалуйста, используйте меню поддержки для получения помощи.</string>
@@ -1028,6 +1040,7 @@
     <string name="title_fetching_again">Заново загружаем сообщения с сервера</string>
     <string name="title_conversation_actions">Действия</string>
     <string name="title_conversation_action_reply">Ответить на: \'%1$s\'</string>
+    <string name="title_conversation_action_copy">Копировать: \"%1$s\"</string>
     <string name="title_icalendar_accept">Принять</string>
     <string name="title_icalendar_decline">Отклонить</string>
     <string name="title_icalendar_maybe">Возможно</string>
