@@ -169,7 +169,12 @@ public class Log {
     public static int w(String prefix, Throwable ex) {
         if (BuildConfig.BETA_RELEASE)
             try {
-                Bugsnag.notify(ex, Severity.INFO);
+                Bugsnag.notify(ex.getClass().getName(), prefix, ex.getStackTrace(), new Callback() {
+                    @Override
+                    public void beforeNotify(@NonNull Report report) {
+                        report.getError().setSeverity(Severity.INFO);
+                    }
+                });
             } catch (Throwable ex1) {
                 ex1.printStackTrace();
             }
@@ -179,7 +184,12 @@ public class Log {
     public static int e(String prefix, Throwable ex) {
         if (BuildConfig.BETA_RELEASE)
             try {
-                Bugsnag.notify(ex, Severity.WARNING);
+                Bugsnag.notify(ex.getClass().getName(), prefix, ex.getStackTrace(), new Callback() {
+                    @Override
+                    public void beforeNotify(@NonNull Report report) {
+                        report.getError().setSeverity(Severity.WARNING);
+                    }
+                });
             } catch (Throwable ex1) {
                 ex1.printStackTrace();
             }
