@@ -336,6 +336,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     db.folder().setFolderReadOnly(browsable.id, true);
                 }
 
+                db.folder().setFolderError(browsable.id, null);
+
                 int count = state.ifolder.getMessageCount();
                 db.folder().setFolderTotal(browsable.id, count < 0 ? null : count);
 
