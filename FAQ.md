@@ -50,6 +50,7 @@ Related questions:
 * Go to the next/previous message on archive/delete: in the behavior settings disable *Automatically close conversations* and select *Go to next/previous conversation* for *On closing a conversation*
 * Add a folder to the unified inbox: long press the folder in the folder list and check *Show in unified inbox*
 * Add a folder to the navigation menu: long press the folder in the folder list and check *Show in navigation menu*
+* Load all messages: long press a folder in the folder list, select *Synchronize all messages* 
 * Load older messages: long press a folder in the folder list, select *Edit properties* and change the number of days to sync/keep messages for; please [read this FAQ](#user-content-faq39)
 * Delete a message, skipping trash: in the 3-dots menu of the action bar just above the message text *Delete* or alternatively, unselect the trash folder in the account settings
 * Delete an account/identity: Setup step 1/2, Manage, tap account/identity, three-dots menu, Delete
