@@ -1143,6 +1143,7 @@
 
     <string name="title_conversation_actions">Actions</string>
     <string name="title_conversation_action_reply">Reply with: \'%1$s\'</string>
+    <string name="title_conversation_action_copy">Copy: \'%1$s\'</string>
 
     <string name="title_icalendar_accept">Accept</string>
     <string name="title_icalendar_decline">Decline</string>

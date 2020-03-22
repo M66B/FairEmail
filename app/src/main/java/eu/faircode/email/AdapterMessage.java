@@ -101,7 +101,6 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -1974,41 +1973,81 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         throw new IllegalStateException("Result=" + result);
 
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                        clearActions();
-
                         boolean has = false;
                         ConversationActions cactions = args.getParcelable("actions");
                         if (cactions != null) {
-                            LinearLayout.LayoutParams lparam = new LinearLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT);
-
                             List<ConversationAction> actions = cactions.getConversationActions();
                             for (final ConversationAction action : actions) {
+                                final CharSequence text;
+                                final CharSequence title;
                                 final RemoteAction raction = action.getAction();
-                                final CharSequence title = (raction == null
-                                        ? context.getString(R.string.title_conversation_action_reply, action.getTextReply())
-                                        : raction.getTitle());
+
+                                switch (action.getType()) {
+                                    case ConversationAction.TYPE_TEXT_REPLY:
+                                        text = action.getTextReply();
+                                        title = context.getString(R.string.title_conversation_action_reply, text);
+                                        break;
+                                    case "copy":
+                                        Bundle extras = action.getExtras().getParcelable("entities-extras");
+                                        if (extras == null)
+                                            continue;
+                                        text = extras.getString("text");
+                                        title = context.getString(R.string.title_conversation_action_copy, text);
+                                        break;
+                                    default:
+                                        if (raction == null) {
+                                            Log.e("Unknown action type=" + action.getType());
+                                            continue;
+                                        }
+                                        text = null;
+                                        title = raction.getTitle();
+                                        if (TextUtils.isEmpty(title)) {
+                                            Log.e("Empty action type=" + action.getType());
+                                            continue;
+                                        }
+                                }
 
                                 Button button = new Button(context, null, android.R.attr.buttonStyleSmall);
                                 button.setId(View.generateViewId());
-                                button.setLayoutParams(lparam);
                                 button.setText(title);
                                 button.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
                                         try {
-                                            if (raction == null) {
-                                                Intent reply = new Intent(context, ActivityCompose.class)
-                                                        .putExtra("action", "reply")
-                                                        .putExtra("reference", message.id)
-                                                        .putExtra("text", action.getTextReply());
-                                                context.startActivity(reply);
-                                            } else
-                                                raction.getActionIntent().send();
+                                            switch (action.getType()) {
+                                                case ConversationAction.TYPE_TEXT_REPLY:
+                                                    onReply();
+                                                    break;
+                                                case "copy":
+                                                    onCopy();
+                                                    break;
+                                                default:
+                                                    raction.getActionIntent().send();
+                                            }
                                         } catch (Throwable ex) {
                                             Log.e(ex);
                                         }
                                     }
+
+                                    private void onReply() {
+                                        Intent reply = new Intent(context, ActivityCompose.class)
+                                                .putExtra("action", "reply")
+                                                .putExtra("reference", message.id)
+                                                .putExtra("text", action.getTextReply());
+                                        context.startActivity(reply);
+                                    }
+
+                                    private void onCopy() {
+                                        ClipboardManager clipboard =
+                                                (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+                                        if (clipboard != null) {
+                                            ClipData clip = ClipData.newPlainText(title, text);
+                                            clipboard.setPrimaryClip(clip);
+                                            ToastEx.makeText(context, R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
+                                        }
+                                    }
                                 });
+
                                 ((ConstraintLayout) flow.getParent()).addView(button);
                                 flow.addView(button);
                                 has = true;
