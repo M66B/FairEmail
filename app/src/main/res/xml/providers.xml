@@ -589,4 +589,16 @@
             port="587"
             starttls="true" />
     </provider>
+    <provider
+        name="OVH"
+        link="https://docs.ovh.com/fr/emails/mail-mutualise-guide-configuration-dun-telephone-mobile-sous-android-version-51/#rappel-des-parametres-pop-imap_1">
+        <imap
+            host="ssl0.ovh.net"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="ssl0.ovh.net"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
