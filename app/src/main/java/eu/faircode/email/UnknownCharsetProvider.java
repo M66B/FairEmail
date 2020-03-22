@@ -47,6 +47,7 @@ public class UnknownCharsetProvider extends CharsetProvider {
         // UseInqueCodePage
         // ISO3166-1
         // EUCGB2312_CN
+        // WE8MSWIN1252
         // https://javaee.github.io/javamail/FAQ#unsupen
         // https://github.com/javaee/javamail/blob/master/mail/src/main/resources/META-INF/javamail.charset.map
         try {
@@ -69,6 +70,7 @@ public class UnknownCharsetProvider extends CharsetProvider {
                     name.startsWith("ISO8859") ||
                     name.startsWith("ISO-8859") ||
                     name.startsWith("WINDOWS-1252") ||
+                    name.startsWith("WİNDOWS-1254") ||
                     "x-IA5".equalsIgnoreCase(name) ||
                     "BASE64".equalsIgnoreCase(name) ||
                     "ISO".equalsIgnoreCase(name) ||
