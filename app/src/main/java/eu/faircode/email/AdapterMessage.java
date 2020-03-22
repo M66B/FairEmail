@@ -204,7 +204,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean suitable;
     private boolean unmetered;
 
-    private int dp36;
     private int colorPrimary;
     private int colorAccent;
     private int textColorPrimary;
@@ -4424,7 +4423,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.suitable = state.isSuitable();
         this.unmetered = state.isUnmetered();
 
-        this.dp36 = Helper.dp2pixels(context, 36);
         this.colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);
         this.colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
         this.textColorPrimary = Helper.resolveColor(context, android.R.attr.textColorPrimary);
