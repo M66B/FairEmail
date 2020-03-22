@@ -3088,9 +3088,19 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 .putExtra("id", message.id));
             else {
                 boolean expanded = !properties.getValue("expanded", message.id);
+
+                // Prevent flicker
+                if (expanded &&
+                        (message.accountProtocol != EntityAccount.TYPE_IMAP ||
+                                (message.accountAutoSeen && !message.ui_seen && !message.folderReadOnly))) {
+                    message.unseen = 0;
+                    message.ui_seen = true;
+                }
                 properties.setValue("expanded", message.id, expanded);
                 bindTo(message, expanded);
+
                 properties.setExpanded(message, expanded);
+
                 // Needed to scroll to item after collapsing other items
                 if (expanded)
                     properties.scrollTo(getAdapterPosition(), 0);
