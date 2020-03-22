@@ -596,6 +596,7 @@
     <string name="title_editasnew">Modifica come nuovo</string>
     <string name="title_create_rule">Crea regola &#8230;</string>
     <string name="title_share">Condividi</string>
+    <string name="title_pin">Aggiungi collegamento</string>
     <string name="title_print">Stampa</string>
     <string name="title_show_headers">Visualizza header</string>
     <string name="title_raw_save">Salva messaggio non elaborato</string>

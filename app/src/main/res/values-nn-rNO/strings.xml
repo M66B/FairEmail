@@ -596,6 +596,7 @@
     <string name="title_editasnew">Rediger som ny</string>
     <string name="title_create_rule">Opprett regel &#8230;</string>
     <string name="title_share">Del</string>
+    <string name="title_pin">Legg til snarvei</string>
     <string name="title_print">Skriv ut</string>
     <string name="title_show_headers">Vis topptekster</string>
     <string name="title_raw_save">Lagre rå melding</string>

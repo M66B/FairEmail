@@ -419,6 +419,7 @@
     <string name="title_advanced_autoseen_hint">El marcado automático de los mensajes como leídos al expandirlos se puede desactivar en la configuración individual de la cuenta</string>
     <string name="title_advanced_autoclose_hint">Cerrar automáticamente hilos de conversación cuando todos los mensajes son archivados, enviados o eliminados</string>
     <string name="title_advanced_sender_hint">La mayoría de los proveedores no permiten direcciones de remitente modificadas</string>
+    <string name="title_advanced_bcc_hint">La dirección no se mostrará, pero se añadirá al enviar</string>
     <string name="title_advanced_display_harmful_hint">Desactivar esta opción podría ser perjudicial para su privacidad</string>
     <string name="title_advanced_display_hidden_hint">Esto puede resultar en textos dobles o de apariencia extraña</string>
     <string name="title_advanced_display_pin_hint">Un PIN tiene prioridad sobre la autenticación biométrica</string>
@@ -1018,6 +1019,7 @@
     <string name="title_fetching_again">Recuperando mensaje nuevamente del servidor</string>
     <string name="title_conversation_actions">Acciones</string>
     <string name="title_conversation_action_reply">Responder con: \'%1$s\'</string>
+    <string name="title_conversation_action_copy">Copiar: \'%1$s\'</string>
     <string name="title_icalendar_accept">Aceptar</string>
     <string name="title_icalendar_decline">Rechazar</string>
     <string name="title_icalendar_maybe">Tal vez</string>

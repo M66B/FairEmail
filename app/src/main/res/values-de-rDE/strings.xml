@@ -419,7 +419,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_autoseen_hint">Das automatische Markieren von Nachrichten bei ihrer Erweiterung als gelesen kann in den einzelnen Kontoeinstellungen deaktiviert werden</string>
     <string name="title_advanced_autoclose_hint">Automatisch Unterhaltungen schließen, wenn alle E-Mails archiviert, gesendet oder gelöscht wurden</string>
     <string name="title_advanced_sender_hint">Die meisten Anbieter erlauben keine veränderten Absenderadressen</string>
-    <string name="title_advanced_bcc_hint">Die Adresse wird nicht angezeigt, wird aber beim Senden hinzugefügt</string>
+    <string name="title_advanced_bcc_hint">Die Adresse wird nicht angezeigt, wird aber beim Absenden hinzugefügt</string>
     <string name="title_advanced_display_harmful_hint">Deaktivieren dieser Option kann für Ihre Privatsphäre schädlich sein</string>
     <string name="title_advanced_display_hidden_hint">Dies kann zu merkwürdigem Aussehen und doppelten Texten führen</string>
     <string name="title_advanced_display_pin_hint">Eine PIN hat Vorrang vor der biometrischen Authentifizierung</string>
@@ -597,6 +597,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_editasnew">Als neu bearbeiten</string>
     <string name="title_create_rule">Regel erstellen &#8230;</string>
     <string name="title_share">Teilen</string>
+    <string name="title_pin">Verknüpfung hinzufügen</string>
     <string name="title_print">Drucken</string>
     <string name="title_show_headers">Kopfzeilen anzeigen</string>
     <string name="title_raw_save">Rohdaten speichern</string>

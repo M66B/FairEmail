@@ -418,6 +418,7 @@
     <string name="title_advanced_autoseen_hint">Le marquage automatique des messages comme lus lors l\'ouverture peut être désactivé dans les paramètres de chaque compte</string>
     <string name="title_advanced_autoclose_hint">Fermer automatiquement les conversations quand tous les messages sont archivés, envoyés ou mis à la corbeille</string>
     <string name="title_advanced_sender_hint">La plupart des fournisseurs n\'autorisent pas les adresses d\'expéditeur modifiées</string>
+    <string name="title_advanced_bcc_hint">L\'adresse ne sera pas affichée mais elle sera ajoutée lors de l\'envoi</string>
     <string name="title_advanced_display_harmful_hint">Désactiver cette option peut nuire à votre vie privée</string>
     <string name="title_advanced_display_hidden_hint">Ceci peut entraîner un affichage étrange et des textes en double</string>
     <string name="title_advanced_display_pin_hint">Le code PIN a la priorité sur l\'authentification biométrique</string>
@@ -595,6 +596,7 @@
     <string name="title_editasnew">Modifier comme nouveau mail</string>
     <string name="title_create_rule">Créer une règle&#8230;</string>
     <string name="title_share">Partager</string>
+    <string name="title_pin">Ajouter un raccourci</string>
     <string name="title_print">Imprimer</string>
     <string name="title_show_headers">Afficher les en-têtes</string>
     <string name="title_raw_save">Sauvegarder le message brut</string>

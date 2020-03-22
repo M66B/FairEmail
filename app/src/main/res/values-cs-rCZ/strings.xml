@@ -105,7 +105,7 @@
     <string name="menu_exit">Ukončit</string>
     <string name="menu_answers">Šablony</string>
     <string name="menu_operations">Operace</string>
-    <string name="menu_contacts">Místní kontakty</string>
+    <string name="menu_contacts">Lokální kontakty</string>
     <string name="menu_setup">Nastavení</string>
     <string name="menu_legend">Legenda</string>
     <string name="menu_test">Testovací program</string>
@@ -184,6 +184,7 @@
     <string name="title_setup_error">Chyba</string>
     <string name="title_setup_export">Export nastavení</string>
     <string name="title_setup_import">Import nastavení</string>
+    <string name="title_setup_export_do">Gmail účty propojené s Google účty v zařízení nelze exportovat</string>
     <string name="title_setup_import_do">Importované účty budou přidány bez přepsání stávajících účtů</string>
     <string name="title_setup_password">Heslo</string>
     <string name="title_setup_password_chars">Heslo obsahuje řídící znaky či mezery</string>
@@ -244,7 +245,7 @@
     <string name="title_advanced_subscriptions">Spravovat odběry složek</string>
     <string name="title_advanced_sync_subscribed">Synchronizovat pouze odebírané složky</string>
     <string name="title_advanced_keyboard">Automaticky zobrazit klávesnici</string>
-    <string name="title_advanced_suggest_local">Navrhovat místně uložené kontakty</string>
+    <string name="title_advanced_suggest_local">Navrhovat lokálně uložené kontakty</string>
     <string name="title_advanced_suggest_sent">Navrhovat adresy nalezené v odeslaných zprávách</string>
     <string name="title_advanced_suggest_received">Navrhovat adresy nalezené v přijatých zprávách</string>
     <string name="title_advanced_prefix_once">Při odpovídání nebo přeposílání přidat do předmětu pouze jednu předponu</string>
@@ -295,7 +296,7 @@
     <string name="title_advanced_color_value">Jas</string>
     <string name="title_advanced_color_threshold">Mezní hodnota barvy písmena</string>
     <string name="title_advanced_name_email">Zobrazit jména a e-mailové adresy</string>
-    <string name="title_advanced_distinguish_contacts">Podtrhnout odesílatele, je-li známý jako místní \"komu\" kontakt</string>
+    <string name="title_advanced_distinguish_contacts">Podtrhnout odesílatele, je-li známý jako lokální \"komu\" kontakt</string>
     <string name="title_advanced_authentication">Zobrazit upozornění, nemůže-li přijímající server zprávu ověřit</string>
     <string name="title_advanced_font_size_sender">Velikost písma odesílatele</string>
     <string name="title_advanced_font_size_subject">Velikost písma předmětu</string>
@@ -384,6 +385,7 @@
     <string name="title_advanced_import_key">Importovat privátní klíč</string>
     <string name="title_advanced_manage_keys">Spravovat privátní klíče</string>
     <string name="title_advanced_external_search">Povolit ostatním aplikacím vyhledávat ve zprávách</string>
+    <string name="title_advanced_shortcuts">Zobrazit často používané kontakty v nabídce sdílení Androidu</string>
     <string name="title_advanced_conversation_actions">Navrhovat akce</string>
     <string name="title_advanced_conversation_actions_replies">Navrhovat texty odpovědí</string>
     <string name="title_advanced_fts">Sestavit index vyhledávání</string>
@@ -400,7 +402,7 @@
     <string name="title_advanced_last_cleanup">Poslední čištění: %1$s</string>
     <string name="title_advanced_enabled_hint">Globálně zakáže nebo povolí příjem zpráv</string>
     <string name="title_advanced_manual_hint">Je-li synchronizace vypnuta, stále je možné synchronizovat ručně tažením dolů v seznamu zpráv.</string>
-    <string name="title_advanced_poll_hint">Synchronizování periodicky bude pokaždé porovnávat místní a vzdálené zprávy, což je náročná operace, potencionálně vedoucí ke zvýšené spotřebě baterie, zvláště při velkém množství zpráv k synchronizaci. Synchronizování nepřetržitě tomuto předchází průběžným nasloucháním pouze změnám.</string>
+    <string name="title_advanced_poll_hint">Synchronizování periodicky bude pokaždé porovnávat lokální a vzdálené zprávy, což je náročná operace, potencionálně vedoucí ke zvýšené spotřebě baterie, zvláště při velkém množství zpráv k synchronizaci. Synchronizování nepřetržitě tomuto předchází průběžným nasloucháním pouze změnám.</string>
     <string name="title_advanced_schedule_hint">Pro změnu času se jej dotkněte</string>
     <string name="title_advanced_check_mx">Kontrolovat e-mailové adresy odesílatelů při synchronizaci zpráv</string>
     <string name="title_advanced_check_reply">Kontrolovat e-mailové adresy pro odpověď při synchronizaci zpráv</string>
@@ -408,7 +410,7 @@
     <string name="title_advanced_deleted_unseen">Je-li vypnuto, nepřečtené zprávy jsou v zařízení ponechány navždy</string>
     <string name="title_advanced_sync_kept_hint">Zvýší spotřebu dat a baterie, zvláště pokud v zařízení uchováváte velké množství zpráv</string>
     <string name="title_advanced_sync_folders_hint">Vypnutí o něco sníží množství přenesených dat a spotřebu baterie, zároveň však znemožní aktualizovat seznam složek</string>
-    <string name="title_advanced_subscribed_only_hint">Povolení této volby vymaže všechny místní složky bez přihlášeného odběru</string>
+    <string name="title_advanced_subscribed_only_hint">Povolení této volby vymaže všechny lokální složky bez přihlášeného odběru</string>
     <string name="title_advanced_sync_delay_hint">Zpomalí synchronizaci zpráv</string>
     <string name="title_advanced_suggest_local_hint">Jako dodatek ke kontaktům poskytnutých Androidem. Je-li povoleno, kontaktní údaje budou ukládány pro nově odeslané či přijaté zprávy.</string>
     <string name="title_advanced_usenet_hint">Vložit \'-- \' mezi text a podpis</string>
@@ -437,6 +439,7 @@
     <string name="title_advanced_autoseen_hint">Automatické označování zpráv jako přečtených při rozbalení lze zakázat v nastavení jednotlivých účtů</string>
     <string name="title_advanced_autoclose_hint">Automaticky zavírat konverzace, když jsou všechny zprávy archivovány, odeslány nebo v koši</string>
     <string name="title_advanced_sender_hint">Většina poskytovatelů nepovoluje pozměněné adresy odesílatele</string>
+    <string name="title_advanced_bcc_hint">Adresa nebude zobrazena, ale bude přidána při odesílání</string>
     <string name="title_advanced_display_harmful_hint">Zákazem této volby můžete uškodit svému soukromí</string>
     <string name="title_advanced_display_hidden_hint">Může mít za následek neobvykle vypadající a zdvojené texty</string>
     <string name="title_advanced_display_pin_hint">PIN má přednost před biometrickým ověřením</string>
@@ -539,7 +542,7 @@
     <string name="title_synchronize_now">Synchronizovat nyní</string>
     <string name="title_synchronize_all">Synchronizovat všechny zprávy</string>
     <string name="title_synchronize_enabled">Synchronizovat</string>
-    <string name="title_delete_local">Smazat místní zprávy</string>
+    <string name="title_delete_local">Smazat lokální zprávy</string>
     <string name="title_delete_browsed">Smazat prohlédnuté/vyhledané zprávy</string>
     <string name="title_empty_trash">Vyprázdnit lokální koš</string>
     <string name="title_empty_spam">Vyprázdnit lokální spam</string>
@@ -549,8 +552,12 @@
     <string name="title_edit_channel">Upravit kanál oznámení</string>
     <string name="title_delete_channel">Smazat kanál oznámení</string>
     <string name="title_create_sub_folder">Vytvořit podsložku</string>
+    <string name="title_empty_trash_ask">Trvale odstranit všechny lokální zprávy v koši?</string>
+    <string name="title_empty_spam_ask">Trvale odstranit všechny lokální nevyžádané zprávy?</string>
+    <string name="title_empty_trash_all_ask">Trvale odstranit všechny lokální zprávy v koši ze všech účtů?</string>
+    <string name="title_empty_spam_all_ask">Trvale odstranit všechny lokální nevyžádané zprávy ze všech účtů?</string>
     <string name="title_delete_operation">Smazat operace s chybovou hláškou?</string>
-    <string name="title_delete_contacts">Smazat všechny místní kontakty?</string>
+    <string name="title_delete_contacts">Smazat všechny lokální kontakty?</string>
     <string name="title_no_operations">Žádné probíhající operace</string>
     <string name="title_hint_operations">Odstranění operací může mít za následek mizení zpráv a problémy se synchronizací</string>
     <string name="title_folder_name">Název složky</string>
@@ -610,6 +617,7 @@
     <string name="title_editasnew">Upravit jako novou</string>
     <string name="title_create_rule">Vytvořit pravidlo &#8230;</string>
     <string name="title_share">Sdílet</string>
+    <string name="title_pin">Přidat zkratku</string>
     <string name="title_print">Tisk</string>
     <string name="title_show_headers">Zobrazit hlavičky</string>
     <string name="title_raw_save">Uložit zdrojovou zprávu</string>
@@ -681,7 +689,7 @@
     <string name="title_ask_show_image">Zobrazením obrázků může dojít k úniku citlivých informací</string>
     <string name="title_ask_show_image_hint">Obrázky rozpoznané jako sledovací nebudou zobrazeny</string>
     <string name="title_ask_sync_all">Synchronizovat všechny zprávy v %1$s?</string>
-    <string name="title_ask_delete_local">Smazat místní zprávy? Zprávy zůstanou na vzdáleném serveru.</string>
+    <string name="title_ask_delete_local">Smazat lokální zprávy? Zprávy zůstanou na vzdáleném serveru.</string>
     <string name="title_ask_help">Pomozte vylepšit FairEmail</string>
     <string name="title_ask_reporting">Odeslat zprávy o chybách?</string>
     <string name="title_reporting_why">Zprávami o chybách pomůžete zlepšit FairEmail</string>
@@ -872,6 +880,7 @@
     <string name="title_legend_section_folders">Složky</string>
     <string name="title_legend_section_messages">Zprávy</string>
     <string name="title_legend_section_compose">Psaní zprávy</string>
+    <string name="title_legend_section_keyboard">Klávesnice</string>
     <string name="title_legend_oauth">OAuth autorizace</string>
     <string name="title_legend_primary_connected">Účet připojen</string>
     <string name="title_legend_primary_disconnected">Účet odpojen</string>
@@ -961,6 +970,15 @@
     <string name="title_legend_delete">Smazat</string>
     <string name="title_legend_count">Počet</string>
     <string name="title_legend_folder_type">Typ složky</string>
+    <string name="title_legend_enter">Otevřít</string>
+    <string name="title_legend_a">Archivovat</string>
+    <string name="title_legend_c">Napsat zprávu</string>
+    <string name="title_legend_d">Koš (smazat)</string>
+    <string name="title_legend_m">Nabídka (násobný výběr)</string>
+    <string name="title_legend_n">Další</string>
+    <string name="title_legend_p">Předchozí</string>
+    <string name="title_legend_r">Odpovědět</string>
+    <string name="title_legend_s">Vybrat / zrušit výběr</string>
     <string name="title_hint_folder_actions">Dlouze podržet složku pro možnosti, např. přidání složky do navigačního menu pro rychlý přístup</string>
     <string name="title_hint_folder_sync">Pro omezení spotřeby baterie a dat nebudou ve výchozím stavu synchronizovány všechny zprávy ani složky</string>
     <string name="title_hint_support">Máte-li dotaz nebo problém, použijte prosím menu podpory pro získání pomoci</string>
@@ -1020,6 +1038,7 @@
     <string name="title_fetching_again">Opětovné získávání zprávy ze serveru</string>
     <string name="title_conversation_actions">Akce</string>
     <string name="title_conversation_action_reply">Odpovědět s: \'%1$s\'</string>
+    <string name="title_conversation_action_copy">Kopírovat: \'%1$s\'</string>
     <string name="title_icalendar_accept">Přijmout</string>
     <string name="title_icalendar_decline">Odmítnout</string>
     <string name="title_icalendar_maybe">Nezávazně</string>
