@@ -3049,11 +3049,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 .putExtra("id", message.id));
             else {
                 boolean expanded = !properties.getValue("expanded", message.id);
+                properties.setValue("expanded", message.id, expanded);
+                bindTo(message, expanded);
                 properties.setExpanded(message, expanded);
                 // Needed to scroll to item after collapsing other items
                 if (expanded)
                     properties.scrollTo(getAdapterPosition(), 0);
-                bindTo(message, expanded);
             }
         }
 
