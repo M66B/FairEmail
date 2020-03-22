@@ -139,7 +139,19 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                             }
                         });
                     if (server)
-                        fetched = load_server(state);
+                        try {
+                            fetched = load_server(state);
+                        } catch (Throwable ex) {
+                            if (state.error || ex instanceof IllegalArgumentException)
+                                throw ex;
+
+                            Log.w("Boundary", ex);
+                            close();
+                            state.reset();
+
+                            // Retry
+                            fetched = load_server(state);
+                        }
                     else
                         fetched = load_device(state);
                 } catch (final Throwable ex) {
@@ -552,7 +564,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         return found;
     }
 
-    void close() {
+    void destroy() {
         final State state = this.state;
         this.state = new State();
         state.destroyed = true;
@@ -560,21 +572,25 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         executor.submit(new Runnable() {
             @Override
             public void run() {
-                Log.i("Boundary close");
-                try {
-                    if (state.ifolder != null)
-                        state.ifolder.close();
-                } catch (Throwable ex) {
-                    Log.e("Boundary", ex);
-                }
-                try {
-                    if (state.iservice != null)
-                        state.iservice.close();
-                } catch (Throwable ex) {
-                    Log.e("Boundary", ex);
-                }
+                close();
             }
         });
+    }
+
+    void close() {
+        Log.i("Boundary close");
+        try {
+            if (state.ifolder != null)
+                state.ifolder.close();
+        } catch (Throwable ex) {
+            Log.e("Boundary", ex);
+        }
+        try {
+            if (state.iservice != null)
+                state.iservice.close();
+        } catch (Throwable ex) {
+            Log.e("Boundary", ex);
+        }
     }
 
     private class State {
@@ -588,5 +604,17 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         EmailService iservice = null;
         IMAPFolder ifolder = null;
         Message[] imessages = null;
+
+        void reset() {
+            destroyed = false;
+            error = false;
+            index = 0;
+            offset = 0;
+            ids = null;
+            matches = null;
+            iservice = null;
+            ifolder = null;
+            imessages = null;
+        }
     }
 }

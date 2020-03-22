@@ -417,7 +417,7 @@ public class ViewModelMessages extends ViewModel {
                 owner.getLifecycle().addObserver(new LifecycleObserver() {
                     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
                     public void onDestroyed() {
-                        boundary.close();
+                        boundary.destroy();
                     }
                 });
             }
