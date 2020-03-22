@@ -109,6 +109,7 @@ public class FragmentIdentity extends FragmentBase {
     private CheckBox cbSenderExtra;
     private TextView etSenderExtra;
     private EditText etReplyTo;
+    private EditText etCc;
     private EditText etBcc;
 
     private Button btnSave;
@@ -197,6 +198,7 @@ public class FragmentIdentity extends FragmentBase {
         cbSenderExtra = view.findViewById(R.id.cbSenderExtra);
         etSenderExtra = view.findViewById(R.id.etSenderExtra);
         etReplyTo = view.findViewById(R.id.etReplyTo);
+        etCc = view.findViewById(R.id.etCc);
         etBcc = view.findViewById(R.id.etBcc);
 
         btnSave = view.findViewById(R.id.btnSave);
@@ -573,6 +575,7 @@ public class FragmentIdentity extends FragmentBase {
         args.putBoolean("sender_extra", cbSenderExtra.isChecked());
         args.putString("sender_extra_regex", etSenderExtra.getText().toString());
         args.putString("replyto", etReplyTo.getText().toString().trim());
+        args.putString("cc", etCc.getText().toString().trim());
         args.putString("bcc", etBcc.getText().toString().trim());
         args.putLong("account", account == null ? -1 : account.id);
         args.putString("host", etHost.getText().toString().trim());
@@ -643,6 +646,7 @@ public class FragmentIdentity extends FragmentBase {
                 boolean sender_extra = args.getBoolean("sender_extra");
                 String sender_extra_regex = args.getString("sender_extra_regex");
                 String replyto = args.getString("replyto");
+                String cc = args.getString("cc");
                 String bcc = args.getString("bcc");
 
                 boolean should = args.getBoolean("should");
@@ -676,6 +680,14 @@ public class FragmentIdentity extends FragmentBase {
                         throw new IllegalArgumentException(context.getString(R.string.title_email_invalid, replyto));
                     }
                 }
+
+                if (!TextUtils.isEmpty(cc) && !should)
+                    try {
+                        InternetAddress.parse(cc);
+                    } catch (AddressException ex) {
+                        throw new IllegalArgumentException(context.getString(R.string.title_email_invalid, cc));
+                    }
+
                 if (!TextUtils.isEmpty(bcc) && !should)
                     try {
                         InternetAddress.parse(bcc);
@@ -694,6 +706,9 @@ public class FragmentIdentity extends FragmentBase {
 
                 if (TextUtils.isEmpty(replyto))
                     replyto = null;
+
+                if (TextUtils.isEmpty(cc))
+                    cc = null;
 
                 if (TextUtils.isEmpty(bcc))
                     bcc = null;
@@ -753,6 +768,8 @@ public class FragmentIdentity extends FragmentBase {
                     if (!Objects.equals(identity.sender_extra_regex, sender_extra_regex))
                         return true;
                     if (!Objects.equals(identity.replyto, replyto))
+                        return true;
+                    if (!Objects.equals(identity.cc, cc))
                         return true;
                     if (!Objects.equals(identity.bcc, bcc))
                         return true;
@@ -831,6 +848,7 @@ public class FragmentIdentity extends FragmentBase {
                     identity.sender_extra = sender_extra;
                     identity.sender_extra_regex = sender_extra_regex;
                     identity.replyto = replyto;
+                    identity.cc = cc;
                     identity.bcc = bcc;
                     identity.sent_folder = null;
                     identity.sign_key = null;
@@ -1037,6 +1055,7 @@ public class FragmentIdentity extends FragmentBase {
                     cbSenderExtra.setChecked(identity != null && identity.sender_extra);
                     etSenderExtra.setText(identity == null ? null : identity.sender_extra_regex);
                     etReplyTo.setText(identity == null ? null : identity.replyto);
+                    etCc.setText(identity == null ? null : identity.cc);
                     etBcc.setText(identity == null ? null : identity.bcc);
 
                     auth = (identity == null ? EmailService.AUTH_TYPE_PASSWORD : identity.auth_type);

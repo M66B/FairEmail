@@ -204,30 +204,13 @@ public class MessageHelper {
             if (identity.replyto != null)
                 imessage.setReplyTo(InternetAddress.parse(identity.replyto));
 
+            // Add extra cc
+            if (identity.cc != null)
+                addAddress(identity.cc, Message.RecipientType.CC, imessage);
+
             // Add extra bcc
-            if (identity.bcc != null) {
-                List<Address> bcc = new ArrayList<>();
-
-                Address[] existing = imessage.getRecipients(Message.RecipientType.BCC);
-                if (existing != null)
-                    bcc.addAll(Arrays.asList(existing));
-
-                Address[] all = imessage.getAllRecipients();
-                Address[] abccs = InternetAddress.parse(identity.bcc);
-                for (Address abcc : abccs) {
-                    boolean found = false;
-                    if (all != null)
-                        for (Address a : all)
-                            if (equalEmail(a, abcc)) {
-                                found = true;
-                                break;
-                            }
-                    if (!found)
-                        bcc.add(abcc);
-                }
-
-                imessage.setRecipients(Message.RecipientType.BCC, bcc.toArray(new Address[0]));
-            }
+            if (identity.bcc != null)
+                addAddress(identity.bcc, Message.RecipientType.BCC, imessage);
 
             // Delivery/read request
             if (message.receipt_request != null && message.receipt_request) {
@@ -472,6 +455,30 @@ public class MessageHelper {
         build(context, message, attachments, identity, imessage);
 
         return imessage;
+    }
+
+    private static void addAddress(String email, Message.RecipientType type, MimeMessage imessage) throws MessagingException {
+        List<Address> result = new ArrayList<>();
+
+        Address[] existing = imessage.getRecipients(type);
+        if (existing != null)
+            result.addAll(Arrays.asList(existing));
+
+        Address[] all = imessage.getAllRecipients();
+        Address[] addresses = InternetAddress.parse(email);
+        for (Address address : addresses) {
+            boolean found = false;
+            if (all != null)
+                for (Address a : all)
+                    if (equalEmail(a, address)) {
+                        found = true;
+                        break;
+                    }
+            if (!found)
+                result.add(address);
+        }
+
+        imessage.setRecipients(type, result.toArray(new Address[0]));
     }
 
     static void build(Context context, EntityMessage message, List<EntityAttachment> attachments, EntityIdentity identity, MimeMessage imessage) throws IOException, MessagingException {

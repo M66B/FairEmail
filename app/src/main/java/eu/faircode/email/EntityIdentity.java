@@ -92,6 +92,7 @@ public class EntityIdentity {
     public Boolean sender_extra = false;
     public String sender_extra_regex;
     public String replyto;
+    public String cc;
     public String bcc;
     @NonNull
     public Boolean plain_only = false; // obsolete
@@ -187,6 +188,7 @@ public class EntityIdentity {
         json.put("sender_extra_regex", sender_extra_regex);
 
         json.put("replyto", replyto);
+        json.put("cc", cc);
         json.put("bcc", bcc);
 
         // not plain_only
@@ -240,6 +242,8 @@ public class EntityIdentity {
 
         if (json.has("replyto") && !json.isNull("replyto"))
             identity.replyto = json.getString("replyto");
+        if (json.has("cc") && !json.isNull("cc"))
+            identity.cc = json.getString("cc");
         if (json.has("bcc") && !json.isNull("bcc"))
             identity.bcc = json.getString("bcc");
 
@@ -270,6 +274,7 @@ public class EntityIdentity {
                     this.sender_extra.equals(sender_extra) &&
                     Objects.equals(this.sender_extra_regex, other.sender_extra_regex) &&
                     Objects.equals(this.replyto, other.replyto) &&
+                    Objects.equals(this.cc, other.cc) &&
                     Objects.equals(this.bcc, other.bcc) &&
                     Objects.equals(this.sign_key, other.sign_key) &&
                     Objects.equals(this.sign_key_alias, other.sign_key_alias) &&

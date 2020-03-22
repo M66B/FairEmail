@@ -397,6 +397,7 @@ public class ServiceSend extends ServiceBase {
                 message.folder = sent.id;
                 message.identity = null;
                 message.from = helper.getFrom();
+                message.cc = helper.getCc();
                 message.bcc = helper.getBcc();
                 message.reply = helper.getReply();
                 message.received = new Date().getTime();
