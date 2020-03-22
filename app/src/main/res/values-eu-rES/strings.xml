@@ -160,6 +160,7 @@
     <string name="title_setup_error">Akatsa</string>
     <string name="title_setup_export">Esportatu ezarpenak</string>
     <string name="title_setup_import">Inportatu ezarpenak</string>
+    <string name="title_setup_export_do">Gailuko Google kontura lotutako Gmail kontuak ezin dira esportatu</string>
     <string name="title_setup_import_do">Inportatutako kontuak daudenak gainidatzi gabe gehituko dira</string>
     <string name="title_setup_password">Pasahitza</string>
     <string name="title_setup_password_chars">Pasahitzak kontrol karaktereak edo espazio zuriak ditu</string>
@@ -261,6 +262,7 @@
     <string name="title_advanced_threading">Elkarrizketak haritzea</string>
     <string name="title_advanced_indentation">Ezker/eskuin marjina elkarrizketetan jaso/bidalitako mezuetan</string>
     <string name="title_advanced_highlight_unread">Nabarmendu irakurri gabeko mezuak</string>
+    <string name="title_advanced_highlight_subject">Nabarmendu gaia</string>
     <string name="title_advanced_color_stripe">Erakutsi kolorezko marra</string>
     <string name="title_advanced_avatars">Erakutsi kontaktuen argazkiak</string>
     <string name="title_advanced_gravatars">Erakutsi gravatarrak</string>
@@ -414,6 +416,7 @@
     <string name="title_advanced_autoseen_hint">Mezuak irekitzean automatikoki irakurrita gisa markatzea kontu bakoitzaren ezarpenetan desgaitu daiteke</string>
     <string name="title_advanced_autoclose_hint">Itxi automatikoki elkarrizketak mezu guztiak artxibatu, bidali edo zakarrontzira bota direnean</string>
     <string name="title_advanced_sender_hint">Hornitzaile gehienek ez dute igorlearen helbide aldatuak onartzen</string>
+    <string name="title_advanced_bcc_hint">Helbidea ez da erakutsiko, baina bidaltzean gehituko da</string>
     <string name="title_advanced_display_harmful_hint">Aukera hau desgaitzea zure pribatutasunerako kaltegarria izan daiteke</string>
     <string name="title_advanced_display_hidden_hint">Honek bitxikeriak eta testu bikoitzak eragin ditzake</string>
     <string name="title_advanced_display_pin_hint">PIN batek lehentasuna du biometriako autentifikazioaren aurrean</string>
@@ -518,12 +521,18 @@
     <string name="title_synchronize_enabled">Sinkronizatu</string>
     <string name="title_delete_local">Ezabatu mezu lokalak</string>
     <string name="title_delete_browsed">Ezabatu ikusitako/bilatutako mezuak</string>
+    <string name="title_empty_trash">Hustu zaborrontzi lokala</string>
+    <string name="title_empty_spam">Hustu spam lokala</string>
     <string name="title_edit_properties">Editatu propietateak</string>
     <string name="title_edit_rules">Editatu arauak</string>
     <string name="title_create_channel">Sortu jakinarazpen kanala</string>
     <string name="title_edit_channel">Editatu jakinarazpen kanala</string>
     <string name="title_delete_channel">Ezabatu jakinarazpen kanala</string>
     <string name="title_create_sub_folder">Sortu azpi-karpeta</string>
+    <string name="title_empty_trash_ask">Ezabatu zakarrontzi lokaleko mezuak behin betiko?</string>
+    <string name="title_empty_spam_ask">Ezabatu spam lokaleko mezuak behin betiko?</string>
+    <string name="title_empty_trash_all_ask">Ezabatu kontu lokal guztietako zaborrontziko mezu guztiak behin betiko?</string>
+    <string name="title_empty_spam_all_ask">Ezabatu kontu lokal guztietako spam mezu guztiak behin betiko?</string>
     <string name="title_delete_operation">Ezabatu errore mezua duten eragiketak?</string>
     <string name="title_delete_contacts">Ezabatu kontaktu lokal guztiak?</string>
     <string name="title_no_operations">Ez dago eragiketarik egiteke</string>
@@ -585,6 +594,7 @@
     <string name="title_editasnew">Editatu berri gisa</string>
     <string name="title_create_rule">Sortu araua &#8230;</string>
     <string name="title_share">Partekatu</string>
+    <string name="title_pin">Gehitu lasterbidea</string>
     <string name="title_print">Inprimatu</string>
     <string name="title_show_headers">Erakutsi goiburuak</string>
     <string name="title_raw_save">Gorde mezu gordina</string>
@@ -848,6 +858,7 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_legend_section_folders">Karpetak</string>
     <string name="title_legend_section_messages">Mezuak</string>
     <string name="title_legend_section_compose">Idatzi</string>
+    <string name="title_legend_section_keyboard">Teklatua</string>
     <string name="title_legend_oauth">OAuth baimena</string>
     <string name="title_legend_primary_connected">Kontua konektatuta</string>
     <string name="title_legend_primary_disconnected">Kontua deskonektatuta</string>
@@ -937,9 +948,16 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_legend_delete">Ezabatu</string>
     <string name="title_legend_count">Kopurua</string>
     <string name="title_legend_folder_type">Karpeta mota</string>
+    <string name="title_legend_enter">Ireki</string>
+    <string name="title_legend_a">Artxibatu</string>
+    <string name="title_legend_c">Idatzi</string>
     <string name="title_legend_d">Zakarrontzia (ezabatu)</string>
     <string name="title_legend_m">Menua (aukera anitza)</string>
+    <string name="title_legend_n">Hurrengoa</string>
+    <string name="title_legend_p">Aurrekoa</string>
     <string name="title_legend_r">Erantzun</string>
+    <string name="title_legend_s">Hautatu/deshautatu</string>
+    <string name="title_legend_t">Fokatu testua</string>
     <string name="title_hint_folder_actions">Sakatu luze karpetako aukerak ikusteko, hala nola karpeta bat gehitzeko abio bizkorreko nabigazio menuan</string>
     <string name="title_hint_folder_sync">Bateria eta sarearen erabilera mugatzeko ez dira karpeta eta mezu guztiak sinkronizatuko lehenetsita</string>
     <string name="title_hint_support">Galdera edo arazoren bat baduzu, erabili laguntza menua laguntza jasotzeko</string>
@@ -999,6 +1017,7 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_fetching_again">Mezua berriro zerbitzaritik jasotzen</string>
     <string name="title_conversation_actions">Ekintzak</string>
     <string name="title_conversation_action_reply">Erantzun honekin: \'%1$s\'</string>
+    <string name="title_conversation_action_copy">Kopiatu: \'%1$s\'</string>
     <string name="title_icalendar_accept">Onartu</string>
     <string name="title_icalendar_decline">Errefusatu</string>
     <string name="title_icalendar_maybe">Agian</string>

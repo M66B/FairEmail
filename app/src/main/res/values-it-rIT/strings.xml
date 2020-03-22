@@ -264,6 +264,7 @@
     <string name="title_advanced_threading">Thread di conversazione</string>
     <string name="title_advanced_indentation">Messaggi ricevuti/inviati con rientro a sinistra/destra nelle conversazioni</string>
     <string name="title_advanced_highlight_unread">Evidenzia i messaggi non letti</string>
+    <string name="title_advanced_highlight_subject">Evidenzia oggetto</string>
     <string name="title_advanced_color_stripe">Mostra striscia di colore</string>
     <string name="title_advanced_avatars">Mostra foto del contatto</string>
     <string name="title_advanced_gravatars">Mostra Gravatars</string>

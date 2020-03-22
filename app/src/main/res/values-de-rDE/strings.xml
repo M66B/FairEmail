@@ -265,6 +265,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_threading">Unterhaltungsfaden</string>
     <string name="title_advanced_indentation">In der Unterhaltungsansicht empfangene Nachrichten nach links und Gesendete nach rechts einrücken</string>
     <string name="title_advanced_highlight_unread">Ungelesene Nachrichten hervorheben</string>
+    <string name="title_advanced_highlight_subject">Betreff hervorheben</string>
     <string name="title_advanced_color_stripe">Farbstreifen anzeigen</string>
     <string name="title_advanced_avatars">Kontaktfotos anzeigen</string>
     <string name="title_advanced_gravatars">Gravatare anzeigen</string>

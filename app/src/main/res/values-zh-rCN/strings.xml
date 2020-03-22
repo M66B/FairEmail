@@ -584,6 +584,7 @@
     <string name="title_editasnew">作为新邮件编辑</string>
     <string name="title_create_rule">创建规则 &#8230;</string>
     <string name="title_share">分享</string>
+    <string name="title_pin">添加快捷方式</string>
     <string name="title_print">打印</string>
     <string name="title_show_headers">显示标题</string>
     <string name="title_raw_save">保存原始消息</string>

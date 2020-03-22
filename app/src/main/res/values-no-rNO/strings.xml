@@ -264,6 +264,7 @@
     <string name="title_advanced_threading">Konversasjonstråder</string>
     <string name="title_advanced_indentation">Venstre/høyre innrykk mottatt/sendt meldinger i samtaler</string>
     <string name="title_advanced_highlight_unread">Merk uleste meldinger</string>
+    <string name="title_advanced_highlight_subject">Uthev emne</string>
     <string name="title_advanced_color_stripe">Vis fargestripe</string>
     <string name="title_advanced_avatars">Vis kontakt bilde</string>
     <string name="title_advanced_gravatars">Vis Gravatars</string>

@@ -597,6 +597,7 @@
     <string name="title_editasnew">Editar como nuevo</string>
     <string name="title_create_rule">Crear regla &#8230;</string>
     <string name="title_share">Compartir</string>
+    <string name="title_pin">Añadir acceso directo</string>
     <string name="title_print">Imprimir</string>
     <string name="title_show_headers">Mostrar encabezados</string>
     <string name="title_raw_save">Guardar mensaje raw</string>
