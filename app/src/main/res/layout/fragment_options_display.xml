@@ -587,6 +587,17 @@
             app:layout_constraintTop_toBottomOf="@id/spFontSizeSubject"
             app:switchPadding="12dp" />
 
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swHighlightSubject"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_highlight_subject"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swSubjectItalic"
+            app:switchPadding="12dp" />
+
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvSubjectEllipsize"
             android:layout_width="0dp"
@@ -597,7 +608,7 @@
             android:textColor="?android:attr/textColorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swSubjectItalic" />
+            app:layout_constraintTop_toBottomOf="@id/swHighlightSubject" />
 
         <Spinner
             android:id="@+id/spSubjectEllipsize"
@@ -722,17 +733,6 @@
             app:layout_constraintTop_toBottomOf="@id/tvPreviewIssue"
             app:switchPadding="12dp" />
 
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/swAttachmentsAlt"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_advanced_attachments_alt"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swAddresses"
-            app:switchPadding="12dp" />
-
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvCaptionBody"
             android:layout_width="0dp"
@@ -743,7 +743,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/swAttachmentsAlt" />
+            app:layout_constraintTop_toBottomOf="@+id/swAddresses" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swContrast"
@@ -824,5 +824,16 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/swImagesInline" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swAttachmentsAlt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_attachments_alt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvImagesInlineHint"
+            app:switchPadding="12dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

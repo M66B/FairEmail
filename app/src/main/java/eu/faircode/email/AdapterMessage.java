@@ -210,6 +210,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private int textColorSecondary;
     private int colorUnread;
     private int colorRead;
+    private int colorSubject;
     private int colorSeparator;
 
     private boolean hasWebView;
@@ -493,7 +494,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibHelp = itemView.findViewById(R.id.ibHelp);
 
             if (tvSubject != null) {
-                tvSubject.setTextColor(colorRead);
+                tvSubject.setTextColor(colorSubject);
 
                 if (compact)
                     if ("start".equals(subject_ellipsize))
@@ -4429,9 +4430,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
 
         boolean highlight_unread = prefs.getBoolean("highlight_unread", true);
+        boolean highlight_subject = prefs.getBoolean("highlight_subject", false);
 
         this.colorUnread = Helper.resolveColor(context, highlight_unread ? R.attr.colorUnreadHighlight : R.attr.colorUnread);
         this.colorRead = Helper.resolveColor(context, R.attr.colorRead);
+        this.colorSubject = Helper.resolveColor(context, highlight_subject ? R.attr.colorUnreadHighlight : R.attr.colorRead);
 
         this.colorSeparator = Helper.resolveColor(context, R.attr.colorSeparator);
 

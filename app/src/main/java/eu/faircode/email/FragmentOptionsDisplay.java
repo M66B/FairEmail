@@ -90,6 +90,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private Spinner spFontSizeSender;
     private Spinner spFontSizeSubject;
     private SwitchCompat swSubjectItalic;
+    private SwitchCompat swHighlightSubject;
     private Spinner spSubjectEllipsize;
     private SwitchCompat swKeywords;
     private SwitchCompat swFlags;
@@ -98,7 +99,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swPreviewItalic;
     private Spinner spPreviewLines;
     private SwitchCompat swAddresses;
-    private SwitchCompat swAttachmentsAlt;
 
     private SwitchCompat swContrast;
     private SwitchCompat swMonospaced;
@@ -106,6 +106,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swTextSize;
     private SwitchCompat swCollapseQuotes;
     private SwitchCompat swImagesInline;
+    private SwitchCompat swAttachmentsAlt;
 
     private final static String[] RESET_OPTIONS = new String[]{
             "theme", "startup", "cards", "date", "navbar_colorize", "landscape", "landscape3",
@@ -113,10 +114,10 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "highlight_unread", "color_stripe",
             "avatars", "gravatars", "generated_icons", "identicons", "circular", "saturation", "brightness", "threshold",
             "name_email", "prefer_contact", "distinguish_contacts", "authentication",
-            "subject_top", "font_size_sender", "font_size_subject", "subject_italic", "subject_ellipsize", "keywords_header",
-            "flags", "flags_background", "preview", "preview_italic", "preview_lines", "addresses", "attachments_alt",
+            "subject_top", "font_size_sender", "font_size_subject", "subject_italic", "highlight_subject", "subject_ellipsize",
+            "keywords_header", "flags", "flags_background", "preview", "preview_italic", "preview_lines", "addresses",
             "contrast", "monospaced", "text_color", "text_size",
-            "inline_images", "collapse_quotes"
+            "inline_images", "collapse_quotes", "attachments_alt"
     };
 
     @Override
@@ -164,6 +165,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         spFontSizeSender = view.findViewById(R.id.spFontSizeSender);
         spFontSizeSubject = view.findViewById(R.id.spFontSizeSubject);
         swSubjectItalic = view.findViewById(R.id.swSubjectItalic);
+        swHighlightSubject = view.findViewById(R.id.swHighlightSubject);
         spSubjectEllipsize = view.findViewById(R.id.spSubjectEllipsize);
         swKeywords = view.findViewById(R.id.swKeywords);
         swFlags = view.findViewById(R.id.swFlags);
@@ -172,13 +174,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swPreviewItalic = view.findViewById(R.id.swPreviewItalic);
         spPreviewLines = view.findViewById(R.id.spPreviewLines);
         swAddresses = view.findViewById(R.id.swAddresses);
-        swAttachmentsAlt = view.findViewById(R.id.swAttachmentsAlt);
         swContrast = view.findViewById(R.id.swContrast);
         swMonospaced = view.findViewById(R.id.swMonospaced);
         swTextColor = view.findViewById(R.id.swTextColor);
         swTextSize = view.findViewById(R.id.swTextSize);
         swCollapseQuotes = view.findViewById(R.id.swCollapseQuotes);
         swImagesInline = view.findViewById(R.id.swImagesInline);
+        swAttachmentsAlt = view.findViewById(R.id.swAttachmentsAlt);
 
         setOptions();
 
@@ -468,6 +470,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
+        swHighlightSubject.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("highlight_subject", checked).apply();
+            }
+        });
+
         spSubjectEllipsize.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
@@ -537,13 +546,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
-        swAttachmentsAlt.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("attachments_alt", checked).apply();
-            }
-        });
-
         swContrast.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -583,6 +585,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("inline_images", checked).apply();
+            }
+        });
+
+        swAttachmentsAlt.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("attachments_alt", checked).apply();
             }
         });
 
@@ -700,6 +709,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
 
         swSubjectItalic.setChecked(prefs.getBoolean("subject_italic", true));
+        swHighlightSubject.setChecked(prefs.getBoolean("highlight_subject", false));
 
         String subject_ellipsize = prefs.getString("subject_ellipsize", "middle");
         String[] ellipsizeValues = getResources().getStringArray(R.array.ellipsizeValues);
@@ -718,13 +728,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         spPreviewLines.setSelection(prefs.getInt("preview_lines", 2) - 1);
         spPreviewLines.setEnabled(swPreview.isChecked());
         swAddresses.setChecked(prefs.getBoolean("addresses", false));
-        swAttachmentsAlt.setChecked(prefs.getBoolean("attachments_alt", false));
         swContrast.setChecked(prefs.getBoolean("contrast", false));
         swMonospaced.setChecked(prefs.getBoolean("monospaced", false));
         swTextColor.setChecked(prefs.getBoolean("text_color", true));
         swTextSize.setChecked(prefs.getBoolean("text_size", true));
         swCollapseQuotes.setChecked(prefs.getBoolean("collapse_quotes", false));
         swImagesInline.setChecked(prefs.getBoolean("inline_images", false));
+        swAttachmentsAlt.setChecked(prefs.getBoolean("attachments_alt", false));
 
         updateColor();
     }
