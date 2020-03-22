@@ -588,6 +588,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvBcc" />
 
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvBccHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_advanced_bcc_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etBcc" />
+
         <Button
             android:id="@+id/btnSave"
             android:layout_width="wrap_content"
@@ -596,7 +606,7 @@
             android:tag="disable"
             android:text="@string/title_save"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etBcc" />
+            app:layout_constraintTop_toBottomOf="@id/tvBccHint" />
 
         <eu.faircode.email.ContentLoadingProgressBar
             android:id="@+id/pbSave"
@@ -709,7 +719,7 @@
                 cbUseIp,tvUseIpHint,
                 cbSynchronize,cbPrimary,
                 cbSenderExtra,tvSenderExtra,etSenderExtra,tvSenderExtraHint,
-                tvReplyTo,etReplyTo,tvBcc,etBcc" />
+                tvReplyTo,etReplyTo,tvBcc,etBcc,tvBccHint" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpError"
