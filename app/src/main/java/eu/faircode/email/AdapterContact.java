@@ -42,6 +42,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.PopupMenu;
+import androidx.core.content.pm.ShortcutInfoCompat;
+import androidx.core.content.pm.ShortcutManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
@@ -235,7 +237,9 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_advanced_never_favorite, 1, R.string.title_advanced_never_favorite);
             if (share.resolveActivity(context.getPackageManager()) != null)
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_share, 2, R.string.title_share);
-            popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, 3, R.string.title_delete);
+            if (ShortcutManagerCompat.isRequestPinShortcutSupported(context))
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_pin, 3, R.string.title_pin);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, 4, R.string.title_delete);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
@@ -246,6 +250,9 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
                             return true;
                         case R.string.title_share:
                             onActionShare();
+                            return true;
+                        case R.string.title_pin:
+                            onActionPin();
                             return true;
                         case R.string.title_delete:
                             onActionDelete();
@@ -288,6 +295,11 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
                     } catch (Throwable ex) {
                         Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                     }
+                }
+
+                private void onActionPin() {
+                    ShortcutInfoCompat.Builder builder = Shortcuts.getShortcut(context, contact);
+                    ShortcutManagerCompat.requestPinShortcut(context, builder.build(), null);
                 }
 
                 private void onActionDelete() {

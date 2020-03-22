@@ -75,9 +75,21 @@
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/title_legend_notify"
         android:tooltipText="@string/title_legend_notify"
-        app:layout_constraintEnd_toStartOf="@+id/ibAddContact"
+        app:layout_constraintEnd_toStartOf="@+id/ibPinContact"
         app:layout_constraintTop_toBottomOf="@id/ibExpanderAddress"
         app:srcCompat="@drawable/baseline_notifications_24" />
+
+    <ImageButton
+        android:id="@+id/ibPinContact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/title_legend_notify"
+        android:tooltipText="@string/title_pin"
+        app:layout_constraintEnd_toStartOf="@+id/ibAddContact"
+        app:layout_constraintTop_toBottomOf="@id/ibExpanderAddress"
+        app:srcCompat="@drawable/baseline_person_pin_circle_24" />
 
     <ImageButton
         android:id="@+id/ibAddContact"
@@ -96,7 +108,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="ibSearchContact,ibNotifyContact,ibAddContact" />
+        app:constraint_referenced_ids="ibSearchContact,ibNotifyContact,ibPinContact,ibAddContact" />
 
     <eu.faircode.email.FixedTextView
         android:id="@+id/tvSubmitterTitle"

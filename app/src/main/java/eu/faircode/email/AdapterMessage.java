@@ -114,6 +114,8 @@ import androidx.constraintlayout.helper.widget.Flow;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.FileProvider;
+import androidx.core.content.pm.ShortcutInfoCompat;
+import androidx.core.content.pm.ShortcutManagerCompat;
 import androidx.core.graphics.ColorUtils;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
@@ -212,6 +214,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private int colorSeparator;
 
     private boolean hasWebView;
+    private boolean pin;
     private boolean contacts;
     private float textSize;
 
@@ -359,6 +362,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private ImageButton ibSearchContact;
         private ImageButton ibNotifyContact;
+        private ImageButton ibPinContact;
         private ImageButton ibAddContact;
 
         private TextView tvSubmitterTitle;
@@ -529,6 +533,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             ibSearchContact = vsBody.findViewById(R.id.ibSearchContact);
             ibNotifyContact = vsBody.findViewById(R.id.ibNotifyContact);
+            ibPinContact = vsBody.findViewById(R.id.ibPinContact);
             ibAddContact = vsBody.findViewById(R.id.ibAddContact);
 
             tvSubmitterTitle = vsBody.findViewById(R.id.tvSubmitterTitle);
@@ -670,6 +675,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibExpanderAddress.setOnClickListener(this);
                 ibSearchContact.setOnClickListener(this);
                 ibNotifyContact.setOnClickListener(this);
+                ibPinContact.setOnClickListener(this);
                 ibAddContact.setOnClickListener(this);
 
                 btnSaveAttachments.setOnClickListener(this);
@@ -743,6 +749,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibExpanderAddress.setOnClickListener(null);
                 ibSearchContact.setOnClickListener(null);
                 ibNotifyContact.setOnClickListener(null);
+                ibPinContact.setOnClickListener(null);
                 ibAddContact.setOnClickListener(null);
 
                 btnSaveAttachments.setOnClickListener(null);
@@ -1141,6 +1148,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             ibSearchContact.setVisibility(View.GONE);
             ibNotifyContact.setVisibility(View.GONE);
+            ibPinContact.setVisibility(View.GONE);
             ibAddContact.setVisibility(View.GONE);
 
             tvSubmitterTitle.setVisibility(View.GONE);
@@ -1350,6 +1358,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             ibSearchContact.setVisibility(show_addresses && (hasFrom || hasTo) ? View.VISIBLE : View.GONE);
             ibNotifyContact.setVisibility(show_addresses && hasChannel && hasFrom ? View.VISIBLE : View.GONE);
+            ibPinContact.setVisibility(show_addresses && pin && hasFrom ? View.VISIBLE : View.GONE);
             ibAddContact.setVisibility(show_addresses && contacts && hasFrom ? View.VISIBLE : View.GONE);
 
             tvSubmitterTitle.setVisibility(show_addresses && !TextUtils.isEmpty(submitter) ? View.VISIBLE : View.GONE);
@@ -2541,6 +2550,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 onSearchContact(message);
             else if (view.getId() == R.id.ibNotifyContact)
                 onNotifyContact(message);
+            else if (view.getId() == R.id.ibPinContact)
+                onPinContact(message);
             else if (view.getId() == R.id.ibAddContact)
                 onAddContact(message);
             else if (viewType == ViewType.THREAD) {
@@ -2929,7 +2940,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             final NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
             final String channelId = message.getNotificationChannelId();
 
-            PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, ibAddContact);
+            PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, ibNotifyContact);
             NotificationChannel channel = nm.getNotificationChannel(channelId);
             if (channel == null)
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_create_channel, 1, R.string.title_create_channel);
@@ -2992,6 +3003,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             });
 
             popupMenu.show();
+        }
+
+        private void onPinContact(TupleMessageEx message) {
+            ShortcutInfoCompat.Builder builder =
+                    Shortcuts.getShortcut(context, (InternetAddress) message.from[0]);
+            ShortcutManagerCompat.requestPinShortcut(context, builder.build(), null);
         }
 
         private void onAddContact(TupleMessageEx message) {
@@ -4401,6 +4418,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.colorSeparator = Helper.resolveColor(context, R.attr.colorSeparator);
 
         this.hasWebView = Helper.hasWebView(context);
+        this.pin = ShortcutManagerCompat.isRequestPinShortcutSupported(context);
         this.contacts = Helper.hasPermission(context, Manifest.permission.READ_CONTACTS);
         this.textSize = Helper.getTextSize(context, zoom);
 
