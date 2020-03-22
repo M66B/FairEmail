@@ -4442,30 +4442,44 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     return (volumenav && onNext(context));
                 case KeyEvent.KEYCODE_VOLUME_DOWN:
                     return (volumenav && onPrevious(context));
-                case KeyEvent.KEYCODE_ENTER:
-                case KeyEvent.KEYCODE_NUMPAD_ENTER:
-                    return (!up || onViewThread(context));
                 case KeyEvent.KEYCODE_A:
-                    return (up && onArchive(context));
+                    if (viewType == AdapterMessage.ViewType.THREAD)
+                        return (up && onArchive(context));
+                    break;
                 case KeyEvent.KEYCODE_C:
                     return (up && onCompose(context));
                 case KeyEvent.KEYCODE_D:
-                    return (up && onDelete(context));
+                    if (viewType == AdapterMessage.ViewType.THREAD)
+                        return (up && onDelete(context));
+                    break;
                 case KeyEvent.KEYCODE_M:
                     return (up && onMore(context));
                 case KeyEvent.KEYCODE_N:
-                    return (up && onNext(context));
+                    if (viewType == AdapterMessage.ViewType.THREAD)
+                        return (up && onNext(context));
+                    break;
                 case KeyEvent.KEYCODE_P:
-                    return (up && onPrevious(context));
+                    if (viewType == AdapterMessage.ViewType.THREAD)
+                        return (up && onPrevious(context));
+                    break;
                 case KeyEvent.KEYCODE_R:
                     return (up && onReply(context));
-                case KeyEvent.KEYCODE_S:
-                    return (up && onSelect(context));
-                case KeyEvent.KEYCODE_T:
-                    return (up && onFocusText(context));
-                default:
-                    return false;
             }
+
+            if (!up)
+                return false;
+
+            View focused = rvMessage.getFocusedChild();
+            if (focused == null)
+                return false;
+            int pos = rvMessage.getChildAdapterPosition(focused);
+            if (pos == NO_POSITION)
+                return false;
+            AdapterMessage.ViewHolder holder =
+                    (AdapterMessage.ViewHolder) rvMessage.getChildViewHolder(focused);
+            if (holder == null)
+                return false;
+            return holder.onKeyPressed(event);
         }
 
         @Override
@@ -4497,10 +4511,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }
 
         private boolean onNext(Context context) {
-            if (viewType != AdapterMessage.ViewType.THREAD)
-                return false;
             if (next == null) {
-                Animation bounce = AnimationUtils.loadAnimation(getContext(), R.anim.bounce_left);
+                Animation bounce = AnimationUtils.loadAnimation(context, R.anim.bounce_left);
                 view.startAnimation(bounce);
             } else
                 navigate(next, false);
@@ -4508,81 +4520,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }
 
         private boolean onPrevious(Context context) {
-            if (viewType != AdapterMessage.ViewType.THREAD)
-                return false;
             if (prev == null) {
-                Animation bounce = AnimationUtils.loadAnimation(getContext(), R.anim.bounce_right);
+                Animation bounce = AnimationUtils.loadAnimation(context, R.anim.bounce_right);
                 view.startAnimation(bounce);
             } else
                 navigate(prev, true);
             return true;
         }
 
-        private boolean onSelect(Context context) {
-            if (selectionTracker == null)
-                return false;
-            View focused = rvMessage.getFocusedChild();
-            if (focused == null)
-                return false;
-            int pos = rvMessage.getChildAdapterPosition(focused);
-            if (pos == NO_POSITION)
-                return false;
-            Long id = adapter.getKeyAtPosition(pos);
-            if (id == null)
-                return false;
-            if (selectionTracker.isSelected(id))
-                selectionTracker.deselect(id);
-            else
-                selectionTracker.select(id);
-            return true;
-        }
-
-        private boolean onViewThread(Context context) {
-            if (viewType == AdapterMessage.ViewType.THREAD)
-                return false;
-            View focused = rvMessage.getFocusedChild();
-            if (focused == null)
-                return false;
-            int pos = rvMessage.getChildAdapterPosition(focused);
-            if (pos == NO_POSITION)
-                return false;
-            PagedList<TupleMessageEx> list = ((AdapterMessage) rvMessage.getAdapter()).getCurrentList();
-            if (pos >= list.size())
-                return false;
-            TupleMessageEx message = list.get(pos);
-            if (message == null)
-                return false;
-
-            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-            Intent viewThread = new Intent(ActivityView.ACTION_VIEW_THREAD)
-                    .putExtra("account", message.account)
-                    .putExtra("thread", message.thread)
-                    .putExtra("id", message.id)
-                    .putExtra("filter_archive", !EntityFolder.ARCHIVE.equals(message.folderType))
-                    .putExtra("found", viewType == AdapterMessage.ViewType.SEARCH);
-            lbm.sendBroadcast(viewThread);
-            return true;
-        }
-
-        private boolean onFocusText(Context context) {
-            int expanded = (values.containsKey("expanded") ? values.get("expanded").size() : 0);
-            if (expanded != 1)
-                return false;
-            long id = values.get("expanded").get(0);
-            int pos = adapter.getPositionForKey(id);
-            if (pos == NO_POSITION)
-                return false;
-            AdapterMessage.ViewHolder holder =
-                    (AdapterMessage.ViewHolder) rvMessage.findViewHolderForAdapterPosition(pos);
-            if (holder == null)
-                return false;
-            adapter.focusBody(holder, pos);
-            return true;
-        }
-
         private boolean onArchive(Context context) {
-            if (viewType != AdapterMessage.ViewType.THREAD)
-                return false;
             if (bottom_navigation == null ||
                     !bottom_navigation.isEnabled() ||
                     bottom_navigation.getVisibility() != View.VISIBLE)
@@ -4592,12 +4538,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 return false;
             bottom_navigation.getMenu().performIdentifierAction(R.id.action_archive, 0);
             return true;
-
         }
 
         private boolean onDelete(Context context) {
-            if (viewType != AdapterMessage.ViewType.THREAD)
-                return false;
             if (bottom_navigation == null ||
                     !bottom_navigation.isEnabled() ||
                     bottom_navigation.getVisibility() != View.VISIBLE)

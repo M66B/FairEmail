@@ -315,7 +315,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     ));
 
     public class ViewHolder extends RecyclerView.ViewHolder implements
-            View.OnKeyListener,
             View.OnClickListener,
             View.OnLongClickListener,
             View.OnTouchListener,
@@ -661,7 +660,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         header.setTouchDelegate(new TouchDelegate(rect, touch));
                     }
                 });
-            header.setOnKeyListener(this);
 
             ibAvatar.setOnClickListener(this);
             ibAuth.setOnClickListener(this);
@@ -735,7 +733,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private void unwire() {
             final View touch = (viewType == ViewType.THREAD ? ibExpander : header);
             touch.setOnClickListener(null);
-            header.setOnKeyListener(null);
 
             ibAvatar.setOnClickListener(null);
             ibAuth.setOnClickListener(null);
@@ -2755,16 +2752,39 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
         }
 
-        @Override
-        public boolean onKey(View view, int keyCode, KeyEvent keyEvent) {
-            if (keyEvent.getAction() == KeyEvent.ACTION_DOWN &&
-                    (keyCode == KeyEvent.KEYCODE_ENTER ||
-                            keyCode == KeyEvent.KEYCODE_DPAD_CENTER ||
-                            keyCode == KeyEvent.KEYCODE_BUTTON_A)) {
-                onClick(view);
-                return true;
-            } else
-                return false;
+        public boolean onKeyPressed(KeyEvent event) {
+            TupleMessageEx message = getMessage();
+            switch (event.getKeyCode()) {
+                case KeyEvent.KEYCODE_ENTER:
+                case KeyEvent.KEYCODE_DPAD_CENTER:
+                case KeyEvent.KEYCODE_BUTTON_A:
+                    onClick(view);
+                    return true;
+                case KeyEvent.KEYCODE_A:
+                    return false;
+                case KeyEvent.KEYCODE_D:
+                    return false;
+                case KeyEvent.KEYCODE_S:
+                    if (message == null || selectionTracker == null)
+                        return false;
+                    if (selectionTracker.isSelected(message.id))
+                        selectionTracker.deselect(message.id);
+                    else
+                        selectionTracker.select(message.id);
+                    return true;
+                case KeyEvent.KEYCODE_T:
+                    if (tvBody != null && tvBody.getVisibility() == View.VISIBLE) {
+                        tvBody.requestFocus();
+                        return true;
+                    }
+                    if (wvBody != null && wvBody.getVisibility() == View.VISIBLE) {
+                        wvBody.requestFocus();
+                        return true;
+                    }
+                    return false;
+                default:
+                    return false;
+            }
         }
 
         private void onViewContact(TupleMessageEx message) {
@@ -4954,13 +4974,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         TupleMessageEx message = getItemAtPosition(position);
         if (message != null)
             holder.clearExpanded(message);
-    }
-
-    public void focusBody(@NonNull ViewHolder holder, int position) {
-        if (holder.tvBody != null && holder.tvBody.getVisibility() == View.VISIBLE)
-            holder.tvBody.requestFocus();
-        if (holder.wvBody != null && holder.wvBody.getVisibility() == View.VISIBLE)
-            holder.wvBody.requestFocus();
     }
 
     public void onItemSelected(@NonNull ViewHolder holder, boolean selected) {
