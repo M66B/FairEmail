@@ -2761,8 +2761,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     onClick(view);
                     return true;
                 case KeyEvent.KEYCODE_A:
+                    onActionArchive(message);
                     return false;
                 case KeyEvent.KEYCODE_D:
+                    onActionTrash(message, false);
                     return false;
                 case KeyEvent.KEYCODE_S:
                     if (message == null || selectionTracker == null)
