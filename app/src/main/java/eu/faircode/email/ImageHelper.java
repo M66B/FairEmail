@@ -532,7 +532,8 @@ class ImageHelper {
                 urlConnection.setReadTimeout(DOWNLOAD_TIMEOUT);
                 urlConnection.setConnectTimeout(DOWNLOAD_TIMEOUT);
                 urlConnection.setInstanceFollowRedirects(true);
-                urlConnection.setRequestProperty("User-Agent", ua);
+                if (BuildConfig.DEBUG)
+                    urlConnection.setRequestProperty("User-Agent", ua);
                 urlConnection.connect();
 
                 int status = urlConnection.getResponseCode();
