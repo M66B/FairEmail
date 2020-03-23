@@ -35,7 +35,7 @@
     </plurals>
     <plurals name="title_notification_operations">
         <item quantity="one">%1$d åtgärd väntar</item>
-        <item quantity="other">%1$d åtgärd väntar</item>
+        <item quantity="other">%1$d åtgärder väntar</item>
     </plurals>
     <plurals name="title_notification_unseen">
         <item quantity="one">%1$d nytt meddelande</item>
@@ -82,7 +82,7 @@
     <string name="title_factor_minutes">%1$d minuter</string>
     <string name="menu_exit">Avsluta</string>
     <string name="menu_answers">Mallar</string>
-    <string name="menu_operations">Aktiviteter</string>
+    <string name="menu_operations">Åtgärder</string>
     <string name="menu_contacts">Lokala kontakter</string>
     <string name="menu_setup">Inställningar</string>
     <string name="menu_legend">Förklaring</string>
@@ -537,7 +537,7 @@
     <string name="title_empty_spam_all_ask">Ta bort alla lokala skräppostmeddelanden från alla konton permanent?</string>
     <string name="title_delete_operation">Ta bort åtgärder med ett felmeddelande?</string>
     <string name="title_delete_contacts">Ta bort alla lokala kontakter?</string>
-    <string name="title_no_operations">Inga pågående operationer</string>
+    <string name="title_no_operations">Inga pågående åtgärder</string>
     <string name="title_hint_operations">Ta bort pågående åtgärder kan resultera i försvinnande meddelanden och synkroniseringsproblem</string>
     <string name="title_folder_name">Mappnamn</string>
     <string name="title_display_name">Visningsnamn</string>
@@ -872,7 +872,7 @@
     <string name="title_legend_disconnected">Frånkopplad</string>
     <string name="title_legend_connecting">Ansluter</string>
     <string name="title_legend_connected">Ansluten</string>
-    <string name="title_legend_executing">Utföra operationer</string>
+    <string name="title_legend_executing">Utför åtgärder</string>
     <string name="title_legend_synchronizing">Synkroniserar</string>
     <string name="title_legend_downloading">Hämtar</string>
     <string name="title_legend_closing">Stänger</string>

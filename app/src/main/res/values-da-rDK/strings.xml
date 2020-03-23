@@ -520,6 +520,7 @@
     <string name="title_advanced_browse">Gennemse beskeder på serveren</string>
     <string name="title_advanced_expand_read">Markér beskeder Læst ved udvidelse</string>
     <string name="title_synchronize_now">Synkronisér nu</string>
+    <string name="title_synchronize_more">Synkronisér flere beskeder</string>
     <string name="title_synchronize_enabled">Synkroniserer</string>
     <string name="title_delete_local">Slet lokale beskeder</string>
     <string name="title_delete_browsed">Slet gennemsete/søgte beskeder</string>
@@ -560,6 +561,8 @@
     <string name="title_folder_name_missing">Mappenavn manngler</string>
     <string name="title_folder_exists">Mappen %1$s findes</string>
     <string name="title_folder_delete">Slet denne mappe samt evt. beskedindhold permanent?</string>
+    <string name="title_months">Måneder</string>
+    <string name="title_months_all">Alle</string>
     <string name="title_folder_unified">Samlet indbakke</string>
     <string name="title_folder_inbox">Indbakke</string>
     <string name="title_folder_outbox">Udbakke</string>
@@ -1018,6 +1021,7 @@
     <string name="title_fetching_again">Henter beskeder igen fra server</string>
     <string name="title_conversation_actions">Handlinger</string>
     <string name="title_conversation_action_reply">Svar med: \'%1$s\'</string>
+    <string name="title_conversation_action_copy">Kopiér: \'%1$s\'</string>
     <string name="title_icalendar_accept">Acceptér</string>
     <string name="title_icalendar_decline">Afvis</string>
     <string name="title_icalendar_maybe">Måske</string>

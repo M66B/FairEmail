@@ -520,6 +520,7 @@
     <string name="title_advanced_browse">Sfoglia i messaggi sul server</string>
     <string name="title_advanced_expand_read">Segna i messaggi come letti in fase di espansione</string>
     <string name="title_synchronize_now">Sincronizza ora</string>
+    <string name="title_synchronize_more">Sincronizza altri messaggi</string>
     <string name="title_synchronize_enabled">Sincronizza</string>
     <string name="title_delete_local">Elimina i messaggi locali</string>
     <string name="title_delete_browsed">Elimina i messaggi sfogliati/ricercati</string>
@@ -560,6 +561,8 @@
     <string name="title_folder_name_missing">Nome Cartella mancante</string>
     <string name="title_folder_exists">La cartella %1$s esiste</string>
     <string name="title_folder_delete">Elimina definitivamente questa cartella e tutti i messaggi che contiene?</string>
+    <string name="title_months">Mesi</string>
+    <string name="title_months_all">Tutti</string>
     <string name="title_folder_unified">Posta in arrivo unificata</string>
     <string name="title_folder_inbox">Posta in arrivo</string>
     <string name="title_folder_outbox">Posta in uscita</string>
