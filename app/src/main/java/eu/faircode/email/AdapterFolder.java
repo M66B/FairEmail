@@ -19,9 +19,11 @@ package eu.faircode.email;
     Copyright 2018-2020 by Marcel Bokhorst (M66B)
 */
 
+import android.app.Dialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
@@ -42,12 +44,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.Fragment;
@@ -419,7 +424,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_now, 1, R.string.title_synchronize_now);
 
                 if (folder.account != null && folder.accountProtocol == EntityAccount.TYPE_IMAP) {
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_all, 2, R.string.title_synchronize_all);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_more, 2, R.string.title_synchronize_more);
 
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_local, 3, R.string.title_delete_local);
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_browsed, 4, R.string.title_delete_browsed);
@@ -482,8 +487,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             onActionSync();
                             return true;
 
-                        case R.string.title_synchronize_all:
-                            onActionSynAll();
+                        case R.string.title_synchronize_more:
+                            onActionSyncMore();
                             return true;
 
                         case R.string.title_unified_folder:
@@ -548,23 +553,21 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 private void onActionSync() {
                     Bundle args = new Bundle();
                     args.putLong("folder", folder.id);
-                    args.putBoolean("all", false);
+                    args.putInt("months", -1);
                     Intent data = new Intent();
                     data.putExtra("args", args);
                     parentFragment.onActivityResult(FragmentFolders.REQUEST_SYNC, RESULT_OK, data);
                 }
 
-                private void onActionSynAll() {
-                    Bundle aargs = new Bundle();
-                    aargs.putString("question",
-                            context.getString(R.string.title_ask_sync_all, folder.getDisplayName(context)));
-                    aargs.putLong("folder", folder.id);
-                    aargs.putBoolean("all", true);
+                private void onActionSyncMore() {
+                    Bundle args = new Bundle();
+                    args.putLong("folder", folder.id);
+                    args.putString("name", folder.getDisplayName(context));
 
-                    FragmentDialogAsk ask = new FragmentDialogAsk();
-                    ask.setArguments(aargs);
-                    ask.setTargetFragment(parentFragment, FragmentFolders.REQUEST_SYNC);
-                    ask.show(parentFragment.getParentFragmentManager(), "folder:sync");
+                    FragmentDialogSync sync = new FragmentDialogSync();
+                    sync.setArguments(args);
+                    sync.setTargetFragment(parentFragment, FragmentFolders.REQUEST_SYNC);
+                    sync.show(parentFragment.getParentFragmentManager(), "folder:sync");
                 }
 
                 private void onActionProperty(int property, boolean enabled) {
@@ -1022,5 +1025,40 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
     interface IFolderSelectedListener {
         void onFolderSelected(TupleFolderEx folder);
+    }
+
+    public static class FragmentDialogSync extends FragmentDialogBase {
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            String name = getArguments().getString("name");
+
+            View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_sync, null);
+            final TextView tvFolder = view.findViewById(R.id.tvFolder);
+            final EditText etMonths = view.findViewById(R.id.etMonths);
+
+            tvFolder.setText(name);
+            etMonths.setText(null);
+
+            return new AlertDialog.Builder(getContext())
+                    .setView(view)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            String months = etMonths.getText().toString();
+                            if (TextUtils.isEmpty(months))
+                                getArguments().putInt("months", 0);
+                            else
+                                try {
+                                    getArguments().putInt("months", Integer.parseInt(months));
+                                } catch (NumberFormatException ex) {
+                                    Log.e(ex);
+                                }
+                            sendResult(RESULT_OK);
+                        }
+                    })
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .create();
+        }
     }
 }

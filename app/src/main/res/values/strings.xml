@@ -606,7 +606,7 @@
     <string name="title_advanced_expand_read">Mark messages read on expanding</string>
 
     <string name="title_synchronize_now">Synchronize now</string>
-    <string name="title_synchronize_all">Synchronize all messages</string>
+    <string name="title_synchronize_more">Synchronize more messages</string>
     <string name="title_synchronize_enabled">Synchronize</string>
     <string name="title_delete_local">Delete local messages</string>
     <string name="title_delete_browsed">Delete browsed/searched messages</string>
@@ -649,6 +649,8 @@
     <string name="title_folder_name_missing">Folder name missing</string>
     <string name="title_folder_exists">Folder %1$s exists</string>
     <string name="title_folder_delete">Permanently delete this folder and any messages it contains?</string>
+    <string name="title_months">Months</string>
+    <string name="title_months_all">All</string>
 
     <string name="title_folder_unified">Unified inbox</string>
     <string name="title_folder_inbox">Inbox</string>
@@ -762,7 +764,6 @@
     <string name="title_ask_show_html_images">Always show images on showing original messages</string>
     <string name="title_ask_show_image">Showing images can leak privacy sensitive information</string>
     <string name="title_ask_show_image_hint">Images recognized as tracking images will not be shown</string>
-    <string name="title_ask_sync_all">Synchronize all messages in %1$s?</string>
     <string name="title_ask_delete_local">Delete local messages? Messages will remain on the remote server.</string>
     <string name="title_ask_help">Help improve FairEmail</string>
     <string name="title_ask_reporting">Send error reports?</string>
