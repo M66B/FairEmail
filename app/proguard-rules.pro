@@ -27,9 +27,11 @@
 #AndroidX
 -keep class androidx.appcompat.widget.** {*;}
 -keep class androidx.appcompat.app.AppCompatViewInflater {<init>(...);}
--keepclassmembers class * implements android.os.Parcelable {static ** CREATOR;}
 #android.os.BadParcelableException: Parcelable protocol requires a Parcelable.Creator object called CREATOR on class androidx...
--keep class androidx.work.impl.** {*;} #Due to compiling ROOM inline
+-keepclassmembers class * implements android.os.Parcelable {static ** CREATOR;}
+#ROOM inline compilation
+-keep class androidx.work.impl.** {*;}
+#Stack traces, InvalidationTracker reflection
 -keepnames class androidx.** {*;}
 
 #IAB

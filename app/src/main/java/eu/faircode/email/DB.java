@@ -149,7 +149,7 @@ public abstract class DB extends RoomDatabase {
                 mViewTables.get("folder_view").clear();
                 Log.i("Disabled view invalidation");
             } catch (ReflectiveOperationException ex) {
-                Log.w(ex);
+                Log.e(ex);
             }
 
             sInstance.getInvalidationTracker().addObserver(new InvalidationTracker.Observer(DB.DB_TABLES) {
