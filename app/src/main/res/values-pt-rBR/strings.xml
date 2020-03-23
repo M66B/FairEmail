@@ -464,7 +464,6 @@
     <string name="title_advanced_browse">Procurar mensagens no servidor</string>
     <string name="title_advanced_expand_read">Marcar mensagens lidas ao expandir</string>
     <string name="title_synchronize_now">Sincronizar agora</string>
-    <string name="title_synchronize_all">Sincronizar todas as mensagens</string>
     <string name="title_synchronize_enabled">Sincronizar</string>
     <string name="title_delete_local">Excluir mensagens locais</string>
     <string name="title_delete_browsed">Excluir mensagens navegadas/pesquisadas</string>
@@ -589,7 +588,6 @@
     <string name="title_ask_show_html_images">Sempre mostrar imagens nas mensagens originais</string>
     <string name="title_ask_show_image">Mostrar imagens pode vazar informações sensíveis à privacidade</string>
     <string name="title_ask_show_image_hint">Imagens reconhecidas como monitoramento de imagens não serão mostradas</string>
-    <string name="title_ask_sync_all">Sincronizar todas as mensagens em %1$s?</string>
     <string name="title_ask_delete_local">Excluir mensagens locais? As mensagens permanecerão no servidor remoto.</string>
     <string name="title_ask_help">Ajude a melhorar o FairEmail</string>
     <string name="title_ask_reporting">Enviar relatórios de erro?</string>

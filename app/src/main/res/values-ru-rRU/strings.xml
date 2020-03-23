@@ -286,6 +286,7 @@
     <string name="title_advanced_threading">Связанные диалоги</string>
     <string name="title_advanced_indentation">Левый/правый отступ для полученных/отправленных сообщений в диалогах</string>
     <string name="title_advanced_highlight_unread">Выделять непрочитанные сообщения</string>
+    <string name="title_advanced_highlight_subject">Выделить тему</string>
     <string name="title_advanced_color_stripe">Показывать цветовую полосу</string>
     <string name="title_advanced_avatars">Показывать фотографии контакта</string>
     <string name="title_advanced_gravatars">Показывать Граватары</string>
@@ -541,7 +542,7 @@
     <string name="title_advanced_browse">Просмотр сообщений на сервере</string>
     <string name="title_advanced_expand_read">Отмечать сообщения прочитанными при развёртывании</string>
     <string name="title_synchronize_now">Синхронизировать сейчас</string>
-    <string name="title_synchronize_all">Синхронизировать все сообщения</string>
+    <string name="title_synchronize_more">Синхронизировать ещё сообщения</string>
     <string name="title_synchronize_enabled">Синхронизировать</string>
     <string name="title_delete_local">Удалить локальные сообщения</string>
     <string name="title_delete_browsed">Удалить просмотренные/найденные сообщения</string>
@@ -582,6 +583,8 @@
     <string name="title_folder_name_missing">Отсутствует название папки</string>
     <string name="title_folder_exists">Папка %1$s существует</string>
     <string name="title_folder_delete">Удалить эту папку и сообщения, которые она содержит?</string>
+    <string name="title_months">месяцев</string>
+    <string name="title_months_all">Все</string>
     <string name="title_folder_unified">Единый почтовый ящик</string>
     <string name="title_folder_inbox">Входящие</string>
     <string name="title_folder_outbox">Исходящие</string>
@@ -689,7 +692,6 @@
     <string name="title_ask_show_html_images">Всегда показывать изображения при показе оригинальных сообщений</string>
     <string name="title_ask_show_image">Отображение изображений может привести к утечке конфиденциальной информации</string>
     <string name="title_ask_show_image_hint">Изображения, распознанные как отслеживающие, не будут показаны</string>
-    <string name="title_ask_sync_all">Синхронизировать все сообщения в %1$s?</string>
     <string name="title_ask_delete_local">Удалить локальные сообщения? Сообщения останутся на удалённом сервере.</string>
     <string name="title_ask_help">Помогите улучшить FairEmail</string>
     <string name="title_ask_reporting">Отправлять отчёты об ошибках?</string>

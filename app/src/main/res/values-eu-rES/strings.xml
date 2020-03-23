@@ -517,7 +517,6 @@
     <string name="title_advanced_browse">Arakatu mezuak zerbitzarian</string>
     <string name="title_advanced_expand_read">Mezuak zabaltzean markatu irakurrita gisa</string>
     <string name="title_synchronize_now">Sinkronizatu orain</string>
-    <string name="title_synchronize_all">Sinkronizatu mezu guztiak</string>
     <string name="title_synchronize_enabled">Sinkronizatu</string>
     <string name="title_delete_local">Ezabatu mezu lokalak</string>
     <string name="title_delete_browsed">Ezabatu ikusitako/bilatutako mezuak</string>
@@ -665,7 +664,6 @@
     <string name="title_ask_show_html_images">Beti erakutsi irudiak jatorrizko mezuak erakustean</string>
     <string name="title_ask_show_image">Irudiak bistaratzeak informazio probatua agerira ekar lezake</string>
     <string name="title_ask_show_image_hint">Jarraipen irudi gisa antzemandako irudiak ez dira bistaratuko</string>
-    <string name="title_ask_sync_all">Sinkronizatu %1$s karpetako mezu guztiak?</string>
     <string name="title_ask_delete_local">Ezabatu mezu lokalak? Mezuak urruneko zerbitzarian mantenduko dira.</string>
     <string name="title_ask_help">Lagundu FairEmail hobetzen</string>
     <string name="title_ask_reporting">Bidali errore txostenak?</string>

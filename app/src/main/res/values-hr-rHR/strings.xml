@@ -510,7 +510,6 @@
     <string name="title_advanced_browse">Browse messages on the server</string>
     <string name="title_advanced_expand_read">Označi poruke pročitanima pri širenju</string>
     <string name="title_synchronize_now">Sinkroniziraj sada</string>
-    <string name="title_synchronize_all">Sinkroniziraj sve poruke</string>
     <string name="title_synchronize_enabled">Sinkroniziraj</string>
     <string name="title_delete_local">Izbrišite lokalne poruke</string>
     <string name="title_delete_browsed">Brisanje pregledanih / pretraženih poruka</string>
@@ -649,7 +648,6 @@
     <string name="title_ask_show_html_images">Uvijek prikažite slike pri prikazivanju originalnih poruka</string>
     <string name="title_ask_show_image">Prikazivanje slika može propuštati povjerljive informacije</string>
     <string name="title_ask_show_image_hint">Slike prepoznate kao slike za praćenje neće se prikazivati</string>
-    <string name="title_ask_sync_all">Sinkroniziranje svih poruka u%1$s?</string>
     <string name="title_ask_delete_local">Izbrisati lokalne poruke? Poruke će ostati na udaljenom serveru.</string>
     <string name="title_ask_help">Pomozite poboljšati FairEmail</string>
     <string name="title_ask_reporting">Pošalji izvješća o pogreškama?</string>

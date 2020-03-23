@@ -263,6 +263,7 @@
     <string name="title_advanced_threading">Konversationstrådar</string>
     <string name="title_advanced_indentation">Vänster/höger indrag mottaget/skickade meddelanden i konversationer</string>
     <string name="title_advanced_highlight_unread">Markera olästa meddelanden</string>
+    <string name="title_advanced_highlight_subject">Markera ämnet</string>
     <string name="title_advanced_color_stripe">Visa färgrand</string>
     <string name="title_advanced_avatars">Visa kontaktfoton</string>
     <string name="title_advanced_gravatars">Visa Gravatars</string>
@@ -314,12 +315,12 @@
     <string name="title_advanced_quick_filter">Visa icke-påträngande snabbfilter-ikoner</string>
     <string name="title_advanced_quick_scroll">Visa icke-påträngande snabba scrolla upp/ner ikoner</string>
     <string name="title_advanced_autoread">Märk automatiskt meddelanden som lästa vid flyttning av meddelanden</string>
-    <string name="title_advanced_star_snoozed">Stjänrmarkera automatiskt vid snoozing av meddelanden</string>
+    <string name="title_advanced_star_snoozed">Stjärnmarkera automatiskt vid slumring av meddelanden</string>
     <string name="title_advanced_autounstar">Ta automatiskt bort stjärnmarkeringar från meddelanden när meddelanden flyttas</string>
     <string name="title_advanced_auto_important">Gör automatiskt stjärnmärkta meddelanden viktiga</string>
     <string name="title_advanced_reset_importance">Återställ betydelsen när du flyttar meddelanden</string>
     <string name="title_advanced_discard_delete">Ta bort utkastet permanent om du kastar det</string>
-    <string name="title_advanced_default_snooze">Standardsnoozelängd</string>
+    <string name="title_advanced_default_snooze">Standardlängd på slumra</string>
     <string name="title_advanced_notifications">Hantera aviseringar</string>
     <string name="title_advanced_notifications_default">Standard kanal</string>
     <string name="title_advanced_notifications_service">Servicekanal</string>
@@ -518,7 +519,7 @@
     <string name="title_advanced_browse">Bläddra bland meddelanden på servern</string>
     <string name="title_advanced_expand_read">Markera meddelanden som lästa vid expanderande</string>
     <string name="title_synchronize_now">Synkronisera nu</string>
-    <string name="title_synchronize_all">Synkronisera alla meddelanden</string>
+    <string name="title_synchronize_more">Synkronisera fler meddelanden</string>
     <string name="title_synchronize_enabled">Synkronisera</string>
     <string name="title_delete_local">Ta bort lokala meddelanden</string>
     <string name="title_delete_browsed">Ta bort bläddrade/sökta meddelanden</string>
@@ -559,6 +560,8 @@
     <string name="title_folder_name_missing">Mappnamn saknas</string>
     <string name="title_folder_exists">Mappen %1$s finns</string>
     <string name="title_folder_delete">Ta bort denna mapp och alla meddelanden permanent?</string>
+    <string name="title_months">Månader</string>
+    <string name="title_months_all">Alla</string>
     <string name="title_folder_unified">Samlad inkorg</string>
     <string name="title_folder_inbox">Inkorg</string>
     <string name="title_folder_outbox">Utkorg</string>
@@ -595,6 +598,7 @@
     <string name="title_editasnew">Redigera som ny</string>
     <string name="title_create_rule">Skapa regel &#8230;</string>
     <string name="title_share">Dela</string>
+    <string name="title_pin">Lägg till genväg</string>
     <string name="title_print">Skriv ut</string>
     <string name="title_show_headers">Visa rubriker</string>
     <string name="title_raw_save">Spara rent meddelande</string>
@@ -665,7 +669,6 @@
     <string name="title_ask_show_html_images">Visa alltid bilder när originalmeddelanden visas</string>
     <string name="title_ask_show_image">Att visa bilder kan läcka sekretesskänslig information</string>
     <string name="title_ask_show_image_hint">Bilder som känns igen som spårningsbilder kommer inte att visas</string>
-    <string name="title_ask_sync_all">Synkronisera alla meddelanden i %1$s?</string>
     <string name="title_ask_delete_local">Ta bort lokala meddelanden? Meddelanden kommer att finnas kvar på fjärrservern.</string>
     <string name="title_ask_help">Hjälp till att förbättra FairEmail</string>
     <string name="title_ask_reporting">Skicka felrapporter?</string>
@@ -1074,7 +1077,7 @@
     <string name="title_accessibility_expand">Expandera</string>
     <string name="title_accessibility_view_contact">Visa kontakt</string>
     <string name="title_accessibility_show_authentication_result">Visa autentiseringsresultat</string>
-    <string name="title_accessibility_show_snooze_time">Visa snooze-tid</string>
+    <string name="title_accessibility_show_snooze_time">Visa slumra-tid</string>
     <string name="title_accessibility_view_help">Se hjälp</string>
     <string name="title_accessibility_selected">Vald</string>
     <string name="title_accessibility_answered">Svarade</string>
@@ -1082,7 +1085,7 @@
     <string name="title_accessibility_scroll_up">Skrolla upp</string>
     <string name="title_accessibility_filter_out_seen">Växla filter för lästa meddelanden</string>
     <string name="title_accessibility_filter_out_unflagged">Växla filter för stjärnmärkta meddelanden</string>
-    <string name="title_accessibility_filter_out_snoozed">Växla filter för snoozade meddelanden</string>
+    <string name="title_accessibility_filter_out_snoozed">Växla filter för slumrade meddelanden</string>
     <string name="title_accessibility_edit">Redigera</string>
     <string name="title_accessibility_show_addresses">Visa adresser</string>
     <string name="title_accessibility_hide_addresses">Dölj adresser</string>

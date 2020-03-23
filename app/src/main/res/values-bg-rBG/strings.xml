@@ -514,7 +514,6 @@
     <string name="title_advanced_browse">Търсене на съобщения на сървъра</string>
     <string name="title_advanced_expand_read">Маркирайте съобщенията като прочетени при разширяване</string>
     <string name="title_synchronize_now">Синхронизиране сега</string>
-    <string name="title_synchronize_all">Синхронизиране на всички съобщения</string>
     <string name="title_synchronize_enabled">Синхронизиране</string>
     <string name="title_delete_local">Изтриване на локалните съобщения</string>
     <string name="title_delete_browsed">Изтриване на търсените съобщения</string>
@@ -655,7 +654,6 @@
     <string name="title_ask_show_html_images">Винаги показвайте изображенията при показване на оригиналните съобщения</string>
     <string name="title_ask_show_image">При показването на изображението може да изтече поверителна информация</string>
     <string name="title_ask_show_image_hint">Изображенията които са разпознати като проследяващи няма да се показват</string>
-    <string name="title_ask_sync_all">Синхронизирайте всички съобщения в %1$s?</string>
     <string name="title_ask_delete_local">Да се изтрият ли локалните съобщения? Съобщенията ще останат на отдалечения сървър.</string>
     <string name="title_ask_help">Помогнете за подобряване на FairEmail</string>
     <string name="title_ask_reporting">Изпрати репорт с грешки?</string>

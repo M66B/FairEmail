@@ -252,6 +252,7 @@
     <string name="title_advanced_threading">会话线程</string>
     <string name="title_advanced_indentation">左/右缩进接收/发送的消息</string>
     <string name="title_advanced_highlight_unread">高亮未读消息</string>
+    <string name="title_advanced_highlight_subject">高亮主题</string>
     <string name="title_advanced_color_stripe">头像前显示色彩条纹</string>
     <string name="title_advanced_avatars">显示联系人头像</string>
     <string name="title_advanced_gravatars">显示 Gravatars 头像</string>
@@ -507,7 +508,7 @@
     <string name="title_advanced_browse">浏览服务器上的消息</string>
     <string name="title_advanced_expand_read">将展开的消息标记为已读</string>
     <string name="title_synchronize_now">现在同步</string>
-    <string name="title_synchronize_all">同步所有消息</string>
+    <string name="title_synchronize_more">同步更多消息</string>
     <string name="title_synchronize_enabled">同步</string>
     <string name="title_delete_local">删除本地消息</string>
     <string name="title_delete_browsed">删除浏览过/搜索过的消息</string>
@@ -548,6 +549,8 @@
     <string name="title_folder_name_missing">缺少文件夹名</string>
     <string name="title_folder_exists">文件夹 %1$s 存在</string>
     <string name="title_folder_delete">是否永久删除此文件夹及其包含的任何邮件？</string>
+    <string name="title_months">月份</string>
+    <string name="title_months_all">全部</string>
     <string name="title_folder_unified">聚合收件箱</string>
     <string name="title_folder_inbox">收件箱</string>
     <string name="title_folder_outbox">发件箱</string>
@@ -655,7 +658,6 @@
     <string name="title_ask_show_html_images">在显示原始消息时总是显示图像</string>
     <string name="title_ask_show_image">显示图像可能会泄露隐私敏感信息</string>
     <string name="title_ask_show_image_hint">不会显示被识别为跟踪图像的图片</string>
-    <string name="title_ask_sync_all">同步所有在%1$s里的消息 ？</string>
     <string name="title_ask_delete_local">删除本地消息？消息将保留在远程服务器上</string>
     <string name="title_ask_help">帮助改进FairEmail</string>
     <string name="title_ask_reporting">发送错误报告?</string>

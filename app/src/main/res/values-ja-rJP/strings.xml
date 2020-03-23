@@ -500,7 +500,6 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_browse">サーバ上のメッセージを閲覧する</string>
     <string name="title_advanced_expand_read">エキスパンド時にメッセージを既読にする</string>
     <string name="title_synchronize_now">今すぐ同期</string>
-    <string name="title_synchronize_all">全てのメッセージを同期</string>
     <string name="title_synchronize_enabled">同期</string>
     <string name="title_delete_local">ローカルのメッセージを削除</string>
     <string name="title_delete_browsed">閲覧/検索したメッセージを削除</string>
@@ -639,7 +638,6 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_ask_show_html_images">元のメッセージを表示する時に常に画像を表示する</string>
     <string name="title_ask_show_image">画像表示するとプライバシーの機密情報が漏洩する可能性が有ります</string>
     <string name="title_ask_show_image_hint">アナティリスク追跡画像として認識された画像は表示されません</string>
-    <string name="title_ask_sync_all">%1$sの全てのメッセージを同期しますか？</string>
     <string name="title_ask_delete_local">ローカルメッセージを削除しますか？ メッセージはリモートサーバに残ります</string>
     <string name="title_ask_help">FairEmailの改善にご協力下さい</string>
     <string name="title_ask_reporting">エラーレポートを送信しますか？</string>

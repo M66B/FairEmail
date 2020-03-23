@@ -519,7 +519,6 @@
     <string name="title_advanced_browse">Răsfoiește mesajele de pe server</string>
     <string name="title_advanced_expand_read">Marchează mesajele ca citite la extindere</string>
     <string name="title_synchronize_now">Sincronizează acum</string>
-    <string name="title_synchronize_all">Sincronizează toate mesajele</string>
     <string name="title_synchronize_enabled">Sincronizare</string>
     <string name="title_delete_local">Șterge mesajul local</string>
     <string name="title_delete_browsed">Șterge mesajele răsfoite/căutate</string>
@@ -658,7 +657,6 @@
     <string name="title_ask_show_html_images">Arată mereu imaginile când se arată mesajele originale</string>
     <string name="title_ask_show_image">Vizualizarea imaginilor poate duce la divulgarea de informații confidențiale</string>
     <string name="title_ask_show_image_hint">Imaginile recunoscute drept imagini folosite la urmărire nu vor fi afișate</string>
-    <string name="title_ask_sync_all">Se sincronizează toate mesajele din %1$s?</string>
     <string name="title_ask_delete_local">Ștergeți mesajele locale? Mesajele vor rămâne pe serverul gazdă.</string>
     <string name="title_ask_help">Ajută la îmbunătățirea FairEmail</string>
     <string name="title_ask_reporting">Trimite rapoarte de eroare?</string>

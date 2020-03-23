@@ -186,7 +186,6 @@
     <string name="title_last_connected">آخر ربط: %1$s</string>
     <string name="title_advanced_browse">تصفح الرسائل على الخادم</string>
     <string name="title_synchronize_now">زامن الآن</string>
-    <string name="title_synchronize_all">زامن كافة الرسائل</string>
     <string name="title_synchronize_enabled">مزامنة</string>
     <string name="title_delete_local">حذف الرسائل المحلية</string>
     <string name="title_edit_properties">تعديل الخصائص</string>

@@ -519,7 +519,7 @@
     <string name="title_advanced_browse">Blader door berichten op de server</string>
     <string name="title_advanced_expand_read">Markeer berichten gelezen bij uitvouwen</string>
     <string name="title_synchronize_now">Nu synchroniseren</string>
-    <string name="title_synchronize_all">Alle berichten synchroniseren</string>
+    <string name="title_synchronize_more">Meer berichten synchroniseren</string>
     <string name="title_synchronize_enabled">Synchroniseren</string>
     <string name="title_delete_local">Verwijder lokale berichten</string>
     <string name="title_delete_browsed">Verwijder gebladerde/gezochte berichten</string>
@@ -560,6 +560,8 @@
     <string name="title_folder_name_missing">Mapnaam ontbreekt</string>
     <string name="title_folder_exists">Map %1$s bestaat</string>
     <string name="title_folder_delete">Deze map en de berichten die het bevat definitief verwijderen?</string>
+    <string name="title_months">Maanden</string>
+    <string name="title_months_all">Alle</string>
     <string name="title_folder_unified">Gecombineerd postvak in</string>
     <string name="title_folder_inbox">Postvak in</string>
     <string name="title_folder_outbox">Postvak uit</string>
@@ -667,7 +669,6 @@
     <string name="title_ask_show_html_images">Altijd afbeeldingen tonen bij het weergeven van originele berichten</string>
     <string name="title_ask_show_image">Afbeeldingen tonen kan privacy gevoelige informatie lekken</string>
     <string name="title_ask_show_image_hint">Afbeeldingen die als tracking-afbeeldingen zijn herkend, worden niet getoond</string>
-    <string name="title_ask_sync_all">Alle berichten in %1$s synchroniseren?</string>
     <string name="title_ask_delete_local">Lokale berichten verwijderen? Berichten blijven op de externe server.</string>
     <string name="title_ask_help">Help FairEmail te verbeteren</string>
     <string name="title_ask_reporting">Foutrapporten verzenden?</string>
