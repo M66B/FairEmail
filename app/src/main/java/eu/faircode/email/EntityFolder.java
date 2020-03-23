@@ -179,7 +179,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
     }};
 
     static final int DEFAULT_SYNC = 7; // days
-    static final int DEFAULT_KEEP = 60; // days
+    static final int DEFAULT_KEEP = 90; // days
 
     private static final List<String> SYSTEM_FOLDER_SYNC = Collections.unmodifiableList(Arrays.asList(
             INBOX,
