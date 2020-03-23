@@ -711,6 +711,18 @@
             app:layout_constraintTop_toBottomOf="@+id/tvPreviewIssue" />
 
         <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swArchiveTrash"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/title_advanced_archive_trash"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCaptionBody"
+            app:switchPadding="12dp" />
+
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swAddresses"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -718,7 +730,7 @@
             android:text="@string/title_advanced_addresses"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvCaptionBody"
+            app:layout_constraintTop_toBottomOf="@id/swArchiveTrash"
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat

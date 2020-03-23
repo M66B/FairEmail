@@ -98,6 +98,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swPreviewItalic;
     private Spinner spPreviewLines;
     private SwitchCompat swAddresses;
+    private SwitchCompat swArchiveTrash;
 
     private SwitchCompat swContrast;
     private SwitchCompat swMonospaced;
@@ -116,7 +117,9 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "avatars", "gravatars", "generated_icons", "identicons", "circular", "saturation", "brightness", "threshold",
             "name_email", "prefer_contact", "distinguish_contacts",
             "subject_top", "font_size_sender", "font_size_subject", "subject_italic", "highlight_subject", "subject_ellipsize",
-            "keywords_header", "flags", "flags_background", "preview", "preview_italic", "preview_lines", "addresses",
+            "keywords_header", "flags", "flags_background",
+            "preview", "preview_italic", "preview_lines",
+            "addresses", "archive_trash",
             "contrast", "monospaced", "text_color", "text_size",
             "inline_images", "collapse_quotes", "attachments_alt",
             "authentication"
@@ -175,6 +178,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swPreviewItalic = view.findViewById(R.id.swPreviewItalic);
         spPreviewLines = view.findViewById(R.id.spPreviewLines);
         swAddresses = view.findViewById(R.id.swAddresses);
+        swArchiveTrash = view.findViewById(R.id.swArchiveTrash);
         swContrast = view.findViewById(R.id.swContrast);
         swMonospaced = view.findViewById(R.id.swMonospaced);
         swTextColor = view.findViewById(R.id.swTextColor);
@@ -541,6 +545,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
+        swArchiveTrash.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("archive_trash", checked).apply();
+            }
+        });
+
         swContrast.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -728,6 +739,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         spPreviewLines.setSelection(prefs.getInt("preview_lines", 2) - 1);
         spPreviewLines.setEnabled(swPreview.isChecked());
         swAddresses.setChecked(prefs.getBoolean("addresses", false));
+        swArchiveTrash.setChecked(prefs.getBoolean("archive_trash", true));
         swContrast.setChecked(prefs.getBoolean("contrast", false));
         swMonospaced.setChecked(prefs.getBoolean("monospaced", false));
         swTextColor.setChecked(prefs.getBoolean("text_color", true));

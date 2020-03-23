@@ -50,7 +50,7 @@ public class FragmentOptions extends FragmentBase {
             "name_email", "prefer_contact", "distinguish_contacts", "authentication",
             "subject_top", "font_size_sender", "font_size_subject", "subject_italic", "highlight_subject", "subject_ellipsize",
             "keywords_header", "flags", "flags_background", "preview", "preview_italic", "preview_lines",
-            "addresses", "attachments_alt",
+            "addresses", "archive_trash", "attachments_alt",
             "contrast", "monospaced", "text_color", "text_size",
             "inline_images", "collapse_quotes", "seekbar", "actionbar", "navbar_colorize",
             "autoscroll", "swipenav", "autoexpand", "autoclose", "onclose",

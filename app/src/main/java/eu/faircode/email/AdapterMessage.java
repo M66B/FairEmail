@@ -1556,6 +1556,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     final boolean delete = (inTrash || !hasTrash || outbox || message.uid == null);
 
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    boolean archive_trash = prefs.getBoolean("archive_trash", true);
                     boolean expand_all = prefs.getBoolean("expand_all", false);
                     boolean expand_one = prefs.getBoolean("expand_one", true);
 
@@ -1569,8 +1570,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibUnsubscribe.setVisibility(message.unsubscribe == null ? View.GONE : View.VISIBLE);
                     ibAnswer.setVisibility(outbox || (!expand_all && expand_one) ? View.GONE : View.VISIBLE);
                     ibMove.setVisibility(move ? View.VISIBLE : View.GONE);
-                    ibArchive.setVisibility(archive ? View.VISIBLE : View.GONE);
-                    ibTrash.setVisibility(trash ? View.VISIBLE : View.GONE);
+                    ibArchive.setVisibility(archive && archive_trash ? View.VISIBLE : View.GONE);
+                    ibTrash.setVisibility(trash && archive_trash ? View.VISIBLE : View.GONE);
                     ibJunk.setVisibility(junk || unjunk ? View.VISIBLE : View.GONE);
 
                     bindBody(message, scroll);

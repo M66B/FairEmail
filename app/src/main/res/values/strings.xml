@@ -340,6 +340,7 @@
     <string name="title_advanced_preview">Show message preview</string>
     <string name="title_advanced_preview_italic">Show message preview in italics</string>
     <string name="title_advanced_preview_lines">Number of preview lines</string>
+    <string name="title_advanced_archive_trash">Show buttons to archive or trash a message</string>
     <string name="title_advanced_addresses">Show address details by default</string>
     <string name="title_advanced_attachments_alt">Show attachments after the message text</string>
     <string name="title_advanced_contrast">Use high contrast for message text</string>
