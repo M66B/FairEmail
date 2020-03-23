@@ -289,6 +289,8 @@
     <string name="title_advanced_preview">Vis forhåndsvisning av melding</string>
     <string name="title_advanced_preview_italic">Vis forhåndsvisning av melding i kursiv</string>
     <string name="title_advanced_preview_lines">Antall forhåndsvisningslinjer</string>
+    <string name="title_advanced_archive_trash">Vis knapper for å arkivere eller legge melding i søppelboks</string>
+    <string name="title_advanced_move">Vis knapp for å flytte en melding</string>
     <string name="title_advanced_addresses">Vis adresseinformasjon som standard</string>
     <string name="title_advanced_attachments_alt">Vis vedlegg etter meldingsteksten</string>
     <string name="title_advanced_contrast">Bruk høy kontrast for meldingstekst</string>

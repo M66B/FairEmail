@@ -288,6 +288,8 @@
     <string name="title_advanced_preview">Toon berichtvoorbeeld</string>
     <string name="title_advanced_preview_italic">Toon berichtvoorbeeld cursief</string>
     <string name="title_advanced_preview_lines">Aantal lijnen voorbeeld</string>
+    <string name="title_advanced_archive_trash">Toon knoppen om een bericht te archiveren of weg te gooien</string>
+    <string name="title_advanced_move">Toon knop om een bericht te verplaatsen</string>
     <string name="title_advanced_addresses">Adresgegevens standaard weergeven</string>
     <string name="title_advanced_attachments_alt">Bijlagen weergeven na de berichttekst</string>
     <string name="title_advanced_contrast">Gebruik hoge contrast voor berichttekst</string>

@@ -290,6 +290,8 @@
     <string name="title_advanced_preview">Mostrar vista previa de mensajes</string>
     <string name="title_advanced_preview_italic">Mostrar vista previa de mensaje en cursiva</string>
     <string name="title_advanced_preview_lines">Número de líneas de vista previa</string>
+    <string name="title_advanced_archive_trash">Mostrar botones para archivar o eliminar un mensaje</string>
+    <string name="title_advanced_move">Mostrar botón para mover un mensaje</string>
     <string name="title_advanced_addresses">Mostrar detalles de dirección por defecto</string>
     <string name="title_advanced_attachments_alt">Mostrar adjuntos después del texto del mensaje</string>
     <string name="title_advanced_contrast">Utilizar contraste alto para el texto del mensaje</string>
@@ -521,6 +523,7 @@
     <string name="title_advanced_browse">Explorar mensajes en el servidor</string>
     <string name="title_advanced_expand_read">Marcar mensajes leídos al expandir</string>
     <string name="title_synchronize_now">Sincronizar ahora</string>
+    <string name="title_synchronize_more">Sincronizar más mensajes</string>
     <string name="title_synchronize_enabled">Sincronizar</string>
     <string name="title_delete_local">Eliminar mensajes locales</string>
     <string name="title_delete_browsed">Eliminar mensajes explorados/buscados</string>
@@ -561,6 +564,8 @@
     <string name="title_folder_name_missing">Falta nombre de carpeta</string>
     <string name="title_folder_exists">La carpeta %1$s ya existe</string>
     <string name="title_folder_delete">¿Eliminar permanentemente esta carpeta y los mensajes que contenga?</string>
+    <string name="title_months">Meses</string>
+    <string name="title_months_all">Todos</string>
     <string name="title_folder_unified">Bandeja de entrada unificada</string>
     <string name="title_folder_inbox">Bandeja de Entrada</string>
     <string name="title_folder_outbox">Bandeja de salida</string>

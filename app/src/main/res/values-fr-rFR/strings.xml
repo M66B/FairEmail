@@ -289,6 +289,8 @@
     <string name="title_advanced_preview">Afficher l\'aperçu du message</string>
     <string name="title_advanced_preview_italic">Afficher l\'aperçu du message en italique</string>
     <string name="title_advanced_preview_lines">Nombre de lignes d\'aperçu</string>
+    <string name="title_advanced_archive_trash">Afficher les boutons pour archiver ou mettre à la corbeille un message</string>
+    <string name="title_advanced_move">Afficher le bouton pour déplacer un message</string>
     <string name="title_advanced_addresses">Afficher les détails de l\'adresse par défaut</string>
     <string name="title_advanced_attachments_alt">Afficher les pièces jointes après le texte du message</string>
     <string name="title_advanced_contrast">Utiliser un contraste élevé pour le texte du message</string>
