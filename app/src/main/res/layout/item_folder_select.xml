@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/activatableItemBackground"
-        android:padding="6dp">
+        android:padding="3dp">
 
         <View
             android:id="@+id/vwLevel"
