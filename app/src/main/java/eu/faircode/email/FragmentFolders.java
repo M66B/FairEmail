@@ -543,8 +543,8 @@ public class FragmentFolders extends FragmentBase {
                         db.folder().setFolderInitialize(folder.id, Integer.MAX_VALUE);
                         db.folder().setFolderKeep(folder.id, Integer.MAX_VALUE);
                     } else if (months > 0) {
-                        db.folder().setFolderInitialize(folder.id, months * 31);
-                        db.folder().setFolderKeep(folder.id, months * 31);
+                        db.folder().setFolderInitialize(folder.id, months * 30);
+                        db.folder().setFolderKeep(folder.id, months * 30);
                     }
 
                     EntityOperation.sync(context, folder.id, true);
