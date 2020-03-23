@@ -166,28 +166,41 @@ class Shortcuts {
 
     @NotNull
     private static ShortcutInfoCompat.Builder getShortcut(Context context, String email, String name, Uri avatar) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean identicons = prefs.getBoolean("identicons", false);
+        boolean circular = prefs.getBoolean("circular", true);
+
         Intent intent = new Intent(context, ActivityMain.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         intent.setAction(Intent.ACTION_SEND);
         intent.addCategory(Intent.CATEGORY_DEFAULT);
         intent.setData(Uri.parse("mailto:" + email));
 
-        IconCompat icon = null;
+        Bitmap bitmap = null;
         if (avatar != null &&
                 Helper.hasPermission(context, Manifest.permission.READ_CONTACTS)) {
             // Create icon from bitmap because launcher might not have contacts permission
             InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(
                     context.getContentResolver(), avatar);
-            Bitmap bitmap = BitmapFactory.decodeStream(is);
-            if (bitmap != null)
-                icon = IconCompat.createWithBitmap(bitmap);
+            bitmap = BitmapFactory.decodeStream(is);
         }
-        if (icon == null)
-            icon = IconCompat.createWithResource(context, R.drawable.ic_shortcut_email);
 
-        Set<String> categories = new HashSet<>(Arrays.asList("eu.faircode.email.TEXT_SHARE_TARGET"));
+        boolean identicon = false;
+        if (bitmap == null) {
+            int dp = Helper.dp2pixels(context, 96);
+            if (identicons) {
+                identicon = true;
+                bitmap = ImageHelper.generateIdenticon(email, dp, 5, context);
+            } else
+                bitmap = ImageHelper.generateLetterIcon(email, name, dp, context);
+        }
 
+        bitmap = ImageHelper.makeCircular(bitmap,
+                circular && !identicon ? null : Helper.dp2pixels(context, 3));
+
+        IconCompat icon = IconCompat.createWithBitmap(bitmap);
         String id = (name == null ? email : "\"" + name + "\" <" + email + ">");
+        Set<String> categories = new HashSet<>(Arrays.asList("eu.faircode.email.TEXT_SHARE_TARGET"));
         ShortcutInfoCompat.Builder builder = new ShortcutInfoCompat.Builder(context, id)
                 .setIcon(icon)
                 .setShortLabel(name == null ? email : name)
