@@ -343,23 +343,26 @@ class ImageHelper {
             lld.setLevel(1);
 
             boolean slow = true;
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                // 2G GSM ~14.4 Kbps
-                // G GPRS ~26.8 Kbps
-                // E EDGE ~108.8 Kbps
-                // 3G UMTS ~128 Kbps
-                // H HSPA ~3.6 Mbps
-                // H+ HSPA+ ~14.4 Mbps-23.0 Mbps
-                // 4G LTE ~50 Mbps
-                // 4G LTE-A ~500 Mbps
-                ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-                Network active = (cm == null ? null : cm.getActiveNetwork());
-                NetworkCapabilities caps = (active == null ? null : cm.getNetworkCapabilities(active));
-                if (caps != null) {
-                    int kbps = caps.getLinkDownstreamBandwidthKbps();
-                    slow = (kbps < SLOW_CONNECTION);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+                try {
+                    // 2G GSM ~14.4 Kbps
+                    // G GPRS ~26.8 Kbps
+                    // E EDGE ~108.8 Kbps
+                    // 3G UMTS ~128 Kbps
+                    // H HSPA ~3.6 Mbps
+                    // H+ HSPA+ ~14.4 Mbps-23.0 Mbps
+                    // 4G LTE ~50 Mbps
+                    // 4G LTE-A ~500 Mbps
+                    ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+                    Network active = (cm == null ? null : cm.getActiveNetwork());
+                    NetworkCapabilities caps = (active == null ? null : cm.getNetworkCapabilities(active));
+                    if (caps != null) {
+                        int kbps = caps.getLinkDownstreamBandwidthKbps();
+                        slow = (kbps < SLOW_CONNECTION);
+                    }
+                } catch (Throwable ex) {
+                    Log.e(ex);
                 }
-            }
 
             ExecutorService executor = (slow ? executor_1 : executor_n);
 
