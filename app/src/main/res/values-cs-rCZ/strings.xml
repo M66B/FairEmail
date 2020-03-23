@@ -286,6 +286,7 @@
     <string name="title_advanced_threading">Vlákna konverzací</string>
     <string name="title_advanced_indentation">Levé/pravé odsazení přijatých/odeslaných zpráv v konverzacích</string>
     <string name="title_advanced_highlight_unread">Zvýraznit nepřečtené zprávy</string>
+    <string name="title_advanced_highlight_subject">Zvýraznit předmět</string>
     <string name="title_advanced_color_stripe">Zobrazit barevný pruh</string>
     <string name="title_advanced_avatars">Zobrazit fotografie kontaktů</string>
     <string name="title_advanced_gravatars">Zobrazit Gravatary</string>
@@ -309,6 +310,8 @@
     <string name="title_advanced_preview">Zobrazit náhled zprávy</string>
     <string name="title_advanced_preview_italic">Zobrazit náhled zprávy kurzívou</string>
     <string name="title_advanced_preview_lines">Počet řádků náhledu</string>
+    <string name="title_advanced_archive_trash">Zobrazit tlačítka pro archivaci nebo přesun zprávy do koše</string>
+    <string name="title_advanced_move">Zobrazit tlačítko pro přesun zprávy</string>
     <string name="title_advanced_addresses">Automaticky zobrazit detaily adresy</string>
     <string name="title_advanced_attachments_alt">Přesunout zobrazení příloh pod text zprávy</string>
     <string name="title_advanced_contrast">Použít vysoký kontrast pro text zprávy</string>
@@ -540,6 +543,7 @@
     <string name="title_advanced_browse">Procházet zprávy na serveru</string>
     <string name="title_advanced_expand_read">Označit zprávy jako přečtené při rozbalení</string>
     <string name="title_synchronize_now">Synchronizovat nyní</string>
+    <string name="title_synchronize_more">Synchronizovat více zpráv</string>
     <string name="title_synchronize_enabled">Synchronizovat</string>
     <string name="title_delete_local">Smazat lokální zprávy</string>
     <string name="title_delete_browsed">Smazat prohlédnuté/vyhledané zprávy</string>
@@ -580,6 +584,8 @@
     <string name="title_folder_name_missing">Chybí název složky</string>
     <string name="title_folder_exists">Složka %1$s již existuje</string>
     <string name="title_folder_delete">Trvale odstranit tuto složku a všechny její zprávy?</string>
+    <string name="title_months">Měsíce</string>
+    <string name="title_months_all">Všechny</string>
     <string name="title_folder_unified">Sjednocené doručené</string>
     <string name="title_folder_inbox">Doručené</string>
     <string name="title_folder_outbox">K odeslání</string>

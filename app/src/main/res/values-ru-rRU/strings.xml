@@ -311,6 +311,8 @@
     <string name="title_advanced_preview">Показывать предпросмотр сообщения</string>
     <string name="title_advanced_preview_italic">Показывать предпросмотр сообщения курсивом</string>
     <string name="title_advanced_preview_lines">Количество строк предпросмотра</string>
+    <string name="title_advanced_archive_trash">Показывать кнопки архивации или удаления сообщения</string>
+    <string name="title_advanced_move">Показывать кнопку перемещения сообщения</string>
     <string name="title_advanced_addresses">По умолчанию показывать подробную информацию об адресах</string>
     <string name="title_advanced_attachments_alt">Показывать вложения после текста сообщения</string>
     <string name="title_advanced_contrast">Использовать высокий контраст для текста сообщений</string>

@@ -262,6 +262,7 @@
     <string name="title_advanced_threading">Keskustelujen ketjuttaminen</string>
     <string name="title_advanced_indentation">Tasaa vastaanotetut/lähetetyt viestit keskusteluissa vasemmalle/oikealle</string>
     <string name="title_advanced_highlight_unread">Korosta lukemattomat viestit</string>
+    <string name="title_advanced_highlight_subject">Korosta aihe</string>
     <string name="title_advanced_color_stripe">Näytä väriliuska</string>
     <string name="title_advanced_avatars">Näytä yhteystietojen kuvat</string>
     <string name="title_advanced_gravatars">Näytä Gravatarit</string>
@@ -286,6 +287,8 @@
     <string name="title_advanced_preview">Näytä viestin esikatselu</string>
     <string name="title_advanced_preview_italic">Näytä viestin esikatselu kursiivilla</string>
     <string name="title_advanced_preview_lines">Esikatselurivien lukumäärä</string>
+    <string name="title_advanced_archive_trash">Näytä painikkeet viestin siirtämiseksi arkistoon tai roskakoriin</string>
+    <string name="title_advanced_move">Näytä painike viestin siirtämiseksi</string>
     <string name="title_advanced_addresses">Näytä viestin osoitetiedot oletuksena</string>
     <string name="title_advanced_attachments_alt">Näytä liitteet viestin tekstin jälkeen</string>
     <string name="title_advanced_contrast">Käytä voimakasta kontrastia viestien tekstille</string>
@@ -416,6 +419,7 @@
     <string name="title_advanced_autoseen_hint">Viestien merkitseminen luetuksi laajennettaessa voidaan kytkeä erikseen pois tilien asetuksissa</string>
     <string name="title_advanced_autoclose_hint">Sulje keskustelut, kun kaikki viestit on arkistoitu, lähetetty tai siirretty roskakoriin</string>
     <string name="title_advanced_sender_hint">Useimmat palveluntarjoajat eivät salli muokattuja lähetysosotteita</string>
+    <string name="title_advanced_bcc_hint">Osoitetta ei näytetä, mutta se lisätään lähetettäessä</string>
     <string name="title_advanced_display_harmful_hint">Tämän valinnan pois kytkeminen voi olla haitallista yksityisyydellesi</string>
     <string name="title_advanced_display_hidden_hint">Tämä voi näyttää omituiselta ja näyttää tekstejä kahteen kertaan</string>
     <string name="title_advanced_display_pin_hint">PIN on ensisijainen ennen biometristä tunnistautumista</string>
@@ -516,6 +520,7 @@
     <string name="title_advanced_browse">Selaa palvelimella olevia viestejä</string>
     <string name="title_advanced_expand_read">Merkitse viestit luetuiksi laajennettaessa</string>
     <string name="title_synchronize_now">Synkronoi nyt</string>
+    <string name="title_synchronize_more">Synkronoi lisää viestejä</string>
     <string name="title_synchronize_enabled">Synkronoi</string>
     <string name="title_delete_local">Poista paikalliset viestit</string>
     <string name="title_delete_browsed">Poista selatut/haetut viestit</string>
@@ -527,8 +532,10 @@
     <string name="title_edit_channel">Muokkaa ilmoituskanavaa</string>
     <string name="title_delete_channel">Poista ilmoituskanava</string>
     <string name="title_create_sub_folder">Luo alikansio</string>
-    <string name="title_empty_trash_ask">Tyhjennetäänkö paikallinen roskakori pysyvästi?</string>
-    <string name="title_empty_spam_ask">Poistetaanko paikalliset roskapostit pysyvästi?</string>
+    <string name="title_empty_trash_ask">Poistetaanko pysyvästi paikalliset roskakoriin siirretyt viestit?</string>
+    <string name="title_empty_spam_ask">Poistetaanko pysyvästi paikalliset roskapostit?</string>
+    <string name="title_empty_trash_all_ask">Poistetaanko pysyvästi kaikkien tilien kaikki paikalliseen roskakoriin siirretyt viestit?</string>
+    <string name="title_empty_spam_all_ask">Poistetaanko pysyvästi kaikkien tilien kaikki paikalliset roskapostit?</string>
     <string name="title_delete_operation">Poistetaanko toimenpiteet, joille on virheilmoitus?</string>
     <string name="title_delete_contacts">Poistetaanko kaikki paikalliset yhteystiedot?</string>
     <string name="title_no_operations">Ei odottavia toimenpiteitä</string>
@@ -554,6 +561,8 @@
     <string name="title_folder_name_missing">Kansion nimi puuttuu</string>
     <string name="title_folder_exists">Kansio %1$s on olemassa</string>
     <string name="title_folder_delete">Poistetaanko tämä kansio ja sen sisältämät viestit pysyvästi?</string>
+    <string name="title_months">Kuukaudet</string>
+    <string name="title_months_all">Kaikki</string>
     <string name="title_folder_unified">Yhdistetty saapuneet</string>
     <string name="title_folder_inbox">Saapuneet</string>
     <string name="title_folder_outbox">Lähtevät</string>
@@ -590,6 +599,7 @@
     <string name="title_editasnew">Muokkaa uutena</string>
     <string name="title_create_rule">Luo sääntö &#8230;</string>
     <string name="title_share">Jaa</string>
+    <string name="title_pin">Lisää pikakuvake</string>
     <string name="title_print">Tulosta</string>
     <string name="title_show_headers">Näytä tunnistetiedot</string>
     <string name="title_raw_save">Tallenna raakaviesti</string>
@@ -852,6 +862,7 @@
     <string name="title_legend_section_folders">Kansiot</string>
     <string name="title_legend_section_messages">Viestit</string>
     <string name="title_legend_section_compose">Viestien kirjoitus</string>
+    <string name="title_legend_section_keyboard">Näppäimistö</string>
     <string name="title_legend_oauth">OAuth-valtuutus</string>
     <string name="title_legend_primary_connected">Tili yhdistetty</string>
     <string name="title_legend_primary_disconnected">Yhteys tiliin katkaistu</string>
@@ -941,6 +952,16 @@
     <string name="title_legend_delete">Poista</string>
     <string name="title_legend_count">Lukumäärä</string>
     <string name="title_legend_folder_type">Kansion tyyppi</string>
+    <string name="title_legend_enter">Avaa</string>
+    <string name="title_legend_a">Arkistoi</string>
+    <string name="title_legend_c">Kirjoita viesti</string>
+    <string name="title_legend_d">Siirrä roskakoriin (poista)</string>
+    <string name="title_legend_m">Valikko (monivalinta)</string>
+    <string name="title_legend_n">Seuraava</string>
+    <string name="title_legend_p">Edellinen</string>
+    <string name="title_legend_r">Vastaa</string>
+    <string name="title_legend_s">Valitse/poista valinta</string>
+    <string name="title_legend_t">Kohdista tekstiin</string>
     <string name="title_hint_folder_actions">Paina pitkään kansiota päästäksesi toimintoihin, kuten kansion lisäämiseen navigointivalikkoon</string>
     <string name="title_hint_folder_sync">Akun ja verkon käytön rajoittamiseksi kaikkia kansioita ja viestejä ei oletusarvoisesti synkronoida</string>
     <string name="title_hint_support">Jos sinulla on kysyttävää tai ongelma, ole hyvä ja käytä tukivalikkoa saadaksesi apua</string>
@@ -1000,6 +1021,7 @@
     <string name="title_fetching_again">Haetaan viesti uudestaan palvelimelta</string>
     <string name="title_conversation_actions">Toiminnot</string>
     <string name="title_conversation_action_reply">Vastaa tekstillä: \'%1$s\'</string>
+    <string name="title_conversation_action_copy">Kopioi: \'%1$s\'</string>
     <string name="title_icalendar_accept">Hyväksy</string>
     <string name="title_icalendar_decline">Hylkää</string>
     <string name="title_icalendar_maybe">Ehkä</string>

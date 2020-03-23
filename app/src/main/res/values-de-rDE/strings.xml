@@ -290,7 +290,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_preview">Nachrichtenvorschau anzeigen</string>
     <string name="title_advanced_preview_italic">Nachrichtenvorschau kursiv anzeigen</string>
     <string name="title_advanced_preview_lines">Anzahl der Vorschauzeilen</string>
-    <string name="title_advanced_archive_trash">Schaltflächen zum Archivieren oder Löschen einer Nachricht anzeigen</string>
+    <string name="title_advanced_archive_trash">Schaltflächen zum Archivieren und Löschen einer Nachricht anzeigen</string>
     <string name="title_advanced_move">Schaltfläche zum Verschieben einer Nachricht anzeigen</string>
     <string name="title_advanced_addresses">Adressdetails standardmäßig anzeigen</string>
     <string name="title_advanced_attachments_alt">Anhänge nach (statt vor) dem Nachrichtentext anzeigen</string>

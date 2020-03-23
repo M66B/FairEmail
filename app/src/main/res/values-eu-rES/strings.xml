@@ -287,6 +287,8 @@
     <string name="title_advanced_preview">Erakutsi mezuaren aurrebista</string>
     <string name="title_advanced_preview_italic">Erakutsi mezuaren aurrebista letra etzanean</string>
     <string name="title_advanced_preview_lines">Aurrebistaren lerro kopurua</string>
+    <string name="title_advanced_archive_trash">Erakutsi mezuak artxibatzeko edo zakarrontzira botatzeko botoiak</string>
+    <string name="title_advanced_move">Erakutsi mezua mugitzeko botoia</string>
     <string name="title_advanced_addresses">Erakutsi helbidearen xehetasunak lehenetsita</string>
     <string name="title_advanced_attachments_alt">Erakutsi gehitutakoa mezuko testuaren ondoren</string>
     <string name="title_advanced_contrast">Erabili kontraste altua mezuaren testuarentzat</string>
@@ -517,6 +519,7 @@
     <string name="title_advanced_browse">Arakatu mezuak zerbitzarian</string>
     <string name="title_advanced_expand_read">Mezuak zabaltzean markatu irakurrita gisa</string>
     <string name="title_synchronize_now">Sinkronizatu orain</string>
+    <string name="title_synchronize_more">Sinkronizatu mezu gehiago</string>
     <string name="title_synchronize_enabled">Sinkronizatu</string>
     <string name="title_delete_local">Ezabatu mezu lokalak</string>
     <string name="title_delete_browsed">Ezabatu ikusitako/bilatutako mezuak</string>
@@ -557,6 +560,8 @@
     <string name="title_folder_name_missing">Karpetaren izena falta da</string>
     <string name="title_folder_exists">%1$s karpeta badago aurretik</string>
     <string name="title_folder_delete">Ezabatu karpeta hau eta dituen mezuak behin betiko?</string>
+    <string name="title_months">Hilabeteak</string>
+    <string name="title_months_all">Guztiak</string>
     <string name="title_folder_unified">Sarrera ontzi bateratua</string>
     <string name="title_folder_inbox">Sarrera ontzia</string>
     <string name="title_folder_outbox">Irteera ontzia</string>

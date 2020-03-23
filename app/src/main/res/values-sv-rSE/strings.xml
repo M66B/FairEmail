@@ -288,6 +288,8 @@
     <string name="title_advanced_preview">Förhandsvisning av meddelande</string>
     <string name="title_advanced_preview_italic">Visa förhandsgranskning av meddelande i kursiv stil</string>
     <string name="title_advanced_preview_lines">Antal förhandsgranskningsrader</string>
+    <string name="title_advanced_archive_trash">Visa knappar för att arkivera eller kasta i papperskorgen för meddelanden</string>
+    <string name="title_advanced_move">Visa knappen för att flytta ett meddelande</string>
     <string name="title_advanced_addresses">Visa adressuppgifter som standard</string>
     <string name="title_advanced_attachments_alt">Visa bilagor efter meddelandetexten</string>
     <string name="title_advanced_contrast">Använd hög kontrast för meddelandetext</string>
