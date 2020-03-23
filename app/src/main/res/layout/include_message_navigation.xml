@@ -26,7 +26,7 @@
     <androidx.constraintlayout.helper.widget.Flow
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="6dp"
+        android:layout_marginEnd="3dp"
         app:constraint_referenced_ids="ibMore,ibJunk,ibTrash,ibArchive,ibMove,ibAnswer,ibUnsubscribe,ibUndo"
         app:flow_horizontalBias="0"
         app:flow_horizontalGap="3dp"
