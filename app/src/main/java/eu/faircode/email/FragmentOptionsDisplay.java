@@ -85,7 +85,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swNameEmail;
     private SwitchCompat swPreferContact;
     private SwitchCompat swDistinguishContacts;
-    private SwitchCompat swAuthentication;
     private SwitchCompat swSubjectTop;
     private Spinner spFontSizeSender;
     private Spinner spFontSizeSubject;
@@ -108,16 +107,19 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swImagesInline;
     private SwitchCompat swAttachmentsAlt;
 
+    private SwitchCompat swAuthentication;
+
     private final static String[] RESET_OPTIONS = new String[]{
             "theme", "startup", "cards", "date", "navbar_colorize", "landscape", "landscape3",
             "threading", "indentation", "seekbar", "actionbar",
             "highlight_unread", "color_stripe",
             "avatars", "gravatars", "generated_icons", "identicons", "circular", "saturation", "brightness", "threshold",
-            "name_email", "prefer_contact", "distinguish_contacts", "authentication",
+            "name_email", "prefer_contact", "distinguish_contacts",
             "subject_top", "font_size_sender", "font_size_subject", "subject_italic", "highlight_subject", "subject_ellipsize",
             "keywords_header", "flags", "flags_background", "preview", "preview_italic", "preview_lines", "addresses",
             "contrast", "monospaced", "text_color", "text_size",
-            "inline_images", "collapse_quotes", "attachments_alt"
+            "inline_images", "collapse_quotes", "attachments_alt",
+            "authentication"
     };
 
     @Override
@@ -160,7 +162,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swNameEmail = view.findViewById(R.id.swNameEmail);
         swPreferContact = view.findViewById(R.id.swPreferContact);
         swDistinguishContacts = view.findViewById(R.id.swDistinguishContacts);
-        swAuthentication = view.findViewById(R.id.swAuthentication);
         swSubjectTop = view.findViewById(R.id.swSubjectTop);
         spFontSizeSender = view.findViewById(R.id.spFontSizeSender);
         spFontSizeSubject = view.findViewById(R.id.spFontSizeSubject);
@@ -181,6 +182,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swCollapseQuotes = view.findViewById(R.id.swCollapseQuotes);
         swImagesInline = view.findViewById(R.id.swImagesInline);
         swAttachmentsAlt = view.findViewById(R.id.swAttachmentsAlt);
+        swAuthentication = view.findViewById(R.id.swAuthentication);
 
         setOptions();
 
@@ -421,13 +423,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
-        swAuthentication.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("authentication", checked).apply();
-            }
-        });
-
         swSubjectTop.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -595,6 +590,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
+        swAuthentication.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("authentication", checked).apply();
+            }
+        });
+
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 
         return view;
@@ -688,8 +690,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swNameEmail.setChecked(prefs.getBoolean("name_email", false));
         swPreferContact.setChecked(prefs.getBoolean("prefer_contact", false));
         swDistinguishContacts.setChecked(prefs.getBoolean("distinguish_contacts", false));
-        swAuthentication.setChecked(prefs.getBoolean("authentication", true));
-
         swSubjectTop.setChecked(prefs.getBoolean("subject_top", false));
 
         int[] fontSizeValues = getResources().getIntArray(R.array.fontSizeValues);
@@ -735,6 +735,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swCollapseQuotes.setChecked(prefs.getBoolean("collapse_quotes", false));
         swImagesInline.setChecked(prefs.getBoolean("inline_images", false));
         swAttachmentsAlt.setChecked(prefs.getBoolean("attachments_alt", false));
+
+        swAuthentication.setChecked(prefs.getBoolean("authentication", true));
 
         updateColor();
     }
