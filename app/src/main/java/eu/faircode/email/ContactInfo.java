@@ -142,6 +142,11 @@ public class ContactInfo {
         info.email = address.getAddress();
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean avatars = prefs.getBoolean("avatars", true);
+        boolean gravatars = prefs.getBoolean("gravatars", false);
+        boolean generated = prefs.getBoolean("generated_icons", true);
+        boolean identicons = prefs.getBoolean("identicons", false);
+        boolean circular = prefs.getBoolean("circular", true);
 
         if (Helper.hasPermission(context, Manifest.permission.READ_CONTACTS)) {
             ContentResolver resolver = context.getContentResolver();
@@ -165,7 +170,6 @@ public class ContactInfo {
                     String lookupKey = cursor.getString(colLookupKey);
                     Uri lookupUri = ContactsContract.Contacts.getLookupUri(contactId, lookupKey);
 
-                    boolean avatars = prefs.getBoolean("avatars", true);
                     if (avatars) {
                         InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(resolver, lookupUri);
                         info.bitmap = BitmapFactory.decodeStream(is);
@@ -181,7 +185,6 @@ public class ContactInfo {
         }
 
         if (info.bitmap == null) {
-            boolean gravatars = prefs.getBoolean("gravatars", false);
             if (gravatars) {
                 boolean lookup;
                 synchronized (emailGravatar) {
@@ -231,9 +234,7 @@ public class ContactInfo {
         boolean identicon = false;
         if (info.bitmap == null) {
             int dp = Helper.dp2pixels(context, 96);
-            boolean generated = prefs.getBoolean("generated_icons", true);
             if (generated) {
-                boolean identicons = prefs.getBoolean("identicons", false);
                 if (identicons) {
                     identicon = true;
                     info.bitmap = ImageHelper.generateIdenticon(
@@ -244,7 +245,6 @@ public class ContactInfo {
             }
         }
 
-        boolean circular = prefs.getBoolean("circular", true);
         info.bitmap = ImageHelper.makeCircular(info.bitmap,
                 circular && !identicon ? null : Helper.dp2pixels(context, 3));
 
