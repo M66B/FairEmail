@@ -21,12 +21,15 @@ package eu.faircode.email;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.EditText;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -34,15 +37,22 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.Group;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
 
 public class FragmentDialogFolder extends FragmentDialogBase {
     private int result = 0;
+
+    private static final int MAX_SELECTED_FOLDERS = 5;
 
     @NonNull
     @Override
@@ -51,22 +61,57 @@ public class FragmentDialogFolder extends FragmentDialogBase {
         final long account = getArguments().getLong("account");
         final long[] disabled = getArguments().getLongArray("disabled");
 
-        final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_folder_select, null);
+        List<String> selected_folders = new ArrayList<>();
+
+        final Context context = getContext();
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        String json = prefs.getString("selected_folders", "[]");
+
+        try {
+            JSONArray jarray = new JSONArray(json);
+            for (int i = 0; i < jarray.length(); i++)
+                selected_folders.add((String) jarray.get(i));
+        } catch (JSONException ex) {
+            Log.e(ex);
+        }
+
+        final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_folder_select, null);
         final TextView tvNoFolder = dview.findViewById(R.id.tvNoFolder);
-        final EditText etSearch = dview.findViewById(R.id.etSearch);
+        final AutoCompleteTextView etSearch = dview.findViewById(R.id.etSearch);
         final ImageButton ibNext = dview.findViewById(R.id.ibNext);
         final RecyclerView rvFolder = dview.findViewById(R.id.rvFolder);
         final ContentLoadingProgressBar pbWait = dview.findViewById(R.id.pbWait);
         final Group grpReady = dview.findViewById(R.id.grpReady);
 
+        etSearch.setThreshold(1);
+        etSearch.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus)
+                    etSearch.showDropDown();
+            }
+        });
+
+        ArrayAdapter<String> frequent =
+                new ArrayAdapter<>(context, R.layout.spinner_item1_dropdown, android.R.id.text1, selected_folders);
+        etSearch.setAdapter(frequent);
+
         rvFolder.setHasFixedSize(false);
-        final LinearLayoutManager llm = new LinearLayoutManager(getContext());
+        final LinearLayoutManager llm = new LinearLayoutManager(context);
         rvFolder.setLayoutManager(llm);
 
-        final AdapterFolder adapter = new AdapterFolder(getContext(), getViewLifecycleOwner(),
+        final AdapterFolder adapter = new AdapterFolder(context, getViewLifecycleOwner(),
                 account, false, false, new AdapterFolder.IFolderSelectedListener() {
             @Override
             public void onFolderSelected(TupleFolderEx folder) {
+                String name = folder.getDisplayName(context, folder.parent_ref);
+                selected_folders.remove(name);
+                selected_folders.add(0, name);
+                while (selected_folders.size() > MAX_SELECTED_FOLDERS)
+                    selected_folders.remove(MAX_SELECTED_FOLDERS);
+                JSONArray jarray = new JSONArray(selected_folders);
+                prefs.edit().putString("selected_folders", jarray.toString()).apply();
+
                 Bundle args = getArguments();
                 args.putLong("folder", folder.id);
 
@@ -126,6 +171,13 @@ public class FragmentDialogFolder extends FragmentDialogBase {
             }
         });
 
+        new Handler().post(new Runnable() {
+            @Override
+            public void run() {
+                etSearch.clearFocus();
+            }
+        });
+
         Bundle args = new Bundle();
         args.putLong("account", account);
 
@@ -167,7 +219,7 @@ public class FragmentDialogFolder extends FragmentDialogBase {
             }
         }.execute(this, args, "folder:select");
 
-        return new AlertDialog.Builder(getContext())
+        return new AlertDialog.Builder(context)
                 .setTitle(title)
                 .setView(dview)
                 .setNegativeButton(android.R.string.cancel, null)
