@@ -2828,6 +2828,9 @@ When using two-factor authentication you might need to use an [app-specific pass
 
 ## Support
 
+Only the latest Play store version and latest GitHub release are supported.
+This also means that downgrading is not supported.
+
 Requested features should:
 
 * be useful to most people
