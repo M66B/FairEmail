@@ -218,8 +218,8 @@
     <string name="title_setup_options">Параметры</string>
     <string name="title_setup_defaults">Вернуть настройки по умолчанию</string>
     <string name="title_setup_reset_questions">Заново включить вопросы</string>
-    <string name="title_advanced_hint_title">Более продвинутые настройки</string>
-    <string name="title_advanced_hint_message">        Вы переходите к более продвинутым настройкам.
+    <string name="title_advanced_hint_title">Настройки для опытных</string>
+    <string name="title_advanced_hint_message">        Вы переходите к настройкам для опытных пользователей.
         Все параметры обычно имеют стандартные значения, которые можно изменить, если у вас есть другие предпочтения.
     </string>
     <string name="title_advanced_section_main">Основные</string>
@@ -254,7 +254,7 @@
     <string name="title_advanced_signature_location">Расположение подписи</string>
     <string name="title_advanced_signature_end">Добавлять подпись после цитаты/пересылаемого сообщения</string>
     <string name="title_advanced_plain_only">По умолчанию отправлять простым текстом</string>
-    <string name="title_advanced_flow">\'пластичное\' форматирование обычного текста</string>
+    <string name="title_advanced_flow">\"Пластичное\" форматирование обычного текста</string>
     <string name="title_advanced_receipt">При запросе уведомления</string>
     <string name="title_advanced_usenet_signature">Стиль подписи Usenet</string>
     <string name="title_advanced_remove_signatures">Удалять распознанные подписи</string>
@@ -290,15 +290,15 @@
     <string name="title_advanced_color_stripe">Показывать цветовую полосу</string>
     <string name="title_advanced_avatars">Показывать фотографии контакта</string>
     <string name="title_advanced_gravatars">Показывать Граватары</string>
-    <string name="title_advanced_generated_icons">Показывать сгенерированные иконки</string>
+    <string name="title_advanced_generated_icons">Показывать сгенерированные значки</string>
     <string name="title_advanced_identicons">Показывать идентификаторы</string>
-    <string name="title_advanced_circular">Использовать круглые иконки</string>
+    <string name="title_advanced_circular">Использовать круглые значки</string>
     <string name="title_advanced_color_saturation">Насыщенность</string>
     <string name="title_advanced_color_value">Яркость</string>
     <string name="title_advanced_color_threshold">Порог яркости отображения букв</string>
     <string name="title_advanced_name_email">Показывать имена и адреса электронной почты</string>
     <string name="title_advanced_replace_name">Предпочитать имя контакта вместо имени отправителя</string>
-    <string name="title_advanced_distinguish_contacts">Подчёркивать отправителя, если он известен как локальный контакт «кому»</string>
+    <string name="title_advanced_distinguish_contacts">Подчёркивать отправителя, если он известен как локальный контакт \"кому\"</string>
     <string name="title_advanced_authentication">Показывать предупреждение, когда сервер не может аутентифицировать сообщение</string>
     <string name="title_advanced_font_size_sender">Размера шрифта поля \"Отправитель\"</string>
     <string name="title_advanced_font_size_subject">Размера шрифта поля \"Тема\"</string>
@@ -337,8 +337,8 @@
     <string name="title_advanced_collapse_multiple">Сворачивать сообщения в диалоге с несколькими сообщениями кнопкой \"назад\"</string>
     <string name="title_advanced_autoclose">Автоматически закрывать диалоги</string>
     <string name="title_advanced_onclose">При закрытии диалога</string>
-    <string name="title_advanced_quick_filter">Показывать ненавязчивые иконки быстрого фильтра</string>
-    <string name="title_advanced_quick_scroll">Показывать ненавязчивые иконки быстрой прокрутки вверх/вниз</string>
+    <string name="title_advanced_quick_filter">Показывать ненавязчивые значки быстрого фильтра</string>
+    <string name="title_advanced_quick_scroll">Показывать ненавязчивые значки быстрой прокрутки вверх/вниз</string>
     <string name="title_advanced_autoread">Автоматически помечать сообщения прочитанными при перемещении</string>
     <string name="title_advanced_star_snoozed">Автоматически добавлять в избранное при откладывании сообщений</string>
     <string name="title_advanced_autounstar">Автоматически удалять отметку избранного при перемещении сообщений</string>
@@ -504,6 +504,7 @@
     <string name="title_primary_account">Основная (учётная запись по умолчанию)</string>
     <string name="title_primary_identity">Основной (идентификатор по умолчанию)</string>
     <string name="title_leave_on_server">Оставлять сообщения на сервере</string>
+    <string name="title_leave_deleted">Оставлять удалённые сообщения на сервере</string>
     <string name="title_leave_on_device">Оставлять сообщения на устройстве</string>
     <string name="title_max_messages">Максимальное количество загружаемых сообщений (пусто для всех)</string>
     <string name="title_keep_alive_interval">Интервал поддержания активности/опроса (минуты)</string>

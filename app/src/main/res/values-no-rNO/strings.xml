@@ -482,6 +482,7 @@
     <string name="title_primary_account">Primær (standardkonto)</string>
     <string name="title_primary_identity">Primær (standardidentitet)</string>
     <string name="title_leave_on_server">Legg igjen meldingene på serveren</string>
+    <string name="title_leave_deleted">Legg igjen slettede meldinger på serveren</string>
     <string name="title_leave_on_device">Legg igjen meldinger på enheten</string>
     <string name="title_max_messages">Maksimalt antall meldinger du vil laste ned (tomt for alle)</string>
     <string name="title_keep_alive_interval">Holde i live/avstemming intervall (minutter)</string>

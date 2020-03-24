@@ -470,6 +470,7 @@
     <string name="title_primary_account">主账户 (默认帐户)</string>
     <string name="title_primary_identity">主身份(默认身份)</string>
     <string name="title_leave_on_server">把消息留在服务器上</string>
+    <string name="title_leave_deleted">在服务器上保留已删除的消息</string>
     <string name="title_leave_on_device">把消息留在设备上</string>
     <string name="title_max_messages">下载邮件的最大数（留空则下载全部）</string>
     <string name="title_keep_alive_interval">保持激活/轮询时间间隔(分钟)</string>
