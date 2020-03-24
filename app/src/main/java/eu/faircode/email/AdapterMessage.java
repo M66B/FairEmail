@@ -4225,6 +4225,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         String getSelectedText() {
+            if (tvBody == null)
+                return null;
+
             int start = tvBody.getSelectionStart();
             int end = tvBody.getSelectionEnd();
             if (start == end)
