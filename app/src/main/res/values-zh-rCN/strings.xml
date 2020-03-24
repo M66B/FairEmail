@@ -150,7 +150,7 @@
     <string name="title_setup_error">出错</string>
     <string name="title_setup_export">导出设置</string>
     <string name="title_setup_import">导入设置</string>
-    <string name="title_setup_export_do">与设备上的Google帐户相连接的Gmail帐户无法被导出</string>
+    <string name="title_setup_export_do">与设备上的 Google 帐户关联的 Gmail 帐户无法被导出</string>
     <string name="title_setup_import_do">导入的账户不会覆盖任何现有的帐户</string>
     <string name="title_setup_password">密码</string>
     <string name="title_setup_password_chars">密码包含控制字符或空格字符</string>
@@ -277,6 +277,8 @@
     <string name="title_advanced_preview">显示邮件预览</string>
     <string name="title_advanced_preview_italic">斜体字显示邮件预览</string>
     <string name="title_advanced_preview_lines">预览行数</string>
+    <string name="title_advanced_archive_trash">显示要存档或删除消息的按钮</string>
+    <string name="title_advanced_move">显示移动消息的按钮</string>
     <string name="title_advanced_addresses">默认显示地址详情</string>
     <string name="title_advanced_attachments_alt">在消息文本后显示附件</string>
     <string name="title_advanced_contrast">对消息文本使用高对比度颜色</string>
@@ -407,7 +409,7 @@
     <string name="title_advanced_autoseen_hint">可以在单独的账户设置中禁用展开消息时自动标记消息为已读</string>
     <string name="title_advanced_autoclose_hint">在所有邮件存档、发送或丢弃时自动关闭对话线程</string>
     <string name="title_advanced_sender_hint">大多数提供商不允许修改发件人地址</string>
-    <string name="title_advanced_bcc_hint">地址不会被显示，但会在发送时被添加</string>
+    <string name="title_advanced_bcc_hint">地址不会显示，但会在发送时添加</string>
     <string name="title_advanced_display_harmful_hint">禁用此选项可能会危害您的隐私</string>
     <string name="title_advanced_display_hidden_hint">这可能导致古怪的外观和双重文本</string>
     <string name="title_advanced_display_pin_hint">PIN码优先于生物验证</string>
@@ -520,10 +522,10 @@
     <string name="title_edit_channel">编辑通知通道</string>
     <string name="title_delete_channel">删除通知通道</string>
     <string name="title_create_sub_folder">创建子文件夹</string>
-    <string name="title_empty_trash_ask">永久删除所有本地的已删除邮件吗？</string>
-    <string name="title_empty_spam_ask">永久删除所有本地垃圾邮件吗？</string>
-    <string name="title_empty_trash_all_ask">永久删除所有帐户的所有本地的已删除邮件吗？</string>
-    <string name="title_empty_spam_all_ask">永久删除所有帐户的所有本地垃圾邮件吗？</string>
+    <string name="title_empty_trash_ask">是否永久删除所有本地回收站的邮件？</string>
+    <string name="title_empty_spam_ask">是否永久删除所有本地的垃圾邮件？</string>
+    <string name="title_empty_trash_all_ask">是否永久删除所有帐户的所有本地回收站的邮件？</string>
+    <string name="title_empty_spam_all_ask">是否永久删除所有帐户的所有本地的垃圾邮件？</string>
     <string name="title_delete_operation">是否删除带有错误消息的操作？</string>
     <string name="title_delete_contacts">删除所有本地联系人？</string>
     <string name="title_no_operations">没有待执行操作</string>
@@ -787,8 +789,8 @@
     <string name="title_select_all">选择所有</string>
     <string name="title_select_found">选中找到的</string>
     <string name="title_force_sync">强制同步</string>
-    <string name="title_previous">上一则</string>
-    <string name="title_next">下一则</string>
+    <string name="title_previous">上一封</string>
+    <string name="title_next">下一封</string>
     <string name="title_edit_signature">编辑签名</string>
     <string name="title_edit_signature_text">签名文本</string>
     <string name="title_edit_signature_image">插入图片</string>
@@ -944,7 +946,7 @@
     <string name="title_legend_a">存档</string>
     <string name="title_legend_c">撰写</string>
     <string name="title_legend_d">回收站(删除)</string>
-    <string name="title_legend_m">菜单(多选)</string>
+    <string name="title_legend_m">菜单 (多选)</string>
     <string name="title_legend_n">下一封</string>
     <string name="title_legend_p">上一封</string>
     <string name="title_legend_r">回复</string>

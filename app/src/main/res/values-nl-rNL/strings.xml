@@ -481,6 +481,7 @@
     <string name="title_primary_account">Primair account (standaard account)</string>
     <string name="title_primary_identity">Primaire identiteit (standaard identiteit)</string>
     <string name="title_leave_on_server">Laat berichten achter op de server</string>
+    <string name="title_leave_deleted">Laat verwijderde berichten achter op de server</string>
     <string name="title_leave_on_device">Laat berichten achter op apparaat</string>
     <string name="title_max_messages">Maximum aantal berichten om te downloaden (leeg voor allen)</string>
     <string name="title_keep_alive_interval">Keep-alive/periodieke controle interval (minuten)</string>

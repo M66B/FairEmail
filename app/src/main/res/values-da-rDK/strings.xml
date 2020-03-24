@@ -289,6 +289,8 @@
     <string name="title_advanced_preview">Forhåndsvisning af beskeder</string>
     <string name="title_advanced_preview_italic">Vis beskedforhåndsvisning med kursiv</string>
     <string name="title_advanced_preview_lines">Antal forhåndsvisningslinier</string>
+    <string name="title_advanced_archive_trash">Vis knapper til arkivering eller sletning af en besked</string>
+    <string name="title_advanced_move">Vis knap til flytning af en besked</string>
     <string name="title_advanced_addresses">Vis adresseoplysninger som standard</string>
     <string name="title_advanced_attachments_alt">Vis vedhæftninger efter beskedteksten</string>
     <string name="title_advanced_contrast">Benyt høj kontrast til beskedtekst</string>

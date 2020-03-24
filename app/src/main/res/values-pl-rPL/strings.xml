@@ -499,6 +499,7 @@
     <string name="title_primary_account">Podstawowe (domyślne konto)</string>
     <string name="title_primary_identity">Podstawowe (domyślna tożsamość)</string>
     <string name="title_leave_on_server">Pozostaw wiadomości na serwerze</string>
+    <string name="title_leave_deleted">Pozostaw usunięte wiadomości na serwerze</string>
     <string name="title_leave_on_device">Pozostaw wiadomości na urządzeniu</string>
     <string name="title_max_messages">Maksymalna liczba wiadomości do pobrania (puste dla wszystkich)</string>
     <string name="title_keep_alive_interval">Interwał utrzymywania aktywności/odpytywania (minuty)</string>
