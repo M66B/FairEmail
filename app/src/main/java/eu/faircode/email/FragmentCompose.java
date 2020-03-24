@@ -971,6 +971,7 @@ public class FragmentCompose extends FragmentBase {
                 args.putString("subject", a.getString("subject"));
                 args.putString("body", a.getString("body"));
                 args.putString("text", a.getString("text"));
+                args.putString("selected", a.getString("selected"));
                 args.putParcelableArrayList("attachments", a.getParcelableArrayList("attachments"));
                 draftLoader.execute(this, args, "compose:new");
             } else {
@@ -3101,13 +3102,14 @@ public class FragmentCompose extends FragmentBase {
                             }
                         }
 
+                        String s = args.getString("selected");
                         if (ref.content &&
                                 !"editasnew".equals(action) &&
-                                !"list".equals(action) &&
+                                !("list".equals(action) && TextUtils.isEmpty(s)) &&
                                 !"receipt".equals(action)) {
                             // Reply/forward
-                            Element div = document.createElement("div");
-                            div.attr("fairemail", "reference");
+                            Element reply = document.createElement("div");
+                            reply.attr("fairemail", "reference");
 
                             // Build reply header
                             Element p = document.createElement("p");
@@ -3152,53 +3154,69 @@ public class FragmentCompose extends FragmentBase {
                             } else
                                 p.text(DF.format(new Date(ref.received)) + " " + MessageHelper.formatAddresses(ref.from) + ":");
 
-                            div.appendChild(p);
+                            reply.appendChild(p);
 
-                            // Get referenced message body
-                            Document d = JsoupEx.parse(ref.getFile(context));
+                            Document d;
+                            if (TextUtils.isEmpty(s)) {
+                                // Get referenced message body
+                                d = JsoupEx.parse(ref.getFile(context));
 
-                            // Remove signature separators
-                            boolean remove_signatures = prefs.getBoolean("remove_signatures", false);
-                            if (remove_signatures)
-                                d.body().filter(new NodeFilter() {
-                                    private boolean remove = false;
+                                // Remove signature separators
+                                boolean remove_signatures = prefs.getBoolean("remove_signatures", false);
+                                if (remove_signatures)
+                                    d.body().filter(new NodeFilter() {
+                                        private boolean remove = false;
 
-                                    @Override
-                                    public FilterResult head(Node node, int depth) {
-                                        if (node instanceof TextNode) {
-                                            TextNode tnode = (TextNode) node;
-                                            String text = tnode.getWholeText()
-                                                    .replaceAll("[\r\n]+$", "")
-                                                    .replaceAll("^[\r\n]+", "");
-                                            if ("-- ".equals(text)) {
-                                                if (tnode.getWholeText().endsWith("\n"))
-                                                    remove = true;
-                                                else {
-                                                    Node next = node.nextSibling();
-                                                    if (next != null && "br".equals(next.nodeName()))
+                                        @Override
+                                        public FilterResult head(Node node, int depth) {
+                                            if (node instanceof TextNode) {
+                                                TextNode tnode = (TextNode) node;
+                                                String text = tnode.getWholeText()
+                                                        .replaceAll("[\r\n]+$", "")
+                                                        .replaceAll("^[\r\n]+", "");
+                                                if ("-- ".equals(text)) {
+                                                    if (tnode.getWholeText().endsWith("\n"))
                                                         remove = true;
+                                                    else {
+                                                        Node next = node.nextSibling();
+                                                        if (next != null && "br".equals(next.nodeName()))
+                                                            remove = true;
+                                                    }
                                                 }
                                             }
+
+                                            return (remove ? FilterResult.REMOVE : FilterResult.CONTINUE);
                                         }
 
-                                        return (remove ? FilterResult.REMOVE : FilterResult.CONTINUE);
-                                    }
+                                        @Override
+                                        public FilterResult tail(Node node, int depth) {
+                                            return FilterResult.CONTINUE;
+                                        }
+                                    });
+                            } else {
+                                // Selected text
+                                d = Document.createShell("");
 
-                                    @Override
-                                    public FilterResult tail(Node node, int depth) {
-                                        return FilterResult.CONTINUE;
-                                    }
-                                });
+                                Element div = d.createElement("div");
+                                for (String line : s.split("\\r?\\n")) {
+                                    Element span = document.createElement("span");
+                                    span.text(line);
+                                    div.appendChild(span);
+                                    div.appendElement("br");
+                                }
+                                d.body().appendChild(div);
+                            }
 
                             // Quote referenced message body
                             Element e = d.body();
                             boolean quote_reply = prefs.getBoolean("quote_reply", true);
-                            boolean quote = (quote_reply && ("reply".equals(action) || "reply_all".equals(action)));
+                            boolean quote = (quote_reply &&
+                                    ("reply".equals(action) || "reply_all".equals(action) || "list".equals(action)));
 
                             e.tagName(quote ? "blockquote" : "p");
-                            div.appendChild(e);
+                            reply.appendChild(e);
 
-                            document.body().appendChild(div);
+                            document.body().appendChild(reply);
 
                             addSignature(context, document, data.draft, selected);
                         }

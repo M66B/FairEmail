@@ -3297,7 +3297,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onActionAnswer(TupleMessageEx message, View anchor) {
-            ((FragmentMessages) parentFragment).onReply(message, anchor);
+            ((FragmentMessages) parentFragment).onReply(message, getSelectedText(), anchor);
         }
 
         private void onActionMove(TupleMessageEx message, final boolean copy) {
@@ -4222,6 +4222,26 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         Long getKey() {
             return getKeyAtPosition(getAdapterPosition());
+        }
+
+        String getSelectedText() {
+            int start = tvBody.getSelectionStart();
+            int end = tvBody.getSelectionEnd();
+            if (start == end)
+                return null;
+
+            if (start < 0)
+                start = 0;
+            if (end < 0)
+                end = 0;
+
+            if (start > end) {
+                int tmp = start;
+                start = end;
+                end = tmp;
+            }
+
+            return tvBody.getText().subSequence(start, end).toString();
         }
 
         private View.AccessibilityDelegate accessibilityDelegateHeader = new View.AccessibilityDelegate() {

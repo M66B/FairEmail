@@ -1996,13 +1996,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             long id = values.get("expanded").get(0);
             int pos = adapter.getPositionForKey(id);
             TupleMessageEx message = adapter.getItemAtPosition(pos);
+            AdapterMessage.ViewHolder holder =
+                    (AdapterMessage.ViewHolder) rvMessage.findViewHolderForAdapterPosition(pos);
+            String selected = (holder == null ? null : holder.getSelectedText());
             if (message == null)
                 return;
-            onReply(message, fabReply);
+            onReply(message, selected, fabReply);
         }
     }
 
-    void onReply(final TupleMessageEx message, final View anchor) {
+    void onReply(final TupleMessageEx message, final String selected, final View anchor) {
         Bundle args = new Bundle();
         args.putLong("id", message.id);
 
@@ -2054,13 +2057,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     public boolean onMenuItemClick(MenuItem target) {
                         switch (target.getItemId()) {
                             case R.id.menu_reply_to_sender:
-                                onMenuReply(message, "reply");
+                                onMenuReply(message, "reply", selected);
                                 return true;
                             case R.id.menu_reply_to_all:
-                                onMenuReply(message, "reply_all");
+                                onMenuReply(message, "reply_all", selected);
                                 return true;
                             case R.id.menu_reply_list:
-                                onMenuReply(message, "list");
+                                onMenuReply(message, "list", selected);
                                 return true;
                             case R.id.menu_reply_receipt:
                                 onMenuReply(message, "receipt");
@@ -2093,9 +2096,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void onMenuReply(TupleMessageEx message, String action) {
+        onMenuReply(message, action, null);
+    }
+
+    private void onMenuReply(TupleMessageEx message, String action, String selected) {
         Intent reply = new Intent(getContext(), ActivityCompose.class)
                 .putExtra("action", action)
-                .putExtra("reference", message.id);
+                .putExtra("reference", message.id)
+                .putExtra("selected", selected);
         startActivity(reply);
     }
 
