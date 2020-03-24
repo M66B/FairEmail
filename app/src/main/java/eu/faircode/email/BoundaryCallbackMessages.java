@@ -160,6 +160,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     else
                         fetched = load_device(state);
                 } catch (final Throwable ex) {
+                    state.error = true;
                     Log.e("Boundary", ex);
                     if (intf != null)
                         handler.post(new Runnable() {
