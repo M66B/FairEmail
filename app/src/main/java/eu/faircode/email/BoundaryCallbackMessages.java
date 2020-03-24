@@ -86,7 +86,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     interface IBoundaryCallbackMessages {
         void onLoading();
 
-        void onLoaded(int fetched);
+        void onLoaded();
 
         void onException(@NonNull Throwable ex);
     }
@@ -109,33 +109,30 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     @Override
     public void onZeroItemsLoaded() {
         Log.i("Boundary zero loaded");
-        queue_load(true);
+        queue_load();
     }
 
     @Override
     public void onItemAtEndLoaded(@NonNull final TupleMessageEx itemAtEnd) {
         Log.i("Boundary at end");
-        queue_load(false);
+        queue_load();
     }
 
     void retry() {
         state.reset();
-        queue_load(true);
+        queue_load();
     }
 
-    private void queue_load(final boolean zero) {
+    private void queue_load() {
         final State state = this.state;
 
         executor.submit(new Runnable() {
-            private int fetched;
-
             @Override
             public void run() {
                 try {
                     if (state.destroyed || state.error)
                         return;
 
-                    fetched = 0;
                     if (intf != null)
                         handler.post(new Runnable() {
                             @Override
@@ -145,7 +142,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         });
                     if (server)
                         try {
-                            fetched = load_server(state);
+                            load_server(state);
                         } catch (Throwable ex) {
                             if (state.error || ex instanceof IllegalArgumentException)
                                 throw ex;
@@ -155,10 +152,10 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                             state.reset();
 
                             // Retry
-                            fetched = load_server(state);
+                            load_server(state);
                         }
                     else
-                        fetched = load_device(state);
+                        load_device(state);
                 } catch (final Throwable ex) {
                     state.error = true;
                     Log.e("Boundary", ex);
@@ -174,7 +171,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         handler.post(new Runnable() {
                             @Override
                             public void run() {
-                                intf.onLoaded(zero ? fetched : Integer.MAX_VALUE);
+                                intf.onLoaded();
                             }
                         });
                 }
@@ -585,7 +582,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         });
     }
 
-    void close() {
+    private void close() {
         Log.i("Boundary close");
         try {
             if (state.ifolder != null)
