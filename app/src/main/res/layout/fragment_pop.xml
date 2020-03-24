@@ -306,13 +306,22 @@
             app:layout_constraintTop_toBottomOf="@id/tvNotifyPro" />
 
         <CheckBox
+            android:id="@+id/cbLeaveDeleted"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_leave_deleted"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbLeaveServer" />
+
+        <CheckBox
             android:id="@+id/cbLeaveDevice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:text="@string/title_leave_on_device"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbLeaveServer" />
+            app:layout_constraintTop_toBottomOf="@id/cbLeaveDeleted" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvMax"
