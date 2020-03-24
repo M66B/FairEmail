@@ -3792,13 +3792,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         @Override
         public void onLoading() {
             loading = true;
-            updateListState("Loading");
+            updateListState("Loading", SimpleTask.getCount(), adapter.getItemCount());
         }
 
         @Override
         public void onLoaded() {
             loading = false;
-            updateListState("Loaded");
+            updateListState("Loaded", SimpleTask.getCount(), adapter.getItemCount());
         }
 
         @Override
@@ -3852,13 +3852,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             });
 
             initialized = true;
-            updateListState("Observed");
+            updateListState("Observed", SimpleTask.getCount(), messages.size());
 
             grpReady.setVisibility(View.VISIBLE);
         }
     };
 
-    private void updateListState(String reason) {
+    private void updateListState(String reason, int tasks, int items) {
         Context context = getContext();
         if (context == null)
             return;
@@ -3866,9 +3866,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             return;
         if (!getViewLifecycleOwner().getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
             return;
-
-        int tasks = SimpleTask.getCount();
-        int items = adapter.getItemCount();
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean filter_seen = prefs.getBoolean("filter_seen", false);
@@ -4656,7 +4653,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     };
 
     private void onTaskCount(Intent intent) {
-        updateListState("Tasks");
+        updateListState("Tasks", intent.getIntExtra("count", 0), adapter.getItemCount());
     }
 
     private void onNewMessage(Intent intent) {

@@ -51,6 +51,11 @@ public class ContentLoadingProgressBar extends ProgressBar {
             super.setVisibility(visibility);
     }
 
+    @Override
+    public int getVisibility() {
+        return this.visibility;
+    }
+
     private final Runnable delayedShow = new Runnable() {
         @Override
         public void run() {

@@ -48,11 +48,19 @@ public class ViewTextDelayed extends AppCompatTextView {
         this.visibility = visibility;
 
         removeCallbacks(delayedShow);
-        if (visibility == VISIBLE) {
-            super.setVisibility(INVISIBLE);
+        removeCallbacks(delayedHide);
+
+        if (visibility == VISIBLE)
             postDelayed(delayedShow, VISIBILITY_DELAY);
-        } else
+        else if (visibility == GONE)
+            postDelayed(delayedHide, VISIBILITY_DELAY);
+        else
             super.setVisibility(visibility);
+    }
+
+    @Override
+    public int getVisibility() {
+        return this.visibility;
     }
 
     private final Runnable delayedShow = new Runnable() {
@@ -60,6 +68,14 @@ public class ViewTextDelayed extends AppCompatTextView {
         public void run() {
             if (visibility == VISIBLE)
                 ViewTextDelayed.super.setVisibility(VISIBLE);
+        }
+    };
+
+    private final Runnable delayedHide = new Runnable() {
+        @Override
+        public void run() {
+            if (visibility == GONE)
+                ViewTextDelayed.super.setVisibility(GONE);
         }
     };
 }
