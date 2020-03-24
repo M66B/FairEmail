@@ -483,6 +483,7 @@
     <string name="title_primary_account">Primaria (cuenta predeterminada)</string>
     <string name="title_primary_identity">Primaria (identidad predeterminada)</string>
     <string name="title_leave_on_server">Dejar mensajes en el servidor</string>
+    <string name="title_leave_deleted">Dejar mensajes borrados en el servidor</string>
     <string name="title_leave_on_device">Dejar mensajes en el dispositivo</string>
     <string name="title_max_messages">Número máximo de mensajes a descargar (en blanco para descargar todos)</string>
     <string name="title_keep_alive_interval">Intervalo de comprobación (minutos)</string>
@@ -1046,6 +1047,8 @@
     <string name="title_pro_valid">Todas las características Pro activadas</string>
     <string name="title_pro_invalid">Respuesta inválida</string>
     <string name="title_pro_support">FairEmail necesita su ayuda. Pulse para comprar las características Pro y mantener el proyecto en marcha.</string>
+    <string name="title_boundary_error">Error al descargar mensajes del servidor de correo</string>
+    <string name="title_boundary_retry">Reintentar</string>
     <string name="title_unexpected_error">Error inesperado</string>
     <string name="title_log">Registro</string>
     <string name="title_auto_scroll">Desplazamiento automático</string>

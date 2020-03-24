@@ -1045,6 +1045,8 @@
     <string name="title_pro_valid">Tutte le funzionalità attivate</string>
     <string name="title_pro_invalid">Risposta non valida</string>
     <string name="title_pro_support">FairEmail ha bisogno del tuo aiuto. Tocca per comprare funzionalità aggiuntive e sostenere lo sviluppo.</string>
+    <string name="title_boundary_error">Errore nel download dei messaggi dal server di posta elettronica</string>
+    <string name="title_boundary_retry">Prova di nuovo</string>
     <string name="title_unexpected_error">Errore imprevisto</string>
     <string name="title_log">Registro</string>
     <string name="title_auto_scroll">Scorrimento automatico</string>
