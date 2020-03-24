@@ -3839,6 +3839,10 @@ public class FragmentCompose extends FragmentBase {
                             if (draft.to == null && draft.cc == null && draft.bcc == null)
                                 args.putBoolean("remind_to", true);
 
+                            if (TextUtils.isEmpty(draft.extra) &&
+                                    identity != null && identity.sender_extra)
+                                args.putBoolean("remind_extra", true);
+
                             if (TextUtils.isEmpty(draft.subject))
                                 args.putBoolean("remind_subject", true);
 
@@ -3996,6 +4000,7 @@ public class FragmentCompose extends FragmentBase {
             } else if (action == R.id.action_check) {
                 boolean dialog = args.getBundle("extras").getBoolean("dialog");
                 boolean remind_to = args.getBoolean("remind_to", false);
+                boolean remind_extra = args.getBoolean("remind_extra", false);
                 boolean remind_subject = args.getBoolean("remind_subject", false);
                 boolean remind_text = args.getBoolean("remind_text", false);
                 boolean remind_attachment = args.getBoolean("remind_attachment", false);
@@ -4006,7 +4011,7 @@ public class FragmentCompose extends FragmentBase {
                         (draft.cc == null ? 0 : draft.cc.length) +
                         (draft.bcc == null ? 0 : draft.bcc.length);
                 if (dialog || (send_reminders &&
-                        (remind_to || remind_subject || remind_text || remind_attachment ||
+                        (remind_to || remind_extra || remind_subject || remind_text || remind_attachment ||
                                 recipients > RECIPIENTS_WARNING))) {
                     setBusy(false);
 
@@ -4423,6 +4428,7 @@ public class FragmentCompose extends FragmentBase {
             Bundle args = getArguments();
             boolean dialog = args.getBundle("extras").getBoolean("dialog");
             boolean remind_to = args.getBoolean("remind_to", false);
+            boolean remind_extra = args.getBoolean("remind_extra", false);
             boolean remind_subject = args.getBoolean("remind_subject", false);
             boolean remind_text = args.getBoolean("remind_text", false);
             boolean remind_attachment = args.getBoolean("remind_attachment", false);
@@ -4437,6 +4443,7 @@ public class FragmentCompose extends FragmentBase {
 
             final ViewGroup dview = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.dialog_send, null);
             final TextView tvRemindTo = dview.findViewById(R.id.tvRemindTo);
+            final TextView tvRemindExtra = dview.findViewById(R.id.tvRemindExtra);
             final TextView tvRemindSubject = dview.findViewById(R.id.tvRemindSubject);
             final TextView tvRemindText = dview.findViewById(R.id.tvRemindText);
             final TextView tvRemindAttachment = dview.findViewById(R.id.tvRemindAttachment);
@@ -4453,6 +4460,7 @@ public class FragmentCompose extends FragmentBase {
             final TextView tvNotAgain = dview.findViewById(R.id.tvNotAgain);
 
             tvRemindTo.setVisibility(remind_to ? View.VISIBLE : View.GONE);
+            tvRemindExtra.setVisibility(remind_extra ? View.VISIBLE : View.GONE);
             tvRemindSubject.setVisibility(remind_subject ? View.VISIBLE : View.GONE);
             tvRemindText.setVisibility(remind_text ? View.VISIBLE : View.GONE);
             tvRemindAttachment.setVisibility(remind_attachment ? View.VISIBLE : View.GONE);
