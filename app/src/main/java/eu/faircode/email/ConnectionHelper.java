@@ -1,5 +1,6 @@
 package eu.faircode.email;
 
+import android.accounts.AccountsException;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
@@ -14,12 +15,15 @@ import android.telephony.TelephonyManager;
 import androidx.annotation.Nullable;
 import androidx.preference.PreferenceManager;
 
+import com.sun.mail.iap.ConnectionException;
+
 import org.xbill.DNS.Lookup;
 import org.xbill.DNS.MXRecord;
 import org.xbill.DNS.Record;
 import org.xbill.DNS.SimpleResolver;
 import org.xbill.DNS.Type;
 
+import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Arrays;
@@ -275,6 +279,27 @@ public class ConnectionHelper {
         // Assume metered
         Log.i("isMetered: underlying assume metered");
         return true;
+    }
+
+    static boolean isIoError(Throwable ex) {
+        while (ex != null) {
+            if (isMaxConnections(ex.getMessage()) ||
+                    ex instanceof IOException ||
+                    ex instanceof ConnectionException ||
+                    ex instanceof AccountsException ||
+                    "failed to connect".equals(ex.getMessage()))
+                return true;
+            ex = ex.getCause();
+        }
+        return false;
+    }
+
+    static boolean isMaxConnections(String message) {
+        return (message != null &&
+                (message.contains("Too many simultaneous connections") /* Gmail */ ||
+                        message.contains("Maximum number of connections") /* ... from user+IP exceeded */ /* Dovecot */ ||
+                        message.contains("Too many concurrent connections") /* ... to this mailbox */ ||
+                        message.contains("User is authenticated but not connected") /* Outlook */));
     }
 
     static boolean vpnActive(Context context) {

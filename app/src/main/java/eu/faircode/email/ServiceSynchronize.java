@@ -19,7 +19,6 @@ package eu.faircode.email;
     Copyright 2018-2020 by Marcel Bokhorst (M66B)
 */
 
-import android.accounts.AccountsException;
 import android.app.AlarmManager;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -49,11 +48,9 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
 
-import com.sun.mail.iap.ConnectionException;
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPStore;
 
-import java.io.IOException;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -858,7 +855,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                                 EntityLog.log(ServiceSynchronize.this, account.name + " alert: " + message);
 
-                                if (!isMaxConnections(message))
+                                if (!ConnectionHelper.isMaxConnections(message))
                                     try {
                                         NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                                         nm.notify("alert:" + account.id, 1,
@@ -885,21 +882,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     } catch (Throwable ex) {
                         // Immediately report auth errors
                         if (ex instanceof AuthenticationFailedException) {
-                            boolean ioError = false;
-                            Throwable c = ex;
-                            while (c != null) {
-                                if (isMaxConnections(c.getMessage()) ||
-                                        c instanceof IOException ||
-                                        c instanceof ConnectionException ||
-                                        c instanceof AccountsException ||
-                                        "failed to connect".equals(ex.getMessage())) {
-                                    ioError = true;
-                                    break;
-                                }
-                                c = c.getCause();
-                            }
-
-                            if (!ioError) {
+                            if (!ConnectionHelper.isIoError(ex)) {
                                 Log.e(ex);
                                 try {
                                     NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
@@ -1576,14 +1559,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             EntityLog.log(this, account.name + " stopped");
             wlAccount.release();
         }
-    }
-
-    private boolean isMaxConnections(String message) {
-        return (message != null &&
-                (message.contains("Too many simultaneous connections") /* Gmail */ ||
-                        message.contains("Maximum number of connections") /* ... from user+IP exceeded */ /* Dovecot */ ||
-                        message.contains("Too many concurrent connections") /* ... to this mailbox */ ||
-                        message.contains("User is authenticated but not connected") /* Outlook */));
     }
 
     private void optimizeAccount(Context context, EntityAccount account, String reason) {
