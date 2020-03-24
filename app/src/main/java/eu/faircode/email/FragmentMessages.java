@@ -24,6 +24,7 @@ import android.app.Dialog;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -52,6 +53,7 @@ import android.os.Parcelable;
 import android.print.PrintAttributes;
 import android.print.PrintDocumentAdapter;
 import android.print.PrintManager;
+import android.provider.ContactsContract;
 import android.security.KeyChain;
 import android.text.SpannableString;
 import android.text.TextUtils;
@@ -285,6 +287,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private Long closeId = null;
     private int autoCloseCount = 0;
     private boolean autoExpanded = true;
+    private Map<String, String> kv = new HashMap<>();
     private Map<String, List<Long>> values = new HashMap<>();
     private LongSparseArray<Float> sizes = new LongSparseArray<>();
     private LongSparseArray<Integer> heights = new LongSparseArray<>();
@@ -317,6 +320,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private static final int REQUEST_ACCOUNT = 19;
     private static final int REQUEST_EMPTY_FOLDER = 20;
     private static final int REQUEST_BOUNDARY_RETRY = 21;
+    static final int REQUEST_PICK_CONTACT = 22;
 
     static final String ACTION_STORE_RAW = BuildConfig.APPLICATION_ID + ".STORE_RAW";
     static final String ACTION_DECRYPT = BuildConfig.APPLICATION_ID + ".DECRYPT";
@@ -1388,6 +1392,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private AdapterMessage.IProperties iProperties = new AdapterMessage.IProperties() {
+        @Override
+        public void setValue(String key, String value) {
+            kv.put(key, value);
+        }
+
         @Override
         public void setValue(String name, long id, boolean enabled) {
             if (!values.containsKey(name))
@@ -4867,6 +4876,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     if (resultCode == RESULT_OK)
                         onBoundaryRetry();
                     break;
+                case REQUEST_PICK_CONTACT:
+                    if (resultCode == RESULT_OK && data != null)
+                        onPickContact(data.getData());
+                    break;
             }
         } catch (Throwable ex) {
             Log.e(ex);
@@ -6363,6 +6376,23 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private void onBoundaryRetry() {
         ViewModelMessages model = new ViewModelProvider(getActivity()).get(ViewModelMessages.class);
         model.retry(viewType);
+    }
+
+    private void onPickContact(Uri contactUri) {
+        String name = kv.get("name");
+        String email = kv.get("email");
+
+        // This requires contacts permission
+        ContentResolver resolver = getContext().getContentResolver();
+        Uri lookupUri = ContactsContract.Contacts.getLookupUri(resolver, contactUri);
+
+        Intent edit = new Intent();
+        edit.putExtra(ContactsContract.Intents.Insert.EMAIL, email);
+        if (!TextUtils.isEmpty(name))
+            edit.putExtra(ContactsContract.Intents.Insert.NAME, name);
+        edit.setAction(Intent.ACTION_EDIT);
+        edit.setDataAndTypeAndNormalize(lookupUri, ContactsContract.Contacts.CONTENT_ITEM_TYPE);
+        startActivity(edit);
     }
 
     static void search(

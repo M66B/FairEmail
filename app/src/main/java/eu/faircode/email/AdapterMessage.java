@@ -1356,7 +1356,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibSearchContact.setVisibility(show_addresses && (hasFrom || hasTo) ? View.VISIBLE : View.GONE);
             ibNotifyContact.setVisibility(show_addresses && hasChannel && hasFrom ? View.VISIBLE : View.GONE);
             ibPinContact.setVisibility(show_addresses && pin && hasFrom ? View.VISIBLE : View.GONE);
-            ibAddContact.setVisibility(show_addresses && hasFrom ? View.VISIBLE : View.GONE);
+            ibAddContact.setVisibility(show_addresses && contacts && hasFrom ? View.VISIBLE : View.GONE);
 
             tvSubmitterTitle.setVisibility(show_addresses && !TextUtils.isEmpty(submitter) ? View.VISIBLE : View.GONE);
             tvSubmitter.setVisibility(show_addresses && !TextUtils.isEmpty(submitter) ? View.VISIBLE : View.GONE);
@@ -3041,41 +3041,91 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             String email = ia.getAddress();
 
             Uri lookupUri = null;
-            if (contacts) {
-                String like = "%" + (name == null ? email : name) + "%";
-                ContentResolver resolver = context.getContentResolver();
-                try (Cursor cursor = resolver.query(ContactsContract.CommonDataKinds.Email.CONTENT_URI,
-                        new String[]{
-                                ContactsContract.CommonDataKinds.Photo.CONTACT_ID,
-                                ContactsContract.Contacts.LOOKUP_KEY
-                        },
-                        ContactsContract.CommonDataKinds.Email.ADDRESS + " = ?" +
-                                " OR " + ContactsContract.Contacts.DISPLAY_NAME + " LIKE ?",
-                        new String[]{email, like}, null)) {
-                    if (cursor != null && cursor.moveToNext()) {
-                        int colContactId = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Photo.CONTACT_ID);
-                        int colLookupKey = cursor.getColumnIndex(ContactsContract.Contacts.LOOKUP_KEY);
+            ContentResolver resolver = context.getContentResolver();
+            try (Cursor cursor = resolver.query(ContactsContract.CommonDataKinds.Email.CONTENT_URI,
+                    new String[]{
+                            ContactsContract.CommonDataKinds.Photo.CONTACT_ID,
+                            ContactsContract.Contacts.LOOKUP_KEY
+                    },
+                    ContactsContract.CommonDataKinds.Email.ADDRESS + " = ?",
+                    new String[]{email}, null)) {
+                if (cursor != null && cursor.moveToNext()) {
+                    int colContactId = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Photo.CONTACT_ID);
+                    int colLookupKey = cursor.getColumnIndex(ContactsContract.Contacts.LOOKUP_KEY);
 
-                        long contactId = cursor.getLong(colContactId);
-                        String lookupKey = cursor.getString(colLookupKey);
+                    long contactId = cursor.getLong(colContactId);
+                    String lookupKey = cursor.getString(colLookupKey);
 
-                        lookupUri = ContactsContract.Contacts.getLookupUri(contactId, lookupKey);
-                    }
+                    lookupUri = ContactsContract.Contacts.getLookupUri(contactId, lookupKey);
                 }
             }
 
+            if (lookupUri == null) {
+                PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, ibAddContact);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_insert_contact, 1, R.string.title_insert_contact);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_contact, 2, R.string.title_edit_contact);
+
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch (item.getItemId()) {
+                            case R.string.title_insert_contact:
+                                onInsertContact(name, email);
+                                return true;
+
+                            case R.string.title_edit_contact:
+                                onPickContact(name, email);
+                                return true;
+
+                            default:
+                                return false;
+                        }
+                    }
+                });
+
+                popupMenu.show();
+
+            } else
+                onEditContact(name, email, lookupUri);
+        }
+
+        private void onPickContact(String name, String email) {
+            Intent pick = new Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Email.CONTENT_URI);
+            if (pick.resolveActivity(context.getPackageManager()) == null)
+                Snackbar.make(view, R.string.title_no_contacts, Snackbar.LENGTH_LONG).show();
+            else {
+                properties.setValue("name", name);
+                properties.setValue("email", email);
+                parentFragment.startActivityForResult(
+                        Helper.getChooser(context, pick), FragmentMessages.REQUEST_PICK_CONTACT);
+            }
+        }
+
+        private void onInsertContact(String name, String email) {
+            // https://developer.android.com/training/contacts-provider/modify-data
+            Intent insert = new Intent();
+            insert.putExtra(ContactsContract.Intents.Insert.EMAIL, email);
+            if (!TextUtils.isEmpty(name))
+                insert.putExtra(ContactsContract.Intents.Insert.NAME, name);
+            insert.setAction(Intent.ACTION_INSERT);
+            insert.setType(ContactsContract.Contacts.CONTENT_TYPE);
+
+            PackageManager pm = context.getPackageManager();
+            if (insert.resolveActivity(pm) == null)
+                Snackbar.make(parentFragment.getView(),
+                        R.string.title_no_contacts, Snackbar.LENGTH_LONG).show();
+            else
+                context.startActivity(insert);
+        }
+
+        private void onEditContact(String name, String email, Uri lookupUri) {
             // https://developer.android.com/training/contacts-provider/modify-data
             Intent edit = new Intent();
             edit.putExtra(ContactsContract.Intents.Insert.EMAIL, email);
             if (!TextUtils.isEmpty(name))
                 edit.putExtra(ContactsContract.Intents.Insert.NAME, name);
-            if (lookupUri == null) {
-                edit.setAction(Intent.ACTION_INSERT);
-                edit.setType(ContactsContract.Contacts.CONTENT_TYPE);
-            } else {
-                edit.setAction(Intent.ACTION_EDIT);
-                edit.setDataAndTypeAndNormalize(lookupUri, ContactsContract.Contacts.CONTENT_ITEM_TYPE);
-            }
+            edit.setAction(Intent.ACTION_EDIT);
+            edit.setDataAndTypeAndNormalize(lookupUri, ContactsContract.Contacts.CONTENT_ITEM_TYPE);
 
             PackageManager pm = context.getPackageManager();
             if (edit.resolveActivity(pm) == null)
@@ -5080,6 +5130,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     }
 
     interface IProperties {
+        void setValue(String key, String value);
+
         void setValue(String name, long id, boolean enabled);
 
         boolean getValue(String name, long id);
