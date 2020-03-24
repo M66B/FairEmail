@@ -84,9 +84,10 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
 
     public void execute(final Fragment fragment, @NonNull Bundle args, @NonNull String name) {
         try {
-            run(fragment.getContext(), fragment.getViewLifecycleOwner(), args, name);
+            if (fragment.getView() != null)
+                run(fragment.getContext(), fragment.getViewLifecycleOwner(), args, name);
         } catch (IllegalStateException ex) {
-            Log.w(ex);
+            Log.e(ex);
         }
     }
 
