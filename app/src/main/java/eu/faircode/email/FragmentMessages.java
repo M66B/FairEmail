@@ -3853,6 +3853,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         Context context = getContext();
         if (context == null)
             return;
+        if (getView() == null)
+            return;
         if (!getViewLifecycleOwner().getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
             return;
 
