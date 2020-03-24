@@ -113,6 +113,9 @@ public class WorkerCleanup extends Worker {
 
                 // Clear last search
                 prefs.edit().remove("last_search").apply();
+
+                // Contact info cache
+                ContactInfo.clearCache();
             }
 
             long now = new Date().getTime();
