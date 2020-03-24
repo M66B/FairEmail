@@ -207,6 +207,12 @@ public class ViewModelMessages extends ViewModel {
         return model;
     }
 
+    void retry(AdapterMessage.ViewType viewType) {
+        Model model = models.get(viewType);
+        if (model != null && model.boundary != null)
+            model.boundary.retry();
+    }
+
     @Override
     protected void onCleared() {
         for (AdapterMessage.ViewType viewType : new ArrayList<>(models.keySet()))

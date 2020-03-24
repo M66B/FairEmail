@@ -118,6 +118,11 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         queue_load(false);
     }
 
+    void retry() {
+        state.reset();
+        queue_load(true);
+    }
+
     private void queue_load(final boolean zero) {
         final State state = this.state;
 

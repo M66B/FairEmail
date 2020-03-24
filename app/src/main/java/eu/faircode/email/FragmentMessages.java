@@ -116,7 +116,6 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
-import com.sun.mail.util.FolderClosedIOException;
 
 import org.bouncycastle.asn1.cms.Attribute;
 import org.bouncycastle.asn1.cms.AttributeTable;
@@ -192,7 +191,6 @@ import java.util.Objects;
 import java.util.Properties;
 
 import javax.mail.Address;
-import javax.mail.FolderClosedException;
 import javax.mail.Session;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
@@ -318,6 +316,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private static final int REQUEST_SEARCH = 18;
     private static final int REQUEST_ACCOUNT = 19;
     private static final int REQUEST_EMPTY_FOLDER = 20;
+    private static final int REQUEST_BOUNDARY_RETRY = 21;
 
     static final String ACTION_STORE_RAW = BuildConfig.APPLICATION_ID + ".STORE_RAW";
     static final String ACTION_DECRYPT = BuildConfig.APPLICATION_ID + ".DECRYPT";
@@ -3797,6 +3796,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         public void onException(@NonNull Throwable ex) {
             if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                 if (ex instanceof IllegalStateException) {
+                    // No internet connection
                     Snackbar snackbar = Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG);
                     snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
                         @Override
@@ -3807,15 +3807,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         }
                     });
                     snackbar.show();
-                } else if (ex instanceof IllegalArgumentException ||
-                        ex instanceof FolderClosedException || ex instanceof FolderClosedIOException)
-                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
-                else {
+                } else {
                     Bundle args = new Bundle();
                     args.putString("error", Log.formatThrowable(ex, false));
 
-                    FragmentDialogError fragment = new FragmentDialogError();
+                    FragmentDialogBoundaryError fragment = new FragmentDialogBoundaryError();
                     fragment.setArguments(args);
+                    fragment.setTargetFragment(FragmentMessages.this, REQUEST_BOUNDARY_RETRY);
                     fragment.show(getParentFragmentManager(), "boundary:error");
                 }
         }
@@ -4862,6 +4860,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 case REQUEST_EMPTY_FOLDER:
                     if (resultCode == RESULT_OK)
                         onEmptyFolder(data.getBundleExtra("args"));
+                    break;
+                case REQUEST_BOUNDARY_RETRY:
+                    if (resultCode == RESULT_OK)
+                        onBoundaryRetry();
                     break;
             }
         } catch (Throwable ex) {
@@ -6356,6 +6358,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }.execute(this, args, "folder:delete");
     }
 
+    private void onBoundaryRetry() {
+        ViewModelMessages model = new ViewModelProvider(getActivity()).get(ViewModelMessages.class);
+        model.retry(viewType);
+    }
+
     static void search(
             final Context context, final LifecycleOwner owner, final FragmentManager manager,
             long account, long folder, boolean server, String query) {
@@ -6654,15 +6661,31 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }
     }
 
-    public static class FragmentDialogError extends FragmentDialogBase {
+    public static class FragmentDialogBoundaryError extends FragmentDialogBase {
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             String error = getArguments().getString("error");
 
+            View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_boundary_error, null);
+            TextView tvError = dview.findViewById(R.id.tvError);
+
+            tvError.setText(error);
+
             return new AlertDialog.Builder(getContext())
-                    .setMessage(error)
-                    .setPositiveButton(android.R.string.cancel, null)
+                    .setView(dview)
+                    .setPositiveButton(R.string.title_boundary_retry, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            sendResult(Activity.RESULT_OK);
+                        }
+                    })
+                    .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            sendResult(Activity.RESULT_CANCELED);
+                        }
+                    })
                     .create();
         }
     }
