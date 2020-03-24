@@ -3784,14 +3784,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         @Override
         public void onLoading() {
             loading = true;
-            pbWait.setVisibility(View.VISIBLE);
+            updateListState("Loading");
         }
 
         @Override
         public void onLoaded(int fetched) {
             loading = false;
-            if (initialized && SimpleTask.getCount() == 0)
-                pbWait.setVisibility(View.GONE);
+            updateListState("Loaded");
         }
 
         @Override
@@ -3846,17 +3845,41 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             });
 
             initialized = true;
-            if (!loading && SimpleTask.getCount() == 0)
-                pbWait.setVisibility(View.GONE);
-
-            tvNoEmail.setVisibility(messages.size() == 0 ? View.VISIBLE : View.GONE);
-            tvNoEmailHint.setVisibility(
-                    messages.size() == 0 && filterActive() && viewType != AdapterMessage.ViewType.SEARCH
-                            ? View.VISIBLE : View.GONE);
+            updateListState("Observed");
 
             grpReady.setVisibility(View.VISIBLE);
         }
     };
+
+    private void updateListState(String reason) {
+        Context context = getContext();
+        if (context == null)
+            return;
+        if (!getViewLifecycleOwner().getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+            return;
+
+        int tasks = SimpleTask.getCount();
+        int items = adapter.getItemCount();
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean filter_seen = prefs.getBoolean("filter_seen", false);
+        boolean filter_unflagged = prefs.getBoolean("filter_unflagged", false);
+        boolean filter_unknown = prefs.getBoolean("filter_unknown", false);
+        boolean filter_active = (filter_seen || filter_unflagged || filter_unknown);
+
+        boolean none = (items == 0 && !loading && tasks == 0 && initialized);
+        boolean filtered = (filter_active && viewType != AdapterMessage.ViewType.SEARCH);
+
+        pbWait.setVisibility(loading || tasks > 0 ? View.VISIBLE : View.GONE);
+        tvNoEmail.setVisibility(none ? View.VISIBLE : View.GONE);
+        tvNoEmailHint.setVisibility(none && filtered ? View.VISIBLE : View.GONE);
+
+        Log.i("List state reason=" + reason +
+                " tasks=" + tasks + " loading=" + loading +
+                " items=" + items + " initialized=" + initialized +
+                " wait=" + (pbWait.getVisibility() == View.VISIBLE) +
+                " no=" + (tvNoEmail.getVisibility() == View.VISIBLE));
+    }
 
     private boolean handleThreadActions(@NonNull PagedList<TupleMessageEx> messages) {
         // Auto close / next
@@ -4423,14 +4446,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         return TextUtils.join(", ", displays);
     }
 
-    private boolean filterActive() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        boolean filter_seen = prefs.getBoolean("filter_seen", false);
-        boolean filter_unflagged = prefs.getBoolean("filter_unflagged", false);
-        boolean filter_unknown = prefs.getBoolean("filter_unknown", false);
-        return (filter_seen || filter_unflagged || filter_unknown);
-    }
-
     private ActivityBase.IKeyPressedListener onBackPressedListener = new ActivityBase.IKeyPressedListener() {
         @Override
         public boolean onKeyPressed(KeyEvent event) {
@@ -4632,12 +4647,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     };
 
     private void onTaskCount(Intent intent) {
-        int count = intent.getIntExtra("count", 0);
-        if (count == 0) {
-            if (initialized && !loading)
-                pbWait.setVisibility(View.GONE);
-        } else
-            pbWait.setVisibility(View.VISIBLE);
+        updateListState("Tasks");
     }
 
     private void onNewMessage(Intent intent) {
