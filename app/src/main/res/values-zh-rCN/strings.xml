@@ -1033,6 +1033,8 @@ FairEmail会显示一条消息来提醒您这一点，这条消息在您购买�
     <string name="title_pro_valid">全部专业版功能已激活</string>
     <string name="title_pro_invalid">无效的响应</string>
     <string name="title_pro_support">FairEmail需要您的帮助，点击购买专业版以保持项目的进展</string>
+    <string name="title_boundary_error">从电子邮件服务器下载消息时出错</string>
+    <string name="title_boundary_retry">再试一次</string>
     <string name="title_unexpected_error">未知错误</string>
     <string name="title_log">日志</string>
     <string name="title_auto_scroll">自动滚动</string>
