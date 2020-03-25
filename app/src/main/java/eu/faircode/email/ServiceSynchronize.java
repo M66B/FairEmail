@@ -662,6 +662,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         onAlarm(intent);
                         break;
 
+                    case "watchdog":
+                        onWatchdog(intent);
+                        break;
+
                     default:
                         Log.w("Unknown action: " + action);
                 }
@@ -711,6 +715,11 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         command.putString("name", "eval");
         command.putBoolean("sync", true);
         liveAccountNetworkState.post(command);
+    }
+
+    private void onWatchdog(Intent intent) {
+        schedule(this);
+        onEval(intent);
     }
 
     private NotificationCompat.Builder getNotificationService(Integer accounts, Integer operations) {
@@ -1909,5 +1918,11 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         ContextCompat.startForegroundService(context,
                 new Intent(context, ServiceSynchronize.class)
                         .setAction("alarm"));
+    }
+
+    static void watchdog(Context context) {
+        ContextCompat.startForegroundService(context,
+                new Intent(context, ServiceSynchronize.class)
+                        .setAction("watchdog"));
     }
 }
