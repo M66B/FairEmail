@@ -1858,7 +1858,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         return document.html();
                     } else {
                         // Cleanup message
-                        document = HtmlHelper.sanitize(context, document, show_images, true, true);
+                        document = HtmlHelper.sanitizeView(context, document, show_images);
 
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
                             args.putParcelable("actions", getConversationActions(message, document));

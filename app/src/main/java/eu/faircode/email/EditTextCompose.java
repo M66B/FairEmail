@@ -78,7 +78,7 @@ public class EditTextCompose extends AppCompatEditText {
                             return false;
                         html = "<div>" + HtmlHelper.formatPre(text.toString()) + "</div>";
                     }
-                    Document document = HtmlHelper.sanitize(context, html, false, false);
+                    Document document = HtmlHelper.sanitizeCompose(context, html, false);
                     Spanned paste = HtmlHelper.fromHtml(document.html());
 
                     int colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);

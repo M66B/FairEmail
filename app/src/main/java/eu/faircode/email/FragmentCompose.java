@@ -880,7 +880,7 @@ public class FragmentCompose extends FragmentBase {
                             p.html(TextUtils.join("<br>", line));
                             document.body().appendChild(p);
                         } else {
-                            Document d = HtmlHelper.sanitize(context, ref.outerHtml(), true, false);
+                            Document d = HtmlHelper.sanitizeCompose(context, ref.outerHtml(), true);
                             Element b = d.body();
                             b.tagName("div");
                             document.body().appendChild(b);
@@ -2983,7 +2983,7 @@ public class FragmentCompose extends FragmentBase {
                         data.draft.subject = args.getString("subject", "");
                         String b = args.getString("body", "");
                         if (!TextUtils.isEmpty(b)) {
-                            Document d = HtmlHelper.sanitize(context, b, false, false);
+                            Document d = HtmlHelper.sanitizeCompose(context, b, false);
                             Element e = d.body();
                             e.tagName("div");
                             document.body().appendChild(e);
@@ -3105,7 +3105,7 @@ public class FragmentCompose extends FragmentBase {
                             data.draft.subject = ref.subject;
                             if (ref.content) {
                                 String html = Helper.readText(ref.getFile(context));
-                                Document d = HtmlHelper.sanitize(context, html, true, false);
+                                Document d = HtmlHelper.sanitizeCompose(context, html, true);
                                 Element e = d.body();
                                 e.tagName("div");
                                 document.body().appendChild(e);
@@ -3391,7 +3391,7 @@ public class FragmentCompose extends FragmentBase {
                             refFile.delete();
                         }
 
-                        Document document = HtmlHelper.sanitize(context, doc.html(), true, false);
+                        Document document = HtmlHelper.sanitizeCompose(context, doc.html(), true);
 
                         EntityIdentity identity = null;
                         if (data.draft.identity != null)
@@ -3789,7 +3789,7 @@ public class FragmentCompose extends FragmentBase {
                     if (body == null)
                         b = Document.createShell("");
                     else
-                        b = HtmlHelper.sanitize(context, body, true, false);
+                        b = HtmlHelper.sanitizeCompose(context, body, true);
 
                     if (TextUtils.isEmpty(body) ||
                             !b.body().html().equals(doc.body().html()) ||
@@ -4230,7 +4230,7 @@ public class FragmentCompose extends FragmentBase {
 
                 Spanned spannedRef = null;
                 if (!ref.isEmpty()) {
-                    Document quote = HtmlHelper.sanitize(context, ref.outerHtml(), show_images, false);
+                    Document quote = HtmlHelper.sanitizeCompose(context, ref.outerHtml(), show_images);
                     Spanned spannedQuote = HtmlHelper.fromHtml(quote.html(),
                             new Html.ImageGetter() {
                                 @Override

@@ -177,7 +177,8 @@ public class ActivityEML extends ActivityBase {
 
                     String html = result.parts.getHtml(context);
                     if (html != null) {
-                        Document document = HtmlHelper.sanitize(context, html, false, true);
+                        Document parsed = JsoupEx.parse(html);
+                        Document document = HtmlHelper.sanitizeView(context, parsed, false);
                         result.body = HtmlHelper.fromHtml(document.html());
                     }
 
