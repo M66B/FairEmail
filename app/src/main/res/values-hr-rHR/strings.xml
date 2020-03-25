@@ -676,7 +676,6 @@
     <string name="title_send">Pošalji</string>
     <string name="title_send_now">Pošalji sada</string>
     <string name="title_send_via">Pošalji putem</string>
-    <string name="title_send_with_options">Slanje &#8230;</string>
     <string name="title_send_at">Pošalji u &#8230;</string>
     <string name="title_send_encryption">Šifriranje</string>
     <string name="title_send_priority">Prioritet</string>
@@ -713,7 +712,6 @@
     <string name="title_attachment_keywords">vezani, vezanje, prilozi, uključeni</string>
     <string name="title_attachment_reminder">Jeste li namjeravali dodati privitak?</string>
     <string name="title_attachments_missing">Ne preuzimaju se svi prilozi</string>
-    <string name="title_send_dialog_hint">Ovaj će dijalog i dalje biti dostupan putem preljevnog izbornika s tri točke na radnoj traci</string>
     <string name="title_draft_deleted">Skica odbačena</string>
     <string name="title_draft_saved">Skica spremljena</string>
     <string name="title_ask_send_via">Pošaljite poruku na %1$s putem %2$s?</string>

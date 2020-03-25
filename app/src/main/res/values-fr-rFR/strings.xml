@@ -229,6 +229,7 @@
     <string name="title_advanced_prefix_once">Ne préfixer l\'objet qu\'une seule fois lors de la réponse ou du transfert</string>
     <string name="title_advanced_extended_reply">Utiliser l\'en-tête étendu de réponse/transfert</string>
     <string name="title_advanced_quote_reply">Citer le texte répondu</string>
+    <string name="title_advanced_resize_reply">Redimensionner les images dans le texte de la réponse</string>
     <string name="title_advanced_signature_location">Emplacement de la signature</string>
     <string name="title_advanced_signature_end">Ajouter la signature après le message cité/transféré</string>
     <string name="title_advanced_plain_only">Envoyer le texte brut uniquement par défaut</string>
@@ -704,7 +705,6 @@
     <string name="title_send">Envoyer</string>
     <string name="title_send_now">Envoyer maintenant</string>
     <string name="title_send_via">Envoyer avec</string>
-    <string name="title_send_with_options">Envoyer&#8230;</string>
     <string name="title_send_at">Envoyer à&#8230;</string>
     <string name="title_send_encryption">Chiffrement</string>
     <string name="title_send_priority">Priorité</string>
@@ -716,11 +716,19 @@
     <string name="title_style_color">Couleur</string>
     <string name="title_style_clear">Effacer la mise en forme</string>
     <string name="title_style_link">Insérer un lien</string>
+    <string name="title_add_image">Ajouter une image</string>
+    <string name="title_add_image_inline">Insérer</string>
+    <string name="title_add_image_attach">Attacher</string>
+    <string name="title_add_image_resize">Redimensionner</string>
+    <string name="title_add_resize_pixels">&lt; %1$d pixels</string>
+    <string name="title_add_image_select">Sélectionner un fichier</string>
     <string name="title_add_attachment">Ajouter une pièce jointe</string>
     <string name="title_attachment_file">Joindre un fichier</string>
     <string name="title_attachment_photo">Prendre une photo</string>
     <string name="title_attachment_audio">Enregistrer un fichier audio</string>
     <string name="title_show_addresses">Afficher Cc/Cci</string>
+    <string name="title_send_dialog">Afficher les options d\'envoi</string>
+    <string name="title_image_dialog">Afficher les options de l\'image</string>
     <string name="title_media_toolbar">Barre d\'outils média</string>
     <string name="title_insert_contact_group">Insérer un groupe de contacts</string>
     <string name="title_insert_template">Insérer un modèle</string>
@@ -743,7 +751,7 @@
     <string name="title_attachment_keywords">pièce jointe,pièces jointes,ci-joint,ci-jointe,ci-joints,ci-jointes</string>
     <string name="title_attachment_reminder">Avez-vous l\'intention d\'ajouter une pièce jointe ?</string>
     <string name="title_attachments_missing">Les pièces jointes ne sont pas toutes téléchargées</string>
-    <string name="title_send_dialog_hint">Cette boîte de dialogue sera toujours disponible via le menu affiché par les trois points dans la barre d\'action</string>
+    <string name="title_dialog_hint">Cette boîte de dialogue peut être réactivée via le menu (trois points) de la barre d\'action en haut</string>
     <string name="title_draft_deleted">Brouillon supprimé</string>
     <string name="title_draft_saved">Brouillon enregistré</string>
     <string name="title_ask_send_via">Envoyer le message à %1$s via %2$s ?</string>

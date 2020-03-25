@@ -704,7 +704,6 @@
     <string name="title_send">Send</string>
     <string name="title_send_now">Send nu</string>
     <string name="title_send_via">Send via</string>
-    <string name="title_send_with_options">Send &#8230;</string>
     <string name="title_send_at">Sendt kl. &#8230;</string>
     <string name="title_send_encryption">Kryptering</string>
     <string name="title_send_priority">Prioritet</string>
@@ -743,7 +742,6 @@
     <string name="title_attachment_keywords">vedhæft,vedhæftet,vedhæftede,vedhæftning,vedhæftninger,vedhæftningen</string>
     <string name="title_attachment_reminder">Ville du tilføje en vedhæftning?</string>
     <string name="title_attachments_missing">Ikke alle vedhæftninger er downloadet</string>
-    <string name="title_send_dialog_hint">Denne dialog vil stadig være tilgængelig via 3-priksoverløbsmenuen på handlingsbjælken</string>
     <string name="title_draft_deleted">Kladde kasseret</string>
     <string name="title_draft_saved">Kladde gemt</string>
     <string name="title_ask_send_via">Send besked til %1$s via %2$s?</string>

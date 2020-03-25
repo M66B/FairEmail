@@ -705,7 +705,6 @@
     <string name="title_send">Enviar</string>
     <string name="title_send_now">Enviar ahora</string>
     <string name="title_send_via">Enviar vía</string>
-    <string name="title_send_with_options">Enviar &#8230;</string>
     <string name="title_send_at">Enviar a &#8230;</string>
     <string name="title_send_encryption">Cifrado</string>
     <string name="title_send_priority">Prioridad</string>
@@ -744,7 +743,6 @@
     <string name="title_attachment_keywords">adjunto,adjunta,adjuntos,incluido,incluida,adjuntas</string>
     <string name="title_attachment_reminder">¿Tuvo la intención de añadir un archivo adjunto?</string>
     <string name="title_attachments_missing">No todos los adjuntos fueron descargados</string>
-    <string name="title_send_dialog_hint">Este diálogo estará disponible a través del menú desplegable de tres puntos en la barra de acción</string>
     <string name="title_draft_deleted">Borrador eliminado</string>
     <string name="title_draft_saved">Borrador guardado</string>
     <string name="title_ask_send_via">¿Enviar mensaje a %1$s vía %2$s?</string>

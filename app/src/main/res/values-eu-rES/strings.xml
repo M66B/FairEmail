@@ -227,6 +227,7 @@
     <string name="title_advanced_prefix_once">Jarri aurrizkia mintzagaiari behin bakarrik erantzun edo birbidaltzean</string>
     <string name="title_advanced_extended_reply">Erabili erantzun/birbidali goiburu hedatua</string>
     <string name="title_advanced_quote_reply">Aipatu erantzundako testua</string>
+    <string name="title_advanced_resize_reply">Aldatu irudien tamaina erantzundako testuan</string>
     <string name="title_advanced_signature_location">Sinaduraren kokapena</string>
     <string name="title_advanced_signature_end">Gehitu sinadura aipatutako/bidalitako mezuaren ondoren</string>
     <string name="title_advanced_plain_only">Bidali testu soil hutsa lehenetsita</string>
@@ -701,7 +702,6 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_send">Bidali</string>
     <string name="title_send_now">Bidali orain</string>
     <string name="title_send_via">Bidali honen bidez</string>
-    <string name="title_send_with_options">Bidali &#8230;</string>
     <string name="title_send_at">Bidali noiz &#8230;</string>
     <string name="title_send_encryption">Zifratzea</string>
     <string name="title_send_priority">Lehentasuna</string>
@@ -713,11 +713,19 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_style_color">Kolorea</string>
     <string name="title_style_clear">Garbitu formatua</string>
     <string name="title_style_link">Txertatu esteka</string>
+    <string name="title_add_image">Gehitu irudia</string>
+    <string name="title_add_image_inline">Txertatu</string>
+    <string name="title_add_image_attach">Erantsi</string>
+    <string name="title_add_image_resize">Aldatu tamaina</string>
+    <string name="title_add_resize_pixels">&lt; %1$d pixel</string>
+    <string name="title_add_image_select">Aukeratu fitxategia</string>
     <string name="title_add_attachment">Gehitu eranskina</string>
     <string name="title_attachment_file">Erantsi fitxategia</string>
     <string name="title_attachment_photo">Atera argazkia</string>
     <string name="title_attachment_audio">Grabatu audioa</string>
     <string name="title_show_addresses">Erakutsi CC/BCC</string>
+    <string name="title_send_dialog">Erakutsi bidaltzeko aukerak</string>
+    <string name="title_image_dialog">Erakutsi irudien aukerak</string>
     <string name="title_media_toolbar">Multimedia tresna-barra</string>
     <string name="title_insert_contact_group">Txertatu kontaktu taldea</string>
     <string name="title_insert_template">Txertatu txantiloia</string>
@@ -740,7 +748,7 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_attachment_keywords">erantsita,eranskina,eranskinak,txertatuta</string>
     <string name="title_attachment_reminder">Eranskin bat gehitzeko asmoa zenuen?</string>
     <string name="title_attachments_missing">Ez dira eranskin guztiak deskargatu</string>
-    <string name="title_send_dialog_hint">Elkarrizketa-koadro hau ekintza-barrako hiru puntuen menuan eskuragarri dago</string>
+    <string name="title_dialog_hint">Elkarrizketa hau berriro aktibatu daiteke goiko tresna barrako hiru puntuko menuaren bidez</string>
     <string name="title_draft_deleted">Zirriborroa baztertu da</string>
     <string name="title_draft_saved">Zirriborroa gordeta</string>
     <string name="title_ask_send_via">Bidali mezua %1$s jasotzaileari %2$s bidez?</string>

@@ -642,7 +642,6 @@
     <string name="title_send">Gönder</string>
     <string name="title_send_now">Şimdi gönder</string>
     <string name="title_send_via">Üzerinden gönder</string>
-    <string name="title_send_with_options">Gönder &#8230;</string>
     <string name="title_send_at">&#8230;\'te gönder</string>
     <string name="title_send_encryption">Şifreleme</string>
     <string name="title_send_priority">Öncelik</string>
@@ -678,7 +677,6 @@
     <string name="title_attachment_keywords">eklendi,ek,ekler,dahil edildi</string>
     <string name="title_attachment_reminder">Bir ek eklemek niyetinde misiniz?</string>
     <string name="title_attachments_missing">Tüm ekler indirilmedi</string>
-    <string name="title_send_dialog_hint">Bu diyalog, üç-nokta overflow menüsü aracılığıyla eylem çubuğunda yine mevcut olacaktır</string>
     <string name="title_draft_deleted">Taslak silindi</string>
     <string name="title_draft_saved">Taslak kaydedildi</string>
     <string name="title_ask_send_via">%1$s\'e %2$s üzerinden ileti gönderilsin mi?</string>

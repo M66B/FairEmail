@@ -683,7 +683,6 @@
     <string name="title_send">Изпращане</string>
     <string name="title_send_now">Изпращане сега</string>
     <string name="title_send_via">Изпращане чрез</string>
-    <string name="title_send_with_options">Изпрати &#8230;</string>
     <string name="title_send_at">Изпрати като &#8230;</string>
     <string name="title_send_encryption">Криптиране</string>
     <string name="title_send_priority">Приоритет</string>
@@ -721,7 +720,6 @@
     <string name="title_attachment_keywords">прикрепен,прикачен фаил,прикачени файлове,включен</string>
     <string name="title_attachment_reminder">Възнамерявате ли да добавите прикачен файл?</string>
     <string name="title_attachments_missing">Не всички файлове са свалени</string>
-    <string name="title_send_dialog_hint">Този диалогов прозорец все още ще е достъпен чрез менюто с трите точки в лентата за действие</string>
     <string name="title_draft_deleted">Черновата отказана</string>
     <string name="title_draft_saved">Черновата запазена</string>
     <string name="title_ask_send_via">Изпрати съобщение до %1$s чрез %2$s?</string>

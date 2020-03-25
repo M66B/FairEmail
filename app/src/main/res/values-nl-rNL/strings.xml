@@ -704,7 +704,6 @@
     <string name="title_send">Verzenden</string>
     <string name="title_send_now">Nu verzenden</string>
     <string name="title_send_via">Verzenden via</string>
-    <string name="title_send_with_options">Verzenden &#8230;</string>
     <string name="title_send_at">Verzenden om &#8230;</string>
     <string name="title_send_encryption">Versleuteling</string>
     <string name="title_send_priority">Prioriteit</string>
@@ -727,6 +726,8 @@
     <string name="title_attachment_photo">Foto nemen</string>
     <string name="title_attachment_audio">Geluid opnemen</string>
     <string name="title_show_addresses">Toon CC/BCC</string>
+    <string name="title_send_dialog">Toon verzendopties</string>
+    <string name="title_image_dialog">Toon afbeeldingsopties</string>
     <string name="title_media_toolbar">Media werkbalk</string>
     <string name="title_insert_contact_group">Contactgroep toevoegen</string>
     <string name="title_insert_template">Sjabloon invoegen</string>
@@ -749,7 +750,7 @@
     <string name="title_attachment_keywords">bijlage,bijlagen</string>
     <string name="title_attachment_reminder">Was u van plan een bijlage toe te voegen?</string>
     <string name="title_attachments_missing">Niet alle bijlagen zijn gedownload</string>
-    <string name="title_send_dialog_hint">Dit dialoogvenster is nog steeds beschikbaar via het driepuntsoverloopmenu in de actiebalk</string>
+    <string name="title_dialog_hint">Dit dialoogvenster kan opnieuw worden ingeschakeld via het 3-puntenmenu in de bovenste actiebalk</string>
     <string name="title_draft_deleted">Concept weggegooid</string>
     <string name="title_draft_saved">Concept opgeslagen</string>
     <string name="title_ask_send_via">Verstuur bericht naar %1$s via %2$s?</string>

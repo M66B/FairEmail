@@ -230,6 +230,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_prefix_once">Re: und Fwd: nur einmal beim Antworten oder Weiterleiten voranstellen</string>
     <string name="title_advanced_extended_reply">Erweiterte Antwort-/Weiterleitungs-Kopfzeile verwenden</string>
     <string name="title_advanced_quote_reply">Beantworteten Text zitieren</string>
+    <string name="title_advanced_resize_reply">Bilder im Antworttext skalieren</string>
     <string name="title_advanced_signature_location">Signaturposition</string>
     <string name="title_advanced_signature_end">Signatur nach zitierter/weitergeleiteter Nachricht hinzufügen</string>
     <string name="title_advanced_plain_only">Immer als Reintext senden, nicht als HTML</string>
@@ -705,7 +706,6 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_send">Senden</string>
     <string name="title_send_now">Jetzt senden</string>
     <string name="title_send_via">Senden über</string>
-    <string name="title_send_with_options">Senden &#8230;</string>
     <string name="title_send_at">Später senden &#8230;</string>
     <string name="title_send_encryption">Verschlüsselung</string>
     <string name="title_send_priority">Priorität</string>
@@ -717,11 +717,19 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_style_color">Farbe</string>
     <string name="title_style_clear">Formatierung entfernen</string>
     <string name="title_style_link">Link einfügen</string>
+    <string name="title_add_image">Grafik hinzufügen</string>
+    <string name="title_add_image_inline">Einfügen</string>
+    <string name="title_add_image_attach">Anhängen</string>
+    <string name="title_add_image_resize">Größe ändern</string>
+    <string name="title_add_resize_pixels">&lt; %1$d Pixel</string>
+    <string name="title_add_image_select">Datei auswählen</string>
     <string name="title_add_attachment">Anhang hinzufügen</string>
     <string name="title_attachment_file">Anhang hinzufügen</string>
     <string name="title_attachment_photo">Foto aufnehmen</string>
     <string name="title_attachment_audio">Audio aufnehmen</string>
     <string name="title_show_addresses">Kopie/Blindkopie anzeigen</string>
+    <string name="title_send_dialog">Sendeoptionen anzeigen</string>
+    <string name="title_image_dialog">Grafikoptionen anzeigen</string>
     <string name="title_media_toolbar">Mediensymbolleiste</string>
     <string name="title_insert_contact_group">Kontaktgruppe einfügen</string>
     <string name="title_insert_template">Vorlage einfügen</string>
@@ -744,7 +752,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_attachment_keywords">angehängt,Anhang,Anhänge,beigefügt,Anlage,Anlagen,anbei</string>
     <string name="title_attachment_reminder">Beabsichtigen Sie einen Anhang hinzuzufügen?</string>
     <string name="title_attachments_missing">Nicht alle Dateianhänge wurden heruntergeladen</string>
-    <string name="title_send_dialog_hint">Dieser Dialog ist stets über das drei Punkte-Überlauf-Menü in der Aktionsleiste verfügbar</string>
+    <string name="title_dialog_hint">Dieser Dialog kann über das Drei-Punkte-Menü (⋮) in der oberen Aktionsleiste wieder aktiviert werden</string>
     <string name="title_draft_deleted">Entwurf gelöscht</string>
     <string name="title_draft_saved">Entwurf gespeichert</string>
     <string name="title_ask_send_via">Sende E-Mail zu %1$s über %2$s?</string>

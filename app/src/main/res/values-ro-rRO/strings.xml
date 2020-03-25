@@ -713,7 +713,6 @@
     <string name="title_send">Trimite</string>
     <string name="title_send_now">Trimite acum</string>
     <string name="title_send_via">Trimite prin</string>
-    <string name="title_send_with_options">Trimite &#8230;</string>
     <string name="title_send_at">Trimite la &#8230;</string>
     <string name="title_send_encryption">Criptare</string>
     <string name="title_send_priority">Prioritate</string>
@@ -752,7 +751,6 @@
     <string name="title_attachment_keywords">atasez,atasat,atasate,atsament,atașez,atașat,atașament</string>
     <string name="title_attachment_reminder">Ați intenționat să adăugați un atașament?</string>
     <string name="title_attachments_missing">Nu toate ataşamentele se descarcă</string>
-    <string name="title_send_dialog_hint">Acest dialog va fi disponibil în meniul cu trei puncte din bara de acțiuni</string>
     <string name="title_draft_deleted">S-a renunțat la ciornă</string>
     <string name="title_draft_saved">Ciornă salvată</string>
     <string name="title_ask_send_via">Trimite mesajul către %1$s via %2$s?</string>

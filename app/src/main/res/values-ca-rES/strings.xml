@@ -550,7 +550,6 @@
     <string name="title_save">Desa</string>
     <string name="title_send">Enviar</string>
     <string name="title_send_via">Envia com</string>
-    <string name="title_send_with_options">Envia &#8230;</string>
     <string name="title_send_at">Envia a les &#8230;</string>
     <string name="title_send_encryption">Xifratge</string>
     <string name="title_send_priority">Prioritat</string>
@@ -586,7 +585,6 @@
     <string name="title_attachment_keywords">adjunt, fitxer adjunt, fitxers adjunts inclosos</string>
     <string name="title_attachment_reminder">Teníeu la intenció d’afegir un fitxer adjunt?</string>
     <string name="title_attachments_missing">No es descarreguen tots els fitxers adjunts</string>
-    <string name="title_send_dialog_hint">Aquest diàleg encara estarà disponible a través del menú de desbordament de tres punts de la barra d’acció</string>
     <string name="title_draft_deleted">Esborrany eliminat</string>
     <string name="title_draft_saved">Esborrany desat</string>
     <string name="title_ask_send_via">Enviar missatge a %1$s mitjançant %2$s?</string>

@@ -557,7 +557,6 @@
     <string name="title_save">Сачувај</string>
     <string name="title_send">Пошаљи</string>
     <string name="title_send_via">Пошаљи преко</string>
-    <string name="title_send_with_options">Слање &#8230;</string>
     <string name="title_send_at">Слање у &#8230;</string>
     <string name="title_send_encryption">Шифровање</string>
     <string name="title_send_priority">Приоритет</string>
@@ -593,7 +592,6 @@
     <string name="title_attachment_keywords">attached,attachment,attachments,included;прилог;додатак;прилогу;додатку;приложени;атачмент;prilog;dodatak;prilogu;dodatku;priloženi;atačment</string>
     <string name="title_attachment_reminder">Да ли сте планирали да додате прилог?</string>
     <string name="title_attachments_missing">Нису сви прилози преузети</string>
-    <string name="title_send_dialog_hint">Овај дијалог ће и даље бити доступан преко менија са три тачке у траци са радњама</string>
     <string name="title_draft_deleted">Нацрт одбачен</string>
     <string name="title_draft_saved">Нацрт сачуван</string>
     <string name="title_ask_send_via">Пошаљи поруку за %1$s преко %2$s?</string>

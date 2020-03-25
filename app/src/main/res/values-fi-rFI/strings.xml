@@ -702,7 +702,6 @@
     <string name="title_send">Lähetä</string>
     <string name="title_send_now">Lähetä heti</string>
     <string name="title_send_via">Lähetä kautta</string>
-    <string name="title_send_with_options">Lähetä &#8230;</string>
     <string name="title_send_at">Lähetysaika &#8230;</string>
     <string name="title_send_encryption">Salaus</string>
     <string name="title_send_priority">Tärkeysjärjestys</string>
@@ -741,7 +740,6 @@
     <string name="title_attachment_keywords">liite,liitteet,liitetty,liitetyt,sisällytetty,lisätty,liitin,sisällytin,lisäsin</string>
     <string name="title_attachment_reminder">Oli tarkoituksenasi lisätä liite?</string>
     <string name="title_attachments_missing">Kaikkia liitteitä ei ole ladattu</string>
-    <string name="title_send_dialog_hint">Tämä valintaikkuna on saatavilla toimintopalkin kolmen pisteen valikossa</string>
     <string name="title_draft_deleted">Luonnos hylätty</string>
     <string name="title_draft_saved">Luonnos tallennettu</string>
     <string name="title_ask_send_via">Lähetäänkö viesti vastaanottajalle %1$s identiteetillä %2$s?</string>

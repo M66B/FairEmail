@@ -217,6 +217,7 @@
     <string name="title_advanced_prefix_once">答复或抄送邮件时, 主题前的Re或CC只出现一次</string>
     <string name="title_advanced_extended_reply">使用扩展回复/转发头</string>
     <string name="title_advanced_quote_reply">引用回复文本</string>
+    <string name="title_advanced_resize_reply">调整回复文本中图像的大小</string>
     <string name="title_advanced_signature_location">签名位置</string>
     <string name="title_advanced_signature_end">在引用/转发消息后添加签名</string>
     <string name="title_advanced_plain_only">默认仅发送纯文本</string>
@@ -692,7 +693,6 @@
     <string name="title_send">发送</string>
     <string name="title_send_now">现在发送</string>
     <string name="title_send_via">发送方式</string>
-    <string name="title_send_with_options">发送 &#8230;</string>
     <string name="title_send_at">发送于 &#8230;</string>
     <string name="title_send_encryption">加密</string>
     <string name="title_send_priority">优先级</string>
@@ -704,11 +704,19 @@
     <string name="title_style_color">颜色</string>
     <string name="title_style_clear">清除格式</string>
     <string name="title_style_link">插入链接</string>
+    <string name="title_add_image">添加图片</string>
+    <string name="title_add_image_inline">插入</string>
+    <string name="title_add_image_attach">附加</string>
+    <string name="title_add_image_resize">调整大小</string>
+    <string name="title_add_resize_pixels">&lt; %1$d像素</string>
+    <string name="title_add_image_select">选择文件</string>
     <string name="title_add_attachment">添加附件</string>
     <string name="title_attachment_file">插入附件</string>
     <string name="title_attachment_photo">拍照</string>
     <string name="title_attachment_audio">录音</string>
     <string name="title_show_addresses">显示抄送和密送</string>
+    <string name="title_send_dialog">显示发送选项</string>
+    <string name="title_image_dialog">显示图像选项</string>
     <string name="title_media_toolbar">媒体工具栏</string>
     <string name="title_insert_contact_group">插入联系人组</string>
     <string name="title_insert_template">插入模板</string>
@@ -731,7 +739,7 @@
     <string name="title_attachment_keywords">至少包含一个附件</string>
     <string name="title_attachment_reminder">您是否打算添加一个附件？</string>
     <string name="title_attachments_missing">没有下载全部附件</string>
-    <string name="title_send_dialog_hint">操作栏的三点溢出菜单内仍可以找到该对话框</string>
+    <string name="title_dialog_hint">此对话框可以通过顶部操作栏中的三点菜单再次启用</string>
     <string name="title_draft_deleted">草稿已舍弃</string>
     <string name="title_draft_saved">草稿已保存</string>
     <string name="title_ask_send_via">要通过%2$s把消息发送给 %1$s 吗？</string>

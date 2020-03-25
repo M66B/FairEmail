@@ -726,7 +726,6 @@
     <string name="title_send">Отправить</string>
     <string name="title_send_now">Отправить сейчас</string>
     <string name="title_send_via">Отправить через</string>
-    <string name="title_send_with_options">Отправить&#8230;</string>
     <string name="title_send_at">Отправить в&#8230;</string>
     <string name="title_send_encryption">Шифрование</string>
     <string name="title_send_priority">Приоритет</string>
@@ -765,7 +764,6 @@
     <string name="title_attachment_keywords">attached,attachment,attachments,included,вложение,вложения,вложении,приложено</string>
     <string name="title_attachment_reminder">Вы хотите добавить вложение?</string>
     <string name="title_attachments_missing">Не все вложения загружены</string>
-    <string name="title_send_dialog_hint">Этот диалог будет по-прежнему доступен через верхнее меню трёх точек в панели действий</string>
     <string name="title_draft_deleted">Черновик отклонён</string>
     <string name="title_draft_saved">Черновик сохранён</string>
     <string name="title_ask_send_via">Отправить сообщение для %1$s через %2$s?</string>

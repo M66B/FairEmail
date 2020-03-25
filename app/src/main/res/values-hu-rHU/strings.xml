@@ -593,7 +593,6 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_send">Küldés</string>
     <string name="title_send_now">Küldés most</string>
     <string name="title_send_via">Küldés a következővel</string>
-    <string name="title_send_with_options">Küldés &#8230;</string>
     <string name="title_send_at">Küldés ekkor: &#8230;</string>
     <string name="title_send_encryption">Titkosítás</string>
     <string name="title_send_priority">Prioritás</string>

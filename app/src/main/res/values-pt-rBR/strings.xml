@@ -613,7 +613,6 @@
     <string name="title_send">Enviar</string>
     <string name="title_send_now">Envie agora</string>
     <string name="title_send_via">Enviar via</string>
-    <string name="title_send_with_options">Enviar &#8230;</string>
     <string name="title_send_at">Enviar em &#8230;</string>
     <string name="title_send_encryption">Criptografia</string>
     <string name="title_send_priority">Prioridade</string>
@@ -649,7 +648,6 @@
     <string name="title_attachment_keywords">anexado,anexo,anexos,incluídos</string>
     <string name="title_attachment_reminder">Você quis adicionar um anexo?</string>
     <string name="title_attachments_missing">Nem todos os anexos foram baixados</string>
-    <string name="title_send_dialog_hint">Essa caixa de diálogo ainda estará disponível através do menu de três pontos na barra de ação</string>
     <string name="title_draft_deleted">Rascunho descartado</string>
     <string name="title_draft_saved">Rascunho salvo</string>
     <string name="title_ask_send_via">Enviar mensagem para %1$s via %2$s?</string>

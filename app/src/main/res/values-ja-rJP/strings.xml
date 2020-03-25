@@ -666,7 +666,6 @@ PlayストアでFairEmailを評価できれば幸いです。
     <string name="title_send">送信</string>
     <string name="title_send_now">今すぐ送信</string>
     <string name="title_send_via">～経由で送信</string>
-    <string name="title_send_with_options">送信 &#8230;</string>
     <string name="title_send_at">&#8230; 日時指定送信</string>
     <string name="title_send_encryption">暗号化</string>
     <string name="title_send_priority">優先度</string>
@@ -704,7 +703,6 @@ PlayストアでFairEmailを評価できれば幸いです。
     <string name="title_attachment_keywords">添付,添付ファイル,付属</string>
     <string name="title_attachment_reminder">添付ファイルを追加しますか？</string>
     <string name="title_attachments_missing">全ての添付ファイルがダウンロードされる訳では有りません</string>
-    <string name="title_send_dialog_hint">このダイアログはアクションバーの3ドットのオーバーフローメニューから引き続き使用出来ます</string>
     <string name="title_draft_deleted">下書きを破棄しました</string>
     <string name="title_draft_saved">下書きを保存しました</string>
     <string name="title_ask_send_via">%2$s経由で%1$sにメッセージを送信しますか？</string>

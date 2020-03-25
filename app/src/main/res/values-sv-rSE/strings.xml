@@ -703,7 +703,6 @@
     <string name="title_send">Skicka</string>
     <string name="title_send_now">Skicka nu</string>
     <string name="title_send_via">Skicka via</string>
-    <string name="title_send_with_options">Skicka &#8230;</string>
     <string name="title_send_at">Skickad &#8230;</string>
     <string name="title_send_encryption">Kryptering</string>
     <string name="title_send_priority">Prioritet</string>
@@ -742,7 +741,6 @@
     <string name="title_attachment_keywords">bifogad,bilaga,bilaga,inkluderat</string>
     <string name="title_attachment_reminder">Hade du för avsikt att lägga till en bifogad fil?</string>
     <string name="title_attachments_missing">Inte alla bilagor har hämtats</string>
-    <string name="title_send_dialog_hint">Den här dialogrutan kommer fortfarande att vara tillgänglig via menyn med tre punkter i åtgärdsfältet</string>
     <string name="title_draft_deleted">Utkastet slängdes</string>
     <string name="title_draft_saved">Utkast sparat</string>
     <string name="title_ask_send_via">Skicka meddelande till %1$s via %2$s?</string>

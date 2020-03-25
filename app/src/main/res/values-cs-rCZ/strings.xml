@@ -723,7 +723,6 @@
     <string name="title_send">Odeslat</string>
     <string name="title_send_now">Odeslat nyní</string>
     <string name="title_send_via">Odeslat přes</string>
-    <string name="title_send_with_options">Odeslat &#8230;</string>
     <string name="title_send_at">Odeslat později &#8230;</string>
     <string name="title_send_encryption">Šifrování</string>
     <string name="title_send_priority">Priorita</string>
@@ -761,7 +760,6 @@
     <string name="title_attachment_keywords">příloha,přílohy,příloze,přílohu,přiložené,přiloženém,přiložený,přiložená,připojené,připojeném,připojený,připojená</string>
     <string name="title_attachment_reminder">Měl jste v úmyslu přidat přílohu?</string>
     <string name="title_attachments_missing">Nebyly staženy všechny přílohy</string>
-    <string name="title_send_dialog_hint">Tento dialog bude i nadále dostupný skrze tříbodové rozbalovací menu na panelu akcí</string>
     <string name="title_draft_deleted">Koncept zahozen</string>
     <string name="title_draft_saved">Koncept uložen</string>
     <string name="title_ask_send_via">Odeslat zprávu na %1$s přes %2$s?</string>

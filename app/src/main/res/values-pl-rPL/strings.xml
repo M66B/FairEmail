@@ -716,7 +716,6 @@
     <string name="title_send">Wyślij</string>
     <string name="title_send_now">Wyślij teraz</string>
     <string name="title_send_via">Wyślij przez</string>
-    <string name="title_send_with_options">Wyślij &#8230;</string>
     <string name="title_send_at">Wysłać o &#8230;</string>
     <string name="title_send_encryption">Szyfrowanie</string>
     <string name="title_send_priority">Priorytet</string>
@@ -754,7 +753,6 @@
     <string name="title_attachment_keywords">załączony, załącznik, załączniki, w zestawie, w załączonym</string>
     <string name="title_attachment_reminder">Czy zamierzałeś dodać załącznik?</string>
     <string name="title_attachments_missing">Nie wszystkie załączniki są pobrane</string>
-    <string name="title_send_dialog_hint">To okno dialogowe będzie nadal dostępne za pośrednictwem menu z trzema kropkami na pasku akcji</string>
     <string name="title_draft_deleted">Szkic odrzucony</string>
     <string name="title_draft_saved">Szkic zapisany</string>
     <string name="title_ask_send_via">Wyślij wiadomość do %1$s przez %2$s?</string>
