@@ -55,7 +55,7 @@
             android:value="true" />
         <meta-data
             android:name="android.webkit.WebView.EnableSafeBrowsing"
-            android:value="true" />
+            android:value="false" />
         <meta-data
             android:name="android.allow_multiple_resumed_activities"
             android:value="true" />

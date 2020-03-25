@@ -59,7 +59,7 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            boolean safe_browsing = prefs.getBoolean("safe_browsing", true);
+            boolean safe_browsing = prefs.getBoolean("safe_browsing", false);
             settings.setSafeBrowsingEnabled(safe_browsing);
         }
     }

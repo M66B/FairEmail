@@ -267,7 +267,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
 
         swDisplayHidden.setChecked(prefs.getBoolean("display_hidden", false));
         swSecure.setChecked(prefs.getBoolean("secure", false));
-        swSafeBrowsing.setChecked(prefs.getBoolean("safe_browsing", true));
+        swSafeBrowsing.setChecked(prefs.getBoolean("safe_browsing", false));
     }
 
     public static class FragmentDialogPin extends FragmentDialogBase {
