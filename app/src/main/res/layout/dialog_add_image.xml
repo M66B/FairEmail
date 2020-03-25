@@ -72,4 +72,25 @@
         app:layout_constraintBottom_toBottomOf="@id/spResize"
         app:layout_constraintStart_toEndOf="@id/spResize"
         app:layout_constraintTop_toTopOf="@id/spResize" />
+
+    <CheckBox
+        android:id="@+id/cbNotAgain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/title_no_ask_again"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spResize" />
+
+    <eu.faircode.email.FixedTextView
+        android:id="@+id/tvNotAgain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="@string/title_dialog_hint"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cbNotAgain" />
 </androidx.constraintlayout.widget.ConstraintLayout>

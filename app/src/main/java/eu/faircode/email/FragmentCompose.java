@@ -632,7 +632,7 @@ public class FragmentCompose extends FragmentBase {
                         onActionDiscard();
                         break;
                     case R.id.action_send:
-                        onActionCheck(false);
+                        onActionCheck();
                         break;
                     default:
                         onAction(action);
@@ -1084,7 +1084,6 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_clear).setVisible(state == State.LOADED);
         menu.findItem(R.id.menu_contact_group).setVisible(state == State.LOADED);
         menu.findItem(R.id.menu_answer).setVisible(state == State.LOADED);
-        menu.findItem(R.id.menu_send).setVisible(state == State.LOADED);
 
         menu.findItem(R.id.menu_encrypt).setEnabled(!busy);
         menu.findItem(R.id.menu_zoom).setEnabled(!busy);
@@ -1093,7 +1092,6 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_clear).setEnabled(!busy);
         menu.findItem(R.id.menu_contact_group).setEnabled(!busy && hasPermission(Manifest.permission.READ_CONTACTS));
         menu.findItem(R.id.menu_answer).setEnabled(!busy);
-        menu.findItem(R.id.menu_send).setEnabled(!busy);
 
         int colorEncrypt = Helper.resolveColor(getContext(), R.attr.colorEncrypt);
         ImageButton ib = (ImageButton) menu.findItem(R.id.menu_encrypt).getActionView();
@@ -1109,6 +1107,12 @@ public class FragmentCompose extends FragmentBase {
             ib.setImageTintList(null);
         }
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean send_dialog = prefs.getBoolean("send_dialog", true);
+        boolean image_dialog = prefs.getBoolean("image_dialog", true);
+
+        menu.findItem(R.id.menu_send_dialog).setChecked(send_dialog);
+        menu.findItem(R.id.menu_image_dialog).setChecked(image_dialog);
         menu.findItem(R.id.menu_media).setChecked(media);
         menu.findItem(R.id.menu_compact).setChecked(compact);
 
@@ -1131,8 +1135,14 @@ public class FragmentCompose extends FragmentBase {
             case R.id.menu_zoom:
                 onMenuZoom();
                 return true;
+            case R.id.menu_send_dialog:
+                onMenuSendDialog();
+                return true;
+            case R.id.menu_image_dialog:
+                onMenuImageDialog();
+                return true;
             case R.id.menu_media:
-                onMenuMediabar();
+                onMenuMediaBar();
                 return true;
             case R.id.menu_compact:
                 onMenuCompact();
@@ -1148,9 +1158,6 @@ public class FragmentCompose extends FragmentBase {
                 return true;
             case R.id.menu_answer:
                 onMenuAnswer();
-                return true;
-            case R.id.menu_send:
-                onActionCheck(true);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -1234,7 +1241,19 @@ public class FragmentCompose extends FragmentBase {
         }
     }
 
-    private void onMenuMediabar() {
+    private void onMenuSendDialog() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean send_dialog = prefs.getBoolean("send_dialog", true);
+        prefs.edit().putBoolean("send_dialog", !send_dialog).apply();
+    }
+
+    private void onMenuImageDialog() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean image_dialog = prefs.getBoolean("image_dialog", true);
+        prefs.edit().putBoolean("image_dialog", !image_dialog).apply();
+    }
+
+    private void onMenuMediaBar() {
         media = !media;
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         prefs.edit().putBoolean("compose_media", media).apply();
@@ -1351,12 +1370,17 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onActionImage(boolean photo) {
-        Bundle args = new Bundle();
-        args.putBoolean("photo", photo);
-        FragmentDialogAddImage fragment = new FragmentDialogAddImage();
-        fragment.setArguments(args);
-        fragment.setTargetFragment(this, REQUEST_IMAGE);
-        fragment.show(getParentFragmentManager(), "compose:image");
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean image_dialog = prefs.getBoolean("image_dialog", true);
+        if (image_dialog) {
+            Bundle args = new Bundle();
+            args.putBoolean("photo", photo);
+            FragmentDialogAddImage fragment = new FragmentDialogAddImage();
+            fragment.setArguments(args);
+            fragment.setTargetFragment(this, REQUEST_IMAGE);
+            fragment.show(getParentFragmentManager(), "compose:image");
+        } else
+            onAddImage(photo);
     }
 
     private void onActionAttachment() {
@@ -1416,12 +1440,12 @@ public class FragmentCompose extends FragmentBase {
         }
     }
 
-    private void onActionCheck(boolean dialog) {
+    private void onActionCheck() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         boolean send_dialog = prefs.getBoolean("send_dialog", true);
 
         Bundle extras = new Bundle();
-        extras.putBoolean("dialog", dialog || send_dialog);
+        extras.putBoolean("dialog", send_dialog);
         onAction(R.id.action_check, extras);
     }
 
@@ -4450,12 +4474,15 @@ public class FragmentCompose extends FragmentBase {
             boolean add_inline = prefs.getBoolean("add_inline", true);
             boolean resize_images = prefs.getBoolean("resize_images", true);
             int resize = prefs.getInt("resize", FragmentCompose.REDUCED_IMAGE_SIZE);
+            boolean image_dialog = prefs.getBoolean("image_dialog", true);
 
             final ViewGroup dview = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.dialog_add_image, null);
             final RadioGroup rgAction = dview.findViewById(R.id.rgAction);
             final CheckBox cbResize = dview.findViewById(R.id.cbResize);
             final Spinner spResize = dview.findViewById(R.id.spResize);
             final TextView tvResize = dview.findViewById(R.id.tvResize);
+            final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
+            final TextView tvNotAgain = dview.findViewById(R.id.tvNotAgain);
 
             rgAction.check(add_inline ? R.id.rbInline : R.id.rbAttach);
             cbResize.setChecked(resize_images);
@@ -4496,6 +4523,17 @@ public class FragmentCompose extends FragmentBase {
                     prefs.edit().remove("resize").apply();
                 }
             });
+
+            cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    prefs.edit().putBoolean("image_dialog", !isChecked).apply();
+                    tvNotAgain.setVisibility(isChecked ? View.VISIBLE : View.GONE);
+                }
+            });
+
+            cbNotAgain.setChecked(!image_dialog);
+            tvNotAgain.setVisibility(cbNotAgain.isChecked() ? View.VISIBLE : View.GONE);
 
             return new AlertDialog.Builder(getContext())
                     .setView(dview)
@@ -4600,7 +4638,7 @@ public class FragmentCompose extends FragmentBase {
             tvSendAt.setText(null);
             cbNotAgain.setChecked(!send_dialog);
             cbNotAgain.setVisibility(dialog ? View.VISIBLE : View.GONE);
-            tvNotAgain.setVisibility(cbNotAgain.isChecked() && send_dialog ? View.VISIBLE : View.GONE);
+            tvNotAgain.setVisibility(cbNotAgain.isChecked() && dialog ? View.VISIBLE : View.GONE);
 
             Helper.setViewsEnabled(dview, false);
 
@@ -4608,7 +4646,7 @@ public class FragmentCompose extends FragmentBase {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     prefs.edit().putBoolean("send_dialog", !isChecked).apply();
-                    tvNotAgain.setVisibility(isChecked && send_dialog ? View.VISIBLE : View.GONE);
+                    tvNotAgain.setVisibility(isChecked ? View.VISIBLE : View.GONE);
                 }
             });
 

@@ -804,7 +804,6 @@
     <string name="title_send">Send</string>
     <string name="title_send_now">Send now</string>
     <string name="title_send_via">Send via</string>
-    <string name="title_send_with_options">Send &#8230;</string>
     <string name="title_send_at">Send at &#8230;</string>
     <string name="title_send_encryption">Encryption</string>
     <string name="title_send_priority">Priority</string>
@@ -829,6 +828,8 @@
     <string name="title_attachment_audio">Record audio</string>
     <string name="title_show_addresses">Show CC/BCC</string>
 
+    <string name="title_send_dialog">Show send options</string>
+    <string name="title_image_dialog">Show image options</string>
     <string name="title_media_toolbar">Media toolbar</string>
     <string name="title_insert_contact_group">Insert contact group</string>
     <string name="title_insert_template">Insert template</string>
@@ -852,7 +853,7 @@
     <string name="title_attachment_keywords">attached,attachment,attachments,included</string>
     <string name="title_attachment_reminder">Did you intend to add an attachment?</string>
     <string name="title_attachments_missing">Not all attachments are downloaded</string>
-    <string name="title_send_dialog_hint">This dialog will still be available via the three-dots overflow menu in the action bar</string>
+    <string name="title_dialog_hint">This dialog can be enabled again via the three-dots menu in the top action bar</string>
     <string name="title_draft_deleted">Draft discarded</string>
     <string name="title_draft_saved">Draft saved</string>
     <string name="title_ask_send_via">Send message to %1$s via %2$s?</string>

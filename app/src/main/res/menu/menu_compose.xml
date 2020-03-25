@@ -14,8 +14,23 @@
         app:showAsAction="ifRoom" />
 
     <item
+        android:id="@+id/menu_send_dialog"
+        android:checkable="true"
+        android:checked="true"
+        android:title="@string/title_send_dialog"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_image_dialog"
+        android:checkable="true"
+        android:checked="true"
+        android:title="@string/title_image_dialog"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/menu_media"
         android:checkable="true"
+        android:checked="true"
         android:title="@string/title_media_toolbar"
         app:showAsAction="never" />
 
@@ -43,10 +58,5 @@
     <item
         android:id="@+id/menu_answer"
         android:title="@string/title_insert_template"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/menu_send"
-        android:title="@string/title_send_with_options"
         app:showAsAction="never" />
 </menu>
