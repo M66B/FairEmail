@@ -572,7 +572,7 @@ public class Log {
                 ex.getMessage() != null &&
                 (ex.getMessage().startsWith("Could not get application info") ||
                         ex.getMessage().startsWith("Unable to create service") ||
-                        ex.getMessage().startsWith("Failure delivering result ")))
+                        ex.getMessage().startsWith("Failure delivering result")))
             return false;
             /*
                 java.lang.RuntimeException: Could not get application info.
