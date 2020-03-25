@@ -719,6 +719,8 @@
     <string name="title_attachment_photo">Ta foto</string>
     <string name="title_attachment_audio">Spela in ljud</string>
     <string name="title_show_addresses">Visa kopia/dold kopia</string>
+    <string name="title_send_dialog">Visa alternativ för skicka</string>
+    <string name="title_image_dialog">Visa bildalternativ</string>
     <string name="title_media_toolbar">Verktygsfält för media</string>
     <string name="title_insert_contact_group">Infoga kontaktgrupp</string>
     <string name="title_insert_template">Infoga mall</string>
@@ -741,6 +743,7 @@
     <string name="title_attachment_keywords">bifogad,bilaga,bilaga,inkluderat</string>
     <string name="title_attachment_reminder">Hade du för avsikt att lägga till en bifogad fil?</string>
     <string name="title_attachments_missing">Inte alla bilagor har hämtats</string>
+    <string name="title_dialog_hint">Denna dialogruta kan aktiveras igen via tre-pricks-menyn i åtgärdsfältet</string>
     <string name="title_draft_deleted">Utkastet slängdes</string>
     <string name="title_draft_saved">Utkast sparat</string>
     <string name="title_ask_send_via">Skicka meddelande till %1$s via %2$s?</string>

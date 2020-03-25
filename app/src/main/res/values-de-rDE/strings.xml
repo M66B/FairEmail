@@ -583,7 +583,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_no_folders">Keine Ordner</string>
     <string name="title_no_messages">Keine E-Mails</string>
     <string name="title_filters_active">Ein oder mehrere Filter aktiv</string>
-    <string name="title_duplicate_in">Duplikat in %1$s</string>
+    <string name="title_duplicate_in">Doppelte Nachricht in %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_seen">Als gelesen kennzeichnen</string>
@@ -636,7 +636,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_reply_list">An Liste antworten</string>
     <string name="title_reply_receipt">Lesebestätigung senden</string>
     <string name="title_reply_template">Mit Vorlage antworten</string>
-    <string name="title_moving">Verschiebe nach %1$s</string>
+    <string name="title_moving">Nach %1$s wird verschoben</string>
     <string name="title_open_with">Öffnen mit</string>
     <string name="title_authentication_failed">%1$s Authentifizierung fehlgeschlagen</string>
     <string name="title_receipt_subject">Lesebestätigung: %1$s</string>
@@ -755,7 +755,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_dialog_hint">Dieser Dialog kann über das Drei-Punkte-Menü (⋮) in der oberen Aktionsleiste wieder aktiviert werden</string>
     <string name="title_draft_deleted">Entwurf gelöscht</string>
     <string name="title_draft_saved">Entwurf gespeichert</string>
-    <string name="title_ask_send_via">Sende E-Mail zu %1$s über %2$s?</string>
+    <string name="title_ask_send_via">Nachricht zu %1$s über %2$s senden?</string>
     <string name="title_queued">Nachricht wird gesendet</string>
     <string name="title_queued_at">Nachricht wird ungefähr %1$s gesendet</string>
     <string name="title_sign">Signieren</string>
@@ -770,11 +770,11 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_reset_sign_key">Sign-Schlüssel zurücksetzen</string>
     <string name="title_signature_none">Unsignierte Nachricht</string>
     <string name="title_signature_valid">Gültige Nachrichtensignatur</string>
-    <string name="title_signature_valid_from">Signatur gültig: %1$s</string>
+    <string name="title_signature_valid_from">Nachrichtensignatur gültig: %1$s</string>
     <string name="title_signature_unconfirmed">Die Signatur der Nachricht ist zwar gültig, aber nicht bestätigt</string>
-    <string name="title_signature_unconfirmed_from">Signatur gültig aber nicht bestätigt: %1$s</string>
+    <string name="title_signature_unconfirmed_from">Nachrichtensignatur gültig aber nicht bestätigt: %1$s</string>
     <string name="title_signature_invalid">Ungültige Nachrichtensignatur</string>
-    <string name="title_signature_invalid_reason">Nachrichten-Signatur ungültig: %1$s</string>
+    <string name="title_signature_invalid_reason">Nachrichtensignatur ungültig: %1$s</string>
     <string name="title_signature_key_missing">Schlüssel für die Signaturüberprüfung fehlt</string>
     <string name="title_signature_certificate_invalid">Zertifikatskette ungültig</string>
     <string name="title_signature_sender">E-Mail-Adresse des Absenders</string>
@@ -804,7 +804,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_filter_unflagged">Nicht markiert</string>
     <string name="title_filter_unknown">Unbekannte Absender</string>
     <string name="title_filter_hidden">Verborgen</string>
-    <string name="title_filter_duplicates">Duplikate</string>
+    <string name="title_filter_duplicates">Doppelte</string>
     <string name="title_compact">Kompaktansicht</string>
     <string name="title_zoom">Schriftgröße</string>
     <string name="title_select_all">Alle auswählen</string>
@@ -852,7 +852,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">UND</string>
     <string name="title_rule_action">Aktion</string>
-    <string name="title_rule_action_remark">Diese Aktion wird auf neue Mails im Ordner %1$s angewendet</string>
+    <string name="title_rule_action_remark">Diese Aktion wird auf neu ankommende Nachrichten im Ordner %1$s angewendet</string>
     <string name="title_rule_hours">Stunden</string>
     <string name="title_rule_schedule_end">Vom Ende der Zeitbedingung</string>
     <string name="title_rule_folder">Ordner</string>
@@ -993,7 +993,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_remark_owner">Informationen werden abgerufen von <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">IP-Adresse des Eigentümers</string>
     <string name="title_select_app">App auswählen</string>
-    <string name="title_updated">Es ist ein Update auf Version %1$s verfügbar</string>
+    <string name="title_updated">Es ist eine Aktualisierung auf Version %1$s verfügbar</string>
     <string name="title_issue">Haben Sie eine Frage oder ein Problem?</string>
     <string name="title_yes">Ja</string>
     <string name="title_no">Nein</string>
@@ -1015,7 +1015,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_no_ask_again">Nicht noch einmal fragen</string>
     <string name="title_no_ask_for_again">Dieses für %1$s nicht mehr fragen</string>
     <string name="title_no_body">Kein Nachrichtentext gefunden</string>
-    <string name="title_no_charset">Nicht unterstützte Codierung: %1$s</string>
+    <string name="title_no_charset">Nicht unterstützte Kodierung: %1$s</string>
     <string name="title_via">über %1$s</string>
     <string name="title_1hour">1 Stunde</string>
     <string name="title_1day">1 Tag</string>

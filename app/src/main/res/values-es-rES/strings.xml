@@ -230,6 +230,7 @@
     <string name="title_advanced_prefix_once">Prefijar el asunto solo una vez al responder o reenviar</string>
     <string name="title_advanced_extended_reply">Usar encabezado de respuesta/reenvío extendido</string>
     <string name="title_advanced_quote_reply">Citar texto a responder</string>
+    <string name="title_advanced_resize_reply">Redimensionar imágenes en el texto de respuesta</string>
     <string name="title_advanced_signature_location">Posición de la firma</string>
     <string name="title_advanced_signature_end">Añadir firma después de mensaje citado/reenviado</string>
     <string name="title_advanced_plain_only">Enviar sólo texto plano por defecto</string>
@@ -716,11 +717,19 @@
     <string name="title_style_color">Color</string>
     <string name="title_style_clear">Quitar formato</string>
     <string name="title_style_link">Insertar enlace</string>
+    <string name="title_add_image">Añadir imagen</string>
+    <string name="title_add_image_inline">Insertar</string>
+    <string name="title_add_image_attach">Adjuntar</string>
+    <string name="title_add_image_resize">Redimensionar</string>
+    <string name="title_add_resize_pixels">&lt; %1$d píxeles</string>
+    <string name="title_add_image_select">Seleccionar archivo</string>
     <string name="title_add_attachment">Agregar adjunto</string>
     <string name="title_attachment_file">Adjuntar archivo</string>
     <string name="title_attachment_photo">Tomar foto</string>
     <string name="title_attachment_audio">Grabar audio</string>
     <string name="title_show_addresses">Mostrar CC/CCO</string>
+    <string name="title_send_dialog">Mostrar opciones de envío</string>
+    <string name="title_image_dialog">Mostrar opciones de imagen</string>
     <string name="title_media_toolbar">Barra de herramientas multimedia</string>
     <string name="title_insert_contact_group">Insertar grupo de contactos</string>
     <string name="title_insert_template">Insertar plantilla</string>
@@ -743,6 +752,7 @@
     <string name="title_attachment_keywords">adjunto,adjunta,adjuntos,incluido,incluida,adjuntas</string>
     <string name="title_attachment_reminder">¿Tuvo la intención de añadir un archivo adjunto?</string>
     <string name="title_attachments_missing">No todos los adjuntos fueron descargados</string>
+    <string name="title_dialog_hint">Este diálogo se puede activar de nuevo a través del menú de tres puntos en la barra de acción superior</string>
     <string name="title_draft_deleted">Borrador eliminado</string>
     <string name="title_draft_saved">Borrador guardado</string>
     <string name="title_ask_send_via">¿Enviar mensaje a %1$s vía %2$s?</string>

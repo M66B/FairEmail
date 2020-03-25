@@ -251,6 +251,7 @@
     <string name="title_advanced_prefix_once">Добавлять только один префикс темы при ответе или пересылке</string>
     <string name="title_advanced_extended_reply">Использовать расширенный заголовок для ответа/пересылки</string>
     <string name="title_advanced_quote_reply">Цитировать текст при ответе</string>
+    <string name="title_advanced_resize_reply">Менять размер изображений в ответе</string>
     <string name="title_advanced_signature_location">Расположение подписи</string>
     <string name="title_advanced_signature_end">Добавлять подпись после цитаты/пересылаемого сообщения</string>
     <string name="title_advanced_plain_only">По умолчанию отправлять простым текстом</string>
@@ -737,11 +738,19 @@
     <string name="title_style_color">Цвет</string>
     <string name="title_style_clear">Очистить форматирование</string>
     <string name="title_style_link">Вставить ссылку</string>
+    <string name="title_add_image">Добавить изображение</string>
+    <string name="title_add_image_inline">Вставить</string>
+    <string name="title_add_image_attach">Прикрепить</string>
+    <string name="title_add_image_resize">Изменить размер</string>
+    <string name="title_add_resize_pixels">&lt; %1$d пикселей</string>
+    <string name="title_add_image_select">Выбрать файл</string>
     <string name="title_add_attachment">Добавить вложение</string>
     <string name="title_attachment_file">Прикрепить файл</string>
     <string name="title_attachment_photo">Сделать фотографию</string>
     <string name="title_attachment_audio">Записать аудио</string>
     <string name="title_show_addresses">Показать копию/скрытую копию</string>
+    <string name="title_send_dialog">Показать параметры отправки</string>
+    <string name="title_image_dialog">Показать параметры изображения</string>
     <string name="title_media_toolbar">Панель медиа</string>
     <string name="title_insert_contact_group">Добавить группу контактов</string>
     <string name="title_insert_template">Вставить шаблон</string>
@@ -764,6 +773,7 @@
     <string name="title_attachment_keywords">attached,attachment,attachments,included,вложение,вложения,вложении,приложено</string>
     <string name="title_attachment_reminder">Вы хотите добавить вложение?</string>
     <string name="title_attachments_missing">Не все вложения загружены</string>
+    <string name="title_dialog_hint">Этот диалог можно снова включить через верхнее меню трёх точек в панели действий</string>
     <string name="title_draft_deleted">Черновик отклонён</string>
     <string name="title_draft_saved">Черновик сохранён</string>
     <string name="title_ask_send_via">Отправить сообщение для %1$s через %2$s?</string>
