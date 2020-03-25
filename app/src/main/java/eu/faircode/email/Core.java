@@ -2090,10 +2090,6 @@ class Core {
                             " msgid=" + msgid + " thread=" + thread);
 
                     if (dup.uid == null || dup.uid <= uid) {
-                        message = dup;
-                        update = true;
-                        process = (dup.uid == null);
-
                         Log.i(folder.name + " set uid=" + uid);
                         dup.uid = uid;
                         dup.thread = thread;
@@ -2104,6 +2100,10 @@ class Core {
                         }
 
                         dup.error = null;
+
+                        message = dup;
+                        update = true;
+                        process = (dup.uid == null);
                     } else
                         return null;
                 }
