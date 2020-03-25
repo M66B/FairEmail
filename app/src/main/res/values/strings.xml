@@ -1180,7 +1180,7 @@
     <string name="title_pro_invalid">Invalid response</string>
     <string name="title_pro_support">FairEmail needs your help. Tap to purchase pro features to keep the project going.</string>
 
-    <string name="title_boundary_error">Error on downloading messages from the email server</string>
+    <string name="title_boundary_error">Error downloading messages from the mail server</string>
     <string name="title_boundary_retry">Try again</string>
 
     <string name="title_unexpected_error">Unexpected error</string>
