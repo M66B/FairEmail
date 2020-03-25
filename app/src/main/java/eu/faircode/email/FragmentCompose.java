@@ -3904,9 +3904,13 @@ public class FragmentCompose extends FragmentBase {
                         // Delete draft (cannot move to outbox)
                         EntityOperation.queue(context, draft, EntityOperation.DELETE);
 
+                        EntityFolder outbox = db.folder().getOutbox();
+                        if (outbox == null)
+                            throw new IllegalArgumentException("Outbox missing");
+
                         // Copy message to outbox
                         draft.id = null;
-                        draft.folder = db.folder().getOutbox().id;
+                        draft.folder = outbox.id;
                         draft.uid = null;
                         draft.fts = false;
                         draft.ui_hide = false;
