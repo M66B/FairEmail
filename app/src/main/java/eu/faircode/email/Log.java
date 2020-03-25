@@ -169,7 +169,7 @@ public class Log {
     public static int w(String prefix, Throwable ex) {
         if (BuildConfig.BETA_RELEASE)
             try {
-                Bugsnag.notify(ex.getClass().getName(), prefix, ex.getStackTrace(), new Callback() {
+                Bugsnag.notify(ex.getClass().getName(), prefix + ": " + ex.getMessage(), ex.getStackTrace(), new Callback() {
                     @Override
                     public void beforeNotify(@NonNull Report report) {
                         report.getError().setSeverity(Severity.INFO);
@@ -184,7 +184,7 @@ public class Log {
     public static int e(String prefix, Throwable ex) {
         if (BuildConfig.BETA_RELEASE)
             try {
-                Bugsnag.notify(ex.getClass().getName(), prefix, ex.getStackTrace(), new Callback() {
+                Bugsnag.notify(ex.getClass().getName(), prefix + ": " + ex.getMessage(), ex.getStackTrace(), new Callback() {
                     @Override
                     public void beforeNotify(@NonNull Report report) {
                         report.getError().setSeverity(Severity.WARNING);
@@ -282,7 +282,8 @@ public class Log {
                     return false;
 
                 Throwable ex = report.getError().getException();
-                return shouldNotify(ex);
+                boolean should = shouldNotify(ex);
+                return should;
             }
 
             private boolean shouldNotify(Throwable ex) {
