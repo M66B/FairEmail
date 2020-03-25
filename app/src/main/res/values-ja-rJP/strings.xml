@@ -222,9 +222,6 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_receipt">受取をリクエストする時</string>
     <string name="title_advanced_usenet_signature">署名の区切</string>
     <string name="title_advanced_remove_signatures">認識された署名を削除</string>
-    <string name="title_advanced_resize_images">埋込画像のサイズを自動的に変更</string>
-    <string name="title_advanced_resize_attachments">画像添付ファイルの自動サイズ変更</string>
-    <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>
     <string name="title_advanced_send_reminders">リマインダーを表示</string>
     <string name="title_advanced_lookup_mx">送信する前に受信者のメールアドレスを確認</string>
     <string name="title_advanced_send_delayed">メッセージ送信を遅延させます</string>
@@ -681,7 +678,6 @@ PlayストアでFairEmailを評価できれば幸いです。
     <string name="title_style_color">カラー</string>
     <string name="title_style_clear">書式をクリア</string>
     <string name="title_style_link">リンクを挿入</string>
-    <string name="title_style_image">画像を挿入</string>
     <string name="title_add_attachment">添付ファイルを追加</string>
     <string name="title_attachment_file">ファイルを添付</string>
     <string name="title_attachment_photo">写真を撮影</string>

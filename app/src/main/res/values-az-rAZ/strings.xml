@@ -157,7 +157,6 @@
     <string name="title_advanced_kept_removed">Köhnə mesajların serverlərdən silinib silinmədiyini yoxlayın</string>
     <string name="title_advanced_sync_folders">Qovluq siyahısını eyniləşdir</string>
     <string name="title_advanced_keyboard">Klaviaturanı ilkin olaraq göstər</string>
-    <string name="title_advanced_resize_pixels">&lt; %1$d piksel</string>
     <string name="title_advanced_send_delayed">Göndərilən mesajların gecikməsi</string>
     <string name="title_advanced_metered">Ölçülmüş bağlantıları istifadə et</string>
     <string name="title_advanced_download">Mesajları və qoşmaları ölçülmüş bağlantıda avtomatik endir</string>
@@ -310,7 +309,6 @@
     <string name="title_style_italic">Meyilli</string>
     <string name="title_style_clear">Formatları təmizlə</string>
     <string name="title_style_link">Bağlantı daxil et</string>
-    <string name="title_style_image">Təsvir daxil et</string>
     <string name="title_add_attachment">Qoşma əlavə et</string>
     <string name="title_show_addresses">CC/BCC göstər</string>
     <string name="title_from_missing">Göndərən əskikdir</string>

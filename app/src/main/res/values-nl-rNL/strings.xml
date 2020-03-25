@@ -228,6 +228,7 @@
     <string name="title_advanced_prefix_once">Prefix onderwerp slechts één keer bij beantwoorden of doorsturen</string>
     <string name="title_advanced_extended_reply">Gebruik uitgebreide kop bij antwoorden/doorsturen</string>
     <string name="title_advanced_quote_reply">Haal beantwoorde tekst aan</string>
+    <string name="title_advanced_resize_reply">Wijzig de grootte van de afbeeldingen in beantwoorde tekst</string>
     <string name="title_advanced_signature_location">Positie ondertekening</string>
     <string name="title_advanced_signature_end">Handtekening toevoegen na geciteerd/doorgestuurd bericht</string>
     <string name="title_advanced_plain_only">Verzend standaard platte tekst</string>
@@ -235,9 +236,6 @@
     <string name="title_advanced_receipt">Bij het aanvragen van een bevestiging</string>
     <string name="title_advanced_usenet_signature">Usenet handtekening conventie</string>
     <string name="title_advanced_remove_signatures">Verwijder herkende handtekeningen</string>
-    <string name="title_advanced_resize_images">Automatisch ingesloten afbeeldingen verkleinen</string>
-    <string name="title_advanced_resize_attachments">Automatisch afbeeldingen in bijlagen verkleinen</string>
-    <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>
     <string name="title_advanced_send_reminders">Toon herinneringen</string>
     <string name="title_advanced_lookup_mx">Controleer e-mailadressen van de ontvangers voor verzenden</string>
     <string name="title_advanced_send_delayed">Verzenden van berichten uitstellen</string>
@@ -718,7 +716,12 @@
     <string name="title_style_color">Kleur</string>
     <string name="title_style_clear">Opmaak wissen</string>
     <string name="title_style_link">Koppeling invoegen</string>
-    <string name="title_style_image">Afbeelding invoegen</string>
+    <string name="title_add_image">Afbeelding toevoegen</string>
+    <string name="title_add_image_inline">Invoegen</string>
+    <string name="title_add_image_attach">Bijlage</string>
+    <string name="title_add_image_resize">Grootte aanpassen</string>
+    <string name="title_add_resize_pixels">&lt; %1$d pixels</string>
+    <string name="title_add_image_select">Selecteer bestand</string>
     <string name="title_add_attachment">Bijlage toevoegen</string>
     <string name="title_attachment_file">Bestand bijvoegen</string>
     <string name="title_attachment_photo">Foto nemen</string>

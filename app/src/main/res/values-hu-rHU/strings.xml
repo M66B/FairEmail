@@ -221,9 +221,6 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_signature_end">Aláírás beillesztése az idézett/továbbított szöveg után</string>
     <string name="title_advanced_plain_only">Nyers szöveg alapértelmezett küldése</string>
     <string name="title_advanced_usenet_signature">Usenet aláírás konveció használata</string>
-    <string name="title_advanced_resize_images">Beágyazott képek automatikus átméretezése</string>
-    <string name="title_advanced_resize_attachments">Csatolt képek automatikus átméretezése</string>
-    <string name="title_advanced_resize_pixels">&lt; %1$d pixel</string>
     <string name="title_advanced_send_reminders">Emlékeztetők megjelenítése</string>
     <string name="title_advanced_lookup_mx">Fogadók címeinek ellenőrzése küldés előtt</string>
     <string name="title_advanced_send_delayed">Üzenetek küldésének késleltetése</string>
@@ -607,7 +604,6 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_style_color">Szín</string>
     <string name="title_style_clear">Formázás törlése</string>
     <string name="title_style_link">Hivatkozás beillesztése</string>
-    <string name="title_style_image">Kép beillesztése</string>
     <string name="title_add_attachment">Melléklet hozzáadása</string>
     <string name="title_attachment_file">Fájl csatolása</string>
     <string name="title_attachment_photo">Fénykép készítése</string>

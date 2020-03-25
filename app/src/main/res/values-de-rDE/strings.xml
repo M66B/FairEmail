@@ -237,9 +237,6 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_receipt">Wenn eine Bestätigung angefordert wird, dann</string>
     <string name="title_advanced_usenet_signature">Usenet-Signaturkonvention</string>
     <string name="title_advanced_remove_signatures">Erkannte Signaturen entfernen</string>
-    <string name="title_advanced_resize_images">Größe eingebetteter Bilder automatisch anpassen</string>
-    <string name="title_advanced_resize_attachments">Größe angehängter Bilder automatisch anpassen</string>
-    <string name="title_advanced_resize_pixels">&lt; %1$d Pixel</string>
     <string name="title_advanced_send_reminders">Erinnerungen anzeigen</string>
     <string name="title_advanced_lookup_mx">Überprüft die Empfänger-E-Mail-Adressen vor dem Senden per DNS MX</string>
     <string name="title_advanced_send_delayed">Senden von Nachrichten verzögern</string>
@@ -720,7 +717,6 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_style_color">Farbe</string>
     <string name="title_style_clear">Formatierung entfernen</string>
     <string name="title_style_link">Link einfügen</string>
-    <string name="title_style_image">Bild einfügen</string>
     <string name="title_add_attachment">Anhang hinzufügen</string>
     <string name="title_attachment_file">Anhang hinzufügen</string>
     <string name="title_attachment_photo">Foto aufnehmen</string>

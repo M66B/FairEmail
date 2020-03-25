@@ -236,9 +236,6 @@
     <string name="title_advanced_receipt">Når du ber om kvittering</string>
     <string name="title_advanced_usenet_signature">Usenet signaturkonvensjon</string>
     <string name="title_advanced_remove_signatures">Fjern gjenkjennte signaturer</string>
-    <string name="title_advanced_resize_images">Endre størrelse på innebygde bilder automatisk</string>
-    <string name="title_advanced_resize_attachments">Endre størrelse på bilder i vedlegg automatisk</string>
-    <string name="title_advanced_resize_pixels">&lt; %1$d piksler</string>
     <string name="title_advanced_send_reminders">Vis påminnelser</string>
     <string name="title_advanced_lookup_mx">Sjekk mottakerens e-postadresser før du sender</string>
     <string name="title_advanced_send_delayed">Forsink sending av meldinger</string>
@@ -716,7 +713,6 @@ Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anme
     <string name="title_style_color">Farge</string>
     <string name="title_style_clear">Fjern formatering</string>
     <string name="title_style_link">Sett inn lenke</string>
-    <string name="title_style_image">Sett inn bilde</string>
     <string name="title_add_attachment">Legg ved fil</string>
     <string name="title_attachment_file">Legg ved fil</string>
     <string name="title_attachment_photo">Ta bilde</string>

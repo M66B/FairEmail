@@ -258,9 +258,6 @@
     <string name="title_advanced_receipt">Při požadování potvrzení</string>
     <string name="title_advanced_usenet_signature">Používat Usenet konvenci pro podpisy</string>
     <string name="title_advanced_remove_signatures">Odebrat rozpoznané podpisy</string>
-    <string name="title_advanced_resize_images">Automaticky upravit velikost vložených obrázků</string>
-    <string name="title_advanced_resize_attachments">Automaticky upravit velikost obrazových příloh</string>
-    <string name="title_advanced_resize_pixels">&lt; %1$d pixelů</string>
     <string name="title_advanced_send_reminders">Zobrazit připomínky</string>
     <string name="title_advanced_lookup_mx">Před odesláním zkontrolovat e-mailové adresy příjemců</string>
     <string name="title_advanced_send_delayed">Pozdržet odesílání zpráv</string>
@@ -738,7 +735,6 @@
     <string name="title_style_color">Barva</string>
     <string name="title_style_clear">Vymazat formátování</string>
     <string name="title_style_link">Vložit odkaz</string>
-    <string name="title_style_image">Vložit obrázek</string>
     <string name="title_add_attachment">Přidat přílohu</string>
     <string name="title_attachment_file">Přiložit soubor</string>
     <string name="title_attachment_photo">Pořídit fotografii</string>

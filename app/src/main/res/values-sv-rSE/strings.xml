@@ -235,9 +235,6 @@
     <string name="title_advanced_receipt">När du begär ett kvitto</string>
     <string name="title_advanced_usenet_signature">Signaturkonvention för Usenet</string>
     <string name="title_advanced_remove_signatures">Ta bort igenkända signaturer</string>
-    <string name="title_advanced_resize_images">Ändra storlek automatiskt på inbäddade bilder</string>
-    <string name="title_advanced_resize_attachments">Ändra storlek automatiskt på bifogade bilder</string>
-    <string name="title_advanced_resize_pixels">&lt; %1$d pixlar</string>
     <string name="title_advanced_send_reminders">Visa påminnelser</string>
     <string name="title_advanced_lookup_mx">Kontrollera mottagarens e-postadresser innan du skickar</string>
     <string name="title_advanced_send_delayed">Fördröj sändning av meddelanden</string>
@@ -543,7 +540,7 @@
     <string name="title_delete_operation">Ta bort åtgärder med ett felmeddelande?</string>
     <string name="title_delete_contacts">Ta bort alla lokala kontakter?</string>
     <string name="title_no_operations">Inga pågående åtgärder</string>
-    <string name="title_hint_operations">Ta bort pågående åtgärder kan resultera i försvinnande meddelanden och synkroniseringsproblem</string>
+    <string name="title_hint_operations">Att ta bort pågående åtgärder kan resultera i försvinnande meddelanden och synkroniseringsproblem</string>
     <string name="title_folder_name">Mappnamn</string>
     <string name="title_display_name">Visningsnamn</string>
     <string name="title_show_folders">Visa dolda mappar</string>
@@ -718,7 +715,6 @@
     <string name="title_style_color">Färg</string>
     <string name="title_style_clear">Rensa formatering</string>
     <string name="title_style_link">Infoga länk</string>
-    <string name="title_style_image">Infoga bild</string>
     <string name="title_add_attachment">Lägg till bilaga</string>
     <string name="title_attachment_file">Bifoga fil</string>
     <string name="title_attachment_photo">Ta foto</string>

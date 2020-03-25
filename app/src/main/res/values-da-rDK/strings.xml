@@ -236,9 +236,6 @@
     <string name="title_advanced_receipt">Når kvittering udbedes</string>
     <string name="title_advanced_usenet_signature">Usenet-signaturkonvention</string>
     <string name="title_advanced_remove_signatures">Fjern genkedte signaturer</string>
-    <string name="title_advanced_resize_images">Skalér automatisk indlejrede billeder</string>
-    <string name="title_advanced_resize_attachments">Skalér automatisk billedvedhæftnninger</string>
-    <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>
     <string name="title_advanced_send_reminders">Vis påmindelser</string>
     <string name="title_advanced_lookup_mx">Tjek modtager e-mail inden afsendelse</string>
     <string name="title_advanced_send_delayed">Udsæt afsendelsen af beskeder</string>
@@ -719,7 +716,6 @@
     <string name="title_style_color">Farve</string>
     <string name="title_style_clear">Ryd formatering</string>
     <string name="title_style_link">Indsæt link</string>
-    <string name="title_style_image">Indsæt billede</string>
     <string name="title_add_attachment">Tilføj vedhæftning</string>
     <string name="title_attachment_file">Vedhæft fil</string>
     <string name="title_attachment_photo">Tag foto</string>

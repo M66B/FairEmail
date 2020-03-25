@@ -258,9 +258,6 @@
     <string name="title_advanced_receipt">При запросе уведомления</string>
     <string name="title_advanced_usenet_signature">Стиль подписи Usenet</string>
     <string name="title_advanced_remove_signatures">Удалять распознанные подписи</string>
-    <string name="title_advanced_resize_images">Автоматически изменять размер встроенных изображений</string>
-    <string name="title_advanced_resize_attachments">Автоматически изменять размер прикреплённых изображений</string>
-    <string name="title_advanced_resize_pixels">&lt; %1$d пикселей</string>
     <string name="title_advanced_send_reminders">Показывать напоминания</string>
     <string name="title_advanced_lookup_mx">Проверять адрес электронной почты получателя перед отправкой</string>
     <string name="title_advanced_send_delayed">Задержка отправки сообщений</string>
@@ -741,7 +738,6 @@
     <string name="title_style_color">Цвет</string>
     <string name="title_style_clear">Очистить форматирование</string>
     <string name="title_style_link">Вставить ссылку</string>
-    <string name="title_style_image">Вставить изображение</string>
     <string name="title_add_attachment">Добавить вложение</string>
     <string name="title_attachment_file">Прикрепить файл</string>
     <string name="title_attachment_photo">Сделать фотографию</string>

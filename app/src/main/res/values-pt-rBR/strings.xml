@@ -218,9 +218,6 @@
     <string name="title_advanced_signature_end">Adicionar assinatura após mensagem citada/encaminhada</string>
     <string name="title_advanced_plain_only">Enviar texto simples por padrão</string>
     <string name="title_advanced_usenet_signature">Convenção de assinatura do Usenet</string>
-    <string name="title_advanced_resize_images">Redimensionar automaticamente imagens incorporadas</string>
-    <string name="title_advanced_resize_attachments">Redimensionar automaticamente anexos de imagem</string>
-    <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>
     <string name="title_advanced_send_reminders">Mostrar lembretes</string>
     <string name="title_advanced_lookup_mx">Verifique os endereços de e-mail do destinatário antes de enviar</string>
     <string name="title_advanced_send_delayed">Atraso ao enviar mensagens</string>
@@ -628,7 +625,6 @@
     <string name="title_style_color">Cor</string>
     <string name="title_style_clear">Limpar formatação</string>
     <string name="title_style_link">Inserir link</string>
-    <string name="title_style_image">Inserir imagem</string>
     <string name="title_add_attachment">Adicionar anexo</string>
     <string name="title_attachment_file">Anexar arquivo</string>
     <string name="title_attachment_photo">Tirar foto</string>

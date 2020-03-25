@@ -224,9 +224,6 @@
     <string name="title_advanced_receipt">请求回执时</string>
     <string name="title_advanced_usenet_signature">Usenet签名公约（RFC3676）</string>
     <string name="title_advanced_remove_signatures">移除公认的签名</string>
-    <string name="title_advanced_resize_images">自动调整嵌入图像大小</string>
-    <string name="title_advanced_resize_attachments">自动调整图像附件大小</string>
-    <string name="title_advanced_resize_pixels">&lt; %1$d像素</string>
     <string name="title_advanced_send_reminders">显示提醒</string>
     <string name="title_advanced_lookup_mx">发送前检查收件人电子邮件地址</string>
     <string name="title_advanced_send_delayed">延迟发送消息</string>
@@ -707,7 +704,6 @@
     <string name="title_style_color">颜色</string>
     <string name="title_style_clear">清除格式</string>
     <string name="title_style_link">插入链接</string>
-    <string name="title_style_image">插入图片</string>
     <string name="title_add_attachment">添加附件</string>
     <string name="title_attachment_file">插入附件</string>
     <string name="title_attachment_photo">拍照</string>

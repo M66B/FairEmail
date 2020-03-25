@@ -238,9 +238,6 @@
     <string name="title_advanced_receipt">Kada tražite potvrdu</string>
     <string name="title_advanced_usenet_signature">Usenet konvencija potpisa</string>
     <string name="title_advanced_remove_signatures">Uklonite prepoznate potpise</string>
-    <string name="title_advanced_resize_images">Automatski prilagoditi veličinu ugrađenih slika</string>
-    <string name="title_advanced_resize_attachments">Automatski prilagoditi veličinu priloženih slika</string>
-    <string name="title_advanced_resize_pixels">&lt; %1$d pixela</string>
     <string name="title_advanced_send_reminders">Prikaži podsjetnike</string>
     <string name="title_advanced_lookup_mx">Provjeriva adrese e-pošte primatelja prije slanja</string>
     <string name="title_advanced_send_delayed">Odgoda slanja poruka</string>
@@ -691,7 +688,6 @@
     <string name="title_style_color">Boja</string>
     <string name="title_style_clear">Očisti sva oblikovanja</string>
     <string name="title_style_link">Umetni vezu</string>
-    <string name="title_style_image">Umetni sliku</string>
     <string name="title_add_attachment">Dodaj prilog</string>
     <string name="title_attachment_file">Priloži datoteku</string>
     <string name="title_attachment_photo">Uslikaj fotografiju</string>

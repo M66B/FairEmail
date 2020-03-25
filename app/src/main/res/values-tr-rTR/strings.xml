@@ -223,9 +223,6 @@
     <string name="title_advanced_plain_only">Öntanımlı olarak yalnızca düz metin gönder</string>
     <string name="title_advanced_usenet_signature">Kullanıcı ağı imza sözleşmesi</string>
     <string name="title_advanced_remove_signatures">Tanınan imzaları kaldır</string>
-    <string name="title_advanced_resize_images">Gömülü resimleri otomatik olarak yeniden boyutlandır</string>
-    <string name="title_advanced_resize_attachments">Ekli resimleri otomatik olarak yeniden boyutlandır</string>
-    <string name="title_advanced_resize_pixels">&lt; %1$d piksel</string>
     <string name="title_advanced_send_reminders">Hatırlatıcıları göster</string>
     <string name="title_advanced_lookup_mx">Göndermeden önce alıcı e-posta adreslerini kontrol edin</string>
     <string name="title_advanced_send_delayed">Mesaj göndermede gecikme</string>
@@ -657,7 +654,6 @@
     <string name="title_style_color">Renk</string>
     <string name="title_style_clear">Biçimlendirmeyi temizle</string>
     <string name="title_style_link">Bağlantı ekle</string>
-    <string name="title_style_image">Resim Ekle</string>
     <string name="title_add_attachment">Ek ekle</string>
     <string name="title_attachment_file">Dosya iliştir</string>
     <string name="title_attachment_photo">Fotoğraf çek</string>

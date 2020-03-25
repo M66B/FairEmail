@@ -235,9 +235,6 @@
     <string name="title_advanced_receipt">При искане на разписка</string>
     <string name="title_advanced_usenet_signature">Конвенция за подпис на Usenet</string>
     <string name="title_advanced_remove_signatures">Премахване на разпознатите подписи</string>
-    <string name="title_advanced_resize_images">Автоматично оразмеряване на вградените изображения</string>
-    <string name="title_advanced_resize_attachments">Автоматично оразмеряване на прикачените изображения</string>
-    <string name="title_advanced_resize_pixels">&lt;%1$d пиксела</string>
     <string name="title_advanced_send_reminders">Покажи напомняния</string>
     <string name="title_advanced_lookup_mx">Проверка имейл адреса на получателя преди изпращане</string>
     <string name="title_advanced_send_delayed">Отложено изпращане на съобщение</string>
@@ -698,7 +695,6 @@
     <string name="title_style_color">Цвят</string>
     <string name="title_style_clear">Изчистване на форматирането</string>
     <string name="title_style_link">Вмъкване на връзка</string>
-    <string name="title_style_image">Вмъкване на изображение</string>
     <string name="title_add_attachment">Прикачване на файл</string>
     <string name="title_attachment_file">Прикачи файл</string>
     <string name="title_attachment_photo">Снимай</string>

@@ -330,7 +330,6 @@
     <string name="title_style_size">الحجم</string>
     <string name="title_style_color">اللون</string>
     <string name="title_style_link">إدراج رابط</string>
-    <string name="title_style_image">إرفاق صورة</string>
     <string name="title_add_attachment">إضافة مرفق</string>
     <string name="title_attachment_file">إرفاق ملف</string>
     <string name="title_attachment_photo">التقاط صورة</string>

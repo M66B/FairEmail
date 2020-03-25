@@ -240,7 +240,6 @@
     <string name="title_style_italic">مورب</string>
     <string name="title_style_clear">پاک کردن شکل‌بندی</string>
     <string name="title_style_link">درج لینک</string>
-    <string name="title_style_image">درج تصویر</string>
     <string name="title_add_attachment">افزودن پیوست</string>
     <string name="title_show_addresses">نمایش سی‌سی/بی‌سی‌سی</string>
     <string name="title_from_missing">فرستنده وجود ندارد</string>

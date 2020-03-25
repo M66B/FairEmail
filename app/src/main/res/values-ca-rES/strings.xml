@@ -193,7 +193,6 @@
     <string name="title_advanced_quote_reply">Text amb resposta a la cita</string>
     <string name="title_advanced_plain_only">Envia en text pla només per defecte</string>
     <string name="title_advanced_usenet_signature">Convenció de signatura Usenet</string>
-    <string name="title_advanced_resize_pixels">&lt; %1$d píxels</string>
     <string name="title_advanced_lookup_mx">Comproveu les adreces de correu electrònic del destinatari abans d’enviar-les</string>
     <string name="title_advanced_send_delayed">Retarda l\'enviament de missatges</string>
     <string name="title_advanced_metered">Utilitza les connexions dosificada</string>
@@ -563,7 +562,6 @@
     <string name="title_style_color">Color</string>
     <string name="title_style_clear">Esborra el format</string>
     <string name="title_style_link">Insereix enllaç</string>
-    <string name="title_style_image">Insereix imatge</string>
     <string name="title_add_attachment">Afegeix un adjunt</string>
     <string name="title_attachment_file">Adjunta arxiu</string>
     <string name="title_attachment_photo">Fes una foto</string>

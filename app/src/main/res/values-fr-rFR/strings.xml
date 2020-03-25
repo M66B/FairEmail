@@ -236,9 +236,6 @@
     <string name="title_advanced_receipt">Lorsque vous demandez une confirmation</string>
     <string name="title_advanced_usenet_signature">Utiliser la convention de signature Usenet</string>
     <string name="title_advanced_remove_signatures">Supprimer les signatures reconnues</string>
-    <string name="title_advanced_resize_images">Redimensionner automatiquement les images incluses</string>
-    <string name="title_advanced_resize_attachments">Redimensionner automatiquement les images en pièce jointe</string>
-    <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>
     <string name="title_advanced_send_reminders">Afficher les rappels</string>
     <string name="title_advanced_lookup_mx">Vérifier les adresses e-mail des destinataires avant d\'envoyer</string>
     <string name="title_advanced_send_delayed">Retarder l\'envoi des messages</string>
@@ -719,7 +716,6 @@
     <string name="title_style_color">Couleur</string>
     <string name="title_style_clear">Effacer la mise en forme</string>
     <string name="title_style_link">Insérer un lien</string>
-    <string name="title_style_image">Insérer une image</string>
     <string name="title_add_attachment">Ajouter une pièce jointe</string>
     <string name="title_attachment_file">Joindre un fichier</string>
     <string name="title_attachment_photo">Prendre une photo</string>

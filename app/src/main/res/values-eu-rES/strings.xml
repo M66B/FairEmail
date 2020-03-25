@@ -234,9 +234,6 @@
     <string name="title_advanced_receipt">Agiria eskatzean</string>
     <string name="title_advanced_usenet_signature">Usenet sinaduren konbentzioa</string>
     <string name="title_advanced_remove_signatures">Kendu ezagututako sinadurak</string>
-    <string name="title_advanced_resize_images">Aldatu automatikoki kapsulatutako irudien neurria</string>
-    <string name="title_advanced_resize_attachments">Aldatu automatikoki eranskinetako irudien neurria</string>
-    <string name="title_advanced_resize_pixels">&lt; %1$d pixel</string>
     <string name="title_advanced_send_reminders">Erakutsi oroigarriak</string>
     <string name="title_advanced_lookup_mx">Hartzaileen email-helbideak egiaztatu bidali aurretik</string>
     <string name="title_advanced_send_delayed">Atzeratu mezuen bidalketa</string>
@@ -716,7 +713,6 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_style_color">Kolorea</string>
     <string name="title_style_clear">Garbitu formatua</string>
     <string name="title_style_link">Txertatu esteka</string>
-    <string name="title_style_image">Txertatu irudia</string>
     <string name="title_add_attachment">Gehitu eranskina</string>
     <string name="title_attachment_file">Erantsi fitxategia</string>
     <string name="title_attachment_photo">Atera argazkia</string>

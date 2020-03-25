@@ -202,7 +202,6 @@
     <string name="title_advanced_quote_reply">Цитирај текст на који се одговара</string>
     <string name="title_advanced_plain_only">Подразумевано шаљи обичан текст</string>
     <string name="title_advanced_usenet_signature">Usenet конвенција потписа</string>
-    <string name="title_advanced_resize_pixels">&lt; %1$d пиксела</string>
     <string name="title_advanced_lookup_mx">Провери е-мејл адресу примаоца пре слања</string>
     <string name="title_advanced_send_delayed">Одложи слање порука</string>
     <string name="title_advanced_metered">Користи конекције које мере потрошњу података</string>
@@ -570,7 +569,6 @@
     <string name="title_style_color">Боја</string>
     <string name="title_style_clear">Очисти форматирање</string>
     <string name="title_style_link">Убаци везу</string>
-    <string name="title_style_image">Убаци слику</string>
     <string name="title_add_attachment">Додај прилог</string>
     <string name="title_attachment_file">Закачи фајл</string>
     <string name="title_attachment_photo">Сликај</string>

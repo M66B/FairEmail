@@ -245,9 +245,6 @@
     <string name="title_advanced_receipt">Când se cere o confirmare</string>
     <string name="title_advanced_usenet_signature">Semnatură conform Usenet</string>
     <string name="title_advanced_remove_signatures">Elimină semnăturile cunoscute</string>
-    <string name="title_advanced_resize_images">Redimensionează automat imaginile încorporate</string>
-    <string name="title_advanced_resize_attachments">Redimensionează automat imaginile atașate</string>
-    <string name="title_advanced_resize_pixels">&lt; %1$d pixeli</string>
     <string name="title_advanced_send_reminders">Arată mementouri</string>
     <string name="title_advanced_lookup_mx">Verifică adresele destinatarilor înainte de a trimite</string>
     <string name="title_advanced_send_delayed">Amână trimiterea mesajelor</string>
@@ -728,7 +725,6 @@
     <string name="title_style_color">Culoare</string>
     <string name="title_style_clear">Elimină toate formatările</string>
     <string name="title_style_link">Inserare legătură</string>
-    <string name="title_style_image">Inserare imagine</string>
     <string name="title_add_attachment">Adaugă ataşament</string>
     <string name="title_attachment_file">Atașare fișier</string>
     <string name="title_attachment_photo">Fă o poză</string>

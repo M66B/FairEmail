@@ -180,7 +180,6 @@
     <string name="title_advanced_flagged">Alle stjerberjochten</string>
     <string name="title_advanced_keyboard">Sjoch toetseboerd mei standert</string>
     <string name="title_advanced_signature_location">Hantekening posysje</string>
-    <string name="title_advanced_resize_pixels">&lt; %1$d piksels</string>
     <string name="title_advanced_send_reminders">Sjoch herinneringen</string>
     <string name="title_advanced_manage_connectivity">Konnektivität beheare</string>
     <string name="title_advanced_caption_general">Algemien</string>
@@ -344,7 +343,6 @@
     <string name="title_style_size">Grutte</string>
     <string name="title_style_color">Kleur</string>
     <string name="title_style_link">Link ynfoegje</string>
-    <string name="title_style_image">Ofbylding ynfoegje</string>
     <string name="title_attachment_file">Heakje bestân ta</string>
     <string name="title_attachment_photo">Nim foto</string>
     <string name="title_attachment_audio">Audio opnimme</string>

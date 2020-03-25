@@ -234,9 +234,6 @@
     <string name="title_advanced_receipt">Pyydettäessä kuittausta</string>
     <string name="title_advanced_usenet_signature">Usenetin allekirjoitustyyli</string>
     <string name="title_advanced_remove_signatures">Poista tunnistetut allekirjoitukset</string>
-    <string name="title_advanced_resize_images">Muuta upotettujen kuvien koot</string>
-    <string name="title_advanced_resize_attachments">Muuta liitettyjen kuvien koot</string>
-    <string name="title_advanced_resize_pixels">&lt; %1$d kuvapistettä</string>
     <string name="title_advanced_send_reminders">Näytä muistutukset</string>
     <string name="title_advanced_lookup_mx">Tarkista vastaanottajien sähköpostiosoitteet ennen lähettämistä</string>
     <string name="title_advanced_send_delayed">Viivästä viestien lähetystä</string>
@@ -717,7 +714,6 @@
     <string name="title_style_color">Väri</string>
     <string name="title_style_clear">Poista muotoilu</string>
     <string name="title_style_link">Lisää linkki</string>
-    <string name="title_style_image">Lisää kuva</string>
     <string name="title_add_attachment">Lisää liite</string>
     <string name="title_attachment_file">Liitä tiedosto</string>
     <string name="title_attachment_photo">Ota kuva</string>
