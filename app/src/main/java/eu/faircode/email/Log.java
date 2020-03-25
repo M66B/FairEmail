@@ -461,33 +461,33 @@ public class Log {
         if (ex instanceof RemoteException)
             return false;
 
-        /*
-            java.lang.UnsatisfiedLinkError: dlopen failed: couldn't map "/mnt/asec/eu.faircode.email-1/base.apk!/lib/arm64-v8a/libsqlite3x.so" segment 0: Permission denied
-              at java.lang.Runtime.loadLibrary0(Runtime.java:1016)
-              at java.lang.System.loadLibrary(System.java:1657)
-              at io.requery.android.database.sqlite.SQLiteDatabase.<clinit>(SourceFile:91)
-         */
         if (ex instanceof UnsatisfiedLinkError ||
                 ex.getCause() instanceof UnsatisfiedLinkError)
+            /*
+                java.lang.UnsatisfiedLinkError: dlopen failed: couldn't map "/mnt/asec/eu.faircode.email-1/base.apk!/lib/arm64-v8a/libsqlite3x.so" segment 0: Permission denied
+                  at java.lang.Runtime.loadLibrary0(Runtime.java:1016)
+                  at java.lang.System.loadLibrary(System.java:1657)
+                  at io.requery.android.database.sqlite.SQLiteDatabase.<clinit>(SourceFile:91)
+             */
             return false;
 
-        /*
-            android.app.RemoteServiceException: Bad notification for startForeground: java.util.ConcurrentModificationException
-            android.app.RemoteServiceException: Bad notification for startForeground: java.util.ConcurrentModificationException
-            at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2204)
-        */
         if ("android.app.RemoteServiceException".equals(ex.getClass().getName()))
+            /*
+                android.app.RemoteServiceException: Bad notification for startForeground: java.util.ConcurrentModificationException
+                android.app.RemoteServiceException: Bad notification for startForeground: java.util.ConcurrentModificationException
+                at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2204)
+            */
             return false;
 
-        /*
-            java.lang.NoSuchMethodError: No direct method ()V in class Landroid/security/IKeyChainService$Stub; or its super classes (declaration of 'android.security.IKeyChainService$Stub' appears in /system/framework/framework.jar!classes2.dex)
-            java.lang.NoSuchMethodError: No direct method ()V in class Landroid/security/IKeyChainService$Stub; or its super classes (declaration of 'android.security.IKeyChainService$Stub' appears in /system/framework/framework.jar!classes2.dex)
-            at com.android.keychain.KeyChainService$1.(KeyChainService.java:95)
-            at com.android.keychain.KeyChainService.(KeyChainService.java:95)
-            at java.lang.Class.newInstance(Native Method)
-            at android.app.AppComponentFactory.instantiateService(AppComponentFactory.java:103)
-         */
         if (ex instanceof NoSuchMethodError)
+            /*
+                java.lang.NoSuchMethodError: No direct method ()V in class Landroid/security/IKeyChainService$Stub; or its super classes (declaration of 'android.security.IKeyChainService$Stub' appears in /system/framework/framework.jar!classes2.dex)
+                java.lang.NoSuchMethodError: No direct method ()V in class Landroid/security/IKeyChainService$Stub; or its super classes (declaration of 'android.security.IKeyChainService$Stub' appears in /system/framework/framework.jar!classes2.dex)
+                at com.android.keychain.KeyChainService$1.(KeyChainService.java:95)
+                at com.android.keychain.KeyChainService.(KeyChainService.java:95)
+                at java.lang.Class.newInstance(Native Method)
+                at android.app.AppComponentFactory.instantiateService(AppComponentFactory.java:103)
+             */
             return false;
 
         if (ex instanceof IllegalStateException &&
@@ -571,9 +571,10 @@ public class Log {
         if (ex instanceof RuntimeException &&
                 ex.getMessage() != null &&
                 (ex.getMessage().startsWith("Could not get application info") ||
-                        ex.getMessage().startsWith("Unable to create service")))
+                        ex.getMessage().startsWith("Unable to create service") ||
+                        ex.getMessage().startsWith("Failure delivering result ")))
             return false;
-        /*
+            /*
                 java.lang.RuntimeException: Could not get application info.
                  java.lang.RuntimeException: Could not get application info.
                    at CH0.a(PG:11)
@@ -587,12 +588,41 @@ public class Log {
                 java.lang.RuntimeException: Unable to create service eu.faircode.email.ServiceSynchronize: java.lang.NullPointerException: Attempt to invoke interface method 'java.util.List android.os.IUserManager.getProfiles(int, boolean)' on a null object reference
                 java.lang.RuntimeException: Unable to create service eu.faircode.email.ServiceSynchronize: java.lang.NullPointerException: Attempt to invoke interface method 'java.util.List android.os.IUserManager.getProfiles(int, boolean)' on a null object reference
                   at android.app.ActivityThread.handleCreateService(ActivityThread.java:2739)
-         */
+
+                java.lang.RuntimeException: Failure delivering result ResultInfo{who=@android:autoFillAuth:, request=2162688, result=-1, data=Intent { (has extras) }} to activity {eu.faircode.email/eu.faircode.email.ActivitySetup}: java.lang.NullPointerException: Attempt to invoke interface method 'java.lang.Object java.util.List.get(int)' on a null object reference
+                  at android.app.ActivityThread.deliverResults(ActivityThread.java:4469)
+                  at android.app.ActivityThread.handleSendResult(ActivityThread.java:4511)
+                  at android.app.servertransaction.ActivityResultItem.execute(ActivityResultItem.java:49)
+                  at android.app.servertransaction.TransactionExecutor.executeCallbacks(TransactionExecutor.java:108)
+                  at android.app.servertransaction.TransactionExecutor.execute(TransactionExecutor.java:68)
+                  at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1821)
+                  at android.os.Handler.dispatchMessage(Handler.java:106)
+                  at android.os.Looper.loop(Looper.java:193)
+                  at android.app.ActivityThread.main(ActivityThread.java:6874)
+                  at java.lang.reflect.Method.invoke(Native Method)
+                  at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:493)
+                  at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:861)
+                Caused by: java.lang.NullPointerException: Attempt to invoke interface method 'java.lang.Object java.util.List.get(int)' on a null object reference
+                  at android.os.Parcel.createException(Parcel.java:1956)
+                  at android.os.Parcel.readException(Parcel.java:1918)
+                  at android.os.Parcel.readException(Parcel.java:1868)
+                  at android.view.autofill.IAutoFillManager$Stub$Proxy.setAuthenticationResult(IAutoFillManager.java:729)
+                  at android.view.autofill.AutofillManager.onAuthenticationResult(AutofillManager.java:1474)
+                  at android.app.Activity.dispatchActivityResult(Activity.java:7497)
+                  at android.app.ActivityThread.deliverResults(ActivityThread.java:4462)
+                  ... 11 more
+                Caused by: android.os.RemoteException: Remote stack trace:
+                  at com.android.server.autofill.Session.setAuthenticationResultLocked(Session.java:1005)
+                  at com.android.server.autofill.AutofillManagerServiceImpl.setAuthenticationResultLocked(AutofillManagerServiceImpl.java:325)
+                  at com.android.server.autofill.AutofillManagerService$AutoFillManagerServiceStub.setAuthenticationResult(AutofillManagerService.java:863)
+                  at android.view.autofill.IAutoFillManager$Stub.onTransact(IAutoFillManager.java:289)
+                  at android.os.Binder.execTransact(Binder.java:731)
+             */
 
         if (ex instanceof RuntimeException &&
                 "InputChannel is not initialized.".equals(ex.getMessage()))
             return false;
-        /*
+            /*
                 java.lang.RuntimeException: InputChannel is not initialized.
                 java.lang.RuntimeException: InputChannel is not initialized.
                   at android.view.InputEventReceiver.nativeInit(Native Method)
@@ -606,7 +636,7 @@ public class Log {
                   at android.os.Handler.dispatchMessage(Handler.java:107)
                   at android.os.Looper.loop(Looper.java:214)
                   at android.app.ActivityThread.main(ActivityThread.java:7397)
-         */
+             */
 
         if (ex instanceof RuntimeException &&
                 "Failure from system".equals(ex.getMessage()))
