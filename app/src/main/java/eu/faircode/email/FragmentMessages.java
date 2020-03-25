@@ -58,6 +58,7 @@ import android.security.KeyChain;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
+import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
 import android.util.Base64;
@@ -2377,9 +2378,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_spam, order++, R.string.title_spam);
 
                 for (EntityAccount account : result.accounts) {
-                    MenuItem item = popupMenu.getMenu()
-                            .add(Menu.NONE, R.string.title_move_to_account, order++,
-                                    getString(R.string.title_move_to_account, account.name));
+                    String title = getString(R.string.title_move_to_account, account.name);
+                    SpannableString ss = new SpannableString(title);
+                    if (account.name != null && account.color != null) {
+                        int i = title.indexOf(account.name);
+                        ss.setSpan(new ForegroundColorSpan(account.color), i, i + 1, 0);
+                    }
+                    MenuItem item = popupMenu.getMenu().add(Menu.NONE, R.string.title_move_to_account, order++, ss);
                     item.setIntent(new Intent().putExtra("account", account.id));
                 }
 
