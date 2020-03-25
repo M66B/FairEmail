@@ -164,7 +164,7 @@ android {
         autoUpload false
         autoReportBuilds false
         sourceControl {
-            repository "https://github.com/M66B/open-source-email"
+            repository "https://github.com/M66B/FairEmail/"
         }
     }
 }
