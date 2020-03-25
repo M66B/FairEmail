@@ -1749,9 +1749,9 @@ public class FragmentCompose extends FragmentBase {
                 Uri cid = Uri.parse("cid:" + BuildConfig.APPLICATION_ID + "." + attachment.id);
 
                 SpannableStringBuilder s = new SpannableStringBuilder(body);
-                s.insert(start, " ");
-                ImageSpan is = new ImageSpan(context, cid, ImageSpan.ALIGN_BASELINE);
-                s.setSpan(is, start, start + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                s.insert(start, "   ");
+                ImageSpan is = new ImageSpan(context, cid);
+                s.setSpan(is, start + 1, start + 2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
                 return HtmlHelper.fromHtml(HtmlHelper.toHtml(s), new Html.ImageGetter() {
                     @Override
