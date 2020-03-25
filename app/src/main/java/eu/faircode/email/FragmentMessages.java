@@ -3908,13 +3908,18 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 Collections.sort(dups, new Comparator<TupleMessageEx>() {
                     @Override
                     public int compare(TupleMessageEx d1, TupleMessageEx d2) {
-                        int o1 = DUPLICATE_ORDER.indexOf(d1.folderType);
-                        int o2 = DUPLICATE_ORDER.indexOf(d2.folderType);
-                        return ((Integer) o1).compareTo(o2);
+                        Integer o1 = DUPLICATE_ORDER.indexOf(d1.folderType);
+                        Integer o2 = DUPLICATE_ORDER.indexOf(d2.folderType);
+                        return o1.compareTo(o2);
                     }
                 });
-                for (int i = 1; i < dups.size(); i++)
-                    dups.get(i).duplicate = true;
+
+                TupleMessageEx first = dups.get(0);
+                for (int i = 1; i < dups.size(); i++) {
+                    TupleMessageEx dup = dups.get(i);
+                    if (!Objects.equals(first.folderType, dup.folderType))
+                        dup.duplicate = true;
+                }
             }
         }
 
