@@ -481,6 +481,7 @@
     <string name="title_primary_account">Primär (standardkonto)</string>
     <string name="title_primary_identity">Primär (standardidentitet)</string>
     <string name="title_leave_on_server">Spara alla meddelanden på servern</string>
+    <string name="title_leave_deleted">Lämna raderade meddelanden på servern</string>
     <string name="title_leave_on_device">Spara meddelanden på enheten</string>
     <string name="title_max_messages">Maximalt antal meddelanden att ladda ner (lämna tomt för alla)</string>
     <string name="title_keep_alive_interval">Keep-alive/frågeintervall (minuter)</string>
@@ -532,6 +533,8 @@
     <string name="title_create_channel">Skapa aviseringskanal</string>
     <string name="title_edit_channel">Redigera aviseringskanal</string>
     <string name="title_delete_channel">Ta bort aviseringskanal</string>
+    <string name="title_insert_contact">Lägg till kontakt</string>
+    <string name="title_edit_contact">Redigera kontakt</string>
     <string name="title_create_sub_folder">Skapa undermapp</string>
     <string name="title_empty_trash_ask">Ta bort alla meddelanden i den lokala papperskorgen permanent?</string>
     <string name="title_empty_spam_ask">Ta bort alla meddelanden i den lokala skräppostensmappen permanent?</string>
@@ -736,6 +739,7 @@
     <string name="title_send_receipt">Begär läskvitto</string>
     <string name="title_send_receipt_remark">De flesta leverantörer och e-postklienter ignorerar kvittonförfrågningar</string>
     <string name="title_from_missing">Avsändaren saknas</string>
+    <string name="title_extra_missing">Användarnamn saknas</string>
     <string name="title_to_missing">Mottagare saknas</string>
     <string name="title_subject_reminder">Ämnet är tomt</string>
     <string name="title_text_reminder">Meddelandet är tomt</string>
@@ -1044,6 +1048,8 @@
     <string name="title_pro_valid">Alla pro-funktioner aktiverade</string>
     <string name="title_pro_invalid">Ogiltigt svar</string>
     <string name="title_pro_support">FairEmail behöver din hjälp. Tryck för att köpa pro-funktioner för att hålla projektet igång.</string>
+    <string name="title_boundary_error">Fel vid nedladdning av meddelanden från e-postservern</string>
+    <string name="title_boundary_retry">Försök igen</string>
     <string name="title_unexpected_error">Oväntat fel</string>
     <string name="title_log">Logg</string>
     <string name="title_auto_scroll">Automatisk rullning</string>

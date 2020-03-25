@@ -76,7 +76,7 @@
     <string name="menu_legend">图例</string>
     <string name="menu_test">下载测试版本</string>
     <string name="menu_faq">支持</string>
-    <string name="menu_translate">帮助翻译</string>
+    <string name="menu_translate">协助翻译</string>
     <string name="menu_issue">报告问题</string>
     <string name="menu_attribution">归因</string>
     <string name="menu_privacy">隐私政策</string>
@@ -140,7 +140,7 @@
     <string name="title_setup_doze">设置电池优化</string>
     <string name="title_setup_doze_remark">持续接受邮件(可选)</string>
     <string name="title_setup_doze_instructions">在下以个界面，选择最上面的\"所有应用\"，找到此应用并选择\"不优化\"</string>
-    <string name="title_setup_doze_battery">高耗电?</string>
+    <string name="title_setup_doze_battery">耗电量高？</string>
     <string name="title_setup_doze_stopped">同步已停止？</string>
     <string name="title_setup_data">已启用数据节省</string>
     <string name="title_setup_inbox">前往邮件</string>
@@ -522,6 +522,8 @@
     <string name="title_create_channel">创建通知通道</string>
     <string name="title_edit_channel">编辑通知通道</string>
     <string name="title_delete_channel">删除通知通道</string>
+    <string name="title_insert_contact">添加联系人</string>
+    <string name="title_edit_contact">编辑联系人</string>
     <string name="title_create_sub_folder">创建子文件夹</string>
     <string name="title_empty_trash_ask">是否永久删除所有本地回收站的邮件？</string>
     <string name="title_empty_spam_ask">是否永久删除所有本地的垃圾邮件？</string>
@@ -726,6 +728,7 @@
     <string name="title_send_receipt">请求回执</string>
     <string name="title_send_receipt_remark">大多数供应商和电子邮件客户都忽略回执请求</string>
     <string name="title_from_missing">缺少发件人</string>
+    <string name="title_extra_missing">用户名缺失</string>
     <string name="title_to_missing">缺少收件人</string>
     <string name="title_subject_reminder">主题为空</string>
     <string name="title_text_reminder">消息为空</string>

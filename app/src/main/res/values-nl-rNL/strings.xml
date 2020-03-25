@@ -533,6 +533,8 @@
     <string name="title_create_channel">Meldingskanaal maken</string>
     <string name="title_edit_channel">Meldingskanaal wijzigen</string>
     <string name="title_delete_channel">Meldingskanaal verwijderen</string>
+    <string name="title_insert_contact">Contact toevoegen</string>
+    <string name="title_edit_contact">Contact bewerken</string>
     <string name="title_create_sub_folder">Maak submap</string>
     <string name="title_empty_trash_ask">Alle lokaal weggegooide berichten definitief verwijderen?</string>
     <string name="title_empty_spam_ask">Alle lokale spam berichten definitief verwijderen?</string>
@@ -737,6 +739,7 @@
     <string name="title_send_receipt">Vraag bevestiging</string>
     <string name="title_send_receipt_remark">De meeste aanbieders en e-mail clients negeren bevestigingsverzoeken</string>
     <string name="title_from_missing">Zender ontbreekt</string>
+    <string name="title_extra_missing">Gebruikersnaam ontbreekt</string>
     <string name="title_to_missing">Ontvanger ontbreekt</string>
     <string name="title_subject_reminder">Onderwerp is leeg</string>
     <string name="title_text_reminder">Bericht is leeg</string>

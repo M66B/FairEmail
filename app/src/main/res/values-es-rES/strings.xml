@@ -535,6 +535,8 @@
     <string name="title_create_channel">Crear canal de notificación</string>
     <string name="title_edit_channel">Editar canal de notificación</string>
     <string name="title_delete_channel">Eliminar canal de notificación</string>
+    <string name="title_insert_contact">Agregar contacto</string>
+    <string name="title_edit_contact">Editar contacto</string>
     <string name="title_create_sub_folder">Crear subcarpeta</string>
     <string name="title_empty_trash_ask">¿Borrar todos los mensajes de la papelera local permanentemente?</string>
     <string name="title_empty_spam_ask">¿Borrar todos los mensajes de spam locales permanentemente?</string>
@@ -739,6 +741,7 @@
     <string name="title_send_receipt">Solicitar acuse</string>
     <string name="title_send_receipt_remark">La mayoría de los clientes y proveedores de email ignoran los pedidos de recibos</string>
     <string name="title_from_missing">Falta remitente</string>
+    <string name="title_extra_missing">Falta el nombre de usuario</string>
     <string name="title_to_missing">Falta destinatario</string>
     <string name="title_subject_reminder">El asunto está vacío</string>
     <string name="title_text_reminder">El mensaje está vacío</string>

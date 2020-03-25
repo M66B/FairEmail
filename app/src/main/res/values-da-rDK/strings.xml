@@ -482,6 +482,7 @@
     <string name="title_primary_account">Primær (standardkonto)</string>
     <string name="title_primary_identity">Primær (standardidentitet)</string>
     <string name="title_leave_on_server">Lad beskeder forblive på server</string>
+    <string name="title_leave_deleted">Lad slettede beskeder forblive på serveren</string>
     <string name="title_leave_on_device">Lad beskeder forblive på enhed</string>
     <string name="title_max_messages">Maks. antal beskeder at downloade (tomt for samtlige)</string>
     <string name="title_keep_alive_interval">Hold i live/hentningsinterval (minutter)</string>
@@ -533,6 +534,8 @@
     <string name="title_create_channel">Opret notifikationskanal</string>
     <string name="title_edit_channel">Redigér notifikationskanal</string>
     <string name="title_delete_channel">Slet notifikationskanal</string>
+    <string name="title_insert_contact">Tilføj Kontakt</string>
+    <string name="title_edit_contact">Redigér Kontakt</string>
     <string name="title_create_sub_folder">Opret undermappe</string>
     <string name="title_empty_trash_ask">Slet permanent alt lokalt beskedindhold i papirkurven?</string>
     <string name="title_empty_spam_ask">Slet permanent alle lokale spambeskeder?</string>
@@ -737,6 +740,7 @@
     <string name="title_send_receipt">Bed om kvittering</string>
     <string name="title_send_receipt_remark">De fleste udbydere og e-mailklienter ignorerer kvitteringsanmodninger</string>
     <string name="title_from_missing">Afsender mangler</string>
+    <string name="title_extra_missing">Brugernavn mangler</string>
     <string name="title_to_missing">Modtager mangler</string>
     <string name="title_subject_reminder">Emne er tomt</string>
     <string name="title_text_reminder">Besked er tom</string>
@@ -1044,6 +1048,8 @@
     <string name="title_pro_valid">Alle Pro-funktioner er aktiveret</string>
     <string name="title_pro_invalid">Ugyldigt svar</string>
     <string name="title_pro_support">FairEmail behøver din støtte. Tryk hér for at købe Pro-funktioner og holde projektet kørende.</string>
+    <string name="title_boundary_error">Fejl under download af beskeder fra mailserveren</string>
+    <string name="title_boundary_retry">Forsøg igen</string>
     <string name="title_unexpected_error">Uventet fejl</string>
     <string name="title_log">Log</string>
     <string name="title_auto_scroll">Auto-rulning</string>

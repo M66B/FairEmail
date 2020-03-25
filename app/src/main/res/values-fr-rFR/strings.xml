@@ -534,6 +534,8 @@
     <string name="title_create_channel">Créer un canal de notification</string>
     <string name="title_edit_channel">Modifier un canal de notification</string>
     <string name="title_delete_channel">Supprimer un canal de notification</string>
+    <string name="title_insert_contact">Ajouter un contact</string>
+    <string name="title_edit_contact">Modifier un contact</string>
     <string name="title_create_sub_folder">Créer un sous-dossier</string>
     <string name="title_empty_trash_ask">Supprimer définitivement tous les messages de la corbeille locale ?</string>
     <string name="title_empty_spam_ask">Supprimer définitivement tous les messages de spam locaux ?</string>
@@ -738,6 +740,7 @@
     <string name="title_send_receipt">Demander une confirmation</string>
     <string name="title_send_receipt_remark">La plupart des fournisseurs et des clients de messagerie ignorent les demandes d\'accusé de réception</string>
     <string name="title_from_missing">Expéditeur manquant</string>
+    <string name="title_extra_missing">Nom d\'utilisateur manquant</string>
     <string name="title_to_missing">Destinataire manquant</string>
     <string name="title_subject_reminder">L\'objet est vide</string>
     <string name="title_text_reminder">Le message est vide</string>

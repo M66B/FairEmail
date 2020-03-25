@@ -531,6 +531,8 @@
     <string name="title_create_channel">Sortu jakinarazpen kanala</string>
     <string name="title_edit_channel">Editatu jakinarazpen kanala</string>
     <string name="title_delete_channel">Ezabatu jakinarazpen kanala</string>
+    <string name="title_insert_contact">Gehitu kontaktua</string>
+    <string name="title_edit_contact">Editatu kontaktua</string>
     <string name="title_create_sub_folder">Sortu azpi-karpeta</string>
     <string name="title_empty_trash_ask">Ezabatu zakarrontzi lokaleko mezuak behin betiko?</string>
     <string name="title_empty_spam_ask">Ezabatu spam lokaleko mezuak behin betiko?</string>
@@ -735,6 +737,7 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_send_receipt">Eskatu agiria</string>
     <string name="title_send_receipt_remark">Hornitzaile eta bezero gehienek ez dituzte jasotze agiri eskariak aintzat hartzen</string>
     <string name="title_from_missing">Igorlea falta da</string>
+    <string name="title_extra_missing">Erabiltzailearen izena falta da</string>
     <string name="title_to_missing">Hartzailea falta da</string>
     <string name="title_subject_reminder">Mintzagaia hutsik dago</string>
     <string name="title_text_reminder">Mezua hutsik dago</string>
@@ -1043,6 +1046,8 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_pro_valid">Ordainpeko ezaugarri guztiak aktibatuta</string>
     <string name="title_pro_invalid">Erantzun baliogabea</string>
     <string name="title_pro_support">FairEmail proiektuak zure laguntza behar du. Sakatu ordainpeko ezaugarriak erosi eta proiektua babesteko.</string>
+    <string name="title_boundary_error">Errorea mezu elektronikoak posta-zerbitzaritik deskargatzean</string>
+    <string name="title_boundary_retry">Saiatu berriro</string>
     <string name="title_unexpected_error">Ustekabeko errorea</string>
     <string name="title_log">Egunkaria</string>
     <string name="title_auto_scroll">Korritze automatikoa</string>

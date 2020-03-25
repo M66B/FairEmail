@@ -503,6 +503,7 @@
     <string name="title_primary_account">Hlavní (výchozí účet)</string>
     <string name="title_primary_identity">Hlavní (výchozí identita)</string>
     <string name="title_leave_on_server">Ponechat zprávy na serveru</string>
+    <string name="title_leave_deleted">Ponechat smazané zprávy na serveru</string>
     <string name="title_leave_on_device">Ponechat zprávy v zařízení</string>
     <string name="title_max_messages">Maximální počet zpráv ke stažení (prázdné pro všechny)</string>
     <string name="title_keep_alive_interval">Interval udržování spojení/dotazování (minuty)</string>
@@ -1063,6 +1064,8 @@
     <string name="title_pro_valid">Všechny Pro funkce aktivovány</string>
     <string name="title_pro_invalid">Neplatná odpověď</string>
     <string name="title_pro_support">FairEmail potřebuje vaši pomoc. Stiskněte pro zakoupení Pro funkcí a zajistěte pokračování projektu.</string>
+    <string name="title_boundary_error">Chyba při stahování zpráv z e-mailového serveru</string>
+    <string name="title_boundary_retry">Zkusit znovu</string>
     <string name="title_unexpected_error">Neočekávaná chyba</string>
     <string name="title_log">Záznam</string>
     <string name="title_auto_scroll">Automatické posouvání</string>

@@ -534,6 +534,8 @@
     <string name="title_create_channel">Crea un canale di notifica</string>
     <string name="title_edit_channel">Modifica canale di notifica</string>
     <string name="title_delete_channel">Elimina canale di notifica</string>
+    <string name="title_insert_contact">Aggiungi contatto</string>
+    <string name="title_edit_contact">Modifica contatto</string>
     <string name="title_create_sub_folder">Crea sottocartella</string>
     <string name="title_empty_trash_ask">Eliminare definitivamente tutti i messaggi cestinati localmente?</string>
     <string name="title_empty_spam_ask">Eliminare definitivamente tutti i messaggi spam locali?</string>
@@ -737,6 +739,7 @@
     <string name="title_send_receipt">Richiedi ricevuta</string>
     <string name="title_send_receipt_remark">La maggior parte dei provider e dei client di posta elettronica ignora le richieste di ricevuta</string>
     <string name="title_from_missing">Mittente mancante</string>
+    <string name="title_extra_missing">Nome utente mancante</string>
     <string name="title_to_missing">Destinatario mancante</string>
     <string name="title_subject_reminder">Oggetto vuoto</string>
     <string name="title_text_reminder">Il messaggio è vuoto</string>

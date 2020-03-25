@@ -556,6 +556,8 @@
     <string name="title_create_channel">Создать канал уведомлений</string>
     <string name="title_edit_channel">Изменить канал уведомлений</string>
     <string name="title_delete_channel">Удалить канал уведомлений</string>
+    <string name="title_insert_contact">Добавить контакт</string>
+    <string name="title_edit_contact">Изменить контакт</string>
     <string name="title_create_sub_folder">Создать вложенную папку</string>
     <string name="title_empty_trash_ask">Удалить все сообщения в корзине на устройстве навсегда?</string>
     <string name="title_empty_spam_ask">Удалить все сообщения в папке \"Спам\" на устройстве навсегда?</string>
@@ -760,6 +762,7 @@
     <string name="title_send_receipt">Запросить уведомление</string>
     <string name="title_send_receipt_remark">Большинство провайдеров и клиентов электронной почты игнорируют запросы о доставке</string>
     <string name="title_from_missing">Отсутствует отправитель</string>
+    <string name="title_extra_missing">Отсутствует имя пользователя</string>
     <string name="title_to_missing">Отсутствует получатель</string>
     <string name="title_subject_reminder">Тема пустая</string>
     <string name="title_text_reminder">Сообщение пустое</string>

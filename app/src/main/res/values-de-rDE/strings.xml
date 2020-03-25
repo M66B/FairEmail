@@ -262,8 +262,8 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_startup">Auf Startbildschirm anzeigen</string>
     <string name="title_advanced_cards">Ordner und Unterhaltungen mit Rahmen (breit) statt in Tabellendesign (schmal) zeigen</string>
     <string name="title_advanced_date_header">Nach Datum gruppieren</string>
-    <string name="title_advanced_threading">Unterhaltungsfaden</string>
-    <string name="title_advanced_indentation">In der Unterhaltungsansicht empfangene Nachrichten nach links und Gesendete nach rechts einrücken</string>
+    <string name="title_advanced_threading">Themenbaum</string>
+    <string name="title_advanced_indentation">Empfangene/gesendete Nachrichten im Themenbaum links/rechts einrücken</string>
     <string name="title_advanced_highlight_unread">Ungelesene Nachrichten hervorheben</string>
     <string name="title_advanced_highlight_subject">Betreff hervorheben</string>
     <string name="title_advanced_color_stripe">Farbstreifen anzeigen</string>
@@ -300,21 +300,21 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_text_size">Kleine und große Texte anzeigen</string>
     <string name="title_advanced_collapse_quotes">Zitierten Text ausblenden</string>
     <string name="title_advanced_images_inline">Eingebettete Grafiken automatisch anzeigen</string>
-    <string name="title_advanced_seekbar">Relative Gesprächsposition mit einem Punkt anzeigen</string>
-    <string name="title_advanced_actionbar">Navigationsleiste in Unterhaltung anzeigen</string>
+    <string name="title_advanced_seekbar">Relative Themenposition mit einem Punkt kennzeichnen</string>
+    <string name="title_advanced_actionbar">Navigationsleiste in Themen anzeigen</string>
     <string name="title_advanced_navbar_colorize">Android-Navigationsleiste farbig darstellen</string>
     <string name="title_advanced_double_back">Zweifaches „Zurück” zum Beenden</string>
     <string name="title_advanced_pull_refresh">Zum Aktualisieren nach unten ziehen</string>
     <string name="title_advanced_autoscroll">Beim Empfang neuer Nachrichten nach oben rollen</string>
     <string name="title_advanced_double_tap">Doppelt antippen, um die Nachricht als gelesen bzw. ungelesen zu kennzeichnen</string>
-    <string name="title_advanced_swipenav">Nach links/rechts wischen, um nächste/vorige Unterhaltung anzuzeigen</string>
+    <string name="title_advanced_swipenav">Nach links/rechts wischen, um zum nächsten/vorherigen Thema zu wechseln</string>
     <string name="title_advanced_volumenav">Lautstärke hoch/runter, um zur nächsten/vorherigen Unterhaltung zu wechseln</string>
     <string name="title_advanced_reversed">Navigationsrichtung umkehren</string>
     <string name="title_advanced_autoexpand">Nachrichten automatisch erweitern</string>
     <string name="title_advanced_expand_all">Alle gelesenen Nachrichten automatisch erweitern</string>
     <string name="title_advanced_expand_one">Jeweils nur eine Nachricht erweitern</string>
-    <string name="title_advanced_collapse_multiple">In Unterhaltungen mit mehreren Nachrichten diese bei „zurück” einklappen</string>
-    <string name="title_advanced_autoclose">Unterhaltungen automatisch schließen</string>
+    <string name="title_advanced_collapse_multiple">Nachrichten in einem Thema mit mehreren Nachrichten bei „Zurück” zusammenfassen</string>
+    <string name="title_advanced_autoclose">Themen automatisch schließen</string>
     <string name="title_advanced_onclose">Beim Schließen einer Unterhaltung</string>
     <string name="title_advanced_quick_filter">Unaufdringliche Schnellfiltersymbole anzeigen</string>
     <string name="title_advanced_quick_scroll">Nicht aufdringliche Symbole für schnellen Bildlauf nach oben oder unten anzeigen</string>
@@ -418,9 +418,9 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_preview_hint">Nur verfügbar, wenn der E-Mail-Text heruntergeladen wurde</string>
     <string name="title_advanced_preview_issue">Rollen kann aufgrund eines Fehlers in einigen Android-Versionen langsam sein, wenn die Anzahl der Zeilen mehr als eine ist</string>
     <string name="title_advanced_inline_hint">Eingebettete Grafiken sind Grafiken, die innerhalb der Nachricht enthalten sind</string>
-    <string name="title_advanced_autoexpand_hint">Nachricht automatisch öffnen, wenn es nur eine Nachricht oder eine ungelesene Nachricht in einer Unterhaltung gibt</string>
+    <string name="title_advanced_autoexpand_hint">Nachricht automatisch öffnen, wenn nur eine gelesene/ungelesene Nachricht in einem Thema enthalten ist</string>
     <string name="title_advanced_autoseen_hint">Das automatische Markieren von Nachrichten bei ihrer Erweiterung als gelesen kann in den einzelnen Kontoeinstellungen deaktiviert werden</string>
-    <string name="title_advanced_autoclose_hint">Automatisch Unterhaltungen schließen, wenn alle E-Mails archiviert, gesendet oder gelöscht wurden</string>
+    <string name="title_advanced_autoclose_hint">Themen automatisch schließen, wenn alle Nachrichten archiviert, gesendet oder gelöscht werden</string>
     <string name="title_advanced_sender_hint">Die meisten Anbieter erlauben keine veränderten Absenderadressen</string>
     <string name="title_advanced_bcc_hint">Die Adresse wird nicht angezeigt, wird aber beim Absenden hinzugefügt</string>
     <string name="title_advanced_display_harmful_hint">Deaktivieren dieser Option kann für Ihre Privatsphäre schädlich sein</string>
@@ -535,6 +535,8 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_create_channel">Benachrichtigungskanal erstellen</string>
     <string name="title_edit_channel">Benachrichtigungskanal bearbeiten</string>
     <string name="title_delete_channel">Benachrichtigungskanal löschen</string>
+    <string name="title_insert_contact">Kontakt hinzufügen</string>
+    <string name="title_edit_contact">Kontakt bearbeiten</string>
     <string name="title_create_sub_folder">Unterordner erstellen</string>
     <string name="title_empty_trash_ask">Alle lokalen gelöschten Nachrichten dauerhaft löschen?</string>
     <string name="title_empty_spam_ask">Alle lokalen Spam-Nachrichten dauerhaft löschen?</string>
@@ -739,6 +741,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_send_receipt">Bestätigung anfordern</string>
     <string name="title_send_receipt_remark">Die meisten Anbieter und E-Mail-Programme ignorieren Empfangsanforderungen</string>
     <string name="title_from_missing">Absender fehlt</string>
+    <string name="title_extra_missing">Benutzername fehlt</string>
     <string name="title_to_missing">Empfänger fehlt</string>
     <string name="title_subject_reminder">Betreff ist leer</string>
     <string name="title_text_reminder">Nachricht ist leer</string>
@@ -1137,8 +1140,8 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     </string-array>
     <string-array name="onCloseNames">
         <item>Nichts tun</item>
-        <item>Zur vorherigen Unterhaltung gehen</item>
-        <item>Zur nächsten Unterhaltung gehen</item>
+        <item>Zur vorherigen Thema wechseln</item>
+        <item>Zum nächsten Thema wechseln</item>
     </string-array>
     <string-array name="resizeNames">
         <item>Klein</item>
