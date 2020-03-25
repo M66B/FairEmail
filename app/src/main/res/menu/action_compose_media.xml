@@ -13,7 +13,7 @@
     <item
         android:id="@+id/menu_image"
         android:icon="@drawable/baseline_image_24"
-        android:title="@string/title_style_image" />
+        android:title="@string/title_add_image" />
 
     <item
         android:id="@+id/menu_attachment"

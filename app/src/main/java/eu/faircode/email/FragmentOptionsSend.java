@@ -32,7 +32,6 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -53,11 +52,8 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private SwitchCompat swPrefixOnce;
     private SwitchCompat swExtendedReply;
     private SwitchCompat swQuoteReply;
+    private SwitchCompat swResizeReply;
     private Spinner spSignatureLocation;
-    private SwitchCompat swResizeImages;
-    private SwitchCompat swResizeAttachments;
-    private Spinner spAutoResize;
-    private TextView tvAutoResize;
 
     private SwitchCompat swPlainOnly;
     private SwitchCompat swFormatFlowed;
@@ -69,8 +65,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
 
     private final static String[] RESET_OPTIONS = new String[]{
             "keyboard", "suggest_sent", "suggested_received", "send_reminders", "send_delayed",
-            "prefix_once", "extended_reply", "quote_reply", "signature_location",
-            "resize_images", "resize_attachments", "resize",
+            "prefix_once", "extended_reply", "quote_reply", "resize_reply", "signature_location",
             "plain_only", "format_flowed", "usenet_signature", "remove_signatures",
             "receipt_default", "receipt_type", "lookup_mx"
     };
@@ -95,11 +90,8 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swPrefixOnce = view.findViewById(R.id.swPrefixOnce);
         swExtendedReply = view.findViewById(R.id.swExtendedReply);
         swQuoteReply = view.findViewById(R.id.swQuoteReply);
+        swResizeReply = view.findViewById(R.id.swResizeReply);
         spSignatureLocation = view.findViewById(R.id.spSignatureLocation);
-        swResizeImages = view.findViewById(R.id.swResizeImages);
-        swResizeAttachments = view.findViewById(R.id.swResizeAttachments);
-        spAutoResize = view.findViewById(R.id.spAutoResize);
-        tvAutoResize = view.findViewById(R.id.tvAutoResize);
 
         swPlainOnly = view.findViewById(R.id.swPlainOnly);
         swFormatFlowed = view.findViewById(R.id.swFormatFlowed);
@@ -185,6 +177,13 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             }
         });
 
+        swResizeReply.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("resize_reply", checked).apply();
+            }
+        });
+
         spSignatureLocation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
@@ -194,36 +193,6 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 prefs.edit().remove("signature_location").apply();
-            }
-        });
-
-        swResizeImages.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("resize_images", checked).apply();
-            }
-        });
-
-        swResizeAttachments.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("resize_attachments", checked).apply();
-                spAutoResize.setEnabled(swResizeImages.isChecked() || swResizeAttachments.isChecked());
-            }
-        });
-
-        spAutoResize.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-                int[] values = getResources().getIntArray(R.array.resizeValues);
-                prefs.edit().putInt("resize", values[position]).apply();
-                tvAutoResize.setText(getString(R.string.title_advanced_resize_pixels, values[position]));
-                spAutoResize.setEnabled(swResizeImages.isChecked() || swResizeAttachments.isChecked());
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                prefs.edit().remove("resize").apply();
             }
         });
 
@@ -343,22 +312,10 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swPrefixOnce.setChecked(prefs.getBoolean("prefix_once", true));
         swExtendedReply.setChecked(prefs.getBoolean("extended_reply", false));
         swQuoteReply.setChecked(prefs.getBoolean("quote_reply", true));
+        swResizeReply.setChecked(prefs.getBoolean("resize_reply", true));
 
         int signature_location = prefs.getInt("signature_location", 1);
         spSignatureLocation.setSelection(signature_location);
-
-        swResizeImages.setChecked(prefs.getBoolean("resize_images", true));
-        swResizeAttachments.setChecked(prefs.getBoolean("resize_attachments", true));
-
-        int resize = prefs.getInt("resize", FragmentCompose.REDUCED_IMAGE_SIZE);
-        int[] resizeValues = getResources().getIntArray(R.array.resizeValues);
-        for (int pos = 0; pos < resizeValues.length; pos++)
-            if (resizeValues[pos] == resize) {
-                spAutoResize.setSelection(pos);
-                tvAutoResize.setText(getString(R.string.title_advanced_resize_pixels, resizeValues[pos]));
-                break;
-            }
-        spAutoResize.setEnabled(swResizeImages.isChecked() || swResizeAttachments.isChecked());
 
         swPlainOnly.setChecked(prefs.getBoolean("plain_only", false));
         swFormatFlowed.setChecked(prefs.getBoolean("format_flowed", false));

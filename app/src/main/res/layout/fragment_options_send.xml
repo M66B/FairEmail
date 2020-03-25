@@ -190,6 +190,18 @@
             app:layout_constraintTop_toBottomOf="@id/swExtendedReply"
             app:switchPadding="12dp" />
 
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swResizeReply"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/title_advanced_resize_reply"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swQuoteReply"
+            app:switchPadding="12dp" />
+
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvSignatureLocation"
             android:layout_width="0dp"
@@ -201,7 +213,7 @@
             android:textColor="?android:attr/textColorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swQuoteReply" />
+            app:layout_constraintTop_toBottomOf="@id/swResizeReply" />
 
         <Spinner
             android:id="@+id/spSignatureLocation"
@@ -211,48 +223,6 @@
             android:entries="@array/signatureNames"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSignatureLocation" />
-
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/swResizeImages"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:checked="true"
-            android:text="@string/title_advanced_resize_images"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/spSignatureLocation"
-            app:switchPadding="12dp" />
-
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/swResizeAttachments"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:checked="true"
-            android:text="@string/title_advanced_resize_attachments"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swResizeImages"
-            app:switchPadding="12dp" />
-
-        <Spinner
-            android:id="@+id/spAutoResize"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:entries="@array/resizeNames"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swResizeAttachments" />
-
-        <eu.faircode.email.FixedTextView
-            android:id="@+id/tvAutoResize"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/title_advanced_resize_pixels"
-            app:layout_constraintBottom_toBottomOf="@id/spAutoResize"
-            app:layout_constraintStart_toEndOf="@id/spAutoResize"
-            app:layout_constraintTop_toTopOf="@id/spAutoResize" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvCaptionAdvanced"
@@ -264,7 +234,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spAutoResize" />
+            app:layout_constraintTop_toBottomOf="@+id/spSignatureLocation" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swPlainOnly"

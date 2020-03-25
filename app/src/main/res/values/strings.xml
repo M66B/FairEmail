@@ -277,6 +277,7 @@
     <string name="title_advanced_prefix_once">Prefix subject only once on replying or forwarding</string>
     <string name="title_advanced_extended_reply">Use extended reply/forward header</string>
     <string name="title_advanced_quote_reply">Quote replied text</string>
+    <string name="title_advanced_resize_reply">Resize images in replied text</string>
     <string name="title_advanced_signature_location">Signature position</string>
     <string name="title_advanced_signature_end">Add signature after quoted/forwarded message</string>
     <string name="title_advanced_plain_only">Send plain text only by default</string>
@@ -284,9 +285,6 @@
     <string name="title_advanced_receipt">When requesting a receipt</string>
     <string name="title_advanced_usenet_signature">Usenet signature convention</string>
     <string name="title_advanced_remove_signatures">Remove recognized signatures</string>
-    <string name="title_advanced_resize_images">Automatically resize embedded images</string>
-    <string name="title_advanced_resize_attachments">Automatically resize image attachments</string>
-    <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>
     <string name="title_advanced_send_reminders">Show reminders</string>
     <string name="title_advanced_lookup_mx">Check recipient email addresses before sending</string>
     <string name="title_advanced_send_delayed">Delay sending messages</string>
@@ -819,7 +817,12 @@
     <string name="title_style_color">Color</string>
     <string name="title_style_clear">Clear formatting</string>
     <string name="title_style_link">Insert link</string>
-    <string name="title_style_image">Insert image</string>
+    <string name="title_add_image">Add image</string>
+    <string name="title_add_image_inline">Insert</string>
+    <string name="title_add_image_attach">Attach</string>
+    <string name="title_add_image_resize">Resize</string>
+    <string name="title_add_resize_pixels">&lt; %1$d pixels</string>
+    <string name="title_add_image_select">Select file</string>
     <string name="title_add_attachment">Add attachment</string>
     <string name="title_attachment_file">Attach file</string>
     <string name="title_attachment_photo">Take photo</string>
