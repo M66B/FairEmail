@@ -5392,7 +5392,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                         target.setCertificate(cert);
 
                                         // Load/store intermediate certificates
-                                        List<X509Certificate> local = new ArrayList<>();
+                                        List<X509Certificate> local = new ArrayList<>(certs);
                                         try {
                                             List<EntityCertificate> ecs = db.certificate().getIntermediateCertificate();
                                             for (EntityCertificate ec : ecs)
@@ -5421,7 +5421,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                             }
                                         } catch (Throwable ex) {
                                             Log.e(ex);
-                                            local = certs;
                                         }
 
                                         // Intermediate certificates
