@@ -320,12 +320,7 @@ public class FragmentSetup extends FragmentBase {
 
                     EntityFolder outbox = db.folder().getOutbox();
                     if (outbox == null) {
-                        outbox = new EntityFolder();
-                        outbox.name = "OUTBOX";
-                        outbox.type = EntityFolder.OUTBOX;
-                        outbox.synchronize = false;
-                        outbox.sync_days = 0;
-                        outbox.keep_days = 0;
+                        outbox = EntityFolder.getOutbox();
                         outbox.id = db.folder().insertFolder(outbox);
                     }
 

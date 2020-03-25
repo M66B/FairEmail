@@ -3905,8 +3905,11 @@ public class FragmentCompose extends FragmentBase {
                         EntityOperation.queue(context, draft, EntityOperation.DELETE);
 
                         EntityFolder outbox = db.folder().getOutbox();
-                        if (outbox == null)
-                            throw new IllegalArgumentException("Outbox missing");
+                        if (outbox == null) {
+                            Log.e("Outbox missing");
+                            outbox = EntityFolder.getOutbox();
+                            outbox.id = db.folder().insertFolder(outbox);
+                        }
 
                         // Copy message to outbox
                         draft.id = null;
