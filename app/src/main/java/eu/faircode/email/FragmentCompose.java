@@ -3536,7 +3536,7 @@ public class FragmentCompose extends FragmentBase {
 
                         Log.i("Draft content=" + draft.content);
                         if (draft.content && state == State.NONE)
-                            showDraft(draft);
+                            showDraft(draft, false);
 
                         tvNoInternet.setTag(draft.content);
                         checkInternet();
@@ -4035,12 +4035,14 @@ public class FragmentCompose extends FragmentBase {
                 finish();
 
             } else if (action == R.id.action_undo || action == R.id.action_redo) {
-                showDraft(draft);
+                showDraft(draft, false);
 
             } else if (action == R.id.action_save) {
-                boolean show = args.getBundle("extras").getBoolean("show");
+                Bundle extras = args.getBundle("extras");
+                boolean show = extras.getBoolean("show");
+                boolean html = extras.containsKey("html");
                 if (show)
-                    showDraft(draft);
+                    showDraft(draft, html);
 
             } else if (action == R.id.action_check) {
                 boolean dialog = args.getBundle("extras").getBoolean("dialog");
@@ -4161,7 +4163,7 @@ public class FragmentCompose extends FragmentBase {
             ref.first().before(div);
     }
 
-    private void showDraft(final EntityMessage draft) {
+    private void showDraft(final EntityMessage draft, final boolean scroll) {
         Bundle args = new Bundle();
         args.putLong("id", draft.id);
         args.putBoolean("show_images", show_images);
@@ -4261,7 +4263,10 @@ public class FragmentCompose extends FragmentBase {
             @Override
             protected void onExecuted(Bundle args, Spanned[] text) {
                 etBody.setText(text[0]);
-                etBody.setSelection(0);
+                if (scroll && text[0] != null)
+                    etBody.setSelection(text[0].length());
+                else
+                    etBody.setSelection(0);
                 grpBody.setVisibility(View.VISIBLE);
 
                 cbSignature.setChecked(draft.signature);
