@@ -65,6 +65,7 @@ import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
 import android.text.style.QuoteSpan;
 import android.text.style.StyleSpan;
+import android.text.style.URLSpan;
 import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -1409,12 +1410,27 @@ public class FragmentCompose extends FragmentBase {
     private void onActionLink() {
         Uri uri = null;
 
-        ClipboardManager cbm = (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
-        if (cbm != null && cbm.hasPrimaryClip()) {
-            String link = cbm.getPrimaryClip().getItemAt(0).coerceToText(getContext()).toString();
-            uri = Uri.parse(link);
-            if (uri.getScheme() == null)
-                uri = null;
+        if (etBody.hasSelection()) {
+            int start = etBody.getSelectionStart();
+            URLSpan[] spans = etBody.getText().getSpans(start, start, URLSpan.class);
+            if (spans.length > 0) {
+                String url = spans[0].getURL();
+                if (url != null) {
+                    uri = Uri.parse(url);
+                    if (uri.getScheme() == null)
+                        uri = null;
+                }
+            }
+        }
+
+        if (uri == null) {
+            ClipboardManager cbm = (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+            if (cbm != null && cbm.hasPrimaryClip()) {
+                String link = cbm.getPrimaryClip().getItemAt(0).coerceToText(getContext()).toString();
+                uri = Uri.parse(link);
+                if (uri.getScheme() == null)
+                    uri = null;
+            }
         }
 
         Bundle args = new Bundle();

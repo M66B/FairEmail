@@ -117,14 +117,17 @@ public class StyleHelper {
                         ss.removeSpan(span);
                     }
 
-                    if (start == end) {
-                        etBody.getText().insert(start, url);
-                        end += url.length();
-                        ss = new SpannableString(etBody.getText());
+                    if (url != null) {
+                        if (start == end) {
+                            etBody.getText().insert(start, url);
+                            end += url.length();
+                            ss = new SpannableString(etBody.getText());
+                        }
+
+                        ss.setSpan(new URLSpan(url), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                     }
 
-                    ss.setSpan(new URLSpan(url), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
+                    // Restore other spans
                     for (Object span : spans)
                         ss.setSpan(span, start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 

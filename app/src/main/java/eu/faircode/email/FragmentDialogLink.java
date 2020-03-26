@@ -87,6 +87,12 @@ public class FragmentDialogLink extends FragmentDialogBase {
                     }
                 })
                 .setNegativeButton(android.R.string.cancel, null)
+                .setNeutralButton(R.string.title_reset, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        sendResult(RESULT_OK);
+                    }
+                })
                 .create();
     }
 }
