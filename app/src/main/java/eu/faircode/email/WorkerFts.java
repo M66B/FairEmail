@@ -22,8 +22,12 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.os.Build;
+import android.view.textclassifier.TextClassificationManager;
+import android.view.textclassifier.TextLanguage;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.preference.PreferenceManager;
 import androidx.work.ExistingWorkPolicy;
 import androidx.work.OneTimeWorkRequest;
@@ -62,8 +66,13 @@ public class WorkerFts extends Worker {
             List<Long> ids = new ArrayList<>(INDEX_BATCH_SIZE);
             DB db = DB.getInstance(getApplicationContext());
             SQLiteDatabase sdb = FtsDbHelper.getInstance(getApplicationContext());
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
             try (Cursor cursor = db.message().getMessageFts()) {
                 while (cursor.moveToNext()) {
+                    boolean fts = prefs.getBoolean("fts", false);
+                    if (!fts)
+                        break;
+
                     long id = cursor.getLong(0);
                     EntityMessage message = db.message().getMessage(id);
                     if (message != null)
@@ -72,6 +81,11 @@ public class WorkerFts extends Worker {
 
                             File file = message.getFile(getApplicationContext());
                             String text = HtmlHelper.getFullText(file);
+
+                            if (BuildConfig.DEBUG &&
+                                    Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
+                                db.message().setMessageLanguage(message.id, getLanguage(text));
+
                             try {
                                 sdb.beginTransaction();
                                 FtsDbHelper.insert(sdb, message, text);
@@ -101,6 +115,21 @@ public class WorkerFts extends Worker {
             Log.e(ex);
             return Result.failure();
         }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.Q)
+    private String getLanguage(String text) {
+        TextClassificationManager tcm = (TextClassificationManager) getApplicationContext()
+                .getSystemService(Context.TEXT_CLASSIFICATION_SERVICE);
+        if (tcm == null)
+            return null;
+
+        TextLanguage.Request trequest = new TextLanguage.Request.Builder(text).build();
+        TextLanguage tlanguage = tcm.getTextClassifier().detectLanguage(trequest);
+        if (tlanguage.getLocaleHypothesisCount() > 0)
+            return tlanguage.getLocale(0).toLocale().getLanguage();
+
+        return null;
     }
 
     private void markIndexed(DB db, List<Long> ids) {

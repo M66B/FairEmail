@@ -796,6 +796,7 @@
     <string name="title_sent">Sent:</string>
     <string name="title_received">Received:</string>
     <string name="title_size">Size:</string>
+    <string name="title_language">Language:</string>
     <string name="title_subject">Subject:</string>
     <string name="title_attachment">Attachment:</string>
     <string name="title_body_hint">Your message</string>

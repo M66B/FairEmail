@@ -696,6 +696,7 @@
     <string name="title_sent">Verzonden:</string>
     <string name="title_received">Ontvangen:</string>
     <string name="title_size">Grootte:</string>
+    <string name="title_language">Taal:</string>
     <string name="title_subject">Onderwerp:</string>
     <string name="title_attachment">Bijlage:</string>
     <string name="title_body_hint">Uw bericht</string>
