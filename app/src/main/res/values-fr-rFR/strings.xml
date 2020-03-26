@@ -697,6 +697,7 @@
     <string name="title_sent">Envoyé :</string>
     <string name="title_received">Reçu :</string>
     <string name="title_size">Taille :</string>
+    <string name="title_language">Langue :</string>
     <string name="title_subject">Objet :</string>
     <string name="title_attachment">Pièce jointe :</string>
     <string name="title_body_hint">Votre message</string>

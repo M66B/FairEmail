@@ -694,6 +694,7 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_sent">Bidalita:</string>
     <string name="title_received">Jasota:</string>
     <string name="title_size">Tamaina:</string>
+    <string name="title_language">Hizkuntza:</string>
     <string name="title_subject">Mintzagaia:</string>
     <string name="title_attachment">Eranskina:</string>
     <string name="title_body_hint">Zure mezua</string>

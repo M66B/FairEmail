@@ -367,6 +367,7 @@
     <string name="title_advanced_shortcuts">Toon veelgebruikte contacten in het Android-deelmenu</string>
     <string name="title_advanced_conversation_actions">Stel acties voor</string>
     <string name="title_advanced_conversation_actions_replies">Stel antwoordteksten voor</string>
+    <string name="title_advanced_language_detection">Taal van bericht detecteren</string>
     <string name="title_advanced_fts">Zoekindex opbouwen</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d berichten geïndexeerd (%3$s)</string>
     <string name="title_advanced_english">Forceer Engelse taal</string>

@@ -717,6 +717,7 @@
     <string name="title_sent">Odesláno:</string>
     <string name="title_received">Přijato:</string>
     <string name="title_size">Velikost:</string>
+    <string name="title_language">Jazyk:</string>
     <string name="title_subject">Předmět:</string>
     <string name="title_attachment">Příloha:</string>
     <string name="title_body_hint">Vaše zpráva</string>

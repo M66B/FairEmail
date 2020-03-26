@@ -698,6 +698,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_sent">Gesendet:</string>
     <string name="title_received">Empfangen:</string>
     <string name="title_size">Größe:</string>
+    <string name="title_language">Sprache:</string>
     <string name="title_subject">Betreff:</string>
     <string name="title_attachment">Anhang:</string>
     <string name="title_body_hint">Ihre Nachricht</string>

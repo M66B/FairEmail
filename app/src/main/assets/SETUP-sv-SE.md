@@ -18,13 +18,13 @@ Om snabbinstallationen inte fungerar måste du konfigurera ett konto och en iden
 
 Om du vill lägga till ett konto trycker du på *Hantera konton* och trycker på den orange knappen *lägg till* längst ner. Välj en leverantör från listan, ange användarnamnet, vilket är mestadels din e-postadress och ange ditt lösenord. Tryck på *Kontrollera* för att låta FairEmail ansluta till e-postservern och hämta en lista över systemmappar. Efter att ha granskat valet av systemmapp kan du lägga till kontot genom att trycka på *Spara*.
 
-Om din leverantör inte finns i listan över leverantörer väljer du *Anpassad*. Ange domännamnet, till exempel *gmail.com* och tryck på *Hämta inställningar*. Om din leverantör stöder [automatisk upptäckt](https://tools.ietf.org/html/rfc6186), fyller FairEmail i värdnamnet och portnumret, annars kontrollerar du installationsinstruktionerna för din leverantör för rätt IMAP-värdnamn, portnummer och protokoll (SSL/TLS eller STARTTLS). För mer information om detta, vänligen se [här](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
+Om din leverantör inte finns i listan över leverantörer väljer du *Anpassad*. Ange domännamnet, till exempel *gmail.com* och tryck på *Hämta inställningar*. Om din leverantör stödjer [automatisk upptäckt](https://tools.ietf.org/html/rfc6186), fyller FairEmail i värdnamnet och portnumret, annars kontrollerar du installationsinstruktionerna för din leverantör för rätt IMAP-värdnamn, portnummer och protokoll (SSL/TLS eller STARTTLS). För mer information om detta, vänligen se [här](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
 
 ## Ställ in identitet - för att skicka e-post
 
 På samma sätt trycker du på *Hantera identitet* om du vill lägga till en identitet och trycker på den orange knappen *lägg till* längst ner. Ange det namn du vill visa i de från adressen till de e-postmeddelanden du skickar och välj ett länkat konto. Tryck på *Spara* för att lägga till identiteten.
 
-Om kontot konfigurerades manuellt behöver du troligen också konfigurera identiteten manuellt. Ange domännamnet, till exempel *gmail.com* och tryck på *Hämta inställningar*. Om din leverantör stöder [automatisk upptäckt](https://tools.ietf.org/html/rfc6186), fyller FairEmail i värdnamnet och portnumret, annars kontrollerar du installationsinstruktionerna för din leverantör för rätt SMTP-värdnamn, portnummer och protokoll (SSL/TLS eller STARTTLS).
+Om kontot konfigurerades manuellt behöver du troligen också konfigurera identiteten manuellt. Ange domännamnet, till exempel *gmail.com* och tryck på *Hämta inställningar*. Om din leverantör stödjer [automatisk upptäckt](https://tools.ietf.org/html/rfc6186), fyller FairEmail i värdnamnet och portnumret, annars kontrollerar du installationsinstruktionerna för din leverantör för rätt SMTP-värdnamn, portnummer och protokoll (SSL/TLS eller STARTTLS).
 
 Se [Vanliga frågor](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) om hur du använder alias.
 

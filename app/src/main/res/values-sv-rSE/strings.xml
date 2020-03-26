@@ -385,7 +385,7 @@
     <string name="title_advanced_schedule_hint">Tryck på en tid för att ställa in en tid</string>
     <string name="title_advanced_check_mx">Kontrollera avsändarens e-postadresser vid synkronisering av meddelanden</string>
     <string name="title_advanced_check_reply">Kontrollera svarsadresser vid synkronisering av meddelanden</string>
-    <string name="title_advanced_unseen_hint">Vissa leverantörer stöder inte detta korrekt, vilket kan orsaka synkronisering av inga eller alla meddelanden</string>
+    <string name="title_advanced_unseen_hint">Vissa leverantörer stödjer inte detta korrekt, vilket kan orsaka synkronisering av inga eller alla meddelanden</string>
     <string name="title_advanced_deleted_unseen">När inaktiverad, behålls olästa meddelanden på enheten för alltid</string>
     <string name="title_advanced_sync_kept_hint">Detta kommer att överföra extra data och förbruka extra batterikraft, speciellt om många meddelanden lagras på enheten</string>
     <string name="title_advanced_sync_folders_hint">Inaktivering av detta kommer att minska data och batterianvändning något, men kommer att inaktivera uppdatering av listan över mappar också</string>
@@ -431,8 +431,8 @@
     <string name="title_advanced_notify_preview_all_hint">För handburna enheter som kan visa fulltext (upp till 5000 tecken)</string>
     <string name="title_advanced_wearable_hint">Aviseringar skickas endast till en bärbar enhet efter att meddelandet har laddats ner</string>
     <string name="title_advanced_move_hint">Målmappen kan konfigureras i kontoinställningarna</string>
-    <string name="title_advanced_notify_no_grouping">Den här Android-versionen stöder inte notifikationsgruppering</string>
-    <string name="title_advanced_notify_no_channels">Den här Android-versionen stöder inte notifikationsgruppering</string>
+    <string name="title_advanced_notify_no_grouping">Den här Android-versionen stödjer inte notifikationsgruppering</string>
+    <string name="title_advanced_notify_no_channels">Den här Android-versionen stödjer inte notifikationsgruppering</string>
     <string name="title_advanced_fts_hint">Att aktivera detta förbättrar sökprestandan, men ökar både batteri- och utrymmesanvändingen</string>
     <string name="title_advanced_english_hint">Detta startar om appen</string>
     <string name="title_advanced_experiments_hint">Lista över aktuella experimentella funktioner</string>
@@ -499,8 +499,8 @@
     <string name="title_no_primary_drafts">Inget primärt konto eller ingen utkastmapp</string>
     <string name="title_no_identities">Att skicka e-post kräver minst en identitet och en utkastmapp</string>
     <string name="title_no_standard">Denna leverantör använder ett egenutvecklat e-postprotokoll och därför är det inte möjligt att använda tredje parts e-postklienter</string>
-    <string name="title_no_idle">Leverantören stöder inte push-meddelanden. Detta kommer att fördröja mottagning av nya meddelanden och öka batterianvändningen.</string>
-    <string name="title_no_utf8">Denna leverantör stöder inte UTF-8</string>
+    <string name="title_no_idle">Leverantören stödjer inte push-meddelanden. Detta kommer att fördröja mottagning av nya meddelanden och öka batterianvändningen.</string>
+    <string name="title_no_utf8">Denna leverantör stödjer inte UTF-8</string>
     <string name="title_no_sync">Synkroniseringsfel sedan %1$s</string>
     <string name="title_reply_domain">Avsändaren (%1$s) och svarsdomän (%2$s) skiljer sig åt</string>
     <string name="title_identity_required">En identitet krävs för att skicka meddelanden</string>
@@ -511,7 +511,7 @@
     <string name="title_sign_key">Signeringsnyckel: %1$s</string>
     <string name="title_last_connected">Senast ansluten: %1$s</string>
     <string name="title_storage_quota">Server lagringsanvändning: %1$s/%2$s</string>
-    <string name="title_pop_support">POP3-protokollet stöder hämtning och borttagning av meddelanden från inkorgen. POP3 kan inte markera meddelanden som lästa, flytta meddelanden o.s.v. POP3 kommer att använda mer batterikraft och data jämfört med IMAP. Så överväg att använda IMAP-protokollet när det är möjligt.</string>
+    <string name="title_pop_support">POP3-protokollet stödjer hämtning och borttagning av meddelanden från inkorgen. POP3 kan inte markera meddelanden som lästa, flytta meddelanden etc. POP3 kommer att använda mer batterikraft och data jämfört med IMAP. Så överväg att använda IMAP-protokollet när det är möjligt.</string>
     <string name="title_oauth_support">OAuth stöds inte</string>
     <string name="title_review">Granska</string>
     <string name="title_hint_alias">Långtryck för alternativ, som att kopiera för att skapa alias för olika identiteter</string>
@@ -696,6 +696,7 @@
     <string name="title_sent">Skickat:</string>
     <string name="title_received">Mottaget:</string>
     <string name="title_size">Storlek:</string>
+    <string name="title_language">Språk:</string>
     <string name="title_subject">Ämne:</string>
     <string name="title_attachment">Bilaga:</string>
     <string name="title_body_hint">Ditt meddelande</string>

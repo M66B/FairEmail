@@ -719,6 +719,7 @@
     <string name="title_sent">Отправлено:</string>
     <string name="title_received">Получено:</string>
     <string name="title_size">Размер:</string>
+    <string name="title_language">Язык:</string>
     <string name="title_subject">Тема:</string>
     <string name="title_attachment">Вложение:</string>
     <string name="title_body_hint">Ваше сообщение</string>
