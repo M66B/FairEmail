@@ -1390,16 +1390,16 @@ class Core {
             if (parent == null && parentName != null) {
                 parent = db.folder().getFolderByName(account.id, parentName);
                 if (parent == null) {
+                    Log.i("Creating parent name=" + parentName);
                     parent = new EntityFolder();
                     parent.account = account.id;
                     parent.name = parentName;
                     parent.type = EntityFolder.SYSTEM;
-                    parent.synchronize = false;
                     parent.subscribed = false;
-                    parent.poll = false;
-                    parent.sync_days = 0;
-                    parent.keep_days = 0;
                     parent.selectable = false;
+                    parent.inferiors = false;
+                    parent.setProperties();
+                    parent.display = parentName + "*";
                     parent.id = db.folder().insertFolder(parent);
                 }
                 nameFolder.put(parentName, parent);
