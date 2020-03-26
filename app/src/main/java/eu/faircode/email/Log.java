@@ -820,8 +820,9 @@ public class Log {
             Helper.writeText(file, body);
             db.message().setMessageContent(draft.id,
                     true,
+                    HtmlHelper.getLanguage(context, body),
                     false,
-                    HtmlHelper.getPreview(file),
+                    HtmlHelper.getPreview(body),
                     null);
 
             attachSettings(context, draft.id, 1);

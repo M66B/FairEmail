@@ -82,7 +82,7 @@ public class WorkerCleanup extends Worker {
                         File file = message.getFile(context);
                         if (!file.exists()) {
                             Log.w("Message file missing id=" + mid);
-                            db.message().setMessageContent(mid, false);
+                            db.message().resetMessageContent(mid);
                         }
                     }
                 }

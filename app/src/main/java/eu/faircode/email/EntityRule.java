@@ -422,8 +422,9 @@ public class EntityRule {
         Helper.writeText(file, body);
         db.message().setMessageContent(reply.id,
                 true,
+                HtmlHelper.getLanguage(context, body),
                 false,
-                HtmlHelper.getPreview(file),
+                HtmlHelper.getPreview(body),
                 null);
 
         EntityOperation.queue(context, reply, EntityOperation.SEND);

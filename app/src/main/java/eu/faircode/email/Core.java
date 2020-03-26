@@ -1136,8 +1136,9 @@ class Core {
         Helper.writeText(file, body);
         db.message().setMessageContent(message.id,
                 true,
+                HtmlHelper.getLanguage(context, body),
                 parts.isPlainOnly(),
-                HtmlHelper.getPreview(file),
+                HtmlHelper.getPreview(body),
                 parts.getWarnings(message.warning));
     }
 
@@ -1610,8 +1611,9 @@ class Core {
                     Helper.writeText(file, body);
                     db.message().setMessageContent(message.id,
                             true,
+                            HtmlHelper.getLanguage(context, body),
                             parts.isPlainOnly(),
-                            HtmlHelper.getPreview(file),
+                            HtmlHelper.getPreview(body),
                             parts.getWarnings(message.warning));
 
                     for (EntityAttachment attachment : parts.getAttachments())
@@ -2349,8 +2351,9 @@ class Core {
                     Helper.writeText(file, body);
                     db.message().setMessageContent(message.id,
                             true,
+                            HtmlHelper.getLanguage(context, body),
                             parts.isPlainOnly(),
-                            HtmlHelper.getPreview(file),
+                            HtmlHelper.getPreview(body),
                             parts.getWarnings(message.warning));
                     Log.i(folder.name + " inline downloaded message id=" + message.id +
                             " size=" + message.size + "/" + (body == null ? null : body.length()));
@@ -2683,8 +2686,9 @@ class Core {
                     Helper.writeText(file, body);
                     db.message().setMessageContent(message.id,
                             true,
+                            HtmlHelper.getLanguage(context, body),
                             parts.isPlainOnly(),
-                            HtmlHelper.getPreview(file),
+                            HtmlHelper.getPreview(body),
                             parts.getWarnings(message.warning));
                     Log.i(folder.name + " downloaded message id=" + message.id +
                             " size=" + message.size + "/" + (body == null ? null : body.length()));

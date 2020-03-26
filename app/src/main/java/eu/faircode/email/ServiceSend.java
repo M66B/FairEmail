@@ -411,8 +411,9 @@ public class ServiceSend extends ServiceBase {
                 Helper.writeText(file, body);
                 db.message().setMessageContent(message.id,
                         true,
+                        HtmlHelper.getLanguage(this, body),
                         parts.isPlainOnly(),
-                        HtmlHelper.getPreview(file),
+                        HtmlHelper.getPreview(body),
                         parts.getWarnings(message.warning));
 
                 EntityAttachment.copy(this, id, message.id);

@@ -3288,6 +3288,7 @@ public class FragmentCompose extends FragmentBase {
 
                     db.message().setMessageContent(data.draft.id,
                             true,
+                            HtmlHelper.getLanguage(context, html),
                             data.draft.plain_only,
                             HtmlHelper.getPreview(html),
                             null);
@@ -3408,6 +3409,7 @@ public class FragmentCompose extends FragmentBase {
 
                         db.message().setMessageContent(data.draft.id,
                                 true,
+                                HtmlHelper.getLanguage(context, html),
                                 data.draft.plain_only,
                                 HtmlHelper.getPreview(html),
                                 null);
@@ -3849,6 +3851,7 @@ public class FragmentCompose extends FragmentBase {
 
                     db.message().setMessageContent(draft.id,
                             true,
+                            HtmlHelper.getLanguage(context, body),
                             draft.plain_only, // unchanged
                             HtmlHelper.getPreview(body),
                             null);

@@ -33,6 +33,8 @@ import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
 import android.util.Base64;
+import android.view.textclassifier.TextClassificationManager;
+import android.view.textclassifier.TextLanguage;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -1103,17 +1105,36 @@ public class HtmlHelper {
         Log.i(document.head().html());
     }
 
-    static String getPreview(File file) throws IOException {
+    static String getLanguage(Context context, String body) {
         try {
-            Document d = JsoupEx.parse(file);
-            return _getText(d, false);
-        } catch (OutOfMemoryError ex) {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean conversation_actions = prefs.getBoolean("conversation_actions", true);
+            if (!conversation_actions)
+                return null;
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                TextClassificationManager tcm =
+                        (TextClassificationManager) context.getSystemService(Context.TEXT_CLASSIFICATION_SERVICE);
+                if (tcm == null)
+                    return null;
+
+                String text = getPreview(body);
+                if (body == null)
+                    return null;
+
+                TextLanguage.Request trequest = new TextLanguage.Request.Builder(text).build();
+                TextLanguage tlanguage = tcm.getTextClassifier().detectLanguage(trequest);
+                if (tlanguage.getLocaleHypothesisCount() > 0)
+                    return tlanguage.getLocale(0).toLocale().getLanguage();
+            }
+
+            return null;
+        } catch (Throwable ex) {
             Log.e(ex);
             return null;
         }
     }
 
-    @Deprecated
     static String getPreview(String body) {
         try {
             if (body == null)
