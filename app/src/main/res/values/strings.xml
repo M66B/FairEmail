@@ -624,10 +624,10 @@
     <string name="title_edit_contact">Edit contact</string>
     <string name="title_create_sub_folder">Create sub folder</string>
 
-    <string name="title_empty_trash_ask">Delete all local trashed messages permanently?</string>
-    <string name="title_empty_spam_ask">Delete all local spam messages permanently?</string>
-    <string name="title_empty_trash_all_ask">Delete all local trashed messages of all accounts permanently?</string>
-    <string name="title_empty_spam_all_ask">Delete all local spam messages of all accounts permanently?</string>
+    <string name="title_empty_trash_ask">Delete all trashed messages permanently?</string>
+    <string name="title_empty_spam_ask">Delete all spam messages permanently?</string>
+    <string name="title_empty_trash_all_ask">Delete all trashed messages of all accounts permanently?</string>
+    <string name="title_empty_spam_all_ask">Delete all spam messages of all accounts permanently?</string>
     <string name="title_delete_operation">Delete operations with an error message?</string>
     <string name="title_delete_contacts">Delete all local contacts?</string>
     <string name="title_no_operations">No pending operations</string>
