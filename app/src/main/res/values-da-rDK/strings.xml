@@ -229,6 +229,7 @@
     <string name="title_advanced_prefix_once">Kun ét emnepræfiks ved svar eller videresendelse</string>
     <string name="title_advanced_extended_reply">Benyt udvidet svar-/videresendoverskrift</string>
     <string name="title_advanced_quote_reply">Citat af svartekst</string>
+    <string name="title_advanced_resize_reply">Skalér billedstørrelse i tekstsvaret</string>
     <string name="title_advanced_signature_location">Signaturposition</string>
     <string name="title_advanced_signature_end">Tilføj signatur efter citeret/videresendt besked</string>
     <string name="title_advanced_plain_only">Send kun simpel tekst som standard</string>
@@ -715,11 +716,19 @@
     <string name="title_style_color">Farve</string>
     <string name="title_style_clear">Ryd formatering</string>
     <string name="title_style_link">Indsæt link</string>
+    <string name="title_add_image">Tilføj billede</string>
+    <string name="title_add_image_inline">Indsæt</string>
+    <string name="title_add_image_attach">Vedhæft</string>
+    <string name="title_add_image_resize">Skalér</string>
+    <string name="title_add_resize_pixels">&lt; %1$d pixels</string>
+    <string name="title_add_image_select">Vælg fil</string>
     <string name="title_add_attachment">Tilføj vedhæftning</string>
     <string name="title_attachment_file">Vedhæft fil</string>
     <string name="title_attachment_photo">Tag foto</string>
     <string name="title_attachment_audio">Optag lyd</string>
     <string name="title_show_addresses">Vis Cc/Bcc</string>
+    <string name="title_send_dialog">Vis Send-muligheder</string>
+    <string name="title_image_dialog">Vis Billed-muligheder</string>
     <string name="title_media_toolbar">Medieværktøjsbjælke</string>
     <string name="title_insert_contact_group">Indsæt kontaktgruppe</string>
     <string name="title_insert_template">Indsæt skabelon</string>
@@ -742,6 +751,7 @@
     <string name="title_attachment_keywords">vedhæft,vedhæftet,vedhæftede,vedhæftning,vedhæftninger,vedhæftningen</string>
     <string name="title_attachment_reminder">Ville du tilføje en vedhæftning?</string>
     <string name="title_attachments_missing">Ikke alle vedhæftninger er downloadet</string>
+    <string name="title_dialog_hint">Denne dialog kan slås til igen via trepriksmenuen i den øverste handlingsbjælke</string>
     <string name="title_draft_deleted">Kladde kasseret</string>
     <string name="title_draft_saved">Kladde gemt</string>
     <string name="title_ask_send_via">Send besked til %1$s via %2$s?</string>

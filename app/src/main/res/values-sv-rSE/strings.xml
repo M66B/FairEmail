@@ -75,8 +75,8 @@
     <string name="title_notification_sending">Skickar meddelanden</string>
     <string name="title_notification_waiting">Väntar på lämplig anslutning</string>
     <string name="title_notification_idle">Inaktiv</string>
-    <string name="title_notification_failed">\'%1$s\' misslyckades</string>
-    <string name="title_notification_alert">\'%1$s\' servermeddelande</string>
+    <string name="title_notification_failed">\"%1$s\" misslyckades</string>
+    <string name="title_notification_alert">\"%1$s\" servermeddelande</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
     <string name="title_factor_minutes">%1$d minuter</string>
@@ -100,7 +100,7 @@
     <string name="title_welcome">Välkommen</string>
     <string name="title_eula">Licensavtal för slutanvändare</string>
     <string name="title_agree">Jag samtycker</string>
-    <string name="title_disagree">Jag godkänner inte</string>
+    <string name="title_disagree">Jag samtycker inte</string>
     <string name="title_version">Version %1$s</string>
     <string name="title_list_accounts">Konton</string>
     <string name="title_list_identities">Identiteter</string>
@@ -220,7 +220,7 @@
     <string name="title_advanced_kept_removed">Kontrollera om gamla meddelanden har tagits bort från servern</string>
     <string name="title_advanced_sync_folders">Synkronisera mapplistan</string>
     <string name="title_advanced_subscriptions">Hantera mapprenumerationer</string>
-    <string name="title_advanced_sync_subscribed">Synkronisera abonnerade mappar bara</string>
+    <string name="title_advanced_sync_subscribed">Synkronisera endast prenumererade mappar</string>
     <string name="title_advanced_keyboard">Visa tangentbord som standard</string>
     <string name="title_advanced_suggest_local">Föreslå lokalt lagrade kontakter</string>
     <string name="title_advanced_suggest_sent">Föreslå adresser som finns i skickade meddelanden</string>
@@ -228,11 +228,12 @@
     <string name="title_advanced_prefix_once">Prefix i ämnet endast när du svarar eller vidarebefordrar</string>
     <string name="title_advanced_extended_reply">Använd förlängd svars-/framåtriktad sidhuvud</string>
     <string name="title_advanced_quote_reply">Citera svarstext</string>
+    <string name="title_advanced_resize_reply">Ändra storlek på bilder i svarande text</string>
     <string name="title_advanced_signature_location">Signaturens position</string>
     <string name="title_advanced_signature_end">Lägg till signatur efter citat/vidarebefordrat meddelande</string>
     <string name="title_advanced_plain_only">Skicka bara vanlig text som standard</string>
     <string name="title_advanced_flow">\'Formatera flöde\' för oformaterad text</string>
-    <string name="title_advanced_receipt">När du begär ett kvitto</string>
+    <string name="title_advanced_receipt">När kvitto begärs</string>
     <string name="title_advanced_usenet_signature">Signaturkonvention för Usenet</string>
     <string name="title_advanced_remove_signatures">Ta bort igenkända signaturer</string>
     <string name="title_advanced_send_reminders">Visa påminnelser</string>
@@ -510,7 +511,7 @@
     <string name="title_sign_key">Signeringsnyckel: %1$s</string>
     <string name="title_last_connected">Senast ansluten: %1$s</string>
     <string name="title_storage_quota">Server lagringsanvändning: %1$s/%2$s</string>
-    <string name="title_pop_support">POP3-protokollet stödjer nedladdning och borttagning av meddelanden från inkorgen. POP3 kan inte markera meddelanden som lästa, flytta meddelanden etc. POP3 kommer att använda mer batterikraft och data jämfört med IMAP. Så överväg att använda IMAP-protokollet när det är möjligt.</string>
+    <string name="title_pop_support">POP3-protokollet stöder hämtning och borttagning av meddelanden från inkorgen. POP3 kan inte markera meddelanden som lästa, flytta meddelanden o.s.v. POP3 kommer att använda mer batterikraft och data jämfört med IMAP. Så överväg att använda IMAP-protokollet när det är möjligt.</string>
     <string name="title_oauth_support">OAuth stöds inte</string>
     <string name="title_review">Granska</string>
     <string name="title_hint_alias">Långtryck för alternativ, som att kopiera för att skapa alias för olika identiteter</string>
@@ -553,7 +554,7 @@
     <string name="title_download_folder">Hämta automatiskt meddelandetexter och bilagor</string>
     <string name="title_notify_folder">Notifiera för nya meddelanden</string>
     <string name="title_sync_days">Synkronisera meddelanden (dagar)</string>
-    <string name="title_sync_days_remark">Att öka detta värde kommer att öka batteri- och dataanvändningen</string>
+    <string name="title_sync_days_remark">Ökning av detta värde kommer att öka batteri- och dataanvändningen</string>
     <string name="title_keep_days">Behåll meddelanden (dagar)</string>
     <string name="title_keep_days_remark">Gamla meddelanden kommer att tas bort från enheten, men kommer att finnas kvar på servern</string>
     <string name="title_keep_all">Behåll alla meddelanden</string>
@@ -714,6 +715,12 @@
     <string name="title_style_color">Färg</string>
     <string name="title_style_clear">Rensa formatering</string>
     <string name="title_style_link">Infoga länk</string>
+    <string name="title_add_image">Lägg till bild</string>
+    <string name="title_add_image_inline">Infoga</string>
+    <string name="title_add_image_attach">Bifoga</string>
+    <string name="title_add_image_resize">Ändra storlek</string>
+    <string name="title_add_resize_pixels">&lt; %1$d pixlar</string>
+    <string name="title_add_image_select">Välj fil</string>
     <string name="title_add_attachment">Lägg till bilaga</string>
     <string name="title_attachment_file">Bifoga fil</string>
     <string name="title_attachment_photo">Ta foto</string>
