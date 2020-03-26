@@ -3081,7 +3081,7 @@ public class FragmentCompose extends FragmentBase {
                         String subject = (ref.subject == null ? "" : ref.subject);
                         if ("reply".equals(action) || "reply_all".equals(action)) {
                             if (prefix_once)
-                                for (String re : Helper.getStrings(context, R.string.title_subject_reply, ""))
+                                for (String re : Helper.getStrings(context, ref.language, R.string.title_subject_reply, ""))
                                     subject = unprefix(subject, re);
                             data.draft.subject = context.getString(R.string.title_subject_reply, subject);
 
@@ -3098,7 +3098,7 @@ public class FragmentCompose extends FragmentBase {
                             }
                         } else if ("forward".equals(action)) {
                             if (prefix_once)
-                                for (String fwd : Helper.getStrings(context, R.string.title_subject_forward, ""))
+                                for (String fwd : Helper.getStrings(context, ref.language, R.string.title_subject_forward, ""))
                                     subject = unprefix(subject, fwd);
                             data.draft.subject = context.getString(R.string.title_subject_forward, subject);
                         } else if ("editasnew".equals(action)) {
