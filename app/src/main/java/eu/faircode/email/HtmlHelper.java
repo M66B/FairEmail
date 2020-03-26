@@ -1108,8 +1108,8 @@ public class HtmlHelper {
     static String getLanguage(Context context, String body) {
         try {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            boolean conversation_actions = prefs.getBoolean("conversation_actions", true);
-            if (!conversation_actions)
+            boolean language_detection = prefs.getBoolean("language_detection", true);
+            if (!language_detection)
                 return null;
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {

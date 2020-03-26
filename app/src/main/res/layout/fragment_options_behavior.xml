@@ -64,6 +64,17 @@
             app:layout_constraintTop_toBottomOf="@id/swConversationActions"
             app:switchPadding="12dp" />
 
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swLanguageDetection"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_language_detection"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swConversationActionsReplies"
+            app:switchPadding="12dp" />
+
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvDefaultSnooze"
             android:layout_width="0dp"
@@ -75,7 +86,7 @@
             android:textColor="?android:attr/textColorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swConversationActionsReplies" />
+            app:layout_constraintTop_toBottomOf="@id/swLanguageDetection" />
 
         <eu.faircode.email.EditTextPlain
             android:id="@+id/etDefaultSnooze"

@@ -48,6 +48,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private SwitchCompat swDoubleBack;
     private SwitchCompat swConversationActions;
     private SwitchCompat swConversationActionsReplies;
+    private SwitchCompat swLanguageDetection;
     private EditText etDefaultSnooze;
     private SwitchCompat swPull;
     private SwitchCompat swAutoScroll;
@@ -72,7 +73,8 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private Group grpConversationActions;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "double_back", "conversation_actions", "conversation_actions_replies", "default_snooze",
+            "double_back", "conversation_actions", "conversation_actions_replies", "language_detection",
+            "default_snooze",
             "pull", "autoscroll", "quick_filter", "quick_scroll",
             "doubletap", "swipenav", "volumenav", "reversed",
             "autoexpand", "expand_all", "expand_one", "collapse_multiple",
@@ -93,6 +95,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swDoubleBack = view.findViewById(R.id.swDoubleBack);
         swConversationActions = view.findViewById(R.id.swConversationActions);
         swConversationActionsReplies = view.findViewById(R.id.swConversationActionsReplies);
+        swLanguageDetection = view.findViewById(R.id.swLanguageDetection);
         etDefaultSnooze = view.findViewById(R.id.etDefaultSnooze);
         swPull = view.findViewById(R.id.swPull);
         swAutoScroll = view.findViewById(R.id.swAutoScroll);
@@ -141,6 +144,13 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("conversation_actions_replies", checked).apply();
+            }
+        });
+
+        swLanguageDetection.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("language_detection", checked).apply();
             }
         });
 
@@ -376,6 +386,9 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swConversationActions.setChecked(prefs.getBoolean("conversation_actions", true));
         swConversationActionsReplies.setChecked(prefs.getBoolean("conversation_actions_replies", true));
         swConversationActionsReplies.setEnabled(swConversationActions.isChecked());
+        swLanguageDetection.setChecked(prefs.getBoolean("language_detection", true));
+        swLanguageDetection.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.Q ? View.GONE : View.VISIBLE);
+
         int default_snooze = prefs.getInt("default_snooze", 1);
         etDefaultSnooze.setText(default_snooze == 1 ? null : Integer.toString(default_snooze));
         etDefaultSnooze.setHint("1");
