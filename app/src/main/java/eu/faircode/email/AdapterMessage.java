@@ -1327,7 +1327,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             cowner.recreate();
 
-            boolean show_addresses = !properties.getValue("addresses", message.id);
+            boolean show_addresses = properties.getValue("addresses", message.id);
             boolean show_headers = properties.getValue("headers", message.id);
 
             boolean hasFrom = (message.from != null && message.from.length > 0);

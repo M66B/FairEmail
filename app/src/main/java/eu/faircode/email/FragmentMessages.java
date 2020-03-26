@@ -1415,8 +1415,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         public boolean getValue(String name, long id) {
             if (values.containsKey(name))
                 return values.get(name).contains(id);
-            else if ("addresses".equals(name))
-                return !addresses;
+            else {
+                if ("addresses".equals(name))
+                    return addresses;
+            }
             return false;
         }
 
