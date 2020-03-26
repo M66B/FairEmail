@@ -613,8 +613,8 @@
     <string name="title_synchronize_enabled">Synchronize</string>
     <string name="title_delete_local">Delete local messages</string>
     <string name="title_delete_browsed">Delete browsed/searched messages</string>
-    <string name="title_empty_trash">Empty local trash</string>
-    <string name="title_empty_spam">Empty local spam</string>
+    <string name="title_empty_trash">Empty trash</string>
+    <string name="title_empty_spam">Empty spam</string>
     <string name="title_edit_properties">Edit properties</string>
     <string name="title_edit_rules">Edit rules</string>
     <string name="title_create_channel">Create notification channel</string>
