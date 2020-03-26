@@ -657,6 +657,13 @@ To allow different private keys for the same email address, FairEmail will alway
 
 Public keys are stored by FairEmail and can be imported when verifying a signature for the first time or via the privacy settings (PEM or DER format).
 
+FairEmail verifies both the signature and the complete certificate chain.
+
+Common errors:
+
+* *No certificate found matching targetContraints*: this likely means you are using an old version of FairEmail
+* *unable to find valid certification path to requested target*: basically this means one or more intermediate or root certificates were not found
+
 The use of expired keys, inline encrypted/signed messages and hardware security tokens is not supported.
 
 How to extract a public key from a S/MIME certificate:

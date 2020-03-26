@@ -5468,6 +5468,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                         args.putBoolean("valid", valid);
                                     } catch (Throwable ex) {
                                         Log.w(ex);
+                                        args.putString("reason", ex.getMessage());
 
                                         ArrayList<String> trace = new ArrayList<>();
                                         for (X509Certificate c : certs) {
@@ -5630,6 +5631,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             Date time = (Date) args.getSerializable("time");
                             boolean known = args.getBoolean("known");
                             boolean valid = args.getBoolean("valid");
+                            String reason = args.getString("reason");
                             final ArrayList<String> trace = args.getStringArrayList("trace");
                             EntityCertificate record = EntityCertificate.from(cert, null);
 
@@ -5650,6 +5652,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 LayoutInflater inflator = LayoutInflater.from(getContext());
                                 View dview = inflator.inflate(R.layout.dialog_certificate, null);
                                 TextView tvCertificateInvalid = dview.findViewById(R.id.tvCertificateInvalid);
+                                TextView tvCertificateReason = dview.findViewById(R.id.tvCertificateReason);
                                 TextView tvSender = dview.findViewById(R.id.tvSender);
                                 TextView tvEmail = dview.findViewById(R.id.tvEmail);
                                 TextView tvEmailInvalid = dview.findViewById(R.id.tvEmailInvalid);
@@ -5659,6 +5662,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 TextView tvExpired = dview.findViewById(R.id.tvExpired);
 
                                 tvCertificateInvalid.setVisibility(valid ? View.GONE : View.VISIBLE);
+                                tvCertificateReason.setText(reason);
+                                tvCertificateReason.setVisibility(reason == null ? View.GONE : View.VISIBLE);
                                 tvSender.setText(sender);
                                 tvEmail.setText(TextUtils.join(",", emails));
                                 tvEmailInvalid.setVisibility(match ? View.GONE : View.VISIBLE);
@@ -5688,7 +5693,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext())
                                         .setView(dview)
-                                        .setNegativeButton(android.R.string.cancel, null);
+                                        .setNegativeButton(android.R.string.cancel, null)
+                                        .setNeutralButton(R.string.title_info, new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                Helper.viewFAQ(getContext(), 12);
+                                            }
+                                        });
 
                                 if (!TextUtils.isEmpty(sender) && !known && emails.size() > 0)
                                     builder.setPositiveButton(R.string.title_signature_store, new DialogInterface.OnClickListener() {
