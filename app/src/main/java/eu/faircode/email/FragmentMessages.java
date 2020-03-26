@@ -31,7 +31,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.IntentSender;
 import android.content.SharedPreferences;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -3243,15 +3242,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         long now = new Date().getTime();
         long later = prefs.getLong("review_later", -1);
         if (later < 0) {
-            long installed = 0;
-            try {
-                PackageInfo pi = pm.getPackageInfo(BuildConfig.APPLICATION_ID, 0);
-                if (pi != null)
-                    installed = pi.firstInstallTime;
-            } catch (Throwable ex) {
-                Log.e(ex);
-            }
-
+            long installed = Helper.getInstallTime(getContext());
             Log.i("Review installed=" + new Date(installed));
 
             if (installed + REVIEW_ASK_DELAY > now)

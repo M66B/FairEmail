@@ -546,6 +546,18 @@ public class Helper {
         return intent;
     }
 
+    static long getInstallTime(Context context) {
+        try {
+            PackageManager pm = context.getPackageManager();
+            PackageInfo pi = pm.getPackageInfo(BuildConfig.APPLICATION_ID, 0);
+            if (pi != null)
+                return pi.firstInstallTime;
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+        return 0;
+    }
+
     // Graphics
 
     static int dp2pixels(Context context, int dp) {

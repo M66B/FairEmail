@@ -988,7 +988,8 @@ public class Log {
 
         sb.append("\r\n");
 
-        sb.append(new Date().toString()).append("\r\n");
+        sb.append(new Date(Helper.getInstallTime(context))).append("\r\n");
+        sb.append(new Date()).append("\r\n");
 
         sb.append("\r\n");
 
