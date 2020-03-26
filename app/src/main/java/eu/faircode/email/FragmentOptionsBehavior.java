@@ -386,7 +386,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swConversationActions.setChecked(prefs.getBoolean("conversation_actions", true));
         swConversationActionsReplies.setChecked(prefs.getBoolean("conversation_actions_replies", true));
         swConversationActionsReplies.setEnabled(swConversationActions.isChecked());
-        swLanguageDetection.setChecked(prefs.getBoolean("language_detection", true));
+        swLanguageDetection.setChecked(prefs.getBoolean("language_detection", false));
         swLanguageDetection.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.Q ? View.GONE : View.VISIBLE);
 
         int default_snooze = prefs.getInt("default_snooze", 1);
