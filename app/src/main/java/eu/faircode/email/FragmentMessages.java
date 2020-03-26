@@ -259,6 +259,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private boolean swipenav;
     private boolean seekbar;
     private boolean actionbar;
+    private boolean actionbar_color;
     private boolean autoexpand;
     private boolean autoclose;
     private String onclose;
@@ -371,6 +372,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         threading = prefs.getBoolean("threading", true);
         seekbar = prefs.getBoolean("seekbar", false);
         actionbar = prefs.getBoolean("actionbar", true);
+        actionbar_color = prefs.getBoolean("actionbar_color", false);
         autoexpand = prefs.getBoolean("autoexpand", true);
         autoclose = prefs.getBoolean("autoclose", true);
         onclose = (autoclose ? null : prefs.getString("onclose", null));
@@ -4015,17 +4017,21 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             new SimpleTask<Boolean[]>() {
                 @Override
                 protected Boolean[] onExecute(Context context, Bundle args) {
-                    long account = args.getLong("account");
+                    long aid = args.getLong("account");
                     String thread = args.getString("thread");
                     long id = args.getLong("id");
 
                     DB db = DB.getInstance(context);
 
-                    EntityFolder trash = db.folder().getFolderByType(account, EntityFolder.TRASH);
-                    EntityFolder archive = db.folder().getFolderByType(account, EntityFolder.ARCHIVE);
+                    EntityAccount account = db.account().getAccount(aid);
+                    if (account != null && account.color != null)
+                        args.putInt("color", account.color);
+
+                    EntityFolder trash = db.folder().getFolderByType(aid, EntityFolder.TRASH);
+                    EntityFolder archive = db.folder().getFolderByType(aid, EntityFolder.ARCHIVE);
 
                     List<EntityMessage> messages = db.message().getMessagesByThread(
-                            account, thread, threading ? null : id, null);
+                            aid, thread, threading ? null : id, null);
 
                     boolean trashable = false;
                     boolean snoozable = false;
@@ -4061,6 +4067,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 @Override
                 protected void onExecuted(Bundle args, Boolean[] data) {
+                    if (actionbar_color && args.containsKey("color"))
+                        bottom_navigation.setBackgroundColor(args.getInt("color"));
+
                     bottom_navigation.setTag(data[0]);
                     bottom_navigation.getMenu().findItem(R.id.action_delete).setVisible(data[1]);
                     bottom_navigation.getMenu().findItem(R.id.action_snooze).setVisible(data[2]);
