@@ -103,6 +103,11 @@
         app:showAsAction="never" />
 
     <item
+        android:id="@+id/menu_select_language"
+        android:title="@string/title_select_language"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/menu_select_all"
         android:title="@string/title_select_all"
         app:showAsAction="never" />

@@ -80,6 +80,7 @@ public interface DaoMessage {
             " AND (NOT :filter_unflagged OR COUNT(message.id) - SUM(1 - message.ui_flagged) > 0)" +
             " AND (NOT :filter_unknown OR SUM(message.avatar IS NOT NULL AND message.sender <> identity.email) > 0)" +
             " AND (NOT :filter_snoozed OR message.ui_snoozed IS NULL OR " + is_drafts + ")" +
+            " AND (:filter_language IS NULL OR message.language = :filter_language)" +
             " ORDER BY -IFNULL(MAX(message.importance), 1)" +
             ", CASE" +
             "   WHEN 'unread' = :sort THEN SUM(1 - message.ui_seen) = 0" +
@@ -98,7 +99,7 @@ public interface DaoMessage {
             String type,
             boolean threading,
             String sort, boolean ascending,
-            boolean filter_seen, boolean filter_unflagged, boolean filter_unknown, boolean filter_snoozed,
+            boolean filter_seen, boolean filter_unflagged, boolean filter_unknown, boolean filter_snoozed, String filter_language,
             boolean found,
             boolean debug);
 
@@ -135,6 +136,7 @@ public interface DaoMessage {
             " AND (NOT :filter_unknown OR SUM(message.avatar IS NOT NULL AND message.sender <> identity.email) > 0" +
             "   OR " + is_outbox + " OR " + is_drafts + " OR " + is_sent + ")" +
             " AND (NOT :filter_snoozed OR message.ui_snoozed IS NULL OR " + is_outbox + " OR " + is_drafts + ")" +
+            " AND (:filter_language IS NULL OR message.language = :filter_language)" +
             " ORDER BY -IFNULL(MAX(message.importance), 1)" +
             ", CASE" +
             "   WHEN 'unread' = :sort THEN SUM(1 - message.ui_seen) = 0" +
@@ -152,7 +154,7 @@ public interface DaoMessage {
     DataSource.Factory<Integer, TupleMessageEx> pagedFolder(
             long folder, boolean threading,
             String sort, boolean ascending,
-            boolean filter_seen, boolean filter_unflagged, boolean filter_unknown, boolean filter_snoozed,
+            boolean filter_seen, boolean filter_unflagged, boolean filter_unknown, boolean filter_snoozed, String filter_language,
             boolean found,
             boolean debug);
 
@@ -462,6 +464,14 @@ public interface DaoMessage {
             " GROUP BY sender" +
             " ORDER BY sender, subject")
     Cursor getSuggestions(String query);
+
+    @Query("SELECT language FROM message" +
+            " WHERE (:account IS NULL OR message.account = :account)" +
+            " AND (:folder IS NULL OR message.folder = :folder)" +
+            " AND NOT message.language IS NULL" +
+            " GROUP BY language" +
+            " ORDER BY COUNT(*) DESC")
+    List<String> getLanguages(Long account, Long folder);
 
     @Insert
     long insertMessage(EntityMessage message);
