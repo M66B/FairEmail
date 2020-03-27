@@ -809,9 +809,11 @@
     <string name="title_filter_duplicates">Duplicaten</string>
     <string name="title_compact">Compacte weergave</string>
     <string name="title_zoom">Tekstgrootte</string>
+    <string name="title_select_language">Selecteer taal</string>
     <string name="title_select_all">Selecteer alles</string>
     <string name="title_select_found">Selecteer gevonden</string>
     <string name="title_force_sync">Forceer verversen</string>
+    <string name="title_language_all">Alle</string>
     <string name="title_previous">Vorige</string>
     <string name="title_next">Volgende</string>
     <string name="title_edit_signature">Handtekening bewerken</string>

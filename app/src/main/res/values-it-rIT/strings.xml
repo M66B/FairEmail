@@ -809,9 +809,11 @@
     <string name="title_filter_duplicates">Duplicati</string>
     <string name="title_compact">Vista compatta</string>
     <string name="title_zoom">Dimensione testo</string>
+    <string name="title_select_language">Seleziona lingua</string>
     <string name="title_select_all">Seleziona tutti</string>
     <string name="title_select_found">Seleziona trovato</string>
     <string name="title_force_sync">Forza sincronizzazione</string>
+    <string name="title_language_all">Tutti</string>
     <string name="title_previous">Precedente</string>
     <string name="title_next">Successivo</string>
     <string name="title_edit_signature">Modifica firma</string>
