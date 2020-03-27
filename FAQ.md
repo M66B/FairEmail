@@ -379,7 +379,9 @@ See also [this FAQ](#user-content-faq16).
 <a name="faq4"></a>
 **(4) How can I use an invalid security certificate / empty password / plain text connection?**
 
-*Invalid security certificate* (Can't verify identity of server)
+*... Untrusted ... not in certificate ...*
+<br />
+*... Invalid security certificate (Can't verify identity of server) ...*
 
 You should try to fix this by contacting your provider or by getting a valid security certificate
 because invalid security certificates are insecure and allow [man-in-the-middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack).
@@ -881,7 +883,7 @@ The error *... Unexpected end of zlib input stream ...* means that not all data 
 The warning *... Unsupported encoding ...* means that the character set of the message is unknown or not supported.
 FairEmail will assume ISO-8859-1 (Latin1), which will in most cases result in showing the message correctly.
 
-Please [see here](#user-content-faq4) for the error *... Invalid security certificate (Can't verify identity of server) ...* or *... Trust anchor for certification path not found ...*
+Please [see here](#user-content-faq4) for the errors *... Untrusted ... not in certificate ...*, *... Invalid security certificate (Can't verify identity of server) ...* or *... Trust anchor for certification path not found ...*
 
 Please [see here](#user-content-faq127) for the error *... Syntactically invalid HELO argument(s) ...*.
 
