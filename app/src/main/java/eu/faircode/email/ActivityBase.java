@@ -312,6 +312,8 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         Log.i("Result class=" + this.getClass().getSimpleName() +
                 " action=" + action + " request=" + requestCode + " result=" + resultCode);
         Log.logExtras(data);
+        if (data != null)
+            Log.i("data=" + data.getData());
         super.onActivityResult(requestCode, resultCode, data);
     }
 

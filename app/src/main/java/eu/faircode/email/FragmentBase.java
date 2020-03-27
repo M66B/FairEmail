@@ -161,7 +161,7 @@ public class FragmentBase extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        Log.d("Create view " + this);
+        Log.d("Create view " + this + (savedInstanceState != null));
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 
@@ -203,6 +203,8 @@ public class FragmentBase extends Fragment {
         Log.i("Result class=" + this.getClass().getSimpleName() +
                 " action=" + action + " request=" + requestCode + " result=" + resultCode);
         Log.logExtras(data);
+        if (data != null)
+            Log.i("data=" + data.getData());
         super.onActivityResult(requestCode, resultCode, data);
 
         try {
