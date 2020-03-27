@@ -71,7 +71,7 @@ public interface DaoMessage {
             " WHERE account.`synchronize`" +
             " AND (:threading OR (:type IS NULL AND (folder.unified OR :found)) OR (:type IS NOT NULL AND folder.type = :type))" +
             " AND (NOT message.ui_hide OR :debug)" +
-            " AND (NOT :found OR ui_found = :found)" +
+            " AND (NOT :found OR message.ui_found = :found)" +
             " GROUP BY account.id, CASE WHEN message.thread IS NULL OR NOT :threading THEN message.id ELSE message.thread END" +
             " HAVING (:found OR" +
             "   CASE WHEN :type IS NULL THEN SUM(folder.unified) > 0" +
@@ -80,7 +80,7 @@ public interface DaoMessage {
             " AND (NOT :filter_unflagged OR COUNT(message.id) - SUM(1 - message.ui_flagged) > 0)" +
             " AND (NOT :filter_unknown OR SUM(message.avatar IS NOT NULL AND message.sender <> identity.email) > 0)" +
             " AND (NOT :filter_snoozed OR message.ui_snoozed IS NULL OR " + is_drafts + ")" +
-            " AND (:filter_language IS NULL OR message.language = :filter_language)" +
+            " AND (:filter_language IS NULL OR SUM(message.language = :filter_language) > 0)" +
             " ORDER BY -IFNULL(MAX(message.importance), 1)" +
             ", CASE" +
             "   WHEN 'unread' = :sort THEN SUM(1 - message.ui_seen) = 0" +
@@ -128,7 +128,7 @@ public interface DaoMessage {
             " WHERE (message.account = f.account OR " + is_outbox + ")" +
             " AND (:threading OR folder.id = :folder)" +
             " AND (NOT message.ui_hide OR :debug)" +
-            " AND (NOT :found OR ui_found = :found)" +
+            " AND (NOT :found OR message.ui_found = :found)" +
             " GROUP BY CASE WHEN message.thread IS NULL OR NOT :threading THEN message.id ELSE message.thread END" +
             " HAVING SUM(CASE WHEN folder.id = :folder THEN 1 ELSE 0 END) > 0" +
             " AND (NOT :filter_seen OR SUM(1 - message.ui_seen) > 0 OR " + is_outbox + ")" +
@@ -136,7 +136,7 @@ public interface DaoMessage {
             " AND (NOT :filter_unknown OR SUM(message.avatar IS NOT NULL AND message.sender <> identity.email) > 0" +
             "   OR " + is_outbox + " OR " + is_drafts + " OR " + is_sent + ")" +
             " AND (NOT :filter_snoozed OR message.ui_snoozed IS NULL OR " + is_outbox + " OR " + is_drafts + ")" +
-            " AND (:filter_language IS NULL OR message.language = :filter_language)" +
+            " AND (:filter_language IS NULL OR SUM(message.language = :filter_language) > 0)" +
             " ORDER BY -IFNULL(MAX(message.importance), 1)" +
             ", CASE" +
             "   WHEN 'unread' = :sort THEN SUM(1 - message.ui_seen) = 0" +
@@ -457,10 +457,12 @@ public interface DaoMessage {
 
     @Query("SELECT id AS _id, subject AS suggestion FROM message" +
             " WHERE subject LIKE :query" +
+            " AND NOT message.ui_hide" +
             " GROUP BY subject" +
             " UNION" +
             " SELECT id AS _id, sender AS suggestion FROM message" +
             " WHERE sender LIKE :query" +
+            " AND NOT message.ui_hide" +
             " GROUP BY sender" +
             " ORDER BY sender, subject")
     Cursor getSuggestions(String query);
@@ -468,6 +470,7 @@ public interface DaoMessage {
     @Query("SELECT language FROM message" +
             " WHERE (:account IS NULL OR message.account = :account)" +
             " AND (:folder IS NULL OR message.folder = :folder)" +
+            " AND NOT message.ui_hide" +
             " AND NOT message.language IS NULL" +
             " GROUP BY language" +
             " ORDER BY COUNT(*) DESC")
