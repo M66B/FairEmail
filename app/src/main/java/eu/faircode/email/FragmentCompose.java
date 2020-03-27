@@ -1589,11 +1589,16 @@ public class FragmentCompose extends FragmentBase {
                         onAddImage(data.getBundleExtra("args").getBoolean("photo"));
                     break;
                 case REQUEST_IMAGE_FILE:
-                case REQUEST_TAKE_PHOTO:
                     if (resultCode == RESULT_OK && data != null) {
-                        Uri uri = (requestCode == REQUEST_TAKE_PHOTO ? photoURI : data.getData());
+                        Uri uri = data.getData();
                         if (uri != null)
                             onAddImageFile(uri);
+                    }
+                    break;
+                case REQUEST_TAKE_PHOTO:
+                    if (resultCode == RESULT_OK) {
+                        if (photoURI != null)
+                            onAddImageFile(photoURI);
                     }
                     break;
                 case REQUEST_ATTACHMENT:
