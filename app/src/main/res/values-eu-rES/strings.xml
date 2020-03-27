@@ -476,6 +476,7 @@
     <string name="title_client_certificate">Bezero ziurtagiria</string>
     <string name="title_realm">Domeinua</string>
     <string name="title_use_ip">Erabili IP lokala ostalari izenaren ordez</string>
+    <string name="title_primary">Nagusia</string>
     <string name="title_primary_account">Nagusia (kontu lehenetsia)</string>
     <string name="title_primary_identity">Nagusia (identitate lehenetsia)</string>
     <string name="title_leave_on_server">Utzi mezuak zerbitzarian</string>
@@ -806,9 +807,11 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_filter_duplicates">Bikoiztutakoak</string>
     <string name="title_compact">Ikuspegi trinkoa</string>
     <string name="title_zoom">Letra tamaina</string>
+    <string name="title_select_language">Hautatu hizkuntza</string>
     <string name="title_select_all">Hautatu denak</string>
     <string name="title_select_found">Hautatu aurkitutakoak</string>
     <string name="title_force_sync">Behartu sinkronizazioa</string>
+    <string name="title_language_all">Denak</string>
     <string name="title_previous">Aurrekoa</string>
     <string name="title_next">Hurrengoa</string>
     <string name="title_edit_signature">Editatu sinadura</string>
