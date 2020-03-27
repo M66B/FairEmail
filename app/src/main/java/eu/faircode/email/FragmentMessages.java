@@ -6405,8 +6405,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             protected Void onExecute(Context context, Bundle args) {
                 long aid = args.getLong("account");
                 String type = args.getString("type");
-                EntityLog.log(context, "Empty" +
-                        " account=" + account + " type=" + type);
+                EntityLog.log(context, "Empty account=" + account + " type=" + type);
 
                 DB db = DB.getInstance(context);
                 try {
@@ -6424,19 +6423,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                     for (EntityAccount account : accounts) {
                         EntityFolder folder = db.folder().getFolderByType(account.id, type);
-                        EntityLog.log(context, "Empty" +
-                                " account=" + account.name + " folder=" + (folder == null ? null : folder.name));
+                        EntityLog.log(context,
+                                "Empty account=" + account.name + " folder=" + (folder == null ? null : folder.name));
                         if (folder == null)
                             continue;
 
                         List<Long> ids = db.message().getMessageByFolder(folder.id);
                         for (Long id : ids) {
                             EntityMessage message = db.message().getMessage(id);
-                            EntityLog.log(context, "Empty" +
-                                    " account=" + account.name + " folder=" + folder.name +
-                                    " message=" + message.id + " uid=" + message.uid + " msgid=" + message.msgid);
-
-                            if (message.uid != null || !TextUtils.isEmpty(message.msgid)) {
+                            if (message != null &&
+                                    (message.uid != null || !TextUtils.isEmpty(message.msgid))) {
                                 Log.i("Deleting account=" + account.id + " folder=" + folder.id + " message=" + message.id);
                                 EntityOperation.queue(context, message, EntityOperation.DELETE);
                             }
