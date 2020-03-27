@@ -159,6 +159,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
@@ -3099,7 +3100,7 @@ public class FragmentCompose extends FragmentBase {
                             if (prefix_once)
                                 for (String re : Helper.getStrings(context, ref.language, R.string.title_subject_reply, ""))
                                     subject = unprefix(subject, re);
-                            data.draft.subject = context.getString(R.string.title_subject_reply, subject);
+                            data.draft.subject = Helper.getString(context, ref.language, R.string.title_subject_reply, subject);
 
                             String t = args.getString("text");
                             if (t != null) {
@@ -3116,7 +3117,7 @@ public class FragmentCompose extends FragmentBase {
                             if (prefix_once)
                                 for (String fwd : Helper.getStrings(context, ref.language, R.string.title_subject_forward, ""))
                                     subject = unprefix(subject, fwd);
-                            data.draft.subject = context.getString(R.string.title_subject_forward, subject);
+                            data.draft.subject = Helper.getString(context, ref.language, R.string.title_subject_forward, subject);
                         } else if ("editasnew".equals(action)) {
                             data.draft.subject = ref.subject;
                             if (ref.content) {
@@ -3131,7 +3132,7 @@ public class FragmentCompose extends FragmentBase {
                         } else if ("receipt".equals(action)) {
                             data.draft.subject = context.getString(R.string.title_receipt_subject, subject);
 
-                            for (String text : Helper.getStrings(context, R.string.title_receipt_text)) {
+                            for (String text : Helper.getStrings(context, ref.language, R.string.title_receipt_text)) {
                                 Element p = document.createElement("p");
                                 p.text(text);
                                 document.body().appendChild(p);
@@ -3165,42 +3166,52 @@ public class FragmentCompose extends FragmentBase {
                             Element reply = document.createElement("div");
                             reply.attr("fairemail", "reference");
 
+                            boolean language_detection = prefs.getBoolean("language_detection", false);
+                            String language = (language_detection ? ref.language : null);
+
+                            DateFormat DF;
+                            if (language == null)
+                                DF = Helper.getDateTimeInstance(context);
+                            else
+                                DF = SimpleDateFormat.getDateTimeInstance(
+                                        SimpleDateFormat.MEDIUM, SimpleDateFormat.MEDIUM,
+                                        new Locale(language));
+
                             // Build reply header
                             Element p = document.createElement("p");
-                            DateFormat DF = Helper.getDateTimeInstance(context);
                             boolean extended_reply = prefs.getBoolean("extended_reply", false);
                             if (extended_reply) {
                                 if (ref.from != null && ref.from.length > 0) {
                                     Element strong = document.createElement("strong");
-                                    strong.text(context.getString(R.string.title_from) + " ");
+                                    strong.text(Helper.getString(context, language, R.string.title_from) + " ");
                                     p.appendChild(strong);
                                     p.appendText(MessageHelper.formatAddresses(ref.from));
                                     p.appendElement("br");
                                 }
                                 if (ref.to != null && ref.to.length > 0) {
                                     Element strong = document.createElement("strong");
-                                    strong.text(context.getString(R.string.title_to) + " ");
+                                    strong.text(Helper.getString(context, language, R.string.title_to) + " ");
                                     p.appendChild(strong);
                                     p.appendText(MessageHelper.formatAddresses(ref.to));
                                     p.appendElement("br");
                                 }
                                 if (ref.cc != null && ref.cc.length > 0) {
                                     Element strong = document.createElement("strong");
-                                    strong.text(context.getString(R.string.title_cc) + " ");
+                                    strong.text(Helper.getString(context, language, R.string.title_cc) + " ");
                                     p.appendChild(strong);
                                     p.appendText(MessageHelper.formatAddresses(ref.cc));
                                     p.appendElement("br");
                                 }
                                 {
                                     Element strong = document.createElement("strong");
-                                    strong.text(context.getString(R.string.title_received) + " ");
+                                    strong.text(Helper.getString(context, language, R.string.title_received) + " ");
                                     p.appendChild(strong);
                                     p.appendText(DF.format(ref.received));
                                     p.appendElement("br");
                                 }
                                 {
                                     Element strong = document.createElement("strong");
-                                    strong.text(context.getString(R.string.title_subject) + " ");
+                                    strong.text(Helper.getString(context, language, R.string.title_subject) + " ");
                                     p.appendChild(strong);
                                     p.appendText(ref.subject == null ? "" : ref.subject);
                                     p.appendElement("br");

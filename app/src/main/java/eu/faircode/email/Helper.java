@@ -752,6 +752,16 @@ public class Helper {
         }
     }
 
+    static String getString(Context context, String language, int resid, Object... formatArgs) {
+        if (language == null)
+            return context.getString(resid, formatArgs);
+
+        Configuration configuration = new Configuration(context.getResources().getConfiguration());
+        configuration.setLocale(new Locale(language));
+        Resources res = context.createConfigurationContext(configuration).getResources();
+        return res.getString(resid, formatArgs);
+    }
+
     static String[] getStrings(Context context, int resid, Object... formatArgs) {
         return getStrings(context, null, resid, formatArgs);
     }
