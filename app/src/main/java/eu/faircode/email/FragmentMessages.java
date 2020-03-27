@@ -3648,7 +3648,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 String current = prefs.getString("filter_language", null);
 
                 PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), vwAnchor);
-                popupMenu.getMenu().add(Menu.NONE, 0, 0, R.string.title_language_all);
+
+                String all = getString(R.string.title_language_all) + (current == null ? " ★" : "");
+                popupMenu.getMenu().add(Menu.NONE, 0, 0, all);
 
                 for (int i = 0; i < languages.size(); i++) {
                     String language = languages.get(i);
