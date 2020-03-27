@@ -561,6 +561,7 @@
     <string name="title_client_certificate">Client certificate</string>
     <string name="title_realm">Realm</string>
     <string name="title_use_ip">Use local IP address instead of host name</string>
+    <string name="title_primary">Primary</string>
     <string name="title_primary_account">Primary (default account)</string>
     <string name="title_primary_identity">Primary (default identity)</string>
     <string name="title_leave_on_server">Leave messages on server</string>

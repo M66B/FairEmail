@@ -241,6 +241,8 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
 
             popupMenu.getMenu().add(Menu.NONE, R.string.title_enabled, 1, R.string.title_enabled)
                     .setCheckable(true).setChecked(account.synchronize);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_primary, 2, R.string.title_primary)
+                    .setCheckable(true).setChecked(account.primary);
 
             if (account.notify &&
                     Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -248,11 +250,11 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                 NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
                 NotificationChannel channel = nm.getNotificationChannel(channelId);
                 if (channel != null)
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_channel, 2, R.string.title_edit_channel);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_channel, 3, R.string.title_edit_channel);
             }
 
             if (account.protocol == EntityAccount.TYPE_IMAP && settings)
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_copy, 3, R.string.title_copy);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_copy, 4, R.string.title_copy);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
@@ -260,6 +262,10 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                     switch (item.getItemId()) {
                         case R.string.title_enabled:
                             onActionSync(!item.isChecked());
+                            return true;
+
+                        case R.string.title_primary:
+                            onActionPrimary(!item.isChecked());
                             return true;
 
                         case R.string.title_edit_channel:
@@ -306,6 +312,40 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                             Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                         }
                     }.execute(context, owner, args, "account:enable");
+                }
+
+                private void onActionPrimary(boolean primary) {
+                    Bundle args = new Bundle();
+                    args.putLong("id", account.id);
+                    args.putBoolean("primary", primary);
+
+                    new SimpleTask<Void>() {
+                        @Override
+                        protected Void onExecute(Context context, Bundle args) {
+                            long id = args.getLong("id");
+                            boolean primary = args.getBoolean("primary");
+
+                            DB db = DB.getInstance(context);
+                            try {
+                                db.beginTransaction();
+
+                                if (primary)
+                                    db.account().resetPrimary();
+                                db.account().setAccountPrimary(id, primary);
+
+                                db.setTransactionSuccessful();
+                            } finally {
+                                db.endTransaction();
+                            }
+
+                            return null;
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                        }
+                    }.execute(context, owner, args, "account:primary");
                 }
 
                 @TargetApi(Build.VERSION_CODES.O)

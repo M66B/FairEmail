@@ -85,6 +85,9 @@ public interface DaoIdentity {
     @Query("UPDATE identity SET synchronize = :synchronize WHERE id = :id")
     int setIdentitySynchronize(long id, boolean synchronize);
 
+    @Query("UPDATE identity SET `primary` = :primary WHERE id = :id")
+    int setIdentityPrimary(long id, boolean primary);
+
     @Query("UPDATE identity SET state = :state WHERE id = :id")
     int setIdentityState(long id, String state);
 

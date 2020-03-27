@@ -187,11 +187,13 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
 
             popupMenu.getMenu().add(Menu.NONE, R.string.title_enabled, 1, R.string.title_enabled)
                     .setCheckable(true).setChecked(identity.synchronize);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_primary, 2, R.string.title_primary)
+                    .setCheckable(true).setChecked(identity.primary);
 
             if (identity.sign_key != null)
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_reset_sign_key, 2, R.string.title_reset_sign_key);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_reset_sign_key, 3, R.string.title_reset_sign_key);
 
-            popupMenu.getMenu().add(Menu.NONE, R.string.title_copy, 3, R.string.title_copy);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_copy, 4, R.string.title_copy);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
@@ -199,6 +201,10 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
                     switch (item.getItemId()) {
                         case R.string.title_enabled:
                             onActionSync(!item.isChecked());
+                            return true;
+
+                        case R.string.title_primary:
+                            onActionPrimary(!item.isChecked());
                             return true;
 
                         case R.string.title_reset_sign_key:
@@ -237,7 +243,45 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
                         protected void onException(Bundle args, Throwable ex) {
                             Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                         }
-                    }.execute(context, owner, args, "identitty:enable");
+                    }.execute(context, owner, args, "identity:enable");
+                }
+
+                private void onActionPrimary(boolean primary) {
+                    Bundle args = new Bundle();
+                    args.putLong("id", identity.id);
+                    args.putLong("account", identity.account);
+                    args.putBoolean("primary", primary);
+
+                    new SimpleTask<Void>() {
+                        @Override
+                        protected Void onExecute(Context context, Bundle args) {
+                            long id = args.getLong("id");
+                            long account = args.getLong("account");
+                            boolean primary = args.getBoolean("primary");
+
+                            DB db = DB.getInstance(context);
+
+                            try {
+                                db.beginTransaction();
+
+                                if (identity.primary)
+                                    db.identity().resetPrimary(account);
+
+                                db.identity().setIdentityPrimary(id, primary);
+
+                                db.setTransactionSuccessful();
+                            } finally {
+                                db.endTransaction();
+                            }
+
+                            return null;
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                        }
+                    }.execute(context, owner, args, "identity:primary");
                 }
 
                 private void onActionClearSignKey() {
