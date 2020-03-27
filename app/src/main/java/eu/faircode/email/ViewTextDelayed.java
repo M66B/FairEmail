@@ -29,7 +29,7 @@ import androidx.appcompat.widget.AppCompatTextView;
 public class ViewTextDelayed extends AppCompatTextView {
     private int visibility;
 
-    private static final int VISIBILITY_DELAY = 1000; // milliseconds
+    private static final int VISIBILITY_DELAY = 500; // milliseconds
 
     public ViewTextDelayed(@NonNull Context context) {
         super(context);
