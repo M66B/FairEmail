@@ -139,13 +139,16 @@ public class ActivityWidgetUnified extends ActivityBase {
 
                         DB db = DB.getInstance(context);
                         List<TupleFolderEx> folders = db.folder().getFoldersEx(account);
-                        if (folders.size() > 0)
+                        if (folders != null && folders.size() > 0)
                             Collections.sort(folders, folders.get(0).getComparator(context));
                         return folders;
                     }
 
                     @Override
                     protected void onExecuted(Bundle args, List<TupleFolderEx> folders) {
+                        if (folders == null)
+                            folders = new ArrayList<>();
+
                         TupleFolderEx unified = new TupleFolderEx();
                         unified.id = -1L;
                         unified.name = getString(R.string.title_widget_folder_unified);
