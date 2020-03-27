@@ -3354,6 +3354,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         boolean filter_unknown = prefs.getBoolean("filter_unknown", false);
         boolean filter_snoozed = prefs.getBoolean("filter_snoozed", true);
         boolean filter_duplicates = prefs.getBoolean("filter_duplicates", true);
+        boolean language_detection = prefs.getBoolean("language_detection", false);
         boolean compact = prefs.getBoolean("compact", false);
         boolean quick_filter = prefs.getBoolean("quick_filter", false);
 
@@ -3428,7 +3429,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         boolean list = (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER);
 
-        menu.findItem(R.id.menu_select_language).setVisible(list && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q);
+        menu.findItem(R.id.menu_select_language).setVisible(
+                language_detection && list && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q);
         menu.findItem(R.id.menu_select_all).setVisible(!outbox && list);
         menu.findItem(R.id.menu_select_found).setVisible(viewType == AdapterMessage.ViewType.SEARCH);
         menu.findItem(R.id.menu_empty_trash).setVisible(EntityFolder.TRASH.equals(type) && list);
