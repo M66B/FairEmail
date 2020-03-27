@@ -772,7 +772,7 @@ public class MessageHelper {
         List<String> result = new ArrayList<>();
         String refs = imessage.getHeader("References", null);
         if (refs != null)
-            result.addAll(Arrays.asList(MimeUtility.unfold(refs).split("\\s+")));
+            result.addAll(Arrays.asList(getReferences(refs)));
 
         try {
             // Merge references of original message for threading
@@ -802,7 +802,7 @@ public class MessageHelper {
                         }
 
                     if (arefs != null)
-                        for (String ref : MimeUtility.unfold(arefs).split("\\s+"))
+                        for (String ref : getReferences(arefs))
                             if (!result.contains(ref)) {
                                 Log.i("rfc822 ref=" + ref);
                                 result.add(ref);
@@ -822,6 +822,10 @@ public class MessageHelper {
         }
 
         return result.toArray(new String[0]);
+    }
+
+    private String[] getReferences(String header) {
+        return MimeUtility.unfold(header).split("[,\\s+]");
     }
 
     String getDeliveredTo() throws MessagingException {
