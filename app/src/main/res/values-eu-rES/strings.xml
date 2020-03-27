@@ -297,6 +297,7 @@
     <string name="title_advanced_images_inline">Erakutsi automatikoki txertatutako irudiak</string>
     <string name="title_advanced_seekbar">Erakutsi posizio erlatiboa elkarrizketan puntu batekin</string>
     <string name="title_advanced_actionbar">Erakutsi elkarrizketako ekintza-barra</string>
+    <string name="title_advanced_actionbar_color">Erabili kontuaren kolorea elkarrizketaren tresna barrako atzeko planoaren kolore gisa</string>
     <string name="title_advanced_navbar_colorize">Koloreztatu Android-en nabigazio barra</string>
     <string name="title_advanced_double_back">\'Atzera\' birritan irteteko</string>
     <string name="title_advanced_pull_refresh">Tiratu behera berritzeko</string>
@@ -366,6 +367,7 @@
     <string name="title_advanced_shortcuts">Erakutsi maiz erabilitako kontaktuak Android partekatzeko menuan</string>
     <string name="title_advanced_conversation_actions">Iradoki ekintzak</string>
     <string name="title_advanced_conversation_actions_replies">Iradoki erantzuteko testuak</string>
+    <string name="title_advanced_language_detection">Detektatu mezuen testuaren hizkuntza</string>
     <string name="title_advanced_fts">Sortu bilaketa-indizea</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d mezu indexatuak (%3$s)</string>
     <string name="title_advanced_english">Behartu hizkuntza ingelesa</string>
@@ -522,8 +524,8 @@
     <string name="title_synchronize_enabled">Sinkronizatu</string>
     <string name="title_delete_local">Ezabatu mezu lokalak</string>
     <string name="title_delete_browsed">Ezabatu ikusitako/bilatutako mezuak</string>
-    <string name="title_empty_trash">Hustu zaborrontzi lokala</string>
-    <string name="title_empty_spam">Hustu spam lokala</string>
+    <string name="title_empty_trash">Hustu zakarrontzia</string>
+    <string name="title_empty_spam">Spam hutsak</string>
     <string name="title_edit_properties">Editatu propietateak</string>
     <string name="title_edit_rules">Editatu arauak</string>
     <string name="title_create_channel">Sortu jakinarazpen kanala</string>
@@ -532,10 +534,10 @@
     <string name="title_insert_contact">Gehitu kontaktua</string>
     <string name="title_edit_contact">Editatu kontaktua</string>
     <string name="title_create_sub_folder">Sortu azpi-karpeta</string>
-    <string name="title_empty_trash_ask">Ezabatu zakarrontzi lokaleko mezuak behin betiko?</string>
-    <string name="title_empty_spam_ask">Ezabatu spam lokaleko mezuak behin betiko?</string>
-    <string name="title_empty_trash_all_ask">Ezabatu kontu lokal guztietako zaborrontziko mezu guztiak behin betiko?</string>
-    <string name="title_empty_spam_all_ask">Ezabatu kontu lokal guztietako spam mezu guztiak behin betiko?</string>
+    <string name="title_empty_trash_ask">Ezabatu zakarrontziko mezu guztiak behin betiko?</string>
+    <string name="title_empty_spam_ask">Ezabatu spam mezu guztiak behin betiko?</string>
+    <string name="title_empty_trash_all_ask">Ezabatu kontu guztietako zaborrontziko mezu guztiak behin betiko?</string>
+    <string name="title_empty_spam_all_ask">Ezabatu kontu guztietako spam mezu guztiak behin betiko?</string>
     <string name="title_delete_operation">Ezabatu errore mezua duten eragiketak?</string>
     <string name="title_delete_contacts">Ezabatu kontaktu lokal guztiak?</string>
     <string name="title_no_operations">Ez dago eragiketarik egiteke</string>

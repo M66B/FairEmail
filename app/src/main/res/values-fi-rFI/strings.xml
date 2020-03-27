@@ -523,8 +523,6 @@
     <string name="title_synchronize_enabled">Synkronoi</string>
     <string name="title_delete_local">Poista paikalliset viestit</string>
     <string name="title_delete_browsed">Poista selatut/haetut viestit</string>
-    <string name="title_empty_trash">Tyhjennä paikallinen roskakori</string>
-    <string name="title_empty_spam">Tyhjennä paikalliset roskapostit</string>
     <string name="title_edit_properties">Muokkaa ominaisuuksia</string>
     <string name="title_edit_rules">Muokkaa sääntöjä</string>
     <string name="title_create_channel">Luo ilmoituskanava</string>
@@ -533,10 +531,6 @@
     <string name="title_insert_contact">Lisää yhteystieto</string>
     <string name="title_edit_contact">Muokkaa yhteystietoa</string>
     <string name="title_create_sub_folder">Luo alikansio</string>
-    <string name="title_empty_trash_ask">Poistetaanko pysyvästi paikalliset roskakoriin siirretyt viestit?</string>
-    <string name="title_empty_spam_ask">Poistetaanko pysyvästi paikalliset roskapostit?</string>
-    <string name="title_empty_trash_all_ask">Poistetaanko pysyvästi kaikkien tilien kaikki paikalliseen roskakoriin siirretyt viestit?</string>
-    <string name="title_empty_spam_all_ask">Poistetaanko pysyvästi kaikkien tilien kaikki paikalliset roskapostit?</string>
     <string name="title_delete_operation">Poistetaanko toimenpiteet, joille on virheilmoitus?</string>
     <string name="title_delete_contacts">Poistetaanko kaikki paikalliset yhteystiedot?</string>
     <string name="title_no_operations">Ei odottavia toimenpiteitä</string>

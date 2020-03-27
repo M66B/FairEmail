@@ -319,6 +319,7 @@
     <string name="title_advanced_images_inline">Automaticky zobrazit vložené obrázky</string>
     <string name="title_advanced_seekbar">Zobrazit relativní pozici v konverzaci puntíkem</string>
     <string name="title_advanced_actionbar">Zobrazit panel akcí konverzací</string>
+    <string name="title_advanced_actionbar_color">Použít barvu účtu jako barvu pozadí pro panel akcí konverzace</string>
     <string name="title_advanced_navbar_colorize">Obarvit navigační panel Androidu</string>
     <string name="title_advanced_double_back">Dvakrát \"zpět\" pro ukončení</string>
     <string name="title_advanced_pull_refresh">Aktualizovat tažením dolů</string>
@@ -388,6 +389,7 @@
     <string name="title_advanced_shortcuts">Zobrazit často používané kontakty v nabídce sdílení Androidu</string>
     <string name="title_advanced_conversation_actions">Navrhovat akce</string>
     <string name="title_advanced_conversation_actions_replies">Navrhovat texty odpovědí</string>
+    <string name="title_advanced_language_detection">Rozpoznat jazyk textu zprávy</string>
     <string name="title_advanced_fts">Sestavit index vyhledávání</string>
     <string name="title_advanced_fts_indexed">Indexováno %1$d / %2$d zpráv (%3$s)</string>
     <string name="title_advanced_english">Vynutit anglický jazyk</string>
@@ -545,8 +547,8 @@
     <string name="title_synchronize_enabled">Synchronizovat</string>
     <string name="title_delete_local">Smazat lokální zprávy</string>
     <string name="title_delete_browsed">Smazat prohlédnuté/vyhledané zprávy</string>
-    <string name="title_empty_trash">Vyprázdnit lokální koš</string>
-    <string name="title_empty_spam">Vyprázdnit lokální spam</string>
+    <string name="title_empty_trash">Vysypat koš</string>
+    <string name="title_empty_spam">Vysypat nevyžádané</string>
     <string name="title_edit_properties">Upravit vlastnosti</string>
     <string name="title_edit_rules">Upravit pravidla</string>
     <string name="title_create_channel">Vytvořit kanál oznámení</string>
@@ -555,10 +557,10 @@
     <string name="title_insert_contact">Přidat kontakt</string>
     <string name="title_edit_contact">Upravit kontakt</string>
     <string name="title_create_sub_folder">Vytvořit podsložku</string>
-    <string name="title_empty_trash_ask">Trvale odstranit všechny lokální zprávy v koši?</string>
-    <string name="title_empty_spam_ask">Trvale odstranit všechny lokální nevyžádané zprávy?</string>
-    <string name="title_empty_trash_all_ask">Trvale odstranit všechny lokální zprávy v koši ze všech účtů?</string>
-    <string name="title_empty_spam_all_ask">Trvale odstranit všechny lokální nevyžádané zprávy ze všech účtů?</string>
+    <string name="title_empty_trash_ask">Trvale odstranit všechny zprávy v koši?</string>
+    <string name="title_empty_spam_ask">Trvale odstranit všechny nevyžádané zprávy?</string>
+    <string name="title_empty_trash_all_ask">Trvale odstranit všechny zprávy v koši ze všech účtů?</string>
+    <string name="title_empty_spam_all_ask">Trvale odstranit všechny nevyžádané zprávy ze všech účtů?</string>
     <string name="title_delete_operation">Smazat operace s chybovou hláškou?</string>
     <string name="title_delete_contacts">Smazat všechny lokální kontakty?</string>
     <string name="title_no_operations">Žádné probíhající operace</string>
@@ -990,6 +992,7 @@
     <string name="title_legend_p">Předchozí</string>
     <string name="title_legend_r">Odpovědět</string>
     <string name="title_legend_s">Vybrat / zrušit výběr</string>
+    <string name="title_legend_t">Zaměřit text</string>
     <string name="title_hint_folder_actions">Dlouze podržet složku pro možnosti, např. přidání složky do navigačního menu pro rychlý přístup</string>
     <string name="title_hint_folder_sync">Pro omezení spotřeby baterie a dat nebudou ve výchozím stavu synchronizovány všechny zprávy ani složky</string>
     <string name="title_hint_support">Máte-li dotaz nebo problém, použijte prosím menu podpory pro získání pomoci</string>

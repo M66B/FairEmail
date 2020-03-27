@@ -299,6 +299,7 @@
     <string name="title_advanced_images_inline">Auto-vis indlejrede/vehæftede billeder</string>
     <string name="title_advanced_seekbar">Vis relativ samtaleposition med en prik</string>
     <string name="title_advanced_actionbar">Vis samtale-handlingsbjælke</string>
+    <string name="title_advanced_actionbar_color">Benyt kontofarve som baggrundsfarve til samtalens handlingsbjælke</string>
     <string name="title_advanced_navbar_colorize">Farvelæg Abdroid-navigeringsbjælken</string>
     <string name="title_advanced_double_back">Dobbelttryk \"Tilbage\"/stryg for at lukke</string>
     <string name="title_advanced_pull_refresh">Træk ned for at opfriske</string>
@@ -368,6 +369,7 @@
     <string name="title_advanced_shortcuts">Vis ofte anvendte kontakter i Android-delingsmenuen</string>
     <string name="title_advanced_conversation_actions">Foreslå handlinger</string>
     <string name="title_advanced_conversation_actions_replies">Foreslå svartekster</string>
+    <string name="title_advanced_language_detection">Registrér beskedtekstsprog</string>
     <string name="title_advanced_fts">Opbyg søgeindeks</string>
     <string name="title_advanced_fts_indexed">%1$d/%2$d beskeder indekseret (%3$s)</string>
     <string name="title_advanced_english">Gennemtving engelsk sprog</string>
@@ -525,8 +527,8 @@
     <string name="title_synchronize_enabled">Synkroniserer</string>
     <string name="title_delete_local">Slet lokale beskeder</string>
     <string name="title_delete_browsed">Slet gennemsete/søgte beskeder</string>
-    <string name="title_empty_trash">Tøm lokal papirkurv</string>
-    <string name="title_empty_spam">Tøm lokal spam</string>
+    <string name="title_empty_trash">Tøm papirkurv</string>
+    <string name="title_empty_spam">Tøm spam</string>
     <string name="title_edit_properties">Redigér egenskaber</string>
     <string name="title_edit_rules">Redigér regler</string>
     <string name="title_create_channel">Opret notifikationskanal</string>
@@ -535,10 +537,10 @@
     <string name="title_insert_contact">Tilføj Kontakt</string>
     <string name="title_edit_contact">Redigér Kontakt</string>
     <string name="title_create_sub_folder">Opret undermappe</string>
-    <string name="title_empty_trash_ask">Slet permanent alt lokalt beskedindhold i papirkurven?</string>
-    <string name="title_empty_spam_ask">Slet permanent alle lokale spambeskeder?</string>
-    <string name="title_empty_trash_all_ask">Slet permanent alt beskedindhold i papirkurven fra alle konti?</string>
-    <string name="title_empty_spam_all_ask">Slet permanent alle spambeskeder fra alle konti?</string>
+    <string name="title_empty_trash_ask">Slet permanent alt indhold i papirkurven?</string>
+    <string name="title_empty_spam_ask">Slet permanent alle spambeskeder?</string>
+    <string name="title_empty_trash_all_ask">Slet permanent alt indhold i papirkurven for alle konti?</string>
+    <string name="title_empty_spam_all_ask">Slet permanent alle spam-beskeder for alle konti?</string>
     <string name="title_delete_operation">Slet operationer med en fejlmeddelelse?</string>
     <string name="title_delete_contacts">Slet alle lokale kontakter?</string>
     <string name="title_no_operations">Ingen afventende handlinger</string>
@@ -697,6 +699,7 @@
     <string name="title_sent">Sendt:</string>
     <string name="title_received">Modtaget:</string>
     <string name="title_size">Størrelse:</string>
+    <string name="title_language">Sprog:</string>
     <string name="title_subject">Emne:</string>
     <string name="title_attachment">Vedhæftning:</string>
     <string name="title_body_hint">Din besked</string>

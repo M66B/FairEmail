@@ -298,6 +298,7 @@
     <string name="title_advanced_images_inline">Visa automatiskt infogade bilder</string>
     <string name="title_advanced_seekbar">Visa relativ konversationsposition med en punkt</string>
     <string name="title_advanced_actionbar">Visa konversationsåtgärdsfältet</string>
+    <string name="title_advanced_actionbar_color">Använd kontofärg som bakgrundsfärg för konversationsfältet</string>
     <string name="title_advanced_navbar_colorize">Färglägg navigeringsfältet för Android</string>
     <string name="title_advanced_double_back">Dubbel \"tillbaka\" för att avsluta</string>
     <string name="title_advanced_pull_refresh">Dra ner för att uppdatera</string>
@@ -367,6 +368,7 @@
     <string name="title_advanced_shortcuts">Visa ofta använda kontakter i Android dela-menyn</string>
     <string name="title_advanced_conversation_actions">Föreslå åtgärder</string>
     <string name="title_advanced_conversation_actions_replies">Föreslå svarstext</string>
+    <string name="title_advanced_language_detection">Detektera textens språk</string>
     <string name="title_advanced_fts">Bygg sökindex</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d meddelanden indexerade (%3$s)</string>
     <string name="title_advanced_english">Tvinga användning av engelska</string>
@@ -524,8 +526,8 @@
     <string name="title_synchronize_enabled">Synkronisera</string>
     <string name="title_delete_local">Ta bort lokala meddelanden</string>
     <string name="title_delete_browsed">Ta bort bläddrade/sökta meddelanden</string>
-    <string name="title_empty_trash">Töm den lokala papperskorgen</string>
-    <string name="title_empty_spam">Töm den lokala skräpposten</string>
+    <string name="title_empty_trash">Töm papperskorg</string>
+    <string name="title_empty_spam">Töm skräppost</string>
     <string name="title_edit_properties">Redigera egenskaper</string>
     <string name="title_edit_rules">Redigera regler</string>
     <string name="title_create_channel">Skapa aviseringskanal</string>
@@ -534,10 +536,10 @@
     <string name="title_insert_contact">Lägg till kontakt</string>
     <string name="title_edit_contact">Redigera kontakt</string>
     <string name="title_create_sub_folder">Skapa undermapp</string>
-    <string name="title_empty_trash_ask">Ta bort alla meddelanden i den lokala papperskorgen permanent?</string>
-    <string name="title_empty_spam_ask">Ta bort alla meddelanden i den lokala skräppostensmappen permanent?</string>
-    <string name="title_empty_trash_all_ask">Ta bort alla lokala borttagna meddelanden från alla konton permanent?</string>
-    <string name="title_empty_spam_all_ask">Ta bort alla lokala skräppostmeddelanden från alla konton permanent?</string>
+    <string name="title_empty_trash_ask">Ta bort alla meddelanden i papperskorgen permanent?</string>
+    <string name="title_empty_spam_ask">Ta bort all skräppost permanent?</string>
+    <string name="title_empty_trash_all_ask">Ta bort alla borttagna meddelanden från alla konton permanent?</string>
+    <string name="title_empty_spam_all_ask">Ta bort all skräppost från alla konton permanent?</string>
     <string name="title_delete_operation">Ta bort åtgärder med ett felmeddelande?</string>
     <string name="title_delete_contacts">Ta bort alla lokala kontakter?</string>
     <string name="title_no_operations">Inga pågående åtgärder</string>

@@ -533,8 +533,6 @@
     <string name="title_synchronize_enabled">Sincronizare</string>
     <string name="title_delete_local">Șterge mesajul local</string>
     <string name="title_delete_browsed">Șterge mesajele răsfoite/căutate</string>
-    <string name="title_empty_trash">Golește gunoi local</string>
-    <string name="title_empty_spam">Golește spam local</string>
     <string name="title_edit_properties">Editare proprietăți</string>
     <string name="title_edit_rules">Editare reguli</string>
     <string name="title_create_channel">Creare canal de notificare</string>
@@ -543,10 +541,6 @@
     <string name="title_insert_contact">Adaugă contact</string>
     <string name="title_edit_contact">Editare contact</string>
     <string name="title_create_sub_folder">Creează sub-dosar</string>
-    <string name="title_empty_trash_ask">Șterge definitiv toate mesajele locale din gunoi?</string>
-    <string name="title_empty_spam_ask">Şterge definitiv toate mesajele locale din spam?</string>
-    <string name="title_empty_trash_all_ask">Șterge definitiv toate mesajele locale din gunoi pentru toate conturile?</string>
-    <string name="title_empty_spam_all_ask">Şterge definitiv toate mesajele locale din spam pentru toate conturile?</string>
     <string name="title_delete_operation">Se șterg operațiunile cu mesaj de eroare?</string>
     <string name="title_delete_contacts">Ștergeți toate contactele locale?</string>
     <string name="title_no_operations">Nici o operațiune în așteptare</string>

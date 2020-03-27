@@ -205,7 +205,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_section_synchronize">Empfangen</string>
     <string name="title_advanced_section_send">Senden</string>
     <string name="title_advanced_section_connection">Verbindung</string>
-    <string name="title_advanced_section_display">Anzeige</string>
+    <string name="title_advanced_section_display">Darstellung</string>
     <string name="title_advanced_section_behavior">Verhalten</string>
     <string name="title_advanced_section_privacy">Datenschutz</string>
     <string name="title_advanced_section_encryption">Verschlüsselung</string>
@@ -257,7 +257,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_caption_message_body">Nachrichtentext</string>
     <string name="title_advanced_landscape">Zwei Spalten im Querformat verwenden</string>
     <string name="title_advanced_landscape3">Festes Navigationsmenü im Querformat erlauben</string>
-    <string name="title_advanced_startup">Auf Startbildschirm anzeigen</string>
+    <string name="title_advanced_startup">Auf Startbildschirm anzeigen:</string>
     <string name="title_advanced_cards">Ordner und Unterhaltungen mit Rahmen (breit) statt in Tabellendesign (schmal) zeigen</string>
     <string name="title_advanced_date_header">Nach Datum gruppieren</string>
     <string name="title_advanced_threading">Themenbaum</string>
@@ -300,6 +300,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_images_inline">Eingebettete Grafiken automatisch anzeigen</string>
     <string name="title_advanced_seekbar">Relative Themenposition mit einem Punkt kennzeichnen</string>
     <string name="title_advanced_actionbar">Navigationsleiste in Themen anzeigen</string>
+    <string name="title_advanced_actionbar_color">Farbe des Kontos als Hintergrundfarbe für die Aktionsleiste verwenden</string>
     <string name="title_advanced_navbar_colorize">Android-Navigationsleiste farbig darstellen</string>
     <string name="title_advanced_double_back">Zweifaches „Zurück” zum Beenden</string>
     <string name="title_advanced_pull_refresh">Zum Aktualisieren nach unten ziehen</string>
@@ -369,6 +370,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_shortcuts">Häufig verwendete Kontakte im Android-Teilen-Menü anzeigen</string>
     <string name="title_advanced_conversation_actions">Aktionen vorschlagen</string>
     <string name="title_advanced_conversation_actions_replies">Antworttext vorschlagen</string>
+    <string name="title_advanced_language_detection">Sprache des Nachrichtentextes erkennen</string>
     <string name="title_advanced_fts">Suchindex erstellen</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d Nachrichten indiziert (%3$s)</string>
     <string name="title_advanced_english">Englische Sprache erzwingen</string>
@@ -406,7 +408,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_socks_hint">Die Benutzung eines Remote-Proxy-Servers ist unsicher, da Proxy-Verbindungen nicht verschlüsselt sind</string>
     <string name="title_advanced_roaming_hint">Die Kopfzeilen der Nachrichten werden beim Roaming immer abgeholt. Sie können die Roaming-Einstellung des Geräts verwenden, um das Internet während des Roaming zu deaktivieren.</string>
     <string name="title_advanced_browse_hint">Durch Herunterziehen weitere Nachrichten abholen</string>
-    <string name="title_advanced_layout_hint">Das Wechseln zu einem kompakteren Layout und Ändern der Nachrichtentextgröße kann im oberen Aktionsleisten-Menü in der Nachrichtenansicht vorgenommen werden</string>
+    <string name="title_advanced_layout_hint">Das Wechseln zu einer kompakteren Darstellung und Ändern der Nachrichtentextgröße kann im oberen Aktionsleistenmenü in der Nachrichtenansicht vorgenommen werden.</string>
     <string name="title_advanced_startup_hint">Einen beliebigen Ordner in der Ordnerliste lange gedrückt halten, um ihn der Liste der Sammelordner hinzuzufügen oder ihn daraus zu entfernen</string>
     <string name="title_advanced_date_hint">Nachrichten werden nur nach Datum gruppiert, wenn sie nach Zeit sortiert sind</string>
     <string name="title_advanced_navbar_colorize_hint">Ob dies funktioniert, hängt von der Android-Version und Variante ab</string>
@@ -478,6 +480,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_client_certificate">Clientzertifikat</string>
     <string name="title_realm">Bereich</string>
     <string name="title_use_ip">Lokale IP-Adresse anstelle des Domain-Namens verwenden</string>
+    <string name="title_primary">Hauptkonto</string>
     <string name="title_primary_account">Hauptkonto</string>
     <string name="title_primary_identity">Hauptidentität</string>
     <string name="title_leave_on_server">Nachrichten auf Server belassen</string>
@@ -526,8 +529,8 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_synchronize_enabled">Synchronisieren</string>
     <string name="title_delete_local">Lokale Nachrichten löschen</string>
     <string name="title_delete_browsed">Durchsuchte Nachrichten löschen</string>
-    <string name="title_empty_trash">Lokalen Papierkorb leeren</string>
-    <string name="title_empty_spam">Lokalen Spam leeren</string>
+    <string name="title_empty_trash">Papierkorb leeren</string>
+    <string name="title_empty_spam">Spamordner leeren</string>
     <string name="title_edit_properties">Eigenschaften bearbeiten</string>
     <string name="title_edit_rules">Regel bearbeiten</string>
     <string name="title_create_channel">Benachrichtigungskanal erstellen</string>
@@ -536,10 +539,10 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_insert_contact">Kontakt hinzufügen</string>
     <string name="title_edit_contact">Kontakt bearbeiten</string>
     <string name="title_create_sub_folder">Unterordner erstellen</string>
-    <string name="title_empty_trash_ask">Alle lokalen gelöschten Nachrichten dauerhaft löschen?</string>
-    <string name="title_empty_spam_ask">Alle lokalen Spam-Nachrichten dauerhaft löschen?</string>
-    <string name="title_empty_trash_all_ask">Alle lokalen gelöschten Nachrichten aller Konten dauerhaft löschen?</string>
-    <string name="title_empty_spam_all_ask">Alle lokalen Spam-Nachrichten aller Konten dauerhaft löschen?</string>
+    <string name="title_empty_trash_ask">Alle Nachrichten im Papierkorb endgültig löschen?</string>
+    <string name="title_empty_spam_ask">Alle Spam-Nachrichten endgültig löschen?</string>
+    <string name="title_empty_trash_all_ask">Alle in den Papierkorb verschobenen Nachrichten aller Konten endgültig löschen?</string>
+    <string name="title_empty_spam_all_ask">Alle Spam-Nachrichten aller Konten endgültig löschen?</string>
     <string name="title_delete_operation">Vorgänge mit einer Fehlermeldung löschen?</string>
     <string name="title_delete_contacts">Alle lokale Kontakte löschen?</string>
     <string name="title_no_operations">Keine weiteren Vorgänge</string>

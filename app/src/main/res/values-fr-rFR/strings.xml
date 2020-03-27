@@ -299,6 +299,7 @@
     <string name="title_advanced_images_inline">Afficher automatiquement les images incluses</string>
     <string name="title_advanced_seekbar">Afficher la position relative dans la conversation avec un point</string>
     <string name="title_advanced_actionbar">Afficher la barre d\'action de conversation</string>
+    <string name="title_advanced_actionbar_color">Utiliser la couleur du compte comme couleur de fond pour la barre d\'action de la conversation</string>
     <string name="title_advanced_navbar_colorize">Colorer la barre de navigation Android</string>
     <string name="title_advanced_double_back">Faire « Retour » deux fois pour quitter</string>
     <string name="title_advanced_pull_refresh">Tirer vers le bas pour actualiser</string>
@@ -368,6 +369,7 @@
     <string name="title_advanced_shortcuts">Afficher les contacts fréquemment utilisés dans le menu de partage Android</string>
     <string name="title_advanced_conversation_actions">Suggérer des actions</string>
     <string name="title_advanced_conversation_actions_replies">Suggérer des textes de réponse</string>
+    <string name="title_advanced_language_detection">Détecter la langue du texte du message</string>
     <string name="title_advanced_fts">Construire l\'index de recherche</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d messages indexés (%3$s)</string>
     <string name="title_advanced_english">Forcer la langue anglaise</string>
@@ -477,6 +479,7 @@
     <string name="title_client_certificate">Certificat client</string>
     <string name="title_realm">Domaine</string>
     <string name="title_use_ip">Utiliser l\'adresse IP locale au lieu du nom de domaine</string>
+    <string name="title_primary">Primaire</string>
     <string name="title_primary_account">Principal (compte par défaut)</string>
     <string name="title_primary_identity">Principal (identité par défaut)</string>
     <string name="title_leave_on_server">Laisser les messages sur le serveur</string>
@@ -525,8 +528,8 @@
     <string name="title_synchronize_enabled">Synchroniser</string>
     <string name="title_delete_local">Supprimer les messages locaux</string>
     <string name="title_delete_browsed">Supprimer les messages consultés/recherchés</string>
-    <string name="title_empty_trash">Vider la corbeille locale</string>
-    <string name="title_empty_spam">Vider le spam local</string>
+    <string name="title_empty_trash">Vider la corbeille</string>
+    <string name="title_empty_spam">Vider le spam</string>
     <string name="title_edit_properties">Éditer les propriétés</string>
     <string name="title_edit_rules">Modifier les règles</string>
     <string name="title_create_channel">Créer un canal de notification</string>
@@ -535,10 +538,10 @@
     <string name="title_insert_contact">Ajouter un contact</string>
     <string name="title_edit_contact">Modifier un contact</string>
     <string name="title_create_sub_folder">Créer un sous-dossier</string>
-    <string name="title_empty_trash_ask">Supprimer définitivement tous les messages de la corbeille locale ?</string>
-    <string name="title_empty_spam_ask">Supprimer définitivement tous les messages de spam locaux ?</string>
-    <string name="title_empty_trash_all_ask">Supprimer définitivement tous les messages de la corbeille locale de tous les comptes ?</string>
-    <string name="title_empty_spam_all_ask">Supprimer définitivement tous les messages de spam locaux de tous les comptes ?</string>
+    <string name="title_empty_trash_ask">Supprimer définitivement tous les messages de la corbeille ?</string>
+    <string name="title_empty_spam_ask">Supprimer définitivement tous les messages de spam ?</string>
+    <string name="title_empty_trash_all_ask">Supprimer définitivement tous les messages de la corbeille pour tous les comptes ?</string>
+    <string name="title_empty_spam_all_ask">Supprimer définitivement tous les messages de spam pour tous les comptes ?</string>
     <string name="title_delete_operation">Supprimer les opérations avec un message d\'erreur ?</string>
     <string name="title_delete_contacts">Supprimer tous les contacts locaux ?</string>
     <string name="title_no_operations">Aucune opération en attente</string>

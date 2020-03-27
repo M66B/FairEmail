@@ -300,6 +300,7 @@
     <string name="title_advanced_images_inline">Mostrar imágenes embebidas automáticamente</string>
     <string name="title_advanced_seekbar">Mostrar posición relativa de conversación con un punto</string>
     <string name="title_advanced_actionbar">Mostrar barra de acción de conversación</string>
+    <string name="title_advanced_actionbar_color">Usar el color de la cuenta como color de fondo para la barra de acción de conversación</string>
     <string name="title_advanced_navbar_colorize">Colorear la barra de navegación de Android</string>
     <string name="title_advanced_double_back">Doble \'atrás\' para salir</string>
     <string name="title_advanced_pull_refresh">Tire hacia abajo para actualizar</string>
@@ -369,6 +370,7 @@
     <string name="title_advanced_shortcuts">Mostrar contactos frecuentes en el menú compartir de Android</string>
     <string name="title_advanced_conversation_actions">Sugerir acciones</string>
     <string name="title_advanced_conversation_actions_replies">Sugerir textos de respuesta</string>
+    <string name="title_advanced_language_detection">Detectar idioma de texto del mensaje</string>
     <string name="title_advanced_fts">Crear índice de búsqueda</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d mensajes indexados (%3$s)</string>
     <string name="title_advanced_english">Forzar idioma inglés</string>
@@ -526,8 +528,8 @@
     <string name="title_synchronize_enabled">Sincronizar</string>
     <string name="title_delete_local">Eliminar mensajes locales</string>
     <string name="title_delete_browsed">Eliminar mensajes explorados/buscados</string>
-    <string name="title_empty_trash">Vaciar papelera local</string>
-    <string name="title_empty_spam">Vaciar spam local</string>
+    <string name="title_empty_trash">Vaciar papelera</string>
+    <string name="title_empty_spam">Vaciar spam</string>
     <string name="title_edit_properties">Editar propiedades</string>
     <string name="title_edit_rules">Editar reglas</string>
     <string name="title_create_channel">Crear canal de notificación</string>
@@ -536,10 +538,10 @@
     <string name="title_insert_contact">Agregar contacto</string>
     <string name="title_edit_contact">Editar contacto</string>
     <string name="title_create_sub_folder">Crear subcarpeta</string>
-    <string name="title_empty_trash_ask">¿Borrar todos los mensajes de la papelera local permanentemente?</string>
-    <string name="title_empty_spam_ask">¿Borrar todos los mensajes de spam locales permanentemente?</string>
-    <string name="title_empty_trash_all_ask">¿Borrar permanentemente todos los mensajes locales eliminados de todas las cuentas?</string>
-    <string name="title_empty_spam_all_ask">¿Borrar permanentemente todos los mensajes de spam locales de todas las cuentas?</string>
+    <string name="title_empty_trash_ask">¿Eliminar todos los mensajes borrados permanentemente?</string>
+    <string name="title_empty_spam_ask">¿Eliminar todos los mensajes de spam permanentemente?</string>
+    <string name="title_empty_trash_all_ask">¿Eliminar todos los mensajes borrados de todas las cuentas permanentemente?</string>
+    <string name="title_empty_spam_all_ask">¿Eliminar permanentemente todos los mensajes de spam de todas las cuentas?</string>
     <string name="title_delete_operation">¿Eliminar operaciones con un mensaje de error?</string>
     <string name="title_delete_contacts">¿Eliminar todos los contactos locales?</string>
     <string name="title_no_operations">No hay operaciones pendientes</string>
@@ -698,6 +700,7 @@
     <string name="title_sent">Enviado:</string>
     <string name="title_received">Recibido:</string>
     <string name="title_size">Tamaño:</string>
+    <string name="title_language">Idioma:</string>
     <string name="title_subject">Asunto:</string>
     <string name="title_attachment">Adjunto:</string>
     <string name="title_body_hint">Su mensaje</string>

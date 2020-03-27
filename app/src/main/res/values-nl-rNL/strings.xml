@@ -297,7 +297,8 @@
     <string name="title_advanced_collapse_quotes">Geciteerde tekst samenvouwen</string>
     <string name="title_advanced_images_inline">Automatisch inline afbeeldingen weergeven</string>
     <string name="title_advanced_seekbar">Toon relatieve gesprekspositie met een punt</string>
-    <string name="title_advanced_actionbar">Toon actiebalk gesprek</string>
+    <string name="title_advanced_actionbar">Toon gespreksactiebalk</string>
+    <string name="title_advanced_actionbar_color">Gebruik de accountkleur als achtergrond voor de gespreksactiebalk</string>
     <string name="title_advanced_navbar_colorize">Kleur de Android-navigatiebalk in</string>
     <string name="title_advanced_double_back">Dubbel \'terug\' om te sluiten</string>
     <string name="title_advanced_pull_refresh">Omlaag schuiven om te verversen</string>
@@ -477,6 +478,7 @@
     <string name="title_client_certificate">Cliëntcertificaat</string>
     <string name="title_realm">Realm</string>
     <string name="title_use_ip">Gebruik lokaal IP-adres in plaats van hostnaam</string>
+    <string name="title_primary">Primair</string>
     <string name="title_primary_account">Primair account (standaard account)</string>
     <string name="title_primary_identity">Primaire identiteit (standaard identiteit)</string>
     <string name="title_leave_on_server">Laat berichten achter op de server</string>
@@ -525,8 +527,8 @@
     <string name="title_synchronize_enabled">Synchroniseren</string>
     <string name="title_delete_local">Verwijder lokale berichten</string>
     <string name="title_delete_browsed">Verwijder gebladerde/gezochte berichten</string>
-    <string name="title_empty_trash">Lokale prullenbak leegmaken</string>
-    <string name="title_empty_spam">Lokale spam leegmaken</string>
+    <string name="title_empty_trash">Prullenbak leegmaken</string>
+    <string name="title_empty_spam">Spam map leegmaken</string>
     <string name="title_edit_properties">Bewerk eigenschappen</string>
     <string name="title_edit_rules">Bewerk regels</string>
     <string name="title_create_channel">Meldingskanaal maken</string>
@@ -535,10 +537,10 @@
     <string name="title_insert_contact">Contact toevoegen</string>
     <string name="title_edit_contact">Contact bewerken</string>
     <string name="title_create_sub_folder">Maak submap</string>
-    <string name="title_empty_trash_ask">Alle lokaal weggegooide berichten definitief verwijderen?</string>
-    <string name="title_empty_spam_ask">Alle lokale spam berichten definitief verwijderen?</string>
-    <string name="title_empty_trash_all_ask">Alle lokaal weggegooide berichten van alle accounts definitief verwijderen?</string>
-    <string name="title_empty_spam_all_ask">Alle lokale spamberichten van alle accounts permanent verwijderen?</string>
+    <string name="title_empty_trash_ask">Alle weggegooide berichten definitief verwijderen?</string>
+    <string name="title_empty_spam_ask">Alle spam berichten definitief verwijderen?</string>
+    <string name="title_empty_trash_all_ask">Alle weggegooide berichten van alle accounts definitief verwijderen?</string>
+    <string name="title_empty_spam_all_ask">Alle spam berichten van alle accounts permanent verwijderen?</string>
     <string name="title_delete_operation">Bewerkingen met een foutmelding verwijderen?</string>
     <string name="title_delete_contacts">Verwijder alle lokale contacten?</string>
     <string name="title_no_operations">Geen openstaande bewerkingen</string>
