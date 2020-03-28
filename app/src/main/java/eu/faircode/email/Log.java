@@ -213,12 +213,18 @@ public class Log {
         if (BuildConfig.DEBUG)
             config.setReleaseStage("debug");
         else {
-            String type = "other";
-            if (Helper.hasValidFingerprint(context))
+            String type;
+            if (Helper.hasValidFingerprint(context)) {
                 if (BuildConfig.PLAY_STORE_RELEASE)
                     type = "play";
                 else
                     type = "full";
+            } else {
+                if (BuildConfig.APPLICATION_ID.startsWith("eu.faircode.email"))
+                    type = "other";
+                else
+                    type = "clone";
+            }
             config.setReleaseStage(type + (BuildConfig.BETA_RELEASE ? "/beta" : ""));
         }
 
