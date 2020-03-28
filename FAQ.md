@@ -1120,6 +1120,8 @@ and that identities of other accounts will not be considered.
 It is possible to configure a [regex](https://en.wikipedia.org/wiki/Regular_expression) in the identity settings
 to match the username of an email address (the part before the @ sign).
 
+Note that the domain name (the parts after the @ sign) always needs to be equal to the domain name of the identity.
+
 If you like to match the special purpose email addresses abc@example.com and xyx@example.com
 and like to have a fallback email address main@example.com as well, you could do something like this:
 
