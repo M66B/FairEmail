@@ -776,6 +776,7 @@
     <string name="title_signature_outdated">此公钥当前无效</string>
     <string name="title_signature_store">保存</string>
     <string name="title_search">搜索</string>
+    <string name="title_search_device">在设备上搜索</string>
     <string name="title_search_server">在服务器上搜索</string>
     <string name="title_search_text">搜索文本</string>
     <string name="title_search_in">搜索范围</string>
@@ -798,9 +799,11 @@
     <string name="title_filter_duplicates">重复项</string>
     <string name="title_compact">紧凑视图</string>
     <string name="title_zoom">文本大小</string>
+    <string name="title_select_language">选择语言</string>
     <string name="title_select_all">选择所有</string>
     <string name="title_select_found">选中找到的</string>
     <string name="title_force_sync">强制同步</string>
+    <string name="title_language_all">全部</string>
     <string name="title_previous">上一封</string>
     <string name="title_next">下一封</string>
     <string name="title_edit_signature">编辑签名</string>

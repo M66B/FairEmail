@@ -299,7 +299,7 @@
     <string name="title_advanced_images_inline">Afficher automatiquement les images incluses</string>
     <string name="title_advanced_seekbar">Afficher la position relative dans la conversation avec un point</string>
     <string name="title_advanced_actionbar">Afficher la barre d\'action de conversation</string>
-    <string name="title_advanced_actionbar_color">Utiliser la couleur du compte comme couleur de fond pour la barre d\'action de la conversation</string>
+    <string name="title_advanced_actionbar_color">Utiliser la couleur du compte comme couleur de fond pour la barre d\'action de conversation</string>
     <string name="title_advanced_navbar_colorize">Colorer la barre de navigation Android</string>
     <string name="title_advanced_double_back">Faire « Retour » deux fois pour quitter</string>
     <string name="title_advanced_pull_refresh">Tirer vers le bas pour actualiser</string>
@@ -788,6 +788,7 @@
     <string name="title_signature_outdated">Cette clé publique n\'est actuellement pas valide</string>
     <string name="title_signature_store">Enregistrer</string>
     <string name="title_search">Rechercher</string>
+    <string name="title_search_device">Rechercher sur l\'appareil</string>
     <string name="title_search_server">Rechercher sur le serveur</string>
     <string name="title_search_text">Rechercher dans le texte</string>
     <string name="title_search_in">Rechercher dans</string>

@@ -810,6 +810,7 @@
     <string name="title_signature_outdated">Этот публичный ключ недействителен в настоящее время</string>
     <string name="title_signature_store">Хранилище</string>
     <string name="title_search">Поиск</string>
+    <string name="title_search_device">Поиск на устройстве</string>
     <string name="title_search_server">Поиск на сервере</string>
     <string name="title_search_text">Поиск в тексте</string>
     <string name="title_search_in">Поиск в</string>

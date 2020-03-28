@@ -300,7 +300,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_images_inline">Eingebettete Grafiken automatisch anzeigen</string>
     <string name="title_advanced_seekbar">Relative Themenposition mit einem Punkt kennzeichnen</string>
     <string name="title_advanced_actionbar">Navigationsleiste in Themen anzeigen</string>
-    <string name="title_advanced_actionbar_color">Farbe des Kontos als Hintergrundfarbe für die Aktionsleiste verwenden</string>
+    <string name="title_advanced_actionbar_color">Farbe des Kontos als Hintergrundfarbe der Aktionsleiste verwenden</string>
     <string name="title_advanced_navbar_colorize">Android-Navigationsleiste farbig darstellen</string>
     <string name="title_advanced_double_back">Zweifaches „Zurück” zum Beenden</string>
     <string name="title_advanced_pull_refresh">Zum Aktualisieren nach unten ziehen</string>
@@ -789,6 +789,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_signature_outdated">Dieser öffentliche Schlüssel ist derzeit nicht gültig</string>
     <string name="title_signature_store">Speichern</string>
     <string name="title_search">Suche</string>
+    <string name="title_search_device">Gerät durchsuchen</string>
     <string name="title_search_server">Auf dem Server suchen</string>
     <string name="title_search_text">Suchen im Text</string>
     <string name="title_search_in">Suchen in</string>

@@ -499,6 +499,7 @@
     <string name="title_client_certificate">Klientský certifikát</string>
     <string name="title_realm">Sféra</string>
     <string name="title_use_ip">Použít lokální IP adresu namísto názvu hostitele</string>
+    <string name="title_primary">Hlavní</string>
     <string name="title_primary_account">Hlavní (výchozí účet)</string>
     <string name="title_primary_identity">Hlavní (výchozí identita)</string>
     <string name="title_leave_on_server">Ponechat zprávy na serveru</string>
@@ -827,9 +828,11 @@
     <string name="title_filter_duplicates">Duplikáty</string>
     <string name="title_compact">Kompaktní zobrazení</string>
     <string name="title_zoom">Velikost textu</string>
+    <string name="title_select_language">Vybrat jazyk</string>
     <string name="title_select_all">Vybrat vše</string>
     <string name="title_select_found">Vybrat nalezené</string>
     <string name="title_force_sync">Vynutit synchronizaci</string>
+    <string name="title_language_all">Všechny</string>
     <string name="title_previous">Předchozí</string>
     <string name="title_next">Další</string>
     <string name="title_edit_signature">Upravit podpis</string>

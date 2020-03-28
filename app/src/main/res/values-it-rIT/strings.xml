@@ -787,6 +787,7 @@
     <string name="title_signature_outdated">Questa chiave pubblica non è attualmente valida</string>
     <string name="title_signature_store">Registra</string>
     <string name="title_search">Cerca</string>
+    <string name="title_search_device">Cerca sul dispositivo</string>
     <string name="title_search_server">Cerca sul server</string>
     <string name="title_search_text">Cerca nel testo</string>
     <string name="title_search_in">Cerca in</string>

@@ -479,6 +479,7 @@
     <string name="title_client_certificate">Klientcertifikat</string>
     <string name="title_realm">Område</string>
     <string name="title_use_ip">Brug lokal IP-adresse i stedet for værtsnavn</string>
+    <string name="title_primary">Primær</string>
     <string name="title_primary_account">Primær (standardkonto)</string>
     <string name="title_primary_identity">Primær (standardidentitet)</string>
     <string name="title_leave_on_server">Lad beskeder forblive på server</string>
@@ -809,9 +810,11 @@
     <string name="title_filter_duplicates">Dubletter</string>
     <string name="title_compact">Kompaktvisning</string>
     <string name="title_zoom">Tekststørrelse</string>
+    <string name="title_select_language">Vælg sprog</string>
     <string name="title_select_all">Markér alle</string>
     <string name="title_select_found">Markér fundne</string>
     <string name="title_force_sync">Gennemtving synk</string>
+    <string name="title_language_all">Alle</string>
     <string name="title_previous">Foregående</string>
     <string name="title_next">Næste</string>
     <string name="title_edit_signature">Redigér signatur</string>

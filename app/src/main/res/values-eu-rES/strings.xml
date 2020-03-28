@@ -785,6 +785,7 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_signature_outdated">Gako publiko hori une honetan ez da baliozkoa</string>
     <string name="title_signature_store">Biltegiratu</string>
     <string name="title_search">Bilatu</string>
+    <string name="title_search_device">Bilatu gailuan</string>
     <string name="title_search_server">Bilatu zerbitzarian</string>
     <string name="title_search_text">Bilatu testuan</string>
     <string name="title_search_in">Bilatu hemen</string>

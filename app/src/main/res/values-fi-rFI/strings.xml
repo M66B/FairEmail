@@ -297,6 +297,7 @@
     <string name="title_advanced_images_inline">Näytä tekstiin upotetut kuvat oletuksena</string>
     <string name="title_advanced_seekbar">Näytä suhteellinen sijainti keskustelussa pisteellä</string>
     <string name="title_advanced_actionbar">Näytä keskustelun toimintopalkki</string>
+    <string name="title_advanced_actionbar_color">Käytä tilin väriä taustavärinä keskustelun toimintopalkissa</string>
     <string name="title_advanced_navbar_colorize">Väritä Androidin navigointipalkki</string>
     <string name="title_advanced_double_back">\'Takaisin\' kaksi kertaa sulkee sovelluksen</string>
     <string name="title_advanced_pull_refresh">Vedä alas päivittääksesi</string>
@@ -366,6 +367,7 @@
     <string name="title_advanced_shortcuts">Näytä usein käytetyt yhteystiedot Androidin jakamisvalikossa</string>
     <string name="title_advanced_conversation_actions">Ehdota toimintoja</string>
     <string name="title_advanced_conversation_actions_replies">Ehdota vastaustekstejä</string>
+    <string name="title_advanced_language_detection">Tunnista tekstin kieli</string>
     <string name="title_advanced_fts">Rakenna haun indeksi</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d viestiä indeksoitu (%3$s)</string>
     <string name="title_advanced_english">Pakota englannin kieli</string>
@@ -475,6 +477,7 @@
     <string name="title_client_certificate">Asiakasvarmenne</string>
     <string name="title_realm">Toimialue</string>
     <string name="title_use_ip">Käytä paikallista IP-osoitetta verkkotunnuksen sijaan</string>
+    <string name="title_primary">Ensisijainen</string>
     <string name="title_primary_account">Ensisijainen (oletustili)</string>
     <string name="title_primary_identity">Ensisijainen (oletusidentiteetti)</string>
     <string name="title_leave_on_server">Jätä viestit palvelimelle</string>
@@ -523,6 +526,8 @@
     <string name="title_synchronize_enabled">Synkronoi</string>
     <string name="title_delete_local">Poista paikalliset viestit</string>
     <string name="title_delete_browsed">Poista selatut/haetut viestit</string>
+    <string name="title_empty_trash">Tyhjennä roskakori</string>
+    <string name="title_empty_spam">Tyhjennä roskapostit</string>
     <string name="title_edit_properties">Muokkaa ominaisuuksia</string>
     <string name="title_edit_rules">Muokkaa sääntöjä</string>
     <string name="title_create_channel">Luo ilmoituskanava</string>
@@ -531,6 +536,10 @@
     <string name="title_insert_contact">Lisää yhteystieto</string>
     <string name="title_edit_contact">Muokkaa yhteystietoa</string>
     <string name="title_create_sub_folder">Luo alikansio</string>
+    <string name="title_empty_trash_ask">Poistetaanko kaikki roskakoriin siirretyt viestit pysyvästi?</string>
+    <string name="title_empty_spam_ask">Poistetaanko kaikki roskapostit pysyvästi?</string>
+    <string name="title_empty_trash_all_ask">Poistetaanko kaikkien tilien kaikki roskakoriin siirretyt viestit pysyvästi?</string>
+    <string name="title_empty_spam_all_ask">Poistetaanko kaikkien tilien kaikki paikalliset roskapostit pysyvästi?</string>
     <string name="title_delete_operation">Poistetaanko toimenpiteet, joille on virheilmoitus?</string>
     <string name="title_delete_contacts">Poistetaanko kaikki paikalliset yhteystiedot?</string>
     <string name="title_no_operations">Ei odottavia toimenpiteitä</string>
@@ -689,6 +698,7 @@
     <string name="title_sent">Lähetetty:</string>
     <string name="title_received">Vastaanotettu:</string>
     <string name="title_size">Koko:</string>
+    <string name="title_language">Kieli:</string>
     <string name="title_subject">Aihe:</string>
     <string name="title_attachment">Liite:</string>
     <string name="title_body_hint">Viestisi</string>
@@ -798,9 +808,11 @@
     <string name="title_filter_duplicates">Kaksoiskappaleet</string>
     <string name="title_compact">Tiivistetty näkymä</string>
     <string name="title_zoom">Tekstin koko</string>
+    <string name="title_select_language">Valitse kieli</string>
     <string name="title_select_all">Valitse kaikki</string>
     <string name="title_select_found">Valitse löytyneet</string>
     <string name="title_force_sync">Pakota synkronointi</string>
+    <string name="title_language_all">Kaikki</string>
     <string name="title_previous">Edellinen</string>
     <string name="title_next">Seuraava</string>
     <string name="title_edit_signature">Muokkaa allekirjoitusta</string>

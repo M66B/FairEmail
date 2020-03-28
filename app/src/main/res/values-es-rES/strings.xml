@@ -480,6 +480,7 @@
     <string name="title_client_certificate">Certificado de cliente</string>
     <string name="title_realm">Dominio</string>
     <string name="title_use_ip">Usar dirección IP local en lugar de nombre de dominio</string>
+    <string name="title_primary">Primario</string>
     <string name="title_primary_account">Primaria (cuenta predeterminada)</string>
     <string name="title_primary_identity">Primaria (identidad predeterminada)</string>
     <string name="title_leave_on_server">Dejar mensajes en el servidor</string>
@@ -810,9 +811,11 @@
     <string name="title_filter_duplicates">Duplicados</string>
     <string name="title_compact">Vista compacta</string>
     <string name="title_zoom">Tamaño del texto</string>
+    <string name="title_select_language">Seleccionar idioma</string>
     <string name="title_select_all">Seleccionar todo</string>
     <string name="title_select_found">Seleccionar lo encontrado</string>
     <string name="title_force_sync">Forzar sincronización</string>
+    <string name="title_language_all">Todos</string>
     <string name="title_previous">Anterior</string>
     <string name="title_next">Siguiente</string>
     <string name="title_edit_signature">Editar firma</string>

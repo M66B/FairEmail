@@ -787,6 +787,7 @@
     <string name="title_signature_outdated">Deze publieke sleutel is momenteel niet geldig</string>
     <string name="title_signature_store">Opslaan</string>
     <string name="title_search">Zoek</string>
+    <string name="title_search_device">Zoeken op apparaat</string>
     <string name="title_search_server">Zoek op server</string>
     <string name="title_search_text">Zoeken in tekst</string>
     <string name="title_search_in">Zoeken in</string>
