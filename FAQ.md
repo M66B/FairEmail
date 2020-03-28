@@ -266,6 +266,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(146) How can I fix incorrect message times?](#user-content-faq146)
 * [(147) What should I know about third party versions?](#user-content-faq147)
 * [(148) How can I use an Apple iCloud account?](#user-content-faq148)
+* [(149) How does the unread message count widget work?](#user-content-faq149)
 
 [I have another question.](#user-content-support)
 
@@ -2838,6 +2839,20 @@ If you have a problem with the F-Droid build, please check if there is a newer v
 There is a built-in profile for Apple iCloud, but if needed you can find the right settings [here](https://support.apple.com/en-us/HT202304).
 
 When using two-factor authentication you might need to use an [app-specific password](https://support.apple.com/en-us/HT204397).
+
+<br />
+
+<a name="faq149"></a>
+**(149) How does the unread message count widget work?**
+
+The unread message count widget shows the number of unread messages either for all accounts or for a selected account,
+but only for the folders for which new message notifications are enabled.
+
+Tapping on the notification will synchronize all folders for which synchronization is enabled and will open:
+
+* the start screen when all accounts were selected
+* a folder list when a specific account was selected and when new message notifications are enabled for multiple folders
+* a list of messages when a specific account was selected and when new message notifications are enabled for one folder
 
 <br />
 
