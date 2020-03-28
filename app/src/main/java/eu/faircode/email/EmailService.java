@@ -363,13 +363,17 @@ public class EmailService implements AutoCloseable {
     private void connect(
             String host, int port, String user, String password,
             SSLSocketFactoryService factory) throws MessagingException {
+        InetAddress main = null;
         try {
             //if (BuildConfig.DEBUG)
             //    throw new MailConnectException(
             //            new SocketConnectException("Debug", new IOException("Test"), host, port, 0));
 
-            EntityLog.log(context, "Connecting to " + host);
-            _connect(host, port, user, password, factory);
+            main = InetAddress.getByName(host);
+            EntityLog.log(context, "Connecting to " + main);
+            _connect(main.getHostAddress(), port, user, password, factory);
+        } catch (UnknownHostException ex) {
+            throw new MessagingException(ex.getMessage(), ex);
         } catch (MessagingException ex) {
             boolean ioError = false;
             Throwable ce = ex;
@@ -385,7 +389,6 @@ public class EmailService implements AutoCloseable {
                 EntityLog.log(context, "Connect ex=" + ex.getMessage());
                 try {
                     // Some devices resolve IPv6 addresses while not having IPv6 connectivity
-                    InetAddress main = InetAddress.getByName(host);
                     InetAddress[] iaddrs = InetAddress.getAllByName(host);
                     boolean ip4 = (main instanceof Inet4Address);
                     boolean ip6 = (main instanceof Inet6Address);
@@ -431,7 +434,7 @@ public class EmailService implements AutoCloseable {
                         }
 
                         try {
-                            EntityLog.log(context, "Falling back to " + iaddr.getHostAddress());
+                            EntityLog.log(context, "Falling back to " + iaddr);
                             _connect(iaddr.getHostAddress(), port, user, password, factory);
                             return;
                         } catch (MessagingException ex1) {
