@@ -1599,7 +1599,13 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {
         @Override
         public void onAvailable(@NonNull Network network) {
-            EntityLog.log(ServiceSynchronize.this, "Available network=" + network);
+            try {
+                ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo ni = cm.getNetworkInfo(network);
+                EntityLog.log(ServiceSynchronize.this, "Available network=" + network + " info=" + ni);
+            } catch (Throwable ex) {
+                Log.w(ex);
+            }
             updateState(network, null);
         }
 
@@ -1612,9 +1618,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         public void onLost(@NonNull Network network) {
             try {
                 ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-                NetworkInfo active = cm.getActiveNetworkInfo();
-                EntityLog.log(ServiceSynchronize.this, "Lost network=" + network + " active=" + active);
-                if (active == null)
+                NetworkInfo ani = cm.getActiveNetworkInfo();
+                EntityLog.log(ServiceSynchronize.this, "Lost network=" + network + " active=" + ani);
+                if (ani == null)
                     lastLost = new Date().getTime();
             } catch (Throwable ex) {
                 Log.w(ex);
