@@ -342,7 +342,7 @@ class ImageHelper {
             lld.setBounds(0, 0, px, px);
             lld.setLevel(1);
 
-            boolean slow = true;
+            boolean slow = false;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
                 try {
                     // 2G GSM ~14.4 Kbps
