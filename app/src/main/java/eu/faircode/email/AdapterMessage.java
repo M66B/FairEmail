@@ -2004,9 +2004,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             for (final ConversationAction action : actions) {
                                 final CharSequence text;
                                 final CharSequence title;
+                                final String type = action.getType();
                                 final RemoteAction raction = action.getAction();
 
-                                switch (action.getType()) {
+                                switch (type) {
                                     case ConversationAction.TYPE_TEXT_REPLY:
                                         text = action.getTextReply();
                                         title = context.getString(R.string.title_conversation_action_reply, text);
@@ -2020,13 +2021,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                         break;
                                     default:
                                         if (raction == null) {
-                                            Log.e("Unknown action type=" + action.getType());
+                                            // This seems to happen when there is no app available for the action
+                                            if (!ConversationAction.TYPE_VIEW_MAP.equals(type) &&
+                                                    !ConversationAction.TYPE_TRACK_FLIGHT.equals(type))
+                                                Log.e("Unknown action type=" + type);
                                             continue;
                                         }
                                         text = null;
                                         title = raction.getTitle();
                                         if (TextUtils.isEmpty(title)) {
-                                            Log.e("Empty action type=" + action.getType());
+                                            Log.e("Empty action type=" + type);
                                             continue;
                                         }
                                 }
@@ -2038,7 +2042,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     @Override
                                     public void onClick(View v) {
                                         try {
-                                            switch (action.getType()) {
+                                            switch (type) {
                                                 case ConversationAction.TYPE_TEXT_REPLY:
                                                     onReply();
                                                     break;
