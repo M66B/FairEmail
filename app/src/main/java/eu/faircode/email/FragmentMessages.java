@@ -397,7 +397,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }
         else {
             viewType = AdapterMessage.ViewType.SEARCH;
-            setTitle(R.string.title_search);
+            setTitle(server ? R.string.title_search_server : R.string.title_search);
         }
     }
 
@@ -1039,7 +1039,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                                 FragmentDialogFolder fragment = new FragmentDialogFolder();
                                 fragment.setArguments(args);
-                                fragment.setTargetFragment(FragmentMessages.this, FragmentMessages.REQUEST_SEARCH);
+                                fragment.setTargetFragment(FragmentMessages.this, REQUEST_SEARCH);
                                 fragment.show(getParentFragmentManager(), "messages:search");
 
                                 return true;
