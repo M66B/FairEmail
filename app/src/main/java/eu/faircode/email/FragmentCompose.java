@@ -460,7 +460,7 @@ public class FragmentCompose extends FragmentBase {
         etBody.setInputContentListener(new EditTextCompose.IInputContentListener() {
             @Override
             public void onInputContent(Uri uri) {
-                onAddAttachment(uri, true, 0);
+                onAddAttachment(Arrays.asList(uri), true, 0);
             }
         });
 
@@ -1589,22 +1589,19 @@ public class FragmentCompose extends FragmentBase {
                         onAddImage(data.getBundleExtra("args").getBoolean("photo"));
                     break;
                 case REQUEST_IMAGE_FILE:
-                    if (resultCode == RESULT_OK && data != null) {
-                        Uri uri = data.getData();
-                        if (uri != null)
-                            onAddImageFile(uri);
-                    }
+                    if (resultCode == RESULT_OK && data != null)
+                        onAddImageFile(getUris(data));
                     break;
                 case REQUEST_TAKE_PHOTO:
                     if (resultCode == RESULT_OK) {
                         if (photoURI != null)
-                            onAddImageFile(photoURI);
+                            onAddImageFile(Arrays.asList(photoURI));
                     }
                     break;
                 case REQUEST_ATTACHMENT:
                 case REQUEST_RECORD_AUDIO:
                     if (resultCode == RESULT_OK && data != null)
-                        onAddMedia(data);
+                        onAddAttachment(getUris(data), false, 0);
                     break;
                 case REQUEST_OPENPGP:
                     if (resultCode == RESULT_OK && data != null)
@@ -1767,6 +1764,7 @@ public class FragmentCompose extends FragmentBase {
             Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
             intent.addCategory(Intent.CATEGORY_OPENABLE);
             intent.setType("image/*");
+            intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
             PackageManager pm = getContext().getPackageManager();
             if (intent.resolveActivity(pm) == null)
                 noStorageAccessFramework();
@@ -1775,7 +1773,7 @@ public class FragmentCompose extends FragmentBase {
         }
     }
 
-    private void onAddImageFile(Uri uri) {
+    private void onAddImageFile(List<Uri> uri) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         boolean add_inline = prefs.getBoolean("add_inline", true);
         boolean resize_images = prefs.getBoolean("resize_images", true);
@@ -1783,10 +1781,10 @@ public class FragmentCompose extends FragmentBase {
         onAddAttachment(uri, add_inline, resize_images ? resize : 0);
     }
 
-    private void onAddAttachment(Uri uri, boolean image, int resize) {
+    private void onAddAttachment(List<Uri> uris, boolean image, int resize) {
         Bundle args = new Bundle();
         args.putLong("id", working);
-        args.putParcelable("uri", uri);
+        args.putParcelableArrayList("uris", new ArrayList<>(uris));
         args.putBoolean("image", image);
         args.putInt("resize", resize);
         args.putCharSequence("body", etBody.getText());
@@ -1796,29 +1794,36 @@ public class FragmentCompose extends FragmentBase {
             @Override
             protected Spanned onExecute(Context context, Bundle args) throws IOException {
                 long id = args.getLong("id");
-                Uri uri = args.getParcelable("uri");
+                List<Uri> uris = args.getParcelableArrayList("uris");
                 boolean image = args.getBoolean("image");
                 int resize = args.getInt("resize");
-
-                EntityAttachment attachment = addAttachment(context, id, uri, image, resize);
-                if (!image)
-                    return null;
-
-                File file = attachment.getFile(context);
-
-                Drawable d = Drawable.createFromPath(file.getAbsolutePath());
-                if (d == null)
-                    throw new IllegalArgumentException(context.getString(R.string.title_no_image));
-                d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
-
                 CharSequence body = args.getCharSequence("body");
                 int start = args.getInt("start");
-                Uri cid = Uri.parse("cid:" + BuildConfig.APPLICATION_ID + "." + attachment.id);
 
                 SpannableStringBuilder s = new SpannableStringBuilder(body);
-                s.insert(start, "   ");
-                ImageSpan is = new ImageSpan(context, cid);
-                s.setSpan(is, start + 1, start + 2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                for (Uri uri : uris) {
+                    EntityAttachment attachment = addAttachment(context, id, uri, image, resize);
+                    if (!image)
+                        continue;
+
+                    File file = attachment.getFile(context);
+                    Uri cid = Uri.parse("cid:" + BuildConfig.APPLICATION_ID + "." + attachment.id);
+
+                    Drawable d = Drawable.createFromPath(file.getAbsolutePath());
+                    if (d == null)
+                        throw new IllegalArgumentException(context.getString(R.string.title_no_image));
+                    d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
+
+                    s.insert(start, "   ");
+                    ImageSpan is = new ImageSpan(context, cid);
+                    s.setSpan(is, start + 1, start + 2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                    start += 3;
+                }
+
+                if (!image)
+                    return null;
 
                 return HtmlHelper.fromHtml(HtmlHelper.toHtml(s), new Html.ImageGetter() {
                     @Override
@@ -1830,13 +1835,13 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, final Spanned body) {
-                if (body == null)
-                    return;
-                int start = args.getInt("start");
+                if (body != null) {
+                    int start = args.getInt("start");
 
-                etBody.setText(body);
-                if (start < body.length())
-                    etBody.setSelection(start);
+                    etBody.setText(body);
+                    if (start < body.length())
+                        etBody.setSelection(start);
+                }
 
                 // Save text & update remote draft
                 onAction(R.id.action_save);
@@ -1855,23 +1860,24 @@ public class FragmentCompose extends FragmentBase {
         }.execute(this, args, "compose:attachment:add");
     }
 
-    private void onAddMedia(Intent data) {
-        Log.i("Add media data=" + data);
-        Log.logExtras(data);
+    private List<Uri> getUris(Intent data) {
+        List<Uri> result = new ArrayList<>();
 
         ClipData clipData = data.getClipData();
         if (clipData == null) {
             Uri uri = data.getData();
             if (uri != null)
-                onAddAttachment(uri, false, 0);
+                result.add(uri);
         } else {
             for (int i = 0; i < clipData.getItemCount(); i++) {
                 ClipData.Item item = clipData.getItemAt(i);
                 Uri uri = item.getUri();
                 if (uri != null)
-                    onAddAttachment(uri, false, 0);
+                    result.add(uri);
             }
         }
+
+        return result;
     }
 
     private void onPgp(Intent data) {
