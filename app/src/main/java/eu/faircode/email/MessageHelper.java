@@ -1459,8 +1459,15 @@ public class MessageHelper {
 
                 if (part.isMimeType("text/plain")) {
                     // https://tools.ietf.org/html/rfc3676
-                    if ("flowed".equalsIgnoreCase(ct.getParameter("format")))
-                        result = result.replaceAll(" \\r?\\n", " ");
+                    if ("flowed".equalsIgnoreCase(ct.getParameter("format"))) {
+                        StringBuilder flowed = new StringBuilder();
+                        for (String line : result.split("\\r?\\n")) {
+                            flowed.append(line);
+                            if (!line.endsWith(" ") || "-- ".equals(line))
+                                flowed.append("\r\n");
+                        }
+                        result = flowed.toString();
+                    }
                     result = "<div>" + HtmlHelper.formatPre(result) + "</div>";
                 } else if (part.isMimeType("text/html")) {
                     if (TextUtils.isEmpty(charset)) {
