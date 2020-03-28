@@ -372,6 +372,7 @@ public class Log {
             @Override
             public boolean run(@NonNull Error error) {
                 error.addToTab("extra", "installer", installer == null ? "-" : installer);
+                error.addToTab("extra", "installed", new Date(Helper.getInstallTime(context)));
                 error.addToTab("extra", "fingerprint", fingerprint);
                 error.addToTab("extra", "thread", Thread.currentThread().getName() + ":" + Thread.currentThread().getId());
                 error.addToTab("extra", "free", Log.getFreeMemMb());
