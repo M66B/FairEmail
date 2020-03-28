@@ -3154,8 +3154,10 @@ public class FragmentCompose extends FragmentBase {
                         if (ref.plain_only != null && ref.plain_only)
                             data.draft.plain_only = true;
                         if (ref.ui_encrypt != null && !EntityMessage.ENCRYPT_NONE.equals(ref.ui_encrypt)) {
-                            data.draft.encrypt = ref.ui_encrypt;
-                            data.draft.ui_encrypt = ref.ui_encrypt;
+                            if (ActivityBilling.isPro(context)) {
+                                data.draft.encrypt = ref.ui_encrypt;
+                                data.draft.ui_encrypt = ref.ui_encrypt;
+                            }
                         }
 
                         if (answer > 0) {
