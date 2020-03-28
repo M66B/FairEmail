@@ -32,6 +32,8 @@ import android.widget.RemoteViews;
 import androidx.preference.PreferenceManager;
 
 import java.text.NumberFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 
 public class Widget extends AppWidgetProvider {
@@ -53,23 +55,33 @@ public class Widget extends AppWidgetProvider {
                     long account = prefs.getLong("widget." + appWidgetId + ".account", -1L);
                     String name = prefs.getString("widget." + appWidgetId + ".name", null);
 
-                    EntityFolder folder = db.folder().getFolderByType(account, EntityFolder.INBOX);
+                    List<EntityFolder> folders = db.folder().getNotifyingFolders(account);
+                    if (folders == null)
+                        folders = new ArrayList<>();
 
                     PendingIntent pi;
-                    if (folder == null) {
+                    if (folders.size() == 1) {
                         Intent view = new Intent(context, ActivityView.class);
-                        view.setAction("unified");
-                        view.putExtra("refresh", true);
-                        view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                        pi = PendingIntent.getActivity(context, ActivityView.REQUEST_UNIFIED, view, PendingIntent.FLAG_UPDATE_CURRENT);
-                    } else {
-                        Intent view = new Intent(context, ActivityView.class);
-                        view.setAction("folder:" + folder.id);
+                        view.setAction("folder:" + folders.get(0).id);
                         view.putExtra("account", account);
-                        view.putExtra("type", folder.type);
+                        view.putExtra("type", folders.get(0).type);
                         view.putExtra("refresh", true);
                         view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         pi = PendingIntent.getActivity(context, appWidgetId, view, PendingIntent.FLAG_UPDATE_CURRENT);
+                    } else {
+                        if (account < 0) {
+                            Intent view = new Intent(context, ActivityView.class);
+                            view.setAction("unified");
+                            view.putExtra("refresh", true);
+                            view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            pi = PendingIntent.getActivity(context, ActivityView.REQUEST_UNIFIED, view, PendingIntent.FLAG_UPDATE_CURRENT);
+                        } else {
+                            Intent view = new Intent(context, ActivityView.class);
+                            view.setAction("folders:" + account);
+                            view.putExtra("refresh", true);
+                            view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            pi = PendingIntent.getActivity(context, appWidgetId, view, PendingIntent.FLAG_UPDATE_CURRENT);
+                        }
                     }
 
                     TupleMessageStats stats = db.message().getWidgetUnseen(account < 0 ? null : account);

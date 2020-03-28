@@ -882,6 +882,14 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     startService(clear);
                 }
 
+            } else if (action.startsWith("folders")) {
+                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                    getSupportFragmentManager().popBackStack("unified", 0);
+
+                long account = Long.parseLong(action.split(":", 2)[1]);
+                if (account > 0)
+                    onMenuFolders(account);
+
             } else if (action.startsWith("folder")) {
                 if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                     getSupportFragmentManager().popBackStack("unified", 0);
@@ -909,10 +917,13 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                 Helper.viewFAQ(this, "alert".equals(action) ? 23 : 22);
 
-            } else if ("outbox".equals(action))
+            } else if ("outbox".equals(action)) {
+                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                    getSupportFragmentManager().popBackStack("unified", 0);
+
                 onMenuOutbox();
 
-            else if (action.startsWith("thread")) {
+            } else if (action.startsWith("thread")) {
                 intent.putExtra("thread", action.split(":", 2)[1]);
                 onViewThread(intent);
 
