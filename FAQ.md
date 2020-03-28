@@ -1630,7 +1630,8 @@ FairEmail shows all attachment types. To distinguish inline and regular attachme
 <a name="faq66"></a>
 **(66) Is FairEmail available in the Google Play Family Library?**
 
-There are [too many fees and taxes](#user-content-faq19), Google alone already takes 30 %,
+The price of FairEmail is too low, lower than that of most similar apps,
+and there are [too many fees and taxes](#user-content-faq19), Google alone already takes 30 %,
 to justify making FairEmail available in the [Google Play Family Library](https://support.google.com/googleone/answer/7007852).
 
 <br />
