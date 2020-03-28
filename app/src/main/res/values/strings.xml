@@ -893,6 +893,7 @@
     <string name="title_signature_store">Store</string>
 
     <string name="title_search">Search</string>
+    <string name="title_search_device">Search on device</string>
     <string name="title_search_server">Search on server</string>
     <string name="title_search_text">Search in text</string>
     <string name="title_search_in">Search in</string>

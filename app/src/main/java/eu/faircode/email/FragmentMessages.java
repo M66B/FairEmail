@@ -397,7 +397,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }
         else {
             viewType = AdapterMessage.ViewType.SEARCH;
-            setTitle(server ? R.string.title_search_server : R.string.title_search);
+            setTitle(server ? R.string.title_search_server : R.string.title_search_device);
         }
     }
 
@@ -972,11 +972,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             public void onClick(View v) {
                 Bundle args = new Bundle();
                 args.putLong("account", account);
+                args.putLong("folder", folder);
 
                 new SimpleTask<List<EntityAccount>>() {
                     @Override
                     protected List<EntityAccount> onExecute(Context context, Bundle args) {
                         long aid = args.getLong("account");
+                        long fid = args.getLong("folder");
 
                         List<EntityAccount> result = new ArrayList<>();
                         DB db = DB.getInstance(context);
@@ -989,6 +991,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             EntityAccount account = db.account().getAccount(aid);
                             if (account != null && account.protocol == EntityAccount.TYPE_IMAP)
                                 result.add(account);
+                        }
+
+                        if (folder > 0) {
+                            EntityFolder folder = db.folder().getFolder(fid);
+                            if (folder != null)
+                                args.putString("folderName", folder.getDisplayName(context));
                         }
 
                         if (result.size() == 0)
@@ -1004,17 +1012,22 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                         PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), fabSearch);
 
+                        int order = 0;
+
                         SpannableString ss = new SpannableString(getString(R.string.title_search_server));
                         ss.setSpan(new StyleSpan(Typeface.ITALIC), 0, ss.length(), 0);
                         ss.setSpan(new RelativeSizeSpan(0.9f), 0, ss.length(), 0);
-                        popupMenu.getMenu().add(Menu.NONE, 0, 0, ss)
+                        popupMenu.getMenu().add(Menu.NONE, 0, order++, ss)
                                 .setEnabled(false);
-                        popupMenu.getMenu().add(Menu.NONE, 1, 1, R.string.title_search_text)
+                        popupMenu.getMenu().add(Menu.NONE, 1, order++, R.string.title_search_text)
                                 .setCheckable(true).setChecked(search_text);
 
-                        int order = 2;
+                        String folderName = args.getString("folderName", null);
+                        if (!TextUtils.isEmpty(folderName))
+                            popupMenu.getMenu().add(Menu.NONE, 2, order++, folderName);
+
                         for (EntityAccount account : accounts)
-                            popupMenu.getMenu().add(Menu.NONE, 2, order++, account.name)
+                            popupMenu.getMenu().add(Menu.NONE, 3, order++, account.name)
                                     .setIntent(new Intent().putExtra("account", account.id));
 
                         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -1024,6 +1037,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
                                     boolean search_text = prefs.getBoolean("search_text", false);
                                     prefs.edit().putBoolean("search_text", !search_text).apply();
+                                    return true;
+                                }
+
+                                if (target.getItemId() == 2) {
+                                    search(
+                                            getContext(), getViewLifecycleOwner(), getParentFragmentManager(),
+                                            account, folder,
+                                            true,
+                                            query);
                                     return true;
                                 }
 
