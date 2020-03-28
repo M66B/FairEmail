@@ -72,7 +72,7 @@ public class Widget extends AppWidgetProvider {
                         pi = PendingIntent.getActivity(context, appWidgetId, view, PendingIntent.FLAG_UPDATE_CURRENT);
                     }
 
-                    TupleMessageStats stats = db.message().getUnseenWidget(account < 0 ? null : account);
+                    TupleMessageStats stats = db.message().getWidgetUnseen(account < 0 ? null : account);
                     Integer unseen = (unseen_ignored ? stats.notifying : stats.unseen);
                     if (unseen == null)
                         unseen = 0;
