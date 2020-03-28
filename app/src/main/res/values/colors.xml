@@ -10,8 +10,8 @@
     <!-- White 87%  primary_text_default_material_dark -->
     <color name="colorUnreadDark">#ffffffff</color>
 
-    <color name="colorHighlightLight">#ffffe000</color>
-    <color name="colorHighlightDark">#ffffff00</color>
+    <color name="colorHighlightLight">#a0ffe000</color>
+    <color name="colorHighlightDark">#a0ffff00</color>
 
     <color name="colorEncryptLight">#ff00ff00</color>
     <color name="colorEncryptDark">#ff00e000</color>
