@@ -478,6 +478,7 @@
     <string name="title_client_certificate">Сертификат на клиента</string>
     <string name="title_realm">Област</string>
     <string name="title_use_ip">Използвай локален IP адрес вместо име на хост</string>
+    <string name="title_primary">Основен</string>
     <string name="title_primary_account">Основен (по подразбиране профил)</string>
     <string name="title_primary_identity">Основна (по подразбиране идентичност)</string>
     <string name="title_leave_on_server">Запази съобщенията на сървъра</string>
@@ -786,6 +787,7 @@
     <string name="title_signature_outdated">Към момента този публичен ключ не е валиден</string>
     <string name="title_signature_store">Хранилище</string>
     <string name="title_search">Търсене</string>
+    <string name="title_search_device">Търсене в устройството</string>
     <string name="title_search_server">Търсене в сървъра</string>
     <string name="title_search_text">Търсене в текст</string>
     <string name="title_search_in">Търсене в</string>
@@ -808,9 +810,11 @@
     <string name="title_filter_duplicates">Дублирани</string>
     <string name="title_compact">Сбит изглед</string>
     <string name="title_zoom">Размер на текста</string>
+    <string name="title_select_language">Избор на език</string>
     <string name="title_select_all">Маркирай всички</string>
     <string name="title_select_found">Маркирай намереното</string>
     <string name="title_force_sync">Принудително синхронизиране</string>
+    <string name="title_language_all">Всички</string>
     <string name="title_previous">Предишен</string>
     <string name="title_next">Следващ</string>
     <string name="title_edit_signature">Редактиране на подписа</string>

@@ -478,6 +478,7 @@
     <string name="title_client_certificate">Klientcertifikat</string>
     <string name="title_realm">Domän</string>
     <string name="title_use_ip">Använd lokal IP-adress istället för värdnamn</string>
+    <string name="title_primary">Primär</string>
     <string name="title_primary_account">Primär (standardkonto)</string>
     <string name="title_primary_identity">Primär (standardidentitet)</string>
     <string name="title_leave_on_server">Spara alla meddelanden på servern</string>
@@ -786,6 +787,7 @@
     <string name="title_signature_outdated">Denna publika nyckel är för närvarande inte giltig</string>
     <string name="title_signature_store">Spara</string>
     <string name="title_search">Sök</string>
+    <string name="title_search_device">Sök på enheten</string>
     <string name="title_search_server">Sök på servern</string>
     <string name="title_search_text">Sök i text</string>
     <string name="title_search_in">Sök i</string>
@@ -808,9 +810,11 @@
     <string name="title_filter_duplicates">Dubbletter</string>
     <string name="title_compact">Kompakt vy</string>
     <string name="title_zoom">Textstorlek</string>
+    <string name="title_select_language">Välj språk</string>
     <string name="title_select_all">Markera alla</string>
     <string name="title_select_found">Välj hittade</string>
     <string name="title_force_sync">Tvinga synkronisering</string>
+    <string name="title_language_all">Alla</string>
     <string name="title_previous">Föregående</string>
     <string name="title_next">Nästa</string>
     <string name="title_edit_signature">Redigera signatur</string>
