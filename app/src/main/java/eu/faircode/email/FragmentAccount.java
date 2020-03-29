@@ -1693,53 +1693,7 @@ public class FragmentAccount extends FragmentBase {
         }
 
         {
-            List<EntityFolder> folders = new ArrayList<>();
-
-            EntityFolder none = new EntityFolder();
-            none.id = 0L;
-            none.name = "-";
-            folders.add(none);
-
-            EntityFolder ask = new EntityFolder();
-            ask.id = SWIPE_ACTION_ASK;
-            ask.name = getString(R.string.title_ask_what);
-            folders.add(ask);
-
-            EntityFolder seen = new EntityFolder();
-            seen.id = SWIPE_ACTION_SEEN;
-            seen.name = getString(R.string.title_seen);
-            folders.add(seen);
-
-            EntityFolder flag = new EntityFolder();
-            flag.id = SWIPE_ACTION_FLAG;
-            flag.name = getString(R.string.title_flag);
-            folders.add(flag);
-
-            EntityFolder snooze = new EntityFolder();
-            snooze.id = SWIPE_ACTION_SNOOZE;
-            snooze.name = getString(R.string.title_snooze_now);
-            folders.add(snooze);
-
-            EntityFolder hide = new EntityFolder();
-            hide.id = SWIPE_ACTION_HIDE;
-            hide.name = getString(R.string.title_hide);
-            folders.add(hide);
-
-            EntityFolder move = new EntityFolder();
-            move.id = SWIPE_ACTION_MOVE;
-            move.name = getString(R.string.title_move);
-            folders.add(move);
-
-            EntityFolder junk = new EntityFolder();
-            junk.id = SWIPE_ACTION_JUNK;
-            junk.name = getString(R.string.title_report_spam);
-            folders.add(junk);
-
-            EntityFolder delete = new EntityFolder();
-            delete.id = SWIPE_ACTION_DELETE;
-            delete.name = getString(R.string.title_delete_permanently);
-            folders.add(delete);
-
+            List<EntityFolder> folders = getFolderActions(getContext());
             folders.addAll(_folders);
 
             adapterSwipe.clear();
@@ -1775,6 +1729,57 @@ public class FragmentAccount extends FragmentBase {
 
         if (cbTrust.isChecked())
             cbTrust.setVisibility(View.VISIBLE);
+    }
+
+    static List<EntityFolder> getFolderActions(Context context) {
+        List<EntityFolder> folders = new ArrayList<>();
+
+        EntityFolder none = new EntityFolder();
+        none.id = 0L;
+        none.name = "-";
+        folders.add(none);
+
+        EntityFolder ask = new EntityFolder();
+        ask.id = SWIPE_ACTION_ASK;
+        ask.name = context.getString(R.string.title_ask_what);
+        folders.add(ask);
+
+        EntityFolder seen = new EntityFolder();
+        seen.id = SWIPE_ACTION_SEEN;
+        seen.name = context.getString(R.string.title_seen);
+        folders.add(seen);
+
+        EntityFolder flag = new EntityFolder();
+        flag.id = SWIPE_ACTION_FLAG;
+        flag.name = context.getString(R.string.title_flag);
+        folders.add(flag);
+
+        EntityFolder snooze = new EntityFolder();
+        snooze.id = SWIPE_ACTION_SNOOZE;
+        snooze.name = context.getString(R.string.title_snooze_now);
+        folders.add(snooze);
+
+        EntityFolder hide = new EntityFolder();
+        hide.id = SWIPE_ACTION_HIDE;
+        hide.name = context.getString(R.string.title_hide);
+        folders.add(hide);
+
+        EntityFolder move = new EntityFolder();
+        move.id = SWIPE_ACTION_MOVE;
+        move.name = context.getString(R.string.title_move);
+        folders.add(move);
+
+        EntityFolder junk = new EntityFolder();
+        junk.id = SWIPE_ACTION_JUNK;
+        junk.name = context.getString(R.string.title_report_spam);
+        folders.add(junk);
+
+        EntityFolder delete = new EntityFolder();
+        delete.id = SWIPE_ACTION_DELETE;
+        delete.name = context.getString(R.string.title_delete_permanently);
+        folders.add(delete);
+
+        return folders;
     }
 
     private class CheckResult {

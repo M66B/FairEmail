@@ -519,6 +519,9 @@
 
     <string name="title_advanced_never_favorite">Never favorite</string>
 
+    <string name="title_advanced_swipe_actions">Set swipe actions</string>
+    <string name="title_advanced_swipe_actions_hint">This will set the swipe left and right action for all IMAP accounts</string>
+
     <string name="title_select">Select &#8230;</string>
     <string name="title_identity_name">Your name</string>
     <string name="title_identity_email">Your email address</string>

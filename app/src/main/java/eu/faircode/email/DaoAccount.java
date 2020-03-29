@@ -167,6 +167,9 @@ public interface DaoAccount {
     @Query("UPDATE account SET error = :error WHERE id = :id")
     int setAccountError(long id, String error);
 
+    @Query("UPDATE account SET swipe_left = :left, swipe_right = :right  WHERE id = :id")
+    int setAccountSwipes(long id, Long left, Long right);
+
     @Query("UPDATE account SET `primary` = 0")
     void resetPrimary();
 
