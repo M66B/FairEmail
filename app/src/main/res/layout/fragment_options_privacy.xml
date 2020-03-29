@@ -250,5 +250,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSecureHint"
             app:switchPadding="12dp" />
+
+        <Button
+            android:id="@+id/btnSafeBrowsing"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/title_info"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swSafeBrowsing" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

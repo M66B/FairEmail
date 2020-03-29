@@ -24,6 +24,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -63,6 +64,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private SwitchCompat swDisplayHidden;
     private SwitchCompat swSecure;
     private SwitchCompat swSafeBrowsing;
+    private Button btnSafeBrowsing;
 
     private final static String[] RESET_OPTIONS = new String[]{
             "confirm_links", "confirm_images", "confirm_html", "disable_tracking",
@@ -91,6 +93,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         swDisplayHidden = view.findViewById(R.id.swDisplayHidden);
         swSecure = view.findViewById(R.id.swSecure);
         swSafeBrowsing = view.findViewById(R.id.swSafeBrowsing);
+        btnSafeBrowsing = view.findViewById(R.id.btnSafeBrowsing);
 
         setOptions();
 
@@ -197,6 +200,13 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("safe_browsing", checked).apply();
+            }
+        });
+
+        btnSafeBrowsing.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(getContext(), Uri.parse("https://developers.google.com/safe-browsing"), true);
             }
         });
 
