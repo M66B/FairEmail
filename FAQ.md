@@ -945,9 +945,10 @@ Possible causes are:
 * The same email client is connected multiple times to the same account
 * Previous connections were terminated abruptly for example by abruptly losing internet connectivity
 
-First try to wait some time to see if the problem resolves itself,
-else try to enable the folder setting *Poll instead of synchronize* for some folders (long press folder in the folder list, edit properties).
-The poll interval can be configured in the account settings.
+First try to wait some time to see if the problem resolves itself, else:
+
+* either switch to periodically checking for messages in the receive settings, which will result in opening folders one at a time
+* or set some folders to poll instead of synchronize (long press folder in the folder list, edit properties)
 
 The maximum number of simultaneous folder connections for Gmail is 15,
 so you can synchronize at most 15 folders simultaneously on *all* your devices at the same time.
