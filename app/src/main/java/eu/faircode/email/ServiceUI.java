@@ -500,7 +500,7 @@ public class ServiceUI extends IntentService {
         if (poll && enabled && pollInterval > 0) {
             long now = new Date().getTime();
             long interval = pollInterval * 60 * 1000L;
-            long next = now + interval - now % interval;
+            long next = now + interval - now % interval + 30 * 1000L;
 
             EntityLog.log(context, "Poll next=" + new Date(next));
 
