@@ -6251,7 +6251,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             @Override
             protected void onExecuted(Bundle args, ArrayList<MessageTarget> result) {
-                moveAsk(result, false, !autoclose && onclose == null);
+                boolean copy = args.getBoolean("copy");
+                if (copy)
+                    ToastEx.makeText(getContext(), R.string.title_completed, Toast.LENGTH_SHORT).show();
+                else
+                    moveAsk(result, false, !autoclose && onclose == null);
             }
 
             @Override
