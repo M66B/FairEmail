@@ -442,6 +442,8 @@
     <string name="title_advanced_debug_hint">Activer la journalisation supplémentaire et afficher les informations de débogage à différents endroits</string>
     <string name="title_advanced_cleanup_hint">Ceci supprimera tous les fichiers temporaires</string>
     <string name="title_advanced_never_favorite">Jamais favori</string>
+    <string name="title_advanced_swipe_actions">Définir les actions de balayage</string>
+    <string name="title_advanced_swipe_actions_hint">Ceci définira les actions de glisser vers la gauche et la droite pour tous les comptes IMAP</string>
     <string name="title_select">Sélectionner&#8230;</string>
     <string name="title_identity_name">Votre nom</string>
     <string name="title_identity_email">Votre adresse e-mail</string>

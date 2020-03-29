@@ -464,6 +464,8 @@
     <string name="title_advanced_debug_hint">Включить дополнительное журналирование и показывать отладочную информацию в различных местах</string>
     <string name="title_advanced_cleanup_hint">Это действие удалит все временные файлы</string>
     <string name="title_advanced_never_favorite">Никогда не помечать избранным</string>
+    <string name="title_advanced_swipe_actions">Настройка жестов</string>
+    <string name="title_advanced_swipe_actions_hint">Данная настройка определяет действия жестов вправо и влево для всех учётных записей IMAP</string>
     <string name="title_select">Выбор&#8230;</string>
     <string name="title_identity_name">Ваше имя</string>
     <string name="title_identity_email">Ваш адрес электронной почты</string>

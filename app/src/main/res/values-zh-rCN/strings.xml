@@ -430,6 +430,8 @@
     <string name="title_advanced_debug_hint">启用额外日志并在不同地方显示调试信息</string>
     <string name="title_advanced_cleanup_hint">这将会删除所有的临时文件</string>
     <string name="title_advanced_never_favorite">永不收藏</string>
+    <string name="title_advanced_swipe_actions">设置滑动操作</string>
+    <string name="title_advanced_swipe_actions_hint">这将设置所有IMAP帐户的左右滑动动作</string>
     <string name="title_select">选择 &#8230;</string>
     <string name="title_identity_name">姓名</string>
     <string name="title_identity_email">邮箱地址</string>

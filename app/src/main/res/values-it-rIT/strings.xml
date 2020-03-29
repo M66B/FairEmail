@@ -442,6 +442,8 @@
     <string name="title_advanced_debug_hint">Abilita il log extra e mostra le informazioni di debug in vari luoghi</string>
     <string name="title_advanced_cleanup_hint">Questo cancellerà tutti i file temporanei</string>
     <string name="title_advanced_never_favorite">Mai preferito</string>
+    <string name="title_advanced_swipe_actions">Imposta azioni di swipe</string>
+    <string name="title_advanced_swipe_actions_hint">Questo imposterà l\'azione per lo swipe a sinistra e a destra per tutti gli account IMAP</string>
     <string name="title_select">Seleziona &#8230;</string>
     <string name="title_identity_name">Il tuo nome</string>
     <string name="title_identity_email">Il tuo indirizzo email</string>

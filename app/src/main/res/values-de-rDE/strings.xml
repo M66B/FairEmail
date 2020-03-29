@@ -443,6 +443,8 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_debug_hint">Aktiviert zusätzliche Protokollierung und zeigt Fehlerbehebungsinformationen an verschiedenen Stellen an</string>
     <string name="title_advanced_cleanup_hint">Dies löscht alle temporären Dateien</string>
     <string name="title_advanced_never_favorite">Niemals favorisiert</string>
+    <string name="title_advanced_swipe_actions">Wischgesten festlegen</string>
+    <string name="title_advanced_swipe_actions_hint">Dies wird die Aktion \"Wischen links und rechts\" für alle IMAP-Konten festlegen</string>
     <string name="title_select">Auswählen &#8230;</string>
     <string name="title_identity_name">Ihr Name</string>
     <string name="title_identity_email">Ihre E-Mail-Adresse</string>

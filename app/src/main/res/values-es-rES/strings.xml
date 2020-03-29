@@ -789,6 +789,7 @@
     <string name="title_signature_outdated">Esta clave pública no es válida actualmente</string>
     <string name="title_signature_store">Almacenar</string>
     <string name="title_search">Buscar</string>
+    <string name="title_search_device">Buscar en dispositivo</string>
     <string name="title_search_server">Buscar en el servidor</string>
     <string name="title_search_text">Buscar en texto</string>
     <string name="title_search_in">Buscar en</string>

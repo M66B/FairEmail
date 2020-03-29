@@ -806,6 +806,7 @@
     <string name="title_signature_outdated">Tento veřejný klíč není v současné době platný</string>
     <string name="title_signature_store">Uložit</string>
     <string name="title_search">Hledat</string>
+    <string name="title_search_device">Hledat v zařízení</string>
     <string name="title_search_server">Hledat na serveru</string>
     <string name="title_search_text">Hledat v textu</string>
     <string name="title_search_in">Hledat v</string>

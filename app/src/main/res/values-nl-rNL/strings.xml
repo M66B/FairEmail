@@ -441,6 +441,8 @@
     <string name="title_advanced_debug_hint">Extra logging inschakelen en debug informatie tonen op verschillende plaatsen</string>
     <string name="title_advanced_cleanup_hint">Dit zal alle tijdelijke bestanden verwijderen</string>
     <string name="title_advanced_never_favorite">Nooit favoriet</string>
+    <string name="title_advanced_swipe_actions">Stel veegacties in</string>
+    <string name="title_advanced_swipe_actions_hint">Dit stelt de veeg naar links en rechts actie voor alle IMAP accounts in</string>
     <string name="title_select">Selecteer &#8230;</string>
     <string name="title_identity_name">Uw naam</string>
     <string name="title_identity_email">Uw e-mailadres</string>

@@ -439,6 +439,8 @@
     <string name="title_advanced_debug_hint">Gaitu aparteko erregistroa eta erakutsi arazketaren informazioa hainbat tokitan</string>
     <string name="title_advanced_cleanup_hint">Honek behin behineko fitxategi guztiak ezabatuko ditu</string>
     <string name="title_advanced_never_favorite">Inoiz ez gogokoa</string>
+    <string name="title_advanced_swipe_actions">Ezarri irristatze ekintzak</string>
+    <string name="title_advanced_swipe_actions_hint">Honek ezarriko du ezkerreko eta eskuineko irristatze-ekintzak IMAP kontu guztientzako</string>
     <string name="title_select">Hautatu &#8230;</string>
     <string name="title_identity_name">Zure izena</string>
     <string name="title_identity_email">Zure e-mail helbidea</string>

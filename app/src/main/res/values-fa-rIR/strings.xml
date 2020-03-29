@@ -28,6 +28,7 @@
     <string name="title_ask_spam_who">گزارش پیام از %1$s به عنوان اسپم?</string>
     <string name="title_block">%s مسدود شود</string>
     <string name="title_block_sender">بلاک کردن فرستنده</string>
+    <string name="title_block_domain">Block sender domain</string>
     <string name="title_notification_failed">\'%1$s\' انجام نشد</string>
     <string name="menu_answers">الگوها</string>
     <string name="menu_operations">عملیات ها</string>
