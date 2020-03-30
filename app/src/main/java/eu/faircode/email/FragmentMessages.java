@@ -1394,7 +1394,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 }
 
                 if (force)
-                    ServiceSynchronize.reload(context, null, "forced refresh");
+                    ServiceSynchronize.reload(context, null, true, "refresh");
                 else
                     ServiceSynchronize.eval(context, "refresh");
 
@@ -3762,7 +3762,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void onMenuForceSync() {
-        ServiceSynchronize.reload(getContext(), null, "force sync");
+        ServiceSynchronize.reload(getContext(), null, true, "force sync");
         ToastEx.makeText(getContext(), R.string.title_executing, Toast.LENGTH_LONG).show();
     }
 

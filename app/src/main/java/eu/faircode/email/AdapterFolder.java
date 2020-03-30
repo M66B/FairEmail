@@ -598,7 +598,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                                     break;
                                 case R.string.title_synchronize_enabled:
                                     db.folder().setFolderSynchronize(id, enabled);
-                                    ServiceSynchronize.reload(context, aid, "folder sync=" + enabled);
+                                    ServiceSynchronize.reload(context, aid, false, "folder sync=" + enabled);
                                     break;
                                 default:
                                     throw new IllegalArgumentException("Unknown folder property=" + property);

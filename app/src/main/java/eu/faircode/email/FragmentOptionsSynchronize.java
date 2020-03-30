@@ -220,7 +220,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("sync_unseen", checked).apply();
-                ServiceSynchronize.reload(getContext(), null, "sync_unseen=" + checked);
+                ServiceSynchronize.reload(getContext(), null, false, "sync_unseen=" + checked);
             }
         });
 
@@ -228,7 +228,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("sync_flagged", checked).apply();
-                ServiceSynchronize.reload(getContext(), null, "sync_flagged=" + checked);
+                ServiceSynchronize.reload(getContext(), null, false, "sync_flagged=" + checked);
             }
         });
 
@@ -236,7 +236,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("delete_unseen", checked).apply();
-                ServiceSynchronize.reload(getContext(), null, "delete_unseen=" + checked);
+                ServiceSynchronize.reload(getContext(), null, false, "delete_unseen=" + checked);
             }
         });
 
@@ -244,7 +244,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("sync_kept", checked).apply();
-                ServiceSynchronize.reload(getContext(), null, "sync_kept=" + checked);
+                ServiceSynchronize.reload(getContext(), null, false, "sync_kept=" + checked);
             }
         });
 
@@ -252,7 +252,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("sync_folders", checked).apply();
-                ServiceSynchronize.reload(getContext(), null, "sync_folders=" + checked);
+                ServiceSynchronize.reload(getContext(), null, false, "sync_folders=" + checked);
             }
         });
 
@@ -269,7 +269,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("subscribed_only", checked).apply();
-                ServiceSynchronize.reload(getContext(), null, "subscribed_only");
+                ServiceSynchronize.reload(getContext(), null, false, "subscribed_only");
             }
         });
 

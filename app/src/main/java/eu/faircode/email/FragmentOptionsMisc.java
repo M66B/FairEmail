@@ -207,7 +207,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("auto_optimize", checked).apply();
-                ServiceSynchronize.reload(getContext(), null, "optimize");
+                ServiceSynchronize.reload(getContext(), null, false, "optimize");
             }
         });
 

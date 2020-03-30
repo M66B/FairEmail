@@ -391,7 +391,7 @@ public class FragmentFolders extends FragmentBase {
                 }
 
                 if (force)
-                    ServiceSynchronize.reload(context, null, "forced refresh");
+                    ServiceSynchronize.reload(context, null, true, "refresh");
                 else
                     ServiceSynchronize.eval(context, "refresh");
 
@@ -503,7 +503,7 @@ public class FragmentFolders extends FragmentBase {
     }
 
     private void onMenuForceSync() {
-        ServiceSynchronize.reload(getContext(), null, "force sync");
+        ServiceSynchronize.reload(getContext(), null, true, "force sync");
         ToastEx.makeText(getContext(), R.string.title_executing, Toast.LENGTH_LONG).show();
     }
 

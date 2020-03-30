@@ -685,7 +685,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     }
 
     private void onReload(Intent intent) {
-        lastLost = 0;
+        if (intent.getBooleanExtra("force", false))
+            lastLost = 0;
         Bundle command = new Bundle();
         command.putString("name", "reload");
         command.putLong("account", intent.getLongExtra("account", -1));
@@ -954,7 +955,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 String name = e.getFolder().getFullName();
                                 Log.i("Folder created=" + name);
                                 if (db.folder().getFolderByName(account.id, name) == null)
-                                    reload(ServiceSynchronize.this, account.id, "folder created");
+                                    reload(ServiceSynchronize.this, account.id, false, "folder created");
                             } finally {
                                 wlFolder.release();
                             }
@@ -972,7 +973,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 int count = db.folder().renameFolder(account.id, old, name);
                                 Log.i("Renamed to " + name + " count=" + count);
                                 if (count == 0)
-                                    reload(ServiceSynchronize.this, account.id, "folder renamed");
+                                    reload(ServiceSynchronize.this, account.id, false, "folder renamed");
                             } finally {
                                 wlFolder.release();
                             }
@@ -986,7 +987,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 String name = e.getFolder().getFullName();
                                 Log.i("Folder deleted=" + name);
                                 if (db.folder().getFolderByName(account.id, name) != null)
-                                    reload(ServiceSynchronize.this, account.id, "folder deleted");
+                                    reload(ServiceSynchronize.this, account.id, false, "folder deleted");
                             } finally {
                                 wlFolder.release();
                             }
@@ -1912,11 +1913,12 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         .putExtra("reason", reason));
     }
 
-    static void reload(Context context, Long account, String reason) {
+    static void reload(Context context, Long account, boolean force, String reason) {
         ContextCompat.startForegroundService(context,
                 new Intent(context, ServiceSynchronize.class)
                         .setAction("reload")
                         .putExtra("account", account == null ? -1 : account)
+                        .putExtra("force", force)
                         .putExtra("reason", reason));
     }
 
