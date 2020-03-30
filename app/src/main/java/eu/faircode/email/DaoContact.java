@@ -57,17 +57,15 @@ public interface DaoContact {
             " AND email = :email COLLATE NOCASE")
     EntityContact getContact(long account, int type, String email);
 
-    @Query("SELECT id AS _id, name, email, NULL AS photo, 1 AS local" +
+    @Query("SELECT *" +
             " FROM contact" +
             " WHERE (:account IS NULL OR account = :account)" +
             " AND (:type IS NULL OR type = :type)" +
             " AND (email LIKE :query COLLATE NOCASE OR name LIKE :query COLLATE NOCASE)" +
             " AND state <> " + EntityContact.STATE_IGNORE +
             " GROUP BY name, email" +
-            " ORDER BY" +
-            " CASE WHEN name IS NULL THEN 1 ELSE 0 END" +
-            ", name COLLATE NOCASE, email COLLATE NOCASE")
-    Cursor searchContacts(Long account, Integer type, String query);
+            " LIMIT " + EntityContact.MAX_SUGGEST)
+    List<EntityContact> searchContacts(Long account, Integer type, String query);
 
     @Insert
     long insertContact(EntityContact contact);

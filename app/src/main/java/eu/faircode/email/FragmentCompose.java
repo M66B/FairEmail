@@ -35,7 +35,6 @@ import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
 import android.database.Cursor;
 import android.database.MatrixCursor;
-import android.database.MergeCursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -152,10 +151,13 @@ import java.net.UnknownHostException;
 import java.security.PrivateKey;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
+import java.text.Collator;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -740,19 +742,18 @@ public class FragmentCompose extends FragmentBase {
             public Cursor runQuery(CharSequence typed) {
                 Log.i("Suggest contact=" + typed);
 
-                MatrixCursor provided = new MatrixCursor(new String[]{"_id", "name", "email", "photo", "local"});
+                MatrixCursor result = new MatrixCursor(new String[]{"_id", "name", "email", "photo", "local"});
                 if (typed == null)
-                    return provided;
+                    return result;
 
                 String wildcard = "%" + typed + "%";
-                List<Cursor> cursors = new ArrayList<>();
+                Map<String, EntityContact> map = new HashMap<>();
 
                 boolean contacts = Helper.hasPermission(getContext(), Manifest.permission.READ_CONTACTS);
                 if (contacts) {
                     Cursor cursor = resolver.query(
                             ContactsContract.CommonDataKinds.Email.CONTENT_URI,
                             new String[]{
-                                    ContactsContract.CommonDataKinds.Email.CONTACT_ID,
                                     ContactsContract.Contacts.DISPLAY_NAME,
                                     ContactsContract.CommonDataKinds.Email.DATA,
                                     ContactsContract.Contacts.PHOTO_THUMBNAIL_URI
@@ -761,30 +762,67 @@ public class FragmentCompose extends FragmentBase {
                                     " AND (" + ContactsContract.Contacts.DISPLAY_NAME + " LIKE ?" +
                                     " OR " + ContactsContract.CommonDataKinds.Email.DATA + " LIKE ?)",
                             new String[]{wildcard, wildcard},
-                            "CASE WHEN " + ContactsContract.Contacts.DISPLAY_NAME + " NOT LIKE '%@%' THEN 0 ELSE 1 END" +
-                                    ", " + ContactsContract.Contacts.DISPLAY_NAME + " COLLATE NOCASE" +
-                                    ", " + ContactsContract.CommonDataKinds.Email.DATA + " COLLATE NOCASE");
+                            null);
 
-                    while (cursor != null && cursor.moveToNext())
-                        provided.newRow()
-                                .add(cursor.getLong(0)) // id
-                                .add(cursor.getString(1)) // name
-                                .add(cursor.getString(2)) // email
-                                .add(cursor.getString(3)) // photo
-                                .add(0); // local
+                    while (map.size() < EntityContact.MAX_SUGGEST &&
+                            cursor != null && cursor.moveToNext()) {
+                        EntityContact item = new EntityContact();
+                        item.id = 0L;
+                        item.name = cursor.getString(0);
+                        item.email = cursor.getString(1);
+                        item.avatar = cursor.getString(2);
+                        EntityContact existing = map.get(item.email);
+                        if (existing == null ||
+                                (existing.avatar == null && item.avatar != null))
+                            map.put(item.email, item);
+                    }
                 }
-                cursors.add(provided);
 
+                List<EntityContact> items = new ArrayList<>();
                 if (suggest_sent)
-                    cursors.add(db.contact().searchContacts(null, EntityContact.TYPE_TO, wildcard));
-
+                    items.addAll(db.contact().searchContacts(null, EntityContact.TYPE_TO, wildcard));
                 if (suggest_received)
-                    cursors.add(db.contact().searchContacts(null, EntityContact.TYPE_FROM, wildcard));
+                    items.addAll(db.contact().searchContacts(null, EntityContact.TYPE_FROM, wildcard));
+                for (EntityContact item : items)
+                    if (!map.containsKey(item.email))
+                        map.put(item.email, item);
 
-                if (cursors.size() == 1)
-                    return cursors.get(0);
-                else
-                    return new MergeCursor(cursors.toArray(new Cursor[0]));
+                items = new ArrayList<>(map.values());
+
+                final Collator collator = Collator.getInstance(Locale.getDefault());
+                collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
+
+                Collections.sort(items, new Comparator<EntityContact>() {
+                    @Override
+                    public int compare(EntityContact i1, EntityContact i2) {
+                        int l = i1.id.compareTo(i2.id);
+                        if (l != 0)
+                            return l;
+
+                        if (TextUtils.isEmpty(i1.name) && !TextUtils.isEmpty(i2.name))
+                            return 1;
+                        if (!TextUtils.isEmpty(i1.name) && TextUtils.isEmpty(i2.name))
+                            return -1;
+
+                        int n = collator.compare(i1.name, i2.name);
+                        if (n != 0)
+                            return n;
+
+                        return collator.compare(i1.email, i2.email);
+                    }
+                });
+
+                for (int i = 0; i < items.size(); i++) {
+                    EntityContact item = items.get(i);
+                    result.newRow()
+                            .add(i + 1) // id
+                            .add(TextUtils.isEmpty(item.name) ? "-" : item.name)
+                            .add(item.email)
+                            .add(item.avatar)
+                            .add(item.id == 0 ? 0 : 1);
+                }
+
+                return result;
             }
         });
 

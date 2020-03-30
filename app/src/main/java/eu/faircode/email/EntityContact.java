@@ -61,6 +61,8 @@ public class EntityContact implements Serializable {
     static final int STATE_FAVORITE = 1;
     static final int STATE_IGNORE = 2;
 
+    static final int MAX_SUGGEST = 50; // per category: Android, local to/from
+
     @PrimaryKey(autoGenerate = true)
     public Long id;
     @NonNull
