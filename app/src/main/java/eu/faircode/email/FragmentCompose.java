@@ -803,32 +803,37 @@ public class FragmentCompose extends FragmentBase {
                 Collections.sort(items, new Comparator<EntityContact>() {
                     @Override
                     public int compare(EntityContact i1, EntityContact i2) {
-                        if (suggest_frequently) {
-                            int t = -i1.times_contacted.compareTo(i2.times_contacted);
-                            if (t != 0)
-                                return t;
+                        try {
+                            if (suggest_frequently) {
+                                int t = -i1.times_contacted.compareTo(i2.times_contacted);
+                                if (t != 0)
+                                    return t;
 
-                            int l = -i1.last_contacted.compareTo(i2.last_contacted);
-                            if (l != 0)
-                                return l;
-                        } else {
-                            int a = -Boolean.compare(i1.id == 0, i2.id == 0);
-                            if (a != 0)
-                                return a;
-                        }
+                                int l = -i1.last_contacted.compareTo(i2.last_contacted);
+                                if (l != 0)
+                                    return l;
+                            } else {
+                                int a = -Boolean.compare(i1.id == 0, i2.id == 0);
+                                if (a != 0)
+                                    return a;
+                            }
 
-                        if (TextUtils.isEmpty(i1.name) && TextUtils.isEmpty(i2.name))
+                            if (TextUtils.isEmpty(i1.name) && TextUtils.isEmpty(i2.name))
+                                return 0;
+                            if (TextUtils.isEmpty(i1.name) && !TextUtils.isEmpty(i2.name))
+                                return 1;
+                            if (!TextUtils.isEmpty(i1.name) && TextUtils.isEmpty(i2.name))
+                                return -1;
+
+                            int n = collator.compare(i1.name, i2.name);
+                            if (n != 0)
+                                return n;
+
+                            return collator.compare(i1.email, i2.email);
+                        } catch (Throwable ex) {
+                            Log.e(ex);
                             return 0;
-                        if (TextUtils.isEmpty(i1.name) && !TextUtils.isEmpty(i2.name))
-                            return 1;
-                        if (!TextUtils.isEmpty(i1.name) && TextUtils.isEmpty(i2.name))
-                            return -1;
-
-                        int n = collator.compare(i1.name, i2.name);
-                        if (n != 0)
-                            return n;
-
-                        return collator.compare(i1.email, i2.email);
+                        }
                     }
                 });
 
