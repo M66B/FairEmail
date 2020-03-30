@@ -1591,7 +1591,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 db.endTransaction();
             }
             ServiceSynchronize.eval(ServiceSynchronize.this, "Optimize=" + reason);
-        } else if (account.poll_exempted) {
+        } else if (pollInterval <= 60 && account.poll_exempted) {
             db.account().setAccountPollExempted(account.id, false);
             ServiceSynchronize.eval(ServiceSynchronize.this, "Optimize=" + reason);
         }
