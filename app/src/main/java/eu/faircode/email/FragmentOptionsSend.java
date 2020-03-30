@@ -121,6 +121,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("suggest_sent", checked).apply();
+                swSuggestFrequently.setEnabled(swSuggestSent.isChecked() || swSuggestReceived.isChecked());
             }
         });
 
@@ -128,6 +129,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("suggest_received", checked).apply();
+                swSuggestFrequently.setEnabled(swSuggestSent.isChecked() || swSuggestReceived.isChecked());
             }
         });
 
@@ -310,6 +312,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swSuggestSent.setChecked(prefs.getBoolean("suggest_sent", true));
         swSuggestReceived.setChecked(prefs.getBoolean("suggest_received", false));
         swSuggestFrequently.setChecked(prefs.getBoolean("suggest_frequently", false));
+        swSuggestFrequently.setEnabled(swSuggestSent.isChecked() || swSuggestReceived.isChecked());
         swSendReminders.setChecked(prefs.getBoolean("send_reminders", true));
 
         int send_delayed = prefs.getInt("send_delayed", 0);
