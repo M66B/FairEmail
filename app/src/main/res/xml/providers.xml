@@ -613,4 +613,16 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="Riseup"
+        link="https://riseup.net/en/email/clients#basic-client-configuration">
+        <imap
+            host="mail.riseup.net"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="mail.riseup.net"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
