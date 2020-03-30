@@ -439,6 +439,7 @@
     <string name="title_advanced_notify_no_channels">Questa versione Android non supporta i canali di notifica</string>
     <string name="title_advanced_fts_hint">Abilitando questa opzione migliora le prestazioni di ricerca, ma aumenta anche l\'utilizzo dello spazio di batteria e archiviazione</string>
     <string name="title_advanced_english_hint">Questo riavvierà l\'app</string>
+    <string name="title_advanced_optimize_hint">L\'attivazione di questo può modificare automaticamente le impostazioni di ricezione per ridurre l\'utilizzo della batteria</string>
     <string name="title_advanced_experiments_hint">Elenco delle attuali funzionalità sperimentali</string>
     <string name="title_advanced_debug_hint">Abilita il log extra e mostra le informazioni di debug in vari luoghi</string>
     <string name="title_advanced_cleanup_hint">Questo cancellerà tutti i file temporanei</string>

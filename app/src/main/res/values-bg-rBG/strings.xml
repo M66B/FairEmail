@@ -226,6 +226,7 @@
     <string name="title_advanced_suggest_local">Предложи локални контакти</string>
     <string name="title_advanced_suggest_sent">Предложи адреси, намерени в изпратените съобщения</string>
     <string name="title_advanced_suggest_received">Предложи адреси, намерени в получени съобщения</string>
+    <string name="title_advanced_suggest_frequently">Сортиране на предложените адреси по използваемост</string>
     <string name="title_advanced_prefix_once">Префикс в темата само веднъж при отговор или препращане</string>
     <string name="title_advanced_extended_reply">Използвай разширено заглавие за отговор/препращане</string>
     <string name="title_advanced_quote_reply">Цитирай текста в отговора</string>
@@ -437,6 +438,7 @@
     <string name="title_advanced_notify_no_channels">Версията на Android не поддържа канали за уведомяване</string>
     <string name="title_advanced_fts_hint">Активирането на това подобрява ефективността на търсенето, но също така увеличава използването на батерията и пространството за съхранение</string>
     <string name="title_advanced_english_hint">Това ще рестартира програмата</string>
+    <string name="title_advanced_optimize_hint">Ако активирате това, можете автоматично да промените настройките за получаване, за да намалите разхода на батерията</string>
     <string name="title_advanced_experiments_hint">Списък на експерименталните функции</string>
     <string name="title_advanced_debug_hint">Активиране на допълнителна регистрация и показване на информация за отстраняване на грешки на различни места</string>
     <string name="title_advanced_cleanup_hint">Това ще изтрие всички временни файлове</string>

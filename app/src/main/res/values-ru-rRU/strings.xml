@@ -461,6 +461,7 @@
     <string name="title_advanced_notify_no_channels">Эта версия Android не поддерживает каналы уведомлений</string>
     <string name="title_advanced_fts_hint">Включение этой функции улучшит скорость поиска, но также увеличит расход батареи и занимаемое место в хранилище</string>
     <string name="title_advanced_english_hint">Произойдёт перезапуск приложения</string>
+    <string name="title_advanced_optimize_hint">Включение этого параметра автоматически изменит настройки получения, чтобы уменьшить расход заряда батареи</string>
     <string name="title_advanced_experiments_hint">Список текущих экспериментальных функций</string>
     <string name="title_advanced_debug_hint">Включить дополнительное журналирование и показывать отладочную информацию в различных местах</string>
     <string name="title_advanced_cleanup_hint">Это действие удалит все временные файлы</string>

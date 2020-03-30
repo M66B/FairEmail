@@ -226,6 +226,7 @@
     <string name="title_advanced_suggest_local">Foreslår lokalt lagrede kontakter</string>
     <string name="title_advanced_suggest_sent">Foreslå adresser fra sendte beskeder</string>
     <string name="title_advanced_suggest_received">Foreslå adresser fra modtagne beskeder</string>
+    <string name="title_advanced_suggest_frequently">Sortér foreslåede adresser efter brugsfrekvens</string>
     <string name="title_advanced_prefix_once">Kun ét emnepræfiks ved svar eller videresendelse</string>
     <string name="title_advanced_extended_reply">Benyt udvidet svar-/videresendoverskrift</string>
     <string name="title_advanced_quote_reply">Citat af svartekst</string>
@@ -438,6 +439,7 @@
     <string name="title_advanced_notify_no_channels">Denne Android-version understøtter ikke notifikationskanaler</string>
     <string name="title_advanced_fts_hint">Aktivering af dette forøger søgeydelsen, men forøge også batteri- og lagerpladsforbruget</string>
     <string name="title_advanced_english_hint">Dette vil genstarte app\'en</string>
+    <string name="title_advanced_optimize_hint">Aktivering af dette kan automatisk ændre modtagelsesindstillingerne for at reducere strømforbruget</string>
     <string name="title_advanced_experiments_hint">Liste over aktuelle eksperimentelle funktioner</string>
     <string name="title_advanced_debug_hint">Aktivér ekstra logning og vis fejlretningsoplysninger forskellige steder</string>
     <string name="title_advanced_cleanup_hint">Dette vil slette alle midlertidige filer</string>

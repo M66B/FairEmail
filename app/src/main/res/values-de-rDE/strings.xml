@@ -227,7 +227,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_suggest_local">Lokal gespeicherte Kontakte vorschlagen</string>
     <string name="title_advanced_suggest_sent">Adressen aus gesendeten Nachrichten vorschlagen</string>
     <string name="title_advanced_suggest_received">Adressen aus empfangenen Nachrichten vorschlagen</string>
-    <string name="title_advanced_suggest_frequently">Empfohlene Adressen nach Nutzungsfrequenz sortieren</string>
+    <string name="title_advanced_suggest_frequently">Vorgeschlagene Adressen nach Nutzungshäufigkeit sortieren</string>
     <string name="title_advanced_prefix_once">Re: und Fwd: nur einmal beim Antworten oder Weiterleiten voranstellen</string>
     <string name="title_advanced_extended_reply">Erweiterte Antwort-/Weiterleitungs-Kopfzeile verwenden</string>
     <string name="title_advanced_quote_reply">Beantworteten Text zitieren</string>
@@ -440,12 +440,13 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_notify_no_channels">Diese Android-Version unterstützt keine Benachrichtigungskanäle</string>
     <string name="title_advanced_fts_hint">Dies zu aktivieren, verbessert die Suchleistung, erhöht aber auch den Akku- und Speicherverbrauch</string>
     <string name="title_advanced_english_hint">Dadurch wird die App neu gestartet</string>
+    <string name="title_advanced_optimize_hint">Wenn aktiviert, können die Empfangseinstellungen automatisch geändert werden, um den Batterieverbrauch zu reduzieren.</string>
     <string name="title_advanced_experiments_hint">Liste der aktuellen experimentellen Funktionen</string>
     <string name="title_advanced_debug_hint">Aktiviert zusätzliche Protokollierung und zeigt Fehlerbehebungsinformationen an verschiedenen Stellen an</string>
     <string name="title_advanced_cleanup_hint">Dies löscht alle temporären Dateien</string>
     <string name="title_advanced_never_favorite">Niemals favorisiert</string>
     <string name="title_advanced_swipe_actions">Wischgesten festlegen</string>
-    <string name="title_advanced_swipe_actions_hint">Dies wird die Aktion \"Wischen links und rechts\" für alle IMAP-Konten festlegen</string>
+    <string name="title_advanced_swipe_actions_hint">Das wird die Aktion fürs Links- und Rechtswischen aller IMAP-Konten festlegen</string>
     <string name="title_select">Auswählen &#8230;</string>
     <string name="title_identity_name">Ihr Name</string>
     <string name="title_identity_email">Ihre E-Mail-Adresse</string>
