@@ -386,7 +386,8 @@ public class EmailService implements AutoCloseable {
             }
 
             if (ioError) {
-                EntityLog.log(context, "Connect ex=" + ex.getMessage());
+                EntityLog.log(context, "Connect ex=" +
+                        ex.getClass().getName() + ":" + ex.getMessage());
                 try {
                     // Some devices resolve IPv6 addresses while not having IPv6 connectivity
                     InetAddress[] iaddrs = InetAddress.getAllByName(host);
@@ -438,11 +439,13 @@ public class EmailService implements AutoCloseable {
                             _connect(iaddr.getHostAddress(), port, user, password, factory);
                             return;
                         } catch (MessagingException ex1) {
-                            EntityLog.log(context, "Fallback ex=" + ex1.getMessage());
+                            ex = ex1;
+                            EntityLog.log(context, "Fallback ex=" +
+                                    ex1.getClass().getName() + ":" + ex1.getMessage());
                         }
                     }
-                } catch (Throwable ex1) {
-                    Log.w(ex1);
+                } catch (IOException ex1) {
+                    throw new MessagingException(ex1.getMessage(), ex1);
                 }
             }
 
