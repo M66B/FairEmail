@@ -442,6 +442,8 @@
     <string name="title_advanced_debug_hint">Aktivér ekstra logning og vis fejlretningsoplysninger forskellige steder</string>
     <string name="title_advanced_cleanup_hint">Dette vil slette alle midlertidige filer</string>
     <string name="title_advanced_never_favorite">Gør aldrig til favorit</string>
+    <string name="title_advanced_swipe_actions">Indstil strygehandlinger</string>
+    <string name="title_advanced_swipe_actions_hint">Dette opsætter handlinger for venstre- og højrestrygning for alle IMAP-konti</string>
     <string name="title_select">Vælg &#8230;</string>
     <string name="title_identity_name">Dit navn</string>
     <string name="title_identity_email">Din e-mailadresse</string>
@@ -788,6 +790,7 @@
     <string name="title_signature_outdated">Den offentlige nøgle er pt, ikke gyldig</string>
     <string name="title_signature_store">Gem</string>
     <string name="title_search">Søg</string>
+    <string name="title_search_device">Søg på enhed</string>
     <string name="title_search_server">Søg på server</string>
     <string name="title_search_text">Søg i tekst</string>
     <string name="title_search_in">Søg i</string>

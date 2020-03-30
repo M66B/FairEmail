@@ -440,6 +440,8 @@
     <string name="title_advanced_debug_hint">Salli ylimääräinen lokitietojen tallennus ja näytä debug-tietoja</string>
     <string name="title_advanced_cleanup_hint">Tämä poistaa kaikki väliaikaiset tiedostot</string>
     <string name="title_advanced_never_favorite">Ei koskaan suosikiksi</string>
+    <string name="title_advanced_swipe_actions">Aseta pyyhkäisytoiminnot</string>
+    <string name="title_advanced_swipe_actions_hint">Tämä asettaa vasemmalle ja oikealle pyyhkäisytoiminnot kaikille IMAP-tileille</string>
     <string name="title_select">Valitse &#8230;</string>
     <string name="title_identity_name">Nimesi</string>
     <string name="title_identity_email">Sähköpostiosoitteesi</string>
@@ -786,6 +788,7 @@
     <string name="title_signature_outdated">Tämä julkinen avain ei ole voimassa</string>
     <string name="title_signature_store">Tallenna</string>
     <string name="title_search">Hae</string>
+    <string name="title_search_device">Hae laitteesta</string>
     <string name="title_search_server">Hae palvelimella</string>
     <string name="title_search_text">Hae tekstistä</string>
     <string name="title_search_in">Hae kohteesta</string>

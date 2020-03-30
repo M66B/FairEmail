@@ -431,7 +431,7 @@
     <string name="title_advanced_cleanup_hint">这将会删除所有的临时文件</string>
     <string name="title_advanced_never_favorite">永不收藏</string>
     <string name="title_advanced_swipe_actions">设置滑动操作</string>
-    <string name="title_advanced_swipe_actions_hint">这将设置所有IMAP帐户的左右滑动动作</string>
+    <string name="title_advanced_swipe_actions_hint">这将为所有 IMAP 帐户设置左右滑动操作</string>
     <string name="title_select">选择 &#8230;</string>
     <string name="title_identity_name">姓名</string>
     <string name="title_identity_email">邮箱地址</string>
@@ -469,7 +469,7 @@
     <string name="title_client_certificate">客户端证书</string>
     <string name="title_realm">移动数据库</string>
     <string name="title_use_ip">使用本地IP地址而非主机名</string>
-    <string name="title_primary">主要</string>
+    <string name="title_primary">主要的</string>
     <string name="title_primary_account">主账户 (默认帐户)</string>
     <string name="title_primary_identity">主身份(默认身份)</string>
     <string name="title_leave_on_server">把消息留在服务器上</string>
@@ -528,10 +528,10 @@
     <string name="title_insert_contact">添加联系人</string>
     <string name="title_edit_contact">编辑联系人</string>
     <string name="title_create_sub_folder">创建子文件夹</string>
-    <string name="title_empty_trash_ask">永久删除所有已删除的消息？</string>
-    <string name="title_empty_spam_ask">永久删除所有垃圾邮件？</string>
-    <string name="title_empty_trash_all_ask">永久删除所有账户的所有回收站消息？</string>
-    <string name="title_empty_spam_all_ask">永久删除所有帐户的所有垃圾邮件？</string>
+    <string name="title_empty_trash_ask">是否永久删除所有回收站的邮件？</string>
+    <string name="title_empty_spam_ask">是否永久删除所有的垃圾邮件？</string>
+    <string name="title_empty_trash_all_ask">是否永久删除所有帐户的所有回收站的邮件？</string>
+    <string name="title_empty_spam_all_ask">是否永久删除所有帐户的所有垃圾邮件？</string>
     <string name="title_delete_operation">是否删除带有错误消息的操作？</string>
     <string name="title_delete_contacts">删除所有本地联系人？</string>
     <string name="title_no_operations">没有待执行操作</string>

@@ -441,6 +441,8 @@
     <string name="title_advanced_debug_hint">Активиране на допълнителна регистрация и показване на информация за отстраняване на грешки на различни места</string>
     <string name="title_advanced_cleanup_hint">Това ще изтрие всички временни файлове</string>
     <string name="title_advanced_never_favorite">Никога в любими</string>
+    <string name="title_advanced_swipe_actions">Действия при плъзгане с пръст</string>
+    <string name="title_advanced_swipe_actions_hint">Това ще настрои плъзгане с пръст наляво и надясно за всички IMAP профили</string>
     <string name="title_select">Избери &#8230;</string>
     <string name="title_identity_name">Вашето име</string>
     <string name="title_identity_email">Вашият адрес на имейл</string>
