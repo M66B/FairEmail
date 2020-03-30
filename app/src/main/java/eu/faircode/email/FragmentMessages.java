@@ -1353,6 +1353,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     throw new IllegalStateException(context.getString(R.string.title_no_internet));
 
                 boolean now = true;
+                boolean force = false;
+
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean enabled = prefs.getBoolean("enabled", true);
+                int pollInterval = prefs.getInt("poll_interval", ServiceSynchronize.DEFAULT_POLL_INTERVAL);
 
                 DB db = DB.getInstance(context);
                 try {
@@ -1374,8 +1379,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                         if (folder.account != null) {
                             EntityAccount account = db.account().getAccount(folder.account);
-                            if (account != null && !"connected".equals(account.state))
+                            if (account != null && !"connected".equals(account.state)) {
                                 now = false;
+                                if (enabled && !account.ondemand &&
+                                        (pollInterval == 0 || account.poll_exempted))
+                                    force = true;
+                            }
                         }
                     }
 
@@ -1384,7 +1393,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     db.endTransaction();
                 }
 
-                ServiceSynchronize.eval(context, "refresh");
+                if (force)
+                    ServiceSynchronize.reload(context, null, "forced refresh");
+                else
+                    ServiceSynchronize.eval(context, "refresh");
 
                 if (!now)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_connection));

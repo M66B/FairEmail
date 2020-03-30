@@ -361,7 +361,12 @@ public class FragmentAccounts extends FragmentBase {
                     throw new IllegalStateException(context.getString(R.string.title_no_internet));
 
                 boolean now = true;
+                boolean force = false;
                 boolean outbox = false;
+
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean enabled = prefs.getBoolean("enabled", true);
+                int pollInterval = prefs.getInt("poll_interval", ServiceSynchronize.DEFAULT_POLL_INTERVAL);
 
                 DB db = DB.getInstance(context);
                 try {
@@ -380,8 +385,12 @@ public class FragmentAccounts extends FragmentBase {
                             outbox = true;
                         else {
                             EntityAccount account = db.account().getAccount(folder.account);
-                            if (account != null && !"connected".equals(account.state))
+                            if (account != null && !"connected".equals(account.state)) {
                                 now = false;
+                                if (enabled && !account.ondemand &&
+                                        (pollInterval == 0 || account.poll_exempted))
+                                    force = true;
+                            }
                         }
                     }
 
@@ -390,7 +399,11 @@ public class FragmentAccounts extends FragmentBase {
                     db.endTransaction();
                 }
 
-                ServiceSynchronize.eval(context, "refresh/accounts");
+                if (force)
+                    ServiceSynchronize.reload(context, null, "forced refresh");
+                else
+                    ServiceSynchronize.eval(context, "refresh");
+
                 if (outbox)
                     ServiceSend.start(context);
 
