@@ -31,7 +31,7 @@ public class AdapterIdentitySelect extends ArrayAdapter<TupleIdentityEx> {
 
     @Override
     public View getDropDownView(int position, View convertView, @NonNull ViewGroup parent) {
-        return getLayout(position, convertView, parent, R.layout.spinner_identity_dropdown);
+        return getLayout(position, convertView, parent, R.layout.spinner_identity);
     }
 
     private View getLayout(int position, View convertView, ViewGroup parent, int resid) {
@@ -42,10 +42,13 @@ public class AdapterIdentitySelect extends ArrayAdapter<TupleIdentityEx> {
         View vwColor = view.findViewById(R.id.vwColor);
         TextView text1 = view.findViewById(android.R.id.text1);
         TextView text2 = view.findViewById(android.R.id.text2);
+        TextView tvExtra = view.findViewById(R.id.tvExtra);
 
         vwColor.setBackgroundColor(identity.color == null ? Color.TRANSPARENT : identity.color);
         text1.setText(identity.getDisplayName() + (identity.primary ? " ★" : ""));
         text2.setText(identity.accountName + "/" + identity.email);
+        tvExtra.setText((identity.cc == null ? "" : "+CC") + (identity.bcc == null ? "" : "+BCC"));
+        tvExtra.setVisibility(identity.cc == null && identity.bcc == null ? View.GONE : View.VISIBLE);
 
         return view;
     }
