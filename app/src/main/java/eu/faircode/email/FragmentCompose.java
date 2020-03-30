@@ -680,6 +680,7 @@ public class FragmentCompose extends FragmentBase {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         final boolean suggest_sent = prefs.getBoolean("suggest_sent", true);
         final boolean suggest_received = prefs.getBoolean("suggest_received", false);
+        final boolean suggest_frequently = prefs.getBoolean("suggest_frequently", false);
         final boolean cc_bcc = prefs.getBoolean("cc_bcc", false);
         final boolean circular = prefs.getBoolean("circular", true);
         final float dp3 = Helper.dp2pixels(getContext(), 3);
@@ -764,13 +765,14 @@ public class FragmentCompose extends FragmentBase {
                             new String[]{wildcard, wildcard},
                             null);
 
-                    while (map.size() < EntityContact.MAX_SUGGEST &&
-                            cursor != null && cursor.moveToNext()) {
+                    while (cursor != null && cursor.moveToNext()) {
                         EntityContact item = new EntityContact();
                         item.id = 0L;
                         item.name = cursor.getString(0);
                         item.email = cursor.getString(1);
                         item.avatar = cursor.getString(2);
+                        item.times_contacted = 0;
+                        item.last_contacted = 0L;
                         EntityContact existing = map.get(item.email);
                         if (existing == null ||
                                 (existing.avatar == null && item.avatar != null))
@@ -783,9 +785,15 @@ public class FragmentCompose extends FragmentBase {
                     items.addAll(db.contact().searchContacts(null, EntityContact.TYPE_TO, wildcard));
                 if (suggest_received)
                     items.addAll(db.contact().searchContacts(null, EntityContact.TYPE_FROM, wildcard));
-                for (EntityContact item : items)
-                    if (!map.containsKey(item.email))
+                for (EntityContact item : items) {
+                    EntityContact existing = map.get(item.email);
+                    if (existing == null)
                         map.put(item.email, item);
+                    else {
+                        existing.times_contacted = Math.max(existing.times_contacted, item.times_contacted);
+                        existing.last_contacted = Math.max(existing.last_contacted, item.last_contacted);
+                    }
+                }
 
                 items = new ArrayList<>(map.values());
 
@@ -795,10 +803,22 @@ public class FragmentCompose extends FragmentBase {
                 Collections.sort(items, new Comparator<EntityContact>() {
                     @Override
                     public int compare(EntityContact i1, EntityContact i2) {
-                        int l = i1.id.compareTo(i2.id);
-                        if (l != 0)
-                            return l;
+                        if (suggest_frequently) {
+                            int t = -i1.times_contacted.compareTo(i2.times_contacted);
+                            if (t != 0)
+                                return t;
 
+                            int l = -i1.last_contacted.compareTo(i2.last_contacted);
+                            if (l != 0)
+                                return l;
+                        } else {
+                            int a = -Boolean.compare(i1.id == 0, i2.id == 0);
+                            if (a != 0)
+                                return a;
+                        }
+
+                        if (TextUtils.isEmpty(i1.name) && TextUtils.isEmpty(i2.name))
+                            return 0;
                         if (TextUtils.isEmpty(i1.name) && !TextUtils.isEmpty(i2.name))
                             return 1;
                         if (!TextUtils.isEmpty(i1.name) && TextUtils.isEmpty(i2.name))

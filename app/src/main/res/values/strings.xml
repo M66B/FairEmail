@@ -274,6 +274,7 @@
     <string name="title_advanced_suggest_local">Suggest locally stored contacts</string>
     <string name="title_advanced_suggest_sent">Suggest addresses found in sent messages</string>
     <string name="title_advanced_suggest_received">Suggest addresses found in received messages</string>
+    <string name="title_advanced_suggest_frequently">Sort suggested addresses on frequency of use</string>
     <string name="title_advanced_prefix_once">Prefix subject only once on replying or forwarding</string>
     <string name="title_advanced_extended_reply">Use extended reply/forward header</string>
     <string name="title_advanced_quote_reply">Quote replied text</string>

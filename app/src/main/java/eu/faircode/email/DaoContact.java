@@ -63,8 +63,7 @@ public interface DaoContact {
             " AND (:type IS NULL OR type = :type)" +
             " AND (email LIKE :query COLLATE NOCASE OR name LIKE :query COLLATE NOCASE)" +
             " AND state <> " + EntityContact.STATE_IGNORE +
-            " GROUP BY name, email" +
-            " LIMIT " + EntityContact.MAX_SUGGEST)
+            " GROUP BY name, email")
     List<EntityContact> searchContacts(Long account, Integer type, String query);
 
     @Insert

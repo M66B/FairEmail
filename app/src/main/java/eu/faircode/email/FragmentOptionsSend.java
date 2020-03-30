@@ -45,6 +45,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private SwitchCompat swKeyboard;
     private SwitchCompat swSuggestSent;
     private SwitchCompat swSuggestReceived;
+    private SwitchCompat swSuggestFrequently;
     private Button btnLocalContacts;
     private SwitchCompat swSendReminders;
     private Spinner spSendDelayed;
@@ -64,7 +65,8 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private SwitchCompat swLookupMx;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "keyboard", "suggest_sent", "suggested_received", "send_reminders", "send_delayed",
+            "keyboard", "suggest_sent", "suggested_received", "suggest_frequently",
+            "send_reminders", "send_delayed",
             "prefix_once", "extended_reply", "quote_reply", "resize_reply", "signature_location",
             "plain_only", "format_flowed", "usenet_signature", "remove_signatures",
             "receipt_default", "receipt_type", "lookup_mx"
@@ -83,6 +85,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swKeyboard = view.findViewById(R.id.swKeyboard);
         swSuggestSent = view.findViewById(R.id.swSuggestSent);
         swSuggestReceived = view.findViewById(R.id.swSuggestReceived);
+        swSuggestFrequently = view.findViewById(R.id.swSuggestFrequently);
         btnLocalContacts = view.findViewById(R.id.btnLocalContacts);
         swSendReminders = view.findViewById(R.id.swSendReminders);
         spSendDelayed = view.findViewById(R.id.spSendDelayed);
@@ -125,6 +128,13 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("suggest_received", checked).apply();
+            }
+        });
+
+        swSuggestFrequently.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("suggest_frequently", checked).apply();
             }
         });
 
@@ -299,6 +309,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swKeyboard.setChecked(prefs.getBoolean("keyboard", true));
         swSuggestSent.setChecked(prefs.getBoolean("suggest_sent", true));
         swSuggestReceived.setChecked(prefs.getBoolean("suggest_received", false));
+        swSuggestFrequently.setChecked(prefs.getBoolean("suggest_frequently", false));
         swSendReminders.setChecked(prefs.getBoolean("send_reminders", true));
 
         int send_delayed = prefs.getInt("send_delayed", 0);
