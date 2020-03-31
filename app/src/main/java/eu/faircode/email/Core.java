@@ -1205,7 +1205,6 @@ class Core {
         DB db = DB.getInstance(context);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean subscribed_only = prefs.getBoolean("subscribed_only", false);
         boolean sync_folders = prefs.getBoolean("sync_folders", true);
 
         // Get folder names
@@ -1279,28 +1278,11 @@ class Core {
 
         // Get remote folders
         long start = new Date().getTime();
-        Folder[] ifolders = (subscribed_only
-                ? defaultFolder.listSubscribed("*")
-                : defaultFolder.list("*"));
+        Folder[] ifolders = defaultFolder.list("*");
 
-        // Get subscribed folders
-        List<String> subscription = new ArrayList<>();
-        try {
-            Folder[] isubscribed = (subscribed_only ? ifolders : defaultFolder.listSubscribed("*"));
-            for (Folder ifolder : isubscribed)
-                subscription.add(ifolder.getFullName());
-        } catch (MessagingException ex) {
-            Log.e(account.name, ex);
-        }
-
-        if (subscribed_only && ifolders.length == 0) {
-            Log.i("No subscribed folders");
-            ifolders = defaultFolder.list("*");
-        }
         long duration = new Date().getTime() - start;
 
         Log.i("Remote folder count=" + ifolders.length +
-                " subscribed=" + subscription.size() +
                 " separator=" + separator +
                 " fetched in " + duration + " ms");
 
@@ -1310,7 +1292,7 @@ class Core {
             String fullName = ifolder.getFullName();
             String[] attrs = ((IMAPFolder) ifolder).getAttributes();
             String type = EntityFolder.getType(attrs, fullName, false);
-            boolean subscribed = subscription.contains(fullName);
+            boolean subscribed = ifolder.isSubscribed();
 
             boolean selectable = true;
             boolean inferiors = true;

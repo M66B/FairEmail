@@ -654,7 +654,6 @@ public class FragmentAccount extends FragmentBase {
                     realm = null;
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                boolean subscribed_only = prefs.getBoolean("subscribed_only", false);
 
                 DB db = DB.getInstance(context);
 
@@ -684,7 +683,6 @@ public class FragmentAccount extends FragmentBase {
                         String[] attrs = ((IMAPFolder) ifolder).getAttributes();
                         Log.i(fullName + " attrs=" + TextUtils.join(" ", attrs));
                         String type = EntityFolder.getType(attrs, fullName, true);
-                        boolean subscribed = ifolder.isSubscribed();
 
                         boolean selectable = true;
                         for (String attr : attrs)
@@ -692,7 +690,7 @@ public class FragmentAccount extends FragmentBase {
                                 selectable = false;
                         selectable = selectable && ((ifolder.getType() & IMAPFolder.HOLDS_MESSAGES) != 0);
 
-                        if (type != null && selectable && (!subscribed_only || subscribed)) {
+                        if (type != null && selectable) {
                             // Create entry
                             EntityFolder folder = db.folder().getFolderByName(id, fullName);
                             if (folder == null)

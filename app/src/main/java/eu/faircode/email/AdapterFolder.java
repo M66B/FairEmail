@@ -80,6 +80,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     private long account;
     private boolean show_compact;
     private boolean show_hidden;
+    private boolean subscribed_only;
     private IFolderSelectedListener listener;
 
     private Context context;
@@ -450,9 +451,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
                 if (folder.account != null && folder.accountProtocol == EntityAccount.TYPE_IMAP) {
                     boolean subscriptions = prefs.getBoolean("subscriptions", false);
-                    if (folder.subscribed != null && subscriptions)
+                    if (subscriptions)
                         popupMenu.getMenu().add(Menu.NONE, R.string.title_subscribe, 9, R.string.title_subscribe)
-                                .setCheckable(true).setChecked(folder.subscribed);
+                                .setCheckable(true).setChecked(folder.subscribed != null && folder.subscribed);
 
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_enabled, 10, R.string.title_synchronize_enabled)
                             .setCheckable(true).setChecked(folder.synchronize);
@@ -617,7 +618,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 private void onActionSubscribe() {
                     Bundle args = new Bundle();
                     args.putLong("id", folder.id);
-                    args.putBoolean("subscribed", !folder.subscribed);
+                    args.putBoolean("subscribed", !(folder.subscribed != null && folder.subscribed));
 
                     new SimpleTask<Void>() {
                         @Override
@@ -743,6 +744,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             zoom = 1;
 
         this.subscriptions = prefs.getBoolean("subscriptions", false);
+        this.subscribed_only = prefs.getBoolean("subscribed_only", false) && subscriptions;
         this.debug = prefs.getBoolean("debug", false);
 
         this.dp12 = Helper.dp2pixels(context, 12);
@@ -774,6 +776,13 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     void setShowHidden(boolean show_hidden) {
         if (this.show_hidden != show_hidden) {
             this.show_hidden = show_hidden;
+            set(all);
+        }
+    }
+
+    void setSubscribedOnly(boolean subscribed_only) {
+        if (this.subscribed_only != subscribed_only) {
+            this.subscribed_only = subscribed_only;
             set(all);
         }
     }
@@ -919,7 +928,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             Collections.sort(parents, parents.get(0).getComparator(context));
 
         for (TupleFolderEx parent : parents)
-            if (!parent.hide || show_hidden) {
+            if ((!parent.hide || show_hidden) && (parent.subscribed || !subscribed_only)) {
                 parent.indentation = indentation;
                 result.add(parent);
 

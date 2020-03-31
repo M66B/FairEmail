@@ -22,6 +22,12 @@
         app:showAsAction="never" />
 
     <item
+        android:id="@+id/menu_subscribed_only"
+        android:checkable="true"
+        android:title="@string/title_subscribed_only"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/menu_apply_all"
         android:title="@string/title_apply_to_all"
         app:showAsAction="never" />

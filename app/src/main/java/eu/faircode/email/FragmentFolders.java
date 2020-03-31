@@ -450,8 +450,14 @@ public class FragmentFolders extends FragmentBase {
 
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean subscriptions = prefs.getBoolean("subscriptions", false);
+        boolean subscribed_only = prefs.getBoolean("subscribed_only", false);
+
         menu.findItem(R.id.menu_compact).setChecked(compact);
         menu.findItem(R.id.menu_show_hidden).setChecked(show_hidden);
+        menu.findItem(R.id.menu_subscribed_only).setChecked(subscribed_only);
+        menu.findItem(R.id.menu_subscribed_only).setVisible(subscriptions);
         menu.findItem(R.id.menu_apply_all).setVisible(account >= 0);
 
         super.onPrepareOptionsMenu(menu);
@@ -465,6 +471,9 @@ public class FragmentFolders extends FragmentBase {
                 return true;
             case R.id.menu_show_hidden:
                 onMenuShowHidden();
+                return true;
+            case R.id.menu_subscribed_only:
+                onMenuSubscribedOnly();
                 return true;
             case R.id.menu_apply_all:
                 onMenuApplyToAll();
@@ -491,6 +500,14 @@ public class FragmentFolders extends FragmentBase {
         show_hidden = !show_hidden;
         getActivity().invalidateOptionsMenu();
         adapter.setShowHidden(show_hidden);
+    }
+
+    private void onMenuSubscribedOnly() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean subscribed_only = !prefs.getBoolean("subscribed_only", false);
+        prefs.edit().putBoolean("subscribed_only", subscribed_only).apply();
+        getActivity().invalidateOptionsMenu();
+        adapter.setSubscribedOnly(subscribed_only);
     }
 
     private void onMenuApplyToAll() {

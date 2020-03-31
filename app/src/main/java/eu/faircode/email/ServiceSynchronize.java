@@ -122,7 +122,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             "metered", "roaming", "rlah", // force reconnect
             "ssl_harden", // force reconnect
             "socks_enabled", "socks_proxy", // force reconnect
-            "subscribed_only", // force folder sync
             "badge", "unseen_ignored", // force update badge/widget
             "debug" // force reconnect
     ));

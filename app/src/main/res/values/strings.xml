@@ -268,7 +268,6 @@
     <string name="title_advanced_kept_removed">Check if old messages were removed from the server</string>
     <string name="title_advanced_sync_folders">Synchronize folder list</string>
     <string name="title_advanced_subscriptions">Manage folder subscriptions</string>
-    <string name="title_advanced_sync_subscribed">Synchronize subscribed folders only</string>
 
     <string name="title_advanced_keyboard">Show keyboard by default</string>
     <string name="title_advanced_suggest_local">Suggest locally stored contacts</string>
@@ -460,7 +459,6 @@
     <string name="title_advanced_deleted_unseen">When disabled, unread messages are kept on the device forever</string>
     <string name="title_advanced_sync_kept_hint">This will transfer extra data and consume extra battery power, especially if a lot of messages are stored on the device</string>
     <string name="title_advanced_sync_folders_hint">Disabling this will reduce data and battery usage somewhat, but will disable updating the list of folders too</string>
-    <string name="title_advanced_subscribed_only_hint">Enabling this will delete all local folders without subscription</string>
     <string name="title_advanced_sync_delay_hint">This will slow down synchronizing messages</string>
 
     <string name="title_advanced_suggest_local_hint">In addition to contacts provided by Android. Contact data will be stored for newly sent or received messages only when enabled.</string>
@@ -642,6 +640,7 @@
     <string name="title_folder_name">Folder name</string>
     <string name="title_display_name">Display name</string>
     <string name="title_show_folders">Show hidden folders</string>
+    <string name="title_subscribed_only">Subscribed only</string>
     <string name="title_apply_to_all">Apply to all &#8230;</string>
     <string name="title_hide_folder">Hide folder</string>
     <string name="title_unified_folder">Show in unified inbox</string>
