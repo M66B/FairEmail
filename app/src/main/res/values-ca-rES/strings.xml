@@ -183,7 +183,6 @@
     <string name="title_advanced_kept_removed">Comproveu si s’han eliminat missatges antics del servidor</string>
     <string name="title_advanced_sync_folders">Sincronitza la llista de carpetes</string>
     <string name="title_advanced_subscriptions">Gestioneu les subscripcions de carpeta</string>
-    <string name="title_advanced_sync_subscribed">Sincronitzeu només les carpetes subscrites</string>
     <string name="title_advanced_keyboard">Mostra el teclat per defecte</string>
     <string name="title_advanced_suggest_local">Suggeriu contactes emmagatzemats localment</string>
     <string name="title_advanced_suggest_sent">Suggeriu adreces trobades als missatges enviats</string>
@@ -303,7 +302,6 @@
     <string name="title_advanced_unseen_hint">Alguns proveïdors no suporten aquesta funció degudament, cosa que pot evitar la sincronització d\'alguns o tots els missatges</string>
     <string name="title_advanced_sync_kept_hint">Això transferirà dades addicionals i consumeix energia addicional per a la bateria, especialment si es desen el dispositiu de molts missatges</string>
     <string name="title_advanced_sync_folders_hint">Si el desactiveu, reduireu una mica l’ús de les dades i la bateria, però també desactivareu l’actualització de la llista de carpetes</string>
-    <string name="title_advanced_subscribed_only_hint">Si ho activeu, suprimireu totes les carpetes locals sense subscripció</string>
     <string name="title_advanced_sync_delay_hint">Això alentirà la sincronització de missatges</string>
     <string name="title_advanced_suggest_local_hint">A més dels contactes proporcionats per Android. Les dades de contacte s’emmagatzemaran per als missatges recentment enviats o rebuts només quan estiguin habilitats.</string>
     <string name="title_advanced_lookup_mx_hint">Això comprovarà si existeixen registres MX al DNS</string>

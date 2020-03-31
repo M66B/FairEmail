@@ -221,7 +221,6 @@
     <string name="title_advanced_kept_removed">Controlla se i vecchi messaggi sono stati rimossi dal server</string>
     <string name="title_advanced_sync_folders">Sincronizza elenco cartelle</string>
     <string name="title_advanced_subscriptions">Gestisci abbonamenti cartelle</string>
-    <string name="title_advanced_sync_subscribed">Sincronizza solo le cartelle sottoscritte</string>
     <string name="title_advanced_keyboard">Mostra tastiera di default</string>
     <string name="title_advanced_suggest_local">Suggerisci contatti memorizzati localmente</string>
     <string name="title_advanced_suggest_sent">Suggerisci indirizzi trovati nei messaggi inviati</string>
@@ -393,7 +392,6 @@
     <string name="title_advanced_deleted_unseen">Quando disabilitato, i messaggi non letti vengono mantenuti sul dispositivo per sempre</string>
     <string name="title_advanced_sync_kept_hint">Questo trasferirà dati aggiuntivi e consumerà energia batteria extra, specialmente se molti messaggi vengono memorizzati sul dispositivo</string>
     <string name="title_advanced_sync_folders_hint">Disabilitando questa opzione si ridurranno in qualche modo i dati e l\'utilizzo della batteria, ma disattiverà anche l\'aggiornamento della lista delle cartelle</string>
-    <string name="title_advanced_subscribed_only_hint">Abilitando questa opzione verranno eliminate tutte le cartelle locali senza abbonamento</string>
     <string name="title_advanced_sync_delay_hint">Questo rallenterà la sincronizzazione dei messaggi</string>
     <string name="title_advanced_suggest_local_hint">Oltre ai contatti forniti da Android. I dati di contatto verranno archiviati per i messaggi appena inviati o ricevuti solo quando abilitato.</string>
     <string name="title_advanced_usenet_hint">Inserisci \'-- \' tra il testo e la firma</string>
@@ -553,6 +551,7 @@
     <string name="title_folder_name">Nome cartella</string>
     <string name="title_display_name">Nome visualizzato</string>
     <string name="title_show_folders">Mostra cartelle nascoste</string>
+    <string name="title_subscribed_only">Solo sottoscritti</string>
     <string name="title_apply_to_all">Applica a tutti &#8230;</string>
     <string name="title_hide_folder">Nascondi cartella</string>
     <string name="title_unified_folder">Mostra in posta in arrivo unificata</string>

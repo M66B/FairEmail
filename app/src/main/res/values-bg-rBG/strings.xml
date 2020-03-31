@@ -221,7 +221,6 @@
     <string name="title_advanced_kept_removed">Проверете дали старите съобщения са премахнати от сървъра</string>
     <string name="title_advanced_sync_folders">Синхронизиране на списъка с папки</string>
     <string name="title_advanced_subscriptions">Управление на абонирани папки</string>
-    <string name="title_advanced_sync_subscribed">Синхронизиране само на абонирани папки</string>
     <string name="title_advanced_keyboard">Клавиатура по подразбиране</string>
     <string name="title_advanced_suggest_local">Предложи локални контакти</string>
     <string name="title_advanced_suggest_sent">Предложи адреси, намерени в изпратените съобщения</string>
@@ -392,7 +391,6 @@
     <string name="title_advanced_deleted_unseen">Когато са деактивирани, непрочетените съобщения се съхраняват на устройството завинаги</string>
     <string name="title_advanced_sync_kept_hint">Това ще прехвърли допълнителни данни и ще консумира допълнително батерията, особено ако на устройството се съхраняват много съобщения</string>
     <string name="title_advanced_sync_folders_hint">Деактивирането на това ще намали донякъде използването на данни и батерията, но ще деактивира и актуализирането на списъка с папки</string>
-    <string name="title_advanced_subscribed_only_hint">Активирането ще изтрие всички локални папки без абонамент</string>
     <string name="title_advanced_sync_delay_hint">Това ще забави синхронизирането на съобщенията</string>
     <string name="title_advanced_suggest_local_hint">В допълнение към контактите, осигурени от Android. Данните за контакт ще бъдат съхранявани за нови изпратени или получени съобщения, само когато са активирани.</string>
     <string name="title_advanced_usenet_hint">Вмъкнете \'-\' между текста и подписа</string>

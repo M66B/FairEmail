@@ -207,7 +207,6 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_kept_removed">古いメッセージがサーバから削除されたか確認</string>
     <string name="title_advanced_sync_folders">フォルダーリストの同期</string>
     <string name="title_advanced_subscriptions">購読したフォルダーの管理</string>
-    <string name="title_advanced_sync_subscribed">購読したフォルダーのみ同期</string>
     <string name="title_advanced_keyboard">デフォルトでキーボードを表示</string>
     <string name="title_advanced_suggest_local">ローカルに保存された連絡先を提案</string>
     <string name="title_advanced_suggest_sent">送信したメッセージで見つかったアドレスを提案</string>
@@ -368,7 +367,6 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_deleted_unseen">無効にすると未読メッセージはデバイスに永久に保持されます</string>
     <string name="title_advanced_sync_kept_hint">特に大量のメッセージがデバイスに保存されている場合、多くのデータが転送され電池消費が増えます</string>
     <string name="title_advanced_sync_folders_hint">これを無効にするとデータと電池の使用量が多少減りますが、フォルダーのリストの更新も無効になります</string>
-    <string name="title_advanced_subscribed_only_hint">有効にすると購読していない全てのローカルフォルダが削除されます</string>
     <string name="title_advanced_sync_delay_hint">メッセージの同期が遅くなります</string>
     <string name="title_advanced_suggest_local_hint">Android内の連絡先に加えます。連絡先データは有効にした場合のみ新しく送信又は受信メッセージへ保存されます</string>
     <string name="title_advanced_usenet_hint">テキストと署名の間に「-」を挿入</string>

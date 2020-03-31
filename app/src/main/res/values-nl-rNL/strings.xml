@@ -220,7 +220,6 @@
     <string name="title_advanced_kept_removed">Controleer of oude berichten van de server werden verwijderd</string>
     <string name="title_advanced_sync_folders">Lijst met mappen synchroniseren</string>
     <string name="title_advanced_subscriptions">Beheer map abonnementen</string>
-    <string name="title_advanced_sync_subscribed">Alleen geabonneerde mappen synchroniseren</string>
     <string name="title_advanced_keyboard">Toon standaard het toetsenbord</string>
     <string name="title_advanced_suggest_local">Suggereer lokaal opgeslagen contacten</string>
     <string name="title_advanced_suggest_sent">Suggereer adressen gevonden in verzonden berichten</string>
@@ -392,7 +391,6 @@
     <string name="title_advanced_deleted_unseen">Wanneer uitgeschakeld, worden ongelezen berichten voor altijd op het apparaat bewaard</string>
     <string name="title_advanced_sync_kept_hint">Dit zal extra gegevens en extra batterijvermogen gebruiken, vooral als er veel berichten op het apparaat zijn opgeslagen</string>
     <string name="title_advanced_sync_folders_hint">Dit uitschakelen zal het gebruik van gegevens en batterij enigszins verminderen, maar zal ook het bijwerken van de lijst met mappen uitschakelen</string>
-    <string name="title_advanced_subscribed_only_hint">Dit inschakelen zal alle lokale mappen zonder abonnement verwijderen</string>
     <string name="title_advanced_sync_delay_hint">Dit zal de synchronisatie van berichten vertragen</string>
     <string name="title_advanced_suggest_local_hint">Naast contacten die door Android worden geleverd. Contactgegevens worden alleen opgeslagen voor nieuw verzonden of ontvangen berichten wanneer ingeschakeld.</string>
     <string name="title_advanced_usenet_hint">Voeg \'-- \' in tussen de tekst en de handtekening</string>
@@ -552,6 +550,7 @@
     <string name="title_folder_name">Mapnaam</string>
     <string name="title_display_name">Weergavenaam</string>
     <string name="title_show_folders">Toon verborgen mappen</string>
+    <string name="title_subscribed_only">Alleen geabonneerde</string>
     <string name="title_apply_to_all">Toepassen op alle &#8230;</string>
     <string name="title_hide_folder">Verberg map</string>
     <string name="title_unified_folder">Toon in het gecombineerde postvak in</string>

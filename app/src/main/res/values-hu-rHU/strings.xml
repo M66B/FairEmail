@@ -210,7 +210,6 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_kept_removed">Régi üzenetek szerverről való törlésének ellenőrzése</string>
     <string name="title_advanced_sync_folders">Mappák listájának szinkronizálása</string>
     <string name="title_advanced_subscriptions">Mappa feliratkozások kezelése</string>
-    <string name="title_advanced_sync_subscribed">Csak a feliratkozott mappák szinkronizálása</string>
     <string name="title_advanced_keyboard">Billentyűzet alapértelmezett megjelenítése</string>
     <string name="title_advanced_suggest_local">Helyileg tárolt névjegyek felajánlása</string>
     <string name="title_advanced_suggest_sent">Elküldött üzenetekben szereplő címek felajánlása</string>
@@ -349,7 +348,6 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_unseen_hint">Nehany szolgáltató ezt nem támogatja maradéktalanul, emiatt az összes - vagy semelyik - üzenet szinkronizálódhat</string>
     <string name="title_advanced_sync_kept_hint">Ez megnövekedett adatforgalom- és akkumulátorhasználatot eredményez, különösen ha sok üzenet található a készüléken</string>
     <string name="title_advanced_sync_folders_hint">Kikapcsolása valamelyest csökkentheti az adatforgalom- és akkumulátorhasználatot, de egyúttal a mappák listájának frissítését is megakadályozza</string>
-    <string name="title_advanced_subscribed_only_hint">Bekapcsolása eltávolítja az összes helyi mappát amelyhez nem tartozik feliratkozás</string>
     <string name="title_advanced_sync_delay_hint">Ez lelassítja az üzenetek szinkronizálását</string>
     <string name="title_advanced_usenet_hint">Elválasztó \'--\' beillesztése a szöveg törzs es az aláírás közé</string>
     <string name="title_advanced_send_reminders_hint">Figyelmeztetés megjelenítése, ha az üzenet szövege vagy a tárgy üres, illetve ha a melléklet feltehetőleg hiányzik</string>

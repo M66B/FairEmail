@@ -223,7 +223,6 @@
     <string name="title_advanced_kept_removed">Provjerite jesu li stare poruke uklonjene sa servera</string>
     <string name="title_advanced_sync_folders">Sinkroniziraj popis mapa</string>
     <string name="title_advanced_subscriptions">Upravljanje pretplatama za mape</string>
-    <string name="title_advanced_sync_subscribed">Sinkroniziraj samo pretplaćene mape</string>
     <string name="title_advanced_keyboard">Standardno pokaži tastaturu</string>
     <string name="title_advanced_suggest_local">Predložiti lokalno pohranjene kontakte</string>
     <string name="title_advanced_suggest_sent">Predložiti adrese pronađene u poslanim porukama</string>
@@ -381,7 +380,6 @@
     <string name="title_advanced_deleted_unseen">Kad je onemogućeno, nepročitane poruke zauvijek se čuvaju na uređaju</string>
     <string name="title_advanced_sync_kept_hint">To će prenijeti dodatne podatke i potrošiti dodatnu snagu baterije, posebno ako je na uređaju spremljeno puno poruka</string>
     <string name="title_advanced_sync_folders_hint">Onemogućavanjem će se nešto smanjiti korištenje podataka i baterija, ali će se onemogućiti i ažuriranje popisa mapa</string>
-    <string name="title_advanced_subscribed_only_hint">Ako to omogućite, izbrisat ćete sve lokalne mape bez pretplate</string>
     <string name="title_advanced_sync_delay_hint">Ovo će usporiti sinkronizaciju poruka</string>
     <string name="title_advanced_suggest_local_hint">Pored kontakata koje pruža Android. Podaci za kontakte bit će pohranjeni za novoprimljene ili primljene poruke samo ako su omogućene.</string>
     <string name="title_advanced_usenet_hint">Umetni \'--\' između teksta i potpisa</string>

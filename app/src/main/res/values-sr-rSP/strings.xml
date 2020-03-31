@@ -192,7 +192,6 @@
     <string name="title_advanced_kept_removed">Провери да ли су старе поруке уклоњене са сервера</string>
     <string name="title_advanced_sync_folders">Синхронизуј списак фасцикли</string>
     <string name="title_advanced_subscriptions">Управљај претплатама на фасцикле</string>
-    <string name="title_advanced_sync_subscribed">Синхронизуј само претплаћене фасцикле</string>
     <string name="title_advanced_keyboard">Приказуј подразумевано тастатуру</string>
     <string name="title_advanced_suggest_local">Предлажи локално ускладиштене контакте</string>
     <string name="title_advanced_suggest_sent">Предлажи адресе нађене међу послатим порукама</string>
@@ -311,7 +310,6 @@
     <string name="title_advanced_unseen_hint">Неки провајдери не подржавају ово најбоље, што може да доведе да синхронизујете или све или ниједну поруку</string>
     <string name="title_advanced_sync_kept_hint">Ово ће пренети више података и потрошити више батерије, нарочито ако на уређају има јако много порука</string>
     <string name="title_advanced_sync_folders_hint">Искључивањем ће се смањити количина пренетих података и потрошња батерије, али ће бити искључено и ажурирање списка фасцикли</string>
-    <string name="title_advanced_subscribed_only_hint">Укључивање овога ће обрисати све локалне фасцикле без претплате</string>
     <string name="title_advanced_sync_delay_hint">Овим ће се успорити синхронизовање порука</string>
     <string name="title_advanced_suggest_local_hint">Поред контаката који су у Андроиду. Подаци о контактима ће бити ускладиштени за новопримљене и послате поруке само ако је ово укључено.</string>
     <string name="title_advanced_lookup_mx_hint">Ово ће проверити да ли постоји DNS MX запис</string>

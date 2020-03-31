@@ -219,7 +219,6 @@
     <string name="title_advanced_kept_removed">Egiaztatu mezu zaharrak zerbitzaritik ezabatu diren</string>
     <string name="title_advanced_sync_folders">Sinkronizatu karpeten zerrenda</string>
     <string name="title_advanced_subscriptions">Kudeatu karpeten harpidetzak</string>
-    <string name="title_advanced_sync_subscribed">Sinkronizatu harpidetutako karpetak besterik ez</string>
     <string name="title_advanced_keyboard">Erakutsi teklatua lehenetsita</string>
     <string name="title_advanced_suggest_local">Proposatu lokalean gordetako kontaktuak</string>
     <string name="title_advanced_suggest_sent">Proposatu bidalitako mezuetan aurkitutako helbideak</string>
@@ -390,7 +389,6 @@
     <string name="title_advanced_deleted_unseen">Desaktibatuta dagoenean, irakurri gabeko mezuak gailuan gordeko dira betiko</string>
     <string name="title_advanced_sync_kept_hint">Honek datu gehigarriak transferituko ditu eta bateriaren energia gehigarria kontsumituko du, batez ere telefonoan mezu asko gordetzen badira</string>
     <string name="title_advanced_sync_folders_hint">Hori ezgaitzeak datuak eta bateriaren erabilera zertxobait murriztuko ditu, baina karpeten zerrenda eguneratzea ere ezgaituko du</string>
-    <string name="title_advanced_subscribed_only_hint">Hori gaitzen baduzu, harpidetzarik ez duten tokiko karpeta guztiak ezabatu egingo dira</string>
     <string name="title_advanced_sync_delay_hint">Honek mezuen sinkronizazioa motelduko du</string>
     <string name="title_advanced_suggest_local_hint">Android-en kontaktuez gain. Kontaktuen datuak gordeko dira mezuak bidali edo jasotzean soilik baimenduta badago.</string>
     <string name="title_advanced_usenet_hint">Txertatu \'-- \' testua eta sinaduraren artean</string>

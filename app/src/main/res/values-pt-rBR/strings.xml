@@ -207,7 +207,6 @@
     <string name="title_advanced_kept_removed">Verificar se as mensagens antigas foram removidas do servidor</string>
     <string name="title_advanced_sync_folders">Sincronizar lista de pastas</string>
     <string name="title_advanced_subscriptions">Gerenciar assinaturas de pastas</string>
-    <string name="title_advanced_sync_subscribed">Sincronizar apenas pastas subscritas</string>
     <string name="title_advanced_keyboard">Mostrar teclado por padrão</string>
     <string name="title_advanced_suggest_local">Sugerir contatos armazenados localmente</string>
     <string name="title_advanced_suggest_sent">Sugerir endereços encontrados em mensagens enviadas</string>
@@ -345,7 +344,6 @@
     <string name="title_advanced_unseen_hint">Alguns provedores não suportam isso adequadamente, o que pode causar a sincronização de nenhuma ou de todas as mensagens</string>
     <string name="title_advanced_sync_kept_hint">Isto irá transferir dados extras e consumir energia extra da bateria, especialmente se uma série de mensagens forem armazenadas no dispositivo</string>
     <string name="title_advanced_sync_folders_hint">Desativar isto irá reduzir um pouco o uso de dados e bateria, mas irá também desativar a atualização da lista de pastas</string>
-    <string name="title_advanced_subscribed_only_hint">Habilitando isto irá apagar todas as pastas locais sem assinatura</string>
     <string name="title_advanced_sync_delay_hint">Isto atrasará a sincronização de mensagens</string>
     <string name="title_advanced_suggest_local_hint">Além dos contatos fornecidos pelo Android. Os dados de contato serão armazenados para novas mensagens enviadas ou recebidas somente quando ativados.</string>
     <string name="title_advanced_usenet_hint">Inserir \'-- \' entre o texto e a assinatura</string>

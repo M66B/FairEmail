@@ -221,7 +221,6 @@
     <string name="title_advanced_kept_removed">Sjekk om gamle meldinger ble fjernet fra serveren</string>
     <string name="title_advanced_sync_folders">Synkroniser mappeliste</string>
     <string name="title_advanced_subscriptions">Administrere mappeabonnementer</string>
-    <string name="title_advanced_sync_subscribed">Synkronisere bare abonnerte mapper</string>
     <string name="title_advanced_keyboard">Vis tastatur som standard</string>
     <string name="title_advanced_suggest_local">Foreslå lokalt lagrede kontakter</string>
     <string name="title_advanced_suggest_sent">Foreslå adresser som er funnet i sendte meldinger</string>
@@ -389,7 +388,6 @@
     <string name="title_advanced_deleted_unseen">Når den er deaktivert, lagres uleste meldinger på enheten for alltid</string>
     <string name="title_advanced_sync_kept_hint">Dette vil overføre ekstra data og bruke ekstra batteristrøm, spesielt hvis det er lagret mange meldinger på enheten</string>
     <string name="title_advanced_sync_folders_hint">Deaktivering av dette vil redusere data og batteribruk noe, men deaktiverer også oppdateringen av listen over mapper</string>
-    <string name="title_advanced_subscribed_only_hint">Aktivering av dette vil slette alle lokale mapper uten abonnement</string>
     <string name="title_advanced_sync_delay_hint">Dette vil redusere synkroniseringen av meldinger</string>
     <string name="title_advanced_suggest_local_hint">I tillegg til kontakter levert av Android. Vil kontaktdata blir lagret for nylig sendte eller mottatte meldinger når de er aktivert.</string>
     <string name="title_advanced_usenet_hint">Sett inn \'-- \' mellom teksten og signaturen</string>

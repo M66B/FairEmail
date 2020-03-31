@@ -243,7 +243,6 @@
     <string name="title_advanced_kept_removed">Проверять, были ли удалены старые сообщения с сервера</string>
     <string name="title_advanced_sync_folders">Синхронизировать список папок</string>
     <string name="title_advanced_subscriptions">Управление подпиской на папки</string>
-    <string name="title_advanced_sync_subscribed">Синхронизировать только папки с подпиской</string>
     <string name="title_advanced_keyboard">Показывать клавиатуру по умолчанию</string>
     <string name="title_advanced_suggest_local">Предлагать локальные контакты</string>
     <string name="title_advanced_suggest_sent">Предлагать адреса, найденные в отправленных сообщениях</string>
@@ -415,7 +414,6 @@
     <string name="title_advanced_deleted_unseen">Если отключено, непрочитанные сообщения хранятся на устройстве вечно</string>
     <string name="title_advanced_sync_kept_hint">Это приведёт к большему потреблению трафика и заряда батареи, особенно если на устройстве хранится много сообщений</string>
     <string name="title_advanced_sync_folders_hint">Отключение этой функции уменьшит потребление трафика и заряда батареи, но также отключит обновление списка папок</string>
-    <string name="title_advanced_subscribed_only_hint">Включение этой функции удалит все локальные папки без подписки</string>
     <string name="title_advanced_sync_delay_hint">Это замедлит синхронизацию сообщений</string>
     <string name="title_advanced_suggest_local_hint">В дополнение к контактам, предоставляемым Android. Контактные данные будут сохранены только для вновь отправленных или полученных сообщений при включении этой функции.</string>
     <string name="title_advanced_usenet_hint">Вставлять \'-- \' между текстом и подписью</string>
@@ -575,6 +573,7 @@
     <string name="title_folder_name">Название папки</string>
     <string name="title_display_name">Отображаемое имя</string>
     <string name="title_show_folders">Показывать скрытые папки</string>
+    <string name="title_subscribed_only">Только подписки</string>
     <string name="title_apply_to_all">Применить ко всем&#8230;</string>
     <string name="title_hide_folder">Скрыть папку</string>
     <string name="title_unified_folder">Показать в единой папке \"Входящие\"</string>

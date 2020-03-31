@@ -242,7 +242,6 @@
     <string name="title_advanced_kept_removed">Sprawdź, czy stare wiadomości zostały usunięte z serwera</string>
     <string name="title_advanced_sync_folders">Synchronizuj listę folderów</string>
     <string name="title_advanced_subscriptions">Zarządzaj subskrypcjami folderów</string>
-    <string name="title_advanced_sync_subscribed">Synchronizuj tylko subskrybowane foldery</string>
     <string name="title_advanced_keyboard">Domyślnie pokaż klawiaturę</string>
     <string name="title_advanced_suggest_local">Proponuj kontakty przechowywane lokalnie</string>
     <string name="title_advanced_suggest_sent">Proponuj adresy znalezione w wysłanych wiadomościach</string>
@@ -412,7 +411,6 @@
     <string name="title_advanced_deleted_unseen">Kiedy wyłączone, nieprzeczytane wiadomości są zawsze przechowywane w urządzeniu</string>
     <string name="title_advanced_sync_kept_hint">Spowoduje to użycie dodatkowych danych i zużycie dodatkowej energii baterii, zwłaszcza jeśli w urządzeniu przechowywanych jest wiele wiadomości</string>
     <string name="title_advanced_sync_folders_hint">Wyłączenie tej opcji nieco zmniejszy zużycie danych i baterii, ale wyłączy także aktualizację listy folderów</string>
-    <string name="title_advanced_subscribed_only_hint">Włączenie tej opcji usunie wszystkie lokalne foldery bez subskrypcji</string>
     <string name="title_advanced_sync_delay_hint">Wydłuży to synchronizację wiadomości</string>
     <string name="title_advanced_suggest_local_hint">Oprócz kontaktów dostarczanych przez Androida. Dane kontaktowe będą przechowywane dla nowo wysłanych lub odebranych wiadomości tylko kiedy włączone.</string>
     <string name="title_advanced_usenet_hint">Wstaw \'-- \' między tekstem a podpisem</string>

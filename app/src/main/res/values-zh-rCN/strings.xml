@@ -209,7 +209,6 @@
     <string name="title_advanced_kept_removed">检查旧消息是否已从服务器移除</string>
     <string name="title_advanced_sync_folders">同步文件夹列表</string>
     <string name="title_advanced_subscriptions">管理文件夹订阅</string>
-    <string name="title_advanced_sync_subscribed">只同步订阅的文件夹</string>
     <string name="title_advanced_keyboard">默认显示键盘</string>
     <string name="title_advanced_suggest_local">建议本地存储的联系人</string>
     <string name="title_advanced_suggest_sent">建议在已发送消息中找到的地址</string>
@@ -381,7 +380,6 @@
     <string name="title_advanced_deleted_unseen">禁用后未读消息将永远保留在设备上</string>
     <string name="title_advanced_sync_kept_hint">这将更耗数据与电量，特别是如果有大量消息存储在设备上</string>
     <string name="title_advanced_sync_folders_hint">禁用此功能某种程度上会减少数据和电量使用，但也会禁用更新文件夹列表</string>
-    <string name="title_advanced_subscribed_only_hint">启用此功能将删除所有未订阅的本地文件夹</string>
     <string name="title_advanced_sync_delay_hint">这将减缓同步消息的速度</string>
     <string name="title_advanced_suggest_local_hint">除了Android提供的联系人，只有在设置中允许，应用才会储存新接收或发送消息的联系人数据。</string>
     <string name="title_advanced_usenet_hint">在文本和签名之间插入 \'-- \'</string>
@@ -541,6 +539,7 @@
     <string name="title_folder_name">文件夹名</string>
     <string name="title_display_name">显示昵称</string>
     <string name="title_show_folders">显示隐藏文件夹</string>
+    <string name="title_subscribed_only">只显示已订阅的</string>
     <string name="title_apply_to_all">应用到所有文件夹 &#8230;</string>
     <string name="title_hide_folder">隐藏文件夹</string>
     <string name="title_unified_folder">在聚合收件箱中显示</string>
