@@ -1318,6 +1318,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     // Keep alive
                     boolean first = true;
                     while (state.isRunning()) {
+                        long idleTime = state.getIdleTime();
                         try {
                             if (!state.isRecoverable())
                                 throw new StoreClosedException(iservice.getStore(), "Unrecoverable");
@@ -1351,7 +1352,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             if (BuildConfig.DEBUG &&
                                     !first && !account.keep_alive_ok &&
                                     account.poll_interval > 9 &&
-                                    Math.abs(state.getIdleTime() - account.poll_interval * 60 * 1000L) < 60 * 1000L) {
+                                    Math.abs(idleTime - account.poll_interval * 60 * 1000L) < 60 * 1000L) {
                                 account.keep_alive_failed++;
                                 if (account.keep_alive_failed >= 3) {
                                     account.keep_alive_failed = 0;
@@ -1362,7 +1363,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 EntityLog.log(ServiceSynchronize.this, account.name +
                                         " keep alive failed=" + account.keep_alive_failed +
                                         " keep alive interval=" + account.poll_interval +
-                                        " max idle=" + state.getIdleTime());
+                                        " max idle=" + idleTime);
                             }
                             throw ex;
                         }
@@ -1370,9 +1371,13 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         if (BuildConfig.DEBUG &&
                                 !first && !account.keep_alive_ok &&
                                 account.poll_interval > 9 &&
-                                Math.abs(state.getIdleTime() - account.poll_interval * 60 * 1000L) < 60 * 1000L) {
+                                Math.abs(idleTime - account.poll_interval * 60 * 1000L) < 60 * 1000L) {
                             account.keep_alive_ok = true;
+                            account.keep_alive_failed = 0;
                             db.account().setAccountKeepAliveOk(account.id, true);
+                            db.account().setAccountKeepAliveFailed(account.id, account.keep_alive_failed);
+                            if (!BuildConfig.PLAY_STORE_RELEASE)
+                                Log.e(account.host + " keep alive=" + account.poll_interval);
                             EntityLog.log(ServiceSynchronize.this, account.name + " keep alive ok");
                         }
 
