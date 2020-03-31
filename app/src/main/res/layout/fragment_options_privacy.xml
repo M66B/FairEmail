@@ -260,5 +260,11 @@
             android:text="@string/title_info"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/swSafeBrowsing" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpSafeBrowsing"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="swSafeBrowsing,btnSafeBrowsing" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

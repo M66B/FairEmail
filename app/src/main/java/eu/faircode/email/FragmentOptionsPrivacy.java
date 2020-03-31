@@ -50,6 +50,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.SwitchCompat;
+import androidx.constraintlayout.widget.Group;
 import androidx.lifecycle.Lifecycle;
 import androidx.preference.PreferenceManager;
 
@@ -65,6 +66,8 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private SwitchCompat swSecure;
     private SwitchCompat swSafeBrowsing;
     private Button btnSafeBrowsing;
+
+    private Group grpSafeBrowsing;
 
     private final static String[] RESET_OPTIONS = new String[]{
             "confirm_links", "confirm_images", "confirm_html", "disable_tracking",
@@ -94,6 +97,8 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         swSecure = view.findViewById(R.id.swSecure);
         swSafeBrowsing = view.findViewById(R.id.swSafeBrowsing);
         btnSafeBrowsing = view.findViewById(R.id.btnSafeBrowsing);
+
+        grpSafeBrowsing = view.findViewById(R.id.grpSafeBrowsing);
 
         setOptions();
 
@@ -195,7 +200,6 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             }
         });
 
-        swSafeBrowsing.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.O ? View.GONE : View.VISIBLE);
         swSafeBrowsing.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -209,6 +213,8 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
                 Helper.view(getContext(), Uri.parse("https://developers.google.com/safe-browsing"), true);
             }
         });
+
+        grpSafeBrowsing.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.O ? View.GONE : View.VISIBLE);
 
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 
