@@ -504,6 +504,8 @@ class Core {
 
             if (ops.size() == 0)
                 state.batchCompleted(folder.id, priority, sequence);
+            else
+                state.error(new FolderClosedException(ifolder));
         } finally {
             Log.i(folder.name + " end process state=" + state + " pending=" + ops.size());
         }
