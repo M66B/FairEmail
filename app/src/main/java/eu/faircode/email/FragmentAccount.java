@@ -24,6 +24,7 @@ import android.accounts.AccountManager;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.net.Uri;
@@ -58,6 +59,7 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
+import androidx.preference.PreferenceManager;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
@@ -651,6 +653,9 @@ public class FragmentAccount extends FragmentBase {
                 if (TextUtils.isEmpty(realm))
                     realm = null;
 
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean subscribed_only = prefs.getBoolean("subscribed_only", false);
+
                 DB db = DB.getInstance(context);
 
                 CheckResult result = new CheckResult();
@@ -679,8 +684,15 @@ public class FragmentAccount extends FragmentBase {
                         String[] attrs = ((IMAPFolder) ifolder).getAttributes();
                         Log.i(fullName + " attrs=" + TextUtils.join(" ", attrs));
                         String type = EntityFolder.getType(attrs, fullName, true);
+                        boolean subscribed = ifolder.isSubscribed();
 
-                        if (type != null) {
+                        boolean selectable = true;
+                        for (String attr : attrs)
+                            if (attr.equalsIgnoreCase("\\NoSelect"))
+                                selectable = false;
+                        selectable = selectable && ((ifolder.getType() & IMAPFolder.HOLDS_MESSAGES) != 0);
+
+                        if (type != null && selectable && (!subscribed_only || subscribed)) {
                             // Create entry
                             EntityFolder folder = db.folder().getFolderByName(id, fullName);
                             if (folder == null)
