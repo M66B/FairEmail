@@ -96,7 +96,7 @@
     <provider
         name="free.fr"
         appPassword="true"
-        link="https://www.free.fr/assistance/597.html">
+        link="http://jc.etiemble.free.fr/abc/index.php/trucs-astuces/configurer-smtp-free-fr">
         <imap
             host="imap.free.fr"
             port="993"
