@@ -548,6 +548,7 @@
     <string name="title_folder_name">Karpetaren izena</string>
     <string name="title_display_name">Pantaila-izena</string>
     <string name="title_show_folders">Erakutsi karpeta ezkutuak</string>
+    <string name="title_subscribed_only">Harpidetuta bakarrik</string>
     <string name="title_apply_to_all">Aplikatu guztiei &#8230;</string>
     <string name="title_hide_folder">Ezkutatu karpeta</string>
     <string name="title_unified_folder">Erakutsi sarrera ontzi bateratuan</string>
