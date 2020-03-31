@@ -68,6 +68,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
     private TextView tvScheduleStart;
     private TextView tvScheduleEnd;
     private CheckBox[] cbDay;
+    private SwitchCompat swNodate;
     private SwitchCompat swUnseen;
     private SwitchCompat swFlagged;
     private SwitchCompat swDeleteUnseen;
@@ -83,7 +84,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
 
     private final static String[] RESET_OPTIONS = new String[]{
             "enabled", "poll_interval", "schedule", "schedule_start", "schedule_end",
-            "sync_unseen", "sync_flagged", "delete_unseen", "sync_kept", "sync_folders", "subscriptions",
+            "sync_nodate", "sync_unseen", "sync_flagged", "delete_unseen", "sync_kept", "sync_folders", "subscriptions",
             "check_mx", "check_reply"
     };
 
@@ -113,6 +114,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
                 view.findViewById(R.id.cbDay5),
                 view.findViewById(R.id.cbDay6)
         };
+        swNodate = view.findViewById(R.id.swNodate);
         swUnseen = view.findViewById(R.id.swUnseen);
         swFlagged = view.findViewById(R.id.swFlagged);
         swDeleteUnseen = view.findViewById(R.id.swDeleteUnseen);
@@ -213,6 +215,14 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
                 }
             });
         }
+
+        swNodate.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("sync_nodate", checked).apply();
+                ServiceSynchronize.reload(getContext(), null, false, "sync_nodate=" + checked);
+            }
+        });
 
         swUnseen.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -353,6 +363,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         for (int i = 0; i < 7; i++)
             cbDay[i].setChecked(prefs.getBoolean("schedule_day" + i, true));
 
+        swNodate.setChecked(prefs.getBoolean("sync_nodate", false));
         swUnseen.setChecked(prefs.getBoolean("sync_unseen", false));
         swFlagged.setChecked(prefs.getBoolean("sync_flagged", false));
         swDeleteUnseen.setChecked(prefs.getBoolean("delete_unseen", false));
