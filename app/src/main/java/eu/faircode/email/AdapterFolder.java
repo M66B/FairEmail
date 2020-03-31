@@ -928,7 +928,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             Collections.sort(parents, parents.get(0).getComparator(context));
 
         for (TupleFolderEx parent : parents)
-            if ((!parent.hide || show_hidden) && (parent.subscribed || !subscribed_only)) {
+            if ((show_hidden || !parent.hide) &&
+                    (!subscribed_only ||
+                            parent.accountProtocol != EntityAccount.TYPE_IMAP ||
+                            (parent.subscribed != null && parent.subscribed))) {
                 parent.indentation = indentation;
                 result.add(parent);
 
