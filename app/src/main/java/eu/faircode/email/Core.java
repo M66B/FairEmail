@@ -1280,9 +1280,19 @@ class Core {
         long start = new Date().getTime();
         Folder[] ifolders = defaultFolder.list("*");
 
+        List<String> subscription = new ArrayList<>();
+        try {
+            Folder[] isubscribed = defaultFolder.listSubscribed("*");
+            for (Folder ifolder : isubscribed)
+                subscription.add(ifolder.getFullName());
+        } catch (MessagingException ex) {
+            Log.e(account.name, ex);
+        }
+
         long duration = new Date().getTime() - start;
 
         Log.i("Remote folder count=" + ifolders.length +
+                " subscribed=" + subscription.size() +
                 " separator=" + separator +
                 " fetched in " + duration + " ms");
 
@@ -1292,7 +1302,7 @@ class Core {
             String fullName = ifolder.getFullName();
             String[] attrs = ((IMAPFolder) ifolder).getAttributes();
             String type = EntityFolder.getType(attrs, fullName, false);
-            boolean subscribed = ifolder.isSubscribed();
+            boolean subscribed = subscription.contains(fullName);
 
             boolean selectable = true;
             boolean inferiors = true;
@@ -1312,14 +1322,13 @@ class Core {
                     " attrs=" + TextUtils.join(" ", attrs));
 
             if (type != null) {
+                EntityFolder folder = local.get(fullName);
                 local.remove(fullName);
 
-                EntityFolder folder;
-                try {
-                    db.beginTransaction();
+                if (folder == null) {
+                    try {
+                        db.beginTransaction();
 
-                    folder = db.folder().getFolderByName(account.id, fullName);
-                    if (folder == null) {
                         folder = new EntityFolder();
                         folder.account = account.id;
                         folder.name = fullName;
@@ -1333,7 +1342,15 @@ class Core {
                         folder.inferiors = inferiors;
                         folder.id = db.folder().insertFolder(folder);
                         Log.i(folder.name + " added type=" + folder.type);
-                    } else {
+                        db.setTransactionSuccessful();
+
+                    } finally {
+                        db.endTransaction();
+                    }
+                } else {
+                    try {
+                        db.beginTransaction();
+
                         Log.i(folder.name + " exists type=" + folder.type);
 
                         if (folder.subscribed == null || !folder.subscribed.equals(subscribed))
@@ -1354,11 +1371,11 @@ class Core {
                             if (db.folder().getFolderByType(folder.account, EntityFolder.INBOX) == null)
                                 db.folder().setFolderType(folder.id, type);
                         }
+
+                        db.setTransactionSuccessful();
+                    } finally {
+                        db.endTransaction();
                     }
-                    db.setTransactionSuccessful();
-                } finally {
-                    db.endTransaction();
-                    Log.i("End sync folder");
                 }
 
                 nameFolder.put(folder.name, folder);
