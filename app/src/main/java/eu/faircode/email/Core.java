@@ -1280,6 +1280,15 @@ class Core {
         long start = new Date().getTime();
         Folder[] ifolders = defaultFolder.list("*");
 
+        List<String> subscription = new ArrayList<>();
+        try {
+            Folder[] isubscribed = defaultFolder.listSubscribed("*");
+            for (Folder ifolder : isubscribed)
+                subscription.add(ifolder.getFullName());
+        } catch (MessagingException ex) {
+            Log.e(account.name, ex);
+        }
+
         long duration = new Date().getTime() - start;
 
         Log.i("Remote folder count=" + ifolders.length +
@@ -1292,7 +1301,7 @@ class Core {
             String fullName = ifolder.getFullName();
             String[] attrs = ((IMAPFolder) ifolder).getAttributes();
             String type = EntityFolder.getType(attrs, fullName, false);
-            boolean subscribed = ifolder.isSubscribed();
+            boolean subscribed = subscription.contains(fullName);
 
             boolean selectable = true;
             boolean inferiors = true;
