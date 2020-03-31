@@ -495,6 +495,8 @@ class ImageHelper {
         File file = getCacheFile(context, id, source);
         if (file.exists()) {
             Log.i("Using cached " + file);
+            file.setLastModified(new Date().getTime());
+
             Bitmap bm = BitmapFactory.decodeFile(file.getAbsolutePath());
             if (bm != null) {
                 Drawable d = new BitmapDrawable(context.getResources(), bm);
