@@ -101,15 +101,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvBody" />
 
-    <include
-        android:id="@+id/InAction"
-        layout="@layout/include_message_action"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/wvBody" />
-
     <ImageButton
         android:id="@+id/ibSeen"
         android:layout_width="36dp"
@@ -119,8 +110,17 @@
         android:padding="6dp"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/InAction"
+        app:layout_constraintTop_toBottomOf="@id/wvBody"
         app:srcCompat="@drawable/baseline_visibility_24" />
+
+    <include
+        android:id="@+id/InAction"
+        layout="@layout/include_message_action"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ibSeen" />
 
     <include
         android:id="@+id/InCalendar"
@@ -129,7 +129,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ibSeen" />
+        app:layout_constraintTop_toBottomOf="@id/InAction" />
 
     <include
         android:id="@+id/inAttachmentsAlt"
