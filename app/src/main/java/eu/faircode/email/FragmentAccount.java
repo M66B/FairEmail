@@ -925,8 +925,8 @@ public class FragmentAccount extends FragmentBase {
                     throw new IllegalArgumentException(context.getString(R.string.title_no_user));
                 if (synchronize && TextUtils.isEmpty(password) && !insecure && certificate == null && !should)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_password));
-                if (TextUtils.isEmpty(interval))
-                    interval = Integer.toString(EntityAccount.DEFAULT_KEEP_ALIVE_INTERVAL);
+                int poll_interval = (TextUtils.isEmpty(interval)
+                        ? EntityAccount.DEFAULT_KEEP_ALIVE_INTERVAL : Integer.parseInt(interval));
 
                 if (TextUtils.isEmpty(realm))
                     realm = null;
@@ -982,7 +982,7 @@ public class FragmentAccount extends FragmentBase {
                         return true;
                     if (!Objects.equals(account.auto_seen, auto_seen))
                         return true;
-                    if (!Objects.equals(account.poll_interval, Integer.parseInt(interval)))
+                    if (!Objects.equals(account.poll_interval, poll_interval))
                         return true;
                     if (!Objects.equals(account.partial_fetch, partial_fetch))
                         return true;
@@ -1110,7 +1110,13 @@ public class FragmentAccount extends FragmentBase {
                     account.notify = notify;
                     account.browse = browse;
                     account.auto_seen = auto_seen;
-                    account.poll_interval = Integer.parseInt(interval);
+
+                    if (account.poll_interval != poll_interval) {
+                        account.keep_alive_ok = false;
+                        account.keep_alive_failed = 0;
+                    }
+                    account.poll_interval = poll_interval;
+
                     account.partial_fetch = partial_fetch;
                     account.ignore_size = ignore_size;
                     account.use_date = use_date;
