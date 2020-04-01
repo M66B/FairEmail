@@ -78,6 +78,7 @@ import java.net.InetAddress;
 import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.nio.charset.StandardCharsets;
+import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -2132,6 +2133,12 @@ class Core {
             message.msgid = helper.getMessageID();
             if (TextUtils.isEmpty(message.msgid))
                 Log.w("No Message-ID id=" + message.id + " uid=" + message.uid);
+
+            try {
+                message.hash = Helper.sha1(helper.getHeaders().getBytes());
+            } catch (NoSuchAlgorithmException ex) {
+                Log.e(ex);
+            }
 
             message.references = TextUtils.join(" ", helper.getReferences());
             message.inreplyto = helper.getInReplyTo();

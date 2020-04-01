@@ -1051,6 +1051,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         " unseen=" + message.unseen +
                         " ignored=" + message.ui_ignored +
                         " found=" + message.ui_found +
+                        "\nhash=" + message.hash +
                         "\nmsgid=" + message.msgid +
                         "\nthread=" + message.thread +
                         "\nsender=" + message.sender;

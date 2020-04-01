@@ -55,7 +55,10 @@ public interface DaoMessage {
             ", SUM(folder.type = '" + EntityFolder.DRAFTS + "') AS drafts" +
             ", (message.ui_encrypt IN (2, 4)) AS signed" +
             ", (message.ui_encrypt IN (1, 3)) AS encrypted" +
-            ", COUNT(DISTINCT CASE WHEN message.msgid IS NULL THEN message.id ELSE message.msgid END) AS visible" +
+            ", COUNT(DISTINCT" +
+            "   CASE WHEN NOT message.message.hash IS NULL THEN message.hash" +
+            "   WHEN NOT message.msgid IS NULL THEN message.msgid" +
+            "   ELSE message.id END) AS visible" +
             ", SUM(message.total) AS totalSize" +
             ", MAX(message.priority) AS ui_priority" +
             ", MAX(message.importance) AS ui_importance" +
@@ -115,7 +118,10 @@ public interface DaoMessage {
             ", SUM(folder.type = '" + EntityFolder.DRAFTS + "') AS drafts" +
             ", (message.ui_encrypt IN (2, 4)) AS signed" +
             ", (message.ui_encrypt IN (1, 3)) AS encrypted" +
-            ", COUNT(DISTINCT CASE WHEN message.msgid IS NULL THEN message.id ELSE message.msgid END) AS visible" +
+            ", COUNT(DISTINCT" +
+            "   CASE WHEN NOT message.message.hash IS NULL THEN message.hash" +
+            "   WHEN NOT message.msgid IS NULL THEN message.msgid" +
+            "   ELSE message.id END) AS visible" +
             ", SUM(message.total) AS totalSize" +
             ", MAX(message.priority) AS ui_priority" +
             ", MAX(message.importance) AS ui_importance" +
@@ -182,7 +188,9 @@ public interface DaoMessage {
             " AND message.thread = :thread" +
             " AND (:id IS NULL OR message.id = :id)" +
             " AND (NOT :filter_archive OR folder.type <> '" + EntityFolder.ARCHIVE +
-            "' OR (SELECT COUNT(m.id) FROM message m WHERE m.account = message.account AND m.msgid = message.msgid) = 1)" +
+            "' OR (SELECT COUNT(m.id) FROM message m" +
+            "   WHERE m.account = message.account" +
+            "   AND (m.hash = message.hash OR m.msgid = message.msgid)) = 1)" +
             " AND (NOT message.ui_hide OR :debug)" +
             " ORDER BY CASE WHEN :ascending THEN message.received ELSE -message.received END" +
             ", CASE" +
