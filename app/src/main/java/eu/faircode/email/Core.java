@@ -2409,6 +2409,11 @@ class Core {
                 update = true;
                 message.hash = helper.getHash();
                 Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid + " hash=" + message.hash);
+
+                // Update archive to prevent visible > 1
+                if (EntityFolder.DRAFTS.equals(folder.type))
+                    for (EntityMessage dup : db.message().getMessagesByMsgId(message.account, message.msgid))
+                        db.message().setMessageHash(dup.id, message.hash);
             }
 
             if (message.ui_hide &&

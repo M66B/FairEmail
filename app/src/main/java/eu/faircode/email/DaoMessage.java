@@ -504,6 +504,9 @@ public interface DaoMessage {
     @Query("UPDATE message SET msgid = :msgid WHERE id = :id")
     int setMessageMsgId(long id, String msgid);
 
+    @Query("UPDATE message SET hash = :hash WHERE id = :id")
+    int setMessageHash(long id, String hash);
+
     @Query("UPDATE message SET priority = :priority WHERE id = :id")
     int setMessagePriority(long id, Integer priority);
 
