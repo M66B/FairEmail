@@ -52,6 +52,7 @@ import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -1180,6 +1181,15 @@ public class MessageHelper {
             sb.append(header.getName()).append(": ").append(header.getValue()).append("\n");
         }
         return sb.toString();
+    }
+
+    String getHash() throws MessagingException {
+        try {
+            return Helper.sha1(getHeaders().getBytes());
+        } catch (NoSuchAlgorithmException ex) {
+            Log.e(ex);
+            return null;
+        }
     }
 
     static String formatAddresses(Address[] addresses) {

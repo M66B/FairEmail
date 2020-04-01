@@ -78,7 +78,6 @@ import java.net.InetAddress;
 import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.nio.charset.StandardCharsets;
-import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -2134,12 +2133,7 @@ class Core {
             if (TextUtils.isEmpty(message.msgid))
                 Log.w("No Message-ID id=" + message.id + " uid=" + message.uid);
 
-            try {
-                message.hash = Helper.sha1(helper.getHeaders().getBytes());
-            } catch (NoSuchAlgorithmException ex) {
-                Log.e(ex);
-            }
-
+            message.hash = helper.getHash();
             message.references = TextUtils.join(" ", helper.getReferences());
             message.inreplyto = helper.getInReplyTo();
             // Local address contains control or whitespace in string ``mailing list someone@example.org''
@@ -2416,6 +2410,12 @@ class Core {
                 message.keywords = keywords;
                 Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid +
                         " keywords=" + TextUtils.join(" ", keywords));
+            }
+
+            if (message.hash == null) {
+                update = true;
+                message.hash = helper.getHash();
+                Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid + " hash=" + message.hash);
             }
 
             if (message.ui_hide &&
