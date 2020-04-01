@@ -318,7 +318,7 @@ class Core {
                                     break;
 
                                 case EntityOperation.ADD:
-                                    onAdd(context, jargs, folder, message, (IMAPStore) istore, (IMAPFolder) ifolder);
+                                    onAdd(context, jargs, folder, message, (IMAPStore) istore, (IMAPFolder) ifolder, state);
                                     break;
 
                                 case EntityOperation.MOVE:
@@ -683,7 +683,7 @@ class Core {
         imessage.setFlags(flags, set);
     }
 
-    private static void onAdd(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPStore istore, IMAPFolder ifolder) throws MessagingException, IOException {
+    private static void onAdd(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPStore istore, IMAPFolder ifolder, State state) throws MessagingException, IOException {
         // Add message
         DB db = DB.getInstance(context);
 
@@ -764,19 +764,14 @@ class Core {
         if (folder.id.equals(message.folder)) {
             // Some providers do not list the new message yet
             Long newuid = findUid(ifolder, message.msgid, true);
-            if (newuid != null && (message.uid == null || newuid > message.uid)) {
-                message.uid = newuid;
-                Log.i(folder.name + " appended uid=" + message.uid);
-                db.message().setMessageUid(message.id, message.uid);
-
-                EntityIdentity identity = matchIdentity(context, folder, message);
-                message.identity = (identity == null ? null : identity.id);
-                db.message().setMessageIdentity(message.id, message.identity);
-
-                List<EntityRule> rules = db.rule().getEnabledRules(folder.id);
-                runRules(context, imessage, message, rules);
-                updateContactInfo(context, folder, message);
-            }
+            if (newuid != null && (message.uid == null || newuid > message.uid))
+                try {
+                    JSONArray fargs = new JSONArray();
+                    fargs.put(newuid);
+                    onFetch(context, fargs, folder, istore, ifolder, state);
+                } catch (JSONException ex) {
+                    Log.e(ex);
+                }
 
             ifolder.expunge();
         } else {
@@ -2410,7 +2405,7 @@ class Core {
                         " keywords=" + TextUtils.join(" ", keywords));
             }
 
-            if (message.hash == null) {
+            if (message.hash == null || EntityFolder.DRAFTS.equals(folder.type)) {
                 update = true;
                 message.hash = helper.getHash();
                 Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid + " hash=" + message.hash);
