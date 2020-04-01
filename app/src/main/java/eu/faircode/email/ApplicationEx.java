@@ -24,7 +24,10 @@ import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationChannelGroup;
 import android.app.NotificationManager;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.webkit.CookieManager;
@@ -106,6 +109,8 @@ public class ApplicationEx extends Application {
 
         WorkerWatchdog.init(this);
         WorkerCleanup.queue(this);
+
+        registerReceiver(onScreenOff, new IntentFilter(Intent.ACTION_SCREEN_OFF));
 
         long end = new Date().getTime();
         Log.i("App created " + (end - start) + " ms");
@@ -412,4 +417,13 @@ public class ApplicationEx extends Application {
             }
         });
     }
+
+    private BroadcastReceiver onScreenOff = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Log.i("Received " + intent);
+            Log.logExtras(intent);
+            Helper.clearAuthentication(ApplicationEx.this);
+        }
+    };
 }

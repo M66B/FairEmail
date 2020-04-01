@@ -148,7 +148,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         iif.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
         iif.addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED);
         registerReceiver(connectionChangedReceiver, iif);
-        registerReceiver(onScreenOff, new IntentFilter(Intent.ACTION_SCREEN_OFF));
 
         DB db = DB.getInstance(this);
 
@@ -582,7 +581,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         prefs.unregisterOnSharedPreferenceChangeListener(this);
 
-        unregisterReceiver(onScreenOff);
         unregisterReceiver(connectionChangedReceiver);
 
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -1680,15 +1678,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             }
 
             networkCallback.onCapabilitiesChanged(null, null);
-        }
-    };
-
-    private BroadcastReceiver onScreenOff = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            Log.i("Received " + intent);
-            Log.logExtras(intent);
-            Helper.clearAuthentication(ServiceSynchronize.this);
         }
     };
 
