@@ -1435,6 +1435,7 @@ public abstract class DB extends RoomDatabase {
                     public void migrate(@NonNull SupportSQLiteDatabase db) {
                         Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `account` ADD COLUMN `keep_alive_succeeded` INTEGER NOT NULL DEFAULT 0");
+                        db.execSQL("UPDATE account SET keep_alive_failed = 0, keep_alive_ok = 0");
                     }
                 })
                 .addMigrations(new Migration(151, 152) {
