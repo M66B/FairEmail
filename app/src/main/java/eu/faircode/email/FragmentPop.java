@@ -99,6 +99,8 @@ public class FragmentPop extends FragmentBase {
     private static final int REQUEST_COLOR = 1;
     private static final int REQUEST_DELETE = 2;
 
+    private static final int MAX_MESSAGES = 100;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -539,7 +541,8 @@ public class FragmentPop extends FragmentBase {
                     cbLeaveServer.setChecked(account == null ? true : account.leave_on_server);
                     cbLeaveDeleted.setChecked(account == null ? true : account.leave_deleted);
                     cbLeaveDevice.setChecked(account == null ? false : account.leave_on_device);
-                    etMax.setText(account == null || account.max_messages == null ? null : Integer.toString(account.max_messages));
+                    etMax.setText(Integer.toString(account == null || account.max_messages == null
+                            ? MAX_MESSAGES : account.max_messages));
                     etInterval.setText(account == null ? "" : Long.toString(account.poll_interval));
 
                     new SimpleTask<EntityAccount>() {
