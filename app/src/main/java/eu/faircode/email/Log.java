@@ -469,6 +469,21 @@ public class Log {
              */
             return false;
 
+        if (ex instanceof InternalError &&
+                "Thread starting during runtime shutdown".equals(ex.getMessage()))
+            /*
+                java.lang.InternalError: Thread starting during runtime shutdown
+                java.lang.InternalError: Thread starting during runtime shutdown
+                  at java.lang.Thread.nativeCreate(Native Method)
+                  at java.lang.Thread.start(Thread.java:1063)
+                  at java.util.concurrent.ThreadPoolExecutor.addWorker(ThreadPoolExecutor.java:921)
+                  at java.util.concurrent.ThreadPoolExecutor.processWorkerExit(ThreadPoolExecutor.java:989)
+                  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1131)
+                  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:588)
+                  at java.lang.Thread.run(Thread.java:818)
+             */
+            return false;
+
         if ("android.app.RemoteServiceException".equals(ex.getClass().getName()))
             /*
                 android.app.RemoteServiceException: Bad notification for startForeground: java.util.ConcurrentModificationException
