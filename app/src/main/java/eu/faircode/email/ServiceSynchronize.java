@@ -1358,28 +1358,40 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         } catch (Throwable ex) {
                             if (optimize) {
                                 account.keep_alive_failed++;
+                                account.keep_alive_succeeded = 0;
                                 if (account.keep_alive_failed >= 3) {
                                     account.keep_alive_failed = 0;
                                     account.poll_interval--;
                                     db.account().setAccountKeepAliveInterval(account.id, account.poll_interval);
                                 }
-                                db.account().setAccountKeepAliveFailed(account.id, account.keep_alive_failed);
-                                EntityLog.log(ServiceSynchronize.this, account.name +
-                                        " keep alive failed=" + account.keep_alive_failed +
-                                        " keep alive interval=" + account.poll_interval +
-                                        " max idle=" + idleTime + "/" + optimize);
+                                db.account().setAccountKeepAliveValues(account.id,
+                                        account.keep_alive_failed, account.keep_alive_succeeded);
+                                EntityLog.log(ServiceSynchronize.this, account.name + " keep alive" +
+                                        " failed=" + account.keep_alive_failed +
+                                        " succeeded=" + account.keep_alive_succeeded +
+                                        " interval=" + account.poll_interval +
+                                        " idle=" + idleTime);
                             }
                             throw ex;
                         }
 
                         if (optimize) {
-                            account.keep_alive_ok = true;
                             account.keep_alive_failed = 0;
-                            db.account().setAccountKeepAliveOk(account.id, true);
-                            db.account().setAccountKeepAliveFailed(account.id, account.keep_alive_failed);
-                            if (!BuildConfig.PLAY_STORE_RELEASE)
-                                Log.e(account.host + " keep alive=" + account.poll_interval);
-                            EntityLog.log(ServiceSynchronize.this, account.name + " keep alive ok");
+                            account.keep_alive_succeeded++;
+                            db.account().setAccountKeepAliveValues(account.id,
+                                    account.keep_alive_failed, account.keep_alive_succeeded);
+                            if (account.keep_alive_succeeded >= 3) {
+                                account.keep_alive_ok = true;
+                                db.account().setAccountKeepAliveOk(account.id, true);
+                                if (!BuildConfig.PLAY_STORE_RELEASE)
+                                    Log.e(account.host + " keep alive=" + account.poll_interval);
+                                EntityLog.log(ServiceSynchronize.this, account.name + " keep alive ok");
+                            } else
+                                EntityLog.log(ServiceSynchronize.this, account.name + " keep alive" +
+                                        " failed=" + account.keep_alive_failed +
+                                        " succeeded=" + account.keep_alive_succeeded +
+                                        " interval=" + account.poll_interval +
+                                        " idle=" + idleTime);
                         }
 
                         // Successfully connected: reset back off time

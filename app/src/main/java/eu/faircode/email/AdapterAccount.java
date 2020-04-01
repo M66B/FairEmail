@@ -182,7 +182,8 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                             (BuildConfig.DEBUG ?
                                     " " + account.poll_interval +
                                             "/" + account.keep_alive_ok +
-                                            "/" + account.keep_alive_failed : "")));
+                                            "/" + account.keep_alive_failed +
+                                            "/" + account.keep_alive_succeeded : "")));
             tvQuota.setText(context.getString(R.string.title_storage_quota,
                     (account.quota_usage == null ? "-" : Helper.humanReadableByteCount(account.quota_usage, true)),
                     (account.quota_limit == null ? "-" : Helper.humanReadableByteCount(account.quota_limit, true))));

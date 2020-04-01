@@ -119,6 +119,8 @@ public class EntityAccount extends EntityOrder implements Serializable {
     @NonNull
     public Integer keep_alive_failed = 0;
     @NonNull
+    public Integer keep_alive_succeeded = 0;
+    @NonNull
     public Boolean partial_fetch = true;
     @NonNull
     public Boolean ignore_size = false;

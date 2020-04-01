@@ -149,8 +149,10 @@ public interface DaoAccount {
     @Query("UPDATE account SET keep_alive_ok = :ok WHERE id = :id")
     int setAccountKeepAliveOk(long id, boolean ok);
 
-    @Query("UPDATE account SET keep_alive_failed = :value WHERE id = :id")
-    int setAccountKeepAliveFailed(long id, int value);
+    @Query("UPDATE account" +
+            " SET keep_alive_failed = :failed, keep_alive_succeeded = :succeeded" +
+            " WHERE id = :id")
+    int setAccountKeepAliveValues(long id, int failed, int succeeded);
 
     @Query("UPDATE account SET poll_exempted = :value WHERE id = :id")
     int setAccountPollExempted(long id, boolean value);

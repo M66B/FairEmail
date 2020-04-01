@@ -1112,6 +1112,7 @@ public class FragmentAccount extends FragmentBase {
                     if (account.poll_interval != poll_interval) {
                         account.keep_alive_ok = false;
                         account.keep_alive_failed = 0;
+                        account.keep_alive_succeeded = 0;
                     }
                     account.poll_interval = poll_interval;
 
