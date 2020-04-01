@@ -37,41 +37,68 @@ import androidx.preference.PreferenceManager;
 
 public class SearchViewEx extends SearchView {
     private String _searching = null;
+    private boolean expanding = false;
+    private boolean collapsing = false;
 
     public SearchViewEx(Context context) {
         super(context);
+        init(context);
     }
 
     public SearchViewEx(Context context, AttributeSet attrs) {
         super(context, attrs);
+        init(context);
     }
 
     public SearchViewEx(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init(context);
+    }
+
+    private void init(Context context) {
+        setQueryHint(context.getString(R.string.title_search));
+
+        AutoCompleteTextView autoCompleteTextView = findViewById(androidx.appcompat.R.id.search_src_text);
+        autoCompleteTextView.setThreshold(0);
+    }
+
+    @Override
+    public void onActionViewExpanded() {
+        expanding = true;
+        super.onActionViewExpanded();
+        expanding = false;
+    }
+
+    @Override
+    public void onActionViewCollapsed() {
+        collapsing = true;
+        super.onActionViewCollapsed();
+        collapsing = false;
     }
 
     void setup(LifecycleOwner owner, MenuItem menuSearch, String searching, ISearch intf) {
         _searching = searching;
 
-        setQueryHint(getContext().getString(R.string.title_search));
-
-        if (!TextUtils.isEmpty(_searching)) {
-            menuSearch.expandActionView();
-            setQuery(_searching, false);
-        }
-
-        AutoCompleteTextView autoCompleteTextView = findViewById(androidx.appcompat.R.id.search_src_text);
-        autoCompleteTextView.setThreshold(0);
+        if (!TextUtils.isEmpty(_searching))
+            post(new Runnable() {
+                @Override
+                public void run() {
+                    //menuSearch.expandActionView();
+                    setQuery(_searching, false);
+                }
+            });
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextChange(String newText) {
-                _searching = newText;
-                intf.onSave(_searching);
+                if (!expanding && !collapsing) {
+                    _searching = newText;
+                    intf.onSave(_searching);
+                }
 
-                if (TextUtils.isEmpty(newText)) {
+                if (TextUtils.isEmpty(_searching)) {
                     MatrixCursor cursor = new MatrixCursor(new String[]{"_id", "suggestion"});
 
                     String last_search = prefs.getString("last_search", null);
@@ -95,7 +122,7 @@ public class SearchViewEx extends SearchView {
                     adapter.notifyDataSetChanged();
                 } else {
                     Bundle args = new Bundle();
-                    args.putString("query", newText);
+                    args.putString("query", _searching);
 
                     new SimpleTask<Cursor>() {
                         @Override
