@@ -203,6 +203,7 @@
     <string name="title_advanced_always">总是同步这些账户</string>
     <string name="title_advanced_schedule">计划任务</string>
     <string name="title_advanced_advanced">高级</string>
+    <string name="title_advanced_no_date">没有日期的消息</string>
     <string name="title_advanced_unseen">所有未读消息</string>
     <string name="title_advanced_flagged">所有已标星消息</string>
     <string name="title_advanced_delete_unseen">删除旧的未读消息</string>
@@ -376,6 +377,7 @@
     <string name="title_advanced_schedule_hint">点击“时间”选项来设置时间</string>
     <string name="title_advanced_check_mx">同步消息时检查发送者电子邮件地址</string>
     <string name="title_advanced_check_reply">同步消息时检查回复邮件地址</string>
+    <string name="title_advanced_no_date_hint">某些供应商将日期未知、无效或将来的消息存储为没有日期的消息</string>
     <string name="title_advanced_unseen_hint">一些邮件服务提供商对该功能支持不佳，这可能导致同步所有消息或一条消息也不同步</string>
     <string name="title_advanced_deleted_unseen">禁用后未读消息将永远保留在设备上</string>
     <string name="title_advanced_sync_kept_hint">这将更耗数据与电量，特别是如果有大量消息存储在设备上</string>

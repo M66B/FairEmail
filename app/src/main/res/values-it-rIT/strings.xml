@@ -215,6 +215,7 @@
     <string name="title_advanced_always">Sincronizza sempre questi account</string>
     <string name="title_advanced_schedule">Pianificazione</string>
     <string name="title_advanced_advanced">Avanzato</string>
+    <string name="title_advanced_no_date">Messaggi senza data</string>
     <string name="title_advanced_unseen">Tutti i messaggi non letti</string>
     <string name="title_advanced_flagged">Tutti i messaggi preferiti</string>
     <string name="title_advanced_delete_unseen">Elimina i vecchi messaggi non letti</string>
@@ -388,6 +389,7 @@
     <string name="title_advanced_schedule_hint">Tocca un orario per impostare un orario</string>
     <string name="title_advanced_check_mx">Controlla gli indirizzi email mittente alla sincronizzazione dei messaggi</string>
     <string name="title_advanced_check_reply">Controlla gli indirizzi email di risposta alla sincronizzazione dei messaggi</string>
+    <string name="title_advanced_no_date_hint">Alcuni provider memorizzano messaggi con una data sconosciuta, non valida o futura come messaggi senza data</string>
     <string name="title_advanced_unseen_hint">Alcuni provider non supportano correttamente questa funzione, il che potrebbe causare la sincronizzazione di nessuno o di tutti i messaggi</string>
     <string name="title_advanced_deleted_unseen">Quando disabilitato, i messaggi non letti vengono mantenuti sul dispositivo per sempre</string>
     <string name="title_advanced_sync_kept_hint">Questo trasferirà dati aggiuntivi e consumerà energia batteria extra, specialmente se molti messaggi vengono memorizzati sul dispositivo</string>

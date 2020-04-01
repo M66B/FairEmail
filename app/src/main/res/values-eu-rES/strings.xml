@@ -213,6 +213,7 @@
     <string name="title_advanced_always">Sinkronizatu beti kontu hauek</string>
     <string name="title_advanced_schedule">Egitaraua</string>
     <string name="title_advanced_advanced">Aurreratua</string>
+    <string name="title_advanced_no_date">Datarik gabeko mezuak</string>
     <string name="title_advanced_unseen">Irakurri gabeko mezu guztiak</string>
     <string name="title_advanced_flagged">Izardun mezu guztiak</string>
     <string name="title_advanced_delete_unseen">Ezabatu irakurri gabeko mezu zaharrak</string>
@@ -385,6 +386,7 @@
     <string name="title_advanced_schedule_hint">Sakatu orduren batean ordua ezartzeko</string>
     <string name="title_advanced_check_mx">Egiaztatu bidaltzailearen helbide elektronikoak mezuak sinkronizatzean</string>
     <string name="title_advanced_check_reply">Egiaztatu erantzuteko helbide elektronikoak mezuak sinkronizatzean</string>
+    <string name="title_advanced_no_date_hint">Hornitzaile batzuek ezezaguna, baliogabea edo etorkizuneko data duten mezuak datarik gabe gordetzen dituzte</string>
     <string name="title_advanced_unseen_hint">Hornitzaile batzuek ez dute hori behar bezala onartzen, eta horrek mezu bat edo guztiak ez sinkronizatzea eragin dezake</string>
     <string name="title_advanced_deleted_unseen">Desaktibatuta dagoenean, irakurri gabeko mezuak gailuan gordeko dira betiko</string>
     <string name="title_advanced_sync_kept_hint">Honek datu gehigarriak transferituko ditu eta bateriaren energia gehigarria kontsumituko du, batez ere telefonoan mezu asko gordetzen badira</string>

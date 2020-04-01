@@ -237,6 +237,7 @@
     <string name="title_advanced_always">Всегда синхронизировать эти учётные записи</string>
     <string name="title_advanced_schedule">Расписание</string>
     <string name="title_advanced_advanced">Дополнительно</string>
+    <string name="title_advanced_no_date">Сообщения без даты</string>
     <string name="title_advanced_unseen">Все непрочитанные сообщения</string>
     <string name="title_advanced_flagged">Все избранные сообщения</string>
     <string name="title_advanced_delete_unseen">Удалять старые непрочитанные сообщения</string>
@@ -410,6 +411,7 @@
     <string name="title_advanced_schedule_hint">Нажмите на время, чтобы установить его</string>
     <string name="title_advanced_check_mx">Проверять адреса электронной почты отправителя при синхронизации сообщений</string>
     <string name="title_advanced_check_reply">Проверять адреса электронной почты для ответа при синхронизации сообщений</string>
+    <string name="title_advanced_no_date_hint">Некоторые провайдеры хранят сообщения с неизвестными, недействительными или будущими датами как сообщения без даты</string>
     <string name="title_advanced_unseen_hint">Некоторые провайдеры не поддерживают эту функцию правильно, что может привести к синхронизации всех или ни одного сообщения</string>
     <string name="title_advanced_deleted_unseen">Если отключено, непрочитанные сообщения хранятся на устройстве вечно</string>
     <string name="title_advanced_sync_kept_hint">Это приведёт к большему потреблению трафика и заряда батареи, особенно если на устройстве хранится много сообщений</string>

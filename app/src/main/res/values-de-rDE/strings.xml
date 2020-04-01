@@ -216,6 +216,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_always">Diese Konten immer synchronisieren</string>
     <string name="title_advanced_schedule">Zeitplan</string>
     <string name="title_advanced_advanced">Erweitert</string>
+    <string name="title_advanced_no_date">Nachrichten ohne Datum</string>
     <string name="title_advanced_unseen">Alle ungelesenen Nachrichten</string>
     <string name="title_advanced_flagged">Alle markierten Nachrichten</string>
     <string name="title_advanced_delete_unseen">Alte ungelesene Nachrichten löschen</string>
@@ -389,6 +390,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_schedule_hint">Tippe auf eine Zeit, um eine Zeit zu setzen</string>
     <string name="title_advanced_check_mx">Überprüft die Absender-E-Mail-Adressen beim Synchronisieren von Nachrichten per DNS MX</string>
     <string name="title_advanced_check_reply">Überprüft die Antwort-An-E-Mail-Adressen beim Synchronisieren von Nachrichten</string>
+    <string name="title_advanced_no_date_hint">Einige Anbieter speichern Nachrichten mit einem unbekannten, ungültigen oder zukünftigen Datum als Nachrichten ohne Datum</string>
     <string name="title_advanced_unseen_hint">Einige Anbieter unterstützen dies nicht richtig, was möglicherweise zu einer Synchronisierung von keiner oder allen Nachrichten führen kann</string>
     <string name="title_advanced_deleted_unseen">Wenn deaktiviert, bleiben ungelesene Nachrichten dauerhaft auf dem Gerät erhalten</string>
     <string name="title_advanced_sync_kept_hint">Dies überträgt zusätzliche Daten und verbraucht zusätzliche Akkuladung, insbesondere wenn viele Nachrichten auf dem Gerät gespeichert sind</string>
@@ -642,7 +644,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_reply_list">An Liste antworten</string>
     <string name="title_reply_receipt">Lesebestätigung senden</string>
     <string name="title_reply_template">Mit Vorlage antworten</string>
-    <string name="title_moving">Nach %1$s wird verschoben</string>
+    <string name="title_moving">Verschiebe nach %1$s</string>
     <string name="title_open_with">Öffnen mit</string>
     <string name="title_authentication_failed">%1$s Authentifizierung fehlgeschlagen</string>
     <string name="title_receipt_subject">Lesebestätigung: %1$s</string>

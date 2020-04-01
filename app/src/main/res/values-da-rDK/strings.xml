@@ -215,6 +215,7 @@
     <string name="title_advanced_always">Synkronisér altid disse konti</string>
     <string name="title_advanced_schedule">Planlægning</string>
     <string name="title_advanced_advanced">Avanceret</string>
+    <string name="title_advanced_no_date">Beskeder uden dato</string>
     <string name="title_advanced_unseen">Alle ulæste beskeder</string>
     <string name="title_advanced_flagged">Alle stjernemarkerede beskeder</string>
     <string name="title_advanced_delete_unseen">Slet gamle, ulæste beskeder</string>
@@ -388,6 +389,7 @@
     <string name="title_advanced_schedule_hint">Tryk på et tidspunkt for at angive et tidspunkt</string>
     <string name="title_advanced_check_mx">Tjek afsenderadresser ved beskedsynkroniseringer</string>
     <string name="title_advanced_check_reply">Tjek svar e-mailadresser ved beskedsynkroniseringer</string>
+    <string name="title_advanced_no_date_hint">Visse udbydere gemmer beskeder med en ukendt, ugyldig eller fremtidig dato som beskeder uden en dato</string>
     <string name="title_advanced_unseen_hint">Visse udbydere understøtter ikke dette ordentligt, hvilket kan forårsage synkronisering af ingen eller alle beskeder</string>
     <string name="title_advanced_deleted_unseen">Når deaktiveret, opbevares ulæste beskeder på enheden for evigt</string>
     <string name="title_advanced_sync_kept_hint">Dette vil overføre ekstra data og forbruge ekstra strøm, især hvis der er mange beskeder lagret på enheden</string>
@@ -551,6 +553,7 @@
     <string name="title_folder_name">Mappenavn</string>
     <string name="title_display_name">Visningsnavn</string>
     <string name="title_show_folders">Vis skjulte mapper</string>
+    <string name="title_subscribed_only">Abonnér på</string>
     <string name="title_apply_to_all">Anvend for alle &#8230;</string>
     <string name="title_hide_folder">Skjul mappe</string>
     <string name="title_unified_folder">Vis i samlet indbakke</string>

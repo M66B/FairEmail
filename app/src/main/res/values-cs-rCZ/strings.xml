@@ -237,6 +237,7 @@
     <string name="title_advanced_always">Tyto účty synchronizovat vždy</string>
     <string name="title_advanced_schedule">Plán</string>
     <string name="title_advanced_advanced">Pokročilé</string>
+    <string name="title_advanced_no_date">Zprávy bez data</string>
     <string name="title_advanced_unseen">Všechny nepřečtené zprávy</string>
     <string name="title_advanced_flagged">Všechny zprávy s hvězdičkou</string>
     <string name="title_advanced_delete_unseen">Smazat staré nepřečtené zprávy</string>
@@ -247,9 +248,11 @@
     <string name="title_advanced_suggest_local">Navrhovat lokálně uložené kontakty</string>
     <string name="title_advanced_suggest_sent">Navrhovat adresy nalezené v odeslaných zprávách</string>
     <string name="title_advanced_suggest_received">Navrhovat adresy nalezené v přijatých zprávách</string>
+    <string name="title_advanced_suggest_frequently">Řadit navrhované adresy dle četnosti použití</string>
     <string name="title_advanced_prefix_once">Při odpovídání nebo přeposílání přidat do předmětu pouze jednu předponu</string>
     <string name="title_advanced_extended_reply">Použít rozšířenou hlavičku odpovědi/přeposlání</string>
     <string name="title_advanced_quote_reply">Citovat text odpovědi</string>
+    <string name="title_advanced_resize_reply">Upravit velikost obrázků v textu odpovědi</string>
     <string name="title_advanced_signature_location">Umístění podpisu</string>
     <string name="title_advanced_signature_end">Připojit podpis za citovanou/přeposílanou zprávu</string>
     <string name="title_advanced_plain_only">Automaticky odeslat pouze prostý text</string>
@@ -407,6 +410,7 @@
     <string name="title_advanced_schedule_hint">Pro změnu času se jej dotkněte</string>
     <string name="title_advanced_check_mx">Kontrolovat e-mailové adresy odesílatelů při synchronizaci zpráv</string>
     <string name="title_advanced_check_reply">Kontrolovat e-mailové adresy pro odpověď při synchronizaci zpráv</string>
+    <string name="title_advanced_no_date_hint">Někteří poskytovatelé ukládají zprávy s neznámým, neplatným nebo budoucím datem jako zprávy bez data</string>
     <string name="title_advanced_unseen_hint">Někteří poskytovatelé toto nepodporují korektně, což může způsobit synchronizaci všech nebo žádných zpráv</string>
     <string name="title_advanced_deleted_unseen">Je-li vypnuto, nepřečtené zprávy jsou v zařízení ponechány navždy</string>
     <string name="title_advanced_sync_kept_hint">Zvýší spotřebu dat a baterie, zvláště pokud v zařízení uchováváte velké množství zpráv</string>
@@ -456,10 +460,13 @@
     <string name="title_advanced_notify_no_channels">Tato verze Androidu nepodporuje kanály oznámení</string>
     <string name="title_advanced_fts_hint">Povolením se zlepší výkon vyhledávání, ale také se zvýší využití baterie a místa v úložišti</string>
     <string name="title_advanced_english_hint">Restartuje aplikaci</string>
+    <string name="title_advanced_optimize_hint">Povolení umožní automatickou změnu nastavení příjmu pro snížení spotřeby baterie</string>
     <string name="title_advanced_experiments_hint">Seznam aktuálních experimentálních funkcí</string>
     <string name="title_advanced_debug_hint">Zapnout rozšířený záznam a zobrazit ladící informace na různých místech</string>
     <string name="title_advanced_cleanup_hint">Smaže dočasné soubory</string>
     <string name="title_advanced_never_favorite">Nikdy oblíbený</string>
+    <string name="title_advanced_swipe_actions">Nastavit akce tažení prstem</string>
+    <string name="title_advanced_swipe_actions_hint">Nastaví akce tažení doleva a doprava pro všechny IMAP účty</string>
     <string name="title_select">Vybrat &#8230;</string>
     <string name="title_identity_name">Vaše jméno</string>
     <string name="title_identity_email">Vaše e-mailová adresa</string>
@@ -567,6 +574,7 @@
     <string name="title_folder_name">Název složky</string>
     <string name="title_display_name">Zobrazované jméno</string>
     <string name="title_show_folders">Zobrazit skryté složky</string>
+    <string name="title_subscribed_only">Pouze odebírané</string>
     <string name="title_apply_to_all">Použít na všechny &#8230;</string>
     <string name="title_hide_folder">Skrýt složku</string>
     <string name="title_unified_folder">Zobrazit ve sjednocené doručené poště</string>

@@ -215,6 +215,7 @@
     <string name="title_advanced_always">Винаги синхронизирай тези профили</string>
     <string name="title_advanced_schedule">График</string>
     <string name="title_advanced_advanced">Разширени</string>
+    <string name="title_advanced_no_date">Съобщения без дата</string>
     <string name="title_advanced_unseen">Всички непрочетени съобщения</string>
     <string name="title_advanced_flagged">Всички съобщения със звезда</string>
     <string name="title_advanced_delete_unseen">Изтрий старите непрочетени съобщения</string>
@@ -387,6 +388,7 @@
     <string name="title_advanced_schedule_hint">Докосни за настройка</string>
     <string name="title_advanced_check_mx">Проверка имейл адреса на изпращача при синхронизиране на съобщенията</string>
     <string name="title_advanced_check_reply">Проверка имейл адреса на изпращача при синхронизиране на съобщенията</string>
+    <string name="title_advanced_no_date_hint">Някои доставчици съхраняват съобщения с неизвестна, невалидна или бъдеща дата като съобщения без дата</string>
     <string name="title_advanced_unseen_hint">Някои доставчици не поддържат това правилно, което може да доведе до синхронизиране всички или нито едно съобщение</string>
     <string name="title_advanced_deleted_unseen">Когато са деактивирани, непрочетените съобщения се съхраняват на устройството завинаги</string>
     <string name="title_advanced_sync_kept_hint">Това ще прехвърли допълнителни данни и ще консумира допълнително батерията, особено ако на устройството се съхраняват много съобщения</string>
@@ -550,6 +552,7 @@
     <string name="title_folder_name">Име на папка</string>
     <string name="title_display_name">Име</string>
     <string name="title_show_folders">Показвана не скрити папки</string>
+    <string name="title_subscribed_only">Само абонирани</string>
     <string name="title_apply_to_all">Приложи на всички &#8230;</string>
     <string name="title_hide_folder">Скриване на папката</string>
     <string name="title_unified_folder">Показване в обединената входяща поща</string>
