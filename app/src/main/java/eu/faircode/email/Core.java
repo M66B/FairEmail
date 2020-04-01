@@ -875,11 +875,9 @@ class Core {
             ifolder.expunge();
         }
 
-        boolean fetch =
-                (!target.synchronize || !"connected".equals(target.state) ||
-                        target.poll || !istore.hasCapability("IDLE"));
 
         // Fetch appended/copied when needed
+        boolean fetch = !"connected".equals(target.state);
         if (draft || fetch)
             try {
                 Log.i(target.name + " moved message fetch=" + fetch);
