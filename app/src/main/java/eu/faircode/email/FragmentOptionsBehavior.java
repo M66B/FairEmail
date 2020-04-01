@@ -482,14 +482,23 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
 
             adapter.addAll(folders);
 
-            spLeft.setSelection(2); // Trash
-            spRight.setSelection(1); // Archive
+            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            int leftPos = prefs.getInt("swipe_left_default", 2); // Trash
+            int rightPos = prefs.getInt("swipe_right_default", 1); // Archive
+
+            spLeft.setSelection(leftPos);
+            spRight.setSelection(rightPos);
 
             return new AlertDialog.Builder(getContext())
                     .setView(dview)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+                            prefs.edit()
+                                    .putInt("swipe_left_default", spLeft.getSelectedItemPosition())
+                                    .putInt("swipe_right_default", spRight.getSelectedItemPosition())
+                                    .apply();
+
                             EntityFolder left = (EntityFolder) spLeft.getSelectedItem();
                             EntityFolder right = (EntityFolder) spRight.getSelectedItem();
 
