@@ -1384,7 +1384,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 account.keep_alive_ok = true;
                                 db.account().setAccountKeepAliveOk(account.id, true);
                                 if (!BuildConfig.PLAY_STORE_RELEASE)
-                                    Log.e(account.host + " keep alive=" + account.poll_interval);
+                                    Log.e(account.host + " set keep-alive=" + account.poll_interval);
                                 EntityLog.log(ServiceSynchronize.this, account.name + " keep alive ok");
                             } else
                                 EntityLog.log(ServiceSynchronize.this, account.name + " keep alive" +
