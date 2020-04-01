@@ -216,6 +216,7 @@
     <string name="title_advanced_always">Siempre sincronizar estas cuentas</string>
     <string name="title_advanced_schedule">Programar</string>
     <string name="title_advanced_advanced">Avanzado</string>
+    <string name="title_advanced_no_date">Mensajes sin fecha</string>
     <string name="title_advanced_unseen">Todos los mensajes no leídos</string>
     <string name="title_advanced_flagged">Todos los mensajes destacados</string>
     <string name="title_advanced_delete_unseen">Eliminar mensajes no leídos antiguos</string>
@@ -389,6 +390,7 @@
     <string name="title_advanced_schedule_hint">Toque en una hora para establecer una hora</string>
     <string name="title_advanced_check_mx">Compruebe las direcciones de correo electrónico de remitentes al sincronizar mensajes</string>
     <string name="title_advanced_check_reply">Comprobar direcciones de correo de respuesta al sincronizar mensajes</string>
+    <string name="title_advanced_no_date_hint">Algunos proveedores almacenan mensajes con una fecha desconocida, inválida o futura como mensajes sin fecha</string>
     <string name="title_advanced_unseen_hint">Algunos proveedores no soportan esto correctamente, lo que puede causar la sincronización de ninguno o todos los mensajes</string>
     <string name="title_advanced_deleted_unseen">Cuando está desactivado, los mensajes no leídos se mantienen en el dispositivo para siempre</string>
     <string name="title_advanced_sync_kept_hint">Esto transferirá datos adicionales y consumirá energía adicional de batería, especialmente si hay muchos mensajes almacenados en el dispositivo</string>
