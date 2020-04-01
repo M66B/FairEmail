@@ -2405,7 +2405,7 @@ class Core {
                         " keywords=" + TextUtils.join(" ", keywords));
             }
 
-            if (message.hash == null || EntityFolder.DRAFTS.equals(folder.type)) {
+            if (message.hash == null || process) {
                 update = true;
                 message.hash = helper.getHash();
                 Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid + " hash=" + message.hash);
