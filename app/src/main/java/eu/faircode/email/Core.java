@@ -2068,17 +2068,6 @@ class Core {
         // Find message by uid (fast, no headers required)
         EntityMessage message = db.message().getMessageByUid(folder.id, uid);
 
-        // Find message by internal hash (slow, headers required)
-        // - pre moved messages
-        if (message == null) {
-            String hash = helper.getHash();
-            List<EntityMessage> existing = db.message().getMessagesByHash(folder.id, hash);
-            if (existing != null && existing.size() == 1) {
-                Log.i(folder.name + " found by hash=" + hash);
-                message = existing.get(0);
-            }
-        }
-
         // Find message by Message-ID (slow, headers required)
         // - messages in inbox have same id as message sent to self
         // - messages in archive have same id as original
