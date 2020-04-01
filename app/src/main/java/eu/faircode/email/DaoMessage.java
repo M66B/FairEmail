@@ -215,12 +215,17 @@ public interface DaoMessage {
             ", SUM(message.ui_seen) AS seen" +
             " FROM message" +
             " JOIN account_view AS account ON account.id = message.account" +
+            " JOIN folder_view AS folder ON folder.id = message.folder" +
             " WHERE message.account = :account" +
             " AND message.thread = :thread" +
             " AND (:id IS NULL OR message.id = :id)" +
+            " AND (NOT :filter_archive OR folder.type <> '" + EntityFolder.ARCHIVE +
+            "' OR (SELECT COUNT(m.id) FROM message m" +
+            "   WHERE m.account = message.account" +
+            "   AND (m.hash = message.hash OR m.msgid = message.msgid)) = 1)" +
             " AND NOT message.ui_hide" +
             " GROUP BY account.id")
-    LiveData<TupleThreadStats> liveThreadStats(long account, String thread, Long id);
+    LiveData<TupleThreadStats> liveThreadStats(long account, String thread, Long id, boolean filter_archive);
 
     @Query("SELECT message.id FROM folder" +
             " JOIN message ON message.folder = folder.id" +

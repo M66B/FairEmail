@@ -3065,7 +3065,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 break;
 
             case THREAD:
-                db.message().liveThreadStats(account, thread, null).observe(getViewLifecycleOwner(), new Observer<TupleThreadStats>() {
+                db.message().liveThreadStats(account, thread, null, filter_archive).observe(getViewLifecycleOwner(), new Observer<TupleThreadStats>() {
                     @Override
                     public void onChanged(TupleThreadStats stats) {
                         if (stats == null)
