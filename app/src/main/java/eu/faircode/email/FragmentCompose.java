@@ -4161,6 +4161,12 @@ public class FragmentCompose extends FragmentBase {
             etCc.setText(MessageHelper.formatAddressesCompose(draft.cc));
             etBcc.setText(MessageHelper.formatAddressesCompose(draft.bcc));
 
+            Bundle extras = args.getBundle("extras");
+            boolean show = extras.getBoolean("show");
+            boolean html = extras.containsKey("html");
+            if (show)
+                showDraft(draft, html);
+
             bottom_navigation.getMenu().findItem(R.id.action_undo).setVisible(draft.revision > 1);
             bottom_navigation.getMenu().findItem(R.id.action_redo).setVisible(draft.revision < draft.revisions);
 
@@ -4181,11 +4187,7 @@ public class FragmentCompose extends FragmentBase {
                 showDraft(draft, false);
 
             } else if (action == R.id.action_save) {
-                Bundle extras = args.getBundle("extras");
-                boolean show = extras.getBoolean("show");
-                boolean html = extras.containsKey("html");
-                if (show)
-                    showDraft(draft, html);
+                // Do nothing
 
             } else if (action == R.id.action_check) {
                 boolean dialog = args.getBundle("extras").getBoolean("dialog");
