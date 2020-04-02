@@ -54,6 +54,7 @@ import android.print.PrintDocumentAdapter;
 import android.print.PrintManager;
 import android.provider.ContactsContract;
 import android.security.KeyChain;
+import android.security.KeyChainException;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
@@ -5863,7 +5864,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                if (ex instanceof IllegalArgumentException || ex instanceof CMSException)
+                if (ex instanceof IllegalArgumentException ||
+                        ex instanceof CMSException || ex instanceof KeyChainException)
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                 else
                     Log.unexpectedError(getParentFragmentManager(), ex);
