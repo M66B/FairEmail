@@ -1075,8 +1075,8 @@ public class FragmentCompose extends FragmentBase {
 
     @Override
     public void onPause() {
-        //if (autosave && state == State.LOADED)
-        //    onAction(R.id.action_save);
+        if (autosave && state == State.LOADED && !busy)
+            onAction(R.id.action_save);
 
         ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
         cm.unregisterNetworkCallback(networkCallback);
@@ -1591,6 +1591,8 @@ public class FragmentCompose extends FragmentBase {
                                 snackbar.show();
                             }
                         });
+                    else
+                        setBusy(false);
                 }
 
                 @Override
@@ -1637,6 +1639,7 @@ public class FragmentCompose extends FragmentBase {
 
                     onPgp(intent);
                 } catch (Throwable ex) {
+                    setBusy(false);
                     if (ex instanceof IllegalArgumentException)
                         Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                     else {
@@ -2252,6 +2255,7 @@ public class FragmentCompose extends FragmentBase {
                             Log.unexpectedError(getParentFragmentManager(), ex);
                         }
                     else {
+                        setBusy(false);
                         if (BuildConfig.DEBUG)
                             ToastEx.makeText(getContext(), "Non interactive", Toast.LENGTH_SHORT).show();
                     }
@@ -2259,6 +2263,7 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
+                setBusy(false);
                 if (ex instanceof OperationCanceledException)
                     ; // Do nothing
                 else if (ex instanceof IllegalArgumentException) {
@@ -2496,6 +2501,7 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
+                setBusy(false);
                 if (ex instanceof IllegalArgumentException) {
                     Log.i(ex);
                     Snackbar snackbar = Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG);
@@ -3693,7 +3699,8 @@ public class FragmentCompose extends FragmentBase {
         @Override
         protected void onPostExecute(Bundle args) {
             int action = args.getInt("action");
-            if (action != R.id.action_check)
+            boolean needsEncryption = args.getBoolean("needsEncryption");
+            if (action != R.id.action_check && !needsEncryption)
                 setBusy(false);
         }
 
@@ -4224,10 +4231,6 @@ public class FragmentCompose extends FragmentBase {
 
         @Override
         protected void onException(Bundle args, Throwable ex) {
-            int action = args.getInt("action");
-            if (action == R.id.action_check)
-                setBusy(false);
-
             if (ex instanceof MessageRemovedException)
                 finish();
             else if (ex instanceof AddressException) {
