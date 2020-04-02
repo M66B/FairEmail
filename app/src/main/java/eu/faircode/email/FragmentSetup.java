@@ -179,7 +179,7 @@ public class FragmentSetup extends FragmentBase {
                                             .putExtra("name", provider.name)
                                             .putExtra("askAccount", provider.oauth.askAccount));
 
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_activesync, order++, R.string.title_setup_activesync);
+                //popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_activesync, order++, R.string.title_setup_activesync);
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_other, order++, R.string.title_setup_other);
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
