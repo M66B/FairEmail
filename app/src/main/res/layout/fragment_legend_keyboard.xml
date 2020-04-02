@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvEnter"
             android:layout_width="48dp"
             android:layout_height="48dp"
@@ -36,7 +36,7 @@
             app:layout_constraintStart_toEndOf="@id/tvEnter"
             app:layout_constraintTop_toTopOf="@id/tvEnter" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvA"
             android:layout_width="48dp"
             android:layout_height="48dp"
@@ -57,7 +57,7 @@
             app:layout_constraintStart_toEndOf="@id/tvA"
             app:layout_constraintTop_toTopOf="@id/tvA" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvC"
             android:layout_width="48dp"
             android:layout_height="48dp"
@@ -78,7 +78,7 @@
             app:layout_constraintStart_toEndOf="@id/tvC"
             app:layout_constraintTop_toTopOf="@id/tvC" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvD"
             android:layout_width="48dp"
             android:layout_height="48dp"
@@ -99,7 +99,7 @@
             app:layout_constraintStart_toEndOf="@id/tvD"
             app:layout_constraintTop_toTopOf="@id/tvD" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvM"
             android:layout_width="48dp"
             android:layout_height="48dp"
@@ -120,7 +120,7 @@
             app:layout_constraintStart_toEndOf="@id/tvM"
             app:layout_constraintTop_toTopOf="@id/tvM" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvN"
             android:layout_width="48dp"
             android:layout_height="48dp"
@@ -141,7 +141,7 @@
             app:layout_constraintStart_toEndOf="@id/tvN"
             app:layout_constraintTop_toTopOf="@id/tvN" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvP"
             android:layout_width="48dp"
             android:layout_height="48dp"
@@ -162,7 +162,7 @@
             app:layout_constraintStart_toEndOf="@id/tvP"
             app:layout_constraintTop_toTopOf="@id/tvP" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvR"
             android:layout_width="48dp"
             android:layout_height="48dp"
@@ -183,7 +183,7 @@
             app:layout_constraintStart_toEndOf="@id/tvR"
             app:layout_constraintTop_toTopOf="@id/tvR" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvS"
             android:layout_width="48dp"
             android:layout_height="48dp"
@@ -204,7 +204,7 @@
             app:layout_constraintStart_toEndOf="@id/tvS"
             app:layout_constraintTop_toTopOf="@id/tvS" />
 
-        <TextView
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvT"
             android:layout_width="48dp"
             android:layout_height="48dp"
