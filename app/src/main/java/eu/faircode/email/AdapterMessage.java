@@ -1635,13 +1635,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
 
             boolean confirm_images = prefs.getBoolean("confirm_images", true);
-            if (!confirm_images && !properties.getValue("images_asked", message.id)) {
+            if (!confirm_images &&
+                    !EntityFolder.JUNK.equals(message.folderType) &&
+                    !properties.getValue("images_asked", message.id)) {
                 properties.setValue("images", message.id, true);
                 properties.setValue("images_asked", message.id, true);
             }
 
             boolean confirm_html = prefs.getBoolean("confirm_html", true);
-            if (!confirm_html && !properties.getValue("full_asked", message.id)) {
+            if (!confirm_html &&
+                    !EntityFolder.JUNK.equals(message.folderType) &&
+                    !properties.getValue("full_asked", message.id)) {
                 properties.setValue("full", message.id, true);
                 properties.setValue("full_asked", message.id, true);
             }
