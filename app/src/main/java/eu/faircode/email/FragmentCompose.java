@@ -3968,6 +3968,8 @@ public class FragmentCompose extends FragmentBase {
                         // Restore revision
                         Log.i("Restoring revision=" + draft.revision);
                         body = Helper.readText(draft.getFile(context, draft.revision));
+
+                        dirty = true;
                     }
 
                     Helper.writeText(draft.getFile(context), body);
