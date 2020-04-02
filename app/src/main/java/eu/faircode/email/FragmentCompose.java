@@ -1148,17 +1148,17 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_zoom).setVisible(state == State.LOADED);
         menu.findItem(R.id.menu_media).setVisible(state == State.LOADED);
         menu.findItem(R.id.menu_compact).setVisible(state == State.LOADED);
-        menu.findItem(R.id.menu_clear).setVisible(state == State.LOADED);
         menu.findItem(R.id.menu_contact_group).setVisible(state == State.LOADED);
         menu.findItem(R.id.menu_answer).setVisible(state == State.LOADED);
+        menu.findItem(R.id.menu_clear).setVisible(state == State.LOADED);
 
         menu.findItem(R.id.menu_encrypt).setEnabled(!busy);
         menu.findItem(R.id.menu_zoom).setEnabled(!busy);
         menu.findItem(R.id.menu_media).setEnabled(!busy);
         menu.findItem(R.id.menu_compact).setEnabled(!busy);
-        menu.findItem(R.id.menu_clear).setEnabled(!busy);
         menu.findItem(R.id.menu_contact_group).setEnabled(!busy && hasPermission(Manifest.permission.READ_CONTACTS));
         menu.findItem(R.id.menu_answer).setEnabled(!busy);
+        menu.findItem(R.id.menu_clear).setEnabled(!busy);
 
         int colorEncrypt = Helper.resolveColor(getContext(), R.attr.colorEncrypt);
         ImageButton ib = (ImageButton) menu.findItem(R.id.menu_encrypt).getActionView();
@@ -1214,17 +1214,17 @@ public class FragmentCompose extends FragmentBase {
             case R.id.menu_compact:
                 onMenuCompact();
                 return true;
-            case R.id.menu_clear:
-                StyleHelper.apply(R.id.menu_clear, etBody);
-                return true;
-            case R.id.menu_legend:
-                onMenuLegend();
-                return true;
             case R.id.menu_contact_group:
                 onMenuContactGroup();
                 return true;
             case R.id.menu_answer:
                 onMenuAnswer();
+                return true;
+            case R.id.menu_clear:
+                StyleHelper.apply(R.id.menu_clear, etBody);
+                return true;
+            case R.id.menu_legend:
+                onMenuLegend();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

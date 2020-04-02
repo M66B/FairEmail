@@ -41,8 +41,13 @@
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/menu_legend"
-        android:title="@string/menu_legend"
+        android:id="@+id/menu_contact_group"
+        android:title="@string/title_insert_contact_group"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_answer"
+        android:title="@string/title_insert_template"
         app:showAsAction="never" />
 
     <item
@@ -51,12 +56,7 @@
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/menu_contact_group"
-        android:title="@string/title_insert_contact_group"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/menu_answer"
-        android:title="@string/title_insert_template"
+        android:id="@+id/menu_legend"
+        android:title="@string/menu_legend"
         app:showAsAction="never" />
 </menu>
