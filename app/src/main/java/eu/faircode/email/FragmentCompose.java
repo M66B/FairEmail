@@ -248,7 +248,7 @@ public class FragmentCompose extends FragmentBase {
     private State state = State.NONE;
     private boolean show_images = false;
     private boolean autosave = false;
-    private boolean busy = false;
+    private boolean busy = true;
     private boolean saved = false;
     private int last_available = 0; // attachments
 
@@ -555,7 +555,8 @@ public class FragmentCompose extends FragmentBase {
                 Object tag = cbSignature.getTag();
                 if (tag == null || !tag.equals(checked)) {
                     cbSignature.setTag(checked);
-                    onAction(R.id.action_save);
+                    if (tag != null)
+                        onAction(R.id.action_save, "signature");
                 }
             }
         });
@@ -640,7 +641,7 @@ public class FragmentCompose extends FragmentBase {
                         onActionCheck();
                         break;
                     default:
-                        onAction(action);
+                        onAction(action, "navigation");
                 }
                 return true;
             }
@@ -960,7 +961,7 @@ public class FragmentCompose extends FragmentBase {
                         Bundle extras = new Bundle();
                         extras.putString("html", html);
                         extras.putBoolean("show", true);
-                        onAction(R.id.action_save, extras);
+                        onAction(R.id.action_save, extras, "refedit");
                     }
 
                     @Override
@@ -974,7 +975,7 @@ public class FragmentCompose extends FragmentBase {
                 Bundle extras = new Bundle();
                 extras.putString("html", HtmlHelper.toHtml(etBody.getText()));
                 extras.putBoolean("show", true);
-                onAction(R.id.action_save, extras);
+                onAction(R.id.action_save, extras, "refdelete");
             }
         });
 
@@ -985,7 +986,7 @@ public class FragmentCompose extends FragmentBase {
         show_images = true;
         Bundle extras = new Bundle();
         extras.putBoolean("show", true);
-        onAction(R.id.action_save, extras);
+        onAction(R.id.action_save, extras, "refimages");
     }
 
     @Override
@@ -1076,7 +1077,7 @@ public class FragmentCompose extends FragmentBase {
     @Override
     public void onPause() {
         if (autosave && state == State.LOADED && !busy)
-            onAction(R.id.action_save);
+            onAction(R.id.action_save, "pause");
 
         ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
         cm.unregisterNetworkCallback(networkCallback);
@@ -1509,7 +1510,7 @@ public class FragmentCompose extends FragmentBase {
 
     private void onActionDiscard() {
         if (isEmpty())
-            onAction(R.id.action_delete);
+            onAction(R.id.action_delete, "discard");
         else {
             Bundle args = new Bundle();
             args.putString("question", getString(R.string.title_ask_discard));
@@ -1527,7 +1528,7 @@ public class FragmentCompose extends FragmentBase {
 
         Bundle extras = new Bundle();
         extras.putBoolean("dialog", send_dialog);
-        onAction(R.id.action_check, extras);
+        onAction(R.id.action_check, extras, "check");
     }
 
     private void onEncrypt(final EntityMessage draft, final int action, final boolean interactive) {
@@ -1720,11 +1721,11 @@ public class FragmentCompose extends FragmentBase {
                     break;
                 case REQUEST_SEND:
                     if (resultCode == RESULT_OK)
-                        onAction(R.id.action_send);
+                        onAction(R.id.action_send, "send");
                     else if (resultCode == RESULT_FIRST_USER) {
                         Bundle extras = new Bundle();
                         extras.putBoolean("now", true);
-                        onAction(R.id.action_send, extras);
+                        onAction(R.id.action_send, extras, "sendnow");
                     }
                     break;
             }
@@ -1934,7 +1935,7 @@ public class FragmentCompose extends FragmentBase {
                 }
 
                 // Save text & update remote draft
-                onAction(R.id.action_save);
+                onAction(R.id.action_save, "addattachment");
             }
 
             @Override
@@ -2237,7 +2238,7 @@ public class FragmentCompose extends FragmentBase {
                     int action = args.getInt("action");
                     Bundle extras = new Bundle();
                     extras.putBoolean("encrypted", true);
-                    onAction(action, extras);
+                    onAction(action, extras, "pgp");
                 } else if (result instanceof Intent) {
                     Intent intent = (Intent) result;
                     onPgp(intent);
@@ -2496,7 +2497,7 @@ public class FragmentCompose extends FragmentBase {
             protected void onExecuted(Bundle args, Void result) {
                 Bundle extras = new Bundle();
                 extras.putBoolean("encrypted", true);
-                onAction(action, extras);
+                onAction(action, extras, "smime");
             }
 
             @Override
@@ -2646,17 +2647,17 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onActionDiscardConfirmed() {
-        onAction(R.id.action_delete);
+        onAction(R.id.action_delete, "delete");
     }
 
     private void onExit() {
         if (state != State.LOADED)
             finish();
         else if (isEmpty() && !saved)
-            onAction(R.id.action_delete);
+            onAction(R.id.action_delete, "empty");
         else {
             autosave = false;
-            onAction(R.id.action_save);
+            onAction(R.id.action_save, "exit");
             finish();
         }
     }
@@ -2669,11 +2670,11 @@ public class FragmentCompose extends FragmentBase {
         return true;
     }
 
-    private void onAction(int action) {
-        onAction(action, new Bundle());
+    private void onAction(int action, String reason) {
+        onAction(action, new Bundle(), reason);
     }
 
-    private void onAction(int action, @NonNull Bundle extras) {
+    private void onAction(int action, @NonNull Bundle extras, String reason) {
         EntityIdentity identity = (EntityIdentity) spIdentity.getSelectedItem();
 
         // Workaround underlines left by Android
@@ -2695,7 +2696,7 @@ public class FragmentCompose extends FragmentBase {
         args.putBoolean("interactive", getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED));
         args.putBundle("extras", extras);
 
-        Log.i("Run execute id=" + working);
+        Log.i("Run execute id=" + working + " reason=" + reason);
         actionLoader.execute(this, args, "compose:action:" + action);
     }
 
@@ -3547,6 +3548,7 @@ public class FragmentCompose extends FragmentBase {
             final String action = getArguments().getString("action");
             Log.i("Loaded draft id=" + data.draft.id + " action=" + action + " saved=" + saved);
 
+            busy = false;
             working = data.draft.id;
             encrypt = data.draft.ui_encrypt;
             getActivity().invalidateOptionsMenu();
@@ -3619,7 +3621,7 @@ public class FragmentCompose extends FragmentBase {
 
                             // Attachment deleted: update remote draft
                             if (available < last_available)
-                                onAction(R.id.action_save);
+                                onAction(R.id.action_save, "delattachment");
 
                             last_available = available;
 
@@ -4221,7 +4223,7 @@ public class FragmentCompose extends FragmentBase {
                     fragment.setTargetFragment(FragmentCompose.this, REQUEST_SEND);
                     fragment.show(getParentFragmentManager(), "compose:send");
                 } else
-                    onAction(R.id.action_send);
+                    onAction(R.id.action_send, "dialog");
 
             } else if (action == R.id.action_send) {
                 autosave = false;
@@ -4503,7 +4505,7 @@ public class FragmentCompose extends FragmentBase {
         @Override
         public boolean onKeyPressed(KeyEvent event) {
             if (event.getKeyCode() == KeyEvent.KEYCODE_ENTER && event.isCtrlPressed()) {
-                onAction(R.id.action_send);
+                onAction(R.id.action_send, "enter");
                 return true;
             }
             return false;
