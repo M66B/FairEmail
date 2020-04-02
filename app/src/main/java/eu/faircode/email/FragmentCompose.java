@@ -3936,7 +3936,7 @@ public class FragmentCompose extends FragmentBase {
 
                             d = JsoupEx.parse(extras.getString("html"));
                         } else {
-                            d = JsoupEx.parse(body);
+                            d = HtmlHelper.sanitizeCompose(context, body, true);
 
                             for (Element e : ref)
                                 d.body().appendChild(e);
