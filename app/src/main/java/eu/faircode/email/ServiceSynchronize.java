@@ -1770,7 +1770,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         db.message().clearNotifyingMessages();
 
                         // Restore snooze timers
-                        for (EntityMessage message : db.message().getSnoozed())
+                        for (EntityMessage message : db.message().getSnoozed(null))
                             EntityMessage.snooze(context, message.id, message.ui_snoozed);
 
                         db.setTransactionSuccessful();

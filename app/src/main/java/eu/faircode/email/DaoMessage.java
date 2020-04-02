@@ -465,8 +465,10 @@ public interface DaoMessage {
             "  AND operation.name = '" + EntityOperation.ADD + "')")
     List<EntityMessage> getOrphans(long folder);
 
-    @Query("SELECT * FROM message WHERE NOT ui_snoozed IS NULL")
-    List<EntityMessage> getSnoozed();
+    @Query("SELECT * FROM message" +
+            " WHERE (:folder IS NULL OR folder = :folder)" +
+            " AND NOT ui_snoozed IS NULL")
+    List<EntityMessage> getSnoozed(Long folder);
 
     @Query("SELECT id AS _id, subject AS suggestion FROM message" +
             " WHERE subject LIKE :query" +

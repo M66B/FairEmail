@@ -107,7 +107,7 @@ public class WorkerCleanup extends Worker {
                 Log.i("Cleared message headers=" + headers);
 
                 // Restore alarms
-                for (EntityMessage message : db.message().getSnoozed())
+                for (EntityMessage message : db.message().getSnoozed(null))
                     EntityMessage.snooze(context, message.id, message.ui_snoozed);
 
                 ServiceSynchronize.reschedule(context);
