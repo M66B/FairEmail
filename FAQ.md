@@ -834,6 +834,8 @@ Note that apps cannot change notification settings, including the notification l
 Apps designed and targeting older Android versions might still be able to control the contents of notifications,
 but such apps cannot be updated anymore and recent Android versions will show a warning that such apps are outdated.
 
+Setting a light color before Android 8 is not supported and on Android 8 and later not possible.
+
 <br />
 
 <a name="faq22"></a>
