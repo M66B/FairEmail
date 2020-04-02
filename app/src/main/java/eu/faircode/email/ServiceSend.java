@@ -369,7 +369,7 @@ public class ServiceSend extends ServiceBase {
         // Create message
         Properties props = MessageHelper.getSessionProperties();
         Session isession = Session.getInstance(props, null);
-        MimeMessage imessage = MessageHelper.from(this, message, ident, isession);
+        MimeMessage imessage = MessageHelper.from(this, message, ident, isession, true);
 
         // Prepare sent message
         Long sid = null;

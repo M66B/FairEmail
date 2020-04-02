@@ -137,7 +137,7 @@ public class MessageHelper {
         return props;
     }
 
-    static MimeMessageEx from(Context context, EntityMessage message, EntityIdentity identity, Session isession)
+    static MimeMessageEx from(Context context, EntityMessage message, EntityIdentity identity, Session isession, boolean send)
             throws MessagingException, IOException {
         DB db = DB.getInstance(context);
         MimeMessageEx imessage = new MimeMessageEx(isession, message.msgid);
@@ -453,7 +453,7 @@ public class MessageHelper {
                 return imessage;
             }
 
-        build(context, message, attachments, identity, imessage);
+        build(context, message, attachments, identity, send, imessage);
 
         return imessage;
     }
@@ -482,7 +482,7 @@ public class MessageHelper {
         imessage.setRecipients(type, result.toArray(new Address[0]));
     }
 
-    static void build(Context context, EntityMessage message, List<EntityAttachment> attachments, EntityIdentity identity, MimeMessage imessage) throws IOException, MessagingException {
+    static void build(Context context, EntityMessage message, List<EntityAttachment> attachments, EntityIdentity identity, boolean send, MimeMessage imessage) throws IOException, MessagingException {
         if (message.receipt != null && message.receipt) {
             // https://www.ietf.org/rfc/rfc3798.txt
             Multipart report = new MimeMultipart("report; report-type=disposition-notification");
@@ -525,8 +525,10 @@ public class MessageHelper {
         if (identity != null) {
             HtmlHelper.convertLists(document);
 
-            document.select("div[fairemail=signature]").removeAttr("fairemail");
-            document.select("div[fairemail=reference]").removeAttr("fairemail");
+            if (send) {
+                document.select("div[fairemail=signature]").removeAttr("fairemail");
+                document.select("div[fairemail=reference]").removeAttr("fairemail");
+            }
 
             DB db = DB.getInstance(context);
             try {

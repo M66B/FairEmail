@@ -716,7 +716,7 @@ class Core {
             if (!message.content)
                 throw new IllegalArgumentException("Message body missing");
 
-            imessage = MessageHelper.from(context, message, null, isession);
+            imessage = MessageHelper.from(context, message, null, isession, false);
         } else {
             // Cross account move
             File file = message.getRawFile(context);

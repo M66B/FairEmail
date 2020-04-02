@@ -2670,7 +2670,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     card.setClickable(false);
                 }
 
-                if (EntityFolder.DRAFTS.equals(message.folderType) && message.visible == 1)
+                if (EntityFolder.DRAFTS.equals(message.folderType) && message.visible == 1 &&
+                        !EntityMessage.PGP_SIGNENCRYPT.equals(message.encrypt) &&
+                        !EntityMessage.SMIME_SIGNENCRYPT.equals(message.encrypt))
                     context.startActivity(
                             new Intent(context, ActivityCompose.class)
                                     .putExtra("action", "edit")
