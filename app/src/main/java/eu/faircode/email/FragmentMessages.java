@@ -1733,6 +1733,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (dX > 0) {
                 // Right swipe
                 d.setAlpha(Math.round(255 * Math.min(dX / (2 * margin + size), 1.0f)));
+                if (swipes.right_color != null)
+                    d.setTint(swipes.right_color);
                 int padding = (rect.height() - size);
                 d.setBounds(
                         rect.left + margin,
@@ -1743,6 +1745,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             } else if (dX < 0) {
                 // Left swipe
                 d.setAlpha(Math.round(255 * Math.min(-dX / (2 * margin + size), 1.0f)));
+                if (swipes.left_color != null)
+                    d.setTint(swipes.left_color);
                 int padding = (rect.height() - size);
                 d.setBounds(
                         rect.left + rect.width() - size - margin,
