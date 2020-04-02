@@ -1194,13 +1194,7 @@ public class Helper {
                     try {
                         if (KeyChain.getPrivateKey(context, alias) != null) {
                             Log.i("Private key available alias=" + alias);
-                            handler.post(new Runnable() {
-                                @Override
-                                public void run() {
-                                    if (owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-                                        intf.onSelected(alias);
-                                }
-                            });
+                            deliver(alias);
                             return;
                         }
                     } catch (KeyChainException ex) {
@@ -1216,31 +1210,35 @@ public class Helper {
                                     @Override
                                     public void alias(@Nullable final String alias) {
                                         Log.i("Selected key alias=" + alias);
-                                        handler.post(new Runnable() {
-                                            @Override
-                                            public void run() {
-                                                if (owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
-                                                    if (alias == null)
-                                                        intf.onNothingSelected();
-                                                    else
-                                                        intf.onSelected(alias);
-                                                } else {
-                                                    owner.getLifecycle().addObserver(new LifecycleObserver() {
-                                                        @OnLifecycleEvent(Lifecycle.Event.ON_START)
-                                                        public void onStart() {
-                                                            owner.getLifecycle().removeObserver(this);
-                                                            if (alias == null)
-                                                                intf.onNothingSelected();
-                                                            else
-                                                                intf.onSelected(alias);
-                                                        }
-                                                    });
-                                                }
-                                            }
-                                        });
+                                        deliver(alias);
                                     }
                                 },
                                 null, null, null, -1, alias);
+                    }
+                });
+            }
+
+            private void deliver(final String selected) {
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
+                            if (selected == null)
+                                intf.onNothingSelected();
+                            else
+                                intf.onSelected(selected);
+                        } else {
+                            owner.getLifecycle().addObserver(new LifecycleObserver() {
+                                @OnLifecycleEvent(Lifecycle.Event.ON_START)
+                                public void onStart() {
+                                    owner.getLifecycle().removeObserver(this);
+                                    if (selected == null)
+                                        intf.onNothingSelected();
+                                    else
+                                        intf.onSelected(selected);
+                                }
+                            });
+                        }
                     }
                 });
             }
