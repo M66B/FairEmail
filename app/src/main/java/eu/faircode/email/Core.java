@@ -2871,6 +2871,7 @@ class Core {
             for (NotificationCompat.Builder builder : notifications) {
                 long id = builder.getExtras().getLong("id", 0);
                 if ((id == 0 && add.size() + remove.size() > 0) || add.contains(id)) {
+                    // https://developer.android.com/training/wearables/notifications/creating
                     if (id == 0) {
                         if (!notify_summary)
                             builder.setLocalOnly(true);
