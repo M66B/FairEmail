@@ -39,21 +39,29 @@ public class BehaviorBottomMargin extends CoordinatorLayout.Behavior<View> {
 
     @Override
     public boolean layoutDependsOn(@NonNull CoordinatorLayout parent, @NonNull View child, @NonNull View dependency) {
-        return dependency instanceof Snackbar.SnackbarLayout;
+        return (dependency instanceof Snackbar.SnackbarLayout);
+    }
+
+    @Override
+    public boolean onLayoutChild(@NonNull CoordinatorLayout parent, @NonNull View child, int layoutDirection) {
+        setMargin(child, 0);
+        return super.onLayoutChild(parent, child, layoutDirection);
     }
 
     @Override
     public boolean onDependentViewChanged(@NonNull CoordinatorLayout parent, @NonNull View child, @NonNull View dependency) {
-        CoordinatorLayout.LayoutParams lparam = (CoordinatorLayout.LayoutParams) child.getLayoutParams();
-        lparam.setMargins(0, 0, 0, dependency.getHeight());
-        child.setLayoutParams(lparam);
+        setMargin(child, dependency.getHeight());
         return true;
     }
 
     @Override
     public void onDependentViewRemoved(CoordinatorLayout parent, View child, View dependency) {
+        setMargin(child, 0);
+    }
+
+    private static void setMargin(View child, int value) {
         CoordinatorLayout.LayoutParams lparam = (CoordinatorLayout.LayoutParams) child.getLayoutParams();
-        lparam.setMargins(0, 0, 0, 0);
+        lparam.setMargins(0, 0, 0, value);
         child.setLayoutParams(lparam);
     }
 }

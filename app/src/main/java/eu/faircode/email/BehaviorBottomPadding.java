@@ -39,17 +39,27 @@ public class BehaviorBottomPadding extends CoordinatorLayout.Behavior<View> {
 
     @Override
     public boolean layoutDependsOn(@NonNull CoordinatorLayout parent, @NonNull View child, @NonNull View dependency) {
-        return dependency instanceof Snackbar.SnackbarLayout;
+        return (dependency instanceof Snackbar.SnackbarLayout);
+    }
+
+    @Override
+    public boolean onLayoutChild(@NonNull CoordinatorLayout parent, @NonNull View child, int layoutDirection) {
+        setPadding(child, 0);
+        return super.onLayoutChild(parent, child, layoutDirection);
     }
 
     @Override
     public boolean onDependentViewChanged(@NonNull CoordinatorLayout parent, @NonNull View child, @NonNull View dependency) {
-        child.setPadding(0, 0, 0, dependency.getHeight());
+        setPadding(child, dependency.getHeight());
         return true;
     }
 
     @Override
     public void onDependentViewRemoved(CoordinatorLayout parent, View child, View dependency) {
-        child.setPadding(0, 0, 0, 0);
+        setPadding(child, 0);
+    }
+
+    private static void setPadding(View child, int value) {
+        child.setPadding(0, 0, 0, value);
     }
 }
