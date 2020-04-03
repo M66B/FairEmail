@@ -1550,8 +1550,12 @@ public class FragmentCompose extends FragmentBase {
 
                     EntityIdentity identity = db.identity().getIdentity(draft.identity);
                     if (identity != null && identity.sign_key_alias != null)
-                        args.putBoolean("selected",
-                                KeyChain.getPrivateKey(context, identity.sign_key_alias) != null);
+                        try {
+                            PrivateKey key = KeyChain.getPrivateKey(context, identity.sign_key_alias);
+                            args.putBoolean("available", key != null);
+                        } catch (Throwable ex) {
+                            Log.w(ex);
+                        }
 
                     return identity;
                 }
@@ -1561,7 +1565,8 @@ public class FragmentCompose extends FragmentBase {
                     if (identity == null)
                         return;
 
-                    if (args.getBoolean("selected")) {
+                    boolean available = args.getBoolean("available");
+                    if (available) {
                         args.putString("alias", identity.sign_key_alias);
                         onSmime(args, action);
                         return;
