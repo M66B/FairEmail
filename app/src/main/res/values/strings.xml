@@ -858,6 +858,7 @@
     <string name="title_from_missing">Sender missing</string>
     <string name="title_extra_missing">Username missing</string>
     <string name="title_to_missing">Recipient missing</string>
+    <string name="title_pgp_reminder">PGP keys available</string>
     <string name="title_subject_reminder">Subject is empty</string>
     <string name="title_text_reminder">Message is empty</string>
     <string name="title_attachment_keywords">attached,attachment,attachments,included</string>
