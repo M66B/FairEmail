@@ -1632,12 +1632,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (EntityFolder.OUTBOX.equals(message.folderType))
                 return 0;
 
-            if (message.accountProtocol != EntityAccount.TYPE_IMAP)
-                return makeMovementFlags(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT);
-
             TupleAccountSwipes swipes = accountSwipes.get(message.account);
             if (swipes == null)
                 return 0;
+
+            if (message.accountProtocol != EntityAccount.TYPE_IMAP)
+                return makeMovementFlags(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT);
 
             int flags = 0;
             if (swipes.swipe_left != null &&
@@ -1684,16 +1684,21 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (message == null)
                 return;
 
-            TupleAccountSwipes swipes;
+            TupleAccountSwipes swipes = accountSwipes.get(message.account);
+            if (swipes == null)
+                return;
+
             if (message.accountProtocol != EntityAccount.TYPE_IMAP) {
-                swipes = new TupleAccountSwipes();
                 swipes.swipe_right = FragmentAccount.SWIPE_ACTION_SEEN;
-                swipes.swipe_left = 0L;
-                swipes.left_type = EntityFolder.TRASH;
-            } else {
-                swipes = accountSwipes.get(message.account);
-                if (swipes == null)
-                    return;
+                if (swipes.leave_deleted) {
+                    if (message.ui_snoozed != null && message.ui_snoozed == Long.MAX_VALUE)
+                        swipes.swipe_left = FragmentAccount.SWIPE_ACTION_HIDE; // show
+                    else {
+                        swipes.swipe_left = 0L;
+                        swipes.left_type = EntityFolder.TRASH; // hide
+                    }
+                } else
+                    swipes.swipe_left = FragmentAccount.SWIPE_ACTION_DELETE;
             }
 
             Long action = (dX > 0 ? swipes.swipe_right : swipes.swipe_left);
@@ -1727,6 +1732,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 icon = R.drawable.baseline_delete_forever_24;
             else
                 icon = EntityFolder.getIcon(dX > 0 ? swipes.right_type : swipes.left_type);
+
             Drawable d = getResources().getDrawable(icon, getContext().getTheme()).mutate();
             d.setTint(Helper.resolveColor(getContext(), android.R.attr.textColorSecondary));
 
@@ -1777,16 +1783,22 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 return;
             }
 
-            if (message.accountProtocol != EntityAccount.TYPE_IMAP)
-                if (direction == ItemTouchHelper.LEFT) {
-                    adapter.notifyItemChanged(pos);
-                    onSwipeDelete(message);
-                } else
-                    onActionSeenSelection(!message.ui_seen, message.id);
-
             TupleAccountSwipes swipes = accountSwipes.get(message.account);
             if (swipes == null) {
                 adapter.notifyDataSetChanged();
+                return;
+            }
+
+            if (message.accountProtocol != EntityAccount.TYPE_IMAP) {
+                if (direction == ItemTouchHelper.LEFT) {
+                    if (swipes.leave_deleted)
+                        onActionHide(message);
+                    else {
+                        adapter.notifyItemChanged(pos);
+                        onSwipeDelete(message);
+                    }
+                } else
+                    onActionSeenSelection(!message.ui_seen, message.id);
                 return;
             }
 

@@ -29,4 +29,5 @@ public class TupleAccountSwipes {
     public String right_type;
     public String right_name;
     public Integer right_color;
+    public Boolean leave_deleted;
 }
