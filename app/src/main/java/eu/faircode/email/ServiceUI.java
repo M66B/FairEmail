@@ -374,6 +374,7 @@ public class ServiceUI extends IntentService {
 
     private void onIgnore(long id, boolean open) {
         EntityMessage message;
+        EntityFolder folder;
 
         DB db = DB.getInstance(this);
         try {
@@ -381,6 +382,10 @@ public class ServiceUI extends IntentService {
 
             message = db.message().getMessage(id);
             if (message == null)
+                return;
+
+            folder = db.folder().getFolder(message.folder);
+            if (folder == null)
                 return;
 
             db.message().setMessageUiIgnored(message.id, true);
@@ -396,6 +401,7 @@ public class ServiceUI extends IntentService {
             thread.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             thread.putExtra("account", message.account);
             thread.putExtra("id", message.id);
+            thread.putExtra("filter_archive", !EntityFolder.ARCHIVE.equals(folder.type));
             startActivity(thread);
         }
     }
