@@ -213,6 +213,7 @@
     <string name="title_advanced_always">Synkronoi aina nämä tilit</string>
     <string name="title_advanced_schedule">Aikataulu</string>
     <string name="title_advanced_advanced">Lisäasetukset</string>
+    <string name="title_advanced_no_date">Viestit ilman päivämäärää</string>
     <string name="title_advanced_unseen">Kaikki lukemattomat viestit</string>
     <string name="title_advanced_flagged">Kaikki tähdelliset viestit</string>
     <string name="title_advanced_delete_unseen">Poista vanhat lukemattomat viestit</string>
@@ -223,6 +224,7 @@
     <string name="title_advanced_suggest_local">Ehdota paikallisesti tallennettuja yhteystietoja</string>
     <string name="title_advanced_suggest_sent">Ehdota lähetetyistä viesteistä löytyviä osoitteita</string>
     <string name="title_advanced_suggest_received">Ehdota saapuneista viesteistä löytyviä osoitteita</string>
+    <string name="title_advanced_suggest_frequently">Järjestä ehdotetut osoitteet käytetyimmät ensin</string>
     <string name="title_advanced_prefix_once">Lisää aiheeseen etuliite vain kerran vastatessa ja edelleenlähetettäessä</string>
     <string name="title_advanced_extended_reply">Käytä laajennettuja tunnistetietoja vastauksessa/edelleenlähetettäessä</string>
     <string name="title_advanced_quote_reply">Lainaa vastattu teksti</string>
@@ -385,6 +387,7 @@
     <string name="title_advanced_schedule_hint">Napauta aikaa asettaaksesi sen</string>
     <string name="title_advanced_check_mx">Tarkista lähettäjien sähköpostiosoitteet viestejä synkronoitaessa</string>
     <string name="title_advanced_check_reply">Tarkista vastaussähköpostiosoitteet viestejä synkronoitaessa</string>
+    <string name="title_advanced_no_date_hint">Jotkin palveluntarjoajat tallentavat viestien virheelliset tai tulevaisuudessa olevat päivämäärät puuttuvina</string>
     <string name="title_advanced_unseen_hint">Jotkin palveluntarjoajat eivät tue tätä kunnolla, mikä voi aiheuttaa kaikkien tai ei minkään viestin synkronoinnin</string>
     <string name="title_advanced_deleted_unseen">Lukemattomat viestit pidetään laitteessa ikuisesti, kun poissa käytöstä</string>
     <string name="title_advanced_sync_kept_hint">Tämä lisää datan ja akun käyttöä varsinkin, jos paikallisia viestejä on paljon</string>
@@ -434,6 +437,7 @@
     <string name="title_advanced_notify_no_channels">Tämä Android-versio ei tue ilmoituskanavia</string>
     <string name="title_advanced_fts_hint">Tämän käyttöönotto parantaa haun suorituskykyä, mutta myös lisää akun ja tallennustilan käyttöä</string>
     <string name="title_advanced_english_hint">Tämä käynnistää sovelluksen uudelleen</string>
+    <string name="title_advanced_optimize_hint">Tämän ottaminen käyttöön voi muuttaa automaattisesti vastaanottoasetuksia akun säästämiseksi</string>
     <string name="title_advanced_experiments_hint">Lista kokeellisista ominaisuuksista</string>
     <string name="title_advanced_debug_hint">Salli ylimääräinen lokitietojen tallennus ja näytä debug-tietoja</string>
     <string name="title_advanced_cleanup_hint">Tämä poistaa kaikki väliaikaiset tiedostot</string>
@@ -547,6 +551,7 @@
     <string name="title_folder_name">Kansion nimi</string>
     <string name="title_display_name">Näyttönimi</string>
     <string name="title_show_folders">Näytä piilotetut kansiot</string>
+    <string name="title_subscribed_only">Vain tilatut</string>
     <string name="title_apply_to_all">Käytä kaikille &#8230;</string>
     <string name="title_hide_folder">Piilota kansio</string>
     <string name="title_unified_folder">Näytä yhdistetyssä saapuneet-kansiossa</string>
