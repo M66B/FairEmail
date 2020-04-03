@@ -4027,8 +4027,10 @@ public class FragmentCompose extends FragmentBase {
 
                     // Execute action
                     boolean encrypted = extras.getBoolean("encrypted");
-                    boolean shouldEncrypt =
-                            (draft.ui_encrypt != null && !EntityMessage.ENCRYPT_NONE.equals(draft.ui_encrypt));
+                    boolean shouldEncrypt = EntityMessage.PGP_SIGNENCRYPT.equals(draft.ui_encrypt) ||
+                            (EntityMessage.PGP_SIGNONLY.equals(draft.ui_encrypt) && action == R.id.action_send) ||
+                            EntityMessage.SMIME_SIGNENCRYPT.equals(draft.ui_encrypt) ||
+                            (EntityMessage.SMIME_SIGNONLY.equals(draft.ui_encrypt) && action == R.id.action_send);
                     if (dirty && !encrypted && shouldEncrypt) {
                         args.putBoolean("needsEncryption", true);
                         return draft;
