@@ -3197,6 +3197,17 @@ public class FragmentCompose extends FragmentBase {
                                     subject = unprefix(subject, fwd);
                             data.draft.subject = Helper.getString(context, ref.language, R.string.title_subject_forward, subject);
                         } else if ("editasnew".equals(action)) {
+                            if (ref.from != null && ref.from.length == 1) {
+                                String from = ((InternetAddress) ref.from[0]).getAddress();
+                                for (EntityIdentity identity : data.identities)
+                                    if (identity.email.equals(from)) {
+                                        selected = identity;
+                                        break;
+                                    }
+                            }
+                            data.draft.to = ref.to;
+                            data.draft.cc = ref.cc;
+                            data.draft.bcc = ref.bcc;
                             data.draft.subject = ref.subject;
                             if (ref.content) {
                                 String html = Helper.readText(ref.getFile(context));
