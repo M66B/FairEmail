@@ -178,13 +178,25 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                     setTheme(night
                             ? R.style.AppThemeBlueOrangeDark : R.style.AppThemeBlueOrangeLight);
                     break;
+                case "orange_blue_system":
+                    setTheme(night
+                            ? R.style.AppThemeOrangeBlueDark : R.style.AppThemeOrangeBlueLight);
+                    break;
                 case "yellow_purple_system":
                     setTheme(night
                             ? R.style.AppThemeYellowPurpleDark : R.style.AppThemeYellowPurpleLight);
                     break;
+                case "purple_yellow_system":
+                    setTheme(night
+                            ? R.style.AppThemePurpleYellowDark : R.style.AppThemePurpleYellowLight);
+                    break;
                 case "red_green_system":
                     setTheme(night
                             ? R.style.AppThemeRedGreenDark : R.style.AppThemeRedGreenLight);
+                    break;
+                case "green_red_system":
+                    setTheme(night
+                            ? R.style.AppThemeGreenRedDark : R.style.AppThemeGreenRedLight);
                     break;
                 case "grey_system":
                     setTheme(night
