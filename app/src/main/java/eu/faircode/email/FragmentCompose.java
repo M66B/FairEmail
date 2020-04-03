@@ -1429,9 +1429,11 @@ public class FragmentCompose extends FragmentBase {
             snackbar.show();
         } else
             try {
+                setBusy(true);
                 startActivityForResult(intent, REQUEST_RECORD_AUDIO);
             } catch (SecurityException ex) {
                 Log.w(ex);
+                setBusy(false);
                 Snackbar.make(view, getString(R.string.title_no_viewer, intent.getAction()), Snackbar.LENGTH_INDEFINITE).show();
             }
     }
@@ -1458,8 +1460,10 @@ public class FragmentCompose extends FragmentBase {
         PackageManager pm = getContext().getPackageManager();
         if (intent.resolveActivity(pm) == null)
             noStorageAccessFramework();
-        else
+        else {
+            setBusy(true);
             startActivityForResult(Helper.getChooser(getContext(), intent), REQUEST_ATTACHMENT);
+        }
     }
 
     private void noStorageAccessFramework() {
@@ -1684,10 +1688,12 @@ public class FragmentCompose extends FragmentBase {
                         onAddImage(data.getBundleExtra("args").getBoolean("photo"));
                     break;
                 case REQUEST_IMAGE_FILE:
+                    setBusy(false);
                     if (resultCode == RESULT_OK && data != null)
                         onAddImageFile(getUris(data));
                     break;
                 case REQUEST_TAKE_PHOTO:
+                    setBusy(false);
                     if (resultCode == RESULT_OK) {
                         if (photoURI != null)
                             onAddImageFile(Arrays.asList(photoURI));
@@ -1695,6 +1701,7 @@ public class FragmentCompose extends FragmentBase {
                     break;
                 case REQUEST_ATTACHMENT:
                 case REQUEST_RECORD_AUDIO:
+                    setBusy(false);
                     if (resultCode == RESULT_OK && data != null)
                         onAddAttachment(getUris(data), false, 0);
                     break;
@@ -1850,8 +1857,10 @@ public class FragmentCompose extends FragmentBase {
                 try {
                     photoURI = FileProvider.getUriForFile(getContext(), BuildConfig.APPLICATION_ID, file);
                     intent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+                    setBusy(true);
                     startActivityForResult(intent, REQUEST_TAKE_PHOTO);
                 } catch (SecurityException ex) {
+                    setBusy(false);
                     Log.w(ex);
                     Snackbar.make(view, getString(R.string.title_no_viewer, intent.getAction()), Snackbar.LENGTH_LONG).show();
                 }
@@ -1864,8 +1873,10 @@ public class FragmentCompose extends FragmentBase {
             PackageManager pm = getContext().getPackageManager();
             if (intent.resolveActivity(pm) == null)
                 noStorageAccessFramework();
-            else
+            else {
+                setBusy(true);
                 startActivityForResult(Helper.getChooser(getContext(), intent), REQUEST_IMAGE_FILE);
+            }
         }
     }
 
