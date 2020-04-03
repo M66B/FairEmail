@@ -826,20 +826,14 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         private void eval() {
             int checkedId = rgTheme.getCheckedRadioButtonId();
 
-            boolean reverse = (checkedId == R.id.rbThemeBlueOrange ||
+            boolean colored = (checkedId == R.id.rbThemeBlueOrange ||
                     checkedId == R.id.rbThemeYellowPurple ||
                     checkedId == R.id.rbThemeRedGreen);
-            boolean dark = (checkedId == R.id.rbThemeBlueOrange ||
-                    checkedId == R.id.rbThemeYellowPurple ||
-                    checkedId == R.id.rbThemeRedGreen ||
-                    checkedId == R.id.rbThemeGrey);
-            boolean black = (checkedId == R.id.rbThemeBlueOrange ||
-                    checkedId == R.id.rbThemeYellowPurple ||
-                    checkedId == R.id.rbThemeRedGreen);
+            boolean dark = (colored || checkedId == R.id.rbThemeGrey);
 
-            swReverse.setEnabled(reverse);
+            swReverse.setEnabled(colored);
             swDark.setEnabled(dark);
-            swBlack.setEnabled(black && swDark.isChecked());
+            swBlack.setEnabled(colored && swDark.isChecked());
             swSystem.setEnabled(dark && !swDark.isChecked());
         }
 
