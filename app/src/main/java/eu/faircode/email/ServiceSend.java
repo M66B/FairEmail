@@ -376,10 +376,6 @@ public class ServiceSend extends ServiceBase {
         if (!message.content)
             throw new IllegalArgumentException("Message body missing");
 
-        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        if (cm.isActiveNetworkMetered())
-            throw new IOException("Metered");
-
         // Create message
         Properties props = MessageHelper.getSessionProperties();
         Session isession = Session.getInstance(props, null);
