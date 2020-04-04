@@ -229,10 +229,10 @@ public class ServiceSend extends ServiceBase {
     };
 
     private void checkConnectivity() {
-        boolean suitable = ConnectionHelper.getNetworkState(ServiceSend.this).isSuitable();
+        boolean suitable = ConnectionHelper.getNetworkState(this).isSuitable();
         if (lastSuitable != suitable) {
             lastSuitable = suitable;
-            EntityLog.log(ServiceSend.this, "Service send suitable=" + suitable);
+            EntityLog.log(this, "Service send suitable=" + suitable);
 
             try {
                 NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
@@ -240,15 +240,15 @@ public class ServiceSend extends ServiceBase {
             } catch (Throwable ex) {
                 Log.w(ex);
             }
-
-            if (suitable)
-                executor.submit(new Runnable() {
-                    @Override
-                    public void run() {
-                        processOperations();
-                    }
-                });
         }
+
+        if (suitable)
+            executor.submit(new Runnable() {
+                @Override
+                public void run() {
+                    processOperations();
+                }
+            });
     }
 
     private void processOperations() {
@@ -375,6 +375,10 @@ public class ServiceSend extends ServiceBase {
 
         if (!message.content)
             throw new IllegalArgumentException("Message body missing");
+
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (cm.isActiveNetworkMetered())
+            throw new IOException("Metered");
 
         // Create message
         Properties props = MessageHelper.getSessionProperties();
