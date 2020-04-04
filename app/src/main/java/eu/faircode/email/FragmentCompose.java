@@ -247,9 +247,6 @@ public class FragmentCompose extends FragmentBase {
     private long working = -1;
     private State state = State.NONE;
     private boolean show_images = false;
-    private boolean autosave = false;
-    private boolean busy = true;
-    private boolean saved = false;
     private int last_available = 0; // attachments
 
     private Uri photoURI = null;
@@ -1076,8 +1073,11 @@ public class FragmentCompose extends FragmentBase {
 
     @Override
     public void onPause() {
-        if (autosave && state == State.LOADED && !busy)
-            onAction(R.id.action_save, "pause");
+        if (state == State.LOADED) {
+            Bundle extras = new Bundle();
+            extras.putBoolean("autosave", true);
+            onAction(R.id.action_save, extras, "pause");
+        }
 
         ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
         cm.unregisterNetworkCallback(networkCallback);
@@ -1144,25 +1144,18 @@ public class FragmentCompose extends FragmentBase {
     public void onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
 
-        menu.findItem(R.id.menu_encrypt).setVisible(state == State.LOADED);
-        menu.findItem(R.id.menu_zoom).setVisible(state == State.LOADED);
-        menu.findItem(R.id.menu_media).setVisible(state == State.LOADED);
-        menu.findItem(R.id.menu_compact).setVisible(state == State.LOADED);
-        menu.findItem(R.id.menu_contact_group).setVisible(state == State.LOADED);
-        menu.findItem(R.id.menu_answer).setVisible(state == State.LOADED);
-        menu.findItem(R.id.menu_clear).setVisible(state == State.LOADED);
-
-        menu.findItem(R.id.menu_encrypt).setEnabled(!busy);
-        menu.findItem(R.id.menu_zoom).setEnabled(!busy);
-        menu.findItem(R.id.menu_media).setEnabled(!busy);
-        menu.findItem(R.id.menu_compact).setEnabled(!busy);
-        menu.findItem(R.id.menu_contact_group).setEnabled(!busy && hasPermission(Manifest.permission.READ_CONTACTS));
-        menu.findItem(R.id.menu_answer).setEnabled(!busy);
-        menu.findItem(R.id.menu_clear).setEnabled(!busy);
+        menu.findItem(R.id.menu_encrypt).setEnabled(state == State.LOADED);
+        menu.findItem(R.id.menu_zoom).setEnabled(state == State.LOADED);
+        menu.findItem(R.id.menu_media).setEnabled(state == State.LOADED);
+        menu.findItem(R.id.menu_compact).setEnabled(state == State.LOADED);
+        menu.findItem(R.id.menu_contact_group).setEnabled(
+                state == State.LOADED && hasPermission(Manifest.permission.READ_CONTACTS));
+        menu.findItem(R.id.menu_answer).setEnabled(state == State.LOADED);
+        menu.findItem(R.id.menu_clear).setEnabled(state == State.LOADED);
 
         int colorEncrypt = Helper.resolveColor(getContext(), R.attr.colorEncrypt);
         ImageButton ib = (ImageButton) menu.findItem(R.id.menu_encrypt).getActionView();
-        ib.setEnabled(!busy);
+        ib.setEnabled(state == State.LOADED);
         if (EntityMessage.PGP_SIGNONLY.equals(encrypt) || EntityMessage.SMIME_SIGNONLY.equals(encrypt)) {
             ib.setImageResource(R.drawable.baseline_gesture_24);
             ib.setImageTintList(null);
@@ -1429,11 +1422,9 @@ public class FragmentCompose extends FragmentBase {
             snackbar.show();
         } else
             try {
-                setBusy(true);
                 startActivityForResult(intent, REQUEST_RECORD_AUDIO);
             } catch (SecurityException ex) {
                 Log.w(ex);
-                setBusy(false);
                 Snackbar.make(view, getString(R.string.title_no_viewer, intent.getAction()), Snackbar.LENGTH_INDEFINITE).show();
             }
     }
@@ -1460,10 +1451,8 @@ public class FragmentCompose extends FragmentBase {
         PackageManager pm = getContext().getPackageManager();
         if (intent.resolveActivity(pm) == null)
             noStorageAccessFramework();
-        else {
-            setBusy(true);
+        else
             startActivityForResult(Helper.getChooser(getContext(), intent), REQUEST_ATTACHMENT);
-        }
     }
 
     private void noStorageAccessFramework() {
@@ -1587,8 +1576,6 @@ public class FragmentCompose extends FragmentBase {
 
                             @Override
                             public void onNothingSelected() {
-                                setBusy(false);
-
                                 Snackbar snackbar = Snackbar.make(view, R.string.title_no_key, Snackbar.LENGTH_LONG);
                                 final Intent intent = KeyChain.createInstallIntent();
                                 if (intent.resolveActivity(getContext().getPackageManager()) != null)
@@ -1601,8 +1588,6 @@ public class FragmentCompose extends FragmentBase {
                                 snackbar.show();
                             }
                         });
-                    else
-                        setBusy(false);
                 }
 
                 @Override
@@ -1649,7 +1634,6 @@ public class FragmentCompose extends FragmentBase {
 
                     onPgp(intent);
                 } catch (Throwable ex) {
-                    setBusy(false);
                     if (ex instanceof IllegalArgumentException)
                         Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                     else {
@@ -1688,12 +1672,10 @@ public class FragmentCompose extends FragmentBase {
                         onAddImage(data.getBundleExtra("args").getBoolean("photo"));
                     break;
                 case REQUEST_IMAGE_FILE:
-                    setBusy(false);
                     if (resultCode == RESULT_OK && data != null)
                         onAddImageFile(getUris(data));
                     break;
                 case REQUEST_TAKE_PHOTO:
-                    setBusy(false);
                     if (resultCode == RESULT_OK) {
                         if (photoURI != null)
                             onAddImageFile(Arrays.asList(photoURI));
@@ -1701,15 +1683,12 @@ public class FragmentCompose extends FragmentBase {
                     break;
                 case REQUEST_ATTACHMENT:
                 case REQUEST_RECORD_AUDIO:
-                    setBusy(false);
                     if (resultCode == RESULT_OK && data != null)
                         onAddAttachment(getUris(data), false, 0);
                     break;
                 case REQUEST_OPENPGP:
                     if (resultCode == RESULT_OK && data != null)
                         onPgp(data);
-                    else
-                        setBusy(false);
                     break;
                 case REQUEST_CONTACT_GROUP:
                     if (resultCode == RESULT_OK && data != null)
@@ -1857,10 +1836,8 @@ public class FragmentCompose extends FragmentBase {
                 try {
                     photoURI = FileProvider.getUriForFile(getContext(), BuildConfig.APPLICATION_ID, file);
                     intent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
-                    setBusy(true);
                     startActivityForResult(intent, REQUEST_TAKE_PHOTO);
                 } catch (SecurityException ex) {
-                    setBusy(false);
                     Log.w(ex);
                     Snackbar.make(view, getString(R.string.title_no_viewer, intent.getAction()), Snackbar.LENGTH_LONG).show();
                 }
@@ -1873,10 +1850,8 @@ public class FragmentCompose extends FragmentBase {
             PackageManager pm = getContext().getPackageManager();
             if (intent.resolveActivity(pm) == null)
                 noStorageAccessFramework();
-            else {
-                setBusy(true);
+            else
                 startActivityForResult(Helper.getChooser(getContext(), intent), REQUEST_IMAGE_FILE);
-            }
         }
     }
 
@@ -2272,7 +2247,6 @@ public class FragmentCompose extends FragmentBase {
                             Log.unexpectedError(getParentFragmentManager(), ex);
                         }
                     else {
-                        setBusy(false);
                         if (BuildConfig.DEBUG)
                             ToastEx.makeText(getContext(), "Non interactive", Toast.LENGTH_SHORT).show();
                     }
@@ -2280,7 +2254,6 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                setBusy(false);
                 if (ex instanceof OperationCanceledException)
                     ; // Do nothing
                 else if (ex instanceof IllegalArgumentException) {
@@ -2518,7 +2491,6 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                setBusy(false);
                 if (ex instanceof IllegalArgumentException) {
                     Log.i(ex);
                     Snackbar snackbar = Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG);
@@ -2667,15 +2639,18 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onExit() {
-        if (state != State.LOADED)
+        if (state == State.LOADED) {
+            state = State.NONE;
+            if (isEmpty())
+                onAction(R.id.action_delete, "empty");
+            else {
+                Bundle extras = new Bundle();
+                extras.putBoolean("autosave", true);
+                onAction(R.id.action_save, extras, "exit");
+                finish();
+            }
+        } else
             finish();
-        else if (isEmpty() && !saved)
-            onAction(R.id.action_delete, "empty");
-        else {
-            autosave = false;
-            onAction(R.id.action_save, "exit");
-            finish();
-        }
     }
 
     private boolean isEmpty() {
@@ -3543,8 +3518,6 @@ public class FragmentCompose extends FragmentBase {
                             throw new IllegalStateException("Draft without uid");
                         EntityOperation.queue(context, data.draft, EntityOperation.BODY);
                     }
-
-                    args.putBoolean("saved", true);
                 }
 
                 List<EntityAttachment> attachments = db.attachment().getAttachments(data.draft.id);
@@ -3567,11 +3540,9 @@ public class FragmentCompose extends FragmentBase {
 
         @Override
         protected void onExecuted(Bundle args, final DraftData data) {
-            saved = args.getBoolean("saved");
             final String action = getArguments().getString("action");
-            Log.i("Loaded draft id=" + data.draft.id + " action=" + action + " saved=" + saved);
+            Log.i("Loaded draft id=" + data.draft.id + " action=" + action);
 
-            busy = false;
             working = data.draft.id;
             encrypt = data.draft.ui_encrypt;
             getActivity().invalidateOptionsMenu();
@@ -3712,8 +3683,7 @@ public class FragmentCompose extends FragmentBase {
         @Override
         protected void onPostExecute(Bundle args) {
             int action = args.getInt("action");
-            boolean needsEncryption = args.getBoolean("needsEncryption");
-            if (action != R.id.action_check && !needsEncryption)
+            if (action != R.id.action_check)
                 setBusy(false);
         }
 
@@ -4015,7 +3985,9 @@ public class FragmentCompose extends FragmentBase {
                             (EntityMessage.PGP_SIGNONLY.equals(draft.ui_encrypt) && action == R.id.action_send) ||
                             EntityMessage.SMIME_SIGNENCRYPT.equals(draft.ui_encrypt) ||
                             (EntityMessage.SMIME_SIGNONLY.equals(draft.ui_encrypt) && action == R.id.action_send);
-                    if (dirty && !encrypted && shouldEncrypt) {
+                    boolean needsEncryption = (dirty && !encrypted && shouldEncrypt);
+                    boolean autosave = extras.getBoolean("autosave");
+                    if (needsEncryption && !autosave) {
                         args.putBoolean("needsEncryption", true);
                         return draft;
                     }
@@ -4024,7 +3996,7 @@ public class FragmentCompose extends FragmentBase {
                             action == R.id.action_undo ||
                             action == R.id.action_redo ||
                             action == R.id.action_check) {
-                        if (dirty)
+                        if ((dirty || encrypted) && !needsEncryption)
                             EntityOperation.queue(context, draft, EntityOperation.ADD);
 
                         if (action == R.id.action_check) {
@@ -4107,8 +4079,6 @@ public class FragmentCompose extends FragmentBase {
                                     }
                             }
                         } else {
-                            args.putBoolean("saved", true);
-
                             Handler handler = new Handler(context.getMainLooper());
                             handler.post(new Runnable() {
                                 public void run() {
@@ -4207,15 +4177,13 @@ public class FragmentCompose extends FragmentBase {
 
         @Override
         protected void onExecuted(Bundle args, EntityMessage draft) {
-            boolean wasSaved = args.getBoolean("saved");
+            if (draft == null)
+                return;
+
             boolean needsEncryption = args.getBoolean("needsEncryption");
             int action = args.getInt("action");
-            Log.i("Loaded action id=" + (draft == null ? null : draft.id) +
-                    " action=" + getActionName(action) +
-                    " saved=" + wasSaved + " encryption=" + needsEncryption);
-
-            if (wasSaved)
-                saved = true;
+            Log.i("Loaded action id=" + draft.id +
+                    " action=" + getActionName(action) + " encryption=" + needsEncryption);
 
             etTo.setText(MessageHelper.formatAddressesCompose(draft.to));
             etCc.setText(MessageHelper.formatAddressesCompose(draft.cc));
@@ -4240,7 +4208,7 @@ public class FragmentCompose extends FragmentBase {
             }
 
             if (action == R.id.action_delete) {
-                autosave = false;
+                state = State.NONE;
                 finish();
 
             } else if (action == R.id.action_undo || action == R.id.action_redo) {
@@ -4276,7 +4244,7 @@ public class FragmentCompose extends FragmentBase {
                     onAction(R.id.action_send, "dialog");
 
             } else if (action == R.id.action_send) {
-                autosave = false;
+                state = State.NONE;
                 finish();
             }
         }
@@ -4318,13 +4286,13 @@ public class FragmentCompose extends FragmentBase {
                     return Integer.toString(id);
             }
         }
-    };
 
-    private void setBusy(boolean busy) {
-        FragmentCompose.this.busy = busy;
-        Helper.setViewsEnabled(view, !busy);
-        getActivity().invalidateOptionsMenu();
-    }
+        private void setBusy(boolean busy) {
+            state = (busy ? State.LOADING : State.LOADED);
+            Helper.setViewsEnabled(view, !busy);
+            getActivity().invalidateOptionsMenu();
+        }
+    };
 
     private static String unprefix(String subject, String prefix) {
         subject = subject.trim();
@@ -4379,9 +4347,6 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onPostExecute(Bundle args) {
-                state = State.LOADED;
-                autosave = true;
-
                 pbWait.setVisibility(View.GONE);
                 media_bar.setVisibility(media ? View.VISIBLE : View.GONE);
                 bottom_navigation.getMenu().findItem(R.id.action_undo).setVisible(draft.revision > 1);
@@ -4484,6 +4449,8 @@ public class FragmentCompose extends FragmentBase {
                 grpReferenceHint.setVisibility(text[1] == null || !ref_hint ? View.GONE : View.VISIBLE);
                 ibReferenceEdit.setVisibility(text[1] == null ? View.GONE : View.VISIBLE);
                 ibReferenceImages.setVisibility(ref_has_images && !show_images ? View.VISIBLE : View.GONE);
+
+                state = State.LOADED;
 
                 final Context context = getContext();
 
