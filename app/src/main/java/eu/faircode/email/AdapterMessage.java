@@ -5187,8 +5187,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             final Uri uri = getArguments().getParcelable("uri");
             final String title = getArguments().getString("title");
 
+            // Preload web view
             Helper.customTabsWarmup(getContext());
 
+            // Process link
             final Uri sanitized;
             if (uri.isOpaque())
                 sanitized = uri;
@@ -5213,22 +5215,29 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             final Uri uriTitle = Uri.parse(title == null ? "" : title);
 
-            View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_open_link, null);
-            TextView tvTitle = dview.findViewById(R.id.tvTitle);
+            // Get views
+            final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_open_link, null);
+            final TextView tvTitle = dview.findViewById(R.id.tvTitle);
+            final ImageButton ibDifferent = dview.findViewById(R.id.ibDifferent);
             final EditText etLink = dview.findViewById(R.id.etLink);
-            ImageButton ibShare = dview.findViewById(R.id.ibShare);
-            ImageButton ibCopy = dview.findViewById(R.id.ibCopy);
-            TextView tvDifferent = dview.findViewById(R.id.tvDifferent);
-            ImageButton ibDifferent = dview.findViewById(R.id.ibDifferent);
+            final ImageButton ibShare = dview.findViewById(R.id.ibShare);
+            final ImageButton ibCopy = dview.findViewById(R.id.ibCopy);
             final CheckBox cbSecure = dview.findViewById(R.id.cbSecure);
-            CheckBox cbSanitize = dview.findViewById(R.id.cbSanitize);
+            final CheckBox cbSanitize = dview.findViewById(R.id.cbSanitize);
             final Button btnOwner = dview.findViewById(R.id.btnOwner);
-            TextView tvOwnerRemark = dview.findViewById(R.id.tvOwnerRemark);
+            final TextView tvOwnerRemark = dview.findViewById(R.id.tvOwnerRemark);
             final ContentLoadingProgressBar pbWait = dview.findViewById(R.id.pbWait);
             final TextView tvHost = dview.findViewById(R.id.tvHost);
             final TextView tvOwner = dview.findViewById(R.id.tvOwner);
             final Group grpDifferent = dview.findViewById(R.id.grpDifferent);
             final Group grpOwner = dview.findViewById(R.id.grpOwner);
+
+            ibDifferent.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    etLink.setText(uriTitle.toString());
+                }
+            });
 
             etLink.addTextChangedListener(new TextWatcher() {
                 @Override
@@ -5284,13 +5293,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                         ToastEx.makeText(getContext(), R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
                     }
-                }
-            });
-
-            ibDifferent.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    etLink.setText(uriTitle.toString());
                 }
             });
 
