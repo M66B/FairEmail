@@ -51,7 +51,7 @@
             android:contentDescription="@string/title_clipboard_copy"
             app:layout_constraintBottom_toBottomOf="@id/tvTitle"
             app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/baseline_bookmarks_24" />
+            app:srcCompat="@drawable/baseline_assignment_24" />
 
         <eu.faircode.email.EditTextPlain
             android:id="@+id/etLink"
