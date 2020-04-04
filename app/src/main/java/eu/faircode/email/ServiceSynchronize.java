@@ -173,6 +173,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         });
 
         liveAccountNetworkState.observeForever(new Observer<List<TupleAccountNetworkState>>() {
+            private boolean init = false;
             private boolean fts = false;
             private Integer lastQuitId = null;
             private List<TupleAccountNetworkState> accountStates = new ArrayList<>();
@@ -191,6 +192,11 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     coreStates.clear();
                     liveAccountNetworkState.removeObserver(this);
                 } else {
+                    if (!init) {
+                        init = true;
+                        init();
+                    }
+
                     int accounts = 0;
                     int operations = 0;
                     boolean runService = false;
@@ -296,6 +302,52 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     if (!runService)
                         quit(lastStartId);
                 }
+            }
+
+            private void init() {
+                EntityLog.log(ServiceSynchronize.this, "Service reset");
+
+                queue.submit(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            DB db = DB.getInstance(ServiceSynchronize.this);
+                            try {
+                                db.beginTransaction();
+
+                                // Reset accounts
+                                for (EntityAccount account : db.account().getAccounts())
+                                    db.account().setAccountState(account.id, null);
+
+                                // reset folders
+                                for (EntityFolder folder : db.folder().getFolders()) {
+                                    db.folder().setFolderState(folder.id, null);
+                                    db.folder().setFolderSyncState(folder.id, null);
+                                }
+
+                                // Reset operations
+                                db.operation().resetOperationStates();
+
+                                // Restore notifications
+                                db.message().clearNotifyingMessages();
+
+                                // Restore snooze timers
+                                for (EntityMessage message : db.message().getSnoozed(null))
+                                    EntityMessage.snooze(ServiceSynchronize.this, message.id, message.ui_snoozed);
+
+                                db.setTransactionSuccessful();
+                            } finally {
+                                db.endTransaction();
+                            }
+
+                            // Restore schedule
+                            schedule(ServiceSynchronize.this);
+
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        }
+                    }
+                });
             }
 
             private void start(final TupleAccountNetworkState accountNetworkState, boolean sync) {
@@ -1750,38 +1802,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             public void run() {
                 try {
                     DB db = DB.getInstance(context);
-                    try {
-                        db.beginTransaction();
-
-                        // Reset accounts
-                        for (EntityAccount account : db.account().getAccounts())
-                            db.account().setAccountState(account.id, null);
-
-                        // reset folders
-                        for (EntityFolder folder : db.folder().getFolders()) {
-                            db.folder().setFolderState(folder.id, null);
-                            db.folder().setFolderSyncState(folder.id, null);
-                        }
-
-                        // Reset operations
-                        db.operation().resetOperationStates();
-
-                        // Restore notifications
-                        db.message().clearNotifyingMessages();
-
-                        // Restore snooze timers
-                        for (EntityMessage message : db.message().getSnoozed(null))
-                            EntityMessage.snooze(context, message.id, message.ui_snoozed);
-
-                        db.setTransactionSuccessful();
-                    } finally {
-                        db.endTransaction();
-                    }
-
-                    // Restore schedule
-                    schedule(context);
-
-                    // Init service
                     int accounts = db.account().getSynchronizingAccounts().size();
                     if (accounts > 0)
                         eval(context, "boot");
