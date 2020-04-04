@@ -5229,12 +5229,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 sanitized = (changed ? builder.build() : uri);
             }
 
+            final Uri uriTitle = Uri.parse(title == null ? "" : title);
+
             View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_open_link, null);
             TextView tvTitle = dview.findViewById(R.id.tvTitle);
+            final EditText etLink = dview.findViewById(R.id.etLink);
             ImageButton ibShare = dview.findViewById(R.id.ibShare);
             ImageButton ibCopy = dview.findViewById(R.id.ibCopy);
-            final EditText etLink = dview.findViewById(R.id.etLink);
             TextView tvDifferent = dview.findViewById(R.id.tvDifferent);
+            ImageButton ibDifferent = dview.findViewById(R.id.ibDifferent);
             final CheckBox cbSecure = dview.findViewById(R.id.cbSecure);
             CheckBox cbSanitize = dview.findViewById(R.id.cbSanitize);
             final Button btnOwner = dview.findViewById(R.id.btnOwner);
@@ -5242,32 +5245,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             final ContentLoadingProgressBar pbWait = dview.findViewById(R.id.pbWait);
             final TextView tvHost = dview.findViewById(R.id.tvHost);
             final TextView tvOwner = dview.findViewById(R.id.tvOwner);
+            final Group grpDifferent = dview.findViewById(R.id.grpDifferent);
             final Group grpOwner = dview.findViewById(R.id.grpOwner);
-
-            ibShare.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent send = new Intent();
-                    send.setAction(Intent.ACTION_SEND);
-                    send.putExtra(Intent.EXTRA_TEXT, uri.toString());
-                    send.setType("text/plain");
-                    startActivity(Intent.createChooser(send, title));
-                }
-            });
-
-            ibCopy.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    ClipboardManager clipboard =
-                            (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
-                    if (clipboard != null) {
-                        ClipData clip = ClipData.newPlainText(title, uri.toString());
-                        clipboard.setPrimaryClip(clip);
-
-                        ToastEx.makeText(getContext(), R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
-                    }
-                }
-            });
 
             etLink.addTextChangedListener(new TextWatcher() {
                 @Override
@@ -5298,6 +5277,38 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             secure ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
 
                     cbSecure.setVisibility(hyperlink ? View.VISIBLE : View.GONE);
+                }
+            });
+
+            ibShare.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent send = new Intent();
+                    send.setAction(Intent.ACTION_SEND);
+                    send.putExtra(Intent.EXTRA_TEXT, etLink.getText().toString());
+                    send.setType("text/plain");
+                    startActivity(Intent.createChooser(send, title));
+                }
+            });
+
+            ibCopy.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ClipboardManager clipboard =
+                            (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+                    if (clipboard != null) {
+                        ClipData clip = ClipData.newPlainText(title, etLink.getText().toString());
+                        clipboard.setPrimaryClip(clip);
+
+                        ToastEx.makeText(getContext(), R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
+
+            ibDifferent.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    etLink.setText(uriTitle.toString());
                 }
             });
 
@@ -5392,8 +5403,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvTitle.setVisibility(TextUtils.isEmpty(title) ? View.GONE : View.VISIBLE);
             etLink.setText(uri.toString());
 
-            Uri uriTitle = Uri.parse(title == null ? "" : title);
-            tvDifferent.setVisibility(uriTitle.getHost() == null || uri.getHost() == null ||
+            grpDifferent.setVisibility(uriTitle.getHost() == null || uri.getHost() == null ||
                     uriTitle.getHost().equalsIgnoreCase(uri.getHost())
                     ? View.GONE : View.VISIBLE);
 
