@@ -236,6 +236,7 @@
     <string name="title_advanced_always">Zawsze synchronizuj te konta</string>
     <string name="title_advanced_schedule">Harmonogram</string>
     <string name="title_advanced_advanced">Zaawansowane</string>
+    <string name="title_advanced_no_date">Wiadomości bez daty</string>
     <string name="title_advanced_unseen">Wszystkie nieprzeczytane wiadomości</string>
     <string name="title_advanced_flagged">Wszystkie oznaczone wiadomości</string>
     <string name="title_advanced_delete_unseen">Usuń stare nieprzeczytane wiadomości</string>
@@ -246,6 +247,7 @@
     <string name="title_advanced_suggest_local">Proponuj kontakty przechowywane lokalnie</string>
     <string name="title_advanced_suggest_sent">Proponuj adresy znalezione w wysłanych wiadomościach</string>
     <string name="title_advanced_suggest_received">Proponuj adresy znalezione w otrzymanych wiadomościach</string>
+    <string name="title_advanced_suggest_frequently">Sortuj sugerowane adresy według częstotliwości używania</string>
     <string name="title_advanced_prefix_once">Prefiksuj temat tylko raz przy odpowiedzi lub przesyłaniu dalej</string>
     <string name="title_advanced_extended_reply">Użyj rozszerzonego nagłówka odpowiedzi/przesyłania dalej</string>
     <string name="title_advanced_quote_reply">Cytuj tekst odpowiedzi</string>
@@ -407,6 +409,7 @@
     <string name="title_advanced_schedule_hint">Dotknij zegara, aby ustawić czas</string>
     <string name="title_advanced_check_mx">Sprawdź adresy e-mail nadawcy przy synchronizowaniu wiadomości</string>
     <string name="title_advanced_check_reply">Sprawdź adresy e-mail odpowiedzi podczas synchronizacji wiadomości</string>
+    <string name="title_advanced_no_date_hint">Niektórzy dostawcy przechowują wiadomości z nieznaną, niepoprawną lub przyszłą datą jako wiadomości bez daty</string>
     <string name="title_advanced_unseen_hint">Niektórzy dostawcy nie obsługują tego poprawnie, co może powodować brak synchronizacji lub synchronizację wszystkich wiadomości</string>
     <string name="title_advanced_deleted_unseen">Kiedy wyłączone, nieprzeczytane wiadomości są zawsze przechowywane w urządzeniu</string>
     <string name="title_advanced_sync_kept_hint">Spowoduje to użycie dodatkowych danych i zużycie dodatkowej energii baterii, zwłaszcza jeśli w urządzeniu przechowywanych jest wiele wiadomości</string>
@@ -456,6 +459,7 @@
     <string name="title_advanced_notify_no_channels">Ta wersja Androida nie obsługuje kanałów powiadomień</string>
     <string name="title_advanced_fts_hint">Włączenie tej opcji poprawia wydajność wyszukiwania, ale także zwiększa zużycie baterii i przestrzeni dyskowej</string>
     <string name="title_advanced_english_hint">To zrestartuje aplikację</string>
+    <string name="title_advanced_optimize_hint">Włączenie tej opcji może automatycznie zmienić ustawienia odbioru, aby zmniejszyć zużycie baterii</string>
     <string name="title_advanced_experiments_hint">Lista aktualnych funkcji eksperymentalnych</string>
     <string name="title_advanced_debug_hint">Włącz dodatkowe rejestrowanie i wyświetlaj informacje debugowania w różnych miejscach</string>
     <string name="title_advanced_cleanup_hint">Spowoduje to usunięcie wszystkich plików tymczasowych</string>
@@ -569,6 +573,7 @@
     <string name="title_folder_name">Nazwa folderu</string>
     <string name="title_display_name">Nazwa wyświetlana</string>
     <string name="title_show_folders">Pokaż ukryte foldery</string>
+    <string name="title_subscribed_only">Tylko subskrybowane</string>
     <string name="title_apply_to_all">Zastosuj dla wszystkich &#8230;</string>
     <string name="title_hide_folder">Ukryj folder</string>
     <string name="title_unified_folder">Pokaż we wspólnej skrzynce</string>

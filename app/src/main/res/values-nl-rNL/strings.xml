@@ -754,6 +754,7 @@
     <string name="title_from_missing">Zender ontbreekt</string>
     <string name="title_extra_missing">Gebruikersnaam ontbreekt</string>
     <string name="title_to_missing">Ontvanger ontbreekt</string>
+    <string name="title_pgp_reminder">PGP-sleutels beschikbaar</string>
     <string name="title_subject_reminder">Onderwerp is leeg</string>
     <string name="title_text_reminder">Bericht is leeg</string>
     <string name="title_attachment_keywords">bijlage,bijlagen</string>

@@ -743,6 +743,7 @@
     <string name="title_from_missing">缺少发件人</string>
     <string name="title_extra_missing">缺少用户名</string>
     <string name="title_to_missing">缺少收件人</string>
+    <string name="title_pgp_reminder">PGP 密钥可用</string>
     <string name="title_subject_reminder">主题为空</string>
     <string name="title_text_reminder">消息为空</string>
     <string name="title_attachment_keywords">至少包含一个附件</string>

@@ -755,6 +755,7 @@
     <string name="title_from_missing">Expéditeur manquant</string>
     <string name="title_extra_missing">Nom d\'utilisateur manquant</string>
     <string name="title_to_missing">Destinataire manquant</string>
+    <string name="title_pgp_reminder">Clés PGP disponibles</string>
     <string name="title_subject_reminder">L\'objet est vide</string>
     <string name="title_text_reminder">Le message est vide</string>
     <string name="title_attachment_keywords">pièce jointe,pièces jointes,ci-joint,ci-jointe,ci-joints,ci-jointes</string>

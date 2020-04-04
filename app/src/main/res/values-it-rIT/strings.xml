@@ -754,6 +754,7 @@
     <string name="title_from_missing">Mittente mancante</string>
     <string name="title_extra_missing">Nome utente mancante</string>
     <string name="title_to_missing">Destinatario mancante</string>
+    <string name="title_pgp_reminder">Chiavi PGP disponibili</string>
     <string name="title_subject_reminder">Oggetto vuoto</string>
     <string name="title_text_reminder">Il messaggio è vuoto</string>
     <string name="title_attachment_keywords">allegato,allegato,allegati,inclusi</string>
