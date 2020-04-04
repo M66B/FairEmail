@@ -2070,7 +2070,8 @@ class Core {
         if (message == null) {
             String msgid = helper.getMessageID();
             Log.i(folder.name + " searching for " + msgid);
-            for (EntityMessage dup : db.message().getMessagesByMsgId(folder.account, msgid)) {
+            List<EntityMessage> dups = db.message().getMessagesByMsgId(folder.account, msgid);
+            for (EntityMessage dup : dups) {
                 EntityFolder dfolder = db.folder().getFolder(dup.folder);
                 Log.i(folder.name + " found as id=" + dup.id + "/" + dup.uid +
                         " folder=" + dfolder.type + ":" + dup.folder + "/" + folder.type + ":" + folder.id +
