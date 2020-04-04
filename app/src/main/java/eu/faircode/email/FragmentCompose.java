@@ -3434,8 +3434,6 @@ public class FragmentCompose extends FragmentBase {
                         File file = attachment.getFile(context);
                         ics.renameTo(file);
 
-                        last_available++;
-
                         ICalendar icalendar = Biweekly.parse(file).first();
                         VEvent event = icalendar.getEvents().get(0);
                         Organizer organizer = event.getOrganizer();
@@ -3490,8 +3488,6 @@ public class FragmentCompose extends FragmentBase {
 
                                     File target = attachment.getFile(context);
                                     Helper.copy(source, target);
-
-                                    last_available++;
 
                                     if (resize_reply && !"forward".equals(action))
                                         resizeAttachment(context, attachment, REDUCED_IMAGE_SIZE);
@@ -3548,16 +3544,16 @@ public class FragmentCompose extends FragmentBase {
                         EntityOperation.queue(context, data.draft, EntityOperation.BODY);
                     }
 
-                    List<EntityAttachment> attachments = db.attachment().getAttachments(data.draft.id);
-                    for (EntityAttachment attachment : attachments)
-                        if (attachment.available) {
-                            if (attachment.encryption == null)
-                                last_available++;
-                        } else
-                            EntityOperation.queue(context, data.draft, EntityOperation.ATTACHMENT, attachment.id);
-
                     args.putBoolean("saved", true);
                 }
+
+                List<EntityAttachment> attachments = db.attachment().getAttachments(data.draft.id);
+                for (EntityAttachment attachment : attachments)
+                    if (attachment.available) {
+                        if (attachment.encryption == null)
+                            last_available++;
+                    } else
+                        EntityOperation.queue(context, data.draft, EntityOperation.ATTACHMENT, attachment.id);
 
                 db.setTransactionSuccessful();
             } finally {
