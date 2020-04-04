@@ -23,7 +23,6 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -187,13 +186,6 @@ public class FragmentDialogFolder extends FragmentDialogBase {
                         ibNext.setEnabled(false);
                     }
                 });
-            }
-        });
-
-        new Handler().post(new Runnable() {
-            @Override
-            public void run() {
-                etSearch.clearFocus();
             }
         });
 
