@@ -36,6 +36,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.PowerManager;
+import android.os.SystemClock;
 import android.service.notification.StatusBarNotification;
 import android.text.TextUtils;
 
@@ -149,6 +150,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         iif.addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED);
         registerReceiver(connectionChangedReceiver, iif);
 
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+
         DB db = DB.getInstance(this);
 
         db.account().liveAccountState().observe(this, new Observer<List<TupleAccountState>>() {
@@ -173,7 +176,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         });
 
         liveAccountNetworkState.observeForever(new Observer<List<TupleAccountNetworkState>>() {
-            private boolean init = false;
             private boolean fts = false;
             private Integer lastQuitId = null;
             private List<TupleAccountNetworkState> accountStates = new ArrayList<>();
@@ -192,8 +194,14 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     coreStates.clear();
                     liveAccountNetworkState.removeObserver(this);
                 } else {
-                    if (!init) {
-                        init = true;
+                    // Check init
+                    long now = new Date().getTime();
+                    long init = prefs.getLong("last_init", 0);
+                    long boot = now - SystemClock.elapsedRealtime();
+                    if (init < boot) {
+                        EntityLog.log(ServiceSynchronize.this, "Boot=" + new Date(boot));
+                        EntityLog.log(ServiceSynchronize.this, "Last init=" + new Date(init));
+                        prefs.edit().putLong("last_init", now).apply();
                         init();
                     }
 
@@ -468,7 +476,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             }
         });
 
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
         final TwoStateOwner cowner = new TwoStateOwner(this, "liveUnseenNotify");
 
