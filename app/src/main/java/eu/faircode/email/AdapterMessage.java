@@ -265,25 +265,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     // https://github.com/newhouse/url-tracking-stripper
     private static final List<String> PARANOID_QUERY = Collections.unmodifiableList(Arrays.asList(
             // https://en.wikipedia.org/wiki/UTM_parameters
-            "utm_source",
-            "utm_medium",
-            "utm_campaign",
-            "utm_term",
-            "utm_content",
-
-            "utm_name",
-            "utm_cid",
-            "utm_reader",
-            "utm_viz_id",
-            "utm_pubreferrer",
-            "utm_swu",
-
-            "utm_datesent",
-            "utm_emailtype",
-            "utm_segment",
-            "utm_campaigntheme",
-            "utm_subjecttone",
-
             "icid", // Adobe
             "gclid", // Google
             "gclsrc", // Google ads
@@ -5218,7 +5199,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 boolean changed = false;
                 builder.clearQuery();
                 for (String key : uri.getQueryParameterNames())
-                    if (PARANOID_QUERY.contains(key.toLowerCase(Locale.ROOT)))
+                    if (key.toLowerCase(Locale.ROOT).startsWith("utm_") ||
+                            PARANOID_QUERY.contains(key.toLowerCase(Locale.ROOT)))
                         changed = true;
                     else if (!TextUtils.isEmpty(key))
                         for (String value : uri.getQueryParameters(key)) {
