@@ -174,7 +174,7 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
                         Uri stream = intent.getParcelableExtra(Intent.EXTRA_STREAM);
                         if (stream != null) {
                             ArrayList<Uri> uris = new ArrayList<>();
-                            uris.add(intent.getParcelableExtra(Intent.EXTRA_STREAM));
+                            uris.add(stream);
                             args.putParcelableArrayList("attachments", uris);
                         }
                     }
