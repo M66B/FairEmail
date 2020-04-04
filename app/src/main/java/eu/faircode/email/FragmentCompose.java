@@ -1948,10 +1948,10 @@ public class FragmentCompose extends FragmentBase {
                     etBody.setText(body);
                     if (start < body.length())
                         etBody.setSelection(start);
-                }
 
-                // Save text & update remote draft
-                onAction(R.id.action_save, "addattachment");
+                    // Save text with image
+                    onAction(R.id.action_save, "image");
+                }
             }
 
             @Override
@@ -3619,8 +3619,6 @@ public class FragmentCompose extends FragmentBase {
 
             db.attachment().liveAttachments(data.draft.id).observe(getViewLifecycleOwner(),
                     new Observer<List<EntityAttachment>>() {
-                        private int last_available = 0;
-
                         @Override
                         public void onChanged(@Nullable List<EntityAttachment> attachments) {
                             if (attachments == null)
@@ -3629,28 +3627,18 @@ public class FragmentCompose extends FragmentBase {
                             adapter.set(attachments);
                             grpAttachments.setVisibility(attachments.size() > 0 ? View.VISIBLE : View.GONE);
 
-                            int available = 0;
                             boolean downloading = false;
                             boolean inline_images = false;
                             for (EntityAttachment attachment : attachments) {
                                 if (attachment.encryption != null)
                                     continue;
-                                if (attachment.available)
-                                    available++;
                                 if (attachment.progress != null)
                                     downloading = true;
                                 if (attachment.isInline() && attachment.isImage())
                                     inline_images = true;
                             }
 
-                            Log.i("Attachments=" + attachments.size() +
-                                    " available=" + available + " downloading=" + downloading);
-
-                            // Attachment deleted: update remote draft
-                            if (available < last_available)
-                                onAction(R.id.action_save, "delattachment");
-
-                            last_available = available;
+                            Log.i("Attachments=" + attachments.size() + " downloading=" + downloading);
 
                             rvAttachment.setTag(downloading);
                             checkInternet();
