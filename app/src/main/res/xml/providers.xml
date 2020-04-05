@@ -35,13 +35,13 @@
             starttls="true" />
         <oauth
             askAccount="true"
-            authorizationEndpoint="https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize"
+            authorizationEndpoint="https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
             clientId="3514cf2c-e7a3-45a2-80d4-6a3c3498eca0"
             clientSecret="MZaRn@liyA0T98GwdRDK:m-cSWrUgA9:"
             enabled="false"
             redirectUri="https://oauth.faircode.eu/"
-            scopes="openid,offline_access,profile,email,User.Read,Mail.ReadWrite,Mail.Send,MailboxSettings.ReadWrite"
-            tokenEndpoint="https://login.microsoftonline.com/organizations/oauth2/v2.0/token" />
+            scopes="openid,offline_access,profile,email,User.Read,IMAP.AccessAsUser.All"
+            tokenEndpoint="https://login.microsoftonline.com/common/oauth2/v2.0/token" />
     </provider>
     <!-- needs subscription -->
     <provider
