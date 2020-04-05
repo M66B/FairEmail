@@ -16,6 +16,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageButton
+        android:id="@+id/ibCalendar"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/title_icalendar_calendar"
+        android:foregroundTint="?android:attr/textColorSecondary"
+        android:padding="6dp"
+        android:scaleType="fitCenter"
+        android:tooltipText="@string/title_icalendar_accept"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vSeparatorCalendar"
+        app:srcCompat="@drawable/baseline_event_24" />
+
     <eu.faircode.email.FixedTextView
         android:id="@+id/tvCalendarSummary"
         android:layout_width="0dp"
@@ -26,7 +40,7 @@
         android:text="Summary"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="?android:attr/textColorPrimary"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ibCalendar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/vSeparatorCalendar" />
 
@@ -39,7 +53,7 @@
         android:layout_marginEnd="6dp"
         android:text="Description"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/ibCalendar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvCalendarSummary" />
 
@@ -52,7 +66,7 @@
         android:layout_marginEnd="6dp"
         android:text="Location"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/ibCalendar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvCalendarDescription" />
 
@@ -65,7 +79,7 @@
         android:layout_marginEnd="6dp"
         android:text="12:00:00"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/ibCalendar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvCalendarLocation" />
 
@@ -78,7 +92,7 @@
         android:layout_marginEnd="6dp"
         android:text="12:00:00"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/ibCalendar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvCalendarStart" />
 
@@ -91,7 +105,7 @@
         android:layout_marginEnd="6dp"
         android:text="You, me"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/ibCalendar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvCalendarEnd" />
 
@@ -128,18 +142,6 @@
         app:layout_constraintStart_toEndOf="@id/btnCalendarDecline"
         app:layout_constraintTop_toBottomOf="@id/tvAttendees" />
 
-    <ImageButton
-        android:id="@+id/ibCalendar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="?attr/colorActionBackground"
-        android:contentDescription="@string/title_icalendar_calendar"
-        android:tint="@color/action_foreground"
-        android:tooltipText="@string/title_icalendar_accept"
-        app:layout_constraintBottom_toBottomOf="@id/btnCalendarAccept"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/baseline_event_24" />
-
     <View
         android:id="@+id/paddingBottom"
         android:layout_width="wrap_content"
@@ -169,5 +171,5 @@
         android:id="@+id/grpCalendarResponse"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:constraint_referenced_ids="btnCalendarAccept,btnCalendarDecline,btnCalendarMaybe,ibCalendar" />
+        app:constraint_referenced_ids="btnCalendarAccept,btnCalendarDecline,btnCalendarMaybe" />
 </androidx.constraintlayout.widget.ConstraintLayout>

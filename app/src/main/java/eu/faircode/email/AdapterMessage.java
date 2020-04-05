@@ -410,6 +410,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageButton ibSeen;
         private Flow flow;
 
+        private ImageButton ibCalendar;
         private TextView tvCalendarSummary;
         private TextView tvCalendarDescription;
         private TextView tvCalendarLocation;
@@ -419,7 +420,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private Button btnCalendarAccept;
         private Button btnCalendarDecline;
         private Button btnCalendarMaybe;
-        private ImageButton ibCalendar;
         private ContentLoadingProgressBar pbCalendarWait;
 
         private RecyclerView rvImage;
@@ -553,6 +553,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             pbHeaders = vsBody.findViewById(R.id.pbHeaders);
             tvNoInternetHeaders = vsBody.findViewById(R.id.tvNoInternetHeaders);
 
+            ibCalendar = vsBody.findViewById(R.id.ibCalendar);
             tvCalendarSummary = vsBody.findViewById(R.id.tvCalendarSummary);
             tvCalendarDescription = vsBody.findViewById(R.id.tvCalendarDescription);
             tvCalendarLocation = vsBody.findViewById(R.id.tvCalendarLocation);
@@ -562,7 +563,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             btnCalendarAccept = vsBody.findViewById(R.id.btnCalendarAccept);
             btnCalendarDecline = vsBody.findViewById(R.id.btnCalendarDecline);
             btnCalendarMaybe = vsBody.findViewById(R.id.btnCalendarMaybe);
-            ibCalendar = vsBody.findViewById(R.id.ibCalendar);
             pbCalendarWait = vsBody.findViewById(R.id.pbCalendarWait);
 
             rvAttachment = attachments.findViewById(R.id.rvAttachment);
@@ -684,10 +684,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvBody.setOnTouchListener(this);
                 tvBody.addOnLayoutChangeListener(this);
 
+                ibCalendar.setOnClickListener(this);
                 btnCalendarAccept.setOnClickListener(this);
                 btnCalendarDecline.setOnClickListener(this);
                 btnCalendarMaybe.setOnClickListener(this);
-                ibCalendar.setOnClickListener(this);
 
                 btnCalendarAccept.setOnLongClickListener(this);
                 btnCalendarDecline.setOnLongClickListener(this);
@@ -1210,6 +1210,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void clearCalendar() {
+            ibCalendar.setVisibility(View.GONE);
             tvCalendarSummary.setVisibility(View.GONE);
             tvCalendarDescription.setVisibility(View.GONE);
             tvCalendarLocation.setVisibility(View.GONE);
@@ -2299,6 +2300,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     Organizer organizer = event.getOrganizer();
 
+                    ibCalendar.setVisibility(View.VISIBLE);
+
                     tvCalendarSummary.setText(summary);
                     tvCalendarSummary.setVisibility(TextUtils.isEmpty(summary) ? View.GONE : View.VISIBLE);
 
@@ -2376,11 +2379,19 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                         attendee.add(email);
                                 }
 
+                                int status;
+                                if (icalendar.getMethod().isRequest())
+                                    status = CalendarContract.Events.STATUS_TENTATIVE;
+                                else if (icalendar.getMethod().isCancel())
+                                    status = CalendarContract.Events.STATUS_CANCELED;
+                                else
+                                    status = CalendarContract.Events.STATUS_CONFIRMED;
+
                                 // https://developer.android.com/guide/topics/providers/calendar-provider.html#intent-insert
                                 Intent intent = new Intent(Intent.ACTION_INSERT)
                                         .setData(CalendarContract.Events.CONTENT_URI)
                                         .putExtra(CalendarContract.Events.AVAILABILITY, CalendarContract.Events.AVAILABILITY_BUSY)
-                                        .putExtra(CalendarContract.Events.STATUS, CalendarContract.Events.STATUS_CONFIRMED);
+                                        .putExtra(CalendarContract.Events.STATUS, status);
 
                                 if (summary != null)
                                     intent.putExtra(CalendarContract.Events.TITLE, summary);
