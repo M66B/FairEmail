@@ -215,7 +215,7 @@ public class Helper {
     }
 
     private static class ThreadPoolExecutorEx extends ThreadPoolExecutor {
-        String name;
+        private String name;
 
         public ThreadPoolExecutorEx(
                 String name,
@@ -230,6 +230,11 @@ public class Helper {
         @Override
         protected void beforeExecute(Thread t, Runnable r) {
             Log.d("Executing " + t.getName());
+        }
+
+        @Override
+        protected void afterExecute(Runnable r, Throwable t) {
+            Log.d("Executed " + name + " pending=" + getQueue().size());
         }
     }
 
