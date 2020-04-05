@@ -756,6 +756,7 @@
     <string name="title_from_missing">Falta remitente</string>
     <string name="title_extra_missing">Falta el nombre de usuario</string>
     <string name="title_to_missing">Falta destinatario</string>
+    <string name="title_pgp_reminder">Claves PGP disponibles</string>
     <string name="title_subject_reminder">El asunto está vacío</string>
     <string name="title_text_reminder">El mensaje está vacío</string>
     <string name="title_attachment_keywords">adjunto,adjunta,adjuntos,incluido,incluida,adjuntas</string>
