@@ -2335,7 +2335,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onActionCalendar(TupleMessageEx message, int action, boolean share) {
-            if (!ActivityBilling.isPro(context)) {
+            if (action != R.id.ibCalendar && !ActivityBilling.isPro(context)) {
                 context.startActivity(new Intent(context, ActivityBilling.class));
                 return;
             }
