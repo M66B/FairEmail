@@ -56,7 +56,7 @@ public interface DaoMessage {
             ", (message.ui_encrypt IN (2, 4)) AS signed" +
             ", (message.ui_encrypt IN (1, 3)) AS encrypted" +
             ", COUNT(DISTINCT" +
-            "   CASE WHEN NOT message.message.hash IS NULL THEN message.hash" +
+            "   CASE WHEN NOT message.hash IS NULL THEN message.hash" +
             "   WHEN NOT message.msgid IS NULL THEN message.msgid" +
             "   ELSE message.id END) AS visible" +
             ", SUM(message.total) AS totalSize" +
@@ -119,7 +119,7 @@ public interface DaoMessage {
             ", (message.ui_encrypt IN (2, 4)) AS signed" +
             ", (message.ui_encrypt IN (1, 3)) AS encrypted" +
             ", COUNT(DISTINCT" +
-            "   CASE WHEN NOT message.message.hash IS NULL THEN message.hash" +
+            "   CASE WHEN NOT message.hash IS NULL THEN message.hash" +
             "   WHEN NOT message.msgid IS NULL THEN message.msgid" +
             "   ELSE message.id END) AS visible" +
             ", SUM(message.total) AS totalSize" +
