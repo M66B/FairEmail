@@ -170,7 +170,7 @@ public class EntityOperation {
 
                 EntityFolder source = db.folder().getFolder(message.folder);
                 EntityFolder target = db.folder().getFolder(jargs.getLong(0));
-                if (source.id.equals(target.id))
+                if (source == null || target == null || source.id.equals(target.id))
                     return;
 
                 EntityLog.log(context, "Move message=" + message.id + ":" + message.subject +
