@@ -1690,15 +1690,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             if (message.accountProtocol != EntityAccount.TYPE_IMAP) {
                 swipes.swipe_right = FragmentAccount.SWIPE_ACTION_SEEN;
-                if (swipes.leave_deleted) {
-                    if (message.ui_snoozed != null && message.ui_snoozed == Long.MAX_VALUE)
-                        swipes.swipe_left = FragmentAccount.SWIPE_ACTION_HIDE; // show
-                    else {
-                        swipes.swipe_left = 0L;
-                        swipes.left_type = EntityFolder.TRASH; // hide
-                    }
-                } else
-                    swipes.swipe_left = FragmentAccount.SWIPE_ACTION_DELETE;
+                swipes.swipe_left = FragmentAccount.SWIPE_ACTION_DELETE;
             }
 
             Long action = (dX > 0 ? swipes.swipe_right : swipes.swipe_left);
@@ -1791,12 +1783,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             if (message.accountProtocol != EntityAccount.TYPE_IMAP) {
                 if (direction == ItemTouchHelper.LEFT) {
-                    if (swipes.leave_deleted)
-                        onActionHide(message);
-                    else {
-                        adapter.notifyItemChanged(pos);
-                        onSwipeDelete(message);
-                    }
+                    adapter.notifyItemChanged(pos);
+                    onSwipeDelete(message);
                 } else
                     onActionSeenSelection(!message.ui_seen, message.id);
                 return;
@@ -4174,7 +4162,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     }
 
                     return new Boolean[]{
-                            trash == null,
+                            trash == null || account.protocol == EntityAccount.TYPE_POP,
                             trashable,
                             snoozable,
                             archivable && archive != null};

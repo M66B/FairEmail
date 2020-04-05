@@ -1548,11 +1548,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     boolean move = !(message.folderReadOnly || message.uid == null);
                     boolean archive = (move && (hasArchive && !inArchive));
-                    boolean trash = (move || outbox || debug);
+                    boolean trash = (move || outbox || debug ||
+                            message.accountProtocol == EntityAccount.TYPE_POP);
                     boolean junk = (move && (hasJunk && !inJunk));
                     boolean unjunk = (move && inJunk);
 
-                    final boolean delete = (inTrash || !hasTrash || outbox || message.uid == null);
+                    final boolean delete = (inTrash || !hasTrash || outbox ||
+                            message.uid == null || message.accountProtocol == EntityAccount.TYPE_POP);
 
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                     boolean button_archive_trash = prefs.getBoolean("button_archive_trash", true);

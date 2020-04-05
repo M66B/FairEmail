@@ -1050,15 +1050,53 @@ class Core {
                 try {
                     ifolder.close(true);
                     ifolder.open(Folder.READ_WRITE);
+                    db.message().deleteMessage(folder.id, message.id);
                 } catch (Throwable ex) {
                     Log.e(ex);
                     state.error(new FolderClosedException(ifolder, "POP"));
                 }
             else
                 db.message().deleteMessage(folder.id, message.id);
+        } else {
+            if (!EntityFolder.INBOX.equals(folder.type))
+                db.message().deleteMessage(folder.id, message.id);
+        }
 
-        } else
-            db.message().deleteMessage(folder.id, message.id);
+        if (!EntityFolder.TRASH.equals(folder.type)) {
+            EntityFolder trash = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
+            if (trash == null) {
+                trash = new EntityFolder();
+                trash.account = account.id;
+                trash.name = context.getString(R.string.title_folder_trash);
+                trash.type = EntityFolder.TRASH;
+                trash.synchronize = false;
+                trash.unified = false;
+                trash.notify = false;
+                trash.sync_days = Integer.MAX_VALUE;
+                trash.keep_days = Integer.MAX_VALUE;
+                trash.initialize = 0;
+                trash.id = db.folder().insertFolder(trash);
+            }
+
+            long id = message.id;
+
+            message.id = null;
+            message.folder = trash.id;
+            message.msgid = null;
+            message.ui_hide = false;
+            message.ui_seen = true;
+            message.id = db.message().insertMessage(message);
+
+            try {
+                File source = EntityMessage.getFile(context, id);
+                File target = message.getFile(context);
+                Helper.copy(source, target);
+            } catch (IOException ex) {
+                Log.e(ex);
+            }
+
+            EntityAttachment.copy(context, id, message.id);
+        }
     }
 
     private static void onHeaders(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException {
