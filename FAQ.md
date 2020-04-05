@@ -2830,6 +2830,10 @@ The F-Droid build is supported, but any other unofficial build is not supported.
 F-Droid builds irregularly, which can be problematic when there is an important update.
 Therefore you are advised to switch to the GitHub release.
 
+The F-Droid version is built from the same source code, but signed differently.
+This means that all features are available in the F-Droid version too,
+except for using the Gmail quick setup wizard because Google approved (and allows) one signature only.
+
 Note that you'll need to uninstall the F-Droid build first before you can install a GitHub release
 because Android refuses to install the same app with a different signature for security reasons.
 
