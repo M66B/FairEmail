@@ -410,6 +410,8 @@ public class ServiceSend extends ServiceBase {
                 message.cc = helper.getCc();
                 message.bcc = helper.getBcc();
                 message.reply = helper.getReply();
+                message.encrypt = parts.getEncryption();
+                message.ui_encrypt = message.encrypt;
                 message.received = new Date().getTime();
                 message.seen = true;
                 message.ui_seen = true;
