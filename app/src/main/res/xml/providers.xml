@@ -40,7 +40,7 @@
             clientSecret="MZaRn@liyA0T98GwdRDK:m-cSWrUgA9:"
             enabled="false"
             redirectUri="https://oauth.faircode.eu/"
-            scopes="openid,offline_access,profile,email,User.Read,IMAP.AccessAsUser.All"
+            scopes="openid,offline_access,profile,email,User.Read,IMAP.AccessAsUser.All,Mail.ReadWrite,Mail.Send"
             tokenEndpoint="https://login.microsoftonline.com/common/oauth2/v2.0/token" />
     </provider>
     <!-- needs subscription -->
