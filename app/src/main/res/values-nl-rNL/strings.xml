@@ -380,8 +380,8 @@
     <string name="title_advanced_crash_reports">Foutrapporten verzenden</string>
     <string name="title_advanced_debug">Foutopsporing modus</string>
     <string name="title_advanced_cleanup">Opruimen</string>
-    <string name="title_advanced_more">Meer opties</string>
     <string name="title_advanced_last_cleanup">Laatste schoonmaak: %1$s</string>
+    <string name="title_advanced_more">Meer opties</string>
     <string name="title_advanced_enabled_hint">Globaal in- of uitschakelen van het ontvangen van berichten</string>
     <string name="title_advanced_manual_hint">Als synchronisatie uitgeschakeld is, is het nog steeds mogelijk om handmatig te synchroniseren door het omlaag trekken van de berichtenlijst.</string>
     <string name="title_advanced_poll_hint">Periodiek synchroniseren zal elke keer lokale en externe berichten vergelijken, wat een dure operatie is en kan resulteren in extra batterijgebruik, vooral wanneer er veel berichten zijn om te synchroniseren. Altijd synchroniseren vermijdt dit door voortdurend veranderingen te monitoren.</string>

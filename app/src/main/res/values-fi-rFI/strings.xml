@@ -379,8 +379,8 @@
     <string name="title_advanced_crash_reports">Lähetä virheraportit</string>
     <string name="title_advanced_debug">Debug-tila</string>
     <string name="title_advanced_cleanup">Siistiminen</string>
-    <string name="title_advanced_more">Lisää asetuksia</string>
     <string name="title_advanced_last_cleanup">Viimeisin puhdistus: %1$s</string>
+    <string name="title_advanced_more">Lisää asetuksia</string>
     <string name="title_advanced_enabled_hint">Estä tai salli viestien vastaanotto globaalisti</string>
     <string name="title_advanced_manual_hint">Jos automaattinen synkronointi on pois käytöstä, synkronoinnin voi tehdä manuaalisesti vetämällä alaspäin viestilistassa.</string>
     <string name="title_advanced_poll_hint">Ajoittainen synkronointi vertaa paikallisia ja palvelimen viestejä joka kerta ja voi aiheuttaa ylimääräistä akun käyttöä varsinkin, kun synkronoitavia viestejä on paljon. Koko ajan synkronointi välttää tämän synkronoimalla jatkuvasti vain muutokset.</string>

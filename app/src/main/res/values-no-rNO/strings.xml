@@ -376,8 +376,8 @@
     <string name="title_advanced_crash_reports">Send feilrapporter</string>
     <string name="title_advanced_debug">Feilsøkingsmodus</string>
     <string name="title_advanced_cleanup">Rydd opp</string>
-    <string name="title_advanced_more">Flere valg</string>
     <string name="title_advanced_last_cleanup">Siste opprydding: %1$s</string>
+    <string name="title_advanced_more">Flere valg</string>
     <string name="title_advanced_enabled_hint">Globalt deaktivere eller aktivere mottak av meldinger</string>
     <string name="title_advanced_manual_hint">Hvis synkronisering er deaktivert, er det fortsatt mulig å synkronisere manuelt ved å trekke ned meldingslisten.</string>
     <string name="title_advanced_poll_hint">Synkronisering med jevne mellomrom vil sammenligne lokale og eksterne meldinger hver gang, noe som er en kostbar operasjon som muligens resulterer i ekstra batteribruk, spesielt når det er mange meldinger å synkronisere. Alltid synkronisering vil unngå dette ved kontinuerlig overvåking for endringer.</string>

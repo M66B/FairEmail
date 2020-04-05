@@ -381,8 +381,8 @@
     <string name="title_advanced_crash_reports">Send fejlrapporter</string>
     <string name="title_advanced_debug">Fejlretningstilstand</string>
     <string name="title_advanced_cleanup">Oprydning</string>
-    <string name="title_advanced_more">Flere valgmuligheder</string>
     <string name="title_advanced_last_cleanup">Sidste oprydning: %1$s</string>
+    <string name="title_advanced_more">Flere valgmuligheder</string>
     <string name="title_advanced_enabled_hint">Deaktivér/aktivér global modtagelse af beskeder</string>
     <string name="title_advanced_manual_hint">Er synkronisering deaktiveret, er det stadig muligt at synkronisere manuelt ved at trække beskedlisten ned.</string>
     <string name="title_advanced_poll_hint">Periodisk synkronisering vil hver gang sammenligne lokale og fjernplacerede beskeder, hvilket koster en del resssourcer, herunder et muligt ekstra strømforbrug, især hvis der er mange beskeder at synkronisere. Kontinuerlig synkronisering undgår dette ved løbende kun at tjekke for ændringer.</string>

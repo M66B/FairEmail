@@ -401,8 +401,8 @@
     <string name="title_advanced_crash_reports">Wyślij raport o błędach</string>
     <string name="title_advanced_debug">Debuguj</string>
     <string name="title_advanced_cleanup">Oczyszczanie</string>
-    <string name="title_advanced_more">Więcej opcji</string>
     <string name="title_advanced_last_cleanup">Ostatnie czyszczenie: %1$s</string>
+    <string name="title_advanced_more">Więcej opcji</string>
     <string name="title_advanced_enabled_hint">Globalnie wyłącz lub włącz odbieranie wiadomości</string>
     <string name="title_advanced_manual_hint">Jeśli synchronizacja jest wyłączona, nadal można synchronizować ręcznie, przeciągając listę wiadomości.</string>
     <string name="title_advanced_poll_hint">Synchronizacja okresowa za każdym razem porównuje wiadomości lokalne i zdalne, co jest kosztowną operacją, która może prowadzić do dodatkowego zużycia baterii, zwłaszcza gdy jest wiele wiadomości do synchronizacji. Synchronizacja ciągła pozwoli uniknąć tego poprzez stałe monitorowanie tylko zmian.</string>

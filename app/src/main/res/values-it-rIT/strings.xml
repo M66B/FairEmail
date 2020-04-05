@@ -381,8 +381,8 @@
     <string name="title_advanced_crash_reports">Invia rapporti di errore</string>
     <string name="title_advanced_debug">Modalità debug</string>
     <string name="title_advanced_cleanup">Pulizia</string>
-    <string name="title_advanced_more">Altre opzioni</string>
     <string name="title_advanced_last_cleanup">Ultima pulizia: %1$s</string>
+    <string name="title_advanced_more">Altre opzioni</string>
     <string name="title_advanced_enabled_hint">Attiva o disattiva a livello globale la ricezione dei messaggi</string>
     <string name="title_advanced_manual_hint">Se la sincronizzazione è disabilitata, è ancora possibile sincronizzare manualmente tirando verso il basso l\'elenco dei messaggi.</string>
     <string name="title_advanced_poll_hint">La sincronizzazione periodica compara i messaggi locali e remoti ogni volta, il che è un\'operazione costosa che potrebbe comportare un utilizzo aggiuntivo di batteria, specialmente quando ci sono molti messaggi da sincronizzare. La sincronizzazione sempre eviterà questo tramite un monitoraggio continuo solo per le modifiche.</string>

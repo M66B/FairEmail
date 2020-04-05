@@ -369,8 +369,8 @@
     <string name="title_advanced_crash_reports">发送错误报告</string>
     <string name="title_advanced_debug">调试模式</string>
     <string name="title_advanced_cleanup">清理</string>
-    <string name="title_advanced_more">更多选项</string>
     <string name="title_advanced_last_cleanup">上次清理: %1$s</string>
+    <string name="title_advanced_more">更多选项</string>
     <string name="title_advanced_enabled_hint">全局禁用或启用邮件接收</string>
     <string name="title_advanced_manual_hint">即便禁用同步，仍然可以通过下拉消息列表手动同步。</string>
     <string name="title_advanced_poll_hint">定期同步将每次都比较本地和远程消息，这是有代价的操作(更耗电)，特别是在要同步的消息很多时。而始终同步可通过持续监视变化以避免发生上述情形</string>

@@ -368,8 +368,8 @@
     <string name="title_advanced_crash_reports">Pošalji izvješća o pogrešci</string>
     <string name="title_advanced_debug">Modus za lakše pronalaženje pogrešaka (debug)</string>
     <string name="title_advanced_cleanup">Čišćenje</string>
-    <string name="title_advanced_more">Više opcija</string>
     <string name="title_advanced_last_cleanup">Posljednje čišćenje: %1$s</string>
+    <string name="title_advanced_more">Više opcija</string>
     <string name="title_advanced_enabled_hint">Globalno onemogućiti ili omogućiti primanje poruka</string>
     <string name="title_advanced_manual_hint">Ako je sinkronizacija onemogućena, i dalje je moguće ručno sinkronizirati povlačenjem popisa poruka.</string>
     <string name="title_advanced_poll_hint">Periodično sinkroniziranje će svaki put usporediti lokalne i udaljene poruke, što je skupa operacija koja može rezultirati dodatnom potrošnjom baterije, pogotovo ako postoji puno poruka za sinkronizaciju. Uvijek sinkroniziranje će ovo izbjeći neprekidnim nadgledanjem isključivo promjena.</string>

@@ -380,8 +380,8 @@
     <string name="title_advanced_crash_reports">Skicka felrapporter</string>
     <string name="title_advanced_debug">Felsökningsläge</string>
     <string name="title_advanced_cleanup">Rensa</string>
-    <string name="title_advanced_more">Fler alternativ</string>
     <string name="title_advanced_last_cleanup">Senaste rensning: %1$s</string>
+    <string name="title_advanced_more">Fler alternativ</string>
     <string name="title_advanced_enabled_hint">Globalt inaktivera eller aktivera mottagning av meddelanden</string>
     <string name="title_advanced_manual_hint">Om synkroniseringen är inaktiverad är det fortfarande möjligt att synkronisera manuellt genom att dra ner meddelandelistan.</string>
     <string name="title_advanced_poll_hint">Synkronisering med jämna mellanrum kommer att jämföra lokala och fjärrmeddelanden varje gång, vilket är en dyr operation som eventuellt resulterar i extra batterianvändning, speciellt när det finns många meddelanden att synkronisera. Kontinuerlig synkronisering kommer att undvika detta genom kontinuerlig övervakning endast för ändringar.</string>

@@ -382,8 +382,8 @@
     <string name="title_advanced_crash_reports">Enviar informes de errores</string>
     <string name="title_advanced_debug">Modo de depuración</string>
     <string name="title_advanced_cleanup">Limpieza</string>
-    <string name="title_advanced_more">Más opciones</string>
     <string name="title_advanced_last_cleanup">Última limpieza: %1$s</string>
+    <string name="title_advanced_more">Más opciones</string>
     <string name="title_advanced_enabled_hint">Desactivar o activar globalmente la recepción de mensajes</string>
     <string name="title_advanced_manual_hint">Si la sincronización está desactivasa, todavía es posible sincronizar manualmente tirando hacía bajando la lista de mensajes.</string>
     <string name="title_advanced_poll_hint">Sincronizar periódicamente comparará mensajes locales y remotos cada vez, lo que es una operación costosa posiblemente resultante en un uso extra de la batería, especialmente cuando hay muchos mensajes para sincronizar. Siempre sincronizar evitará esto mediante un seguimiento continuo de los cambios solamente.</string>
