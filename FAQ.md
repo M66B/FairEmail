@@ -267,6 +267,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(147) What should I know about third party versions?](#user-content-faq147)
 * [(148) How can I use an Apple iCloud account?](#user-content-faq148)
 * [(149) How does the unread message count widget work?](#user-content-faq149)
+* [(150) Can you add cancelling calendar invites?](#user-content-faq150)
 
 [I have another question.](#user-content-support)
 
@@ -2861,6 +2862,20 @@ Tapping on the notification will synchronize all folders for which synchronizati
 * the start screen when all accounts were selected
 * a folder list when a specific account was selected and when new message notifications are enabled for multiple folders
 * a list of messages when a specific account was selected and when new message notifications are enabled for one folder
+
+<br />
+
+<a name="faq150"></a>
+**(150) Can you add cancelling calendar invites?**
+
+Cancelling calendar invites (removing calendar events) requires write calendar permission,
+which will result in effectively granting permission to read and write *all* calendar events of *all* calendars.
+
+Given the goal of FairEmail, privacy and security, and given that it is easy to remove a calendar event manually,
+it is not a good idea to request this permission for just this reason.
+
+Inserting new calendar events can be done without permissions with special [intents](https://developer.android.com/guide/topics/providers/calendar-provider.html#intents).
+Unfortunately, there exists no intent to delete existing calendar events.
 
 <br />
 
