@@ -422,6 +422,9 @@ public class FragmentPop extends FragmentBase {
                         inbox.keep_days = Integer.MAX_VALUE;
                         inbox.initialize = 0;
                         inbox.id = db.folder().insertFolder(inbox);
+
+                        if (account.synchronize)
+                            EntityOperation.sync(context, inbox.id, false);
                     }
 
                     EntityFolder drafts = db.folder().getFolderByType(account.id, EntityFolder.DRAFTS);
@@ -474,7 +477,7 @@ public class FragmentPop extends FragmentBase {
                     db.endTransaction();
                 }
 
-                ServiceSynchronize.eval(context, "save account");
+                ServiceSynchronize.eval(context, "POP3");
 
                 if (!synchronize) {
                     NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
