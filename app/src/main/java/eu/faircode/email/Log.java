@@ -105,11 +105,16 @@ import javax.net.ssl.SSLHandshakeException;
 import javax.net.ssl.SSLPeerUnverifiedException;
 
 public class Log {
+    private static boolean debug = false;
     private static final int MAX_CRASH_REPORTS = 5;
     private static final String TAG = "fairemail";
 
+    public static void setDebug(boolean value) {
+        debug = value;
+    }
+
     public static int d(String msg) {
-        if (BuildConfig.DEBUG && false)
+        if (debug)
             return android.util.Log.d(TAG, msg);
         else
             return 0;
@@ -206,7 +211,14 @@ public class Log {
         }
     }
 
-    static void setupBugsnag(Context context) {
+    static void setup(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        debug = prefs.getBoolean("debug", false);
+
+        setupBugsnag(context);
+    }
+
+    private static void setupBugsnag(Context context) {
         // https://docs.bugsnag.com/platforms/android/sdk/
         com.bugsnag.android.Configuration config =
                 new com.bugsnag.android.Configuration("9d2d57476a0614974449a3ec33f2604a");

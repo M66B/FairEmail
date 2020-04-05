@@ -101,7 +101,7 @@ public class ApplicationEx extends Application {
             }
         });
 
-        Log.setupBugsnag(this);
+        Log.setup(this);
 
         upgrade(this);
 
