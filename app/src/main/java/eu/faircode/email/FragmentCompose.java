@@ -635,7 +635,7 @@ public class FragmentCompose extends FragmentBase {
                         onActionDiscard();
                         break;
                     case R.id.action_send:
-                        onActionCheck();
+                        onAction(R.id.action_check, "check");
                         break;
                     default:
                         onAction(action, "navigation");
@@ -1513,15 +1513,6 @@ public class FragmentCompose extends FragmentBase {
             fragment.setTargetFragment(this, REQUEST_DISCARD);
             fragment.show(getParentFragmentManager(), "compose:discard");
         }
-    }
-
-    private void onActionCheck() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        boolean send_dialog = prefs.getBoolean("send_dialog", true);
-
-        Bundle extras = new Bundle();
-        extras.putBoolean("dialog", send_dialog);
-        onAction(R.id.action_check, extras, "check");
     }
 
     private void onEncrypt(final EntityMessage draft, final int action, final boolean interactive) {
@@ -4218,20 +4209,21 @@ public class FragmentCompose extends FragmentBase {
                 // Do nothing
 
             } else if (action == R.id.action_check) {
-                boolean dialog = args.getBundle("extras").getBoolean("dialog");
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                boolean send_dialog = prefs.getBoolean("send_dialog", true);
+                boolean send_reminders = prefs.getBoolean("send_reminders", true);
+
                 boolean remind_to = args.getBoolean("remind_to", false);
                 boolean remind_extra = args.getBoolean("remind_extra", false);
                 boolean remind_subject = args.getBoolean("remind_subject", false);
                 boolean remind_pgp = args.getBoolean("remind_pgp", false);
                 boolean remind_text = args.getBoolean("remind_text", false);
                 boolean remind_attachment = args.getBoolean("remind_attachment", false);
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                boolean send_reminders = prefs.getBoolean("send_reminders", true);
 
                 int recipients = (draft.to == null ? 0 : draft.to.length) +
                         (draft.cc == null ? 0 : draft.cc.length) +
                         (draft.bcc == null ? 0 : draft.bcc.length);
-                if (dialog || (send_reminders &&
+                if (send_dialog || (send_reminders &&
                         (remind_to || remind_extra || remind_subject || remind_pgp || remind_text || remind_attachment ||
                                 recipients > RECIPIENTS_WARNING))) {
                     setBusy(false);
