@@ -1783,8 +1783,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                     // Init service
                     int accounts = db.account().getSynchronizingAccounts().size();
-                    if (accounts > 0)
-                        eval(context, "boot");
+                    if (accounts > 0) {
+                        // Reload: watchdog or user might have started service already
+                        reload(context, null, false, "boot");
+                    }
                 } catch (Throwable ex) {
                     Log.e(ex);
                 }
