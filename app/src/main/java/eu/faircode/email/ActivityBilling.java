@@ -29,6 +29,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
+import android.text.TextUtils;
 import android.util.Base64;
 import android.widget.Toast;
 
@@ -77,6 +78,7 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
 
     static final String ACTION_PURCHASE = BuildConfig.APPLICATION_ID + ".ACTION_PURCHASE";
     static final String ACTION_PURCHASE_CHECK = BuildConfig.APPLICATION_ID + ".ACTION_PURCHASE_CHECK";
+    static final String ACTION_PURCHASE_ERROR = BuildConfig.APPLICATION_ID + ".ACTION_PURCHASE_ERROR";
 
     private final static long MAX_SKU_CACHE_DURATION = 24 * 3600 * 1000L; // milliseconds
     private final static long MAX_SKU_NOACK_DURATION = 24 * 3600 * 1000L; // milliseconds
@@ -126,6 +128,7 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
         IntentFilter iff = new IntentFilter();
         iff.addAction(ACTION_PURCHASE);
         iff.addAction(ACTION_PURCHASE_CHECK);
+        iff.addAction(ACTION_PURCHASE_ERROR);
         lbm.registerReceiver(receiver, iff);
 
         if (billingClient != null && billingClient.isReady())
@@ -202,6 +205,8 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
                     onPurchase(intent);
                 else if (ACTION_PURCHASE_CHECK.equals(intent.getAction()))
                     onPurchaseCheck(intent);
+                else if (ACTION_PURCHASE_ERROR.equals(intent.getAction()))
+                    onPurchaseError(intent);
             }
         }
     };
@@ -241,6 +246,14 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
                     reportError(result, "IAB history");
             }
         });
+    }
+
+    private void onPurchaseError(Intent intent) {
+        String message = intent.getStringExtra("message");
+        Uri uri = Uri.parse(Helper.SUPPORT_URI);
+        if (!TextUtils.isEmpty(message))
+            uri = uri.buildUpon().appendQueryParameter("message", "IAB: " + message).build();
+        Helper.view(this, uri, true);
     }
 
     private BillingClientStateListener billingClientStateListener = new BillingClientStateListener() {

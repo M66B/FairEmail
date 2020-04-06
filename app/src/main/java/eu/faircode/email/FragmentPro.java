@@ -167,16 +167,21 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
             }
 
             @Override
-            public void onError(String message) {
-                final Intent support = new Intent(Intent.ACTION_VIEW, Uri.parse(Helper.SUPPORT_URI));
-                Snackbar snackbar = Snackbar.make(getView(), message, Snackbar.LENGTH_INDEFINITE);
-                if (support.resolveActivity(getContext().getPackageManager()) != null)
-                    snackbar.setAction(R.string.title_setup_help, new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            startActivity(support);
-                        }
-                    });
+            public void onError(final String message) {
+                final View view = getView();
+                if (view == null)
+                    return;
+
+                Snackbar snackbar = Snackbar.make(view, message, Snackbar.LENGTH_INDEFINITE);
+                snackbar.setAction(R.string.title_setup_help, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(view.getContext());
+                        lbm.sendBroadcast(
+                                new Intent(ActivityBilling.ACTION_PURCHASE_ERROR)
+                                        .putExtra("message", message));
+                    }
+                });
                 snackbar.show();
             }
         });
