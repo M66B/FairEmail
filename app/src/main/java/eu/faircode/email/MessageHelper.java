@@ -1874,9 +1874,10 @@ public class MessageHelper {
                 ContentType contentType;
                 try {
                     String c = part.getContentType();
-                    contentType = new ContentType(c == null ? "" : c);
+                    contentType = new ContentType(
+                            TextUtils.isEmpty(c) ? "application/octet-stream" : c);
                 } catch (ParseException ex) {
-                    Log.w(ex);
+                    Log.e(ex);
                     parts.warnings.add(Log.formatThrowable(ex, false));
 
                     if (part instanceof MimeMessage)
