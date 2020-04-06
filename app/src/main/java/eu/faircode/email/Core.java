@@ -212,7 +212,8 @@ class Core {
                                 case EntityOperation.MOVE:
                                     if (group &&
                                             message.uid != null &&
-                                            EntityOperation.MOVE.equals(next.name)) {
+                                            EntityOperation.MOVE.equals(next.name) &&
+                                            account.protocol == EntityAccount.TYPE_IMAP) {
                                         JSONArray jnext = new JSONArray(next.args);
                                         // Same target
                                         if (jargs.getLong(0) == jnext.getLong(0)) {
@@ -285,6 +286,10 @@ class Core {
                                 case EntityOperation.ADD:
                                 case EntityOperation.EXISTS:
                                     // Do nothing
+                                    break;
+
+                                case EntityOperation.MOVE:
+                                    onMove(context, jargs, folder, message);
                                     break;
 
                                 case EntityOperation.DELETE:
@@ -871,7 +876,6 @@ class Core {
             ifolder.expunge();
         }
 
-
         // Fetch appended/copied when needed
         boolean fetch = !"connected".equals(target.state);
         if (draft || fetch)
@@ -927,6 +931,34 @@ class Core {
                         Log.i("Deleted contact email=" + email + " count=" + count);
                     }
             }
+    }
+
+    private static void onMove(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message) throws JSONException, FolderNotFoundException {
+        // Move message
+        DB db = DB.getInstance(context);
+
+        // Get arguments
+        long id = jargs.getLong(0);
+        boolean seen = jargs.optBoolean(1);
+        boolean unflag = jargs.optBoolean(3);
+
+        // Move from trash only
+        if (!EntityFolder.TRASH.equals(folder.type))
+            throw new IllegalArgumentException("Invalid POP3 folder type=" + folder.type);
+
+        // Get target folder
+        EntityFolder target = db.folder().getFolder(id);
+        if (target == null)
+            throw new FolderNotFoundException();
+
+        message.folder = target.id;
+        if (seen)
+            message.ui_seen = seen;
+        if (unflag)
+            message.ui_flagged = false;
+        message.ui_hide = false;
+
+        db.message().updateMessage(message);
     }
 
     private static void onFetch(Context context, JSONArray jargs, EntityFolder folder, IMAPStore istore, IMAPFolder ifolder, State state) throws JSONException, MessagingException, IOException {
@@ -1082,7 +1114,7 @@ class Core {
 
             message.id = null;
             message.folder = trash.id;
-            message.msgid = null;
+            message.msgid = null; // virtual message
             message.ui_hide = false;
             message.ui_seen = true;
             message.id = db.message().insertMessage(message);
