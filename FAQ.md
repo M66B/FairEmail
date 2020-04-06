@@ -260,7 +260,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(140) Why does the message text contain strange characters?](#user-content-faq140)
 * [(141) How can I fix 'A drafts folder is required to send messages'?](#user-content-faq141)
 * [(142) How can I store sent messages in the inbox?](#user-content-faq142)
-* [(143) Can you add a trash folder for POP3 accounts?](#user-content-faq143)
+* [~~(143) Can you add a trash folder for POP3 accounts?~~](#user-content-faq143)
 * [(144) How can I record voice notes?](#user-content-faq144)
 * [(145) How can I set a notification sound for an account, folder or sender?](#user-content-faq145)
 * [(146) How can I fix incorrect message times?](#user-content-faq146)
@@ -2748,7 +2748,7 @@ If this is not an option, you can [create a rule](#user-content-faq71) to automa
 <br />
 
 <a name="faq143"></a>
-**(143) Can you add a trash folder for POP3 accounts?**
+**~~(143) Can you add a trash folder for POP3 accounts?~~**
 
 [POP3](https://en.wikipedia.org/wiki/Post_Office_Protocol) is a very limited protocol.
 Basically only messages can be downloaded and deleted from the inbox.
@@ -2758,6 +2758,9 @@ Since POP3 does not allow access to the trash folder at all, there is no way to 
 
 Note that you can hide messages and search for hidden messages, which is similar to a local trash folder,
 without suggesting that trashed messages can be restored, while this is actually not possible.
+
+Version 1.1082 added a local trash folder.
+Note that trashing a message will permanently remove it from the server and that trashed messages cannot be restored to the server anymore.
 
 <br />
 
