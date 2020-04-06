@@ -42,6 +42,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -67,6 +68,8 @@ public class FragmentGmail extends FragmentBase {
     private Button btnSupport;
 
     private Group grpError;
+
+    private static String TYPE_GOOGLE = "com.google";
 
     @Override
     @Nullable
@@ -112,7 +115,7 @@ public class FragmentGmail extends FragmentBase {
                     Intent intent = newChooseAccountIntent(
                             null,
                             null,
-                            new String[]{"com.google"},
+                            new String[]{TYPE_GOOGLE},
                             false,
                             null,
                             null,
@@ -189,14 +192,20 @@ public class FragmentGmail extends FragmentBase {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        switch (requestCode) {
-            case ActivitySetup.REQUEST_CHOOSE_ACCOUNT:
-                if (resultCode == RESULT_OK && data != null)
-                    onAccountSelected(data);
-                break;
-            case ActivitySetup.REQUEST_DONE:
-                finish();
-                break;
+        try {
+            switch (requestCode) {
+                case ActivitySetup.REQUEST_CHOOSE_ACCOUNT:
+                    if (resultCode == RESULT_OK && data != null)
+                        onAccountSelected(data);
+                    else
+                        onNoAccountSelected();
+                    break;
+                case ActivitySetup.REQUEST_DONE:
+                    finish();
+                    break;
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
         }
     }
 
@@ -226,6 +235,13 @@ public class FragmentGmail extends FragmentBase {
                 etName.requestFocus();
             }
         });
+    }
+
+    private void onNoAccountSelected() {
+        AccountManager am = AccountManager.get(getContext());
+        Account[] accounts = am.getAccountsByType(TYPE_GOOGLE);
+        if (accounts.length == 0)
+            ToastEx.makeText(getContext(), R.string.title_no_account, Toast.LENGTH_LONG).show();
     }
 
     private void onAccountSelected(Intent data) {
