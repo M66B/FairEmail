@@ -644,8 +644,6 @@ public class FragmentCompose extends FragmentBase {
             }
         });
 
-        //view.getViewTreeObserver().addOnGlobalLayoutListener(layoutListener);
-
         addKeyPressedListener(onKeyPressedListener);
 
         // Initialize
