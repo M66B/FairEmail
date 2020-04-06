@@ -1873,17 +1873,16 @@ public class MessageHelper {
 
                 ContentType contentType;
                 try {
-                    String c = part.getContentType();
-                    contentType = new ContentType(
-                            TextUtils.isEmpty(c) ? "application/octet-stream" : c);
+                    contentType = new ContentType(part.getContentType());
                 } catch (ParseException ex) {
-                    Log.e(ex);
-                    parts.warnings.add(Log.formatThrowable(ex, false));
+                    Log.w(ex);
 
                     if (part instanceof MimeMessage)
                         contentType = new ContentType("text/html");
                     else
                         contentType = new ContentType(Helper.guessMimeType(filename));
+
+                    Log.i("Content type guessed=" + contentType);
                 }
 
                 boolean plain = "text/plain".equalsIgnoreCase(contentType.getBaseType());
