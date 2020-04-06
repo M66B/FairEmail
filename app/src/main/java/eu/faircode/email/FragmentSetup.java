@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -32,7 +33,9 @@ import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.Settings;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -48,6 +51,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.Group;
+import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
@@ -279,7 +283,7 @@ public class FragmentSetup extends FragmentBase {
         btnInbox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((FragmentBase) getParentFragment()).finish();
+                onExit();
             }
         });
 
@@ -337,6 +341,20 @@ public class FragmentSetup extends FragmentBase {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, new Bundle(), "outbox:create");
+
+        addKeyPressedListener(new ActivityBase.IKeyPressedListener() {
+            @Override
+            public boolean onKeyPressed(KeyEvent event) {
+                return false;
+            }
+
+            @Override
+            public boolean onBackPressed() {
+                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                    onExit();
+                return true;
+            }
+        });
 
         return view;
     }
@@ -437,6 +455,45 @@ public class FragmentSetup extends FragmentBase {
         }
     }
 
+    private void onExit() {
+        boolean hasPermissions = hasPermission(Manifest.permission.READ_CONTACTS);
+        Boolean isIgnoring = Helper.isIgnoringOptimizations(getContext());
+        if (hasPermissions && (isIgnoring == null || isIgnoring))
+            ((FragmentBase) getParentFragment()).finish();
+        else {
+            FragmentDialogStill fragment = new FragmentDialogStill();
+            fragment.setTargetFragment(FragmentSetup.this, ActivitySetup.REQUEST_STILL);
+            fragment.show(getParentFragmentManager(), "setup:still");
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == ActivitySetup.REQUEST_STILL && resultCode != Activity.RESULT_OK)
+            ((FragmentBase) getParentFragment()).finish();
+        else {
+            boolean hasPermissions = hasPermission(Manifest.permission.READ_CONTACTS);
+            Boolean isIgnoring = Helper.isIgnoringOptimizations(getContext());
+
+            final int top;
+            if (!hasPermissions)
+                top = view.findViewById(R.id.three).getTop();
+            else if (isIgnoring != null && !isIgnoring)
+                top = view.findViewById(R.id.four).getTop();
+            else
+                top = 0;
+
+            new Handler().post(new Runnable() {
+                @Override
+                public void run() {
+                    view.scrollTo(0, top);
+                }
+            });
+        }
+    }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         for (int i = 0; i < permissions.length; i++)
@@ -470,6 +527,33 @@ public class FragmentSetup extends FragmentBase {
                             } catch (Throwable ex) {
                                 Log.e(ex);
                             }
+                        }
+                    })
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .create();
+        }
+    }
+
+    public static class FragmentDialogStill extends FragmentDialogBase {
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_setup, null);
+            Group grp3 = dview.findViewById(R.id.grp3);
+            Group grp4 = dview.findViewById(R.id.grp4);
+
+            boolean hasPermissions = Helper.hasPermission(getContext(), Manifest.permission.READ_CONTACTS);
+            Boolean isIgnoring = Helper.isIgnoringOptimizations(getContext());
+
+            grp3.setVisibility(hasPermissions ? View.GONE : View.VISIBLE);
+            grp4.setVisibility(isIgnoring == null || isIgnoring ? View.GONE : View.VISIBLE);
+
+            return new AlertDialog.Builder(getContext())
+                    .setView(dview)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            sendResult(Activity.RESULT_OK);
                         }
                     })
                     .setNegativeButton(android.R.string.cancel, null)
