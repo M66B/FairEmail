@@ -43,12 +43,6 @@ public class BehaviorBottomMargin extends CoordinatorLayout.Behavior<View> {
     }
 
     @Override
-    public boolean onLayoutChild(@NonNull CoordinatorLayout parent, @NonNull View child, int layoutDirection) {
-        setMargin(child, 0);
-        return super.onLayoutChild(parent, child, layoutDirection);
-    }
-
-    @Override
     public boolean onDependentViewChanged(@NonNull CoordinatorLayout parent, @NonNull View child, @NonNull View dependency) {
         setMargin(child, dependency.getHeight());
         return true;
