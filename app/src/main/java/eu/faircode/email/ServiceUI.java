@@ -34,6 +34,8 @@ import androidx.core.app.AlarmManagerCompat;
 import androidx.core.app.RemoteInput;
 import androidx.preference.PreferenceManager;
 
+import org.json.JSONException;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Collections;
@@ -112,7 +114,7 @@ public class ServiceUI extends IntentService {
 
                 case "junk":
                     cancel(group, id);
-                    onMove(id, EntityFolder.JUNK);
+                    onJunk(id);
                     break;
 
                 case "archive":
@@ -199,15 +201,17 @@ public class ServiceUI extends IntentService {
                 return;
 
             EntityFolder folder = db.folder().getFolderByType(message.account, folderType);
-            if (folder != null)
-                EntityOperation.queue(this, message, EntityOperation.MOVE, folder.id);
+            if (folder == null)
+                return;
+
+            EntityOperation.queue(this, message, EntityOperation.MOVE, folder.id);
 
             db.setTransactionSuccessful();
         } finally {
             db.endTransaction();
         }
 
-        ServiceSynchronize.eval(ServiceUI.this, "move");
+        ServiceSynchronize.eval(this, "ui/move:" + folderType);
     }
 
     private void onMove(long id) {
@@ -230,7 +234,38 @@ public class ServiceUI extends IntentService {
             db.endTransaction();
         }
 
-        ServiceSynchronize.eval(ServiceUI.this, "move");
+        ServiceSynchronize.eval(this, "ui/move:" + id);
+    }
+
+    private void onJunk(long id) throws JSONException {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean block_sender = prefs.getBoolean("notify_block_sender", false);
+
+        DB db = DB.getInstance(this);
+        try {
+            db.beginTransaction();
+
+            EntityMessage message = db.message().getMessage(id);
+            if (message == null)
+                return;
+
+            EntityFolder junk = db.folder().getFolderByType(message.account, EntityFolder.JUNK);
+            if (junk == null)
+                return;
+
+            EntityOperation.queue(this, message, EntityOperation.MOVE, junk.id);
+
+            if (block_sender) {
+                EntityRule rule = EntityRule.blockSender(this, message, junk, false);
+                rule.id = db.rule().insertRule(rule);
+            }
+
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
+
+        ServiceSynchronize.eval(this, "ui/junk");
     }
 
     private void onReplyDirect(long id, Intent intent) throws IOException {
@@ -297,7 +332,7 @@ public class ServiceUI extends IntentService {
             db.endTransaction();
         }
 
-        ServiceSend.start(ServiceUI.this);
+        ServiceSend.start(this);
         ToastEx.makeText(this, R.string.title_queued, Toast.LENGTH_LONG).show();
     }
 
@@ -325,7 +360,7 @@ public class ServiceUI extends IntentService {
             db.endTransaction();
         }
 
-        ServiceSynchronize.eval(ServiceUI.this, "flag");
+        ServiceSynchronize.eval(this, "ui/flag");
     }
 
     private void onSeen(long id) {
@@ -344,7 +379,7 @@ public class ServiceUI extends IntentService {
             db.endTransaction();
         }
 
-        ServiceSynchronize.eval(ServiceUI.this, "seen");
+        ServiceSynchronize.eval(this, "ui/seen");
     }
 
     private void onSnooze(long id) {
@@ -446,9 +481,9 @@ public class ServiceUI extends IntentService {
         }
 
         if (EntityFolder.OUTBOX.equals(folder.type))
-            ServiceSend.start(ServiceUI.this);
+            ServiceSend.start(this);
         else
-            ServiceSynchronize.eval(ServiceUI.this, "wakeup");
+            ServiceSynchronize.eval(this, "ui/wakeup");
     }
 
     private void onSync(long aid, boolean reschedule) {
@@ -470,7 +505,7 @@ public class ServiceUI extends IntentService {
             db.endTransaction();
         }
 
-        ServiceSynchronize.eval(this, "poll");
+        ServiceSynchronize.eval(this, "ui/poll");
 
         if (reschedule) {
             long now = new Date().getTime();

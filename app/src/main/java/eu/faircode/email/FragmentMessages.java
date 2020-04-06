@@ -142,7 +142,6 @@ import org.bouncycastle.cms.jcajce.JceKeyTransEnvelopedRecipient;
 import org.bouncycastle.cms.jcajce.JceKeyTransRecipient;
 import org.bouncycastle.util.Store;
 import org.json.JSONException;
-import org.json.JSONObject;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.openintents.openpgp.AutocryptPeerUpdate;
@@ -5997,36 +5996,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                     if ((block_sender || block_domain) &&
                             (message.from != null && message.from.length > 0)) {
-                        String sender = ((InternetAddress) message.from[0]).getAddress();
-                        String name = MessageHelper.formatAddresses(new Address[]{message.from[0]});
-
-                        if (block_domain) {
-                            int at = sender.indexOf('@');
-                            if (at > 0)
-                                sender = sender.substring(at);
-                        }
-
-                        JSONObject jsender = new JSONObject();
-                        jsender.put("value", sender);
-                        jsender.put("regex", false);
-
-                        JSONObject jcondition = new JSONObject();
-                        jcondition.put("sender", jsender);
-
-                        JSONObject jaction = new JSONObject();
-                        jaction.put("type", EntityRule.TYPE_MOVE);
-                        jaction.put("target", junk.id);
-
-                        EntityRule rule = new EntityRule();
-                        rule.folder = message.folder;
-                        rule.name = context.getString(R.string.title_block, name);
-                        rule.order = 1000;
-                        rule.enabled = true;
-                        rule.stop = true;
-                        rule.condition = jcondition.toString();
-                        rule.action = jaction.toString();
+                        EntityRule rule = EntityRule.blockSender(context, message, junk, block_sender);
                         rule.id = db.rule().insertRule(rule);
                     }
+
 
                     db.setTransactionSuccessful();
                 } finally {

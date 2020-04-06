@@ -540,6 +540,41 @@ public class EntityRule {
         return cal;
     }
 
+    static EntityRule blockSender(Context context, EntityMessage message, EntityFolder junk, boolean block_domain) throws JSONException {
+        String sender = ((InternetAddress) message.from[0]).getAddress();
+        String name = MessageHelper.formatAddresses(new Address[]{message.from[0]});
+
+        if (block_domain) {
+            int at = sender.indexOf('@');
+            if (at > 0)
+                sender = sender.substring(at);
+        }
+
+        JSONObject jsender = new JSONObject();
+        jsender.put("value", sender);
+        jsender.put("regex", false);
+
+        JSONObject jcondition = new JSONObject();
+        jcondition.put("sender", jsender);
+
+        JSONObject jaction = new JSONObject();
+        jaction.put("type", EntityRule.TYPE_MOVE);
+        jaction.put("target", junk.id);
+
+        DB db = DB.getInstance(context);
+
+        EntityRule rule = new EntityRule();
+        rule.folder = message.folder;
+        rule.name = context.getString(R.string.title_block, name);
+        rule.order = 1000;
+        rule.enabled = true;
+        rule.stop = true;
+        rule.condition = jcondition.toString();
+        rule.action = jaction.toString();
+
+        return rule;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof EntityRule) {

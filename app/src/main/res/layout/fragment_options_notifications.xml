@@ -126,13 +126,23 @@
             app:layout_constraintTop_toBottomOf="@id/cbNotifyActionTrash" />
 
         <CheckBox
+            android:id="@+id/cbNotifyActionBlockSender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="6dp"
+            android:text="@string/title_block_sender"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbNotifyActionJunk" />
+
+        <CheckBox
             android:id="@+id/cbNotifyActionArchive"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:text="@string/title_advanced_notify_action_archive"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbNotifyActionJunk" />
+            app:layout_constraintTop_toBottomOf="@id/cbNotifyActionBlockSender" />
 
         <CheckBox
             android:id="@+id/cbNotifyActionMove"
