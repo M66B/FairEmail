@@ -1585,6 +1585,7 @@ class Core {
                     message.uid = null;
 
                     message.msgid = helper.getMessageID();
+                    message.hash = helper.getHash();
                     message.references = TextUtils.join(" ", helper.getReferences());
                     message.inreplyto = helper.getInReplyTo();
                     message.deliveredto = helper.getDeliveredTo();
