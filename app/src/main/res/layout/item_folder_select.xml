@@ -35,7 +35,9 @@
         <ImageView
             android:id="@+id/ivType"
             android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_height="36dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
             app:layout_constraintBottom_toBottomOf="@id/ibExpander"
             app:layout_constraintStart_toEndOf="@id/ibExpander"
             app:layout_constraintTop_toTopOf="@id/ibExpander"
