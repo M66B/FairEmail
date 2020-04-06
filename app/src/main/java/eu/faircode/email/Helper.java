@@ -856,6 +856,19 @@ public class Helper {
         return true;
     }
 
+    static boolean isISO8859(String text) {
+        // https://en.wikipedia.org/wiki/ISO/IEC_8859-1
+        byte[] octets = text.getBytes(StandardCharsets.ISO_8859_1);
+        for (byte b : octets) {
+            int c = b & 0xFF;
+            if (c < 32)
+                return false;
+            if (c >= 127 && c < 160)
+                return false;
+        }
+        return true;
+    }
+
     // Files
 
     static String sanitizeFilename(String name) {

@@ -995,15 +995,29 @@ public class MessageHelper {
         return null;
     }
 
+    private String fixEncoding(String name, String header) {
+        if (header.trim().startsWith("=?"))
+            return header;
+
+        if (Helper.isUTF8(header)) {
+            if (!Helper.isISO8859(header)) {
+                Log.w("Converting " + name + " to UTF-8");
+                return new String(header.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
+            }
+        } else {
+            Log.w("Converting " + name + " to ISO8859-1");
+            return new String(header.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.ISO_8859_1);
+        }
+
+        return header;
+    }
+
     private Address[] getAddressHeader(String name) throws MessagingException {
         String header = imessage.getHeader(name, ",");
         if (header == null)
             return null;
 
-        if (!Helper.isUTF8(header)) {
-            Log.w("Converting header '" + name + "' to ISO8859-1");
-            header = new String(header.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.ISO_8859_1);
-        }
+        header = fixEncoding(name, header);
         Address[] addresses = InternetAddress.parseHeader(header, false);
 
         for (Address address : addresses) {
@@ -1144,10 +1158,7 @@ public class MessageHelper {
         if (subject == null)
             return null;
 
-        if (!Helper.isUTF8(subject)) {
-            Log.w("Converting subject to ISO8859-1");
-            subject = new String(subject.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.ISO_8859_1);
-        }
+        subject = fixEncoding("subject", subject);
         subject = subject.replaceAll("\\?=\\r?\\n\\s+=\\?", "\\?==\\?");
         subject = MimeUtility.unfold(subject);
         subject = decodeMime(subject);
