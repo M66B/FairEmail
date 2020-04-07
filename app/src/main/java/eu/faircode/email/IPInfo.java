@@ -23,24 +23,24 @@ import android.content.Context;
 import android.net.MailTo;
 import android.net.ParseException;
 import android.net.Uri;
+import android.util.Pair;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.InetAddress;
 import java.net.URL;
 import java.net.UnknownHostException;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.net.ssl.HttpsURLConnection;
 
 public class IPInfo {
-    private static Map<InetAddress, String> hostOrganization = new HashMap<>();
+    private static Map<InetAddress, Organization> addressOrganization = new HashMap<>();
 
     private final static int FETCH_TIMEOUT = 15 * 1000; // milliseconds
 
-    static String[] getOrganization(Uri uri, Context context) throws IOException, ParseException {
+    static Pair<String, Organization> getOrganization(Uri uri, Context context) throws IOException, ParseException {
         if ("mailto".equals(uri.getScheme())) {
             MailTo email = MailTo.parse(uri.toString());
             String to = email.getTo();
@@ -50,35 +50,48 @@ public class IPInfo {
             InetAddress address = ConnectionHelper.lookupMx(domain, context);
             if (address == null)
                 throw new UnknownHostException();
-            return new String[]{domain, getOrganization(address)};
+            return new Pair<>(domain, getOrganization(address));
         } else {
             String host = uri.getHost();
             if (host == null)
                 throw new UnknownHostException();
             InetAddress address = InetAddress.getByName(host);
-            return new String[]{host, getOrganization(address)};
+            return new Pair<>(host, getOrganization(address));
         }
     }
 
-    private static String getOrganization(InetAddress address) throws IOException {
-        synchronized (hostOrganization) {
-            if (hostOrganization.containsKey(address))
-                return hostOrganization.get(address);
+    private static Organization getOrganization(InetAddress address) throws IOException {
+        synchronized (addressOrganization) {
+            if (addressOrganization.containsKey(address))
+                return addressOrganization.get(address);
         }
+
+        // https://ipinfo.io/developers
         URL url = new URL("https://ipinfo.io/" + address.getHostAddress() + "/org");
         Log.i("GET " + url);
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
         connection.setReadTimeout(FETCH_TIMEOUT);
         connection.connect();
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()))) {
-            String organization = reader.readLine();
-            if ("undefined".equals(organization))
-                organization = null;
-            synchronized (hostOrganization) {
-                hostOrganization.put(address, organization);
-            }
-            return organization;
+
+        Organization organization = new Organization();
+        try {
+            String response = Helper.readStream(connection.getInputStream(), StandardCharsets.UTF_8.name());
+            organization.name = response.trim();
+            if ("".equals(organization.name) || "undefined".equals(organization.name))
+                organization.name = null;
+        } finally {
+            connection.disconnect();
         }
+
+        synchronized (addressOrganization) {
+            addressOrganization.put(address, organization);
+        }
+
+        return organization;
+    }
+
+    static class Organization {
+        String name;
     }
 }

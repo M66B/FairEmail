@@ -5357,7 +5357,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     Bundle args = new Bundle();
                     args.putParcelable("uri", uri);
 
-                    new SimpleTask<String[]>() {
+                    new SimpleTask<Pair<String, IPInfo.Organization>>() {
                         @Override
                         protected void onPreExecute(Bundle args) {
                             btnOwner.setEnabled(false);
@@ -5373,17 +5373,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         }
 
                         @Override
-                        protected String[] onExecute(Context context, Bundle args) throws Throwable {
+                        protected Pair<String, IPInfo.Organization> onExecute(Context context, Bundle args) throws Throwable {
                             Uri uri = args.getParcelable("uri");
                             return IPInfo.getOrganization(uri, context);
                         }
 
                         @Override
-                        protected void onExecuted(Bundle args, String[] data) {
-                            String host = data[0];
-                            String organization = data[1];
-                            tvHost.setText(host);
-                            tvOwner.setText(organization == null ? "?" : organization);
+                        protected void onExecuted(Bundle args, Pair<String, IPInfo.Organization> data) {
+                            tvHost.setText(data.first);
+                            tvOwner.setText(data.second.name == null ? "?" : data.second.name);
                             new Handler().post(new Runnable() {
                                 @Override
                                 public void run() {
