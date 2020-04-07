@@ -1483,10 +1483,20 @@ public class MessageHelper {
                 if (part.isMimeType("text/plain")) {
                     // https://tools.ietf.org/html/rfc3676
                     if ("flowed".equalsIgnoreCase(ct.getParameter("format"))) {
+                        boolean continuation = false;
                         StringBuilder flowed = new StringBuilder();
                         for (String line : result.split("\\r?\\n")) {
+                            if (continuation)
+                                while (line.startsWith(">")) {
+                                    line = line.substring(1);
+                                    if (line.startsWith(" "))
+                                        line = line.substring(1);
+                                }
+
+                            continuation = (line.endsWith(" ") && !"-- ".equals(line));
+
                             flowed.append(line);
-                            if (!line.endsWith(" ") || "-- ".equals(line))
+                            if (!continuation)
                                 flowed.append("\r\n");
                         }
                         result = flowed.toString();
