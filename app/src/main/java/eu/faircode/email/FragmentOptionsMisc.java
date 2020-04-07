@@ -93,7 +93,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "reply_hint", "html_always_images", "print_html_confirmed",
             "selected_folders", "move_1_confirmed", "move_n_confirmed",
             "identities_asked", "cc_bcc", "inline_image_hint", "compose_reference", "send_dialog",
-            "setup_advanced"
+            "setup_reminder", "setup_advanced"
     };
 
     @Override

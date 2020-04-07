@@ -42,6 +42,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -456,9 +458,14 @@ public class FragmentSetup extends FragmentBase {
     }
 
     private void onExit() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean setup_reminder = prefs.getBoolean("setup_reminder", true);
+
         boolean hasPermissions = hasPermission(Manifest.permission.READ_CONTACTS);
         Boolean isIgnoring = Helper.isIgnoringOptimizations(getContext());
-        if (hasPermissions && (isIgnoring == null || isIgnoring))
+
+        if (!setup_reminder ||
+                (hasPermissions && (isIgnoring == null || isIgnoring)))
             ((FragmentBase) getParentFragment()).finish();
         else {
             FragmentDialogStill fragment = new FragmentDialogStill();
@@ -543,8 +550,17 @@ public class FragmentSetup extends FragmentBase {
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_setup, null);
+            CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
             Group grp3 = dview.findViewById(R.id.grp3);
             Group grp4 = dview.findViewById(R.id.grp4);
+
+            cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                    prefs.edit().putBoolean("setup_reminder", !isChecked).apply();
+                }
+            });
 
             boolean hasPermissions = Helper.hasPermission(getContext(), Manifest.permission.READ_CONTACTS);
             Boolean isIgnoring = Helper.isIgnoringOptimizations(getContext());
