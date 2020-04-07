@@ -691,9 +691,24 @@ public class FragmentCompose extends FragmentBase {
                 0);
 
         cadapter.setViewBinder(new SimpleCursorAdapter.ViewBinder() {
+            private int colName = -1;
+            private int colLocal = -1;
+
             @Override
             public boolean setViewValue(View view, Cursor cursor, int columnIndex) {
-                if (view.getId() == R.id.ivPhoto) {
+                int id = view.getId();
+                if (id == R.id.tvName) {
+                    if (colName < 0)
+                        colName = cursor.getColumnIndex("name");
+
+                    if (cursor.isNull(colName)) {
+                        ((TextView) view).setText("-");
+                        return true;
+                    }
+                } else if (id == R.id.ivPhoto) {
+                    if (colLocal < 0)
+                        colLocal = cursor.getColumnIndex("local");
+
                     ImageView photo = (ImageView) view;
 
                     GradientDrawable bg = new GradientDrawable();
@@ -704,7 +719,7 @@ public class FragmentCompose extends FragmentBase {
                     photo.setBackground(bg);
                     photo.setClipToOutline(true);
 
-                    if (cursor.getInt(cursor.getColumnIndex("local")) == 1)
+                    if (cursor.getInt(colLocal) == 1)
                         photo.setImageDrawable(null);
                     else {
                         String uri = cursor.getString(columnIndex);
@@ -720,9 +735,15 @@ public class FragmentCompose extends FragmentBase {
         });
 
         cadapter.setCursorToStringConverter(new SimpleCursorAdapter.CursorToStringConverter() {
+            private int colName = -1;
+            private int colEmail = -1;
+
             public CharSequence convertToString(Cursor cursor) {
-                int colName = cursor.getColumnIndex("name");
-                int colEmail = cursor.getColumnIndex("email");
+                if (colName < 0)
+                    colName = cursor.getColumnIndex("name");
+                if (colEmail < 0)
+                    colEmail = cursor.getColumnIndex("email");
+
                 String name = cursor.getString(colName);
                 String email = MessageHelper.sanitizeEmail(cursor.getString(colEmail));
                 StringBuilder sb = new StringBuilder();
@@ -838,7 +859,7 @@ public class FragmentCompose extends FragmentBase {
                     EntityContact item = items.get(i);
                     result.newRow()
                             .add(i + 1) // id
-                            .add(TextUtils.isEmpty(item.name) ? "-" : item.name)
+                            .add(item.name)
                             .add(item.email)
                             .add(item.avatar)
                             .add(item.id == 0 ? 0 : 1);
