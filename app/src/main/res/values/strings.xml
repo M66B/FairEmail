@@ -409,6 +409,7 @@
     <string name="title_advanced_caption_smime" translatable="false">S/MIME</string>
 
     <string name="title_advanced_confirm_links">Confirm opening links</string>
+    <string name="title_advanced_browse_links">Delegate opening links to Android</string>
     <string name="title_advanced_confirm_images">Confirm showing images</string>
     <string name="title_advanced_confirm_html">Show reformatted messages by default</string>
     <string name="title_advanced_tracking">Automatically recognize and disable tracking images</string>

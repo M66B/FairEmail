@@ -56,6 +56,7 @@ import androidx.preference.PreferenceManager;
 
 public class FragmentOptionsPrivacy extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private SwitchCompat swConfirmLinks;
+    private SwitchCompat swBrowseLinks;
     private SwitchCompat swConfirmImages;
     private SwitchCompat swConfirmHtml;
     private SwitchCompat swDisableTracking;
@@ -70,7 +71,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private Group grpSafeBrowsing;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "confirm_links", "confirm_images", "confirm_html", "disable_tracking",
+            "confirm_links", "browse_links", "confirm_images", "confirm_html", "disable_tracking",
             "biometrics", "pin", "biometrics_timeout",
             "display_hidden", "secure", "safe_browsing"
     };
@@ -87,6 +88,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         // Get controls
 
         swConfirmLinks = view.findViewById(R.id.swConfirmLinks);
+        swBrowseLinks = view.findViewById(R.id.swBrowseLinks);
         swConfirmImages = view.findViewById(R.id.swConfirmImages);
         swConfirmHtml = view.findViewById(R.id.swConfirmHtml);
         swDisableTracking = view.findViewById(R.id.swDisableTracking);
@@ -110,6 +112,14 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("confirm_links", checked).apply();
+                swBrowseLinks.setEnabled(!checked);
+            }
+        });
+
+        swBrowseLinks.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("browse_links", checked).apply();
             }
         });
 
@@ -263,6 +273,8 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         swConfirmLinks.setChecked(prefs.getBoolean("confirm_links", true));
+        swBrowseLinks.setChecked(prefs.getBoolean("browse_links", false));
+        swBrowseLinks.setEnabled(!swConfirmLinks.isChecked());
         swConfirmImages.setChecked(prefs.getBoolean("confirm_images", true));
         swConfirmHtml.setChecked(prefs.getBoolean("confirm_html", true));
         swDisableTracking.setChecked(prefs.getBoolean("disable_tracking", true));

@@ -3731,8 +3731,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     FragmentDialogLink fragment = new FragmentDialogLink();
                     fragment.setArguments(args);
                     fragment.show(parentFragment.getParentFragmentManager(), "open:link");
-                } else
-                    Helper.view(context, uri, false);
+                } else {
+                    boolean browse_links = prefs.getBoolean("browse_links", false);
+                    Helper.view(context, uri, browse_links);
+                }
             }
 
             return true;
