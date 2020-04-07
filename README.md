@@ -109,7 +109,7 @@ Please see [here](https://email.faircode.eu/#screenshots) for screenshots.
 * [Play store](https://play.google.com/store/apps/details?id=eu.faircode.email) (Android 6 and later)
 * ~~[Play store](https://play.google.com/apps/testing/eu.faircode.email) (test)~~
 * [F-Droid](https://f-droid.org/en/packages/eu.faircode.email/) ([last build status](https://f-droid.org/wiki/page/eu.faircode.email/lastbuild)) (the F-Droid app can be downloaded [here](https://f-droid.org/))
-* [AppGallery](https://wap3.hispace.hicloud.com/uowap/index.jsp#/detailApp/C101678151) (the AppGallery app can be downloaded [here](https://huaweimobileservices.com/appgallery/))
+* ~~[AppGallery](https://wap3.hispace.hicloud.com/uowap/index.jsp#/detailApp/C101678151) (the AppGallery app can be downloaded [here](https://huaweimobileservices.com/appgallery/))~~
 
 **Important**: after enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/) downloading/installing is possible from the Play store only.
 
