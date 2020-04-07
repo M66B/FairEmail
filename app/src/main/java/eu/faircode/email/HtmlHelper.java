@@ -936,6 +936,27 @@ public class HtmlHelper {
         return false;
     }
 
+    // https://tools.ietf.org/html/rfc3676
+    static String flow(String text) {
+        boolean continuation = false;
+        StringBuilder flowed = new StringBuilder();
+        for (String line : text.split("\\r?\\n")) {
+            if (continuation)
+                while (line.startsWith(">")) {
+                    line = line.substring(1);
+                    if (line.startsWith(" "))
+                        line = line.substring(1);
+                }
+
+            continuation = (line.endsWith(" ") && !"-- ".equals(line));
+
+            flowed.append(line);
+            if (!continuation)
+                flowed.append("\r\n");
+        }
+        return flowed.toString();
+    }
+
     static String formatPre(String text) {
         int level = 0;
         StringBuilder sb = new StringBuilder();
