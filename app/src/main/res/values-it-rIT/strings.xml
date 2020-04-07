@@ -350,6 +350,7 @@
     <string name="title_advanced_light">Usa il led di notifica</string>
     <string name="title_advanced_sound">Seleziona il suono di notifica</string>
     <string name="title_advanced_confirm_links">Conferma apertura link</string>
+    <string name="title_advanced_browse_links">Delega link di apertura a Android</string>
     <string name="title_advanced_confirm_images">Conferma visualizzazione immagini</string>
     <string name="title_advanced_confirm_html">Mostra i messaggi riformattati di default</string>
     <string name="title_advanced_tracking">Riconoscere e disabilitare automaticamente le immagini di tracciamento</string>

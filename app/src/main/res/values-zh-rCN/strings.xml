@@ -147,6 +147,7 @@
     <string name="title_setup_go">前往</string>
     <string name="title_setup_to_do">待办事项</string>
     <string name="title_setup_done">已完成</string>
+    <string name="title_setup_still">仍待处理</string>
     <string name="title_setup_error">出错</string>
     <string name="title_setup_export">导出设置</string>
     <string name="title_setup_import">导入设置</string>
@@ -337,6 +338,7 @@
     <string name="title_advanced_light">使用指示灯</string>
     <string name="title_advanced_sound">选择通知提示音</string>
     <string name="title_advanced_confirm_links">确认打开链接</string>
+    <string name="title_advanced_browse_links">授权打开到 Android的链接</string>
     <string name="title_advanced_confirm_images">确认显示图像</string>
     <string name="title_advanced_confirm_html">默认显示重新格式化的消息</string>
     <string name="title_advanced_tracking">自动识别并禁用跟踪图像</string>

@@ -372,6 +372,7 @@
     <string name="title_advanced_light">Использовать индикатор уведомлений</string>
     <string name="title_advanced_sound">Выбрать звук уведомления</string>
     <string name="title_advanced_confirm_links">Подтверждать открытие ссылок</string>
+    <string name="title_advanced_browse_links">Предоставить Android открывать ссылки</string>
     <string name="title_advanced_confirm_images">Подтверждать показ изображений</string>
     <string name="title_advanced_confirm_html">Показывать переформатированные сообщения по умолчанию</string>
     <string name="title_advanced_tracking">Автоматически распознавать и отключать отслеживающие изображения</string>

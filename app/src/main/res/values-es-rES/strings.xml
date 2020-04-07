@@ -351,6 +351,7 @@
     <string name="title_advanced_light">Usar luz de notificación</string>
     <string name="title_advanced_sound">Seleccionar sonido de notificación</string>
     <string name="title_advanced_confirm_links">Confirmar abrir enlaces</string>
+    <string name="title_advanced_browse_links">Delegar apertura de enlaces a Android</string>
     <string name="title_advanced_confirm_images">Confirmar mostrar imágenes</string>
     <string name="title_advanced_confirm_html">Mostrar mensajes reformateados por defecto</string>
     <string name="title_advanced_tracking">Reconocer y desactivar automáticamente imágenes de rastreo</string>
