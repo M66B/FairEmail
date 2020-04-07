@@ -181,6 +181,7 @@
     <string name="title_setup_go">Přejít</string>
     <string name="title_setup_to_do">Zbývá dokončit</string>
     <string name="title_setup_done">Hotovo</string>
+    <string name="title_setup_still">Zbývá dokončit</string>
     <string name="title_setup_error">Chyba</string>
     <string name="title_setup_export">Export nastavení</string>
     <string name="title_setup_import">Import nastavení</string>
@@ -296,6 +297,7 @@
     <string name="title_advanced_color_value">Jas</string>
     <string name="title_advanced_color_threshold">Mezní hodnota barvy písmena</string>
     <string name="title_advanced_name_email">Zobrazit jména a e-mailové adresy</string>
+    <string name="title_advanced_replace_name">Preferovat jméno kontaktu před odeslaným jménem</string>
     <string name="title_advanced_distinguish_contacts">Podtrhnout odesílatele, je-li známý jako lokální \"komu\" kontakt</string>
     <string name="title_advanced_authentication">Zobrazit upozornění, nemůže-li přijímající server zprávu ověřit</string>
     <string name="title_advanced_font_size_sender">Velikost písma odesílatele</string>
@@ -776,11 +778,13 @@
     <string name="title_from_missing">Chybí odesílatel</string>
     <string name="title_extra_missing">Chybí uživatelské jméno</string>
     <string name="title_to_missing">Chybí příjemce</string>
+    <string name="title_pgp_reminder">PGP klíče k dispozici</string>
     <string name="title_subject_reminder">Chybí předmět</string>
     <string name="title_text_reminder">Zpráva je prázdná</string>
     <string name="title_attachment_keywords">příloha,přílohy,příloze,přílohu,přiložené,přiloženém,přiložený,přiložená,připojené,připojeném,připojený,připojená</string>
     <string name="title_attachment_reminder">Měl jste v úmyslu přidat přílohu?</string>
     <string name="title_attachments_missing">Nebyly staženy všechny přílohy</string>
+    <string name="title_dialog_hint">Toto dialogové okno může být znovu zapnuto v menu s třemi tečkami horní liště akcí</string>
     <string name="title_draft_deleted">Koncept zahozen</string>
     <string name="title_draft_saved">Koncept uložen</string>
     <string name="title_ask_send_via">Odeslat zprávu na %1$s přes %2$s?</string>
@@ -792,6 +796,7 @@
     <string name="title_resync">Znovu synchronizovat</string>
     <string name="title_no_openpgp">OpenKeychain nenalezena</string>
     <string name="title_user_interaction">Přenášení do OpenKeychain</string>
+    <string name="title_signed_data">Ověřit podpis pro zobrazení textu zprávy</string>
     <string name="title_not_encrypted">Zpráva není podepsána ani šifrována</string>
     <string name="title_no_sign_key">Nebyl vybrán žádný podpisový klíč</string>
     <string name="title_reset_sign_key">Vynulovat podpisový klíč</string>

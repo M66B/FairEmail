@@ -159,6 +159,7 @@
     <string name="title_setup_go">Vai</string>
     <string name="title_setup_to_do">Da fare</string>
     <string name="title_setup_done">Fine</string>
+    <string name="title_setup_still">Ancora da fare</string>
     <string name="title_setup_error">Errore</string>
     <string name="title_setup_export">Esporta impostazioni</string>
     <string name="title_setup_import">Importa impostazioni</string>

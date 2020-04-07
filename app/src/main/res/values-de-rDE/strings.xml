@@ -160,6 +160,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_setup_go">Los</string>
     <string name="title_setup_to_do">Nicht erledigt</string>
     <string name="title_setup_done">Erledigt</string>
+    <string name="title_setup_still">Noch zu tun</string>
     <string name="title_setup_error">Fehler</string>
     <string name="title_setup_export">Einstellungen exportieren</string>
     <string name="title_setup_import">Einstellungen importieren</string>
@@ -299,8 +300,8 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_text_size">Kleine und große Texte anzeigen</string>
     <string name="title_advanced_collapse_quotes">Zitierten Text ausblenden</string>
     <string name="title_advanced_images_inline">Eingebettete Grafiken automatisch anzeigen</string>
-    <string name="title_advanced_seekbar">Relative Themenposition mit einem Punkt kennzeichnen</string>
-    <string name="title_advanced_actionbar">Navigationsleiste in Themen anzeigen</string>
+    <string name="title_advanced_seekbar">Relative Unterhaltungsposition mit einem Punkt kennzeichnen</string>
+    <string name="title_advanced_actionbar">Aktionsleiste in Unterhaltung anzeigen</string>
     <string name="title_advanced_actionbar_color">Farbe des Kontos als Hintergrundfarbe der Aktionsleiste verwenden</string>
     <string name="title_advanced_navbar_colorize">Android-Navigationsleiste farbig darstellen</string>
     <string name="title_advanced_double_back">Zweifaches „Zurück” zum Beenden</string>
@@ -314,7 +315,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_expand_all">Alle gelesenen Nachrichten automatisch erweitern</string>
     <string name="title_advanced_expand_one">Jeweils nur eine Nachricht erweitern</string>
     <string name="title_advanced_collapse_multiple">Nachrichten in einem Thema mit mehreren Nachrichten bei „Zurück” zusammenfassen</string>
-    <string name="title_advanced_autoclose">Themen automatisch schließen</string>
+    <string name="title_advanced_autoclose">Unterhaltungen automatisch schließen</string>
     <string name="title_advanced_onclose">Beim Schließen einer Unterhaltung</string>
     <string name="title_advanced_quick_filter">Unaufdringliche Schnellfiltersymbole anzeigen</string>
     <string name="title_advanced_quick_scroll">Nicht aufdringliche Symbole für schnellen Bildlauf nach oben oder unten anzeigen</string>
@@ -378,7 +379,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_watchdog">Regelmäßig prüfen, ob FairEmail noch aktiv ist</string>
     <string name="title_advanced_optimize">Einstellungen automatisch optimieren</string>
     <string name="title_advanced_updates">Nach Aktualisierungen suchen</string>
-    <string name="title_advanced_experiments">Experimentelle Funktionen ermöglichen</string>
+    <string name="title_advanced_experiments">Experimentelle Funktionen ausprobieren</string>
     <string name="title_advanced_crash_reports">Fehlerberichte senden</string>
     <string name="title_advanced_debug">Debugmodus</string>
     <string name="title_advanced_cleanup">Bereinigen</string>
@@ -644,7 +645,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_reply_list">An Liste antworten</string>
     <string name="title_reply_receipt">Lesebestätigung senden</string>
     <string name="title_reply_template">Mit Vorlage antworten</string>
-    <string name="title_moving">Verschiebe nach %1$s</string>
+    <string name="title_moving">verschoben nach %1$s</string>
     <string name="title_open_with">Öffnen mit</string>
     <string name="title_authentication_failed">%1$s Authentifizierung fehlgeschlagen</string>
     <string name="title_receipt_subject">Lesebestätigung: %1$s</string>
@@ -1157,8 +1158,8 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     </string-array>
     <string-array name="onCloseNames">
         <item>Nichts tun</item>
-        <item>Zur vorherigen Thema wechseln</item>
-        <item>Zum nächsten Thema wechseln</item>
+        <item>Zur vorherigen Unterhaltung wechseln</item>
+        <item>Zur nächsten Unterhaltung wechseln</item>
     </string-array>
     <string-array name="resizeNames">
         <item>Klein</item>
