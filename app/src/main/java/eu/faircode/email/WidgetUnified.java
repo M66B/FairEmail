@@ -38,6 +38,7 @@ public class WidgetUnified extends AppWidgetProvider {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
         for (int appWidgetId : appWidgetIds) {
+            String name = prefs.getString("widget." + appWidgetId + ".name", null);
             long account = prefs.getLong("widget." + appWidgetId + ".account", -1L);
             long folder = prefs.getLong("widget." + appWidgetId + ".folder", -1L);
             String type = prefs.getString("widget." + appWidgetId + ".type", null);
@@ -56,7 +57,6 @@ public class WidgetUnified extends AppWidgetProvider {
             if (!semi)
                 views.setInt(R.id.widget, "setBackgroundColor", Color.TRANSPARENT);
 
-            String name = prefs.getString("widget." + appWidgetId + ".name", null);
             if (name == null)
                 views.setTextViewText(R.id.title, context.getString(R.string.title_folder_unified));
             else

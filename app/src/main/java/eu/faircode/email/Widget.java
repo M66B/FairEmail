@@ -53,8 +53,8 @@ public class Widget extends AppWidgetProvider {
                 NumberFormat nf = NumberFormat.getIntegerInstance();
 
                 for (int appWidgetId : appWidgetIds) {
-                    long account = prefs.getLong("widget." + appWidgetId + ".account", -1L);
                     String name = prefs.getString("widget." + appWidgetId + ".name", null);
+                    long account = prefs.getLong("widget." + appWidgetId + ".account", -1L);
                     boolean semi = prefs.getBoolean("widget." + appWidgetId + ".semi", true);
 
                     List<EntityFolder> folders = db.folder().getNotifyingFolders(account);
