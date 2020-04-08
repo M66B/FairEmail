@@ -168,6 +168,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
     ));
 
     private static Map<String, String> GUESS_FOLDER_TYPE = new HashMap<String, String>() {{
+        // Contains:
         put("all", EntityFolder.ARCHIVE);
         put("archive", EntityFolder.ARCHIVE);
         put("draft", EntityFolder.DRAFTS);
@@ -177,6 +178,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
         put("corbeille", EntityFolder.TRASH);
         put("junk", EntityFolder.JUNK);
         put("spam", EntityFolder.JUNK);
+        put("quarantaine", EntityFolder.JUNK);
         put("sent", EntityFolder.SENT);
         put("envoyé", EntityFolder.SENT);
     }};
