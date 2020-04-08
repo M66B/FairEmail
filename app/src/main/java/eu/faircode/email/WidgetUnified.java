@@ -26,6 +26,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.net.Uri;
 import android.view.View;
 import android.widget.RemoteViews;
@@ -42,6 +43,7 @@ public class WidgetUnified extends AppWidgetProvider {
             long account = prefs.getLong("widget." + appWidgetId + ".account", -1L);
             long folder = prefs.getLong("widget." + appWidgetId + ".folder", -1L);
             String type = prefs.getString("widget." + appWidgetId + ".type", null);
+            boolean semi = prefs.getBoolean("widget." + appWidgetId + ".semi", true);
 
             Intent view = new Intent(context, ActivityView.class);
             view.setAction("folder:" + folder);
@@ -52,6 +54,9 @@ public class WidgetUnified extends AppWidgetProvider {
             PendingIntent pi = PendingIntent.getActivity(context, appWidgetId, view, PendingIntent.FLAG_UPDATE_CURRENT);
 
             RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_unified);
+
+            if (!semi)
+                views.setInt(R.id.widget, "setBackgroundColor", Color.TRANSPARENT);
 
             views.setViewVisibility(R.id.pro, pro ? View.GONE : View.VISIBLE);
             if (pro) {

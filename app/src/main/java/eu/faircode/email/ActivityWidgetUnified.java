@@ -45,6 +45,7 @@ public class ActivityWidgetUnified extends ActivityBase {
     private Spinner spFolder;
     private CheckBox cbUnseen;
     private CheckBox cbFlagged;
+    private CheckBox cbSemiTransparent;
     private Button btnSave;
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
@@ -72,6 +73,7 @@ public class ActivityWidgetUnified extends ActivityBase {
         spFolder = findViewById(R.id.spFolder);
         cbUnseen = findViewById(R.id.cbUnseen);
         cbFlagged = findViewById(R.id.cbFlagged);
+        cbSemiTransparent = findViewById(R.id.cbSemiTransparent);
         btnSave = findViewById(R.id.btnSave);
         pbWait = findViewById(R.id.pbWait);
         grpReady = findViewById(R.id.grpReady);
@@ -99,6 +101,7 @@ public class ActivityWidgetUnified extends ActivityBase {
                 editor.putString("widget." + appWidgetId + ".type", folder == null ? null : folder.type);
                 editor.putBoolean("widget." + appWidgetId + ".unseen", cbUnseen.isChecked());
                 editor.putBoolean("widget." + appWidgetId + ".flagged", cbFlagged.isChecked());
+                editor.putBoolean("widget." + appWidgetId + ".semi", cbSemiTransparent.isChecked());
                 editor.apply();
 
                 WidgetUnified.init(ActivityWidgetUnified.this, appWidgetId);

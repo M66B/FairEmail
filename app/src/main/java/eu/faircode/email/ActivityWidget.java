@@ -27,6 +27,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.Spinner;
 
 import androidx.constraintlayout.widget.Group;
@@ -39,6 +40,7 @@ public class ActivityWidget extends ActivityBase {
     private int appWidgetId;
 
     private Spinner spAccount;
+    private CheckBox cbSemiTransparent;
     private Button btnSave;
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
@@ -62,6 +64,7 @@ public class ActivityWidget extends ActivityBase {
         setContentView(R.layout.activity_widget);
 
         spAccount = findViewById(R.id.spAccount);
+        cbSemiTransparent = findViewById(R.id.cbSemiTransparent);
         btnSave = findViewById(R.id.btnSave);
         pbWait = findViewById(R.id.pbWait);
         grpReady = findViewById(R.id.grpReady);
@@ -81,6 +84,7 @@ public class ActivityWidget extends ActivityBase {
                 else
                     editor.remove("widget." + appWidgetId + ".name");
                 editor.putLong("widget." + appWidgetId + ".account", account == null ? -1L : account.id);
+                editor.putBoolean("widget." + appWidgetId + ".semi", cbSemiTransparent.isChecked());
                 editor.apply();
 
                 Widget.init(ActivityWidget.this, appWidgetId);
