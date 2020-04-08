@@ -888,6 +888,8 @@ The errors *... Read error ...*, *... Write error ...*, *... Read timed out ...*
 
 The error *... Unexpected end of zlib input stream ...* means that not all data was received, possibly due to a bad or interrupted connection.
 
+The error *... connection failure ...* could indicate [Too many simultaneous connections](#user-content-faq23).
+
 The warning *... Unsupported encoding ...* means that the character set of the message is unknown or not supported.
 FairEmail will assume ISO-8859-1 (Latin1), which will in most cases result in showing the message correctly.
 
