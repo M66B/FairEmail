@@ -371,7 +371,7 @@ public class EmailService implements AutoCloseable {
 
             main = InetAddress.getByName(host);
             EntityLog.log(context, "Connecting to " + main);
-            _connect(main.getHostAddress(), port, user, password, factory);
+            _connect(main, port, user, password, factory);
         } catch (UnknownHostException ex) {
             throw new MessagingException(ex.getMessage(), ex);
         } catch (MessagingException ex) {
@@ -436,7 +436,7 @@ public class EmailService implements AutoCloseable {
 
                         try {
                             EntityLog.log(context, "Falling back to " + iaddr);
-                            _connect(iaddr.getHostAddress(), port, user, password, factory);
+                            _connect(iaddr, port, user, password, factory);
                             return;
                         } catch (MessagingException ex1) {
                             ex = ex1;
@@ -454,7 +454,7 @@ public class EmailService implements AutoCloseable {
     }
 
     private void _connect(
-            String host, int port, String user, String password,
+            InetAddress address, int port, String user, String password,
             SSLSocketFactoryService factory) throws MessagingException {
         isession = Session.getInstance(properties, null);
         isession.setDebug(debug);
@@ -463,13 +463,13 @@ public class EmailService implements AutoCloseable {
         if ("pop3".equals(protocol) || "pop3s".equals(protocol)) {
             isession.setDebug(true);
             iservice = isession.getStore(protocol);
-            iservice.connect(host, port, user, password);
+            iservice.connect(address.getHostAddress(), port, user, password);
 
         } else if ("imap".equals(protocol) || "imaps".equals(protocol)) {
             iservice = isession.getStore(protocol);
             if (listener != null)
                 ((IMAPStore) iservice).addStoreListener(listener);
-            iservice.connect(host, port, user, password);
+            iservice.connect(address.getHostAddress(), port, user, password);
 
             // https://www.ietf.org/rfc/rfc2971.txt
             IMAPStore istore = (IMAPStore) getStore();
@@ -496,30 +496,26 @@ public class EmailService implements AutoCloseable {
             Collections.reverse(Arrays.asList(c));
             String hdomain = TextUtils.join(".", c);
 
-            String haddr = "[127.0.0.1]";
-            try {
-                // This assumes getByName always returns the same address (type)
-                InetAddress addr = InetAddress.getByName(host);
-                if (addr instanceof Inet4Address)
-                    haddr = "[" + Inet4Address.getLocalHost().getHostAddress() + "]";
-                else
-                    haddr = "[IPv6:" + Inet6Address.getLocalHost().getHostAddress() + "]";
-            } catch (UnknownHostException ex) {
-                Log.w(ex);
-            }
+            // https://tools.ietf.org/html/rfc5321#section-4.1.3
+            String haddr = (address instanceof Inet4Address ? "[127.0.0.1]" : "[IPv6:::1]");
 
-            Log.i("Using localhost=" + haddr);
             properties.put("mail." + protocol + ".localhost", useip ? haddr : hdomain);
+            Log.i("Using localhost=" + properties.getProperty("mail." + protocol + ".localhost"));
 
             iservice = isession.getTransport(protocol);
             try {
-                iservice.connect(host, port, user, password);
+                iservice.connect(address.getHostAddress(), port, user, password);
             } catch (MessagingException ex) {
-                if (ex.getMessage() != null &&
-                        ex.getMessage().toLowerCase().contains("syntactically invalid")) {
-                    Log.w("Using localhost=" + (useip ? hdomain : haddr), ex);
-                    ((SMTPTransport) iservice).setLocalHost(useip ? hdomain : haddr);
-                    iservice.connect(host, port, user, password);
+                if (ConnectionHelper.isSyntacticallyInvalid(ex)) {
+                    properties.put("mail." + protocol + ".localhost", useip ? hdomain : haddr);
+                    Log.i("Fallback localhost=" + properties.getProperty("mail." + protocol + ".localhost"));
+                    try {
+                        iservice.connect(address.getHostAddress(), port, user, password);
+                    } catch (MessagingException ex1) {
+                        if (ConnectionHelper.isSyntacticallyInvalid(ex1))
+                            Log.e("Used localhost=" + haddr + "/" + hdomain);
+                        throw ex1;
+                    }
                 } else
                     throw ex;
             }

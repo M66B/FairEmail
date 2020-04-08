@@ -304,6 +304,12 @@ public class ConnectionHelper {
                         message.contains("User is authenticated but not connected") /* Outlook */));
     }
 
+    static Boolean isSyntacticallyInvalid(Throwable ex) {
+        if (ex.getMessage() == null)
+            return false;
+        return ex.getMessage().toLowerCase().contains("syntactically invalid");
+    }
+
     static boolean vpnActive(Context context) {
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         if (cm == null)
