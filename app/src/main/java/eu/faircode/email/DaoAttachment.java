@@ -88,6 +88,11 @@ public interface DaoAttachment {
     void setError(long id, String error);
 
     @Query("UPDATE attachment" +
+            " SET disposition = :disposition" +
+            " WHERE id = :id")
+    void setDisposition(long id, String disposition);
+
+    @Query("UPDATE attachment" +
             " SET cid = :cid" +
             " WHERE id = :id")
     void setCid(long id, String cid);
