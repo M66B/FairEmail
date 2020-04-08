@@ -178,7 +178,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
         put("corbeille", EntityFolder.TRASH);
         put("junk", EntityFolder.JUNK);
         put("spam", EntityFolder.JUNK);
-        put("quarantaine", EntityFolder.JUNK);
+        put("pourriel", EntityFolder.JUNK);
         put("sent", EntityFolder.SENT);
         put("envoyé", EntityFolder.SENT);
     }};
