@@ -37,6 +37,13 @@
         android:name="android.hardware.fingerprint"
         android:required="false" />
 
+    <!-- Android 11: https://developer.android.com/preview/privacy/package-visibility -->
+    <!--queries>
+        <intent>
+            <action android:name="org.openintents.openpgp.IOpenPgpService2" />
+        </intent>
+    </queries-->
+
     <application
         android:name=".ApplicationEx"
         android:allowBackup="false"
