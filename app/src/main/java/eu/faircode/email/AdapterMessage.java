@@ -4282,14 +4282,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (keywords.length() > 0)
                         keywords.append(" ");
 
-                    keywords.append(message.keywords[i]);
+                    // Thunderbird
+                    String keyword = EntityMessage.getKeywordAlias(context, message.keywords[i]);
+                    keywords.append(keyword);
 
                     if (message.keyword_colors != null &&
                             message.keyword_colors[i] != null) {
                         int len = keywords.length();
                         keywords.setSpan(
                                 new ForegroundColorSpan(message.keyword_colors[i]),
-                                len - message.keywords[i].length(), len,
+                                len - keyword.length(), len,
                                 Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                     }
                 }

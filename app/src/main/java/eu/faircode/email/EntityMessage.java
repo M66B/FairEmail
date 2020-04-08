@@ -274,6 +274,23 @@ public class EntityMessage implements Serializable {
         }
     }
 
+    static String getKeywordAlias(Context context, String keyword) {
+        switch (keyword) {
+            case "$label1": // Important
+                return context.getString(R.string.title_keyword_label1);
+            case "$label2": // Work
+                return context.getString(R.string.title_keyword_label2);
+            case "$label3": // Personal
+                return context.getString(R.string.title_keyword_label3);
+            case "$label4": // To do
+                return context.getString(R.string.title_keyword_label4);
+            case "$label5": // Later
+                return context.getString(R.string.title_keyword_label5);
+            default:
+                return keyword;
+        }
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof EntityMessage) {

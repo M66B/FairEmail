@@ -1242,6 +1242,13 @@
         <item quantity="other">%1$d messages</item>
     </plurals>
 
+    <!-- Thunderbird -->
+    <string name="title_keyword_label1">Important</string>
+    <string name="title_keyword_label2">Work</string>
+    <string name="title_keyword_label3">Personal</string>
+    <string name="title_keyword_label4">To do</string>
+    <string name="title_keyword_label5">Later</string>
+
     <string name="title_accessibility_flagged">Starred</string>
     <string name="title_accessibility_unflagged">Unstarred</string>
     <string name="title_accessibility_collapse">Collapse</string>

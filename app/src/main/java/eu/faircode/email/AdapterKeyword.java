@@ -76,7 +76,7 @@ public class AdapterKeyword extends RecyclerView.Adapter<AdapterKeyword.ViewHold
         }
 
         private void bindTo(TupleKeyword keyword) {
-            cbKeyword.setText(keyword.name);
+            cbKeyword.setText(EntityMessage.getKeywordAlias(context, keyword.name));
             cbKeyword.setChecked(keyword.selected);
             cbKeyword.setEnabled(pro);
             btnColor.setColor(keyword.color);
