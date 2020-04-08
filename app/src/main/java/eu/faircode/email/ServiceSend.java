@@ -352,6 +352,16 @@ public class ServiceSend extends ServiceBase {
         // Restore snooze timers
         for (EntityMessage message : db.message().getSnoozed(outbox.id))
             EntityMessage.snooze(this, message.id, message.ui_snoozed);
+
+        // Retry failed message
+        for (long id : db.message().getMessageByFolder(outbox.id)) {
+            int ops = db.operation().getOperationCount(outbox.id, id, EntityOperation.SEND);
+            if (ops == 0) {
+                EntityMessage message = db.message().getMessage(id);
+                if (message != null)
+                    EntityOperation.queue(this, message, EntityOperation.SEND);
+            }
+        }
     }
 
     private void onSend(EntityMessage message) throws MessagingException, IOException {
