@@ -1056,7 +1056,7 @@ public class HtmlHelper {
             if (!TextUtils.isEmpty(src) && isTrackingPixel(img)) {
                 Uri uri = Uri.parse(src);
                 String host = uri.getHost();
-                if (host == null || !hosts.contains(host)) {
+                if (host != null && !hosts.contains(host)) {
                     img.attr("src", sb.toString());
                     img.attr("alt", context.getString(R.string.title_legend_tracking_pixel));
                     img.attr("height", "24");
