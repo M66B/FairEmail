@@ -348,6 +348,7 @@
     <string name="title_advanced_light">Erabili jakinarazpen-argia</string>
     <string name="title_advanced_sound">Aukeratu jakinarazpenen soinua</string>
     <string name="title_advanced_confirm_links">Berretsi estekak irekitzea</string>
+    <string name="title_advanced_browse_links">Delegatu Androiden estekak irekitzea</string>
     <string name="title_advanced_confirm_images">Berretsi irudiak erakustea</string>
     <string name="title_advanced_confirm_html">Berez erakutsi erreformatutako mezuak</string>
     <string name="title_advanced_tracking">Antzeman eta desgaitu jarraipen irudiak automatikoki</string>

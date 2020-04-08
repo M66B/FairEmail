@@ -159,6 +159,7 @@
     <string name="title_setup_go">Start</string>
     <string name="title_setup_to_do">Resterer</string>
     <string name="title_setup_done">Udført</string>
+    <string name="title_setup_still">Resterer stadig</string>
     <string name="title_setup_error">Fejl</string>
     <string name="title_setup_export">Eksportindstillinger</string>
     <string name="title_setup_import">Importindstillinger</string>
@@ -349,6 +350,7 @@
     <string name="title_advanced_light">Benyt notifikations-LED</string>
     <string name="title_advanced_sound">Vælg notifikationslyd</string>
     <string name="title_advanced_confirm_links">Bekræft åbning af links</string>
+    <string name="title_advanced_browse_links">Delegér åbningslinks til Android</string>
     <string name="title_advanced_confirm_images">Bekræft visning af billeder</string>
     <string name="title_advanced_confirm_html">Vis som standard omformaterede beskeder</string>
     <string name="title_advanced_tracking">Genkend og deaktivér automatisk sporingsbilleder</string>

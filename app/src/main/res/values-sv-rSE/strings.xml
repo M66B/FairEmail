@@ -348,6 +348,7 @@
     <string name="title_advanced_light">Använda aviseringslampan</string>
     <string name="title_advanced_sound">Välj aviseringsljud</string>
     <string name="title_advanced_confirm_links">Bekräfta att länkar öppnas</string>
+    <string name="title_advanced_browse_links">Låt Android öppna länkar</string>
     <string name="title_advanced_confirm_images">Bekräfta visning av bilder</string>
     <string name="title_advanced_confirm_html">Visa omformaterade meddelanden som standard</string>
     <string name="title_advanced_tracking">Automatiskt känna igen och inaktivera spårningsbilder</string>

@@ -279,7 +279,7 @@
     <string name="title_advanced_caption_message_header">Hlavička zprávy</string>
     <string name="title_advanced_caption_message_body">Tělo zprávy</string>
     <string name="title_advanced_landscape">Dvou-sloupcové rozvržení v režimu na šířku</string>
-    <string name="title_advanced_landscape3">Povolit ukotvené navigační menu v režimu na šířku</string>
+    <string name="title_advanced_landscape3">Ukotvit navigační menu v režimu na šířku</string>
     <string name="title_advanced_startup">Na úvodní obrazovce zobrazit</string>
     <string name="title_advanced_cards">Použít styl karet namísto tabulkového zobrazení</string>
     <string name="title_advanced_date_header">Seskupit podle data</string>
@@ -372,6 +372,7 @@
     <string name="title_advanced_light">Použít oznamovací LED</string>
     <string name="title_advanced_sound">Vybrat zvuk oznámení</string>
     <string name="title_advanced_confirm_links">Potvrzovat otevírání odkazů</string>
+    <string name="title_advanced_browse_links">Otevírání odkazů svěřit Androidu</string>
     <string name="title_advanced_confirm_images">Potvrzovat zobrazení obrázků</string>
     <string name="title_advanced_confirm_html">Automaticky zobrazit zprávy přeformátované</string>
     <string name="title_advanced_tracking">Automaticky rozpoznat a zakázat sledovací obrázky</string>
