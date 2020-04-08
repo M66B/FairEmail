@@ -4814,6 +4814,7 @@ public class FragmentCompose extends FragmentBase {
             final CheckBox cbReceipt = dview.findViewById(R.id.cbReceipt);
             final TextView tvReceipt = dview.findViewById(R.id.tvReceiptType);
             final Spinner spEncrypt = dview.findViewById(R.id.spEncrypt);
+            final ImageButton ibEncryption = dview.findViewById(R.id.ibEncryption);
             final Spinner spPriority = dview.findViewById(R.id.spPriority);
             final TextView tvSendAt = dview.findViewById(R.id.tvSendAt);
             final ImageButton ibSendAt = dview.findViewById(R.id.ibSendAt);
@@ -4942,6 +4943,13 @@ public class FragmentCompose extends FragmentBase {
                             Log.unexpectedError(getParentFragmentManager(), ex);
                         }
                     }.execute(FragmentDialogSend.this, args, "compose:encrypt");
+                }
+            });
+
+            ibEncryption.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Helper.viewFAQ(getContext(), 12);
                 }
             });
 

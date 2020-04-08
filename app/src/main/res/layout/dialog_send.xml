@@ -159,11 +159,14 @@
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvEncrypt"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+
             android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
             android:text="@string/title_send_encryption"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toStartOf="@id/ibEncryption"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvReceiptType" />
 
@@ -172,18 +175,33 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
+            android:layout_marginEnd="12dp"
             android:entries="@array/encryptNames"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/ibEncryption"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvEncrypt" />
 
-        <eu.faircode.email.FixedTextView
-            android:id="@+id/tvPriority"
+        <ImageButton
+            android:id="@+id/ibEncryption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:contentDescription="@string/title_send_at"
+            android:tag="disable"
+            android:tooltipText="@string/title_send_at"
+            app:layout_constraintBottom_toBottomOf="@id/spEncrypt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/baseline_info_24" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvPriority"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
             android:text="@string/title_send_priority"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toStartOf="@id/ibEncryption"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/spEncrypt" />
 
@@ -192,8 +210,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
+            android:layout_marginEnd="12dp"
             android:entries="@array/priorityNames"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/ibEncryption"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvPriority" />
 
@@ -202,6 +221,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
             android:text="@string/title_send_at"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintEnd_toStartOf="@+id/ibSendAt"
@@ -213,6 +233,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
+            android:layout_marginEnd="12dp"
             android:gravity="center_vertical"
             android:text="now"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
