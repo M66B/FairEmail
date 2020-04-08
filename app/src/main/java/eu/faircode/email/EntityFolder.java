@@ -172,10 +172,13 @@ public class EntityFolder extends EntityOrder implements Serializable {
         put("archive", EntityFolder.ARCHIVE);
         put("draft", EntityFolder.DRAFTS);
         put("concept", EntityFolder.DRAFTS);
+        put("brouillon", EntityFolder.DRAFTS);
         put("trash", EntityFolder.TRASH);
+        put("corbeille", EntityFolder.TRASH);
         put("junk", EntityFolder.JUNK);
         put("spam", EntityFolder.JUNK);
         put("sent", EntityFolder.SENT);
+        put("envoyé", EntityFolder.SENT);
     }};
 
     static final int DEFAULT_SYNC = 7; // days
