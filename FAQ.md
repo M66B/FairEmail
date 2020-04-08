@@ -670,6 +670,10 @@ Common errors:
 
 The use of expired keys, inline encrypted/signed messages and hardware security tokens is not supported.
 
+If you are looking for a free (test) S/MIME certificate, see [here](http://kb.mozillazine.org/Getting_an_SMIME_certificate) for the options.
+Please be sure to [read this first](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219)
+if you want to request an S/MIME Actalis certificate.
+
 How to extract a public key from a S/MIME certificate:
 
 ```
