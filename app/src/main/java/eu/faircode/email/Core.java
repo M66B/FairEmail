@@ -3205,6 +3205,7 @@ class Core {
             List<NotificationCompat.Action> wactions = new ArrayList<>();
 
             if (notify_trash &&
+                    message.accountProtocol == EntityAccount.TYPE_IMAP &&
                     db.folder().getFolderByType(message.account, EntityFolder.TRASH) != null) {
                 Intent trash = new Intent(context, ServiceUI.class)
                         .setAction("trash:" + message.id)
@@ -3222,6 +3223,7 @@ class Core {
             }
 
             if (notify_junk &&
+                    message.accountProtocol == EntityAccount.TYPE_IMAP &&
                     db.folder().getFolderByType(message.account, EntityFolder.JUNK) != null) {
                 Intent junk = new Intent(context, ServiceUI.class)
                         .setAction("junk:" + message.id)
@@ -3238,6 +3240,7 @@ class Core {
             }
 
             if (notify_archive &&
+                    message.accountProtocol == EntityAccount.TYPE_IMAP &&
                     db.folder().getFolderByType(message.account, EntityFolder.ARCHIVE) != null) {
                 Intent archive = new Intent(context, ServiceUI.class)
                         .setAction("archive:" + message.id)
@@ -3254,7 +3257,8 @@ class Core {
                 wactions.add(actionArchive.build());
             }
 
-            if (notify_move) {
+            if (notify_move &&
+                    message.accountProtocol == EntityAccount.TYPE_IMAP) {
                 EntityAccount account = db.account().getAccount(message.account);
                 if (account != null && account.move_to != null) {
                     EntityFolder folder = db.folder().getFolder(account.move_to);
