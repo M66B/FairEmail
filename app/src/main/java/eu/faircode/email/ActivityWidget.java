@@ -23,12 +23,16 @@ import android.appwidget.AppWidgetManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.RadioButton;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.constraintlayout.widget.Group;
 import androidx.preference.PreferenceManager;
@@ -41,6 +45,10 @@ public class ActivityWidget extends ActivityBase {
 
     private Spinner spAccount;
     private CheckBox cbSemiTransparent;
+    private View inOld;
+    private View inNew;
+    private RadioButton rbOld;
+    private RadioButton rbNew;
     private Button btnSave;
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
@@ -65,12 +73,45 @@ public class ActivityWidget extends ActivityBase {
 
         spAccount = findViewById(R.id.spAccount);
         cbSemiTransparent = findViewById(R.id.cbSemiTransparent);
+        inOld = findViewById(R.id.inOld);
+        inNew = findViewById(R.id.inNew);
+        rbOld = findViewById(R.id.rbOld);
+        rbNew = findViewById(R.id.rbNew);
         btnSave = findViewById(R.id.btnSave);
         pbWait = findViewById(R.id.pbWait);
         grpReady = findViewById(R.id.grpReady);
 
         final Intent resultValue = new Intent();
         resultValue.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
+
+        cbSemiTransparent.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    inOld.setBackgroundResource(R.drawable.widget_background);
+                    inNew.setBackgroundResource(R.drawable.widget_background);
+                } else {
+                    inOld.setBackgroundColor(Color.TRANSPARENT);
+                    inNew.setBackgroundColor(Color.TRANSPARENT);
+                }
+            }
+        });
+
+        rbOld.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked)
+                    rbNew.setChecked(false);
+            }
+        });
+
+        rbNew.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked)
+                    rbOld.setChecked(false);
+            }
+        });
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,6 +126,7 @@ public class ActivityWidget extends ActivityBase {
                     editor.remove("widget." + appWidgetId + ".name");
                 editor.putLong("widget." + appWidgetId + ".account", account == null ? -1L : account.id);
                 editor.putBoolean("widget." + appWidgetId + ".semi", cbSemiTransparent.isChecked());
+                editor.putInt("widget." + appWidgetId + ".layout", rbNew.isChecked() ? 1 : 0);
                 editor.apply();
 
                 Widget.init(ActivityWidget.this, appWidgetId);
@@ -97,6 +139,9 @@ public class ActivityWidget extends ActivityBase {
         adapterAccount = new ArrayAdapter<>(this, R.layout.spinner_item1, android.R.id.text1, new ArrayList<EntityAccount>());
         adapterAccount.setDropDownViewResource(R.layout.spinner_item1_dropdown);
         spAccount.setAdapter(adapterAccount);
+
+        ((TextView) inOld.findViewById(R.id.tvCount)).setText("12");
+        ((TextView) inNew.findViewById(R.id.tvCount)).setText("12");
 
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);

@@ -56,6 +56,7 @@ public class Widget extends AppWidgetProvider {
                     String name = prefs.getString("widget." + appWidgetId + ".name", null);
                     long account = prefs.getLong("widget." + appWidgetId + ".account", -1L);
                     boolean semi = prefs.getBoolean("widget." + appWidgetId + ".semi", true);
+                    int layout = prefs.getInt("widget." + appWidgetId + ".layout", 0);
 
                     List<EntityFolder> folders = db.folder().getNotifyingFolders(account);
                     if (folders == null)
@@ -91,7 +92,8 @@ public class Widget extends AppWidgetProvider {
                     if (unseen == null)
                         unseen = 0;
 
-                    RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget);
+                    RemoteViews views = new RemoteViews(context.getPackageName(),
+                            layout == 0 ? R.layout.widget : R.layout.widget_new);
 
                     views.setOnClickPendingIntent(R.id.widget, pi);
 
