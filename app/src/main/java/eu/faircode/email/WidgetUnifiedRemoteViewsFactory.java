@@ -51,6 +51,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
     private boolean flagged;
     private int colorWidgetForeground;
     private int colorWidgetRead;
+    private boolean pro;
     private List<TupleMessageWidget> messages = new ArrayList<>();
 
     WidgetUnifiedRemoteViewsFactory(final Context context, Intent intent) {
@@ -79,6 +80,8 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
         flagged = prefs.getBoolean("widget." + appWidgetId + ".flagged", false);
         colorWidgetForeground = ContextCompat.getColor(context, R.color.colorWidgetForeground);
         colorWidgetRead = ContextCompat.getColor(context, R.color.colorWidgetRead);
+
+        pro = ActivityBilling.isPro(context);
 
         DB db = DB.getInstance(context);
         try {
@@ -127,7 +130,9 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
 
             SpannableString ssFrom = new SpannableString(MessageHelper.formatAddressesShort(message.from));
             SpannableString ssTime = new SpannableString(Helper.getRelativeTimeSpanString(context, message.received));
-            SpannableString ssSubject = new SpannableString(TextUtils.isEmpty(message.subject) ? "" : message.subject);
+            SpannableString ssSubject = new SpannableString(pro
+                    ? TextUtils.isEmpty(message.subject) ? "" : message.subject
+                    : context.getString(R.string.title_pro_feature));
             SpannableString ssAccount = new SpannableString(TextUtils.isEmpty(message.accountName) ? "" : message.accountName);
 
             if (message.ui_seen) {
