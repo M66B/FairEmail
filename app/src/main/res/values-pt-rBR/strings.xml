@@ -949,6 +949,7 @@
         <item quantity="one">%1$d mensagem</item>
         <item quantity="other">%1$d mensagens</item>
     </plurals>
+    <!-- Thunderbird -->
     <string name="title_accessibility_flagged">Com estrela</string>
     <string name="title_accessibility_unflagged">Sem Estrela</string>
     <string name="title_accessibility_collapse">Colapso</string>

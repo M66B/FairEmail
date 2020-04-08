@@ -159,6 +159,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_setup_go">Tovább</string>
     <string name="title_setup_to_do">Teendő</string>
     <string name="title_setup_done">Kész</string>
+    <string name="title_setup_still">Még meg kell csinálni</string>
     <string name="title_setup_error">Hiba</string>
     <string name="title_setup_export">Beállítások exportálása</string>
     <string name="title_setup_import">Beállítások importálása</string>
@@ -253,6 +254,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_landscape">Két oszlopba rendezés tájkép módban</string>
     <string name="title_advanced_landscape3">Rögzített navigációs menü engedélyezése tájkép módban</string>
     <string name="title_advanced_startup">Megjelenítés a kezdőképernyőn</string>
+    <string name="title_advanced_cards">A kártyás stílus használata a tabuláris stílus helyett</string>
     <string name="title_advanced_date_header">Csoportosítás dátum szerint</string>
     <string name="title_advanced_threading">Beszélgetések összefűzése</string>
     <string name="title_advanced_indentation">Beérkezett/elküldött üzenetek balra/jobbra tördelése a beszélgetésekben</string>
@@ -292,6 +294,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_images_inline">Beágyazott képek automatikus megjelenitese</string>
     <string name="title_advanced_seekbar">Relatív beszélgetés-pozíció ponttal váló megjelenítése</string>
     <string name="title_advanced_actionbar">Beszélgetési művelet sáv megjelenítése</string>
+    <string name="title_advanced_navbar_colorize">Az Android navigációs sor színezése</string>
     <string name="title_advanced_double_back">Használja a \'vissza\'-t kétszer a kilépéshez</string>
     <string name="title_advanced_pull_refresh">Húzza le a frissítéshez</string>
     <string name="title_advanced_autoscroll">Új üzenet érkezésekor automatikus tetejére görgetés</string>
@@ -321,6 +324,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_unseen_ignored">Külön értesítés megjelnítése minden egyes új üzenethez</string>
     <string name="title_advanced_notify_summary">Csak összegző értesítések megjelnítése</string>
     <string name="title_advanced_notify_preview">Üzenet előnézetének megjelnítése az értesítésben</string>
+    <string name="title_advanced_notify_preview_all">Összes szöveg előnézete</string>
     <string name="title_advanced_notify_actions">Értesítési műveletek</string>
     <string name="title_advanced_notify_action_trash">Kuka</string>
     <string name="title_advanced_notify_action_junk">Spam</string>
@@ -355,6 +359,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_import_key">Privát kulcs importálása</string>
     <string name="title_advanced_manage_keys">Privát kulcsok kezelése</string>
     <string name="title_advanced_external_search">Keresés engedélyezése az üzenetekben más alkalmazások számára</string>
+    <string name="title_advanced_shortcuts">Gyakran használt névjegyek megjelenítése az Android megosztás menüjében</string>
     <string name="title_advanced_language_detection">Üzenetszöveg nyelvének észlelése</string>
     <string name="title_advanced_fts">Keresési index létrehozása</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d üzenet indexelve (%3$s)</string>
@@ -417,7 +422,9 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_debug_hint">Bővített logok és részletes debug üzenetek bekapcsolása</string>
     <string name="title_advanced_cleanup_hint">Ez törli az összes ideiglenes fájlt</string>
     <string name="title_advanced_never_favorite">Kedvencként megjelölés tiltása</string>
-    <string name="title_select">&#8230; kiválasztása</string>
+    <string name="title_advanced_swipe_actions">Csúsztatási műveletek beállítása</string>
+    <string name="title_advanced_swipe_actions_hint">Ez be fogja állítani a csúsztatási műveleteket minden IMAP fiókhoz</string>
+    <string name="title_select">Kiválasztás &#8230;</string>
     <string name="title_identity_name">Az Ön neve</string>
     <string name="title_identity_email">Az Ön email címe</string>
     <string name="title_identity_color_hint">Identitás színek elsőbbsége a mappa és fiók színekkel szemben</string>
@@ -447,12 +454,14 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_port">Port szám</string>
     <string name="title_user">Felhasználónév</string>
     <string name="title_password">Jelszó</string>
+    <string name="title_client_certificate">Kliens tanúsítványa</string>
     <string name="title_realm">Tartomány</string>
     <string name="title_use_ip">IP cím használata kiszolgálónév helyett</string>
     <string name="title_primary">Elsődleges</string>
     <string name="title_primary_account">Elsődleges (alapértelmezett fiók)</string>
     <string name="title_primary_identity">Elsődleges (alapértelmezett identitás)</string>
     <string name="title_leave_on_server">Üzenetek megőrzése a szerveren</string>
+    <string name="title_leave_deleted">Törölt üzenetek a szerveren hagyás</string>
     <string name="title_leave_on_device">Üzenetek megőrzése a készüléken</string>
     <string name="title_use_date">A fejléc feladási időpont mezőjének megjelenítése a szerver fogadási időpontja helyett</string>
     <string name="title_related_identity">Kapcsolódó identitás felvétele</string>
@@ -467,9 +476,11 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_no_user">Hiányzó felhasználónév</string>
     <string name="title_no_password">Hiányzó jelszó</string>
     <string name="title_no_inbox">Bejövő mappa nem található</string>
+    <string name="title_no_identities">Üzenetek küldéséhez szükséges legalább 1 identitás és egy piszkozatok mappa</string>
     <string name="title_no_standard">Ez a szolgáltató zárt email protokollt használ, ezért nem lehetséges harmadik féltől származó email kliens használata</string>
     <string name="title_no_idle">Ez a szolgáltató nem támogatja a push üzenetek kuldését. Ez a bejövő üzenetek késlekedésével és megnövekedett akkumulátorhasználattal jár.</string>
     <string name="title_no_utf8">A szolgáltató nem támogatja az UTF-8-at</string>
+    <string name="title_no_sync">Szinkronizálási hibák %1$s óta</string>
     <string name="title_reply_domain">A küldő (%1$s) és a válaszoló domain (%2$s) különbözik egymástól</string>
     <string name="title_identity_required">Identitás szükséges az üzenetek küldéséhez</string>
     <string name="title_drafts_required">Az üzenetek küldéséhez piszkozat mappa szükséges</string>
@@ -487,8 +498,10 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_browse">Üzenetek böngészése a szerveren</string>
     <string name="title_advanced_expand_read">Üzenetek megjelölése olvasottként kibontáskor</string>
     <string name="title_synchronize_now">Szinkronizálás most</string>
+    <string name="title_synchronize_more">Több üzenet szinkronizálása</string>
     <string name="title_synchronize_enabled">Szinkronizálás</string>
     <string name="title_delete_local">Helyi üzenetek törlése</string>
+    <string name="title_delete_browsed">Böngészett/keresett üzenetek törlése</string>
     <string name="title_empty_trash">Kuka ürítése</string>
     <string name="title_empty_spam">Spam ürítése</string>
     <string name="title_edit_properties">Tulajdonságok szerkesztése</string>
@@ -496,13 +509,22 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_create_channel">Értesítési csatorna létrehozása</string>
     <string name="title_edit_channel">Értesítési csatorna szerkesztése</string>
     <string name="title_delete_channel">Értesítési csatorna törlése</string>
+    <string name="title_insert_contact">Névjegy hozzáadása</string>
+    <string name="title_edit_contact">Névjegy szerkesztése</string>
     <string name="title_create_sub_folder">Almappa létrehozása</string>
+    <string name="title_empty_trash_ask">Véglegesen törli a kukában lévő üzeneteket?</string>
+    <string name="title_empty_spam_ask">Véglegesen törli a spam üzeneteket?</string>
+    <string name="title_empty_trash_all_ask">Véglegesen törli a kukában lévő üzeneteket minden fiókban?</string>
+    <string name="title_empty_spam_all_ask">Véglegesen törli a spam üzeneteket az összes fiókban?</string>
+    <string name="title_delete_operation">Törölje a műveleteket amik hibákat tartalmaznak?</string>
     <string name="title_delete_contacts">Törli a helyi névjegyzéket?</string>
     <string name="title_no_operations">Nincs végrehajtásra váró művelet</string>
+    <string name="title_hint_operations">Műveletek törlése eltűnő üzeneteket és szinkronizálási problémákat okozhat</string>
     <string name="title_folder_name">Mappanév</string>
     <string name="title_display_name">Megjelenítendő név</string>
     <string name="title_show_folders">Rejtett mappák megjelenításe</string>
-    <string name="title_apply_to_all">Alkalmazás az összesre (&#8230;)</string>
+    <string name="title_subscribed_only">Csak feliratkozott</string>
+    <string name="title_apply_to_all">Alkalmazás az összesre &#8230;</string>
     <string name="title_hide_folder">Mappa elrejtése</string>
     <string name="title_unified_folder">Megjelenítés az összesített bejövő mappában</string>
     <string name="title_navigation_folder">Megjelenítés a navigációs menüben</string>
@@ -513,11 +535,13 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_sync_days">Szinkronizálandó napok száma</string>
     <string name="title_sync_days_remark">Az érték növelése megnövekedett adatkapcsolat- és akkumulatorhasználatot okoz</string>
     <string name="title_keep_days">Üzenetek megtartása (nap)</string>
+    <string name="title_keep_days_remark">Régi üzenetek törölve lesznek az eszközről, de a szerveren maradnak</string>
     <string name="title_keep_all">Összes üzenet megtartása</string>
     <string name="title_auto_trash">Régi üzenetek automatikus áthelyezése a kukába</string>
     <string name="title_auto_delete">A régi üzenetek végleges törlése automatikusan</string>
     <string name="title_folder_name_missing">Hiányzó mappanév</string>
     <string name="title_folder_exists">%1$s nevű mappa már létezik</string>
+    <string name="title_folder_delete">Véglegesen törli a mappát és minden benne lévő üzenetet?</string>
     <string name="title_months">Hónapok</string>
     <string name="title_months_all">Mind</string>
     <string name="title_folder_unified">Összesített bejövő mappa</string>
@@ -534,6 +558,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_no_folders">Nincsenek mappák</string>
     <string name="title_no_messages">Nincsenek üzenetek</string>
     <string name="title_filters_active">Egy vagy több szűrő aktív</string>
+    <string name="title_duplicate_in">Üzenet duplikálása a(z) %1$s mappában</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_seen">Megjelölés olvasottként</string>
@@ -541,15 +566,17 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_hide">Elrejtés</string>
     <string name="title_unhide">Megjelenítés</string>
     <string name="title_flag">Csillagozás</string>
+    <string name="title_flag_color">Színezett csillag &#8230;</string>
     <string name="title_unflag">Csillag törlése</string>
     <string name="title_set_importance">Fontosság beállítása</string>
     <string name="title_importance_low">Alacsony</string>
     <string name="title_importance_normal">Normál</string>
     <string name="title_importance_high">Magas</string>
+    <string name="title_search_in_text">Keresés a szövegben &#8230;</string>
     <string name="title_forward">Továbbítás</string>
     <string name="title_new_message">Új üzenet</string>
     <string name="title_editasnew">Szerkesztés újként</string>
-    <string name="title_create_rule">&#8230; szabály létrehozása</string>
+    <string name="title_create_rule">Szabály létrehozása &#8230;</string>
     <string name="title_share">Megosztás</string>
     <string name="title_pin">Parancsikon hozzáadása</string>
     <string name="title_print">Nyomtatás</string>
@@ -563,17 +590,18 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_save_all">Összes mentése</string>
     <string name="title_save_eml">Nyers üzenetfájl mentése</string>
     <string name="title_trash">Kuka</string>
-    <string name="title_copy">&#8230; másolása</string>
-    <string name="title_copy_to">Másolás ide: &#8230;</string>
+    <string name="title_copy">Másolás &#8230;</string>
+    <string name="title_copy_to">Másolás ide &#8230;</string>
     <string name="title_subscribe">Feliratkozás</string>
     <string name="title_delete">Törlés</string>
     <string name="title_more">Továbbiak</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Áthelyezés</string>
     <string name="title_no_junk">Nem levélszemét</string>
-    <string name="title_move_to">Áthelyezés ide: &#8230;</string>
-    <string name="title_move_to_folder">Áthelyezés ide: &#8230;</string>
+    <string name="title_move_to">Áthelyezés ide &#8230;</string>
+    <string name="title_move_to_folder">Áthelyezés ide &#8230;</string>
     <string name="title_move_to_account">Áthelyezés ide: %1$s &#8230;</string>
+    <string name="title_report_spam">Megjelölés spamként</string>
     <string name="title_delete_permanently">Végleges törlés</string>
     <string name="title_snooze">Halasztás &#8230;</string>
     <string name="title_archive">Archiválás</string>
@@ -589,11 +617,15 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_receipt_text">Az olvasási visszaigazolás csak az üzenet megjelenítését igazolja. Nem jelent garanciát arra, hogy a címzett valóban el is olvasta az üzenet tartalmát.</string>
     <string name="title_no_answers">Nincs elmentett válaszsablon</string>
     <string name="title_no_viewer">Nincs elérhető megjenítő alkalmazás ehhez: %1$s</string>
+    <string name="title_no_recorder">Nem elérhető használható hang felvevő alkalmazás</string>
+    <string name="title_no_camera">Nem elérhető használható kamera alkalmazás</string>
     <string name="title_no_contacts">A névjegyválasztó nem elérhető</string>
+    <string name="title_no_internet">Nincs vagy nem használható az internet kapcsolat</string>
     <string name="title_no_connection">Csatlakozás egy vagy több fiókhoz &#8230;</string>
     <string name="title_no_folder">A mappa nem létezik</string>
     <string name="title_no_image">A kép nem dekódolható</string>
     <string name="title_no_search">Nem elérhető a szerveren keresés ezen a fiókon</string>
+    <string name="title_too_large">Az üzenet túl nagy a teljes újraformázáshoz</string>
     <string name="title_truncated">Az üzenet túl nagy a teljes megjelnítéshez</string>
     <string name="title_insufficient_memory">Az üzenet túl nagy az elérhető memóriába való betöltéshez</string>
     <string name="title_show_full">Teljes szöveg megjelnítése</string>
@@ -614,6 +646,11 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_ask_help">Segítsen a FairEmail jobbá tételében</string>
     <string name="title_ask_reporting">Hibajelentések küldése?</string>
     <string name="title_reporting_why">Hibajelentések küldésével segíthet a FairEmail fejlesztésében</string>
+    <string name="title_ask_review">Kérlek értékeld a FairEmail-t</string>
+    <string name="title_ask_review_rationale">        Már egy ideje használod a FairEmail-t.
+        Örülnék, ha értékelnéd a FairEmail-t a Play Áruházban
+        Ez segíteni fog a jó és rossz értékelések közötti egyensúly fenntartásában.
+    </string>
     <string name="title_expand_warning">Az üzenet kibontása %1$s letöltéssel jár</string>
     <string name="title_download_message">Letöltés &#8230;</string>
     <string name="title_compose">Levélírás</string>
@@ -637,9 +674,10 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_send">Küldés</string>
     <string name="title_send_now">Küldés most</string>
     <string name="title_send_via">Küldés a következővel</string>
-    <string name="title_send_at">Küldés ekkor: &#8230;</string>
+    <string name="title_send_at">Küldés ekkor &#8230;</string>
     <string name="title_send_encryption">Titkosítás</string>
     <string name="title_send_priority">Prioritás</string>
+    <string name="title_no_server">Nem található szerver itt: \'%1$s\'</string>
     <string name="title_style_bold">Félkövér</string>
     <string name="title_style_italic">Dőlt</string>
     <string name="title_style_underline">Aláhúzott</string>
@@ -647,14 +685,19 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_style_color">Szín</string>
     <string name="title_style_clear">Formázás törlése</string>
     <string name="title_style_link">Hivatkozás beillesztése</string>
+    <string name="title_add_image">Kép hozzáadása</string>
+    <string name="title_add_image_inline">Beszúrás</string>
     <string name="title_add_image_attach">Csatolás</string>
     <string name="title_add_image_resize">Átméretezés</string>
+    <string name="title_add_resize_pixels">&lt; %1$d pixelek</string>
     <string name="title_add_image_select">Fájl kiválasztása</string>
     <string name="title_add_attachment">Melléklet hozzáadása</string>
     <string name="title_attachment_file">Fájl csatolása</string>
     <string name="title_attachment_photo">Fénykép készítése</string>
     <string name="title_attachment_audio">Hang rögzítése</string>
     <string name="title_show_addresses">(Titkos) Másolat megjelenítése</string>
+    <string name="title_send_dialog">Küldési opciók megjelenítése</string>
+    <string name="title_image_dialog">Képi opciók megjelenítése</string>
     <string name="title_media_toolbar">Média eszköztár</string>
     <string name="title_insert_contact_group">Névjegy csoport beillesztése</string>
     <string name="title_insert_template">Sablon beillesztése</string>
@@ -822,6 +865,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_minutes">Perc</string>
     <string name="title_dismiss">Elvetés</string>
     <string name="title_snooze_now">Szundi</string>
+    <string name="title_loading">Betöltés &#8230;</string>
     <string name="title_icalendar_accept">Elfogadás</string>
     <string name="title_icalendar_decline">Elutasítás</string>
     <string name="title_icalendar_calendar">Naptár</string>
@@ -829,6 +873,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_pro_list">Pro szolgáltatások listája</string>
     <string name="title_pro_purchase">Vásárlás</string>
     <string name="title_pro_once">Csak egyszer</string>
+    <string name="title_pro_price">Kérlek lásd <a href="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq19">EZt a GYIK-et</a> a pro funkciók áráért</string>
     <string name="title_pro_pending">A vásárlás folyamatban van</string>
     <string name="title_pro_activated">Minden pro szolgáltatás aktiválva van</string>
     <string name="title_pro_valid">Minden pro szolgáltatás aktiválva</string>
@@ -844,6 +889,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_widget_account">Fiók</string>
     <string name="title_widget_folder">Mappa</string>
     <string name="title_widget_folder_unified">Összesített bejövő mappák</string>
+    <!-- Thunderbird -->
     <string name="title_accessibility_flagged">Csillagozott</string>
     <string name="title_accessibility_unflagged">Csillagozatlan</string>
     <string name="title_accessibility_expand">Kibontás</string>

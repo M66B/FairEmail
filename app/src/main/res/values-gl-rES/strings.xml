@@ -12,6 +12,7 @@
     <string name="channel_group_contacts">Contactos</string>
     <string name="tile_synchronize">Sincronizar</string>
     <string name="tile_unseen">Novas mensaxes</string>
+    <!-- Thunderbird -->
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
 </resources>

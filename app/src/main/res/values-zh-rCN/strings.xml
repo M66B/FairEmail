@@ -1086,6 +1086,7 @@ FairEmail会显示一条消息来提醒您这一点，这条消息在您购买�
     <plurals name="title_accessibility_messages">
         <item quantity="other">%1$d 条消息</item>
     </plurals>
+    <!-- Thunderbird -->
     <string name="title_accessibility_flagged">标星</string>
     <string name="title_accessibility_unflagged">取消标星</string>
     <string name="title_accessibility_collapse">折叠</string>

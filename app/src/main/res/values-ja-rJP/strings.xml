@@ -1015,6 +1015,7 @@ FairEmailは、Pro機能購入の為に上部に小さなメッセージを表�
     <plurals name="title_accessibility_messages">
         <item quantity="other">%1$d メッセージ</item>
     </plurals>
+    <!-- Thunderbird -->
     <string name="title_accessibility_flagged">スター付き</string>
     <string name="title_accessibility_unflagged">スター無し</string>
     <string name="title_accessibility_collapse">折りたたむ</string>

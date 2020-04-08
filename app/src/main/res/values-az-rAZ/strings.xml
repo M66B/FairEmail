@@ -398,6 +398,7 @@
     <string name="title_debug_info">Sazlama məlumatı</string>
     <string name="title_debug_info_remark">Zəhmət olmasa probleminizi təsvir edin və problemin vaxtını göstərin:</string>
     <string name="title_crash_info_remark">Zəhmət olmasa tətbiq çökərkən tətbiqdə nə etdiyinizi təsvir edin:</string>
+    <!-- Thunderbird -->
     <string-array name="downloadNames">
         <item>16 KB</item>
         <item>32 KB</item>

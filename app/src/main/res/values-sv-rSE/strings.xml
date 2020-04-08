@@ -1097,6 +1097,7 @@
         <item quantity="one">%1$d meddelande</item>
         <item quantity="other">%1$d meddelanden</item>
     </plurals>
+    <!-- Thunderbird -->
     <string name="title_accessibility_flagged">Stjärnmärkta</string>
     <string name="title_accessibility_unflagged">Ostjärnmärkt</string>
     <string name="title_accessibility_collapse">Fäll ihop</string>

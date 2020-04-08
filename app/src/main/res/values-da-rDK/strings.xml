@@ -1098,6 +1098,7 @@
         <item quantity="one">%1$d besked</item>
         <item quantity="other">%1$d beskeder</item>
     </plurals>
+    <!-- Thunderbird -->
     <string name="title_accessibility_flagged">Stjernemarkeret</string>
     <string name="title_accessibility_unflagged">Ikke-stjernemarkeret</string>
     <string name="title_accessibility_collapse">Sammenfold</string>

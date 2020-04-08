@@ -866,6 +866,7 @@
     <string name="title_accessibility_expanded">Extés</string>
     <string name="title_accessibility_seen">Llegit</string>
     <string name="title_accessibility_unseen">Sense llegir</string>
+    <!-- Thunderbird -->
     <string name="title_accessibility_flagged">Destacats</string>
     <string name="title_accessibility_unflagged">Sense destacar</string>
     <string name="title_accessibility_collapse">Replegar</string>

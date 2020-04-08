@@ -1076,6 +1076,7 @@
         <item quantity="few">%1$d mesaje</item>
         <item quantity="other">%1$d de mesaje</item>
     </plurals>
+    <!-- Thunderbird -->
     <string name="title_accessibility_flagged">Marcat</string>
     <string name="title_accessibility_unflagged">Nemarcat</string>
     <string name="title_accessibility_collapse">Restrânge</string>

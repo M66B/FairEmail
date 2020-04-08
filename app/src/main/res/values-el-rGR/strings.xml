@@ -205,6 +205,7 @@
     <string name="title_rule_folder">Φάκελος</string>
     <string name="title_rule_template">Πρότυπο απάντησης</string>
     <string name="title_legend_found">Βρέθηκε</string>
+    <!-- Thunderbird -->
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="linesNames">

@@ -1119,6 +1119,7 @@ FairEmail wyświetla o tym małą wiadomość przypominającą, która zostanie 
         <item quantity="many">%1$d wiadomości</item>
         <item quantity="other">%1$d wiadomości</item>
     </plurals>
+    <!-- Thunderbird -->
     <string name="title_accessibility_flagged">Oznaczona</string>
     <string name="title_accessibility_unflagged">Nie oznaczona</string>
     <string name="title_accessibility_collapse">Zwiń</string>

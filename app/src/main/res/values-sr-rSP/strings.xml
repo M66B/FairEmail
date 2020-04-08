@@ -873,6 +873,7 @@
     <string name="title_accessibility_expanded">Прошири</string>
     <string name="title_accessibility_seen">Прочитано</string>
     <string name="title_accessibility_unseen">Не прочитано</string>
+    <!-- Thunderbird -->
     <string name="title_accessibility_flagged">Омиљено</string>
     <string name="title_accessibility_unflagged">Без ознаке</string>
     <string name="title_accessibility_collapse">Умањи</string>

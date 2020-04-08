@@ -377,6 +377,7 @@
     <string name="title_unexpected_error">لقد حدث خطأ غير متوقع</string>
     <string name="title_log">السجل</string>
     <string name="title_auto_scroll">تمرير تلقائي</string>
+    <!-- Thunderbird -->
     <string-array name="pollIntervalNames">
         <item>دائماً</item>
         <item>كل 15 دقيقة</item>

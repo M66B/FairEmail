@@ -1017,6 +1017,7 @@
     <string name="title_hint_important">Важное</string>
     <string name="title_hint_sync">Загрузка сообщений может занять некоторое время в зависимости от скорости провайдера, интернет-соединения и устройства, а также от количества сообщений. Во время загрузки сообщений приложение может реагировать медленнее.</string>
     <string name="title_hint_battery">Поскольку FairEmail по умолчанию всегда получает сообщения, Android считает его всё время активным. Поэтому может показаться, что FairEmail всегда использует батарею, хотя на самом деле это не так.</string>
+    <string name="title_hint_reformat">По умолчанию FairEmail переформатирует сообщения по соображениям конфиденциальности и безопасности. Чтобы просмотреть исходное сообщение, нажмите значок \"полный экран\" над текстом сообщения.</string>
     <string name="title_hint_contact_actions">Длительное нажатие для других действий</string>
     <string name="title_hint_eml">Это обзор содержимого файла оригинального сообщения. Сохраните его с помощью значка \"Сохранить\" на панели действий, чтобы просмотреть содержимое полностью.</string>
     <string name="title_open_link">Открыть ссылку</string>
@@ -1124,6 +1125,12 @@
         <item quantity="many">%1$d сообщений</item>
         <item quantity="other">%1$d сообщений</item>
     </plurals>
+    <!-- Thunderbird -->
+    <string name="title_keyword_label1">Важное</string>
+    <string name="title_keyword_label2">Работа</string>
+    <string name="title_keyword_label3">Личное</string>
+    <string name="title_keyword_label4">Выполнить</string>
+    <string name="title_keyword_label5">Позже</string>
     <string name="title_accessibility_flagged">Избранное</string>
     <string name="title_accessibility_unflagged">Не избранное</string>
     <string name="title_accessibility_collapse">Свернуть</string>

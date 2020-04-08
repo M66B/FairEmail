@@ -1026,6 +1026,7 @@
         <item quantity="few">%1$d poruke</item>
         <item quantity="other">%1$d poruka</item>
     </plurals>
+    <!-- Thunderbird -->
     <string name="title_accessibility_flagged">Sa zvjezdicom</string>
     <string name="title_accessibility_unflagged">Bez zvjezdice</string>
     <string name="title_accessibility_collapse">Sažmi</string>

@@ -1097,6 +1097,12 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
         <item quantity="one">Mezu %1$d</item>
         <item quantity="other">%1$d mezu</item>
     </plurals>
+    <!-- Thunderbird -->
+    <string name="title_keyword_label1">Garrantzitsua</string>
+    <string name="title_keyword_label2">Lanekoa</string>
+    <string name="title_keyword_label3">Pertsonala</string>
+    <string name="title_keyword_label4">Egiteke</string>
+    <string name="title_keyword_label5">Geroago</string>
     <string name="title_accessibility_flagged">Izarduna</string>
     <string name="title_accessibility_unflagged">Izarrik gabe</string>
     <string name="title_accessibility_collapse">Tolestu</string>

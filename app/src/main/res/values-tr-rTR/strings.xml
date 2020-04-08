@@ -990,6 +990,7 @@
         <item quantity="one">%1$d mesaj</item>
         <item quantity="other">%1$d mesaj</item>
     </plurals>
+    <!-- Thunderbird -->
     <string name="title_accessibility_flagged">Yıldızlı</string>
     <string name="title_accessibility_unflagged">Yıldızlı olmayan</string>
     <string name="title_accessibility_collapse">Daralt</string>

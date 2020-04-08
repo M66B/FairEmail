@@ -350,6 +350,7 @@
     <string name="title_advanced_light">Светлинна индикация на известия</string>
     <string name="title_advanced_sound">Избери звук за известяване</string>
     <string name="title_advanced_confirm_links">Потвърдете отварянето на връзката</string>
+    <string name="title_advanced_browse_links">Изпращане на отварящите връзки към Android</string>
     <string name="title_advanced_confirm_images">Потвърдете показването на изображения</string>
     <string name="title_advanced_confirm_html">Показване на преформатирани съобщения по подразбиране</string>
     <string name="title_advanced_tracking">Автоматично разпознаване и деактивиране на проследяващи изображения</string>
@@ -1089,6 +1090,7 @@
     <string name="title_widget_folder_unified">Обща папка входящи</string>
     <string name="title_widget_unseen">Непрочетени съобщения</string>
     <string name="title_widget_flagged">Само съобщения със звезда</string>
+    <string name="title_widget_semi_transparent">Полупрозрачен фон</string>
     <string name="title_accessibility_collapsed">Свиване</string>
     <string name="title_accessibility_expanded">Разширен</string>
     <string name="title_accessibility_seen">Прочетено</string>
@@ -1097,6 +1099,7 @@
         <item quantity="one">%1$d съобщение</item>
         <item quantity="other">%1$d съобщения</item>
     </plurals>
+    <!-- Thunderbird -->
     <string name="title_accessibility_flagged">Със звезда</string>
     <string name="title_accessibility_unflagged">Без звезда</string>
     <string name="title_accessibility_collapse">Свий</string>

@@ -518,6 +518,7 @@
         <item quantity="one">%1$d berjocht</item>
         <item quantity="other">%1$d berjochten</item>
     </plurals>
+    <!-- Thunderbird -->
     <string name="title_accessibility_flagged">Stjer</string>
     <string name="title_accessibility_unflagged">Unstjerre</string>
     <string name="title_accessibility_collapse">Ynsakje</string>

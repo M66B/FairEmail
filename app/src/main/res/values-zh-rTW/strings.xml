@@ -30,6 +30,7 @@
     <string name="menu_legend">圖例</string>
     <string name="menu_faq">支援</string>
     <string name="menu_translate">協助翻譯</string>
+    <!-- Thunderbird -->
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
 </resources>

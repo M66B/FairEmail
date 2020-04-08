@@ -1097,6 +1097,7 @@
         <item quantity="one">%1$d viesti</item>
         <item quantity="other">%1$d viestiä</item>
     </plurals>
+    <!-- Thunderbird -->
     <string name="title_accessibility_flagged">Tähdellinen</string>
     <string name="title_accessibility_unflagged">Tähdetön</string>
     <string name="title_accessibility_collapse">Tiivistä</string>

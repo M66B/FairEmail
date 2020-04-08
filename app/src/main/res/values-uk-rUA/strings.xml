@@ -41,6 +41,7 @@
     <string name="title_setup_defaults">Відновити типові</string>
     <string name="title_advanced_flags">Показувати улюблене</string>
     <string name="title_advanced_pull_refresh">Щоб оновити, потягніть вниз</string>
+    <!-- Thunderbird -->
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
 </resources>

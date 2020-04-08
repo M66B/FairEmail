@@ -360,6 +360,7 @@
     <string name="title_debug_info">اطلاعات اشکال زدایی</string>
     <string name="title_debug_info_remark">لطفاً مشکل را شرح داده و به زمان مشکل نیز اشاره کنید:</string>
     <string name="title_crash_info_remark">لطفاً توضیح دهید که در هنگام کرش برنامه درحال انجام چه کاری بودید:</string>
+    <!-- Thunderbird -->
     <string-array name="downloadNames">
         <item>16 کیلوبایت</item>
         <item>32 کیلوبایت</item>

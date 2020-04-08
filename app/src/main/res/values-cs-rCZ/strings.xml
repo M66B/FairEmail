@@ -181,7 +181,7 @@
     <string name="title_setup_go">Přejít</string>
     <string name="title_setup_to_do">Zbývá dokončit</string>
     <string name="title_setup_done">Hotovo</string>
-    <string name="title_setup_still">Zbývá dokončit</string>
+    <string name="title_setup_still">Stále zbývá dokončit</string>
     <string name="title_setup_error">Chyba</string>
     <string name="title_setup_export">Export nastavení</string>
     <string name="title_setup_import">Import nastavení</string>
@@ -297,7 +297,7 @@
     <string name="title_advanced_color_value">Jas</string>
     <string name="title_advanced_color_threshold">Mezní hodnota barvy písmena</string>
     <string name="title_advanced_name_email">Zobrazit jména a e-mailové adresy</string>
-    <string name="title_advanced_replace_name">Preferovat jméno kontaktu před odeslaným jménem</string>
+    <string name="title_advanced_replace_name">Preferovat jméno z kontaktu namísto z hlavičky</string>
     <string name="title_advanced_distinguish_contacts">Podtrhnout odesílatele, je-li známý jako lokální \"komu\" kontakt</string>
     <string name="title_advanced_authentication">Zobrazit upozornění, nemůže-li přijímající server zprávu ověřit</string>
     <string name="title_advanced_font_size_sender">Velikost písma odesílatele</string>
@@ -1017,6 +1017,7 @@
     <string name="title_hint_important">Důležité</string>
     <string name="title_hint_sync">Stažení zpráv může nějakou dobu trvat, v závislosti na rychlosti poskytovatele, internetového připojení a zařízení a na počtu zpráv. V průběhu stahování může aplikace reagovat pomaleji.</string>
     <string name="title_hint_battery">Neboť FairEmail ve výchozím nastavení přijímá zprávy neustále, Android bude hlásit, že je stále aktivní. Díky tomu se může zdát, jako by FairEmail konstantně spotřebovával baterii, ačkoli tomu tak ve skutečnosti není.</string>
+    <string name="title_hint_reformat">FairEmail ve výchozím nastavení přeformátuje zprávy z důvodů bezpečnosti a ochrany soukromí. Pro zobrazení původní zprávy stiskněte ikonu \"zobrazení na celou obrazovku\" nad textem zprávy.</string>
     <string name="title_hint_contact_actions">Dlouze podržet pro možnosti</string>
     <string name="title_hint_eml">Toto je souhrn obsahu souboru zdrojové zprávy. Uložte zdrojovou zprávu pomocí ikony uložit v panelu akcí pro zobrazení celého obsahu.</string>
     <string name="title_open_link">Otevřít odkaz</string>
@@ -1112,6 +1113,7 @@
     <string name="title_widget_folder_unified">Složky sjednocené doručené pošty</string>
     <string name="title_widget_unseen">Pouze nepřečtené zprávy</string>
     <string name="title_widget_flagged">Pouze zprávy označené hvězdičkou</string>
+    <string name="title_widget_semi_transparent">Poloprůhledné pozadí</string>
     <string name="title_accessibility_collapsed">Sbaleno</string>
     <string name="title_accessibility_expanded">Rozbaleno</string>
     <string name="title_accessibility_seen">Přečteno</string>
@@ -1122,6 +1124,12 @@
         <item quantity="many">%1$d zpráv</item>
         <item quantity="other">%1$d zpráv</item>
     </plurals>
+    <!-- Thunderbird -->
+    <string name="title_keyword_label1">Důležité</string>
+    <string name="title_keyword_label2">Pracovní</string>
+    <string name="title_keyword_label3">Osobní</string>
+    <string name="title_keyword_label4">K vyřízení</string>
+    <string name="title_keyword_label5">Později</string>
     <string name="title_accessibility_flagged">S hvězdičkou</string>
     <string name="title_accessibility_unflagged">Bez hvězdičky</string>
     <string name="title_accessibility_collapse">Sbalit</string>

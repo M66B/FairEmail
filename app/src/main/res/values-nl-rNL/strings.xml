@@ -994,6 +994,7 @@
     <string name="title_hint_important">Belangrijk</string>
     <string name="title_hint_sync">Het downloaden van berichten kan enige tijd duren, afhankelijk van de snelheid van de provider, de internet-verbinding en het apparaat en van het aantal berichten. Tijdens het downloaden van berichten kan de app trager reageren.</string>
     <string name="title_hint_battery">Aangezien FairEmail standaard altijd berichten ontvangt, meldt Android dat FairEmail altijd actief is. Daarom lijkt het erop dat FairEmail altijd batterijvermogen gebruikt, maar in feite is dit niet het geval.</string>
+    <string name="title_hint_reformat">Standaard formatteert FairEmail berichten opnieuw om privacy- en veiligheidsredenen. Tik op het \"volledig scherm\" pictogram boven de berichttekst om het oorspronkelijke bericht te bekijken.</string>
     <string name="title_hint_contact_actions">Druk lang voor opties</string>
     <string name="title_hint_eml">Dit is een samenvatting van de inhoud van een ruw berichtbestand. Sla het ruwe bericht op met het \'bewaar\' icoon in de actiebalk om alle inhoud te bekijken.</string>
     <string name="title_open_link">Koppeling openen</string>
@@ -1096,6 +1097,12 @@
         <item quantity="one">%1$d bericht</item>
         <item quantity="other">%1$d berichten</item>
     </plurals>
+    <!-- Thunderbird -->
+    <string name="title_keyword_label1">Belangrijk</string>
+    <string name="title_keyword_label2">Werk</string>
+    <string name="title_keyword_label3">Persoonlijk</string>
+    <string name="title_keyword_label4">Te doen</string>
+    <string name="title_keyword_label5">Later</string>
     <string name="title_accessibility_flagged">Met ster</string>
     <string name="title_accessibility_unflagged">Zonder ster</string>
     <string name="title_accessibility_collapse">Samenvouwen</string>

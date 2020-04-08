@@ -442,7 +442,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_notify_no_channels">Diese Android-Version unterstützt keine Benachrichtigungskanäle</string>
     <string name="title_advanced_fts_hint">Dies zu aktivieren, verbessert die Suchleistung, erhöht aber auch den Akku- und Speicherverbrauch</string>
     <string name="title_advanced_english_hint">Dadurch wird die App neu gestartet</string>
-    <string name="title_advanced_optimize_hint">Wenn aktiviert, können die Empfangseinstellungen automatisch geändert werden, um den Batterieverbrauch zu reduzieren.</string>
+    <string name="title_advanced_optimize_hint">Wenn aktiviert, werden die Empfangseinstellungen automatisch geändert, um den Batterieverbrauch zu reduzieren</string>
     <string name="title_advanced_experiments_hint">Liste der aktuellen experimentellen Funktionen</string>
     <string name="title_advanced_debug_hint">Aktiviert zusätzliche Protokollierung und zeigt Fehlerbehebungsinformationen an verschiedenen Stellen an</string>
     <string name="title_advanced_cleanup_hint">Dies löscht alle temporären Dateien</string>
@@ -996,6 +996,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_hint_important">Wichtig</string>
     <string name="title_hint_sync">Das Herunterladen von E-Mails kann einige Zeit in Anspruch nehmen, abhängig von der Geschwindigkeit des Providers, der Internetverbindung, des Gerätes und von der Anzahl der E-Mails. Beim Herunterladen der E-Mails kann die App träge reagieren.</string>
     <string name="title_hint_battery">Da FairEmail standardmäßig immer bereit ist Nachrichten zu erhalten, meldet Android FairEmail als immer aktiv. Daher mag es so aussehen, als ob FairEmail immer Akkuleistung verbraucht, aber das ist nicht der Fall.</string>
+    <string name="title_hint_reformat">Standardmäßig formatiert FairEmail Nachrichten aus Datenschutz- und Sicherheitsgründen neu. Um die Originalnachricht anzuzeigen, tippen Sie auf das Symbol „Vollbild” rechts über dem Nachrichtentext.</string>
     <string name="title_hint_contact_actions">Gedrückt halten für weitere Optionen</string>
     <string name="title_hint_eml">Das ist eine Zusammenfassung des Inhalts einer Rohnachrichtendatei. Speichern Sie die Rohnachricht mit dem Speichernsymbol in der Aktionsleiste, um alle Inhalte anzuzeigen.</string>
     <string name="title_open_link">Link öffnen</string>
@@ -1101,6 +1102,12 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
         <item quantity="one">%1$d Nachricht</item>
         <item quantity="other">%1$d Nachrichten</item>
     </plurals>
+    <!-- Thunderbird -->
+    <string name="title_keyword_label1">Wichtig</string>
+    <string name="title_keyword_label2">Arbeit</string>
+    <string name="title_keyword_label3">Persönlich</string>
+    <string name="title_keyword_label4">Offene Punkte</string>
+    <string name="title_keyword_label5">Später</string>
     <string name="title_accessibility_flagged">Markiert</string>
     <string name="title_accessibility_unflagged">Nicht markiert</string>
     <string name="title_accessibility_collapse">Zusammenklappen</string>

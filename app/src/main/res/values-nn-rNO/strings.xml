@@ -1060,6 +1060,7 @@ Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anme
         <item quantity="one">%1$d melding</item>
         <item quantity="other">%1$d meldinger</item>
     </plurals>
+    <!-- Thunderbird -->
     <string name="title_accessibility_flagged">Stjernemerkede</string>
     <string name="title_accessibility_unflagged">Ikke med stjerne</string>
     <string name="title_accessibility_collapse">Skjul</string>

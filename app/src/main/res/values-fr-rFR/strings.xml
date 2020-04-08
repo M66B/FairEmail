@@ -995,6 +995,7 @@
     <string name="title_hint_important">Important</string>
     <string name="title_hint_sync">Le téléchargement des messages peut prendre du temps selon la vitesse du fournisseur d\'accès, la connexion internet et le périphérique ainsi que selon le nombre de messages. Lors du téléchargement des messages, l\'application peut répondre plus lentement.</string>
     <string name="title_hint_battery">Étant donné que FairEmail par défaut reçoit toujours des messages, Android signalera que FairEmail est toujours actif. Par conséquent, FairEmail semble utiliser de la batterie en permanence mais en fait, ce n\'est pas le cas.</string>
+    <string name="title_hint_reformat">Par défaut, FairEmail reformate les messages pour des raisons de confidentialité et de sécurité. Pour afficher le message original, appuyez sur l\'icône \"plein écran\" au-dessus du texte du message.</string>
     <string name="title_hint_contact_actions">Appui long pour les options</string>
     <string name="title_hint_eml">Ceci est un résumé du contenu d\'un fichier de message brut. Enregistrez le message brut au moyen de l\'icône de sauvegarde dans la barre d\'action pour afficher tout le contenu.</string>
     <string name="title_open_link">Ouvrir le lien</string>
@@ -1100,6 +1101,12 @@
         <item quantity="one">%1$d message</item>
         <item quantity="other">%1$d messages</item>
     </plurals>
+    <!-- Thunderbird -->
+    <string name="title_keyword_label1">Important</string>
+    <string name="title_keyword_label2">Travail</string>
+    <string name="title_keyword_label3">Personnel</string>
+    <string name="title_keyword_label4">À faire</string>
+    <string name="title_keyword_label5">Plus tard</string>
     <string name="title_accessibility_flagged">Suivi</string>
     <string name="title_accessibility_unflagged">Non suivi</string>
     <string name="title_accessibility_collapse">Réduire</string>
