@@ -32,7 +32,6 @@ import com.sun.mail.util.ASCIIUtility;
 import com.sun.mail.util.BASE64DecoderStream;
 import com.sun.mail.util.FolderClosedIOException;
 import com.sun.mail.util.MessageRemovedIOException;
-import com.sun.mail.util.QDecoderStream;
 
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -1315,8 +1314,8 @@ public class MessageHelper {
             if (p1.charset != null && p1.charset.equalsIgnoreCase(p2.charset) &&
                     p1.encoding != null && p1.encoding.equalsIgnoreCase(p2.encoding)) {
                 try {
-                    byte[] b1 = decodeWord(p1.text, p1.encoding);
-                    byte[] b2 = decodeWord(p2.text, p2.encoding);
+                    byte[] b1 = decodeWord(p1.text, p1.encoding, p1.charset);
+                    byte[] b2 = decodeWord(p2.text, p2.encoding, p2.charset);
                     byte[] b = new byte[b1.length + b2.length];
                     System.arraycopy(b1, 0, b, 0, b1.length);
                     System.arraycopy(b2, 0, b, b1.length, b2.length);
@@ -1340,16 +1339,18 @@ public class MessageHelper {
         return sb.toString();
     }
 
-    static byte[] decodeWord(String word, String encoding) throws IOException {
+    static byte[] decodeWord(String word, String encoding, String charset) throws IOException {
         ByteArrayInputStream bis = new ByteArrayInputStream(ASCIIUtility.getBytes(word));
 
         InputStream is;
         if (encoding.equalsIgnoreCase("B"))
             is = new BASE64DecoderStream(bis);
         else if (encoding.equalsIgnoreCase("Q"))
-            is = new QDecoderStream(bis);
-        else
-            throw new UnsupportedEncodingException("Encoding=" + encoding);
+            is = new QDecoderStreamEx(bis);
+        else {
+            Log.e(new UnsupportedEncodingException("Encoding=" + encoding));
+            return word.getBytes(charset);
+        }
 
         int count = bis.available();
         byte[] bytes = new byte[count];
@@ -1379,10 +1380,10 @@ public class MessageHelper {
                 return text;
 
             try {
-                return decodeMime(new String(decodeWord(text, encoding), charset));
+                return decodeMime(new String(decodeWord(text, encoding, charset), charset));
             } catch (Throwable ex) {
                 String word = "=?" + charset + "?" + encoding + "?" + text + "?=";
-                Log.w(new IllegalArgumentException(word, ex));
+                Log.e(new IllegalArgumentException(word, ex));
                 return word;
             }
         }
