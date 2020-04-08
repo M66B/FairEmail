@@ -1030,23 +1030,29 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             popupMenu.getMenu().add(Menu.NONE, 3, order++, account.name)
                                     .setIntent(new Intent().putExtra("account", account.id));
 
+                        popupMenu.getMenu().add(Menu.NONE, 999, order++, R.string.title_setup_help);
+
                         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                             @Override
                             public boolean onMenuItemClick(MenuItem target) {
-                                if (target.getItemId() == 1) {
-                                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                                    boolean search_text = prefs.getBoolean("search_text", false);
-                                    prefs.edit().putBoolean("search_text", !search_text).apply();
-                                    return true;
-                                }
+                                switch (target.getItemId()) {
+                                    case 1: // Search text
+                                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                                        boolean search_text = prefs.getBoolean("search_text", false);
+                                        prefs.edit().putBoolean("search_text", !search_text).apply();
+                                        return true;
 
-                                if (target.getItemId() == 2) {
-                                    search(
-                                            getContext(), getViewLifecycleOwner(), getParentFragmentManager(),
-                                            account, folder,
-                                            true,
-                                            query);
-                                    return true;
+                                    case 2: // Search same folder
+                                        search(
+                                                getContext(), getViewLifecycleOwner(), getParentFragmentManager(),
+                                                account, folder,
+                                                true,
+                                                query);
+                                        return true;
+
+                                    case 999: // Help
+                                        Helper.viewFAQ(getContext(), 13);
+                                        return true;
                                 }
 
                                 Intent intent = target.getIntent();
