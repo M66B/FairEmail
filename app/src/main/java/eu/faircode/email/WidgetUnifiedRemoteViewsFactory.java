@@ -128,12 +128,16 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
             thread.putExtra("id", message.id);
             views.setOnClickFillInIntent(R.id.llMessage, thread);
 
-            SpannableString ssFrom = new SpannableString(MessageHelper.formatAddressesShort(message.from));
-            SpannableString ssTime = new SpannableString(Helper.getRelativeTimeSpanString(context, message.received));
+            SpannableString ssFrom = new SpannableString(pro
+                    ? MessageHelper.formatAddressesShort(message.from)
+                    : context.getString(R.string.title_pro_feature));
+            SpannableString ssTime = new SpannableString(
+                    Helper.getRelativeTimeSpanString(context, message.received));
             SpannableString ssSubject = new SpannableString(pro
                     ? TextUtils.isEmpty(message.subject) ? "" : message.subject
                     : context.getString(R.string.title_pro_feature));
-            SpannableString ssAccount = new SpannableString(TextUtils.isEmpty(message.accountName) ? "" : message.accountName);
+            SpannableString ssAccount = new SpannableString(
+                    TextUtils.isEmpty(message.accountName) ? "" : message.accountName);
 
             if (message.ui_seen) {
                 if (subject_italic)
