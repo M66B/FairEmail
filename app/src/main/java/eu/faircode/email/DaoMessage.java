@@ -479,7 +479,8 @@ public interface DaoMessage {
             " WHERE sender LIKE :query" +
             " AND NOT message.ui_hide" +
             " GROUP BY sender" +
-            " ORDER BY sender, subject")
+            " ORDER BY sender, subject" +
+            " LIMIT 5")
     Cursor getSuggestions(String query);
 
     @Query("SELECT language FROM message" +
