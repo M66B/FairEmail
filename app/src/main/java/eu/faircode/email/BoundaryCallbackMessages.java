@@ -401,6 +401,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                     }
                                     arg.writeAtom("OR");
                                     arg.writeAtom("OR");
+                                    arg.writeAtom("OR");
                                     if (search_text)
                                         arg.writeAtom("OR");
                                     if (keywords)
@@ -408,6 +409,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                     arg.writeAtom("FROM");
                                     arg.writeBytes(query.getBytes());
                                     arg.writeAtom("TO");
+                                    arg.writeBytes(query.getBytes());
+                                    arg.writeAtom("CC");
                                     arg.writeBytes(query.getBytes());
                                     arg.writeAtom("SUBJECT");
                                     arg.writeBytes(query.getBytes());
@@ -445,17 +448,12 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                             .replaceAll("[^\\p{ASCII}]", "");
 
                                     Log.i("Boundary ASCII search=" + search);
-                                    SearchTerm term = new OrTerm(
-                                            new OrTerm(
-                                                    new FromStringTerm(search),
-                                                    new RecipientStringTerm(Message.RecipientType.TO, search)
-                                            ),
-                                            new OrTerm(
-                                                    new SubjectTerm(search),
-                                                    new BodyTerm(search)
-                                            )
-                                    );
-
+                                    SearchTerm term = new FromStringTerm(search);
+                                    term = new OrTerm(term, new RecipientStringTerm(Message.RecipientType.TO, search));
+                                    term = new OrTerm(term, new RecipientStringTerm(Message.RecipientType.CC, search));
+                                    term = new OrTerm(term, new SubjectTerm(search));
+                                    if (search_text)
+                                        term = new OrTerm(term, new BodyTerm(search));
                                     if (keywords)
                                         term = new OrTerm(term, new FlagTerm(
                                                 new Flags(MessageHelper.sanitizeKeyword(search)), true));
