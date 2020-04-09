@@ -83,7 +83,6 @@ public class FragmentFolders extends FragmentBase {
     private long account;
     private boolean primary;
     private boolean show_hidden = false;
-    private String searching = null;
     private AdapterFolder adapter;
 
     private NumberFormat NF = NumberFormat.getNumberInstance();
@@ -264,18 +263,8 @@ public class FragmentFolders extends FragmentBase {
     }
 
     @Override
-    public void onSaveInstanceState(Bundle outState) {
-        outState.putString("fair:searching", searching);
-
-        super.onSaveInstanceState(outState);
-    }
-
-    @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
-        if (savedInstanceState != null)
-            searching = savedInstanceState.getString("fair:searching");
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         grpHintActions.setVisibility(prefs.getBoolean("folder_actions", false) ? View.GONE : View.VISIBLE);
@@ -428,23 +417,6 @@ public class FragmentFolders extends FragmentBase {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_folders, menu);
-
-        MenuItem menuSearch = menu.findItem(R.id.menu_search);
-        SearchViewEx searchView = (SearchViewEx) menuSearch.getActionView();
-        searchView.setup(getViewLifecycleOwner(), menuSearch, searching, new SearchViewEx.ISearch() {
-            @Override
-            public void onSave(String query) {
-                searching = query;
-            }
-
-            @Override
-            public void onSearch(String query) {
-                FragmentMessages.search(
-                        getContext(), getViewLifecycleOwner(), getParentFragmentManager(),
-                        account, -1, false, query);
-            }
-        });
-
         super.onCreateOptionsMenu(menu, inflater);
     }
 
@@ -466,6 +438,9 @@ public class FragmentFolders extends FragmentBase {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.menu_search:
+                onMenuSearch();
+                return true;
             case R.id.menu_compact:
                 onMenuCompact();
                 return true;
@@ -484,6 +459,15 @@ public class FragmentFolders extends FragmentBase {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void onMenuSearch() {
+        Bundle args = new Bundle();
+        args.putLong("account", account);
+
+        FragmentDialogSearch fragment = new FragmentDialogSearch();
+        fragment.setArguments(args);
+        fragment.show(getParentFragmentManager(), "search");
     }
 
     private void onMenuCompact() {

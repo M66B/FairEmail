@@ -62,9 +62,9 @@ public class ViewModelMessages extends ViewModel {
             final AdapterMessage.ViewType viewType,
             String type, long account, long folder,
             String thread, long id, boolean filter_archive,
-            String query, boolean server) {
+            BoundaryCallbackMessages.SearchCriteria criteria, boolean server) {
 
-        Args args = new Args(context, viewType, type, account, folder, thread, id, filter_archive, query, server);
+        Args args = new Args(context, viewType, type, account, folder, thread, id, filter_archive, criteria, server);
         Log.d("Get model=" + viewType + " " + args);
         dump();
 
@@ -80,10 +80,10 @@ public class ViewModelMessages extends ViewModel {
             BoundaryCallbackMessages boundary = null;
             if (viewType == AdapterMessage.ViewType.FOLDER)
                 boundary = new BoundaryCallbackMessages(context,
-                        args.account, args.folder, true, args.query, REMOTE_PAGE_SIZE);
+                        args.account, args.folder, true, args.criteria, REMOTE_PAGE_SIZE);
             else if (viewType == AdapterMessage.ViewType.SEARCH)
                 boundary = new BoundaryCallbackMessages(context,
-                        args.account, args.folder, args.server, args.query,
+                        args.account, args.folder, args.server, args.criteria,
                         args.server ? REMOTE_PAGE_SIZE : SEARCH_PAGE_SIZE);
 
             LivePagedListBuilder<Integer, TupleMessageEx> builder = null;
@@ -324,7 +324,7 @@ public class ViewModelMessages extends ViewModel {
         private long folder;
         private String thread;
         private long id;
-        private String query;
+        private BoundaryCallbackMessages.SearchCriteria criteria;
         private boolean server;
 
         private boolean threading;
@@ -342,7 +342,7 @@ public class ViewModelMessages extends ViewModel {
              AdapterMessage.ViewType viewType,
              String type, long account, long folder,
              String thread, long id, boolean filter_archive,
-             String query, boolean server) {
+             BoundaryCallbackMessages.SearchCriteria criteria, boolean server) {
 
             this.type = type;
             this.account = account;
@@ -350,7 +350,7 @@ public class ViewModelMessages extends ViewModel {
             this.thread = thread;
             this.id = id;
             this.filter_archive = filter_archive;
-            this.query = query;
+            this.criteria = criteria;
             this.server = server;
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -381,7 +381,7 @@ public class ViewModelMessages extends ViewModel {
                         this.folder == other.folder &&
                         Objects.equals(this.thread, other.thread) &&
                         this.id == other.id &&
-                        Objects.equals(this.query, other.query) &&
+                        Objects.equals(this.criteria, other.criteria) &&
                         this.server == other.server &&
 
                         this.threading == other.threading &&
@@ -403,7 +403,7 @@ public class ViewModelMessages extends ViewModel {
         public String toString() {
             return "folder=" + type + ":" + account + ":" + folder +
                     " thread=" + thread + ":" + id +
-                    " query=" + query + ":" + server + "" +
+                    " criteria=" + criteria + ":" + server + "" +
                     " threading=" + threading +
                     " sort=" + sort + ":" + ascending +
                     " filter seen=" + filter_seen +

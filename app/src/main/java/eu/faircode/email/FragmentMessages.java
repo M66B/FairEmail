@@ -247,7 +247,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private long id;
     private boolean filter_archive;
     private boolean found;
-    private String query;
+    private BoundaryCallbackMessages.SearchCriteria criteria = null;
     private boolean pane;
 
     private long message = -1;
@@ -272,7 +272,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private long primary;
     private boolean connected;
     private boolean reset = false;
-    private String searching = null;
     private boolean initialized = false;
     private boolean loading = false;
     private boolean swiping = false;
@@ -356,12 +355,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         id = args.getLong("id", -1);
         filter_archive = args.getBoolean("filter_archive", true);
         found = args.getBoolean("found", false);
-        query = args.getString("query");
+        criteria = (BoundaryCallbackMessages.SearchCriteria) args.getSerializable("criteria");
         pane = args.getBoolean("pane", false);
         primary = args.getLong("primary", -1);
         connected = args.getBoolean("connected", false);
 
-        if (folder > 0 && type == null && TextUtils.isEmpty(query))
+        if (folder > 0 && type == null && criteria == null)
             Log.e("Messages for folder without type");
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
@@ -382,7 +381,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         colorPrimary = Helper.resolveColor(getContext(), R.attr.colorPrimary);
         colorAccent = Helper.resolveColor(getContext(), R.attr.colorAccent);
 
-        if (TextUtils.isEmpty(query))
+        if (criteria == null)
             if (thread == null) {
                 if (folder < 0)
                     viewType = AdapterMessage.ViewType.UNIFIED;
@@ -1019,40 +1018,23 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         ss.setSpan(new RelativeSizeSpan(0.9f), 0, ss.length(), 0);
                         popupMenu.getMenu().add(Menu.NONE, 0, order++, ss)
                                 .setEnabled(false);
-                        popupMenu.getMenu().add(Menu.NONE, 1, order++, R.string.title_search_text)
-                                .setCheckable(true).setChecked(search_text);
 
                         String folderName = args.getString("folderName", null);
                         if (!TextUtils.isEmpty(folderName))
-                            popupMenu.getMenu().add(Menu.NONE, 2, order++, folderName);
+                            popupMenu.getMenu().add(Menu.NONE, 1, order++, folderName);
 
                         for (EntityAccount account : accounts)
-                            popupMenu.getMenu().add(Menu.NONE, 3, order++, account.name)
+                            popupMenu.getMenu().add(Menu.NONE, 2, order++, account.name)
                                     .setIntent(new Intent().putExtra("account", account.id));
-
-                        popupMenu.getMenu().add(Menu.NONE, 999, order++, R.string.title_setup_help);
 
                         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                             @Override
                             public boolean onMenuItemClick(MenuItem target) {
-                                switch (target.getItemId()) {
-                                    case 1: // Search text
-                                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                                        boolean search_text = prefs.getBoolean("search_text", false);
-                                        prefs.edit().putBoolean("search_text", !search_text).apply();
-                                        return true;
-
-                                    case 2: // Search same folder
-                                        search(
-                                                getContext(), getViewLifecycleOwner(), getParentFragmentManager(),
-                                                account, folder,
-                                                true,
-                                                query);
-                                        return true;
-
-                                    case 999: // Help
-                                        Helper.viewFAQ(getContext(), 13);
-                                        return true;
+                                if (target.getItemId() == 1) { // Search same folder
+                                    search(
+                                            getContext(), getViewLifecycleOwner(), getParentFragmentManager(),
+                                            account, folder, true, criteria);
+                                    return true;
                                 }
 
                                 Intent intent = target.getIntent();
@@ -1063,7 +1045,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 args.putString("title", getString(R.string.title_search_in));
                                 args.putLong("account", intent.getLongExtra("account", -1));
                                 args.putLongArray("disabled", new long[]{});
-                                args.putString("query", query);
+                                args.putSerializable("criteria", criteria);
 
                                 FragmentDialogFolder fragment = new FragmentDialogFolder();
                                 fragment.setArguments(args);
@@ -1122,16 +1104,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         else
             fabCompose.hide();
 
-        if (viewType == AdapterMessage.ViewType.SEARCH && !server) {
-            if (query != null && query.startsWith(getString(R.string.title_search_special_prefix) + ":")) {
-                String special = query.split(":")[1];
-                if (getString(R.string.title_search_special_snoozed).equals(special) ||
-                        getString(R.string.title_search_special_encrypted).equals(special) ||
-                        getString(R.string.title_search_special_attachments).equals(special))
-                    fabSearch.hide();
-                else
-                    fabSearch.show();
-            } else
+        if (viewType == AdapterMessage.ViewType.SEARCH && criteria != null && !server) {
+            if (criteria.with_hidden || criteria.with_encrypted || criteria.with_attachments)
+                fabSearch.hide();
+            else
                 fabSearch.show();
         } else
             fabSearch.hide();
@@ -2949,8 +2925,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     @Override
     public void onSaveInstanceState(Bundle outState) {
         outState.putBoolean("fair:reset", reset);
-        outState.putString("fair:searching", searching);
-
         outState.putBoolean("fair:autoExpanded", autoExpanded);
         outState.putInt("fair:autoCloseCount", autoCloseCount);
 
@@ -2975,8 +2949,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         if (savedInstanceState != null) {
             reset = savedInstanceState.getBoolean("fair:reset");
-            searching = savedInstanceState.getString("fair:searching");
-
             autoExpanded = savedInstanceState.getBoolean("fair:autoExpanded");
             autoCloseCount = savedInstanceState.getInt("fair:autoCloseCount");
 
@@ -3108,7 +3080,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 break;
 
             case SEARCH:
-                setSubtitle(query);
+                setSubtitle(criteria.getTitle());
                 break;
         }
 
@@ -3347,22 +3319,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_messages, menu);
 
-        MenuItem menuSearch = menu.findItem(R.id.menu_search);
-        SearchViewEx searchView = (SearchViewEx) menuSearch.getActionView();
-        searchView.setup(getViewLifecycleOwner(), menuSearch, searching, new SearchViewEx.ISearch() {
-            @Override
-            public void onSave(String query) {
-                searching = query;
-            }
-
-            @Override
-            public void onSearch(String query) {
-                FragmentMessages.search(
-                        getContext(), getViewLifecycleOwner(), getParentFragmentManager(),
-                        account, folder, false, query);
-            }
-        });
-
         menu.findItem(R.id.menu_folders).setActionView(R.layout.action_button);
         ImageButton ib = (ImageButton) menu.findItem(R.id.menu_folders).getActionView();
         ib.setImageResource(R.drawable.baseline_folder_24);
@@ -3414,8 +3370,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         menuSearch.setVisible(
                 (viewType == AdapterMessage.ViewType.UNIFIED && type == null)
                         || viewType == AdapterMessage.ViewType.FOLDER);
-        if (!menuSearch.isVisible())
-            menuSearch.collapseActionView();
 
         menu.findItem(R.id.menu_folders).setVisible(viewType == AdapterMessage.ViewType.UNIFIED && primary >= 0);
         ImageButton ib = (ImageButton) menu.findItem(R.id.menu_folders).getActionView();
@@ -3494,6 +3448,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.menu_search:
+                onMenuSearch();
+                return true;
+
             case R.id.menu_folders:
                 // Obsolete
                 onMenuFolders(primary);
@@ -3600,6 +3558,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void onMenuSearch() {
+        Bundle args = new Bundle();
+        args.putLong("account", account);
+        args.putLong("folder", folder);
+
+        FragmentDialogSearch fragment = new FragmentDialogSearch();
+        fragment.setArguments(args);
+        fragment.show(getParentFragmentManager(), "search");
     }
 
     private void onMenuFolders(long account) {
@@ -3887,7 +3855,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         ViewModelMessages.Model vmodel = model.getModel(
                 getContext(), getViewLifecycleOwner(),
-                viewType, type, account, folder, thread, id, filter_archive, query, server);
+                viewType, type, account, folder, thread, id, filter_archive, criteria, server);
 
         vmodel.setCallback(getViewLifecycleOwner(), callback);
         vmodel.setObserver(getViewLifecycleOwner(), observer);
@@ -4969,12 +4937,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 case REQUEST_SEARCH:
                     if (resultCode == RESULT_OK && data != null) {
                         Bundle args = data.getBundleExtra("args");
-                        search(
-                                getContext(), getViewLifecycleOwner(), getParentFragmentManager(),
+                        BoundaryCallbackMessages.SearchCriteria criteria =
+                                (BoundaryCallbackMessages.SearchCriteria) args.getSerializable("criteria");
+                        search(getContext(), getViewLifecycleOwner(), getParentFragmentManager(),
                                 args.getLong("account"),
                                 args.getLong("folder"),
-                                true,
-                                args.getString("query"));
+                                true, criteria);
                     }
                     break;
                 case REQUEST_ACCOUNT:
@@ -6506,6 +6474,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     static void search(
             final Context context, final LifecycleOwner owner, final FragmentManager manager,
             long account, long folder, boolean server, String query) {
+        search(context, owner, manager,
+                account, folder,
+                server, new BoundaryCallbackMessages.SearchCriteria(query));
+    }
+
+    static void search(
+            final Context context, final LifecycleOwner owner, final FragmentManager manager,
+            long account, long folder, boolean server, BoundaryCallbackMessages.SearchCriteria criteria) {
         if (server && !ActivityBilling.isPro(context)) {
             context.startActivity(new Intent(context, ActivityBilling.class));
             return;
@@ -6518,7 +6494,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         args.putLong("account", account);
         args.putLong("folder", folder);
         args.putBoolean("server", server);
-        args.putString("query", query);
+        args.putSerializable("criteria", criteria);
 
         FragmentMessages fragment = new FragmentMessages();
         fragment.setArguments(args);

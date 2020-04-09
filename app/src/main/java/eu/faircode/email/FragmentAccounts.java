@@ -71,7 +71,6 @@ public class FragmentAccounts extends FragmentBase {
     private FloatingActionButton fabCompose;
     private ObjectAnimator animator;
 
-    private String searching = null;
     private AdapterAccount adapter;
 
     private static final int REQUEST_IMPORT_OAUTH = 1;
@@ -248,17 +247,8 @@ public class FragmentAccounts extends FragmentBase {
     }
 
     @Override
-    public void onSaveInstanceState(Bundle outState) {
-        outState.putString("fair:searching", searching);
-        super.onSaveInstanceState(outState);
-    }
-
-    @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
-        if (savedInstanceState != null)
-            searching = savedInstanceState.getString("fair:searching");
 
         DB db = DB.getInstance(getContext());
 
@@ -294,23 +284,6 @@ public class FragmentAccounts extends FragmentBase {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_accounts, menu);
-
-        MenuItem menuSearch = menu.findItem(R.id.menu_search);
-        SearchViewEx searchView = (SearchViewEx) menuSearch.getActionView();
-        searchView.setup(getViewLifecycleOwner(), menuSearch, searching, new SearchViewEx.ISearch() {
-            @Override
-            public void onSave(String query) {
-                searching = query;
-            }
-
-            @Override
-            public void onSearch(String query) {
-                FragmentMessages.search(
-                        getContext(), getViewLifecycleOwner(), getParentFragmentManager(),
-                        -1, -1, false, query);
-            }
-        });
-
         super.onCreateOptionsMenu(menu, inflater);
     }
 
@@ -324,12 +297,23 @@ public class FragmentAccounts extends FragmentBase {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.menu_search:
+                onMenuSearch();
+                return true;
             case R.id.menu_force_sync:
                 onMenuForceSync();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void onMenuSearch() {
+        Bundle args = new Bundle();
+
+        FragmentDialogSearch fragment = new FragmentDialogSearch();
+        fragment.setArguments(args);
+        fragment.show(getParentFragmentManager(), "search");
     }
 
     private void onMenuForceSync() {

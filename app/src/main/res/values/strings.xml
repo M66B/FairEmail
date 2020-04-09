@@ -903,9 +903,26 @@
     <string name="title_signature_store">Store</string>
 
     <string name="title_search">Search</string>
+    <string name="title_search_for_hint">Enter text</string>
+    <string name="title_search_use_index">Use search index</string>
+    <string name="title_search_in_senders">In senders (from)</string>
+    <string name="title_search_in_recipients">In recipients (to, cc)</string>
+    <string name="title_search_in_subject">In subject</string>
+    <string name="title_search_in_keywords">In keyword (if supported)</string>
+    <string name="title_search_in_message">In message text</string>
+    <string name="title_search_with">And</string>
+    <string name="title_search_with_unseen">Unread</string>
+    <string name="title_search_with_flagged">Starred</string>
+    <string name="title_search_with_hidden">Hidden (on device only)</string>
+    <string name="title_search_with_encrypted">Encrypted (on device only)</string>
+    <string name="title_search_with_attachments">With attachments (on device only)</string>
+    <string name="title_search_hint">
+        Searching will initially look at messages stored on your device.
+        To search the server too, tap on the "search again" button.
+    </string>
+
     <string name="title_search_device">Search on device</string>
     <string name="title_search_server">Search on server</string>
-    <string name="title_search_text">Search in text</string>
     <string name="title_search_in">Search in</string>
 
     <string name="title_sort_on">Sort on</string>
@@ -1214,13 +1231,6 @@
     <string name="title_debug_info_remark">Please describe the problem and indicate the time of the problem:</string>
     <string name="title_crash_info_remark">Please describe what you were doing when the app crashed:</string>
     <string name="title_issue_subject" translatable="false">FairEmail %1$s issue</string>
-
-    <string name="title_search_special_prefix">special</string>
-    <string name="title_search_special_unseen">unread</string>
-    <string name="title_search_special_flagged">starred</string>
-    <string name="title_search_special_snoozed">hidden</string>
-    <string name="title_search_special_encrypted">encrypted</string>
-    <string name="title_search_special_attachments">attachments</string>
 
     <string name="title_widget_title_count">New message count</string>
     <string name="title_widget_title_list">Message list</string>
