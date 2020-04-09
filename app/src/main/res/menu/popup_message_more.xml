@@ -21,14 +21,14 @@
         android:title="@string/title_set_importance">
         <menu>
             <item
-                android:id="@+id/menu_set_importance_low"
-                android:title="@string/title_importance_low" />
+                android:id="@+id/menu_set_importance_high"
+                android:title="@string/title_importance_high" />
             <item
                 android:id="@+id/menu_set_importance_normal"
                 android:title="@string/title_importance_normal" />
             <item
-                android:id="@+id/menu_set_importance_high"
-                android:title="@string/title_importance_high" />
+                android:id="@+id/menu_set_importance_low"
+                android:title="@string/title_importance_low" />
         </menu>
     </item>
 

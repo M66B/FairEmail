@@ -2381,12 +2381,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 SubMenu importance = popupMenu.getMenu()
                         .addSubMenu(Menu.NONE, Menu.NONE, order++, R.string.title_set_importance);
-                importance.add(Menu.NONE, R.string.title_importance_low, 1, R.string.title_importance_low)
-                        .setEnabled(!EntityMessage.PRIORITIY_LOW.equals(result.importance));
+                importance.add(Menu.NONE, R.string.title_importance_high, 1, R.string.title_importance_high)
+                        .setEnabled(!EntityMessage.PRIORITIY_HIGH.equals(result.importance));
                 importance.add(Menu.NONE, R.string.title_importance_normal, 2, R.string.title_importance_normal)
                         .setEnabled(!EntityMessage.PRIORITIY_NORMAL.equals(result.importance));
-                importance.add(Menu.NONE, R.string.title_importance_high, 3, R.string.title_importance_high)
-                        .setEnabled(!EntityMessage.PRIORITIY_HIGH.equals(result.importance));
+                importance.add(Menu.NONE, R.string.title_importance_low, 3, R.string.title_importance_low)
+                        .setEnabled(!EntityMessage.PRIORITIY_LOW.equals(result.importance));
 
                 if (result.hasArchive && !result.isArchive) // has archive and not is archive/drafts
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_archive, order++, R.string.title_archive);
