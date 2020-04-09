@@ -5215,12 +5215,21 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (uri.isOpaque())
                 sanitized = uri;
             else {
-                // https://en.wikipedia.org/wiki/UTM_parameters
-                Uri.Builder builder = uri.buildUpon();
-
                 boolean changed = false;
+
+                Uri.Builder builder;
+                if (uri.getHost() != null &&
+                        uri.getHost().endsWith("safelinks.protection.outlook.com") &&
+                        !TextUtils.isEmpty(uri.getQueryParameter("url"))) {
+                    changed = true;
+                    builder = Uri.parse(uri.getQueryParameter("url")).buildUpon();
+                }
+                else
+                    builder = uri.buildUpon();
+
                 builder.clearQuery();
                 for (String key : uri.getQueryParameterNames())
+                    // https://en.wikipedia.org/wiki/UTM_parameters
                     if (key.toLowerCase(Locale.ROOT).startsWith("utm_") ||
                             PARANOID_QUERY.contains(key.toLowerCase(Locale.ROOT)))
                         changed = true;
