@@ -52,9 +52,22 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         boolean fts = prefs.getBoolean("fts", false);
         boolean filter_seen = prefs.getBoolean("filter_seen", false);
         boolean filter_unflagged = prefs.getBoolean("filter_unflagged", false);
+        boolean last_search_senders = prefs.getBoolean("last_search_senders", true);
+        boolean last_search_recipients = prefs.getBoolean("last_search_recipients", true);
+        boolean last_search_subject = prefs.getBoolean("last_search_subject", true);
+        boolean last_search_keywords = prefs.getBoolean("last_search_keywords", false);
+        boolean last_search_message = prefs.getBoolean("last_search_message", true);
         String last_search = prefs.getString("last_search", null);
 
         final InputMethodManager imm = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+
+        ibInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                imm.hideSoftInputFromWindow(etQuery.getWindowToken(), 0);
+                Helper.viewFAQ(getContext(), 13);
+            }
+        });
 
         SimpleCursorAdapter adapter = new SimpleCursorAdapter(
                 getContext(),
@@ -88,14 +101,6 @@ public class FragmentDialogSearch extends FragmentDialogBase {
 
         etQuery.setAdapter(adapter);
 
-        ibInfo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                imm.hideSoftInputFromWindow(etQuery.getWindowToken(), 0);
-                Helper.viewFAQ(getContext(), 13);
-            }
-        });
-
         cbSearchIndex.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -112,8 +117,48 @@ public class FragmentDialogSearch extends FragmentDialogBase {
             }
         });
 
+        cbSenders.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                prefs.edit().putBoolean("last_search_senders", isChecked).apply();
+            }
+        });
+
+        cbRecipients.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                prefs.edit().putBoolean("last_search_recipients", isChecked).apply();
+            }
+        });
+
+        cbSubject.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                prefs.edit().putBoolean("last_search_subject", isChecked).apply();
+            }
+        });
+
+        cbKeywords.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                prefs.edit().putBoolean("last_search_keywords", isChecked).apply();
+            }
+        });
+
+        cbMessage.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                prefs.edit().putBoolean("last_search_message", isChecked).apply();
+            }
+        });
+
         cbSearchIndex.setChecked(fts && pro);
         cbSearchIndex.setEnabled(pro);
+        cbSenders.setChecked(last_search_senders);
+        cbRecipients.setChecked(last_search_recipients);
+        cbSubject.setChecked(last_search_subject);
+        cbKeywords.setChecked(last_search_keywords);
+        cbMessage.setChecked(last_search_message);
         cbUnseen.setChecked(filter_seen);
         cbFlagged.setChecked(filter_unflagged);
 
