@@ -631,13 +631,21 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     with_attachments);
         }
 
-        String getTitle() {
-            return query +
-                    (with_unseen ? " ?" : "") +
-                    (with_flagged ? " ★" : "") +
-                    (with_hidden ? " ∅" : "") +
-                    (with_encrypted ? " ✗" : "") +
-                    (with_attachments ? " &" : "");
+        String getTitle(Context context) {
+            List<String> flags = new ArrayList<>();
+            if (with_unseen)
+                flags.add(context.getString(R.string.title_search_flag_unseen));
+            if (with_flagged)
+                flags.add(context.getString(R.string.title_search_flag_flagged));
+            if (with_hidden)
+                flags.add(context.getString(R.string.title_search_flag_hidden));
+            if (with_encrypted)
+                flags.add(context.getString(R.string.title_search_flag_encrypted));
+            if (with_attachments)
+                flags.add(context.getString(R.string.title_search_flag_attachments));
+            return (query == null ? "" : query)
+                    + (flags.size() > 0 ? " +" : "")
+                    + TextUtils.join(",", flags);
         }
 
         @Override

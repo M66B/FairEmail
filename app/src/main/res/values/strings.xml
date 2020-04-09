@@ -916,6 +916,12 @@
     <string name="title_search_with_hidden">Hidden (on device only)</string>
     <string name="title_search_with_encrypted">Encrypted (on device only)</string>
     <string name="title_search_with_attachments">With attachments (on device only)</string>
+    <string name="title_search_flag_unseen">unread</string>
+    <string name="title_search_flag_flagged">starred</string>
+    <string name="title_search_flag_hidden">hidden</string>
+    <string name="title_search_flag_encrypted">encrypted</string>
+    <string name="title_search_flag_attachments">attachments</string>
+
     <string name="title_search_hint">
         Searching will initially look at messages stored on your device.
         To search the server too, tap on the "search again" button.

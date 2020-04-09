@@ -3080,7 +3080,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 break;
 
             case SEARCH:
-                setSubtitle(criteria.getTitle());
+                setSubtitle(criteria.getTitle(getContext()));
                 break;
         }
 
