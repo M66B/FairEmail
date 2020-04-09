@@ -763,7 +763,6 @@ Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anme
     <string name="title_signature_store">Lagre</string>
     <string name="title_search">Søk</string>
     <string name="title_search_server">Søk på server</string>
-    <string name="title_search_text">Søk i tekst</string>
     <string name="title_search_in">Søk i</string>
     <string name="title_sort_on">Sorter på</string>
     <string name="title_sort_on_time">Tid</string>
@@ -1038,12 +1037,6 @@ Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anme
     <string name="title_debug_info">Feilsøkingsinformasjon</string>
     <string name="title_debug_info_remark">Vennligst beskriv problemet og angi tidspunktet for problemet:</string>
     <string name="title_crash_info_remark">Beskriv hva du gjorde da appen krasjet:</string>
-    <string name="title_search_special_prefix">spesiell</string>
-    <string name="title_search_special_unseen">ulest</string>
-    <string name="title_search_special_flagged">stjernemerkede</string>
-    <string name="title_search_special_snoozed">skjult</string>
-    <string name="title_search_special_encrypted">kryptert</string>
-    <string name="title_search_special_attachments">vedlegg</string>
     <string name="title_widget_title_count">Ny melding teller</string>
     <string name="title_widget_title_list">Meldingsliste</string>
     <string name="title_widget_account">Konto</string>

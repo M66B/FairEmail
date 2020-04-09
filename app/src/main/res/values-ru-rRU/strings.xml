@@ -820,7 +820,6 @@
     <string name="title_search">Поиск</string>
     <string name="title_search_device">Поиск на устройстве</string>
     <string name="title_search_server">Поиск на сервере</string>
-    <string name="title_search_text">Поиск в тексте</string>
     <string name="title_search_in">Поиск в</string>
     <string name="title_sort_on">Сортировать по</string>
     <string name="title_sort_on_time">Время</string>
@@ -1100,12 +1099,6 @@
     <string name="title_debug_info">Отладочная информация</string>
     <string name="title_debug_info_remark">Пожалуйста, опишите проблему и укажите момент её возникновения:</string>
     <string name="title_crash_info_remark">Пожалуйста, опишите, что вы делали, когда в приложении произошёл сбой:</string>
-    <string name="title_search_special_prefix">особый</string>
-    <string name="title_search_special_unseen">непрочитано</string>
-    <string name="title_search_special_flagged">избранное</string>
-    <string name="title_search_special_snoozed">скрыто</string>
-    <string name="title_search_special_encrypted">зашифровано</string>
-    <string name="title_search_special_attachments">вложения</string>
     <string name="title_widget_title_count">Количество новых сообщений</string>
     <string name="title_widget_title_list">Список сообщений</string>
     <string name="title_widget_account">Учётная запись</string>

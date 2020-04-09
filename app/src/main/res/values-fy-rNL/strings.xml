@@ -500,12 +500,6 @@
     <string name="title_auto_scroll">Auto skowe</string>
     <string name="title_log_clear">Wiskje</string>
     <string name="title_debug_info">Debug-ynfo</string>
-    <string name="title_search_special_prefix">spesjaal</string>
-    <string name="title_search_special_unseen">net lêzen</string>
-    <string name="title_search_special_flagged">stjer</string>
-    <string name="title_search_special_snoozed">ferburgen</string>
-    <string name="title_search_special_encrypted">fersifere</string>
-    <string name="title_search_special_attachments">taheaksels</string>
     <string name="title_widget_title_list">Berjochtlist</string>
     <string name="title_widget_account">Akkount</string>
     <string name="title_widget_account_all">Alle</string>

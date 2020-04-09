@@ -156,7 +156,7 @@
     <string name="title_setup_data">Datan säästäjä on käytössä</string>
     <string name="title_setup_inbox">Siirry viesteihin</string>
     <string name="title_setup_go">Aloita</string>
-    <string name="title_setup_to_do">Tekemättä</string>
+    <string name="title_setup_to_do">Tehtävänä</string>
     <string name="title_setup_done">Valmis</string>
     <string name="title_setup_still">Vielä tehtävänä</string>
     <string name="title_setup_error">Virhe</string>
@@ -796,7 +796,6 @@
     <string name="title_search">Hae</string>
     <string name="title_search_device">Hae laitteesta</string>
     <string name="title_search_server">Hae palvelimella</string>
-    <string name="title_search_text">Hae tekstistä</string>
     <string name="title_search_in">Hae kohteesta</string>
     <string name="title_sort_on">Järjestys</string>
     <string name="title_sort_on_time">Aika</string>
@@ -993,6 +992,7 @@
     <string name="title_hint_important">Tärkeä</string>
     <string name="title_hint_sync">Viestien lataaminen voi kestää riippuen verkkoyhteyden nopeudesta, käytettävästä laitteesta ja viestien lukumäärästä. Viestejä ladatessa sovellus voi toimia normaalia hitaammin.</string>
     <string name="title_hint_battery">Koska FairEmail vastaanottaa viestit oletusarvoisesti aina, Android ilmoittaa FairEmailin olevan aina aktviininen. Saattaa vaikuttaa, että FairEmail käyttäisi aina akkua, vaikka niin ei olekaan.</string>
+    <string name="title_hint_reformat">FairEmail oletusarvoisesti uudelleenmuotoilee viestit yksityisyyden ja turvallisuuden takaamiseksi. Näpäytä koko näytön kuvaketta viestin tekstin yläpuolella nähdäksesi alkuperäisen viestin.</string>
     <string name="title_hint_contact_actions">Pitkä painallus avaa asetukset</string>
     <string name="title_hint_eml">Tämä on tiivistelmä raakaviestistä. Tallenna raakaviesti toimintopalkin tallennuskuvakkeesta nähdäksesi koko sisällön.</string>
     <string name="title_open_link">Avaa linkki</string>
@@ -1075,12 +1075,6 @@
     <string name="title_debug_info">Vianetsintätiedot</string>
     <string name="title_debug_info_remark">Kuvaile ongelmatilanne ja milloin se ilmenee:</string>
     <string name="title_crash_info_remark">Kuvaile mitä olit tekemässä, kun sovellus kaatui:</string>
-    <string name="title_search_special_prefix">erityinen</string>
-    <string name="title_search_special_unseen">lukematon</string>
-    <string name="title_search_special_flagged">tähdellinen</string>
-    <string name="title_search_special_snoozed">piilotettu</string>
-    <string name="title_search_special_encrypted">salattu</string>
-    <string name="title_search_special_attachments">liitteet</string>
     <string name="title_widget_title_count">Uusien viestien lukumäärä</string>
     <string name="title_widget_title_list">Viestilista</string>
     <string name="title_widget_account">Tili</string>
@@ -1089,6 +1083,7 @@
     <string name="title_widget_folder_unified">Yhdistetyn saapuneet-kansion kansiot</string>
     <string name="title_widget_unseen">Vain lukemattomat viestit</string>
     <string name="title_widget_flagged">Vain tähdelliset viestit</string>
+    <string name="title_widget_semi_transparent">Osittain läpinäkyvä tausta</string>
     <string name="title_accessibility_collapsed">Tiivistetty</string>
     <string name="title_accessibility_expanded">Laajennettu</string>
     <string name="title_accessibility_seen">Luettu</string>
@@ -1098,6 +1093,11 @@
         <item quantity="other">%1$d viestiä</item>
     </plurals>
     <!-- Thunderbird -->
+    <string name="title_keyword_label1">Tärkeä</string>
+    <string name="title_keyword_label2">Työ</string>
+    <string name="title_keyword_label3">Henkilökohtainen</string>
+    <string name="title_keyword_label4">Tehtävänä</string>
+    <string name="title_keyword_label5">Myöhemmin</string>
     <string name="title_accessibility_flagged">Tähdellinen</string>
     <string name="title_accessibility_unflagged">Tähdetön</string>
     <string name="title_accessibility_collapse">Tiivistä</string>

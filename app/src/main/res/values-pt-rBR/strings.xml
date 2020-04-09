@@ -683,7 +683,6 @@
     <string name="title_signature_store">Loja</string>
     <string name="title_search">Pesquisar</string>
     <string name="title_search_server">Pesquisar no servidor</string>
-    <string name="title_search_text">Pesquisar no texto</string>
     <string name="title_search_in">Procurar em</string>
     <string name="title_sort_on">Ordenar por</string>
     <string name="title_sort_on_time">Data</string>
@@ -938,11 +937,6 @@
     <string name="title_debug_info">Informações de depuração</string>
     <string name="title_debug_info_remark">Por favor, descreva o problema e indique o momento em que ocorrera:</string>
     <string name="title_crash_info_remark">Por favor, descreva o que você estava fazendo quando o aplicativo falhou:</string>
-    <string name="title_search_special_prefix">especial</string>
-    <string name="title_search_special_unseen">não_lida</string>
-    <string name="title_search_special_flagged">favorito</string>
-    <string name="title_search_special_snoozed">oculto</string>
-    <string name="title_search_special_encrypted">criptografado</string>
     <string name="title_widget_title_count">Nova contagem de mensagens</string>
     <string name="title_widget_title_list">Lista de mensagem</string>
     <string name="title_widget_account">Conta</string>

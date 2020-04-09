@@ -796,7 +796,6 @@
     <string name="title_search">Sök</string>
     <string name="title_search_device">Sök på enheten</string>
     <string name="title_search_server">Sök på servern</string>
-    <string name="title_search_text">Sök i text</string>
     <string name="title_search_in">Sök i</string>
     <string name="title_sort_on">Sortera på</string>
     <string name="title_sort_on_time">Tid</string>
@@ -1075,12 +1074,6 @@
     <string name="title_debug_info">Felsökningsinformation</string>
     <string name="title_debug_info_remark">Beskriv problemet och ange tidpunkten för problemet:</string>
     <string name="title_crash_info_remark">Beskriv vad du gjorde när appen kraschade:</string>
-    <string name="title_search_special_prefix">speciell</string>
-    <string name="title_search_special_unseen">oläst</string>
-    <string name="title_search_special_flagged">stjärnmärkt</string>
-    <string name="title_search_special_snoozed">dold</string>
-    <string name="title_search_special_encrypted">krypterad</string>
-    <string name="title_search_special_attachments">bilagor</string>
     <string name="title_widget_title_count">Antal nya meddelanden</string>
     <string name="title_widget_title_list">Meddelandelista</string>
     <string name="title_widget_account">Konto</string>

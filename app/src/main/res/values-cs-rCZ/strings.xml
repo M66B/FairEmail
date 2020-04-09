@@ -372,7 +372,7 @@
     <string name="title_advanced_light">Použít oznamovací LED</string>
     <string name="title_advanced_sound">Vybrat zvuk oznámení</string>
     <string name="title_advanced_confirm_links">Potvrzovat otevírání odkazů</string>
-    <string name="title_advanced_browse_links">Otevírání odkazů svěřit Androidu</string>
+    <string name="title_advanced_browse_links">Otvírejte odkazy na Androidu</string>
     <string name="title_advanced_confirm_images">Potvrzovat zobrazení obrázků</string>
     <string name="title_advanced_confirm_html">Automaticky zobrazit zprávy přeformátované</string>
     <string name="title_advanced_tracking">Automaticky rozpoznat a zakázat sledovací obrázky</string>
@@ -820,7 +820,6 @@
     <string name="title_search">Hledat</string>
     <string name="title_search_device">Hledat v zařízení</string>
     <string name="title_search_server">Hledat na serveru</string>
-    <string name="title_search_text">Hledat v textu</string>
     <string name="title_search_in">Hledat v</string>
     <string name="title_sort_on">Řadit dle</string>
     <string name="title_sort_on_time">Čas</string>
@@ -1099,12 +1098,6 @@
     <string name="title_debug_info">Ladící informace</string>
     <string name="title_debug_info_remark">Prosím, popište problém a uveďte čas, kdy k němu došlo:</string>
     <string name="title_crash_info_remark">Popište prosím, co jste dělali, když došlo k pádu aplikace:</string>
-    <string name="title_search_special_prefix">speciální</string>
-    <string name="title_search_special_unseen">nepřečteno</string>
-    <string name="title_search_special_flagged">hvězdička</string>
-    <string name="title_search_special_snoozed">skryto</string>
-    <string name="title_search_special_encrypted">šifrováno</string>
-    <string name="title_search_special_attachments">přílohy</string>
     <string name="title_widget_title_count">Počet nových zpráv</string>
     <string name="title_widget_title_list">Seznam zpráv</string>
     <string name="title_widget_account">Účet</string>

@@ -8,7 +8,7 @@ Internetcsatlakozás szükséges a fiókok és az identitások létrehozásához
 
 ## Gyors beállítás
 
-Csak írd be a neved, email címed és jelszavad és tapints a *Tovább* gombra.
+Csak írd be a neved, email címed és jelszavad és koppints a *Tovább* gombra.
 
 Ez működni fog a legtöbb email szolgáltató esetében.
 
@@ -16,9 +16,9 @@ Ha a gyors telepítés nem működik, egy másik módon kell majd fiókot és id
 
 ## Fiók beállítása - email fogadásához
 
-To add an account, tap *Manage accounts* and tap the orange *add* button at the bottom. Select a provider from the list, enter the username, which is mostly your email address and enter your password. Tap *Check* to let FairEmail connect to the email server and fetch a list of system folders. After reviewing the system folder selection you can add the account by tapping *Save*.
+Fiók hozzáadásához koppintson a *Fiókok kezelése*-re majd koppintson a narancssárga *Hozzáadás* gombra alul. Válasszon egy szolgáltatót a listából, adja meg a felhasználónevet, ami legtöbbször az email-címe, és írja be a jelszavát. Koppintson az *Ellenőrzés*-re hogy engedélyezze a FairEmail-nek hogy kapcsolódjon az email szerverhez és lekérje a rendszermappák listáját. After reviewing the system folder selection you can add the account by tapping *Save*.
 
-If your provider is not in the list of providers, select *Custom*. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the hostname and port number, else check the setup instructions of your provider for the right IMAP hostname, port number and protocol (SSL/TLS or STARTTLS). For more about this, please see [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
+Ha a szolgáltatója nincs a listában, koppintson az *Egyéni*-re. Írja be a domain nevet, például *gmail.com* majd nyomjon a *beállítások lekérése*-re. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the hostname and port number, else check the setup instructions of your provider for the right IMAP hostname, port number and protocol (SSL/TLS or STARTTLS). For more about this, please see [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
 
 ## Identitás beállítása - email küldéshez
 
@@ -32,9 +32,9 @@ Az aliasok használatáról lásd [ezt a GYIK-et](https://github.com/M66B/FairEm
 
 If you want to lookup email addresses, have contact photos shown, etc, you'll need to grant read contacts permission to FairEmail. Just tap *Grant permissions* and select *Allow*.
 
-## Setup battery optimizations - to continuously receive emails
+## Akkumulátorhasználat optimalizálás beállítása - hogy folyamatosan fogadjon leveleket
 
-On recent Android versions, Android will put apps to sleep when the screen is off for some time to reduce battery usage. If you want to receive new emails without delays, you should disable battery optimizations for FairEmail. Tap *Disable battery optimizations* and follow the instructions.
+Újabb Android verziókon az Android az alkalmazásokat alvó módba rakja amikor ki van kapcsolva a képernyő egy ideig hogy az akkumulátorhasználatot csökkentse. Ha késések nélkül szeretné megkapni az új emaileket, akkor ajánlott kikapcsolni az akkumulátor optimalizálást a FairEmail-on. Koppintson az *Akkumulátorhasználat optimalizálásának kikapcsolása* gombra és kövesse az utasításokat.
 
 ## Kérdések és problémák
 

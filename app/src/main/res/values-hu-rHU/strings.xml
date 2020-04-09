@@ -30,7 +30,7 @@
     <string name="shortcut_compose">Levélírás</string>
     <string name="shortcut_setup">Beállítások</string>
     <plurals name="title_notification_synchronizing">
-        <item quantity="one">A(z) %1$d fiók ellenörzése</item>
+        <item quantity="one">%1$d fiók szinkronizálása</item>
         <item quantity="other">%1$d fiók szinkronizálása</item>
     </plurals>
     <plurals name="title_notification_operations">
@@ -78,7 +78,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_notification_failed">\'%1$s\' sikertelen</string>
     <string name="title_notification_alert">\'%1$s\' szerver figyelmeztetés</string>
     <string name="title_name_count">%1$s (%2$s)</string>
-    <string name="title_name_plus">%1$s +%2$d</string>
+    <string name="title_name_plus">%1$s + %2$d</string>
     <string name="title_factor_minutes">%1$d perc</string>
     <string name="menu_exit">Kilépés</string>
     <string name="menu_answers">Sablonok</string>
@@ -576,6 +576,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_folder_system">Rendszer</string>
     <string name="title_folder_user">Felhasználó</string>
     <string name="title_folder_user_only">Csak felhasználói mappák</string>
+    <string name="title_folder_primary">Mappák elsődleges fiókja</string>
     <string name="title_folders_unified">Összesített bejövő mappák</string>
     <string name="title_no_folders">Nincsenek mappák</string>
     <string name="title_no_messages">Nincsenek üzenetek</string>
@@ -781,7 +782,6 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_search">Keresés</string>
     <string name="title_search_device">Keresés az eszközön</string>
     <string name="title_search_server">Keresés a szerveren</string>
-    <string name="title_search_text">Keresés a szövegben</string>
     <string name="title_search_in">Keresés a következőben</string>
     <string name="title_sort_on">Rendezés ez által</string>
     <string name="title_sort_on_time">Idő</string>
@@ -959,7 +959,9 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_legend_p">Előző</string>
     <string name="title_legend_r">Válasz</string>
     <string name="title_legend_s">Kijelölés/kijelölés megszüntetése</string>
+    <string name="title_hint_folder_actions">Nyomjon hosszan egy mappát az opciók megjelenítéséhez, mint pl. hozzáadás a navigációs menühöz gyors hozzáféréshez</string>
     <string name="title_hint_folder_sync">Az akkumulátor- és hálózathasználat limitálása érdekében nem minden mappa és üzenet lesz szinkronizálva alapértelmezésként</string>
+    <string name="title_hint_support">Ha kérdésed vagy problémád van, használd a támogatási menüt segítségért</string>
     <string name="title_hint_message_actions">Törlés balra csúsztatásra; Archiválás jobbra csúsztatásra (ha elérhető); A csúsztatáshoz tartozó műveletek módosíthatóak a fiók beállításai között</string>
     <string name="title_hint_important">Fontos</string>
     <string name="title_hint_reformat">Alapértelmezésből a FairEmail újraformázza az üzeneteket adatvédelmi és biztonsági okokból. Az eredeti üzenet megtekintéséhez koppintson a \"Teljes képernyő\" ikonra az üzenetszöveg fölött.</string>
@@ -1040,12 +1042,6 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_debug_info">Hibakeresési információ</string>
     <string name="title_debug_info_remark">Kérlek jellemezd a problémát és jelezd az idejét a problémának:</string>
     <string name="title_crash_info_remark">Kérlek magyarázd el mit csináltál amikor az alkalmazás összeomlott:</string>
-    <string name="title_search_special_prefix">speciális</string>
-    <string name="title_search_special_unseen">olvasatlan</string>
-    <string name="title_search_special_flagged">csillagozott</string>
-    <string name="title_search_special_snoozed">rejtett</string>
-    <string name="title_search_special_encrypted">titkosított</string>
-    <string name="title_search_special_attachments">csatolmányok</string>
     <string name="title_widget_title_count">Új üzenetek számláló</string>
     <string name="title_widget_title_list">Üzenet lista</string>
     <string name="title_widget_account">Fiók</string>
@@ -1182,8 +1178,8 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string-array name="encryptNames">
         <item>Egyik sem</item>
         <item>PGP sign-only</item>
-        <item>PGP sign+encrypt</item>
+        <item>PGP aláírás+titkosítás</item>
         <item>S/MIME sign-only</item>
-        <item>S/MIME sign+encrypt</item>
+        <item>S/MIME aláírás+titkosítás</item>
     </string-array>
 </resources>

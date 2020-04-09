@@ -798,7 +798,6 @@
     <string name="title_search">Søg</string>
     <string name="title_search_device">Søg på enhed</string>
     <string name="title_search_server">Søg på server</string>
-    <string name="title_search_text">Søg i tekst</string>
     <string name="title_search_in">Søg i</string>
     <string name="title_sort_on">Sortér efter</string>
     <string name="title_sort_on_time">Tid</string>
@@ -1077,12 +1076,6 @@
     <string name="title_debug_info">Fejlretningsinfo</string>
     <string name="title_debug_info_remark">Beskriv venligst problemet og angiv tidspunktet for problemet:</string>
     <string name="title_crash_info_remark">Beskriv venligst, hvad du foretog dig, da app\'en gik ned:</string>
-    <string name="title_search_special_prefix">speciel</string>
-    <string name="title_search_special_unseen">ulæst</string>
-    <string name="title_search_special_flagged">stjernemarkeret</string>
-    <string name="title_search_special_snoozed">skjult</string>
-    <string name="title_search_special_encrypted">krypteret</string>
-    <string name="title_search_special_attachments">vedhæftninger</string>
     <string name="title_widget_title_count">Ny besked-tæller</string>
     <string name="title_widget_title_list">Beskedliste</string>
     <string name="title_widget_account">Konto</string>

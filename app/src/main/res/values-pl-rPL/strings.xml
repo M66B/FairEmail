@@ -818,7 +818,6 @@
     <string name="title_search">Szukaj</string>
     <string name="title_search_device">Szukaj na urządzeniu</string>
     <string name="title_search_server">Szukaj na serwerze</string>
-    <string name="title_search_text">Szukaj w tekście</string>
     <string name="title_search_in">Szukaj w</string>
     <string name="title_sort_on">Sortuj wg</string>
     <string name="title_sort_on_time">Czas</string>
@@ -1095,12 +1094,6 @@ FairEmail wyświetla o tym małą wiadomość przypominającą, która zostanie 
     <string name="title_debug_info">Info debugowania</string>
     <string name="title_debug_info_remark">Opisz proszę problem i wskaż moment jego wystąpienia:</string>
     <string name="title_crash_info_remark">Opisz proszę, co robisz, w momencie awarii aplikacji:</string>
-    <string name="title_search_special_prefix">specjalna</string>
-    <string name="title_search_special_unseen">nieodczytana</string>
-    <string name="title_search_special_flagged">oznaczona</string>
-    <string name="title_search_special_snoozed">ukryta</string>
-    <string name="title_search_special_encrypted">zaszyfrowana</string>
-    <string name="title_search_special_attachments">załączniki</string>
     <string name="title_widget_title_count">Liczba nowych wiadomości</string>
     <string name="title_widget_title_list">Lista wiadomości</string>
     <string name="title_widget_account">Konto</string>

@@ -608,7 +608,6 @@
     <string name="title_signature_store">Botiga</string>
     <string name="title_search">Cerca</string>
     <string name="title_search_server">Cerca en el servidor remot</string>
-    <string name="title_search_text">Cerca al text</string>
     <string name="title_search_in">Cerca en</string>
     <string name="title_sort_on">Ordena per</string>
     <string name="title_sort_on_time">Data</string>
@@ -849,11 +848,6 @@
     <string name="title_debug_info">Informació de depuració</string>
     <string name="title_debug_info_remark">Per favor descriu el problema i indica quan en el que va ocorre:</string>
     <string name="title_crash_info_remark">Per favor descriu què estaves fent quan l\'aplicació va fallar:</string>
-    <string name="title_search_special_prefix">especial</string>
-    <string name="title_search_special_unseen">sense llegir</string>
-    <string name="title_search_special_flagged">destacats</string>
-    <string name="title_search_special_snoozed">ocult</string>
-    <string name="title_search_special_encrypted">encriptat</string>
     <string name="title_widget_title_count">Nou recompte de missatges</string>
     <string name="title_widget_title_list">Llista de missatges</string>
     <string name="title_widget_account">Compte</string>

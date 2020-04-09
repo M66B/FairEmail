@@ -743,7 +743,6 @@
     <string name="title_signature_store">Pohraniti</string>
     <string name="title_search">Pretraživanje</string>
     <string name="title_search_server">Traži na poslužitelju</string>
-    <string name="title_search_text">Traži u tekstu</string>
     <string name="title_search_in">Traži u</string>
     <string name="title_sort_on">Poredaj na</string>
     <string name="title_sort_on_time">Vrijeme</string>
@@ -1003,12 +1002,6 @@
     <string name="title_debug_info">Informacije o otklanjanju pogrešaka</string>
     <string name="title_debug_info_remark">Opišite problem i navedite vrijeme problema:</string>
     <string name="title_crash_info_remark">Opišite što ste radili kada je aplikacija pala:</string>
-    <string name="title_search_special_prefix">posebno</string>
-    <string name="title_search_special_unseen">nepročitano</string>
-    <string name="title_search_special_flagged">označeno</string>
-    <string name="title_search_special_snoozed">skriveno</string>
-    <string name="title_search_special_encrypted">šifrirano</string>
-    <string name="title_search_special_attachments">prilozi</string>
     <string name="title_widget_title_count">Broj novih poruka</string>
     <string name="title_widget_title_list">Popis poruka</string>
     <string name="title_widget_account">Račun</string>

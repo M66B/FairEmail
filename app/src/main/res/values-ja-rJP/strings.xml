@@ -734,7 +734,6 @@ PlayストアでFairEmailを評価できれば幸いです。
     <string name="title_signature_store">署名保存</string>
     <string name="title_search">検索</string>
     <string name="title_search_server">サーバで検索</string>
-    <string name="title_search_text">テキストで検索</string>
     <string name="title_search_in">検索場所</string>
     <string name="title_sort_on">並べ替え</string>
     <string name="title_sort_on_time">時間</string>
@@ -994,12 +993,6 @@ FairEmailは、Pro機能購入の為に上部に小さなメッセージを表�
     <string name="title_debug_info">デバッグ情報</string>
     <string name="title_debug_info_remark">問題を説明し問題の時刻を記述下さい(英語のみ):</string>
     <string name="title_crash_info_remark">アプリがクラッシュした時に何をしていたかを説明してください(英語のみ):</string>
-    <string name="title_search_special_prefix">特別</string>
-    <string name="title_search_special_unseen">未読</string>
-    <string name="title_search_special_flagged">スター付き</string>
-    <string name="title_search_special_snoozed">非表示</string>
-    <string name="title_search_special_encrypted">暗号化</string>
-    <string name="title_search_special_attachments">添付ファイル</string>
     <string name="title_widget_title_count">新しいメッセージ数</string>
     <string name="title_widget_title_list">メッセージリスト</string>
     <string name="title_widget_account">アカウント</string>

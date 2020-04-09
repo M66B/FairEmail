@@ -776,7 +776,6 @@
     <string name="title_signature_store">Stocare</string>
     <string name="title_search">Caută</string>
     <string name="title_search_server">Căutare pe server</string>
-    <string name="title_search_text">Căutare în text</string>
     <string name="title_search_in">Căutare în</string>
     <string name="title_sort_on">Sortare</string>
     <string name="title_sort_on_time">Dată</string>
@@ -1053,12 +1052,6 @@
     <string name="title_debug_info">Depanare</string>
     <string name="title_debug_info_remark">Va rog sa descrieți problema și să indicați momentul când s-a produs:</string>
     <string name="title_crash_info_remark">Vă rugăm să descrieți ce făceați atunci când aplicația s-a oprit:</string>
-    <string name="title_search_special_prefix">special</string>
-    <string name="title_search_special_unseen">necitit</string>
-    <string name="title_search_special_flagged">stea</string>
-    <string name="title_search_special_snoozed">ascuns</string>
-    <string name="title_search_special_encrypted">criptat</string>
-    <string name="title_search_special_attachments">atașamente</string>
     <string name="title_widget_title_count">Contor mesaje noi</string>
     <string name="title_widget_title_list">Listă mesaje</string>
     <string name="title_widget_account">Cont</string>

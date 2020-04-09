@@ -786,7 +786,6 @@
     <string name="title_search">搜索</string>
     <string name="title_search_device">在设备上搜索</string>
     <string name="title_search_server">在服务器上搜索</string>
-    <string name="title_search_text">搜索文本</string>
     <string name="title_search_in">搜索范围</string>
     <string name="title_sort_on">排序方式</string>
     <string name="title_sort_on_time">时间</string>
@@ -1065,12 +1064,6 @@ FairEmail会显示一条消息来提醒您这一点，这条消息在您购买�
     <string name="title_debug_info">调试信息</string>
     <string name="title_debug_info_remark">请描述问题及问题发生的时间：</string>
     <string name="title_crash_info_remark">请描述应用崩溃时您的操作</string>
-    <string name="title_search_special_prefix">特殊</string>
-    <string name="title_search_special_unseen">未读</string>
-    <string name="title_search_special_flagged">星标</string>
-    <string name="title_search_special_snoozed">隐藏</string>
-    <string name="title_search_special_encrypted">已加密</string>
-    <string name="title_search_special_attachments">附件</string>
     <string name="title_widget_title_count">新消息计数</string>
     <string name="title_widget_title_list">消息列表</string>
     <string name="title_widget_account">账户</string>

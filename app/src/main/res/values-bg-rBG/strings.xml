@@ -797,7 +797,6 @@
     <string name="title_search">Търсене</string>
     <string name="title_search_device">Търсене в устройството</string>
     <string name="title_search_server">Търсене в сървъра</string>
-    <string name="title_search_text">Търсене в текст</string>
     <string name="title_search_in">Търсене в</string>
     <string name="title_sort_on">Сортирай по</string>
     <string name="title_sort_on_time">Време</string>
@@ -1077,12 +1076,6 @@
     <string name="title_debug_info">Инфо за отстраняване на грешки</string>
     <string name="title_debug_info_remark">Моля, опишете проблема и отбележете часа на възникването му:</string>
     <string name="title_crash_info_remark">Моля, опишете какво правихте, когато приложението се срина:</string>
-    <string name="title_search_special_prefix">специални</string>
-    <string name="title_search_special_unseen">непрочетени</string>
-    <string name="title_search_special_flagged">със звезда</string>
-    <string name="title_search_special_snoozed">скрити</string>
-    <string name="title_search_special_encrypted">шифровани</string>
-    <string name="title_search_special_attachments">прикачени файлове</string>
     <string name="title_widget_title_count">Брой нови съобщения</string>
     <string name="title_widget_title_list">Списък на съобщенията</string>
     <string name="title_widget_account">Профил</string>

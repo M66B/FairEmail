@@ -708,7 +708,6 @@
     <string name="title_signature_store">Sakla</string>
     <string name="title_search">Ara</string>
     <string name="title_search_server">Sunucuda ara</string>
-    <string name="title_search_text">Metinde ara</string>
     <string name="title_search_in">İçinde ara</string>
     <string name="title_sort_on">Sırala</string>
     <string name="title_sort_on_time">Zaman</string>
@@ -969,11 +968,6 @@
     <string name="title_debug_info">Hata ayıklama bilgisi</string>
     <string name="title_debug_info_remark">Lütfen sorunu açıklayın ve sorunun zamanını belirtin:</string>
     <string name="title_crash_info_remark">Lütfen uygulama çöktüğü sırada ne yaptığınızı açıklayın:</string>
-    <string name="title_search_special_prefix">özel</string>
-    <string name="title_search_special_unseen">okunmamış</string>
-    <string name="title_search_special_flagged">yıldızlı</string>
-    <string name="title_search_special_snoozed">gizli</string>
-    <string name="title_search_special_encrypted">şifreli</string>
     <string name="title_widget_title_count">Yeni mesaj sayısı</string>
     <string name="title_widget_title_list">Mesaj listesi</string>
     <string name="title_widget_account">Hesap</string>
