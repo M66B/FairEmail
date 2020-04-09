@@ -358,7 +358,7 @@ The low priority status bar notification shows the number of pending operations,
 * *add*: add message to remote folder
 * *move*: move message to another remote folder
 * *copy*: copy message to another remote folder
-* *fetch*: fetch (pushed) message
+* *fetch*: fetch changed (pushed) message
 * *delete*: delete message from remote folder
 * *seen*: mark message as read/unread in remote folder
 * *answered*: mark message as answered in remote folder
