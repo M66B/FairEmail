@@ -81,11 +81,11 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     private IBoundaryCallbackMessages intf;
 
     private Handler handler;
-    private ExecutorService executor = Helper.getBackgroundExecutor(1, "boundary");
 
     private State state;
 
     private static final int SEARCH_LIMIT = 1000;
+    private static ExecutorService executor = Helper.getBackgroundExecutor(1, "boundary");
 
     interface IBoundaryCallbackMessages {
         void onLoading();
@@ -321,28 +321,25 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 int count = state.ifolder.getMessageCount();
                 db.folder().setFolderTotal(browsable.id, count < 0 ? null : count);
 
-                Log.i("Boundary server query=" + criteria.query);
                 if (criteria == null) {
                     boolean filter_seen = prefs.getBoolean("filter_seen", false);
                     boolean filter_unflagged = prefs.getBoolean("filter_unflagged", false);
                     Log.i("Boundary filter seen=" + filter_seen + " unflagged=" + filter_unflagged);
 
-                    SearchTerm searchUnseen = null;
-                    if (filter_seen && state.ifolder.getPermanentFlags().contains(Flags.Flag.SEEN))
-                        searchUnseen = new FlagTerm(new Flags(Flags.Flag.SEEN), false);
+                    List<SearchTerm> and = new ArrayList<>();
 
-                    SearchTerm searchFlagged = null;
-                    if (filter_unflagged && state.ifolder.getPermanentFlags().contains(Flags.Flag.FLAGGED))
-                        searchFlagged = new FlagTerm(new Flags(Flags.Flag.FLAGGED), true);
+                    if (filter_seen &&
+                            state.ifolder.getPermanentFlags().contains(Flags.Flag.SEEN))
+                        and.add(new FlagTerm(new Flags(Flags.Flag.SEEN), false));
 
-                    if (searchUnseen != null && searchFlagged != null)
-                        state.imessages = state.ifolder.search(new AndTerm(searchUnseen, searchFlagged));
-                    else if (searchUnseen != null)
-                        state.imessages = state.ifolder.search(searchUnseen);
-                    else if (searchFlagged != null)
-                        state.imessages = state.ifolder.search(searchFlagged);
-                    else
+                    if (filter_unflagged &&
+                            state.ifolder.getPermanentFlags().contains(Flags.Flag.FLAGGED))
+                        and.add(new FlagTerm(new Flags(Flags.Flag.FLAGGED), true));
+
+                    if (and.size() == 0)
                         state.imessages = state.ifolder.getMessages();
+                    else
+                        state.imessages = state.ifolder.search(new AndTerm(and.toArray(new SearchTerm[0])));
                 } else {
                     Object result = state.ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
                         @Override
@@ -380,7 +377,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
                                     return imessages;
                                 } else {
-                                    Log.i("Boundary search=" + criteria);
+                                    Log.i("Boundary server search=" + criteria);
 
                                     List<SearchTerm> or = new ArrayList<>();
                                     List<SearchTerm> and = new ArrayList<>();
@@ -415,9 +412,11 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                             or.add(new BodyTerm(search));
                                     }
 
-                                    if (criteria.with_unseen)
+                                    if (criteria.with_unseen &&
+                                            state.ifolder.getPermanentFlags().contains(Flags.Flag.SEEN))
                                         and.add(new FlagTerm(new Flags(Flags.Flag.SEEN), false));
-                                    if (criteria.with_flagged)
+                                    if (criteria.with_flagged &&
+                                            state.ifolder.getPermanentFlags().contains(Flags.Flag.FLAGGED))
                                         and.add(new FlagTerm(new Flags(Flags.Flag.FLAGGED), true));
 
                                     SearchTerm term = null;
@@ -581,6 +580,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         Message[] imessages = null;
 
         void reset() {
+            Log.i("Boundary reset");
             destroyed = false;
             error = false;
             index = 0;

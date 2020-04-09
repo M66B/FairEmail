@@ -48,7 +48,25 @@ import java.util.concurrent.ExecutorService;
 
 public class ViewModelMessages extends ViewModel {
     private AdapterMessage.ViewType last = AdapterMessage.ViewType.UNIFIED;
-    private Map<AdapterMessage.ViewType, Model> models = new HashMap<>();
+    private Map<AdapterMessage.ViewType, Model> models = new HashMap<AdapterMessage.ViewType, Model>() {
+        @Nullable
+        @Override
+        public Model put(AdapterMessage.ViewType key, Model value) {
+            Model existing = this.get(key);
+            if (existing != null && existing.boundary != null)
+                existing.boundary.destroy();
+            return super.put(key, value);
+        }
+
+        @Nullable
+        @Override
+        public Model remove(@Nullable Object key) {
+            Model existing = this.get(key);
+            if (existing != null && existing.boundary != null)
+                existing.boundary.destroy();
+            return super.remove(key);
+        }
+    };
 
     private ExecutorService executor = Helper.getBackgroundExecutor(2, "model");
 
