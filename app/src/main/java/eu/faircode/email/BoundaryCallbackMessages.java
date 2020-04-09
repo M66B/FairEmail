@@ -424,11 +424,11 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                     }
                                 }
 
-                                Log.i("Boundary UTF8 search=" + query);
                                 Response[] responses = protocol.command("SEARCH", arg);
                                 if (responses.length > 0 && responses[responses.length - 1].isOK()) {
-                                    List<Integer> msgnums = new ArrayList<>();
+                                    Log.i("Boundary UTF8 search=" + query);
 
+                                    List<Integer> msgnums = new ArrayList<>();
                                     for (Response response : responses)
                                         if (((IMAPResponse) response).keyEquals("SEARCH")) {
                                             int msgnum;
@@ -442,6 +442,9 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
                                     return imessages;
                                 } else {
+                                    if (responses.length > 0)
+                                        Log.e("Search response=" + responses[responses.length - 1]);
+
                                     // Assume no UTF-8 support
                                     String search = query.replace("ß", "ss"); // Eszett
                                     search = Normalizer.normalize(search, Normalizer.Form.NFD)
