@@ -68,14 +68,18 @@
     <string name="title_ask_spam_who">Tratar mensagem de %1$s como spam?</string>
     <string name="title_block">Bloquear %1$s</string>
     <string name="title_block_sender">Bloquear remetente</string>
+    <string name="title_block_domain">Bloquear domínio do remetente</string>
     <string name="title_block_sender_hint">        Bloquear um remetente irá criar uma regra para mover automaticamente mensagens futuras para a pasta de spam.
         Criar e usar regras é um recurso pro.
     </string>
     <string name="title_notification_sending">Enviando mensagens</string>
     <string name="title_notification_waiting">Aguardando conexão adequada</string>
+    <string name="title_notification_idle">Ocioso</string>
     <string name="title_notification_failed">\'%1$s\' falhou</string>
     <string name="title_notification_alert">\'%1$s\' alerta de servidor</string>
     <string name="title_name_count">%1$s (%2$s)</string>
+    <string name="title_name_plus">%1$s +%2$d</string>
+    <string name="title_factor_minutes">%1$d minutos</string>
     <string name="menu_exit">Sair</string>
     <string name="menu_answers">Modelos</string>
     <string name="menu_operations">Operações</string>
@@ -105,6 +109,11 @@
     <string name="title_edit_folder">Editar pasta</string>
     <string name="title_setup">Configurações</string>
     <string name="title_setup_help">Ajuda</string>
+    <string name="title_setup_welcome">        Receber e enviar mensagens requer a criação de uma conta e de uma identidade como em qualquer outra aplicação de correio eletrônico.
+        A configuração rápida irá criar tanto uma conta como uma identidade, bastando para isso pedir o seu nome, endereço de e-mail e palavra-passe.
+        As contas e identidades (pseudónimos) também podem ser criadas manualmente, se necessário.
+        Os protocolos não normalizados, como o Microsoft Exchange Web Services e o Microsoft ActiveSync, não são suportados, ver também a descrição da aplicação.
+    </string>
     <string name="title_setup_quick">Configuração rápida</string>
     <string name="title_setup_quick_remark">Para configurar rapidamente uma conta e uma identidade para a maioria dos provedores</string>
     <string name="title_setup_quick_hint">A configuração rápida irá buscar informações de configuração a partir de autoconfig.thunderbird.net</string>
@@ -123,6 +132,7 @@
     <string name="title_setup_select_account">Selecionar conta</string>
     <string name="title_setup_instructions">Instruções de configuração</string>
     <string name="title_setup_no_settings">Nenhuma configuração encontrada para o domínio \'%1$s\'</string>
+    <string name="title_setup_no_settings_hint">Tente criar uma conta e identidade nas etapas de configuração 1 e 2 utilizando as configurações fornecidas pelo seu fornecedor de e-mail</string>
     <string name="title_setup_no_system_folders">Caixa de entrada ou pasta de rascunho não encontrada</string>
     <string name="title_setup_quick_success">Uma conta e uma identidade foram adicionados com sucesso</string>
     <string name="title_setup_quick_failed">Você também pode tentar configurar uma conta e uma identidade abaixo</string>

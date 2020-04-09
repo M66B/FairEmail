@@ -995,6 +995,7 @@
     <string name="title_hint_important">Vigtigt</string>
     <string name="title_hint_sync">Download af beskeder kan tage noget tid afhængigt af hastigheden hos udbyderen, dataforbindelsen, enheden samt beskedantallet. Under besked-download kan app\'en muligvis reagerer langsommere.</string>
     <string name="title_hint_battery">Da FairEmail som standard altid modtager beskeder, rapporterer Android FairEmail som altid aktiv. Det kan derfor se ud som om FairEmail altid forbruger batteristrøm, selvom dette faktisk ikke er tilfældet.</string>
+    <string name="title_hint_reformat">Af fortrolighedshensyn og sikkerhedsårsager omformaterer FairEmail som standard beskeder. For at se den originale besked, tryk på ikonet \"fuldskærm\" over beskedteksten.</string>
     <string name="title_hint_contact_actions">Langt tryk for valgmuligheder</string>
     <string name="title_hint_eml">Dette er en oversigt over indholdet af en råformatsbeskedfil. Gem den rå besked med Gem-ikonet i handlingsbjælken for at se alt indhold.</string>
     <string name="title_open_link">Åbn link</string>
@@ -1090,6 +1091,7 @@
     <string name="title_widget_folder_unified">Samlede Indbakkemapper</string>
     <string name="title_widget_unseen">Kun ulæste beskeder</string>
     <string name="title_widget_flagged">Kun stjerne-beskeder</string>
+    <string name="title_widget_semi_transparent">Halvgennemsigtig baggrund</string>
     <string name="title_accessibility_collapsed">Sammenfoldet</string>
     <string name="title_accessibility_expanded">Udfoldet</string>
     <string name="title_accessibility_seen">Læst</string>
@@ -1099,6 +1101,11 @@
         <item quantity="other">%1$d beskeder</item>
     </plurals>
     <!-- Thunderbird -->
+    <string name="title_keyword_label1">Vigtigt</string>
+    <string name="title_keyword_label2">Arbejde</string>
+    <string name="title_keyword_label3">Personlig</string>
+    <string name="title_keyword_label4">Resterer</string>
+    <string name="title_keyword_label5">Senere</string>
     <string name="title_accessibility_flagged">Stjernemarkeret</string>
     <string name="title_accessibility_unflagged">Ikke-stjernemarkeret</string>
     <string name="title_accessibility_collapse">Sammenfold</string>

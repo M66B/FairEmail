@@ -994,6 +994,7 @@
     <string name="title_hint_important">Важно</string>
     <string name="title_hint_sync">Изтеглянето на съобщения може да отнеме известно време, в зависимост от скоростта на доставчика, интернет връзката и устройството и броя на съобщенията. Докато изтегляте съобщения, приложението може да реагира по-бавно.</string>
     <string name="title_hint_battery">Тъй като FairEmail по подразбиране винаги получава съобщения, Android ще докладва, че FairEmail е винаги активен. Следователно може да изглежда, че FairEmail винаги консумира от батерията, но всъщност това не е така.</string>
+    <string name="title_hint_reformat">По подразбиране FairEmail преформатира съобщения от съображения за поверителност и сигурност. За да видите оригиналното съобщение, докоснете иконата \"цял екран\" над текста на съобщението.</string>
     <string name="title_hint_contact_actions">Натиснете продължително за повече опции</string>
     <string name="title_hint_eml">Това е обобщение на съдържанието на необработен файл със съобщение. Запишете необработеното съобщение с иконата за запис в панела за действие, за да видите цялото съдържание.</string>
     <string name="title_open_link">Отваряне не връзката</string>
@@ -1100,6 +1101,11 @@
         <item quantity="other">%1$d съобщения</item>
     </plurals>
     <!-- Thunderbird -->
+    <string name="title_keyword_label1">Важно</string>
+    <string name="title_keyword_label2">Служебен</string>
+    <string name="title_keyword_label3">Личен</string>
+    <string name="title_keyword_label4">Да се направи</string>
+    <string name="title_keyword_label5">По-късно</string>
     <string name="title_accessibility_flagged">Със звезда</string>
     <string name="title_accessibility_unflagged">Без звезда</string>
     <string name="title_accessibility_collapse">Свий</string>

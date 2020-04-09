@@ -983,6 +983,7 @@
     <string name="title_hint_important">重要</string>
     <string name="title_hint_sync">下载邮件可能需要一些时间, 具体取决于提供商的速度、网络连接、设备以及邮件数量。在下载邮件时, 应用的响应速度可能会变慢。</string>
     <string name="title_hint_battery">由于FairEmail默认总是接受消息，安卓系统会报告FE始终处于活动状态。 因此，FE看起来好像总在耗电，但事实上情况并非如此。</string>
+    <string name="title_hint_reformat">默认情况下，FairEmail 会基于隐私和安全原因重新格式化消息。要查看原始消息，请点击消息文本上方的“全屏”图标</string>
     <string name="title_hint_contact_actions">长按以显示更多选项</string>
     <string name="title_hint_eml">这是一个原始消息文件内容的摘要。用操作栏中的保存图标保存原始消息以查看所有内容。</string>
     <string name="title_open_link">打开链接</string>
@@ -1087,6 +1088,11 @@ FairEmail会显示一条消息来提醒您这一点，这条消息在您购买�
         <item quantity="other">%1$d 条消息</item>
     </plurals>
     <!-- Thunderbird -->
+    <string name="title_keyword_label1">重要</string>
+    <string name="title_keyword_label2">工作</string>
+    <string name="title_keyword_label3">个人</string>
+    <string name="title_keyword_label4">待办事项</string>
+    <string name="title_keyword_label5">稍后再说</string>
     <string name="title_accessibility_flagged">标星</string>
     <string name="title_accessibility_unflagged">取消标星</string>
     <string name="title_accessibility_collapse">折叠</string>
