@@ -5217,24 +5217,26 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             else {
                 boolean changed = false;
 
+                Uri url;
                 Uri.Builder builder;
                 if (uri.getHost() != null &&
                         uri.getHost().endsWith("safelinks.protection.outlook.com") &&
                         !TextUtils.isEmpty(uri.getQueryParameter("url"))) {
                     changed = true;
-                    builder = Uri.parse(uri.getQueryParameter("url")).buildUpon();
-                }
-                else
-                    builder = uri.buildUpon();
+                    url = Uri.parse(uri.getQueryParameter("url"));
+                } else
+                    url = uri;
+
+                builder = url.buildUpon();
 
                 builder.clearQuery();
-                for (String key : uri.getQueryParameterNames())
+                for (String key : url.getQueryParameterNames())
                     // https://en.wikipedia.org/wiki/UTM_parameters
                     if (key.toLowerCase(Locale.ROOT).startsWith("utm_") ||
                             PARANOID_QUERY.contains(key.toLowerCase(Locale.ROOT)))
                         changed = true;
                     else if (!TextUtils.isEmpty(key))
-                        for (String value : uri.getQueryParameters(key)) {
+                        for (String value : url.getQueryParameters(key)) {
                             Log.i("Query " + key + "=" + value);
                             builder.appendQueryParameter(key, value);
                         }
