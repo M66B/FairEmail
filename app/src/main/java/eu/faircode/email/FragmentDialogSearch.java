@@ -17,6 +17,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.FilterQueryProvider;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -32,6 +33,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_search, null);
 
         final AutoCompleteTextView etQuery = dview.findViewById(R.id.etQuery);
+        final ImageButton ibInfo = dview.findViewById(R.id.ibInfo);
         final CheckBox cbSearchIndex = dview.findViewById(R.id.cbSearchIndex);
         final CheckBox cbSenders = dview.findViewById(R.id.cbSenders);
         final CheckBox cbRecipients = dview.findViewById(R.id.cbRecipients);
@@ -52,15 +54,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         boolean filter_unflagged = prefs.getBoolean("filter_unflagged", false);
         String last_search = prefs.getString("last_search", null);
 
-        if (!TextUtils.isEmpty(last_search)) {
-            etQuery.setText(last_search);
-            etQuery.setSelection(0, last_search.length());
-        }
-
-        etQuery.requestFocus();
-
-        InputMethodManager imm = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+        final InputMethodManager imm = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
 
         SimpleCursorAdapter adapter = new SimpleCursorAdapter(
                 getContext(),
@@ -87,6 +81,14 @@ public class FragmentDialogSearch extends FragmentDialogBase {
 
         etQuery.setAdapter(adapter);
 
+        ibInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                imm.hideSoftInputFromWindow(etQuery.getWindowToken(), 0);
+                Helper.viewFAQ(getContext(), 13);
+            }
+        });
+
         cbSearchIndex.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -107,6 +109,14 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         cbSearchIndex.setEnabled(pro);
         cbUnseen.setChecked(filter_seen);
         cbFlagged.setChecked(filter_unflagged);
+
+        if (!TextUtils.isEmpty(last_search)) {
+            etQuery.setText(last_search);
+            etQuery.setSelection(0, last_search.length());
+        }
+
+        etQuery.requestFocus();
+        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
 
         final AlertDialog dialog = new AlertDialog.Builder(getContext())
                 .setView(dview)
@@ -137,6 +147,8 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                             criteria.with_attachments = cbAttachments.isChecked();
                         }
 
+                        imm.hideSoftInputFromWindow(etQuery.getWindowToken(), 0);
+
                         FragmentMessages.search(
                                 getContext(), getViewLifecycleOwner(), getParentFragmentManager(),
                                 account, folder, false, criteria);
@@ -148,10 +160,10 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                         // Do nothing
                     }
                 })
-                .setNeutralButton(R.string.title_info, new DialogInterface.OnClickListener() {
+                .setOnDismissListener(new DialogInterface.OnDismissListener() {
                     @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Helper.viewFAQ(getContext(), 13);
+                    public void onDismiss(DialogInterface dialog) {
+                        imm.hideSoftInputFromWindow(etQuery.getWindowToken(), 0);
                     }
                 })
                 .create();

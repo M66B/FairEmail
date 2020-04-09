@@ -908,7 +908,7 @@
     <string name="title_search_in_senders">In senders (from)</string>
     <string name="title_search_in_recipients">In recipients (to, cc)</string>
     <string name="title_search_in_subject">In subject</string>
-    <string name="title_search_in_keywords">In keyword (if supported)</string>
+    <string name="title_search_in_keywords">In keywords (if supported)</string>
     <string name="title_search_in_message">In message text</string>
     <string name="title_search_with">And</string>
     <string name="title_search_with_unseen">Unread</string>
@@ -921,11 +921,6 @@
     <string name="title_search_flag_hidden">hidden</string>
     <string name="title_search_flag_encrypted">encrypted</string>
     <string name="title_search_flag_attachments">attachments</string>
-
-    <string name="title_search_hint">
-        Searching will initially look at messages stored on your device.
-        To search the server too, tap on the "search again" button.
-    </string>
 
     <string name="title_search_device">Search on device</string>
     <string name="title_search_server">Search on server</string>
