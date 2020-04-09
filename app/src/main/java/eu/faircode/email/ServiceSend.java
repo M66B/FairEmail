@@ -358,7 +358,7 @@ public class ServiceSend extends ServiceBase {
             int ops = db.operation().getOperationCount(outbox.id, id, EntityOperation.SEND);
             if (ops == 0) {
                 EntityMessage message = db.message().getMessage(id);
-                if (message != null)
+                if (message != null && message.ui_snoozed == null)
                     EntityOperation.queue(this, message, EntityOperation.SEND);
             }
         }

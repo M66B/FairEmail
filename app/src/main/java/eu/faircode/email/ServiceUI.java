@@ -458,8 +458,10 @@ public class ServiceUI extends IntentService {
 
             if (EntityFolder.OUTBOX.equals(folder.type)) {
                 Log.i("Delayed send id=" + message.id);
-                db.message().setMessageSnoozed(message.id, null);
-                EntityOperation.queue(this, message, EntityOperation.SEND);
+                if (message.ui_snoozed != null) {
+                    db.message().setMessageSnoozed(message.id, null);
+                    EntityOperation.queue(this, message, EntityOperation.SEND);
+                }
             } else {
                 if (folder.notify) {
                     // A new message ID is needed for a new (wearable) notification
