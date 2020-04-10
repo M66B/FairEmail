@@ -112,9 +112,6 @@ public class WorkerCleanup extends Worker {
 
                 ServiceSynchronize.reschedule(context);
 
-                // Clear last search
-                prefs.edit().remove("last_search").apply();
-
                 // Contact info cache
                 ContactInfo.clearCache();
             }
