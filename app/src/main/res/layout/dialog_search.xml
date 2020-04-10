@@ -47,6 +47,30 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ibInfo" />
 
+        <ImageButton
+            android:id="@+id/ibMore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="12dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:padding="3dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etQuery"
+            app:srcCompat="@drawable/expander" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvMore"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:paddingStart="6dp"
+            android:text="@string/title_search_more"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@+id/ibMore"
+            app:layout_constraintStart_toEndOf="@+id/ibMore"
+            app:layout_constraintTop_toTopOf="@+id/ibMore" />
+
         <CheckBox
             android:id="@+id/cbSearchIndex"
             android:layout_width="0dp"
@@ -56,7 +80,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etQuery" />
+            app:layout_constraintTop_toBottomOf="@id/ibMore" />
 
         <CheckBox
             android:id="@+id/cbSenders"
@@ -192,5 +216,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbEncrypted" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpMore"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="cbSearchIndex,cbSenders,cbRecipients,cbSubject,cbKeywords,cbMessage,tvAnd,cbUnseen,cbFlagged,cbHidden,cbEncrypted,cbAttachments" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

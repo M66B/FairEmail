@@ -904,6 +904,7 @@
 
     <string name="title_search">Search</string>
     <string name="title_search_for_hint">Enter text</string>
+    <string name="title_search_more">More options</string>
     <string name="title_search_use_index">Use search index</string>
     <string name="title_search_in_senders">In senders (from)</string>
     <string name="title_search_in_recipients">In recipients (to, cc)</string>

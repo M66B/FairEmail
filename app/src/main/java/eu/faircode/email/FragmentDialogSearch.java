@@ -23,6 +23,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.constraintlayout.widget.Group;
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
 import androidx.preference.PreferenceManager;
 
@@ -34,6 +35,8 @@ public class FragmentDialogSearch extends FragmentDialogBase {
 
         final AutoCompleteTextView etQuery = dview.findViewById(R.id.etQuery);
         final ImageButton ibInfo = dview.findViewById(R.id.ibInfo);
+        final ImageButton ibMore = dview.findViewById(R.id.ibMore);
+        final TextView tvMore = dview.findViewById(R.id.tvMore);
         final CheckBox cbSearchIndex = dview.findViewById(R.id.cbSearchIndex);
         final CheckBox cbSenders = dview.findViewById(R.id.cbSenders);
         final CheckBox cbRecipients = dview.findViewById(R.id.cbRecipients);
@@ -45,6 +48,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         final CheckBox cbHidden = dview.findViewById(R.id.cbHidden);
         final CheckBox cbEncrypted = dview.findViewById(R.id.cbEncrypted);
         final CheckBox cbAttachments = dview.findViewById(R.id.cbAttachments);
+        final Group grpMore = dview.findViewById(R.id.grpMore);
 
         boolean pro = ActivityBilling.isPro(getContext());
 
@@ -101,6 +105,25 @@ public class FragmentDialogSearch extends FragmentDialogBase {
 
         etQuery.setAdapter(adapter);
 
+        View.OnClickListener onMore = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                imm.hideSoftInputFromWindow(etQuery.getWindowToken(), 0);
+
+                if (grpMore.getVisibility() == View.VISIBLE) {
+                    ibMore.setImageLevel(1);
+                    grpMore.setVisibility(View.GONE);
+                } else {
+                    ibMore.setImageLevel(0);
+                    grpMore.setVisibility(View.VISIBLE);
+                }
+            }
+        };
+
+        ibMore.setOnClickListener(onMore);
+
+        tvMore.setOnClickListener(onMore);
+
         cbSearchIndex.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -152,6 +175,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
             }
         });
 
+        ibMore.setImageLevel(1);
         cbSearchIndex.setChecked(fts && pro);
         cbSearchIndex.setEnabled(pro);
         cbSenders.setChecked(last_search_senders);
@@ -161,6 +185,8 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         cbMessage.setChecked(last_search_message);
         cbUnseen.setChecked(filter_seen);
         cbFlagged.setChecked(filter_unflagged);
+
+        grpMore.setVisibility(View.GONE);
 
         if (!TextUtils.isEmpty(last_search)) {
             etQuery.setText(last_search);
