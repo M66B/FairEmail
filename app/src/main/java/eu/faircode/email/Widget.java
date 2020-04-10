@@ -28,6 +28,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.RemoteViews;
 
 import androidx.preference.PreferenceManager;
@@ -103,7 +104,8 @@ public class Widget extends AppWidgetProvider {
                     views.setImageViewResource(R.id.ivMessage, unseen == 0
                             ? R.drawable.baseline_mail_outline_24
                             : R.drawable.baseline_mail_24);
-                    views.setTextViewText(R.id.tvCount, unseen < 100 ? nf.format(unseen) : "∞");
+                    views.setTextViewText(R.id.tvCount, unseen < 100 ? nf.format(unseen) : "99+");
+                    views.setViewVisibility(R.id.tvCount, unseen == 0 ? View.GONE : View.VISIBLE);
 
                     if (!TextUtils.isEmpty(name)) {
                         views.setTextViewText(R.id.tvAccount, name);
