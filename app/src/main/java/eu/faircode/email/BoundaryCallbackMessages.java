@@ -704,7 +704,9 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     " flagged=" + with_flagged +
                     " hidden=" + with_hidden +
                     " encrypted=" + with_encrypted +
-                    " attachments=" + with_attachments;
+                    " attachments=" + with_attachments +
+                    " after=" + (after == null ? "" : new Date(after)) +
+                    " before=" + (before == null ? "" : new Date(before));
         }
     }
 }
