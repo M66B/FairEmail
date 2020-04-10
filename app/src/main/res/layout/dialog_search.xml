@@ -217,10 +217,61 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbEncrypted" />
 
+        <Button
+            android:id="@+id/btnAfter"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:text="@string/title_search_with_after"
+            app:layout_constraintEnd_toStartOf="@id/btnBefore"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbAttachments" />
+
+        <Button
+            android:id="@+id/btnBefore"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:text="@string/title_search_with_before"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnAfter"
+            app:layout_constraintTop_toBottomOf="@id/cbAttachments" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvAfter"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="January 1st, 1970"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="@id/btnAfter"
+            app:layout_constraintStart_toStartOf="@id/btnAfter"
+            app:layout_constraintTop_toBottomOf="@id/btnAfter" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvBefore"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="January 1st, 1970"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="@id/btnBefore"
+            app:layout_constraintStart_toStartOf="@id/btnBefore"
+            app:layout_constraintTop_toBottomOf="@id/btnBefore" />
+
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpMore"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="cbSearchIndex,cbSenders,cbRecipients,cbSubject,cbKeywords,cbMessage,tvAnd,cbUnseen,cbFlagged,cbHidden,cbEncrypted,cbAttachments" />
+            app:constraint_referenced_ids="
+            cbSearchIndex,cbSenders,cbRecipients,cbSubject,cbKeywords,cbMessage,
+            tvAnd,cbUnseen,cbFlagged,cbHidden,cbEncrypted,cbAttachments,
+            btnAfter,btnBefore,tvBefore,tvAfter" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
