@@ -618,7 +618,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         boolean in_senders = true;
         boolean in_receipients = true;
         boolean in_subject = true;
-        boolean in_keywords = false;
+        boolean in_keywords = true;
         boolean in_message = true;
         boolean with_unseen;
         boolean with_flagged;
