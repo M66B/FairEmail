@@ -105,7 +105,7 @@ public class Widget extends AppWidgetProvider {
                             ? R.drawable.baseline_mail_outline_24
                             : R.drawable.baseline_mail_24);
                     views.setTextViewText(R.id.tvCount, unseen < 100 ? nf.format(unseen) : "99+");
-                    views.setViewVisibility(R.id.tvCount, unseen == 0 ? View.GONE : View.VISIBLE);
+                    views.setViewVisibility(R.id.tvCount, layout == 1 && unseen == 0 ? View.GONE : View.VISIBLE);
 
                     if (!TextUtils.isEmpty(name)) {
                         views.setTextViewText(R.id.tvAccount, name);
