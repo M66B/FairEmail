@@ -44,6 +44,7 @@ import java.io.Serializable;
 import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.ExecutorService;
@@ -60,9 +61,11 @@ import javax.mail.UIDFolder;
 import javax.mail.internet.MimeMessage;
 import javax.mail.search.AndTerm;
 import javax.mail.search.BodyTerm;
+import javax.mail.search.ComparisonTerm;
 import javax.mail.search.FlagTerm;
 import javax.mail.search.FromStringTerm;
 import javax.mail.search.OrTerm;
+import javax.mail.search.ReceivedDateTerm;
 import javax.mail.search.RecipientStringTerm;
 import javax.mail.search.SearchTerm;
 import javax.mail.search.SubjectTerm;
@@ -195,7 +198,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         if (fts && pro && criteria.isQueryOnly()) {
             if (state.ids == null) {
                 SQLiteDatabase sdb = FtsDbHelper.getInstance(context);
-                state.ids = FtsDbHelper.match(sdb, account, folder, criteria.query);
+                state.ids = FtsDbHelper.match(sdb, account, folder, criteria);
             }
 
             try {
@@ -228,6 +231,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                             criteria.with_hidden,
                             criteria.with_encrypted,
                             criteria.with_attachments,
+                            criteria.from,
+                            criteria.to,
                             SEARCH_LIMIT, state.offset);
                     Log.i("Boundary device folder=" + folder +
                             " criteria=" + criteria +
@@ -421,6 +426,11 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                             state.ifolder.getPermanentFlags().contains(Flags.Flag.FLAGGED))
                                         and.add(new FlagTerm(new Flags(Flags.Flag.FLAGGED), true));
 
+                                    if (criteria.from != null)
+                                        and.add(new ReceivedDateTerm(ComparisonTerm.GT, new Date(criteria.from)));
+                                    if (criteria.to != null)
+                                        and.add(new ReceivedDateTerm(ComparisonTerm.LT, new Date(criteria.to)));
+
                                     SearchTerm term = null;
 
                                     if (or.size() > 0)
@@ -608,13 +618,15 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         boolean in_senders = true;
         boolean in_receipients = true;
         boolean in_subject = true;
-        boolean in_keywords = true;
+        boolean in_keywords = false;
         boolean in_message = true;
         boolean with_unseen;
         boolean with_flagged;
         boolean with_hidden;
         boolean with_encrypted;
         boolean with_attachments;
+        Long from = null;
+        Long to = null;
 
         SearchCriteria() {
         }
@@ -672,7 +684,9 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         this.with_flagged == other.with_flagged &&
                         this.with_hidden == other.with_hidden &&
                         this.with_encrypted == other.with_encrypted &&
-                        this.with_attachments == other.with_attachments);
+                        this.with_attachments == other.with_attachments &&
+                        Objects.equals(this.from, other.from) &&
+                        Objects.equals(this.to, other.to));
             } else
                 return false;
         }
