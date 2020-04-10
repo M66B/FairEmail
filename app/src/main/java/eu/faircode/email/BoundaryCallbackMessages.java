@@ -437,7 +437,10 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                     return state.ifolder.search(term);
                                 }
                             } catch (MessagingException ex) {
-                                throw new ProtocolException("Search", ex);
+                                ProtocolException pex = new ProtocolException(
+                                        "Search " + account.host + " " + criteria, ex);
+                                Log.e(pex);
+                                throw pex;
                             }
                         }
                     });
