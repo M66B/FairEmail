@@ -532,21 +532,6 @@ public class Log {
             */
             return false;
 
-        if (ex instanceof ArrayIndexOutOfBoundsException) {
-            /*
-                java.lang.ArrayIndexOutOfBoundsException: length=74; index=74
-                at android.text.TextLine.measure(TextLine.java:343)
-                at android.text.TextLine.metrics(TextLine.java:298)
-                at android.text.Layout.measurePara(Layout.java:2118)
-                at android.text.Layout.getDesiredWidthWithLimit(Layout.java:196)
-                at android.widget.TextView.onMeasure(TextView.java:8511)
-                at androidx.appcompat.widget.AppCompatTextView.onMeasure(SourceFile:551)
-                at android.view.View.measure(View.java:23190)
-                at androidx.constraintlayout.widget.ConstraintLayout$Measurer.measure(SourceFile:724)
-            */
-            return false;
-        }
-
         if (ex instanceof IllegalArgumentException &&
                 ex.getCause() instanceof RemoteException)
             /*
