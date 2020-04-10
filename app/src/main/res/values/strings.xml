@@ -906,7 +906,7 @@
     <string name="title_search_for_hint">Enter text</string>
     <string name="title_search_hint">
         Searching will initially look at messages stored on your device.
-        To search the server too, tap on the "search again" button.
+        To search the server too, tap on the \'search again\' button.
     </string>
     <string name="title_search_more">More options</string>
     <string name="title_search_use_index">Use search index</string>
@@ -1147,7 +1147,7 @@
     <string name="title_hint_important">Important</string>
     <string name="title_hint_sync">Downloading messages can take some time, depending on the speed of the provider, internet connection and device and on the number of messages. While downloading messages the app might respond slower.</string>
     <string name="title_hint_battery">Since FairEmail by default always receives messages, Android will report FairEmail as always being active. Therefore it might look as if FairEmail is always consuming battery power although this is in fact not the case.</string>
-    <string name="title_hint_reformat">By default, FairEmail reformats messages for privacy and security reasons. To view the original message, tap the "full screen" icon above the message text.</string>
+    <string name="title_hint_reformat">By default, FairEmail reformats messages for privacy and security reasons. To view the original message, tap the \'full screen\' icon above the message text.</string>
     <string name="title_hint_contact_actions">Long press for options</string>
     <string name="title_hint_eml">This is a summary of the content of a raw message file. Save the raw message with the save icon in the action bar to view all content.</string>
 

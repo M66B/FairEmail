@@ -964,7 +964,6 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_hint_support">Ha kérdésed vagy problémád van, használd a támogatási menüt segítségért</string>
     <string name="title_hint_message_actions">Törlés balra csúsztatásra; Archiválás jobbra csúsztatásra (ha elérhető); A csúsztatáshoz tartozó műveletek módosíthatóak a fiók beállításai között</string>
     <string name="title_hint_important">Fontos</string>
-    <string name="title_hint_reformat">Alapértelmezésből a FairEmail újraformázza az üzeneteket adatvédelmi és biztonsági okokból. Az eredeti üzenet megtekintéséhez koppintson a \"Teljes képernyő\" ikonra az üzenetszöveg fölött.</string>
     <string name="title_hint_contact_actions">Nyomja hosszan a további opciókért</string>
     <string name="title_open_link">Link megnyitása</string>
     <string name="title_different_link">A link neve és a címe különbözik</string>

@@ -826,6 +826,7 @@
     <string name="title_search_in_subject">V předmětu</string>
     <string name="title_search_in_keywords">V klíčových slovech (je-li podporováno)</string>
     <string name="title_search_in_message">V textu zprávy</string>
+    <string name="title_search_with">Omezit hledání na</string>
     <string name="title_search_with_unseen">Nepřečteno</string>
     <string name="title_search_with_flagged">S hvězdičkou</string>
     <string name="title_search_with_hidden">Skryto (pouze v zařízení)</string>
@@ -1036,7 +1037,6 @@
     <string name="title_hint_important">Důležité</string>
     <string name="title_hint_sync">Stažení zpráv může nějakou dobu trvat, v závislosti na rychlosti poskytovatele, internetového připojení a zařízení a na počtu zpráv. V průběhu stahování může aplikace reagovat pomaleji.</string>
     <string name="title_hint_battery">Neboť FairEmail ve výchozím nastavení přijímá zprávy neustále, Android bude hlásit, že je stále aktivní. Díky tomu se může zdát, jako by FairEmail konstantně spotřebovával baterii, ačkoli tomu tak ve skutečnosti není.</string>
-    <string name="title_hint_reformat">FairEmail ve výchozím nastavení přeformátuje zprávy z důvodů bezpečnosti a ochrany soukromí. Pro zobrazení původní zprávy stiskněte ikonu \"zobrazení na celou obrazovku\" nad textem zprávy.</string>
     <string name="title_hint_contact_actions">Dlouze podržet pro možnosti</string>
     <string name="title_hint_eml">Toto je souhrn obsahu souboru zdrojové zprávy. Uložte zdrojovou zprávu pomocí ikony uložit v panelu akcí pro zobrazení celého obsahu.</string>
     <string name="title_open_link">Otevřít odkaz</string>

@@ -826,6 +826,7 @@
     <string name="title_search_in_subject">В теме</string>
     <string name="title_search_in_keywords">В ключевых словах (если возможно)</string>
     <string name="title_search_in_message">В тексте сообщения</string>
+    <string name="title_search_with">Ограничение поиска</string>
     <string name="title_search_with_unseen">Не прочитано</string>
     <string name="title_search_with_flagged">Избранное</string>
     <string name="title_search_with_hidden">Скрыто (только на устройстве)</string>
@@ -1036,7 +1037,6 @@
     <string name="title_hint_important">Важное</string>
     <string name="title_hint_sync">Загрузка сообщений может занять некоторое время в зависимости от скорости провайдера, интернет-соединения и устройства, а также от количества сообщений. Во время загрузки сообщений приложение может реагировать медленнее.</string>
     <string name="title_hint_battery">Поскольку FairEmail по умолчанию всегда получает сообщения, Android считает его всё время активным. Поэтому может показаться, что FairEmail всегда использует батарею, хотя на самом деле это не так.</string>
-    <string name="title_hint_reformat">По умолчанию FairEmail переформатирует сообщения по соображениям конфиденциальности и безопасности. Чтобы просмотреть исходное сообщение, нажмите значок \"полный экран\" над текстом сообщения.</string>
     <string name="title_hint_contact_actions">Длительное нажатие для других действий</string>
     <string name="title_hint_eml">Это обзор содержимого файла оригинального сообщения. Сохраните его с помощью значка \"Сохранить\" на панели действий, чтобы просмотреть содержимое полностью.</string>
     <string name="title_open_link">Открыть ссылку</string>

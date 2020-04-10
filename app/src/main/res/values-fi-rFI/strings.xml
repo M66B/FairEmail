@@ -1009,7 +1009,6 @@
     <string name="title_hint_important">Tärkeä</string>
     <string name="title_hint_sync">Viestien lataaminen voi kestää riippuen verkkoyhteyden nopeudesta, käytettävästä laitteesta ja viestien lukumäärästä. Viestejä ladatessa sovellus voi toimia normaalia hitaammin.</string>
     <string name="title_hint_battery">Koska FairEmail vastaanottaa viestit oletusarvoisesti aina, Android ilmoittaa FairEmailin olevan aina aktviininen. Saattaa vaikuttaa, että FairEmail käyttäisi aina akkua, vaikka niin ei olekaan.</string>
-    <string name="title_hint_reformat">FairEmail oletusarvoisesti uudelleenmuotoilee viestit yksityisyyden ja turvallisuuden takaamiseksi. Näpäytä koko näytön kuvaketta viestin tekstin yläpuolella nähdäksesi alkuperäisen viestin.</string>
     <string name="title_hint_contact_actions">Pitkä painallus avaa asetukset</string>
     <string name="title_hint_eml">Tämä on tiivistelmä raakaviestistä. Tallenna raakaviesti toimintopalkin tallennuskuvakkeesta nähdäksesi koko sisällön.</string>
     <string name="title_open_link">Avaa linkki</string>

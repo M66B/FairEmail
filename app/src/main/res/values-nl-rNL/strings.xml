@@ -796,6 +796,9 @@
     <string name="title_signature_store">Opslaan</string>
     <string name="title_search">Zoek</string>
     <string name="title_search_for_hint">Voer tekst in</string>
+    <string name="title_search_hint">        Zoeken zal in eerste instantie berichten bekijken die op uw apparaat zijn opgeslagen.
+        Tik op de \'Opnieuw zoeken\' knop om ook op de server te zoeken.
+    </string>
     <string name="title_search_more">Meer opties</string>
     <string name="title_search_use_index">Gebruik zoekindex</string>
     <string name="title_search_in_senders">In afzenders (van)</string>
@@ -1014,7 +1017,7 @@
     <string name="title_hint_important">Belangrijk</string>
     <string name="title_hint_sync">Het downloaden van berichten kan enige tijd duren, afhankelijk van de snelheid van de provider, de internet-verbinding en het apparaat en van het aantal berichten. Tijdens het downloaden van berichten kan de app trager reageren.</string>
     <string name="title_hint_battery">Aangezien FairEmail standaard altijd berichten ontvangt, meldt Android dat FairEmail altijd actief is. Daarom lijkt het erop dat FairEmail altijd batterijvermogen gebruikt, maar in feite is dit niet het geval.</string>
-    <string name="title_hint_reformat">Standaard formatteert FairEmail berichten opnieuw om privacy- en veiligheidsredenen. Tik op het \"volledig scherm\" pictogram boven de berichttekst om het oorspronkelijke bericht te bekijken.</string>
+    <string name="title_hint_reformat">Standaard formatteert FairEmail berichten opnieuw om privacy- en veiligheidsredenen. Tik op het \'volledig scherm\' pictogram boven de berichttekst om het oorspronkelijke bericht te bekijken.</string>
     <string name="title_hint_contact_actions">Druk lang voor opties</string>
     <string name="title_hint_eml">Dit is een samenvatting van de inhoud van een ruw berichtbestand. Sla het ruwe bericht op met het \'bewaar\' icoon in de actiebalk om alle inhoud te bekijken.</string>
     <string name="title_open_link">Koppeling openen</string>
