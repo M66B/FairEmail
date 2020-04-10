@@ -140,10 +140,10 @@ public class FtsDbHelper extends SQLiteOpenHelper {
             select += "account = " + account + " AND ";
         if (folder != null)
             select += "folder = " + folder + " AND ";
-        if (criteria.from != null)
-            select += "time > " + criteria.from + " AND ";
-        if (criteria.to != null)
-            select += "time < " + criteria.to + " AND ";
+        if (criteria.after != null)
+            select += "time > " + criteria.after + " AND ";
+        if (criteria.before != null)
+            select += "time < " + criteria.before + " AND ";
 
         Log.i("FTS select=" + select + " search=" + search);
         List<Long> result = new ArrayList<>();

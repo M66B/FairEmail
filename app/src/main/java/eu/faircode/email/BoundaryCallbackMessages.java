@@ -231,8 +231,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                             criteria.with_hidden,
                             criteria.with_encrypted,
                             criteria.with_attachments,
-                            criteria.from,
-                            criteria.to,
+                            criteria.after,
+                            criteria.before,
                             SEARCH_LIMIT, state.offset);
                     Log.i("Boundary device folder=" + folder +
                             " criteria=" + criteria +
@@ -426,10 +426,10 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                             state.ifolder.getPermanentFlags().contains(Flags.Flag.FLAGGED))
                                         and.add(new FlagTerm(new Flags(Flags.Flag.FLAGGED), true));
 
-                                    if (criteria.from != null)
-                                        and.add(new ReceivedDateTerm(ComparisonTerm.GT, new Date(criteria.from)));
-                                    if (criteria.to != null)
-                                        and.add(new ReceivedDateTerm(ComparisonTerm.LT, new Date(criteria.to)));
+                                    if (criteria.after != null)
+                                        and.add(new ReceivedDateTerm(ComparisonTerm.GT, new Date(criteria.after)));
+                                    if (criteria.before != null)
+                                        and.add(new ReceivedDateTerm(ComparisonTerm.LT, new Date(criteria.before)));
 
                                     SearchTerm term = null;
 
@@ -625,8 +625,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         boolean with_hidden;
         boolean with_encrypted;
         boolean with_attachments;
-        Long from = null;
-        Long to = null;
+        Long after = null;
+        Long before = null;
 
         SearchCriteria() {
         }
@@ -685,8 +685,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         this.with_hidden == other.with_hidden &&
                         this.with_encrypted == other.with_encrypted &&
                         this.with_attachments == other.with_attachments &&
-                        Objects.equals(this.from, other.from) &&
-                        Objects.equals(this.to, other.to));
+                        Objects.equals(this.after, other.after) &&
+                        Objects.equals(this.before, other.before));
             } else
                 return false;
         }

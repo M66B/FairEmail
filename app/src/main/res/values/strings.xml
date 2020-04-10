@@ -917,6 +917,8 @@
     <string name="title_search_with_hidden">Hidden (on device only)</string>
     <string name="title_search_with_encrypted">Encrypted (on device only)</string>
     <string name="title_search_with_attachments">With attachments (on device only)</string>
+    <string name="title_search_with_before">Before</string>
+    <string name="title_search_with_after">After</string>
     <string name="title_search_flag_unseen">unread</string>
     <string name="title_search_flag_flagged">starred</string>
     <string name="title_search_flag_hidden">hidden</string>

@@ -296,14 +296,14 @@ public interface DaoMessage {
             " AND (NOT :hidden OR NOT ui_snoozed IS NULL)" +
             " AND (NOT :encrypted OR ui_encrypt > 0)" +
             " AND (NOT :attachments OR attachments > 0)" +
-            " AND (:from IS NULL OR received > :from)" +
-            " AND (:to IS NULL OR received < :to)" +
+            " AND (:after IS NULL OR received > :after)" +
+            " AND (:before IS NULL OR received < :before)" +
             " ORDER BY received DESC" +
             " LIMIT :limit OFFSET :offset")
     List<TupleMatch> matchMessages(
             Long account, Long folder, String find,
             boolean unseen, boolean flagged, boolean hidden, boolean encrypted, boolean attachments,
-            Long from, Long to,
+            Long after, Long before,
             int limit, int offset);
 
     @Query("SELECT id" +
