@@ -64,7 +64,6 @@ import javax.mail.search.FlagTerm;
 import javax.mail.search.FromStringTerm;
 import javax.mail.search.OrTerm;
 import javax.mail.search.RecipientStringTerm;
-import javax.mail.search.SearchException;
 import javax.mail.search.SearchTerm;
 import javax.mail.search.SubjectTerm;
 
@@ -433,7 +432,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                             term = new AndTerm(term, new AndTerm(and.toArray(new SearchTerm[0])));
 
                                     if (term == null)
-                                        throw new SearchException();
+                                        return new Message[0];
 
                                     return state.ifolder.search(term);
                                 }
