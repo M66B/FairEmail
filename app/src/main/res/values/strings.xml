@@ -904,6 +904,10 @@
 
     <string name="title_search">Search</string>
     <string name="title_search_for_hint">Enter text</string>
+    <string name="title_search_hint">
+        Searching will initially look at messages stored on your device.
+        To search the server too, tap on the "search again" button.
+    </string>
     <string name="title_search_more">More options</string>
     <string name="title_search_use_index">Use search index</string>
     <string name="title_search_in_senders">In senders (from)</string>

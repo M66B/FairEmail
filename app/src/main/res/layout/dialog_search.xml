@@ -47,6 +47,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ibInfo" />
 
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_search_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etQuery" />
+
         <ImageButton
             android:id="@+id/ibMore"
             android:layout_width="wrap_content"
@@ -56,18 +68,19 @@
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:padding="3dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etQuery"
+            app:layout_constraintTop_toBottomOf="@id/tvHint"
             app:srcCompat="@drawable/expander" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvMore"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="0dp"
             android:gravity="center_vertical"
             android:paddingStart="6dp"
             android:text="@string/title_search_more"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintBottom_toBottomOf="@+id/ibMore"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ibMore"
             app:layout_constraintTop_toTopOf="@+id/ibMore" />
 
