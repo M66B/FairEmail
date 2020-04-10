@@ -800,7 +800,6 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_search_in_subject">Mintzagaian</string>
     <string name="title_search_in_keywords">Hitz-gakoetan (onartuz gero)</string>
     <string name="title_search_in_message">Mezuen testuan</string>
-    <string name="title_search_with">Eta</string>
     <string name="title_search_with_unseen">Irakurri gabea</string>
     <string name="title_search_with_flagged">Izarduna</string>
     <string name="title_search_with_hidden">Ezkutatuta (gailuan soilik)</string>

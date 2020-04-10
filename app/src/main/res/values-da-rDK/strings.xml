@@ -803,7 +803,6 @@
     <string name="title_search_in_subject">I Emne</string>
     <string name="title_search_in_keywords">I nøgleord (hvis understøttet)</string>
     <string name="title_search_in_message">I beskedtekst</string>
-    <string name="title_search_with">Og</string>
     <string name="title_search_with_unseen">Ulæst</string>
     <string name="title_search_with_flagged">Stjernemarkeret</string>
     <string name="title_search_with_hidden">Skjult (kun på enheden)</string>
