@@ -32,14 +32,13 @@ import android.util.AttributeSet;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 
-import androidx.appcompat.widget.AppCompatEditText;
 import androidx.core.view.inputmethod.EditorInfoCompat;
 import androidx.core.view.inputmethod.InputConnectionCompat;
 import androidx.core.view.inputmethod.InputContentInfoCompat;
 
 import org.jsoup.nodes.Document;
 
-public class EditTextCompose extends AppCompatEditText {
+public class EditTextCompose extends FixedEditText {
     private ISelection selectionListener = null;
     private IInputContentListener inputContentListener = null;
 

@@ -24,9 +24,7 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.util.AttributeSet;
 
-import androidx.appcompat.widget.AppCompatEditText;
-
-public class EditTextPlain extends AppCompatEditText {
+public class EditTextPlain extends FixedEditText {
     public EditTextPlain(Context context) {
         super(context);
     }
