@@ -82,6 +82,8 @@ public class FtsDbHelper extends SQLiteOpenHelper {
             address.addAll(Arrays.asList(message.to));
         if (message.cc != null)
             address.addAll(Arrays.asList(message.cc));
+        if (message.bcc != null)
+            address.addAll(Arrays.asList(message.bcc));
 
         delete(db, message.id);
 

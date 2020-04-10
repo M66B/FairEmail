@@ -404,6 +404,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                         if (criteria.in_receipients) {
                                             or.add(new RecipientStringTerm(Message.RecipientType.TO, search));
                                             or.add(new RecipientStringTerm(Message.RecipientType.CC, search));
+                                            or.add(new RecipientStringTerm(Message.RecipientType.BCC, search));
                                         }
                                         if (criteria.in_subject)
                                             or.add(new SubjectTerm(search));

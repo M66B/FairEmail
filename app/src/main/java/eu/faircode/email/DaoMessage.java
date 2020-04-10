@@ -283,6 +283,7 @@ public interface DaoMessage {
             " OR `from` LIKE :find COLLATE NOCASE" +
             " OR `to` LIKE :find COLLATE NOCASE" +
             " OR `cc` LIKE :find COLLATE NOCASE" +
+            " OR `bcc` LIKE :find COLLATE NOCASE" +
             " OR `subject` LIKE :find COLLATE NOCASE" +
             " OR `keywords` LIKE :find COLLATE NOCASE" +
             " OR `preview` LIKE :find COLLATE NOCASE) AS matched" +
