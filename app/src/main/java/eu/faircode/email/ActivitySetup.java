@@ -79,6 +79,7 @@ import org.json.JSONObject;
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -674,7 +675,8 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                if (ex instanceof IllegalArgumentException)
+                if (ex instanceof IllegalArgumentException ||
+                        ex instanceof FileNotFoundException)
                     ToastEx.makeText(ActivitySetup.this, ex.getMessage(), Toast.LENGTH_LONG).show();
                 else
                     Log.unexpectedError(getSupportFragmentManager(), ex);
@@ -1045,7 +1047,9 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                     ToastEx.makeText(ActivitySetup.this, R.string.title_setup_password_invalid, Toast.LENGTH_LONG).show();
                 else if (ex instanceof IOException && ex.getCause() instanceof IllegalBlockSizeException)
                     ToastEx.makeText(ActivitySetup.this, R.string.title_setup_import_invalid, Toast.LENGTH_LONG).show();
-                else if (ex instanceof IllegalArgumentException || ex instanceof JSONException)
+                else if (ex instanceof IllegalArgumentException ||
+                        ex instanceof FileNotFoundException ||
+                        ex instanceof JSONException)
                     ToastEx.makeText(ActivitySetup.this, ex.getMessage(), Toast.LENGTH_LONG).show();
                 else
                     Log.unexpectedError(getSupportFragmentManager(), ex);
@@ -1114,7 +1118,9 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 protected void onException(Bundle args, Throwable ex) {
                     if (ex instanceof IllegalArgumentException)
                         ToastEx.makeText(ActivitySetup.this, ex.getMessage(), Toast.LENGTH_LONG).show();
-                    else if (ex instanceof IllegalStateException || ex instanceof CertificateException)
+                    else if (ex instanceof IllegalStateException ||
+                            ex instanceof FileNotFoundException ||
+                            ex instanceof CertificateException)
                         ToastEx.makeText(ActivitySetup.this, R.string.title_invalid_key, Toast.LENGTH_LONG).show();
                     else
                         Log.unexpectedError(getSupportFragmentManager(), ex);
