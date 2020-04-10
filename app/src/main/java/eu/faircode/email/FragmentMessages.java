@@ -969,6 +969,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         fabSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (folder > 0) {
+                    search(getContext(), getViewLifecycleOwner(), getParentFragmentManager(),
+                            account, folder, true, criteria);
+                    return;
+                }
+
                 Bundle args = new Bundle();
                 args.putLong("account", account);
                 args.putLong("folder", folder);
@@ -1019,24 +1025,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         popupMenu.getMenu().add(Menu.NONE, 0, order++, ss)
                                 .setEnabled(false);
 
-                        String folderName = args.getString("folderName", null);
-                        if (!TextUtils.isEmpty(folderName))
-                            popupMenu.getMenu().add(Menu.NONE, 1, order++, folderName);
-
                         for (EntityAccount account : accounts)
-                            popupMenu.getMenu().add(Menu.NONE, 2, order++, account.name)
+                            popupMenu.getMenu().add(Menu.NONE, 1, order++, account.name)
                                     .setIntent(new Intent().putExtra("account", account.id));
 
                         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                             @Override
                             public boolean onMenuItemClick(MenuItem target) {
-                                if (target.getItemId() == 1) { // Search same folder
-                                    search(
-                                            getContext(), getViewLifecycleOwner(), getParentFragmentManager(),
-                                            account, folder, true, criteria);
-                                    return true;
-                                }
-
                                 Intent intent = target.getIntent();
                                 if (intent == null)
                                     return false;
