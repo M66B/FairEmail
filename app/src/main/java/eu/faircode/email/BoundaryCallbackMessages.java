@@ -113,23 +113,26 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     @Override
     public void onZeroItemsLoaded() {
         Log.i("Boundary zero loaded");
-        queue_load();
+        queue_load(state);
     }
 
     @Override
     public void onItemAtEndLoaded(@NonNull final TupleMessageEx itemAtEnd) {
         Log.i("Boundary at end");
-        queue_load();
+        queue_load(state);
     }
 
     void retry() {
-        state.reset();
-        queue_load();
+        executor.submit(new Runnable() {
+            @Override
+            public void run() {
+                close(state);
+            }
+        });
+        queue_load(state);
     }
 
-    private void queue_load() {
-        final State state = this.state;
-
+    private void queue_load(final State state) {
         executor.submit(new Runnable() {
             @Override
             public void run() {
@@ -152,8 +155,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                 throw ex;
 
                             Log.w("Boundary", ex);
-                            close();
-                            state.reset();
+                            close(state);
 
                             // Retry
                             load_server(state);
@@ -539,32 +541,37 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     }
 
     void destroy() {
-        final State state = this.state;
+        final State old = this.state;
+        old.destroyed = true;
+
         this.state = new State();
-        state.destroyed = true;
 
         executor.submit(new Runnable() {
             @Override
             public void run() {
-                close();
+                close(old);
             }
         });
     }
 
-    private void close() {
+    private void close(State state) {
         Log.i("Boundary close");
+
         try {
             if (state.ifolder != null)
                 state.ifolder.close();
         } catch (Throwable ex) {
             Log.e("Boundary", ex);
         }
+
         try {
             if (state.iservice != null)
                 state.iservice.close();
         } catch (Throwable ex) {
             Log.e("Boundary", ex);
         }
+
+        state.reset();
     }
 
     private class State {
