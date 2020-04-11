@@ -689,7 +689,7 @@ S/MIME sign/encrypt is a pro feature, but all other PGP and S/MIME operations ar
 <a name="faq13"></a>
 **(13) How does search on device/server work?**
 
-You can start searching for messages on sender (from), recipient (to, cc), subject, keywords or message text by using the magnify glass in the action bar of a folder.
+You can start searching for messages on sender (from), recipient (to, cc, bcc), subject, keywords or message text by using the magnify glass in the action bar of a folder.
 You can also search from any app by selecting *Search email* in the copy/paste popup menu.
 
 Searching in the unified inbox will search in all folders, searching in a folder will search in that folder only.
