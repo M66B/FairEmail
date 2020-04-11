@@ -794,17 +794,24 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_signature_store">Biltegiratu</string>
     <string name="title_search">Bilatu</string>
     <string name="title_search_for_hint">Sartu testua</string>
+    <string name="title_search_hint">        Bilaketak hasiera batean zure gailuan gordetako mezuak aztertuko ditu.
+        Zerbitzarian ere bilatzeko, sakatu \'bilatu berriro\' botoian.
+    </string>
+    <string name="title_search_more">Aukera gehiago</string>
     <string name="title_search_use_index">Erabili bilaketa indizea</string>
     <string name="title_search_in_senders">Igorleetan (nork)</string>
     <string name="title_search_in_recipients">Hartzaileetan (nori, cc)</string>
     <string name="title_search_in_subject">Mintzagaian</string>
     <string name="title_search_in_keywords">Hitz-gakoetan (onartuz gero)</string>
     <string name="title_search_in_message">Mezuen testuan</string>
+    <string name="title_search_with">Bilaketaren muga</string>
     <string name="title_search_with_unseen">Irakurri gabea</string>
     <string name="title_search_with_flagged">Izarduna</string>
     <string name="title_search_with_hidden">Ezkutatuta (gailuan soilik)</string>
     <string name="title_search_with_encrypted">Zifratuta (gailuan soilik)</string>
     <string name="title_search_with_attachments">Eranskinekin (gailuan soilik)</string>
+    <string name="title_search_with_before">Aurretik</string>
+    <string name="title_search_with_after">Ondoren</string>
     <string name="title_search_flag_unseen">irakurri gabea</string>
     <string name="title_search_flag_flagged">izarduna</string>
     <string name="title_search_flag_hidden">ezkutuan</string>
@@ -1008,6 +1015,7 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_hint_important">Garrantzitsua</string>
     <string name="title_hint_sync">Mezuak deskargatzeak denbora hartu dezake, hornitzailearen abiadura, internet konexioa, gailua eta mezu kopuruaren arabera. Mezuak deskargatu bitartean aplikazioa motel erantzun lezake.</string>
     <string name="title_hint_battery">FairEmail-ek berez mezuak beti jasotzen dituenez, Android-ek esaten du FairEmai beti aktibo dagoela. Ematen du FairEmail bateriako energia beti erabiltzen ari dela, baina hori ez da horrela.</string>
+    <string name="title_hint_reformat">Besterik esan ezean, FairEmail-ek mezuen formatua aldatzen du pribatutasuna eta segurtasuna babesteko. Jatorrizko mezua ikusteko, sakatu mezuaren gaineko \'pantaila osoa\' ikonoa.</string>
     <string name="title_hint_contact_actions">Sakatu luze aukeretarako</string>
     <string name="title_hint_eml">Hau mezu gordin fitxategi baten edukiaren laburpena da. Gorde mezu gordina ekintza-barrako \'gorde\' ikonoarekin eduki osoa ikusteko.</string>
     <string name="title_open_link">Ireki esteka</string>

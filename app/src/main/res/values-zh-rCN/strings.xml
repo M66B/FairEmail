@@ -785,6 +785,9 @@
     <string name="title_signature_store">保存</string>
     <string name="title_search">搜索</string>
     <string name="title_search_for_hint">输入文本</string>
+    <string name="title_search_hint">搜索将首先查看存储在您设备上的消息。
+        要搜索服务器，请点按\'再次搜索\'按钮
+    </string>
     <string name="title_search_more">更多选项</string>
     <string name="title_search_use_index">使用搜索索引</string>
     <string name="title_search_in_senders">搜索发件人(来自)</string>
@@ -792,6 +795,7 @@
     <string name="title_search_in_subject">搜索主题</string>
     <string name="title_search_in_keywords">搜索关键词(如果支持)</string>
     <string name="title_search_in_message">搜索消息文本</string>
+    <string name="title_search_with">将搜索限制到</string>
     <string name="title_search_with_unseen">搜索未读消息</string>
     <string name="title_search_with_flagged">搜索星标邮件</string>
     <string name="title_search_with_hidden">搜索隐藏消息(仅设备)</string>
@@ -1002,6 +1006,7 @@
     <string name="title_hint_important">重要</string>
     <string name="title_hint_sync">下载邮件可能需要一些时间, 具体取决于提供商的速度、网络连接、设备以及邮件数量。在下载邮件时, 应用的响应速度可能会变慢。</string>
     <string name="title_hint_battery">由于FairEmail默认总是接受消息，安卓系统会报告FE始终处于活动状态。 因此，FE看起来好像总在耗电，但事实上情况并非如此。</string>
+    <string name="title_hint_reformat">默认情况下，FairEmail 会基于隐私和安全原因重新格式化消息。要查看原始消息，请点击消息文本上方的“全屏”图标</string>
     <string name="title_hint_contact_actions">长按以显示更多选项</string>
     <string name="title_hint_eml">这是一个原始消息文件内容的摘要。用操作栏中的保存图标保存原始消息以查看所有内容。</string>
     <string name="title_open_link">打开链接</string>

@@ -819,6 +819,9 @@
     <string name="title_signature_store">Хранилище</string>
     <string name="title_search">Поиск</string>
     <string name="title_search_for_hint">Введите текст</string>
+    <string name="title_search_hint">        Поиск изначально ищет сообщения, хранящиеся на вашем устройстве.
+        Чтобы также выполнить поиск на сервере, нажмите кнопку \"Новый поиск\".
+    </string>
     <string name="title_search_more">Дополнительные параметры</string>
     <string name="title_search_use_index">Использовать поисковый индекс</string>
     <string name="title_search_in_senders">В отправителях (от)</string>
@@ -1037,6 +1040,7 @@
     <string name="title_hint_important">Важное</string>
     <string name="title_hint_sync">Загрузка сообщений может занять некоторое время в зависимости от скорости провайдера, интернет-соединения и устройства, а также от количества сообщений. Во время загрузки сообщений приложение может реагировать медленнее.</string>
     <string name="title_hint_battery">Поскольку FairEmail по умолчанию всегда получает сообщения, Android считает его всё время активным. Поэтому может показаться, что FairEmail всегда использует батарею, хотя на самом деле это не так.</string>
+    <string name="title_hint_reformat">По умолчанию FairEmail переформатирует сообщения по соображениям конфиденциальности и безопасности. Чтобы просмотреть исходное сообщение, нажмите значок \"полный экран\" над текстом сообщения.</string>
     <string name="title_hint_contact_actions">Длительное нажатие для других действий</string>
     <string name="title_hint_eml">Это обзор содержимого файла оригинального сообщения. Сохраните его с помощью значка \"Сохранить\" на панели действий, чтобы просмотреть содержимое полностью.</string>
     <string name="title_open_link">Открыть ссылку</string>

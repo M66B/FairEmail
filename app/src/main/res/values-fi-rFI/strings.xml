@@ -795,17 +795,24 @@
     <string name="title_signature_store">Tallenna</string>
     <string name="title_search">Hae</string>
     <string name="title_search_for_hint">Syötä teksti</string>
+    <string name="title_search_hint">Haku etsii aluksi laitteella olevista viesteistä.
+        Myös palvelimelta hakemiseksi näpäytä uudelleenhakupainiketta.
+    </string>
+    <string name="title_search_more">Lisää asetuksia</string>
     <string name="title_search_use_index">Käytä haun indeksiä</string>
     <string name="title_search_in_senders">Lähettäjistä</string>
     <string name="title_search_in_recipients">Vastaanottajista (vaataanottaja, kopio)</string>
     <string name="title_search_in_subject">Aiheesta</string>
     <string name="title_search_in_keywords">Avainsanoista (jos on tuettu)</string>
     <string name="title_search_in_message">Viestin tekstistä</string>
+    <string name="title_search_with">Rajoita hakua</string>
     <string name="title_search_with_unseen">Lukematon</string>
     <string name="title_search_with_flagged">Tähdellinen</string>
     <string name="title_search_with_hidden">Piilotettu (vain laitteessa)</string>
     <string name="title_search_with_encrypted">Salattu (vain laitteessa)</string>
     <string name="title_search_with_attachments">Sisältää liitteen (vain laitteessa)</string>
+    <string name="title_search_with_before">Ennen</string>
+    <string name="title_search_with_after">Jälkeen</string>
     <string name="title_search_flag_unseen">lukematon</string>
     <string name="title_search_flag_flagged">tähdellinen</string>
     <string name="title_search_flag_hidden">piilotettu</string>
@@ -1009,6 +1016,7 @@
     <string name="title_hint_important">Tärkeä</string>
     <string name="title_hint_sync">Viestien lataaminen voi kestää riippuen verkkoyhteyden nopeudesta, käytettävästä laitteesta ja viestien lukumäärästä. Viestejä ladatessa sovellus voi toimia normaalia hitaammin.</string>
     <string name="title_hint_battery">Koska FairEmail vastaanottaa viestit oletusarvoisesti aina, Android ilmoittaa FairEmailin olevan aina aktviininen. Saattaa vaikuttaa, että FairEmail käyttäisi aina akkua, vaikka niin ei olekaan.</string>
+    <string name="title_hint_reformat">FairEmail oletusarvoisesti uudelleenmuotoilee viestit yksityisyyden ja turvallisuuden takaamiseksi. Näpäytä koko näytön kuvaketta viestin tekstin yläpuolella nähdäksesi alkuperäisen viestin.</string>
     <string name="title_hint_contact_actions">Pitkä painallus avaa asetukset</string>
     <string name="title_hint_eml">Tämä on tiivistelmä raakaviestistä. Tallenna raakaviesti toimintopalkin tallennuskuvakkeesta nähdäksesi koko sisällön.</string>
     <string name="title_open_link">Avaa linkki</string>

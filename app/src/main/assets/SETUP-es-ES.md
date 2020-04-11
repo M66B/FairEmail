@@ -1,6 +1,6 @@
 # Ayuda de la configuración
 
-Configurar FairEmail es bastante sencillo. Deberá añadir al menos una cuenta para recibir correo electrónico y al menos una identidad si quiere enviarlo. La configuración rápida añadirá una cuenta y una identidad en un sólo paso para la mayoría de los proveedores más populares.
+Configurar FairEmail es bastante sencillo. Deberá añadir al menos una cuenta para recibir correo electrónico y al menos una identidad si quiere enviarlo. The quick setup will add an account and an identity in one go for most major providers.
 
 ## Requisitos
 

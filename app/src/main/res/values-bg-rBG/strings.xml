@@ -796,6 +796,9 @@
     <string name="title_signature_store">Хранилище</string>
     <string name="title_search">Търсене</string>
     <string name="title_search_for_hint">Въведете текст</string>
+    <string name="title_search_hint">        Първоначално търсенето ще прегледа съобщенията, съхранявани на вашето устройство.
+        За да търсите и в сървъра, натиснете бутона „търсене отново“.
+    </string>
     <string name="title_search_more">Още опции</string>
     <string name="title_search_use_index">Използвай индекс за търсене</string>
     <string name="title_search_in_senders">В подетели (от)</string>
@@ -1014,6 +1017,7 @@
     <string name="title_hint_important">Важно</string>
     <string name="title_hint_sync">Изтеглянето на съобщения може да отнеме известно време, в зависимост от скоростта на доставчика, интернет връзката и устройството и броя на съобщенията. Докато изтегляте съобщения, приложението може да реагира по-бавно.</string>
     <string name="title_hint_battery">Тъй като FairEmail по подразбиране винаги получава съобщения, Android ще докладва, че FairEmail е винаги активен. Следователно може да изглежда, че FairEmail винаги консумира от батерията, но всъщност това не е така.</string>
+    <string name="title_hint_reformat">По подразбиране FairEmail преформатира съобщенията от съображения за поверителност и сигурност. За да видите оригиналното съобщение, докоснете иконата „цял екран“ над текста на съобщението.</string>
     <string name="title_hint_contact_actions">Натиснете продължително за повече опции</string>
     <string name="title_hint_eml">Това е обобщение на съдържанието на необработен файл със съобщение. Запишете необработеното съобщение с иконата за запис в панела за действие, за да видите цялото съдържание.</string>
     <string name="title_open_link">Отваряне не връзката</string>
