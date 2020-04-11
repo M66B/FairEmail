@@ -100,7 +100,7 @@ public class EmailService implements AutoCloseable {
     static final int PURPOSE_USE = 2;
     static final int PURPOSE_SEARCH = 3;
 
-    final static int DEFAULT_CONNECT_TIMEOUT = 15; // seconds
+    final static int DEFAULT_CONNECT_TIMEOUT = 20; // seconds
 
     private final static int SEARCH_TIMEOUT = 2 * 60 * 1000; // milliseconds
     private final static int FETCH_SIZE = 1024 * 1024; // bytes, default 16K
