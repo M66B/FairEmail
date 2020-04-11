@@ -3693,7 +3693,8 @@ public class FragmentCompose extends FragmentBase {
         @Override
         protected void onPostExecute(Bundle args) {
             int action = args.getInt("action");
-            if (action != R.id.action_check)
+            boolean needsEncryption = args.getBoolean("needsEncryption");
+            if (action != R.id.action_check || needsEncryption)
                 setBusy(false);
         }
 
