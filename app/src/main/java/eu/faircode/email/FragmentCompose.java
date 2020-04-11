@@ -4551,9 +4551,11 @@ public class FragmentCompose extends FragmentBase {
 
         @Override
         public boolean onBackPressed() {
-            if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+            if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
                 onExit();
-            return true;
+                return true;
+            } else
+                return false;
         }
     };
 
