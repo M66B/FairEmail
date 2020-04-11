@@ -101,9 +101,14 @@ public class Widget extends AppWidgetProvider {
                     if (!semi)
                         views.setInt(R.id.widget, "setBackgroundColor", Color.TRANSPARENT);
 
-                    views.setImageViewResource(R.id.ivMessage, unseen == 0
-                            ? R.drawable.baseline_mail_outline_24
-                            : R.drawable.baseline_mail_24);
+                    if (layout == 1)
+                        views.setImageViewResource(R.id.ivMessage, unseen == 0
+                                ? R.drawable.baseline_mail_outline_widget_24
+                                : R.drawable.baseline_mail_widget_24);
+                    else
+                        views.setImageViewResource(R.id.ivMessage, unseen == 0
+                                ? R.drawable.baseline_mail_outline_24
+                                : R.drawable.baseline_mail_24);
                     views.setTextViewText(R.id.tvCount, unseen < 100 ? nf.format(unseen) : "99+");
                     views.setViewVisibility(R.id.tvCount, layout == 1 && unseen == 0 ? View.GONE : View.VISIBLE);
 
