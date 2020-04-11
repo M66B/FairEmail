@@ -479,27 +479,27 @@ public class FragmentSetup extends FragmentBase {
         super.onActivityResult(requestCode, resultCode, data);
 
         try {
-            if (requestCode == ActivitySetup.REQUEST_STILL && resultCode != Activity.RESULT_OK)
-                ((FragmentBase) getParentFragment()).finish();
-            else {
-                boolean hasPermissions = hasPermission(Manifest.permission.READ_CONTACTS);
-                Boolean isIgnoring = Helper.isIgnoringOptimizations(getContext());
+            if (requestCode == ActivitySetup.REQUEST_STILL)
+                if (resultCode == Activity.RESULT_OK) {
+                    boolean hasPermissions = hasPermission(Manifest.permission.READ_CONTACTS);
+                    Boolean isIgnoring = Helper.isIgnoringOptimizations(getContext());
 
-                final int top;
-                if (!hasPermissions)
-                    top = view.findViewById(R.id.three).getTop();
-                else if (isIgnoring != null && !isIgnoring)
-                    top = view.findViewById(R.id.four).getTop();
-                else
-                    top = 0;
+                    final int top;
+                    if (!hasPermissions)
+                        top = view.findViewById(R.id.three).getTop();
+                    else if (isIgnoring != null && !isIgnoring)
+                        top = view.findViewById(R.id.four).getTop();
+                    else
+                        top = 0;
 
-                new Handler().post(new Runnable() {
-                    @Override
-                    public void run() {
-                        view.scrollTo(0, top);
-                    }
-                });
-            }
+                    new Handler().post(new Runnable() {
+                        @Override
+                        public void run() {
+                            view.scrollTo(0, top);
+                        }
+                    });
+                } else
+                    ((FragmentBase) getParentFragment()).finish();
         } catch (Throwable ex) {
             Log.e(ex);
         }
