@@ -352,9 +352,12 @@ public class FragmentSetup extends FragmentBase {
 
             @Override
             public boolean onBackPressed() {
-                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED) &&
+                        ((FragmentOptions) getParentFragment()).isVisible(0)) {
                     onExit();
-                return true;
+                    return true;
+                } else
+                    return false;
             }
         });
 

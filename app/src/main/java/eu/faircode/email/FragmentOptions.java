@@ -112,6 +112,10 @@ public class FragmentOptions extends FragmentBase {
         getActivity().getIntent().removeExtra("tab");
     }
 
+    boolean isVisible(int position) {
+        return (pager.getCurrentItem() == position);
+    }
+
     private class PagerAdapter extends FragmentStatePagerAdapter {
         public PagerAdapter(FragmentManager fm) {
             super(fm);
