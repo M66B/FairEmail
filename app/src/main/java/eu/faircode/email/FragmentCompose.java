@@ -4476,17 +4476,17 @@ public class FragmentCompose extends FragmentBase {
 
                 final Context context = getContext();
 
+                final View target;
+                if (TextUtils.isEmpty(etTo.getText().toString().trim()))
+                    target = etTo;
+                else if (TextUtils.isEmpty(etSubject.getText().toString()))
+                    target = etSubject;
+                else
+                    target = etBody;
+
                 new Handler().post(new Runnable() {
                     @Override
                     public void run() {
-                        View target;
-                        if (TextUtils.isEmpty(etTo.getText().toString().trim()))
-                            target = etTo;
-                        else if (TextUtils.isEmpty(etSubject.getText().toString()))
-                            target = etSubject;
-                        else
-                            target = etBody;
-
                         target.requestFocus();
 
                         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
