@@ -1424,6 +1424,17 @@ public class MessageHelper {
                     else
                         size += (long) s;
             }
+
+            for (EntityAttachment attachment : getAttachments())
+                if (attachment.size != null &&
+                        (EntityAttachment.PGP_MESSAGE.equals(attachment.encryption) ||
+                                EntityAttachment.SMIME_MESSAGE.equals(attachment.encryption) ||
+                                EntityAttachment.SMIME_SIGNED_DATA.equals(attachment.encryption)))
+                    if (size == null)
+                        size = attachment.size;
+                    else
+                        size += attachment.size;
+
             return size;
         }
 
