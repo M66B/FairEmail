@@ -3504,12 +3504,12 @@ public class FragmentCompose extends FragmentBase {
 
                         Document document = HtmlHelper.sanitizeCompose(context, doc.html(), true);
 
+                        for (Element e : ref)
+                            document.body().appendChild(e);
+
                         EntityIdentity identity = null;
                         if (data.draft.identity != null)
                             identity = db.identity().getIdentity(data.draft.identity);
-
-                        for (Element e : ref)
-                            document.body().appendChild(e);
 
                         addSignature(context, document, data.draft, identity);
 
