@@ -956,14 +956,16 @@ class Core {
         boolean seen = jargs.optBoolean(1);
         boolean unflag = jargs.optBoolean(3);
 
-        // Move from trash only
-        if (!EntityFolder.TRASH.equals(folder.type))
-            throw new IllegalArgumentException("Invalid POP3 folder type=" + folder.type);
-
         // Get target folder
         EntityFolder target = db.folder().getFolder(id);
         if (target == null)
             throw new FolderNotFoundException();
+
+        // Move from trash/drafts only
+        if (!EntityFolder.TRASH.equals(folder.type) &&
+                !EntityFolder.DRAFTS.equals(folder.type))
+            throw new IllegalArgumentException("Invalid POP3 folder" +
+                    " source=" + folder.type + " target=" + target.type);
 
         message.folder = target.id;
         if (seen)
