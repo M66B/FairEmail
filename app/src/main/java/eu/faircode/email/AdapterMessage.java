@@ -288,6 +288,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             "$Submitted".toLowerCase(Locale.ROOT),
             "$Junk".toLowerCase(Locale.ROOT),
             "$NotJunk".toLowerCase(Locale.ROOT),
+            "Junk".toLowerCase(Locale.ROOT),
+            "NonJunk".toLowerCase(Locale.ROOT),
             "$recent".toLowerCase(Locale.ROOT),
             "DTAG_document".toLowerCase(Locale.ROOT),
             "DTAG_image".toLowerCase(Locale.ROOT),
