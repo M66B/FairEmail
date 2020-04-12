@@ -49,6 +49,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
+import java.net.IDN;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.security.NoSuchAlgorithmException;
@@ -187,13 +188,13 @@ public class MessageHelper {
         }
 
         if (message.to != null && message.to.length > 0)
-            imessage.setRecipients(Message.RecipientType.TO, message.to);
+            imessage.setRecipients(Message.RecipientType.TO, convertAddress(message.to));
 
         if (message.cc != null && message.cc.length > 0)
-            imessage.setRecipients(Message.RecipientType.CC, message.cc);
+            imessage.setRecipients(Message.RecipientType.CC, convertAddress(message.cc));
 
         if (message.bcc != null && message.bcc.length > 0)
-            imessage.setRecipients(Message.RecipientType.BCC, message.bcc);
+            imessage.setRecipients(Message.RecipientType.BCC, convertAddress(message.bcc));
 
         if (message.subject != null)
             imessage.setSubject(message.subject);
@@ -202,7 +203,7 @@ public class MessageHelper {
         if (identity != null) {
             // Add reply to
             if (identity.replyto != null)
-                imessage.setReplyTo(InternetAddress.parse(identity.replyto));
+                imessage.setReplyTo(convertAddress(InternetAddress.parse(identity.replyto)));
 
             // Add extra cc
             if (identity.cc != null)
@@ -465,7 +466,7 @@ public class MessageHelper {
             result.addAll(Arrays.asList(existing));
 
         Address[] all = imessage.getAllRecipients();
-        Address[] addresses = InternetAddress.parse(email);
+        Address[] addresses = convertAddress(InternetAddress.parse(email));
         for (Address address : addresses) {
             boolean found = false;
             if (all != null)
@@ -479,6 +480,36 @@ public class MessageHelper {
         }
 
         imessage.setRecipients(type, result.toArray(new Address[0]));
+    }
+
+    private static Address[] convertAddress(Address[] addresses) {
+        // https://en.wikipedia.org/wiki/International_email
+        for (Address address : addresses) {
+            String email = ((InternetAddress) address).getAddress();
+            int at = email.indexOf('@');
+            if (at > 0) {
+                String user = email.substring(0, at);
+                String domain = email.substring(at + 1);
+
+                try {
+                    user = IDN.toASCII(user);
+                } catch (IllegalArgumentException ex) {
+                    Log.e(ex);
+                }
+
+                String[] parts = domain.split("\\.");
+                for (int p = 0; p < parts.length; p++)
+                    try {
+                        parts[p] = IDN.toASCII(parts[p]);
+                    } catch (IllegalArgumentException ex) {
+                        Log.e(ex);
+                    }
+
+                email = user + '@' + TextUtils.join(".", parts);
+            }
+            ((InternetAddress) address).setAddress(email);
+        }
+        return addresses;
     }
 
     static void build(Context context, EntityMessage message, List<EntityAttachment> attachments, EntityIdentity identity, boolean send, MimeMessage imessage) throws IOException, MessagingException {
