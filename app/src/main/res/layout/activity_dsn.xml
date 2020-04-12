@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context="eu.faircode.email.ActivityDSN">
 
-    <ScrollView
+    <eu.faircode.email.ScrollViewEx
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -36,7 +36,7 @@
                 android:layout_height="0dp"
                 app:constraint_referenced_ids="tvHeaders" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+    </eu.faircode.email.ScrollViewEx>
 
     <eu.faircode.email.ContentLoadingProgressBar
         android:id="@+id/pbWait"

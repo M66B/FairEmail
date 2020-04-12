@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context="eu.faircode.email.ActivityEML">
 
-    <ScrollView
+    <eu.faircode.email.ScrollViewEx
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -238,7 +238,7 @@
                     rvAttachment,
                     vSeparatorBody,tvBody" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+    </eu.faircode.email.ScrollViewEx>
 
     <eu.faircode.email.ContentLoadingProgressBar
         android:id="@+id/pbWait"

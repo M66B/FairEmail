@@ -41,7 +41,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvVersion" />
 
-    <ScrollView
+    <eu.faircode.email.ScrollViewEx
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
@@ -63,5 +63,5 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+    </eu.faircode.email.ScrollViewEx>
 </androidx.constraintlayout.widget.ConstraintLayout>

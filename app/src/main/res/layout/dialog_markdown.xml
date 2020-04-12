@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     tools:context="eu.faircode.email.ActivityView">
 
-    <ScrollView
+    <eu.faircode.email.ScrollViewEx
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -30,7 +30,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+    </eu.faircode.email.ScrollViewEx>
 
     <eu.faircode.email.ContentLoadingProgressBar
         android:id="@+id/pbWait"
