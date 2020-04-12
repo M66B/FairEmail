@@ -3378,7 +3378,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onActionAnswer(TupleMessageEx message, View anchor) {
-            ((FragmentMessages) parentFragment).onReply(message, getSelectedText(), anchor);
+            properties.reply(message, getSelectedText(), anchor);
         }
 
         private void onActionMove(TupleMessageEx message, final boolean copy) {
@@ -5198,6 +5198,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         void scrollTo(int pos, int y);
 
         void move(long id, String type);
+
+        void reply(TupleMessageEx message, String selected, View anchor);
 
         void finish();
     }

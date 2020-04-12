@@ -1576,6 +1576,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }
 
         @Override
+        public void reply(TupleMessageEx message, String selected, View anchor) {
+            onReply(message, selected, anchor);
+        }
+
+        @Override
         public void finish() {
             FragmentMessages.this.finish();
         }
@@ -2032,7 +2037,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }
     }
 
-    void onReply(final TupleMessageEx message, final String selected, final View anchor) {
+    private void onReply(final TupleMessageEx message, final String selected, final View anchor) {
         Bundle args = new Bundle();
         args.putLong("id", message.id);
 
