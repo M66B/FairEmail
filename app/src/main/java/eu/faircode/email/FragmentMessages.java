@@ -5434,7 +5434,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 if (s.verify(verifier)) {
                                     boolean known = true;
                                     String fingerprint = EntityCertificate.getFingerprint(cert);
-                                    List<String> emails = EntityCertificate.getAltSubjectName(cert);
+                                    List<String> emails = EntityCertificate.getEmailAddresses(cert);
                                     for (String email : emails) {
                                         EntityCertificate record = db.certificate().getCertificate(fingerprint, email);
                                         if (record == null)
@@ -5719,7 +5719,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 time = new Date();
 
                             boolean match = false;
-                            List<String> emails = EntityCertificate.getAltSubjectName(cert);
+                            List<String> emails = EntityCertificate.getEmailAddresses(cert);
                             for (String email : emails)
                                 if (email.equalsIgnoreCase(sender)) {
                                     match = true;
@@ -5803,7 +5803,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                                             return null;
 
                                                         String fingerprint = EntityCertificate.getFingerprint(cert);
-                                                        List<String> emails = EntityCertificate.getAltSubjectName(cert);
+                                                        List<String> emails = EntityCertificate.getEmailAddresses(cert);
                                                         for (String email : emails) {
                                                             EntityCertificate record = db.certificate().getCertificate(fingerprint, email);
                                                             if (record == null) {

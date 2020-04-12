@@ -32,6 +32,7 @@ import org.json.JSONObject;
 
 import java.io.ByteArrayInputStream;
 import java.security.NoSuchAlgorithmException;
+import java.security.Principal;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
@@ -118,8 +119,9 @@ public class EntityCertificate {
         return certificate.getSubjectX500Principal().getName(X500Principal.RFC2253);
     }
 
-    static List<String> getAltSubjectName(X509Certificate certificate) {
+    static List<String> getEmailAddresses(X509Certificate certificate) {
         List<String> result = new ArrayList<>();
+
         try {
             Collection<List<?>> altNames = certificate.getSubjectAlternativeNames();
             if (altNames != null)
@@ -129,8 +131,34 @@ public class EntityCertificate {
                     else
                         Log.i("Alt type=" + altName.get(0) + " data=" + altName.get(1));
         } catch (CertificateParsingException ex) {
-            Log.w(ex);
+            Log.e(ex);
         }
+
+        if (result.size() == 0)
+            try {
+                Principal principal = certificate.getSubjectDN();
+                if (principal != null) {
+                    String subject = principal.getName();
+                    if (subject != null) {
+                        Log.i("Parsing subject=" + subject);
+                        for (String p : subject.split(",")) {
+                            String[] kv = p.split("=");
+                            if (kv.length == 2) {
+                                String key = kv[0].trim();
+                                String value = kv[1].trim().toLowerCase();
+                                if (Helper.EMAIL_ADDRESS.matcher(value).matches() &&
+                                        ("CN".equalsIgnoreCase(key) ||
+                                                "emailAddress".equalsIgnoreCase(key))) {
+                                    if (!result.contains(value))
+                                        result.add(value);
+                                }
+                            }
+                        }
+                    }
+                }
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
 
         return result;
     }
