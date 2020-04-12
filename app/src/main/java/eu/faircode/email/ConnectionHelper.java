@@ -161,8 +161,8 @@ public class ConnectionHelper {
                             String network = tm.getNetworkCountryIso();
                             Log.i("Country SIM=" + sim + " network=" + network);
                             if (sim != null && network != null &&
-                                    RLAH_COUNTRY_CODES.contains(sim) &&
-                                    RLAH_COUNTRY_CODES.contains(network))
+                                    RLAH_COUNTRY_CODES.contains(sim.toUpperCase()) &&
+                                    RLAH_COUNTRY_CODES.contains(network.toUpperCase()))
                                 state.roaming = false;
                         }
                     } catch (Throwable ex) {
