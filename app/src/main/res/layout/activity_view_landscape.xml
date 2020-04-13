@@ -14,7 +14,7 @@
             android:id="@+id/content_frame"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:layout_weight="2" />
 
         <View
             android:id="@+id/content_separator"
