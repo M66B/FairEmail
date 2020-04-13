@@ -869,6 +869,26 @@ public class Helper {
         return true;
     }
 
+    static boolean isSingleScript(String s) {
+        // https://en.wikipedia.org/wiki/IDN_homograph_attack
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N)
+            return true;
+
+        Character.UnicodeScript script = null;
+        for (int i = 0; i < s.length(); ) {
+            int codepoint = s.codePointAt(i);
+            i += Character.charCount(codepoint);
+            Character.UnicodeScript us = Character.UnicodeScript.of(codepoint);
+            if (us.equals(Character.UnicodeScript.COMMON))
+                continue;
+            if (script == null)
+                script = us;
+            else if (!us.equals(script))
+                return false;
+        }
+        return true;
+    }
+
     // Files
 
     static String sanitizeFilename(String name) {
