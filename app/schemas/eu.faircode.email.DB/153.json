@@ -1,0 +1,2217 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 153,
+    "identityHash": "a5fd3d9fa07c9353eed28cfd6f157127",
+    "entities": [
+      {
+        "tableName": "identity",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT NOT NULL, `email` TEXT NOT NULL, `account` INTEGER NOT NULL, `display` TEXT, `color` INTEGER, `signature` TEXT, `host` TEXT NOT NULL, `starttls` INTEGER NOT NULL, `insecure` INTEGER NOT NULL, `port` INTEGER NOT NULL, `auth_type` INTEGER NOT NULL, `provider` TEXT, `user` TEXT NOT NULL, `password` TEXT NOT NULL, `certificate` INTEGER NOT NULL, `certificate_alias` TEXT, `realm` TEXT, `fingerprint` TEXT, `use_ip` INTEGER NOT NULL, `synchronize` INTEGER NOT NULL, `primary` INTEGER NOT NULL, `sender_extra` INTEGER NOT NULL, `sender_extra_regex` TEXT, `replyto` TEXT, `cc` TEXT, `bcc` TEXT, `unicode` INTEGER NOT NULL, `plain_only` INTEGER NOT NULL, `encrypt` INTEGER NOT NULL, `delivery_receipt` INTEGER NOT NULL, `read_receipt` INTEGER NOT NULL, `store_sent` INTEGER NOT NULL, `sent_folder` INTEGER, `sign_key` INTEGER, `sign_key_alias` TEXT, `tbd` INTEGER, `state` TEXT, `error` TEXT, `last_connected` INTEGER, FOREIGN KEY(`account`) REFERENCES `account`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "email",
+            "columnName": "email",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "account",
+            "columnName": "account",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "display",
+            "columnName": "display",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "color",
+            "columnName": "color",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "signature",
+            "columnName": "signature",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "host",
+            "columnName": "host",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "starttls",
+            "columnName": "starttls",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "insecure",
+            "columnName": "insecure",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "port",
+            "columnName": "port",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "auth_type",
+            "columnName": "auth_type",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "provider",
+            "columnName": "provider",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "user",
+            "columnName": "user",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "password",
+            "columnName": "password",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "certificate",
+            "columnName": "certificate",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "certificate_alias",
+            "columnName": "certificate_alias",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "realm",
+            "columnName": "realm",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "fingerprint",
+            "columnName": "fingerprint",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "use_ip",
+            "columnName": "use_ip",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "synchronize",
+            "columnName": "synchronize",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "primary",
+            "columnName": "primary",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sender_extra",
+            "columnName": "sender_extra",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sender_extra_regex",
+            "columnName": "sender_extra_regex",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "replyto",
+            "columnName": "replyto",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "cc",
+            "columnName": "cc",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "bcc",
+            "columnName": "bcc",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "unicode",
+            "columnName": "unicode",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "plain_only",
+            "columnName": "plain_only",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "encrypt",
+            "columnName": "encrypt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "delivery_receipt",
+            "columnName": "delivery_receipt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "read_receipt",
+            "columnName": "read_receipt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "store_sent",
+            "columnName": "store_sent",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sent_folder",
+            "columnName": "sent_folder",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sign_key",
+            "columnName": "sign_key",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sign_key_alias",
+            "columnName": "sign_key_alias",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "tbd",
+            "columnName": "tbd",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "state",
+            "columnName": "state",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "error",
+            "columnName": "error",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "last_connected",
+            "columnName": "last_connected",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_identity_account",
+            "unique": false,
+            "columnNames": [
+              "account"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_identity_account` ON `${TABLE_NAME}` (`account`)"
+          },
+          {
+            "name": "index_identity_account_email",
+            "unique": false,
+            "columnNames": [
+              "account",
+              "email"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_identity_account_email` ON `${TABLE_NAME}` (`account`, `email`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "account",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "account"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "account",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`order` INTEGER, `id` INTEGER PRIMARY KEY AUTOINCREMENT, `pop` INTEGER NOT NULL, `host` TEXT NOT NULL, `starttls` INTEGER NOT NULL, `insecure` INTEGER NOT NULL, `port` INTEGER NOT NULL, `auth_type` INTEGER NOT NULL, `provider` TEXT, `user` TEXT NOT NULL, `password` TEXT NOT NULL, `certificate` INTEGER NOT NULL, `certificate_alias` TEXT, `realm` TEXT, `fingerprint` TEXT, `name` TEXT, `signature` TEXT, `color` INTEGER, `synchronize` INTEGER NOT NULL, `ondemand` INTEGER NOT NULL, `poll_exempted` INTEGER NOT NULL, `primary` INTEGER NOT NULL, `notify` INTEGER NOT NULL, `browse` INTEGER NOT NULL, `leave_on_server` INTEGER NOT NULL, `leave_deleted` INTEGER NOT NULL, `leave_on_device` INTEGER NOT NULL, `max_messages` INTEGER, `auto_seen` INTEGER NOT NULL, `separator` INTEGER, `swipe_left` INTEGER, `swipe_right` INTEGER, `move_to` INTEGER, `poll_interval` INTEGER NOT NULL, `keep_alive_ok` INTEGER NOT NULL, `keep_alive_failed` INTEGER NOT NULL, `keep_alive_succeeded` INTEGER NOT NULL, `partial_fetch` INTEGER NOT NULL, `ignore_size` INTEGER NOT NULL, `use_date` INTEGER NOT NULL, `prefix` TEXT, `quota_usage` INTEGER, `quota_limit` INTEGER, `created` INTEGER, `tbd` INTEGER, `thread` INTEGER, `state` TEXT, `warning` TEXT, `error` TEXT, `last_connected` INTEGER)",
+        "fields": [
+          {
+            "fieldPath": "order",
+            "columnName": "order",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "protocol",
+            "columnName": "pop",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "host",
+            "columnName": "host",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "starttls",
+            "columnName": "starttls",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "insecure",
+            "columnName": "insecure",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "port",
+            "columnName": "port",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "auth_type",
+            "columnName": "auth_type",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "provider",
+            "columnName": "provider",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "user",
+            "columnName": "user",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "password",
+            "columnName": "password",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "certificate",
+            "columnName": "certificate",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "certificate_alias",
+            "columnName": "certificate_alias",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "realm",
+            "columnName": "realm",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "fingerprint",
+            "columnName": "fingerprint",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "signature",
+            "columnName": "signature",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "color",
+            "columnName": "color",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "synchronize",
+            "columnName": "synchronize",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ondemand",
+            "columnName": "ondemand",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "poll_exempted",
+            "columnName": "poll_exempted",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "primary",
+            "columnName": "primary",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "notify",
+            "columnName": "notify",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "browse",
+            "columnName": "browse",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "leave_on_server",
+            "columnName": "leave_on_server",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "leave_deleted",
+            "columnName": "leave_deleted",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "leave_on_device",
+            "columnName": "leave_on_device",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "max_messages",
+            "columnName": "max_messages",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "auto_seen",
+            "columnName": "auto_seen",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "separator",
+            "columnName": "separator",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "swipe_left",
+            "columnName": "swipe_left",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "swipe_right",
+            "columnName": "swipe_right",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "move_to",
+            "columnName": "move_to",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "poll_interval",
+            "columnName": "poll_interval",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "keep_alive_ok",
+            "columnName": "keep_alive_ok",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "keep_alive_failed",
+            "columnName": "keep_alive_failed",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "keep_alive_succeeded",
+            "columnName": "keep_alive_succeeded",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "partial_fetch",
+            "columnName": "partial_fetch",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ignore_size",
+            "columnName": "ignore_size",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "use_date",
+            "columnName": "use_date",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "prefix",
+            "columnName": "prefix",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "quota_usage",
+            "columnName": "quota_usage",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "quota_limit",
+            "columnName": "quota_limit",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "created",
+            "columnName": "created",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "tbd",
+            "columnName": "tbd",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "thread",
+            "columnName": "thread",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "state",
+            "columnName": "state",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "warning",
+            "columnName": "warning",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "error",
+            "columnName": "error",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "last_connected",
+            "columnName": "last_connected",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "folder",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`order` INTEGER, `id` INTEGER PRIMARY KEY AUTOINCREMENT, `account` INTEGER, `parent` INTEGER, `uidv` INTEGER, `name` TEXT NOT NULL, `type` TEXT NOT NULL, `level` INTEGER NOT NULL, `synchronize` INTEGER NOT NULL, `poll` INTEGER NOT NULL, `poll_factor` INTEGER NOT NULL, `poll_count` INTEGER NOT NULL, `download` INTEGER NOT NULL, `subscribed` INTEGER, `sync_days` INTEGER NOT NULL, `keep_days` INTEGER NOT NULL, `auto_delete` INTEGER NOT NULL, `display` TEXT, `color` INTEGER, `hide` INTEGER NOT NULL, `collapsed` INTEGER NOT NULL, `unified` INTEGER NOT NULL, `navigation` INTEGER NOT NULL, `notify` INTEGER NOT NULL, `total` INTEGER, `keywords` TEXT, `initialize` INTEGER NOT NULL, `tbc` INTEGER, `tbd` INTEGER, `rename` TEXT, `state` TEXT, `sync_state` TEXT, `read_only` INTEGER NOT NULL, `selectable` INTEGER NOT NULL, `inferiors` INTEGER NOT NULL, `error` TEXT, `last_sync` INTEGER, FOREIGN KEY(`account`) REFERENCES `account`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "order",
+            "columnName": "order",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "account",
+            "columnName": "account",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parent",
+            "columnName": "parent",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "uidv",
+            "columnName": "uidv",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "level",
+            "columnName": "level",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "synchronize",
+            "columnName": "synchronize",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "poll",
+            "columnName": "poll",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "poll_factor",
+            "columnName": "poll_factor",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "poll_count",
+            "columnName": "poll_count",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "download",
+            "columnName": "download",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "subscribed",
+            "columnName": "subscribed",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sync_days",
+            "columnName": "sync_days",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "keep_days",
+            "columnName": "keep_days",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "auto_delete",
+            "columnName": "auto_delete",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "display",
+            "columnName": "display",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "color",
+            "columnName": "color",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hide",
+            "columnName": "hide",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "collapsed",
+            "columnName": "collapsed",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "unified",
+            "columnName": "unified",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "navigation",
+            "columnName": "navigation",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "notify",
+            "columnName": "notify",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "total",
+            "columnName": "total",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "keywords",
+            "columnName": "keywords",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "initialize",
+            "columnName": "initialize",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tbc",
+            "columnName": "tbc",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "tbd",
+            "columnName": "tbd",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "rename",
+            "columnName": "rename",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "state",
+            "columnName": "state",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sync_state",
+            "columnName": "sync_state",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "read_only",
+            "columnName": "read_only",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "selectable",
+            "columnName": "selectable",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "inferiors",
+            "columnName": "inferiors",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "error",
+            "columnName": "error",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "last_sync",
+            "columnName": "last_sync",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_folder_account_name",
+            "unique": true,
+            "columnNames": [
+              "account",
+              "name"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_folder_account_name` ON `${TABLE_NAME}` (`account`, `name`)"
+          },
+          {
+            "name": "index_folder_account",
+            "unique": false,
+            "columnNames": [
+              "account"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_folder_account` ON `${TABLE_NAME}` (`account`)"
+          },
+          {
+            "name": "index_folder_name",
+            "unique": false,
+            "columnNames": [
+              "name"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_folder_name` ON `${TABLE_NAME}` (`name`)"
+          },
+          {
+            "name": "index_folder_type",
+            "unique": false,
+            "columnNames": [
+              "type"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_folder_type` ON `${TABLE_NAME}` (`type`)"
+          },
+          {
+            "name": "index_folder_unified",
+            "unique": false,
+            "columnNames": [
+              "unified"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_folder_unified` ON `${TABLE_NAME}` (`unified`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "account",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "account"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "message",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `account` INTEGER NOT NULL, `folder` INTEGER NOT NULL, `identity` INTEGER, `extra` TEXT, `replying` INTEGER, `forwarding` INTEGER, `uid` INTEGER, `msgid` TEXT, `hash` TEXT, `references` TEXT, `deliveredto` TEXT, `inreplyto` TEXT, `thread` TEXT, `priority` INTEGER, `importance` INTEGER, `receipt` INTEGER, `receipt_request` INTEGER, `receipt_to` TEXT, `dkim` INTEGER, `spf` INTEGER, `dmarc` INTEGER, `mx` INTEGER, `avatar` TEXT, `sender` TEXT, `submitter` TEXT, `from` TEXT, `to` TEXT, `cc` TEXT, `bcc` TEXT, `reply` TEXT, `list_post` TEXT, `unsubscribe` TEXT, `autocrypt` TEXT, `headers` TEXT, `raw` INTEGER, `subject` TEXT, `size` INTEGER, `total` INTEGER, `attachments` INTEGER NOT NULL, `content` INTEGER NOT NULL, `language` TEXT, `plain_only` INTEGER, `encrypt` INTEGER, `ui_encrypt` INTEGER, `preview` TEXT, `signature` INTEGER NOT NULL, `sent` INTEGER, `received` INTEGER NOT NULL, `stored` INTEGER NOT NULL, `seen` INTEGER NOT NULL, `answered` INTEGER NOT NULL, `flagged` INTEGER NOT NULL, `flags` TEXT, `keywords` TEXT, `notifying` INTEGER NOT NULL, `fts` INTEGER NOT NULL, `ui_seen` INTEGER NOT NULL, `ui_answered` INTEGER NOT NULL, `ui_flagged` INTEGER NOT NULL, `ui_hide` INTEGER NOT NULL, `ui_found` INTEGER NOT NULL, `ui_ignored` INTEGER NOT NULL, `ui_browsed` INTEGER NOT NULL, `ui_busy` INTEGER, `ui_snoozed` INTEGER, `color` INTEGER, `revision` INTEGER, `revisions` INTEGER, `warning` TEXT, `error` TEXT, `last_attempt` INTEGER, FOREIGN KEY(`account`) REFERENCES `account`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`folder`) REFERENCES `folder`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`identity`) REFERENCES `identity`(`id`) ON UPDATE NO ACTION ON DELETE SET NULL , FOREIGN KEY(`replying`) REFERENCES `message`(`id`) ON UPDATE NO ACTION ON DELETE SET NULL , FOREIGN KEY(`forwarding`) REFERENCES `message`(`id`) ON UPDATE NO ACTION ON DELETE SET NULL )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "account",
+            "columnName": "account",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "folder",
+            "columnName": "folder",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "identity",
+            "columnName": "identity",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "extra",
+            "columnName": "extra",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "replying",
+            "columnName": "replying",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "forwarding",
+            "columnName": "forwarding",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "uid",
+            "columnName": "uid",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "msgid",
+            "columnName": "msgid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hash",
+            "columnName": "hash",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "references",
+            "columnName": "references",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "deliveredto",
+            "columnName": "deliveredto",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "inreplyto",
+            "columnName": "inreplyto",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "thread",
+            "columnName": "thread",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "priority",
+            "columnName": "priority",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "importance",
+            "columnName": "importance",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "receipt",
+            "columnName": "receipt",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "receipt_request",
+            "columnName": "receipt_request",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "receipt_to",
+            "columnName": "receipt_to",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "dkim",
+            "columnName": "dkim",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "spf",
+            "columnName": "spf",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "dmarc",
+            "columnName": "dmarc",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "mx",
+            "columnName": "mx",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "avatar",
+            "columnName": "avatar",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sender",
+            "columnName": "sender",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "submitter",
+            "columnName": "submitter",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "from",
+            "columnName": "from",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "to",
+            "columnName": "to",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "cc",
+            "columnName": "cc",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "bcc",
+            "columnName": "bcc",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "reply",
+            "columnName": "reply",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "list_post",
+            "columnName": "list_post",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "unsubscribe",
+            "columnName": "unsubscribe",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "autocrypt",
+            "columnName": "autocrypt",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "headers",
+            "columnName": "headers",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "raw",
+            "columnName": "raw",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "subject",
+            "columnName": "subject",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "size",
+            "columnName": "size",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "total",
+            "columnName": "total",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "attachments",
+            "columnName": "attachments",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "content",
+            "columnName": "content",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "language",
+            "columnName": "language",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "plain_only",
+            "columnName": "plain_only",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "encrypt",
+            "columnName": "encrypt",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "ui_encrypt",
+            "columnName": "ui_encrypt",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "preview",
+            "columnName": "preview",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "signature",
+            "columnName": "signature",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sent",
+            "columnName": "sent",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "received",
+            "columnName": "received",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "stored",
+            "columnName": "stored",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "seen",
+            "columnName": "seen",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "answered",
+            "columnName": "answered",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "flagged",
+            "columnName": "flagged",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "flags",
+            "columnName": "flags",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "keywords",
+            "columnName": "keywords",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "notifying",
+            "columnName": "notifying",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fts",
+            "columnName": "fts",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ui_seen",
+            "columnName": "ui_seen",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ui_answered",
+            "columnName": "ui_answered",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ui_flagged",
+            "columnName": "ui_flagged",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ui_hide",
+            "columnName": "ui_hide",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ui_found",
+            "columnName": "ui_found",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ui_ignored",
+            "columnName": "ui_ignored",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ui_browsed",
+            "columnName": "ui_browsed",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ui_busy",
+            "columnName": "ui_busy",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "ui_snoozed",
+            "columnName": "ui_snoozed",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "color",
+            "columnName": "color",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "revision",
+            "columnName": "revision",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "revisions",
+            "columnName": "revisions",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "warning",
+            "columnName": "warning",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "error",
+            "columnName": "error",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "last_attempt",
+            "columnName": "last_attempt",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_message_account",
+            "unique": false,
+            "columnNames": [
+              "account"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_message_account` ON `${TABLE_NAME}` (`account`)"
+          },
+          {
+            "name": "index_message_folder",
+            "unique": false,
+            "columnNames": [
+              "folder"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_message_folder` ON `${TABLE_NAME}` (`folder`)"
+          },
+          {
+            "name": "index_message_identity",
+            "unique": false,
+            "columnNames": [
+              "identity"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_message_identity` ON `${TABLE_NAME}` (`identity`)"
+          },
+          {
+            "name": "index_message_folder_uid",
+            "unique": true,
+            "columnNames": [
+              "folder",
+              "uid"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_message_folder_uid` ON `${TABLE_NAME}` (`folder`, `uid`)"
+          },
+          {
+            "name": "index_message_msgid",
+            "unique": false,
+            "columnNames": [
+              "msgid"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_message_msgid` ON `${TABLE_NAME}` (`msgid`)"
+          },
+          {
+            "name": "index_message_thread",
+            "unique": false,
+            "columnNames": [
+              "thread"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_message_thread` ON `${TABLE_NAME}` (`thread`)"
+          },
+          {
+            "name": "index_message_sender",
+            "unique": false,
+            "columnNames": [
+              "sender"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_message_sender` ON `${TABLE_NAME}` (`sender`)"
+          },
+          {
+            "name": "index_message_received",
+            "unique": false,
+            "columnNames": [
+              "received"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_message_received` ON `${TABLE_NAME}` (`received`)"
+          },
+          {
+            "name": "index_message_subject",
+            "unique": false,
+            "columnNames": [
+              "subject"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_message_subject` ON `${TABLE_NAME}` (`subject`)"
+          },
+          {
+            "name": "index_message_ui_seen",
+            "unique": false,
+            "columnNames": [
+              "ui_seen"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_message_ui_seen` ON `${TABLE_NAME}` (`ui_seen`)"
+          },
+          {
+            "name": "index_message_ui_flagged",
+            "unique": false,
+            "columnNames": [
+              "ui_flagged"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_message_ui_flagged` ON `${TABLE_NAME}` (`ui_flagged`)"
+          },
+          {
+            "name": "index_message_ui_hide",
+            "unique": false,
+            "columnNames": [
+              "ui_hide"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_message_ui_hide` ON `${TABLE_NAME}` (`ui_hide`)"
+          },
+          {
+            "name": "index_message_ui_found",
+            "unique": false,
+            "columnNames": [
+              "ui_found"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_message_ui_found` ON `${TABLE_NAME}` (`ui_found`)"
+          },
+          {
+            "name": "index_message_ui_ignored",
+            "unique": false,
+            "columnNames": [
+              "ui_ignored"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_message_ui_ignored` ON `${TABLE_NAME}` (`ui_ignored`)"
+          },
+          {
+            "name": "index_message_ui_browsed",
+            "unique": false,
+            "columnNames": [
+              "ui_browsed"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_message_ui_browsed` ON `${TABLE_NAME}` (`ui_browsed`)"
+          },
+          {
+            "name": "index_message_ui_snoozed",
+            "unique": false,
+            "columnNames": [
+              "ui_snoozed"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_message_ui_snoozed` ON `${TABLE_NAME}` (`ui_snoozed`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "account",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "account"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          },
+          {
+            "table": "folder",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "folder"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          },
+          {
+            "table": "identity",
+            "onDelete": "SET NULL",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "identity"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          },
+          {
+            "table": "message",
+            "onDelete": "SET NULL",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "replying"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          },
+          {
+            "table": "message",
+            "onDelete": "SET NULL",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "forwarding"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "attachment",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `message` INTEGER NOT NULL, `sequence` INTEGER NOT NULL, `name` TEXT, `type` TEXT NOT NULL, `disposition` TEXT, `cid` TEXT, `encryption` INTEGER, `size` INTEGER, `progress` INTEGER, `available` INTEGER NOT NULL, `error` TEXT, FOREIGN KEY(`message`) REFERENCES `message`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "message",
+            "columnName": "message",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sequence",
+            "columnName": "sequence",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "disposition",
+            "columnName": "disposition",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "cid",
+            "columnName": "cid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "encryption",
+            "columnName": "encryption",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "size",
+            "columnName": "size",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "progress",
+            "columnName": "progress",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "available",
+            "columnName": "available",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "error",
+            "columnName": "error",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_attachment_message",
+            "unique": false,
+            "columnNames": [
+              "message"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_attachment_message` ON `${TABLE_NAME}` (`message`)"
+          },
+          {
+            "name": "index_attachment_message_sequence",
+            "unique": true,
+            "columnNames": [
+              "message",
+              "sequence"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_attachment_message_sequence` ON `${TABLE_NAME}` (`message`, `sequence`)"
+          },
+          {
+            "name": "index_attachment_message_cid",
+            "unique": false,
+            "columnNames": [
+              "message",
+              "cid"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_attachment_message_cid` ON `${TABLE_NAME}` (`message`, `cid`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "message",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "message"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "operation",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `account` INTEGER, `folder` INTEGER NOT NULL, `message` INTEGER, `name` TEXT NOT NULL, `args` TEXT NOT NULL, `created` INTEGER NOT NULL, `tries` INTEGER NOT NULL, `state` TEXT, `error` TEXT, FOREIGN KEY(`folder`) REFERENCES `folder`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`message`) REFERENCES `message`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "account",
+            "columnName": "account",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "folder",
+            "columnName": "folder",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "message",
+            "columnName": "message",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "args",
+            "columnName": "args",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "created",
+            "columnName": "created",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tries",
+            "columnName": "tries",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "state",
+            "columnName": "state",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "error",
+            "columnName": "error",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_operation_account",
+            "unique": false,
+            "columnNames": [
+              "account"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_operation_account` ON `${TABLE_NAME}` (`account`)"
+          },
+          {
+            "name": "index_operation_folder",
+            "unique": false,
+            "columnNames": [
+              "folder"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_operation_folder` ON `${TABLE_NAME}` (`folder`)"
+          },
+          {
+            "name": "index_operation_message",
+            "unique": false,
+            "columnNames": [
+              "message"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_operation_message` ON `${TABLE_NAME}` (`message`)"
+          },
+          {
+            "name": "index_operation_name",
+            "unique": false,
+            "columnNames": [
+              "name"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_operation_name` ON `${TABLE_NAME}` (`name`)"
+          },
+          {
+            "name": "index_operation_state",
+            "unique": false,
+            "columnNames": [
+              "state"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_operation_state` ON `${TABLE_NAME}` (`state`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "folder",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "folder"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          },
+          {
+            "table": "message",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "message"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "contact",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `account` INTEGER NOT NULL, `type` INTEGER NOT NULL, `email` TEXT NOT NULL, `name` TEXT, `avatar` TEXT, `times_contacted` INTEGER NOT NULL, `first_contacted` INTEGER NOT NULL, `last_contacted` INTEGER NOT NULL, `state` INTEGER NOT NULL, FOREIGN KEY(`account`) REFERENCES `account`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "account",
+            "columnName": "account",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "email",
+            "columnName": "email",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "avatar",
+            "columnName": "avatar",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "times_contacted",
+            "columnName": "times_contacted",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "first_contacted",
+            "columnName": "first_contacted",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "last_contacted",
+            "columnName": "last_contacted",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "state",
+            "columnName": "state",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_contact_account_type_email",
+            "unique": true,
+            "columnNames": [
+              "account",
+              "type",
+              "email"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_contact_account_type_email` ON `${TABLE_NAME}` (`account`, `type`, `email`)"
+          },
+          {
+            "name": "index_contact_email",
+            "unique": false,
+            "columnNames": [
+              "email"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_contact_email` ON `${TABLE_NAME}` (`email`)"
+          },
+          {
+            "name": "index_contact_name",
+            "unique": false,
+            "columnNames": [
+              "name"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_contact_name` ON `${TABLE_NAME}` (`name`)"
+          },
+          {
+            "name": "index_contact_avatar",
+            "unique": false,
+            "columnNames": [
+              "avatar"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_contact_avatar` ON `${TABLE_NAME}` (`avatar`)"
+          },
+          {
+            "name": "index_contact_times_contacted",
+            "unique": false,
+            "columnNames": [
+              "times_contacted"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_contact_times_contacted` ON `${TABLE_NAME}` (`times_contacted`)"
+          },
+          {
+            "name": "index_contact_last_contacted",
+            "unique": false,
+            "columnNames": [
+              "last_contacted"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_contact_last_contacted` ON `${TABLE_NAME}` (`last_contacted`)"
+          },
+          {
+            "name": "index_contact_state",
+            "unique": false,
+            "columnNames": [
+              "state"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_contact_state` ON `${TABLE_NAME}` (`state`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "account",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "account"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "certificate",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `fingerprint` TEXT NOT NULL, `intermediate` INTEGER NOT NULL, `email` TEXT NOT NULL, `subject` TEXT, `after` INTEGER, `before` INTEGER, `data` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "fingerprint",
+            "columnName": "fingerprint",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "intermediate",
+            "columnName": "intermediate",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "email",
+            "columnName": "email",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "subject",
+            "columnName": "subject",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "after",
+            "columnName": "after",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "before",
+            "columnName": "before",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "data",
+            "columnName": "data",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_certificate_fingerprint_email",
+            "unique": true,
+            "columnNames": [
+              "fingerprint",
+              "email"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_certificate_fingerprint_email` ON `${TABLE_NAME}` (`fingerprint`, `email`)"
+          },
+          {
+            "name": "index_certificate_email",
+            "unique": false,
+            "columnNames": [
+              "email"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_certificate_email` ON `${TABLE_NAME}` (`email`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "answer",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT NOT NULL, `favorite` INTEGER NOT NULL, `hide` INTEGER NOT NULL, `text` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "favorite",
+            "columnName": "favorite",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "hide",
+            "columnName": "hide",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "text",
+            "columnName": "text",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "rule",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `folder` INTEGER NOT NULL, `name` TEXT NOT NULL, `order` INTEGER NOT NULL, `enabled` INTEGER NOT NULL, `stop` INTEGER NOT NULL, `condition` TEXT NOT NULL, `action` TEXT NOT NULL, `applied` INTEGER NOT NULL, FOREIGN KEY(`folder`) REFERENCES `folder`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "folder",
+            "columnName": "folder",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "order",
+            "columnName": "order",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "enabled",
+            "columnName": "enabled",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "stop",
+            "columnName": "stop",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "condition",
+            "columnName": "condition",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "action",
+            "columnName": "action",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "applied",
+            "columnName": "applied",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_rule_folder",
+            "unique": false,
+            "columnNames": [
+              "folder"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_rule_folder` ON `${TABLE_NAME}` (`folder`)"
+          },
+          {
+            "name": "index_rule_order",
+            "unique": false,
+            "columnNames": [
+              "order"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_rule_order` ON `${TABLE_NAME}` (`order`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "folder",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "folder"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "log",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `time` INTEGER NOT NULL, `data` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "time",
+            "columnName": "time",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "data",
+            "columnName": "data",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_log_time",
+            "unique": false,
+            "columnNames": [
+              "time"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_log_time` ON `${TABLE_NAME}` (`time`)"
+          }
+        ],
+        "foreignKeys": []
+      }
+    ],
+    "views": [
+      {
+        "viewName": "account_view",
+        "createSql": "CREATE VIEW `${VIEW_NAME}` AS SELECT id, pop, name, color, synchronize, notify, auto_seen, created FROM account"
+      },
+      {
+        "viewName": "identity_view",
+        "createSql": "CREATE VIEW `${VIEW_NAME}` AS SELECT id, name, email, display, color, synchronize FROM identity"
+      },
+      {
+        "viewName": "folder_view",
+        "createSql": "CREATE VIEW `${VIEW_NAME}` AS SELECT id, account, name, type, display, color, unified, notify, read_only FROM folder"
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'a5fd3d9fa07c9353eed28cfd6f157127')"
+    ]
+  }
+}

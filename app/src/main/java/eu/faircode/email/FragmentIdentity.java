@@ -111,6 +111,7 @@ public class FragmentIdentity extends FragmentBase {
     private EditText etReplyTo;
     private EditText etCc;
     private EditText etBcc;
+    private CheckBox cbUnicode;
 
     private Button btnSave;
     private ContentLoadingProgressBar pbSave;
@@ -200,6 +201,7 @@ public class FragmentIdentity extends FragmentBase {
         etReplyTo = view.findViewById(R.id.etReplyTo);
         etCc = view.findViewById(R.id.etCc);
         etBcc = view.findViewById(R.id.etBcc);
+        cbUnicode = view.findViewById(R.id.cbUnicode);
 
         btnSave = view.findViewById(R.id.btnSave);
         pbSave = view.findViewById(R.id.pbSave);
@@ -577,6 +579,7 @@ public class FragmentIdentity extends FragmentBase {
         args.putString("replyto", etReplyTo.getText().toString().trim());
         args.putString("cc", etCc.getText().toString().trim());
         args.putString("bcc", etBcc.getText().toString().trim());
+        args.putBoolean("unicode", cbUnicode.isChecked());
         args.putLong("account", account == null ? -1 : account.id);
         args.putString("host", etHost.getText().toString().trim());
         args.putBoolean("starttls", rgEncryption.getCheckedRadioButtonId() == R.id.radio_starttls);
@@ -648,6 +651,7 @@ public class FragmentIdentity extends FragmentBase {
                 String replyto = args.getString("replyto");
                 String cc = args.getString("cc");
                 String bcc = args.getString("bcc");
+                boolean unicode = args.getBoolean("unicode");
 
                 boolean should = args.getBoolean("should");
 
@@ -773,6 +777,8 @@ public class FragmentIdentity extends FragmentBase {
                         return true;
                     if (!Objects.equals(identity.bcc, bcc))
                         return true;
+                    if (!Objects.equals(identity.unicode, unicode))
+                        return true;
 
                     return false;
                 }
@@ -850,6 +856,7 @@ public class FragmentIdentity extends FragmentBase {
                     identity.replyto = replyto;
                     identity.cc = cc;
                     identity.bcc = bcc;
+                    identity.unicode = unicode;
                     identity.sent_folder = null;
                     identity.sign_key = null;
                     identity.sign_key_alias = null;
@@ -1057,6 +1064,7 @@ public class FragmentIdentity extends FragmentBase {
                     etReplyTo.setText(identity == null ? null : identity.replyto);
                     etCc.setText(identity == null ? null : identity.cc);
                     etBcc.setText(identity == null ? null : identity.bcc);
+                    cbUnicode.setChecked(identity != null && identity.unicode);
 
                     auth = (identity == null ? EmailService.AUTH_TYPE_PASSWORD : identity.auth_type);
                     provider = (identity == null ? null : identity.provider);

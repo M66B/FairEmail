@@ -534,6 +534,7 @@
     <string name="title_advanced_sender">Allow editing sender address</string>
     <string name="title_advanced_sender_regex">Regex to match username of incoming email addresses</string>
     <string name="title_identity_reply_to">Reply to address</string>
+    <string name="title_identity_unicode">Allow Unicode in email addresses</string>
     <string name="title_identity_receipt">Request delivery/read receipt by default</string>
     <string name="title_identity_use_ip_hint">In case of \'invalid greeting\', \'requires valid address\' or a similar error, try to change this setting</string>
     <string name="title_optional">Optional</string>

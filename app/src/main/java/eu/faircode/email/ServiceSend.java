@@ -388,6 +388,8 @@ public class ServiceSend extends ServiceBase {
 
         // Create message
         Properties props = MessageHelper.getSessionProperties();
+        if (ident.unicode)
+            props.put("mail.mime.allowutf8", "true");
         Session isession = Session.getInstance(props, null);
         MimeMessage imessage = MessageHelper.from(this, message, ident, isession, true);
 
@@ -465,6 +467,7 @@ public class ServiceSend extends ServiceBase {
         try (EmailService iservice = new EmailService(
                 this, ident.getProtocol(), ident.realm, ident.insecure, debug)) {
             iservice.setUseIp(ident.use_ip);
+            iservice.setUnicode(ident.unicode);
 
             // Connect transport
             db.identity().setIdentityState(ident.id, "connecting");

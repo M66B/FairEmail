@@ -95,6 +95,8 @@ public class EntityIdentity {
     public String cc;
     public String bcc;
     @NonNull
+    public Boolean unicode = false;
+    @NonNull
     public Boolean plain_only = false; // obsolete
     @NonNull
     public Boolean encrypt = false; // obsolete

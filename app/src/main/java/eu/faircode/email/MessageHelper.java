@@ -188,13 +188,13 @@ public class MessageHelper {
         }
 
         if (message.to != null && message.to.length > 0)
-            imessage.setRecipients(Message.RecipientType.TO, convertAddress(message.to));
+            imessage.setRecipients(Message.RecipientType.TO, convertAddress(message.to, identity));
 
         if (message.cc != null && message.cc.length > 0)
-            imessage.setRecipients(Message.RecipientType.CC, convertAddress(message.cc));
+            imessage.setRecipients(Message.RecipientType.CC, convertAddress(message.cc, identity));
 
         if (message.bcc != null && message.bcc.length > 0)
-            imessage.setRecipients(Message.RecipientType.BCC, convertAddress(message.bcc));
+            imessage.setRecipients(Message.RecipientType.BCC, convertAddress(message.bcc, identity));
 
         if (message.subject != null)
             imessage.setSubject(message.subject);
@@ -203,15 +203,15 @@ public class MessageHelper {
         if (identity != null) {
             // Add reply to
             if (identity.replyto != null)
-                imessage.setReplyTo(convertAddress(InternetAddress.parse(identity.replyto)));
+                imessage.setReplyTo(convertAddress(InternetAddress.parse(identity.replyto), identity));
 
             // Add extra cc
             if (identity.cc != null)
-                addAddress(identity.cc, Message.RecipientType.CC, imessage);
+                addAddress(identity.cc, Message.RecipientType.CC, imessage, identity);
 
             // Add extra bcc
             if (identity.bcc != null)
-                addAddress(identity.bcc, Message.RecipientType.BCC, imessage);
+                addAddress(identity.bcc, Message.RecipientType.BCC, imessage, identity);
 
             // Delivery/read request
             if (message.receipt_request != null && message.receipt_request) {
@@ -458,7 +458,7 @@ public class MessageHelper {
         return imessage;
     }
 
-    private static void addAddress(String email, Message.RecipientType type, MimeMessage imessage) throws MessagingException {
+    private static void addAddress(String email, Message.RecipientType type, MimeMessage imessage, EntityIdentity identity) throws MessagingException {
         List<Address> result = new ArrayList<>();
 
         Address[] existing = imessage.getRecipients(type);
@@ -466,7 +466,7 @@ public class MessageHelper {
             result.addAll(Arrays.asList(existing));
 
         Address[] all = imessage.getAllRecipients();
-        Address[] addresses = convertAddress(InternetAddress.parse(email));
+        Address[] addresses = convertAddress(InternetAddress.parse(email), identity);
         for (Address address : addresses) {
             boolean found = false;
             if (all != null)
@@ -482,7 +482,10 @@ public class MessageHelper {
         imessage.setRecipients(type, result.toArray(new Address[0]));
     }
 
-    private static Address[] convertAddress(Address[] addresses) {
+    private static Address[] convertAddress(Address[] addresses, EntityIdentity identity) {
+        if (identity != null && identity.unicode)
+            return addresses;
+
         // https://en.wikipedia.org/wiki/International_email
         for (Address address : addresses) {
             String email = ((InternetAddress) address).getAddress();

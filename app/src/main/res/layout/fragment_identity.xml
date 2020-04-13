@@ -630,6 +630,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etBcc" />
 
+        <CheckBox
+            android:id="@+id/cbUnicode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_identity_unicode"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvBccHint" />
+
         <Button
             android:id="@+id/btnSave"
             android:layout_width="wrap_content"
@@ -638,7 +647,7 @@
             android:tag="disable"
             android:text="@string/title_save"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvBccHint" />
+            app:layout_constraintTop_toBottomOf="@id/cbUnicode" />
 
         <eu.faircode.email.ContentLoadingProgressBar
             android:id="@+id/pbSave"
@@ -751,7 +760,7 @@
                 cbUseIp,tvUseIpHint,
                 cbSynchronize,cbPrimary,
                 cbSenderExtra,tvSenderExtra,etSenderExtra,tvSenderExtraHint,
-                tvReplyTo,etReplyTo,tvCc,etCc,tvCcHint,tvBcc,etBcc,tvBccHint" />
+                tvReplyTo,etReplyTo,tvCc,etCc,tvCcHint,tvBcc,etBcc,tvBccHint,cbUnicode" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpError"

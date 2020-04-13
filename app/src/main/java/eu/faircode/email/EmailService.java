@@ -239,6 +239,10 @@ public class EmailService implements AutoCloseable {
         properties.put("mail." + protocol + ".rsetbeforequit", Boolean.toString(keep));
     }
 
+    void setUnicode(boolean value) {
+        properties.put("mail.mime.allowutf8", Boolean.toString(value));
+    }
+
     void setListener(StoreListener listener) {
         this.listener = listener;
     }
