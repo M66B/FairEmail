@@ -501,6 +501,22 @@ public class HtmlHelper {
                                     }
                                 }
                                 break;
+
+                            case "padding-top":
+                                if (element.isBlock()) {
+                                    Float pt = getFontSize(value, null);
+                                    if (pt != null && pt >= 0.5)
+                                        element.attr("line", "before");
+                                }
+                                break;
+
+                            case "padding-bottom":
+                                if (element.isBlock()) {
+                                    Float pb = getFontSize(value, null);
+                                    if (pb != null && pb >= 0.5)
+                                        element.attr("line", "after");
+                                }
+                                break;
                         }
                     }
                 }
@@ -781,6 +797,14 @@ public class HtmlHelper {
 
         for (Element div : document.select("div"))
             div.tagName("span");
+
+        for (Element e : document.select("*[line=before]"))
+            if (hasVisibleContent(e.childNodes()))
+                e.prependElement("br");
+
+        for (Element e : document.select("*[line=after]"))
+            if (hasVisibleContent(e.childNodes()))
+                e.appendElement("br");
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N)
             for (Element span : document.select("span"))
