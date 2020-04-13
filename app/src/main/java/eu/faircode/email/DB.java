@@ -24,11 +24,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
-import java.lang.reflect.Field;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ExecutorService;
 
@@ -105,6 +105,23 @@ public abstract class DB extends RoomDatabase {
 
     public abstract DaoLog log();
 
+    @NonNull
+    @Override
+    protected InvalidationTracker createInvalidationTracker() {
+        final HashMap<String, String> _shadowTablesMap = new HashMap<String, String>(0);
+        HashMap<String, Set<String>> _viewTables = new HashMap<String, Set<String>>(3);
+        HashSet<String> _tables = new HashSet<String>(1);
+        //_tables.add("account");
+        _viewTables.put("account_view", _tables);
+        HashSet<String> _tables_1 = new HashSet<String>(1);
+        //_tables_1.add("identity");
+        _viewTables.put("identity_view", _tables_1);
+        HashSet<String> _tables_2 = new HashSet<String>(1);
+        //_tables_2.add("folder");
+        _viewTables.put("folder_view", _tables_2);
+        return new InvalidationTracker(this, _shadowTablesMap, _viewTables, DB_TABLES);
+    }
+
     private static DB sInstance;
     private static final ExecutorService executor =
             Helper.getBackgroundExecutor(1, "query");
@@ -138,19 +155,6 @@ public abstract class DB extends RoomDatabase {
             Context acontext = context.getApplicationContext();
 
             sInstance = migrate(acontext, getBuilder(acontext)).build();
-
-            try {
-                Log.i("Disabling view invalidation");
-                Field fmViewTables = InvalidationTracker.class.getDeclaredField("mViewTables");
-                fmViewTables.setAccessible(true);
-                Map<String, Set<String>> mViewTables = (Map) fmViewTables.get(sInstance.getInvalidationTracker());
-                mViewTables.get("account_view").clear();
-                mViewTables.get("identity_view").clear();
-                mViewTables.get("folder_view").clear();
-                Log.i("Disabled view invalidation");
-            } catch (ReflectiveOperationException ex) {
-                Log.e(ex);
-            }
 
             sInstance.getInvalidationTracker().addObserver(new InvalidationTracker.Observer(DB.DB_TABLES) {
                 @Override
