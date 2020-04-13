@@ -782,6 +782,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_signature_validity">Érvényesség</string>
     <string name="title_signature_outdated">Ez a nyilvános kulcs jelenleg nem érvényes</string>
     <string name="title_search">Keresés</string>
+    <string name="title_search_for_hint">Írjon be szöveget</string>
     <string name="title_search_in_senders">A küldőkben (tól)</string>
     <string name="title_search_in_recipients">A címzettekben (nek, cc)</string>
     <string name="title_search_in_subject">A tárgyban</string>
@@ -858,6 +859,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_rule_name">Név</string>
     <string name="title_rule_order">Rendezés</string>
     <string name="title_rule_enabled">Engedélyezve</string>
+    <string name="title_rule_stop">Szabályok feldolgozásának leállítása e szabály végrehajtása után</string>
     <string name="title_rule_sender">Küldő tartalmazza</string>
     <string name="title_rule_sender_known">A feladó szerepel a névjegyzékben</string>
     <string name="title_rule_recipient">Címzett tartalmazza</string>
@@ -940,6 +942,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_legend_download">Tartalom letöltése</string>
     <string name="title_legend_external_image">Külső kép helykitöltő</string>
     <string name="title_legend_embedded_image">Beágyazott kép helykitöltő</string>
+    <string name="title_legend_tracking_pixel">Követő kép</string>
     <string name="title_legend_broken_image">Elromlott kép</string>
     <string name="title_legend_pick">Névjegy választása</string>
     <string name="title_legend_cc">CC/BCC megjelenítése</string>
@@ -1011,6 +1014,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_fix">Javítás</string>
     <string name="title_enable">Bekapcsolás</string>
     <string name="title_enabled">Bekapcsolva</string>
+    <string name="title_executing">Végrehajtás</string>
     <string name="title_completed">Befejezve</string>
     <string name="title_clipboard_copy">Másolás vágólapra</string>
     <string name="title_clipboard_copied">Másolva vágólapra</string>
@@ -1060,6 +1064,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_boundary_retry">Próbálja újra</string>
     <string name="title_unexpected_error">Váratlan hiba</string>
     <string name="title_log">Napló</string>
+    <string name="title_auto_scroll">Automatikus görgetés</string>
     <string name="title_debug_info">Hibakeresési információ</string>
     <string name="title_debug_info_remark">Kérlek jellemezd a problémát és jelezd az idejét a problémának:</string>
     <string name="title_crash_info_remark">Kérlek magyarázd el mit csináltál amikor az alkalmazás összeomlott:</string>

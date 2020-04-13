@@ -455,6 +455,7 @@
     <string name="title_advanced_sender">Autoriser la modification de l\'adresse de l\'expéditeur</string>
     <string name="title_advanced_sender_regex">Regex pour correspondre au nom d\'utilisateur des adresses e-mail entrantes</string>
     <string name="title_identity_reply_to">Répondre à l\'adresse</string>
+    <string name="title_identity_unicode">Autoriser l\'Unicode dans les adresses e-mail</string>
     <string name="title_identity_receipt">Demander une confirmation de réception/lecture par défaut</string>
     <string name="title_identity_use_ip_hint">En cas de \"message d\'accueil invalide\", \"nécessite une adresse valide\" ou une erreur similaire, essayez de modifier ce paramètre</string>
     <string name="title_optional">Facultatif</string>

@@ -180,7 +180,7 @@
     <string name="title_setup_biometrics_enable">Gaitu</string>
     <string name="title_setup_biometrics_disable">Desgaitu</string>
     <string name="title_setup_biometrics_unlock">Desblokeatu</string>
-    <string name="title_setup_theme">Hautatu gaia</string>
+    <string name="title_setup_theme">Hautatu azala</string>
     <string name="title_setup_theme_blue_orange">Urdina/laranja</string>
     <string name="title_setup_theme_yellow_purple">Horia/morea</string>
     <string name="title_setup_theme_red_green">Gorria/berdea</string>
@@ -190,7 +190,7 @@
     <string name="title_setup_theme_dark">Iluna</string>
     <string name="title_setup_theme_black_background">Atzeko plano beltza</string>
     <string name="title_setup_theme_system">Jarraitu sistema</string>
-    <string name="title_setup_theme_system_hint">Jarraitu sistemako itxurak automatikoki txandakatuko ditu argia eta iluna eguna eta gauaren arabera, Androidek onartzen duenean</string>
+    <string name="title_setup_theme_system_hint">Jarraitu sistemako azala automatikoki txandakatuko ditu argia eta iluna eguna eta gauaren arabera, Androidek onartzen duenean</string>
     <string name="title_setup_advanced">Aurreratua</string>
     <string name="title_setup_options">Aukerak</string>
     <string name="title_setup_defaults">Berrezarri balio lehenetsiak</string>
@@ -452,6 +452,7 @@
     <string name="title_advanced_sender">Baimendu bidaltzailearen helbidea editatzea</string>
     <string name="title_advanced_sender_regex">Regex sarrerako helbideen erabiltzaile izenarekin bat etortzeko</string>
     <string name="title_identity_reply_to">Erantzun-helbidea</string>
+    <string name="title_identity_unicode">Onartu Unicode helbide elektronikoetan</string>
     <string name="title_identity_receipt">Eskatu defektuz bidalketa/irakurri izanaren egiaztagiria</string>
     <string name="title_identity_use_ip_hint">\'Baliogabeko agurra\', \'baliozko helbidea behar da\' edo antzeko mezurik jasotzen baduzu, saiatu ezarpen hau aldatzen</string>
     <string name="title_optional">Aukerakoa</string>

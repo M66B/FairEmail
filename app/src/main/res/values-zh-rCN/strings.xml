@@ -443,6 +443,7 @@
     <string name="title_advanced_sender">允许编辑发件人地址</string>
     <string name="title_advanced_sender_regex">用正则表达式来匹配收到的邮箱地址的用户名</string>
     <string name="title_identity_reply_to">回复给该地址</string>
+    <string name="title_identity_unicode">允许在电子邮件地址中使用Unicode</string>
     <string name="title_identity_receipt">默认请求送达／已读回执</string>
     <string name="title_identity_use_ip_hint">如果遇到“无效问候”，“需要有效的地址”或类似错误，请尝试更改此设置</string>
     <string name="title_optional">可选</string>
@@ -784,25 +785,25 @@
     <string name="title_signature_outdated">此公钥当前无效</string>
     <string name="title_signature_store">保存</string>
     <string name="title_search">搜索</string>
-    <string name="title_search_for_hint">输入文本</string>
-    <string name="title_search_hint">搜索将首先查看存储在您设备上的消息。
-        要搜索服务器，请点按\'再次搜索\'按钮
+    <string name="title_search_for_hint">输入搜索内容</string>
+    <string name="title_search_hint">        搜索将首先查看存储在您的设备上的消息
+        若也要搜索服务器上的内容，请点击“再次搜索”按钮
     </string>
     <string name="title_search_more">更多选项</string>
-    <string name="title_search_use_index">使用搜索索引</string>
-    <string name="title_search_in_senders">搜索发件人(来自)</string>
-    <string name="title_search_in_recipients">搜索收件人(发送到、转发)</string>
-    <string name="title_search_in_subject">搜索主题</string>
-    <string name="title_search_in_keywords">搜索关键词(如果支持)</string>
-    <string name="title_search_in_message">搜索消息文本</string>
-    <string name="title_search_with">将搜索限制到</string>
-    <string name="title_search_with_unseen">搜索未读消息</string>
-    <string name="title_search_with_flagged">搜索星标邮件</string>
-    <string name="title_search_with_hidden">搜索隐藏消息(仅设备)</string>
-    <string name="title_search_with_encrypted">搜索加密消息(仅设备)</string>
-    <string name="title_search_with_attachments">搜索带附件消息(仅设备)</string>
-    <string name="title_search_with_before">之前</string>
-    <string name="title_search_with_after">之后</string>
+    <string name="title_search_use_index">使用以下搜索索引</string>
+    <string name="title_search_in_senders">发件人 (发送自)</string>
+    <string name="title_search_in_recipients">收件人 (发送到、抄送)</string>
+    <string name="title_search_in_subject">主题</string>
+    <string name="title_search_in_keywords">关键词 (如果支持)</string>
+    <string name="title_search_in_message">消息文本</string>
+    <string name="title_search_with">限制以下搜索</string>
+    <string name="title_search_with_unseen">未读邮件</string>
+    <string name="title_search_with_flagged">星标邮件</string>
+    <string name="title_search_with_hidden">隐藏邮件 (仅设备)</string>
+    <string name="title_search_with_encrypted">加密邮件 (仅设备)</string>
+    <string name="title_search_with_attachments">带附件的邮件 (仅设备)</string>
+    <string name="title_search_with_before">早于</string>
+    <string name="title_search_with_after">晚于</string>
     <string name="title_search_flag_unseen">未读</string>
     <string name="title_search_flag_flagged">标星</string>
     <string name="title_search_flag_hidden">隐藏</string>

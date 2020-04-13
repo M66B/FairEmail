@@ -159,6 +159,7 @@
     <string name="title_setup_go">Kör</string>
     <string name="title_setup_to_do">Att göra</string>
     <string name="title_setup_done">Klar</string>
+    <string name="title_setup_still">Fortfarande att göra</string>
     <string name="title_setup_error">Fel</string>
     <string name="title_setup_export">Exportera inställningar</string>
     <string name="title_setup_import">Importera inställningar</string>
@@ -794,6 +795,30 @@
     <string name="title_signature_outdated">Denna publika nyckel är för närvarande inte giltig</string>
     <string name="title_signature_store">Spara</string>
     <string name="title_search">Sök</string>
+    <string name="title_search_for_hint">Ange text</string>
+    <string name="title_search_hint">        Sökning kommer initialt att titta på meddelanden som lagras på din enhet.
+        För att söka på servern också, tryck på knappen \"Sök igen\".
+    </string>
+    <string name="title_search_more">Fler alternativ</string>
+    <string name="title_search_use_index">Använd sökindex</string>
+    <string name="title_search_in_senders">I avsändare (från)</string>
+    <string name="title_search_in_recipients">I mottagare (till, cc)</string>
+    <string name="title_search_in_subject">I ämne</string>
+    <string name="title_search_in_keywords">I nyckelord (om det stöds)</string>
+    <string name="title_search_in_message">I meddelandetext</string>
+    <string name="title_search_with">Begränsa sökningen till</string>
+    <string name="title_search_with_unseen">Olästa</string>
+    <string name="title_search_with_flagged">Stjärnmärkta</string>
+    <string name="title_search_with_hidden">Dold (endast på enheten)</string>
+    <string name="title_search_with_encrypted">Krypterad (på enheten endast)</string>
+    <string name="title_search_with_attachments">Med bilagor (endast på enheten)</string>
+    <string name="title_search_with_before">Före</string>
+    <string name="title_search_with_after">Efter</string>
+    <string name="title_search_flag_unseen">oläst</string>
+    <string name="title_search_flag_flagged">stjärnmärkt</string>
+    <string name="title_search_flag_hidden">dold</string>
+    <string name="title_search_flag_encrypted">krypterad</string>
+    <string name="title_search_flag_attachments">bilagor</string>
     <string name="title_search_device">Sök på enheten</string>
     <string name="title_search_server">Sök på servern</string>
     <string name="title_search_in">Sök i</string>
@@ -992,6 +1017,7 @@
     <string name="title_hint_important">Viktigt</string>
     <string name="title_hint_sync">Hämtning av meddelanden kan ta lite tid, beroende på leverantörens hastighet, internetanslutning och enhet och på antalet meddelanden. När du hämtar meddelanden kan appen svara långsammare.</string>
     <string name="title_hint_battery">Eftersom FairEmail som standard alltid tar emot meddelanden, kommer Android att rapportera FairEmail som alltid aktiv. Därför kan det se ut som om FairEmail alltid förbrukar batterikraft även om detta i själva verket inte är fallet.</string>
+    <string name="title_hint_reformat">Som standard formaterar FairEmail meddelanden av sekretess- och säkerhetsskäl. För att visa det ursprungliga meddelandet trycker du på ikonen \"helskärm\" ovanför meddelandetexten.</string>
     <string name="title_hint_contact_actions">Långt tryck för alternativ</string>
     <string name="title_hint_eml">Detta är en sammanfattning av innehållet i en raw-meddelandefil. Spara raw-meddelandet med ikonen spara i åtgärdsfältet för att visa allt innehåll.</string>
     <string name="title_open_link">Öppna länken</string>
@@ -1082,6 +1108,7 @@
     <string name="title_widget_folder_unified">Samlade inkorgsmappar</string>
     <string name="title_widget_unseen">Endast olästa meddelanden</string>
     <string name="title_widget_flagged">Endast stjärnmärkta meddelanden</string>
+    <string name="title_widget_semi_transparent">Semi transparent bakgrund</string>
     <string name="title_accessibility_collapsed">Ihopfälld</string>
     <string name="title_accessibility_expanded">Expanderad</string>
     <string name="title_accessibility_seen">Läst</string>
@@ -1091,6 +1118,11 @@
         <item quantity="other">%1$d meddelanden</item>
     </plurals>
     <!-- Thunderbird -->
+    <string name="title_keyword_label1">Viktigt</string>
+    <string name="title_keyword_label2">Arbete</string>
+    <string name="title_keyword_label3">Personligt</string>
+    <string name="title_keyword_label4">Att göra</string>
+    <string name="title_keyword_label5">Senare</string>
     <string name="title_accessibility_flagged">Stjärnmärkta</string>
     <string name="title_accessibility_unflagged">Ostjärnmärkt</string>
     <string name="title_accessibility_collapse">Fäll ihop</string>

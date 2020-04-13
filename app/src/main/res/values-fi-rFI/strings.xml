@@ -819,7 +819,7 @@
     <string name="title_search_flag_encrypted">salattu</string>
     <string name="title_search_flag_attachments">liitteet</string>
     <string name="title_search_device">Hae laitteesta</string>
-    <string name="title_search_server">Hae palvelimella</string>
+    <string name="title_search_server">Hae palvelimelta</string>
     <string name="title_search_in">Hae kohteesta</string>
     <string name="title_sort_on">Järjestys</string>
     <string name="title_sort_on_time">Aika</string>
