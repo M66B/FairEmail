@@ -47,7 +47,6 @@ import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.net.NetworkRequest;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.OperationCanceledException;
@@ -584,12 +583,6 @@ public class FragmentCompose extends FragmentBase {
 
         etBody.setTypeface(monospaced ? Typeface.MONOSPACE : Typeface.DEFAULT);
         tvReference.setTypeface(monospaced ? Typeface.MONOSPACE : Typeface.DEFAULT);
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1) {
-            etBody.setRevealOnFocusHint(false); // Doesn't work
-            tvSignature.setRevealOnFocusHint(false);
-            tvReference.setRevealOnFocusHint(false);
-        }
 
         style_bar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -4472,6 +4465,8 @@ public class FragmentCompose extends FragmentBase {
                 ibReferenceEdit.setVisibility(text[1] == null ? View.GONE : View.VISIBLE);
                 ibReferenceImages.setVisibility(ref_has_images && !show_images ? View.VISIBLE : View.GONE);
 
+                setBodyPadding();
+
                 state = State.LOADED;
 
                 final Context context = getContext();
@@ -4508,6 +4503,14 @@ public class FragmentCompose extends FragmentBase {
         }.execute(this, args, "compose:show");
     }
 
+    private void setBodyPadding() {
+        // Keep room for the style toolbar
+        boolean pad =
+                (grpSignature.getVisibility() == View.GONE &&
+                        tvReference.getVisibility() == View.GONE);
+        etBody.setPadding(0, 0, 0, pad ? Helper.dp2pixels(getContext(), 36) : 0);
+    }
+
     private AdapterView.OnItemSelectedListener identitySelected = new AdapterView.OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -4528,6 +4531,8 @@ public class FragmentCompose extends FragmentBase {
                 }, null);
             tvSignature.setText(signature);
             grpSignature.setVisibility(signature == null ? View.GONE : View.VISIBLE);
+
+            setBodyPadding();
         }
 
         @Override
@@ -4537,6 +4542,8 @@ public class FragmentCompose extends FragmentBase {
 
             tvSignature.setText(null);
             grpSignature.setVisibility(View.GONE);
+
+            setBodyPadding();
         }
     };
 
