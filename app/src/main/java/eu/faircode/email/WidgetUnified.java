@@ -107,8 +107,24 @@ public class WidgetUnified extends AppWidgetProvider {
                 return;
             }
 
-            int[] appWidgetIds = appWidgetManager.getAppWidgetIds(new ComponentName(context, WidgetUnified.class));
-            appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, R.id.lv);
+            try {
+                int[] appWidgetIds = appWidgetManager.getAppWidgetIds(new ComponentName(context, WidgetUnified.class));
+                appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, R.id.lv);
+            } catch (Throwable ex) {
+                Log.e(ex);
+            /*
+                java.lang.RuntimeException: system server dead?
+                  at android.appwidget.AppWidgetManager.getAppWidgetIds(AppWidgetManager.java:1053)
+                  at eu.faircode.email.Widget.update(SourceFile:111)
+                  at eu.faircode.email.ServiceSynchronize$6.onChanged(SourceFile:460)
+                  at eu.faircode.email.ServiceSynchronize$6.onChanged(SourceFile:439)
+                  at androidx.lifecycle.LiveData.considerNotify(SourceFile:131)
+                  at androidx.lifecycle.LiveData.dispatchingValue(SourceFile:149)
+                  at androidx.lifecycle.LiveData.setValue(SourceFile:307)
+                  at androidx.lifecycle.LiveData$1.run(SourceFile:91)
+                Caused by: android.os.DeadObjectException
+             */
+            }
         }
     }
 }
