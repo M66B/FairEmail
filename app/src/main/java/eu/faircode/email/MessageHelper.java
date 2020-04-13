@@ -489,27 +489,7 @@ public class MessageHelper {
         // https://en.wikipedia.org/wiki/International_email
         for (Address address : addresses) {
             String email = ((InternetAddress) address).getAddress();
-            int at = email.indexOf('@');
-            if (at > 0) {
-                String user = email.substring(0, at);
-                String domain = email.substring(at + 1);
-
-                try {
-                    user = IDN.toASCII(user);
-                } catch (IllegalArgumentException ex) {
-                    Log.e(ex);
-                }
-
-                String[] parts = domain.split("\\.");
-                for (int p = 0; p < parts.length; p++)
-                    try {
-                        parts[p] = IDN.toASCII(parts[p]);
-                    } catch (IllegalArgumentException ex) {
-                        Log.e(ex);
-                    }
-
-                email = user + '@' + TextUtils.join(".", parts);
-            }
+            email = punyCode(email);
             ((InternetAddress) address).setAddress(email);
         }
         return addresses;
@@ -1055,8 +1035,15 @@ public class MessageHelper {
 
         for (Address address : addresses) {
             InternetAddress iaddress = (InternetAddress) address;
-            iaddress.setAddress(decodeMime(iaddress.getAddress()));
+            String email = iaddress.getAddress();
             String personal = iaddress.getPersonal();
+
+            email = decodeMime(email);
+            if (!Helper.isSingleScript(email))
+                email = punyCode(email);
+
+            iaddress.setAddress(email);
+
             if (personal != null) {
                 try {
                     iaddress.setPersonal(decodeMime(personal));
@@ -1270,9 +1257,11 @@ public class MessageHelper {
 
             if (addresses[i] instanceof InternetAddress) {
                 InternetAddress address = (InternetAddress) addresses[i];
+                String email = address.getAddress();
                 String personal = address.getPersonal();
+
                 if (TextUtils.isEmpty(personal))
-                    formatted.add(address.getAddress());
+                    formatted.add(email);
                 else {
                     if (compose) {
                         boolean quote = false;
@@ -1287,7 +1276,7 @@ public class MessageHelper {
                     }
 
                     if (full)
-                        formatted.add(personal + " <" + address.getAddress() + ">");
+                        formatted.add(personal + " <" + email + ">");
                     else
                         formatted.add(personal);
                 }
@@ -1295,6 +1284,31 @@ public class MessageHelper {
                 formatted.add(addresses[i].toString());
         }
         return TextUtils.join(", ", formatted);
+    }
+
+    static String punyCode(String email) {
+        int at = email.indexOf('@');
+        if (at > 0) {
+            String user = email.substring(0, at);
+            String domain = email.substring(at + 1);
+
+            try {
+                user = IDN.toASCII(user);
+            } catch (IllegalArgumentException ex) {
+                Log.e(ex);
+            }
+
+            String[] parts = domain.split("\\.");
+            for (int p = 0; p < parts.length; p++)
+                try {
+                    parts[p] = IDN.toASCII(parts[p]);
+                } catch (IllegalArgumentException ex) {
+                    Log.e(ex);
+                }
+
+            email = user + '@' + TextUtils.join(".", parts);
+        }
+        return email;
     }
 
     static String decodeMime(String text) {
