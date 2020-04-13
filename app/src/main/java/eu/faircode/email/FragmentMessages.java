@@ -6452,7 +6452,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         for (Long id : ids) {
                             EntityMessage message = db.message().getMessage(id);
                             if (message != null &&
-                                    (message.uid != null || !TextUtils.isEmpty(message.msgid))) {
+                                    (account.protocol == EntityAccount.TYPE_POP ||
+                                            message.uid != null || !TextUtils.isEmpty(message.msgid))) {
                                 Log.i("Deleting account=" + account.id + " folder=" + folder.id + " message=" + message.id);
                                 EntityOperation.queue(context, message, EntityOperation.DELETE);
                             }
