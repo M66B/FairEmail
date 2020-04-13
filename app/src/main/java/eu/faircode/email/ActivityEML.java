@@ -376,7 +376,9 @@ public class ActivityEML extends ActivityBase {
             protected void onExecuted(Bundle args, List<EntityAccount> accounts) {
                 ArrayAdapter<EntityAccount> adapter =
                         new ArrayAdapter<>(ActivityEML.this, R.layout.spinner_item1, android.R.id.text1);
-                adapter.addAll(accounts);
+                for (EntityAccount account : accounts)
+                    if (account.protocol == EntityAccount.TYPE_IMAP)
+                        adapter.add(account);
 
                 new AlertDialog.Builder(ActivityEML.this)
                         .setTitle(R.string.title_save_eml)
