@@ -4801,7 +4801,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     same = false;
                     log("ui_browsed changed", next.id);
                 }
-                if (!Objects.equals(prev.ui_busy, next.ui_busy)) {
+                if (!Objects.equals(prev.ui_busy, next.ui_busy) ||
+                        !Objects.equals(prev.last_attempt, next.last_attempt)) {
                     same = false;
                     log("ui_busy changed " + prev.ui_busy + "/" + next.ui_busy, next.id);
                 }

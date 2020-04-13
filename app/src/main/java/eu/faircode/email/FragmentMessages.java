@@ -4429,9 +4429,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 ArrayList<MessageTarget> result = args.getParcelableArrayList("result");
 
                 DB db = DB.getInstance(context);
-                long busy = new Date().getTime() + UNDO_TIMEOUT * 2;
+                long now = new Date().getTime();
+                long busy = now + UNDO_TIMEOUT * 2;
                 for (MessageTarget target : result) {
-                    db.message().setMessageUiBusy(target.id, busy);
+                    db.message().setMessageUiBusy(target.id, busy, now);
                     db.message().setMessageUiHide(target.id, true);
                     // Prevent new message notification on undo
                     db.message().setMessageUiIgnored(target.id, true);
@@ -4468,7 +4469,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                                     for (MessageTarget target : result) {
                                         Log.i("Move undo id=" + target.id);
-                                        db.message().setMessageUiBusy(target.id, null);
+                                        db.message().setMessageUiBusy(target.id, null, new Date().getTime());
                                         db.message().setMessageUiHide(target.id, false);
                                     }
 
@@ -4517,7 +4518,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                             continue;
 
                                         Log.i("Move id=" + id + " target=" + target.folder.name);
-                                        db.message().setMessageUiBusy(target.id, null);
+                                        db.message().setMessageUiBusy(target.id, null, new Date().getTime());
                                         EntityOperation.queue(context, message, EntityOperation.MOVE, target.folder.id);
                                     }
 
