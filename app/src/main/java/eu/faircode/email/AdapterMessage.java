@@ -4801,8 +4801,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     same = false;
                     log("ui_browsed changed", next.id);
                 }
-                if (!Objects.equals(prev.ui_busy, next.ui_busy) ||
-                        !Objects.equals(prev.last_attempt, next.last_attempt)) {
+                if (!Objects.equals(prev.ui_busy, next.ui_busy)) {
                     same = false;
                     log("ui_busy changed " + prev.ui_busy + "/" + next.ui_busy, next.id);
                 }
@@ -4824,7 +4823,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     same = false;
                     log("error changed", next.id);
                 }
-                // last_attempt
+                if (!Objects.equals(prev.last_attempt, next.last_attempt)) {
+                    same = false;
+                    log("last_attempt changed " + prev.ui_busy + "/" + next.ui_busy, next.id);
+                }
 
                 // accountPop
                 if (!Objects.equals(prev.accountName, next.accountName)) {
@@ -4912,7 +4914,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             private void log(String msg, long id) {
                 Log.i(msg + " id=" + id);
-                if (debug)
+                if (BuildConfig.DEBUG || debug)
                     parentFragment.getView().post(new Runnable() {
                         @Override
                         public void run() {
