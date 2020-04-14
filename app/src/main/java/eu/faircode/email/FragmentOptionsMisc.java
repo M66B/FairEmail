@@ -71,6 +71,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private TextView tvUuid;
     private SwitchCompat swDebug;
     private Button btnReset;
+    private SwitchCompat swCleanupAttachments;
     private Button btnCleanup;
     private TextView tvLastCleanup;
     private Button btnMore;
@@ -84,7 +85,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private Group grpDebug;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "shortcuts", "fts", "english", "watchdog", "auto_optimize", "updates", "experiments", "crash_reports", "debug"
+            "shortcuts", "fts", "english", "watchdog", "auto_optimize", "updates",
+            "experiments", "crash_reports", "debug", "cleanup_attachments"
     };
 
     private final static String[] RESET_QUESTIONS = new String[]{
@@ -122,6 +124,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvUuid = view.findViewById(R.id.tvUuid);
         swDebug = view.findViewById(R.id.swDebug);
         btnReset = view.findViewById(R.id.btnReset);
+        swCleanupAttachments = view.findViewById(R.id.swCleanupAttachments);
         btnCleanup = view.findViewById(R.id.btnCleanup);
         tvLastCleanup = view.findViewById(R.id.tvLastCleanup);
         btnMore = view.findViewById(R.id.btnMore);
@@ -269,6 +272,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onClick(View v) {
                 onResetQuestions();
+            }
+        });
+
+        swCleanupAttachments.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("cleanup_attachments", checked).apply();
             }
         });
 
@@ -447,6 +457,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swCrashReports.setChecked(prefs.getBoolean("crash_reports", false));
         tvUuid.setText(prefs.getString("uuid", null));
         swDebug.setChecked(prefs.getBoolean("debug", false));
+        swCleanupAttachments.setChecked(prefs.getBoolean("cleanup_attachments", false));
 
         tvProcessors.setText(getString(R.string.title_advanced_processors, Runtime.getRuntime().availableProcessors()));
 

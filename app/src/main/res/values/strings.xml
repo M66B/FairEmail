@@ -445,6 +445,7 @@
     <string name="title_advanced_experiments">Try experimental features</string>
     <string name="title_advanced_crash_reports">Send error reports</string>
     <string name="title_advanced_debug">Debug mode</string>
+    <string name="title_advanced_cleanup_attachments">Delete attachments of old messages</string>
     <string name="title_advanced_cleanup">Cleanup</string>
     <string name="title_advanced_last_cleanup">Last cleanup: %1$s</string>
     <string name="title_advanced_more">More options</string>
@@ -521,6 +522,7 @@
     <string name="title_advanced_optimize_hint">Enabling this can automatically change the receive settings to reduce battery usage</string>
     <string name="title_advanced_experiments_hint">List of current experimental features</string>
     <string name="title_advanced_debug_hint">Enable extra logging and show debug information at various places</string>
+    <string name="title_advanced_cleanup_attachments_hint">This will remove attachments from messages that are no longer synchronized</string>
     <string name="title_advanced_cleanup_hint">This will delete all temporary files</string>
 
     <string name="title_advanced_never_favorite">Never favorite</string>

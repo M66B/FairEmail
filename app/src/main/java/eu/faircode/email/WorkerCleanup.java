@@ -68,8 +68,11 @@ public class WorkerCleanup extends Worker {
     }
 
     static void cleanup(Context context, boolean manual) {
-        DB db = DB.getInstance(context);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean fts = prefs.getBoolean("fts", true);
+        boolean cleanup_attachments = prefs.getBoolean("cleanup_attachments", false);
+
+        DB db = DB.getInstance(context);
         try {
             Log.i("Start cleanup manual=" + manual);
 
@@ -86,6 +89,11 @@ public class WorkerCleanup extends Worker {
                             db.message().resetMessageContent(mid);
                         }
                     }
+                }
+
+                if (cleanup_attachments) {
+                    int purged = db.attachment().purge(new Date().getTime());
+                    Log.i("Attachments purged=" + purged);
                 }
 
                 // Check attachments files
@@ -195,7 +203,6 @@ public class WorkerCleanup extends Worker {
                         }
                     }
 
-            boolean fts = prefs.getBoolean("fts", true);
             Log.i("Cleanup FTS=" + fts);
             if (fts) {
                 int deleted = 0;

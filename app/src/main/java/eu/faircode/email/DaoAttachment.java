@@ -97,6 +97,17 @@ public interface DaoAttachment {
             " WHERE id = :id")
     void setCid(long id, String cid);
 
+    @Query("UPDATE attachment" +
+            " SET available = 0" +
+            " WHERE EXISTS" +
+            "  (SELECT * FROM attachment a" +
+            "   JOIN message ON message.id = a.message" +
+            "   JOIN folder ON folder.id = message.folder" +
+            "   WHERE a.id = attachment.id" +
+            "   AND a.available" +
+            "   AND message.stored < :now - folder.sync_days * 24 * 3600 * 1000)")
+    int purge(long now);
+
     @Insert
     long insertAttachment(EntityAttachment attachment);
 

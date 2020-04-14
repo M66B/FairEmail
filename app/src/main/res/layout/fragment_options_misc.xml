@@ -267,6 +267,29 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvDebugHint" />
 
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swCleanupAttachments"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_cleanup_attachments"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnReset"
+            app:switchPadding="12dp" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvCleanupAttachmentsHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_cleanup_attachments_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swCleanupAttachments" />
+
         <Button
             android:id="@+id/btnCleanup"
             style="?android:attr/buttonStyleSmall"
@@ -275,7 +298,7 @@
             android:layout_marginTop="12dp"
             android:text="@string/title_advanced_cleanup"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnReset" />
+            app:layout_constraintTop_toBottomOf="@id/tvCleanupAttachmentsHint" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvCleanupHint"
