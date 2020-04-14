@@ -1486,8 +1486,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             db.attachment().liveAttachments(message.id).observe(cowner, new Observer<List<EntityAttachment>>() {
                 @Override
                 public void onChanged(@Nullable List<EntityAttachment> attachments) {
-                    bindAttachments(message, attachments);
-
                     int inlineImages = 0;
                     if (attachments != null)
                         for (EntityAttachment attachment : attachments)
@@ -1501,10 +1499,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             if (attachment.available && attachment.isInline() && attachment.isImage())
                                 lastInlineImages++;
 
-                    if (inlineImages != lastInlineImages)
+                    if (inlineImages > lastInlineImages)
                         bindBody(message, false);
 
-                    properties.setAttachments(message.id, attachments);
+                    bindAttachments(message, attachments);
                 }
             });
 

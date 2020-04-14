@@ -38,8 +38,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 
-import javax.mail.Part;
-
 import static androidx.room.ForeignKey.CASCADE;
 
 @Entity(
@@ -99,7 +97,8 @@ public class EntityAttachment {
     public String error;
 
     boolean isInline() {
-        return ((Part.INLINE.equals(disposition) || TextUtils.isEmpty(name)) && cid != null);
+        // Gmail sends inline images as attachments with a name and cid
+        return (cid != null);
     }
 
     boolean isImage() {
