@@ -1,0 +1,19 @@
+MIME-Version: 1.0
+Date: Mon, 13 Apr 2020 14:48:36 +0200
+Message-ID: <test@mail.gmail.com>
+Subject: Test
+From: =?UTF-8?B?c2VydmljZUBnZXRyw6Rua2VzY2h3YXJ6LmRl?=
+To: Marcel Bokhorst <marcel+fairemail@faircode.eu>
+Content-Type: multipart/alternative; boundary="0000000000006e556905a32b800b"
+
+--0000000000006e556905a32b800b
+Content-Type: text/plain; charset="UTF-8"
+
+Test
+
+--0000000000006e556905a32b800b
+Content-Type: text/html; charset="UTF-8"
+
+<div dir="ltr"><div class="gmail_default" style="font-family:verdana,sans-serif">Test</div></div>
+
+--0000000000006e556905a32b800b--
