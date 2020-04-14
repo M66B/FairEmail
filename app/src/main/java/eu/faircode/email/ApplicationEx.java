@@ -33,13 +33,10 @@ import android.content.res.Configuration;
 import android.util.Printer;
 import android.webkit.CookieManager;
 
-import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
@@ -107,7 +104,7 @@ public class ApplicationEx extends Application {
 
         createNotificationChannels();
 
-        setupViewInvalidation();
+        DB.setupViewInvalidation(this);
 
         if (Helper.hasWebView(this))
             CookieManager.getInstance().setAcceptCookie(false);
@@ -342,88 +339,6 @@ public class ApplicationEx extends Application {
                     getString(R.string.channel_group_contacts));
             nm.createNotificationChannelGroup(group);
         }
-    }
-
-    private void setupViewInvalidation() {
-        DB db = DB.getInstance(this);
-
-        db.account().liveAccountView().observeForever(new Observer<List<TupleAccountView>>() {
-            private List<TupleAccountView> last = null;
-
-            @Override
-            public void onChanged(List<TupleAccountView> accounts) {
-                if (accounts == null)
-                    accounts = new ArrayList<>();
-
-                boolean changed = false;
-                if (last == null || last.size() != accounts.size())
-                    changed = true;
-                else
-                    for (int i = 0; i < accounts.size(); i++)
-                        if (!accounts.get(i).equals(last.get(i))) {
-                            changed = true;
-                            last = accounts;
-                        }
-
-                if (changed) {
-                    Log.i("Invalidating account view");
-                    last = accounts;
-                    db.getInvalidationTracker().notifyObserversByTableNames("message");
-                }
-            }
-        });
-
-        db.identity().liveIdentityView().observeForever(new Observer<List<TupleIdentityView>>() {
-            private List<TupleIdentityView> last = null;
-
-            @Override
-            public void onChanged(List<TupleIdentityView> identities) {
-                if (identities == null)
-                    identities = new ArrayList<>();
-
-                boolean changed = false;
-                if (last == null || last.size() != identities.size())
-                    changed = true;
-                else
-                    for (int i = 0; i < identities.size(); i++)
-                        if (!identities.get(i).equals(last.get(i))) {
-                            changed = true;
-                            last = identities;
-                        }
-
-                if (changed) {
-                    Log.i("Invalidating identity view");
-                    last = identities;
-                    db.getInvalidationTracker().notifyObserversByTableNames("message");
-                }
-            }
-        });
-
-        db.folder().liveFolderView().observeForever(new Observer<List<TupleFolderView>>() {
-            private List<TupleFolderView> last = null;
-
-            @Override
-            public void onChanged(List<TupleFolderView> folders) {
-                if (folders == null)
-                    folders = new ArrayList<>();
-
-                boolean changed = false;
-                if (last == null || last.size() != folders.size())
-                    changed = true;
-                else
-                    for (int i = 0; i < folders.size(); i++)
-                        if (!folders.get(i).equals(last.get(i))) {
-                            changed = true;
-                            last = folders;
-                        }
-
-                if (changed) {
-                    Log.i("Invalidating folder view");
-                    last = folders;
-                    db.getInvalidationTracker().notifyObserversByTableNames("message");
-                }
-            }
-        });
     }
 
     private BroadcastReceiver onScreenOff = new BroadcastReceiver() {

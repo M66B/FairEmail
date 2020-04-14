@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
 import androidx.room.Database;
 import androidx.room.DatabaseConfiguration;
@@ -105,23 +106,6 @@ public abstract class DB extends RoomDatabase {
 
     public abstract DaoLog log();
 
-    @NonNull
-    @Override
-    protected InvalidationTracker createInvalidationTracker() {
-        final HashMap<String, String> _shadowTablesMap = new HashMap<String, String>(0);
-        HashMap<String, Set<String>> _viewTables = new HashMap<String, Set<String>>(3);
-        HashSet<String> _tables = new HashSet<String>(1);
-        //_tables.add("account");
-        _viewTables.put("account_view", _tables);
-        HashSet<String> _tables_1 = new HashSet<String>(1);
-        //_tables_1.add("identity");
-        _viewTables.put("identity_view", _tables_1);
-        HashSet<String> _tables_2 = new HashSet<String>(1);
-        //_tables_2.add("folder");
-        _viewTables.put("folder_view", _tables_2);
-        return new InvalidationTracker(this, _shadowTablesMap, _viewTables, DB_TABLES);
-    }
-
     private static DB sInstance;
     private static final ExecutorService executor =
             Helper.getBackgroundExecutor(1, "query");
@@ -148,6 +132,106 @@ public abstract class DB extends RoomDatabase {
         }
 
         super.init(configuration);
+    }
+
+    @NonNull
+    @Override
+    protected InvalidationTracker createInvalidationTracker() {
+        final HashMap<String, String> _shadowTablesMap = new HashMap<String, String>(0);
+        HashMap<String, Set<String>> _viewTables = new HashMap<String, Set<String>>(3);
+        HashSet<String> _tables = new HashSet<String>(1);
+        //_tables.add("account");
+        _viewTables.put("account_view", _tables);
+        HashSet<String> _tables_1 = new HashSet<String>(1);
+        //_tables_1.add("identity");
+        _viewTables.put("identity_view", _tables_1);
+        HashSet<String> _tables_2 = new HashSet<String>(1);
+        //_tables_2.add("folder");
+        _viewTables.put("folder_view", _tables_2);
+        return new InvalidationTracker(this, _shadowTablesMap, _viewTables, DB_TABLES);
+    }
+
+    static void setupViewInvalidation(Context context) {
+        // This needs to be done on a foreground thread
+        DB db = DB.getInstance(context);
+
+        db.account().liveAccountView().observeForever(new Observer<List<TupleAccountView>>() {
+            private List<TupleAccountView> last = null;
+
+            @Override
+            public void onChanged(List<TupleAccountView> accounts) {
+                if (accounts == null)
+                    accounts = new ArrayList<>();
+
+                boolean changed = false;
+                if (last == null || last.size() != accounts.size())
+                    changed = true;
+                else
+                    for (int i = 0; i < accounts.size(); i++)
+                        if (!accounts.get(i).equals(last.get(i))) {
+                            changed = true;
+                            last = accounts;
+                        }
+
+                if (changed) {
+                    Log.i("Invalidating account view");
+                    last = accounts;
+                    db.getInvalidationTracker().notifyObserversByTableNames("message");
+                }
+            }
+        });
+
+        db.identity().liveIdentityView().observeForever(new Observer<List<TupleIdentityView>>() {
+            private List<TupleIdentityView> last = null;
+
+            @Override
+            public void onChanged(List<TupleIdentityView> identities) {
+                if (identities == null)
+                    identities = new ArrayList<>();
+
+                boolean changed = false;
+                if (last == null || last.size() != identities.size())
+                    changed = true;
+                else
+                    for (int i = 0; i < identities.size(); i++)
+                        if (!identities.get(i).equals(last.get(i))) {
+                            changed = true;
+                            last = identities;
+                        }
+
+                if (changed) {
+                    Log.i("Invalidating identity view");
+                    last = identities;
+                    db.getInvalidationTracker().notifyObserversByTableNames("message");
+                }
+            }
+        });
+
+        db.folder().liveFolderView().observeForever(new Observer<List<TupleFolderView>>() {
+            private List<TupleFolderView> last = null;
+
+            @Override
+            public void onChanged(List<TupleFolderView> folders) {
+                if (folders == null)
+                    folders = new ArrayList<>();
+
+                boolean changed = false;
+                if (last == null || last.size() != folders.size())
+                    changed = true;
+                else
+                    for (int i = 0; i < folders.size(); i++)
+                        if (!folders.get(i).equals(last.get(i))) {
+                            changed = true;
+                            last = folders;
+                        }
+
+                if (changed) {
+                    Log.i("Invalidating folder view");
+                    last = folders;
+                    db.getInvalidationTracker().notifyObserversByTableNames("message");
+                }
+            }
+        });
     }
 
     public static synchronized DB getInstance(Context context) {
