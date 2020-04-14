@@ -4825,7 +4825,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
                 if (!Objects.equals(prev.last_attempt, next.last_attempt)) {
                     same = false;
-                    log("last_attempt changed " + prev.ui_busy + "/" + next.ui_busy, next.id);
+                    log("last_attempt changed " +
+                            (prev.last_attempt % 10000) + "/" + (next.last_attempt % 10000), next.id);
                 }
 
                 // accountPop
