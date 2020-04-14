@@ -126,8 +126,8 @@ public class EntityOperation {
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean auto_important = prefs.getBoolean("auto_important", false);
-                if (auto_important && flagged)
-                    db.message().setMessageImportance(message.id, 2);
+                if (auto_important)
+                    db.message().setMessageImportance(message.id, flagged ? 2 : null);
 
                 return;
 
