@@ -28,7 +28,6 @@ import java.io.File;
 import java.lang.reflect.Field;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -160,7 +159,7 @@ public abstract class DB extends RoomDatabase {
                 if (changed) {
                     Log.i("Invalidating account view");
                     last = accounts;
-                    db.getInvalidationTracker().notifyObserversByTableNames("account_view");
+                    db.getInvalidationTracker().notifyObserversByTableNames("message");
                 }
             }
         });
@@ -186,7 +185,7 @@ public abstract class DB extends RoomDatabase {
                 if (changed) {
                     Log.i("Invalidating identity view");
                     last = identities;
-                    db.getInvalidationTracker().notifyObserversByTableNames("identity_view");
+                    db.getInvalidationTracker().notifyObserversByTableNames("message");
                 }
             }
         });
@@ -212,7 +211,7 @@ public abstract class DB extends RoomDatabase {
                 if (changed) {
                     Log.i("Invalidating folder view");
                     last = folders;
-                    db.getInvalidationTracker().notifyObserversByTableNames("folder_view");
+                    db.getInvalidationTracker().notifyObserversByTableNames("message");
                 }
             }
         });
@@ -226,10 +225,8 @@ public abstract class DB extends RoomDatabase {
 
             try {
                 Log.i("Disabling view invalidation");
-                Field fmTableNames = InvalidationTracker.class.getDeclaredField("mTableNames");
-                Field fmViewTables = InvalidationTracker.class.getDeclaredField("mViewTables");
 
-                fmTableNames.setAccessible(true);
+                Field fmViewTables = InvalidationTracker.class.getDeclaredField("mViewTables");
                 fmViewTables.setAccessible(true);
 
                 Map<String, Set<String>> mViewTables = (Map) fmViewTables.get(sInstance.getInvalidationTracker());
@@ -237,17 +234,12 @@ public abstract class DB extends RoomDatabase {
                 mViewTables.get("identity_view").clear();
                 mViewTables.get("folder_view").clear();
 
-                List<String> tableNames = new ArrayList<>(Arrays.asList(DB_TABLES));
-                tableNames.addAll(mViewTables.keySet());
-                Log.i("Observing invalidation tables=" + TextUtils.join(",", tableNames));
-                fmTableNames.set(sInstance.getInvalidationTracker(), tableNames.toArray(new String[0]));
-
                 Log.i("Disabled view invalidation");
             } catch (ReflectiveOperationException ex) {
                 Log.e(ex);
             }
 
-            sInstance.getInvalidationTracker().addObserver(new InvalidationTracker.Observer(DB.DB_TABLES) {
+            sInstance.getInvalidationTracker().addObserver(new InvalidationTracker.Observer(DB_TABLES) {
                 @Override
                 public void onInvalidated(@NonNull Set<String> tables) {
                     Log.d("ROOM invalidated=" + TextUtils.join(",", tables));
