@@ -436,6 +436,7 @@
     <string name="title_advanced_date_hint">Sporočila bodo združena po datumu samo, če so razvrščena po času.</string>
     <string name="title_advanced_navbar_colorize_hint">Delovanje tega je odvisno od različice in izvedbe Androida.</string>
     <string name="title_advanced_threading_hint">Združi sporočila, ki se med seboj povezana</string>
+    <string name="title_advanced_highlight_hint">Odtenek barve teme se bo uporabil za poudarjanje.</string>
     <string name="title_advanced_gravatars_hint">Vklop te možnosti lahko ogrozi zasebnost.</string>
     <string name="title_advanced_name_email_hint">Ko je onemogočeno, bodo prikazana samo imena, če so na voljo.</string>
     <string name="title_advanced_preview_hint">Na voljo samo, če je bilo besedilo sporočila prejeto.</string>
@@ -474,7 +475,9 @@
     <string name="title_identity_email">Vaš e-poštni naslov</string>
     <string name="title_identity_color_hint">Barve identitet imajo prednost pred barvami map in računov.</string>
     <string name="title_advanced_sender">Omogoči urejanje pošiljateljevega naslova</string>
+    <string name="title_advanced_sender_regex">Reg. izraz za ujemanje z uporabniškim imenom dohodnega e-poštnega naslova</string>
     <string name="title_identity_reply_to">Naslov za odgovor</string>
+    <string name="title_identity_unicode">Dovoli Unicode v e-poštnih naslovih</string>
     <string name="title_identity_receipt">Privzeto zahtevaj potrdilo o dostavi/branju</string>
     <string name="title_identity_use_ip_hint">V primeru \'Neveljaven pozdrav\', \'Zahteva veljaven naslov\' ali podobne napake poizkusite spremeniti to nastavitev.</string>
     <string name="title_optional">Izbirno</string>
@@ -608,7 +611,7 @@
     <string name="title_folder_user">Uporabnik</string>
     <string name="title_folder_user_only">Samo uporabniška mapa</string>
     <string name="title_folder_primary">Mape glavnega računa</string>
-    <string name="title_folders_unified">Mape poenotene mape \'Prejeto\'</string>
+    <string name="title_folders_unified">Poenotene mape \'Prejeto\'</string>
     <string name="title_no_folders">Ni map</string>
     <string name="title_no_messages">Ni sporočil</string>
     <string name="title_filters_active">Eden ali več filtrov je dejavnih.</string>
@@ -642,7 +645,7 @@
     <string name="title_show_inline">Prikaži priloge v besedilu</string>
     <string name="title_download_all">Prejmi vse</string>
     <string name="title_save_all">Shrani vse</string>
-    <string name="title_save_eml">Shrani izvorno datoteko sporočila</string>
+    <string name="title_save_eml">Shrani datoteko izvornega sporočila</string>
     <string name="title_trash">Smeti</string>
     <string name="title_copy">Kopiraj &#8230;</string>
     <string name="title_copy_to">Kopiraj v &#8230;</string>
@@ -655,7 +658,7 @@
     <string name="title_move_to">Premakni v &#8230;</string>
     <string name="title_move_to_folder">Premakni v &#8230;</string>
     <string name="title_move_to_account">Premakni v %1$s &#8230;</string>
-    <string name="title_report_spam">Obravnavaj kor vsiljeno</string>
+    <string name="title_report_spam">Obravnavaj kot vsiljeno</string>
     <string name="title_delete_permanently">Trajno izbriši</string>
     <string name="title_snooze">Dremež &#8230;</string>
     <string name="title_archive">Arhiviraj</string>
@@ -816,7 +819,455 @@
     <string name="title_signature_outdated">Ta javni ključ trenutno ni veljaven.</string>
     <string name="title_signature_store">Shramba</string>
     <string name="title_search">Išči</string>
+    <string name="title_search_for_hint">Vnesite besedilo</string>
+    <string name="title_search_hint">        Iskanje bo na začetku iskalo po sporočilih, shranjenih na vaši napravi.
+        Če želite iskati tudi na strežniku, se dotaknite gumba \'Ponovno išči\'.
+    </string>
+    <string name="title_search_more">Več možnosti</string>
+    <string name="title_search_use_index">Uporabi iskalno kazalo</string>
+    <string name="title_search_in_senders">Med pošiljatelji (Od)</string>
+    <string name="title_search_in_recipients">Med prejemniki (Za, Kp)</string>
+    <string name="title_search_in_subject">Med zadevami</string>
+    <string name="title_search_in_keywords">Med ključnimi besedami (če je podprto)</string>
+    <string name="title_search_in_message">V besedilu sporočil</string>
+    <string name="title_search_with">Omeji iskanje na</string>
+    <string name="title_search_with_unseen">Neprebrana</string>
+    <string name="title_search_with_flagged">Z zvezdico</string>
+    <string name="title_search_with_hidden">Skrita (samo na napravi)</string>
+    <string name="title_search_with_encrypted">Šifrirana (samo na napravi)</string>
+    <string name="title_search_with_attachments">S prilogami (samo na napravi)</string>
+    <string name="title_search_with_before">Pred</string>
+    <string name="title_search_with_after">Po</string>
+    <string name="title_search_flag_unseen">neprebrano</string>
+    <string name="title_search_flag_flagged">z zvezdico</string>
+    <string name="title_search_flag_hidden">skrito</string>
+    <string name="title_search_flag_encrypted">šifrirano</string>
+    <string name="title_search_flag_attachments">priloge</string>
+    <string name="title_search_device">Išči na napravi</string>
+    <string name="title_search_server">Išči na strežniku</string>
+    <string name="title_search_in">Išči v</string>
+    <string name="title_sort_on">Razvrsti po</string>
+    <string name="title_sort_on_time">Času</string>
+    <string name="title_sort_on_unread">Neprebrano</string>
+    <string name="title_sort_on_starred">Z zvezdico</string>
+    <string name="title_sort_on_priority">Prednosti</string>
+    <string name="title_sort_on_sender">Pošiljatelju</string>
+    <string name="title_sort_on_subject">Zadevi</string>
+    <string name="title_sort_on_size">Velik.</string>
+    <string name="title_sort_on_attachments">Prilogah</string>
+    <string name="title_sort_on_hidden">Skrito</string>
+    <string name="title_sort_ascending">Najprej najstarejša</string>
+    <string name="title_filter">Izključi</string>
+    <string name="title_filter_seen">prebrana</string>
+    <string name="title_filter_unflagged">brez zvezdice</string>
+    <string name="title_filter_unknown">z neznanimi pošiljatelji</string>
+    <string name="title_filter_hidden">skrita</string>
+    <string name="title_filter_duplicates">dvojnike</string>
+    <string name="title_compact">Strnjen pogled</string>
+    <string name="title_zoom">Velikost besedila</string>
+    <string name="title_select_language">Izberite jezik</string>
+    <string name="title_select_all">Izberi vse</string>
+    <string name="title_select_found">Izberi najdene</string>
+    <string name="title_force_sync">Vsili sinhronizacijo</string>
+    <string name="title_language_all">Vsi</string>
+    <string name="title_previous">Nazaj</string>
+    <string name="title_next">Naprej</string>
+    <string name="title_edit_signature">Uredi podpis</string>
+    <string name="title_edit_signature_text">Besedilo podpisa</string>
+    <string name="title_edit_signature_image">Vstavi sliko</string>
+    <string name="title_answer_caption">Uredi predlogo</string>
+    <string name="title_answer_reply">Predloga za odgovor</string>
+    <string name="title_answer_name">Ime predloge</string>
+    <string name="title_answer_favorite">Priljubljeno</string>
+    <string name="title_answer_hide">Skrij v menijih</string>
+    <string name="title_answer_text">Besedilo predloge</string>
+    <string name="title_answer_template_name">$name$ bo zamenjalo polno ime pošiljatelja.</string>
+    <string name="title_answer_template_email">$email$ bo zamenjal e-poštni naslov pošiljatelja.</string>
+    <string name="title_rule_noop">Brez dejanja</string>
+    <string name="title_rule_seen">Označi kot prebrano</string>
+    <string name="title_rule_unseen">Označi kot neprebrano</string>
+    <string name="title_rule_hide">Skrij</string>
+    <string name="title_rule_ignore">Utišaj obvestilo</string>
+    <string name="title_rule_snooze">Dremež</string>
+    <string name="title_rule_flag">Dodaj zvezdico</string>
+    <string name="title_rule_importance">Nastavi pomembnost</string>
+    <string name="title_rule_keyword">Dodaj ključno besedo</string>
+    <string name="title_rule_move">Premakni</string>
+    <string name="title_rule_copy">Kopiraj (oznako)</string>
+    <string name="title_rule_answer">Odgovori</string>
+    <string name="title_rule_automation">Samodejne dejavnosti</string>
+    <string name="title_rule_caption">Uredi pravilo</string>
+    <string name="title_rule_title">Pravilo velja za</string>
+    <string name="title_rule_name">Ime</string>
+    <string name="title_rule_order">Vrstni red</string>
+    <string name="title_rule_enabled">Omogočeno</string>
+    <string name="title_rule_stop">Ustavi izvajanje pravil po izvedbi tega pravila</string>
+    <string name="title_rule_sender">Pošiljatelj vsebuje</string>
+    <string name="title_rule_sender_known">Pošiljatelj je med stiki</string>
+    <string name="title_rule_recipient">Prejemnik vsebuje</string>
+    <string name="title_rule_subject">Zadeva vsebuje</string>
+    <string name="title_rule_attachments">Vsebuje priloge</string>
+    <string name="title_rule_header">Glava vsebuje</string>
+    <string name="title_rule_time">Čas je med</string>
+    <string name="title_rule_regex">Reg. izraz</string>
+    <string name="title_rule_and">IN</string>
+    <string name="title_rule_action">Dejanje</string>
+    <string name="title_rule_action_remark">To dejanje se bo uporabilo za nova sporočila v mapi %1$s.</string>
+    <string name="title_rule_hours">Ur</string>
+    <string name="title_rule_schedule_end">Od konca časovnega pogoja</string>
+    <string name="title_rule_folder">Mapa</string>
+    <string name="title_rule_thread">Vsa sporočila v istem pogovoru in mapi</string>
+    <string name="title_rule_identity">Identiteta</string>
+    <string name="title_rule_template">Predloga za odgovor</string>
+    <string name="title_rule_cc">Naslovi Kp za odgovor</string>
+    <string name="title_rule_name_missing">Ni imena pravila.</string>
+    <string name="title_rule_condition_missing">Ni pogoja.</string>
+    <string name="title_rule_automation_hint">To poslalo namen \'%1$s\' z dodatki \'%2$s\'.</string>
+    <string name="title_rule_execute">Izvedi zdaj</string>
+    <string name="title_rule_applied">Sporočila, na katera to vpliva: %1$d</string>
+    <string name="title_rule_check">Preveri</string>
+    <string name="title_rule_no_headers">Pogojev za glave ni mogoče preveriti.</string>
+    <string name="title_rule_matched">Ujemajoča se sporočila</string>
+    <string name="title_rule_no_matches">Ni ujemajočih se sporočil.</string>
+    <string name="title_legend_section_synchronize">Sinhroniziraj</string>
+    <string name="title_legend_section_folders">Mape</string>
+    <string name="title_legend_section_messages">Sporočila</string>
+    <string name="title_legend_section_compose">Sestavi</string>
+    <string name="title_legend_section_keyboard">Tipkovnica</string>
+    <string name="title_legend_oauth">Overitev OAuth</string>
+    <string name="title_legend_primary_connected">Račun je povezan</string>
+    <string name="title_legend_primary_disconnected">Račun ni povezan</string>
+    <string name="title_legend_download_on">Samodejno prejmi vsebino sporočila</string>
+    <string name="title_legend_download_off">Vsebino sporočila prejmi na zahtevo</string>
+    <string name="title_legend_synchronize_on">Sinhronizacija je vklopljena</string>
+    <string name="title_legend_synchronize_off">Sinhronizacija je izklopljena</string>
+    <string name="title_legend_disconnected">Povezava je prekinjena</string>
+    <string name="title_legend_connecting">Povezovanje</string>
+    <string name="title_legend_connected">Povezano</string>
+    <string name="title_legend_executing">Izvajanje opravil</string>
+    <string name="title_legend_synchronizing">Sinhroniziranje</string>
+    <string name="title_legend_downloading">Prejemanje</string>
+    <string name="title_legend_closing">Zapiranje</string>
+    <string name="title_legend_waiting">Čakanje na naslednjo sinhronizacijo</string>
+    <string name="title_legend_unified">Poenotena mapa \'Prejeto\'/Glavni račun</string>
+    <string name="title_legend_inbox">Prejeto</string>
+    <string name="title_legend_drafts">Osnutki</string>
+    <string name="title_legend_sent">Poslano</string>
+    <string name="title_legend_archive">Arhiv</string>
+    <string name="title_legend_trash">Smeti</string>
+    <string name="title_legend_junk">Vsiljeno</string>
+    <string name="title_legend_primary">Glavni</string>
+    <string name="title_legend_subscribed">Naročeno na</string>
+    <string name="title_legend_rule">Ima pravila</string>
+    <string name="title_legend_similar">Išči podobna sporočila</string>
+    <string name="title_legend_notify">Obvesti o novih sporočilih</string>
+    <string name="title_legend_sync_keep">Št. dni za sinhronizacijo/ohranitev sporočil</string>
+    <string name="title_legend_download_fetch">Št. prejetih sporočil/pridobljenih glav</string>
+    <string name="title_legend_stop">Ustavi izvajanje pravil</string>
+    <string name="title_legend_thread">Pogovor</string>
+    <string name="title_legend_zoom">Spremeni velikost pisave</string>
+    <string name="title_legend_draft">Ima osnutek</string>
+    <string name="title_legend_priority">Ima visoko prednost</string>
+    <string name="title_legend_priority_low">Ima nizko prednost</string>
+    <string name="title_legend_importance">Je pomembno</string>
+    <string name="title_legend_importance_low">Ni pomembno</string>
+    <string name="title_legend_signed">Je podpisano</string>
+    <string name="title_legend_encrypted">Je šifrirano</string>
+    <string name="title_legend_auth">Overitev je spodletela</string>
+    <string name="title_legend_found">Je bilo najdeno</string>
+    <string name="title_legend_snoozed">Je v dremežu</string>
+    <string name="title_legend_browsed">Je prebrskano ali iskano</string>
+    <string name="title_legend_answered">Je bilo odgovorjeno</string>
+    <string name="title_legend_plain_only">Je samo v golem besedilu</string>
+    <string name="title_legend_receipt">Zahtevano je bilo potrdilo</string>
+    <string name="title_legend_attachment">Vsebuje priloge</string>
+    <string name="title_legend_flagged">Je priljubljeno</string>
+    <string name="title_legend_contacts">Upravljaj s stiki</string>
+    <string name="title_legend_search">Išči pošiljatelja</string>
+    <string name="title_legend_view">Pokaži vsebino</string>
+    <string name="title_legend_hide">Skrij vsebino</string>
+    <string name="title_legend_download">Prejmi vsebino</string>
+    <string name="title_legend_external_image">Ograda za zunanjo sliko</string>
+    <string name="title_legend_embedded_image">Ograda za vdelano sliko</string>
+    <string name="title_legend_tracking_pixel">Sledilna slika</string>
+    <string name="title_legend_broken_image">Okvarjena slika</string>
+    <string name="title_legend_pick">Izberi stik</string>
+    <string name="title_legend_cc">Prikaži Kp/Skp</string>
+    <string name="title_legend_link">Vstavi povezavo</string>
+    <string name="title_legend_file">Priloži datoteko</string>
+    <string name="title_legend_picture">Vstavi sliko</string>
+    <string name="title_legend_photo">Posnemi fotografijo</string>
+    <string name="title_legend_audio">Posnemi zvok</string>
+    <string name="title_legend_bold">Naredi besedilo krepko</string>
+    <string name="title_legend_italic">Naredi besedilo ležeče</string>
+    <string name="title_legend_underline">Podčrtaj besedilo</string>
+    <string name="title_legend_text_size">Nastavi velikost besedila</string>
+    <string name="title_legend_text_color">Nastavi barvo besedila</string>
+    <string name="title_legend_metered">Povezava je merjena</string>
+    <string name="title_legend_unmetered">Povezava ni merjena</string>
+    <string name="title_legend_roaming">Gostovanje</string>
+    <string name="title_legend_expander">Razširjevalec</string>
+    <string name="title_legend_avatar">Podoba</string>
+    <string name="title_legend_show_quotes">Prikaži navedke</string>
+    <string name="title_legend_show_junk">Obravnavaj kot vsiljeno</string>
+    <string name="title_legend_show_unsubscribe">Odjavi se s seznama</string>
+    <string name="title_legend_show_images">Prikaži slike</string>
+    <string name="title_legend_show_full">Prikaži celozaslonsko</string>
+    <string name="title_legend_edit">Uredi</string>
+    <string name="title_legend_default_color">Privzeta barva</string>
+    <string name="title_legend_close_hint">Zapri namig</string>
+    <string name="title_legend_connection_state">Stanje povezave</string>
+    <string name="title_legend_sync_state">Stanje sinhronizacije</string>
+    <string name="title_legend_download_state">Stanje prejema</string>
+    <string name="title_legend_save">Shrani</string>
+    <string name="title_legend_delete">Izbriši</string>
+    <string name="title_legend_count">Število</string>
+    <string name="title_legend_folder_type">Vrsta mape</string>
+    <string name="title_legend_enter">Odpri</string>
+    <string name="title_legend_a">Arhiviraj</string>
+    <string name="title_legend_c">Sestavi</string>
+    <string name="title_legend_d">Premakni v smeti (izbriši)</string>
+    <string name="title_legend_m">Meni (večkratna izbira)</string>
+    <string name="title_legend_n">Naprej</string>
+    <string name="title_legend_p">Nazaj</string>
+    <string name="title_legend_r">Odgovori</string>
+    <string name="title_legend_s">Izberi/Prekliči izbiro</string>
+    <string name="title_legend_t">Osred. se na bes.</string>
+    <string name="title_hint_folder_actions">Dolg pritisk na mapo prikaže možnosti, kot so dodajanje mape v meni za krmarjenje za hitri dostop.</string>
+    <string name="title_hint_folder_sync">Zaradi omejitve porabe energije in podatkov privzeto vse mape in sporočila ne bodo sinhronizirana.</string>
+    <string name="title_hint_support">Če imate vprašanje ali težavo, uporabite meni za podporo, da pridobite pomoč.</string>
+    <string name="title_hint_message_actions">Potegnite levo za premik v smeti; potegnite desno za arhiviranje (če je na voljo).  Dejanja potegov lahko nastavite v nastavitvah računa.</string>
+    <string name="title_hint_message_selection">Dolg pritisk na sporočilo omogoča izbiro več sporočil; držite in potegnite gor in dol za izbiro več sporočil.</string>
+    <string name="title_hint_important">Pomembno</string>
+    <string name="title_hint_sync">Prejemanje sporočil lahko traja nekaj časa, odvisno od hitrosti ponudnika, internetne povezave, naprave in števila sporočil.  Med prejemanjem sporočil se lahko program počasneje odziva.</string>
+    <string name="title_hint_battery">Ker FairMail privzeto vedno prejema sporočila, ga bo Android obravnaval kot vedno dejavnega.  Zato je lahko videti, da FairMail vedno porablja energijo, kar pa seveda ni res.</string>
+    <string name="title_hint_reformat">Privzeto FairMail preoblikuje sporočila zaradi zaščite zasebnosti in varnosti.  Za ogled izvirnega sporočila se dotaknite ikone \'Celoten zaslon\' nad besedilom sporočila.</string>
+    <string name="title_hint_contact_actions">Dolg pritisk za možnosti</string>
+    <string name="title_hint_eml">To je povzetek vsebine datoteke izvornega sporočila.  Shranite izvorno sporočilo z ikono za shranjevanje v vrstici dejanj za ogled celotne vsebine.</string>
+    <string name="title_open_link">Odpri povezavo</string>
+    <string name="title_different_link">Naziv in naslov povezave se razlikujeta.</string>
+    <string name="title_link_http">Promet ne bo šifriran.</string>
+    <string name="title_link_https">Promet bo šifriran.</string>
+    <string name="title_sanitize_link">Odstrani sledilne parametre</string>
+    <string name="title_insecure_link">Ta povezava ni varna.</string>
+    <string name="title_check_owner">Preveri lastnika</string>
+    <string name="title_remark_owner">Podatki bodo pridobljeni iz <a href="https://ipinfo.io/">ipinfo.io</a>.</string>
+    <string name="title_ip_owner">Lastnikov naslov IP</string>
+    <string name="title_select_app">Izberite program</string>
+    <string name="title_updated">Na voljo je posodobitev na različico %1$s.</string>
+    <string name="title_issue">Ali imate vprašanje ali težavo?</string>
+    <string name="title_yes">Da</string>
+    <string name="title_no">Ne</string>
+    <string name="title_later">Kasneje</string>
+    <string name="title_undo">Razveljavi</string>
+    <string name="title_redo">Uveljavi</string>
+    <string name="title_add">Dodaj</string>
+    <string name="title_browse">Odpri s/z</string>
+    <string name="title_info">Infor.</string>
+    <string name="title_report">Poročilo</string>
+    <string name="title_fix">Popravi</string>
+    <string name="title_enable">Omogoči</string>
+    <string name="title_enabled">Omogočeno</string>
+    <string name="title_executing">Izvajanje</string>
+    <string name="title_completed">Dokončano</string>
+    <string name="title_clipboard_copy">Kopiraj na odložišče</string>
+    <string name="title_clipboard_copied">Kopirano na odložišče</string>
+    <string name="title_ask_what">Vprašaj, kaj storiti</string>
+    <string name="title_no_ask_again">Ne vprašaj več</string>
+    <string name="title_no_ask_for_again">Ne vprašaj več za %1$s</string>
+    <string name="title_no_body">Besedila sporočila ni bilo mogoče najti.</string>
+    <string name="title_no_charset">Nepodprto kodiranje: %1$s</string>
+    <string name="title_via">Preko: %1$s</string>
+    <string name="title_1hour">1 ura</string>
+    <string name="title_1day">1 dan</string>
+    <string name="title_1week">1 teden</string>
+    <string name="title_now">Zdaj</string>
+    <string name="title_after">Po %1$s</string>
+    <string name="title_reset">Ponastavi</string>
+    <string name="title_hours">Ure</string>
+    <string name="title_minutes">Minute</string>
+    <string name="title_dismiss">Opusti</string>
+    <string name="title_snooze_now">Dremež</string>
+    <string name="title_loading">Nalaganje &#8230;</string>
+    <string name="title_set">Nastavi</string>
+    <string name="title_fetching_again">Ponovno pridobivanje sporočil s strežnika</string>
+    <string name="title_conversation_actions">Dejanja</string>
+    <string name="title_conversation_action_reply">Odgovori s/z: \'%1$s\'</string>
+    <string name="title_conversation_action_copy">Kopiraj: \'%1$s\'</string>
+    <string name="title_icalendar_accept">Sprejmi</string>
+    <string name="title_icalendar_decline">Zavrni</string>
+    <string name="title_icalendar_maybe">Morda</string>
+    <string name="title_icalendar_calendar">Koledar</string>
+    <string name="title_try">Poizkusite FairMail, odprtokoden, do zasebnosti prijazen e-poštni program za Android.</string>
+    <string name="title_pro_feature">To je značilnost Pro.</string>
+    <string name="title_pro_list">Seznam značilnosti Pro</string>
+    <string name="title_pro_purchase">Kupi</string>
+    <string name="title_pro_once">Samo enkrat</string>
+    <string name="title_pro_info">        Razvoj FairEmaila je trajal na tisoče ur ne glede nato, da je večina značilnosti brezplačna.
+        Zaradi vzdržljivosti FairEmaila na dolgi rok nekatere priročne in napredne značilnosti niso brezplačne.
+        FairEmail za ta namen prikaže majhno sporočilo, ki bo odstranjeno, če kupite značilnosti Pro.
+    </string>
+    <string name="title_pro_hide">Skrij majhno sporočil za en teden</string>
+    <string name="title_pro_hint">Nakup značilnosti Pro bo omogočil uporabo vseh trenutnih in prihodnjih značilnosti, vzdrževanje in podporo tega programa.</string>
+    <string name="title_pro_price">Oglejte si <a href="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq19">ta pogosta vprašanja</a> glede cene značilnosti Pro.</string>
+    <string name="title_pro_pending">Nakup je na čakanju.</string>
+    <string name="title_pro_activated">Vse značilnosti Pro so aktivirane.</string>
+    <string name="title_pro_valid">Vse značilnosti Pro so aktivirane.</string>
+    <string name="title_pro_invalid">Neveljaven odziv.</string>
+    <string name="title_pro_support">FairEmail potrebuje vašo pomoč.  Dotaknite se za nakup značilnosti Pro, da ohranite projekt pri življenju.</string>
+    <string name="title_boundary_error">Napaka pri prejemanju sporočil s poštnega strežnika.</string>
+    <string name="title_boundary_retry">Poskusi znova</string>
+    <string name="title_unexpected_error">Nepričakovana napaka</string>
+    <string name="title_log">Dnevnik</string>
+    <string name="title_auto_scroll">Samodejni pomik</string>
+    <string name="title_log_clear">Počisti</string>
+    <string name="title_debug_info">Podatki o razhrošč.</string>
+    <string name="title_debug_info_remark">Opišite težavo in označite čas težave:</string>
+    <string name="title_crash_info_remark">Opišite, kaj ste počeli, ko se je program sesul:</string>
+    <string name="title_widget_title_count">Število novih sporočil</string>
+    <string name="title_widget_title_list">Seznam sporočil</string>
+    <string name="title_widget_account">Račun</string>
+    <string name="title_widget_account_all">Vsi</string>
+    <string name="title_widget_folder">Mapa</string>
+    <string name="title_widget_folder_unified">Poenotene mape \'Prejeto\'</string>
+    <string name="title_widget_unseen">Samo neprebrana sporočila</string>
+    <string name="title_widget_flagged">Samo sporočila z zvezdico</string>
+    <string name="title_widget_semi_transparent">Polprosojno ozadje</string>
+    <string name="title_accessibility_collapsed">Strnjeno</string>
+    <string name="title_accessibility_expanded">Razširjeno</string>
+    <string name="title_accessibility_seen">Prebrano</string>
+    <string name="title_accessibility_unseen">Neprebrano</string>
+    <plurals name="title_accessibility_messages">
+        <item quantity="one">%1$d sporočilo</item>
+        <item quantity="two">%1$d sporočili</item>
+        <item quantity="few">%1$d sporočila</item>
+        <item quantity="other">%1$d sporočil</item>
+    </plurals>
     <!-- Thunderbird -->
+    <string name="title_keyword_label1">Pomembno</string>
+    <string name="title_keyword_label2">Služba</string>
+    <string name="title_keyword_label3">Osebno</string>
+    <string name="title_keyword_label4">Za narediti</string>
+    <string name="title_keyword_label5">Kasneje</string>
+    <string name="title_accessibility_flagged">Z zvezdico</string>
+    <string name="title_accessibility_unflagged">Brez zvezdice</string>
+    <string name="title_accessibility_collapse">Strni</string>
+    <string name="title_accessibility_expand">Razširi</string>
+    <string name="title_accessibility_view_contact">Pokaži stik</string>
+    <string name="title_accessibility_show_authentication_result">Prikaži rezultat overitve</string>
+    <string name="title_accessibility_show_snooze_time">Prikaži čas dremeža</string>
+    <string name="title_accessibility_view_help">Pokaži pomoč</string>
+    <string name="title_accessibility_selected">Izbrano</string>
+    <string name="title_accessibility_answered">Odgovorjeno</string>
+    <string name="title_accessibility_scroll_down">Pomakni navzdol</string>
+    <string name="title_accessibility_scroll_up">Pomakni navzgor</string>
+    <string name="title_accessibility_filter_out_seen">Preklopi filter prebranih sporočil</string>
+    <string name="title_accessibility_filter_out_unflagged">Preklopi filter sporočil z zvezdico</string>
+    <string name="title_accessibility_filter_out_snoozed">Preklopi filter sporočil v dremežu</string>
+    <string name="title_accessibility_edit">Uredi</string>
+    <string name="title_accessibility_show_addresses">Prikaži naslove</string>
+    <string name="title_accessibility_hide_addresses">Skrij naslove</string>
+    <string name="title_accessibility_attachment">Priloga</string>
+    <string name="title_accessibility_from">Pošiljatelj</string>
+    <string name="title_accessibility_to">Prejemnik</string>
+    <string-array name="pollIntervalNames">
+        <item>Vedno</item>
+        <item>Vsakih 15 minut</item>
+        <item>Vsakih 30 minut</item>
+        <item>Vsako uro</item>
+        <item>Vsaki 2 uri</item>
+        <item>Vsake 4 ure</item>
+        <item>Vsakih 8 ur</item>
+        <item>Vsak dan</item>
+    </string-array>
+    <string-array name="sendDelayedNames">
+        <item>Ne</item>
+        <item>15 sekund</item>
+        <item>30 sekund</item>
+        <item>1 minuta</item>
+        <item>2 minuti</item>
+        <item>5 minut</item>
+        <item>10 minut</item>
+    </string-array>
+    <string-array name="startupNames">
+        <item>Poenotena mapa \'Prejeto\'</item>
+        <item>Poenotene mape</item>
+        <item>Mape glavnega računa</item>
+        <item>Računi</item>
+    </string-array>
+    <string-array name="downloadNames">
+        <item>16 kB</item>
+        <item>32 kB</item>
+        <item>64 kB</item>
+        <item>128 kB</item>
+        <item>256 kB</item>
+        <item>512 kB</item>
+        <item>1 MB</item>
+        <item>2 MB</item>
+        <item>∞</item>
+    </string-array>
+    <string-array name="onCloseNames">
+        <item>Ne naredi ničesar</item>
+        <item>Pojdi na prejšnji pogovor</item>
+        <item>Pojdi na naslednji pogovor</item>
+    </string-array>
+    <string-array name="resizeNames">
+        <item>Majhna</item>
+        <item>Srednja</item>
+        <item>Velika</item>
+        <item>Zelo velika</item>
+    </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
+    <string-array name="targetNames">
+        <item>Za</item>
+        <item>Kp</item>
+        <item>Skp</item>
+    </string-array>
+    <string-array name="biometricsTimeoutNames">
+        <item>Ena minuta</item>
+        <item>2 minuti</item>
+        <item>5 minut</item>
+        <item>10 minut</item>
+        <item>20 minut</item>
+    </string-array>
+    <string-array name="ellipsizeNames">
+        <item>Na začetku</item>
+        <item>Na sredini</item>
+        <item>Na koncu</item>
+    </string-array>
+    <string-array name="priorityNames">
+        <item>Nizka</item>
+        <item>Običajna</item>
+        <item>Visoka</item>
+    </string-array>
+    <string-array name="linesNames">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+    <string-array name="fontSizeNames">
+        <item>Privzeta</item>
+        <item>Majhna</item>
+        <item>Srednja</item>
+        <item>Velika</item>
+    </string-array>
+    <string-array name="receiptNames">
+        <item>Samo potrdilo o branju</item>
+        <item>Samo potrdilo o dostavi</item>
+        <item>Potrdilo o branju in dostavi</item>
+    </string-array>
+    <string-array name="signatureNames">
+        <item>Nad besedilom</item>
+        <item>Pod besedilom</item>
+        <item>Na dnu</item>
+    </string-array>
+    <string-array name="encryptNames">
+        <item>Brez</item>
+        <item>Samo podpiši (PGP)</item>
+        <item>Podpiši in šifriraj (PGP)</item>
+        <item>Samo podpiši (S/MIME)</item>
+        <item>Podpiši in šifriraj (S/MIME)</item>
+    </string-array>
 </resources>

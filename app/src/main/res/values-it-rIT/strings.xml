@@ -415,6 +415,7 @@
     <string name="title_advanced_date_hint">I messaggi sono raggruppati per data solo se sono ordinati cronologicamente</string>
     <string name="title_advanced_navbar_colorize_hint">Se funziona dipende dalla versione e variante di Android</string>
     <string name="title_advanced_threading_hint">Messaggi di gruppo relazionati a vicenda</string>
+    <string name="title_advanced_highlight_hint">Il colore primario del tema verrà utilizzato per evidenziare</string>
     <string name="title_advanced_gravatars_hint">Potrebbe esserci un rischio per la privacy</string>
     <string name="title_advanced_name_email_hint">Quando disabilitati saranno mostrati solo i nomi quando disponibili</string>
     <string name="title_advanced_preview_hint">Disponibile solo quando è stato scaricato il testo del messaggio</string>
@@ -455,6 +456,7 @@
     <string name="title_advanced_sender">Consenti la modifica dell\'indirizzo mittente</string>
     <string name="title_advanced_sender_regex">Regex per abbinare il nome utente degli indirizzi email in arrivo</string>
     <string name="title_identity_reply_to">Rispondi all\'indirizzo</string>
+    <string name="title_identity_unicode">Consenti Unicode negli indirizzi email</string>
     <string name="title_identity_receipt">Richiedi ricevuta di consegna/lettura per default</string>
     <string name="title_identity_use_ip_hint">In caso di \"saluto non valido\", \"richiede un indirizzo valido\" o un errore simile, provare a modificare questa impostazione</string>
     <string name="title_optional">Facoltativo</string>

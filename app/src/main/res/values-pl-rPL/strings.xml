@@ -475,6 +475,7 @@
     <string name="title_advanced_sender">Zezwól na edycję adresu nadawcy</string>
     <string name="title_advanced_sender_regex">Regex, aby dopasować nazwę użytkownika dla przychodzących adresów e-mail</string>
     <string name="title_identity_reply_to">Odpowiedz na adres</string>
+    <string name="title_identity_unicode">Zezwalaj na Unicode w adresach e-mail</string>
     <string name="title_identity_receipt">Domyślnie żądaj potwierdzenia odbioru/odczytu</string>
     <string name="title_identity_use_ip_hint">W przypadku „nieprawidłowego powitania”, „wymaga prawidłowego adresu” lub podobnego błędu spróbuj zmienić to ustawienie</string>
     <string name="title_optional">Opcjonalnie</string>
@@ -816,12 +817,36 @@
     <string name="title_signature_outdated">Ten klucz publiczny jest obecnie nieprawidłowy</string>
     <string name="title_signature_store">Zapisz</string>
     <string name="title_search">Szukaj</string>
+    <string name="title_search_for_hint">Wprowadź tekst</string>
+    <string name="title_search_hint">        Wyszukiwanie początkowo obejmie wiadomości zapisane na Twoim urządzeniu.
+        Aby wyszukiwanie objęło również serwer, dotknij przycisku \'Szukaj ponownie\'.
+    </string>
+    <string name="title_search_more">Więcej opcji</string>
+    <string name="title_search_use_index">Użyj indeksu wyszukiwania</string>
+    <string name="title_search_in_senders">W nadawcach (od)</string>
+    <string name="title_search_in_recipients">W odbiorcach (do, cc)</string>
+    <string name="title_search_in_subject">W temacie</string>
+    <string name="title_search_in_keywords">W słowach kluczowych (jeśli obsługiwane)</string>
+    <string name="title_search_in_message">W tekście wiadomości</string>
+    <string name="title_search_with">Ogranicz wyszukiwanie do</string>
+    <string name="title_search_with_unseen">Nieprzeczytane</string>
+    <string name="title_search_with_flagged">Oznaczone</string>
+    <string name="title_search_with_hidden">Ukryte (tylko na urządzeniu)</string>
+    <string name="title_search_with_encrypted">Zaszyfrowane (tylko na urządzeniu)</string>
+    <string name="title_search_with_attachments">Z załącznikami (tylko na urządzeniu)</string>
+    <string name="title_search_with_before">Przed</string>
+    <string name="title_search_with_after">Po</string>
+    <string name="title_search_flag_unseen">nieprzeczytane</string>
+    <string name="title_search_flag_flagged">oznaczone</string>
+    <string name="title_search_flag_hidden">ukryte</string>
+    <string name="title_search_flag_encrypted">zaszyfrowane</string>
+    <string name="title_search_flag_attachments">załączniki</string>
     <string name="title_search_device">Szukaj na urządzeniu</string>
     <string name="title_search_server">Szukaj na serwerze</string>
     <string name="title_search_in">Szukaj w</string>
     <string name="title_sort_on">Sortuj wg</string>
     <string name="title_sort_on_time">Czas</string>
-    <string name="title_sort_on_unread">Nieprzeczytana</string>
+    <string name="title_sort_on_unread">Nieprzeczytane</string>
     <string name="title_sort_on_starred">Oznaczona</string>
     <string name="title_sort_on_priority">Priorytet</string>
     <string name="title_sort_on_sender">Nadawca</string>
@@ -1013,6 +1038,7 @@
     <string name="title_hint_important">Ważne</string>
     <string name="title_hint_sync">Pobieranie wiadomości może trochę potrwać, zależnie od prędkości dostawcy, połączenie internetowego i urządzenia oraz liczby wiadomości. Podczas pobierania wiadomości aplikacja może odpowiadać wolniej.</string>
     <string name="title_hint_battery">Ponieważ FairEmail domyślnie zawsze odbiera wiadomości, Android zgłasza, że FairEmail jest zawsze aktywny. Dlatego może się wydawać, że FairEmail ciągle zużywa energię baterii, ale w rzeczywistości tak nie jest.</string>
+    <string name="title_hint_reformat">Domyślnie FairEmail przeformatowuje wiadomości ze względu na prywatność i bezpieczeństwo. Aby wyświetlić oryginalną wiadomość, dotknij ikonę \"pełny ekran\" nad tekstem wiadomości.</string>
     <string name="title_hint_contact_actions">Przytrzymaj, aby uzyskać więcej opcji</string>
     <string name="title_hint_eml">To jest podsumowanie zawartości nieprzetworzonego pliku wiadomości. Zapisz nieprzetworzoną wiadomość używając ikony zapisu na pasku akcji, aby wyświetlić całą zawartość.</string>
     <string name="title_open_link">Otwórz link</string>
@@ -1102,6 +1128,7 @@ FairEmail wyświetla o tym małą wiadomość przypominającą, która zostanie 
     <string name="title_widget_folder_unified">Foldery wspólnej skrzynki odbiorczej</string>
     <string name="title_widget_unseen">Tylko nieprzeczytane wiadomości</string>
     <string name="title_widget_flagged">Tylko oznaczone</string>
+    <string name="title_widget_semi_transparent">Półprzezroczyste tło</string>
     <string name="title_accessibility_collapsed">Zwinięta</string>
     <string name="title_accessibility_expanded">Rozwinięta</string>
     <string name="title_accessibility_seen">Przeczytana</string>
@@ -1113,6 +1140,11 @@ FairEmail wyświetla o tym małą wiadomość przypominającą, która zostanie 
         <item quantity="other">%1$d wiadomości</item>
     </plurals>
     <!-- Thunderbird -->
+    <string name="title_keyword_label1">Ważne</string>
+    <string name="title_keyword_label2">Praca</string>
+    <string name="title_keyword_label3">Osobiste</string>
+    <string name="title_keyword_label4">Do zrobienia</string>
+    <string name="title_keyword_label5">Później</string>
     <string name="title_accessibility_flagged">Oznaczona</string>
     <string name="title_accessibility_unflagged">Nie oznaczona</string>
     <string name="title_accessibility_collapse">Zwiń</string>

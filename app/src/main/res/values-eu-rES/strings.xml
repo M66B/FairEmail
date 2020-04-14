@@ -412,6 +412,7 @@
     <string name="title_advanced_date_hint">Mezuak dataren arabera multzokatzen dira soilik denboraren arabera ordenatuta badaude</string>
     <string name="title_advanced_navbar_colorize_hint">Hau funtzionatzea Android bertsioa eta aldaeraren araberakoa da</string>
     <string name="title_advanced_threading_hint">Harremana duten mezuak taldekatu</string>
+    <string name="title_advanced_highlight_hint">Gaiaren kolorea indartua erabiliko da nabarmentzeko</string>
     <string name="title_advanced_gravatars_hint">Pribatutasun-arriskua egon daiteke</string>
     <string name="title_advanced_name_email_hint">Desgaituta dagonean erabilgarri dauden izenak bakarrik erakutsiko dira</string>
     <string name="title_advanced_preview_hint">Eskuragarri soilik mezuaren testua deskargatu bada</string>
