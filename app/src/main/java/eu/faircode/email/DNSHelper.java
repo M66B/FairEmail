@@ -31,6 +31,7 @@ import androidx.annotation.NonNull;
 import org.xbill.DNS.Lookup;
 import org.xbill.DNS.MXRecord;
 import org.xbill.DNS.Record;
+import org.xbill.DNS.SRVRecord;
 import org.xbill.DNS.SimpleResolver;
 import org.xbill.DNS.TextParseException;
 import org.xbill.DNS.Type;
@@ -171,5 +172,18 @@ public class DNSHelper {
             return DEFAULT_DNS;
         else
             return dns.get(0).getHostAddress();
+    }
+
+    static void test(Context context) {
+        try {
+            String domain = "gmail.com";
+            boolean ok = lookupMx(context, new Address[]{Log.myAddress()});
+            InetAddress iaddr = lookupMx(context, domain);
+            Record[] records = DNSHelper.lookup(context, "_imaps._tcp." + domain, Type.SRV);
+            SRVRecord srv = (SRVRecord) records[0];
+            Log.i("DNS ok=" + ok + " iaddr=" + iaddr + " srv=" + srv.getTarget().toString());
+        } catch (Throwable ex) {
+            Log.e("DNS", ex);
+        }
     }
 }
