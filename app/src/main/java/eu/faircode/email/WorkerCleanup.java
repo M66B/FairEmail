@@ -33,8 +33,6 @@ import androidx.work.WorkManager;
 import androidx.work.Worker;
 import androidx.work.WorkerParameters;
 
-import net.openid.appauth.BuildConfig;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
