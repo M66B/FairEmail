@@ -1262,7 +1262,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             @Override
             public void onError(Exception ex) {
-                Log.e("PGP", ex);
+                if ("bindService() returned false!".equals(ex.getMessage()))
+                    Log.w("PGP", ex);
+                else
+                    Log.e("PGP", ex);
             }
         });
         pgpService.bindToService();
