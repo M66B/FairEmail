@@ -665,6 +665,7 @@
     <string name="title_keep_all">Keep all messages</string>
     <string name="title_auto_trash">Automatically move old messages to trash</string>
     <string name="title_auto_delete">Automatically permanently delete old messages</string>
+    <string name="title_auto_delete_hint">Old messages are messages that are no longer kept on the device</string>
     <string name="title_folder_name_missing">Folder name missing</string>
     <string name="title_folder_exists">Folder %1$s exists</string>
     <string name="title_folder_delete">Permanently delete this folder and any messages it contains?</string>
