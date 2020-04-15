@@ -19,16 +19,26 @@ package eu.faircode.email;
     Copyright 2018-2020 by Marcel Bokhorst (M66B)
 */
 
+import android.Manifest;
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Lifecycle;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
@@ -123,6 +133,23 @@ public class FragmentOptions extends FragmentBase {
 
         pager.setAdapter(adapter);
 
+        addKeyPressedListener(new ActivityBase.IKeyPressedListener() {
+            @Override
+            public boolean onKeyPressed(KeyEvent event) {
+                return false;
+            }
+
+            @Override
+            public boolean onBackPressed() {
+                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
+                    onExit();
+                    return true;
+                } else
+                    return false;
+
+            }
+        });
+
         return view;
     }
 
@@ -179,7 +206,79 @@ public class FragmentOptions extends FragmentBase {
         getActivity().getIntent().removeExtra("tab");
     }
 
-    boolean isVisible(int position) {
-        return (pager.getCurrentItem() == position);
+    @Override
+    protected void finish() {
+        onExit();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        try {
+            switch (requestCode) {
+                case ActivitySetup.REQUEST_STILL:
+                    if (resultCode == Activity.RESULT_OK)
+                        pager.setCurrentItem(0);
+                    else
+                        super.finish();
+                    break;
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+    }
+
+    private void onExit() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean setup_reminder = prefs.getBoolean("setup_reminder", true);
+
+        boolean hasPermissions = hasPermission(Manifest.permission.READ_CONTACTS);
+        Boolean isIgnoring = Helper.isIgnoringOptimizations(getContext());
+
+        if (!setup_reminder ||
+                (hasPermissions && (isIgnoring == null || isIgnoring)))
+            super.finish();
+        else {
+            FragmentDialogStill fragment = new FragmentDialogStill();
+            fragment.setTargetFragment(this, ActivitySetup.REQUEST_STILL);
+            fragment.show(getParentFragmentManager(), "setup:still");
+        }
+    }
+
+    public static class FragmentDialogStill extends FragmentDialogBase {
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_setup, null);
+            CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
+            Group grp3 = dview.findViewById(R.id.grp3);
+            Group grp4 = dview.findViewById(R.id.grp4);
+
+            cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                    prefs.edit().putBoolean("setup_reminder", !isChecked).apply();
+                }
+            });
+
+            boolean hasPermissions = Helper.hasPermission(getContext(), Manifest.permission.READ_CONTACTS);
+            Boolean isIgnoring = Helper.isIgnoringOptimizations(getContext());
+
+            grp3.setVisibility(hasPermissions ? View.GONE : View.VISIBLE);
+            grp4.setVisibility(isIgnoring == null || isIgnoring ? View.GONE : View.VISIBLE);
+
+            return new AlertDialog.Builder(getContext())
+                    .setView(dview)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            sendResult(Activity.RESULT_OK);
+                        }
+                    })
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .create();
+        }
     }
 }

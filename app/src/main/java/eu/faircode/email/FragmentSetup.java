@@ -20,7 +20,6 @@ package eu.faircode.email;
 */
 
 import android.Manifest;
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -33,17 +32,13 @@ import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.provider.Settings;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -53,7 +48,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.Group;
-import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
@@ -285,7 +279,7 @@ public class FragmentSetup extends FragmentBase {
         btnInbox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onExit();
+                ((FragmentBase) getParentFragment()).finish();
             }
         });
 
@@ -343,23 +337,6 @@ public class FragmentSetup extends FragmentBase {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, new Bundle(), "outbox:create");
-
-        addKeyPressedListener(new ActivityBase.IKeyPressedListener() {
-            @Override
-            public boolean onKeyPressed(KeyEvent event) {
-                return false;
-            }
-
-            @Override
-            public boolean onBackPressed() {
-                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED) &&
-                        ((FragmentOptions) getParentFragment()).isVisible(0)) {
-                    onExit();
-                    return true;
-                } else
-                    return false;
-            }
-        });
 
         return view;
     }
@@ -460,54 +437,6 @@ public class FragmentSetup extends FragmentBase {
         }
     }
 
-    private void onExit() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        boolean setup_reminder = prefs.getBoolean("setup_reminder", true);
-
-        boolean hasPermissions = hasPermission(Manifest.permission.READ_CONTACTS);
-        Boolean isIgnoring = Helper.isIgnoringOptimizations(getContext());
-
-        if (!setup_reminder ||
-                (hasPermissions && (isIgnoring == null || isIgnoring)))
-            ((FragmentBase) getParentFragment()).finish();
-        else {
-            FragmentDialogStill fragment = new FragmentDialogStill();
-            fragment.setTargetFragment(FragmentSetup.this, ActivitySetup.REQUEST_STILL);
-            fragment.show(getParentFragmentManager(), "setup:still");
-        }
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        try {
-            if (requestCode == ActivitySetup.REQUEST_STILL)
-                if (resultCode == Activity.RESULT_OK) {
-                    boolean hasPermissions = hasPermission(Manifest.permission.READ_CONTACTS);
-                    Boolean isIgnoring = Helper.isIgnoringOptimizations(getContext());
-
-                    final int top;
-                    if (!hasPermissions)
-                        top = view.findViewById(R.id.three).getTop();
-                    else if (isIgnoring != null && !isIgnoring)
-                        top = view.findViewById(R.id.four).getTop();
-                    else
-                        top = 0;
-
-                    new Handler().post(new Runnable() {
-                        @Override
-                        public void run() {
-                            view.scrollTo(0, top);
-                        }
-                    });
-                } else
-                    ((FragmentBase) getParentFragment()).finish();
-        } catch (Throwable ex) {
-            Log.e(ex);
-        }
-    }
-
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         for (int i = 0; i < permissions.length; i++)
@@ -541,42 +470,6 @@ public class FragmentSetup extends FragmentBase {
                             } catch (Throwable ex) {
                                 Log.e(ex);
                             }
-                        }
-                    })
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .create();
-        }
-    }
-
-    public static class FragmentDialogStill extends FragmentDialogBase {
-        @NonNull
-        @Override
-        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_setup, null);
-            CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
-            Group grp3 = dview.findViewById(R.id.grp3);
-            Group grp4 = dview.findViewById(R.id.grp4);
-
-            cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                    prefs.edit().putBoolean("setup_reminder", !isChecked).apply();
-                }
-            });
-
-            boolean hasPermissions = Helper.hasPermission(getContext(), Manifest.permission.READ_CONTACTS);
-            Boolean isIgnoring = Helper.isIgnoringOptimizations(getContext());
-
-            grp3.setVisibility(hasPermissions ? View.GONE : View.VISIBLE);
-            grp4.setVisibility(isIgnoring == null || isIgnoring ? View.GONE : View.VISIBLE);
-
-            return new AlertDialog.Builder(getContext())
-                    .setView(dview)
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            sendResult(Activity.RESULT_OK);
                         }
                     })
                     .setNegativeButton(android.R.string.cancel, null)
