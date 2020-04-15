@@ -404,6 +404,7 @@
     <string name="title_advanced_experiments">Vyzkoušet experimentální funkce</string>
     <string name="title_advanced_crash_reports">Odesílat zprávy o chybách</string>
     <string name="title_advanced_debug">Režim ladění</string>
+    <string name="title_advanced_cleanup_attachments">Odstranit přílohy starých zpráv</string>
     <string name="title_advanced_cleanup">Úklid</string>
     <string name="title_advanced_last_cleanup">Poslední čištění: %1$s</string>
     <string name="title_advanced_more">Více možností</string>
@@ -437,6 +438,7 @@
     <string name="title_advanced_date_hint">Zprávy jsou seskupovány podle data, pouze pokud jsou řazeny dle času</string>
     <string name="title_advanced_navbar_colorize_hint">Zda volba funguje, závisí na verzi a variantě Androidu</string>
     <string name="title_advanced_threading_hint">Seskupit související zprávy</string>
+    <string name="title_advanced_highlight_hint">Sekundární barva motivu bude použita pro zvýrazňování</string>
     <string name="title_advanced_gravatars_hint">Může dojít k ohrožení soukromí</string>
     <string name="title_advanced_name_email_hint">Při vypnutí se zobrazí pouze jména, budou-li k dispozici</string>
     <string name="title_advanced_preview_hint">K dispozici pouze pokud byl stažen text zprávy</string>

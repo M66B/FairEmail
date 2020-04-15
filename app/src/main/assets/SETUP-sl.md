@@ -1,34 +1,34 @@
-# Setup help
+# Pomoč za nastavitev
 
-Setting up FairEmail is fairly simple. You'll need to add at least one account to receive email and at least one identity if you want to send email. The quick setup will add an account and an identity in one go for most major providers.
+Nastavitev FairMaila je dokaj enostavna. Dodati boste morali vsaj en račun za prejemanje e-pošte in vsaj eno identiteto, če želite pošiljati e-pošto. Hitra nastavitev bo dodala račun in identiteto v enem koraku za vse glavne ponudnike.
 
-## Requirements
+## Zahteve
 
-An internet connection is required to set up accounts and identities.
+Za nastavitev računov in identitet je zahtevana internetna povezava.
 
-## Quick setup
+## Hitra nastavitev
 
-Just enter your name, email address and password and tap *Go*.
+Vnesite ime, e-poštni naslov in geslo, in se dotaknite *Pojdi*.
 
-This will work for most major email providers.
+To bo delovalo za vse glavne e-poštne ponudnike.
 
-If the quick setup doesn't work, you'll need to setup an account and an identity in another way, see below for instructions.
+Če hitra nastavitev ne deluje, boste morali račun in identiteto nastaviti na drug način. Glejte spodaj za navodila.
 
-## Set up account - to receive email
+## Nastavite račun - za prejemanje pošte
 
-To add an account, tap *Manage accounts* and tap the orange *add* button at the bottom. Select a provider from the list, enter the username, which is mostly your email address and enter your password. Tap *Check* to let FairEmail connect to the email server and fetch a list of system folders. After reviewing the system folder selection you can add the account by tapping *Save*.
+Za dodajanje računa se dotaknite *Upravljaj z računi* in se spodaj dotaknite oranžnega gumba *Dodaj*. S seznama izberite ponudnika, vnesite uporabniško ime, ki je običajno vaše e-poštni naslov, in vnesite geslo. Dotaknite se *Preveri*, da FairMailu omogočite povezavo z e-poštnim strežnikom in pridobitev seznama sistemskih map. Po pregledu izbire sistemskih map lahko račun dodate tako, da se dotaknete *Shrani*.
 
-If your provider is not in the list of providers, select *Custom*. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the hostname and port number, else check the setup instructions of your provider for the right IMAP hostname, port number and protocol (SSL/TLS or STARTTLS). For more about this, please see [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
+Če vašega ponudnika ni na seznamu, izberite *Po meri*. Vnesite ime domene, na primer *gmail.com*, in se dotaknite *Dobi nastavitve*. Če vaš ponudnik podpira [samodejno odkrivanje](https://tools.ietf.org/html/rfc6186), bo FairMail izpolnil ime gostitelja in število vrat. V nasprotnem primeru si za pravilno ime gostitelja IMAP, število vrat in protokol (SSL/TLS ali STARTTLS) oglejte navodila za nastavitev pri vašem ponudniku. Za več o tem glejte [tukaj](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
 
-## Set up identity - to send email
+## Nastavite identiteto - za pošiljanje e-pošte
 
-Similarly, to add an identity, tap *Manage identity* and tap the orange *add* button at the bottom. Enter the name you want to appear in the from address of the emails you send and select a linked account. Tap *Save* to add the identity.
+Podobno, kot za dodajanje računa, se za dodajanje identitete dotaknite *Upravljaj z identiteto* in se spodaj dotaknite oranžnega gumba *Dodaj*. Vnesite ime, ki ga želite prikazati v polju za pošiljatelja in izberite povezan račun. Dotaknite se *Shrani*, da dodate identiteto.
 
-If the account was configured manually, you likely need to configure the identity manually too. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the hostname and port number, else check the setup instructions of your provider for the right SMTP hostname, port number and protocol (SSL/TLS or STARTTLS).
+Če ste račun ročno nastavili, boste verjetno morali ročno nastaviti tudi identiteto. Vnesite ime domene, na primer *gmail.com*, in se dotaknite *Dobi nastavitve*. Če vaš ponudnik podpira [samodejno odkrivanje](https://tools.ietf.org/html/rfc6186), bo FairMail izpolnil ime gostitelja in število vrat. V nasprotnem primeru si za pravilno ime gostitelja SMTP, število vrat in protokol (SSL/TLS ali STARTTLS) oglejte navodila za nastavitev pri vašem ponudniku.
 
-See [this FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) about using aliases.
+Glejte [ta pogosta vprašanja](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) za informacije o uporabi vzdevkov.
 
-## Grant permissions - to access contact information
+## Odobrite dovoljenja - za dostop do podatkov o stikih
 
 If you want to lookup email addresses, have contact photos shown, etc, you'll need to grant read contacts permission to FairEmail. Just tap *Grant permissions* and select *Allow*.
 

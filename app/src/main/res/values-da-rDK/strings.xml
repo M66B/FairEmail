@@ -382,6 +382,7 @@
     <string name="title_advanced_experiments">Prøv eksperimentelle funktioner</string>
     <string name="title_advanced_crash_reports">Send fejlrapporter</string>
     <string name="title_advanced_debug">Fejlretningstilstand</string>
+    <string name="title_advanced_cleanup_attachments">Slet gamle beskeders vedhæftninger</string>
     <string name="title_advanced_cleanup">Oprydning</string>
     <string name="title_advanced_last_cleanup">Sidste oprydning: %1$s</string>
     <string name="title_advanced_more">Flere valgmuligheder</string>
@@ -415,6 +416,7 @@
     <string name="title_advanced_date_hint">Beskeder grupperes kun efter dato, hvis de er sorteret efter tid</string>
     <string name="title_advanced_navbar_colorize_hint">Hvorvidt dette fungerer afhænger af Android-version og -variant</string>
     <string name="title_advanced_threading_hint">Gruppér beskeder relateret til hinanden</string>
+    <string name="title_advanced_highlight_hint">Temaets accentfarve benyttes til fremhævning</string>
     <string name="title_advanced_gravatars_hint">Der kan være en fortrolighedsrisiko</string>
     <string name="title_advanced_name_email_hint">Når deaktiveret, vises kun navne, når de er tilgængelige</string>
     <string name="title_advanced_preview_hint">Kun tilgængelig, når beskedtekst er downloadet</string>
@@ -455,6 +457,7 @@
     <string name="title_advanced_sender">Tillad redigering af afsenderadresse</string>
     <string name="title_advanced_sender_regex">Regex, der skal matche brugernavn for indgående e-mailadresser</string>
     <string name="title_identity_reply_to">Svar til-adresse</string>
+    <string name="title_identity_unicode">Tillad Unicode i e-mailadresser</string>
     <string name="title_identity_receipt">Bed automatisk om leverings/læstkvittering som standard</string>
     <string name="title_identity_use_ip_hint">I tilfælde af \'ugyldig hilsen\', \'kræver gyldig adresse\' eller lignende fejl, prøv da at ændre denne indstilling</string>
     <string name="title_optional">Valgfrit</string>

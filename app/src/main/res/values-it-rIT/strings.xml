@@ -382,6 +382,7 @@
     <string name="title_advanced_experiments">Prova le funzionalità sperimentali</string>
     <string name="title_advanced_crash_reports">Invia rapporti di errore</string>
     <string name="title_advanced_debug">Modalità debug</string>
+    <string name="title_advanced_cleanup_attachments">Elimina allegati dei vecchi messaggi</string>
     <string name="title_advanced_cleanup">Pulizia</string>
     <string name="title_advanced_last_cleanup">Ultima pulizia: %1$s</string>
     <string name="title_advanced_more">Altre opzioni</string>
@@ -445,6 +446,7 @@
     <string name="title_advanced_optimize_hint">L\'attivazione di questo può modificare automaticamente le impostazioni di ricezione per ridurre l\'utilizzo della batteria</string>
     <string name="title_advanced_experiments_hint">Elenco delle attuali funzionalità sperimentali</string>
     <string name="title_advanced_debug_hint">Abilita il log extra e mostra le informazioni di debug in vari luoghi</string>
+    <string name="title_advanced_cleanup_attachments_hint">Questo rimuoverà gli allegati dai messaggi che non sono più sincronizzati durante la pulizia manuale</string>
     <string name="title_advanced_cleanup_hint">Questo cancellerà tutti i file temporanei</string>
     <string name="title_advanced_never_favorite">Mai preferito</string>
     <string name="title_advanced_swipe_actions">Imposta azioni di swipe</string>

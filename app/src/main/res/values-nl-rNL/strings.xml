@@ -381,6 +381,7 @@
     <string name="title_advanced_experiments">Probeer experimentele functies</string>
     <string name="title_advanced_crash_reports">Foutrapporten verzenden</string>
     <string name="title_advanced_debug">Foutopsporing modus</string>
+    <string name="title_advanced_cleanup_attachments">Bijlagen van oude berichten verwijderen</string>
     <string name="title_advanced_cleanup">Opruimen</string>
     <string name="title_advanced_last_cleanup">Laatste schoonmaak: %1$s</string>
     <string name="title_advanced_more">Meer opties</string>
@@ -444,6 +445,7 @@
     <string name="title_advanced_optimize_hint">Dit inschakelen kan automatisch de ontvangstinstellingen wijzigen om het batterijverbruik te verminderen</string>
     <string name="title_advanced_experiments_hint">Lijst van huidige experimentele functies</string>
     <string name="title_advanced_debug_hint">Extra logging inschakelen en debug informatie tonen op verschillende plaatsen</string>
+    <string name="title_advanced_cleanup_attachments_hint">Dit zal bijlagen verwijderen van berichten die niet meer worden gesynchroniseerd bij handmatig opruimen</string>
     <string name="title_advanced_cleanup_hint">Dit zal alle tijdelijke bestanden verwijderen</string>
     <string name="title_advanced_never_favorite">Nooit favoriet</string>
     <string name="title_advanced_swipe_actions">Stel veegacties in</string>

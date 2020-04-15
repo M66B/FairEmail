@@ -380,6 +380,7 @@
     <string name="title_advanced_experiments">Probatu ezaugarri esperimentalak</string>
     <string name="title_advanced_crash_reports">Bidali errore txostenak</string>
     <string name="title_advanced_debug">Arazketa modua</string>
+    <string name="title_advanced_cleanup_attachments">Ezabatu mezu zaharren eranskinak</string>
     <string name="title_advanced_cleanup">Garbiketa</string>
     <string name="title_advanced_more">Aukera gehiago</string>
     <string name="title_advanced_enabled_hint">Ezgaitu edo gaitu mezuak jasotzea orokorrean</string>

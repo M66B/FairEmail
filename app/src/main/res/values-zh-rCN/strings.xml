@@ -370,6 +370,7 @@
     <string name="title_advanced_experiments">尝试实验性功能</string>
     <string name="title_advanced_crash_reports">发送错误报告</string>
     <string name="title_advanced_debug">调试模式</string>
+    <string name="title_advanced_cleanup_attachments">删除旧消息的附件</string>
     <string name="title_advanced_cleanup">清理</string>
     <string name="title_advanced_last_cleanup">上次清理: %1$s</string>
     <string name="title_advanced_more">更多选项</string>
@@ -403,6 +404,7 @@
     <string name="title_advanced_date_hint">若按时间对消息排序，将仅按日期对消息分组</string>
     <string name="title_advanced_navbar_colorize_hint">这是否正常工作取决于Android版本和变体</string>
     <string name="title_advanced_threading_hint">合并相同主题为一封会话</string>
+    <string name="title_advanced_highlight_hint">主题的强调色将被用于高亮</string>
     <string name="title_advanced_gravatars_hint">可能存在隐私风险</string>
     <string name="title_advanced_name_email_hint">禁用该选项，将仅显示名称（如果可用）</string>
     <string name="title_advanced_preview_hint">只有当消息文本下载时才可用</string>

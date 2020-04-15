@@ -435,6 +435,7 @@
     <string name="title_advanced_date_hint">Wiadomości są pogrupowane według daty, tylko jeśli są posortowane według czasu</string>
     <string name="title_advanced_navbar_colorize_hint">To, czy to zadziała, zależy od wersji i wariantu Androida</string>
     <string name="title_advanced_threading_hint">Grupuj wiadomości powiązane ze sobą</string>
+    <string name="title_advanced_highlight_hint">Kolor akcentu motywu będzie używany do podświetlania</string>
     <string name="title_advanced_gravatars_hint">Może istnieć ryzyko naruszenia prywatności</string>
     <string name="title_advanced_name_email_hint">Gdy wyłączone, tylko nazwy będą pokazywane, gdy dostępne</string>
     <string name="title_advanced_preview_hint">Dostępne tylko po pobraniu tekstu wiadomości</string>
@@ -464,6 +465,7 @@
     <string name="title_advanced_optimize_hint">Włączenie tej opcji może automatycznie zmienić ustawienia odbioru, aby zmniejszyć zużycie baterii</string>
     <string name="title_advanced_experiments_hint">Lista aktualnych funkcji eksperymentalnych</string>
     <string name="title_advanced_debug_hint">Włącz dodatkowe rejestrowanie i wyświetlaj informacje debugowania w różnych miejscach</string>
+    <string name="title_advanced_cleanup_attachments_hint">Spowoduje to usunięcie załączników z wiadomości, które nie są już synchronizowane podczas ręcznego czyszczenia</string>
     <string name="title_advanced_cleanup_hint">Spowoduje to usunięcie wszystkich plików tymczasowych</string>
     <string name="title_advanced_never_favorite">Nigdy ulubiony</string>
     <string name="title_advanced_swipe_actions">Ustaw akcje przesuwania</string>

@@ -383,6 +383,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_experiments">Experimentelle Funktionen ausprobieren</string>
     <string name="title_advanced_crash_reports">Fehlerberichte senden</string>
     <string name="title_advanced_debug">Debugmodus</string>
+    <string name="title_advanced_cleanup_attachments">Anhänge aus alten Nachrichten löschen</string>
     <string name="title_advanced_cleanup">Bereinigen</string>
     <string name="title_advanced_last_cleanup">Letzte Bereinigung: %1$s</string>
     <string name="title_advanced_more">Weitere Optionen</string>

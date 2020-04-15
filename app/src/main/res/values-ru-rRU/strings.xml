@@ -404,6 +404,7 @@
     <string name="title_advanced_experiments">Попробовать экспериментальные функции</string>
     <string name="title_advanced_crash_reports">Отправлять отчёты об ошибках</string>
     <string name="title_advanced_debug">Режим отладки</string>
+    <string name="title_advanced_cleanup_attachments">Удалить вложения старых сообщений</string>
     <string name="title_advanced_cleanup">Очистка</string>
     <string name="title_advanced_last_cleanup">Последняя очистка: %1$s</string>
     <string name="title_advanced_more">Другие возможности</string>
@@ -437,6 +438,7 @@
     <string name="title_advanced_date_hint">Сообщения группируются только по дате, если они сортируются по времени</string>
     <string name="title_advanced_navbar_colorize_hint">Это работает в зависимости от версии и варианта Android</string>
     <string name="title_advanced_threading_hint">Группировать сообщения, связанные друг с другом</string>
+    <string name="title_advanced_highlight_hint">Цвет акцента темы будет использован для подсветки</string>
     <string name="title_advanced_gravatars_hint">Возможен риск нарушения конфиденциальности</string>
     <string name="title_advanced_name_email_hint">Если отключено, будут показаны только имена (при наличии)</string>
     <string name="title_advanced_preview_hint">Доступно, только если был загружен текст сообщения</string>
@@ -466,6 +468,7 @@
     <string name="title_advanced_optimize_hint">Включение этого параметра автоматически изменит настройки получения, чтобы уменьшить расход заряда батареи</string>
     <string name="title_advanced_experiments_hint">Список текущих экспериментальных функций</string>
     <string name="title_advanced_debug_hint">Включить дополнительное журналирование и показывать отладочную информацию в различных местах</string>
+    <string name="title_advanced_cleanup_attachments_hint">При ручной очистке будут удалены вложения сообщений, которые больше не синхронизируются</string>
     <string name="title_advanced_cleanup_hint">Это действие удалит все временные файлы</string>
     <string name="title_advanced_never_favorite">Никогда не помечать избранным</string>
     <string name="title_advanced_swipe_actions">Настройка жестов</string>

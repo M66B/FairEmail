@@ -382,6 +382,7 @@
     <string name="title_advanced_experiments">Essayer les fonctionnalités expérimentales</string>
     <string name="title_advanced_crash_reports">Envoyer des rapports d\'erreur</string>
     <string name="title_advanced_debug">Débogage</string>
+    <string name="title_advanced_cleanup_attachments">Supprimer les pièces jointes des anciens messages</string>
     <string name="title_advanced_cleanup">Nettoyage</string>
     <string name="title_advanced_last_cleanup">Dernier nettoyage : %1$s</string>
     <string name="title_advanced_more">Plus d\'options</string>
@@ -445,6 +446,7 @@
     <string name="title_advanced_optimize_hint">Activer ceci peut modifier automatiquement les paramètres de réception pour réduire l\'utilisation de la batterie</string>
     <string name="title_advanced_experiments_hint">Liste des fonctionnalités expérimentales actuelles</string>
     <string name="title_advanced_debug_hint">Activer la journalisation supplémentaire et afficher les informations de débogage à différents endroits</string>
+    <string name="title_advanced_cleanup_attachments_hint">Ceci supprimera les pièces jointes des messages qui ne sont plus synchronisés lors du nettoyage manuel</string>
     <string name="title_advanced_cleanup_hint">Ceci supprimera tous les fichiers temporaires</string>
     <string name="title_advanced_never_favorite">Jamais favori</string>
     <string name="title_advanced_swipe_actions">Définir les actions de balayage</string>
