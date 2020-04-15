@@ -894,7 +894,7 @@ public class FragmentCompose extends FragmentBase {
             @Override
             public void onError(Exception ex) {
                 if ("bindService() returned false!".equals(ex.getMessage()))
-                    Log.w("PGP", ex);
+                    Log.i(ex);
                 else
                     Log.e("PGP", ex);
             }

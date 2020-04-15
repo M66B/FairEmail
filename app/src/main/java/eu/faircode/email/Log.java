@@ -172,6 +172,10 @@ public class Log {
         return android.util.Log.e(TAG, ex + "\n" + android.util.Log.getStackTraceString(ex));
     }
 
+    public static int i(String prefix, Throwable ex) {
+        return android.util.Log.i(TAG, prefix + " " + ex + "\n" + android.util.Log.getStackTraceString(ex));
+    }
+
     public static int w(String prefix, Throwable ex) {
         if (BuildConfig.BETA_RELEASE)
             try {
