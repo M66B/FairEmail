@@ -4035,8 +4035,6 @@ public class FragmentCompose extends FragmentBase {
                             if (pgpService.isBound() &&
                                     !EntityMessage.PGP_SIGNENCRYPT.equals(draft.ui_encrypt)) {
                                 List<Address> recipients = new ArrayList<>();
-                                if (draft.from != null)
-                                    recipients.addAll(Arrays.asList(draft.from));
                                 if (draft.to != null)
                                     recipients.addAll(Arrays.asList(draft.to));
                                 if (draft.cc != null)
