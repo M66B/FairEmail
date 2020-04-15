@@ -116,6 +116,10 @@ public class EntityAttachment {
         return IMAGE_TYPES.contains(getMimeType());
     }
 
+    boolean isEncryption() {
+        return (encryption != null);
+    }
+
     File getFile(Context context) {
         return getFile(context, id, name);
     }

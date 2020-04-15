@@ -2001,7 +2001,7 @@ public class FragmentCompose extends FragmentBase {
                     // Get/clean attachments
                     List<EntityAttachment> attachments = db.attachment().getAttachments(draft.id);
                     for (EntityAttachment attachment : new ArrayList<>(attachments))
-                        if (attachment.encryption != null) {
+                        if (attachment.isEncryption()) {
                             db.attachment().deleteAttachment(attachment.id);
                             attachments.remove(attachment);
                         }
@@ -3449,7 +3449,7 @@ public class FragmentCompose extends FragmentBase {
                         int sequence = 0;
                         List<EntityAttachment> attachments = db.attachment().getAttachments(ref.id);
                         for (EntityAttachment attachment : attachments)
-                            if (attachment.encryption == null &&
+                            if (!attachment.isEncryption() &&
                                     ("forward".equals(action) || "editasnew".equals(action) ||
                                             (cid.contains(attachment.cid) ||
                                                     (attachment.isInline() && attachment.isImage())))) {
@@ -3526,7 +3526,7 @@ public class FragmentCompose extends FragmentBase {
                 List<EntityAttachment> attachments = db.attachment().getAttachments(data.draft.id);
                 for (EntityAttachment attachment : attachments)
                     if (attachment.available) {
-                        if (attachment.encryption == null)
+                        if (!attachment.isEncryption())
                             last_available++;
                     } else
                         EntityOperation.queue(context, data.draft, EntityOperation.ATTACHMENT, attachment.id);
@@ -3600,7 +3600,7 @@ public class FragmentCompose extends FragmentBase {
                             boolean downloading = false;
                             boolean inline_images = false;
                             for (EntityAttachment attachment : attachments) {
-                                if (attachment.encryption != null)
+                                if (attachment.isEncryption())
                                     continue;
                                 if (attachment.progress != null)
                                     downloading = true;
@@ -3846,10 +3846,10 @@ public class FragmentCompose extends FragmentBase {
                     List<Integer> eparts = new ArrayList<>();
                     for (EntityAttachment attachment : attachments)
                         if (attachment.available)
-                            if (attachment.encryption == null)
-                                available++;
-                            else
+                            if (attachment.isEncryption())
                                 eparts.add(attachment.encryption);
+                            else
+                                available++;
 
                     if (EntityMessage.PGP_SIGNONLY.equals(draft.ui_encrypt)) {
                         if (!eparts.contains(EntityAttachment.PGP_KEY) ||
@@ -4063,7 +4063,7 @@ public class FragmentCompose extends FragmentBase {
                             for (EntityAttachment attachment : attachments)
                                 if (!attachment.available)
                                     throw new IllegalArgumentException(context.getString(R.string.title_attachments_missing));
-                                else if (!attachment.isInline() && attachment.encryption == null)
+                                else if (!attachment.isInline() && !attachment.isEncryption())
                                     attached++;
 
                             // Check for missing attachments

@@ -146,7 +146,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             if (debug || BuildConfig.DEBUG) {
                 if (attachment.cid != null)
                     sb.append(' ').append(attachment.cid);
-                if (attachment.encryption != null)
+                if (attachment.isEncryption())
                     sb.append(' ').append(attachment.encryption);
             }
             tvType.setText(sb.toString());

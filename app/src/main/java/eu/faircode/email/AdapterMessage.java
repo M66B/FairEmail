@@ -2169,7 +2169,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             List<EntityAttachment> a = new ArrayList<>();
             for (EntityAttachment attachment : attachments) {
-                boolean inline = ((attachment.isInline() && attachment.isImage()) || attachment.encryption != null);
+                boolean inline = (attachment.isEncryption() ||
+                        (attachment.isInline() && attachment.isImage()));
                 if (inline)
                     has_inline = true;
                 if (attachment.progress == null && !attachment.available)
