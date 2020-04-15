@@ -6362,7 +6362,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 Element footer = document.createElement("p");
                 footer.appendElement("br").appendElement("hr");
                 for (EntityAttachment attachment : attachments)
-                    if (!attachment.isInline()) {
+                    if (attachment.isAttachment()) {
                         hasAttachments = true;
                         Element strong = document.createElement("strong");
                         strong.text(getString(R.string.title_attachment));
