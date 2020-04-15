@@ -27,18 +27,18 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentStatePagerAdapter;
-import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 public class FragmentLegend extends FragmentBase {
     private int layout = -1;
-    private ViewPager pager;
-    private PagerAdapter adapter;
+    private ViewPager2 pager;
+    private FragmentStateAdapter adapter;
 
-    FragmentLegend setLayout(int layout) {
+    private FragmentLegend setLayout(int layout) {
         this.layout = layout;
         return this;
     }
@@ -56,7 +56,33 @@ public class FragmentLegend extends FragmentBase {
             view = inflater.inflate(R.layout.fragment_legend, container, false);
 
             pager = view.findViewById(R.id.pager);
-            adapter = new PagerAdapter(getChildFragmentManager());
+
+            adapter = new FragmentStateAdapter(this) {
+                @Override
+                public int getItemCount() {
+                    return 5;
+                }
+
+                @NonNull
+                @Override
+                public Fragment createFragment(int position) {
+                    switch (position) {
+                        case 0:
+                            return new FragmentLegend().setLayout(R.layout.fragment_legend_synchronization);
+                        case 1:
+                            return new FragmentLegend().setLayout(R.layout.fragment_legend_folders);
+                        case 2:
+                            return new FragmentLegend().setLayout(R.layout.fragment_legend_messages);
+                        case 3:
+                            return new FragmentLegend().setLayout(R.layout.fragment_legend_compose);
+                        case 4:
+                            return new FragmentLegend().setLayout(R.layout.fragment_legend_keyboard);
+                        default:
+                            throw new IllegalArgumentException();
+                    }
+                }
+            };
+
             pager.setAdapter(adapter);
         } else
             view = inflater.inflate(layout, container, false);
@@ -71,7 +97,30 @@ public class FragmentLegend extends FragmentBase {
 
         if (layout < 0) {
             TabLayout tabLayout = view.findViewById(R.id.tab_layout);
-            tabLayout.setupWithViewPager(pager);
+            new TabLayoutMediator(tabLayout, pager, new TabLayoutMediator.TabConfigurationStrategy() {
+                @Override
+                public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
+                    switch (position) {
+                        case 0:
+                            tab.setText(R.string.title_legend_section_synchronize);
+                            break;
+                        case 1:
+                            tab.setText(R.string.title_legend_section_folders);
+                            break;
+                        case 2:
+                            tab.setText(R.string.title_legend_section_messages);
+                            break;
+                        case 3:
+                            tab.setText(R.string.title_legend_section_compose);
+                            break;
+                        case 4:
+                            tab.setText(R.string.title_legend_section_keyboard);
+                            break;
+                        default:
+                            throw new IllegalArgumentException("Position=" + position);
+                    }
+                }
+            }).attach();
 
             Bundle args = getArguments();
             if (args != null) {
@@ -89,52 +138,5 @@ public class FragmentLegend extends FragmentBase {
     public void onSaveInstanceState(Bundle outState) {
         outState.putInt("fair:layout", layout);
         super.onSaveInstanceState(outState);
-    }
-
-    private class PagerAdapter extends FragmentStatePagerAdapter {
-        public PagerAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public int getCount() {
-            return 5;
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            switch (position) {
-                case 0:
-                    return new FragmentLegend().setLayout(R.layout.fragment_legend_synchronization);
-                case 1:
-                    return new FragmentLegend().setLayout(R.layout.fragment_legend_folders);
-                case 2:
-                    return new FragmentLegend().setLayout(R.layout.fragment_legend_messages);
-                case 3:
-                    return new FragmentLegend().setLayout(R.layout.fragment_legend_compose);
-                case 4:
-                    return new FragmentLegend().setLayout(R.layout.fragment_legend_keyboard);
-                default:
-                    throw new IllegalArgumentException();
-            }
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            switch (position) {
-                case 0:
-                    return getString(R.string.title_legend_section_synchronize);
-                case 1:
-                    return getString(R.string.title_legend_section_folders);
-                case 2:
-                    return getString(R.string.title_legend_section_messages);
-                case 3:
-                    return getString(R.string.title_legend_section_compose);
-                case 4:
-                    return getString(R.string.title_legend_section_keyboard);
-                default:
-                    throw new IllegalArgumentException();
-            }
-        }
     }
 }
