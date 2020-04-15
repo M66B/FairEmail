@@ -78,6 +78,7 @@ import static android.app.Activity.RESULT_OK;
 public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder> {
     private Fragment parentFragment;
     private long account;
+    private boolean primary;
     private boolean show_compact;
     private boolean show_hidden;
     private boolean subscribed_only;
@@ -241,18 +242,18 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             }
 
             ViewGroup.LayoutParams lp = vwLevel.getLayoutParams();
-            lp.width = (account < 0 ? 1 : folder.indentation) * dp12;
+            lp.width = (account < 0 && !primary ? 1 : folder.indentation) * dp12;
             vwLevel.setLayoutParams(lp);
 
             ibExpander.setImageLevel(folder.collapsed ? 1 /* more */ : 0 /* less */);
             ibExpander.setContentDescription(context.getString(folder.collapsed ? R.string.title_accessibility_expand : R.string.title_accessibility_collapse));
-            ibExpander.setVisibility(account < 0 || !folder.expander
+            ibExpander.setVisibility((account < 0 && !primary) || !folder.expander
                     ? View.GONE
                     : folder.child_refs != null && folder.child_refs.size() > 0
                     ? View.VISIBLE : View.INVISIBLE);
 
             if (listener == null && folder.selectable) {
-                ivUnified.setVisibility(account > 0 && folder.unified ? View.VISIBLE : View.GONE);
+                ivUnified.setVisibility((account > 0 || primary) && folder.unified ? View.VISIBLE : View.GONE);
                 ivSubscribed.setVisibility(subscriptions && folder.subscribed != null && folder.subscribed ? View.VISIBLE : View.GONE);
                 ivRule.setVisibility(folder.rules > 0 ? View.VISIBLE : View.GONE);
                 ivNotify.setVisibility(folder.notify ? View.VISIBLE : View.GONE);
@@ -292,7 +293,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 ivType.setVisibility(folder.selectable ? View.VISIBLE : View.GONE);
 
             if (listener == null && folder.selectable) {
-                if (account < 0)
+                if (account < 0 && !primary)
                     tvType.setText(folder.accountName);
                 else
                     tvType.setText(Helper.localizeFolderType(context, folder.type));
@@ -720,13 +721,14 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         }
     }
 
-    AdapterFolder(Fragment parentFragment, long account, boolean show_compact, boolean show_hidden, IFolderSelectedListener listener) {
-        this(parentFragment.getContext(), parentFragment.getViewLifecycleOwner(), account, show_compact, show_hidden, listener);
+    AdapterFolder(Fragment parentFragment, long account, boolean primary, boolean show_compact, boolean show_hidden, IFolderSelectedListener listener) {
+        this(parentFragment.getContext(), parentFragment.getViewLifecycleOwner(), account, primary, show_compact, show_hidden, listener);
         this.parentFragment = parentFragment;
     }
 
-    AdapterFolder(Context context, LifecycleOwner owner, long account, boolean show_compact, boolean show_hidden, IFolderSelectedListener listener) {
+    AdapterFolder(Context context, LifecycleOwner owner, long account, boolean primary, boolean show_compact, boolean show_hidden, IFolderSelectedListener listener) {
         this.account = account;
+        this.primary = primary;
         this.show_compact = show_compact;
         this.show_hidden = show_hidden;
         this.listener = listener;
@@ -794,7 +796,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         all = folders;
 
         List<TupleFolderEx> hierarchical;
-        if (account < 0) {
+        if (account < 0 && !primary) {
             if (folders.size() > 0)
                 Collections.sort(folders, folders.get(0).getComparator(context));
             hierarchical = folders;

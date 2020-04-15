@@ -175,7 +175,7 @@ public class FragmentFolders extends FragmentBase {
             rvFolder.addItemDecoration(itemDecorator);
         }
 
-        adapter = new AdapterFolder(this, account, compact, show_hidden, null);
+        adapter = new AdapterFolder(this, account, primary, compact, show_hidden, null);
         rvFolder.setAdapter(adapter);
 
         fabAdd.setOnClickListener(new View.OnClickListener() {
