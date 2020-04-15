@@ -522,7 +522,7 @@
     <string name="title_advanced_optimize_hint">Enabling this can automatically change the receive settings to reduce battery usage</string>
     <string name="title_advanced_experiments_hint">List of current experimental features</string>
     <string name="title_advanced_debug_hint">Enable extra logging and show debug information at various places</string>
-    <string name="title_advanced_cleanup_attachments_hint">This will remove attachments from messages that are no longer synchronized</string>
+    <string name="title_advanced_cleanup_attachments_hint">This will remove attachments from messages that are no longer synchronized when manually cleaning</string>
     <string name="title_advanced_cleanup_hint">This will delete all temporary files</string>
 
     <string name="title_advanced_never_favorite">Never favorite</string>
