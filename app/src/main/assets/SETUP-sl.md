@@ -30,12 +30,12 @@ Glejte [ta pogosta vprašanja](https://github.com/M66B/FairEmail/blob/master/FAQ
 
 ## Odobrite dovoljenja - za dostop do podatkov o stikih
 
-If you want to lookup email addresses, have contact photos shown, etc, you'll need to grant read contacts permission to FairEmail. Just tap *Grant permissions* and select *Allow*.
+Če želite iskati e-poštne naslove, prikazati slike stikov itd., boste morali FairMailu odobriti dovoljenje za branje stikov. Dotaknite se *Odobri dovoljenja* in izberite *Dovoli*.
 
-## Setup battery optimizations - to continuously receive emails
+## Nastavite optimizacijo baterije - za neprekinjeno prejemanje e-pošte
 
-On recent Android versions, Android will put apps to sleep when the screen is off for some time to reduce battery usage. If you want to receive new emails without delays, you should disable battery optimizations for FairEmail. Tap *Disable battery optimizations* and follow the instructions.
+V novejših različicah bo Android programe preklopil v spanje, kadar je zaslon za nekaj časa izklopljen, da zmanjša porabo energije. Če želite nova sporočila prejemati brez zakasnitev, onemogočite optimizacijo baterije za FairMail. Dotaknite se *Onemogoči optimizacijo baterije* in sledite navodilom.
 
-## Questions or problems
+## Vprašanja ali težave
 
-If you have a question or problem, please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) for help.
+Če imate vprašanje ali težavo, za pomoč glejte [tukaj](https://github.com/M66B/FairEmail/blob/master/FAQ.md).

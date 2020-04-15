@@ -383,6 +383,7 @@
     <string name="title_advanced_experiments">Probar características experimentales</string>
     <string name="title_advanced_crash_reports">Enviar informes de errores</string>
     <string name="title_advanced_debug">Modo de depuración</string>
+    <string name="title_advanced_cleanup_attachments">Eliminar archivos adjuntos de mensajes antiguos</string>
     <string name="title_advanced_cleanup">Limpieza</string>
     <string name="title_advanced_last_cleanup">Última limpieza: %1$s</string>
     <string name="title_advanced_more">Más opciones</string>
@@ -446,6 +447,7 @@
     <string name="title_advanced_optimize_hint">Activar esto puede cambiar automáticamente los ajustes de recepción para reducir el uso de la batería</string>
     <string name="title_advanced_experiments_hint">Lista de características experimentales actuales</string>
     <string name="title_advanced_debug_hint">Activar registro adicional y mostrar información de depuración en varios lugares</string>
+    <string name="title_advanced_cleanup_attachments_hint">Esto eliminará los archivos adjuntos de los mensajes que ya no están sincronizados al limpiar manualmente</string>
     <string name="title_advanced_cleanup_hint">Esto eliminará todos los archivos temporales</string>
     <string name="title_advanced_never_favorite">Nunca favorito</string>
     <string name="title_advanced_swipe_actions">Establecer acciones de deslizamiento</string>
