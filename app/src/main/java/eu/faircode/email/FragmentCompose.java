@@ -135,6 +135,7 @@ import org.jsoup.nodes.Node;
 import org.jsoup.nodes.TextNode;
 import org.jsoup.select.Elements;
 import org.jsoup.select.NodeFilter;
+import org.openintents.openpgp.IOpenPgpService2;
 import org.openintents.openpgp.OpenPgpError;
 import org.openintents.openpgp.util.OpenPgpApi;
 import org.openintents.openpgp.util.OpenPgpServiceConnection;
@@ -882,9 +883,19 @@ public class FragmentCompose extends FragmentBase {
         tvNoInternetAttachments.setVisibility(View.GONE);
         grpUnusedImagesHint.setVisibility(View.GONE);
 
-        String pkg = Helper.getOpenKeychainPackage(getContext());
-        Log.i("Binding to " + pkg);
-        pgpService = new OpenPgpServiceConnection(getContext(), pkg);
+        final String pkg = Helper.getOpenKeychainPackage(getContext());
+        Log.i("PGP binding to " + pkg);
+        pgpService = new OpenPgpServiceConnection(getContext(), pkg, new OpenPgpServiceConnection.OnBound() {
+            @Override
+            public void onBound(IOpenPgpService2 service) {
+                Log.i("PGP bound to " + pkg);
+            }
+
+            @Override
+            public void onError(Exception ex) {
+                Log.e("PGP", ex);
+            }
+        });
         pgpService.bindToService();
 
         return view;
