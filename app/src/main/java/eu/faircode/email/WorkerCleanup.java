@@ -33,6 +33,8 @@ import androidx.work.WorkManager;
 import androidx.work.Worker;
 import androidx.work.WorkerParameters;
 
+import net.openid.appauth.BuildConfig;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -92,7 +94,8 @@ public class WorkerCleanup extends Worker {
                 }
 
                 if (cleanup_attachments) {
-                    int purged = db.attachment().purge(new Date().getTime());
+                    int purged = db.attachment().purge(
+                            new Date().getTime(), BuildConfig.DEBUG);
                     Log.i("Attachments purged=" + purged);
                 }
 
