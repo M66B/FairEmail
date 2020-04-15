@@ -170,10 +170,13 @@ public class ContactInfo {
                     String lookupKey = cursor.getString(colLookupKey);
                     Uri lookupUri = ContactsContract.Contacts.getLookupUri(contactId, lookupKey);
 
-                    if (avatars) {
-                        InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(resolver, lookupUri);
-                        info.bitmap = BitmapFactory.decodeStream(is);
-                    }
+                    if (avatars)
+                        try (InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(
+                                resolver, lookupUri, false)) {
+                            info.bitmap = BitmapFactory.decodeStream(is);
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        }
 
                     info.displayName = cursor.getString(colDisplayName);
                     info.lookupUri = lookupUri;

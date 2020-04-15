@@ -20,13 +20,14 @@ package eu.faircode.email;
 */
 
 import android.Manifest;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
+import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.ParcelFileDescriptor;
 import android.provider.ContactsContract;
 import android.text.SpannableString;
 import android.text.TextUtils;
@@ -53,6 +54,7 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.InputStream;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -124,36 +126,16 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
 
             if (contact.avatar == null || !contacts)
                 ivAvatar.setImageDrawable(null);
-            else
-                try {
-                    Uri uri = Uri.parse(contact.avatar + "/photo");
-
-                    /*
-                        java.lang.NullPointerException: Attempt to invoke virtual method 'java.io.FileDescriptor android.content.res.AssetFileDescriptor.getFileDescriptor()' on a null object reference
-                        java.lang.NullPointerException: Attempt to invoke virtual method 'java.io.FileDescriptor android.content.res.AssetFileDescriptor.getFileDescriptor()' on a null object reference
-                        at android.graphics.ImageDecoder$ContentResolverSource.createImageDecoder(ImageDecoder.java:286)
-                        at android.graphics.ImageDecoder.decodeDrawableImpl(ImageDecoder.java:1652)
-                        at android.graphics.ImageDecoder.decodeDrawable(ImageDecoder.java:1645)
-                        at android.widget.ImageView.getDrawableFromUri(ImageView.java:952)
-                        at android.widget.ImageView.resolveUri(ImageView.java:921)
-
-                        at android.widget.ImageView.setImageURI(ImageView.java:532)
-                        at androidx.appcompat.widget.AppCompatImageView.setImageURI(SourceFile:116)
-
-                        at android.widget.ImageView.onMeasure(ImageView.java:1056)
-                        at android.view.View.measure(View.java:23188)
-                        at androidx.constraintlayout.widget.ConstraintLayout$Measurer.measure(SourceFile:806)
-                     */
-                    ParcelFileDescriptor pfd = context.getContentResolver().openFileDescriptor(uri, "r");
-                    if (pfd == null)
-                        throw new IllegalArgumentException("Contact inaccessible");
-                    pfd.close();
-
-                    ivAvatar.setImageURI(uri);
+            else {
+                ContentResolver resolver = context.getContentResolver();
+                Uri lookupUri = Uri.parse(contact.avatar);
+                try (InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(
+                        resolver, lookupUri, false)) {
+                    ivAvatar.setImageBitmap(BitmapFactory.decodeStream(is));
                 } catch (Throwable ex) {
                     Log.e(ex);
-                    ivAvatar.setImageResource(R.drawable.baseline_broken_image_24);
                 }
+            }
 
             tvName.setText(contact.name == null ? contact.email : contact.name);
             tvEmail.setText(contact.accountName + "/" + contact.email);
