@@ -37,6 +37,22 @@ public class FragmentDialogSearch extends FragmentDialogBase {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+        final long account = getArguments().getLong("account", -1);
+        final long folder = getArguments().getLong("folder", -1);
+
+        boolean pro = ActivityBilling.isPro(getContext());
+
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean fts = prefs.getBoolean("fts", false);
+        boolean filter_seen = prefs.getBoolean("filter_seen", false);
+        boolean filter_unflagged = prefs.getBoolean("filter_unflagged", false);
+        boolean last_search_senders = prefs.getBoolean("last_search_senders", true);
+        boolean last_search_recipients = prefs.getBoolean("last_search_recipients", true);
+        boolean last_search_subject = prefs.getBoolean("last_search_subject", true);
+        boolean last_search_keywords = prefs.getBoolean("last_search_keywords", false);
+        boolean last_search_message = prefs.getBoolean("last_search_message", true);
+        String last_search = prefs.getString("last_search", null);
+
         View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_search, null);
 
         final AutoCompleteTextView etQuery = dview.findViewById(R.id.etQuery);
@@ -59,19 +75,6 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         final TextView tvBefore = dview.findViewById(R.id.tvBefore);
         final TextView tvAfter = dview.findViewById(R.id.tvAfter);
         final Group grpMore = dview.findViewById(R.id.grpMore);
-
-        boolean pro = ActivityBilling.isPro(getContext());
-
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        boolean fts = prefs.getBoolean("fts", false);
-        boolean filter_seen = prefs.getBoolean("filter_seen", false);
-        boolean filter_unflagged = prefs.getBoolean("filter_unflagged", false);
-        boolean last_search_senders = prefs.getBoolean("last_search_senders", true);
-        boolean last_search_recipients = prefs.getBoolean("last_search_recipients", true);
-        boolean last_search_subject = prefs.getBoolean("last_search_subject", true);
-        boolean last_search_keywords = prefs.getBoolean("last_search_keywords", false);
-        boolean last_search_message = prefs.getBoolean("last_search_message", true);
-        String last_search = prefs.getString("last_search", null);
 
         final InputMethodManager imm = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
 
@@ -102,7 +105,10 @@ public class FragmentDialogSearch extends FragmentDialogBase {
 
                 String query = "%" + typed + "%";
                 DB db = DB.getInstance(getContext());
-                return db.message().getSuggestions("%" + query + "%");
+                return db.message().getSuggestions(
+                        account < 0 ? null : account,
+                        folder < 0 ? null : folder,
+                        "%" + query + "%");
             }
         });
 
@@ -227,9 +233,6 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        long account = getArguments().getLong("account", -1);
-                        long folder = getArguments().getLong("folder", -1);
-
                         BoundaryCallbackMessages.SearchCriteria criteria = new BoundaryCallbackMessages.SearchCriteria();
 
                         criteria.query = etQuery.getText().toString();

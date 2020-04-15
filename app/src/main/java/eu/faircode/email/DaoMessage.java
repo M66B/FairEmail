@@ -475,17 +475,24 @@ public interface DaoMessage {
     List<EntityMessage> getSnoozed(Long folder);
 
     @Query("SELECT id AS _id, subject AS suggestion FROM message" +
-            " WHERE subject LIKE :query" +
+            " WHERE (:account IS NULL OR message.account = :account)" +
+            " AND (:folder IS NULL OR message.folder = :folder)" +
+            " AND subject LIKE :query" +
             " AND NOT message.ui_hide" +
             " GROUP BY subject" +
+
             " UNION" +
+
             " SELECT id AS _id, sender AS suggestion FROM message" +
-            " WHERE sender LIKE :query" +
+            " WHERE (:account IS NULL OR message.account = :account)" +
+            " AND (:folder IS NULL OR message.folder = :folder)" +
+            " AND sender LIKE :query" +
             " AND NOT message.ui_hide" +
             " GROUP BY sender" +
+
             " ORDER BY sender, subject" +
             " LIMIT 5")
-    Cursor getSuggestions(String query);
+    Cursor getSuggestions(Long account, Long folder, String query);
 
     @Query("SELECT language FROM message" +
             " WHERE (:account IS NULL OR message.account = :account)" +
