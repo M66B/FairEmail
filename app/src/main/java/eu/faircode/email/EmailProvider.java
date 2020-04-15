@@ -25,11 +25,9 @@ import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 
-import org.xbill.DNS.Lookup;
 import org.xbill.DNS.MXRecord;
 import org.xbill.DNS.Record;
 import org.xbill.DNS.SRVRecord;
-import org.xbill.DNS.SimpleResolver;
 import org.xbill.DNS.TextParseException;
 import org.xbill.DNS.Type;
 import org.xmlpull.v1.XmlPullParser;
@@ -228,7 +226,7 @@ public class EmailProvider {
 
             try {
                 // Retry at MX server addresses
-                Record[] records = lookupDNS(context, domain, Type.MX);
+                Record[] records = DNSHelper.lookup(context, domain, Type.MX);
                 for (Record record : records) {
                     String target = ((MXRecord) record).getTarget().toString(true);
                     while (autoconfig == null && target != null && target.indexOf('.') > 0) {
@@ -507,7 +505,7 @@ public class EmailProvider {
         if (discover == Discover.ALL || discover == Discover.IMAP) {
             try {
                 // Identifies an IMAP server where TLS is initiated directly upon connection to the IMAP server.
-                Record[] records = lookupDNS(context, "_imaps._tcp." + domain, Type.SRV);
+                Record[] records = DNSHelper.lookup(context, "_imaps._tcp." + domain, Type.SRV);
                 // ... service is not supported at all at a particular domain by setting the target of an SRV RR to "."
                 SRVRecord srv = (SRVRecord) records[0];
                 provider.imap.host = srv.getTarget().toString(true);
@@ -515,7 +513,7 @@ public class EmailProvider {
                 provider.imap.starttls = false;
             } catch (UnknownHostException ex) {
                 // Identifies an IMAP server that MAY ... require the MUA to use the "STARTTLS" command
-                Record[] records = lookupDNS(context, "_imap._tcp." + domain, Type.SRV);
+                Record[] records = DNSHelper.lookup(context, "_imap._tcp." + domain, Type.SRV);
                 SRVRecord srv = (SRVRecord) records[0];
                 provider.imap.host = srv.getTarget().toString(true);
                 provider.imap.port = srv.getPort();
@@ -525,7 +523,7 @@ public class EmailProvider {
 
         if (discover == Discover.ALL || discover == Discover.SMTP) {
             // Note that this covers connections both with and without Transport Layer Security (TLS)
-            Record[] records = lookupDNS(context, "_submission._tcp." + domain, Type.SRV);
+            Record[] records = DNSHelper.lookup(context, "_submission._tcp." + domain, Type.SRV);
             SRVRecord srv = (SRVRecord) records[0];
             provider.smtp.host = srv.getTarget().toString(true);
             provider.smtp.port = srv.getPort();
@@ -616,31 +614,6 @@ public class EmailProvider {
             provider.documentation.append("<br><br>");
 
         provider.documentation.append("<a href=\"").append(href).append("\">").append(title).append("</a>");
-    }
-
-    @NonNull
-    private static Record[] lookupDNS(Context context, String name, int type) throws TextParseException, UnknownHostException {
-        Lookup lookup = new Lookup(name, type);
-
-        SimpleResolver resolver = new SimpleResolver(ConnectionHelper.getDnsServer(context));
-        lookup.setResolver(resolver);
-        Log.i("Lookup name=" + name + " @" + resolver.getAddress() + " type=" + type);
-        Record[] records = lookup.run();
-
-        if (lookup.getResult() != Lookup.SUCCESSFUL)
-            if (lookup.getResult() == Lookup.HOST_NOT_FOUND ||
-                    lookup.getResult() == Lookup.TYPE_NOT_FOUND)
-                throw new UnknownHostException(name);
-            else
-                throw new UnknownHostException(lookup.getErrorString());
-
-        if (records.length == 0)
-            throw new UnknownHostException(name);
-
-        for (Record record : records)
-            Log.i("Found record=" + record);
-
-        return records;
     }
 
     @NonNull

@@ -47,7 +47,7 @@ public class IPInfo {
             if (to == null || !to.contains("@"))
                 throw new UnknownHostException();
             String domain = to.substring(to.indexOf('@') + 1);
-            InetAddress address = ConnectionHelper.lookupMx(domain, context);
+            InetAddress address = DNSHelper.lookupMx(context, domain);
             if (address == null)
                 throw new UnknownHostException();
             return new Pair<>(domain, getOrganization(address));

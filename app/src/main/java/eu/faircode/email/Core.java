@@ -2284,9 +2284,9 @@ class Core {
             boolean check_mx = prefs.getBoolean("check_mx", false);
             if (check_mx)
                 try {
-                    if (ConnectionHelper.lookupMx(
-                            message.reply == null || message.reply.length == 0
-                                    ? message.from : message.reply, context))
+                    if (DNSHelper.lookupMx(
+                            context, message.reply == null || message.reply.length == 0
+                                    ? message.from : message.reply))
                         message.mx = true;
                 } catch (UnknownHostException ex) {
                     message.mx = false;
@@ -2347,12 +2347,12 @@ class Core {
                     String r = ((InternetAddress) reply).getAddress();
                     int rat = (r == null ? -1 : r.indexOf('@'));
                     if (rat > 0) {
-                        String rdomain = ConnectionHelper.getParentDomain(r.substring(rat + 1));
+                        String rdomain = DNSHelper.getParentDomain(r.substring(rat + 1));
                         for (Address from : message.from) {
                             String f = ((InternetAddress) from).getAddress();
                             int fat = (f == null ? -1 : f.indexOf('@'));
                             if (fat > 0) {
-                                String fdomain = ConnectionHelper.getParentDomain(f.substring(fat + 1));
+                                String fdomain = DNSHelper.getParentDomain(f.substring(fat + 1));
                                 if (!rdomain.equalsIgnoreCase(fdomain)) {
                                     if (message.warning == null)
                                         message.warning = context.getString(R.string.title_reply_domain, fdomain, rdomain);
