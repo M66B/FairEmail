@@ -1914,7 +1914,7 @@ public class FragmentCompose extends FragmentBase {
                         throw new IllegalArgumentException(context.getString(R.string.title_no_image));
                     d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
 
-                    s.insert(start, "   ");
+                    s.insert(start, " \uFFFC "); // Object replacement character
                     ImageSpan is = new ImageSpan(context, cid);
                     s.setSpan(is, start + 1, start + 2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
@@ -1923,6 +1923,8 @@ public class FragmentCompose extends FragmentBase {
 
                 if (!image)
                     return null;
+
+                args.putInt("start", start);
 
                 return HtmlHelper.fromHtml(HtmlHelper.toHtml(s), new Html.ImageGetter() {
                     @Override
