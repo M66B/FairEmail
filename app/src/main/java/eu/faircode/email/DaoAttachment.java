@@ -105,11 +105,10 @@ public interface DaoAttachment {
             "   JOIN folder ON folder.id = message.folder" +
             "   WHERE a.id = attachment.id" +
             "   AND a.available" +
-            "   AND (message.stored < :now - folder.sync_days * 24 * 3600 * 1000" +
-            "   OR (:extra AND" +
-            "   (folder.type = '" + EntityFolder.TRASH + "'" +
-            "    OR folder.type = '" + EntityFolder.JUNK + "'))))")
-    int purge(long now, boolean extra);
+            "   AND message.ui_seen" +
+            "   AND NOT message.ui_flagged" +
+            "   AND message.received < :now - (folder.sync_days + 1) * 24 * 3600 * 1000)")
+    int purge(long now);
 
     @Insert
     long insertAttachment(EntityAttachment attachment);

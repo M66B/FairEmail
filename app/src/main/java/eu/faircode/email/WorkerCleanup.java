@@ -107,8 +107,7 @@ public class WorkerCleanup extends Worker {
 
                 // Delete old attachments
                 if (cleanup_attachments) {
-                    int purged = db.attachment().purge(
-                            new Date().getTime(), BuildConfig.DEBUG);
+                    int purged = db.attachment().purge(new Date().getTime());
                     Log.i("Attachments purged=" + purged);
                 }
 
