@@ -982,7 +982,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (viewType == ViewType.FOLDER)
                 tvFolder.setText(outbox ? message.identityEmail : message.accountName);
             else if (viewType == ViewType.THREAD || viewType == ViewType.SEARCH)
-                tvFolder.setText(message.getFolderName(context));
+                tvFolder.setText(message.getFolderName(context) +
+                        (BuildConfig.DEBUG ? ":" + message.id : ""));
             else
                 tvFolder.setText(message.accountName + "/" + message.getFolderName(context));
 
@@ -4920,7 +4921,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             if (properties.getValue("expanded", id)) {
                                 Context context = parentFragment.getContext();
                                 if (context != null)
-                                    ToastEx.makeText(context, msg, Toast.LENGTH_SHORT).show();
+                                    ToastEx.makeText(context, msg + " id=" + id, Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
