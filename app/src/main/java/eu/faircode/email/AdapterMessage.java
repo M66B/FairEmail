@@ -2220,7 +2220,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             List<EntityAttachment> images = new ArrayList<>();
             for (EntityAttachment attachment : attachments)
-                if (!attachment.isInline() && attachment.isImage())
+                if (attachment.isAttachment() && attachment.isImage())
                     images.add(attachment);
             adapterImage.set(images);
             grpImages.setVisibility(images.size() > 0 ? View.VISIBLE : View.GONE);
