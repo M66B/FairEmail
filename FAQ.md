@@ -47,7 +47,7 @@ Related questions:
 
 * Change the account name: Setup, step 1, Manage, tap account
 * Change the swipe left/right target: Setup, step 1, Manage, tap account, at the bottom
-* Set a signature: Setup, step 2, Manage, tap identity, Edit signature. See [this FAQ](#user-content-faq57) about how to insert an image, etc.
+* Set a signature: Setup, step 2, Manage, tap identity, Edit signature.
 * Add CC and BCC addresses: tap the people's icon at the end of the subject
 * Go to the next/previous message on archive/delete: in the behavior settings disable *Automatically close conversations* and select *Go to next/previous conversation* for *On closing a conversation*
 * Add a folder to the unified inbox: long press the folder in the folder list and check *Show in unified inbox*
@@ -175,7 +175,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [~~(54) How do I use a namespace prefix?~~](#user-content-faq54)
 * [(55) How can I mark all messages as read / move or delete all messages?](#user-content-faq55)
 * [(56) Can you add support for JMAP?](#user-content-faq56)
-* [(57) Can I use HTML in signatures?](#user-content-faq57)
+* [~~(57) Can I use HTML in signatures?~~](#user-content-faq57)
 * [(58) What does an open/closed email icon mean?](#user-content-faq58)
 * [(59) Can original messages be opened in the browser?](#user-content-faq59)
 * [(60) Did you known ...?](#user-content-faq60)
@@ -1503,14 +1503,14 @@ so it is not worth a lot of effort to add support for this to FairEmail.
 <br />
 
 <a name="faq57"></a>
-**(57) Can I use HTML in signatures?**
+**(57) ~~Can I use HTML in signatures?~~**
 
-Yes, you can use HTML in signatures if you paste formatted text into the signature field or use the *Edit as HTML* menu to enter HTML manually.
+~~Yes, you can use HTML in signatures if you paste formatted text into the signature field or use the *Edit as HTML* menu to enter HTML manually.~~
 
-Note that including links and images in messages will increase the likelihood that a message will be seen as spam,
-especially when you send a message to someone for the first time.
+~~Note that including links and images in messages will increase the likelihood that a message will be seen as spam,~~
+~~especially when you send a message to someone for the first time.~~
 
-See [here](https://stackoverflow.com/questions/44410675/supported-html-tags-on-android-textview) for which HTML tags are supported.
+~~See [here](https://stackoverflow.com/questions/44410675/supported-html-tags-on-android-textview) for which HTML tags are supported.~~
 
 <br />
 
