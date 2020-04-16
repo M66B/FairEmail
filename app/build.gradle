@@ -222,7 +222,7 @@ configurations.all {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    def core_version = "1.3.0-beta01"
+    def core_version = "1.3.0-rc01"
     def appcompat_version = "1.2.0-beta01"
     def fragment_version = "1.3.0-alpha03"
     def recyclerview_version = "1.2.0-alpha02"
@@ -231,13 +231,13 @@ dependencies {
     def material_version = "1.2.0-alpha06"
     def browser_version = "1.3.0-alpha01"
     def lbm_version = "1.0.0"
-    def swiperefresh_version = "1.1.0-beta01"
+    def swiperefresh_version = "1.1.0-rc01"
     def documentfile_version = "1.0.1"
     def lifecycle_version = "2.2.0"
     def sqlite_version = "2.1.0"
     def room_version = "2.2.5"
     def paging_version = "2.1.2"
-    def preference_version = "1.1.0"
+    def preference_version = "1.1.1"
     def work_version = "2.3.4"
     def exif_version = "1.3.0-alpha01"
     def biometric_version = "1.0.1"
