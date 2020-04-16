@@ -79,8 +79,7 @@ class ImageHelper {
 
     private static final int DOWNLOAD_TIMEOUT = 15 * 1000; // milliseconds
     private static final int MAX_REDIRECTS = 10;
-    private static final long FIT_DRAWABLE_WARNING = 10 * 1000L; // milliseconds
-    private static final long FIT_DRAWABLE_TIMEOUT = 20 * 1000L; // milliseconds
+    private static final long FIT_DRAWABLE_TIMEOUT = 10 * 1000L; // milliseconds
     private static final int SLOW_CONNECTION = 2 * 1024; // Kbps
 
     static Bitmap generateIdenticon(@NonNull String email, int size, int pixels, Context context) {
@@ -424,9 +423,10 @@ class ImageHelper {
     }
 
     private static void fitDrawable(final Drawable d, final AnnotatedSource a, final View view) {
-        Semaphore semaphore = new Semaphore(0);
+        if (!view.isAttachedToWindow())
+            return;
 
-        long start = new Date().getTime();
+        Semaphore semaphore = new Semaphore(0);
 
         view.post(new Runnable() {
             @Override
@@ -459,12 +459,13 @@ class ImageHelper {
         });
 
         try {
-            if (semaphore.tryAcquire(FIT_DRAWABLE_TIMEOUT, TimeUnit.MILLISECONDS)) {
-                long elapsed = new Date().getTime() - start;
-                if (elapsed > FIT_DRAWABLE_WARNING)
-                    Log.i("fitDrawable failed elapsed=" + elapsed);
-            } else
-                Log.i("fitDrawable failed timeout=" + FIT_DRAWABLE_TIMEOUT);
+            long now = new Date().getTime();
+            long start = now;
+            while (view.isAttachedToWindow() && now - start < FIT_DRAWABLE_TIMEOUT) {
+                if (semaphore.tryAcquire(1000, TimeUnit.MILLISECONDS))
+                    break;
+                now = new Date().getTime();
+            }
         } catch (InterruptedException ex) {
             Log.w(ex);
         }
