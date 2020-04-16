@@ -597,6 +597,7 @@
     <string name="title_keep_all">Хранить все сообщения</string>
     <string name="title_auto_trash">Автоматически перемещать старые сообщения в корзину</string>
     <string name="title_auto_delete">Автоматически навсегда удалять старые сообщения</string>
+    <string name="title_auto_delete_hint">Старые сообщения - это сообщения, которые больше не хранятся на устройстве</string>
     <string name="title_folder_name_missing">Отсутствует название папки</string>
     <string name="title_folder_exists">Папка %1$s существует</string>
     <string name="title_folder_delete">Удалить эту папку и сообщения, которые она содержит?</string>

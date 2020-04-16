@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_search">Iskanje FairMail</string>
+    <string name="app_search">Iskanje FairEmail</string>
     <string name="app_changelog">Dnevnik sprememb</string>
-    <string name="app_welcome">FairMail je odprtokodni program za e-pošto, ki se osredotoča na zasebnost in varnost.  Zaradi tega lahko nekatere značilnosti delujejo drugače, kot ste navajeni.</string>
+    <string name="app_welcome">FairEmail je odprtokodni program za e-pošto, ki se osredotoča na zasebnost in varnost.  Zaradi tega lahko nekatere značilnosti delujejo drugače, kot ste navajeni.</string>
     <string name="app_limitations">Na primer sporočila bodo vedno preoblikovana, da se odstranijo nevarni elementi in izboljša berljivost, odpiranje povezav pa je treba potrditi.</string>
-    <string name="app_crash">FairMail na tej napravi ni podprt, ker hrošči v Androidu povzročajo sesutja.</string>
+    <string name="app_crash">FairEmail na tej napravi ni podprt, ker hrošči v Androidu povzročajo sesutja.</string>
     <string name="app_exit">Za izhod še enkrat pritisnite \'Nazaj\'.</string>
     <string name="channel_service">Storitev</string>
     <string name="channel_send">Pošlji</string>
@@ -147,7 +147,7 @@
     <string name="title_setup_other">Drug ponudnik</string>
     <string name="title_setup_gmail_support">Overjanje računov Google bo delovalo samo v uradnih različicah, ker Android preveri podpis programa.</string>
     <string name="title_setup_gmail_rationale">Odobrite dovoljenja za izbiro računa in branje vašega imena.</string>
-    <string name="title_setup_gmail_permissions">Google vas bo vprašal za dovoljenje za branje, sestavljanje, pošiljanje in trajno brisanje vaše e-pošte.  FairMail brez vašega izrecnega dovoljenja ne bo nikoli izbrisal sporočil.</string>
+    <string name="title_setup_gmail_permissions">Google vas bo vprašal za dovoljenje za branje, sestavljanje, pošiljanje in trajno brisanje vaše e-pošte.  FairEmail brez vašega izrecnega dovoljenja ne bo nikoli izbrisal sporočil.</string>
     <string name="title_setup_gmail_drafts">Če IMAP nima dostopa do mape z osnutki, lahko to popravite v Gmailovih nastavitvah oznak.</string>
     <string name="title_setup_oauth_rationale">Odobrite dostop do računa %1$s.</string>
     <string name="title_setup_oauth_authorize">Odobri</string>
@@ -398,7 +398,7 @@
     <string name="title_advanced_fts">Zgradi iskalno kazalo</string>
     <string name="title_advanced_fts_indexed">V kazalo je bilo dodanih %1$d/%2$d sporočil (%3$s)</string>
     <string name="title_advanced_english">Vsili angleški jezik</string>
-    <string name="title_advanced_watchdog">Občasno preveri, ali je FairMail še vedno dejaven</string>
+    <string name="title_advanced_watchdog">Občasno preveri, ali je FairEmail še vedno dejaven</string>
     <string name="title_advanced_optimize">Samodejno optimiziraj nastavitve</string>
     <string name="title_advanced_updates">Preveri za posodobitve</string>
     <string name="title_advanced_experiments">Preizkusne značilnosti</string>
@@ -407,10 +407,10 @@
     <string name="title_advanced_cleanup_attachments">Izbriši priloge starih sporočil</string>
     <string name="title_advanced_cleanup">Počisti</string>
     <string name="title_advanced_more">Več možnosti</string>
-    <string name="title_advanced_enabled_hint">Onemogoči ali omogoči splošno prejemanje sporočil</string>
+    <string name="title_advanced_enabled_hint">Onemogoči ali omogoči splošno prejemanje sporočil.</string>
     <string name="title_advanced_manual_hint">Če je sinhronizacija onemogočena, je še vedno mogoča ročna sinhronizacija s potegom navzdol po seznamu sporočil.</string>
     <string name="title_advanced_poll_hint">Občasna sinhronizacija bo vsakič primerjala krajevna in oddaljena sporočila, kar je potratno opravilo, ki lahko porabi dodatno energijo, posebno pri velikem številu sporočil.  Če sinhronizirate vedno, se boste izognili dodatni porabi energije, ker pri tem program stalno preverja samo za spremembe.</string>
-    <string name="title_advanced_schedule_hint">Dotaknite se časa, da ga nastavite</string>
+    <string name="title_advanced_schedule_hint">Dotaknite se časa, da ga nastavite.</string>
     <string name="title_advanced_check_mx">Preveri pošiljateljeve e-poštne naslove ob sinhronizaciji sporočil</string>
     <string name="title_advanced_check_reply">Preveri e-poštne naslove za odgovor ob sinhronizaciji sporočil</string>
     <string name="title_advanced_no_date_hint">Nekateri ponudniki shranjujejo sporočila z neznanim, neveljavnim ali prihodnjim datumom kot sporočila brez datuma.</string>
@@ -420,7 +420,7 @@
     <string name="title_advanced_sync_folders_hint">Onemogočanje tega bo nekoliko zmanjšalo porabo podatkov in energije, vendar bo obenem tudi onemogočilo posodabljanje seznama map.</string>
     <string name="title_advanced_sync_delay_hint">To bo upočasnilo sinhronizacijo sporočil.</string>
     <string name="title_advanced_suggest_local_hint">Poleg stikov iz Androida.  Podatki o stikih bodo shranjeni za na novo poslana ali prejeta sporočila samo, ko je omogočeno.</string>
-    <string name="title_advanced_usenet_hint">Vstavi \'-- \' med besedilo in podpis</string>
+    <string name="title_advanced_usenet_hint">Vstavi \'-- \' med besedilo in podpis.</string>
     <string name="title_advanced_send_reminders_hint">Prikaži opozorilo, kadar je besedilo ali zadeva sporočila prazna, ali ko morda manjka priloga.</string>
     <string name="title_advanced_lookup_mx_hint">To bo preverilo, ali obstajajo zapisi DNS MX.</string>
     <string name="title_advanced_check_reply_hint">To bo preverilo, ali so ime domene pošiljatelja in naslovi za odgovor enaki.</string>
@@ -436,16 +436,16 @@
     <string name="title_advanced_startup_hint">Dolg pritisk na katerokoli mapo na seznamu map bo dodal ali odstranil mapo s seznama poenotenih map.</string>
     <string name="title_advanced_date_hint">Sporočila bodo združena po datumu samo, če so razvrščena po času.</string>
     <string name="title_advanced_navbar_colorize_hint">Delovanje tega je odvisno od različice in izvedbe Androida.</string>
-    <string name="title_advanced_threading_hint">Združi sporočila, ki so med seboj povezana</string>
+    <string name="title_advanced_threading_hint">Združi sporočila, ki so med seboj povezana.</string>
     <string name="title_advanced_highlight_hint">Odtenek barve teme se bo uporabil za poudarjanje.</string>
     <string name="title_advanced_gravatars_hint">Vklop te možnosti lahko ogrozi zasebnost.</string>
     <string name="title_advanced_name_email_hint">Ko je onemogočeno, bodo prikazana samo imena, če so na voljo.</string>
     <string name="title_advanced_preview_hint">Na voljo samo, če je bilo besedilo sporočila prejeto.</string>
     <string name="title_advanced_preview_issue">Pomikanje je lahko počasno zaradi hrošča v nekaterih različicah Androida, kadar je število vrstic večje od ena.</string>
     <string name="title_advanced_inline_hint">Slike v besedilu so vključene v sporočilo.</string>
-    <string name="title_advanced_autoexpand_hint">Samodejno odpri sporočilo, ko je v pogovoru samo eno sporočilo ali eno neprebrano sporočilo</string>
+    <string name="title_advanced_autoexpand_hint">Samodejno odpri sporočilo, ko je v pogovoru samo eno sporočilo ali eno neprebrano sporočilo.</string>
     <string name="title_advanced_autoseen_hint">Samodejno označevanje sporočil kot prebranih ob razširitvi lahko onemogočite v nastavitvah za posamezni račun.</string>
-    <string name="title_advanced_autoclose_hint">Samodejno zapri pogovore, ko so vsa sporočila arhivirana, poslana ali premaknjena v smeti</string>
+    <string name="title_advanced_autoclose_hint">Samodejno zapri pogovore, ko so vsa sporočila arhivirana, poslana ali premaknjena v smeti.</string>
     <string name="title_advanced_sender_hint">Večina ponudnikov ne dovoli spreminjanja naslovov pošiljatelja.</string>
     <string name="title_advanced_bcc_hint">Naslov ne bo prikazan, ampak bo dodan ob pošiljanju.</string>
     <string name="title_advanced_display_harmful_hint">Onemogočanje te možnosti lahko škoduje vaši zasebnosti.</string>
@@ -466,7 +466,7 @@
     <string name="title_advanced_english_hint">To bo ponovno zagnalo program.</string>
     <string name="title_advanced_optimize_hint">Omogočanje tega lahko samodejno spremeni nastavitve prejemanja zaradi zmanjšanja porabe energije.</string>
     <string name="title_advanced_experiments_hint">Seznam trenutno preizkusnih značilnosti.</string>
-    <string name="title_advanced_debug_hint">Omogoči dodatno beleženje in na raznih mestih prikaži razhroščevalne podatke</string>
+    <string name="title_advanced_debug_hint">Omogoči dodatno beleženje in na raznih mestih prikaži razhroščevalne podatke.</string>
     <string name="title_advanced_cleanup_attachments_hint">To bo odstranilo priloge iz sporočil, ki se ne sinhronizirajo več ob ročnem čiščenju.</string>
     <string name="title_advanced_cleanup_hint">To bo izbrisalo vse začasne datoteke.</string>
     <string name="title_advanced_never_favorite">Nikoli ne dodaj med priljub.</string>
@@ -596,6 +596,7 @@
     <string name="title_keep_all">Obdrži vsa sporočila</string>
     <string name="title_auto_trash">Samodejno premakni stara sporočila v smeti</string>
     <string name="title_auto_delete">Samodejno trajno izbriši stara sporočila</string>
+    <string name="title_auto_delete_hint">Stara sporočila so sporočila, ki se ne hranijo več na napravi.</string>
     <string name="title_folder_name_missing">Manjka ime mape.</string>
     <string name="title_folder_exists">Mapa %1$s obstaja.</string>
     <string name="title_folder_delete">Trajno izbriši to mapo in vsa sporočila v njej?</string>
@@ -709,10 +710,10 @@
     <string name="title_ask_show_image">Prikaz slik lahko razkrije občutljive zasebne podatke.</string>
     <string name="title_ask_show_image_hint">Slike, ki so bile prepoznane kot sledilne, ne bodo prikazane.</string>
     <string name="title_ask_delete_local">Izbriši krajevna sporočila?  Sporočila bodo ostala na oddaljenem strežniku.</string>
-    <string name="title_ask_help">Pomagajte izboljšati FairMail</string>
+    <string name="title_ask_help">Pomagajte izboljšati FairEmail</string>
     <string name="title_ask_reporting">Pošiljaj poročila o napakah?</string>
-    <string name="title_reporting_why">Poročanje o napakah bo pomagalo izboljšati FairMail.</string>
-    <string name="title_ask_review">Prosimo, ocenite FairMail.</string>
+    <string name="title_reporting_why">Poročanje o napakah bo pomagalo izboljšati FairEmail.</string>
+    <string name="title_ask_review">Prosimo, ocenite FairEmail.</string>
     <string name="title_ask_review_rationale">        FairEmail uporabljate že nekaj časa.
         Zelo bi cenili, če ga ocenite v Trgovini Play.
         To bo pomagalo ohraniti ravnotežje med ugodnimi in neugodnimi ocenami.
@@ -860,11 +861,11 @@
     <string name="title_sort_on_hidden">Skrito</string>
     <string name="title_sort_ascending">Najprej najstarejša</string>
     <string name="title_filter">Izključi</string>
-    <string name="title_filter_seen">prebrana</string>
-    <string name="title_filter_unflagged">brez zvezdice</string>
-    <string name="title_filter_unknown">z neznanimi pošiljatelji</string>
-    <string name="title_filter_hidden">skrita</string>
-    <string name="title_filter_duplicates">dvojnike</string>
+    <string name="title_filter_seen">Prebrana</string>
+    <string name="title_filter_unflagged">Brez zvezdice</string>
+    <string name="title_filter_unknown">Z neznanimi pošiljatelji</string>
+    <string name="title_filter_hidden">Skrita</string>
+    <string name="title_filter_duplicates">Dvojnike</string>
     <string name="title_compact">Strnjen pogled</string>
     <string name="title_zoom">Velikost besedila</string>
     <string name="title_select_language">Izberite jezik</string>
@@ -1006,7 +1007,7 @@
     <string name="title_legend_text_size">Nastavi velikost besedila</string>
     <string name="title_legend_text_color">Nastavi barvo besedila</string>
     <string name="title_legend_metered">Povezava je merjena</string>
-    <string name="title_legend_unmetered">Povezava ni merjena</string>
+    <string name="title_legend_unmetered">Povezava ni merjena.</string>
     <string name="title_legend_roaming">Gostovanje</string>
     <string name="title_legend_expander">Razširjevalec</string>
     <string name="title_legend_avatar">Podoba</string>
@@ -1042,8 +1043,8 @@
     <string name="title_hint_message_selection">Dolg pritisk na sporočilo omogoča izbiro več sporočil; držite in povlecite gor in dol za izbiro več sporočil.</string>
     <string name="title_hint_important">Pomembno</string>
     <string name="title_hint_sync">Prejemanje sporočil lahko traja nekaj časa, odvisno od hitrosti ponudnika, internetne povezave, naprave in števila sporočil.  Med prejemanjem sporočil se lahko program počasneje odziva.</string>
-    <string name="title_hint_battery">Ker FairMail privzeto vedno prejema sporočila, ga bo Android obravnaval kot vedno dejavnega.  Zato je lahko videti, da FairMail vedno porablja energijo, kar pa seveda ni res.</string>
-    <string name="title_hint_reformat">Privzeto FairMail preoblikuje sporočila zaradi zaščite zasebnosti in varnosti.  Za ogled izvirnega sporočila se dotaknite ikone \'Celoten zaslon\' nad besedilom sporočila.</string>
+    <string name="title_hint_battery">Ker FairEmail privzeto vedno prejema sporočila, ga bo Android obravnaval kot vedno dejavnega.  Zato je lahko videti, da FairEmail vedno porablja energijo, kar pa seveda ni res.</string>
+    <string name="title_hint_reformat">Privzeto FairEmail preoblikuje sporočila zaradi zaščite zasebnosti in varnosti.  Za ogled izvirnega sporočila se dotaknite ikone \'Celoten zaslon\' nad besedilom sporočila.</string>
     <string name="title_hint_contact_actions">Dolg pritisk za možnosti</string>
     <string name="title_hint_eml">To je povzetek vsebine datoteke izvornega sporočila.  Shranite izvorno sporočilo z ikono za shranjevanje v vrstici dejanj za ogled celotne vsebine.</string>
     <string name="title_open_link">Odpri povezavo</string>
@@ -1086,8 +1087,8 @@
     <string name="title_now">Zdaj</string>
     <string name="title_after">Po %1$s</string>
     <string name="title_reset">Ponastavi</string>
-    <string name="title_hours">Ure</string>
-    <string name="title_minutes">Minute</string>
+    <string name="title_hours">ur</string>
+    <string name="title_minutes">minut</string>
     <string name="title_dismiss">Opusti</string>
     <string name="title_snooze_now">Dremež</string>
     <string name="title_loading">Nalaganje &#8230;</string>
@@ -1100,7 +1101,7 @@
     <string name="title_icalendar_decline">Zavrni</string>
     <string name="title_icalendar_maybe">Morda</string>
     <string name="title_icalendar_calendar">Koledar</string>
-    <string name="title_try">Poizkusite FairMail, odprtokoden, do zasebnosti prijazen e-poštni program za Android.</string>
+    <string name="title_try">Poizkusite FairEmail, odprtokoden, do zasebnosti prijazen e-poštni program za Android.</string>
     <string name="title_pro_feature">To je značilnost Pro.</string>
     <string name="title_pro_list">Seznam značilnosti Pro</string>
     <string name="title_pro_purchase">Kupi</string>

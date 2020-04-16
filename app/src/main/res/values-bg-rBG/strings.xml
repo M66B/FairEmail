@@ -445,6 +445,7 @@
     <string name="title_advanced_optimize_hint">Ако активирате това, можете автоматично да промените настройките за получаване, за да намалите разхода на батерията</string>
     <string name="title_advanced_experiments_hint">Списък на експерименталните функции</string>
     <string name="title_advanced_debug_hint">Активиране на допълнителна регистрация и показване на информация за отстраняване на грешки на различни места</string>
+    <string name="title_advanced_cleanup_attachments_hint">Това ще премахне прикачените файлове от съобщенията, които вече не се синхронизират при ръчно почистване</string>
     <string name="title_advanced_cleanup_hint">Това ще изтрие всички временни файлове</string>
     <string name="title_advanced_never_favorite">Никога в любими</string>
     <string name="title_advanced_swipe_actions">Действия при плъзгане с пръст</string>
@@ -573,6 +574,7 @@
     <string name="title_keep_all">Запази съобщенията</string>
     <string name="title_auto_trash">Автоматично преместване на старите съобщения в коша</string>
     <string name="title_auto_delete">Автоматично изтриване на старите съобщения завинаги</string>
+    <string name="title_auto_delete_hint">Старите съобщения са съобщения, които вече не се съхраняват на устройството</string>
     <string name="title_folder_name_missing">Липсва име на папка</string>
     <string name="title_folder_exists">Папката %1$s съществува</string>
     <string name="title_folder_delete">Да изтрия ли тази папка и съобщенията в нея завинаги?</string>

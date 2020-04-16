@@ -575,6 +575,7 @@
     <string name="title_keep_all">Garder tous les messages</string>
     <string name="title_auto_trash">Déplacer automatiquement les anciens messages vers la corbeille</string>
     <string name="title_auto_delete">Supprimer automatiquement et définitivement les anciens messages</string>
+    <string name="title_auto_delete_hint">Les anciens messages sont des messages qui ne sont plus conservés sur l\'appareil</string>
     <string name="title_folder_name_missing">Nom de dossier manquant</string>
     <string name="title_folder_exists">Le dossier %1$s existe</string>
     <string name="title_folder_delete">Supprimer définitivement ce dossier et tous les messages qu\'il contient ?</string>

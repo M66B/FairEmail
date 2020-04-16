@@ -416,7 +416,7 @@
     <string name="title_advanced_check_reply">Kontrolovat e-mailové adresy pro odpověď při synchronizaci zpráv</string>
     <string name="title_advanced_no_date_hint">Někteří poskytovatelé ukládají zprávy s neznámým, neplatným nebo budoucím datem jako zprávy bez data</string>
     <string name="title_advanced_unseen_hint">Někteří poskytovatelé toto nepodporují korektně, což může způsobit synchronizaci všech nebo žádných zpráv</string>
-    <string name="title_advanced_deleted_unseen">Je-li vypnuto, nepřečtené zprávy jsou v zařízení ponechány navždy</string>
+    <string name="title_advanced_deleted_unseen">Je-li vypnuto, nepřečtené zprávy zůstanou ponechány v zařízení navždy</string>
     <string name="title_advanced_sync_kept_hint">Zvýší spotřebu dat a baterie, zvláště pokud v zařízení uchováváte velké množství zpráv</string>
     <string name="title_advanced_sync_folders_hint">Vypnutí o něco sníží množství přenesených dat a spotřebu baterie, zároveň však znemožní aktualizovat seznam složek</string>
     <string name="title_advanced_sync_delay_hint">Zpomalí synchronizaci zpráv</string>
@@ -468,6 +468,7 @@
     <string name="title_advanced_optimize_hint">Povolení umožní automatickou změnu nastavení příjmu pro snížení spotřeby baterie</string>
     <string name="title_advanced_experiments_hint">Seznam aktuálních experimentálních funkcí</string>
     <string name="title_advanced_debug_hint">Zapnout rozšířený záznam a zobrazit ladící informace na různých místech</string>
+    <string name="title_advanced_cleanup_attachments_hint">Při ručním čištění odebere přílohy ze zpráv, které již nejsou synchronizovány</string>
     <string name="title_advanced_cleanup_hint">Smaže dočasné soubory</string>
     <string name="title_advanced_never_favorite">Nikdy oblíbený</string>
     <string name="title_advanced_swipe_actions">Nastavit akce tažení prstem</string>
@@ -596,6 +597,7 @@
     <string name="title_keep_all">Uchovávat všechny zprávy</string>
     <string name="title_auto_trash">Automaticky přesouvat staré zprávy do koše</string>
     <string name="title_auto_delete">Automaticky trvale mazat staré zprávy</string>
+    <string name="title_auto_delete_hint">Staré zprávy jsou zprávy, které již nejsou uchovány v zařízení</string>
     <string name="title_folder_name_missing">Chybí název složky</string>
     <string name="title_folder_exists">Složka %1$s již existuje</string>
     <string name="title_folder_delete">Trvale odstranit tuto složku a všechny její zprávy?</string>
@@ -963,7 +965,7 @@
     <string name="title_legend_rule">Má pravidla</string>
     <string name="title_legend_similar">Hledat podobné zprávy</string>
     <string name="title_legend_notify">Oznamovat nové zprávy</string>
-    <string name="title_legend_sync_keep">Počet dní k synchronizaci / ponechání zpráv</string>
+    <string name="title_legend_sync_keep">Počet dní k synchronizaci / uchování zpráv</string>
     <string name="title_legend_download_fetch">Počet stažených zpráv / načtených hlaviček</string>
     <string name="title_legend_stop">Zastavit zpracování pravidel</string>
     <string name="title_legend_thread">Konverzace</string>

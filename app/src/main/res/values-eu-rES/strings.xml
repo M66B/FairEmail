@@ -443,6 +443,7 @@
     <string name="title_advanced_optimize_hint">Hori aktibatuz gero, automatikoki aldatu daitezke mezuen sarrera ezarpenak bateriaren erabilera murrizteko</string>
     <string name="title_advanced_experiments_hint">Egungo funtzio esperimentalen zerrenda</string>
     <string name="title_advanced_debug_hint">Gaitu aparteko erregistroa eta erakutsi arazketaren informazioa hainbat tokitan</string>
+    <string name="title_advanced_cleanup_attachments_hint">Horrek kenduko ditu eskuz garbitzerakoan jada sinkronizatzen ez diren mezuetako eranskinak</string>
     <string name="title_advanced_cleanup_hint">Honek behin behineko fitxategi guztiak ezabatuko ditu</string>
     <string name="title_advanced_never_favorite">Inoiz ez gogokoa</string>
     <string name="title_advanced_swipe_actions">Ezarri irristatze ekintzak</string>
@@ -571,6 +572,7 @@
     <string name="title_keep_all">Mantendu mezu guztiak</string>
     <string name="title_auto_trash">Mugitu automatikoki mezu zaharrak zakarrontzira</string>
     <string name="title_auto_delete">Ezabatu mezu zaharrak behin betiko automatikoki</string>
+    <string name="title_auto_delete_hint">Mezu zaharrak jadanik gailuan gordetzen ez diren mezuak dira</string>
     <string name="title_folder_name_missing">Karpetaren izena falta da</string>
     <string name="title_folder_exists">%1$s karpeta badago aurretik</string>
     <string name="title_folder_delete">Ezabatu karpeta hau eta dituen mezuak behin betiko?</string>

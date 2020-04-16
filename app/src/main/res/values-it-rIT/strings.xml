@@ -575,6 +575,7 @@
     <string name="title_keep_all">Conserva tutti i messaggi</string>
     <string name="title_auto_trash">Sposta automaticamente i vecchi messaggi nel cestino</string>
     <string name="title_auto_delete">Elimina automaticamente i vecchi messaggi</string>
+    <string name="title_auto_delete_hint">I vecchi messaggi sono messaggi che non sono più conservati sul dispositivo</string>
     <string name="title_folder_name_missing">Nome Cartella mancante</string>
     <string name="title_folder_exists">La cartella %1$s esiste</string>
     <string name="title_folder_delete">Elimina definitivamente questa cartella e tutti i messaggi che contiene?</string>

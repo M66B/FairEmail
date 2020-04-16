@@ -446,6 +446,7 @@
     <string name="title_advanced_optimize_hint">Aktivering af dette kan automatisk ændre modtagelsesindstillingerne for at reducere strømforbruget</string>
     <string name="title_advanced_experiments_hint">Liste over aktuelle eksperimentelle funktioner</string>
     <string name="title_advanced_debug_hint">Aktivér ekstra logning og vis fejlretningsoplysninger forskellige steder</string>
+    <string name="title_advanced_cleanup_attachments_hint">Ved manuel rensning, vil dette fjerner vedhæftninger fra beskeder, som ikke længere synkroniseres</string>
     <string name="title_advanced_cleanup_hint">Dette vil slette alle midlertidige filer</string>
     <string name="title_advanced_never_favorite">Gør aldrig til favorit</string>
     <string name="title_advanced_swipe_actions">Indstil strygehandlinger</string>
@@ -574,6 +575,7 @@
     <string name="title_keep_all">Behold alle beskeder</string>
     <string name="title_auto_trash">Auto-flyt gamle beskeder til Papirkurv</string>
     <string name="title_auto_delete">Auto-slet gamle beskeder permanent</string>
+    <string name="title_auto_delete_hint">Gamle beskeder er beskeder, som ikke længere opbevares på enheden</string>
     <string name="title_folder_name_missing">Mappenavn manngler</string>
     <string name="title_folder_exists">Mappen %1$s findes</string>
     <string name="title_folder_delete">Slet denne mappe samt evt. beskedindhold permanent?</string>
