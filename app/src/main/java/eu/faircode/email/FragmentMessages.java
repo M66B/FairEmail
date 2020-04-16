@@ -1206,7 +1206,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     new ItemDetailsLookupMessage(rvMessage),
                     StorageStrategy.createLongStorage())
                     .withSelectionPredicate(selectionPredicate)
-                    .withPointerTooltypes(MotionEvent.TOOL_TYPE_MOUSE, MotionEvent.TOOL_TYPE_STYLUS)
                     .build();
             adapter.setSelectionTracker(selectionTracker);
 
