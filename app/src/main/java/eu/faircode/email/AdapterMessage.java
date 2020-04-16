@@ -2691,7 +2691,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     boolean doubletap = prefs.getBoolean("doubletap", false);
 
-                    if (!doubletap || message.folderReadOnly || EntityFolder.OUTBOX.equals(message.folderType)) {
+                    if (!doubletap ||
+                            message.folderReadOnly ||
+                            (message.uid == null && message.accountProtocol == EntityAccount.TYPE_IMAP) ||
+                            EntityFolder.OUTBOX.equals(message.folderType)) {
                         lbm.sendBroadcast(viewThread);
                         return;
                     }
