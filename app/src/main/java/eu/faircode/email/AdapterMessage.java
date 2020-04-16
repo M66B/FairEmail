@@ -5048,7 +5048,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         if (this.suitable != state.isSuitable() || this.unmetered != state.isUnmetered()) {
             this.suitable = state.isSuitable();
             this.unmetered = state.isUnmetered();
-            notifyDataSetChanged();
+            PagedList<TupleMessageEx> list = differ.getCurrentList();
+            if (list != null)
+                for (int i = 0; i < list.size(); i++) {
+                    TupleMessageEx message = list.get(i);
+                    if (message != null && properties.getValue("expanded", message.id))
+                        notifyItemChanged(i);
+                }
         }
     }
 
