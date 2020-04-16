@@ -1624,6 +1624,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (message.folderReadOnly)
                 return 0;
 
+            if (EntityFolder.JUNK.equals(message.folderType))
+                return 0;
+
             if (EntityFolder.OUTBOX.equals(message.folderType))
                 return 0;
 
@@ -2429,13 +2432,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 importance.add(Menu.NONE, R.string.title_importance_low, 3, R.string.title_importance_low)
                         .setEnabled(!EntityMessage.PRIORITIY_LOW.equals(result.importance));
 
-                if (result.hasArchive && !result.isArchive) // has archive and not is archive/drafts
+                if (result.hasArchive && !result.isArchive) // has archive and not is archive
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_archive, order++, R.string.title_archive);
 
-                if (result.isTrash || !result.hasTrash) // is trash or no trash
+                if (result.isTrash || !result.hasTrash || result.isJunk) // is trash or no trash or is junk
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, order++, R.string.title_delete);
 
-                if (!result.isTrash && result.hasTrash) // not trash and has trash
+                if (!result.isTrash && result.hasTrash && !result.isJunk) // not trash and has trash and not is junk
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_trash, order++, R.string.title_trash);
 
                 if (result.hasJunk && !result.isJunk && !result.isDrafts) // has junk and not junk/drafts

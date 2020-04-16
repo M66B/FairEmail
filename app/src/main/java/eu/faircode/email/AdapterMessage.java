@@ -1555,7 +1555,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean junk = (move && (hasJunk && !inJunk));
                     boolean unjunk = (move && inJunk);
 
-                    final boolean delete = (inTrash || !hasTrash || outbox ||
+                    final boolean delete = (inTrash || !hasTrash || inJunk || outbox ||
                             message.uid == null || message.accountProtocol == EntityAccount.TYPE_POP);
 
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
