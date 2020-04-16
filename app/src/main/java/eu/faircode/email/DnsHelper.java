@@ -62,7 +62,13 @@ public class DnsHelper {
                 continue;
 
             String domain = email.substring(d + 1);
-            lookup(context, domain, "mx");
+
+            try {
+                lookup(context, domain, "mx");
+            } catch (UnknownHostException ex) {
+                Log.i(ex);
+                throw new UnknownHostException(context.getString(R.string.title_no_server, domain));
+            }
         }
     }
 
