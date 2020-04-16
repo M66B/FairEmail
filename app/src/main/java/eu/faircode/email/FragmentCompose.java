@@ -1914,11 +1914,11 @@ public class FragmentCompose extends FragmentBase {
                         throw new IllegalArgumentException(context.getString(R.string.title_no_image));
                     d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
 
-                    s.insert(start, " \uFFFC "); // Object replacement character
+                    s.insert(start, " \uFFFC"); // Object replacement character
                     ImageSpan is = new ImageSpan(context, cid);
                     s.setSpan(is, start + 1, start + 2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-                    start += 3;
+                    start += 2;
                 }
 
                 if (!image)
