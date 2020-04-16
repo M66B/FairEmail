@@ -2284,10 +2284,10 @@ class Core {
             boolean check_mx = prefs.getBoolean("check_mx", false);
             if (check_mx)
                 try {
-                    if (DnsHelper.lookupMx(
-                            context, message.reply == null || message.reply.length == 0
-                                    ? message.from : message.reply))
-                        message.mx = true;
+                    Address[] addresses = (message.reply == null || message.reply.length == 0
+                            ? message.from : message.reply);
+                    DnsHelper.checkMx(context, addresses);
+                    message.mx = true;
                 } catch (UnknownHostException ex) {
                     message.mx = false;
                     message.warning = ex.getMessage();

@@ -48,58 +48,29 @@ public class DnsHelper {
     // https://dns.watch/
     private static final String DEFAULT_DNS = "84.200.69.80";
 
-    static boolean lookupMx(Context context, Address[] addresses) throws UnknownHostException {
-        boolean ok = true;
+    static void checkMx(Context context, Address[] addresses) throws UnknownHostException {
+        if (addresses == null)
+            return;
 
-        if (addresses != null)
-            for (Address address : addresses)
-                try {
-                    String email = ((InternetAddress) address).getAddress();
-                    if (email == null)
-                        continue;
+        for (Address address : addresses) {
+            String email = ((InternetAddress) address).getAddress();
+            if (email == null)
+                continue;
 
-                    int d = email.lastIndexOf("@");
-                    if (d < 0)
-                        continue;
+            int d = email.lastIndexOf("@");
+            if (d < 0)
+                continue;
 
-                    String domain = email.substring(d + 1);
-                    Lookup lookup = new Lookup(domain, Type.MX);
-                    SimpleResolver resolver = new SimpleResolver(getDnsServer(context));
-                    lookup.setResolver(resolver);
-                    Log.i("Lookup MX=" + domain + " @" + resolver.getAddress());
-
-                    lookup.run();
-                    if (lookup.getResult() == Lookup.HOST_NOT_FOUND ||
-                            lookup.getResult() == Lookup.TYPE_NOT_FOUND) {
-                        Log.i("Lookup MX=" + domain + " result=" + lookup.getErrorString());
-                        throw new UnknownHostException(context.getString(R.string.title_no_server, domain));
-                    } else if (lookup.getResult() != Lookup.SUCCESSFUL)
-                        ok = false;
-                } catch (UnknownHostException ex) {
-                    throw ex;
-                } catch (Throwable ex) {
-                    Log.e(ex);
-                    ok = false;
-                }
-
-        return ok;
+            String domain = email.substring(d + 1);
+            lookup(context, domain, "mx");
+        }
     }
 
     static InetAddress lookupMx(Context context, String domain) {
         try {
-            Lookup lookup = new Lookup(domain, Type.MX);
-            SimpleResolver resolver = new SimpleResolver(getDnsServer(context));
-            lookup.setResolver(resolver);
-            Log.i("Lookup MX=" + domain + " @" + resolver.getAddress());
-
-            lookup.run();
-            if (lookup.getResult() == Lookup.SUCCESSFUL) {
-                Record[] answers = lookup.getAnswers();
-                if (answers != null && answers.length > 0 && answers[0] instanceof MXRecord) {
-                    MXRecord mx = (MXRecord) answers[0];
-                    return InetAddress.getByName(mx.getTarget().toString(true));
-                }
-            }
+            DnsRecord[] records = lookup(context, domain, "mx");
+            if (records.length > 0)
+                return InetAddress.getByName(records[0].name);
         } catch (Throwable ex) {
             Log.w(ex);
         }
@@ -218,10 +189,10 @@ public class DnsHelper {
     static void test(Context context) {
         try {
             String domain = "gmail.com";
-            boolean ok = lookupMx(context, new Address[]{Log.myAddress()});
+            checkMx(context, new Address[]{Log.myAddress()});
             InetAddress iaddr = lookupMx(context, domain);
             DnsRecord[] records = DnsHelper.lookup(context, "_imaps._tcp." + domain, "srv");
-            Log.i("DNS ok=" + ok + " iaddr=" + iaddr + " srv=" + records[0].name + ":" + records[0].port);
+            Log.i("DNS iaddr=" + iaddr + " srv=" + records[0].name + ":" + records[0].port);
         } catch (Throwable ex) {
             Log.e("DNS", ex);
         }
