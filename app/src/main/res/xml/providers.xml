@@ -658,4 +658,16 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="Alice.it"
+        link="https://assistenzatecnica.tim.it/at/portals/assistenzatecnica.portal">
+        <imap
+            host="in.alice.it"
+            port="143"
+            starttls="true" />
+        <smtp
+            host="out.alice.it"
+            port="587"
+            starttls="true" />
+    </provider>
 </providers>
