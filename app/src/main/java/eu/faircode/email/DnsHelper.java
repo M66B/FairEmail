@@ -38,6 +38,7 @@ import org.xbill.DNS.Type;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.mail.Address;
@@ -107,28 +108,54 @@ public class DnsHelper {
     }
 
     @NonNull
-    static Record[] lookup(Context context, String name, int type) throws TextParseException, UnknownHostException {
-        Lookup lookup = new Lookup(name, type);
+    static DnsRecord[] lookup(Context context, String name, String type) throws UnknownHostException {
+        int rtype;
+        switch (type) {
+            case "mx":
+                rtype = Type.MX;
+                break;
+            case "srv":
+                rtype = Type.SRV;
+                break;
+            default:
+                throw new IllegalArgumentException(type);
+        }
 
-        SimpleResolver resolver = new SimpleResolver(getDnsServer(context));
-        lookup.setResolver(resolver);
-        Log.i("Lookup name=" + name + " @" + resolver.getAddress() + " type=" + type);
-        Record[] records = lookup.run();
+        try {
+            Lookup lookup = new Lookup(name, rtype);
 
-        if (lookup.getResult() != Lookup.SUCCESSFUL)
-            if (lookup.getResult() == Lookup.HOST_NOT_FOUND ||
-                    lookup.getResult() == Lookup.TYPE_NOT_FOUND)
+            SimpleResolver resolver = new SimpleResolver(getDnsServer(context));
+            lookup.setResolver(resolver);
+            Log.i("Lookup name=" + name + " @" + resolver.getAddress() + " type=" + rtype);
+            Record[] records = lookup.run();
+
+            if (lookup.getResult() != Lookup.SUCCESSFUL)
+                if (lookup.getResult() == Lookup.HOST_NOT_FOUND ||
+                        lookup.getResult() == Lookup.TYPE_NOT_FOUND)
+                    throw new UnknownHostException(name);
+                else
+                    throw new UnknownHostException(lookup.getErrorString());
+
+            if (records.length == 0)
                 throw new UnknownHostException(name);
-            else
-                throw new UnknownHostException(lookup.getErrorString());
 
-        if (records.length == 0)
-            throw new UnknownHostException(name);
+            List<DnsRecord> result = new ArrayList<>();
+            for (Record record : records) {
+                Log.i("Found record=" + record);
+                if (record instanceof MXRecord) {
+                    MXRecord mx = (MXRecord) record;
+                    result.add(new DnsRecord(mx.getTarget().toString(true)));
+                } else if (record instanceof SRVRecord) {
+                    SRVRecord srv = (SRVRecord) record;
+                    result.add(new DnsRecord(srv.getTarget().toString(true), srv.getPort()));
+                } else
+                    throw new IllegalArgumentException(record.getClass().getName());
+            }
 
-        for (Record record : records)
-            Log.i("Found record=" + record);
-
-        return records;
+            return result.toArray(new DnsRecord[0]);
+        } catch (TextParseException ex) {
+            throw new UnknownHostException(ex.getMessage());
+        }
     }
 
     static String getParentDomain(String host) {
@@ -174,14 +201,27 @@ public class DnsHelper {
             return dns.get(0).getHostAddress();
     }
 
+    static class DnsRecord {
+        String name;
+        Integer port;
+
+        DnsRecord(String name) {
+            this.name = name;
+        }
+
+        DnsRecord(String name, int port) {
+            this.name = name;
+            this.port = port;
+        }
+    }
+
     static void test(Context context) {
         try {
             String domain = "gmail.com";
             boolean ok = lookupMx(context, new Address[]{Log.myAddress()});
             InetAddress iaddr = lookupMx(context, domain);
-            Record[] records = DnsHelper.lookup(context, "_imaps._tcp." + domain, Type.SRV);
-            SRVRecord srv = (SRVRecord) records[0];
-            Log.i("DNS ok=" + ok + " iaddr=" + iaddr + " srv=" + srv.getTarget().toString());
+            DnsRecord[] records = DnsHelper.lookup(context, "_imaps._tcp." + domain, "srv");
+            Log.i("DNS ok=" + ok + " iaddr=" + iaddr + " srv=" + records[0].name + ":" + records[0].port);
         } catch (Throwable ex) {
             Log.e("DNS", ex);
         }
