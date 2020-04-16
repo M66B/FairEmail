@@ -226,7 +226,7 @@ public class EmailProvider {
 
             try {
                 // Retry at MX server addresses
-                Record[] records = DNSHelper.lookup(context, domain, Type.MX);
+                Record[] records = DnsHelper.lookup(context, domain, Type.MX);
                 for (Record record : records) {
                     String target = ((MXRecord) record).getTarget().toString(true);
                     while (autoconfig == null && target != null && target.indexOf('.') > 0) {
@@ -505,7 +505,7 @@ public class EmailProvider {
         if (discover == Discover.ALL || discover == Discover.IMAP) {
             try {
                 // Identifies an IMAP server where TLS is initiated directly upon connection to the IMAP server.
-                Record[] records = DNSHelper.lookup(context, "_imaps._tcp." + domain, Type.SRV);
+                Record[] records = DnsHelper.lookup(context, "_imaps._tcp." + domain, Type.SRV);
                 // ... service is not supported at all at a particular domain by setting the target of an SRV RR to "."
                 SRVRecord srv = (SRVRecord) records[0];
                 provider.imap.host = srv.getTarget().toString(true);
@@ -513,7 +513,7 @@ public class EmailProvider {
                 provider.imap.starttls = false;
             } catch (UnknownHostException ex) {
                 // Identifies an IMAP server that MAY ... require the MUA to use the "STARTTLS" command
-                Record[] records = DNSHelper.lookup(context, "_imap._tcp." + domain, Type.SRV);
+                Record[] records = DnsHelper.lookup(context, "_imap._tcp." + domain, Type.SRV);
                 SRVRecord srv = (SRVRecord) records[0];
                 provider.imap.host = srv.getTarget().toString(true);
                 provider.imap.port = srv.getPort();
@@ -523,7 +523,7 @@ public class EmailProvider {
 
         if (discover == Discover.ALL || discover == Discover.SMTP) {
             // Note that this covers connections both with and without Transport Layer Security (TLS)
-            Record[] records = DNSHelper.lookup(context, "_submission._tcp." + domain, Type.SRV);
+            Record[] records = DnsHelper.lookup(context, "_submission._tcp." + domain, Type.SRV);
             SRVRecord srv = (SRVRecord) records[0];
             provider.smtp.host = srv.getTarget().toString(true);
             provider.smtp.port = srv.getPort();

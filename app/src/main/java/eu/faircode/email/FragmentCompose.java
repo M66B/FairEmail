@@ -3818,7 +3818,7 @@ public class FragmentCompose extends FragmentBase {
                                 for (InternetAddress address : ato)
                                     address.validate();
                                 if (lookup_mx)
-                                    DNSHelper.lookupMx(context, ato);
+                                    DnsHelper.lookupMx(context, ato);
                             }
                         } catch (AddressException ex) {
                             throw new AddressException(context.getString(R.string.title_address_parse_error,
@@ -3832,7 +3832,7 @@ public class FragmentCompose extends FragmentBase {
                                 for (InternetAddress address : acc)
                                     address.validate();
                                 if (lookup_mx)
-                                    DNSHelper.lookupMx(context, acc);
+                                    DnsHelper.lookupMx(context, acc);
                             }
                         } catch (AddressException ex) {
                             throw new AddressException(context.getString(R.string.title_address_parse_error,
@@ -3846,7 +3846,7 @@ public class FragmentCompose extends FragmentBase {
                                 for (InternetAddress address : abcc)
                                     address.validate();
                                 if (lookup_mx)
-                                    DNSHelper.lookupMx(context, abcc);
+                                    DnsHelper.lookupMx(context, abcc);
                             }
                         } catch (AddressException ex) {
                             throw new AddressException(context.getString(R.string.title_address_parse_error,

@@ -43,7 +43,7 @@ import java.util.List;
 import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
 
-public class DNSHelper {
+public class DnsHelper {
     // https://dns.watch/
     private static final String DEFAULT_DNS = "84.200.69.80";
 
@@ -179,7 +179,7 @@ public class DNSHelper {
             String domain = "gmail.com";
             boolean ok = lookupMx(context, new Address[]{Log.myAddress()});
             InetAddress iaddr = lookupMx(context, domain);
-            Record[] records = DNSHelper.lookup(context, "_imaps._tcp." + domain, Type.SRV);
+            Record[] records = DnsHelper.lookup(context, "_imaps._tcp." + domain, Type.SRV);
             SRVRecord srv = (SRVRecord) records[0];
             Log.i("DNS ok=" + ok + " iaddr=" + iaddr + " srv=" + srv.getTarget().toString());
         } catch (Throwable ex) {
