@@ -190,7 +190,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
             popupMenu.getMenu().add(Menu.NONE, R.string.title_primary, 2, R.string.title_primary)
                     .setCheckable(true).setChecked(identity.primary);
 
-            if (identity.sign_key != null)
+            if (identity.sign_key != null || identity.sign_key_alias != null)
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_reset_sign_key, 3, R.string.title_reset_sign_key);
 
             popupMenu.getMenu().add(Menu.NONE, R.string.title_copy, 4, R.string.title_copy);
