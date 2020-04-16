@@ -90,6 +90,7 @@ public class FragmentFolders extends FragmentBase {
     static final int REQUEST_SYNC = 1;
     static final int REQUEST_DELETE_LOCAL = 2;
     static final int REQUEST_EMPTY_FOLDER = 3;
+    static final int REQUEST_DELETE_FOLDER = 4;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -526,6 +527,10 @@ public class FragmentFolders extends FragmentBase {
                     if (resultCode == RESULT_OK && data != null)
                         onEmptyFolder(data.getBundleExtra("args"));
                     break;
+                case REQUEST_DELETE_FOLDER:
+                    if (resultCode == RESULT_OK && data != null)
+                        onDeleteFolder(data.getBundleExtra("args"));
+                    break;
             }
         } catch (Throwable ex) {
             Log.e(ex);
@@ -679,6 +684,41 @@ public class FragmentFolders extends FragmentBase {
                 }
 
                 ServiceSynchronize.eval(context, "delete");
+
+                return null;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, args, "folder:delete");
+    }
+
+    private void onDeleteFolder(Bundle args) {
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) {
+                long id = args.getLong("id");
+
+                EntityFolder folder;
+
+                DB db = DB.getInstance(context);
+                try {
+                    db.beginTransaction();
+
+                    folder = db.folder().getFolder(id);
+                    if (folder == null)
+                        return null;
+
+                    db.folder().setFolderTbd(folder.id);
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+
+                ServiceSynchronize.reload(context, folder.account, false, "delete folder");
 
                 return null;
             }

@@ -414,6 +414,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 return false;
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean debug = prefs.getBoolean("debug", false);
 
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, view);
 
@@ -477,6 +478,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
             if (folder.account != null && folder.accountProtocol == EntityAccount.TYPE_IMAP)
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_create_sub_folder, 16, R.string.title_create_sub_folder)
+                        .setEnabled(folder.inferiors);
+
+            if (!folder.selectable && debug)
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, 17, R.string.title_delete)
                         .setEnabled(folder.inferiors);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -543,6 +548,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
                         case R.string.title_create_sub_folder:
                             onActionCreateFolder();
+                            return true;
+
+                        case R.string.title_delete:
+                            onActionDeleteFolder();
                             return true;
 
                         default:
@@ -712,6 +721,17 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             new Intent(ActivityView.ACTION_EDIT_FOLDER)
                                     .putExtra("account", folder.account)
                                     .putExtra("parent", folder.name));
+                }
+
+                private void onActionDeleteFolder() {
+                    Bundle aargs = new Bundle();
+                    aargs.putLong("id", folder.id);
+                    aargs.putString("question", context.getString(R.string.title_folder_delete));
+
+                    FragmentDialogAsk ask = new FragmentDialogAsk();
+                    ask.setArguments(aargs);
+                    ask.setTargetFragment(parentFragment, FragmentFolders.REQUEST_DELETE_FOLDER);
+                    ask.show(parentFragment.getParentFragmentManager(), "folder:delete");
                 }
             });
 
