@@ -1912,7 +1912,6 @@ public class FragmentCompose extends FragmentBase {
                     Drawable d = Drawable.createFromPath(file.getAbsolutePath());
                     if (d == null)
                         throw new IllegalArgumentException(context.getString(R.string.title_no_image));
-                    d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
 
                     s.insert(start, " \uFFFC"); // Object replacement character
                     ImageSpan is = new ImageSpan(context, cid);
