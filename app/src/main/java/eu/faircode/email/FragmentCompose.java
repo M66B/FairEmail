@@ -4226,7 +4226,9 @@ public class FragmentCompose extends FragmentBase {
             bottom_navigation.getMenu().findItem(R.id.action_redo).setVisible(draft.revision < draft.revisions);
 
             if (needsEncryption) {
-                if (ActivityBilling.isPro(getContext())) {
+                if (ActivityBilling.isPro(getContext()) ||
+                        EntityMessage.PGP_SIGNONLY.equals(draft.ui_encrypt) ||
+                        EntityMessage.PGP_SIGNENCRYPT.equals(draft.ui_encrypt)) {
                     boolean interactive = args.getBoolean("interactive");
                     onEncrypt(draft, action, interactive);
                 } else
