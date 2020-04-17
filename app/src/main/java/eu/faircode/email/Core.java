@@ -3065,7 +3065,7 @@ class Core {
 
             // Build notification
             NotificationCompat.Builder builder =
-                    new NotificationCompat.Builder(context, "notification")
+                    new NotificationCompat.Builder(context, EntityAccount.getNotificationChannelId(group))
                             .setSmallIcon(messages.size() > 1
                                     ? R.drawable.baseline_mail_more_white_24
                                     : R.drawable.baseline_mail_white_24)
