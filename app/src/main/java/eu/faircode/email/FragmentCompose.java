@@ -4076,7 +4076,7 @@ public class FragmentCompose extends FragmentBase {
                             for (EntityAttachment attachment : attachments)
                                 if (!attachment.available)
                                     throw new IllegalArgumentException(context.getString(R.string.title_attachments_missing));
-                                else if (!attachment.isInline() && !attachment.isEncryption())
+                                else if (attachment.isAttachment())
                                     attached++;
 
                             // Check for missing attachments
@@ -4116,14 +4116,15 @@ public class FragmentCompose extends FragmentBase {
                             }
 
                             for (EntityAttachment attachment : new ArrayList<>(attachments))
-                                if (attachment.isInline() && !cids.contains(attachment.cid)) {
+                                if (attachment.isInline() && attachment.isImage() &&
+                                        !cids.contains(attachment.cid)) {
                                     Log.i("Removing unused inline attachment cid=" + attachment.cid);
                                     db.attachment().deleteAttachment(attachment.id);
                                 }
                         } else {
                             // Convert inline images to attachments
                             for (EntityAttachment attachment : new ArrayList<>(attachments))
-                                if (attachment.isInline()) {
+                                if (attachment.isInline() && attachment.isImage()) {
                                     Log.i("Converting to attachment cid=" + attachment.cid);
                                     attachment.disposition = Part.ATTACHMENT;
                                     db.attachment().setDisposition(attachment.id, attachment.disposition);
