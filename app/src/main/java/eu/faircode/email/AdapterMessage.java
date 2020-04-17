@@ -5065,7 +5065,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (list != null)
                 for (int i = 0; i < list.size(); i++) {
                     TupleMessageEx message = list.get(i);
-                    if (message != null && properties.getValue("expanded", message.id))
+                    if (message != null &&
+                            (!message.content || message.attachments > 0) &&
+                            properties.getValue("expanded", message.id))
                         notifyItemChanged(i);
                 }
         }
