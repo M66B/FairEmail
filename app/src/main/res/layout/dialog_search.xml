@@ -25,7 +25,6 @@
             android:layout_height="36dp"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/title_info"
-            android:foregroundTint="?android:attr/textColorPrimary"
             android:padding="6dp"
             android:scaleType="fitCenter"
             android:tooltipText="@string/title_info"

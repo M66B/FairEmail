@@ -22,7 +22,6 @@
         android:layout_height="36dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/title_icalendar_calendar"
-        android:foregroundTint="?android:attr/textColorSecondary"
         android:padding="6dp"
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_icalendar_accept"
