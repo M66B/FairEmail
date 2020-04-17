@@ -380,6 +380,7 @@
     <string name="title_advanced_experiments">Käytä kokeellisia ominaisuuksia</string>
     <string name="title_advanced_crash_reports">Lähetä virheraportit</string>
     <string name="title_advanced_debug">Debug-tila</string>
+    <string name="title_advanced_cleanup_attachments">Poista vanhojen viestien liitteet</string>
     <string name="title_advanced_cleanup">Siistiminen</string>
     <string name="title_advanced_last_cleanup">Viimeisin puhdistus: %1$s</string>
     <string name="title_advanced_more">Lisää asetuksia</string>
@@ -413,6 +414,7 @@
     <string name="title_advanced_date_hint">Viestit ryhmitellään päivämäärän mukaan vain, jos ne on lajiteltu ajan mukaan</string>
     <string name="title_advanced_navbar_colorize_hint">Tämän toimivuus riippuu Android-versiosta ja -muunnelmasta</string>
     <string name="title_advanced_threading_hint">Ryhmittele toisiinsa liittyvät viestit</string>
+    <string name="title_advanced_highlight_hint">Teeman korostusväriä käytetään korostamiseen</string>
     <string name="title_advanced_gravatars_hint">Mahdollinen uhka yksityisyydelle</string>
     <string name="title_advanced_name_email_hint">Vain saatavilla olevat nimet näytetään, kun pois käytöstä</string>
     <string name="title_advanced_preview_hint">Saatavilla vain, kun viestin teksti on ladattu</string>
@@ -442,6 +444,7 @@
     <string name="title_advanced_optimize_hint">Tämän ottaminen käyttöön voi muuttaa automaattisesti vastaanottoasetuksia akun säästämiseksi</string>
     <string name="title_advanced_experiments_hint">Lista kokeellisista ominaisuuksista</string>
     <string name="title_advanced_debug_hint">Salli ylimääräinen lokitietojen tallennus ja näytä debug-tietoja</string>
+    <string name="title_advanced_cleanup_attachments_hint">Manuaalisesti siivottaessa tämä poistaa liitteet viesteistä, joita ei enää synkronoida</string>
     <string name="title_advanced_cleanup_hint">Tämä poistaa kaikki väliaikaiset tiedostot</string>
     <string name="title_advanced_never_favorite">Ei koskaan suosikiksi</string>
     <string name="title_advanced_swipe_actions">Aseta pyyhkäisytoiminnot</string>
@@ -453,6 +456,7 @@
     <string name="title_advanced_sender">Salli lähetysosoitteen muokkaaminen</string>
     <string name="title_advanced_sender_regex">Regex saapuvien sähköpostien osoitteiden käyttäjätunnuksen täsmäämiseen</string>
     <string name="title_identity_reply_to">Vastausosoite</string>
+    <string name="title_identity_unicode">Salli Unicode sähköpostiosoitteissa</string>
     <string name="title_identity_receipt">Pyydä toimitus-/lukukuittaus oletuksena</string>
     <string name="title_identity_use_ip_hint">Virheilmoituksen ollessa \'invalid greeting\', \'requires valid address\' tai muu samankaltainen yritä muuttaa tätä asetusta</string>
     <string name="title_optional">Valinnainen</string>
@@ -569,6 +573,7 @@
     <string name="title_keep_all">Säilytä kaikki viestit</string>
     <string name="title_auto_trash">Siirrä vanhat viestit automaattisesti roskakoriin</string>
     <string name="title_auto_delete">Poista vanhat viestit automaattisesti</string>
+    <string name="title_auto_delete_hint">Vanhoilla viesteillä tarkoitetaan viestejä, joita ei enää pidetä laitteessa</string>
     <string name="title_folder_name_missing">Kansion nimi puuttuu</string>
     <string name="title_folder_exists">Kansio %1$s on olemassa</string>
     <string name="title_folder_delete">Poistetaanko tämä kansio ja sen sisältämät viestit pysyvästi?</string>
