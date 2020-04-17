@@ -330,11 +330,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private static final long REVIEW_ASK_DELAY = 21 * 24 * 3600 * 1000L; // milliseconds
     private static final long REVIEW_LATER_DELAY = 3 * 24 * 3600 * 1000L; // milliseconds
 
-    private static final List<String> SORT_DATE_HEADER = Collections.unmodifiableList(Arrays.asList(
-            "time",
-            "unread",
-            "starred",
-            "priority"
+    static final List<String> SORT_DATE_HEADER = Collections.unmodifiableList(Arrays.asList(
+            "time", "unread", "starred", "priority"
     ));
 
     private static final List<String> DUPLICATE_ORDER = Collections.unmodifiableList(Arrays.asList(

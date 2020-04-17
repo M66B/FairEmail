@@ -944,7 +944,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvSize.setVisibility(
                     message.totalSize != null && ("size".equals(sort) || "attachments".equals(sort))
                             ? View.VISIBLE : View.GONE);
-            tvTime.setText(date && "time".equals(sort)
+            tvTime.setText(date && FragmentMessages.SORT_DATE_HEADER.contains(sort)
                     ? TF.format(message.received)
                     : Helper.getRelativeTimeSpanString(context, message.received));
 
