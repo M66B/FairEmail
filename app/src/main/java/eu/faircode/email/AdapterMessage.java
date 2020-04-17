@@ -409,6 +409,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private TextView tvNoInternetBody;
         private ImageButton ibDownloading;
         private Group grpDownloading;
+        private ImageButton ibTrashBottom;
         private ImageButton ibSeen;
         private Flow flow;
 
@@ -602,6 +603,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvNoInternetBody = vsBody.findViewById(R.id.tvNoInternetBody);
             ibDownloading = vsBody.findViewById(R.id.ibDownloading);
             grpDownloading = vsBody.findViewById(R.id.grpDownloading);
+            ibTrashBottom = vsBody.findViewById(R.id.ibTrashBottom);
             ibSeen = vsBody.findViewById(R.id.ibSeen);
             flow = vsBody.findViewById(R.id.flow);
 
@@ -681,6 +683,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibMore.setOnClickListener(this);
 
                 ibDownloading.setOnClickListener(this);
+                ibTrashBottom.setOnClickListener(this);
                 ibSeen.setOnClickListener(this);
 
                 tvBody.setOnTouchListener(this);
@@ -754,6 +757,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibMore.setOnClickListener(null);
 
                 ibDownloading.setOnClickListener(null);
+                ibTrashBottom.setOnClickListener(null);
                 ibSeen.setOnClickListener(null);
 
                 tvBody.setOnTouchListener(null);
@@ -1200,6 +1204,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             pbBody.setVisibility(View.GONE);
             grpAction.setVisibility(View.GONE);
             clearActions();
+            ibTrashBottom.setVisibility(View.GONE);
             ibSeen.setVisibility(View.GONE);
         }
 
@@ -1495,6 +1500,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             pbBody.setVisibility(View.GONE);
             grpAction.setVisibility(View.GONE);
             clearActions();
+            ibTrashBottom.setVisibility(View.GONE);
             ibSeen.setVisibility(View.GONE);
 
             db.attachment().liveAttachments(message.id).observe(cowner, new Observer<List<EntityAttachment>>() {
@@ -1591,6 +1597,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibArchive.setVisibility(archive && button_archive_trash ? View.VISIBLE : View.GONE);
                     ibTrash.setVisibility(trash && button_archive_trash ? View.VISIBLE : View.GONE);
                     ibJunk.setVisibility(junk || unjunk ? View.VISIBLE : View.GONE);
+
+                    ibTrashBottom.setVisibility(trash && button_archive_trash ? View.VISIBLE : View.GONE);
 
                     bindBody(message, scroll);
                 }
@@ -2640,6 +2648,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         onActionArchive(message);
                         break;
                     case R.id.ibTrash:
+                    case R.id.ibTrashBottom:
                         onActionTrash(message, (Boolean) ibTrash.getTag());
                         break;
                     case R.id.ibJunk:

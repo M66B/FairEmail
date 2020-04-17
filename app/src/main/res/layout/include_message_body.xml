@@ -113,6 +113,19 @@
         app:layout_constraintTop_toBottomOf="@id/tvBody" />
 
     <ImageButton
+        android:id="@+id/ibTrashBottom"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:background="?attr/selectableItemBackground"
+        android:contentDescription="@string/title_trash"
+        android:padding="6dp"
+        android:scaleType="fitCenter"
+        android:tint="?attr/colorSeparator"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/wvBody"
+        app:srcCompat="@drawable/baseline_delete_24" />
+
+    <ImageButton
         android:id="@+id/ibSeen"
         android:layout_width="36dp"
         android:layout_height="36dp"
