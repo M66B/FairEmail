@@ -3208,7 +3208,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 // Prevent flicker
                 if (expanded &&
                         (message.accountProtocol != EntityAccount.TYPE_IMAP ||
-                                (message.accountAutoSeen && !message.ui_seen && !message.folderReadOnly))) {
+                                (message.accountAutoSeen && !message.folderReadOnly))) {
                     message.unseen = 0;
                     message.ui_seen = true;
                 }
