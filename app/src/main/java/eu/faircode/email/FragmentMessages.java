@@ -4857,8 +4857,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         return null;
 
                     List<EntityIdentity> duplicates = db.identity().getIdentities(identity.account, identity.email);
-                    if (duplicates == null || duplicates.size() > 1)
+                    if (duplicates != null && duplicates.size() > 1) {
+                        args.putBoolean("duplicate", true);
                         return null;
+                    }
 
                     return identity;
                 }
@@ -5424,6 +5426,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 InputStream is = null;
                 X509Certificate result = null;
                 String alias = args.getString("alias");
+                boolean duplicate = args.getBoolean("duplicate");
 
                 if (EntityMessage.SMIME_SIGNONLY.equals(type)) {
                     // Get content/signature
@@ -5745,7 +5748,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         db.message().setMessageStored(message.id, new Date().getTime());
                         db.message().setMessageFts(message.id, false);
 
-                        if (alias != null && message.identity != null)
+                        if (alias != null && !duplicate && message.identity != null)
                             db.identity().setIdentitySignKeyAlias(message.identity, alias);
 
                         db.setTransactionSuccessful();
