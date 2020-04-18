@@ -106,28 +106,26 @@ public class DnsHelper {
             Log.i("Lookup name=" + name + " @" + resolver.getAddress() + " type=" + rtype);
             Record[] records = lookup.run();
 
-            if (lookup.getResult() != Lookup.SUCCESSFUL)
-                if (lookup.getResult() == Lookup.HOST_NOT_FOUND ||
-                        lookup.getResult() == Lookup.TYPE_NOT_FOUND)
-                    throw new UnknownHostException(name);
-                else
-                    throw new UnknownHostException(lookup.getErrorString());
-
-            if (records.length == 0)
+            if (lookup.getResult() == Lookup.HOST_NOT_FOUND ||
+                    lookup.getResult() == Lookup.TYPE_NOT_FOUND)
                 throw new UnknownHostException(name);
+            else if (lookup.getResult() != Lookup.SUCCESSFUL)
+                Log.w("DNS error=" + lookup.getErrorString());
 
             List<DnsRecord> result = new ArrayList<>();
-            for (Record record : records) {
-                Log.i("Found record=" + record);
-                if (record instanceof MXRecord) {
-                    MXRecord mx = (MXRecord) record;
-                    result.add(new DnsRecord(mx.getTarget().toString(true)));
-                } else if (record instanceof SRVRecord) {
-                    SRVRecord srv = (SRVRecord) record;
-                    result.add(new DnsRecord(srv.getTarget().toString(true), srv.getPort()));
-                } else
-                    throw new IllegalArgumentException(record.getClass().getName());
-            }
+
+            if (records != null)
+                for (Record record : records) {
+                    Log.i("Found record=" + record);
+                    if (record instanceof MXRecord) {
+                        MXRecord mx = (MXRecord) record;
+                        result.add(new DnsRecord(mx.getTarget().toString(true)));
+                    } else if (record instanceof SRVRecord) {
+                        SRVRecord srv = (SRVRecord) record;
+                        result.add(new DnsRecord(srv.getTarget().toString(true), srv.getPort()));
+                    } else
+                        throw new IllegalArgumentException(record.getClass().getName());
+                }
 
             return result.toArray(new DnsRecord[0]);
         } catch (TextParseException ex) {
@@ -198,6 +196,8 @@ public class DnsHelper {
             checkMx(context, new Address[]{Log.myAddress()});
             InetAddress iaddr = lookupMx(context, domain);
             DnsRecord[] records = DnsHelper.lookup(context, "_imaps._tcp." + domain, "srv");
+            if (records.length == 0)
+                throw new UnknownHostException(domain);
             Log.i("DNS iaddr=" + iaddr + " srv=" + records[0].name + ":" + records[0].port);
         } catch (Throwable ex) {
             Log.e("DNS", ex);
