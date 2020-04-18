@@ -76,6 +76,19 @@
             app:switchPadding="12dp" />
 
         <eu.faircode.email.FixedTextView
+            android:id="@+id/tvDelayHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_sync_delay_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?attr/colorWarning"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swLanguageDetection" />
+
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvDefaultSnooze"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -86,7 +99,7 @@
             android:textColor="?android:attr/textColorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swLanguageDetection" />
+            app:layout_constraintTop_toBottomOf="@id/tvDelayHint" />
 
         <eu.faircode.email.EditTextPlain
             android:id="@+id/etDefaultSnooze"
