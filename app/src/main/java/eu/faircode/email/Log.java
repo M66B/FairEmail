@@ -602,6 +602,7 @@ public class Log {
                 ex.getMessage() != null &&
                 (ex.getMessage().startsWith("Could not get application info") ||
                         ex.getMessage().startsWith("Unable to create service") ||
+                        ex.getMessage().startsWith("Unable to start service") ||
                         ex.getMessage().startsWith("Unable to resume activity") ||
                         ex.getMessage().startsWith("Failure delivering result")))
             return false;
