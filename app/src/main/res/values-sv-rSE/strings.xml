@@ -570,6 +570,7 @@
     <string name="title_keep_all">Behåll alla meddelanden</string>
     <string name="title_auto_trash">Flytta automatiskt gamla meddelanden till papperskorgen</string>
     <string name="title_auto_delete">Ta automatiskt bort gamla meddelanden permanent</string>
+    <string name="title_auto_delete_hint">Gamla meddelanden är meddelanden som inte längre finns på enheten</string>
     <string name="title_folder_name_missing">Mappnamn saknas</string>
     <string name="title_folder_exists">Mappen %1$s finns</string>
     <string name="title_folder_delete">Ta bort denna mapp och alla meddelanden permanent?</string>
