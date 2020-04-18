@@ -5152,7 +5152,7 @@ public class FragmentCompose extends FragmentBase {
         }
     }
 
-    private class DraftData {
+    private static class DraftData {
         private EntityMessage draft;
         private List<TupleIdentityEx> identities;
     }
