@@ -2017,6 +2017,17 @@ Please see [here](https://help.yahoo.com/kb/generate-third-party-passwords-sln15
 
 Please see [this FAQ](#user-content-faq111) about OAuth support.
 
+Note that Yahoo! does not standard support push messages.
+The Yahoo! email app uses a proprietary, undocumented protocol for push messages.
+
+Push messages require [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE) and the Yahoo! email server does not report IDLE as capability:
+
+```
+Y1 CAPABILITY
+* CAPABILITY IMAP4rev1 ID MOVE NAMESPACE XYMHIGHESTMODSEQ UIDPLUS LITERAL+ CHILDREN X-MSG-EXT UNSELECT OBJECTID
+Y1 OK CAPABILITY completed
+```
+
 <br />
 
 <a name="faq89"></a>
