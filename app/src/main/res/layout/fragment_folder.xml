@@ -347,5 +347,11 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:constraint_referenced_ids="etPoll,tvMultiply,tvPoll" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpAutoDelete"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="cbAutoDelete,tvAutoDeleteHint" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>
