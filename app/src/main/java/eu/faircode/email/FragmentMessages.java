@@ -1628,9 +1628,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (message.folderReadOnly)
                 return 0;
 
-            if (EntityFolder.JUNK.equals(message.folderType))
-                return 0;
-
             if (EntityFolder.OUTBOX.equals(message.folderType))
                 return 0;
 
@@ -1696,6 +1693,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }
 
             Long action = (dX > 0 ? swipes.swipe_right : swipes.swipe_left);
+            String actionType = (dX > 0 ? swipes.right_type : swipes.left_type);
             if (action == null)
                 return;
 
@@ -1722,7 +1720,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             else if (FragmentAccount.SWIPE_ACTION_JUNK.equals(action))
                 icon = R.drawable.baseline_flag_24;
             else if (FragmentAccount.SWIPE_ACTION_DELETE.equals(action) ||
-                    (action.equals(message.folder) && EntityFolder.TRASH.equals(message.folderType)))
+                    (action.equals(message.folder) && EntityFolder.TRASH.equals(message.folderType)) ||
+                    (EntityFolder.TRASH.equals(actionType) && EntityFolder.JUNK.equals(message.folderType)))
                 icon = R.drawable.baseline_delete_forever_24;
             else
                 icon = EntityFolder.getIcon(dX > 0 ? swipes.right_type : swipes.left_type);
@@ -1793,6 +1792,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }
 
             Long action = (direction == ItemTouchHelper.LEFT ? swipes.swipe_left : swipes.swipe_right);
+            String actionType = (direction == ItemTouchHelper.LEFT ? swipes.left_type : swipes.right_type);
             if (action == null) {
                 adapter.notifyDataSetChanged();
                 return;
@@ -1818,7 +1818,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 adapter.notifyItemChanged(pos);
                 onSwipeJunk(message);
             } else if (FragmentAccount.SWIPE_ACTION_DELETE.equals(action) ||
-                    (action.equals(message.folder) && EntityFolder.TRASH.equals(message.folderType))) {
+                    (action.equals(message.folder) && EntityFolder.TRASH.equals(message.folderType)) ||
+                    (EntityFolder.TRASH.equals(actionType) && EntityFolder.JUNK.equals(message.folderType))) {
                 adapter.notifyItemChanged(pos);
                 onSwipeDelete(message);
             } else
