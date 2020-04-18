@@ -2375,9 +2375,6 @@ class Core {
                 }
             }
 
-            if (message.total != null && message.total == 0)
-                reportEmptyMessage(context, state, account, istore);
-
             try {
                 db.beginTransaction();
 
@@ -2448,8 +2445,7 @@ class Core {
                     Log.i(folder.name + " inline downloaded message id=" + message.id +
                             " size=" + message.size + "/" + (body == null ? null : body.length()));
 
-                    Long size = parts.getBodySize();
-                    if (TextUtils.isEmpty(body) && size != null && size > 0)
+                    if (TextUtils.isEmpty(body) && parts.hasBody())
                         reportEmptyMessage(context, state, account, istore);
                 }
             }
@@ -2796,8 +2792,7 @@ class Core {
                     Log.i(folder.name + " downloaded message id=" + message.id +
                             " size=" + message.size + "/" + (body == null ? null : body.length()));
 
-                    Long size = parts.getBodySize();
-                    if (TextUtils.isEmpty(body) && size != null && size > 0)
+                    if (TextUtils.isEmpty(body) && parts.hasBody())
                         reportEmptyMessage(context, state, account, istore);
                 }
             }
