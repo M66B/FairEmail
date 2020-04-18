@@ -3543,8 +3543,10 @@ public class FragmentCompose extends FragmentBase {
                     if (attachment.available) {
                         if (!attachment.isEncryption())
                             last_available++;
-                    } else
-                        EntityOperation.queue(context, data.draft, EntityOperation.ATTACHMENT, attachment.id);
+                    } else {
+                        if (attachment.progress == null)
+                            EntityOperation.queue(context, data.draft, EntityOperation.ATTACHMENT, attachment.id);
+                    }
 
                 db.setTransactionSuccessful();
             } finally {
