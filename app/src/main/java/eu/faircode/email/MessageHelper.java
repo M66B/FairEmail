@@ -1462,8 +1462,6 @@ public class MessageHelper {
             List<Part> all = new ArrayList<>();
             all.addAll(plain);
             all.addAll(html);
-            if (all.size() == 0)
-                return true;
 
             for (Part p : all)
                 if (p.getSize() > 0)
