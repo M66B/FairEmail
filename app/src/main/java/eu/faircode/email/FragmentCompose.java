@@ -2839,12 +2839,33 @@ public class FragmentCompose extends FragmentBase {
             if (privacy)
                 try {
                     ExifInterface exif = new ExifInterface(file.getAbsolutePath());
+
                     exif.setAttribute(ExifInterface.TAG_GPS_LATITUDE_REF, null);
                     exif.setAttribute(ExifInterface.TAG_GPS_LATITUDE, null);
                     exif.setAttribute(ExifInterface.TAG_GPS_LONGITUDE_REF, null);
                     exif.setAttribute(ExifInterface.TAG_GPS_LONGITUDE, null);
                     exif.setAttribute(ExifInterface.TAG_GPS_ALTITUDE_REF, null);
                     exif.setAttribute(ExifInterface.TAG_GPS_ALTITUDE, null);
+                    exif.setAttribute(ExifInterface.TAG_GPS_SPEED_REF, null);
+                    exif.setAttribute(ExifInterface.TAG_GPS_SPEED, null);
+
+                    exif.setAttribute(ExifInterface.TAG_GPS_DEST_LATITUDE_REF, null);
+                    exif.setAttribute(ExifInterface.TAG_GPS_DEST_LATITUDE, null);
+                    exif.setAttribute(ExifInterface.TAG_GPS_DEST_LONGITUDE_REF, null);
+                    exif.setAttribute(ExifInterface.TAG_GPS_DEST_LONGITUDE, null);
+                    exif.setAttribute(ExifInterface.TAG_GPS_DEST_BEARING_REF, null);
+                    exif.setAttribute(ExifInterface.TAG_GPS_DEST_BEARING, null);
+                    exif.setAttribute(ExifInterface.TAG_GPS_DEST_DISTANCE_REF, null);
+                    exif.setAttribute(ExifInterface.TAG_GPS_DEST_DISTANCE, null);
+
+                    exif.setAttribute(ExifInterface.TAG_GPS_IMG_DIRECTION_REF, null);
+                    exif.setAttribute(ExifInterface.TAG_GPS_IMG_DIRECTION, null);
+
+                    exif.setAttribute(ExifInterface.TAG_GPS_TRACK_REF, null);
+                    exif.setAttribute(ExifInterface.TAG_GPS_TRACK, null);
+
+                    exif.setAttribute(ExifInterface.TAG_GPS_AREA_INFORMATION, null);
+
                     exif.saveAttributes();
                 } catch (IOException ex) {
                     Log.w(ex);
