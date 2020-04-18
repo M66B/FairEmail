@@ -1541,6 +1541,10 @@ class Core {
             Message[] imessages = ifolder.getMessages();
             Log.i(folder.name + " POP messages=" + imessages.length);
 
+            if (account.max_messages != null && imessages.length > account.max_messages)
+                imessages = Arrays.copyOfRange(imessages,
+                        imessages.length - account.max_messages, imessages.length);
+
             if (caps.containsKey("UIDL")) {
                 FetchProfile ifetch = new FetchProfile();
                 ifetch.add(UIDFolder.FetchProfileItem.UID);
@@ -1557,9 +1561,6 @@ class Core {
                 try {
                     if (!state.isRunning())
                         return;
-
-                    if (account.max_messages != null && ++count > account.max_messages)
-                        break;
 
                     MessageHelper helper = new MessageHelper((MimeMessage) imessage);
 
