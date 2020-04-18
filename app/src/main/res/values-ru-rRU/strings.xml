@@ -758,6 +758,7 @@
     <string name="title_add_image_inline">Вставить</string>
     <string name="title_add_image_attach">Прикрепить</string>
     <string name="title_add_image_resize">Изменить размер</string>
+    <string name="title_add_image_privacy">Удалить размещение</string>
     <string name="title_add_resize_pixels">&lt; %1$d пикселей</string>
     <string name="title_add_image_select">Выбрать файл</string>
     <string name="title_add_attachment">Добавить вложение</string>

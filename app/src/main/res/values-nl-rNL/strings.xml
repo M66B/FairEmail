@@ -735,6 +735,7 @@
     <string name="title_add_image_inline">Invoegen</string>
     <string name="title_add_image_attach">Bijlage</string>
     <string name="title_add_image_resize">Grootte aanpassen</string>
+    <string name="title_add_image_privacy">Verwijder locatie</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixels</string>
     <string name="title_add_image_select">Selecteer bestand</string>
     <string name="title_add_attachment">Bijlage toevoegen</string>

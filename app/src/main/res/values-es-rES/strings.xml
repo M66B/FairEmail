@@ -737,6 +737,7 @@
     <string name="title_add_image_inline">Insertar</string>
     <string name="title_add_image_attach">Adjuntar</string>
     <string name="title_add_image_resize">Redimensionar</string>
+    <string name="title_add_image_privacy">Eliminar localización</string>
     <string name="title_add_resize_pixels">&lt; %1$d píxeles</string>
     <string name="title_add_image_select">Seleccionar archivo</string>
     <string name="title_add_attachment">Agregar adjunto</string>

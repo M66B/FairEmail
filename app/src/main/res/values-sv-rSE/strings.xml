@@ -192,7 +192,7 @@
     <string name="title_setup_theme_dark">Mörk</string>
     <string name="title_setup_theme_black_background">Svart bakgrund</string>
     <string name="title_setup_theme_system">Använd systemtema</string>
-    <string name="title_setup_theme_system_hint">Använd systemtema kommer automatiskt att växla till ljus/mörk på dagen/natt, om det stöds av Android</string>
+    <string name="title_setup_theme_system_hint">Systemtema kommer automatiskt att växla till ljus/mörk på dagen/natt, om det stöds av Android</string>
     <string name="title_setup_advanced">Avancerat</string>
     <string name="title_setup_options">Alternativ</string>
     <string name="title_setup_defaults">Återställ standardvärden</string>
@@ -381,6 +381,7 @@
     <string name="title_advanced_experiments">Prova experimentella funktioner</string>
     <string name="title_advanced_crash_reports">Skicka felrapporter</string>
     <string name="title_advanced_debug">Felsökningsläge</string>
+    <string name="title_advanced_cleanup_attachments">Ta bort bilagor på gamla meddelanden</string>
     <string name="title_advanced_cleanup">Rensa</string>
     <string name="title_advanced_last_cleanup">Senaste rensning: %1$s</string>
     <string name="title_advanced_more">Fler alternativ</string>
@@ -414,6 +415,7 @@
     <string name="title_advanced_date_hint">Meddelanden grupperas endast efter datum om de sorteras efter tid</string>
     <string name="title_advanced_navbar_colorize_hint">Om detta fungerar beror på Android-versionen och varianten</string>
     <string name="title_advanced_threading_hint">Gruppera meddelanden relaterade till varandra</string>
+    <string name="title_advanced_highlight_hint">Accentfärgen på temat kommer att användas för markering</string>
     <string name="title_advanced_gravatars_hint">Det kan finnas en integritetsrisk</string>
     <string name="title_advanced_name_email_hint">När inaktiverad visas endast namn när det är tillgängligt</string>
     <string name="title_advanced_preview_hint">Endast tillgängligt när meddelandetexten hämtades</string>
@@ -443,6 +445,7 @@
     <string name="title_advanced_optimize_hint">Aktivering av detta kan automatiskt ändra mottagningsinställningarna för att minska batterianvändningen</string>
     <string name="title_advanced_experiments_hint">Lista över aktuella experimentella funktioner</string>
     <string name="title_advanced_debug_hint">Aktivera extra loggning och visa felsökningsinformation på olika ställen</string>
+    <string name="title_advanced_cleanup_attachments_hint">När du städar manuellt kommer detta att ta bort bilagor från meddelanden som inte längre är synkroniserade</string>
     <string name="title_advanced_cleanup_hint">Detta tar bort alla temporära filer</string>
     <string name="title_advanced_never_favorite">Aldrig favorit</string>
     <string name="title_advanced_swipe_actions">Ställ in svepåtgärder</string>
@@ -454,6 +457,7 @@
     <string name="title_advanced_sender">Tillåt avsändaradress redigering</string>
     <string name="title_advanced_sender_regex">Regex för att matcha användarnamn för inkommande e-postadresser</string>
     <string name="title_identity_reply_to">Svara till adress</string>
+    <string name="title_identity_unicode">Tillåt Unicode i e-postadresser</string>
     <string name="title_identity_receipt">Begär leverans/läs kvitto som standard</string>
     <string name="title_identity_use_ip_hint">Vid \"invalid greeting\", \"requires valid address\" eller ett liknande fel, försök ändra den här inställningen</string>
     <string name="title_optional">Valfritt</string>
@@ -731,6 +735,7 @@
     <string name="title_add_image_inline">Infoga</string>
     <string name="title_add_image_attach">Bifoga</string>
     <string name="title_add_image_resize">Ändra storlek</string>
+    <string name="title_add_image_privacy">Ta bort plats</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixlar</string>
     <string name="title_add_image_select">Välj fil</string>
     <string name="title_add_attachment">Lägg till bilaga</string>

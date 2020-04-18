@@ -404,7 +404,7 @@
     <string name="title_advanced_date_hint">若按时间对消息排序，将仅按日期对消息分组</string>
     <string name="title_advanced_navbar_colorize_hint">这是否正常工作取决于Android版本和变体</string>
     <string name="title_advanced_threading_hint">合并相同主题为一封会话</string>
-    <string name="title_advanced_highlight_hint">主题的强调色将被用于高亮</string>
+    <string name="title_advanced_highlight_hint">主题的强调色将用于高亮文本颜色</string>
     <string name="title_advanced_gravatars_hint">可能存在隐私风险</string>
     <string name="title_advanced_name_email_hint">禁用该选项，将仅显示名称（如果可用）</string>
     <string name="title_advanced_preview_hint">只有当消息文本下载时才可用</string>
@@ -434,7 +434,7 @@
     <string name="title_advanced_optimize_hint">启用此功能可以自动更改接收设置以减少电池损耗</string>
     <string name="title_advanced_experiments_hint">当前实验性功能列表</string>
     <string name="title_advanced_debug_hint">启用额外日志并在不同地方显示调试信息</string>
-    <string name="title_advanced_cleanup_attachments_hint">这会在手动清理时从不再同步的消息中移除附件</string>
+    <string name="title_advanced_cleanup_attachments_hint">手动清理时，这将从不再同步的消息中移除附件</string>
     <string name="title_advanced_cleanup_hint">这将会删除所有的临时文件</string>
     <string name="title_advanced_never_favorite">永不收藏</string>
     <string name="title_advanced_swipe_actions">设置滑动操作</string>
@@ -724,6 +724,7 @@
     <string name="title_add_image_inline">插入</string>
     <string name="title_add_image_attach">附件</string>
     <string name="title_add_image_resize">调整大小</string>
+    <string name="title_add_image_privacy">删除位置</string>
     <string name="title_add_resize_pixels">&lt; %1$d 像素</string>
     <string name="title_add_image_select">选择文件</string>
     <string name="title_add_attachment">添加附件</string>
