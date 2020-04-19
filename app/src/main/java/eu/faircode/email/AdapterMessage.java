@@ -1203,7 +1203,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             tvNoInternetBody.setVisibility(View.GONE);
             grpDownloading.setVisibility(View.GONE);
+            tvBody.setText(null);
             tvBody.setVisibility(View.GONE);
+            // TO DO: clear web view?
             wvBody.setVisibility(View.GONE);
             pbBody.setVisibility(View.GONE);
             grpAction.setVisibility(View.GONE);
