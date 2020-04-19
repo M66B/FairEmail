@@ -540,14 +540,23 @@ public class EntityRule {
         return cal;
     }
 
-    static EntityRule blockSender(Context context, EntityMessage message, EntityFolder junk, boolean block_domain) throws JSONException {
+    static EntityRule blockSender(Context context, EntityMessage message, EntityFolder junk, boolean block_domain, List<String> whitelist) throws JSONException {
         String sender = ((InternetAddress) message.from[0]).getAddress();
         String name = MessageHelper.formatAddresses(new Address[]{message.from[0]});
 
         if (block_domain) {
             int at = sender.indexOf('@');
-            if (at > 0)
-                sender = sender.substring(at);
+            if (at > 0) {
+                boolean whitelisted = false;
+                String domain = sender.substring(at + 1);
+                for (String d : whitelist)
+                    if (domain.matches(d)) {
+                        whitelisted = true;
+                        break;
+                    }
+                if (!whitelisted)
+                    sender = '@' + domain;
+            }
         }
 
         JSONObject jsender = new JSONObject();

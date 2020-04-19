@@ -6036,6 +6036,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 long id = args.getLong("id");
                 boolean block_sender = args.getBoolean("block_sender");
                 boolean block_domain = args.getBoolean("block_domain");
+                List<String> whitelist = EmailProvider.getDomainNames(context);
 
                 DB db = DB.getInstance(context);
                 try {
@@ -6053,7 +6054,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                     if ((block_sender || block_domain) &&
                             (message.from != null && message.from.length > 0)) {
-                        EntityRule rule = EntityRule.blockSender(context, message, junk, block_sender);
+                        EntityRule rule = EntityRule.blockSender(context, message, junk, block_sender, whitelist);
                         rule.id = db.rule().insertRule(rule);
                     }
 

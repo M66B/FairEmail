@@ -99,6 +99,22 @@ public class EmailProvider {
             throw new UnknownHostException(this.name + " invalid");
     }
 
+    static List<String> getDomainNames(Context context) {
+        List<String> result = new ArrayList<>();
+
+        for (String domain : PROPRIETARY)
+            result.add(domain.replace(".", "\\."));
+
+        List<EmailProvider> providers = loadProfiles(context);
+        for (EmailProvider provider : providers)
+            if (provider.domain != null)
+                for (String domain : provider.domain)
+                    if (!result.contains(domain))
+                        result.add(domain);
+
+        return result;
+    }
+
     static List<EmailProvider> loadProfiles(Context context) {
         List<EmailProvider> result = null;
         try {
