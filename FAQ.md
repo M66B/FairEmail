@@ -915,7 +915,9 @@ Possible causes are:
 Many public Wi-Fi networks block outgoing email to prevent spam.
 Sometimes you can workaround this by using another SMTP port. See the documentation of the provider for the usable port numbers.
 
-If you are using a VPN, the VPN provider might block the connection because it is too aggressively trying to prevent spam.
+If you are using a [VPN](https://en.wikipedia.org/wiki/Virtual_private_network),
+the VPN provider might block the connection because it is too aggressively trying to prevent spam.
+Note that [Google Fi](https://fi.google.com/) is using a VPN too.
 
 **Gmail errors**
 
