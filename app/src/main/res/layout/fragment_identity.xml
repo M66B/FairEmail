@@ -488,6 +488,28 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbUseIp" />
 
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvEhlo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_ehlo"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvUseIpHint" />
+
+        <eu.faircode.email.EditTextPlain
+            android:id="@+id/etEhlo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:autofillHints="name"
+            android:hint="@string/title_optional"
+            android:inputType="text"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvEhlo" />
+
         <CheckBox
             android:id="@+id/cbSynchronize"
             android:layout_width="wrap_content"
@@ -495,7 +517,7 @@
             android:layout_marginTop="12dp"
             android:text="@string/title_enabled"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvUseIpHint" />
+            app:layout_constraintTop_toBottomOf="@id/etEhlo" />
 
         <CheckBox
             android:id="@+id/cbPrimary"
@@ -760,7 +782,7 @@
                 tvSmtp,tvHost,etHost,rgEncryption,cbInsecure,tvInsecureRemark,tvPort,etPort,
                 tvUser,etUser,tvPassword,tilPassword,btnCertificate,tvCertificate,btnOAuth,
                 tvRealm,etRealm,
-                cbUseIp,tvUseIpHint,
+                cbUseIp,tvUseIpHint,tvEhlo,etEhlo,
                 cbSynchronize,cbPrimary,
                 cbSenderExtra,tvSenderExtra,etSenderExtra,tvSenderExtraHint,
                 tvReplyTo,etReplyTo,tvCc,etCc,tvCcHint,tvBcc,etBcc,tvBccHint,cbUnicode" />

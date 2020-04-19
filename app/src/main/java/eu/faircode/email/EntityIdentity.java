@@ -84,6 +84,7 @@ public class EntityIdentity {
     public String fingerprint;
     @NonNull
     public Boolean use_ip = true; // instead of domain name
+    public String ehlo;
     @NonNull
     public Boolean synchronize;
     @NonNull
@@ -183,6 +184,7 @@ public class EntityIdentity {
         json.put("realm", realm);
         json.put("fingerprint", fingerprint);
         json.put("use_ip", use_ip);
+        json.put("ehlo", ehlo);
 
         json.put("synchronize", synchronize);
         json.put("primary", primary);
@@ -234,6 +236,8 @@ public class EntityIdentity {
             identity.fingerprint = json.getString("fingerprint");
         if (json.has("use_ip"))
             identity.use_ip = json.getBoolean("use_ip");
+        if (json.has("ehlo"))
+            identity.ehlo = json.getString("ehlo");
 
         identity.synchronize = json.getBoolean("synchronize");
         identity.primary = json.getBoolean("primary");
@@ -271,6 +275,7 @@ public class EntityIdentity {
                     this.password.equals(other.password) &&
                     Objects.equals(this.realm, other.realm) &&
                     this.use_ip == other.use_ip &&
+                    Objects.equals(this.ehlo, other.ehlo) &&
                     this.synchronize.equals(other.synchronize) &&
                     this.primary.equals(other.primary) &&
                     this.sender_extra.equals(sender_extra) &&

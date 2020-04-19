@@ -84,6 +84,7 @@ public class EmailService implements AutoCloseable {
     private boolean insecure;
     private boolean harden;
     private boolean useip;
+    private String ehlo;
     private boolean debug;
     private Properties properties;
     private Session isession;
@@ -231,8 +232,9 @@ public class EmailService implements AutoCloseable {
         properties.put("mail." + protocol + ".ignorebodystructuresize", Boolean.toString(enabled));
     }
 
-    void setUseIp(boolean enabled) {
-        useip = enabled;
+    void setUseIp(boolean enabled, String host) {
+        this.useip = enabled;
+        this.ehlo = host;
     }
 
     void setLeaveOnServer(boolean keep) {
@@ -503,14 +505,15 @@ public class EmailService implements AutoCloseable {
             // https://tools.ietf.org/html/rfc5321#section-4.1.3
             String haddr = (address instanceof Inet4Address ? "[127.0.0.1]" : "[IPv6:::1]");
 
-            properties.put("mail." + protocol + ".localhost", useip ? haddr : hdomain);
+            properties.put("mail." + protocol + ".localhost",
+                    ehlo == null ? (useip ? haddr : hdomain) : ehlo);
             Log.i("Using localhost=" + properties.getProperty("mail." + protocol + ".localhost"));
 
             iservice = isession.getTransport(protocol);
             try {
                 iservice.connect(address.getHostAddress(), port, user, password);
             } catch (MessagingException ex) {
-                if (ConnectionHelper.isSyntacticallyInvalid(ex)) {
+                if (ehlo == null && ConnectionHelper.isSyntacticallyInvalid(ex)) {
                     properties.put("mail." + protocol + ".localhost", useip ? hdomain : haddr);
                     Log.i("Fallback localhost=" + properties.getProperty("mail." + protocol + ".localhost"));
                     try {

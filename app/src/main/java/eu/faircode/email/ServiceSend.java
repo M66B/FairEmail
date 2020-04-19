@@ -466,7 +466,7 @@ public class ServiceSend extends ServiceBase {
         // Create transport
         try (EmailService iservice = new EmailService(
                 this, ident.getProtocol(), ident.realm, ident.insecure, debug)) {
-            iservice.setUseIp(ident.use_ip);
+            iservice.setUseIp(ident.use_ip, ident.ehlo);
             iservice.setUnicode(ident.unicode);
 
             // Connect transport

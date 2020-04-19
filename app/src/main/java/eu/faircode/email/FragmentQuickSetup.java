@@ -308,7 +308,7 @@ public class FragmentQuickSetup extends FragmentBase {
                 String iprotocol = provider.smtp.starttls ? "smtp" : "smtps";
                 try (EmailService iservice = new EmailService(
                         context, iprotocol, null, false, EmailService.PURPOSE_CHECK, true)) {
-                    iservice.setUseIp(provider.useip);
+                    iservice.setUseIp(provider.useip, null);
                     iservice.connect(
                             provider.smtp.host, provider.smtp.port,
                             EmailService.AUTH_TYPE_PASSWORD, null,

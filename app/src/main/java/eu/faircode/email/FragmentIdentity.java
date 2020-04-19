@@ -102,6 +102,7 @@ public class FragmentIdentity extends FragmentBase {
     private Button btnOAuth;
     private EditText etRealm;
     private CheckBox cbUseIp;
+    private EditText etEhlo;
 
     private CheckBox cbSynchronize;
     private CheckBox cbPrimary;
@@ -192,6 +193,7 @@ public class FragmentIdentity extends FragmentBase {
         btnOAuth = view.findViewById(R.id.btnOAuth);
         etRealm = view.findViewById(R.id.etRealm);
         cbUseIp = view.findViewById(R.id.cbUseIp);
+        etEhlo = view.findViewById(R.id.etEhlo);
 
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         cbPrimary = view.findViewById(R.id.cbPrimary);
@@ -258,6 +260,7 @@ public class FragmentIdentity extends FragmentBase {
                             etPort.setText(Integer.toString(provider.smtp.port));
                             rgEncryption.check(provider.smtp.starttls ? R.id.radio_starttls : R.id.radio_ssl);
                             cbUseIp.setChecked(provider.useip);
+                            etEhlo.setText(null);
 
                             break;
                         }
@@ -379,6 +382,7 @@ public class FragmentIdentity extends FragmentBase {
                 etPort.setText(position == 0 ? null : Integer.toString(provider.smtp.port));
                 rgEncryption.check(provider.smtp.starttls ? R.id.radio_starttls : R.id.radio_ssl);
                 cbUseIp.setChecked(provider.useip);
+                etEhlo.setText(null);
 
                 EntityAccount account = (EntityAccount) spAccount.getSelectedItem();
                 if (account == null ||
@@ -537,6 +541,7 @@ public class FragmentIdentity extends FragmentBase {
                 etPort.setText(Integer.toString(provider.smtp.port));
                 rgEncryption.check(provider.smtp.starttls ? R.id.radio_starttls : R.id.radio_ssl);
                 cbUseIp.setChecked(provider.useip);
+                etEhlo.setText(null);
             }
 
             @Override
@@ -593,6 +598,7 @@ public class FragmentIdentity extends FragmentBase {
         args.putString("realm", etRealm.getText().toString());
         args.putString("fingerprint", cbTrust.isChecked() ? (String) cbTrust.getTag() : null);
         args.putBoolean("use_ip", cbUseIp.isChecked());
+        args.putString("ehlo", etEhlo.getText().toString());
         args.putString("signature", signature);
         args.putBoolean("synchronize", cbSynchronize.isChecked());
         args.putBoolean("primary", cbPrimary.isChecked());
@@ -643,6 +649,7 @@ public class FragmentIdentity extends FragmentBase {
                 String realm = args.getString("realm");
                 String fingerprint = args.getString("fingerprint");
                 boolean use_ip = args.getBoolean("use_ip");
+                String ehlo = args.getString("ehlo");
                 boolean synchronize = args.getBoolean("synchronize");
                 boolean primary = args.getBoolean("primary");
 
@@ -705,6 +712,9 @@ public class FragmentIdentity extends FragmentBase {
                 if (TextUtils.isEmpty(realm))
                     realm = null;
 
+                if (TextUtils.isEmpty(ehlo))
+                    ehlo = null;
+
                 if (TextUtils.isEmpty(sender_extra_regex))
                     sender_extra_regex = null;
 
@@ -763,6 +773,8 @@ public class FragmentIdentity extends FragmentBase {
                         return true;
                     if (!Objects.equals(identity.use_ip, use_ip))
                         return true;
+                    if (!Objects.equals(identity.ehlo, ehlo))
+                        return true;
                     if (!Objects.equals(identity.synchronize, synchronize))
                         return true;
                     if (!Objects.equals(identity.primary, (identity.synchronize && primary)))
@@ -793,7 +805,8 @@ public class FragmentIdentity extends FragmentBase {
                         !Objects.equals(identity.certificate_alias, certificate) ||
                         !Objects.equals(realm, identityRealm) ||
                         !Objects.equals(identity.fingerprint, fingerprint) ||
-                        use_ip != identity.use_ip));
+                        use_ip != identity.use_ip) ||
+                        !Objects.equals(identity.ehlo, ehlo));
                 Log.i("Identity check=" + check);
 
                 Long last_connected = null;
@@ -806,7 +819,7 @@ public class FragmentIdentity extends FragmentBase {
                     String protocol = (starttls ? "smtp" : "smtps");
                     try (EmailService iservice = new EmailService(
                             context, protocol, realm, insecure, EmailService.PURPOSE_CHECK, true)) {
-                        iservice.setUseIp(use_ip);
+                        iservice.setUseIp(use_ip, ehlo);
                         iservice.connect(
                                 host, Integer.parseInt(port),
                                 auth, provider,
@@ -848,6 +861,7 @@ public class FragmentIdentity extends FragmentBase {
                     identity.realm = realm;
                     identity.fingerprint = fingerprint;
                     identity.use_ip = use_ip;
+                    identity.ehlo = ehlo;
                     identity.synchronize = synchronize;
                     identity.primary = (identity.synchronize && primary);
 
@@ -1056,6 +1070,7 @@ public class FragmentIdentity extends FragmentBase {
                     }
 
                     cbUseIp.setChecked(identity == null ? true : identity.use_ip);
+                    etEhlo.setText(identity == null ? null : identity.ehlo);
                     cbSynchronize.setChecked(identity == null ? true : identity.synchronize);
                     cbPrimary.setChecked(identity == null ? true : identity.primary);
 
