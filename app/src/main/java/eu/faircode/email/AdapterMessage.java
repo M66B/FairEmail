@@ -1490,18 +1490,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             int height = properties.getHeight(message.id, 0);
             if (height == 0) {
-                tvBody.setMinHeight(0);
                 tvBody.setVisibility(View.GONE);
-                wvBody.setMinimumHeight(0);
                 wvBody.setVisibility(View.GONE);
             } else {
                 boolean show_full = properties.getValue("full", message.id);
                 if (show_full) {
-                    wvBody.setMinimumHeight(height);
                     wvBody.setVisibility(View.INVISIBLE);
+                    wvBody.setMinimumHeight(height);
                 } else {
-                    tvBody.setMinHeight(height);
                     tvBody.setVisibility(View.INVISIBLE);
+                    tvBody.setMinHeight(height);
                 }
             }
             pbBody.setVisibility(View.GONE);
