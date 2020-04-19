@@ -477,6 +477,7 @@
     <string name="title_client_certificate">客户端证书</string>
     <string name="title_realm">移动数据库</string>
     <string name="title_use_ip">使用本地IP地址而非主机名</string>
+    <string name="title_ehlo">自定义 HELO/EHLO 标识</string>
     <string name="title_primary">主要的</string>
     <string name="title_primary_account">主账户 (默认帐户)</string>
     <string name="title_primary_identity">主身份(默认身份)</string>

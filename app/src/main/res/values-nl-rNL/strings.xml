@@ -488,6 +488,7 @@
     <string name="title_client_certificate">Cliëntcertificaat</string>
     <string name="title_realm">Realm</string>
     <string name="title_use_ip">Gebruik lokaal IP-adres in plaats van hostnaam</string>
+    <string name="title_ehlo">Aangepaste HELO/EHLO identificatie</string>
     <string name="title_primary">Primair</string>
     <string name="title_primary_account">Primair account (standaard account)</string>
     <string name="title_primary_identity">Primaire identiteit (standaard identiteit)</string>

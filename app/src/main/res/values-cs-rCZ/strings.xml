@@ -511,6 +511,7 @@
     <string name="title_client_certificate">Klientský certifikát</string>
     <string name="title_realm">Sféra</string>
     <string name="title_use_ip">Použít lokální IP adresu namísto názvu hostitele</string>
+    <string name="title_ehlo">Vlastní HELO/EHLO identifikace</string>
     <string name="title_primary">Hlavní</string>
     <string name="title_primary_account">Hlavní (výchozí účet)</string>
     <string name="title_primary_identity">Hlavní (výchozí identita)</string>

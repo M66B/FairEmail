@@ -489,6 +489,7 @@
     <string name="title_client_certificate">Certificat client</string>
     <string name="title_realm">Domaine</string>
     <string name="title_use_ip">Utiliser l\'adresse IP locale au lieu du nom de domaine</string>
+    <string name="title_ehlo">Identification HELO/EHLO personnalisée</string>
     <string name="title_primary">Primaire</string>
     <string name="title_primary_account">Principal (compte par défaut)</string>
     <string name="title_primary_identity">Principal (identité par défaut)</string>
