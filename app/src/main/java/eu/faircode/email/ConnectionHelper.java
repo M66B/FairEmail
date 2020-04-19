@@ -39,6 +39,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 
 public class ConnectionHelper {
@@ -311,7 +312,7 @@ public class ConnectionHelper {
     static Boolean isSyntacticallyInvalid(Throwable ex) {
         if (ex.getMessage() == null)
             return false;
-        return ex.getMessage().toLowerCase().contains("syntactically invalid");
+        return ex.getMessage().toLowerCase(Locale.ROOT).contains("syntactically invalid");
     }
 
     static boolean vpnActive(Context context) {
