@@ -1132,7 +1132,6 @@ public class FragmentRule extends FragmentBase {
             tvNoMessages.setVisibility(View.GONE);
             rvMessage.setVisibility(View.GONE);
             btnExecute.setVisibility(View.GONE);
-            pbWait.setVisibility(View.VISIBLE);
 
             final Bundle args = new Bundle();
             args.putLong("folder", folder);
@@ -1198,6 +1197,16 @@ public class FragmentRule extends FragmentBase {
 
             new SimpleTask<List<EntityMessage>>() {
                 @Override
+                protected void onPreExecute(Bundle args) {
+                    pbWait.setVisibility(View.VISIBLE);
+                }
+
+                @Override
+                protected void onPostExecute(Bundle args) {
+                    pbWait.setVisibility(View.GONE);
+                }
+
+                @Override
                 protected List<EntityMessage> onExecute(Context context, Bundle args) throws Throwable {
                     EntityRule rule = new EntityRule();
                     rule.folder = args.getLong("folder");
@@ -1228,7 +1237,6 @@ public class FragmentRule extends FragmentBase {
                 protected void onExecuted(Bundle args, List<EntityMessage> messages) {
                     adapter.set(messages);
 
-                    pbWait.setVisibility(View.GONE);
                     if (messages.size() > 0) {
                         rvMessage.setVisibility(View.VISIBLE);
                         btnExecute.setVisibility(View.VISIBLE);
@@ -1238,7 +1246,11 @@ public class FragmentRule extends FragmentBase {
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Log.unexpectedError(getParentFragmentManager(), ex);
+                    if (ex instanceof IllegalArgumentException) {
+                        tvNoMessages.setText(ex.getMessage());
+                        tvNoMessages.setVisibility(View.VISIBLE);
+                    } else
+                        Log.unexpectedError(getParentFragmentManager(), ex);
                 }
             }.execute(this, args, "rule:check");
 
