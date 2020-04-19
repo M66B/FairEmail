@@ -1738,7 +1738,10 @@ You can use multiple rules, possibly with a *stop processing*, for an *or* or a 
 
 Matching is not case sensitive, unless you use [regular expressions](https://en.wikipedia.org/wiki/Regular_expression).
 Please see [here](https://developer.android.com/reference/java/util/regex/Pattern) for the documentation of Java regular expressions.
-Note that *dot all mode* is enabled to be able to match unfolded headers.
+You can test a regex [here](https://regexr.com/).
+
+Note that [dot all mode](https://developer.android.com/reference/java/util/regex/Pattern#DOTALL) is enabled
+to be able to match [unfolded headers](https://tools.ietf.org/html/rfc2822#section-3.2.3).
 
 You can select one of these actions to apply to matching messages:
 
