@@ -5142,16 +5142,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         holder.wire();
     }
 
-    public void collapse(@NonNull ViewHolder holder, int position) {
-        int type = holder.getItemViewType();
-        if (type != R.layout.item_message_compact && type != R.layout.item_message_normal)
-            return;
-
-        TupleMessageEx message = getItemAtPosition(position);
-        if (message != null)
-            holder.clearExpanded(message);
-    }
-
     public void onItemSelected(@NonNull ViewHolder holder, boolean selected) {
         if (accessibility && holder.view != null)
             try {
