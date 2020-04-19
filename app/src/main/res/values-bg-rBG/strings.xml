@@ -735,6 +735,7 @@
     <string name="title_add_image_inline">Вмъкване</string>
     <string name="title_add_image_attach">Прикачване</string>
     <string name="title_add_image_resize">Размер</string>
+    <string name="title_add_image_privacy">Премахване на местоположението</string>
     <string name="title_add_resize_pixels">&lt; %1$d пиксела</string>
     <string name="title_add_image_select">Избиране на файл</string>
     <string name="title_add_attachment">Прикачване на файл</string>
