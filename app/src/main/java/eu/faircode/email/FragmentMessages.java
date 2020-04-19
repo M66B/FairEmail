@@ -126,7 +126,7 @@ import org.bouncycastle.asn1.cms.CMSAttributes;
 import org.bouncycastle.asn1.cms.Time;
 import org.bouncycastle.cert.X509CertificateHolder;
 import org.bouncycastle.cert.jcajce.JcaX509CertificateConverter;
-import org.bouncycastle.cms.CMSEnvelopedData;
+import org.bouncycastle.cms.CMSEnvelopedDataParser;
 import org.bouncycastle.cms.CMSException;
 import org.bouncycastle.cms.CMSProcessable;
 import org.bouncycastle.cms.CMSProcessableFile;
@@ -159,6 +159,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.KeyStore;
 import java.security.PrivateKey;
@@ -5452,6 +5453,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     InputStream is = null;
                     FileInputStream fis = new FileInputStream(signature);
                     CMSSignedData signedData;
+                    // TODO: CMSSignedDataParser
                     if (sdata) {
                         signedData = new CMSSignedData(fis);
 
@@ -5669,45 +5671,57 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     if (input == null)
                         throw new IllegalArgumentException("Encrypted message missing");
 
-                    // Build enveloped data
-                    CMSEnvelopedData envelopedData;
-                    try (FileInputStream fis = new FileInputStream(input)) {
-                        envelopedData = new CMSEnvelopedData(fis);
-                    }
+                    int count = -1;
+                    boolean decoded = false;
+                    while (!decoded)
+                        try (FileInputStream fis = new FileInputStream(input)) {
+                            // Create parser
+                            CMSEnvelopedDataParser envelopedData = new CMSEnvelopedDataParser(fis);
 
-                    // Get recipient info
-                    JceKeyTransRecipient recipient = new JceKeyTransEnvelopedRecipient(privkey);
-                    Collection<RecipientInformation> recipients = envelopedData.getRecipientInfos().getRecipients(); // KeyTransRecipientInformation
+                            // Get recipient info
+                            JceKeyTransRecipient recipient = new JceKeyTransEnvelopedRecipient(privkey);
+                            Collection<RecipientInformation> recipients = envelopedData.getRecipientInfos().getRecipients(); // KeyTransRecipientInformation
 
-                    // Find recipient
-                    InputStream is = null;
-                    if (chain[0].getSerialNumber() != null)
-                        for (RecipientInformation recipientInfo : recipients) {
-                            KeyTransRecipientId recipientId = (KeyTransRecipientId) recipientInfo.getRID();
-                            if (chain[0].getSerialNumber().equals(recipientId.getSerialNumber()))
-                                try {
-                                    is = recipientInfo.getContentStream(recipient).getContentStream();
-                                } catch (CMSException ex) {
-                                    Log.w(ex);
+                            // Find recipient
+                            if (count < 0) {
+                                BigInteger serialno = chain[0].getSerialNumber();
+                                for (RecipientInformation recipientInfo : recipients) {
+                                    KeyTransRecipientId recipientId = (KeyTransRecipientId) recipientInfo.getRID();
+                                    if (serialno != null && serialno.equals(recipientId.getSerialNumber())) {
+                                        try {
+                                            InputStream is = recipientInfo.getContentStream(recipient).getContentStream();
+                                            decodeMessage(context, is, message, args);
+                                            decoded = true;
+                                        } catch (CMSException ex) {
+                                            Log.w(ex);
+                                        }
+                                        break; // only one try
+                                    }
                                 }
-                        }
-
-                    // Fallback: try all recipients
-                    if (is == null)
-                        for (RecipientInformation recipientInfo : recipients)
-                            try {
-                                is = recipientInfo.getContentStream(recipient).getContentStream();
-                            } catch (CMSException ex) {
-                                Log.w(ex);
+                            } else {
+                                List<RecipientInformation> list = new ArrayList<>(recipients);
+                                if (count < list.size()) {
+                                    RecipientInformation recipientInfo = list.get(count);
+                                    try {
+                                        InputStream is = recipientInfo.getContentStream(recipient).getContentStream();
+                                        decodeMessage(context, is, message, args);
+                                        decoded = true;
+                                        break;
+                                    } catch (CMSException ex) {
+                                        Log.w(ex);
+                                    }
+                                } else
+                                    break; // out of recipients
                             }
 
-                    if (is == null) {
+                            count++;
+                        }
+
+                    if (!decoded) {
                         if (message.identity != null)
                             db.identity().setIdentitySignKeyAlias(message.identity, null);
                         throw new IllegalArgumentException(context.getString(R.string.title_unknown_key));
                     }
-
-                    decodeMessage(context, is, message, args);
                 }
 
                 return result;
