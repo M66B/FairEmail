@@ -194,6 +194,7 @@ import java.util.Objects;
 import java.util.Properties;
 
 import javax.mail.Address;
+import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
@@ -5419,11 +5420,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (message == null)
                     return null;
 
-                InputStream is = null;
                 X509Certificate result = null;
-                String alias = args.getString("alias");
-                boolean duplicate = args.getBoolean("duplicate");
-
                 if (EntityMessage.SMIME_SIGNONLY.equals(type)) {
                     // Get content/signature
                     boolean sdata = false;
@@ -5452,6 +5449,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         throw new IllegalArgumentException("Signature missing");
 
                     // Build signed data
+                    InputStream is = null;
                     FileInputStream fis = new FileInputStream(signature);
                     CMSSignedData signedData;
                     if (sdata) {
@@ -5638,8 +5636,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         if (result != null)
                             break;
                     }
+
+                    if (is != null)
+                        decodeMessage(context, is, message, args);
                 } else {
                     // Check alias
+                    String alias = args.getString("alias");
                     if (alias == null)
                         throw new IllegalArgumentException("Key alias missing");
 
@@ -5678,7 +5680,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     Collection<RecipientInformation> recipients = envelopedData.getRecipientInfos().getRecipients(); // KeyTransRecipientInformation
 
                     // Find recipient
-                    is = null;
+                    InputStream is = null;
                     if (chain[0].getSerialNumber() != null)
                         for (RecipientInformation recipientInfo : recipients) {
                             KeyTransRecipientId recipientId = (KeyTransRecipientId) recipientInfo.getRID();
@@ -5704,55 +5706,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             db.identity().setIdentitySignKeyAlias(message.identity, null);
                         throw new IllegalArgumentException(context.getString(R.string.title_unknown_key));
                     }
-                }
 
-                if (is != null) {
-                    // Decode message
-                    Properties props = MessageHelper.getSessionProperties();
-                    Session isession = Session.getInstance(props, null);
-                    MimeMessage imessage = new MimeMessage(isession, is);
-                    MessageHelper helper = new MessageHelper(imessage);
-                    MessageHelper.MessageParts parts = helper.getMessageParts(context);
-
-                    try {
-                        db.beginTransaction();
-
-                        // Write decrypted body
-                        String html = parts.getHtml(context);
-                        Helper.writeText(message.getFile(context), html);
-                        Log.i("s/mime html=" + (html == null ? null : html.length()));
-
-                        // Remove existing attachments
-                        db.attachment().deleteAttachments(message.id);
-
-                        // Add decrypted attachments
-                        List<EntityAttachment> remotes = parts.getAttachments();
-                        for (int index = 0; index < remotes.size(); index++) {
-                            EntityAttachment remote = remotes.get(index);
-                            remote.message = message.id;
-                            remote.sequence = index + 1;
-                            remote.id = db.attachment().insertAttachment(remote);
-                            try {
-                                parts.downloadAttachment(context, index, remote);
-                            } catch (Throwable ex) {
-                                Log.e(ex);
-                            }
-                            Log.i("s/mime attachment=" + remote);
-                        }
-
-                        db.message().setMessageEncrypt(message.id, parts.getEncryption());
-                        db.message().setMessageStored(message.id, new Date().getTime());
-                        db.message().setMessageFts(message.id, false);
-
-                        if (alias != null && !duplicate && message.identity != null)
-                            db.identity().setIdentitySignKeyAlias(message.identity, alias);
-
-                        db.setTransactionSuccessful();
-                    } finally {
-                        db.endTransaction();
-                    }
-
-                    WorkerFts.init(context, false);
+                    decodeMessage(context, is, message, args);
                 }
 
                 return result;
@@ -5907,6 +5862,60 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 else
                     Log.unexpectedError(getParentFragmentManager(), ex);
             }
+
+            private void decodeMessage(Context context, InputStream is, EntityMessage message, Bundle args) throws MessagingException, IOException {
+                String alias = args.getString("alias");
+                boolean duplicate = args.getBoolean("duplicate");
+
+                // Decode message
+                Properties props = MessageHelper.getSessionProperties();
+                Session isession = Session.getInstance(props, null);
+                MimeMessage imessage = new MimeMessage(isession, is);
+                MessageHelper helper = new MessageHelper(imessage);
+                MessageHelper.MessageParts parts = helper.getMessageParts(context);
+
+                DB db = DB.getInstance(context);
+                try {
+                    db.beginTransaction();
+
+                    // Write decrypted body
+                    String html = parts.getHtml(context);
+                    Helper.writeText(message.getFile(context), html);
+                    Log.i("s/mime html=" + (html == null ? null : html.length()));
+
+                    // Remove existing attachments
+                    db.attachment().deleteAttachments(message.id);
+
+                    // Add decrypted attachments
+                    List<EntityAttachment> remotes = parts.getAttachments();
+                    for (int index = 0; index < remotes.size(); index++) {
+                        EntityAttachment remote = remotes.get(index);
+                        remote.message = message.id;
+                        remote.sequence = index + 1;
+                        remote.id = db.attachment().insertAttachment(remote);
+                        try {
+                            parts.downloadAttachment(context, index, remote);
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        }
+                        Log.i("s/mime attachment=" + remote);
+                    }
+
+                    db.message().setMessageEncrypt(message.id, parts.getEncryption());
+                    db.message().setMessageStored(message.id, new Date().getTime());
+                    db.message().setMessageFts(message.id, false);
+
+                    if (alias != null && !duplicate && message.identity != null)
+                        db.identity().setIdentitySignKeyAlias(message.identity, alias);
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+
+                WorkerFts.init(context, false);
+            }
+
         }.execute(this, args, "decrypt:s/mime");
     }
 
