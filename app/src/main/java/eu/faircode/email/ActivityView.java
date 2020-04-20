@@ -1262,12 +1262,20 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             LayoutInflater inflater = LayoutInflater.from(getContext());
             View dview = inflater.inflate(R.layout.dialog_first, null);
-            Button btnInfo = dview.findViewById(R.id.btnInfo);
+            Button btnBatteryInfo = dview.findViewById(R.id.btnBatteryInfo);
+            Button btnReformatInfo = dview.findViewById(R.id.btnReformatInfo);
 
-            btnInfo.setOnClickListener(new View.OnClickListener() {
+            btnBatteryInfo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Helper.viewFAQ(getContext(), 39);
+                }
+            });
+
+            btnReformatInfo.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Helper.viewFAQ(getContext(), 35);
                 }
             });
 
