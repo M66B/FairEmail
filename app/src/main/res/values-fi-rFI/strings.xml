@@ -487,6 +487,7 @@
     <string name="title_client_certificate">Asiakasvarmenne</string>
     <string name="title_realm">Toimialue</string>
     <string name="title_use_ip">Käytä paikallista IP-osoitetta verkkotunnuksen sijaan</string>
+    <string name="title_ehlo">Mukautettu HELO/EHLO tunnistaminen</string>
     <string name="title_primary">Ensisijainen</string>
     <string name="title_primary_account">Ensisijainen (oletustili)</string>
     <string name="title_primary_identity">Ensisijainen (oletusidentiteetti)</string>
@@ -734,6 +735,7 @@
     <string name="title_add_image_inline">Lisää</string>
     <string name="title_add_image_attach">Liitä</string>
     <string name="title_add_image_resize">Muuta kokoa</string>
+    <string name="title_add_image_privacy">Poista sijaintitiedot</string>
     <string name="title_add_resize_pixels">&lt; %1$d kuvapistettä</string>
     <string name="title_add_image_select">Valitse tiedosto</string>
     <string name="title_add_attachment">Lisää liite</string>

@@ -488,6 +488,7 @@
     <string name="title_client_certificate">Сертификат на клиента</string>
     <string name="title_realm">Област</string>
     <string name="title_use_ip">Използвай локален IP адрес вместо име на хост</string>
+    <string name="title_ehlo">Персонализирана HELO/EHLO идентификация</string>
     <string name="title_primary">Основен</string>
     <string name="title_primary_account">Основен (по подразбиране профил)</string>
     <string name="title_primary_identity">Основна (по подразбиране идентичност)</string>

@@ -511,6 +511,7 @@
     <string name="title_client_certificate">Сертификат клиента</string>
     <string name="title_realm">Реалм</string>
     <string name="title_use_ip">Использовать локальный IP-адрес вместо имени хоста</string>
+    <string name="title_ehlo">Пользовательская идентификация HELO/EHLO</string>
     <string name="title_primary">Основной</string>
     <string name="title_primary_account">Основная (учётная запись по умолчанию)</string>
     <string name="title_primary_identity">Основной (идентификатор по умолчанию)</string>

@@ -236,7 +236,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_signature_location">Signaturposition</string>
     <string name="title_advanced_signature_end">Signatur nach zitierter/weitergeleiteter Nachricht hinzufügen</string>
     <string name="title_advanced_plain_only">Standardmäßig als Reintext senden</string>
-    <string name="title_advanced_flow">Format fließend für einfachen Text</string>
+    <string name="title_advanced_flow">Format fließend für Reintext</string>
     <string name="title_advanced_receipt">Wenn eine Bestätigung angefordert wird, dann</string>
     <string name="title_advanced_usenet_signature">Usenet-Signaturkonvention</string>
     <string name="title_advanced_remove_signatures">Erkannte Signaturen entfernen</string>
@@ -355,7 +355,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_confirm_images">Bilder anzeigen bestätigen</string>
     <string name="title_advanced_confirm_html">Standardmäßig reformatierte Nachrichten anzeigen</string>
     <string name="title_advanced_tracking">Tracking-Bilder automatisch erkennen und deaktivieren</string>
-    <string name="title_advanced_display_hidden">Versteckte Nachrichtentexte anzeigen</string>
+    <string name="title_advanced_display_hidden">Verborgene Nachrichtentexte anzeigen</string>
     <string name="title_advanced_secure">Im Anwendungsverlauf verbergen und das Aufnehmen von Bildschirmfotos verhindern</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Gültigkeitsdauer der biometrischen Authentifizierung</string>
@@ -815,15 +815,15 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_search_in_message">Im Nachrichtentext</string>
     <string name="title_search_with">Suche beschränken auf</string>
     <string name="title_search_with_unseen">Ungelesen</string>
-    <string name="title_search_with_flagged">Gekennzeichnet</string>
-    <string name="title_search_with_hidden">Ausgeblendet (nur auf dem Gerät)</string>
+    <string name="title_search_with_flagged">Markiert</string>
+    <string name="title_search_with_hidden">Verborgen (nur auf dem Gerät)</string>
     <string name="title_search_with_encrypted">Verschlüsselt (nur auf dem Gerät)</string>
     <string name="title_search_with_attachments">Mit Anhängen (nur auf dem Gerät)</string>
     <string name="title_search_with_before">Vor</string>
     <string name="title_search_with_after">Nach</string>
     <string name="title_search_flag_unseen">ungelesen</string>
-    <string name="title_search_flag_flagged">gekennzeichnet</string>
-    <string name="title_search_flag_hidden">ausgeblendet</string>
+    <string name="title_search_flag_flagged">markiert</string>
+    <string name="title_search_flag_hidden">verborgen</string>
     <string name="title_search_flag_encrypted">verschlüsselt</string>
     <string name="title_search_flag_attachments">Anhänge</string>
     <string name="title_search_device">Gerät durchsuchen</string>
@@ -832,7 +832,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_sort_on">Sortieren nach</string>
     <string name="title_sort_on_time">Uhrzeit</string>
     <string name="title_sort_on_unread">Ungelesen</string>
-    <string name="title_sort_on_starred">Gekennzeichnet</string>
+    <string name="title_sort_on_starred">Markiert</string>
     <string name="title_sort_on_priority">Priorität</string>
     <string name="title_sort_on_sender">Absender</string>
     <string name="title_sort_on_subject">Betreff</string>
