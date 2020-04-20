@@ -39,6 +39,7 @@ import android.os.DeadObjectException;
 import android.os.Debug;
 import android.os.PowerManager;
 import android.os.RemoteException;
+import android.os.TransactionTooLargeException;
 import android.text.TextUtils;
 import android.view.Display;
 import android.view.OrientationEventListener;
@@ -596,6 +597,11 @@ public class Log {
                 at androidx.recyclerview.widget.DefaultItemAnimator$8.onAnimationEnd(SourceFile:391)
                 at android.view.ViewPropertyAnimator$AnimatorEventListener.onAnimationEnd(ViewPropertyAnimator.java:1122)
             */
+            return false;
+
+        if (ex instanceof RuntimeException &&
+                ex.getCause() instanceof TransactionTooLargeException)
+            // Some Android versions (Samsung) send images as clip data
             return false;
 
         if (ex instanceof RuntimeException &&
