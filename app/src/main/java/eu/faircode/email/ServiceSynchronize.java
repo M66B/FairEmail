@@ -510,6 +510,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 if (!changed)
                     return;
 
+                last = stats;
+
                 Widget.update(ServiceSynchronize.this);
 
                 boolean badge = prefs.getBoolean("badge", true);
