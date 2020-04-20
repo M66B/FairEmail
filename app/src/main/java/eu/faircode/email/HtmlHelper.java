@@ -79,6 +79,8 @@ public class HtmlHelper {
     private static final int PREVIEW_SIZE = 500; // characters
 
     private static final int DEFAULT_FONT_SIZE = 16; // pixels
+    private static final float FONT_SMALL = 0.8f;
+    private static final float FONT_LARGE = 1.25f;
     private static final float MIN_LUMINANCE = 0.5f;
     private static final int TAB_SIZE = 2;
     private static final int MAX_AUTO_LINK = 250;
@@ -357,6 +359,7 @@ public class HtmlHelper {
         Whitelist whitelist = Whitelist.relaxed()
                 .addTags("hr", "abbr", "big", "font", "dfn", "del", "s", "tt")
                 .addAttributes(":all", "style")
+                .addAttributes("font", "size")
                 .removeTags("col", "colgroup", "thead", "tbody")
                 .removeAttributes("table", "width")
                 .removeAttributes("td", "colspan", "rowspan", "width")
@@ -374,11 +377,36 @@ public class HtmlHelper {
 
         // Font
         for (Element font : document.select("font")) {
+            // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/font
             String color = font.attr("color");
+            String size = font.attr("size");
+
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
                 font.removeAttr("color");
-            font.removeAttr("face");
-            font.attr("style", "color:" + color + ";");
+            font.removeAttr("size");
+
+            StringBuilder sb = new StringBuilder();
+
+            if (!TextUtils.isEmpty(color))
+                sb.append("color:").append(color).append(";");
+
+            if (!TextUtils.isEmpty(size)) {
+                try {
+                    int s = Integer.parseInt(size);
+                    if (s < 3)
+                        size = "small";
+                    else if (s > 3)
+                        size = "large";
+                    else
+                        size = "medium";
+                    sb.append("font-size:").append(size).append(";");
+                } catch (NumberFormatException ex) {
+                    Log.w(ex);
+                }
+            }
+
+            font.attr("style", sb.toString());
+
             font.tagName("span");
         }
 
@@ -447,7 +475,7 @@ public class HtmlHelper {
 
                                     Float fsize = getFontSize(value, current);
                                     if (fsize != null && fsize != 0 &&
-                                            ((!small && fsize <= 0.8f) || (!big && fsize >= 1.25))) {
+                                            ((!small && fsize <= FONT_SMALL) || (!big && fsize >= FONT_LARGE))) {
                                         Element e = new Element(fsize < 1 ? "small" : "big");
                                         int px = Math.round(DEFAULT_FONT_SIZE * fsize);
                                         e.attr("x-font-size", Integer.toString(px));
@@ -847,18 +875,45 @@ public class HtmlHelper {
         if (TextUtils.isEmpty(value))
             return null;
 
+        float _current = (current == null ? 1.0f : current / (float) DEFAULT_FONT_SIZE);
+
+        // Absolute
+        switch (value) {
+            case "xx-small":
+            case "x-small":
+            case "small":
+                return FONT_SMALL;
+            case "medium":
+                return 1.0f;
+            case "large":
+            case "x-large":
+            case "xx-large":
+            case "xxx-large":
+                return FONT_LARGE;
+        }
+
+        // Relative
+        switch (value) {
+            case "smaller":
+                return FONT_SMALL * _current;
+            case "larger":
+                return FONT_LARGE * _current;
+        }
         if (current == null)
             current = DEFAULT_FONT_SIZE;
 
         try {
+            if (value.endsWith("%"))
+                return Integer.parseInt(value.substring(0, value.length() - 1).trim()) / 100f * _current;
             if (value.endsWith("em"))
-                return Float.parseFloat(value.substring(0, value.length() - 2).trim()) * current / (float) DEFAULT_FONT_SIZE;
+                return Float.parseFloat(value.substring(0, value.length() - 2).trim()) * _current;
             if (value.endsWith("rem"))
                 return Float.parseFloat(value.substring(0, value.length() - 3).trim());
             if (value.endsWith("px"))
                 return Integer.parseInt(value.substring(0, value.length() - 2).trim()) / (float) DEFAULT_FONT_SIZE;
             return Integer.parseInt(value.trim()) / (float) DEFAULT_FONT_SIZE;
-        } catch (NumberFormatException ignored) {
+        } catch (NumberFormatException ex) {
+            Log.w(ex);
         }
 
         return null;
