@@ -45,6 +45,12 @@ import androidx.core.text.HtmlCompat;
 import androidx.core.util.PatternsCompat;
 import androidx.preference.PreferenceManager;
 
+import com.steadystate.css.dom.CSSStyleRuleImpl;
+import com.steadystate.css.parser.CSSOMParser;
+import com.steadystate.css.parser.SACParserCSS3;
+import com.steadystate.css.parser.selectors.ClassConditionImpl;
+import com.steadystate.css.parser.selectors.ConditionalSelectorImpl;
+
 import org.jsoup.nodes.Attribute;
 import org.jsoup.nodes.Comment;
 import org.jsoup.nodes.Document;
@@ -56,12 +62,21 @@ import org.jsoup.safety.Whitelist;
 import org.jsoup.select.NodeFilter;
 import org.jsoup.select.NodeTraversor;
 import org.jsoup.select.NodeVisitor;
+import org.w3c.css.sac.CSSException;
+import org.w3c.css.sac.CSSParseException;
+import org.w3c.css.sac.ErrorHandler;
+import org.w3c.css.sac.InputSource;
+import org.w3c.css.sac.Selector;
+import org.w3c.dom.css.CSSRule;
+import org.w3c.dom.css.CSSRuleList;
+import org.w3c.dom.css.CSSStyleSheet;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -74,6 +89,7 @@ import java.util.regex.Pattern;
 
 import static androidx.core.text.HtmlCompat.FROM_HTML_SEPARATOR_LINE_BREAK_LIST_ITEM;
 import static androidx.core.text.HtmlCompat.TO_HTML_PARAGRAPH_LINES_CONSECUTIVE;
+import static org.w3c.css.sac.Condition.SAC_CLASS_CONDITION;
 
 public class HtmlHelper {
     private static final int PREVIEW_SIZE = 500; // characters
@@ -356,8 +372,42 @@ public class HtmlHelper {
                     .text(context.getString(R.string.title_show_full));
         }
 
+        // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style
+        CSSStyleSheet sheet = null;
+        for (Element style : parsed.head().select("style")) {
+            Log.i("Style=" + style.data());
+            try {
+                InputSource source = new InputSource(new StringReader(style.data()));
+                CSSOMParser parser = new CSSOMParser(new SACParserCSS3());
+                parser.setErrorHandler(new ErrorHandler() {
+                    @Override
+                    public void warning(CSSParseException ex) throws CSSException {
+                        Log.w(ex);
+                    }
+
+                    @Override
+                    public void error(CSSParseException ex) throws CSSException {
+                        Log.e(ex);
+                    }
+
+                    @Override
+                    public void fatalError(CSSParseException ex) throws CSSException {
+                        Log.e(ex);
+                    }
+                });
+
+                // TODO: media queries
+                CSSStyleSheet s = parser.parseStyleSheet(source, null, null);
+                if (s.getMedia() != null && "all".equals(s.getMedia().getMediaText()))
+                    sheet = s;
+            } catch (Throwable ex) {
+                Log.w(ex);
+            }
+        }
+
         Whitelist whitelist = Whitelist.relaxed()
                 .addTags("hr", "abbr", "big", "font", "dfn", "del", "s", "tt")
+                .addAttributes(":all", "class")
                 .addAttributes(":all", "style")
                 .addAttributes("font", "size")
                 .removeTags("col", "colgroup", "thead", "tbody")
@@ -412,16 +462,46 @@ public class HtmlHelper {
 
         // Sanitize styles
         for (Element element : document.select("*")) {
+            String clazz = element.attr("class");
             String style = element.attr("style");
+
+            // Process class
+            if (!TextUtils.isEmpty(clazz) && sheet != null) {
+                CSSRuleList rules = sheet.getCssRules();
+                for (int i = 0; rules != null && i < rules.getLength(); i++) {
+                    CSSRule rule = rules.item(i);
+                    if (rule.getType() == CSSRule.STYLE_RULE) {
+                        CSSStyleRuleImpl srule = (CSSStyleRuleImpl) rule;
+                        for (int j = 0; j < srule.getSelectors().getLength(); j++) {
+                            Selector selector = srule.getSelectors().item(j);
+                            switch (selector.getSelectorType()) {
+                                case Selector.SAC_ANY_NODE_SELECTOR:
+                                    style = mergeStyles(srule.getStyle().getCssText(), style);
+                                    break;
+                                case Selector.SAC_CONDITIONAL_SELECTOR:
+                                    ConditionalSelectorImpl cselector = (ConditionalSelectorImpl) selector;
+                                    if (cselector.getCondition().getConditionType() == SAC_CLASS_CONDITION) {
+                                        ClassConditionImpl ccondition = (ClassConditionImpl) cselector.getCondition();
+                                        if (clazz.equals(ccondition.getValue()))
+                                            style = mergeStyles(srule.getStyle().getCssText(), style);
+                                    }
+                                    break;
+                            }
+                        }
+                    }
+                }
+            }
+
+            // Process style
             if (!TextUtils.isEmpty(style)) {
                 StringBuilder sb = new StringBuilder();
 
                 String[] params = style.split(";");
                 for (String param : params) {
-                    int semi = param.indexOf(':');
-                    if (semi > 0) {
-                        String key = param.substring(0, semi).trim().toLowerCase(Locale.ROOT);
-                        String value = param.substring(semi + 1).toLowerCase(Locale.ROOT)
+                    int colon = param.indexOf(':');
+                    if (colon > 0) {
+                        String key = param.substring(0, colon).trim().toLowerCase(Locale.ROOT);
+                        String value = param.substring(colon + 1).toLowerCase(Locale.ROOT)
                                 .replace("!important", "")
                                 .trim()
                                 .replaceAll("\\s+", " ");
@@ -843,6 +923,27 @@ public class HtmlHelper {
         }
 
         return document;
+    }
+
+    private static String mergeStyles(String base, String style) {
+        Map<String, String> result = new HashMap<>();
+
+        List<String> params = new ArrayList<>();
+        if (!TextUtils.isEmpty(base))
+            params.addAll(Arrays.asList(base.split(";")));
+        if (!TextUtils.isEmpty(style))
+            params.addAll(Arrays.asList(style.split(";")));
+
+        for (String param : params) {
+            int colon = param.indexOf(':');
+            if (colon > 0) {
+                String key = param.substring(0, colon).trim().toLowerCase(Locale.ROOT);
+                result.put(key, param);
+            } else
+                Log.w("Invalid style param=" + param);
+        }
+
+        return TextUtils.join(";", result.values());
     }
 
     private static Integer getFontWeight(String value) {

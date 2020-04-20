@@ -245,6 +245,8 @@ dependencies {
     def billingclient_version = "2.2.0"
     def javamail_version = "1.6.5"
     def jsoup_version = "1.13.1"
+    def css_version = "0.9.27"
+    def jax_version = "2.3.0-jaxb-1.0.6"
     def dnsjava_version = "2.1.9"
     def openpgp_version = "12.0"
     def requery_version = "3.31.0"
@@ -340,6 +342,14 @@ dependencies {
 
     // https://jsoup.org/news/
     implementation "org.jsoup:jsoup:$jsoup_version"
+
+    // http://cssparser.sourceforge.net/
+    // https://mvnrepository.com/artifact/net.sourceforge.cssparser/cssparser
+    implementation "net.sourceforge.cssparser:cssparser:$css_version"
+
+    // https://github.com/eclipse-ee4j/jaxb-ri
+    // https://mvnrepository.com/artifact/org.w3c/dom
+    implementation "org.w3c:dom:$jax_version"
 
     // http://www.dnsjava.org/
     // https://mvnrepository.com/artifact/dnsjava/dnsjava

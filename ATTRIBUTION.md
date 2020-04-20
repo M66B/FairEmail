@@ -22,3 +22,5 @@ FairEmail uses:
 * [AppAuth for Android](https://github.com/openid/AppAuth-Android). Copyright 2015 The AppAuth for Android Authors. All Rights Reserved. [Apache License 2.0](https://github.com/openid/AppAuth-Android/blob/master/LICENSE).
 * [JCharset](http://www.freeutils.net/source/jcharset/). Copyright (C) 1989, 1991 Free Software Foundation, Inc. [GNU General Public License](http://www.freeutils.net/source/jcharset/#license).
 * [Material design icons](https://github.com/google/material-design-icons). Copyright ???. [Apache license version 2.0](https://github.com/google/material-design-icons#user-content-license).
+* [CSS Parser](http://cssparser.sourceforge.net/). Copyright © 1999–2019. All rights reserved. [Apache License, Version 2.0](http://cssparser.sourceforge.net/licenses.html).
+* [Java™ Architecture for XML Binding](https://github.com/eclipse-ee4j/jaxb-ri). Copyright (c) 2018 Oracle and/or its affiliates. All rights reserved. [GNU General Public License Version 2](https://github.com/eclipse-ee4j/jaxb-ri/blob/master/jaxb-ri/LICENSE.md).
