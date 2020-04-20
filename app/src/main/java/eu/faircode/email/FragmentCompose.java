@@ -4064,8 +4064,9 @@ public class FragmentCompose extends FragmentBase {
                             if (draft.identity == null)
                                 throw new IllegalArgumentException(context.getString(R.string.title_from_missing));
 
-                            if (draft.to == null && draft.cc == null && draft.bcc == null)
-                                args.putBoolean("remind_to", true);
+                            if (draft.to == null && draft.cc == null && draft.bcc == null &&
+                                    (identity == null || (identity.cc == null && identity.bcc == null)))
+                            args.putBoolean("remind_to", true);
 
                             if (TextUtils.isEmpty(draft.extra) &&
                                     identity != null && identity.sender_extra)
