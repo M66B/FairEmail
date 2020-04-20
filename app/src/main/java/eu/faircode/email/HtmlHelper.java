@@ -899,8 +899,6 @@ public class HtmlHelper {
             case "larger":
                 return FONT_LARGE * _current;
         }
-        if (current == null)
-            current = DEFAULT_FONT_SIZE;
 
         try {
             if (value.endsWith("%"))
