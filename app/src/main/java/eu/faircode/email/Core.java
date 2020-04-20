@@ -1425,7 +1425,7 @@ class Core {
                         folder.type = (EntityFolder.SYSTEM.equals(type) ? type : EntityFolder.USER);
                         folder.synchronize = false;
                         folder.subscribed = subscribed;
-                        folder.poll = account.shouldPoll();
+                        folder.poll = true;
                         folder.sync_days = EntityFolder.DEFAULT_SYNC;
                         folder.keep_days = EntityFolder.DEFAULT_KEEP;
                         folder.selectable = selectable;

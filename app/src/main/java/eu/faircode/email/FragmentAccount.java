@@ -1155,23 +1155,28 @@ public class FragmentAccount extends FragmentBase {
 
                     if (drafts != null) {
                         drafts.type = EntityFolder.DRAFTS;
+                        drafts.poll = false;
                         folders.add(drafts);
                     }
 
                     if (sent != null) {
                         sent.type = EntityFolder.SENT;
+                        sent.poll = false;
                         folders.add(sent);
                     }
                     if (archive != null) {
                         archive.type = EntityFolder.ARCHIVE;
+                        archive.poll = false;
                         folders.add(archive);
                     }
                     if (trash != null) {
                         trash.type = EntityFolder.TRASH;
+                        trash.poll = false;
                         folders.add(trash);
                     }
                     if (junk != null) {
                         junk.type = EntityFolder.JUNK;
+                        junk.poll = false;
                         folders.add(junk);
                     }
 

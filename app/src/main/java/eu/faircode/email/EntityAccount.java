@@ -187,13 +187,6 @@ public class EntityAccount extends EntityOrder implements Serializable {
         return new String[]{name, null};
     }
 
-    boolean shouldPoll() {
-        // Gmail: Too many simultaneous connections
-        // Outlook: User is authenticated but not connected
-        return ("imap.gmail.com".equalsIgnoreCase(host) ||
-                "outlook.office365.com".equalsIgnoreCase(host));
-    }
-
     public JSONObject toJSON() throws JSONException {
         JSONObject json = new JSONObject();
         json.put("id", id);
