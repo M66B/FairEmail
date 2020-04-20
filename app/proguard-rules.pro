@@ -58,6 +58,9 @@
 -keeppackagenames org.jsoup.nodes
 -keepnames class org.jsoup.** {*;}
 
+#CSS Parser / biweekly
+-dontwarn org.w3c.dom.**
+
 #JCharset
 -keep class net.freeutils.charset.** {*;}
 
