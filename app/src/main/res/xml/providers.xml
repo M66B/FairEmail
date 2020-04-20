@@ -670,4 +670,16 @@
             port="587"
             starttls="true" />
     </provider>
+    <provider
+        name="Laposte.net"
+        link="https://www.laposte.fr/votre-vie-digitale/conseils-pratiques/configuration-webmail-laposte.net">
+        <imap
+            host="imap.laposte.net"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.laposte.net"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
