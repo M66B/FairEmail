@@ -3436,6 +3436,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             menu.findItem(R.id.menu_sort_on_snoozed).setVisible(false);
         }
 
+        menu.findItem(R.id.menu_empty_trash).setVisible(EntityFolder.TRASH.equals(type) && folder);
+        menu.findItem(R.id.menu_empty_spam).setVisible(EntityFolder.JUNK.equals(type) && folder);
+
         if ("time".equals(sort))
             menu.findItem(R.id.menu_sort_on_time).setChecked(true);
         else if ("unread".equals(sort))
@@ -3475,8 +3478,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 language_detection && folder && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q);
         menu.findItem(R.id.menu_select_all).setVisible(folder);
         menu.findItem(R.id.menu_select_found).setVisible(viewType == AdapterMessage.ViewType.SEARCH);
-        menu.findItem(R.id.menu_empty_trash).setVisible(EntityFolder.TRASH.equals(type) && folder);
-        menu.findItem(R.id.menu_empty_spam).setVisible(EntityFolder.JUNK.equals(type) && folder);
 
         menu.findItem(R.id.menu_force_sync).setVisible(viewType == AdapterMessage.ViewType.UNIFIED);
 
@@ -3501,6 +3502,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             case R.id.menu_folders:
                 // Obsolete
                 onMenuFolders(primary);
+                return true;
+
+            case R.id.menu_empty_trash:
+                onMenuEmpty(EntityFolder.TRASH);
+                return true;
+
+            case R.id.menu_empty_spam:
+                onMenuEmpty(EntityFolder.JUNK);
                 return true;
 
             case R.id.menu_sort_on_time:
@@ -3589,14 +3598,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 onMenuSelectAll();
                 return true;
 
-            case R.id.menu_empty_trash:
-                onMenuEmpty(EntityFolder.TRASH);
-                return true;
-
-            case R.id.menu_empty_spam:
-                onMenuEmpty(EntityFolder.JUNK);
-                return true;
-
             case R.id.menu_force_sync:
                 onMenuForceSync();
                 return true;
@@ -3629,6 +3630,25 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("folders");
         fragmentTransaction.commit();
+    }
+
+    private void onMenuEmpty(String type) {
+        Bundle aargs = new Bundle();
+        if (EntityFolder.TRASH.equals(type))
+            aargs.putString("question", getString(
+                    account < 0 ? R.string.title_empty_trash_all_ask : R.string.title_empty_trash_ask));
+        else if (EntityFolder.JUNK.equals(type))
+            aargs.putString("question", getString(
+                    account < 0 ? R.string.title_empty_spam_all_ask : R.string.title_empty_spam_ask));
+        else
+            throw new IllegalArgumentException("Invalid folder type=" + type);
+        aargs.putLong("account", account);
+        aargs.putString("type", type);
+
+        FragmentDialogAsk ask = new FragmentDialogAsk();
+        ask.setArguments(aargs);
+        ask.setTargetFragment(this, FragmentMessages.REQUEST_EMPTY_FOLDER);
+        ask.show(getParentFragmentManager(), "messages:empty");
     }
 
     private void onMenuSort(String sort) {
@@ -3764,25 +3784,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 });
             }
         });
-    }
-
-    private void onMenuEmpty(String type) {
-        Bundle aargs = new Bundle();
-        if (EntityFolder.TRASH.equals(type))
-            aargs.putString("question", getString(
-                    account < 0 ? R.string.title_empty_trash_all_ask : R.string.title_empty_trash_ask));
-        else if (EntityFolder.JUNK.equals(type))
-            aargs.putString("question", getString(
-                    account < 0 ? R.string.title_empty_spam_all_ask : R.string.title_empty_spam_ask));
-        else
-            throw new IllegalArgumentException("Invalid folder type=" + type);
-        aargs.putLong("account", account);
-        aargs.putString("type", type);
-
-        FragmentDialogAsk ask = new FragmentDialogAsk();
-        ask.setArguments(aargs);
-        ask.setTargetFragment(this, FragmentMessages.REQUEST_EMPTY_FOLDER);
-        ask.show(getParentFragmentManager(), "messages:empty");
     }
 
     private void onMenuForceSync() {
