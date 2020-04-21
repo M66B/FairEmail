@@ -126,8 +126,21 @@ public class FixedRecyclerView extends RecyclerView {
     public boolean onInterceptTouchEvent(MotionEvent e) {
         try {
             return super.onInterceptTouchEvent(e);
-        } catch (IllegalStateException ex) {
-            // Range start point not set
+        } catch (Throwable ex) {
+            // IllegalStateException: Range start point not set
+            /*
+                java.lang.NullPointerException: Attempt to invoke virtual method 'int android.view.View.getTop()' on a null object reference
+                        at androidx.recyclerview.selection.GestureSelectionHelper$RecyclerViewDelegate.getLastGlidedItemPosition(SourceFile:276)
+                        at androidx.recyclerview.selection.GestureSelectionHelper.handleMoveEvent(SourceFile:191)
+                        at androidx.recyclerview.selection.GestureSelectionHelper.onTouchEvent(SourceFile:141)
+                        at androidx.recyclerview.selection.GestureSelectionHelper.onInterceptTouchEvent(SourceFile:108)
+                        at androidx.recyclerview.selection.EventRouter.onInterceptTouchEvent(SourceFile:57)
+                        at androidx.recyclerview.widget.RecyclerView.findInterceptingOnItemTouchListener(SourceFile:3153)
+                        at androidx.recyclerview.widget.RecyclerView.onInterceptTouchEvent(SourceFile:3172)
+                        at eu.faircode.email.FixedRecyclerView.onInterceptTouchEvent(SourceFile:128)
+                        at android.view.ViewGroup.dispatchTouchEvent(ViewGroup.java:2609)
+                        at android.view.ViewGroup.dispatchTransformedTouchEvent(ViewGroup.java:3060)
+             */
             Log.w(ex);
             return false;
         }
