@@ -3845,55 +3845,10 @@ public class FragmentCompose extends FragmentBase {
                     List<EntityAttachment> attachments = db.attachment().getAttachments(draft.id);
 
                     // Get data
-                    InternetAddress afrom[] = (identity == null ? null : new InternetAddress[]{new InternetAddress(identity.email, identity.name)});
-
-                    InternetAddress ato[] = null;
-                    InternetAddress acc[] = null;
-                    InternetAddress abcc[] = null;
-
-                    boolean lookup_mx = prefs.getBoolean("lookup_mx", false);
-
-                    if (!TextUtils.isEmpty(to))
-                        try {
-                            ato = InternetAddress.parse(to);
-                            if (action == R.id.action_send) {
-                                for (InternetAddress address : ato)
-                                    address.validate();
-                                if (lookup_mx)
-                                    DnsHelper.checkMx(context, ato);
-                            }
-                        } catch (AddressException ex) {
-                            throw new AddressException(context.getString(R.string.title_address_parse_error,
-                                    Helper.ellipsize(to, ADDRESS_ELLIPSIZE), ex.getMessage()));
-                        }
-
-                    if (!TextUtils.isEmpty(cc))
-                        try {
-                            acc = InternetAddress.parse(cc);
-                            if (action == R.id.action_send) {
-                                for (InternetAddress address : acc)
-                                    address.validate();
-                                if (lookup_mx)
-                                    DnsHelper.checkMx(context, acc);
-                            }
-                        } catch (AddressException ex) {
-                            throw new AddressException(context.getString(R.string.title_address_parse_error,
-                                    Helper.ellipsize(cc, ADDRESS_ELLIPSIZE), ex.getMessage()));
-                        }
-
-                    if (!TextUtils.isEmpty(bcc))
-                        try {
-                            abcc = InternetAddress.parse(bcc);
-                            if (action == R.id.action_send) {
-                                for (InternetAddress address : abcc)
-                                    address.validate();
-                                if (lookup_mx)
-                                    DnsHelper.checkMx(context, abcc);
-                            }
-                        } catch (AddressException ex) {
-                            throw new AddressException(context.getString(R.string.title_address_parse_error,
-                                    Helper.ellipsize(bcc, ADDRESS_ELLIPSIZE), ex.getMessage()));
-                        }
+                    InternetAddress[] afrom = (identity == null ? null : new InternetAddress[]{new InternetAddress(identity.email, identity.name)});
+                    InternetAddress[] ato = parseAddress(to, action == R.id.action_send, context);
+                    InternetAddress[] acc = parseAddress(cc, action == R.id.action_send, context);
+                    InternetAddress[] abcc = parseAddress(bcc, action == R.id.action_send, context);
 
                     if (TextUtils.isEmpty(extra))
                         extra = null;
@@ -4364,6 +4319,32 @@ public class FragmentCompose extends FragmentBase {
             state = (busy ? State.LOADING : State.LOADED);
             Helper.setViewsEnabled(view, !busy);
             getActivity().invalidateOptionsMenu();
+        }
+
+        private InternetAddress[] parseAddress(String address, boolean validate, Context context) throws AddressException {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean lookup_mx = prefs.getBoolean("lookup_mx", false);
+
+            if (TextUtils.isEmpty(address))
+                return null;
+
+            try {
+                InternetAddress[] ias = InternetAddress.parse(address);
+
+                if (validate) {
+                    for (InternetAddress ia : ias)
+                        ia.validate();
+                    if (lookup_mx)
+                        DnsHelper.checkMx(context, ias);
+                }
+
+                return ias;
+            } catch (AddressException ex) {
+                throw new AddressException(context.getString(R.string.title_address_parse_error,
+                        Helper.ellipsize(address, ADDRESS_ELLIPSIZE), ex.getMessage()));
+            } catch (UnknownHostException ex) {
+                throw new AddressException(ex.getMessage());
+            }
         }
     };
 
@@ -4864,7 +4845,6 @@ public class FragmentCompose extends FragmentBase {
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             Bundle args = getArguments();
             long id = args.getLong("id");
-            boolean dialog = args.getBundle("extras").getBoolean("dialog");
             boolean remind_to = args.getBoolean("remind_to", false);
             boolean remind_extra = args.getBoolean("remind_extra", false);
             boolean remind_subject = args.getBoolean("remind_subject", false);
