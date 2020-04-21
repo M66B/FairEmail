@@ -260,7 +260,6 @@ public class FragmentCompose extends FragmentBase {
     private static final int REDUCED_IMAGE_SIZE = 1440; // pixels
     private static final int REDUCED_IMAGE_QUALITY = 90; // percent
 
-    private static final int ADDRESS_ELLIPSIZE = 50;
     private static final int RECIPIENTS_WARNING = 10;
 
     private static final int REQUEST_CONTACT_TO = 1;
@@ -3846,9 +3845,15 @@ public class FragmentCompose extends FragmentBase {
 
                     // Get data
                     InternetAddress[] afrom = (identity == null ? null : new InternetAddress[]{new InternetAddress(identity.email, identity.name)});
-                    InternetAddress[] ato = parseAddress(to, action == R.id.action_send, context);
-                    InternetAddress[] acc = parseAddress(cc, action == R.id.action_send, context);
-                    InternetAddress[] abcc = parseAddress(bcc, action == R.id.action_send, context);
+                    InternetAddress[] ato = (TextUtils.isEmpty(to) ? null : InternetAddress.parse(to));
+                    InternetAddress[] acc = (TextUtils.isEmpty(cc) ? null : InternetAddress.parse(cc));
+                    InternetAddress[] abcc = (TextUtils.isEmpty(bcc) ? null : InternetAddress.parse(bcc));
+
+                    if (action == R.id.action_send) {
+                        checkAddress(ato, context);
+                        checkAddress(acc, context);
+                        checkAddress(abcc, context);
+                    }
 
                     if (TextUtils.isEmpty(extra))
                         extra = null;
@@ -4019,6 +4024,14 @@ public class FragmentCompose extends FragmentBase {
                             if (draft.identity == null)
                                 throw new IllegalArgumentException(context.getString(R.string.title_from_missing));
 
+                            try {
+                                checkAddress(ato, context);
+                                checkAddress(acc, context);
+                                checkAddress(abcc, context);
+                            } catch (AddressException ex) {
+                                args.putString("address_error", ex.getMessage());
+                            }
+
                             if (draft.to == null && draft.cc == null && draft.bcc == null &&
                                     (identity == null || (identity.cc == null && identity.bcc == null)))
                                 args.putBoolean("remind_to", true);
@@ -4026,9 +4039,6 @@ public class FragmentCompose extends FragmentBase {
                             if (TextUtils.isEmpty(draft.extra) &&
                                     identity != null && identity.sender_extra)
                                 args.putBoolean("remind_extra", true);
-
-                            if (TextUtils.isEmpty(draft.subject))
-                                args.putBoolean("remind_subject", true);
 
                             if (pgpService.isBound() &&
                                     !EntityMessage.PGP_SIGNENCRYPT.equals(draft.ui_encrypt)) {
@@ -4063,6 +4073,9 @@ public class FragmentCompose extends FragmentBase {
                                     }
                                 }
                             }
+
+                            if (TextUtils.isEmpty(draft.subject))
+                                args.putBoolean("remind_subject", true);
 
                             Document d = JsoupEx.parse(body);
 
@@ -4249,10 +4262,11 @@ public class FragmentCompose extends FragmentBase {
                 boolean send_dialog = prefs.getBoolean("send_dialog", true);
                 boolean send_reminders = prefs.getBoolean("send_reminders", true);
 
+                String address_error = args.getString("address_error");
                 boolean remind_to = args.getBoolean("remind_to", false);
                 boolean remind_extra = args.getBoolean("remind_extra", false);
-                boolean remind_subject = args.getBoolean("remind_subject", false);
                 boolean remind_pgp = args.getBoolean("remind_pgp", false);
+                boolean remind_subject = args.getBoolean("remind_subject", false);
                 boolean remind_text = args.getBoolean("remind_text", false);
                 boolean remind_attachment = args.getBoolean("remind_attachment", false);
 
@@ -4260,7 +4274,8 @@ public class FragmentCompose extends FragmentBase {
                         (draft.cc == null ? 0 : draft.cc.length) +
                         (draft.bcc == null ? 0 : draft.bcc.length);
                 if (send_dialog || (send_reminders &&
-                        (remind_to || remind_extra || remind_subject || remind_pgp || remind_text || remind_attachment ||
+                        (address_error != null || remind_to || remind_extra || remind_pgp ||
+                                remind_subject || remind_text || remind_attachment ||
                                 recipients > RECIPIENTS_WARNING))) {
                     setBusy(false);
 
@@ -4281,16 +4296,7 @@ public class FragmentCompose extends FragmentBase {
         protected void onException(Bundle args, Throwable ex) {
             if (ex instanceof MessageRemovedException)
                 finish();
-            else if (ex instanceof AddressException) {
-                final Snackbar sb = Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_INDEFINITE);
-                sb.setAction(android.R.string.ok, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        sb.dismiss();
-                    }
-                });
-                sb.show();
-            } else if (ex instanceof IllegalArgumentException || ex instanceof UnknownHostException)
+            else if (ex instanceof IllegalArgumentException)
                 Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
             else
                 Log.unexpectedError(getParentFragmentManager(), ex);
@@ -4321,27 +4327,21 @@ public class FragmentCompose extends FragmentBase {
             getActivity().invalidateOptionsMenu();
         }
 
-        private InternetAddress[] parseAddress(String address, boolean validate, Context context) throws AddressException {
+        private void checkAddress(InternetAddress[] addresses, Context context) throws AddressException {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean lookup_mx = prefs.getBoolean("lookup_mx", false);
 
-            if (TextUtils.isEmpty(address))
-                return null;
+            if (addresses == null)
+                return;
 
             try {
-                InternetAddress[] ias = InternetAddress.parse(address);
-
-                if (validate) {
-                    for (InternetAddress ia : ias)
-                        ia.validate();
-                    if (lookup_mx)
-                        DnsHelper.checkMx(context, ias);
-                }
-
-                return ias;
+                for (InternetAddress address : addresses)
+                    address.validate();
+                if (lookup_mx)
+                    DnsHelper.checkMx(context, addresses);
             } catch (AddressException ex) {
                 throw new AddressException(context.getString(R.string.title_address_parse_error,
-                        Helper.ellipsize(address, ADDRESS_ELLIPSIZE), ex.getMessage()));
+                        MessageHelper.formatAddressesCompose(addresses), ex.getMessage()));
             } catch (UnknownHostException ex) {
                 throw new AddressException(ex.getMessage());
             }
@@ -4845,10 +4845,11 @@ public class FragmentCompose extends FragmentBase {
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             Bundle args = getArguments();
             long id = args.getLong("id");
+            String address_error = args.getString("address_error");
             boolean remind_to = args.getBoolean("remind_to", false);
             boolean remind_extra = args.getBoolean("remind_extra", false);
-            boolean remind_subject = args.getBoolean("remind_subject", false);
             boolean remind_pgp = args.getBoolean("remind_pgp", false);
+            boolean remind_subject = args.getBoolean("remind_subject", false);
             boolean remind_text = args.getBoolean("remind_text", false);
             boolean remind_attachment = args.getBoolean("remind_attachment", false);
 
@@ -4861,9 +4862,10 @@ public class FragmentCompose extends FragmentBase {
             final String[] sendDelayedNames = getResources().getStringArray(R.array.sendDelayedNames);
 
             final ViewGroup dview = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.dialog_send, null);
+            final TextView tvAddressError = dview.findViewById(R.id.tvAddressError);
             final TextView tvRemindTo = dview.findViewById(R.id.tvRemindTo);
-            final TextView tvRemindPgp = dview.findViewById(R.id.tvRemindPgp);
             final TextView tvRemindExtra = dview.findViewById(R.id.tvRemindExtra);
+            final TextView tvRemindPgp = dview.findViewById(R.id.tvRemindPgp);
             final TextView tvRemindSubject = dview.findViewById(R.id.tvRemindSubject);
             final TextView tvRemindText = dview.findViewById(R.id.tvRemindText);
             final TextView tvRemindAttachment = dview.findViewById(R.id.tvRemindAttachment);
@@ -4880,9 +4882,11 @@ public class FragmentCompose extends FragmentBase {
             final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
             final TextView tvNotAgain = dview.findViewById(R.id.tvNotAgain);
 
+            tvAddressError.setText(address_error);
+            tvAddressError.setVisibility(address_error == null ? View.GONE : View.VISIBLE);
             tvRemindTo.setVisibility(remind_to ? View.VISIBLE : View.GONE);
-            tvRemindPgp.setVisibility(remind_pgp ? View.VISIBLE : View.GONE);
             tvRemindExtra.setVisibility(remind_extra ? View.VISIBLE : View.GONE);
+            tvRemindPgp.setVisibility(remind_pgp ? View.VISIBLE : View.GONE);
             tvRemindSubject.setVisibility(remind_subject ? View.VISIBLE : View.GONE);
             tvRemindText.setVisibility(remind_text ? View.VISIBLE : View.GONE);
             tvRemindAttachment.setVisibility(remind_attachment ? View.VISIBLE : View.GONE);
@@ -5129,7 +5133,7 @@ public class FragmentCompose extends FragmentBase {
                     .setView(dview)
                     .setNegativeButton(android.R.string.cancel, null);
 
-            if (!remind_to) {
+            if (address_error == null && !remind_to) {
                 if (send_delayed != 0)
                     builder.setNeutralButton(R.string.title_send_now, new DialogInterface.OnClickListener() {
                         @Override

@@ -710,13 +710,6 @@ public class Helper {
             return DateUtils.getRelativeTimeSpanString(context, millis);
     }
 
-    static String ellipsize(String text, int maxLen) {
-        if (text == null || text.length() < maxLen) {
-            return text;
-        }
-        return text.substring(0, maxLen) + "...";
-    }
-
     static String localizeFolderType(Context context, String type) {
         int resid = context.getResources().getIdentifier(
                 "title_folder_" + type.toLowerCase(Locale.ROOT),

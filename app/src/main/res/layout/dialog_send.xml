@@ -20,6 +20,17 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <eu.faircode.email.FixedTextView
+            android:id="@+id/tvAddressError"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Invalid address"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="?attr/colorWarning"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvMessage" />
+
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvRemindTo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -28,18 +39,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?attr/colorWarning"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvMessage" />
-
-        <eu.faircode.email.FixedTextView
-            android:id="@+id/tvRemindPgp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_pgp_reminder"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="?attr/colorWarning"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvRemindTo" />
+            app:layout_constraintTop_toBottomOf="@id/tvAddressError" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvRemindExtra"
@@ -50,7 +50,18 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?attr/colorWarning"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvRemindPgp" />
+            app:layout_constraintTop_toBottomOf="@id/tvRemindTo" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvRemindPgp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_pgp_reminder"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="?attr/colorWarning"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvRemindExtra" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvRemindSubject"
@@ -61,7 +72,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?attr/colorWarning"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvRemindExtra" />
+            app:layout_constraintTop_toBottomOf="@id/tvRemindPgp" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvRemindText"
