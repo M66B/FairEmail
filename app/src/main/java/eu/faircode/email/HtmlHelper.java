@@ -946,6 +946,7 @@ public class HtmlHelper {
 
     private static boolean isScreenMedia(MediaList media) {
         // https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries
+        // https://developers.google.com/gmail/design/reference/supported_css#supported_types
         if (media instanceof MediaListImpl) {
             MediaListImpl _media = (MediaListImpl) media;
             for (int i = 0; i < _media.getLength(); i++) {
