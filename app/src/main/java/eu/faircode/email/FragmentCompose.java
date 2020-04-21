@@ -4296,10 +4296,13 @@ public class FragmentCompose extends FragmentBase {
         protected void onException(Bundle args, Throwable ex) {
             if (ex instanceof MessageRemovedException)
                 finish();
-            else if (ex instanceof IllegalArgumentException)
-                Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
-            else
-                Log.unexpectedError(getParentFragmentManager(), ex);
+            else {
+                setBusy(false);
+                if (ex instanceof IllegalArgumentException)
+                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                else
+                    Log.unexpectedError(getParentFragmentManager(), ex);
+            }
         }
 
         private String getActionName(int id) {
