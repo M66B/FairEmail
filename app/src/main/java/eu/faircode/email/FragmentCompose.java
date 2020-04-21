@@ -3849,6 +3849,7 @@ public class FragmentCompose extends FragmentBase {
                     InternetAddress[] acc = (TextUtils.isEmpty(cc) ? null : InternetAddress.parse(cc));
                     InternetAddress[] abcc = (TextUtils.isEmpty(bcc) ? null : InternetAddress.parse(bcc));
 
+                    // Safe guard
                     if (action == R.id.action_send) {
                         checkAddress(ato, context);
                         checkAddress(acc, context);
@@ -4337,16 +4338,18 @@ public class FragmentCompose extends FragmentBase {
             if (addresses == null)
                 return;
 
-            try {
-                for (InternetAddress address : addresses)
+            for (InternetAddress address : addresses) {
+                Address[] _addresses = new Address[]{address};
+                try {
                     address.validate();
-                if (lookup_mx)
-                    DnsHelper.checkMx(context, addresses);
-            } catch (AddressException ex) {
-                throw new AddressException(context.getString(R.string.title_address_parse_error,
-                        MessageHelper.formatAddressesCompose(addresses), ex.getMessage()));
-            } catch (UnknownHostException ex) {
-                throw new AddressException(ex.getMessage());
+                    if (lookup_mx)
+                        DnsHelper.checkMx(context, _addresses);
+                } catch (AddressException ex) {
+                    throw new AddressException(context.getString(R.string.title_address_parse_error,
+                            MessageHelper.formatAddressesCompose(_addresses), ex.getMessage()));
+                } catch (UnknownHostException ex) {
+                    throw new AddressException(ex.getMessage());
+                }
             }
         }
     };
