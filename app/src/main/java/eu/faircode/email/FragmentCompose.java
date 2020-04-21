@@ -4066,7 +4066,7 @@ public class FragmentCompose extends FragmentBase {
 
                             if (draft.to == null && draft.cc == null && draft.bcc == null &&
                                     (identity == null || (identity.cc == null && identity.bcc == null)))
-                            args.putBoolean("remind_to", true);
+                                args.putBoolean("remind_to", true);
 
                             if (TextUtils.isEmpty(draft.extra) &&
                                     identity != null && identity.sender_extra)
@@ -4915,8 +4915,8 @@ public class FragmentCompose extends FragmentBase {
             spPriority.setSelection(1);
             tvSendAt.setText(null);
             cbNotAgain.setChecked(!send_dialog);
-            cbNotAgain.setVisibility(dialog || send_dialog ? View.VISIBLE : View.GONE);
-            tvNotAgain.setVisibility(cbNotAgain.isChecked() && dialog ? View.VISIBLE : View.GONE);
+            cbNotAgain.setVisibility(send_dialog ? View.VISIBLE : View.GONE);
+            tvNotAgain.setVisibility(cbNotAgain.isChecked() ? View.VISIBLE : View.GONE);
 
             Helper.setViewsEnabled(dview, false);
 
