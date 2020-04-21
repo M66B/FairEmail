@@ -620,11 +620,9 @@ public class HtmlHelper {
                                     else if (key.endsWith("bottom"))
                                         p[0] = null;
 
-                                    if (p[0] != null && p[0] > 0.5 &&
-                                            element.parents().select("*[line-before]").size() == 0)
+                                    if (p[0] != null && p[0] > 0.5)
                                         element.attr("line-before", "true");
-                                    if (p[2] != null && p[2] > 0.5 &&
-                                            element.parents().select("*[line-after]").size() == 0)
+                                    if (p[2] != null && p[2] > 0.5)
                                         element.attr("line-after", "true");
                                 }
                                 break;
@@ -910,10 +908,17 @@ public class HtmlHelper {
             div.tagName("span");
 
         for (Element e : document.select("*[line-before],*[line-after]")) {
-            if (!"".equals(e.attr("line-before")))
-                e.prependElement("br");
-            if (!"".equals(e.attr("line-after")))
-                e.appendElement("br");
+            if (!TextUtils.isEmpty(e.attr("line-before"))) {
+                Element prev = e.previousElementSibling();
+                if (prev == null || !"br".equals(prev.tagName()))
+                    e.prependElement("br");
+            }
+
+            if (!TextUtils.isEmpty(e.attr("line-after"))) {
+                Element next = e.nextElementSibling();
+                if (next == null || !"br".equals(next.tagName()))
+                    e.appendElement("br");
+            }
         }
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N)
