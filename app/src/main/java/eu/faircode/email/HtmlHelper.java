@@ -620,11 +620,12 @@ public class HtmlHelper {
                                     else if (key.endsWith("bottom"))
                                         p[0] = null;
 
-                                    if (p[0] != null && p[0] > 0.5)
+                                    if (p[0] != null && p[0] > 0.5 &&
+                                            element.parents().select("*[line-before]").size() == 0)
                                         element.attr("line-before", "true");
-                                    if (p[2] != null && p[2] > 0.5)
+                                    if (p[2] != null && p[2] > 0.5 &&
+                                            element.parents().select("*[line-after]").size() == 0)
                                         element.attr("line-after", "true");
-
                                 }
                                 break;
                         }
