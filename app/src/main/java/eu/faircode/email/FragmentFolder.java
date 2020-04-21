@@ -156,7 +156,6 @@ public class FragmentFolder extends FragmentBase {
                 cbPoll.setEnabled(isChecked);
                 etPoll.setEnabled(isChecked);
                 tvPoll.setEnabled(isChecked);
-                cbDownload.setEnabled(isChecked);
             }
         });
 
@@ -281,7 +280,6 @@ public class FragmentFolder extends FragmentBase {
                 cbPoll.setEnabled(cbSynchronize.isChecked());
                 etPoll.setEnabled(cbSynchronize.isChecked());
                 tvPoll.setEnabled(cbSynchronize.isChecked());
-                cbDownload.setEnabled(cbSynchronize.isChecked());
                 etKeepDays.setEnabled(!cbKeepAll.isChecked());
                 cbAutoDelete.setEnabled(!cbKeepAll.isChecked());
                 btnSave.setEnabled(true);
