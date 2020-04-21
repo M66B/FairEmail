@@ -467,7 +467,15 @@ public class HtmlHelper {
         // Sanitize styles
         for (Element element : document.select("*")) {
             String clazz = element.attr("class");
-            String style = element.attr("style");
+
+            // This is to workaround a TextView bug
+            List<Element> parents = element.parents();
+            Collections.reverse(parents);
+            String style = null;
+            for (Element parent : parents)
+                style = mergeStyles(style, parent.attr("style"), "color");
+
+            style = mergeStyles(style, element.attr("style"));
 
             // Process class
             if (!TextUtils.isEmpty(clazz))
@@ -989,6 +997,10 @@ public class HtmlHelper {
     }
 
     private static String mergeStyles(String base, String style) {
+        return mergeStyles(base, style, null);
+    }
+
+    private static String mergeStyles(String base, String style, String selector) {
         Map<String, String> result = new HashMap<>();
 
         List<String> params = new ArrayList<>();
@@ -1001,7 +1013,8 @@ public class HtmlHelper {
             int colon = param.indexOf(':');
             if (colon > 0) {
                 String key = param.substring(0, colon).trim().toLowerCase(Locale.ROOT);
-                result.put(key, param);
+                if (selector == null || selector.equals(key))
+                    result.put(key, param);
             } else
                 Log.w("Invalid style param=" + param);
         }
