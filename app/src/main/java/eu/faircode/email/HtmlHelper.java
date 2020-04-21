@@ -45,7 +45,9 @@ import androidx.core.text.HtmlCompat;
 import androidx.core.util.PatternsCompat;
 import androidx.preference.PreferenceManager;
 
+import com.steadystate.css.dom.CSSMediaRuleImpl;
 import com.steadystate.css.dom.CSSStyleRuleImpl;
+import com.steadystate.css.dom.MediaListImpl;
 import com.steadystate.css.parser.CSSOMParser;
 import com.steadystate.css.parser.SACParserCSS3;
 import com.steadystate.css.parser.selectors.ClassConditionImpl;
@@ -70,6 +72,7 @@ import org.w3c.css.sac.Selector;
 import org.w3c.dom.css.CSSRule;
 import org.w3c.dom.css.CSSRuleList;
 import org.w3c.dom.css.CSSStyleSheet;
+import org.w3c.dom.stylesheets.MediaList;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -373,11 +376,15 @@ public class HtmlHelper {
         }
 
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style
-        CSSStyleSheet sheet = null;
+        List<CSSStyleSheet> sheets = new ArrayList<>();
         for (Element style : parsed.head().select("style")) {
             Log.i("Style=" + style.data());
             try {
                 InputSource source = new InputSource(new StringReader(style.data()));
+                String media = style.attr("media");
+                if (!TextUtils.isEmpty(media))
+                    source.setMedia(media);
+
                 CSSOMParser parser = new CSSOMParser(new SACParserCSS3());
                 parser.setErrorHandler(new ErrorHandler() {
                     @Override
@@ -396,10 +403,7 @@ public class HtmlHelper {
                     }
                 });
 
-                // TODO: media queries
-                CSSStyleSheet s = parser.parseStyleSheet(source, null, null);
-                if (s.getMedia() != null && "all".equals(s.getMedia().getMediaText()))
-                    sheet = s;
+                sheets.add(parser.parseStyleSheet(source, null, null));
             } catch (Throwable ex) {
                 Log.w(ex);
             }
@@ -466,31 +470,8 @@ public class HtmlHelper {
             String style = element.attr("style");
 
             // Process class
-            if (!TextUtils.isEmpty(clazz) && sheet != null) {
-                CSSRuleList rules = sheet.getCssRules();
-                for (int i = 0; rules != null && i < rules.getLength(); i++) {
-                    CSSRule rule = rules.item(i);
-                    if (rule.getType() == CSSRule.STYLE_RULE) {
-                        CSSStyleRuleImpl srule = (CSSStyleRuleImpl) rule;
-                        for (int j = 0; j < srule.getSelectors().getLength(); j++) {
-                            Selector selector = srule.getSelectors().item(j);
-                            switch (selector.getSelectorType()) {
-                                case Selector.SAC_ANY_NODE_SELECTOR:
-                                    style = mergeStyles(srule.getStyle().getCssText(), style);
-                                    break;
-                                case Selector.SAC_CONDITIONAL_SELECTOR:
-                                    ConditionalSelectorImpl cselector = (ConditionalSelectorImpl) selector;
-                                    if (cselector.getCondition().getConditionType() == SAC_CLASS_CONDITION) {
-                                        ClassConditionImpl ccondition = (ClassConditionImpl) cselector.getCondition();
-                                        if (clazz.equals(ccondition.getValue()))
-                                            style = mergeStyles(srule.getStyle().getCssText(), style);
-                                    }
-                                    break;
-                            }
-                        }
-                    }
-                }
-            }
+            if (!TextUtils.isEmpty(clazz))
+                style = processClass(clazz, style, sheets);
 
             // Process style
             if (!TextUtils.isEmpty(style)) {
@@ -923,6 +904,59 @@ public class HtmlHelper {
         }
 
         return document;
+    }
+
+    private static String processClass(String clazz, String style, List<CSSStyleSheet> sheets) {
+        for (CSSStyleSheet sheet : sheets)
+            if (isScreenMedia(sheet.getMedia()))
+                style = processClass(clazz, style, sheet.getCssRules());
+        return style;
+    }
+
+    private static String processClass(String clazz, String style, CSSRuleList rules) {
+        for (int i = 0; rules != null && i < rules.getLength(); i++) {
+            CSSRule rule = rules.item(i);
+            switch (rule.getType()) {
+                case CSSRule.STYLE_RULE:
+                    CSSStyleRuleImpl srule = (CSSStyleRuleImpl) rule;
+                    for (int j = 0; j < srule.getSelectors().getLength(); j++) {
+                        Selector selector = srule.getSelectors().item(j);
+                        switch (selector.getSelectorType()) {
+                            case Selector.SAC_CONDITIONAL_SELECTOR:
+                                ConditionalSelectorImpl cselector = (ConditionalSelectorImpl) selector;
+                                if (cselector.getCondition().getConditionType() == SAC_CLASS_CONDITION) {
+                                    ClassConditionImpl ccondition = (ClassConditionImpl) cselector.getCondition();
+                                    if (clazz.equals(ccondition.getValue()))
+                                        style = mergeStyles(srule.getStyle().getCssText(), style);
+                                }
+                                break;
+                        }
+                    }
+                    break;
+
+                case CSSRule.MEDIA_RULE:
+                    CSSMediaRuleImpl mrule = (CSSMediaRuleImpl) rule;
+                    if (isScreenMedia(mrule.getMedia()))
+                        style = processClass(clazz, style, mrule.getCssRules());
+                    break;
+            }
+        }
+        return style;
+    }
+
+    private static boolean isScreenMedia(MediaList media) {
+        // https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries
+        if (media instanceof MediaListImpl) {
+            MediaListImpl _media = (MediaListImpl) media;
+            for (int i = 0; i < _media.getLength(); i++) {
+                String query = _media.mediaQuery(i).getCssText(null);
+                if ("all".equals(query) ||
+                        "screen".equals(query) || "only screen".equals(query))
+                    return true;
+            }
+        } else
+            Log.e("Media class=" + media.getClass().getName());
+        return false;
     }
 
     private static String mergeStyles(String base, String style) {
