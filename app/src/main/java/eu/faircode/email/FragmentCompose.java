@@ -4915,7 +4915,7 @@ public class FragmentCompose extends FragmentBase {
             spPriority.setSelection(1);
             tvSendAt.setText(null);
             cbNotAgain.setChecked(!send_dialog);
-            cbNotAgain.setVisibility(dialog ? View.VISIBLE : View.GONE);
+            cbNotAgain.setVisibility(dialog || send_dialog ? View.VISIBLE : View.GONE);
             tvNotAgain.setVisibility(cbNotAgain.isChecked() && dialog ? View.VISIBLE : View.GONE);
 
             Helper.setViewsEnabled(dview, false);
