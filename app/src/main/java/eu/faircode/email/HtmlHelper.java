@@ -591,19 +591,40 @@ public class HtmlHelper {
                                 }
                                 break;
 
+                            case "margin":
+                            case "padding":
+                            case "margin-top":
+                            case "margin-bottom":
                             case "padding-top":
-                                if (element.isBlock() && hasVisibleContent(element.childNodes())) {
-                                    Float pt = getFontSize(value, null);
-                                    if (pt != null && pt >= 0.5)
-                                        element.attr("line", "before");
-                                }
-                                break;
-
                             case "padding-bottom":
+                                // https://developer.mozilla.org/en-US/docs/Web/CSS/margin
+                                // https://developer.mozilla.org/en-US/docs/Web/CSS/padding
                                 if (element.isBlock() && hasVisibleContent(element.childNodes())) {
-                                    Float pb = getFontSize(value, null);
-                                    if (pb != null && pb >= 0.5)
-                                        element.attr("line", "after");
+                                    Float[] p = new Float[4];
+
+                                    String[] v = value.split(" ");
+                                    for (int i = 0; i < v.length; i++)
+                                        p[i] = getFontSize(v[i], null);
+
+                                    if (v.length == 1) {
+                                        p[1] = p[0];
+                                        p[2] = p[0];
+                                        p[3] = p[0];
+                                    } else if (v.length == 2) {
+                                        p[2] = p[0];
+                                        p[3] = p[1];
+                                    }
+
+                                    if (key.endsWith("top"))
+                                        p[2] = null;
+                                    else if (key.endsWith("bottom"))
+                                        p[0] = null;
+
+                                    if (p[0] != null && p[0] > 0.5)
+                                        element.attr("line-before", "true");
+                                    if (p[2] != null && p[2] > 0.5)
+                                        element.attr("line-after", "true");
+
                                 }
                                 break;
                         }
@@ -887,11 +908,12 @@ public class HtmlHelper {
         for (Element div : document.select("div"))
             div.tagName("span");
 
-        for (Element e : document.select("*[line]"))
-            if ("before".equals(e.attr("line")))
+        for (Element e : document.select("*[line-before],*[line-after]")) {
+            if (!"".equals(e.attr("line-before")))
                 e.prependElement("br");
-            else
+            if (!"".equals(e.attr("line-after")))
                 e.appendElement("br");
+        }
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N)
             for (Element span : document.select("span"))
