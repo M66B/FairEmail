@@ -2632,7 +2632,7 @@ public class FragmentCompose extends FragmentBase {
 
         InternetAddress[] to = null;
         try {
-            to = InternetAddress.parse(etTo.getText().toString());
+            to = InternetAddress.parseHeader(etTo.getText().toString(), false);
         } catch (AddressException ignored) {
         }
 
@@ -3098,21 +3098,21 @@ public class FragmentCompose extends FragmentBase {
 
                         try {
                             String to = args.getString("to");
-                            data.draft.to = (TextUtils.isEmpty(to) ? null : InternetAddress.parse(to));
+                            data.draft.to = (TextUtils.isEmpty(to) ? null : InternetAddress.parseHeader(to, false));
                         } catch (AddressException ex) {
                             Log.w(ex);
                         }
 
                         try {
                             String cc = args.getString("cc");
-                            data.draft.cc = (TextUtils.isEmpty(cc) ? null : InternetAddress.parse(cc));
+                            data.draft.cc = (TextUtils.isEmpty(cc) ? null : InternetAddress.parseHeader(cc, false));
                         } catch (AddressException ex) {
                             Log.w(ex);
                         }
 
                         try {
                             String bcc = args.getString("bcc");
-                            data.draft.bcc = (TextUtils.isEmpty(bcc) ? null : InternetAddress.parse(bcc));
+                            data.draft.bcc = (TextUtils.isEmpty(bcc) ? null : InternetAddress.parseHeader(bcc, false));
                         } catch (AddressException ex) {
                             Log.w(ex);
                         }

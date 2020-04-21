@@ -687,6 +687,7 @@ public class FragmentIdentity extends FragmentBase {
                         InternetAddress[] addresses = InternetAddress.parse(replyto);
                         if (addresses.length != 1)
                             throw new AddressException();
+                        addresses[0].validate();
                     } catch (AddressException ex) {
                         throw new IllegalArgumentException(context.getString(R.string.title_email_invalid, replyto));
                     }
@@ -694,14 +695,16 @@ public class FragmentIdentity extends FragmentBase {
 
                 if (!TextUtils.isEmpty(cc) && !should)
                     try {
-                        InternetAddress.parse(cc);
+                        for (InternetAddress address : InternetAddress.parse(cc))
+                            address.validate();
                     } catch (AddressException ex) {
                         throw new IllegalArgumentException(context.getString(R.string.title_email_invalid, cc));
                     }
 
                 if (!TextUtils.isEmpty(bcc) && !should)
                     try {
-                        InternetAddress.parse(bcc);
+                        for (InternetAddress address : InternetAddress.parse(bcc))
+                            address.validate();
                     } catch (AddressException ex) {
                         throw new IllegalArgumentException(context.getString(R.string.title_email_invalid, bcc));
                     }

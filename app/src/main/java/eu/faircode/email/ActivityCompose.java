@@ -32,9 +32,6 @@ import androidx.fragment.app.FragmentTransaction;
 
 import java.util.ArrayList;
 
-import javax.mail.internet.AddressException;
-import javax.mail.internet.InternetAddress;
-
 public class ActivityCompose extends ActivityBase implements FragmentManager.OnBackStackChangedListener {
     static final int PI_REPLY = 1;
 
@@ -72,21 +69,11 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
 
                     String to = mailto.getTo();
                     if (to != null)
-                        try {
-                            InternetAddress.parse(to);
-                            args.putString("to", to);
-                        } catch (AddressException ex) {
-                            Log.w(ex);
-                        }
+                        args.putString("to", to);
 
                     String cc = mailto.getCc();
                     if (cc != null)
-                        try {
-                            InternetAddress.parse(cc);
-                            args.putString("cc", cc);
-                        } catch (AddressException ex) {
-                            Log.w(ex);
-                        }
+                        args.putString("cc", cc);
 
                     String subject = mailto.getSubject();
                     if (subject != null)
@@ -100,45 +87,25 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
                 if (intent.hasExtra(Intent.EXTRA_SHORTCUT_ID)) {
                     String to = intent.getStringExtra(Intent.EXTRA_SHORTCUT_ID);
                     if (to != null)
-                        try {
-                            InternetAddress.parse(to);
-                            args.putString("to", to);
-                        } catch (AddressException ex) {
-                            Log.w(ex);
-                        }
+                        args.putString("to", to);
                 }
 
                 if (intent.hasExtra(Intent.EXTRA_EMAIL)) {
                     String[] to = intent.getStringArrayExtra(Intent.EXTRA_EMAIL);
                     if (to != null)
-                        try {
-                            InternetAddress.parse(TextUtils.join(", ", to));
-                            args.putString("to", TextUtils.join(", ", to));
-                        } catch (AddressException ex) {
-                            Log.w(ex);
-                        }
+                        args.putString("to", TextUtils.join(", ", to));
                 }
 
                 if (intent.hasExtra(Intent.EXTRA_CC)) {
                     String[] cc = intent.getStringArrayExtra(Intent.EXTRA_CC);
                     if (cc != null)
-                        try {
-                            InternetAddress.parse(TextUtils.join(", ", cc));
-                            args.putString("cc", TextUtils.join(", ", cc));
-                        } catch (AddressException ex) {
-                            Log.w(ex);
-                        }
+                        args.putString("cc", TextUtils.join(", ", cc));
                 }
 
                 if (intent.hasExtra(Intent.EXTRA_BCC)) {
                     String[] bcc = intent.getStringArrayExtra(Intent.EXTRA_BCC);
                     if (bcc != null)
-                        try {
-                            InternetAddress.parse(TextUtils.join(", ", bcc));
-                            args.putString("bcc", TextUtils.join(", ", bcc));
-                        } catch (AddressException ex) {
-                            Log.w(ex);
-                        }
+                        args.putString("bcc", TextUtils.join(", ", bcc));
                 }
 
                 if (intent.hasExtra(Intent.EXTRA_SUBJECT)) {
