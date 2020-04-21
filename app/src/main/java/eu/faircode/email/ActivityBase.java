@@ -260,7 +260,46 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         } else
             checkAuthentication();
 
-        super.onResume();
+        try {
+            super.onResume();
+        } catch (Throwable ex) {
+            Log.w(ex);
+            /*
+                java.lang.RuntimeException: Unable to resume activity {eu.faircode.email/eu.faircode.email.ActivityView}: java.lang.IllegalArgumentException
+                  at android.app.ActivityThread.performResumeActivity(ActivityThread.java:4025)
+                  at android.app.ActivityThread.handleResumeActivity(ActivityThread.java:4057)
+                  at android.app.servertransaction.ResumeActivityItem.execute(ResumeActivityItem.java:51)
+                  at android.app.servertransaction.TransactionExecutor.executeLifecycleState(TransactionExecutor.java:145)
+                  at android.app.servertransaction.TransactionExecutor.execute(TransactionExecutor.java:70)
+                  at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1959)
+                  at android.os.Handler.dispatchMessage(Handler.java:106)
+                  at android.os.Looper.loop(Looper.java:214)
+                  at android.app.ActivityThread.main(ActivityThread.java:7100)
+                  at java.lang.reflect.Method.invoke(Native Method)
+                  at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:494)
+                  at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:964)
+                Caused by: java.lang.IllegalArgumentException
+                  at android.os.Parcel.createException(Parcel.java:1970)
+                  at android.os.Parcel.readException(Parcel.java:1934)
+                  at android.os.Parcel.readException(Parcel.java:1884)
+                  at android.app.IActivityManager$Stub$Proxy.isTopOfTask(IActivityManager.java:7835)
+                  at android.app.Activity.isTopOfTask(Activity.java:6544)
+                  at android.app.Activity.onResume(Activity.java:1404)
+                  at androidx.fragment.app.FragmentActivity.onResume(SourceFile:458)
+                  at eu.faircode.email.ActivityBase.onResume(SourceFile:263)
+                  at eu.faircode.email.ActivityBilling.onResume(SourceFile:125)
+                  at eu.faircode.email.ActivityView.onResume(SourceFile:588)
+                  at android.app.Instrumentation.callActivityOnResume(Instrumentation.java:1416)
+                  at android.app.Activity.performResume(Activity.java:7612)
+                  at android.app.ActivityThread.performResumeActivity(ActivityThread.java:4017)
+                  ... 11 more
+                Caused by: android.os.RemoteException: Remote stack trace:
+                  at com.android.server.am.ActivityManagerService.isTopOfTask(ActivityManagerService.java:18313)
+                  at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2028)
+                  at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:4166)
+                  at android.os.Binder.execTransact(Binder.java:739)
+             */
+        }
     }
 
     @Override
