@@ -3845,9 +3845,9 @@ public class FragmentCompose extends FragmentBase {
 
                     // Get data
                     InternetAddress[] afrom = (identity == null ? null : new InternetAddress[]{new InternetAddress(identity.email, identity.name)});
-                    InternetAddress[] ato = (TextUtils.isEmpty(to) ? null : InternetAddress.parse(to));
-                    InternetAddress[] acc = (TextUtils.isEmpty(cc) ? null : InternetAddress.parse(cc));
-                    InternetAddress[] abcc = (TextUtils.isEmpty(bcc) ? null : InternetAddress.parse(bcc));
+                    InternetAddress[] ato = (TextUtils.isEmpty(to) ? null : InternetAddress.parseHeader(to, false));
+                    InternetAddress[] acc = (TextUtils.isEmpty(cc) ? null : InternetAddress.parseHeader(cc, false));
+                    InternetAddress[] abcc = (TextUtils.isEmpty(bcc) ? null : InternetAddress.parseHeader(bcc, false));
 
                     // Safe guard
                     if (action == R.id.action_send) {
