@@ -509,6 +509,7 @@
     <string name="title_client_certificate">Certyfikat klienta</string>
     <string name="title_realm">Realm</string>
     <string name="title_use_ip">Użyj lokalnego adresu IP zamiast nazwy hosta</string>
+    <string name="title_ehlo">Własna identyfikacja HELO/EHLO</string>
     <string name="title_primary">Podstawowy</string>
     <string name="title_primary_account">Podstawowe (domyślne konto)</string>
     <string name="title_primary_identity">Podstawowe (domyślna tożsamość)</string>

@@ -606,9 +606,9 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_unseen">Als ungelesen kennzeichnen</string>
     <string name="title_hide">Ausblenden</string>
     <string name="title_unhide">Anzeigen</string>
-    <string name="title_flag">Kennzeichnen</string>
+    <string name="title_flag">Stern hinzufügen</string>
     <string name="title_flag_color">Farbigen Stern &#8230;</string>
-    <string name="title_unflag">Kennzeichnung entfernen</string>
+    <string name="title_unflag">Stern entfernen</string>
     <string name="title_set_importance">Wichtigkeit festlegen</string>
     <string name="title_importance_low">Niedrig</string>
     <string name="title_importance_normal">Normal</string>
@@ -734,7 +734,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_style_color">Farbe</string>
     <string name="title_style_clear">Formatierung entfernen</string>
     <string name="title_style_link">Link einfügen</string>
-    <string name="title_add_image">Grafik / Bild hinzufügen</string>
+    <string name="title_add_image">Bild hinzufügen</string>
     <string name="title_add_image_inline">Einfügen</string>
     <string name="title_add_image_attach">Anhängen</string>
     <string name="title_add_image_resize">Größe ändern</string>
