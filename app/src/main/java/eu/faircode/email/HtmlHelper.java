@@ -1547,10 +1547,10 @@ public class HtmlHelper {
     }
 
     static void convertLists(Document document) {
-        for (Element p : document.select("p")) {
+        for (Element span : document.select("span")) {
             // Skip signature and referenced message
             boolean body = true;
-            Element parent = p.parent();
+            Element parent = span.parent();
             while (parent != null) {
                 if ("div".equals(parent.tagName()) &&
                         !TextUtils.isEmpty(parent.attr("fairemail"))) {
@@ -1563,9 +1563,9 @@ public class HtmlHelper {
                 continue;
 
             Element list = null;
-            for (int i = 0; i < p.childNodeSize(); i++) {
+            for (int i = 0; i < span.childNodeSize(); i++) {
                 boolean item = false;
-                Node node = p.childNode(i);
+                Node node = span.childNode(i);
                 if (node instanceof TextNode) {
                     String text = ((TextNode) node).text().trim();
                     Node next = node.nextSibling();
@@ -1578,9 +1578,16 @@ public class HtmlHelper {
                         li.text(text.substring(2));
 
                         if (list == null || !list.tagName().equals(type)) {
+                            Node before = node.previousSibling();
+                            if (before != null && "br".equals(before.nodeName())) {
+                                before.remove();
+                                i--;
+                            }
+
                             list = document.createElement(type);
                             list.appendChild(li);
                             node.replaceWith(list);
+
                         } else {
                             list.appendChild(li);
                             node.remove();
@@ -1590,14 +1597,15 @@ public class HtmlHelper {
                         if (next != null)
                             next.remove();
                     }
+                } else {
+                    if (list != null && "br".equals(node.nodeName())) {
+                        node.remove();
+                        i--;
+                    }
                 }
                 if (!item)
                     list = null;
             }
-
-            p.tagName("div");
-            if (p.parent() != null)
-                p.after(document.createElement("br"));
         }
     }
 
