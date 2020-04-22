@@ -575,17 +575,6 @@ class Core {
         return uid;
     }
 
-    private static void noop(IMAPFolder ifolder) throws MessagingException {
-        // https://tools.ietf.org/html/rfc3501#section-6.3.11
-        ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
-            @Override
-            public Object doCommand(IMAPProtocol protocol) throws ProtocolException {
-                protocol.noop();
-                return null;
-            }
-        });
-    }
-
     private static void onSeen(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException, JSONException {
         // Mark message (un)seen
         DB db = DB.getInstance(context);
@@ -756,9 +745,6 @@ class Core {
         // Add message
         ifolder.appendMessages(new Message[]{imessage});
 
-        // Send no operation
-        noop(ifolder);
-
         // Delete previous (external) version
         if (message.uid != null) {
             db.message().setMessageUid(message.id, null);
@@ -859,11 +845,7 @@ class Core {
                 icopies.add(icopy);
             }
 
-            // Add message
             itarget.appendMessages(icopies.toArray(new Message[0]));
-
-            // Send no operation
-            noop(itarget);
         } else {
             for (Message imessage : map.keySet()) {
                 Log.i("Move seen=" + seen + " unflag=" + unflag + " flags=" + imessage.getFlags());
