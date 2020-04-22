@@ -1049,7 +1049,13 @@ public class HtmlHelper {
     }
 
     private static Float getFontSize(String value, Integer current) {
+        // https://developer.mozilla.org/en-US/docs/Web/CSS/font-size
         if (TextUtils.isEmpty(value))
+            return null;
+
+        if (value.contains("calc") ||
+                "auto".equals(value) ||
+                "inherit".equals(value))
             return null;
 
         float _current = (current == null ? 1.0f : current / (float) DEFAULT_FONT_SIZE);
@@ -1084,8 +1090,10 @@ public class HtmlHelper {
                 return Float.parseFloat(value.substring(0, value.length() - 2).trim()) * _current;
             if (value.endsWith("rem"))
                 return Float.parseFloat(value.substring(0, value.length() - 3).trim());
-            if (value.endsWith("px"))
+            if (value.endsWith("px") || value.endsWith("pt"))
                 return Integer.parseInt(value.substring(0, value.length() - 2).trim()) / (float) DEFAULT_FONT_SIZE;
+            if (value.endsWith("cm") || value.endsWith("in"))
+                return null;
             return Integer.parseInt(value.trim()) / (float) DEFAULT_FONT_SIZE;
         } catch (NumberFormatException ex) {
             Log.w(ex);
