@@ -973,8 +973,8 @@ public class HtmlHelper {
                         switch (selector.getSelectorType()) {
                             case Selector.SAC_ELEMENT_NODE_SELECTOR:
                                 ElementSelectorImpl eselector = (ElementSelectorImpl) selector;
-                                if (tag == null ?
-                                        eselector.getLocalName() == null
+                                if (tag == null
+                                        ? eselector.getLocalName() == null
                                         : tag.equals(eselector.getLocalName()))
                                     style = mergeStyles(style, srule.getStyle().getCssText());
                                 break;
