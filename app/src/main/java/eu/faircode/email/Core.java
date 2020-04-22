@@ -586,16 +586,6 @@ class Core {
         });
     }
 
-    static boolean isAlive(IMAPFolder ifolder) {
-        try {
-            noop(ifolder);
-        } catch (MessagingException ex) {
-            Log.i(ifolder.getFullName(), ex);
-            return false;
-        }
-        return true;
-    }
-
     private static void onSeen(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException, JSONException {
         // Mark message (un)seen
         DB db = DB.getInstance(context);
