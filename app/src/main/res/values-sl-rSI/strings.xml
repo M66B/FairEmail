@@ -510,6 +510,7 @@
     <string name="title_client_certificate">Potrdilo odjemalca</string>
     <string name="title_realm">Področje</string>
     <string name="title_use_ip">Uporabi krajevni naslov IP namesto imena gostitelja</string>
+    <string name="title_ehlo">Prepoznavanje HELO/EHLO po meri</string>
     <string name="title_primary">Glavni</string>
     <string name="title_primary_account">Glavni (privzeti račun)</string>
     <string name="title_primary_identity">Glavna (privzeti identiteta)</string>
