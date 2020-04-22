@@ -1062,6 +1062,7 @@ public class HtmlHelper {
 
         if (value.contains("calc") ||
                 "auto".equals(value) ||
+                "initial".equals(value) ||
                 "inherit".equals(value))
             return null;
 
@@ -1098,15 +1099,14 @@ public class HtmlHelper {
             if (value.endsWith("rem"))
                 return Float.parseFloat(value.substring(0, value.length() - 3).trim());
             if (value.endsWith("px") || value.endsWith("pt"))
-                return Integer.parseInt(value.substring(0, value.length() - 2).trim()) / (float) DEFAULT_FONT_SIZE;
+                return Float.parseFloat(value.substring(0, value.length() - 2).trim()) / DEFAULT_FONT_SIZE;
             if (value.endsWith("cm") || value.endsWith("in"))
                 return null;
-            return Integer.parseInt(value.trim()) / (float) DEFAULT_FONT_SIZE;
+            return Float.parseFloat(value.trim()) / DEFAULT_FONT_SIZE;
         } catch (NumberFormatException ex) {
             Log.w(ex);
+            return null;
         }
-
-        return null;
     }
 
     private static Integer parseColor(@NonNull String value, boolean dark) {
