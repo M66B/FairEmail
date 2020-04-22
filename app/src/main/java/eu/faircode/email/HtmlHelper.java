@@ -52,6 +52,7 @@ import com.steadystate.css.parser.CSSOMParser;
 import com.steadystate.css.parser.SACParserCSS3;
 import com.steadystate.css.parser.selectors.ClassConditionImpl;
 import com.steadystate.css.parser.selectors.ConditionalSelectorImpl;
+import com.steadystate.css.parser.selectors.ElementSelectorImpl;
 
 import org.jsoup.nodes.Attribute;
 import org.jsoup.nodes.Comment;
@@ -473,20 +474,20 @@ public class HtmlHelper {
 
         // Sanitize styles
         for (Element element : document.select("*")) {
+            String style = null;
             String clazz = element.attr("class");
 
-            // This is to workaround a TextView bug
+            // Workaround TextView not supporting nested colors
             List<Element> parents = element.parents();
             Collections.reverse(parents);
-            String style = null;
             for (Element parent : parents)
                 style = mergeStyles(style, parent.attr("style"), "color");
 
-            style = mergeStyles(style, element.attr("style"));
+            // Class style
+            style = processStyles(element.tagName(), clazz, style, sheets);
 
-            // Process class
-            if (!TextUtils.isEmpty(clazz))
-                style = processClass(clazz, style, sheets);
+            // Element style
+            style = mergeStyles(style, element.attr("style"));
 
             // Process style
             if (!TextUtils.isEmpty(style)) {
@@ -949,14 +950,17 @@ public class HtmlHelper {
         return document;
     }
 
-    private static String processClass(String clazz, String style, List<CSSStyleSheet> sheets) {
+    private static String processStyles(String tag, String clazz, String style, List<CSSStyleSheet> sheets) {
         for (CSSStyleSheet sheet : sheets)
-            if (isScreenMedia(sheet.getMedia()))
-                style = processClass(clazz, style, sheet.getCssRules());
+            if (isScreenMedia(sheet.getMedia())) {
+                style = processStyles(null, clazz, style, sheet.getCssRules(), Selector.SAC_ELEMENT_NODE_SELECTOR);
+                style = processStyles(tag, clazz, style, sheet.getCssRules(), Selector.SAC_ELEMENT_NODE_SELECTOR);
+                style = processStyles(tag, clazz, style, sheet.getCssRules(), Selector.SAC_CONDITIONAL_SELECTOR);
+            }
         return style;
     }
 
-    private static String processClass(String clazz, String style, CSSRuleList rules) {
+    private static String processStyles(String tag, String clazz, String style, CSSRuleList rules, int stype) {
         for (int i = 0; rules != null && i < rules.getLength(); i++) {
             CSSRule rule = rules.item(i);
             switch (rule.getType()) {
@@ -964,13 +968,22 @@ public class HtmlHelper {
                     CSSStyleRuleImpl srule = (CSSStyleRuleImpl) rule;
                     for (int j = 0; j < srule.getSelectors().getLength(); j++) {
                         Selector selector = srule.getSelectors().item(j);
+                        if (selector.getSelectorType() != stype)
+                            continue;
                         switch (selector.getSelectorType()) {
+                            case Selector.SAC_ELEMENT_NODE_SELECTOR:
+                                ElementSelectorImpl eselector = (ElementSelectorImpl) selector;
+                                if (tag == null ?
+                                        eselector.getLocalName() == null
+                                        : tag.equals(eselector.getLocalName()))
+                                    style = mergeStyles(style, srule.getStyle().getCssText());
+                                break;
                             case Selector.SAC_CONDITIONAL_SELECTOR:
                                 ConditionalSelectorImpl cselector = (ConditionalSelectorImpl) selector;
                                 if (cselector.getCondition().getConditionType() == SAC_CLASS_CONDITION) {
                                     ClassConditionImpl ccondition = (ClassConditionImpl) cselector.getCondition();
                                     if (clazz.equals(ccondition.getValue()))
-                                        style = mergeStyles(srule.getStyle().getCssText(), style);
+                                        style = mergeStyles(style, srule.getStyle().getCssText());
                                 }
                                 break;
                         }
@@ -980,7 +993,7 @@ public class HtmlHelper {
                 case CSSRule.MEDIA_RULE:
                     CSSMediaRuleImpl mrule = (CSSMediaRuleImpl) rule;
                     if (isScreenMedia(mrule.getMedia()))
-                        style = processClass(clazz, style, mrule.getCssRules());
+                        style = processStyles(tag, clazz, style, mrule.getCssRules(), stype);
                     break;
             }
         }
