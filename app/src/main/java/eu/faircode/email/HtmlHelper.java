@@ -296,6 +296,7 @@ public class HtmlHelper {
         boolean text_size = prefs.getBoolean("text_size", true);
         boolean display_hidden = prefs.getBoolean("display_hidden", false);
         boolean disable_tracking = prefs.getBoolean("disable_tracking", true);
+        boolean parse_classes = prefs.getBoolean("parse_classes", false);
 
         // https://chromium.googlesource.com/chromium/blink/+/master/Source/core/css/html.css
 
@@ -378,41 +379,42 @@ public class HtmlHelper {
 
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style
         List<CSSStyleSheet> sheets = new ArrayList<>();
-        for (Element style : parsed.head().select("style")) {
-            if (BuildConfig.DEBUG)
-                Log.i("Style=" + style.data());
-            try {
-                InputSource source = new InputSource(new StringReader(style.data()));
-                String media = style.attr("media");
-                if (!TextUtils.isEmpty(media))
-                    source.setMedia(media);
+        if (parse_classes)
+            for (Element style : parsed.head().select("style")) {
+                if (BuildConfig.DEBUG)
+                    Log.i("Style=" + style.data());
+                try {
+                    InputSource source = new InputSource(new StringReader(style.data()));
+                    String media = style.attr("media");
+                    if (!TextUtils.isEmpty(media))
+                        source.setMedia(media);
 
-                CSSOMParser parser = new CSSOMParser(new SACParserCSS3());
-                parser.setErrorHandler(new ErrorHandler() {
-                    @Override
-                    public void warning(CSSParseException ex) throws CSSException {
-                        Log.i("CSS warning=" + ex.getMessage());
-                    }
+                    CSSOMParser parser = new CSSOMParser(new SACParserCSS3());
+                    parser.setErrorHandler(new ErrorHandler() {
+                        @Override
+                        public void warning(CSSParseException ex) throws CSSException {
+                            Log.i("CSS warning=" + ex.getMessage());
+                        }
 
-                    @Override
-                    public void error(CSSParseException ex) throws CSSException {
-                        Log.i("CSS error=" + ex.getMessage());
-                    }
+                        @Override
+                        public void error(CSSParseException ex) throws CSSException {
+                            Log.i("CSS error=" + ex.getMessage());
+                        }
 
-                    @Override
-                    public void fatalError(CSSParseException ex) throws CSSException {
-                        Log.w(ex);
-                    }
-                });
+                        @Override
+                        public void fatalError(CSSParseException ex) throws CSSException {
+                            Log.w(ex);
+                        }
+                    });
 
-                long start = new Date().getTime();
-                sheets.add(parser.parseStyleSheet(source, null, null));
-                long elapsed = new Date().getTime() - start;
-                Log.i("Style parse=" + elapsed + " ms");
-            } catch (Throwable ex) {
-                Log.w(ex);
+                    long start = new Date().getTime();
+                    sheets.add(parser.parseStyleSheet(source, null, null));
+                    long elapsed = new Date().getTime() - start;
+                    Log.i("Style parse=" + elapsed + " ms");
+                } catch (Throwable ex) {
+                    Log.w(ex);
+                }
             }
-        }
 
         Whitelist whitelist = Whitelist.relaxed()
                 .addTags("hr", "abbr", "big", "font", "dfn", "del", "s", "tt")

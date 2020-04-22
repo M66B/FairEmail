@@ -111,6 +111,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swImagesInline;
     private SwitchCompat swAttachmentsAlt;
 
+    private SwitchCompat swParseClasses;
     private SwitchCompat swAuthentication;
 
     private final static String[] RESET_OPTIONS = new String[]{
@@ -125,7 +126,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "addresses", "button_archive_trash", "button_move",
             "contrast", "monospaced", "text_color", "text_size",
             "inline_images", "collapse_quotes", "attachments_alt",
-            "authentication"
+            "parse_classes", "authentication"
     };
 
     @Override
@@ -191,6 +192,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swCollapseQuotes = view.findViewById(R.id.swCollapseQuotes);
         swImagesInline = view.findViewById(R.id.swImagesInline);
         swAttachmentsAlt = view.findViewById(R.id.swAttachmentsAlt);
+        swParseClasses = view.findViewById(R.id.swParseClasses);
         swAuthentication = view.findViewById(R.id.swAuthentication);
 
         setOptions();
@@ -621,6 +623,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
+        swParseClasses.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("parse_classes", checked).apply();
+            }
+        });
+
         swAuthentication.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -771,6 +780,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swImagesInline.setChecked(prefs.getBoolean("inline_images", false));
         swAttachmentsAlt.setChecked(prefs.getBoolean("attachments_alt", false));
 
+        swParseClasses.setChecked(prefs.getBoolean("parse_classes", false));
         swAuthentication.setChecked(prefs.getBoolean("authentication", true));
 
         updateColor();

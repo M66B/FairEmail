@@ -328,7 +328,6 @@
     <string name="title_advanced_name_email">Show names and email addresses</string>
     <string name="title_advanced_replace_name">Prefer a contact name over a sent name</string>
     <string name="title_advanced_distinguish_contacts">Underline the sender when the sender is known as local \'to\' contact</string>
-    <string name="title_advanced_authentication">Show a warning when the receiving server could not authenticate the message</string>
     <string name="title_advanced_font_size_sender">Font size sender</string>
     <string name="title_advanced_font_size_subject">Font size subject</string>
     <string name="title_advanced_subject_top">Show subject above sender</string>
@@ -354,6 +353,8 @@
     <string name="title_advanced_actionbar">Show conversation action bar</string>
     <string name="title_advanced_actionbar_color">Use account color as background color for conversation action bar</string>
     <string name="title_advanced_navbar_colorize">Colorize the Android navigation bar</string>
+    <string name="title_advanced_parse_classes">Parse style sheets</string>
+    <string name="title_advanced_authentication">Show a warning when the receiving server could not authenticate the message</string>
 
     <string name="title_advanced_double_back">Double \'back\' to exit</string>
     <string name="title_advanced_pull_refresh">Pull down to refresh</string>
@@ -494,6 +495,7 @@
     <string name="title_advanced_preview_hint">Only available when message text has been downloaded</string>
     <string name="title_advanced_preview_issue">Scrolling can be slow due to a bug in some Android versions when the number of lines is more than one</string>
     <string name="title_advanced_inline_hint">Inline images are images included in the message</string>
+    <string name="title_advanced_parse_classes_hint">This will more accurately display messages, but possibly with a delay</string>
 
     <string name="title_advanced_autoexpand_hint">Automatically open message when there is just one message or just one unread message in a conversation</string>
     <string name="title_advanced_autoseen_hint">Automatically marking messages read on expanding can be disabled in the individual account settings</string>
