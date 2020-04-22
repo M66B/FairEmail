@@ -299,7 +299,6 @@
     <string name="title_advanced_name_email">Показывать имена и адреса электронной почты</string>
     <string name="title_advanced_replace_name">Предпочитать имя контакта вместо имени отправителя</string>
     <string name="title_advanced_distinguish_contacts">Подчёркивать отправителя, если он известен как локальный контакт \"кому\"</string>
-    <string name="title_advanced_authentication">Показывать предупреждение, когда сервер не может аутентифицировать сообщение</string>
     <string name="title_advanced_font_size_sender">Размера шрифта поля \"Отправитель\"</string>
     <string name="title_advanced_font_size_subject">Размера шрифта поля \"Тема\"</string>
     <string name="title_advanced_subject_top">Показывать тему выше отправителя</string>
@@ -325,6 +324,8 @@
     <string name="title_advanced_actionbar">Показывать панель управления диалогами</string>
     <string name="title_advanced_actionbar_color">Использовать цвет учётной записи в качестве фонового для панели действий в диалоге</string>
     <string name="title_advanced_navbar_colorize">Раскрашивать панель навигации Android</string>
+    <string name="title_advanced_parse_classes">Анализ таблицы стилей</string>
+    <string name="title_advanced_authentication">Показывать предупреждение, когда сервер не может аутентифицировать сообщение</string>
     <string name="title_advanced_double_back">Двойное нажатие \"Назад\" для выхода</string>
     <string name="title_advanced_pull_refresh">Потянуть вниз для обновления</string>
     <string name="title_advanced_autoscroll">Прокрутить к началу списка при получении новых сообщений</string>
@@ -444,6 +445,7 @@
     <string name="title_advanced_preview_hint">Доступно, только если был загружен текст сообщения</string>
     <string name="title_advanced_preview_issue">Прокрутка может быть медленной из-за ошибки в некоторых версиях Android, когда строк больше одной</string>
     <string name="title_advanced_inline_hint">Встроенные изображения - это изображения, включённые в сообщение</string>
+    <string name="title_advanced_parse_classes_hint">Позволит более точно отображать сообщения, но, возможно, с задержкой</string>
     <string name="title_advanced_autoexpand_hint">Автоматически открывать сообщение, когда оно только одно или только одно непрочитанное сообщение в диалоге</string>
     <string name="title_advanced_autoseen_hint">Автоматическая пометка сообщений прочитанными при развёртывании может быть отключена в настройках учётной записи</string>
     <string name="title_advanced_autoclose_hint">Автоматически закрывать диалог, если все сообщения удалены, отправлены или помещены в архив</string>

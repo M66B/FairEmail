@@ -275,7 +275,6 @@
     <string name="title_advanced_name_email">Erakutsi izenak eta e-mail helbideak</string>
     <string name="title_advanced_replace_name">Nahiago kontaktu-izena bidaltzaile-izena baino</string>
     <string name="title_advanced_distinguish_contacts">Azpimarratu igorlea kontaktua jasotzaile lokalki ezaguna bada</string>
-    <string name="title_advanced_authentication">Erakutsi abisua zerbitzari jasotzaileak ezin izan badu mezua autentifikatu</string>
     <string name="title_advanced_font_size_sender">Igorlearen letra tamaina</string>
     <string name="title_advanced_font_size_subject">Gaiaren letra tamaina</string>
     <string name="title_advanced_subject_top">Erakutsi mintzagaia igorlearen gainean</string>
@@ -301,6 +300,7 @@
     <string name="title_advanced_actionbar">Erakutsi elkarrizketako ekintza-barra</string>
     <string name="title_advanced_actionbar_color">Erabili kontuaren kolorea elkarrizketaren tresna barrako atzeko planoaren kolore gisa</string>
     <string name="title_advanced_navbar_colorize">Koloreztatu Android-en nabigazio barra</string>
+    <string name="title_advanced_authentication">Erakutsi abisua zerbitzari jasotzaileak ezin izan badu mezua autentifikatu</string>
     <string name="title_advanced_double_back">\'Atzera\' birritan irteteko</string>
     <string name="title_advanced_pull_refresh">Tiratu behera berritzeko</string>
     <string name="title_advanced_autoscroll">Korritu gora mezu berriak jasotzean</string>

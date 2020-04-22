@@ -214,7 +214,6 @@
     <string name="title_advanced_color_value">Brillantor</string>
     <string name="title_advanced_color_threshold">Color de lletra del llindar</string>
     <string name="title_advanced_name_email">Mostra els noms i les adreces de correu</string>
-    <string name="title_advanced_authentication">Mostra un avís quan el servidor receptor no ha pogut autenticar el missatge</string>
     <string name="title_advanced_font_size_sender">Mida de la font del remitent</string>
     <string name="title_advanced_font_size_subject">Mida de la font del assumpte</string>
     <string name="title_advanced_subject_top">Mostra l\'assumpte a sobre del remitent</string>
@@ -234,6 +233,7 @@
     <string name="title_advanced_images_inline">Mostra automàticament imatges en línia</string>
     <string name="title_advanced_seekbar">Mostra la posició de conversa relativa amb un punt</string>
     <string name="title_advanced_actionbar">Mostra la barra d’acció de conversa</string>
+    <string name="title_advanced_authentication">Mostra un avís quan el servidor receptor no ha pogut autenticar el missatge</string>
     <string name="title_advanced_double_back">Premeu dos cops \"Tornar\" per sortir</string>
     <string name="title_advanced_pull_refresh">Arrossegueu avall per actualitzar</string>
     <string name="title_advanced_autoscroll">Desplaceu-vos cap amunt per rebre nous missatges</string>

@@ -258,7 +258,6 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_name_email">名前とメールアドレスを表示</string>
     <string name="title_advanced_replace_name">送信名より連絡先名を優先する</string>
     <string name="title_advanced_distinguish_contacts">送信者がローカル(宛先)連絡先として知られている場合、送信者に下線を引く</string>
-    <string name="title_advanced_authentication">受信サーバがメッセージを認証出来なかった時に警告を表示</string>
     <string name="title_advanced_font_size_sender">送信者のフォントサイズ</string>
     <string name="title_advanced_font_size_subject">件名のフォントサイズ</string>
     <string name="title_advanced_subject_top">送信者の上に件名を表示</string>
@@ -281,6 +280,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_seekbar">ドットで相対的な会話の位置を表示</string>
     <string name="title_advanced_actionbar">会話アクションバーを表示</string>
     <string name="title_advanced_navbar_colorize">Androidナビゲーションバーの色付け</string>
+    <string name="title_advanced_authentication">受信サーバがメッセージを認証出来なかった時に警告を表示</string>
     <string name="title_advanced_double_back">\"戻る\"をダブルタップして終了</string>
     <string name="title_advanced_pull_refresh">プルダウンして更新</string>
     <string name="title_advanced_autoscroll">新着メッセージを受信したらトップにスクロール</string>

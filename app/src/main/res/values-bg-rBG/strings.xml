@@ -277,7 +277,6 @@
     <string name="title_advanced_name_email">Покажи имена и имейл адреси</string>
     <string name="title_advanced_replace_name">Предпочитано име от контакти пред изпратено име</string>
     <string name="title_advanced_distinguish_contacts">Подчертайте подателя, когато подателят е известен като локаленен „до“ контакт</string>
-    <string name="title_advanced_authentication">Покажи предупреждение, когато получаващият сървър не може да удостовери съобщението</string>
     <string name="title_advanced_font_size_sender">Големина на шрифта на подателя</string>
     <string name="title_advanced_font_size_subject">Големина на шрифта на темата</string>
     <string name="title_advanced_subject_top">Покажи темата над подателя</string>
@@ -303,6 +302,7 @@
     <string name="title_advanced_actionbar">Показжи панела за действиe в разговори</string>
     <string name="title_advanced_actionbar_color">Използвайте цвета на профила като цвят на фона за панела за действие на разговора</string>
     <string name="title_advanced_navbar_colorize">Цветна лентата за навигация на Android</string>
+    <string name="title_advanced_authentication">Покажи предупреждение, когато получаващият сървър не може да удостовери съобщението</string>
     <string name="title_advanced_double_back">Двойно назад за изход</string>
     <string name="title_advanced_pull_refresh">Плъзни надолу за опресняване</string>
     <string name="title_advanced_autoscroll">Превърти в началото при нови съобщения</string>

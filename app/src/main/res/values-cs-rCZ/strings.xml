@@ -299,7 +299,6 @@
     <string name="title_advanced_name_email">Zobrazit jména a e-mailové adresy</string>
     <string name="title_advanced_replace_name">Preferovat jméno z kontaktu namísto z hlavičky</string>
     <string name="title_advanced_distinguish_contacts">Podtrhnout odesílatele, je-li známý jako lokální \"komu\" kontakt</string>
-    <string name="title_advanced_authentication">Zobrazit upozornění, nemůže-li přijímající server zprávu ověřit</string>
     <string name="title_advanced_font_size_sender">Velikost písma odesílatele</string>
     <string name="title_advanced_font_size_subject">Velikost písma předmětu</string>
     <string name="title_advanced_subject_top">Zobrazit předmět nad odesílatelem</string>
@@ -325,6 +324,7 @@
     <string name="title_advanced_actionbar">Zobrazit panel akcí konverzací</string>
     <string name="title_advanced_actionbar_color">Použít barvu účtu jako barvu pozadí pro panel akcí konverzace</string>
     <string name="title_advanced_navbar_colorize">Obarvit navigační panel Androidu</string>
+    <string name="title_advanced_authentication">Zobrazit upozornění, nemůže-li přijímající server zprávu ověřit</string>
     <string name="title_advanced_double_back">Dvakrát \"zpět\" pro ukončení</string>
     <string name="title_advanced_pull_refresh">Aktualizovat tažením dolů</string>
     <string name="title_advanced_autoscroll">Posun na začátek při příjmu nových zpráv</string>

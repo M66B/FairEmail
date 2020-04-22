@@ -277,7 +277,6 @@
     <string name="title_advanced_name_email">Mostra nomi e indirizzi email</string>
     <string name="title_advanced_replace_name">Preferisci un nome di contatto a un nome inviato</string>
     <string name="title_advanced_distinguish_contacts">Sottolinea il mittente quando il mittente è conosciuto come contatto locale \'a\"</string>
-    <string name="title_advanced_authentication">Mostra un avviso quando il server ricevente non può autenticare il messaggio</string>
     <string name="title_advanced_font_size_sender">Dimensione font mittente</string>
     <string name="title_advanced_font_size_subject">Dimensione carattere oggetto</string>
     <string name="title_advanced_subject_top">Mostra oggetto sopra il mittente</string>
@@ -303,6 +302,8 @@
     <string name="title_advanced_actionbar">Mostra barra azione conversazione</string>
     <string name="title_advanced_actionbar_color">Usa il colore di sfondo come colore di sfondo per la barra di azione della conversazione</string>
     <string name="title_advanced_navbar_colorize">Colora la barra di navigazione di Android</string>
+    <string name="title_advanced_parse_classes">Analizza stili fogli</string>
+    <string name="title_advanced_authentication">Mostra un avviso quando il server ricevente non può autenticare il messaggio</string>
     <string name="title_advanced_double_back">Doppio \'indietro\' per uscire</string>
     <string name="title_advanced_pull_refresh">Trascina in basso per aggiornare</string>
     <string name="title_advanced_autoscroll">Scorri verso l\'alto quando ricevi nuovi messaggi</string>
@@ -422,6 +423,7 @@
     <string name="title_advanced_preview_hint">Disponibile solo quando è stato scaricato il testo del messaggio</string>
     <string name="title_advanced_preview_issue">Lo scorrimento può essere lento a causa di un bug in alcune versioni di Android quando il numero di righe è più di uno</string>
     <string name="title_advanced_inline_hint">Le immagini in linea sono incluse nel messaggio</string>
+    <string name="title_advanced_parse_classes_hint">Questo mostrerà più accuratamente i messaggi, ma probabilmente con un ritardo</string>
     <string name="title_advanced_autoexpand_hint">Apri automaticamente il messaggio quando c\'è un solo messaggio o solo un messaggio da leggere in una conversazione</string>
     <string name="title_advanced_autoseen_hint">La marcatura automatica dei messaggi letti all\'apertura può essere disabilitata nelle impostazioni dei singoli account</string>
     <string name="title_advanced_autoclose_hint">Chiudi automaticamente le conversazioni raggruppate quando tutti i messaggi sono archiviati, inviati o cestinati</string>

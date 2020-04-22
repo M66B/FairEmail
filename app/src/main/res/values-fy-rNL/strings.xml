@@ -198,13 +198,13 @@
     <string name="title_advanced_color_saturation">Sêding</string>
     <string name="title_advanced_color_value">Dúdlikens</string>
     <string name="title_advanced_name_email">Sjoch nammen en e-postadressen</string>
-    <string name="title_advanced_authentication">Lit in warskôging sjen doe\'t de ûntfangende server it berjocht net koe autentisearje</string>
     <string name="title_advanced_font_size_sender">Stjoerder foar lettertypegrutte</string>
     <string name="title_advanced_font_size_subject">Underwerp foar lettertypegrutte</string>
     <string name="title_advanced_flags">Sjoch stjerren</string>
     <string name="title_advanced_preview">Sjoch berjochtfoarbyld</string>
     <string name="title_advanced_text_color">Sjoch tekstkleuren</string>
     <string name="title_advanced_images_inline">Inline ôfbyldings automatysk sjen litte</string>
+    <string name="title_advanced_authentication">Lit in warskôging sjen doe\'t de ûntfangende server it berjocht net koe autentisearje</string>
     <string name="title_advanced_notifications">Notifikaasjes beheare</string>
     <string name="title_advanced_notifications_default">Standert kanaal</string>
     <string name="title_advanced_notifications_service">Servicekanaal</string>

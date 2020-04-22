@@ -265,7 +265,6 @@
     <string name="title_advanced_name_email">显示名称和电子邮件地址</string>
     <string name="title_advanced_replace_name">优先使用联系人姓名而不是发送名称</string>
     <string name="title_advanced_distinguish_contacts">下划线发件人(当其为本地发送给的联系人时)</string>
-    <string name="title_advanced_authentication">当接收服务器无法验证消息时显示警告</string>
     <string name="title_advanced_font_size_sender">发件人字体大小</string>
     <string name="title_advanced_font_size_subject">邮件主题字体大小</string>
     <string name="title_advanced_subject_top">在发件人上方显示主题</string>
@@ -291,6 +290,8 @@
     <string name="title_advanced_actionbar">显示对话操作栏</string>
     <string name="title_advanced_actionbar_color">使用账户颜色作为对话操作栏的背景色</string>
     <string name="title_advanced_navbar_colorize">导航栏着色</string>
+    <string name="title_advanced_parse_classes">解析样式表</string>
+    <string name="title_advanced_authentication">当接收服务器无法验证消息时显示警告</string>
     <string name="title_advanced_double_back">双击返回键退出</string>
     <string name="title_advanced_pull_refresh">下拉刷新</string>
     <string name="title_advanced_autoscroll">在收到新消息时滚动至顶部</string>
@@ -410,6 +411,7 @@
     <string name="title_advanced_preview_hint">只有当消息文本下载时才可用</string>
     <string name="title_advanced_preview_issue">由于某些Android版本中的错误，当行数大于一时，滚动可能会较慢</string>
     <string name="title_advanced_inline_hint">内联图像是邮件中包含的图像</string>
+    <string name="title_advanced_parse_classes_hint">这将更准确地显示消息，但可能会有延迟</string>
     <string name="title_advanced_autoexpand_hint">当对话中只有一条消息或只是一条未读消息时，自动打开该消息</string>
     <string name="title_advanced_autoseen_hint">可以在单独的账户设置中禁用展开消息时自动标记消息为已读</string>
     <string name="title_advanced_autoclose_hint">在所有邮件存档、发送或丢弃时自动关闭对话线程</string>

@@ -277,7 +277,6 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_name_email">Nevek és email címek megjelenítése</string>
     <string name="title_advanced_replace_name">Preferálja a névjegyi neveket a küldői nevek helyett</string>
     <string name="title_advanced_distinguish_contacts">Húzza alá a küldőt, ha az egy ismert, korábban megcímzett helyi névjegy</string>
-    <string name="title_advanced_authentication">Figyelmeztessen, ha a fogadó szerver nem tudta igazolni az üzenet hitelességét</string>
     <string name="title_advanced_font_size_sender">Küldő betűmérete</string>
     <string name="title_advanced_font_size_subject">Tárgy betűmérete</string>
     <string name="title_advanced_subject_top">Tárgy megjelenítése a küldő fölött</string>
@@ -303,6 +302,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_actionbar">Beszélgetési művelet sáv megjelenítése</string>
     <string name="title_advanced_actionbar_color">Fiókszín használata háttérszínnek a beszélgetés művelet sávjánál</string>
     <string name="title_advanced_navbar_colorize">Az Android navigációs sor színezése</string>
+    <string name="title_advanced_authentication">Figyelmeztessen, ha a fogadó szerver nem tudta igazolni az üzenet hitelességét</string>
     <string name="title_advanced_double_back">Használja a \'vissza\'-t kétszer a kilépéshez</string>
     <string name="title_advanced_pull_refresh">Húzza le a frissítéshez</string>
     <string name="title_advanced_autoscroll">Új üzenet érkezésekor automatikus tetejére görgetés</string>

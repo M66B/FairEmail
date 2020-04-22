@@ -127,7 +127,6 @@
     <string name="title_advanced_name_email">Mostrar nomes e endereços de e-mail</string>
     <string name="title_advanced_replace_name">Preferir um nome de contato sobre um nome enviado</string>
     <string name="title_advanced_distinguish_contacts">Sublinhar o remetente quando o remetente é conhecido como contato local \'para\'</string>
-    <string name="title_advanced_authentication">Mostrar um aviso quando o servidor de recepção não puder autenticar a mensagem</string>
     <string name="title_advanced_font_size_sender">Tamanho da fonte do remetente</string>
     <string name="title_advanced_font_size_subject">Tamanho da fonte do remetente</string>
     <string name="title_advanced_subject_top">Mostrar assunto acima do remetente</string>
@@ -142,6 +141,7 @@
     <string name="title_advanced_archive_trash">Mostrar botões para arquivar ou apagar uma mensagem</string>
     <string name="title_advanced_move">Mostrar botão para mover uma mensagem</string>
     <string name="title_advanced_addresses">Mostrar detalhes do endereço por pré-definição</string>
+    <string name="title_advanced_authentication">Mostrar um aviso quando o servidor de recepção não puder autenticar a mensagem</string>
     <!-- Thunderbird -->
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

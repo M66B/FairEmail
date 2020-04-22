@@ -299,7 +299,6 @@
     <string name="title_advanced_name_email">Prikaži imena in e-poštne naslove</string>
     <string name="title_advanced_replace_name">Prednost ima ime stika pred poslanim imenom</string>
     <string name="title_advanced_distinguish_contacts">Podčrtaj pošiljatelja, ko je ta poznan kot krajevni stik \'Za\'</string>
-    <string name="title_advanced_authentication">Prikaži opozorilo, kadar dohodni strežnik ne more overiti sporočila</string>
     <string name="title_advanced_font_size_sender">Velikost pisave pošiljatelja</string>
     <string name="title_advanced_font_size_subject">Velikost pisave zadeve</string>
     <string name="title_advanced_subject_top">Prikaži zadevo nad pošiljateljem</string>
@@ -325,6 +324,7 @@
     <string name="title_advanced_actionbar">Prikaži vrstico z dejanji pogovorov</string>
     <string name="title_advanced_actionbar_color">Za barvo ozadja vrstice z dejanji pogovorov uporabi barvo računa</string>
     <string name="title_advanced_navbar_colorize">Obarvaj Androidovo vrstico za krmarjenje</string>
+    <string name="title_advanced_authentication">Prikaži opozorilo, kadar dohodni strežnik ne more overiti sporočila</string>
     <string name="title_advanced_double_back">Dvojni \'Nazaj\' za izhod</string>
     <string name="title_advanced_pull_refresh">Povleci dol za osvežitev</string>
     <string name="title_advanced_autoscroll">Ob prejemanju novih sporočil se pomakni na vrh</string>

@@ -223,7 +223,6 @@
     <string name="title_advanced_color_value">Осветљеност</string>
     <string name="title_advanced_color_threshold">Ниво окидања за боју слова</string>
     <string name="title_advanced_name_email">Прикажи имена и е-мејл адресе</string>
-    <string name="title_advanced_authentication">Прикажи упозорење када сервер примаоца не може да потврди идентитет поруке</string>
     <string name="title_advanced_font_size_sender">Величина фонта пошиљаоца</string>
     <string name="title_advanced_font_size_subject">Величина фонта за наслов</string>
     <string name="title_advanced_subject_top">Прикажи наслов изнад пошиљаоца</string>
@@ -243,6 +242,7 @@
     <string name="title_advanced_images_inline">Аутоматски приказуј уметнуте слике</string>
     <string name="title_advanced_seekbar">Прикажи релативну позицију у разговору са тачком</string>
     <string name="title_advanced_actionbar">Прикажи траку са радњама у разговорима</string>
+    <string name="title_advanced_authentication">Прикажи упозорење када сервер примаоца не може да потврди идентитет поруке</string>
     <string name="title_advanced_double_back">Дупло „назад” за излаз</string>
     <string name="title_advanced_pull_refresh">Повуци на доле за освежавање</string>
     <string name="title_advanced_autoscroll">Помери се на врх када се приме нове поруке</string>

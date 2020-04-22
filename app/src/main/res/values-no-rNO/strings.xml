@@ -273,7 +273,6 @@
     <string name="title_advanced_name_email">Vis navn og e-postadresser</string>
     <string name="title_advanced_replace_name">Foretrekker et kontaktnavn fremfor et sendt navn</string>
     <string name="title_advanced_distinguish_contacts">Understreke avsenderen når avsenderen er kjent som lokal \'til\' -kontakt</string>
-    <string name="title_advanced_authentication">Vis en advarsel når mottakeren ikke kunne godkjenne meldingen</string>
     <string name="title_advanced_font_size_sender">Skriftstørrelse for avsender</string>
     <string name="title_advanced_font_size_subject">Skriftstørrelse emne</string>
     <string name="title_advanced_subject_top">Vis emne over avsender</string>
@@ -298,6 +297,7 @@
     <string name="title_advanced_seekbar">Vis relativ samtaleposisjon med en prikk</string>
     <string name="title_advanced_actionbar">Vis samtale handlingslinje</string>
     <string name="title_advanced_navbar_colorize">Fargelegg Android-navigasjonslinjen</string>
+    <string name="title_advanced_authentication">Vis en advarsel når mottakeren ikke kunne godkjenne meldingen</string>
     <string name="title_advanced_double_back">Dobbel \'tilbake\' for å avslutte</string>
     <string name="title_advanced_pull_refresh">Dra ned for å oppdatere</string>
     <string name="title_advanced_autoscroll">Rull til toppen når du mottar nye meldinger</string>

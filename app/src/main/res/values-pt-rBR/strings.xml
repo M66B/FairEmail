@@ -267,7 +267,6 @@
     <string name="title_advanced_name_email">Mostrar os nomes e endereços de e-mail</string>
     <string name="title_advanced_replace_name">Preferir um nome de contato sobre um nome enviado</string>
     <string name="title_advanced_distinguish_contacts">Sublinhar o remetente quando o remetente é conhecido como contato local \'para\'</string>
-    <string name="title_advanced_authentication">Mostrar um aviso quando o servidor de recebimento não puder autenticar a mensagem</string>
     <string name="title_advanced_font_size_sender">Remetente do tamanho da fonte</string>
     <string name="title_advanced_font_size_subject">Assunto do tamanho da fonte</string>
     <string name="title_advanced_subject_top">Mostrar assunto acima do remetente</string>
@@ -290,6 +289,7 @@
     <string name="title_advanced_images_inline">Mostrar imagens em linha automaticamente</string>
     <string name="title_advanced_seekbar">Mostrar posição relativa da conversa com um ponto</string>
     <string name="title_advanced_actionbar">Mostrar barra de ação de conversa</string>
+    <string name="title_advanced_authentication">Mostrar um aviso quando o servidor de recebimento não puder autenticar a mensagem</string>
     <string name="title_advanced_double_back">Pressione duas vezes \"Voltar\" para sair</string>
     <string name="title_advanced_pull_refresh">Puxe para baixo para atualizar</string>
     <string name="title_advanced_autoscroll">Role para cima ao receber novas mensagens</string>

@@ -286,7 +286,6 @@
     <string name="title_advanced_name_email">Arată nume și adrese de e-mail</string>
     <string name="title_advanced_replace_name">Preferă nume contact în loc de nume trimis</string>
     <string name="title_advanced_distinguish_contacts">Subliniază expeditorul atunci când este cunoscut drept un contact `către`</string>
-    <string name="title_advanced_authentication">Arată o avertizare atunci când serverul destinatar nu a putut autentifica mesajul</string>
     <string name="title_advanced_font_size_sender">Mărime font expeditor</string>
     <string name="title_advanced_font_size_subject">Mărime font subiect</string>
     <string name="title_advanced_subject_top">Arată subiectul desupra expeditorului</string>
@@ -312,6 +311,7 @@
     <string name="title_advanced_actionbar">Arată bara de acțiuni pentru conversație</string>
     <string name="title_advanced_actionbar_color">Folosește culoarea contului pentru culoarea de fundal a barei de acțiuni a conversației</string>
     <string name="title_advanced_navbar_colorize">Colorează bara de navigație Android</string>
+    <string name="title_advanced_authentication">Arată o avertizare atunci când serverul destinatar nu a putut autentifica mesajul</string>
     <string name="title_advanced_double_back">Apăsați de două ori \'înapoi\' pentru a ieși</string>
     <string name="title_advanced_pull_refresh">Trageți în jos pentru a actualiza</string>
     <string name="title_advanced_autoscroll">Derulează sus când se primește un mesaj nou</string>

@@ -278,7 +278,6 @@
     <string name="title_advanced_name_email">Mostrar nombres y direcciones de correo electrónico</string>
     <string name="title_advanced_replace_name">Preferir un nombre de contacto sobre un nombre enviado</string>
     <string name="title_advanced_distinguish_contacts">Subrayar el remitente cuando el remitente es conocido como contacto \'a:\' local</string>
-    <string name="title_advanced_authentication">Mostrar una advertencia cuando el servidor de recepción no pudo autenticar el mensaje</string>
     <string name="title_advanced_font_size_sender">Tamaño de fuente de remitente</string>
     <string name="title_advanced_font_size_subject">Tamaño de fuente del asunto</string>
     <string name="title_advanced_subject_top">Mostrar asunto arriba del remitente</string>
@@ -304,6 +303,7 @@
     <string name="title_advanced_actionbar">Mostrar barra de acción de conversación</string>
     <string name="title_advanced_actionbar_color">Usar el color de la cuenta como color de fondo para la barra de acción de conversación</string>
     <string name="title_advanced_navbar_colorize">Colorear la barra de navegación de Android</string>
+    <string name="title_advanced_authentication">Mostrar una advertencia cuando el servidor de recepción no pudo autenticar el mensaje</string>
     <string name="title_advanced_double_back">Doble \'atrás\' para salir</string>
     <string name="title_advanced_pull_refresh">Tire hacia abajo para actualizar</string>
     <string name="title_advanced_autoscroll">Desplazar hacia arriba al recibir nuevos mensajes</string>

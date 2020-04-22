@@ -270,7 +270,6 @@
     <string name="title_advanced_name_email">Prikažite imena i adrese e-pošte</string>
     <string name="title_advanced_replace_name">Preferiraj ime kontakta nad poslanim imenom</string>
     <string name="title_advanced_distinguish_contacts">Podvucite pošiljatelja kada je pošiljalac poznat kao lokalni \"za\" kontakt</string>
-    <string name="title_advanced_authentication">Pokaži upozorenje kada primateljski server nije mogao provjeriti autentičnost poruke</string>
     <string name="title_advanced_font_size_sender">Veličina fonta pošiljatelja</string>
     <string name="title_advanced_font_size_subject">Veličina fonta predmeta</string>
     <string name="title_advanced_subject_top">Pokaži predmet iznad pošiljatelja</string>
@@ -293,6 +292,7 @@
     <string name="title_advanced_seekbar">Prikaži relativni položaj razgovora s točkom</string>
     <string name="title_advanced_actionbar">Prikaži traku s akcijama razgovora</string>
     <string name="title_advanced_navbar_colorize">Oboji Android navigacijsku traku</string>
+    <string name="title_advanced_authentication">Pokaži upozorenje kada primateljski server nije mogao provjeriti autentičnost poruke</string>
     <string name="title_advanced_double_back">Dvaput \'natrag\' za izlaz</string>
     <string name="title_advanced_pull_refresh">Povucite prema dolje za osvježavanje</string>
     <string name="title_advanced_autoscroll">Pomakniti se na vrh po prijemu novih poruka</string>

@@ -276,7 +276,6 @@
     <string name="title_advanced_name_email">Toon namen en e-mailadressen</string>
     <string name="title_advanced_replace_name">Geef de voorkeur aan een contactnaam boven een verzonden naam</string>
     <string name="title_advanced_distinguish_contacts">Onderstreep de afzender wanneer de afzender bekend staat als lokaal \'aan\'-contact</string>
-    <string name="title_advanced_authentication">Toon een waarschuwing wanneer de ontvangende server het bericht niet kon verifiëren</string>
     <string name="title_advanced_font_size_sender">Tekengrootte afzender</string>
     <string name="title_advanced_font_size_subject">Tekengrootte onderwerp</string>
     <string name="title_advanced_subject_top">Toon onderwerp boven afzender</string>
@@ -302,6 +301,8 @@
     <string name="title_advanced_actionbar">Toon gespreksactiebalk</string>
     <string name="title_advanced_actionbar_color">Gebruik de accountkleur als achtergrond voor de gespreksactiebalk</string>
     <string name="title_advanced_navbar_colorize">Kleur de Android-navigatiebalk in</string>
+    <string name="title_advanced_parse_classes">Stijlbladen parsen</string>
+    <string name="title_advanced_authentication">Toon een waarschuwing wanneer de ontvangende server het bericht niet kon verifiëren</string>
     <string name="title_advanced_double_back">Dubbel \'terug\' om te sluiten</string>
     <string name="title_advanced_pull_refresh">Omlaag schuiven om te verversen</string>
     <string name="title_advanced_autoscroll">Scroll naar boven bij het ontvangen van nieuwe berichten</string>
@@ -421,6 +422,7 @@
     <string name="title_advanced_preview_hint">Alleen beschikbaar wanneer de berichttekst werd gedownload</string>
     <string name="title_advanced_preview_issue">Scrollen kan langzaam zijn vanwege een fout in sommige Android-versies wanneer het aantal regels meer dan één is</string>
     <string name="title_advanced_inline_hint">Inline afbeeldingen zijn afbeeldingen opgenomen in het bericht</string>
+    <string name="title_advanced_parse_classes_hint">Dit zal nauwkeuriger berichten weergeven, maar mogelijk met een vertraging</string>
     <string name="title_advanced_autoexpand_hint">Bericht automatisch openen als er slechts één bericht of slechts één ongelezen bericht in een gesprek is</string>
     <string name="title_advanced_autoseen_hint">Berichten automatisch markeren als gelezen bij uitvouwen, kan worden uitgeschakeld in de individuele accountinstellingen</string>
     <string name="title_advanced_autoclose_hint">Gesprekken automatisch sluiten wanneer alle berichten zijn gearchiveerd, verzonden of weggegooid</string>

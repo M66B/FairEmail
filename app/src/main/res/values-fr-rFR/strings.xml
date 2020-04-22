@@ -277,7 +277,6 @@
     <string name="title_advanced_name_email">Afficher les noms et les adresses e-mail</string>
     <string name="title_advanced_replace_name">Préférer un nom de contact à un nom d\'envoi</string>
     <string name="title_advanced_distinguish_contacts">Souligner l\'expéditeur lorsqu\'il est connu comme contact local</string>
-    <string name="title_advanced_authentication">Afficher un avertissement lorsque le serveur de réception n\'a pas pu authentifier le message</string>
     <string name="title_advanced_font_size_sender">Taille de police de l\'expéditeur</string>
     <string name="title_advanced_font_size_subject">Taille de police de l\'objet</string>
     <string name="title_advanced_subject_top">Afficher l\'objet au dessus de l\'expéditeur</string>
@@ -303,6 +302,8 @@
     <string name="title_advanced_actionbar">Afficher la barre d\'action de conversation</string>
     <string name="title_advanced_actionbar_color">Utiliser la couleur du compte comme couleur de fond pour la barre d\'action de conversation</string>
     <string name="title_advanced_navbar_colorize">Colorer la barre de navigation Android</string>
+    <string name="title_advanced_parse_classes">Utiliser les feuilles de style</string>
+    <string name="title_advanced_authentication">Afficher un avertissement lorsque le serveur de réception n\'a pas pu authentifier le message</string>
     <string name="title_advanced_double_back">Faire « Retour » deux fois pour quitter</string>
     <string name="title_advanced_pull_refresh">Tirer vers le bas pour actualiser</string>
     <string name="title_advanced_autoscroll">Faire défiler vers le haut lors de la réception de nouveaux messages</string>
@@ -422,6 +423,7 @@
     <string name="title_advanced_preview_hint">Disponible uniquement lorsque le texte du message a été téléchargé</string>
     <string name="title_advanced_preview_issue">Le défilement peut être lent en raison d\'un bug dans certaines versions d\'Android lorsque le nombre de lignes est supérieur à 1</string>
     <string name="title_advanced_inline_hint">Les images en ligne sont des images incluses dans le message</string>
+    <string name="title_advanced_parse_classes_hint">Cela affichera plus précisément les messages mais probablement avec un délai</string>
     <string name="title_advanced_autoexpand_hint">Ouvrir automatiquement le message lorsqu’il n’y a qu’un seul message ou seulement un message non lu dans une conversation</string>
     <string name="title_advanced_autoseen_hint">Le marquage automatique des messages comme lus lors l\'ouverture peut être désactivé dans les paramètres de chaque compte</string>
     <string name="title_advanced_autoclose_hint">Fermer automatiquement les conversations quand tous les messages sont archivés, envoyés ou mis à la corbeille</string>

@@ -276,7 +276,6 @@
     <string name="title_advanced_name_email">Visa namn och e-postadresser</string>
     <string name="title_advanced_replace_name">Föredrar ett kontaktnamn över ett skickat namn</string>
     <string name="title_advanced_distinguish_contacts">Understryk avsändaren när avsändaren är känd som lokal \"till\" kontakt</string>
-    <string name="title_advanced_authentication">Visa en varning när den mottagande servern inte kunde autentisera meddelandet</string>
     <string name="title_advanced_font_size_sender">Teckenstorlek på avsändare</string>
     <string name="title_advanced_font_size_subject">Teckenstorlek på ämnesrad</string>
     <string name="title_advanced_subject_top">Visa ämne ovanför avsändaren</string>
@@ -302,6 +301,7 @@
     <string name="title_advanced_actionbar">Visa konversationsåtgärdsfältet</string>
     <string name="title_advanced_actionbar_color">Använd kontofärg som bakgrundsfärg för konversationsfältet</string>
     <string name="title_advanced_navbar_colorize">Färglägg navigeringsfältet för Android</string>
+    <string name="title_advanced_authentication">Visa en varning när den mottagande servern inte kunde autentisera meddelandet</string>
     <string name="title_advanced_double_back">Dubbel \"tillbaka\" för att avsluta</string>
     <string name="title_advanced_pull_refresh">Dra ner för att uppdatera</string>
     <string name="title_advanced_autoscroll">Bläddra till toppen vid mottagning av nya meddelanden</string>

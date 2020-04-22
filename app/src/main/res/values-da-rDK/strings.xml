@@ -277,7 +277,6 @@
     <string name="title_advanced_name_email">Vis navne og e-mailadresser</string>
     <string name="title_advanced_replace_name">Foretræk Kontakt- fremfor Afsendernavn</string>
     <string name="title_advanced_distinguish_contacts">Understreg afsender, når denne er kendt som lokal \'Til\'-kontakt</string>
-    <string name="title_advanced_authentication">Vis en advarsel, når indgående server ikke kunne bekræfte beskeden</string>
     <string name="title_advanced_font_size_sender">Skriftstørrelse, Afsender</string>
     <string name="title_advanced_font_size_subject">Skriftstørrelse, Emne</string>
     <string name="title_advanced_subject_top">Vis emne over afsender</string>
@@ -303,6 +302,7 @@
     <string name="title_advanced_actionbar">Vis samtale-handlingsbjælke</string>
     <string name="title_advanced_actionbar_color">Benyt kontofarve som baggrundsfarve til samtalens handlingsbjælke</string>
     <string name="title_advanced_navbar_colorize">Farvelæg Abdroid-navigeringsbjælken</string>
+    <string name="title_advanced_authentication">Vis en advarsel, når indgående server ikke kunne bekræfte beskeden</string>
     <string name="title_advanced_double_back">Dobbelttryk \"Tilbage\"/stryg for at lukke</string>
     <string name="title_advanced_pull_refresh">Træk ned for at opfriske</string>
     <string name="title_advanced_autoscroll">Rul til toppen, når ny besked modtages</string>
