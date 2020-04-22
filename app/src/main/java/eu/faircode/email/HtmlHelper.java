@@ -83,6 +83,7 @@ import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -378,7 +379,8 @@ public class HtmlHelper {
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style
         List<CSSStyleSheet> sheets = new ArrayList<>();
         for (Element style : parsed.head().select("style")) {
-            Log.i("Style=" + style.data());
+            if (BuildConfig.DEBUG)
+                Log.i("Style=" + style.data());
             try {
                 InputSource source = new InputSource(new StringReader(style.data()));
                 String media = style.attr("media");
@@ -389,21 +391,24 @@ public class HtmlHelper {
                 parser.setErrorHandler(new ErrorHandler() {
                     @Override
                     public void warning(CSSParseException ex) throws CSSException {
-                        Log.w(ex);
+                        Log.i("CSS warning=" + ex.getMessage());
                     }
 
                     @Override
                     public void error(CSSParseException ex) throws CSSException {
-                        Log.e(ex);
+                        Log.i("CSS error=" + ex.getMessage());
                     }
 
                     @Override
                     public void fatalError(CSSParseException ex) throws CSSException {
-                        Log.e(ex);
+                        Log.w(ex);
                     }
                 });
 
+                long start = new Date().getTime();
                 sheets.add(parser.parseStyleSheet(source, null, null));
+                long elapsed = new Date().getTime() - start;
+                Log.i("Style parse=" + elapsed + " ms");
             } catch (Throwable ex) {
                 Log.w(ex);
             }
