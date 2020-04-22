@@ -197,6 +197,9 @@ public class EntityAttachment {
         if ("text/plain".equals(type) && "ovpn".equals(extension))
             return "application/x-openvpn-profile";
 
+        if ("application/x-pdf".equals(type))
+            return "application/pdf";
+
         if (TextUtils.isEmpty(type) ||
                 type.startsWith("unknown/") || type.endsWith("/unknown") ||
                 "application/octet-stream".equals(type) || "application/zip".equals(type)) {
