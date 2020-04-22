@@ -3763,7 +3763,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     return false;
 
                 boolean confirm_links = prefs.getBoolean("confirm_links", true);
-                if (confirm_links) {
+                boolean confirm_link =
+                        !"https".equals(uri.getScheme()) || TextUtils.isEmpty(uri.getHost()) ||
+                                prefs.getBoolean(uri.getHost() + ".confirm_link", true);
+                if (confirm_links && confirm_link) {
                     Bundle args = new Bundle();
                     args.putParcelable("uri", uri);
                     args.putString("title", title);
@@ -5302,6 +5305,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             final ContentLoadingProgressBar pbWait = dview.findViewById(R.id.pbWait);
             final TextView tvHost = dview.findViewById(R.id.tvHost);
             final TextView tvOwner = dview.findViewById(R.id.tvOwner);
+            final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
             final Group grpDifferent = dview.findViewById(R.id.grpDifferent);
             final Group grpOwner = dview.findViewById(R.id.grpOwner);
 
@@ -5403,7 +5407,19 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
             });
 
+            cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                    prefs.edit().putBoolean(uri.getHost() + ".confirm_link", !isChecked).apply();
+                }
+            });
+
             tvOwnerRemark.setMovementMethod(LinkMovementMethod.getInstance());
+            cbNotAgain.setText(getContext().getString(R.string.title_no_ask_for_again, uri.getHost()));
+            cbNotAgain.setVisibility(
+                    "https".equals(uri.getScheme()) && !TextUtils.isEmpty(uri.getHost())
+                            ? View.VISIBLE : View.GONE);
             pbWait.setVisibility(View.GONE);
             grpOwner.setVisibility(View.GONE);
 

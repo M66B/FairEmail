@@ -404,7 +404,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         for (String option : RESET_QUESTIONS)
             editor.remove(option);
         for (String key : prefs.getAll().keySet())
-            if (key.endsWith(".show_full") || key.endsWith(".show_images"))
+            if (key.endsWith(".show_full") || key.endsWith(".show_images") || key.endsWith(".confirm_link"))
                 editor.remove(key);
         editor.apply();
         ToastEx.makeText(getContext(), R.string.title_setup_done, Toast.LENGTH_LONG).show();

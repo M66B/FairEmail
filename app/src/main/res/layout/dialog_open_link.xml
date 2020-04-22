@@ -169,6 +169,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvHost" />
 
+        <CheckBox
+            android:id="@+id/cbNotAgain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_no_ask_for_again"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvOwner" />
+
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpDifferent"
             android:layout_width="0dp"
