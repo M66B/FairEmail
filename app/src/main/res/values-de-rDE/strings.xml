@@ -152,7 +152,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_setup_permissions_remark">Um auf Kontaktinformationen zuzugreifen (optional)</string>
     <string name="title_setup_doze">Akkuoptimierungen einrichten</string>
     <string name="title_setup_doze_remark">Um kontinuierlich E-Mails zu empfangen (optional)</string>
-    <string name="title_setup_doze_instructions">Rufen Sie im folgendem Auswahldialog (oben) \"Alle Apps\" auf; wählen Sie anschließend FairEmail aus und bestätigen Sie die Option \"Nicht optimieren\" mit Fertig.</string>
+    <string name="title_setup_doze_instructions">Bitte oben im folgenden Auswahldialog »Alle Apps« aufrufen und anschließend FairEmail auswählen, danach die Option »Nicht optimieren« mit »Fertig« bestätigen.</string>
     <string name="title_setup_doze_battery">Hoher Akkuverbrauch?</string>
     <string name="title_setup_doze_stopped">Synchronisation angehalten?</string>
     <string name="title_setup_data">Datensparmodus aktiviert</string>
@@ -390,7 +390,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_more">Weitere Optionen</string>
     <string name="title_advanced_enabled_hint">Nachrichtenempfang global deaktivieren oder aktivieren</string>
     <string name="title_advanced_manual_hint">Selbst wenn die Synchronisation deaktiviert ist, ist es möglich, manuell zu synchronisieren, indem Sie die Nachrichtenliste herunterziehen.</string>
-    <string name="title_advanced_poll_hint">Die regelmäßige Synchronisation vergleicht jedes Mal lokale und entfernte Nachrichten, was ein aufwendiger Vorgang ist, der möglicherweise zu einem zusätzlichen Batterieverbrauch führt, besonders wenn es viele zu synchronisierende Nachrichten gibt. Durch die ständige Synchronisation wird dies vermieden, indem man ständig nur auf Änderungen achtet.</string>
+    <string name="title_advanced_poll_hint">Die regelmäßige Synchronisation vergleicht jedes Mal lokale und entfernte Nachrichten, was ein aufwendiger Vorgang ist, der möglicherweise zu einem zusätzlichen Akkuverbrauch führt, besonders wenn es viele zu synchronisierende Nachrichten gibt. Durch ständiges synchronisieren wird das vermieden, indem nur auf Änderungen überwacht wird.</string>
     <string name="title_advanced_schedule_hint">Tippe auf eine Zeit, um eine Zeit zu setzen</string>
     <string name="title_advanced_check_mx">Überprüft die Absender-E-Mail-Adressen beim Synchronisieren von Nachrichten per DNS MX</string>
     <string name="title_advanced_check_reply">Überprüft die Antwort-An-E-Mail-Adressen beim Synchronisieren von Nachrichten</string>
@@ -500,7 +500,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_leave_deleted">Gelöschte Nachrichten auf Server belassen</string>
     <string name="title_leave_on_device">Nachrichten auf Gerät belassen</string>
     <string name="title_max_messages">Maximale Anzahl der Nachrichten zum Herunterladen (leer für alle)</string>
-    <string name="title_keep_alive_interval">Verbindung halten/Pollintervall (Minuten)</string>
+    <string name="title_keep_alive_interval">Verbindung halten / Abfrageintervall (Minuten)</string>
     <string name="title_use_date">Sendezeit der Datumskopfzeilen anstelle der Empfangszeit des Servers verwenden</string>
     <string name="title_related_identity">Hierzu passende Identität hinzufügen</string>
     <string name="title_check">Prüfen</string>

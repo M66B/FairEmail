@@ -302,6 +302,7 @@
     <string name="title_advanced_actionbar">Показжи панела за действиe в разговори</string>
     <string name="title_advanced_actionbar_color">Използвайте цвета на профила като цвят на фона за панела за действие на разговора</string>
     <string name="title_advanced_navbar_colorize">Цветна лентата за навигация на Android</string>
+    <string name="title_advanced_parse_classes">Листове за избор на стилове</string>
     <string name="title_advanced_authentication">Покажи предупреждение, когато получаващият сървър не може да удостовери съобщението</string>
     <string name="title_advanced_double_back">Двойно назад за изход</string>
     <string name="title_advanced_pull_refresh">Плъзни надолу за опресняване</string>
@@ -421,6 +422,7 @@
     <string name="title_advanced_preview_hint">Достъпно е само когато текстът на съобщението е изтеглен</string>
     <string name="title_advanced_preview_issue">Превъртането може да е бавно поради грешка в някои версии на Android, когато броят на линиите е повече от един</string>
     <string name="title_advanced_inline_hint">Вградените изображения са изображения, включени в съобщението</string>
+    <string name="title_advanced_parse_classes_hint">Това ще показва по-точно съобщенията, но със закъснение</string>
     <string name="title_advanced_autoexpand_hint">Автоматично отваряне на съобщение, когато има само едно съобщение или само едно непрочетено съобщение в разговор</string>
     <string name="title_advanced_autoseen_hint">Автоматичното маркиране на съобщенията, прочетени при разширяване, може да бъде деактивирано в настройките на отделните профили</string>
     <string name="title_advanced_autoclose_hint">Автоматично затваряй разговорите, когато всички съобщения са архивирани, изпратени или преместени в кошчето</string>

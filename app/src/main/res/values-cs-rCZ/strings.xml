@@ -324,6 +324,7 @@
     <string name="title_advanced_actionbar">Zobrazit panel akcí konverzací</string>
     <string name="title_advanced_actionbar_color">Použít barvu účtu jako barvu pozadí pro panel akcí konverzace</string>
     <string name="title_advanced_navbar_colorize">Obarvit navigační panel Androidu</string>
+    <string name="title_advanced_parse_classes">Parsovat šablony stylů</string>
     <string name="title_advanced_authentication">Zobrazit upozornění, nemůže-li přijímající server zprávu ověřit</string>
     <string name="title_advanced_double_back">Dvakrát \"zpět\" pro ukončení</string>
     <string name="title_advanced_pull_refresh">Aktualizovat tažením dolů</string>
@@ -444,6 +445,7 @@
     <string name="title_advanced_preview_hint">K dispozici pouze pokud byl stažen text zprávy</string>
     <string name="title_advanced_preview_issue">Je-li počet řádků větší než jeden, může být posouvání pomalé díky chybě v některých verzích Androidu</string>
     <string name="title_advanced_inline_hint">Vložené obrázky jsou obrázky v těle zprávy</string>
+    <string name="title_advanced_parse_classes_hint">Zprávy budou zobrazovány přesněji, ale s potencionálním zpožděním</string>
     <string name="title_advanced_autoexpand_hint">Automaticky otevřít zprávu, je-li v konverzaci pouze jediná zpráva nebo jediná nepřečtená</string>
     <string name="title_advanced_autoseen_hint">Automatické označování zpráv jako přečtených při rozbalení lze zakázat v nastavení jednotlivých účtů</string>
     <string name="title_advanced_autoclose_hint">Automaticky zavírat konverzace, když jsou všechny zprávy archivovány, odeslány nebo v koši</string>

@@ -300,6 +300,7 @@
     <string name="title_advanced_actionbar">Näytä keskustelun toimintopalkki</string>
     <string name="title_advanced_actionbar_color">Käytä tilin väriä taustavärinä keskustelun toimintopalkissa</string>
     <string name="title_advanced_navbar_colorize">Väritä Androidin navigointipalkki</string>
+    <string name="title_advanced_parse_classes">Jäsennä tyyliohjeet</string>
     <string name="title_advanced_authentication">Näytä varoitus, kun vastaanottava palvelin ei voinut todentaa viestiä</string>
     <string name="title_advanced_double_back">\'Takaisin\' kaksi kertaa sulkee sovelluksen</string>
     <string name="title_advanced_pull_refresh">Vedä alas päivittääksesi</string>
@@ -420,6 +421,7 @@
     <string name="title_advanced_preview_hint">Saatavilla vain, kun viestin teksti on ladattu</string>
     <string name="title_advanced_preview_issue">Vierittäminen voi olla hidasta joissakin Android-versioissa olevan bugin takia, kun rivien lukumäärä on enemmän kuin yksi</string>
     <string name="title_advanced_inline_hint">Tekstiin upotetut kuvat ovat viestin tekstin joukossa olevat kuvat</string>
+    <string name="title_advanced_parse_classes_hint">Tämä näyttää viestit tarkemmin, mutta saattaa aiheuttaa viiveen</string>
     <string name="title_advanced_autoexpand_hint">Avaa viesti automaattisesti, kun keskustelussa on vain yksi viesti tai vain yksi on lukematon</string>
     <string name="title_advanced_autoseen_hint">Viestien merkitseminen luetuksi laajennettaessa voidaan kytkeä erikseen pois tilien asetuksissa</string>
     <string name="title_advanced_autoclose_hint">Sulje keskustelut, kun kaikki viestit on arkistoitu, lähetetty tai siirretty roskakoriin</string>
