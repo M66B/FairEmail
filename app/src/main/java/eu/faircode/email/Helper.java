@@ -456,8 +456,13 @@ public class Helper {
         Log.i("View=" + uri);
 
         if (browse || !hasCustomTabs(context, uri)) {
-            Intent view = new Intent(Intent.ACTION_VIEW, uri);
-            context.startActivity(getChooser(context, view));
+            try {
+                Intent view = new Intent(Intent.ACTION_VIEW, uri);
+                context.startActivity(getChooser(context, view));
+            } catch (Throwable ex) {
+                Log.e(ex);
+                ToastEx.makeText(context, Log.formatThrowable(ex, false), Toast.LENGTH_LONG).show();
+            }
         } else {
             // https://developer.chrome.com/multidevice/android/customtabs
             CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
