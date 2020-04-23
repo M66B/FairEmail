@@ -1106,7 +1106,7 @@ public class HtmlHelper {
 
         try {
             if (value.endsWith("%"))
-                return Integer.parseInt(value.substring(0, value.length() - 1).trim()) / 100f * _current;
+                return Float.parseFloat(value.substring(0, value.length() - 1).trim()) / 100 * _current;
             if (value.endsWith("em"))
                 return Float.parseFloat(value.substring(0, value.length() - 2).trim()) * _current;
             if (value.endsWith("rem"))
