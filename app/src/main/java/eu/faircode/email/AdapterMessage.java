@@ -5491,7 +5491,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             builder.clearQuery();
             for (String key : url.getQueryParameterNames())
                 // https://en.wikipedia.org/wiki/UTM_parameters
+                // https://docs.oracle.com/en/cloud/saas/marketing/eloqua-user/Help/EloquaAsynchronousTrackingScripts/EloquaTrackingParameters.htm
                 if (key.toLowerCase(Locale.ROOT).startsWith("utm_") ||
+                        key.toLowerCase(Locale.ROOT).startsWith("elq") ||
                         PARANOID_QUERY.contains(key.toLowerCase(Locale.ROOT)))
                     changed = true;
                 else if (!TextUtils.isEmpty(key))
