@@ -1082,6 +1082,11 @@ public class Log {
             for (EntityAccount account : accounts)
                 try {
                     JSONObject jaccount = account.toJSON();
+                    jaccount.put("state", account.state);
+                    jaccount.put("warning", account.warning);
+                    jaccount.put("error", account.error);
+                    if (account.last_connected != null)
+                        jaccount.put("last_connected", new Date(account.last_connected).toString());
                     jaccount.remove("user");
                     jaccount.remove("password");
                     size += write(os, "==========\r\n");
@@ -1090,20 +1095,22 @@ public class Log {
                     List<EntityFolder> folders = db.folder().getFolders(account.id, false, false);
                     if (folders.size() > 0)
                         Collections.sort(folders, folders.get(0).getComparator(context));
-                    for (EntityFolder folder : folders)
-                        size += write(os,
-                                folder.name + ":" + folder.type + ":" + folder.level +
-                                        " sync=" + folder.synchronize + "/" + folder.download +
-                                        " poll=" + folder.poll + ":" + folder.poll_factor +
-                                        " days=" + folder.sync_days + "/" + folder.keep_days + "/" + folder.initialize + "\r\n" +
-                                        "   unified=" + folder.unified + "/" + folder.notify +
-                                        " hide=" + folder.hide + "/" + folder.collapsed + "/" + folder.subscribed + "\r\n" +
-                                        "   read-only=" + folder.read_only +
-                                        " selectable=" + folder.selectable + "/" + folder.inferiors +
-                                        " auto-delete=" + folder.auto_delete + "\r\n" +
-                                        "   state=" + folder.state + "/" + folder.total +
-                                        " error=" + folder.error +
-                                        " last_sync=" + (folder.last_sync == null ? "" : new Date(folder.last_sync)) + "\r\n");
+                    for (EntityFolder folder : folders) {
+                        JSONObject jfolder = folder.toJSON();
+                        jfolder.put("level", folder.level);
+                        jfolder.put("total", folder.total);
+                        jfolder.put("initialize", folder.initialize);
+                        jfolder.put("subscribed", folder.subscribed);
+                        jfolder.put("state", folder.state);
+                        jfolder.put("sync_state", folder.sync_state);
+                        jfolder.put("read_only", folder.read_only);
+                        jfolder.put("selectable", folder.selectable);
+                        jfolder.put("inferiors", folder.inferiors);
+                        jfolder.put("error", folder.error);
+                        if (folder.last_sync != null)
+                            jfolder.put("last_sync", new Date(folder.last_sync).toString());
+                        size += write(os, jfolder.toString(2) + "\r\n");
+                    }
 
                     List<EntityIdentity> identities = db.identity().getIdentities(account.id);
                     for (EntityIdentity identity : identities)
@@ -1111,6 +1118,7 @@ public class Log {
                             JSONObject jidentity = identity.toJSON();
                             jidentity.remove("user");
                             jidentity.remove("password");
+                            jidentity.remove("signature");
                             size += write(os, "----------\r\n");
                             size += write(os, jidentity.toString(2) + "\r\n");
                         } catch (JSONException ex) {
