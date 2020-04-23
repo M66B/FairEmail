@@ -156,13 +156,14 @@ public class FragmentFolder extends FragmentBase {
                 cbPoll.setEnabled(isChecked);
                 etPoll.setEnabled(isChecked);
                 tvPoll.setEnabled(isChecked);
+                grpPoll.setVisibility(isChecked && cbPoll.isChecked() ? View.VISIBLE : View.GONE);
             }
         });
 
         cbPoll.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                grpPoll.setVisibility(isChecked ? View.VISIBLE : View.GONE);
+                grpPoll.setVisibility(cbPoll.isEnabled() && isChecked ? View.VISIBLE : View.GONE);
             }
         });
 
@@ -253,7 +254,6 @@ public class FragmentFolder extends FragmentBase {
                     cbPoll.setChecked(folder == null ? false : folder.poll);
                     etPoll.setText(folder == null ? null : Integer.toString(folder.poll_factor));
                     tvPoll.setText(getString(R.string.title_factor_minutes, interval));
-                    grpPoll.setVisibility(cbPoll.isChecked() ? View.VISIBLE : View.GONE);
                     cbDownload.setChecked(folder == null ? true : folder.download);
                     etSyncDays.setText(Integer.toString(folder == null ? EntityFolder.DEFAULT_SYNC : folder.sync_days));
                     if (folder != null && folder.keep_days == Integer.MAX_VALUE)
@@ -280,6 +280,7 @@ public class FragmentFolder extends FragmentBase {
                 cbPoll.setEnabled(cbSynchronize.isChecked());
                 etPoll.setEnabled(cbSynchronize.isChecked());
                 tvPoll.setEnabled(cbSynchronize.isChecked());
+                grpPoll.setVisibility(cbPoll.isEnabled() && cbPoll.isChecked() ? View.VISIBLE : View.GONE);
                 etKeepDays.setEnabled(!cbKeepAll.isChecked());
                 cbAutoDelete.setEnabled(!cbKeepAll.isChecked());
                 btnSave.setEnabled(true);
