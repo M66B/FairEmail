@@ -66,12 +66,14 @@ public class TwoStateOwner implements LifecycleOwner {
     }
 
     void start() {
-        if (!registry.getCurrentState().equals(Lifecycle.State.DESTROYED))
+        Lifecycle.State state = registry.getCurrentState();
+        if (!state.equals(Lifecycle.State.STARTED) && !state.equals(Lifecycle.State.DESTROYED))
             setState(Lifecycle.State.STARTED);
     }
 
     void stop() {
-        if (!registry.getCurrentState().equals(Lifecycle.State.DESTROYED))
+        Lifecycle.State state = registry.getCurrentState();
+        if (!state.equals(Lifecycle.State.CREATED) && !state.equals(Lifecycle.State.DESTROYED))
             setState(Lifecycle.State.CREATED);
     }
 
