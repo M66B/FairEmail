@@ -5260,33 +5260,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (uri.isOpaque())
                 sanitized = uri;
             else {
-                boolean changed = false;
-
-                Uri url;
-                Uri.Builder builder;
-                if (uri.getHost() != null &&
-                        uri.getHost().endsWith("safelinks.protection.outlook.com") &&
-                        !TextUtils.isEmpty(uri.getQueryParameter("url"))) {
-                    changed = true;
-                    url = Uri.parse(uri.getQueryParameter("url"));
-                } else
-                    url = uri;
-
-                builder = url.buildUpon();
-
-                builder.clearQuery();
-                for (String key : url.getQueryParameterNames())
-                    // https://en.wikipedia.org/wiki/UTM_parameters
-                    if (key.toLowerCase(Locale.ROOT).startsWith("utm_") ||
-                            PARANOID_QUERY.contains(key.toLowerCase(Locale.ROOT)))
-                        changed = true;
-                    else if (!TextUtils.isEmpty(key))
-                        for (String value : url.getQueryParameters(key)) {
-                            Log.i("Query " + key + "=" + value);
-                            builder.appendQueryParameter(key, value);
-                        }
-
-                sanitized = (changed ? builder.build() : uri);
+                Uri s = sanitize(uri);
+                sanitized = (s == null ? uri : s);
             }
 
             final Uri uriTitle = Uri.parse(title == null ? "" : title);
@@ -5496,6 +5471,44 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     })
                     .setNegativeButton(android.R.string.cancel, null)
                     .create();
+        }
+
+        private static Uri sanitize(Uri uri) {
+            boolean changed = false;
+
+            Uri url;
+            Uri.Builder builder;
+            if (uri.getHost() != null &&
+                    uri.getHost().endsWith("safelinks.protection.outlook.com") &&
+                    !TextUtils.isEmpty(uri.getQueryParameter("url"))) {
+                changed = true;
+                url = Uri.parse(uri.getQueryParameter("url"));
+            } else
+                url = uri;
+
+            builder = url.buildUpon();
+
+            builder.clearQuery();
+            for (String key : url.getQueryParameterNames())
+                // https://en.wikipedia.org/wiki/UTM_parameters
+                if (key.toLowerCase(Locale.ROOT).startsWith("utm_") ||
+                        PARANOID_QUERY.contains(key.toLowerCase(Locale.ROOT)))
+                    changed = true;
+                else if (!TextUtils.isEmpty(key))
+                    for (String value : url.getQueryParameters(key)) {
+                        Log.i("Query " + key + "=" + value);
+                        Uri suri = Uri.parse(value);
+                        if ("http".equals(suri.getScheme()) || "https".equals(suri.getScheme())) {
+                            Uri s = sanitize(suri);
+                            if (s != null) {
+                                changed = true;
+                                value = s.toString();
+                            }
+                        }
+                        builder.appendQueryParameter(key, value);
+                    }
+
+            return (changed ? builder.build() : null);
         }
     }
 
