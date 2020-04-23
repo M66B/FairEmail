@@ -90,6 +90,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private View content_separator;
     private View content_pane;
 
+    private TwoStateOwner owner = new TwoStateOwner("drawer");
     private DrawerLayoutEx drawerLayout;
     private ActionBarDrawerToggle drawerToggle;
     private ScrollView drawerContainer;
@@ -169,13 +170,19 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         final ViewGroup childDrawer = (ViewGroup) drawerLayout.getChildAt(1);
         drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.app_name, R.string.app_name) {
             public void onDrawerClosed(View view) {
+                owner.stop();
+
                 drawerLayout.setDrawerLockMode(LOCK_MODE_UNLOCKED);
                 childContent.setPaddingRelative(0, 0, 0, 0);
+
                 super.onDrawerClosed(view);
             }
 
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
+
+                owner.start();
+
                 if (normal && landscape && landscape3 &&
                         config.orientation == Configuration.ORIENTATION_LANDSCAPE) {
                     drawerLayout.setDrawerLockMode(LOCK_MODE_LOCKED_OPEN);
@@ -186,6 +193,12 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             @Override
             public void onDrawerSlide(View drawerView, float slideOffset) {
                 super.onDrawerSlide(drawerView, slideOffset);
+
+                if (slideOffset > 0)
+                    owner.start();
+                else
+                    owner.stop();
+
                 if (normal && landscape && landscape3 &&
                         config.orientation == Configuration.ORIENTATION_LANDSCAPE)
                     childContent.setPaddingRelative(
@@ -364,8 +377,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         drawerLayout.setup(getResources().getConfiguration(), drawerContainer, drawerToggle);
         drawerToggle.syncState();
 
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-
         // Fixed menus
 
         PackageManager pm = getPackageManager();
@@ -540,7 +551,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         DB db = DB.getInstance(this);
 
-        db.account().liveAccountsEx(false).observe(this, new Observer<List<TupleAccountEx>>() {
+        db.account().liveAccountsEx(false).observe(owner, new Observer<List<TupleAccountEx>>() {
             @Override
             public void onChanged(@Nullable List<TupleAccountEx> accounts) {
                 if (accounts == null)
@@ -549,7 +560,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
         });
 
-        db.folder().liveUnified().observe(this, new Observer<List<TupleFolderUnified>>() {
+        db.folder().liveUnified().observe(owner, new Observer<List<TupleFolderUnified>>() {
             @Override
             public void onChanged(List<TupleFolderUnified> folders) {
                 if (folders == null)
@@ -558,7 +569,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
         });
 
-        db.folder().liveNavigation().observe(this, new Observer<List<TupleFolderNav>>() {
+        db.folder().liveNavigation().observe(owner, new Observer<List<TupleFolderNav>>() {
             @Override
             public void onChanged(List<TupleFolderNav> folders) {
                 if (folders == null)
@@ -567,7 +578,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
         });
 
-        db.operation().liveStats().observe(this, new Observer<TupleOperationStats>() {
+        db.operation().liveStats().observe(owner, new Observer<TupleOperationStats>() {
             @Override
             public void onChanged(TupleOperationStats stats) {
                 navOperations.setWarning(stats != null && stats.errors != null && stats.errors > 0);
