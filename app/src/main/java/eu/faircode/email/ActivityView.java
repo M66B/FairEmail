@@ -170,6 +170,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         final ViewGroup childDrawer = (ViewGroup) drawerLayout.getChildAt(1);
         drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.app_name, R.string.app_name) {
             public void onDrawerClosed(View view) {
+                Log.i("Drawer closed");
                 owner.stop();
 
                 drawerLayout.setDrawerLockMode(LOCK_MODE_UNLOCKED);
@@ -181,6 +182,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
 
+                Log.i("Drawer opened");
                 owner.start();
 
                 if (normal && landscape && landscape3 &&
@@ -194,6 +196,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             public void onDrawerSlide(View drawerView, float slideOffset) {
                 super.onDrawerSlide(drawerView, slideOffset);
 
+                Log.i("Drawer offset=" + slideOffset);
                 if (slideOffset > 0)
                     owner.start();
                 else
@@ -374,8 +377,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        drawerLayout.setup(getResources().getConfiguration(), drawerContainer, drawerToggle);
-        drawerToggle.syncState();
 
         // Fixed menus
 
@@ -586,6 +587,12 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 adapterNavMenu.notifyDataSetChanged();
             }
         });
+
+        Log.i("Drawer start");
+        owner.start();
+
+        drawerLayout.setup(getResources().getConfiguration(), drawerContainer, drawerToggle);
+        drawerToggle.syncState();
     }
 
     @Override
