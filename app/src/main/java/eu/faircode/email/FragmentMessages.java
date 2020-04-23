@@ -1295,6 +1295,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         if (pgpService != null && pgpService.isBound())
             pgpService.unbindFromService();
 
+        kv.clear();
+        values.clear();
+        sizes.clear();
+        heights.clear();
+        positions.clear();
+        attachments.clear();
+        accountSwipes.clear();
+
         super.onDestroyView();
     }
 
