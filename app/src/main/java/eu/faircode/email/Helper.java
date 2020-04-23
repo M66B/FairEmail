@@ -163,6 +163,8 @@ public class Helper {
                     ")+"
     );
 
+    private static final ExecutorService executor = getBackgroundExecutor(1, "helper");
+
     static ExecutorService getBackgroundExecutor(int threads, final String name) {
         ThreadFactory factory = new ThreadFactory() {
             private final AtomicInteger threadId = new AtomicInteger();
@@ -326,8 +328,6 @@ public class Helper {
             Log.i("Run priority=" + priority);
         }
     }
-
-    private static final ExecutorService executor = getBackgroundExecutor(1, "helper");
 
     // Features
 
