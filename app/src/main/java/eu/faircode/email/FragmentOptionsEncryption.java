@@ -47,7 +47,9 @@ import androidx.lifecycle.Lifecycle;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 
+import org.openintents.openpgp.IOpenPgpService2;
 import org.openintents.openpgp.util.OpenPgpApi;
+import org.openintents.openpgp.util.OpenPgpServiceConnection;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -68,6 +70,7 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
     private Button btnManageKeys;
     private TextView tvKeySize;
 
+    private OpenPgpServiceConnection pgpService;
     private List<String> openPgpProvider = new ArrayList<>();
 
     private final static String[] RESET_OPTIONS = new String[]{
@@ -159,7 +162,14 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
         spOpenPgp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-                prefs.edit().putString("openpgp_provider", openPgpProvider.get(position)).apply();
+                String pkg = openPgpProvider.get(position);
+                prefs.edit().putString("openpgp_provider", pkg).apply();
+
+                String tag = (String) spOpenPgp.getTag();
+                if (tag != null && !tag.equals(pkg)) {
+                    spOpenPgp.setTag(pkg);
+                    testOpenPgp(pkg);
+                }
             }
 
             @Override
@@ -226,6 +236,13 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
     @Override
     public void onDestroyView() {
         PreferenceManager.getDefaultSharedPreferences(getContext()).unregisterOnSharedPreferenceChangeListener(this);
+
+        if (pgpService != null && pgpService.isBound()) {
+            Log.i("PGP unbinding");
+            pgpService.unbindFromService();
+        }
+        pgpService = null;
+
         super.onDestroyView();
     }
 
@@ -274,14 +291,35 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
         swAutoDecrypt.setChecked(prefs.getBoolean("auto_decrypt", false));
 
         String provider = prefs.getString("openpgp_provider", "org.sufficientlysecure.keychain");
+        spOpenPgp.setTag(provider);
         for (int pos = 0; pos < openPgpProvider.size(); pos++)
             if (provider.equals(openPgpProvider.get(pos))) {
                 spOpenPgp.setSelection(pos);
                 break;
             }
+        testOpenPgp(provider);
 
         swAutocrypt.setChecked(prefs.getBoolean("autocrypt", true));
         swAutocryptMutual.setChecked(prefs.getBoolean("autocrypt_mutual", true));
         swAutocryptMutual.setEnabled(swAutocrypt.isChecked());
+    }
+
+    private void testOpenPgp(String pkg) {
+        if (pgpService != null && pgpService.isBound())
+            pgpService.unbindFromService();
+
+        Log.i("PGP binding to " + pkg);
+        pgpService = new OpenPgpServiceConnection(getContext(), pkg, new OpenPgpServiceConnection.OnBound() {
+            @Override
+            public void onBound(IOpenPgpService2 service) {
+                Log.i("PGP bound to " + pkg);
+            }
+
+            @Override
+            public void onError(Exception ex) {
+                Log.e("PGP", ex);
+            }
+        });
+        pgpService.bindToService();
     }
 }

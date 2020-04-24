@@ -145,7 +145,6 @@ import org.json.JSONException;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.openintents.openpgp.AutocryptPeerUpdate;
-import org.openintents.openpgp.IOpenPgpService2;
 import org.openintents.openpgp.OpenPgpError;
 import org.openintents.openpgp.OpenPgpSignatureResult;
 import org.openintents.openpgp.util.OpenPgpApi;
@@ -1262,20 +1261,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         final String pkg = Helper.getOpenKeychainPackage(getContext());
         Log.i("PGP binding to " + pkg);
-        pgpService = new OpenPgpServiceConnection(getContext(), pkg, new OpenPgpServiceConnection.OnBound() {
-            @Override
-            public void onBound(IOpenPgpService2 service) {
-                Log.i("PGP bound to " + pkg);
-            }
-
-            @Override
-            public void onError(Exception ex) {
-                if ("bindService() returned false!".equals(ex.getMessage()))
-                    Log.i("PGP " + ex.getMessage());
-                else
-                    Log.e("PGP", ex);
-            }
-        });
+        pgpService = new OpenPgpServiceConnection(getContext(), pkg);
         pgpService.bindToService();
 
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
@@ -1292,8 +1278,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
         lbm.unregisterReceiver(creceiver);
 
-        if (pgpService != null && pgpService.isBound())
+        if (pgpService != null && pgpService.isBound()) {
+            Log.i("PGP unbinding");
             pgpService.unbindFromService();
+        }
         pgpService = null;
 
         kv.clear();
