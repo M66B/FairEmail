@@ -2537,7 +2537,7 @@ Reformatting and displaying such messages will take too long. You can try to use
 <a name="faq125"></a>
 **(125) What are the current experimental features?**
 
-Currently, there are no experimental features.
+* Custom rendering of reformatted messages
 
 <br />
 

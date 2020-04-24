@@ -1756,12 +1756,15 @@ public class HtmlHelper {
         return false;
     }
 
-    static Spanned fromDocument(@NonNull Document document) {
-        return fromDocument(document, null, null);
+    static Spanned fromDocument(Context context, @NonNull Document document) {
+        return fromDocument(context, document, null, null);
     }
 
-    static Spanned fromDocument(@NonNull Document document, @Nullable Html.ImageGetter imageGetter, @Nullable Html.TagHandler tagHandler) {
-        if (BuildConfig.DEBUG) {
+    static Spanned fromDocument(Context context, @NonNull Document document, @Nullable Html.ImageGetter imageGetter, @Nullable Html.TagHandler tagHandler) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean experiments = prefs.getBoolean("experiments", false);
+
+        if (experiments) {
             // https://developer.android.com/guide/topics/text/spans
             SpannableStringBuilder ssb = new SpannableStringBuilder();
 

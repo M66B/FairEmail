@@ -78,7 +78,7 @@ public class EditTextCompose extends FixedEditText {
                         html = "<div>" + HtmlHelper.formatPre(text.toString()) + "</div>";
                     }
                     Document document = HtmlHelper.sanitizeCompose(context, html, false);
-                    Spanned paste = HtmlHelper.fromDocument(document);
+                    Spanned paste = HtmlHelper.fromDocument(context, document);
 
                     int colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);
 
