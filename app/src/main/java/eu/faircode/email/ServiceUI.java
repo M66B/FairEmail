@@ -128,9 +128,9 @@ public class ServiceUI extends IntentService {
                     break;
 
                 case "reply":
-                    onReplyDirect(id, intent);
                     cancel(group, id);
                     onSeen(id);
+                    onReplyDirect(id, intent);
                     break;
 
                 case "flag":
