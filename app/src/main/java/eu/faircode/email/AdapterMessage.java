@@ -5173,6 +5173,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     public void onViewRecycled(@NonNull ViewHolder holder) {
         if (holder.ibAvatar != null)
             holder.ibAvatar.setImageDrawable(null);
+        if (holder.tvBody != null)
+            holder.tvBody.setText(null);
+        if (holder.wvBody instanceof WebView)
+            ((WebView) holder.wvBody).loadDataWithBaseURL(null, "", "text/html", StandardCharsets.UTF_8.name(), null);
     }
 
     void setSelectionTracker(SelectionTracker<Long> selectionTracker) {
