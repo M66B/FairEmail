@@ -93,6 +93,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ibMore" />
 
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvSearchIndexHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_search_index_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbSearchIndex" />
+
         <CheckBox
             android:id="@+id/cbSenders"
             android:layout_width="0dp"
@@ -104,7 +116,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbSearchIndex" />
+            app:layout_constraintTop_toBottomOf="@id/tvSearchIndexHint" />
 
         <CheckBox
             android:id="@+id/cbRecipients"
@@ -279,7 +291,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:constraint_referenced_ids="
-            cbSearchIndex,cbSenders,cbRecipients,cbSubject,cbKeywords,cbMessage,
+            cbSearchIndex,tvSearchIndexHint,cbSenders,cbRecipients,cbSubject,cbKeywords,cbMessage,
             tvAnd,cbUnseen,cbFlagged,cbHidden,cbEncrypted,cbAttachments,
             btnAfter,btnBefore,tvBefore,tvAfter" />
     </androidx.constraintlayout.widget.ConstraintLayout>
