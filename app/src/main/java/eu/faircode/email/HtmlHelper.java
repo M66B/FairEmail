@@ -1112,7 +1112,7 @@ public class HtmlHelper {
                 return null;
             return Float.parseFloat(value.trim()) / DEFAULT_FONT_SIZE;
         } catch (NumberFormatException ex) {
-            Log.w(ex);
+            Log.i(ex);
             return null;
         }
     }
