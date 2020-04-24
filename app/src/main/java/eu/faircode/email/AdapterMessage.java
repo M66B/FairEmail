@@ -5453,20 +5453,22 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     uriTitle.getHost().equalsIgnoreCase(uri.getHost())
                     ? View.GONE : View.VISIBLE);
 
-            return new AlertDialog.Builder(getContext())
+            final Context context = getContext();
+
+            return new AlertDialog.Builder(context)
                     .setView(dview)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             Uri uri = Uri.parse(etLink.getText().toString());
-                            Helper.view(getContext(), uri, false);
+                            Helper.view(context, uri, false);
                         }
                     })
                     .setNeutralButton(R.string.title_browse, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             Uri uri = Uri.parse(etLink.getText().toString());
-                            Helper.view(getContext(), uri, true);
+                            Helper.view(context, uri, true);
                         }
                     })
                     .setNegativeButton(android.R.string.cancel, null)
