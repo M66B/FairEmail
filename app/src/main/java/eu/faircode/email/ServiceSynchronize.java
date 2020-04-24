@@ -818,7 +818,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             if (ago < RECONNECT_BACKOFF)
                 try {
                     long backoff = RECONNECT_BACKOFF - ago;
-                    EntityLog.log(ServiceSynchronize.this, account.name + " backoff=" + (backoff / 1000));
+                    EntityLog.log(ServiceSynchronize.this, account.name + " reconnect backoff=" + (backoff / 1000));
                     state.acquire(backoff);
                 } catch (InterruptedException ex) {
                     Log.w(account.name + " backoff " + ex.toString());
@@ -1523,61 +1523,72 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                 if (state.isRunning()) {
                     int backoff = state.getBackoff();
-                    EntityLog.log(this, account.name + " backoff=" + backoff);
-                    if (backoff <= CONNECT_BACKOFF_MAX) {
-                        // Short back-off period, keep device awake
+                    long cbackoff = RECONNECT_BACKOFF - (new Date().getTime() - lastLost);
+                    if (cbackoff > backoff) {
                         try {
-                            state.acquire(backoff * 1000L);
+                            EntityLog.log(this, account.name + " reconnect backoff=" + cbackoff);
+                            state.acquire(cbackoff * 1000L);
                         } catch (InterruptedException ex) {
-                            Log.w(account.name + " backoff " + ex.toString());
+                            Log.w(account.name + " cbackoff " + ex.toString());
                         }
+                        state.setBackoff(CONNECT_BACKOFF_START);
                     } else {
-                        // Cancel transient sync operations
-                        boolean enabled = prefs.getBoolean("enabled", true);
-                        int pollInterval = prefs.getInt("poll_interval", DEFAULT_POLL_INTERVAL);
-                        if (!enabled || account.ondemand || (pollInterval > 0 && !account.poll_exempted)) {
-                            List<EntityOperation> syncs = db.operation().getOperations(account.id, EntityOperation.SYNC);
-                            if (syncs != null) {
-                                for (EntityOperation op : syncs) {
-                                    db.folder().setFolderSyncState(op.folder, null);
-                                    db.operation().deleteOperation(op.id);
-                                }
-                                Log.i(account.name + " cancelled syncs=" + syncs.size());
-                            }
-                        }
-
-                        // Long back-off period, let device sleep
-                        Intent intent = new Intent(ServiceSynchronize.this, ServiceSynchronize.class);
-                        intent.setAction("backoff:" + account.id);
-                        PendingIntent pi = PendingIntentCompat.getForegroundService(
-                                this, PI_BACKOFF, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-
-                        AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-                        try {
-                            long trigger = System.currentTimeMillis() + backoff * 1000L;
-                            EntityLog.log(this, "### " + account.name + " backoff until=" + new Date(trigger));
-                            AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, trigger, pi);
-
+                        EntityLog.log(this, account.name + " backoff=" + backoff);
+                        if (backoff <= CONNECT_BACKOFF_MAX) {
+                            // Short back-off period, keep device awake
                             try {
-                                wlAccount.release();
-                                state.acquire(2 * backoff * 1000L);
-                                Log.i("### " + account.name + " backoff done");
+                                state.acquire(backoff * 1000L);
                             } catch (InterruptedException ex) {
                                 Log.w(account.name + " backoff " + ex.toString());
-                            } finally {
-                                wlAccount.acquire();
                             }
-                        } finally {
-                            am.cancel(pi);
-                        }
-                    }
+                        } else {
+                            // Cancel transient sync operations
+                            boolean enabled = prefs.getBoolean("enabled", true);
+                            int pollInterval = prefs.getInt("poll_interval", DEFAULT_POLL_INTERVAL);
+                            if (!enabled || account.ondemand || (pollInterval > 0 && !account.poll_exempted)) {
+                                List<EntityOperation> syncs = db.operation().getOperations(account.id, EntityOperation.SYNC);
+                                if (syncs != null) {
+                                    for (EntityOperation op : syncs) {
+                                        db.folder().setFolderSyncState(op.folder, null);
+                                        db.operation().deleteOperation(op.id);
+                                    }
+                                    Log.i(account.name + " cancelled syncs=" + syncs.size());
+                                }
+                            }
 
-                    if (backoff < CONNECT_BACKOFF_MAX)
-                        state.setBackoff(backoff * 2);
-                    else if (backoff == CONNECT_BACKOFF_MAX)
-                        state.setBackoff(CONNECT_BACKOFF_AlARM_START * 60);
-                    else if (backoff < CONNECT_BACKOFF_AlARM_MAX * 60)
-                        state.setBackoff(backoff * 2);
+                            // Long back-off period, let device sleep
+                            Intent intent = new Intent(ServiceSynchronize.this, ServiceSynchronize.class);
+                            intent.setAction("backoff:" + account.id);
+                            PendingIntent pi = PendingIntentCompat.getForegroundService(
+                                    this, PI_BACKOFF, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+                            AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                            try {
+                                long trigger = System.currentTimeMillis() + backoff * 1000L;
+                                EntityLog.log(this, "### " + account.name + " backoff until=" + new Date(trigger));
+                                AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, trigger, pi);
+
+                                try {
+                                    wlAccount.release();
+                                    state.acquire(2 * backoff * 1000L);
+                                    Log.i("### " + account.name + " backoff done");
+                                } catch (InterruptedException ex) {
+                                    Log.w(account.name + " backoff " + ex.toString());
+                                } finally {
+                                    wlAccount.acquire();
+                                }
+                            } finally {
+                                am.cancel(pi);
+                            }
+                        }
+
+                        if (backoff < CONNECT_BACKOFF_MAX)
+                            state.setBackoff(backoff * 2);
+                        else if (backoff == CONNECT_BACKOFF_MAX)
+                            state.setBackoff(CONNECT_BACKOFF_AlARM_START * 60);
+                        else if (backoff < CONNECT_BACKOFF_AlARM_MAX * 60)
+                            state.setBackoff(backoff * 2);
+                    }
                 }
 
                 currentThread = Thread.currentThread().getId();
