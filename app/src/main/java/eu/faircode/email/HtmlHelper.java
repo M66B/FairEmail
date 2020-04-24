@@ -1748,6 +1748,14 @@ public class HtmlHelper {
         return false;
     }
 
+    static Spanned fromDocument(@NonNull Document document) {
+        return fromDocument(document, null, null);
+    }
+
+    static Spanned fromDocument(@NonNull Document document, @Nullable Html.ImageGetter imageGetter, @Nullable Html.TagHandler tagHandler) {
+        return fromHtml(document.html(), imageGetter, null);
+    }
+
     static Spanned fromHtml(@NonNull String html) {
         return fromHtml(html, null, null);
     }

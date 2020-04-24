@@ -1924,7 +1924,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         }
 
                         // Draw images
-                        Spanned spanned = HtmlHelper.fromHtml(document.html(), new Html.ImageGetter() {
+                        Spanned spanned = HtmlHelper.fromDocument(document, new Html.ImageGetter() {
                             @Override
                             public Drawable getDrawable(String source) {
                                 Drawable drawable = ImageHelper.decodeImage(context, message.id, source, show_images, zoom, tvBody);
