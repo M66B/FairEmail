@@ -24,17 +24,21 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.text.Html;
+import android.text.Layout;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
+import android.text.style.BulletSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
+import android.text.style.LeadingMarginSpan;
 import android.text.style.QuoteSpan;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StrikethroughSpan;
@@ -307,6 +311,8 @@ public class HtmlHelper {
         boolean display_hidden = prefs.getBoolean("display_hidden", false);
         boolean disable_tracking = prefs.getBoolean("disable_tracking", true);
         boolean parse_classes = prefs.getBoolean("parse_classes", false);
+        boolean experiments = prefs.getBoolean("experiments", false);
+
 
         // https://chromium.googlesource.com/chromium/blink/+/master/Source/core/css/html.css
 
@@ -748,17 +754,19 @@ public class HtmlHelper {
 
         // Lists
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li
-        for (Element li : document.select("li")) {
-            li.tagName("span");
-            Element parent = li.parent();
-            if (parent == null || "ul".equals(parent.tagName()))
-                li.prependText("• ");
-            else
-                li.prependText((li.elementSiblingIndex() + 1) + ". ");
-            li.appendElement("br"); // line break after list item
+        if (!experiments) {
+            for (Element li : document.select("li")) {
+                li.tagName("span");
+                Element parent = li.parent();
+                if (parent == null || "ul".equals(parent.tagName()))
+                    li.prependText("• ");
+                else
+                    li.prependText((li.elementSiblingIndex() + 1) + ". ");
+                li.appendElement("br"); // line break after list item
+            }
+            document.select("ol").tagName("div");
+            document.select("ul").tagName("div");
         }
-        document.select("ol").tagName("div");
-        document.select("ul").tagName("div");
 
         // Tables
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table
@@ -1763,6 +1771,9 @@ public class HtmlHelper {
     static Spanned fromDocument(Context context, @NonNull Document document, @Nullable Html.ImageGetter imageGetter, @Nullable Html.TagHandler tagHandler) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean experiments = prefs.getBoolean("experiments", false);
+        int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
+        int dp3 = Helper.dp2pixels(context, 3);
+        int dp6 = Helper.dp2pixels(context, 6);
 
         if (experiments) {
             // https://developer.android.com/guide/topics/text/spans
@@ -1849,8 +1860,8 @@ public class HtmlHelper {
                                 int level = element.tagName().charAt(1) - '1';
                                 ssb.setSpan(new RelativeSizeSpan(HEADING_SIZES[level]), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                 ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                ssb.append("\n");
                                 ssb.insert(start, "\n");
+                                ssb.append("\n");
                                 break;
                             case "img":
                                 String src = element.attr("src");
@@ -1859,6 +1870,32 @@ public class HtmlHelper {
                                         : imageGetter.getDrawable(src));
                                 ssb.insert(start, "\uFFFC"); // Object replacement character
                                 ssb.setSpan(new ImageSpan(d, src), start, start + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                break;
+                            case "li":
+                                ssb.append("\n");
+                                Element parent = element.parent();
+                                if (parent == null || "ul".equals(parent.tagName()))
+                                    // TODO BulletSpanCompat
+                                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
+                                        ssb.setSpan(new BulletSpan(dp6, colorAccent), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                    else
+                                        ssb.setSpan(new BulletSpan(dp6, colorAccent, dp3), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                else {
+                                    int index = 0;
+                                    for (Node child : parent.childNodes()) {
+                                        if (child instanceof Element) {
+                                            index++;
+                                            if (child == element)
+                                                break;
+                                        }
+                                    }
+                                    ssb.setSpan(new NumberSpan(dp6, colorAccent, index), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                }
+                                break;
+                            case "ol":
+                            case "ul":
+                                ssb.insert(start, "\n");
+                                ssb.append("\n");
                                 break;
                             case "pre":
                                 // Do nothing
@@ -1960,7 +1997,7 @@ public class HtmlHelper {
         return doc.html();
     }
 
-    static Spanned reverseSpans(Spanned spanned) {
+    private static Spanned reverseSpans(Spanned spanned) {
         Object[] spans = spanned.getSpans(0, spanned.length(), Object.class);
         Spannable reverse = Spannable.Factory.getInstance().newSpannable(spanned.toString());
         if (spans != null && spans.length > 0)
@@ -1971,5 +2008,45 @@ public class HtmlHelper {
                         spanned.getSpanEnd(spans[i]),
                         spanned.getSpanFlags(spans[i]));
         return reverse;
+    }
+
+    private static class NumberSpan implements LeadingMarginSpan {
+        private final int gapWidth;
+        private int color;
+        private final int index;
+        private float textWidth;
+
+        public NumberSpan(int gapWidth, int color, int index) {
+            this.gapWidth = gapWidth;
+            this.color = color;
+            this.index = index;
+        }
+
+        @Override
+        public int getLeadingMargin(boolean first) {
+            return Math.round(textWidth + gapWidth);
+        }
+
+        @Override
+        public void drawLeadingMargin(Canvas c, Paint p, int x, int dir, int top, int baseline, int bottom, CharSequence text, int start, int end, boolean first, Layout layout) {
+            if (first) {
+                Paint.Style ostyle = p.getStyle();
+                int ocolor = p.getColor();
+                Typeface oface = p.getTypeface();
+
+                p.setStyle(Paint.Style.FILL);
+                p.setColor(color);
+                p.setTypeface(Typeface.MONOSPACE);
+
+                String number = index + ".";
+                textWidth = p.measureText(number);
+
+                c.drawText(number, x, bottom - p.descent(), p);
+
+                p.setStyle(ostyle);
+                p.setColor(ocolor);
+                p.setTypeface(oface);
+            }
+        }
     }
 }
