@@ -126,6 +126,18 @@
             app:layout_constraintTop_toBottomOf="@+id/tvConfirmHtmlHint"
             app:switchPadding="12dp" />
 
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swHideTimeZone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/title_advanced_hide_timezone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/swDisableTracking"
+            app:switchPadding="12dp" />
+
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvBiometrics"
             android:layout_width="0dp"
@@ -137,7 +149,7 @@
             android:textColor="?android:attr/textColorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swDisableTracking" />
+            app:layout_constraintTop_toBottomOf="@id/swHideTimeZone" />
 
         <Button
             android:id="@+id/btnBiometrics"

@@ -60,6 +60,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private SwitchCompat swConfirmImages;
     private SwitchCompat swConfirmHtml;
     private SwitchCompat swDisableTracking;
+    private SwitchCompat swHideTimeZone;
     private Button btnBiometrics;
     private Button btnPin;
     private Spinner spBiometricsTimeout;
@@ -71,7 +72,8 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private Group grpSafeBrowsing;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "confirm_links", "browse_links", "confirm_images", "confirm_html", "disable_tracking",
+            "confirm_links", "browse_links", "confirm_images", "confirm_html",
+            "disable_tracking", "hide_timezone",
             "biometrics", "pin", "biometrics_timeout",
             "display_hidden", "secure", "safe_browsing"
     };
@@ -92,6 +94,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         swConfirmImages = view.findViewById(R.id.swConfirmImages);
         swConfirmHtml = view.findViewById(R.id.swConfirmHtml);
         swDisableTracking = view.findViewById(R.id.swDisableTracking);
+        swHideTimeZone = view.findViewById(R.id.swHideTimeZone);
         btnBiometrics = view.findViewById(R.id.btnBiometrics);
         btnPin = view.findViewById(R.id.btnPin);
         spBiometricsTimeout = view.findViewById(R.id.spBiometricsTimeout);
@@ -141,6 +144,13 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("disable_tracking", checked).apply();
+            }
+        });
+
+        swHideTimeZone.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("hide_timezone", checked).apply();
             }
         });
 
@@ -278,6 +288,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         swConfirmImages.setChecked(prefs.getBoolean("confirm_images", true));
         swConfirmHtml.setChecked(prefs.getBoolean("confirm_html", true));
         swDisableTracking.setChecked(prefs.getBoolean("disable_tracking", true));
+        swHideTimeZone.setChecked(prefs.getBoolean("hide_timezone", true));
 
         boolean biometrics = prefs.getBoolean("biometrics", false);
         btnBiometrics.setText(biometrics

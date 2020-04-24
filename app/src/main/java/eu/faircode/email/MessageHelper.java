@@ -140,6 +140,12 @@ public class MessageHelper {
     static MimeMessageEx from(Context context, EntityMessage message, EntityIdentity identity, Session isession, boolean send)
             throws MessagingException, IOException {
         DB db = DB.getInstance(context);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        int receipt_type = prefs.getInt("receipt_type", 2);
+        boolean hide_timezone = prefs.getBoolean("hide_timezone", true);
+        boolean autocrypt = prefs.getBoolean("autocrypt", true);
+        boolean mutual = prefs.getBoolean("autocrypt_mutual", true);
+
         MimeMessageEx imessage = new MimeMessageEx(isession, message.msgid);
 
         // Flags
@@ -217,8 +223,6 @@ public class MessageHelper {
             if (message.receipt_request != null && message.receipt_request) {
                 String to = (identity.replyto == null ? identity.email : identity.replyto);
 
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                int receipt_type = prefs.getInt("receipt_type", 2);
                 // 0=Read receipt
                 // 1=Delivery receipt
                 // 2=Read+delivery receipt
@@ -238,9 +242,8 @@ public class MessageHelper {
             imessage.addHeader("List-Unsubscribe", "<" + message.unsubscribe + ">");
 
         MailDateFormat mdf = new MailDateFormat();
-        mdf.setTimeZone(TimeZone.getTimeZone("UTC"));
+        mdf.setTimeZone(hide_timezone ? TimeZone.getTimeZone("UTC") : TimeZone.getDefault());
         imessage.setHeader("Date", mdf.format(new Date()));
-        //imessage.setSentDate(new Date());
 
         List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
 
@@ -248,10 +251,6 @@ public class MessageHelper {
             for (EntityAttachment attachment : attachments)
                 if (EntityAttachment.PGP_KEY.equals(attachment.encryption)) {
                     InternetAddress from = (InternetAddress) message.from[0];
-
-                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                    boolean autocrypt = prefs.getBoolean("autocrypt", true);
-                    boolean mutual = prefs.getBoolean("autocrypt_mutual", true);
 
                     if (autocrypt) {
                         String mode = (mutual ? "mutual" : "nopreference");
