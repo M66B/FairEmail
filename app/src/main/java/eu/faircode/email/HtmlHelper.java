@@ -24,6 +24,7 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
@@ -33,6 +34,13 @@ import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
+import android.text.style.ImageSpan;
+import android.text.style.QuoteSpan;
+import android.text.style.RelativeSizeSpan;
+import android.text.style.StrikethroughSpan;
+import android.text.style.StyleSpan;
+import android.text.style.URLSpan;
+import android.text.style.UnderlineSpan;
 import android.util.Base64;
 import android.view.textclassifier.TextClassificationManager;
 import android.view.textclassifier.TextLanguage;
@@ -109,7 +117,7 @@ public class HtmlHelper {
     private static final int MAX_FORMAT_TEXT_SIZE = 50 * 1024; // characters
     private static final int MAX_FULL_TEXT_SIZE = 1024 * 1024; // characters
     private static final int TRACKING_PIXEL_SURFACE = 25; // pixels
-
+    private static final float[] HEADING_SIZES = {1.5f, 1.4f, 1.3f, 1.2f, 1.1f, 1f};
     private static final HashMap<String, Integer> x11ColorMap = new HashMap<>();
 
     static {
@@ -1753,7 +1761,109 @@ public class HtmlHelper {
     }
 
     static Spanned fromDocument(@NonNull Document document, @Nullable Html.ImageGetter imageGetter, @Nullable Html.TagHandler tagHandler) {
-        return fromHtml(document.html(), imageGetter, null);
+        if (BuildConfig.DEBUG) {
+            // https://developer.android.com/guide/topics/text/spans
+            SpannableStringBuilder ssb = new SpannableStringBuilder();
+
+            NodeTraversor.traverse(new NodeVisitor() {
+                @Override
+                public void head(Node node, int depth) {
+                    if (node instanceof Element) {
+                        Element element = (Element) node;
+                        element.attr("start-index", Integer.toString(ssb.length()));
+                    } else if (node instanceof TextNode) {
+                        TextNode tnode = (TextNode) node;
+                        ssb.append(tnode.text());
+                    }
+                }
+
+                @Override
+                public void tail(Node node, int depth) {
+                    if (node instanceof Element) {
+                        Element element = (Element) node;
+                        int start = Integer.parseInt(element.attr("start-index"));
+                        switch (element.tagName()) {
+                            case "a":
+                                String href = element.attr("href");
+                                ssb.setSpan(new URLSpan(href), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                break;
+                            case "body":
+                                // Do nothing
+                                break;
+                            case "big":
+                                ssb.setSpan(new RelativeSizeSpan(FONT_LARGE), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                break;
+                            case "blockquote":
+                                ssb.setSpan(new QuoteSpan(), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                break;
+                            case "br":
+                                ssb.append("\n");
+                                break;
+                            case "em":
+                                ssb.setSpan(new StyleSpan(Typeface.ITALIC), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                break;
+                            case "h1":
+                            case "h2":
+                            case "h3":
+                            case "h4":
+                            case "h5":
+                            case "h6":
+                                int level = element.tagName().charAt(1) - '1';
+                                ssb.setSpan(new RelativeSizeSpan(HEADING_SIZES[level]), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                break;
+                            case "img":
+                                if (imageGetter == null) {
+                                    Log.e("img without getter");
+                                    break;
+                                }
+                                String src = element.attr("src");
+                                Drawable d = imageGetter.getDrawable(src);
+                                ssb.append("\uFFFC"); // Object replacement character
+                                ssb.setSpan(new ImageSpan(d, src), ssb.length() - 1, ssb.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                break;
+                            case "small":
+                                ssb.setSpan(new RelativeSizeSpan(FONT_SMALL), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                break;
+                            case "span":
+                                // Do nothing
+                                break;
+                            case "strong":
+                                ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                break;
+                            case "u":
+                                ssb.setSpan(new UnderlineSpan(), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                break;
+                            default:
+                                Log.e("Unknown tag=" + element.tagName());
+                        }
+
+                        String style = element.attr("style");
+                        if (!TextUtils.isEmpty(style)) {
+                            String[] params = style.split(";");
+                            for (String param : params) {
+                                int semi = param.indexOf(":");
+                                String key = param.substring(0, semi);
+                                String value = param.substring(semi + 1);
+                                switch (key) {
+                                    case "color":
+                                        int color = Integer.parseInt(value.substring(1), 16) | 0xFF000000;
+                                        ssb.setSpan(new ForegroundColorSpan(color), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                        break;
+                                    case "text-decoration":
+                                        if ("line-through".equals(value))
+                                            ssb.setSpan(new StrikethroughSpan(), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                        break;
+                                }
+                            }
+                        }
+                    }
+                }
+            }, document.body());
+
+            return ssb;
+        } else
+            return fromHtml(document.html(), imageGetter, null);
     }
 
     static Spanned fromHtml(@NonNull String html) {
