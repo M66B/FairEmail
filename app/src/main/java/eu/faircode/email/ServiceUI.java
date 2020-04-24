@@ -100,7 +100,7 @@ public class ServiceUI extends IntentService {
         try {
             String[] parts = action.split(":");
             long id = (parts.length > 1 ? Long.parseLong(parts[1]) : -1);
-            String group = intent.getStringExtra("group");
+            long group = intent.getLongExtra("group", -1);
 
             switch (parts[0]) {
                 case "clear":
@@ -184,7 +184,7 @@ public class ServiceUI extends IntentService {
         Log.i("Cleared=" + cleared);
     }
 
-    private void cancel(String group, long id) {
+    private void cancel(long group, long id) {
         String tag = "unseen." + group + ":" + id;
 
         NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);

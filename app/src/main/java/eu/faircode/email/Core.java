@@ -3310,7 +3310,8 @@ class Core {
                         .setAllowGeneratedReplies(false);
                 RemoteInput.Builder input = new RemoteInput.Builder("text")
                         .setLabel(context.getString(R.string.title_advanced_notify_action_reply));
-                actionReply.addRemoteInput(input.build()).setAllowGeneratedReplies(false);
+                actionReply.addRemoteInput(input.build())
+                        .setAllowGeneratedReplies(false);
                 mbuilder.addAction(actionReply.build());
             }
 
