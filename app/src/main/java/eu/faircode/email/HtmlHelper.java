@@ -1767,6 +1767,7 @@ public class HtmlHelper {
         if (experiments) {
             // https://developer.android.com/guide/topics/text/spans
             SpannableStringBuilder ssb = new SpannableStringBuilder();
+            List<SpanHolder> holders = new ArrayList<>();
 
             NodeTraversor.traverse(new NodeVisitor() {
                 @Override
@@ -1781,7 +1782,7 @@ public class HtmlHelper {
                                         ? context.getDrawable(R.drawable.baseline_broken_image_24)
                                         : imageGetter.getDrawable(src));
                                 ssb.append("\uFFFC"); // Object replacement character
-                                ssb.setSpan(new ImageSpan(d, src), ssb.length() - 1, ssb.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                holders.add(new SpanHolder(new ImageSpan(d, src), ssb.length() - 1, ssb.length()));
                                 break;
                         }
                     } else if (node instanceof TextNode) {
@@ -1798,22 +1799,22 @@ public class HtmlHelper {
                         switch (element.tagName()) {
                             case "a":
                                 String href = element.attr("href");
-                                ssb.setSpan(new URLSpan(href), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                holders.add(new SpanHolder(new URLSpan(href), start, ssb.length()));
                                 break;
                             case "body":
                                 // Do nothing
                                 break;
                             case "big":
-                                ssb.setSpan(new RelativeSizeSpan(FONT_LARGE), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                holders.add(new SpanHolder(new RelativeSizeSpan(FONT_LARGE), start, ssb.length()));
                                 break;
                             case "blockquote":
-                                ssb.setSpan(new QuoteSpan(), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                holders.add(new SpanHolder(new QuoteSpan(), start, ssb.length()));
                                 break;
                             case "br":
                                 ssb.append("\n");
                                 break;
                             case "em":
-                                ssb.setSpan(new StyleSpan(Typeface.ITALIC), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                holders.add(new SpanHolder(new StyleSpan(Typeface.ITALIC), start, ssb.length()));
                                 break;
                             case "h1":
                             case "h2":
@@ -1822,23 +1823,23 @@ public class HtmlHelper {
                             case "h5":
                             case "h6":
                                 int level = element.tagName().charAt(1) - '1';
-                                ssb.setSpan(new RelativeSizeSpan(HEADING_SIZES[level]), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                holders.add(new SpanHolder(new RelativeSizeSpan(HEADING_SIZES[level]), start, ssb.length()));
+                                holders.add(new SpanHolder(new StyleSpan(Typeface.BOLD), start, ssb.length()));
                                 break;
                             case "img":
                                 // Do nothing
                                 break;
                             case "small":
-                                ssb.setSpan(new RelativeSizeSpan(FONT_SMALL), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                holders.add(new SpanHolder(new RelativeSizeSpan(FONT_SMALL), start, ssb.length()));
                                 break;
                             case "span":
                                 // Do nothing
                                 break;
                             case "strong":
-                                ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                holders.add(new SpanHolder(new StyleSpan(Typeface.BOLD), start, ssb.length()));
                                 break;
                             case "u":
-                                ssb.setSpan(new UnderlineSpan(), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                holders.add(new SpanHolder(new UnderlineSpan(), start, ssb.length()));
                                 break;
                             default:
                                 Log.e("Unknown tag=" + element.tagName());
@@ -1854,11 +1855,11 @@ public class HtmlHelper {
                                 switch (key) {
                                     case "color":
                                         int color = Integer.parseInt(value.substring(1), 16) | 0xFF000000;
-                                        ssb.setSpan(new ForegroundColorSpan(color), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                        holders.add(new SpanHolder(new ForegroundColorSpan(color), start, ssb.length()));
                                         break;
                                     case "text-decoration":
                                         if ("line-through".equals(value))
-                                            ssb.setSpan(new StrikethroughSpan(), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                            holders.add(new SpanHolder(new StrikethroughSpan(), start, ssb.length()));
                                         break;
                                 }
                             }
@@ -1866,6 +1867,10 @@ public class HtmlHelper {
                     }
                 }
             }, document.body());
+
+            Collections.reverse(holders);
+            for (SpanHolder holder : holders)
+                ssb.setSpan(holder.span, holder.start, holder.end, holder.flags);
 
             return ssb;
         } else
@@ -1924,5 +1929,19 @@ public class HtmlHelper {
                         spanned.getSpanEnd(spans[i]),
                         spanned.getSpanFlags(spans[i]));
         return reverse;
+    }
+
+    private static class SpanHolder {
+        Object span;
+        int start;
+        int end;
+        int flags;
+
+        SpanHolder(Object span, int start, int end) {
+            this.span = span;
+            this.start = start;
+            this.end = end;
+            this.flags = Spanned.SPAN_EXCLUSIVE_EXCLUSIVE;
+        }
     }
 }
