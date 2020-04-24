@@ -1164,6 +1164,13 @@ public class Log {
             }
 
             size += write(os, "VPN active=" + ConnectionHelper.vpnActive(context) + "\r\n\r\n");
+
+            ConnectionHelper.NetworkState state = ConnectionHelper.getNetworkState(context);
+            size += write(os, "Connected=" + state.isConnected() + "\r\n");
+            size += write(os, "Suitable=" + state.isSuitable() + "\r\n");
+            size += write(os, "Unmetered=" + state.isUnmetered() + "\r\n");
+            size += write(os, "Roaming=" + state.isRoaming() + "\r\n");
+            size += write(os, "Type=" + state.getType() + "\r\n\r\n");
         }
 
         db.attachment().setDownloaded(attachment.id, size);
