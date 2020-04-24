@@ -1920,7 +1920,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 lines[i] = Html.escapeHtml(lines[i]);
                             Element pre = document.createElement("pre");
                             pre.html(TextUtils.join("<br>", lines));
-                            document.appendChild(pre);
+                            document.body().appendChild(pre);
                         }
 
                         // Draw images
