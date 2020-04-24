@@ -1263,8 +1263,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (info[0].hasPhoto()) {
                 ibAvatar.setImageBitmap(info[0].getPhotoBitmap());
                 ibAvatar.setVisibility(View.VISIBLE);
-            } else
+            } else {
+                ibAvatar.setImageDrawable(null);
                 ibAvatar.setVisibility(View.GONE);
+            }
 
             Uri lookupUri = info[0].getLookupUri();
             ibAvatar.setTag(lookupUri);
@@ -5165,6 +5167,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     public void onViewDetachedFromWindow(@NonNull ViewHolder holder) {
         holder.cowner.stop();
         holder.powner.recreate();
+    }
+
+    @Override
+    public void onViewRecycled(@NonNull ViewHolder holder) {
+        if (holder.ibAvatar != null)
+            holder.ibAvatar.setImageDrawable(null);
     }
 
     void setSelectionTracker(SelectionTracker<Long> selectionTracker) {
