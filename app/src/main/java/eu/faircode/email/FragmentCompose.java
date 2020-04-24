@@ -1018,6 +1018,7 @@ public class FragmentCompose extends FragmentBase {
 
         if (pgpService != null && pgpService.isBound())
             pgpService.unbindFromService();
+        pgpService = null;
 
         super.onDestroyView();
     }

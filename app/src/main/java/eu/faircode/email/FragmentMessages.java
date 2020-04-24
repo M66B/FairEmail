@@ -1294,6 +1294,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         if (pgpService != null && pgpService.isBound())
             pgpService.unbindFromService();
+        pgpService = null;
 
         kv.clear();
         values.clear();
