@@ -1774,6 +1774,16 @@ public class HtmlHelper {
                     if (node instanceof Element) {
                         Element element = (Element) node;
                         element.attr("start-index", Integer.toString(ssb.length()));
+                        switch (element.tagName()) {
+                            case "img":
+                                String src = element.attr("src");
+                                Drawable d = (imageGetter == null
+                                        ? context.getDrawable(R.drawable.baseline_broken_image_24)
+                                        : imageGetter.getDrawable(src));
+                                ssb.append("\uFFFC"); // Object replacement character
+                                ssb.setSpan(new ImageSpan(d, src), ssb.length() - 1, ssb.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                break;
+                        }
                     } else if (node instanceof TextNode) {
                         TextNode tnode = (TextNode) node;
                         ssb.append(tnode.text());
@@ -1816,14 +1826,7 @@ public class HtmlHelper {
                                 ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                 break;
                             case "img":
-                                if (imageGetter == null) {
-                                    Log.e("img without getter");
-                                    break;
-                                }
-                                String src = element.attr("src");
-                                Drawable d = imageGetter.getDrawable(src);
-                                ssb.append("\uFFFC"); // Object replacement character
-                                ssb.setSpan(new ImageSpan(d, src), ssb.length() - 1, ssb.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                // Do nothing
                                 break;
                             case "small":
                                 ssb.setSpan(new RelativeSizeSpan(FONT_SMALL), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
