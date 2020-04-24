@@ -1767,7 +1767,6 @@ public class HtmlHelper {
         if (experiments) {
             // https://developer.android.com/guide/topics/text/spans
             SpannableStringBuilder ssb = new SpannableStringBuilder();
-            List<SpanHolder> holders = new ArrayList<>();
 
             NodeTraversor.traverse(new NodeVisitor() {
                 @Override
@@ -1775,17 +1774,42 @@ public class HtmlHelper {
                     if (node instanceof Element) {
                         Element element = (Element) node;
                         element.attr("start-index", Integer.toString(ssb.length()));
-                        switch (element.tagName()) {
-                            case "img":
-                                String src = element.attr("src");
-                                Drawable d = (imageGetter == null
-                                        ? context.getDrawable(R.drawable.baseline_broken_image_24)
-                                        : imageGetter.getDrawable(src));
-                                ssb.append("\uFFFC"); // Object replacement character
-                                holders.add(new SpanHolder(new ImageSpan(d, src), ssb.length() - 1, ssb.length()));
+
+                        boolean pre = false;
+                        Element parent = element.parent();
+                        while (parent != null) {
+                            if ("pre".equals(parent.tagName())) {
+                                pre = true;
                                 break;
+                            }
+                            parent = parent.parent();
+                        }
+
+                        if (!pre) {
+                            // https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Whitespace
+                            List<TextNode> tnodes = getTextNodes(element);
+                            for (int i = 0; i < tnodes.size(); i++) {
+                                TextNode tnode = tnodes.get(i);
+                                String text = tnode.getWholeText();
+                                if (TextUtils.isEmpty(text))
+                                    continue;
+
+                                // Remove whitespace before/after newlines
+                                text = text.replaceAll("\\s+\\r?\\n\\s+", " ");
+
+                                if (i == 0 || (tnodes.get(i - 1).text().endsWith(" ")))
+                                    while (text.startsWith(" "))
+                                        text = text.substring(1);
+
+                                if (i == tnodes.size() - 1)
+                                    while (text.endsWith(" "))
+                                        text = text.substring(0, text.length() - 1);
+
+                                tnode.text(text);
+                            }
                         }
                     } else if (node instanceof TextNode) {
+                        // https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Whitespace
                         TextNode tnode = (TextNode) node;
                         ssb.append(tnode.text());
                     }
@@ -1799,22 +1823,22 @@ public class HtmlHelper {
                         switch (element.tagName()) {
                             case "a":
                                 String href = element.attr("href");
-                                holders.add(new SpanHolder(new URLSpan(href), start, ssb.length()));
+                                ssb.setSpan(new URLSpan(href), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                 break;
                             case "body":
                                 // Do nothing
                                 break;
                             case "big":
-                                holders.add(new SpanHolder(new RelativeSizeSpan(FONT_LARGE), start, ssb.length()));
+                                ssb.setSpan(new RelativeSizeSpan(FONT_LARGE), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                 break;
                             case "blockquote":
-                                holders.add(new SpanHolder(new QuoteSpan(), start, ssb.length()));
+                                ssb.setSpan(new QuoteSpan(), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                 break;
                             case "br":
                                 ssb.append("\n");
                                 break;
                             case "em":
-                                holders.add(new SpanHolder(new StyleSpan(Typeface.ITALIC), start, ssb.length()));
+                                ssb.setSpan(new StyleSpan(Typeface.ITALIC), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                 break;
                             case "h1":
                             case "h2":
@@ -1823,23 +1847,33 @@ public class HtmlHelper {
                             case "h5":
                             case "h6":
                                 int level = element.tagName().charAt(1) - '1';
-                                holders.add(new SpanHolder(new RelativeSizeSpan(HEADING_SIZES[level]), start, ssb.length()));
-                                holders.add(new SpanHolder(new StyleSpan(Typeface.BOLD), start, ssb.length()));
+                                ssb.setSpan(new RelativeSizeSpan(HEADING_SIZES[level]), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                ssb.append("\n");
+                                ssb.insert(start, "\n");
                                 break;
                             case "img":
+                                String src = element.attr("src");
+                                Drawable d = (imageGetter == null
+                                        ? context.getDrawable(R.drawable.baseline_broken_image_24)
+                                        : imageGetter.getDrawable(src));
+                                ssb.insert(start, "\uFFFC"); // Object replacement character
+                                ssb.setSpan(new ImageSpan(d, src), start, start + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                break;
+                            case "pre":
                                 // Do nothing
                                 break;
                             case "small":
-                                holders.add(new SpanHolder(new RelativeSizeSpan(FONT_SMALL), start, ssb.length()));
+                                ssb.setSpan(new RelativeSizeSpan(FONT_SMALL), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                 break;
                             case "span":
                                 // Do nothing
                                 break;
                             case "strong":
-                                holders.add(new SpanHolder(new StyleSpan(Typeface.BOLD), start, ssb.length()));
+                                ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                 break;
                             case "u":
-                                holders.add(new SpanHolder(new UnderlineSpan(), start, ssb.length()));
+                                ssb.setSpan(new UnderlineSpan(), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                 break;
                             default:
                                 Log.e("Unknown tag=" + element.tagName());
@@ -1855,24 +1889,32 @@ public class HtmlHelper {
                                 switch (key) {
                                     case "color":
                                         int color = Integer.parseInt(value.substring(1), 16) | 0xFF000000;
-                                        holders.add(new SpanHolder(new ForegroundColorSpan(color), start, ssb.length()));
+                                        ssb.setSpan(new ForegroundColorSpan(color), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                         break;
                                     case "text-decoration":
                                         if ("line-through".equals(value))
-                                            holders.add(new SpanHolder(new StrikethroughSpan(), start, ssb.length()));
+                                            ssb.setSpan(new StrikethroughSpan(), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                         break;
                                 }
                             }
                         }
                     }
                 }
-            }, document.body());
 
-            Collections.reverse(holders);
-            for (SpanHolder holder : holders)
-                ssb.setSpan(holder.span, holder.start, holder.end, holder.flags);
+                List<TextNode> getTextNodes(Element element) {
+                    List<TextNode> result = new ArrayList<>();
 
-            return ssb;
+                    for (Node child : element.childNodes())
+                        if (child instanceof TextNode)
+                            result.add((TextNode) child);
+                        else if (child instanceof Element)
+                            result.addAll(getTextNodes((Element) child));
+
+                    return result;
+                }
+            }, document.body().children());
+
+            return reverseSpans(ssb);
         } else
             return fromHtml(document.html(), imageGetter, null);
     }
@@ -1929,19 +1971,5 @@ public class HtmlHelper {
                         spanned.getSpanEnd(spans[i]),
                         spanned.getSpanFlags(spans[i]));
         return reverse;
-    }
-
-    private static class SpanHolder {
-        Object span;
-        int start;
-        int end;
-        int flags;
-
-        SpanHolder(Object span, int start, int end) {
-            this.span = span;
-            this.start = start;
-            this.end = end;
-            this.flags = Spanned.SPAN_EXCLUSIVE_EXCLUSIVE;
-        }
     }
 }
