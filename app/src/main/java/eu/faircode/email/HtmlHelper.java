@@ -1775,6 +1775,7 @@ public class HtmlHelper {
         int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
         int dp3 = Helper.dp2pixels(context, 3);
         int dp6 = Helper.dp2pixels(context, 6);
+        int dp24 = Helper.dp2pixels(context, 24);
 
         if (experiments) {
             // https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements
@@ -1963,6 +1964,15 @@ public class HtmlHelper {
                                 break;
                             case "ol":
                             case "ul":
+                                int llevel = 0;
+                                Element lparent = element.parent();
+                                while (lparent != null) {
+                                    if (lparent.tagName().equals(element.tagName()))
+                                        llevel++;
+                                    lparent = lparent.parent();
+                                }
+                                if (llevel > 0)
+                                    ssb.setSpan(new LeadingMarginSpan.Standard(llevel * dp24), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                 newline(start);
                                 newline(ssb.length());
                                 break;
