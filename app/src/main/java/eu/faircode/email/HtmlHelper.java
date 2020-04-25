@@ -1829,9 +1829,11 @@ public class HtmlHelper {
                             continue;
 
                         // Remove whitespace before/after newlines
-                        text = text.replaceAll("\\s+\\r?\\n\\s+", " ");
+                        text = text.replaceAll("\\s*\\r?\\n\\s*", " ");
 
-                        if (i == 0 || (block.get(i - 1).text().endsWith(" ")))
+                        if (i == 0 ||
+                                block.get(i - 1).text().equals("") ||
+                                block.get(i - 1).text().endsWith(" "))
                             while (text.startsWith(" "))
                                 text = text.substring(1);
 
@@ -1839,16 +1841,14 @@ public class HtmlHelper {
                             while (text.endsWith(" "))
                                 text = text.substring(0, text.length() - 1);
 
-                        if (debug) {
-                            if (i == 0)
-                                tnode.text("<" + text);
-                            else if (i == block.size() - 1)
-                                tnode.text(text + ">");
-                            else
-                                tnode.text(text);
+                        tnode.text(text);
+                    }
 
-                        } else
-                            tnode.text(text);
+                    if (debug) {
+                        if (block.size() > 0) {
+                            block.get(0).text("<" + block.get(0));
+                            block.get(block.size() - 1).text(block.get(block.size() - 1) + ">");
+                        }
                     }
                 }
             }, document.body());
