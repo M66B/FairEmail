@@ -94,6 +94,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private long lastLost = 0;
     private int lastAccounts = 0;
     private int lastOperations = 0;
+    private Handler handler;
 
     private Map<Long, Core.State> coreStates = new Hashtable<>();
     private MutableLiveData<ConnectionHelper.NetworkState> liveNetworkState = new MutableLiveData<>();
@@ -113,6 +114,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private static final int ACCOUNT_ERROR_AFTER = 60; // minutes
     private static final int ACCOUNT_ERROR_AFTER_POLL = 3; // times
     private static final int BACKOFF_ERROR_AFTER = 16; // seconds
+    private static final long WIDGET_UPDATE_DELAY = 2500L; // milliseconds
 
     private static final List<String> PREF_EVAL = Collections.unmodifiableList(Arrays.asList(
             "enabled", "poll_interval" // restart account(s)
@@ -135,6 +137,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         EntityLog.log(this, "Service create version=" + BuildConfig.VERSION_NAME);
         super.onCreate();
         startForeground(Helper.NOTIFICATION_SYNCHRONIZE, getNotificationService(null, null).build());
+
+        handler = new Handler();
 
         // Listen for network changes
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -490,6 +494,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         });
 
         db.message().liveWidgetUnseen(null).observe(cowner, new Observer<List<TupleMessageStats>>() {
+            private Integer lastCount = null;
             private List<TupleMessageStats> last = null;
 
             @Override
@@ -512,7 +517,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                 last = stats;
 
-                Widget.update(ServiceSynchronize.this);
+                handler.removeCallbacks(refreshWidget);
+                handler.postDelayed(refreshWidget, WIDGET_UPDATE_DELAY);
 
                 boolean badge = prefs.getBoolean("badge", true);
                 boolean unseen_ignored = prefs.getBoolean("unseen_ignored", false);
@@ -524,13 +530,16 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         count += unseen;
                 }
 
-                try {
-                    if (count == 0 || !badge)
-                        ShortcutBadger.removeCount(ServiceSynchronize.this);
-                    else
-                        ShortcutBadger.applyCount(ServiceSynchronize.this, count);
-                } catch (Throwable ex) {
-                    Log.e(ex);
+                if (lastCount == null || !lastCount.equals(count)) {
+                    lastCount = count;
+                    try {
+                        if (count == 0 || !badge)
+                            ShortcutBadger.removeCount(ServiceSynchronize.this);
+                        else
+                            ShortcutBadger.applyCount(ServiceSynchronize.this, count);
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
                 }
             }
         });
@@ -553,8 +562,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             break;
                         }
 
-                if (changed)
-                    WidgetUnified.updateData(ServiceSynchronize.this);
+                if (changed) {
+                    handler.removeCallbacks(refreshWidgetUnified);
+                    handler.postDelayed(refreshWidgetUnified, WIDGET_UPDATE_DELAY);
+                }
 
                 last = current;
             }
@@ -562,6 +573,20 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
         prefs.registerOnSharedPreferenceChangeListener(this);
     }
+
+    private final Runnable refreshWidget = new Runnable() {
+        @Override
+        public void run() {
+            Widget.update(ServiceSynchronize.this);
+        }
+    };
+
+    private final Runnable refreshWidgetUnified = new Runnable() {
+        @Override
+        public void run() {
+            WidgetUnified.updateData(ServiceSynchronize.this);
+        }
+    };
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
