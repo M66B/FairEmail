@@ -390,7 +390,9 @@ You should try to fix this by contacting your provider or by getting a valid sec
 because invalid security certificates are insecure and allow [man-in-the-middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack).
 If money is an obstacle, you can get free security certificates from [Let’s Encrypt](https://letsencrypt.org).
 
-Alternatively, you can safely accept the fingerprint shown below the error message.
+Alternatively, you can accept the fingerprint shown below the error message
+if you set up the account and/or identity in setup step 1 and 2 (this is not possible when using the quick setup wizard).
+Note that you should make sure the internet connection you are using is safe.
 
 Note that older Android versions might not recognize newer certification authorities like Let’s Encrypt causing connections to be considered insecure,
 see also [here](https://developer.android.com/training/articles/security-ssl).
