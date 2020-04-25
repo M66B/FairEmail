@@ -1771,6 +1771,7 @@ public class HtmlHelper {
     static Spanned fromDocument(Context context, @NonNull Document document, @Nullable Html.ImageGetter imageGetter, @Nullable Html.TagHandler tagHandler) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean experiments = prefs.getBoolean("experiments", false);
+        boolean debug = prefs.getBoolean("debug", false);
         int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
         int dp3 = Helper.dp2pixels(context, 3);
         int dp6 = Helper.dp2pixels(context, 6);
@@ -1838,7 +1839,16 @@ public class HtmlHelper {
                             while (text.endsWith(" "))
                                 text = text.substring(0, text.length() - 1);
 
-                        tnode.text(text);
+                        if (debug) {
+                            if (i == 0)
+                                tnode.text("<" + text);
+                            else if (i == block.size() - 1)
+                                tnode.text(text + ">");
+                            else
+                                tnode.text(text);
+
+                        } else
+                            tnode.text(text);
                     }
                 }
             }, document.body());
@@ -1855,6 +1865,8 @@ public class HtmlHelper {
                     if (node instanceof Element) {
                         element = (Element) node;
                         element.attr("start-index", Integer.toString(ssb.length()));
+                        if (debug)
+                            ssb.append("[" + element.tagName() + "]");
                     } else if (node instanceof TextNode) {
                         tnode = (TextNode) node;
                         ssb.append(tnode.text());
@@ -1866,6 +1878,8 @@ public class HtmlHelper {
                     if (node instanceof Element) {
                         element = (Element) node;
                         int start = Integer.parseInt(element.attr("start-index"));
+                        if (debug)
+                            ssb.append("[/" + element.tagName() + "]");
                         switch (element.tagName()) {
                             case "a":
                                 String href = element.attr("href");
