@@ -115,7 +115,7 @@ import org.bouncycastle.cert.jcajce.JcaCertStore;
 import org.bouncycastle.cms.CMSAlgorithm;
 import org.bouncycastle.cms.CMSEnvelopedData;
 import org.bouncycastle.cms.CMSEnvelopedDataGenerator;
-import org.bouncycastle.cms.CMSProcessableByteArray;
+import org.bouncycastle.cms.CMSProcessableFile;
 import org.bouncycastle.cms.CMSSignedData;
 import org.bouncycastle.cms.CMSSignedDataGenerator;
 import org.bouncycastle.cms.CMSTypedData;
@@ -141,7 +141,6 @@ import org.openintents.openpgp.util.OpenPgpApi;
 import org.openintents.openpgp.util.OpenPgpServiceConnection;
 
 import java.io.BufferedOutputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -2376,12 +2375,16 @@ public class FragmentCompose extends FragmentBase {
                         .build(contentSigner, chain[0]);
                 cmsGenerator.addSignerInfoGenerator(signerInfoGenerator);
 
-                ByteArrayOutputStream osContent = new ByteArrayOutputStream();
-                bpContent.writeTo(osContent);
+                File sinput = new File(context.getCacheDir(), "smime_sign." + draft.id);
+                try (FileOutputStream fos = new FileOutputStream(sinput)) {
+                    bpContent.writeTo(fos);
+                }
 
-                CMSTypedData cmsData = new CMSProcessableByteArray(osContent.toByteArray());
+                CMSTypedData cmsData = new CMSProcessableFile(sinput);
                 CMSSignedData cmsSignedData = cmsGenerator.generate(cmsData);
                 byte[] signedMessage = cmsSignedData.getEncoded();
+
+                sinput.delete();
 
                 // Build signature
                 if (EntityMessage.SMIME_SIGNONLY.equals(type)) {
@@ -2464,9 +2467,11 @@ public class FragmentCompose extends FragmentBase {
                     cmsEnvelopedDataGenerator.addRecipientInfoGenerator(gen);
                 }
 
-                ByteArrayOutputStream osMessage = new ByteArrayOutputStream();
-                imessage.writeTo(osMessage);
-                CMSTypedData msg = new CMSProcessableByteArray(osMessage.toByteArray());
+                File einput = new File(context.getCacheDir(), "smime_encrypt." + draft.id);
+                try (FileOutputStream fos = new FileOutputStream(einput)) {
+                    imessage.writeTo(fos);
+                }
+                CMSTypedData msg = new CMSProcessableFile(einput);
 
                 OutputEncryptor encryptor = new JceCMSContentEncryptorBuilder(CMSAlgorithm.AES128_CBC)
                         .build();
@@ -2486,6 +2491,8 @@ public class FragmentCompose extends FragmentBase {
                 try (OutputStream os = new FileOutputStream(encrypted)) {
                     cmsEnvelopedData.toASN1Structure().encodeTo(os);
                 }
+
+                einput.delete();
 
                 db.attachment().setDownloaded(attachment.id, encrypted.length());
 
