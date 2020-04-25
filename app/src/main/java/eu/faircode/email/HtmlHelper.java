@@ -1072,7 +1072,8 @@ public class HtmlHelper {
 
         try {
             return Integer.parseInt(value);
-        } catch (NumberFormatException ignored) {
+        } catch (NumberFormatException ex) {
+            Log.w(ex);
         }
 
         return null;
