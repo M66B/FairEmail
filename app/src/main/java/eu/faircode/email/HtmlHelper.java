@@ -1784,6 +1784,7 @@ public class HtmlHelper {
                 private List<TextNode> block = new ArrayList<>();
 
                 private String WHITESPACE = " \t\f\u00A0";
+                private String WHITESPACE_NL = WHITESPACE + "\r\n";
                 private Pattern TRIM_WHITESPACE_NL =
                         Pattern.compile("[" + WHITESPACE + "]*\\r?\\n[" + WHITESPACE + "]*");
 
@@ -1861,14 +1862,14 @@ public class HtmlHelper {
                     int len = text.length();
                     if (len == 0)
                         return false;
-                    return WHITESPACE.contains(text.substring(0, 1));
+                    return WHITESPACE_NL.contains(text.substring(0, 1));
                 }
 
                 boolean endsWithWhitespace(String text) {
                     int len = text.length();
                     if (len == 0)
                         return false;
-                    return WHITESPACE.contains(text.substring(len - 1));
+                    return WHITESPACE_NL.contains(text.substring(len - 1));
                 }
             }, document.body());
 
