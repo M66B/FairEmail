@@ -43,6 +43,8 @@ import android.text.style.QuoteSpan;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StrikethroughSpan;
 import android.text.style.StyleSpan;
+import android.text.style.SubscriptSpan;
+import android.text.style.SuperscriptSpan;
 import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
 import android.util.Base64;
@@ -746,11 +748,9 @@ public class HtmlHelper {
         // Subscript/Superscript
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sub
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sup
-        for (Element subp : document.select("sub,sup")) {
-            Element small = document.createElement("small");
-            small.html(subp.html());
-            subp.html(small.outerHtml());
-        }
+        if (!experiments || !view)
+            for (Element subp : document.select("sub,sup"))
+                subp.tagName("small");
 
         // Lists
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li
@@ -1985,6 +1985,14 @@ public class HtmlHelper {
                                 break;
                             case "span":
                                 // Do nothing
+                                break;
+                            case "sub":
+                                ssb.setSpan(new SubscriptSpan(), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                ssb.setSpan(new RelativeSizeSpan(FONT_SMALL), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                break;
+                            case "sup":
+                                ssb.setSpan(new SuperscriptSpan(), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                ssb.setSpan(new RelativeSizeSpan(FONT_SMALL), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                 break;
                             case "b":
                             case "strong":
