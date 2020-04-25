@@ -380,7 +380,7 @@ public class MessageHelper {
                         final ContentType cts = new ContentType(attachment.type);
                         String micalg = cts.getParameter("micalg");
                         if (TextUtils.isEmpty(micalg)) {
-                            Log.e("S/MIME micalg missing");
+                            Log.e("S/MIME micalg missing type=" + attachment.type);
                             micalg = "sha-256";
                         }
                         ParameterList params = cts.getParameterList();
