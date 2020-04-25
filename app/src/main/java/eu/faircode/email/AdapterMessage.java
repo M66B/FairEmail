@@ -5264,7 +5264,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             final Uri uri = getArguments().getParcelable("uri");
-            final String title = getArguments().getString("title");
+            String _title = getArguments().getString("title");
+            if (_title != null)
+                _title = _title.replace("\uFFFC", ""); // Object replacement character
+            if (TextUtils.isEmpty(_title))
+                _title = null;
+            final String title = _title;
 
             // Preload web view
             Helper.customTabsWarmup(getContext());
