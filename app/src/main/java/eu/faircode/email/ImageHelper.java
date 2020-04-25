@@ -41,7 +41,6 @@ import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.os.Build;
-import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.DisplayMetrics;
@@ -396,7 +395,7 @@ class ImageHelper {
                 private void post(final Drawable d, String source) {
                     Log.i("Posting image=" + source);
 
-                    new Handler(context.getMainLooper()).post(new Runnable() {
+                    view.post(new Runnable() {
                         @Override
                         public void run() {
                             Rect bounds = d.getBounds();
@@ -406,7 +405,6 @@ class ImageHelper {
                             lld.setLevel(0);
 
                             view.requestLayout();
-                            view.invalidate();
                         }
                     });
                 }
