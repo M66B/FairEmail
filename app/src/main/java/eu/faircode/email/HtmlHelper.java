@@ -1776,52 +1776,87 @@ public class HtmlHelper {
         int dp6 = Helper.dp2pixels(context, 6);
 
         if (experiments) {
+            // https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements
+            NodeTraversor.traverse(new NodeVisitor() {
+                private int pre = 0;
+                private Element element;
+                private List<TextNode> block = new ArrayList<>();
+                private List<String> BLOCK_START = Collections.unmodifiableList(Arrays.asList(
+                        "body", "blockquote", "h1", "h2", "h3", "h4", "h5", "h6", "li", "ol", "ul", "pre"
+                ));
+                private List<String> BLOCK_END = Collections.unmodifiableList(Arrays.asList(
+                        "body", "blockquote", "br", "h1", "h2", "h3", "h4", "h5", "h6", "li", "ol", "ul", "pre"
+                ));
+
+                @Override
+                public void head(Node node, int depth) {
+                    if (node instanceof TextNode) {
+                        if (pre == 0)
+                            block.add((TextNode) node);
+                    } else if (node instanceof Element) {
+                        element = (Element) node;
+                        if (BLOCK_START.contains(element.tagName())) {
+                            normalizeText(block);
+                            block.clear();
+                        }
+                        if ("pre".equals(element.tagName()))
+                            pre++;
+                    }
+                }
+
+                @Override
+                public void tail(Node node, int depth) {
+                    if (node instanceof Element) {
+                        element = (Element) node;
+                        if (BLOCK_END.contains(element.tagName())) {
+                            normalizeText(block);
+                            block.clear();
+                        }
+                        if ("pre".equals(element.tagName()))
+                            pre--;
+                    }
+                }
+
+                private void normalizeText(List<TextNode> block) {
+                    // https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Whitespace
+                    TextNode tnode;
+                    String text;
+                    for (int i = 0; i < block.size(); i++) {
+                        tnode = block.get(i);
+                        text = tnode.getWholeText();
+                        if (TextUtils.isEmpty(text))
+                            continue;
+
+                        // Remove whitespace before/after newlines
+                        text = text.replaceAll("\\s+\\r?\\n\\s+", " ");
+
+                        if (i == 0 || (block.get(i - 1).text().endsWith(" ")))
+                            while (text.startsWith(" "))
+                                text = text.substring(1);
+
+                        if (i == block.size() - 1)
+                            while (text.endsWith(" "))
+                                text = text.substring(0, text.length() - 1);
+
+                        tnode.text(text);
+                    }
+                }
+            }, document.body());
+
             // https://developer.android.com/guide/topics/text/spans
             SpannableStringBuilder ssb = new SpannableStringBuilder();
 
             NodeTraversor.traverse(new NodeVisitor() {
+                private Element element;
+                private TextNode tnode;
+
                 @Override
                 public void head(Node node, int depth) {
                     if (node instanceof Element) {
-                        Element element = (Element) node;
+                        element = (Element) node;
                         element.attr("start-index", Integer.toString(ssb.length()));
-
-                        boolean pre = false;
-                        Element parent = element.parent();
-                        while (parent != null) {
-                            if ("pre".equals(parent.tagName())) {
-                                pre = true;
-                                break;
-                            }
-                            parent = parent.parent();
-                        }
-
-                        if (!pre) {
-                            // https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Whitespace
-                            List<TextNode> tnodes = getTextNodes(element);
-                            for (int i = 0; i < tnodes.size(); i++) {
-                                TextNode tnode = tnodes.get(i);
-                                String text = tnode.getWholeText();
-                                if (TextUtils.isEmpty(text))
-                                    continue;
-
-                                // Remove whitespace before/after newlines
-                                text = text.replaceAll("\\s+\\r?\\n\\s+", " ");
-
-                                if (i == 0 || (tnodes.get(i - 1).text().endsWith(" ")))
-                                    while (text.startsWith(" "))
-                                        text = text.substring(1);
-
-                                if (i == tnodes.size() - 1)
-                                    while (text.endsWith(" "))
-                                        text = text.substring(0, text.length() - 1);
-
-                                tnode.text(text);
-                            }
-                        }
                     } else if (node instanceof TextNode) {
-                        // https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Whitespace
-                        TextNode tnode = (TextNode) node;
+                        tnode = (TextNode) node;
                         ssb.append(tnode.text());
                     }
                 }
@@ -1829,7 +1864,7 @@ public class HtmlHelper {
                 @Override
                 public void tail(Node node, int depth) {
                     if (node instanceof Element) {
-                        Element element = (Element) node;
+                        element = (Element) node;
                         int start = Integer.parseInt(element.attr("start-index"));
                         switch (element.tagName()) {
                             case "a":
@@ -1937,19 +1972,7 @@ public class HtmlHelper {
                         }
                     }
                 }
-
-                List<TextNode> getTextNodes(Element element) {
-                    List<TextNode> result = new ArrayList<>();
-
-                    for (Node child : element.childNodes())
-                        if (child instanceof TextNode)
-                            result.add((TextNode) child);
-                        else if (child instanceof Element)
-                            result.addAll(getTextNodes((Element) child));
-
-                    return result;
-                }
-            }, document.body().children());
+            }, document.body());
 
             return reverseSpans(ssb);
         } else
