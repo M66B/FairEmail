@@ -6054,7 +6054,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                     if ((block_sender || block_domain) &&
                             (message.from != null && message.from.length > 0)) {
-                        EntityRule rule = EntityRule.blockSender(context, message, junk, block_sender, whitelist);
+                        EntityRule rule = EntityRule.blockSender(context, message, junk, block_domain, whitelist);
                         rule.id = db.rule().insertRule(rule);
                     }
 
