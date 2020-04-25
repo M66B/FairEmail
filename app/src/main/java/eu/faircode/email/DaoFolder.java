@@ -99,9 +99,9 @@ public interface DaoFolder {
             ", account.id AS accountId, account.pop AS accountProtocol, account.`order` AS accountOrder" +
             ", account.name AS accountName, account.state AS accountState" +
             ", COUNT(DISTINCT CASE WHEN rule.enabled THEN rule.id ELSE NULL END) rules" +
-            ", COUNT(DISTINCT message.id) AS messages" +
-            ", COUNT(DISTINCT CASE WHEN message.content = 1 THEN message.id ELSE NULL END) AS content" +
-            ", COUNT(DISTINCT CASE WHEN NOT message.ui_seen THEN message.id ELSE NULL END) AS unseen" +
+            ", COUNT(DISTINCT CASE WHEN message.ui_hide THEN NULL ELSE message.id END) AS messages" +
+            ", COUNT(DISTINCT CASE WHEN message.content = 1 AND NOT message.ui_hide THEN message.id ELSE NULL END) AS content" +
+            ", COUNT(DISTINCT CASE WHEN NOT message.ui_seen AND NOT message.ui_hide THEN message.id ELSE NULL END) AS unseen" +
             ", COUNT(DISTINCT CASE WHEN operation.state = 'executing' THEN operation.id ELSE NULL END) AS executing" +
             " FROM folder" +
             " JOIN account ON account.id = folder.account" +
@@ -110,7 +110,6 @@ public interface DaoFolder {
             " LEFT JOIN operation ON operation.folder = folder.id" +
             " WHERE account.`synchronize`" +
             " AND ((:type IS NULL AND folder.unified) OR folder.type = :type)" +
-            " AND NOT message.ui_hide" +
             " GROUP BY folder.id")
     LiveData<List<TupleFolderEx>> liveUnified(String type);
 
@@ -137,9 +136,9 @@ public interface DaoFolder {
             ", account.id AS accountId, account.pop AS accountProtocol, account.`order` AS accountOrder" +
             ", account.name AS accountName, account.state AS accountState" +
             ", COUNT(DISTINCT CASE WHEN rule.enabled THEN rule.id ELSE NULL END) rules" +
-            ", COUNT(DISTINCT message.id) AS messages" +
-            ", COUNT(DISTINCT CASE WHEN message.content = 1 THEN message.id ELSE NULL END) AS content" +
-            ", COUNT(DISTINCT CASE WHEN NOT message.ui_seen THEN message.id ELSE NULL END) AS unseen" +
+            ", COUNT(DISTINCT CASE WHEN message.ui_hide THEN NULL ELSE message.id END) AS messages" +
+            ", COUNT(DISTINCT CASE WHEN message.content = 1 AND NOT message.ui_hide THEN message.id ELSE NULL END) AS content" +
+            ", COUNT(DISTINCT CASE WHEN NOT message.ui_seen AND NOT message.ui_hide THEN message.id ELSE NULL END) AS unseen" +
             ", COUNT(DISTINCT CASE WHEN operation.state = 'executing' THEN operation.id ELSE NULL END) AS executing" +
             " FROM folder" +
             " LEFT JOIN account ON account.id = folder.account" +
@@ -147,7 +146,6 @@ public interface DaoFolder {
             " LEFT JOIN rule ON rule.folder = folder.id" +
             " LEFT JOIN operation ON operation.folder = folder.id" +
             " WHERE folder.id = :id" +
-            " AND NOT message.ui_hide" +
             " GROUP BY folder.id")
     LiveData<TupleFolderEx> liveFolderEx(long id);
 
