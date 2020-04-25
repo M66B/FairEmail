@@ -1782,6 +1782,11 @@ public class HtmlHelper {
                 private int pre = 0;
                 private Element element;
                 private List<TextNode> block = new ArrayList<>();
+
+                private String WHITESPACE = " \t\f\u00A0";
+                private Pattern TRIM_WHITESPACE_NL =
+                        Pattern.compile("[" + WHITESPACE + "]*\\r?\\n[" + WHITESPACE + "]*");
+
                 private List<String> BLOCK_START = Collections.unmodifiableList(Arrays.asList(
                         "body", "blockquote", "h1", "h2", "h3", "h4", "h5", "h6", "li", "ol", "ul", "pre"
                 ));
@@ -1829,16 +1834,16 @@ public class HtmlHelper {
                             continue;
 
                         // Remove whitespace before/after newlines
-                        text = text.replaceAll("\\s*\\r?\\n\\s*", " ");
+                        TRIM_WHITESPACE_NL.matcher(text).replaceAll(" ");
 
                         if (i == 0 ||
                                 block.get(i - 1).text().equals("") ||
-                                block.get(i - 1).text().endsWith(" "))
-                            while (text.startsWith(" "))
+                                endsWithWhitespace(block.get(i - 1).text()))
+                            while (startsWithWhiteSpace(text))
                                 text = text.substring(1);
 
                         if (i == block.size() - 1)
-                            while (text.endsWith(" "))
+                            while (endsWithWhitespace(text))
                                 text = text.substring(0, text.length() - 1);
 
                         tnode.text(text);
@@ -1850,6 +1855,20 @@ public class HtmlHelper {
                             block.get(block.size() - 1).text(block.get(block.size() - 1) + ")");
                         }
                     }
+                }
+
+                boolean startsWithWhiteSpace(String text) {
+                    int len = text.length();
+                    if (len == 0)
+                        return false;
+                    return WHITESPACE.contains(text.substring(0, 1));
+                }
+
+                boolean endsWithWhitespace(String text) {
+                    int len = text.length();
+                    if (len == 0)
+                        return false;
+                    return WHITESPACE.contains(text.substring(len - 1));
                 }
             }, document.body());
 
