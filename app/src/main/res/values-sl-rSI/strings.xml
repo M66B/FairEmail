@@ -324,6 +324,7 @@
     <string name="title_advanced_actionbar">Prikaži vrstico z dejanji pogovorov</string>
     <string name="title_advanced_actionbar_color">Za barvo ozadja vrstice z dejanji pogovorov uporabi barvo računa</string>
     <string name="title_advanced_navbar_colorize">Obarvaj Androidovo vrstico za krmarjenje</string>
+    <string name="title_advanced_parse_classes">Razčleni slogovne predloge</string>
     <string name="title_advanced_authentication">Prikaži opozorilo, kadar dohodni strežnik ne more overiti sporočila</string>
     <string name="title_advanced_double_back">Dvojni \'Nazaj\' za izhod</string>
     <string name="title_advanced_pull_refresh">Povleci dol za osvežitev</string>
@@ -443,6 +444,7 @@
     <string name="title_advanced_preview_hint">Na voljo samo, če je bilo besedilo sporočila prejeto.</string>
     <string name="title_advanced_preview_issue">Pomikanje je lahko počasno zaradi hrošča v nekaterih različicah Androida, kadar je število vrstic večje od ena.</string>
     <string name="title_advanced_inline_hint">Slike v besedilu so vključene v sporočilo.</string>
+    <string name="title_advanced_parse_classes_hint">To bo natančneje prikazalo sporočila, vendar morda z zakasnitvijo.</string>
     <string name="title_advanced_autoexpand_hint">Samodejno odpri sporočilo, ko je v pogovoru samo eno sporočilo ali eno neprebrano sporočilo.</string>
     <string name="title_advanced_autoseen_hint">Samodejno označevanje sporočil kot prebranih ob razširitvi lahko onemogočite v nastavitvah za posamezni račun.</string>
     <string name="title_advanced_autoclose_hint">Samodejno zapri pogovore, ko so vsa sporočila arhivirana, poslana ali premaknjena v smeti.</string>
@@ -828,6 +830,7 @@
     <string name="title_search_hint">        Iskanje bo na začetku iskalo po sporočilih, shranjenih na vaši napravi.
         Če želite iskati tudi na strežniku, se dotaknite gumba \'Ponovno išči\'.
     </string>
+    <string name="title_search_index_hint">Iskanje preko kazala je hitro, vendar pa bo našlo samo cele besede.</string>
     <string name="title_search_more">Več možnosti</string>
     <string name="title_search_use_index">Uporabi iskalno kazalo</string>
     <string name="title_search_in_senders">Med pošiljatelji (Od)</string>

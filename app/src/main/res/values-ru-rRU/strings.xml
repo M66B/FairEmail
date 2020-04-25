@@ -377,6 +377,7 @@
     <string name="title_advanced_confirm_images">Подтверждать показ изображений</string>
     <string name="title_advanced_confirm_html">Показывать переформатированные сообщения по умолчанию</string>
     <string name="title_advanced_tracking">Автоматически распознавать и отключать отслеживающие изображения</string>
+    <string name="title_advanced_hide_timezone">Отправлять сообщения без данных часового пояса</string>
     <string name="title_advanced_display_hidden">Показывать текст скрытых сообщений</string>
     <string name="title_advanced_secure">Скрыть с экрана недавних приложений и запретить создание снимков экрана</string>
     <string name="title_advanced_pin">PIN-код</string>
@@ -831,6 +832,7 @@
     <string name="title_search_hint">        Поиск изначально ищет сообщения, хранящиеся на вашем устройстве.
         Чтобы также выполнить поиск на сервере, нажмите кнопку \"Новый поиск\".
     </string>
+    <string name="title_search_index_hint">Индексированный поиск быстрый, но ищет только целые слова</string>
     <string name="title_search_more">Дополнительные параметры</string>
     <string name="title_search_use_index">Использовать поисковый индекс</string>
     <string name="title_search_in_senders">В отправителях (от)</string>

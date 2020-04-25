@@ -354,6 +354,7 @@
     <string name="title_advanced_confirm_images">Bevestig het tonen van afbeeldingen</string>
     <string name="title_advanced_confirm_html">Toon standaard opnieuw geformatteerde berichten</string>
     <string name="title_advanced_tracking">Automatisch herkennen en uitschakelen van tracking-afbeeldingen</string>
+    <string name="title_advanced_hide_timezone">Berichten verzenden zonder tijdzone data</string>
     <string name="title_advanced_display_hidden">Verborgen berichtteksten weergeven</string>
     <string name="title_advanced_secure">Verbergen van recente apps scherm en voorkomen dat screenshots worden gemaakt</string>
     <string name="title_advanced_pin">Pincode</string>
@@ -808,6 +809,7 @@
     <string name="title_search_hint">        Zoeken zal in eerste instantie berichten bekijken die op uw apparaat zijn opgeslagen.
         Tik op de \'Opnieuw zoeken\' knop om ook op de server te zoeken.
     </string>
+    <string name="title_search_index_hint">Zoeken via de zoekindex is snel, maar zal alleen hele woorden vinden</string>
     <string name="title_search_more">Meer opties</string>
     <string name="title_search_use_index">Gebruik zoekindex</string>
     <string name="title_search_in_senders">In afzenders (van)</string>

@@ -105,12 +105,14 @@
     <string name="title_block_sender">حظر المرسل</string>
     <string name="title_notification_sending">جارٍ إرسال الرسالة</string>
     <string name="title_notification_failed">\'%1$s\' فشل</string>
+    <string name="title_factor_minutes">%1$d دقيقة</string>
     <string name="menu_exit">خروج</string>
     <string name="menu_answers">النماذج</string>
     <string name="menu_operations">الإجراءات</string>
     <string name="menu_contacts">المُراسِلون المحليون</string>
     <string name="menu_setup">الإعدادات</string>
     <string name="menu_legend">أسطورة</string>
+    <string name="menu_test">اختبار البرنامج</string>
     <string name="menu_faq">الدعم</string>
     <string name="menu_translate">ساعد في الترجمة</string>
     <string name="menu_issue">الإبلاغ عن خلل</string>
@@ -138,7 +140,10 @@
     <string name="title_setup_wizard">المساعد</string>
     <string name="title_setup_wizard_remark">اضغط \'العودة\' للذهاب الى صندوق الوارد</string>
     <string name="title_setup_other">مزود اخر</string>
+    <string name="title_setup_gmail_rationale">الرجاء منح الصلاحيات لتحديد الحساب وقراءة اسمك</string>
     <string name="title_setup_gmail_permissions">جوجل سوف تطلب موافقتك لقراءة, تأليف, أرسال وحذف نهائي لكل الرسائل. فيرميل لن يمسح رسائلك ابدا بدون موافقتك.</string>
+    <string name="title_setup_gmail_drafts">إذا تعذر الوصول إلى مجلد المسودات بواسطة IMAP ، يمكن إصلاح هذا في إعدادات تسمية Gmail</string>
+    <string name="title_setup_oauth_rationale">السماح بالوصول إلى حسابك %1$s</string>
     <string name="title_setup_select_account">اختيار الحساب</string>
     <string name="title_setup_instructions">تعليمات الضبط</string>
     <string name="title_setup_no_settings">لا اعدادات وجدت للنطاق \'%1$s\'</string>

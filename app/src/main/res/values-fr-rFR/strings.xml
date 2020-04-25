@@ -355,6 +355,7 @@
     <string name="title_advanced_confirm_images">Confirmer l\'affichage des images</string>
     <string name="title_advanced_confirm_html">Afficher les messages reformatés par défaut</string>
     <string name="title_advanced_tracking">Reconnaître et désactiver automatiquement les images de suivi</string>
+    <string name="title_advanced_hide_timezone">Envoyer des messages sans données de fuseau horaire</string>
     <string name="title_advanced_display_hidden">Afficher les textes de message cachés</string>
     <string name="title_advanced_secure">Masquer FairEmail dans la liste des applications récentes et empêcher la prise de captures d\'écran</string>
     <string name="title_advanced_pin">Code PIN</string>
@@ -809,6 +810,7 @@
     <string name="title_search_hint">        La recherche va d\'abord regarder les messages stockés sur votre appareil.
         Pour rechercher également sur le serveur, appuyez sur le bouton \"Rechercher de nouveau\".
     </string>
+    <string name="title_search_index_hint">La recherche via l\'index de recherche est rapide mais elle ne trouvera que des mots entiers</string>
     <string name="title_search_more">Plus d\'options</string>
     <string name="title_search_use_index">Utiliser l\'index de recherche</string>
     <string name="title_search_in_senders">Dans les expéditeurs (De)</string>

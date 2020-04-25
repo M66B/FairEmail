@@ -808,6 +808,7 @@
     <string name="title_search_hint">        Sökning kommer initialt att titta på meddelanden som lagras på din enhet.
         För att söka på servern också, tryck på knappen \"Sök igen\".
     </string>
+    <string name="title_search_index_hint">Sökning via index är snabbt, men kommer bara att hitta hela ord</string>
     <string name="title_search_more">Fler alternativ</string>
     <string name="title_search_use_index">Använd sökindex</string>
     <string name="title_search_in_senders">I avsändare (från)</string>

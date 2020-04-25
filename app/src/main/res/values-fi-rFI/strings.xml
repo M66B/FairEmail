@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">FairEmail-haku</string>
-    <string name="app_changelog">Päivityshistoria</string>
-    <string name="app_welcome">FairEmail on avoimen lähdekoodin sähköpostiohjelma, joka on keskittynyt yksityisyyteen ja turvallisuuteen. Tästä syystä jotkin ominaisuudet saattavat toimivat eri tavalla kuin mitä olet tottunut.</string>
+    <string name="app_changelog">Muutosloki</string>
+    <string name="app_welcome">FairEmail on avoimen lähdekoodin sähköpostiohjelma, joka on keskittynyt yksityisyyteen ja turvallisuuteen. Tästä syystä jotkin ominaisuudet saattavat toimia eri tavalla, kuin mihin olet tottunut.</string>
     <string name="app_limitations">Esimerkiksi viestit muotoillaan aina uudelleen vaarallisten elementtien poistamiseksi ja luettavuuden parantamiseksi, ja linkkien avaaminen pitää turvallisuuden takia erikseen vahvistaa.</string>
     <string name="app_crash">FairEmailia ei tueta tässä laitteessa, koska bugit Androidissa aiheuttavat kaatumisia</string>
     <string name="app_exit">Mene \'takaisin\' uudelleen poistuaksesi</string>
@@ -50,8 +50,8 @@
         <item quantity="other">%1$d uutta</item>
     </plurals>
     <plurals name="title_selected_conversations">
-        <item quantity="one">Valittuna %1$d keskustelu</item>
-        <item quantity="other">Valittuna %1$d keskustelua</item>
+        <item quantity="one">%1$d keskustelu valittu</item>
+        <item quantity="other">%1$d keskustelua valittu</item>
     </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Siirrä %1$d viesti kansioon %2$s?</item>
@@ -62,7 +62,7 @@
         <item quantity="other">Poista %1$d viestiä pysyvästi?</item>
     </plurals>
     <plurals name="title_ask_spam">
-        <item quantity="one">Käsittele %1$d viestiä roskapostina?</item>
+        <item quantity="one">Käsittele %1$d viesti roskapostina?</item>
         <item quantity="other">Käsittele %1$d viestiä roskapostina?</item>
     </plurals>
     <string name="title_ask_spam_who">Käsittele viesti lähettäjältä %1$s roskapostina?</string>
@@ -84,12 +84,12 @@
     <string name="menu_operations">Toimenpiteet</string>
     <string name="menu_contacts">Paikalliset yhteystiedot</string>
     <string name="menu_setup">Asetukset</string>
-    <string name="menu_legend">Selite</string>
+    <string name="menu_legend">Seloste</string>
     <string name="menu_test">Testaa ohjelmaa</string>
     <string name="menu_faq">Tuki</string>
     <string name="menu_translate">Auta kääntämisessä</string>
     <string name="menu_issue">Ilmoita ongelmasta</string>
-    <string name="menu_attribution">Käytettävät teknologiat</string>
+    <string name="menu_attribution">Käytetyt teknologiat</string>
     <string name="menu_privacy">Yksityisyys</string>
     <string name="menu_about">Tietoja</string>
     <string name="menu_pro">Pro-ominaisuudet</string>
@@ -353,6 +353,7 @@
     <string name="title_advanced_confirm_images">Vahvista kuvien näyttäminen</string>
     <string name="title_advanced_confirm_html">Näytä oletuksena uudelleenmuotoillut viestit</string>
     <string name="title_advanced_tracking">Tunnista automaattisesti ja poista käytöstä seurantakuvat</string>
+    <string name="title_advanced_hide_timezone">Lähetä viestit ilman aikavyöhyketietoja</string>
     <string name="title_advanced_display_hidden">Näytä piilotetut viestien tekstit</string>
     <string name="title_advanced_secure">Piilota viimeisimpien sovellusten listasta ja estä kuvankaappausten ottaminen</string>
     <string name="title_advanced_pin">PIN-koodi</string>
@@ -805,8 +806,9 @@
     <string name="title_search">Hae</string>
     <string name="title_search_for_hint">Syötä teksti</string>
     <string name="title_search_hint">Haku etsii aluksi laitteella olevista viesteistä.
-        Myös palvelimelta hakemiseksi näpäytä uudelleenhakupainiketta.
+        Palvelimelta hakeaksesi näpäytä uudelleenhakupainiketta.
     </string>
+    <string name="title_search_index_hint">Hakuindeksin kautta etsiminen on nopeampaa, mutta se löytää vain kokonaisia sanoja</string>
     <string name="title_search_more">Lisää asetuksia</string>
     <string name="title_search_use_index">Käytä haun indeksiä</string>
     <string name="title_search_in_senders">Lähettäjistä</string>
@@ -1178,14 +1180,14 @@
         <item>Tilit</item>
     </string-array>
     <string-array name="downloadNames">
-        <item>16 KB</item>
-        <item>32 KB</item>
-        <item>64 KB</item>
-        <item>128 KB</item>
-        <item>256 KB</item>
-        <item>512 KB</item>
-        <item>1 MB</item>
-        <item>2 MB</item>
+        <item>16 kt</item>
+        <item>32 kt</item>
+        <item>64 kt</item>
+        <item>128 kt</item>
+        <item>256 kt</item>
+        <item>512 kt</item>
+        <item>1 Mt</item>
+        <item>2 Mt</item>
         <item>∞</item>
     </string-array>
     <string-array name="onCloseNames">

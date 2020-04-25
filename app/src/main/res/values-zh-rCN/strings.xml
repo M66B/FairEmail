@@ -343,6 +343,7 @@
     <string name="title_advanced_confirm_images">确认显示图像</string>
     <string name="title_advanced_confirm_html">默认显示重新格式化的消息</string>
     <string name="title_advanced_tracking">自动识别并禁用跟踪图像</string>
+    <string name="title_advanced_hide_timezone">发送没有时区数据的消息</string>
     <string name="title_advanced_display_hidden">显示隐藏消息文本</string>
     <string name="title_advanced_secure">从\"最近应用\"列表中隐藏并阻止截屏</string>
     <string name="title_advanced_pin">PIN 码</string>
@@ -797,6 +798,7 @@
     <string name="title_search_hint">        搜索将首先查看存储在您的设备上的消息
         若也要搜索服务器上的内容，请点击“再次搜索”按钮
     </string>
+    <string name="title_search_index_hint">通过搜索索引搜索很快，但只能找到整个单词</string>
     <string name="title_search_more">更多选项</string>
     <string name="title_search_use_index">使用以下搜索索引</string>
     <string name="title_search_in_senders">发件人 (发送自)</string>

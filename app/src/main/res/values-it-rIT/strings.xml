@@ -355,6 +355,7 @@
     <string name="title_advanced_confirm_images">Conferma visualizzazione immagini</string>
     <string name="title_advanced_confirm_html">Mostra i messaggi riformattati di default</string>
     <string name="title_advanced_tracking">Riconoscere e disabilitare automaticamente le immagini di tracciamento</string>
+    <string name="title_advanced_hide_timezone">Invia messaggi senza fuso orario</string>
     <string name="title_advanced_display_hidden">Mostra il testo nascosto del messaggio</string>
     <string name="title_advanced_secure">Nascondi dalla schermata delle app recenti e impedisci di catturare screenshot</string>
     <string name="title_advanced_pin">PIN</string>
@@ -808,6 +809,7 @@
     <string name="title_search_hint">        La ricerca comincerà guardando ai messaggi memorizzati sul tuo dispositivo.
         Per cercare anche sul server, tocca il pulsante \"cerca di nuovo\".
     </string>
+    <string name="title_search_index_hint">La ricerca tramite l\'indice di ricerca è veloce, ma troverà solo parole intere</string>
     <string name="title_search_more">Altre opzioni</string>
     <string name="title_search_use_index">Usa indice di ricerca</string>
     <string name="title_search_in_senders">Nei mittenti (da)</string>

@@ -355,6 +355,7 @@
     <string name="title_advanced_confirm_images">Потвърдете показването на изображения</string>
     <string name="title_advanced_confirm_html">Показване на преформатирани съобщения по подразбиране</string>
     <string name="title_advanced_tracking">Автоматично разпознаване и деактивиране на проследяващи изображения</string>
+    <string name="title_advanced_hide_timezone">Изпращане на съобщения без данни за часовата зона</string>
     <string name="title_advanced_display_hidden">Показване на скрит текст в съобщение</string>
     <string name="title_advanced_secure">Скриване от екрана на последно използвани приложения и предотвратяване правенето снимка на екрана</string>
     <string name="title_advanced_pin">ПИН</string>
@@ -808,6 +809,7 @@
     <string name="title_search_hint">        Първоначално търсенето ще прегледа съобщенията, съхранявани на вашето устройство.
         За да търсите и в сървъра, натиснете бутона „търсене отново“.
     </string>
+    <string name="title_search_index_hint">Търсене чрез индекса за търсене е бързо, но ще намери само цели думи</string>
     <string name="title_search_more">Още опции</string>
     <string name="title_search_use_index">Използвай индекс за търсене</string>
     <string name="title_search_in_senders">В подетели (от)</string>

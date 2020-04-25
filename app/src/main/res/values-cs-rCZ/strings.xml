@@ -377,6 +377,7 @@
     <string name="title_advanced_confirm_images">Potvrzovat zobrazení obrázků</string>
     <string name="title_advanced_confirm_html">Automaticky zobrazit zprávy přeformátované</string>
     <string name="title_advanced_tracking">Automaticky rozpoznat a zakázat sledovací obrázky</string>
+    <string name="title_advanced_hide_timezone">Zprávy odesílat bez časového pásma</string>
     <string name="title_advanced_display_hidden">Zobrazit skryté texty zpráv</string>
     <string name="title_advanced_secure">Skrýt z obrazovky nedávných aplikací a zabránit pořizování snímků obrazovky</string>
     <string name="title_advanced_pin">PIN</string>
@@ -831,6 +832,7 @@
     <string name="title_search_hint">        Hledání se zpočátku zaměří na zprávy uložené ve vašem zařízení.
         Pro hledání i na serveru, stiskněte tlačítko \"Hledat znovu\".
     </string>
+    <string name="title_search_index_hint">Hledání s pomocí indexu vyhledávání je rychlé, ale najde pouze celá slova</string>
     <string name="title_search_more">Více možností</string>
     <string name="title_search_use_index">Použít index vyhledávání</string>
     <string name="title_search_in_senders">V odesílatelích (od)</string>
