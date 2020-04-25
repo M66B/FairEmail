@@ -754,7 +754,7 @@ public class HtmlHelper {
 
         // Lists
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li
-        if (!experiments) {
+        if (!experiments || !view) {
             for (Element li : document.select("li")) {
                 li.tagName("span");
                 Element parent = li.parent();
@@ -1918,6 +1918,7 @@ public class HtmlHelper {
                             case "br":
                                 newline(ssb.length());
                                 break;
+                            case "i":
                             case "em":
                                 ssb.setSpan(new StyleSpan(Typeface.ITALIC), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                 break;
@@ -1985,6 +1986,7 @@ public class HtmlHelper {
                             case "span":
                                 // Do nothing
                                 break;
+                            case "b":
                             case "strong":
                                 ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                 break;
