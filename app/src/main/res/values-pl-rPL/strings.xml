@@ -322,6 +322,7 @@
     <string name="title_advanced_actionbar">Pokaż pasek akcji konwersacji</string>
     <string name="title_advanced_actionbar_color">Użyj koloru konta jako koloru tła dla paska akcji rozmowy</string>
     <string name="title_advanced_navbar_colorize">Koloruj pasek nawigacji Androida</string>
+    <string name="title_advanced_parse_classes">Parsowanie arkuszy stylów</string>
     <string name="title_advanced_authentication">Pokaż ostrzeżenie, gdy serwer odbierający nie może uwierzytelnić wiadomości</string>
     <string name="title_advanced_double_back">Podwójne \'wstecz\', aby wyjść</string>
     <string name="title_advanced_pull_refresh">Pociągnij w dół, aby odświeżyć</string>
@@ -374,6 +375,7 @@
     <string name="title_advanced_confirm_images">Potwierdź wyświetlanie obrazów</string>
     <string name="title_advanced_confirm_html">Domyślnie pokaż ponownie sformatowane wiadomości</string>
     <string name="title_advanced_tracking">Automatyczne rozpoznawanie i wyłączanie śledzenia obrazów</string>
+    <string name="title_advanced_hide_timezone">Wysyłanie wiadomości bez informacji o strefie czasowej</string>
     <string name="title_advanced_display_hidden">Wyświetlaj ukryte teksty wiadomości</string>
     <string name="title_advanced_secure">Ukryj z ekranu najnowszych aplikacji i uniemożliwiaj wykonywanie zrzutów ekranu</string>
     <string name="title_advanced_pin">PIN</string>
@@ -442,6 +444,7 @@
     <string name="title_advanced_preview_hint">Dostępne tylko po pobraniu tekstu wiadomości</string>
     <string name="title_advanced_preview_issue">Przewijanie może być powolne z powodu błędu w niektórych wersjach Androida, gdy liczba linii jest większa niż jeden</string>
     <string name="title_advanced_inline_hint">Obrazy wstawione są obrazami zawartymi w wiadomości</string>
+    <string name="title_advanced_parse_classes_hint">Spowoduje to poprawniejsze wyświetlanie wiadomości, ale z możliwym opóźnieniem</string>
     <string name="title_advanced_autoexpand_hint">Automatycznie otwieraj wiadomość, gdy w rozmowie jest tylko jedna wiadomość lub tylko jedna nieprzeczytana wiadomość</string>
     <string name="title_advanced_autoseen_hint">Automatyczne oznaczanie wiadomości czytanych podczas rozwijania można wyłączyć w ustawieniach poszczególnych kont</string>
     <string name="title_advanced_autoclose_hint">Automatycznie zamykaj wątki rozmowy po zarchiwizowaniu, wysłaniu lub usunięciu wszystkich wiadomości</string>
@@ -827,6 +830,7 @@
     <string name="title_search_hint">        Wyszukiwanie początkowo obejmie wiadomości zapisane na Twoim urządzeniu.
         Aby wyszukiwanie objęło również serwer, dotknij przycisku \'Szukaj ponownie\'.
     </string>
+    <string name="title_search_index_hint">Wyszukiwanie za pomocą indeksu wyszukiwania jest szybkie, ale znajdzie tylko całe słowa</string>
     <string name="title_search_more">Więcej opcji</string>
     <string name="title_search_use_index">Użyj indeksu wyszukiwania</string>
     <string name="title_search_in_senders">W nadawcach (od)</string>

@@ -356,6 +356,7 @@
     <string name="title_advanced_confirm_images">Confirmar mostrar imágenes</string>
     <string name="title_advanced_confirm_html">Mostrar mensajes reformateados por defecto</string>
     <string name="title_advanced_tracking">Reconocer y desactivar automáticamente imágenes de rastreo</string>
+    <string name="title_advanced_hide_timezone">Enviar mensajes sin datos de zona horaria</string>
     <string name="title_advanced_display_hidden">Mostrar textos de mensajes ocultos</string>
     <string name="title_advanced_secure">Ocultar de la pantalla de aplicaciones recientes e impedir capturas de pantallas</string>
     <string name="title_advanced_pin">PIN</string>
@@ -810,6 +811,7 @@
     <string name="title_search_hint">        La búsqueda comenzará por los mensajes almacenados en su dispositivo.
         Para buscar también en el servidor, toque el botón \'Buscar de nuevo\'.
     </string>
+    <string name="title_search_index_hint">Buscar a través del índice de búsqueda es rápido, pero sólo encontrará palabras completas</string>
     <string name="title_search_more">Más opciones</string>
     <string name="title_search_use_index">Usar índice de búsqueda</string>
     <string name="title_search_in_senders">En remitentes (de)</string>
