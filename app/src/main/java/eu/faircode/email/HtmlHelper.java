@@ -1846,8 +1846,8 @@ public class HtmlHelper {
 
                     if (debug) {
                         if (block.size() > 0) {
-                            block.get(0).text("<" + block.get(0));
-                            block.get(block.size() - 1).text(block.get(block.size() - 1) + ">");
+                            block.get(0).text("(" + block.get(0));
+                            block.get(block.size() - 1).text(block.get(block.size() - 1) + ")");
                         }
                     }
                 }
@@ -1895,7 +1895,7 @@ public class HtmlHelper {
                                 ssb.setSpan(new QuoteSpan(), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                 break;
                             case "br":
-                                ssb.append("\n");
+                                newline(ssb.length());
                                 break;
                             case "em":
                                 ssb.setSpan(new StyleSpan(Typeface.ITALIC), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
@@ -1909,8 +1909,8 @@ public class HtmlHelper {
                                 int level = element.tagName().charAt(1) - '1';
                                 ssb.setSpan(new RelativeSizeSpan(HEADING_SIZES[level]), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                 ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                ssb.insert(start, "\n");
-                                ssb.append("\n");
+                                newline(start);
+                                newline(ssb.length());
                                 break;
                             case "img":
                                 String src = element.attr("src");
@@ -1921,7 +1921,7 @@ public class HtmlHelper {
                                 ssb.setSpan(new ImageSpan(d, src), start, start + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                 break;
                             case "li":
-                                ssb.append("\n");
+                                newline(ssb.length());
                                 Element parent = element.parent();
                                 if (parent == null || "ul".equals(parent.tagName()))
                                     // TODO BulletSpanCompat
@@ -1943,8 +1943,8 @@ public class HtmlHelper {
                                 break;
                             case "ol":
                             case "ul":
-                                ssb.insert(start, "\n");
-                                ssb.append("\n");
+                                newline(start);
+                                newline(ssb.length());
                                 break;
                             case "pre":
                                 // Do nothing
@@ -1986,7 +1986,22 @@ public class HtmlHelper {
                         }
                     }
                 }
+
+                private void newline(int index) {
+                    int len = ssb.length();
+                    if (len > 2 &&
+                            ssb.charAt(len - 1) == '\n' &&
+                            ssb.charAt(len - 2) == '\n')
+                        return;
+                    ssb.insert(index, "\n");
+                }
+
             }, document.body());
+
+            if (debug)
+                for (int i = ssb.length() - 1; i >= 0; i--)
+                    if (ssb.charAt(i) == '\n')
+                        ssb.insert(i, "|");
 
             return reverseSpans(ssb);
         } else
