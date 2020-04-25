@@ -317,7 +317,10 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
 
             @Override
             public void onError(Exception ex) {
-                Log.e("PGP", ex);
+                if ("bindService() returned false!".equals(ex.getMessage()))
+                    Log.i(ex.getMessage());
+                else
+                    Log.e("PGP", ex);
             }
         });
         pgpService.bindToService();
