@@ -354,6 +354,7 @@
     <string name="title_advanced_confirm_images">Bekräfta visning av bilder</string>
     <string name="title_advanced_confirm_html">Visa omformaterade meddelanden som standard</string>
     <string name="title_advanced_tracking">Automatiskt känna igen och inaktivera spårningsbilder</string>
+    <string name="title_advanced_hide_timezone">Skicka meddelanden utan tidszon</string>
     <string name="title_advanced_display_hidden">Visa dolda meddelandetexter</string>
     <string name="title_advanced_secure">Dölj dig från senaste appar-skärmen och förhindra tagning av skärmdumpar</string>
     <string name="title_advanced_pin">PIN-kod</string>
