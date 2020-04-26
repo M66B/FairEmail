@@ -269,6 +269,9 @@ public class ApplicationEx extends Application {
             boolean highlight_unread = prefs.getBoolean("highlight_unread", false);
             if (!highlight_unread)
                 editor.putBoolean("highlight_unread", highlight_unread);
+        } else if (version < 1121) {
+            if (!Helper.isPlayStoreInstall())
+                editor.putBoolean("experiments", true);
         }
 
         if (version < BuildConfig.VERSION_CODE)
