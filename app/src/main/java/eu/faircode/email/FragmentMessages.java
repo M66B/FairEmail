@@ -3050,6 +3050,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }
         });
 
+        loadMessages(false);
+
+        updateExpanded();
+
+        if (selectionTracker != null && selectionTracker.hasSelection())
+            fabMore.show();
+        else
+            fabMore.hide();
+
         // Folder
         switch (viewType) {
             case UNIFIED:
@@ -3130,15 +3139,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 setSubtitle(criteria.getTitle(getContext()));
                 break;
         }
-
-        loadMessages(false);
-
-        updateExpanded();
-
-        if (selectionTracker != null && selectionTracker.hasSelection())
-            fabMore.show();
-        else
-            fabMore.hide();
 
         if (!checkReporting())
             if (!checkReview())
