@@ -140,6 +140,10 @@ public class EntityAccount extends EntityOrder implements Serializable {
     public String error;
     public Long last_connected;
 
+    boolean isGmail() {
+        return "imap.gmail.com".equalsIgnoreCase(host);
+    }
+
     String getProtocol() {
         switch (protocol) {
             case TYPE_IMAP:
