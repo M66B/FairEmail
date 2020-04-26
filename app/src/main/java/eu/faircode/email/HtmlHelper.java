@@ -458,14 +458,18 @@ public class HtmlHelper {
         // Font
         for (Element font : document.select("font")) {
             // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/font
+            String style = font.attr("style");
             String color = font.attr("color");
             String size = font.attr("size");
 
+            style = style.trim();
+            if (!TextUtils.isEmpty(style) && !style.endsWith(";"))
+                style += ";";
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
                 font.removeAttr("color");
             font.removeAttr("size");
 
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder(style);
 
             if (!TextUtils.isEmpty(color))
                 sb.append("color:").append(color).append(";");
@@ -1923,6 +1927,9 @@ public class HtmlHelper {
                             case "i":
                             case "em":
                                 ssb.setSpan(new StyleSpan(Typeface.ITALIC), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                break;
+                            case "font":
+                                // Do nothing
                                 break;
                             case "h1":
                             case "h2":
