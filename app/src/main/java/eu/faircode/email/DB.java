@@ -211,7 +211,7 @@ public abstract class DB extends RoomDatabase {
                 if (changed) {
                     Log.i("Invalidating folder view");
                     last = folders;
-                    db.getInvalidationTracker().notifyObserversByTableNames("message");
+                    db.getInvalidationTracker().notifyObserversByTableNames("account", "message");
                 }
             }
         });

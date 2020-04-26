@@ -105,8 +105,8 @@ public interface DaoAccount {
             ", account.swipe_left, l.type AS left_type, l.name AS left_name, l.color AS left_color" +
             ", account.swipe_right, r.type AS right_type, r.name AS right_name, r.color AS right_color" +
             " FROM account" +
-            " LEFT JOIN folder l ON l.id = account.swipe_left" +
-            " LEFT JOIN folder r ON r.id = account.swipe_right" +
+            " LEFT JOIN folder_view l ON l.id = account.swipe_left" +
+            " LEFT JOIN folder_view r ON r.id = account.swipe_right" +
             " WHERE :account IS NULL OR account.id = :account")
     LiveData<List<TupleAccountSwipes>> liveAccountSwipes(Long account);
 
