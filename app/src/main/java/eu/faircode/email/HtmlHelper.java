@@ -1835,18 +1835,14 @@ public class HtmlHelper {
                     // https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Whitespace
                     TextNode tnode;
                     String text;
-                    for (int i = 0; i < block.size(); i++) {
+                    for (int i = 0; i < block.size(); ) {
                         tnode = block.get(i);
                         text = tnode.getWholeText();
-                        if (TextUtils.isEmpty(text))
-                            continue;
 
                         // Remove whitespace before/after newlines
                         TRIM_WHITESPACE_NL.matcher(text).replaceAll(" ");
 
-                        if (i == 0 ||
-                                block.get(i - 1).text().equals("") ||
-                                endsWithWhitespace(block.get(i - 1).text()))
+                        if (i == 0 || endsWithWhitespace(block.get(i - 1).text()))
                             while (startsWithWhiteSpace(text))
                                 text = text.substring(1);
 
@@ -1855,6 +1851,11 @@ public class HtmlHelper {
                                 text = text.substring(0, text.length() - 1);
 
                         tnode.text(text);
+
+                        if (TextUtils.isEmpty(text))
+                            block.remove(i);
+                        else
+                            i++;
                     }
 
                     if (debug) {
