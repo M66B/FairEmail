@@ -299,10 +299,32 @@ public class EntityOperation {
 
                 return;
 
-            } else if (DELETE.equals(name))
+            } else if (DELETE.equals(name)) {
                 db.message().setMessageUiHide(message.id, true);
 
-            else if (ATTACHMENT.equals(name))
+                // Delete Gmail corresponding archive message
+                EntityFolder folder = db.folder().getFolder(message.folder);
+                if (folder != null && !EntityFolder.ARCHIVE.equals(folder.type)) {
+                    boolean user = false;
+                    boolean archive = false;
+                    List<EntityMessage> similars = db.message().getMessagesBySimilarity(message.account, message.id, message.msgid);
+                    for (EntityMessage similar : similars)
+                        if (!similar.id.equals(message.id)) {
+                            EntityFolder f = db.folder().getFolder(similar.folder);
+                            if (f == null || EntityFolder.USER.equals(f.type))
+                                user = true;
+                            if (f != null && EntityFolder.ARCHIVE.equals(f.type))
+                                archive = true;
+                        }
+                    if (archive && !user) {
+                        for (EntityMessage similar : similars)
+                            if (!similar.id.equals(message.id)) {
+                                db.message().setMessageUiHide(similar.id, true);
+                                queue(context, similar.account, similar.folder, similar.id, name, jargs);
+                            }
+                    }
+                }
+            } else if (ATTACHMENT.equals(name))
                 db.attachment().setProgress(jargs.getLong(0), 0);
 
             queue(context, message.account, message.folder, message.id, name, jargs);
