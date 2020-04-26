@@ -190,7 +190,8 @@ public interface DaoMessage {
             " AND (NOT :filter_archive OR folder.type <> '" + EntityFolder.ARCHIVE +
             "' OR (SELECT COUNT(m.id) FROM message m" +
             "   WHERE m.account = message.account" +
-            "   AND (m.hash = message.hash OR m.msgid = message.msgid)) = 1)" +
+            "   AND (m.hash = message.hash OR m.msgid = message.msgid)" +
+            "   AND NOT m.ui_hide) = 1)" +
             " AND (NOT message.ui_hide OR :debug)" +
             " ORDER BY CASE WHEN :ascending THEN message.received ELSE -message.received END" +
             ", CASE" +
