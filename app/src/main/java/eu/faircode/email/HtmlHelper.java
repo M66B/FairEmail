@@ -1061,6 +1061,7 @@ public class HtmlHelper {
         value = value.toLowerCase(Locale.ROOT).trim();
 
         switch (value) {
+            case "light":
             case "lighter":
                 return 300;
             case "normal":
@@ -1078,7 +1079,6 @@ public class HtmlHelper {
         }
 
         return null;
-
     }
 
     private static Float getFontSize(String value, Integer current) {
