@@ -268,7 +268,8 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(148) How can I use an Apple iCloud account?](#user-content-faq148)
 * [(149) How does the unread message count widget work?](#user-content-faq149)
 * [(150) Can you add cancelling calendar invites?](#user-content-faq150)
-* [(151) Can you add backup/restore messages?](#user-content-faq150)
+* [(151) Can you add backup/restore messages?](#user-content-faq151)
+* [(152) How can I insert a contact group?](#user-content-faq152)
 
 [I have another question.](#user-content-support)
 
@@ -2923,6 +2924,15 @@ Unfortunately, there exists no intent to delete existing calendar events.
 An email client is meant to read and write messages, not to backup and restore messages.
 The email server is responsible for backups.
 If you want to make a backup yourself, you could use a tool like [imapsync](https://imapsync.lamiral.info/).
+
+<br />
+
+<a name="faq152"></a>
+**(152) How can I insert a contact group?**
+
+You can insert the email addresses of all contacts in a contact group via the three dots menu of the message composer.
+
+You can define contact groups with the Android contacts app, please see [here](https://support.google.com/contacts/answer/30970) for instructions.
 
 <br />
 
