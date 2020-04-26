@@ -46,6 +46,7 @@
     <!-- needs subscription -->
     <provider
         name="mailbox.org"
+        domain="mailbox\\.org"
         link="https://kb.mailbox.org/display/BMBOKB/E-Mail-Einrichtung+mit+Mozilla+Thunderbird">
         <imap
             host="imap.mailbox.org"
@@ -60,7 +61,7 @@
     <provider
         name="Yahoo!"
         appPassword="true"
-        domain="yahoo.*"
+        domain="yahoo\\..*"
         id="yahoo"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq88">
         <imap
@@ -82,7 +83,7 @@
     </provider>
     <provider
         name="Posteo.de"
-        domain="posteo.*"
+        domain="posteo\\..*"
         link="https://posteo.de/en/help/how-do-i-set-up-posteo-in-an-email-client-pop3-imap-and-smtp">
         <imap
             host="posteo.de"
@@ -96,6 +97,7 @@
     <provider
         name="free.fr"
         appPassword="true"
+        domain="free\\.fr"
         link="http://jc.etiemble.free.fr/abc/index.php/trucs-astuces/configurer-smtp-free-fr">
         <imap
             host="imap.free.fr"
@@ -108,6 +110,7 @@
     </provider>
     <provider
         name="orange.fr"
+        domain="orange\\.fr,wanadoo\\.fr"
         link="https://assistance.orange.fr/mobile-tablette/tous-les-mobiles-et-tablettes/installer-et-utiliser/utiliser-internet-mail-et-cloud/mail/l-application-mail-orange/parametrer-et-configurer/mail-configurer-les-serveurs-sortants-et-entrants-des-principaux-comptes-mails_47992-48856">
         <imap
             host="imap.orange.fr"
@@ -120,6 +123,7 @@
     </provider>
     <provider
         name="FastMail"
+        domain="fastmail\\..*"
         link="https://www.fastmail.com/help/technical/servernamesandports.html">
         <imap
             host="imap.fastmail.com"
@@ -134,6 +138,7 @@
     <!-- no IMAP IDLE -->
     <provider
         name="SFR.fr"
+        domain="sfr\\.fr,neuf\\.fr,cegetel\\.net,9online\\.fr"
         link="https://assistance.sfr.fr/service-et-accessoire/sfr-mail/serveurs-messagerie-sfr.html">
         <imap
             host="imap.sfr.fr"
@@ -202,7 +207,9 @@
             port="587"
             starttls="true" />
     </provider>
-    <provider name="disroot.org">
+    <provider
+        name="disroot.org"
+        domain="disroot\\.org">
         <imap
             host="disroot.org"
             port="993"
@@ -214,6 +221,7 @@
     </provider>
     <provider
         name="Mail.de"
+        domain="mail\\.de"
         link="https://mail.de/hilfe/pop3-imap-einstellungen">
         <imap
             host="imap.mail.de"
@@ -226,6 +234,7 @@
     </provider>
     <provider
         name="Yandex"
+        domain="yandex\\.com"
         id="yandex"
         link="https://yandex.com/support/mail/mail-clients.html#imap">
         <imap
@@ -248,6 +257,7 @@
     </provider>
     <provider
         name="web.de"
+        domain="web\\.de"
         keepalive="12"
         link="https://hilfe.web.de/pop-imap/imap/imap-serverdaten.html"
         user="local">
@@ -262,6 +272,7 @@
     </provider>
     <provider
         name="Telstra"
+        domain="bigpond\\.com,bigpond\\.net.au,telstra\\.com"
         link="https://www.telstra.com.au/support/category/email/set-up/imap-pop-and-smtp-information-for-manual-email-set-up">
         <imap
             host="imap.telstra.com"
@@ -302,6 +313,7 @@
     </provider>
     <provider
         name="dismail.de"
+        domain="dismail\\.de"
         link="https://dismail.de/info.html">
         <imap
             host="imap.dismail.de"
@@ -314,6 +326,7 @@
     </provider>
     <provider
         name="Apple iCloud"
+        domain="icloud\\.com"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq148"
         user="local">
         <imap
@@ -327,6 +340,7 @@
     </provider>
     <provider
         name="24-mail"
+        domain="24-mail\\.com,24-mail\\.de"
         link="http://24-mail.com/index.php?action=faq">
         <imap
             host="24-mail.com"
@@ -339,6 +353,7 @@
     </provider>
     <provider
         name="freenet.de"
+        domain="freenet\\.de,fn\\.de,freenetmail\\.de,bossmail\\.de,justmail\\.de"
         link="https://kundenservice.freenet.de/artikel/1869">
         <imap
             host="mx.freenet.de"
@@ -351,6 +366,7 @@
     </provider>
     <provider
         name="Zoho"
+        domain="zoho\\.com"
         link="https://www.zoho.com/mail/help/imap-access.html">
         <imap
             host="imap.zoho.com"
@@ -363,6 +379,7 @@
     </provider>
     <provider
         name="Zoho EU"
+        domain="zohomail\\.eu"
         link="https://www.zoho.eu/mail/help/imap-access.html">
         <imap
             host="imap.zoho.eu"
@@ -375,6 +392,7 @@
     </provider>
     <provider
         name="Mail.ru"
+        domain="mail\\.ru,inbox\\.ru,list\\.ru,bk\\.ru"
         link="https://help.mail.ru/mail-help/mailer/popsmtp">
         <imap
             host="imap.mail.ru"
@@ -425,6 +443,7 @@
     </provider>
     <provider
         name="Runbox"
+        domain="runbox\\..*"
         link="https://help.runbox.com/email-program-settings/">
         <imap
             host="mail.runbox.com"
@@ -449,6 +468,7 @@
     </provider>
     <provider
         name="XS4ALL"
+        domain="xs4all\\.nl"
         link="https://www.xs4all.nl/service/diensten/email/installeren/e-mailinstellingen.htm"
         useip="false">
         <imap
@@ -462,6 +482,7 @@
     </provider>
     <provider
         name="Telenet"
+        domain="telenet\\.be"
         link="https://www2.telenet.be/nl/klantenservice/e-mails-versturen/"
         useip="false">
         <imap
@@ -475,6 +496,7 @@
     </provider>
     <provider
         name="Mailfence"
+        domain="mailfence\\.com"
         link="https://mailfence.com/en/faq.jsp"
         useip="false"
         user="local">
@@ -489,6 +511,7 @@
     </provider>
     <provider
         name="Freedom Internet"
+        domain="freedom\\.nl"
         link="https://www.freedom.nl/support"
         useip="false">
         <imap
@@ -502,6 +525,7 @@
     </provider>
     <provider
         name="Bluewin.ch"
+        domain="bluewin\\.ch"
         link="https://emailsetup.swisscom.ch/guide/?accountType=imap&amp;customer=residential&amp;device=mobile&amp;lang=en&amp;manual=setup&amp;step=emailSettingsMobileAppSelection">
         <imap
             host="imaps.bluewin.ch"
@@ -538,6 +562,7 @@
     </provider>
     <provider
         name="AOL"
+        domain="aol\\.com"
         link="https://help.aol.com/articles/how-do-i-use-other-email-applications-to-send-and-receive-my-aol-mail">
         <imap
             host="imap.aol.com"
@@ -545,6 +570,19 @@
             starttls="false" />
         <smtp
             host="smtp.aol.com"
+            port="465"
+            starttls="false" />
+    </provider>
+    <provider
+        name="Verizon"
+        domain="verizon\\.net"
+        link="https://help.aol.com/articles/verizon-move-to-aol-mail-setting-up-your-new-aol-account-in-a-third-party-email-program-or-mobile-device-imap">
+        <imap
+            host="imap.aol.com"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.verizon.net"
             port="465"
             starttls="false" />
     </provider>
@@ -612,6 +650,7 @@
     </provider>
     <provider
         name="OVH"
+        domain="ovh\\..*"
         link="https://docs.ovh.com/fr/emails/mail-mutualise-guide-configuration-dun-telephone-mobile-sous-android-version-51/#rappel-des-parametres-pop-imap_1">
         <imap
             host="ssl0.ovh.net"
@@ -624,6 +663,7 @@
     </provider>
     <provider
         name="Sunrise"
+        domain="sunrise\\.ch"
         link="https://www.sunrise.ch/de/privatkunden/hilfe/nutzung-und-dienste/sunrise-mail.html">
         <imap
             host="imap.sunrise.ch"
@@ -636,6 +676,7 @@
     </provider>
     <provider
         name="Riseup"
+        domain="riseup\\.net"
         link="https://riseup.net/en/email/clients#basic-client-configuration">
         <imap
             host="mail.riseup.net"
@@ -648,6 +689,7 @@
     </provider>
     <provider
         name="o2.pl"
+        domain="o2\\.pl"
         link="https://pomoc.o2.pl/jak-skonfigurowac-program-pocztowy">
         <imap
             host="poczta.o2.pl"
@@ -660,6 +702,7 @@
     </provider>
     <provider
         name="Alice.it"
+        domain="alice\\.it"
         link="https://assistenzatecnica.tim.it/at/portals/assistenzatecnica.portal">
         <imap
             host="in.alice.it"
@@ -672,6 +715,7 @@
     </provider>
     <provider
         name="Laposte.net"
+        domain="laposte\\.net"
         link="https://www.laposte.fr/votre-vie-digitale/conseils-pratiques/configuration-webmail-laposte.net">
         <imap
             host="imap.laposte.net"
