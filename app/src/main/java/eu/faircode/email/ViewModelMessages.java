@@ -263,28 +263,19 @@ public class ViewModelMessages extends ViewModel {
                 for (int pos = 0; pos < messages.size(); pos++) {
                     TupleMessageEx item = messages.get(pos);
                     if (item != null && id == item.id) {
-                        boolean load = false;
-
                         if (pos - 1 >= 0) {
                             TupleMessageEx next = messages.get(pos - 1);
-                            if (next == null)
-                                load = true;
                             intf.onNext(true, next == null ? null : next.id);
                         } else
                             intf.onNext(false, null);
 
                         if (pos + 1 < messages.size()) {
                             TupleMessageEx prev = messages.get(pos + 1);
-                            if (prev == null)
-                                load = true;
                             intf.onPrevious(true, prev == null ? null : prev.id);
                         } else
                             intf.onPrevious(false, null);
 
                         intf.onFound(pos, messages.size());
-
-                        if (load)
-                            messages.loadAround(pos);
 
                         return;
                     }
