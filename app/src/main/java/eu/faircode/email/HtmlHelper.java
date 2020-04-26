@@ -2019,6 +2019,8 @@ public class HtmlHelper {
                             String[] params = style.split(";");
                             for (String param : params) {
                                 int semi = param.indexOf(":");
+                                if (semi < 0)
+                                    continue;
                                 String key = param.substring(0, semi);
                                 String value = param.substring(semi + 1);
                                 switch (key) {
