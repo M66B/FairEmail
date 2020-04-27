@@ -46,8 +46,6 @@ import androidx.appcompat.app.AlertDialog;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.io.InputStream;
-
 public class ActivitySignature extends ActivityBase {
     private EditTextCompose etText;
     private BottomNavigationView style_bar;
@@ -188,7 +186,7 @@ public class ActivitySignature extends ActivityBase {
             etText.setText(HtmlHelper.fromHtml(html, new Html.ImageGetter() {
                 @Override
                 public Drawable getDrawable(String source) {
-                    return getDrawableByUri(ActivitySignature.this, Uri.parse(source));
+                    return ImageHelper.decodeImage(ActivitySignature.this, -1, source, true, 0, etText);
                 }
             }, null));
         dirty = false;
@@ -282,38 +280,15 @@ public class ActivitySignature extends ActivityBase {
             else {
                 SpannableStringBuilder ssb = new SpannableStringBuilder(etText.getText());
                 ssb.insert(start, "\uFFFC"); // Object replacement character
-                ImageSpan is = new ImageSpan(getDrawableByUri(this, uri), uri.toString(), ImageSpan.ALIGN_BASELINE);
+                String source = uri.toString();
+                Drawable d = ImageHelper.decodeImage(this, -1, source, true, 0, etText);
+                ImageSpan is = new ImageSpan(d, source);
                 ssb.setSpan(is, start, start + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                 etText.setText(ssb);
                 etText.setSelection(start + 1);
             }
         } catch (Throwable ex) {
             Log.unexpectedError(getSupportFragmentManager(), ex);
-        }
-    }
-
-    static Drawable getDrawableByUri(Context context, Uri uri) {
-        if ("content".equals(uri.getScheme())) {
-            Drawable d;
-            try {
-                Log.i("Loading image source=" + uri);
-                InputStream inputStream = context.getContentResolver().openInputStream(uri);
-                d = Drawable.createFromStream(inputStream, uri.toString());
-            } catch (Throwable ex) {
-                // FileNotFound, Security
-                Log.w(ex);
-                d = context.getResources().getDrawable(R.drawable.baseline_broken_image_24);
-            }
-
-            int w = Helper.dp2pixels(context, d.getIntrinsicWidth());
-            int h = Helper.dp2pixels(context, d.getIntrinsicHeight());
-
-            d.setBounds(0, 0, w, h);
-            return d;
-        } else {
-            Drawable d = context.getResources().getDrawable(R.drawable.baseline_image_24);
-            d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
-            return d;
         }
     }
 }

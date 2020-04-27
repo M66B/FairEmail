@@ -4567,7 +4567,7 @@ public class FragmentCompose extends FragmentBase {
                 signature = HtmlHelper.fromHtml(identity.signature, new Html.ImageGetter() {
                     @Override
                     public Drawable getDrawable(String source) {
-                        return ActivitySignature.getDrawableByUri(getContext(), Uri.parse(source));
+                        return ImageHelper.decodeImage(getContext(), -1, source, true, 0, tvSignature);
                     }
                 }, null);
             tvSignature.setText(signature);

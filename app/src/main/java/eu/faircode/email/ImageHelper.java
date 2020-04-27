@@ -40,6 +40,7 @@ import android.graphics.drawable.LevelListDrawable;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
+import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Base64;
@@ -58,6 +59,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -225,9 +227,9 @@ class ImageHelper {
 
             boolean embedded = a.source.startsWith("cid:");
             boolean data = a.source.startsWith("data:");
+            boolean content = a.source.startsWith("content:");
 
-            Log.d("Image show=" + show + " inline=" + inline +
-                    " embedded=" + embedded + " data=" + data + " source=" + a.source);
+            Log.d("Image show=" + show + " inline=" + inline + " source=" + a.source);
 
             // Embedded images
             if (embedded && (show || inline)) {
@@ -311,7 +313,27 @@ class ImageHelper {
                     return d;
                 }
 
-            if (!show) {
+            if (content && (show || inline)) {
+                Drawable d;
+                try {
+                    Uri uri = Uri.parse(a.source);
+                    Log.i("Loading image source=" + uri);
+                    InputStream inputStream = context.getContentResolver().openInputStream(uri);
+                    d = Drawable.createFromStream(inputStream, uri.toString());
+                } catch (Throwable ex) {
+                    // FileNotFound, Security
+                    Log.w(ex);
+                    d = context.getResources().getDrawable(R.drawable.baseline_broken_image_24);
+                }
+
+                int w = Helper.dp2pixels(context, d.getIntrinsicWidth());
+                int h = Helper.dp2pixels(context, d.getIntrinsicHeight());
+
+                d.setBounds(0, 0, w, h);
+                return d;
+            }
+
+            if (!show || id < 0) {
                 // Show placeholder icon
                 int resid = (embedded || data ? R.drawable.baseline_photo_library_24 : R.drawable.baseline_image_24);
                 Drawable d = res.getDrawable(resid, theme);
