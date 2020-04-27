@@ -3928,7 +3928,8 @@ public class FragmentCompose extends FragmentBase {
                     else
                         b = HtmlHelper.sanitizeCompose(context, body, true);
 
-                    if (TextUtils.isEmpty(body) ||
+                    if (dirty ||
+                            TextUtils.isEmpty(body) ||
                             !b.body().html().equals(doc.body().html()) ||
                             (extras != null && extras.containsKey("html"))) {
                         dirty = true;
