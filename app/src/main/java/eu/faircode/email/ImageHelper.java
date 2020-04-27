@@ -333,7 +333,7 @@ class ImageHelper {
                 return d;
             }
 
-            if (!show || id < 0) {
+            if (!show) {
                 // Show placeholder icon
                 int resid = (embedded || data ? R.drawable.baseline_photo_library_24 : R.drawable.baseline_image_24);
                 Drawable d = res.getDrawable(resid, theme);
@@ -513,6 +513,9 @@ class ImageHelper {
     }
 
     private static Drawable getCachedImage(Context context, long id, String source) {
+        if (id < 0)
+            return null;
+
         File file = getCacheFile(context, id, source);
         if (file.exists()) {
             Log.i("Using cached " + file);
@@ -618,9 +621,11 @@ class ImageHelper {
 
         Log.i("Downloaded image source=" + source);
 
-        File file = getCacheFile(context, id, source);
-        try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
-            bm.compress(Bitmap.CompressFormat.PNG, 90, os);
+        if (id >= 0) {
+            File file = getCacheFile(context, id, source);
+            try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
+                bm.compress(Bitmap.CompressFormat.PNG, 90, os);
+            }
         }
 
         Drawable d = new BitmapDrawable(res, bm);

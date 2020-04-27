@@ -1882,7 +1882,7 @@ public class FragmentCompose extends FragmentBase {
         new SimpleTask<Spanned>() {
             @Override
             protected Spanned onExecute(Context context, Bundle args) throws IOException {
-                long id = args.getLong("id");
+                final long id = args.getLong("id");
                 List<Uri> uris = args.getParcelableArrayList("uris");
                 boolean image = args.getBoolean("image");
                 int resize = args.getInt("resize");
@@ -2637,7 +2637,7 @@ public class FragmentCompose extends FragmentBase {
         Spanned spanned = HtmlHelper.fromHtml(text, new Html.ImageGetter() {
             @Override
             public Drawable getDrawable(String source) {
-                return ImageHelper.decodeImage(getContext(), -1, source, true, 0, etBody);
+                return ImageHelper.decodeImage(getContext(), working, source, true, 0, etBody);
             }
         }, null);
         etBody.getText().insert(etBody.getSelectionStart(), spanned);
@@ -4572,7 +4572,7 @@ public class FragmentCompose extends FragmentBase {
                 signature = HtmlHelper.fromHtml(identity.signature, new Html.ImageGetter() {
                     @Override
                     public Drawable getDrawable(String source) {
-                        return ImageHelper.decodeImage(getContext(), -1, source, true, 0, tvSignature);
+                        return ImageHelper.decodeImage(getContext(), working, source, true, 0, tvSignature);
                     }
                 }, null);
             tvSignature.setText(signature);
