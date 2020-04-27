@@ -281,7 +281,7 @@ public class ActivitySignature extends ActivityBase {
                 etText.getText().insert(start, "<img src=\"" + Html.escapeHtml(uri.toString()) + "\" />");
             else {
                 SpannableStringBuilder ssb = new SpannableStringBuilder(etText.getText());
-                ssb.insert(start, " ");
+                ssb.insert(start, "\uFFFC"); // Object replacement character
                 ImageSpan is = new ImageSpan(getDrawableByUri(this, uri), uri.toString(), ImageSpan.ALIGN_BASELINE);
                 ssb.setSpan(is, start, start + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                 etText.setText(ssb);
