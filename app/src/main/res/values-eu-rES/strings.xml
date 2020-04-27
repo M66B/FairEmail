@@ -803,6 +803,7 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_search_hint">        Bilaketak hasiera batean zure gailuan gordetako mezuak aztertuko ditu.
         Zerbitzarian ere bilatzeko, sakatu \'bilatu berriro\' botoian.
     </string>
+    <string name="title_search_index_hint">Bilaketa-indizearen bidez bilatzea azkarra da, baina hitz osoak soilik topatuko ditu</string>
     <string name="title_search_more">Aukera gehiago</string>
     <string name="title_search_use_index">Erabili bilaketa indizea</string>
     <string name="title_search_in_senders">Igorleetan (nork)</string>
