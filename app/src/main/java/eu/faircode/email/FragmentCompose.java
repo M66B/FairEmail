@@ -2637,7 +2637,7 @@ public class FragmentCompose extends FragmentBase {
         Spanned spanned = HtmlHelper.fromHtml(text, new Html.ImageGetter() {
             @Override
             public Drawable getDrawable(String source) {
-                return ImageHelper.decodeImage(getContext(), working, source, true, 0, etBody);
+                return ImageHelper.decodeImage(getContext(), working, source, true, zoom, etBody);
             }
         }, null);
         etBody.getText().insert(etBody.getSelectionStart(), spanned);
