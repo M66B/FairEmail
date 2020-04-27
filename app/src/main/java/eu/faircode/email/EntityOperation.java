@@ -299,10 +299,18 @@ public class EntityOperation {
 
                 return;
 
-            } else if (DELETE.equals(name))
+            } else if (DELETE.equals(name)) {
                 db.message().setMessageUiHide(message.id, true);
-
-            else if (ATTACHMENT.equals(name))
+/*
+                if (message.hash != null) {
+                    List<EntityMessage> sames = db.message().getMessagesByHash(message.account, message.hash);
+                    for (EntityMessage same : sames) {
+                        db.message().setMessageUiHide(same.id, true);
+                        queue(context, same.account, same.folder, same.id, name, jargs);
+                    }
+                }
+*/
+            } else if (ATTACHMENT.equals(name))
                 db.attachment().setProgress(jargs.getLong(0), 0);
 
             queue(context, message.account, message.folder, message.id, name, jargs);
