@@ -272,6 +272,8 @@ public class ApplicationEx extends Application {
         } else if (version < 1121) {
             if (!Helper.isPlayStoreInstall())
                 editor.putBoolean("experiments", true);
+        } else if (version < 1124) {
+            editor.remove("experiments");
         }
 
         if (version < BuildConfig.VERSION_CODE)

@@ -314,8 +314,6 @@ public class HtmlHelper {
         boolean display_hidden = prefs.getBoolean("display_hidden", false);
         boolean disable_tracking = prefs.getBoolean("disable_tracking", true);
         boolean parse_classes = prefs.getBoolean("parse_classes", false);
-        boolean experiments = prefs.getBoolean("experiments", false);
-
 
         // https://chromium.googlesource.com/chromium/blink/+/master/Source/core/css/html.css
 
@@ -754,13 +752,13 @@ public class HtmlHelper {
         // Subscript/Superscript
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sub
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sup
-        if (!experiments || !view)
+        if (!view)
             for (Element subp : document.select("sub,sup"))
                 subp.tagName("small");
 
         // Lists
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li
-        if (!experiments || !view) {
+        if (!view) {
             for (Element li : document.select("li")) {
                 li.tagName("span");
                 Element parent = li.parent();
@@ -1779,295 +1777,291 @@ public class HtmlHelper {
 
     static Spanned fromDocument(Context context, @NonNull Document document, @Nullable Html.ImageGetter imageGetter, @Nullable Html.TagHandler tagHandler) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean experiments = prefs.getBoolean("experiments", false);
         boolean debug = prefs.getBoolean("debug", false);
         int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
         int dp3 = Helper.dp2pixels(context, 3);
         int dp6 = Helper.dp2pixels(context, 6);
         int dp24 = Helper.dp2pixels(context, 24);
 
-        if (experiments) {
-            // https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements
-            NodeTraversor.traverse(new NodeVisitor() {
-                private int pre = 0;
-                private Element element;
-                private List<TextNode> block = new ArrayList<>();
+        // https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements
+        NodeTraversor.traverse(new NodeVisitor() {
+            private int pre = 0;
+            private Element element;
+            private List<TextNode> block = new ArrayList<>();
 
-                private String WHITESPACE = " \t\f\u00A0";
-                private String WHITESPACE_NL = WHITESPACE + "\r\n";
-                private Pattern TRIM_WHITESPACE_NL =
-                        Pattern.compile("[" + WHITESPACE + "]*\\r?\\n[" + WHITESPACE + "]*");
+            private String WHITESPACE = " \t\f\u00A0";
+            private String WHITESPACE_NL = WHITESPACE + "\r\n";
+            private Pattern TRIM_WHITESPACE_NL =
+                    Pattern.compile("[" + WHITESPACE + "]*\\r?\\n[" + WHITESPACE + "]*");
 
-                private List<String> BLOCK_START = Collections.unmodifiableList(Arrays.asList(
-                        "body", "blockquote", "h1", "h2", "h3", "h4", "h5", "h6", "li", "ol", "ul", "pre"
-                ));
-                private List<String> BLOCK_END = Collections.unmodifiableList(Arrays.asList(
-                        "body", "blockquote", "br", "h1", "h2", "h3", "h4", "h5", "h6", "li", "ol", "ul", "pre"
-                ));
+            private List<String> BLOCK_START = Collections.unmodifiableList(Arrays.asList(
+                    "body", "blockquote", "h1", "h2", "h3", "h4", "h5", "h6", "li", "ol", "ul", "pre"
+            ));
+            private List<String> BLOCK_END = Collections.unmodifiableList(Arrays.asList(
+                    "body", "blockquote", "br", "h1", "h2", "h3", "h4", "h5", "h6", "li", "ol", "ul", "pre"
+            ));
 
-                @Override
-                public void head(Node node, int depth) {
-                    if (node instanceof TextNode) {
-                        if (pre == 0)
-                            block.add((TextNode) node);
-                    } else if (node instanceof Element) {
-                        element = (Element) node;
-                        if (BLOCK_START.contains(element.tagName())) {
-                            normalizeText(block);
-                            block.clear();
-                        }
-                        if ("pre".equals(element.tagName()))
-                            pre++;
+            @Override
+            public void head(Node node, int depth) {
+                if (node instanceof TextNode) {
+                    if (pre == 0)
+                        block.add((TextNode) node);
+                } else if (node instanceof Element) {
+                    element = (Element) node;
+                    if (BLOCK_START.contains(element.tagName())) {
+                        normalizeText(block);
+                        block.clear();
+                    }
+                    if ("pre".equals(element.tagName()))
+                        pre++;
+                }
+            }
+
+            @Override
+            public void tail(Node node, int depth) {
+                if (node instanceof Element) {
+                    element = (Element) node;
+                    if (BLOCK_END.contains(element.tagName())) {
+                        normalizeText(block);
+                        block.clear();
+                    }
+                    if ("pre".equals(element.tagName()))
+                        pre--;
+                }
+            }
+
+            private void normalizeText(List<TextNode> block) {
+                // https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Whitespace
+                TextNode tnode;
+                String text;
+                for (int i = 0; i < block.size(); ) {
+                    tnode = block.get(i);
+                    text = tnode.getWholeText();
+
+                    // Remove whitespace before/after newlines
+                    TRIM_WHITESPACE_NL.matcher(text).replaceAll(" ");
+
+                    if (i == 0 || endsWithWhitespace(block.get(i - 1).text()))
+                        while (startsWithWhiteSpace(text))
+                            text = text.substring(1);
+
+                    if (i == block.size() - 1)
+                        while (endsWithWhitespace(text))
+                            text = text.substring(0, text.length() - 1);
+
+                    tnode.text(text);
+
+                    if (TextUtils.isEmpty(text))
+                        block.remove(i);
+                    else
+                        i++;
+                }
+
+                if (debug) {
+                    if (block.size() > 0) {
+                        block.get(0).text("(" + block.get(0));
+                        block.get(block.size() - 1).text(block.get(block.size() - 1) + ")");
                     }
                 }
+            }
 
-                @Override
-                public void tail(Node node, int depth) {
-                    if (node instanceof Element) {
-                        element = (Element) node;
-                        if (BLOCK_END.contains(element.tagName())) {
-                            normalizeText(block);
-                            block.clear();
-                        }
-                        if ("pre".equals(element.tagName()))
-                            pre--;
-                    }
+            boolean startsWithWhiteSpace(String text) {
+                int len = text.length();
+                if (len == 0)
+                    return false;
+                return WHITESPACE_NL.contains(text.substring(0, 1));
+            }
+
+            boolean endsWithWhitespace(String text) {
+                int len = text.length();
+                if (len == 0)
+                    return false;
+                return WHITESPACE_NL.contains(text.substring(len - 1));
+            }
+        }, document.body());
+
+        // https://developer.android.com/guide/topics/text/spans
+        SpannableStringBuilder ssb = new SpannableStringBuilder();
+
+        NodeTraversor.traverse(new NodeVisitor() {
+            private Element element;
+            private TextNode tnode;
+
+            @Override
+            public void head(Node node, int depth) {
+                if (node instanceof Element) {
+                    element = (Element) node;
+                    element.attr("start-index", Integer.toString(ssb.length()));
+                    if (debug)
+                        ssb.append("[" + element.tagName() + "]");
+                } else if (node instanceof TextNode) {
+                    tnode = (TextNode) node;
+                    ssb.append(tnode.text());
                 }
+            }
 
-                private void normalizeText(List<TextNode> block) {
-                    // https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Whitespace
-                    TextNode tnode;
-                    String text;
-                    for (int i = 0; i < block.size(); ) {
-                        tnode = block.get(i);
-                        text = tnode.getWholeText();
-
-                        // Remove whitespace before/after newlines
-                        TRIM_WHITESPACE_NL.matcher(text).replaceAll(" ");
-
-                        if (i == 0 || endsWithWhitespace(block.get(i - 1).text()))
-                            while (startsWithWhiteSpace(text))
-                                text = text.substring(1);
-
-                        if (i == block.size() - 1)
-                            while (endsWithWhitespace(text))
-                                text = text.substring(0, text.length() - 1);
-
-                        tnode.text(text);
-
-                        if (TextUtils.isEmpty(text))
-                            block.remove(i);
-                        else
-                            i++;
-                    }
-
-                    if (debug) {
-                        if (block.size() > 0) {
-                            block.get(0).text("(" + block.get(0));
-                            block.get(block.size() - 1).text(block.get(block.size() - 1) + ")");
-                        }
-                    }
-                }
-
-                boolean startsWithWhiteSpace(String text) {
-                    int len = text.length();
-                    if (len == 0)
-                        return false;
-                    return WHITESPACE_NL.contains(text.substring(0, 1));
-                }
-
-                boolean endsWithWhitespace(String text) {
-                    int len = text.length();
-                    if (len == 0)
-                        return false;
-                    return WHITESPACE_NL.contains(text.substring(len - 1));
-                }
-            }, document.body());
-
-            // https://developer.android.com/guide/topics/text/spans
-            SpannableStringBuilder ssb = new SpannableStringBuilder();
-
-            NodeTraversor.traverse(new NodeVisitor() {
-                private Element element;
-                private TextNode tnode;
-
-                @Override
-                public void head(Node node, int depth) {
-                    if (node instanceof Element) {
-                        element = (Element) node;
-                        element.attr("start-index", Integer.toString(ssb.length()));
-                        if (debug)
-                            ssb.append("[" + element.tagName() + "]");
-                    } else if (node instanceof TextNode) {
-                        tnode = (TextNode) node;
-                        ssb.append(tnode.text());
-                    }
-                }
-
-                @Override
-                public void tail(Node node, int depth) {
-                    if (node instanceof Element) {
-                        element = (Element) node;
-                        int start = Integer.parseInt(element.attr("start-index"));
-                        if (debug)
-                            ssb.append("[/" + element.tagName() + "]");
-                        switch (element.tagName()) {
-                            case "a":
-                                String href = element.attr("href");
-                                ssb.setSpan(new URLSpan(href), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                break;
-                            case "body":
-                                // Do nothing
-                                break;
-                            case "big":
-                                ssb.setSpan(new RelativeSizeSpan(FONT_LARGE), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                break;
-                            case "blockquote":
-                                ssb.setSpan(new QuoteSpan(), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                break;
-                            case "br":
-                                newline(ssb.length());
-                                break;
-                            case "i":
-                            case "em":
-                                ssb.setSpan(new StyleSpan(Typeface.ITALIC), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                break;
-                            case "font":
-                                // Do nothing
-                                break;
-                            case "h1":
-                            case "h2":
-                            case "h3":
-                            case "h4":
-                            case "h5":
-                            case "h6":
-                                int level = element.tagName().charAt(1) - '1';
-                                ssb.setSpan(new RelativeSizeSpan(HEADING_SIZES[level]), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                newline(start);
-                                newline(ssb.length());
-                                break;
-                            case "img":
-                                String src = element.attr("src");
-                                Drawable d = (imageGetter == null
-                                        ? context.getDrawable(R.drawable.baseline_broken_image_24)
-                                        : imageGetter.getDrawable(src));
-                                ssb.insert(start, "\uFFFC"); // Object replacement character
-                                ssb.setSpan(new ImageSpan(d, src), start, start + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                break;
-                            case "li":
-                                newline(ssb.length());
-                                Element parent = element.parent();
-                                if (parent == null || "ul".equals(parent.tagName()))
-                                    // TODO BulletSpanCompat
-                                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
-                                        ssb.setSpan(new BulletSpan(dp6, colorAccent), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                    else
-                                        ssb.setSpan(new BulletSpan(dp6, colorAccent, dp3), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                else {
-                                    int index = 0;
-                                    for (Node child : parent.childNodes()) {
-                                        if (child instanceof Element) {
-                                            index++;
-                                            if (child == element)
-                                                break;
-                                        }
+            @Override
+            public void tail(Node node, int depth) {
+                if (node instanceof Element) {
+                    element = (Element) node;
+                    int start = Integer.parseInt(element.attr("start-index"));
+                    if (debug)
+                        ssb.append("[/" + element.tagName() + "]");
+                    switch (element.tagName()) {
+                        case "a":
+                            String href = element.attr("href");
+                            ssb.setSpan(new URLSpan(href), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            break;
+                        case "body":
+                            // Do nothing
+                            break;
+                        case "big":
+                            ssb.setSpan(new RelativeSizeSpan(FONT_LARGE), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            break;
+                        case "blockquote":
+                            ssb.setSpan(new QuoteSpan(), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            break;
+                        case "br":
+                            newline(ssb.length());
+                            break;
+                        case "i":
+                        case "em":
+                            ssb.setSpan(new StyleSpan(Typeface.ITALIC), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            break;
+                        case "font":
+                            // Do nothing
+                            break;
+                        case "h1":
+                        case "h2":
+                        case "h3":
+                        case "h4":
+                        case "h5":
+                        case "h6":
+                            int level = element.tagName().charAt(1) - '1';
+                            ssb.setSpan(new RelativeSizeSpan(HEADING_SIZES[level]), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            newline(start);
+                            newline(ssb.length());
+                            break;
+                        case "img":
+                            String src = element.attr("src");
+                            Drawable d = (imageGetter == null
+                                    ? context.getDrawable(R.drawable.baseline_broken_image_24)
+                                    : imageGetter.getDrawable(src));
+                            ssb.insert(start, "\uFFFC"); // Object replacement character
+                            ssb.setSpan(new ImageSpan(d, src), start, start + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            break;
+                        case "li":
+                            newline(ssb.length());
+                            Element parent = element.parent();
+                            if (parent == null || "ul".equals(parent.tagName()))
+                                // TODO BulletSpanCompat
+                                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
+                                    ssb.setSpan(new BulletSpan(dp6, colorAccent), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                else
+                                    ssb.setSpan(new BulletSpan(dp6, colorAccent, dp3), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            else {
+                                int index = 0;
+                                for (Node child : parent.childNodes()) {
+                                    if (child instanceof Element) {
+                                        index++;
+                                        if (child == element)
+                                            break;
                                     }
-                                    ssb.setSpan(new NumberSpan(dp6, colorAccent, index), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                 }
-                                break;
-                            case "ol":
-                            case "ul":
-                                int llevel = 0;
-                                Element lparent = element.parent();
-                                while (lparent != null) {
-                                    if (lparent.tagName().equals(element.tagName()))
-                                        llevel++;
-                                    lparent = lparent.parent();
-                                }
-                                if (llevel > 0)
-                                    ssb.setSpan(new LeadingMarginSpan.Standard(llevel * dp24), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                newline(start);
-                                newline(ssb.length());
-                                break;
-                            case "pre":
-                                // Do nothing
-                                break;
-                            case "small":
-                                ssb.setSpan(new RelativeSizeSpan(FONT_SMALL), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                break;
-                            case "span":
-                                // Do nothing
-                                break;
-                            case "sub":
-                                ssb.setSpan(new SubscriptSpan(), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                ssb.setSpan(new RelativeSizeSpan(FONT_SMALL), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                break;
-                            case "sup":
-                                ssb.setSpan(new SuperscriptSpan(), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                ssb.setSpan(new RelativeSizeSpan(FONT_SMALL), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                break;
-                            case "b":
-                            case "strong":
-                                ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                break;
-                            case "s":
-                            case "del":
-                                ssb.setSpan(new StrikethroughSpan(), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                break;
-                            case "tt":
-                                ssb.setSpan(new TypefaceSpan("monospace"), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                break;
-                            case "u":
-                                ssb.setSpan(new UnderlineSpan(), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                break;
-                            default:
-                                Log.e("Unknown tag=" + element.tagName());
-                        }
+                                ssb.setSpan(new NumberSpan(dp6, colorAccent, index), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            }
+                            break;
+                        case "ol":
+                        case "ul":
+                            int llevel = 0;
+                            Element lparent = element.parent();
+                            while (lparent != null) {
+                                if (lparent.tagName().equals(element.tagName()))
+                                    llevel++;
+                                lparent = lparent.parent();
+                            }
+                            if (llevel > 0)
+                                ssb.setSpan(new LeadingMarginSpan.Standard(llevel * dp24), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            newline(start);
+                            newline(ssb.length());
+                            break;
+                        case "pre":
+                            // Do nothing
+                            break;
+                        case "small":
+                            ssb.setSpan(new RelativeSizeSpan(FONT_SMALL), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            break;
+                        case "span":
+                            // Do nothing
+                            break;
+                        case "sub":
+                            ssb.setSpan(new SubscriptSpan(), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            ssb.setSpan(new RelativeSizeSpan(FONT_SMALL), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            break;
+                        case "sup":
+                            ssb.setSpan(new SuperscriptSpan(), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            ssb.setSpan(new RelativeSizeSpan(FONT_SMALL), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            break;
+                        case "b":
+                        case "strong":
+                            ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            break;
+                        case "s":
+                        case "del":
+                            ssb.setSpan(new StrikethroughSpan(), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            break;
+                        case "tt":
+                            ssb.setSpan(new TypefaceSpan("monospace"), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            break;
+                        case "u":
+                            ssb.setSpan(new UnderlineSpan(), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            break;
+                        default:
+                            Log.e("Unknown tag=" + element.tagName());
+                    }
 
-                        String style = element.attr("style");
-                        if (!TextUtils.isEmpty(style)) {
-                            String[] params = style.split(";");
-                            for (String param : params) {
-                                int semi = param.indexOf(":");
-                                if (semi < 0)
-                                    continue;
-                                String key = param.substring(0, semi);
-                                String value = param.substring(semi + 1);
-                                switch (key) {
-                                    case "color":
-                                        int color = Integer.parseInt(value.substring(1), 16) | 0xFF000000;
-                                        ssb.setSpan(new ForegroundColorSpan(color), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                        break;
-                                    case "text-decoration":
-                                        if ("line-through".equals(value))
-                                            ssb.setSpan(new StrikethroughSpan(), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                        break;
-                                }
+                    String style = element.attr("style");
+                    if (!TextUtils.isEmpty(style)) {
+                        String[] params = style.split(";");
+                        for (String param : params) {
+                            int semi = param.indexOf(":");
+                            if (semi < 0)
+                                continue;
+                            String key = param.substring(0, semi);
+                            String value = param.substring(semi + 1);
+                            switch (key) {
+                                case "color":
+                                    int color = Integer.parseInt(value.substring(1), 16) | 0xFF000000;
+                                    ssb.setSpan(new ForegroundColorSpan(color), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                    break;
+                                case "text-decoration":
+                                    if ("line-through".equals(value))
+                                        ssb.setSpan(new StrikethroughSpan(), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                    break;
                             }
                         }
                     }
                 }
+            }
 
-                private void newline(int index) {
-                    int len = ssb.length();
-                    if (len > 2 &&
-                            ssb.charAt(len - 1) == '\n' &&
-                            ssb.charAt(len - 2) == '\n')
-                        return;
-                    ssb.insert(index, "\n");
-                }
+            private void newline(int index) {
+                int len = ssb.length();
+                if (len > 2 &&
+                        ssb.charAt(len - 1) == '\n' &&
+                        ssb.charAt(len - 2) == '\n')
+                    return;
+                ssb.insert(index, "\n");
+            }
 
-            }, document.body());
+        }, document.body());
 
-            if (debug)
-                for (int i = ssb.length() - 1; i >= 0; i--)
-                    if (ssb.charAt(i) == '\n')
-                        ssb.insert(i, "|");
+        if (debug)
+            for (int i = ssb.length() - 1; i >= 0; i--)
+                if (ssb.charAt(i) == '\n')
+                    ssb.insert(i, "|");
 
-            return reverseSpans(ssb);
-        } else
-            return fromHtml(document.html(), imageGetter, null);
+        return reverseSpans(ssb);
     }
 
     static Spanned fromHtml(@NonNull String html) {
