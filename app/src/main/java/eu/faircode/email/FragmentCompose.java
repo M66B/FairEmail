@@ -2634,7 +2634,12 @@ public class FragmentCompose extends FragmentBase {
 
         String text = EntityAnswer.replacePlaceholders(answer, to);
 
-        Spanned spanned = HtmlHelper.fromHtml(text);
+        Spanned spanned = HtmlHelper.fromHtml(text, new Html.ImageGetter() {
+            @Override
+            public Drawable getDrawable(String source) {
+                return ImageHelper.decodeImage(getContext(), -1, source, true, 0, etBody);
+            }
+        }, null);
         etBody.getText().insert(etBody.getSelectionStart(), spanned);
     }
 

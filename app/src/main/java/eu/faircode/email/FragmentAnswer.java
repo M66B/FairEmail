@@ -23,10 +23,14 @@ import android.app.Dialog;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
+import android.text.style.ImageSpan;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -61,8 +65,9 @@ public class FragmentAnswer extends FragmentBase {
     private long id = -1;
     private long copy = -1;
 
-    private static final int REQUEST_LINK = 1;
-    private final static int REQUEST_DELETE = 2;
+    private static final int REQUEST_IMAGE = 1;
+    private static final int REQUEST_LINK = 2;
+    private final static int REQUEST_DELETE = 3;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -115,6 +120,9 @@ public class FragmentAnswer extends FragmentBase {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
+                    case R.id.action_insert_image:
+                        onInsertImage();
+                        return true;
                     case R.id.action_delete:
                         onActionDelete();
                         return true;
@@ -154,7 +162,15 @@ public class FragmentAnswer extends FragmentBase {
                 etName.setText(answer == null ? null : answer.name);
                 cbFavorite.setChecked(answer == null ? false : answer.favorite);
                 cbHide.setChecked(answer == null ? false : answer.hide);
-                etText.setText(answer == null ? null : HtmlHelper.fromHtml(answer.text));
+                if (answer == null)
+                    etText.setText(null);
+                else
+                    etText.setText(HtmlHelper.fromHtml(answer.text, new Html.ImageGetter() {
+                        @Override
+                        public Drawable getDrawable(String source) {
+                            return ImageHelper.decodeImage(getContext(), -1, source, true, 0, etText);
+                        }
+                    }, null));
                 bottom_navigation.findViewById(R.id.action_delete).setVisibility(answer == null ? View.GONE : View.VISIBLE);
 
                 pbWait.setVisibility(View.GONE);
@@ -187,6 +203,16 @@ public class FragmentAnswer extends FragmentBase {
 
     private void onMenuHelp() {
         new FragmentInfo().show(getParentFragmentManager(), "answer:info");
+    }
+
+    private void onInsertImage() {
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        intent.setType("image/*");
+        Helper.openAdvanced(intent);
+        startActivityForResult(intent, REQUEST_IMAGE);
     }
 
     private void onActionDelete() {
@@ -272,6 +298,10 @@ public class FragmentAnswer extends FragmentBase {
 
         try {
             switch (requestCode) {
+                case REQUEST_IMAGE:
+                    if (resultCode == RESULT_OK && data != null)
+                        onImageSelected(data.getData());
+                    break;
                 case REQUEST_LINK:
                     if (resultCode == RESULT_OK && data != null)
                         onLinkSelected(data.getBundleExtra("args"));
@@ -283,6 +313,24 @@ public class FragmentAnswer extends FragmentBase {
             }
         } catch (Throwable ex) {
             Log.e(ex);
+        }
+    }
+
+    private void onImageSelected(Uri uri) {
+        try {
+            getContext().getContentResolver().takePersistableUriPermission(uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
+
+            int start = etText.getSelectionStart();
+            SpannableStringBuilder ssb = new SpannableStringBuilder(etText.getText());
+            ssb.insert(start, "\uFFFC"); // Object replacement character
+            String source = uri.toString();
+            Drawable d = ImageHelper.decodeImage(getContext(), -1, source, true, 0, etText);
+            ImageSpan is = new ImageSpan(d, source);
+            ssb.setSpan(is, start, start + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            etText.setText(ssb);
+            etText.setSelection(start + 1);
+        } catch (Throwable ex) {
+            Log.unexpectedError(getParentFragmentManager(), ex);
         }
     }
 

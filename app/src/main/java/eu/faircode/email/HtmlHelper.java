@@ -448,8 +448,9 @@ public class HtmlHelper {
                 .addProtocols("img", "src", "data")
                 .addProtocols("a", "href", "full");
         if (text_color)
-            whitelist
-                    .addAttributes("font", "color");
+            whitelist.addAttributes("font", "color");
+        if (!view)
+            whitelist.addProtocols("img", "src", "content");
 
         final Document document = new Cleaner(whitelist).clean(parsed);
 
