@@ -4244,7 +4244,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                 lbm.sendBroadcast(
                         new Intent(FragmentMessages.ACTION_STORE_RAW)
-                                .putExtra("id", message.id));
+                                .putExtra("id", message.id)
+                                .putExtra("subject", message.subject));
             }
         }
 

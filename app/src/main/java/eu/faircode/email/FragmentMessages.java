@@ -4816,10 +4816,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
     private void onStoreRaw(Intent intent) {
         message = intent.getLongExtra("id", -1);
+        String subject = intent.getStringExtra("subject");
+        String name = (TextUtils.isEmpty(subject) ? "email" : Helper.sanitizeFilename(subject)) + ".eml";
+
         Intent create = new Intent(Intent.ACTION_CREATE_DOCUMENT);
         create.addCategory(Intent.CATEGORY_OPENABLE);
         create.setType("*/*");
-        create.putExtra(Intent.EXTRA_TITLE, "email.eml");
+        create.putExtra(Intent.EXTRA_TITLE, name);
         Helper.openAdvanced(create);
         if (create.resolveActivity(getContext().getPackageManager()) == null)
             Snackbar.make(view, R.string.title_no_saf, Snackbar.LENGTH_LONG).show();
