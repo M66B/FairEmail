@@ -1057,6 +1057,7 @@ public class HtmlHelper {
                 return 600;
             case "bold":
                 return 700;
+            case "none":
             case "inherit":
                 return null;
         }
