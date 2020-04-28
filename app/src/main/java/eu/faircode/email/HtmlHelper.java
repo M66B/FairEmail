@@ -1070,8 +1070,10 @@ public class HtmlHelper {
             case "lighter":
                 return 300;
             case "normal":
+            case "regular":
                 return 400;
             case "bolder":
+            case "strong":
                 return 600;
             case "bold":
                 return 700;
