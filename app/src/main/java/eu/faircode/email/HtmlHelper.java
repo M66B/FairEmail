@@ -116,6 +116,7 @@ public class HtmlHelper {
     private static final int PREVIEW_SIZE = 500; // characters
 
     private static final int DEFAULT_FONT_SIZE = 16; // pixels
+    private static final int DEFAULT_FONT_SIZE_PT = 12; // points
     private static final float FONT_SMALL = 0.8f;
     private static final float FONT_LARGE = 1.25f;
     private static final float MIN_LUMINANCE = 0.5f;
@@ -1110,7 +1111,9 @@ public class HtmlHelper {
                 return Float.parseFloat(value.substring(0, value.length() - 2).trim()) * current;
             if (value.endsWith("rem"))
                 return Float.parseFloat(value.substring(0, value.length() - 3).trim());
-            if (value.endsWith("px") || value.endsWith("pt"))
+            if (value.endsWith("pt"))
+                return Float.parseFloat(value.substring(0, value.length() - 2).trim()) / DEFAULT_FONT_SIZE_PT;
+            if (value.endsWith("px"))
                 return Float.parseFloat(value.substring(0, value.length() - 2).trim()) / DEFAULT_FONT_SIZE;
             if (value.endsWith("cm") || value.endsWith("in"))
                 return null;
