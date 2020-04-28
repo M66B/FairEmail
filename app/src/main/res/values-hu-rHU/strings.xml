@@ -378,6 +378,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_experiments">Kísérleti funkciók kipróbálása</string>
     <string name="title_advanced_crash_reports">Hibajelentések küldése</string>
     <string name="title_advanced_debug">Hibakeresési mód</string>
+    <string name="title_advanced_cleanup_attachments">Régi üzenetek csatolmányainak törlése</string>
     <string name="title_advanced_cleanup">Takarítás</string>
     <string name="title_advanced_more">Több opció</string>
     <string name="title_advanced_enabled_hint">Az üzenetek fogadásának globális letiltása</string>
@@ -428,6 +429,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_notify_manage_hint">Koppintson a csatorna nevére a tulajdonságai beállításához</string>
     <string name="title_advanced_notify_manage_default_hint">Alapértelmezett hang beállítása, stb</string>
     <string name="title_advanced_notify_manage_service_hint">Állandó értesítés kikapcsolása</string>
+    <string name="title_advanced_notify_preview_all_hint">Olyan hordhatóknak amik meg tudják jeleníteni a teljes szöveget (akár 5,000 karakter)</string>
     <string name="title_advanced_move_hint">A célmappa szerkeszthető a fiók beállításai között</string>
     <string name="title_advanced_notify_no_grouping">Ez az Android verzió nem támogatja az értesítések csoportosítását</string>
     <string name="title_advanced_notify_no_channels">Ez az Android verzió nem támogatja az értesítés csatornákat</string>
@@ -446,6 +448,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_identity_color_hint">Identitás színek elsőbbsége a mappa és fiók színekkel szemben</string>
     <string name="title_advanced_sender">Küldőként használt cím szerkesztésének engedélyezése</string>
     <string name="title_identity_reply_to">Válaszcím</string>
+    <string name="title_identity_unicode">Unicode engedélyezése email címekben</string>
     <string name="title_identity_receipt">Kézbesítési/olvasási visszajelzés alapértelmezett kérése</string>
     <string name="title_optional">Választható</string>
     <string name="title_recommended">Ajánlott</string>
@@ -560,6 +563,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_keep_all">Összes üzenet megtartása</string>
     <string name="title_auto_trash">Régi üzenetek automatikus áthelyezése a kukába</string>
     <string name="title_auto_delete">A régi üzenetek végleges törlése automatikusan</string>
+    <string name="title_auto_delete_hint">Régi üzenetek olyan üzenetek, amik már nincsenek az eszközön tartva</string>
     <string name="title_folder_name_missing">Hiányzó mappanév</string>
     <string name="title_folder_exists">%1$s nevű mappa már létezik</string>
     <string name="title_folder_delete">Véglegesen törli a mappát és minden benne lévő üzenetet?</string>
@@ -681,6 +685,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
         Örülnék, ha értékelnéd a FairEmail-t a Play Áruházban
         Ez segíteni fog a jó és rossz értékelések közötti egyensúly fenntartásában.
     </string>
+    <string name="title_third_party">Egy harmadik fél verzióját használod</string>
     <string name="title_expand_warning">Az üzenet kibontása %1$s letöltéssel jár</string>
     <string name="title_download_message">Letöltés &#8230;</string>
     <string name="title_compose">Levélírás</string>
@@ -719,6 +724,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_add_image_inline">Beszúrás</string>
     <string name="title_add_image_attach">Csatolás</string>
     <string name="title_add_image_resize">Átméretezés</string>
+    <string name="title_add_image_privacy">Hely eltávolítása</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixelek</string>
     <string name="title_add_image_select">Fájl kiválasztása</string>
     <string name="title_add_attachment">Melléklet hozzáadása</string>
@@ -783,6 +789,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_signature_outdated">Ez a nyilvános kulcs jelenleg nem érvényes</string>
     <string name="title_search">Keresés</string>
     <string name="title_search_for_hint">Írjon be szöveget</string>
+    <string name="title_search_more">Több opció</string>
     <string name="title_search_in_senders">A küldőkben (tól)</string>
     <string name="title_search_in_recipients">A címzettekben (nek, cc)</string>
     <string name="title_search_in_subject">A tárgyban</string>
@@ -989,6 +996,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_hint_support">Ha kérdésed vagy problémád van, használd a támogatási menüt segítségért</string>
     <string name="title_hint_message_actions">Törlés balra csúsztatásra; Archiválás jobbra csúsztatásra (ha elérhető); A csúsztatáshoz tartozó műveletek módosíthatóak a fiók beállításai között</string>
     <string name="title_hint_important">Fontos</string>
+    <string name="title_hint_reformat">Alapértelmezésből a FairEmail újraformázza az üzeneteket adatvédelmi és biztonsági okokból. Az eredeti üzenet megtekintéséhez koppintson a \'Teljes képernyő\' ikonra az üzenetszöveg fölött.</string>
     <string name="title_hint_contact_actions">Nyomja hosszan a további opciókért</string>
     <string name="title_open_link">Link megnyitása</string>
     <string name="title_different_link">A link neve és a címe különbözik</string>
@@ -1076,6 +1084,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_widget_folder_unified">Összesített bejövő mappák</string>
     <string name="title_widget_unseen">Csak olvasatlan üzenetek</string>
     <string name="title_widget_flagged">Csak csillagozott üzenetek</string>
+    <string name="title_widget_semi_transparent">Félig átlátszó háttér</string>
     <string name="title_accessibility_collapsed">Összecsukott</string>
     <string name="title_accessibility_expanded">Kinyitott</string>
     <string name="title_accessibility_seen">Olvasott</string>
