@@ -270,6 +270,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(150) Can you add cancelling calendar invites?](#user-content-faq150)
 * [(151) Can you add backup/restore messages?](#user-content-faq151)
 * [(152) How can I insert a contact group?](#user-content-faq152)
+* [(153) Why does permanently deleting Gmail message not work?](#user-content-faq153)
 
 [I have another question.](#user-content-support)
 
@@ -2935,6 +2936,16 @@ You can insert the email addresses of all contacts in a contact group via the th
 You can define contact groups with the Android contacts app, please see [here](https://support.google.com/contacts/answer/30970) for instructions.
 
 <br />
+
+<a name="faq153"></a>
+**(153) Why does permanently deleting Gmail message not work?**
+
+You might need to change [the delete setting](https://mail.google.com/mail/u/0/#settings/fwdandpop) to make it work.
+
+Note that archived messages can be deleted only by moving them to the trash folder first.
+
+<br />
+
 
 ## Support
 
