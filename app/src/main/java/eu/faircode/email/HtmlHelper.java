@@ -1890,6 +1890,38 @@ public class HtmlHelper {
                     int start = Integer.parseInt(element.attr("start-index"));
                     if (debug)
                         ssb.append("[/" + element.tagName() + "]");
+
+                    // Apply style
+                    String style = element.attr("style");
+                    if (!TextUtils.isEmpty(style)) {
+                        String[] params = style.split(";");
+                        for (String param : params) {
+                            int semi = param.indexOf(":");
+                            if (semi < 0)
+                                continue;
+                            String key = param.substring(0, semi);
+                            String value = param.substring(semi + 1);
+                            switch (key) {
+                                case "color":
+                                    int color = Integer.parseInt(value.substring(1), 16) | 0xFF000000;
+                                    ssb.setSpan(new ForegroundColorSpan(color), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                    break;
+                                case "text-decoration":
+                                    if ("line-through".equals(value))
+                                        ssb.setSpan(new StrikethroughSpan(), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                    break;
+                            }
+                        }
+                    }
+
+                    // Apply calculated font size
+                    String xFontSize = element.attr("x-font-size");
+                    if (!TextUtils.isEmpty(xFontSize)) {
+                        int size = Helper.dp2pixels(context, Math.round(Float.parseFloat(xFontSize) * DEFAULT_FONT_SIZE));
+                        ssb.setSpan(new AbsoluteSizeSpan(size), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    }
+
+                    // Apply element
                     switch (element.tagName()) {
                         case "a":
                             String href = element.attr("href");
@@ -2003,34 +2035,6 @@ public class HtmlHelper {
                         default:
                             Log.e("Unknown tag=" + element.tagName());
                     }
-
-                    String style = element.attr("style");
-                    if (!TextUtils.isEmpty(style)) {
-                        String[] params = style.split(";");
-                        for (String param : params) {
-                            int semi = param.indexOf(":");
-                            if (semi < 0)
-                                continue;
-                            String key = param.substring(0, semi);
-                            String value = param.substring(semi + 1);
-                            switch (key) {
-                                case "color":
-                                    int color = Integer.parseInt(value.substring(1), 16) | 0xFF000000;
-                                    ssb.setSpan(new ForegroundColorSpan(color), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                    break;
-                                case "text-decoration":
-                                    if ("line-through".equals(value))
-                                        ssb.setSpan(new StrikethroughSpan(), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                    break;
-                            }
-                        }
-                    }
-
-                    String xFontSize = element.attr("x-font-size");
-                    if (!TextUtils.isEmpty(xFontSize)) {
-                        int size = Helper.dp2pixels(context, Math.round(Float.parseFloat(xFontSize) * DEFAULT_FONT_SIZE));
-                        ssb.setSpan(new AbsoluteSizeSpan(size), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                    }
                 }
             }
 
@@ -2042,7 +2046,6 @@ public class HtmlHelper {
                     return;
                 ssb.insert(index, "\n");
             }
-
         }, document.body());
 
         if (debug)
