@@ -79,7 +79,21 @@
             enabled="false"
             redirectUri="https://oauth.faircode.eu/"
             scopes="mail-w"
-            tokenEndpoint="https://api.login.aol.com/oauth2/get_token" />
+            tokenEndpoint="https://api.login.yahoo.com/oauth2/get_token" />
+    </provider>
+    <provider
+        name="Sky.com"
+        appPassword="true"
+        domain="sky\\.com"
+        link="https://www.sky.com/help/articles/getting-started-with-sky-yahoo-mail">
+        <imap
+            host="imap.tools.sky.com"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.tools.sky.com"
+            port="465"
+            starttls="false" />
     </provider>
     <provider
         name="Posteo.de"
