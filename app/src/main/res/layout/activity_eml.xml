@@ -118,12 +118,34 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
-                android:text="Cc"
+                android:text="CC"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textIsSelectable="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/tvCcTitle"
                 app:layout_constraintTop_toBottomOf="@id/tvReplyTo" />
+
+            <eu.faircode.email.FixedTextView
+                android:id="@+id/tvBccTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_bcc"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvCc" />
+
+            <eu.faircode.email.FixedTextView
+                android:id="@+id/tvBcc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:text="BCC"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textIsSelectable="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvBccTitle"
+                app:layout_constraintTop_toBottomOf="@id/tvCc" />
 
             <eu.faircode.email.FixedTextView
                 android:id="@+id/tvSentTitle"
@@ -133,7 +155,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvCc" />
+                app:layout_constraintTop_toBottomOf="@id/tvBcc" />
 
             <eu.faircode.email.FixedTextView
                 android:id="@+id/tvSent"
@@ -145,7 +167,7 @@
                 android:textIsSelectable="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/tvSentTitle"
-                app:layout_constraintTop_toBottomOf="@id/tvCc" />
+                app:layout_constraintTop_toBottomOf="@id/tvBcc" />
 
             <eu.faircode.email.FixedTextView
                 android:id="@+id/tvReceivedTitle"

@@ -71,6 +71,7 @@ public class ActivityEML extends ActivityBase {
     private TextView tvTo;
     private TextView tvReplyTo;
     private TextView tvCc;
+    private TextView tvBcc;
     private TextView tvSent;
     private TextView tvReceived;
     private TextView tvSubject;
@@ -95,6 +96,7 @@ public class ActivityEML extends ActivityBase {
         tvTo = findViewById(R.id.tvTo);
         tvReplyTo = findViewById(R.id.tvReplyTo);
         tvCc = findViewById(R.id.tvCc);
+        tvBcc = findViewById(R.id.tvBcc);
         tvSent = findViewById(R.id.tvSent);
         tvReceived = findViewById(R.id.tvReceived);
         tvSubject = findViewById(R.id.tvSubject);
@@ -170,6 +172,7 @@ public class ActivityEML extends ActivityBase {
                     result.to = MessageHelper.formatAddresses(helper.getTo());
                     result.replyTo = MessageHelper.formatAddresses(helper.getReply());
                     result.cc = MessageHelper.formatAddresses(helper.getCc());
+                    result.bcc = MessageHelper.formatAddresses(helper.getBcc());
                     result.sent = helper.getSent();
                     result.received = helper.getReceived();
                     result.subject = helper.getSubject();
@@ -194,6 +197,7 @@ public class ActivityEML extends ActivityBase {
                 tvTo.setText(result.to);
                 tvReplyTo.setText(result.replyTo);
                 tvCc.setText(result.cc);
+                tvBcc.setText(result.bcc);
                 tvSent.setText(result.sent == null ? null : DTF.format(result.sent));
                 tvReceived.setText(result.received == null ? null : DTF.format(result.received));
                 tvSubject.setText(result.subject);
@@ -471,6 +475,7 @@ public class ActivityEML extends ActivityBase {
         String to;
         String replyTo;
         String cc;
+        String bcc;
         Long sent;
         Long received;
         String subject;
