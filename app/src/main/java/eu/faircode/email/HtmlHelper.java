@@ -802,6 +802,8 @@ public class HtmlHelper {
                 table.tagName("span"); // Links cannot contain tables
             else
                 table.tagName("div");
+        for (Element hf : document.select("thead,tfoot"))
+            hf.tagName("span");
 
         // Remove tracking pixels
         if (disable_tracking)
