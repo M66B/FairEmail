@@ -35,7 +35,6 @@ import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
-import android.text.style.AbsoluteSizeSpan;
 import android.text.style.BulletSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
@@ -540,7 +539,7 @@ public class HtmlHelper {
                                 if (!text_size)
                                     continue;
 
-                                Float current = null;
+                                float current = 1.0f;
                                 Element parent = element.parent();
                                 while (parent != null) {
                                     String xFontSize = parent.attr("x-font-size");
@@ -552,8 +551,10 @@ public class HtmlHelper {
                                 }
 
                                 Float fsize = getFontSize(value, current);
-                                if (fsize != null && fsize != 0)
+                                if (fsize != null && fsize != 0) {
                                     element.attr("x-font-size", Float.toString(fsize));
+                                    element.attr("x-font-size-rel", Float.toString(fsize / current));
+                                }
                                 break;
 
                             case "font-weight":
@@ -592,7 +593,7 @@ public class HtmlHelper {
                                 //case "font-size":
                                 //case "line-height":
                                 if (element.parent() != null && !display_hidden) {
-                                    Float s = getFontSize(value, null);
+                                    Float s = getFontSize(value, 1.0f);
                                     if (s != null && s == 0) {
                                         Log.i("Removing no height/width " + element.tagName());
                                         element.remove();
@@ -613,7 +614,7 @@ public class HtmlHelper {
 
                                     String[] v = value.split(" ");
                                     for (int i = 0; i < v.length; i++)
-                                        p[i] = getFontSize(v[i], null);
+                                        p[i] = getFontSize(v[i], 1.0f);
 
                                     if (v.length == 1) {
                                         p[1] = p[0];
@@ -1068,13 +1069,10 @@ public class HtmlHelper {
         return null;
     }
 
-    private static Float getFontSize(String value, Float current) {
+    private static Float getFontSize(String value, float current) {
         // https://developer.mozilla.org/en-US/docs/Web/CSS/font-size
         if (TextUtils.isEmpty(value))
             return null;
-
-        if (current == null)
-            current = 1.0f;
 
         if (value.contains("calc") ||
                 "auto".equals(value) ||
@@ -1876,7 +1874,7 @@ public class HtmlHelper {
                     element = (Element) node;
                     element.attr("start-index", Integer.toString(ssb.length()));
                     if (debug)
-                        ssb.append("[" + element.tagName() + "]");
+                        ssb.append("[" + element.tagName() + ":" + element.attr("x-font-size-rel") + "]");
                 } else if (node instanceof TextNode) {
                     tnode = (TextNode) node;
                     ssb.append(tnode.text());
@@ -1915,10 +1913,10 @@ public class HtmlHelper {
                     }
 
                     // Apply calculated font size
-                    String xFontSize = element.attr("x-font-size");
+                    String xFontSize = element.attr("x-font-size-rel");
                     if (!TextUtils.isEmpty(xFontSize)) {
-                        int size = Helper.dp2pixels(context, Math.round(Float.parseFloat(xFontSize) * DEFAULT_FONT_SIZE));
-                        ssb.setSpan(new AbsoluteSizeSpan(size), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                        Float fsize = Float.parseFloat(xFontSize);
+                        ssb.setSpan(new RelativeSizeSpan(fsize), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                     }
 
                     // Apply element
