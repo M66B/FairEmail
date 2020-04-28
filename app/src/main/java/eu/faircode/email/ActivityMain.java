@@ -186,6 +186,9 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                         if (TextUtils.isEmpty(fname))
                             fname = uri.getLastPathSegment();
 
+                        if (TextUtils.isEmpty(fname))
+                            return uri;
+
                         File dir = new File(getCacheDir(), "shared");
                         if (!dir.exists())
                             dir.mkdir();
