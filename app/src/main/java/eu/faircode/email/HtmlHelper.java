@@ -35,6 +35,7 @@ import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
+import android.text.style.AbsoluteSizeSpan;
 import android.text.style.BulletSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
@@ -539,43 +540,20 @@ public class HtmlHelper {
                                 if (!text_size)
                                     continue;
 
+                                Float current = null;
                                 Element parent = element.parent();
-                                if (parent != null) {
-                                    boolean set = false;
-                                    boolean small = false;
-                                    boolean big = false;
-                                    Integer current = null;
-                                    while (parent != null) {
-                                        if (!set) {
-                                            if ("small".equals(parent.tagName())) {
-                                                set = true;
-                                                small = true;
-                                            }
-                                            if ("big".equals(parent.tagName())) {
-                                                set = true;
-                                                big = true;
-                                            }
-                                        }
-
-                                        String xFontSize = parent.attr("x-font-size");
-                                        if (!TextUtils.isEmpty(xFontSize)) {
-                                            current = Integer.parseInt(xFontSize);
-                                            break;
-                                        }
-                                        parent = parent.parent();
+                                while (parent != null) {
+                                    String xFontSize = parent.attr("x-font-size");
+                                    if (!TextUtils.isEmpty(xFontSize)) {
+                                        current = Float.parseFloat(xFontSize);
+                                        break;
                                     }
-
-                                    Float fsize = getFontSize(value, current);
-                                    if (fsize != null && fsize != 0 &&
-                                            ((!small && fsize <= FONT_SMALL) || (!big && fsize >= FONT_LARGE))) {
-                                        Element e = new Element(fsize < 1 ? "small" : "big");
-                                        int px = Math.round(DEFAULT_FONT_SIZE * fsize);
-                                        e.attr("x-font-size", Integer.toString(px));
-                                        element.replaceWith(e);
-                                        e.appendChild(element);
-                                    }
+                                    parent = parent.parent();
                                 }
 
+                                Float fsize = getFontSize(value, current);
+                                if (fsize != null && fsize != 0)
+                                    element.attr("x-font-size", Float.toString(fsize));
                                 break;
 
                             case "font-weight":
@@ -1090,18 +1068,19 @@ public class HtmlHelper {
         return null;
     }
 
-    private static Float getFontSize(String value, Integer current) {
+    private static Float getFontSize(String value, Float current) {
         // https://developer.mozilla.org/en-US/docs/Web/CSS/font-size
         if (TextUtils.isEmpty(value))
             return null;
+
+        if (current == null)
+            current = 1.0f;
 
         if (value.contains("calc") ||
                 "auto".equals(value) ||
                 "initial".equals(value) ||
                 "inherit".equals(value))
             return null;
-
-        float _current = (current == null ? 1.0f : current / (float) DEFAULT_FONT_SIZE);
 
         // Absolute
         switch (value) {
@@ -1121,16 +1100,16 @@ public class HtmlHelper {
         // Relative
         switch (value) {
             case "smaller":
-                return FONT_SMALL * _current;
+                return FONT_SMALL * current;
             case "larger":
-                return FONT_LARGE * _current;
+                return FONT_LARGE * current;
         }
 
         try {
             if (value.endsWith("%"))
-                return Float.parseFloat(value.substring(0, value.length() - 1).trim()) / 100 * _current;
+                return Float.parseFloat(value.substring(0, value.length() - 1).trim()) / 100 * current;
             if (value.endsWith("em"))
-                return Float.parseFloat(value.substring(0, value.length() - 2).trim()) * _current;
+                return Float.parseFloat(value.substring(0, value.length() - 2).trim()) * current;
             if (value.endsWith("rem"))
                 return Float.parseFloat(value.substring(0, value.length() - 3).trim());
             if (value.endsWith("px") || value.endsWith("pt"))
@@ -2045,6 +2024,12 @@ public class HtmlHelper {
                                     break;
                             }
                         }
+                    }
+
+                    String xFontSize = element.attr("x-font-size");
+                    if (!TextUtils.isEmpty(xFontSize)) {
+                        int size = Helper.dp2pixels(context, Math.round(Float.parseFloat(xFontSize) * DEFAULT_FONT_SIZE));
+                        ssb.setSpan(new AbsoluteSizeSpan(size), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                     }
                 }
             }
