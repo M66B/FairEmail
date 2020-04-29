@@ -3367,12 +3367,20 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             owner.getLifecycle().addObserver(new LifecycleObserver() {
                 @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
                 public void onCreate() {
-                    dialog.show();
+                    try {
+                        dialog.show();
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
                 }
 
                 @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
                 public void onDestroyed() {
-                    dialog.dismiss();
+                    try {
+                        dialog.dismiss();
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
                 }
             });
         }
