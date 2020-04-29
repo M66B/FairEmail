@@ -1823,7 +1823,8 @@ class Core {
             long fetch = SystemClock.elapsedRealtime();
             Log.i(folder.name + " remote fetched=" + (SystemClock.elapsedRealtime() - fetch) + " ms");
 
-            // Sort for finding references messages
+            // Sort for finding referenced/replied-to messages
+            // Sorting on date/time would be better, but requires fetching the headers
             Arrays.sort(imessages, new Comparator<Message>() {
                 @Override
                 public int compare(Message m1, Message m2) {
