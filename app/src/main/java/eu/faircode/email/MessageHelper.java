@@ -785,6 +785,11 @@ public class MessageHelper {
 
     String[] getReferences() throws MessagingException {
         List<String> result = new ArrayList<>();
+
+        String listId = imessage.getHeader("List-Id", null);
+        if (!TextUtils.isEmpty(listId))
+            result.add(listId);
+
         String refs = imessage.getHeader("References", null);
         if (refs != null)
             result.addAll(Arrays.asList(getReferences(refs)));
