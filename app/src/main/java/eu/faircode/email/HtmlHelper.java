@@ -2026,6 +2026,7 @@ public class HtmlHelper {
                             break;
                         case "s":
                         case "del":
+                        case "strike":
                             ssb.setSpan(new StrikethroughSpan(), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                             break;
                         case "tt":
