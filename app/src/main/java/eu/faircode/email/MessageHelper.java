@@ -875,15 +875,24 @@ public class MessageHelper {
 
         String thread = null;
         DB db = DB.getInstance(context);
-        for (String ref : refs) {
-            List<EntityMessage> messages = db.message().getMessagesByMsgId(account, ref);
-            for (EntityMessage message : messages) {
-                if (thread == null)
-                    thread = message.thread;
-                if (thread != null && !thread.equals(message.thread))
-                    db.message().setMessageThread(message.id, thread);
+        try {
+            db.beginTransaction();
+
+            for (String ref : refs) {
+                List<EntityMessage> messages = db.message().getMessagesByMsgId(account, ref);
+                for (EntityMessage message : messages) {
+                    if (thread == null)
+                        thread = message.thread;
+                    if (thread != null && !thread.equals(message.thread))
+                        db.message().setMessageThread(message.id, thread);
+                }
             }
+
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
         }
+
         if (thread != null)
             return thread;
 
