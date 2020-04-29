@@ -254,6 +254,7 @@
                     tvToTitle,tvTo,
                     tvReplyToTitle,tvReplyTo,
                     tvCcTitle,tvCc,
+                    tvBccTitle,tvBcc,
                     tvSentTitle,tvSent,
                     tvReceivedTitle,tvReceived,
                     tvSubject,
