@@ -352,6 +352,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_confirm_images">Képek megjelenítésének megerősítéshez kötése</string>
     <string name="title_advanced_confirm_html">Üzenetek alapértelmezett újraformázása</string>
     <string name="title_advanced_tracking">Követésre használt képek automatikus felismerése és tiltása</string>
+    <string name="title_advanced_hide_timezone">Üzenetek küldése időzóna adat nélkül</string>
     <string name="title_advanced_display_hidden">Rejtett szövegrészletek megjelenítése</string>
     <string name="title_advanced_secure">Elrejtés a \"legutóbbi alkalmazások\" képernyőről, és képernyőkép készítésének tiltása</string>
     <string name="title_advanced_pin">PIN</string>
@@ -410,11 +411,13 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_date_hint">Az üzenetek dátum szerinti csoportosítása csak idő szerinti rendezéskor aktív</string>
     <string name="title_advanced_navbar_colorize_hint">Az hogy ez működik-e az Android verziótól és variánstól függ</string>
     <string name="title_advanced_threading_hint">Egymáshoz kapcsolódó üzenetek csoportosítása</string>
+    <string name="title_advanced_highlight_hint">A téma kiemelőszíne a kiemeléshez lesz használva</string>
     <string name="title_advanced_gravatars_hint">Adatvédelmi szempontból aggályos a használata</string>
     <string name="title_advanced_name_email_hint">Ha ki van kapcsolva csak nevek fognak megjelenni, ha elérhető</string>
     <string name="title_advanced_preview_hint">Csak az üzenetek szövegének letöltése után elérhető</string>
     <string name="title_advanced_preview_issue">A görgetés bizonyos Android verziók hibája miatt lassú lehet, egynél több sor esetén</string>
     <string name="title_advanced_inline_hint">Beágyazott képek az üzenet szövegébe beszúrt képek</string>
+    <string name="title_advanced_parse_classes_hint">Ez pontosabban fogja megjeleníteni az üzeneteket, de egy kis késéssel</string>
     <string name="title_advanced_autoexpand_hint">Üzenetek automatikus megnyitása, ha összesen egy, vagy csak egy olvasatlan üzetetet tartalmaz a beszélgetés</string>
     <string name="title_advanced_autoseen_hint">Az üzenetek olvasottként való megjelölése kibontáskor kikapcsolható a fiókoknkénti beállítások között</string>
     <string name="title_advanced_autoclose_hint">A beszélgetések automatikus bezárása minden üzenet archiválása, küldése vagy törlése esetén</string>
@@ -450,6 +453,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_identity_reply_to">Válaszcím</string>
     <string name="title_identity_unicode">Unicode engedélyezése email címekben</string>
     <string name="title_identity_receipt">Kézbesítési/olvasási visszajelzés alapértelmezett kérése</string>
+    <string name="title_identity_use_ip_hint">\'invalid greeting\', \'requires valid address\' vagy hasonló hibák esetén próbálja módosítani ezt a beállítást</string>
     <string name="title_optional">Választható</string>
     <string name="title_recommended">Ajánlott</string>
     <string name="title_account_linked">Hozzárendelt fiók</string>
@@ -478,6 +482,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_client_certificate">Kliens tanúsítványa</string>
     <string name="title_realm">Tartomány</string>
     <string name="title_use_ip">IP cím használata kiszolgálónév helyett</string>
+    <string name="title_ehlo">Egyéni HELO/EHLO azonosítás</string>
     <string name="title_primary">Elsődleges</string>
     <string name="title_primary_account">Elsődleges (alapértelmezett fiók)</string>
     <string name="title_primary_identity">Elsődleges (alapértelmezett identitás)</string>
@@ -789,7 +794,12 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_signature_outdated">Ez a nyilvános kulcs jelenleg nem érvényes</string>
     <string name="title_search">Keresés</string>
     <string name="title_search_for_hint">Írjon be szöveget</string>
+    <string name="title_search_hint">        A keresés alapból csak az eszközön lévő üzeneteket keres.
+        Ahhoz hogy a szervert is keresse, koppintson a \'keresés újra\' gombra.
+    </string>
+    <string name="title_search_index_hint">Keresés a keresési indexen keresztül gyors, de csak teljes szavakat fog találni</string>
     <string name="title_search_more">Több opció</string>
+    <string name="title_search_use_index">Keresési index használata</string>
     <string name="title_search_in_senders">A küldőkben (tól)</string>
     <string name="title_search_in_recipients">A címzettekben (nek, cc)</string>
     <string name="title_search_in_subject">A tárgyban</string>
@@ -1029,6 +1039,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_ask_what">Kérdezze meg mit tegyen</string>
     <string name="title_no_ask_again">Ne kérdezze meg ezt újra</string>
     <string name="title_no_ask_for_again">Ne kérdezze meg ezt újra a(z) %1$s -hoz/-hez</string>
+    <string name="title_no_body">Nem található üzenetszöveg</string>
     <string name="title_no_charset">Nem támogatott kódolás: %1$s</string>
     <string name="title_via">Ezen keresztül: %1$s</string>
     <string name="title_1hour">1 óra</string>
