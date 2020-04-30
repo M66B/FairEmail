@@ -5468,6 +5468,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     uriTitle.getHost().equalsIgnoreCase(uri.getHost())
                     ? View.GONE : View.VISIBLE);
 
+            new Handler().post(new Runnable() {
+                @Override
+                public void run() {
+                    etLink.clearFocus();
+                }
+            });
+
             final Context context = getContext();
 
             return new AlertDialog.Builder(context)
