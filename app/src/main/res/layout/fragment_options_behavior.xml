@@ -435,6 +435,6 @@
             android:id="@+id/grpConversationActions"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="swConversationActions,swConversationActionsReplies" />
+            app:constraint_referenced_ids="swConversationActions,swConversationActionsReplies,swLanguageDetection,tvDelayHint" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>
