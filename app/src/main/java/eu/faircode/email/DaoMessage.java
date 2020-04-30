@@ -60,14 +60,14 @@ public interface DaoMessage {
             "   WHEN NOT message.msgid IS NULL THEN message.msgid" +
             "   ELSE message.id END) AS visible" +
             ", SUM(message.total) AS totalSize" +
-            ", MAX(message.priority) AS ui_priority" +
-            ", MAX(message.importance) AS ui_importance" +
+            ", message.priority AS ui_priority" +
+            ", message.importance AS ui_importance" +
             ", MAX(CASE WHEN" +
             "   ((:found AND folder.type <> '" + EntityFolder.ARCHIVE + "' AND folder.type <> '" + EntityFolder.DRAFTS + "')" +
             "   OR (NOT :found AND :type IS NULL AND folder.unified)" +
             "   OR (NOT :found AND folder.type = :type))" +
             "   THEN message.received ELSE 0 END) AS dummy" +
-            " FROM (SELECT * FROM message ORDER BY received DESC) AS message" +
+            " FROM message" +
             " JOIN account_view AS account ON account.id = message.account" +
             " LEFT JOIN identity_view AS identity ON identity.id = message.identity" +
             " JOIN folder_view AS folder ON folder.id = message.folder" +
@@ -84,11 +84,11 @@ public interface DaoMessage {
             " AND (NOT :filter_unknown OR SUM(message.avatar IS NOT NULL AND message.sender <> identity.email) > 0)" +
             " AND (NOT :filter_snoozed OR message.ui_snoozed IS NULL OR " + is_drafts + ")" +
             " AND (:filter_language IS NULL OR SUM(message.language = :filter_language) > 0)" +
-            " ORDER BY -IFNULL(MAX(message.importance), 1)" +
+            " ORDER BY -IFNULL(message.importance, 1)" +
             ", CASE" +
             "   WHEN 'unread' = :sort THEN SUM(1 - message.ui_seen) = 0" +
             "   WHEN 'starred' = :sort THEN COUNT(message.id) - SUM(1 - message.ui_flagged) = 0" +
-            "   WHEN 'priority' = :sort THEN -IFNULL(MAX(message.priority), 1)" +
+            "   WHEN 'priority' = :sort THEN -IFNULL(message.priority, 1)" +
             "   WHEN 'sender' = :sort THEN LOWER(message.sender)" +
             "   WHEN 'subject' = :sort THEN LOWER(message.subject)" +
             "   WHEN 'size' = :sort THEN -SUM(message.total)" +
@@ -123,10 +123,10 @@ public interface DaoMessage {
             "   WHEN NOT message.msgid IS NULL THEN message.msgid" +
             "   ELSE message.id END) AS visible" +
             ", SUM(message.total) AS totalSize" +
-            ", MAX(message.priority) AS ui_priority" +
-            ", MAX(message.importance) AS ui_importance" +
+            ", message.priority AS ui_priority" +
+            ", message.importance AS ui_importance" +
             ", MAX(CASE WHEN folder.id = :folder THEN message.received ELSE 0 END) AS dummy" +
-            " FROM (SELECT * FROM message ORDER BY received DESC) AS message" +
+            " FROM message" +
             " JOIN account_view AS account ON account.id = message.account" +
             " LEFT JOIN identity_view AS identity ON identity.id = message.identity" +
             " JOIN folder_view AS folder ON folder.id = message.folder" +
@@ -143,11 +143,11 @@ public interface DaoMessage {
             "   OR " + is_outbox + " OR " + is_drafts + " OR " + is_sent + ")" +
             " AND (NOT :filter_snoozed OR message.ui_snoozed IS NULL OR " + is_outbox + " OR " + is_drafts + ")" +
             " AND (:filter_language IS NULL OR SUM(message.language = :filter_language) > 0 OR " + is_outbox + ")" +
-            " ORDER BY -IFNULL(MAX(message.importance), 1)" +
+            " ORDER BY -IFNULL(message.importance, 1)" +
             ", CASE" +
             "   WHEN 'unread' = :sort THEN SUM(1 - message.ui_seen) = 0" +
             "   WHEN 'starred' = :sort THEN COUNT(message.id) - SUM(1 - message.ui_flagged) = 0" +
-            "   WHEN 'priority' = :sort THEN -IFNULL(MAX(message.priority), 1)" +
+            "   WHEN 'priority' = :sort THEN -IFNULL(message.priority, 1)" +
             "   WHEN 'sender' = :sort THEN LOWER(message.sender)" +
             "   WHEN 'subject' = :sort THEN LOWER(message.subject)" +
             "   WHEN 'size' = :sort THEN -SUM(message.total)" +
