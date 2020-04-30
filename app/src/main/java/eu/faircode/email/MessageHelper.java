@@ -1046,6 +1046,7 @@ public class MessageHelper {
             return null;
 
         header = fixEncoding(name, header);
+        header = header.replaceAll("\\?=\\r?\\n\\s+=\\?", "\\?==\\?");
         Address[] addresses = InternetAddress.parseHeader(header, false);
 
         for (Address address : addresses) {
