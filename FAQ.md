@@ -2940,7 +2940,7 @@ You can define contact groups with the Android contacts app, please see [here](h
 <a name="faq153"></a>
 **(153) Why does permanently deleting Gmail message not work?**
 
-You might need to change [the delete setting](https://mail.google.com/mail/u/0/#settings/fwdandpop) to make it work.
+You might need to change [the delete setting](https://mail.google.com/mail/u/0/#settings/fwdandpop) on a desktop browser to make it work.
 
 Note that archived messages can be deleted only by moving them to the trash folder first.
 
