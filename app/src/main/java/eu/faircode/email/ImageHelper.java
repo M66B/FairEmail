@@ -46,6 +46,8 @@ import android.text.TextUtils;
 import android.util.Base64;
 import android.util.DisplayMetrics;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewParent;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -69,8 +71,6 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Semaphore;
-import java.util.concurrent.TimeUnit;
 
 class ImageHelper {
     private static final ExecutorService executor_1 =
@@ -80,7 +80,6 @@ class ImageHelper {
 
     private static final int DOWNLOAD_TIMEOUT = 15 * 1000; // milliseconds
     private static final int MAX_REDIRECTS = 10;
-    private static final long FIT_DRAWABLE_TIMEOUT = 10 * 1000L; // milliseconds
     private static final int SLOW_CONNECTION = 2 * 1024; // Kbps
 
     static Bitmap generateIdenticon(@NonNull String email, int size, int pixels, Context context) {
@@ -443,51 +442,39 @@ class ImageHelper {
     }
 
     private static void fitDrawable(final Drawable d, final AnnotatedSource a, final View view) {
-        if (!view.isAttachedToWindow())
-            return;
+        Rect bounds = d.getBounds();
+        int w = bounds.width();
+        int h = bounds.height();
 
-        Semaphore semaphore = new Semaphore(0);
+        if (a.width == 0 && a.height != 0)
+            a.width = Math.round(a.height * w / (float) h);
+        if (a.height == 0 && a.width != 0)
+            a.height = Math.round(a.width * h / (float) w);
 
-        view.post(new Runnable() {
-            @Override
-            public void run() {
-                Rect bounds = d.getBounds();
-                int w = bounds.width();
-                int h = bounds.height();
+        if (a.width != 0 && a.height != 0) {
+            w = Helper.dp2pixels(view.getContext(), a.width);
+            h = Helper.dp2pixels(view.getContext(), a.height);
+            d.setBounds(0, 0, w, h);
+        }
 
-                if (a.width == 0 && a.height != 0)
-                    a.width = Math.round(a.height * w / (float) h);
-                if (a.height == 0 && a.width != 0)
-                    a.height = Math.round(a.width * h / (float) w);
-
-                if (a.width != 0 && a.height != 0) {
-                    w = Helper.dp2pixels(view.getContext(), a.width);
-                    h = Helper.dp2pixels(view.getContext(), a.height);
-                    d.setBounds(0, 0, w, h);
-                }
-
-                float width = view.getWidth();
-                if (w > width) {
-                    float scale = width / w;
-                    w = Math.round(w * scale);
-                    h = Math.round(h * scale);
-                    d.setBounds(0, 0, w, h);
-                }
-
-                semaphore.release();
+        float width = view.getContext().getResources().getDisplayMetrics().widthPixels;
+        View v = view;
+        while (v != null) {
+            width -= v.getPaddingStart() + v.getPaddingEnd();
+            if (v.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                ViewGroup.MarginLayoutParams lparam = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
+                width -= lparam.leftMargin + lparam.rightMargin;
             }
-        });
 
-        try {
-            long now = new Date().getTime();
-            long start = now;
-            while (view.isAttachedToWindow() && now - start < FIT_DRAWABLE_TIMEOUT) {
-                if (semaphore.tryAcquire(1000, TimeUnit.MILLISECONDS))
-                    break;
-                now = new Date().getTime();
-            }
-        } catch (InterruptedException ex) {
-            Log.w(ex);
+            ViewParent parent = v.getParent();
+            v = (parent instanceof View ? (View) parent : null);
+        }
+
+        if (w > width) {
+            float scale = width / w;
+            w = Math.round(w * scale);
+            h = Math.round(h * scale);
+            d.setBounds(0, 0, w, h);
         }
     }
 
