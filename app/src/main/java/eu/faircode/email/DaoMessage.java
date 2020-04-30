@@ -587,9 +587,6 @@ public interface DaoMessage {
     @Query("UPDATE message SET revisions = :revisions WHERE id = :id")
     int setMessageRevisions(long id, Integer revisions);
 
-    @Query("UPDATE message SET thread = :thread WHERE id = :id")
-    int setMessageThread(long id, String thread);
-
     @Query("UPDATE message" +
             " SET content = 0, fts = 0, language = NULL, plain_only = NULL, preview = NULL" +
             " WHERE id = :id")

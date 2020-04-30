@@ -873,19 +873,12 @@ public class MessageHelper {
         if (!TextUtils.isEmpty(inreplyto) && !refs.contains(inreplyto))
             refs.add(inreplyto);
 
-        String thread = null;
         DB db = DB.getInstance(context);
         for (String ref : refs) {
             List<EntityMessage> messages = db.message().getMessagesByMsgId(account, ref);
-            for (EntityMessage message : messages) {
-                if (thread == null)
-                    thread = message.thread;
-                if (thread != null && !thread.equals(message.thread))
-                    db.message().setMessageThread(message.id, thread);
-            }
+            if (messages.size() > 0)
+                return messages.get(0).thread;
         }
-        if (thread != null)
-            return thread;
 
         if (refs.size() > 0)
             return refs.get(0);
