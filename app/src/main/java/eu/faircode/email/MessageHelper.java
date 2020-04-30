@@ -1030,7 +1030,7 @@ public class MessageHelper {
             return null;
 
         header = fixEncoding(name, header);
-        header = header.replaceAll("\\?=\\r?\\n\\s+=\\?", "\\?==\\?");
+        header = header.replaceAll("\\?=[\\r\\n\\t ]+=\\?", "\\?==\\?");
         Address[] addresses = InternetAddress.parseHeader(header, false);
 
         for (Address address : addresses) {
@@ -1179,7 +1179,7 @@ public class MessageHelper {
             return null;
 
         subject = fixEncoding("subject", subject);
-        subject = subject.replaceAll("\\?=\\r?\\n\\s+=\\?", "\\?==\\?");
+        subject = subject.replaceAll("\\?=[\\r\\n\\t ]+=\\?", "\\?==\\?");
         subject = MimeUtility.unfold(subject);
         subject = decodeMime(subject);
 
