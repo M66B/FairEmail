@@ -1936,6 +1936,8 @@ public class HtmlHelper {
                             ssb.setSpan(new RelativeSizeSpan(FONT_LARGE), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                             break;
                         case "blockquote":
+                            if (start > 0 && ssb.charAt(start - 1) != '\n')
+                                ssb.insert(start++, "\n");
                             ssb.setSpan(new QuoteSpan(), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                             break;
                         case "br":
