@@ -746,7 +746,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
     private void onWatchdog(Intent intent) {
         schedule(this);
-        onEval(intent);
+        networkCallback.onCapabilitiesChanged(null, null);
     }
 
     private NotificationCompat.Builder getNotificationService(Integer accounts, Integer operations) {
