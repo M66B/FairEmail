@@ -1934,7 +1934,8 @@ public class HtmlHelper {
                     switch (element.tagName()) {
                         case "a":
                             String href = element.attr("href");
-                            ssb.setSpan(new URLSpan(href), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            if (!TextUtils.isEmpty(href))
+                                ssb.setSpan(new URLSpan(href), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                             break;
                         case "body":
                             // Do nothing
