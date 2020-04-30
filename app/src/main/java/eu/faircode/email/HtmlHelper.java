@@ -559,7 +559,6 @@ public class HtmlHelper {
                                 break;
 
                             case "font-weight":
-                                // https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight
                                 if (element.parent() != null) {
                                     Integer fweight = getFontWeight(value);
                                     if (fweight != null && fweight >= 600) {
@@ -1040,12 +1039,15 @@ public class HtmlHelper {
     }
 
     private static Integer getFontWeight(String value) {
+        // https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight
         if (TextUtils.isEmpty(value))
             return null;
 
         value = value.toLowerCase(Locale.ROOT).trim();
 
         switch (value) {
+            case "thin":
+                return 100;
             case "light":
             case "lighter":
                 return 300;
@@ -1057,7 +1059,11 @@ public class HtmlHelper {
                 return 600;
             case "bold":
                 return 700;
+            case "heavy":
+                return 900;
             case "none":
+            case "auto":
+            case "initial":
             case "inherit":
                 return null;
         }
@@ -1077,6 +1083,7 @@ public class HtmlHelper {
             return null;
 
         if (value.contains("calc") ||
+                "none".equals(value) ||
                 "auto".equals(value) ||
                 "initial".equals(value) ||
                 "inherit".equals(value))
