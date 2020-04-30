@@ -840,7 +840,7 @@ public class MessageHelper {
     }
 
     private String[] getReferences(String header) {
-        return MimeUtility.unfold(header).split("[,\\s+]");
+        return MimeUtility.unfold(header).split("[,\\s]+");
     }
 
     String getDeliveredTo() throws MessagingException {
