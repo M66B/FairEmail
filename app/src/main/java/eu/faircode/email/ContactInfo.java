@@ -189,18 +189,19 @@ public class ContactInfo {
 
         if (info.bitmap == null) {
             if (gravatars) {
+                String gkey = address.getAddress().toLowerCase(Locale.ROOT);
                 boolean lookup;
                 synchronized (emailGravatar) {
-                    Avatar avatar = emailGravatar.get(address.getAddress());
+                    Avatar avatar = emailGravatar.get(gkey);
                     lookup = (avatar == null || avatar.isExpired() || avatar.isAvailable());
                 }
 
                 if (lookup) {
                     HttpURLConnection urlConnection = null;
                     try {
-                        String hash = Helper.md5(address.getAddress().toLowerCase(Locale.ROOT).getBytes());
+                        String hash = Helper.md5(gkey.getBytes());
                         URL url = new URL("https://www.gravatar.com/avatar/" + hash + "?d=404");
-                        Log.i("Gravatar url=" + url);
+                        Log.i("Gravatar key=" + gkey + " url=" + url);
 
                         urlConnection = (HttpURLConnection) url.openConnection();
                         urlConnection.setRequestMethod("GET");
@@ -214,12 +215,12 @@ public class ContactInfo {
                             info.bitmap = BitmapFactory.decodeStream(urlConnection.getInputStream());
                             // Positive reply
                             synchronized (emailGravatar) {
-                                emailGravatar.put(address.getAddress(), new Avatar(true));
+                                emailGravatar.put(gkey, new Avatar(true));
                             }
                         } else if (status == HttpURLConnection.HTTP_NOT_FOUND) {
                             // Negative reply
                             synchronized (emailGravatar) {
-                                emailGravatar.put(address.getAddress(), new Avatar(false));
+                                emailGravatar.put(gkey, new Avatar(false));
                             }
                         } else
                             throw new IOException("HTTP status=" + status);
