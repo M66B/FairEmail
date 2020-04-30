@@ -312,25 +312,25 @@ class ImageHelper {
                     return d;
                 }
 
-            if (content && (show || inline)) {
-                Drawable d;
+            if (content && (show || inline))
                 try {
                     Uri uri = Uri.parse(a.source);
                     Log.i("Loading image source=" + uri);
                     InputStream inputStream = context.getContentResolver().openInputStream(uri);
-                    d = Drawable.createFromStream(inputStream, uri.toString());
+                    Drawable d = Drawable.createFromStream(inputStream, uri.toString());
+                    if (d == null)
+                        throw new IllegalArgumentException("createFromStream");
+                    d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
+                    if (view != null)
+                        fitDrawable(d, a, view);
+                    return d;
                 } catch (Throwable ex) {
                     // FileNotFound, Security
                     Log.w(ex);
-                    d = context.getResources().getDrawable(R.drawable.baseline_broken_image_24);
+                    Drawable d = context.getResources().getDrawable(R.drawable.baseline_broken_image_24);
+                    d.setBounds(0, 0, px, px);
+                    return d;
                 }
-
-                int w = Helper.dp2pixels(context, d.getIntrinsicWidth());
-                int h = Helper.dp2pixels(context, d.getIntrinsicHeight());
-
-                d.setBounds(0, 0, w, h);
-                return d;
-            }
 
             if (!show) {
                 // Show placeholder icon
