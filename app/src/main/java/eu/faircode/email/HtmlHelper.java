@@ -1988,7 +1988,8 @@ public class HtmlHelper {
                             else {
                                 int index = 0;
                                 for (Node child : parent.childNodes()) {
-                                    if (child instanceof Element) {
+                                    if (child instanceof Element &&
+                                            child.nodeName().equals(element.tagName())) {
                                         index++;
                                         if (child == element)
                                             break;
