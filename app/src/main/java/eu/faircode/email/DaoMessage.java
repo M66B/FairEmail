@@ -75,11 +75,15 @@ public interface DaoMessage {
             " AND (:threading OR (:type IS NULL AND (folder.unified OR :found)) OR (:type IS NOT NULL AND folder.type = :type))" +
             " AND (NOT message.ui_hide OR :debug)" +
             " AND (NOT :found OR message.ui_found = :found)" +
+            " AND message.thread IN" +
+            "  (SELECT DISTINCT mm.thread FROM folder ff" +
+            "   JOIN message mm ON mm.folder = ff.id" +
+            "   WHERE (:found" +
+            "   OR (:type IS NULL AND ff.unified)" +
+            "   OR (:type IS NOT NULL AND ff.type = :type))" +
+            "   AND (NOT mm.ui_hide OR :debug))" +
             " GROUP BY account.id, CASE WHEN message.thread IS NULL OR NOT :threading THEN message.id ELSE message.thread END" +
-            " HAVING (:found OR" +
-            "   CASE WHEN :type IS NULL THEN SUM(folder.unified) > 0" +
-            "   ELSE SUM(CASE WHEN folder.type = :type THEN 1 ELSE 0 END) > 0 END)" +
-            " AND (NOT :filter_seen OR SUM(1 - message.ui_seen) > 0)" +
+            " HAVING (NOT :filter_seen OR SUM(1 - message.ui_seen) > 0)" +
             " AND (NOT :filter_unflagged OR COUNT(message.id) - SUM(1 - message.ui_flagged) > 0)" +
             " AND (NOT :filter_unknown OR SUM(message.avatar IS NOT NULL AND message.sender <> identity.email) > 0)" +
             " AND (NOT :filter_snoozed OR message.ui_snoozed IS NULL OR " + is_drafts + ")" +
@@ -135,9 +139,12 @@ public interface DaoMessage {
             " AND (:threading OR folder.id = :folder)" +
             " AND (NOT message.ui_hide OR :debug)" +
             " AND (NOT :found OR message.ui_found = :found)" +
+            " AND message.thread IN" +
+            "  (SELECT DISTINCT mm.thread FROM message mm" +
+            "   WHERE mm.folder = :folder" +
+            "   AND (NOT mm.ui_hide OR :debug))" +
             " GROUP BY CASE WHEN message.thread IS NULL OR NOT :threading THEN message.id ELSE message.thread END" +
-            " HAVING SUM(CASE WHEN folder.id = :folder THEN 1 ELSE 0 END) > 0" +
-            " AND (NOT :filter_seen OR SUM(1 - message.ui_seen) > 0 OR " + is_outbox + ")" +
+            " HAVING (NOT :filter_seen OR SUM(1 - message.ui_seen) > 0 OR " + is_outbox + ")" +
             " AND (NOT :filter_unflagged OR COUNT(message.id) - SUM(1 - message.ui_flagged) > 0 OR " + is_outbox + ")" +
             " AND (NOT :filter_unknown OR SUM(message.avatar IS NOT NULL AND message.sender <> identity.email) > 0" +
             "   OR " + is_outbox + " OR " + is_drafts + " OR " + is_sent + ")" +
