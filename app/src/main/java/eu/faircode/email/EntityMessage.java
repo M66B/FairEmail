@@ -63,6 +63,7 @@ import static androidx.room.ForeignKey.SET_NULL;
                 @Index(value = {"folder"}),
                 @Index(value = {"identity"}),
                 @Index(value = {"folder", "uid"}, unique = true),
+                @Index(value = {"inreplyto"}),
                 @Index(value = {"msgid"}),
                 @Index(value = {"thread"}),
                 @Index(value = {"sender"}),

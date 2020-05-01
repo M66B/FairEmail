@@ -863,8 +863,10 @@ public class MessageHelper {
     }
 
     String getThreadId(Context context, long account, long uid) throws MessagingException {
-        List<String> refs = new ArrayList<>();
+        String thread = null;
+        String msgid = getMessageID();
 
+        List<String> refs = new ArrayList<>();
         for (String ref : getReferences())
             if (!TextUtils.isEmpty(ref))
                 refs.add(ref);
@@ -875,16 +877,37 @@ public class MessageHelper {
 
         DB db = DB.getInstance(context);
         for (String ref : refs) {
-            List<EntityMessage> messages = db.message().getMessagesByMsgId(account, ref);
-            if (messages.size() > 0)
-                return messages.get(0).thread;
+            List<EntityMessage> before = db.message().getMessagesByMsgId(account, ref);
+            for (EntityMessage message : before) {
+                if (thread == null && !TextUtils.isEmpty(message.thread))
+                    thread = message.thread;
+                if (thread != null &&
+                        !TextUtils.isEmpty(message.thread) && !thread.equals(message.thread)) {
+                    Log.w("Updating before thread from " + message.thread + " to " + thread);
+                    db.message().updateMessageThread(message.account, message.thread, thread);
+                }
+            }
         }
 
-        if (refs.size() > 0)
-            return refs.get(0);
+        if (thread == null && refs.size() > 0)
+            thread = refs.get(0);
 
-        String msgid = getMessageID();
-        return (TextUtils.isEmpty(msgid) ? Long.toString(uid) : msgid);
+        if (thread != null) {
+            List<EntityMessage> after = db.message().getMessagesByInReplyTo(account, msgid);
+            for (EntityMessage message : after)
+                if (!TextUtils.isEmpty(message.thread) && !thread.equals(message.thread)) {
+                    Log.w("Updating after thread from " + message.thread + " to " + thread);
+                    db.message().updateMessageThread(message.account, message.thread, thread);
+                }
+        }
+
+        if (thread == null)
+            if (TextUtils.isEmpty(msgid))
+                thread = Long.toString(uid);
+            else
+                thread = msgid;
+
+        return thread;
     }
 
     Integer getPriority() throws MessagingException {

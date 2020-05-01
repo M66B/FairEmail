@@ -331,6 +331,11 @@ public interface DaoMessage {
 
     @Query("SELECT * FROM message" +
             " WHERE account = :account" +
+            " AND inreplyto = :inreplyto")
+    List<EntityMessage> getMessagesByInReplyTo(long account, String inreplyto);
+
+    @Query("SELECT * FROM message" +
+            " WHERE account = :account" +
             " AND (id = :id OR msgid = :msgid)")
     List<EntityMessage> getMessagesBySimilarity(long account, long id, String msgid);
 
@@ -515,8 +520,9 @@ public interface DaoMessage {
     @Update
     int updateMessage(EntityMessage message);
 
-    @Query("UPDATE message SET identity = :identity WHERE id = :id")
-    int setMessageIdentity(long id, Long identity);
+    @Query("UPDATE message SET thread = :thread" +
+            " WHERE account = :account AND thread = :old")
+    int updateMessageThread(long account, String old, String thread);
 
     @Query("UPDATE message SET uid = :uid WHERE id = :id")
     int setMessageUid(long id, Long uid);
