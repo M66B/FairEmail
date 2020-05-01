@@ -2141,7 +2141,7 @@ public class HtmlHelper {
 
         @Override
         public void drawLeadingMargin(Canvas c, Paint p, int x, int dir, int top, int baseline, int bottom, CharSequence text, int start, int end, boolean first, Layout layout) {
-            if (first) {
+            if (((Spanned) text).getSpanStart(this) == start) {
                 Paint.Style ostyle = p.getStyle();
                 int ocolor = p.getColor();
                 Typeface oface = p.getTypeface();
