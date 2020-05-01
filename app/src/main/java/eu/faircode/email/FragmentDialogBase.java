@@ -148,9 +148,7 @@ public class FragmentDialogBase extends DialogFragment {
             once = true;
             Fragment target = getTargetFragment();
             Log.i("Dialog target=" + target + " result=" + result);
-            if (target != null &&
-                    target.getView() != null &&
-                    target.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
+            if (target != null) {
                 Intent data = new Intent();
                 data.putExtra("args", getArguments());
                 target.onActivityResult(getTargetRequestCode(), result, data);
