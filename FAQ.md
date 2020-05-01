@@ -2776,7 +2776,8 @@ The best solution would be to enable showing the sent folder in the unified inbo
 by long pressing the sent folder in the folder list and enabling *Show in unified inbox*.
 This way all messages can stay where they belong, while allowing to see both incoming and outgoing messages at one place.
 
-If this is not an option, you can [create a rule](#user-content-faq71) to automatically move sent messages to the inbox.
+If this is not an option, you can [create a rule](#user-content-faq71) to automatically move sent messages to the inbox
+or set a default CC/BCC address in the advanced identity settings to send yourself a copy.
 
 <br />
 
