@@ -740,4 +740,16 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="One.com"
+        link="https://help.one.com/hc/en-us/articles/115005586769-Setting-up-a-Mobile-Phone">
+        <imap
+            host="imap.one.com"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="send.one.com"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
