@@ -2940,7 +2940,10 @@ You can define contact groups with the Android contacts app, please see [here](h
 <a name="faq153"></a>
 **(153) Why does permanently deleting Gmail message not work?**
 
-You might need to change [the delete setting](https://mail.google.com/mail/u/0/#settings/fwdandpop) on a desktop browser to make it work.
+You might need to change [the delete setting](https://mail.google.com/mail/u/0/#settings/fwdandpop) on a desktop browser to make it work:
+
+* When I mark a message in IMAP as deleted: Auto-Expunge off - Wait for the client to update the server.
+* When a message is marked as deleted and expunged from the last visible IMAP folder: Immediately delete the message forever
 
 Note that archived messages can be deleted only by moving them to the trash folder first.
 
