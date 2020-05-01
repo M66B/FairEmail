@@ -799,12 +799,10 @@ public class HtmlHelper {
                 if (TextUtils.isEmpty(tracking))
                     img.appendText("[" + alt + "]");
                 else {
-                    img.append("&nbsp;");
                     Element a = document.createElement("a");
                     a.attr("href", tracking);
-                    a.text(alt);
+                    a.text("[" + alt + "]");
                     img.appendChild(a);
-                    img.appendText(" ");
                 }
 
             // Annotate source with width and height
