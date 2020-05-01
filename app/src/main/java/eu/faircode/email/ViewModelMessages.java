@@ -68,7 +68,8 @@ public class ViewModelMessages extends ViewModel {
         }
     };
 
-    private ExecutorService executor = Helper.getBackgroundExecutor(2, "model");
+    // AndroidX IO = 4 threads
+    private ExecutorService executor = Helper.getBackgroundExecutor(4, "model");
 
     private static final int LOCAL_PAGE_SIZE = 50;
     private static final int REMOTE_PAGE_SIZE = 10;
