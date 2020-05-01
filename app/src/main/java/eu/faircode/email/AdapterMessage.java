@@ -5511,7 +5511,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 // https://docs.oracle.com/en/cloud/saas/marketing/eloqua-user/Help/EloquaAsynchronousTrackingScripts/EloquaTrackingParameters.htm
                 if (key.toLowerCase(Locale.ROOT).startsWith("utm_") ||
                         key.toLowerCase(Locale.ROOT).startsWith("elq") ||
-                        PARANOID_QUERY.contains(key.toLowerCase(Locale.ROOT)))
+                        PARANOID_QUERY.contains(key.toLowerCase(Locale.ROOT)) ||
+                        ("snr".equals(key) && "store.steampowered.com".equals(uri.getHost())))
                     changed = true;
                 else if (!TextUtils.isEmpty(key))
                     for (String value : url.getQueryParameters(key)) {
