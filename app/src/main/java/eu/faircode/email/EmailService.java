@@ -11,6 +11,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
 
+import com.sun.mail.gimap.GmailSSLProvider;
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPStore;
 import com.sun.mail.smtp.SMTPTransport;
@@ -185,7 +186,7 @@ public class EmailService implements AutoCloseable {
             properties.put("mail.pop3.starttls.enable", "true");
             properties.put("mail.pop3.starttls.required", Boolean.toString(!insecure));
 
-        } else if ("imap".equals(protocol) || "imaps".equals(protocol)) {
+        } else if ("imap".equals(protocol) || "imaps".equals(protocol) || "gimaps".equals(protocol)) {
             // https://javaee.github.io/javamail/docs/api/com/sun/mail/imap/package-summary.html#properties
             properties.put("mail.imaps.starttls.enable", "false");
 
@@ -465,13 +466,14 @@ public class EmailService implements AutoCloseable {
         isession = Session.getInstance(properties, null);
         isession.setDebug(debug);
         //System.setProperty("mail.socket.debug", Boolean.toString(debug));
+        isession.addProvider(new GmailSSLProvider());
 
         if ("pop3".equals(protocol) || "pop3s".equals(protocol)) {
             isession.setDebug(true);
             iservice = isession.getStore(protocol);
             iservice.connect(address.getHostAddress(), port, user, password);
 
-        } else if ("imap".equals(protocol) || "imaps".equals(protocol)) {
+        } else if ("imap".equals(protocol) || "imaps".equals(protocol) || "gimaps".equals(protocol)) {
             iservice = isession.getStore(protocol);
             if (listener != null)
                 ((IMAPStore) iservice).addStoreListener(listener);

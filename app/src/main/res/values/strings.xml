@@ -268,6 +268,7 @@
     <string name="title_advanced_flagged">All starred messages</string>
     <string name="title_advanced_delete_unseen">Delete old unread messages</string>
     <string name="title_advanced_kept_removed">Check if old messages were removed from the server</string>
+    <string name="title_advanced_gmail_thread">Gmail message grouping style for Gmail accounts</string>
     <string name="title_advanced_sync_folders">Synchronize folder list</string>
     <string name="title_advanced_subscriptions">Manage folder subscriptions</string>
 

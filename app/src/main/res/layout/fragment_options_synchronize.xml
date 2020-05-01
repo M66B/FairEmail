@@ -375,6 +375,17 @@
             app:layout_constraintTop_toBottomOf="@id/swSyncKept" />
 
         <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swGmailThread"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_gmail_thread"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSyncKeptHint"
+            app:switchPadding="12dp" />
+
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swSyncFolders"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -383,7 +394,7 @@
             android:text="@string/title_advanced_sync_folders"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvSyncKeptHint"
+            app:layout_constraintTop_toBottomOf="@id/swGmailThread"
             app:switchPadding="12dp" />
 
         <eu.faircode.email.FixedTextView

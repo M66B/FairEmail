@@ -29,6 +29,7 @@ import androidx.annotation.Nullable;
 import androidx.paging.PagedList;
 import androidx.preference.PreferenceManager;
 
+import com.sun.mail.gimap.GmailFolder;
 import com.sun.mail.iap.Argument;
 import com.sun.mail.iap.ProtocolException;
 import com.sun.mail.iap.Response;
@@ -504,6 +505,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 //fp.add(IMAPFolder.FetchProfileItem.MESSAGE);
                 fp.add(FetchProfile.Item.SIZE);
                 fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
+                if (account.isGmail())
+                    fp.add(GmailFolder.FetchProfileItem.THRID);
                 state.ifolder.fetch(add.toArray(new Message[0]), fp);
             }
 

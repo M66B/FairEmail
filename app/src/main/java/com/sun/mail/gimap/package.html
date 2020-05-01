@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!--
+
+    DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+    Copyright (c) 1997-2017 Oracle and/or its affiliates. All rights reserved.
+
+    The contents of this file are subject to the terms of either the GNU
+    General Public License Version 2 only ("GPL") or the Common Development
+    and Distribution License("CDDL") (collectively, the "License").  You
+    may not use this file except in compliance with the License.  You can
+    obtain a copy of the License at
+    https://oss.oracle.com/licenses/CDDL+GPL-1.1
+    or LICENSE.txt.  See the License for the specific
+    language governing permissions and limitations under the License.
+
+    When distributing the software, include this License Header Notice in each
+    file and include the License file at LICENSE.txt.
+
+    GPL Classpath Exception:
+    Oracle designates this particular file as subject to the "Classpath"
+    exception as provided by Oracle in the GPL Version 2 section of the License
+    file that accompanied this code.
+
+    Modifications:
+    If applicable, add the following below the License Header, with the fields
+    enclosed by brackets [] replaced by your own identifying information:
+    "Portions Copyright [year] [name of copyright owner]"
+
+    Contributor(s):
+    If you wish your version of this file to be governed by only the CDDL or
+    only the GPL Version 2, indicate your decision by adding "[Contributor]
+    elects to include this software in this distribution under the [CDDL or GPL
+    Version 2] license."  If you don't indicate a single choice of license, a
+    recipient has the option to distribute your version of this file under
+    either the CDDL, the GPL Version 2 or to extend the choice of license to
+    its licensees as provided above.  However, if you add GPL Version 2 code
+    and therefore, elected the GPL Version 2 license, then the option applies
+    only if the new code is made subject to such option by the copyright
+    holder.
+
+-->
+
+<TITLE>com.sun.mail.gimap package</TITLE>
+</HEAD>
+<BODY BGCOLOR="white">
+
+<P>
+An EXPERIMENTAL IMAP protocol provider that supports the
+<A HREF="https://developers.google.com/google-apps/gmail/imap_extensions"
+TARGET="_top">
+Gmail-specific IMAP protocol extensions
+</A>.
+This provider supports all the features of the IMAP provider, plus
+additional Gmail-specific features.
+This provider can be used by including gimap.jar in your CLASSPATH
+along with mail.jar, and by using the "gimap" protocol instead of
+the "imap" protocol.
+Remember that this means that all properties should be named "mail.gimap.*",
+but that otherwise this provider supports all the same properties as the
+IMAP protocol provider.
+The Gmail IMAP provider defaults to using SSL to connect to "imap.gmail.com".
+</P>
+<P>
+In general, applications should not need to use the classes in this
+package directly.  Instead, they should use the APIs defined by the
+<code>javax.mail</code> package (and subpackages).  Applications should
+never construct instances of <code>GmailStore</code> or
+<code>GmailFolder</code> directly.  Instead, they should use the
+<code>Session</code> method <code>getStore</code> to acquire an
+appropriate <code>Store</code> object, and from that acquire
+<code>Folder</code> objects.
+</P>
+<P>
+Message objects returned by this provider may be cast to GmailMessage
+to access Gmail-specific data, e.g., using the methods GmailMessage.getMsgId(),
+GmailMessage.getThrId(), and GmailMessage.getLabels().
+For example:
+</P>
+<PRE>
+    GmailMessage gmsg = (GmailMessage)msg;
+    System.out.println("Gmail message ID is " + gmsg.getMsgId());
+    String[] labels = gmsg.getLabels();
+    for (String s : labels)
+	System.out.println("Gmail message label: " + s);
+</PRE>
+<P>
+Gmail-specific data may be prefetched using the GmailFolder.FetchProfileItems
+MSGID, THRID, and LABELS.
+For example:
+</P>
+<PRE>
+    FetchProfile fp = new FetchProfile();
+    fp.add(GmailFolder.FetchProfileItem.MSGID);
+    folder.fetch(fp);
+</PRE>
+<P>
+You can search using Gmail-specific data using the GmailMsgIdTerm,
+GmailThrIdTerm, and GmailRawSearchTerm search terms.
+For example:
+</P>
+<PRE>
+    // find the message with this Gmail unique message ID
+    long msgid = ...;
+    Message[] msgs = folder.search(new GmailMsgIdTerm(msgid));
+</PRE>
+<P>
+You can access the Gmail extended attributes (returned by XLIST) for a
+folder using the IMAPFolder.getAttributes() method.
+For example:
+</P>
+<PRE>
+    IMAPFolder ifolder = (IMAPFolder)folder;
+    String[] attrs = ifolder.getAttributes();
+    for (String s : attrs)
+	System.out.println("Folder attribute: " + s);
+</PRE>
+<P>
+<strong>WARNING:</strong> The APIs unique to this package should be
+considered <strong>EXPERIMENTAL</strong>.  They may be changed in the
+future in ways that are incompatible with applications using the
+current APIs.
+</P>
+
+</BODY>
+</HTML>

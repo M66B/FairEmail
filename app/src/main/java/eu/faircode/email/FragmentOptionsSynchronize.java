@@ -73,6 +73,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
     private SwitchCompat swFlagged;
     private SwitchCompat swDeleteUnseen;
     private SwitchCompat swSyncKept;
+    private SwitchCompat swGmailThread;
     private SwitchCompat swSyncFolders;
     private SwitchCompat swSubscriptions;
     private TextView tvSubscriptionPro;
@@ -84,7 +85,8 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
 
     private final static String[] RESET_OPTIONS = new String[]{
             "enabled", "poll_interval", "schedule", "schedule_start", "schedule_end",
-            "sync_nodate", "sync_unseen", "sync_flagged", "delete_unseen", "sync_kept", "sync_folders", "subscriptions",
+            "sync_nodate", "sync_unseen", "sync_flagged", "delete_unseen", "sync_kept", "gmail_thread_id",
+            "sync_folders", "subscriptions",
             "check_mx", "check_reply"
     };
 
@@ -119,6 +121,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         swFlagged = view.findViewById(R.id.swFlagged);
         swDeleteUnseen = view.findViewById(R.id.swDeleteUnseen);
         swSyncKept = view.findViewById(R.id.swSyncKept);
+        swGmailThread = view.findViewById(R.id.swGmailThread);
         swSyncFolders = view.findViewById(R.id.swSyncFolders);
         swSubscriptions = view.findViewById(R.id.swSubscriptions);
         tvSubscriptionPro = view.findViewById(R.id.tvSubscriptionPro);
@@ -256,6 +259,13 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             }
         });
 
+        swGmailThread.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("gmail_thread_id", checked).apply();
+            }
+        });
+
         swSyncFolders.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -368,6 +378,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         swFlagged.setChecked(prefs.getBoolean("sync_flagged", false));
         swDeleteUnseen.setChecked(prefs.getBoolean("delete_unseen", false));
         swSyncKept.setChecked(prefs.getBoolean("sync_kept", true));
+        swGmailThread.setChecked(prefs.getBoolean("gmail_thread_id", false));
         swSyncFolders.setChecked(prefs.getBoolean("sync_folders", true));
         swSubscriptions.setChecked(prefs.getBoolean("subscriptions", false) && pro);
         swSubscriptions.setEnabled(pro);

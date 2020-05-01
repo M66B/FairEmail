@@ -42,6 +42,7 @@ import androidx.core.app.RemoteInput;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 
+import com.sun.mail.gimap.GmailFolder;
 import com.sun.mail.iap.BadCommandException;
 import com.sun.mail.iap.CommandFailedException;
 import com.sun.mail.iap.ConnectionException;
@@ -982,6 +983,8 @@ class Core {
                 //fp.add(IMAPFolder.FetchProfileItem.MESSAGE);
                 fp.add(FetchProfile.Item.SIZE);
                 fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
+                if (account.isGmail())
+                    fp.add(GmailFolder.FetchProfileItem.THRID);
                 ifolder.fetch(new Message[]{imessage}, fp);
 
                 EntityMessage message = synchronizeMessage(context, account, folder, istore, ifolder, imessage, false, download, rules, state);
@@ -1945,6 +1948,8 @@ class Core {
             //fp.add(IMAPFolder.FetchProfileItem.MESSAGE);
             fp.add(FetchProfile.Item.SIZE);
             fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
+            if (account.isGmail())
+                fp.add(GmailFolder.FetchProfileItem.THRID);
 
             // Add/update local messages
             Long[] ids = new Long[imessages.length];
@@ -2748,6 +2753,8 @@ class Core {
             //fp.add(IMAPFolder.FetchProfileItem.MESSAGE);
             //fp.add(FetchProfile.Item.SIZE);
             //fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
+            //if (account.isGmail())
+            //    fp.add(GmailFolder.FetchProfileItem.THRID);
             //ifolder.fetch(new Message[]{imessage}, fp);
 
             MessageHelper helper = new MessageHelper(imessage);

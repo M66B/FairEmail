@@ -28,6 +28,7 @@ import android.text.TextUtils;
 import androidx.documentfile.provider.DocumentFile;
 import androidx.preference.PreferenceManager;
 
+import com.sun.mail.gimap.GmailMessage;
 import com.sun.mail.util.ASCIIUtility;
 import com.sun.mail.util.BASE64DecoderStream;
 import com.sun.mail.util.FolderClosedIOException;
@@ -863,6 +864,17 @@ public class MessageHelper {
     }
 
     String getThreadId(Context context, long account, long uid) throws MessagingException {
+        if (imessage instanceof GmailMessage) {
+            // https://developers.google.com/gmail/imap/imap-extensions#access_to_the_gmail_thread_id_x-gm-thrid
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean gmail_thread_id = prefs.getBoolean("gmail_thread_id", false);
+            if (gmail_thread_id) {
+                long thrid = ((GmailMessage) imessage).getThrId();
+                if (thrid > 0)
+                    return "gmail:" + thrid;
+            }
+        }
+
         String thread = null;
         String msgid = getMessageID();
 

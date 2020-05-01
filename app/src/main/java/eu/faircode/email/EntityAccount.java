@@ -147,7 +147,10 @@ public class EntityAccount extends EntityOrder implements Serializable {
     String getProtocol() {
         switch (protocol) {
             case TYPE_IMAP:
-                return "imap" + (starttls ? "" : "s");
+                if (isGmail())
+                    return "gimaps";
+                else
+                    return "imap" + (starttls ? "" : "s");
             case TYPE_POP:
                 return "pop3" + (starttls ? "" : "s");
             default:
