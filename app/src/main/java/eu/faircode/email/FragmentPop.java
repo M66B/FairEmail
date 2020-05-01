@@ -557,8 +557,11 @@ public class FragmentPop extends FragmentBase {
                     cbLeaveServer.setChecked(account == null ? true : account.leave_on_server);
                     cbLeaveDeleted.setChecked(account == null ? true : account.leave_deleted);
                     cbLeaveDevice.setChecked(account == null ? false : account.leave_on_device);
-                    etMax.setText(Integer.toString(account == null || account.max_messages == null
-                            ? EntityAccount.DEFAULT_MAX_MESSAGES : account.max_messages));
+                    if (account != null && account.max_messages == null)
+                        etMax.setText(null);
+                    else
+                        etMax.setText(Integer.toString(account == null
+                                ? EntityAccount.DEFAULT_MAX_MESSAGES : account.max_messages));
                     etInterval.setText(account == null ? "" : Long.toString(account.poll_interval));
 
                     new SimpleTask<EntityAccount>() {
