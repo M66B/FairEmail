@@ -4783,7 +4783,6 @@ public class FragmentCompose extends FragmentBase {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     prefs.edit().putBoolean("privacy_images", isChecked).apply();
-                    spResize.setEnabled(isChecked);
                 }
             });
 
