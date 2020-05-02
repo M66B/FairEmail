@@ -222,6 +222,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_flagged">Alle markierten Nachrichten</string>
     <string name="title_advanced_delete_unseen">Alte ungelesene Nachrichten löschen</string>
     <string name="title_advanced_kept_removed">Überprüfen, ob alte Nachrichten vom Server entfernt wurden</string>
+    <string name="title_advanced_gmail_thread">Nachrichten im Stil von Gmail-Konten gruppieren</string>
     <string name="title_advanced_sync_folders">Ordnerliste synchronisieren</string>
     <string name="title_advanced_subscriptions">Abonnierte Ordner verwalten</string>
     <string name="title_advanced_keyboard">Tastatur immer anzeigen</string>
@@ -741,7 +742,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_add_image_inline">Einfügen</string>
     <string name="title_add_image_attach">Anhängen</string>
     <string name="title_add_image_resize">Größe ändern</string>
-    <string name="title_add_image_privacy">Aufnahmeort entfernen</string>
+    <string name="title_add_image_privacy">Geografischen Standort entfernen</string>
     <string name="title_add_resize_pixels">&lt; %1$d Pixel</string>
     <string name="title_add_image_select">Datei auswählen</string>
     <string name="title_add_attachment">Anhang hinzufügen</string>

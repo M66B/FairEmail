@@ -433,6 +433,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_notify_manage_default_hint">Alapértelmezett hang beállítása, stb</string>
     <string name="title_advanced_notify_manage_service_hint">Állandó értesítés kikapcsolása</string>
     <string name="title_advanced_notify_preview_all_hint">Olyan hordhatóknak amik meg tudják jeleníteni a teljes szöveget (akár 5,000 karakter)</string>
+    <string name="title_advanced_wearable_hint">Az értesítések csak az üzenetszöveg letöltése után kerülnek elküldésre a hordhatónak</string>
     <string name="title_advanced_move_hint">A célmappa szerkeszthető a fiók beállításai között</string>
     <string name="title_advanced_notify_no_grouping">Ez az Android verzió nem támogatja az értesítések csoportosítását</string>
     <string name="title_advanced_notify_no_channels">Ez az Android verzió nem támogatja az értesítés csatornákat</string>
@@ -729,7 +730,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_add_image_inline">Beszúrás</string>
     <string name="title_add_image_attach">Csatolás</string>
     <string name="title_add_image_resize">Átméretezés</string>
-    <string name="title_add_image_privacy">Hely eltávolítása</string>
+    <string name="title_add_image_privacy">Földrajzi hely eltávolítása</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixelek</string>
     <string name="title_add_image_select">Fájl kiválasztása</string>
     <string name="title_add_attachment">Melléklet hozzáadása</string>

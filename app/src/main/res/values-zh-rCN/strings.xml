@@ -209,6 +209,7 @@
     <string name="title_advanced_flagged">所有已标星消息</string>
     <string name="title_advanced_delete_unseen">删除旧的未读消息</string>
     <string name="title_advanced_kept_removed">检查旧消息是否已从服务器移除</string>
+    <string name="title_advanced_gmail_thread">Gmail账户的 Gmail 分组风格</string>
     <string name="title_advanced_sync_folders">同步文件夹列表</string>
     <string name="title_advanced_subscriptions">管理文件夹订阅</string>
     <string name="title_advanced_keyboard">默认显示键盘</string>
@@ -728,7 +729,7 @@
     <string name="title_add_image_inline">插入</string>
     <string name="title_add_image_attach">附件</string>
     <string name="title_add_image_resize">调整大小</string>
-    <string name="title_add_image_privacy">移除图片位置信息</string>
+    <string name="title_add_image_privacy">删除地理位置</string>
     <string name="title_add_resize_pixels">&lt; %1$d 像素</string>
     <string name="title_add_image_select">选择文件</string>
     <string name="title_add_attachment">添加附件</string>

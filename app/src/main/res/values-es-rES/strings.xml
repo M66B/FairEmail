@@ -222,6 +222,7 @@
     <string name="title_advanced_flagged">Todos los mensajes destacados</string>
     <string name="title_advanced_delete_unseen">Eliminar mensajes no leídos antiguos</string>
     <string name="title_advanced_kept_removed">Comprobar si los mensajes antiguos fueron eliminados del servidor</string>
+    <string name="title_advanced_gmail_thread">Estilo de agrupación de mensajes de Gmail para cuentas de Gmail</string>
     <string name="title_advanced_sync_folders">Sincronizar lista de carpetas</string>
     <string name="title_advanced_subscriptions">Administrar suscripciones de carpeta</string>
     <string name="title_advanced_keyboard">Mostrar teclado por defecto</string>
@@ -741,7 +742,7 @@
     <string name="title_add_image_inline">Insertar</string>
     <string name="title_add_image_attach">Adjuntar</string>
     <string name="title_add_image_resize">Redimensionar</string>
-    <string name="title_add_image_privacy">Eliminar localización</string>
+    <string name="title_add_image_privacy">Eliminar ubicación geográfica</string>
     <string name="title_add_resize_pixels">&lt; %1$d píxeles</string>
     <string name="title_add_image_select">Seleccionar archivo</string>
     <string name="title_add_attachment">Agregar adjunto</string>

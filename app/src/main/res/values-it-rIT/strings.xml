@@ -739,7 +739,6 @@
     <string name="title_add_image_inline">Inserisci</string>
     <string name="title_add_image_attach">Allega</string>
     <string name="title_add_image_resize">Ridimensiona</string>
-    <string name="title_add_image_privacy">Rimuovi posizione</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixels</string>
     <string name="title_add_image_select">Seleziona file</string>
     <string name="title_add_attachment">Aggiungi allegato</string>

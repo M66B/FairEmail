@@ -760,7 +760,6 @@
     <string name="title_add_image_inline">Wstaw</string>
     <string name="title_add_image_attach">Załącz</string>
     <string name="title_add_image_resize">Zmień rozmiar</string>
-    <string name="title_add_image_privacy">Usuń lokalizację</string>
     <string name="title_add_resize_pixels">&lt; %1$d pikseli</string>
     <string name="title_add_image_select">Wybierz plik</string>
     <string name="title_add_attachment">Dodaj załącznik</string>

@@ -761,7 +761,6 @@
     <string name="title_add_image_inline">Vstavi</string>
     <string name="title_add_image_attach">Priloži</string>
     <string name="title_add_image_resize">Spremeni velikost</string>
-    <string name="title_add_image_privacy">Odstrani mesto</string>
     <string name="title_add_resize_pixels">&lt; %1$d sl. točk</string>
     <string name="title_add_image_select">Izberi datoteko</string>
     <string name="title_add_attachment">Dodaj prilogo</string>

@@ -220,6 +220,7 @@
     <string name="title_advanced_flagged">Alle berichten met een ster</string>
     <string name="title_advanced_delete_unseen">Verwijder oude, ongelezen berichten</string>
     <string name="title_advanced_kept_removed">Controleer of oude berichten van de server werden verwijderd</string>
+    <string name="title_advanced_gmail_thread">Gmail bericht groeperingsstijl voor Gmail accounts</string>
     <string name="title_advanced_sync_folders">Lijst met mappen synchroniseren</string>
     <string name="title_advanced_subscriptions">Beheer map abonnementen</string>
     <string name="title_advanced_keyboard">Toon standaard het toetsenbord</string>
@@ -739,7 +740,7 @@
     <string name="title_add_image_inline">Invoegen</string>
     <string name="title_add_image_attach">Bijlage</string>
     <string name="title_add_image_resize">Grootte aanpassen</string>
-    <string name="title_add_image_privacy">Verwijder locatie</string>
+    <string name="title_add_image_privacy">Geografische locatie verwijderen</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixels</string>
     <string name="title_add_image_select">Selecteer bestand</string>
     <string name="title_add_attachment">Bijlage toevoegen</string>

@@ -153,7 +153,7 @@
     <string name="title_setup_oauth_authorize">Авторизироваться</string>
     <string name="title_setup_select_account">Выбрать учётную запись</string>
     <string name="title_setup_instructions">Инструкция по установке</string>
-    <string name="title_setup_no_settings">Не найдено настроек для домена \'%1$s\'</string>
+    <string name="title_setup_no_settings">Не найдено настроек для домена %1$s</string>
     <string name="title_setup_no_settings_hint">Пожалуйста, попробуйте настроить учётную запись и идентификатор в шагах 1 и 2, используя настройки, предоставленные вашим провайдером электронной почты</string>
     <string name="title_setup_no_auth_hint">Пожалуйста, проверьте свой адрес электронной почты и пароль и убедитесь, что внешний доступ (IMAP/SMTP) включён для вашей учётной записи</string>
     <string name="title_setup_app_password_hint">Этот провайдер требует пароль приложения вместо пароля учётной записи</string>
@@ -243,6 +243,7 @@
     <string name="title_advanced_flagged">Все избранные сообщения</string>
     <string name="title_advanced_delete_unseen">Удалять старые непрочитанные сообщения</string>
     <string name="title_advanced_kept_removed">Проверять, были ли удалены старые сообщения с сервера</string>
+    <string name="title_advanced_gmail_thread">Стиль группировки сообщений для учётных записей Gmail</string>
     <string name="title_advanced_sync_folders">Синхронизировать список папок</string>
     <string name="title_advanced_subscriptions">Управление подпиской на папки</string>
     <string name="title_advanced_keyboard">Показывать клавиатуру по умолчанию</string>
@@ -762,7 +763,7 @@
     <string name="title_add_image_inline">Вставить</string>
     <string name="title_add_image_attach">Прикрепить</string>
     <string name="title_add_image_resize">Изменить размер</string>
-    <string name="title_add_image_privacy">Удалить размещение</string>
+    <string name="title_add_image_privacy">Удалять место съёмки</string>
     <string name="title_add_resize_pixels">&lt; %1$d пикселей</string>
     <string name="title_add_image_select">Выбрать файл</string>
     <string name="title_add_attachment">Добавить вложение</string>

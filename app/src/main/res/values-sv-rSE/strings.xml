@@ -220,6 +220,7 @@
     <string name="title_advanced_flagged">Alla stjärnmärkta meddelanden</string>
     <string name="title_advanced_delete_unseen">Ta bort gamla olästa meddelanden</string>
     <string name="title_advanced_kept_removed">Kontrollera om gamla meddelanden har tagits bort från servern</string>
+    <string name="title_advanced_gmail_thread">Använd Gmails stil för gruppering av meddelande på Gmail-konton</string>
     <string name="title_advanced_sync_folders">Synkronisera mapplistan</string>
     <string name="title_advanced_subscriptions">Hantera mapprenumerationer</string>
     <string name="title_advanced_keyboard">Visa tangentbord som standard</string>
@@ -739,7 +740,7 @@
     <string name="title_add_image_inline">Infoga</string>
     <string name="title_add_image_attach">Bifoga</string>
     <string name="title_add_image_resize">Ändra storlek</string>
-    <string name="title_add_image_privacy">Ta bort plats</string>
+    <string name="title_add_image_privacy">Ta bort geografisk plats</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixlar</string>
     <string name="title_add_image_select">Välj fil</string>
     <string name="title_add_attachment">Lägg till bilaga</string>

@@ -733,7 +733,6 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_add_image_inline">Txertatu</string>
     <string name="title_add_image_attach">Erantsi</string>
     <string name="title_add_image_resize">Aldatu tamaina</string>
-    <string name="title_add_image_privacy">Kendu kokapena</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixel</string>
     <string name="title_add_image_select">Aukeratu fitxategia</string>
     <string name="title_add_attachment">Gehitu eranskina</string>

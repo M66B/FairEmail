@@ -243,6 +243,7 @@
     <string name="title_advanced_flagged">Všechny zprávy s hvězdičkou</string>
     <string name="title_advanced_delete_unseen">Smazat staré nepřečtené zprávy</string>
     <string name="title_advanced_kept_removed">Kontrolovat, zda byly staré zprávy odstraněny ze serveru</string>
+    <string name="title_advanced_gmail_thread">Gmail styl seskupování zpráv pro Gmail účty</string>
     <string name="title_advanced_sync_folders">Synchronizovat seznam složek</string>
     <string name="title_advanced_subscriptions">Spravovat odběry složek</string>
     <string name="title_advanced_keyboard">Automaticky zobrazit klávesnici</string>
@@ -762,7 +763,7 @@
     <string name="title_add_image_inline">Vložit</string>
     <string name="title_add_image_attach">Přiložit</string>
     <string name="title_add_image_resize">Změnit velikost</string>
-    <string name="title_add_image_privacy">Odstranit polohu</string>
+    <string name="title_add_image_privacy">Odstranit geografickou polohu</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixelů</string>
     <string name="title_add_image_select">Vybrat soubor</string>
     <string name="title_add_attachment">Přidat přílohu</string>
