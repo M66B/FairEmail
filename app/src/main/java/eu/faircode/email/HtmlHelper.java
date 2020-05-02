@@ -1284,23 +1284,10 @@ public class HtmlHelper {
             line = l.toString();
 
             // Html characters
+            // This will handle spaces / word wrapping as well
             line = Html.escapeHtml(line);
 
-            // Space characters
-            int len = line.length();
-            for (int j = 0; j < len; j++) {
-                char kar = line.charAt(j);
-                if (kar == ' ') {
-                    // Prevent trimming start
-                    // Keep one space for word wrapping
-                    if (j == 0 || (j + 1 < len && line.charAt(j + 1) == ' '))
-                        sb.append("&nbsp;");
-                    else
-                        sb.append(' ');
-                } else
-                    sb.append(kar);
-            }
-
+            sb.append(line);
             sb.append("<br>");
         }
 
