@@ -34,6 +34,7 @@ import android.text.Layout;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
+import android.text.TextPaint;
 import android.text.TextUtils;
 import android.text.style.BulletSpan;
 import android.text.style.ForegroundColorSpan;
@@ -1768,6 +1769,7 @@ public class HtmlHelper {
     static Spanned fromDocument(Context context, @NonNull Document document, @Nullable Html.ImageGetter imageGetter, @Nullable Html.TagHandler tagHandler) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean debug = prefs.getBoolean("debug", false);
+
         int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
         int dp3 = Helper.dp2pixels(context, 3);
         int dp6 = Helper.dp2pixels(context, 6);
@@ -1997,7 +1999,9 @@ public class HtmlHelper {
                                             break;
                                     }
                                 }
-                                ssb.setSpan(new NumberSpan(dp6, colorAccent, index), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                                float textSize = Helper.getTextSize(context, 0);
+                                ssb.setSpan(new NumberSpan(dp6, colorAccent, textSize, index), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                             }
                             break;
                         case "ol":
@@ -2125,41 +2129,37 @@ public class HtmlHelper {
     }
 
     private static class NumberSpan implements LeadingMarginSpan {
-        private final int gapWidth;
-        private int color;
-        private final int index;
-        private float textWidth;
+        private TextPaint tp;
+        private String number;
+        private int margin;
 
-        public NumberSpan(int gapWidth, int color, int index) {
-            this.gapWidth = gapWidth;
-            this.color = color;
-            this.index = index;
+        public NumberSpan(int gapWidth, int color, float textSize, int index) {
+            tp = new TextPaint();
+            tp.setStyle(Paint.Style.FILL);
+            tp.setColor(color);
+            tp.setTypeface(Typeface.MONOSPACE);
+            tp.setTextSize(textSize);
+
+            number = index + ".";
+            margin = Math.round(tp.measureText(number) + gapWidth);
         }
 
         @Override
         public int getLeadingMargin(boolean first) {
-            return Math.round(textWidth + gapWidth);
+            // https://issuetracker.google.com/issues/36956124
+            // This is called before drawLeadingMargin to justify the text
+            return margin;
         }
 
         @Override
         public void drawLeadingMargin(Canvas c, Paint p, int x, int dir, int top, int baseline, int bottom, CharSequence text, int start, int end, boolean first, Layout layout) {
-            if (((Spanned) text).getSpanStart(this) == start) {
-                Paint.Style ostyle = p.getStyle();
-                int ocolor = p.getColor();
-                Typeface oface = p.getTypeface();
-
-                p.setStyle(Paint.Style.FILL);
-                p.setColor(color);
-                p.setTypeface(Typeface.MONOSPACE);
-
-                String number = index + ".";
-                textWidth = p.measureText(number);
-
-                c.drawText(number, x, baseline, p);
-
-                p.setStyle(ostyle);
-                p.setColor(ocolor);
-                p.setTypeface(oface);
+            if (text instanceof Spanned &&
+                    ((Spanned) text).getSpanStart(this) == start) {
+                float textSize = tp.getTextSize();
+                if (textSize > p.getTextSize())
+                    tp.setTextSize(p.getTextSize());
+                c.drawText(number, x + dir, baseline, tp);
+                tp.setTextSize(textSize);
             }
         }
     }
