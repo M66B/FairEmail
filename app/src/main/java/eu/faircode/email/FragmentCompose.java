@@ -4459,8 +4459,9 @@ public class FragmentCompose extends FragmentBase {
 
                 Spanned spannedRef = null;
                 if (!ref.isEmpty()) {
-                    Document quote = HtmlHelper.sanitizeCompose(context, ref.outerHtml(), show_images);
-                    Spanned spannedQuote = HtmlHelper.fromHtml(quote.html(),
+                    Document dref = JsoupEx.parse(ref.outerHtml());
+                    Document quote = HtmlHelper.sanitizeView(context, dref, show_images);
+                    SpannableStringBuilder ssb = HtmlHelper.fromDocument(context, quote,
                             new Html.ImageGetter() {
                                 @Override
                                 public Drawable getDrawable(String source) {
@@ -4469,18 +4470,17 @@ public class FragmentCompose extends FragmentBase {
                             },
                             null);
 
-                    SpannableStringBuilder refBuilder = new SpannableStringBuilder(spannedQuote);
-                    QuoteSpan[] refSpans = refBuilder.getSpans(0, refBuilder.length(), QuoteSpan.class);
+                    QuoteSpan[] refSpans = ssb.getSpans(0, ssb.length(), QuoteSpan.class);
                     for (QuoteSpan quoteSpan : refSpans) {
-                        refBuilder.setSpan(
+                        ssb.setSpan(
                                 new StyledQuoteSpan(context, colorPrimary),
-                                refBuilder.getSpanStart(quoteSpan),
-                                refBuilder.getSpanEnd(quoteSpan),
+                                ssb.getSpanStart(quoteSpan),
+                                ssb.getSpanEnd(quoteSpan),
                                 Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                        refBuilder.removeSpan(quoteSpan);
+                        ssb.removeSpan(quoteSpan);
                     }
 
-                    spannedRef = refBuilder;
+                    spannedRef = ssb;
                 }
 
                 args.putBoolean("ref_has_images", spannedRef != null &&
