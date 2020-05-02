@@ -1876,7 +1876,7 @@ public class HtmlHelper {
                         ssb.append("[" + element.tagName() + ":" + element.attr("x-font-size-rel") + "]");
                 } else if (node instanceof TextNode) {
                     tnode = (TextNode) node;
-                    ssb.append(tnode.text());
+                    ssb.append(tnode.getWholeText());
                 }
             }
 
