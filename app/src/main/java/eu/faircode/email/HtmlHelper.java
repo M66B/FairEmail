@@ -697,10 +697,11 @@ public class HtmlHelper {
 
         // Pre formatted text
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre
-        for (Element pre : document.select("pre")) {
-            pre.html(formatPre(pre.wholeText()));
-            pre.tagName("div");
-        }
+        if (!view)
+            for (Element pre : document.select("pre")) {
+                pre.html(formatPre(pre.wholeText()));
+                pre.tagName("div");
+            }
 
         // Code
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/code
