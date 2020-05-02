@@ -1494,7 +1494,7 @@ public class HtmlHelper {
 
         truncate(d, true);
 
-        SpannableStringBuilder ssb = fromDocument(context, d);
+        SpannableStringBuilder ssb = fromDocument(context, d, false, null, null);
 
         for (URLSpan span : ssb.getSpans(0, ssb.length(), URLSpan.class)) {
             String url = span.getURL();
@@ -1710,6 +1710,10 @@ public class HtmlHelper {
     }
 
     static SpannableStringBuilder fromDocument(Context context, @NonNull Document document, @Nullable Html.ImageGetter imageGetter, @Nullable Html.TagHandler tagHandler) {
+        return fromDocument(context, document, true, imageGetter, tagHandler);
+    }
+
+    private static SpannableStringBuilder fromDocument(Context context, @NonNull Document document, final boolean warn, @Nullable Html.ImageGetter imageGetter, @Nullable Html.TagHandler tagHandler) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean debug = prefs.getBoolean("debug", false);
 
@@ -2003,7 +2007,8 @@ public class HtmlHelper {
                             ssb.setSpan(new UnderlineSpan(), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                             break;
                         default:
-                            Log.e("Unknown tag=" + element.tagName());
+                            if (warn)
+                                Log.e("Unknown tag=" + element.tagName());
                     }
                 }
             }
