@@ -920,6 +920,7 @@
         To search the server too, tap on the \'search again\' button.
     </string>
     <string name="title_search_index_hint">Searching via the search index is fast, but will only find whole words</string>
+    <string name="title_search_text_hint">Some email servers have trouble finding text in many messages</string>
     <string name="title_search_more">More options</string>
     <string name="title_search_use_index">Use search index</string>
     <string name="title_search_in_senders">In senders (from)</string>

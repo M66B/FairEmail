@@ -125,7 +125,7 @@
             android:id="@+id/tvSearchIndexHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="6dp"
             android:text="@string/title_search_index_hint"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textStyle="italic"
@@ -198,6 +198,19 @@
             app:layout_constraintTop_toBottomOf="@id/cbKeywords" />
 
         <eu.faircode.email.FixedTextView
+            android:id="@+id/tvSearchTextHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="6dp"
+            android:text="@string/title_search_text_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbMessage" />
+
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvAnd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -206,7 +219,7 @@
             android:text="@string/title_search_with"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbMessage" />
+            app:layout_constraintTop_toBottomOf="@id/tvSearchTextHint" />
 
         <CheckBox
             android:id="@+id/cbUnseen"
@@ -319,7 +332,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:constraint_referenced_ids="
-            cbSearchIndex,tvSearchIndexHint,cbSenders,cbRecipients,cbSubject,cbKeywords,cbMessage,
+            cbSearchIndex,tvSearchIndexHint,cbSenders,cbRecipients,cbSubject,cbKeywords,cbMessage,tvSearchTextHint,
             tvAnd,cbUnseen,cbFlagged,cbHidden,cbEncrypted,cbAttachments,
             btnAfter,btnBefore,tvBefore,tvAfter" />
     </androidx.constraintlayout.widget.ConstraintLayout>
