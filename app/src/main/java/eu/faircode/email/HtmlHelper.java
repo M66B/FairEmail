@@ -1945,6 +1945,8 @@ public class HtmlHelper {
                             if (start > 0 && ssb.charAt(start - 1) != '\n')
                                 ssb.insert(start++, "\n");
                             ssb.setSpan(new QuoteSpan(), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            if (ssb.length() > 1 && ssb.charAt(ssb.length() - 1) != '\n')
+                                ssb.append("\n");
                             break;
                         case "br":
                             newline(ssb.length());
