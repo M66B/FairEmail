@@ -377,30 +377,30 @@
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:layout_marginTop="12dp"
-            android:src="@drawable/baseline_person_24"
             app:layout_constraintEnd_toStartOf="@+id/ivGreen"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swCircular" />
+            app:layout_constraintTop_toBottomOf="@id/swCircular"
+            app:srcCompat="@drawable/baseline_person_24" />
 
         <ImageView
             android:id="@+id/ivGreen"
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:layout_marginTop="12dp"
-            android:src="@drawable/baseline_person_24"
             app:layout_constraintEnd_toStartOf="@+id/ivBlue"
             app:layout_constraintStart_toEndOf="@id/ivRed"
-            app:layout_constraintTop_toBottomOf="@id/swCircular" />
+            app:layout_constraintTop_toBottomOf="@id/swCircular"
+            app:srcCompat="@drawable/baseline_person_24" />
 
         <ImageView
             android:id="@+id/ivBlue"
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:layout_marginTop="12dp"
-            android:src="@drawable/baseline_person_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/ivGreen"
-            app:layout_constraintTop_toBottomOf="@id/swCircular" />
+            app:layout_constraintTop_toBottomOf="@id/swCircular"
+            app:srcCompat="@drawable/baseline_person_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvSaturation"
