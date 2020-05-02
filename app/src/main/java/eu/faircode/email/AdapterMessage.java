@@ -4139,7 +4139,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         from = ((InternetAddress) message.from[0]).getAddress();
 
                     String html = Helper.readText(file);
-                    String text = HtmlHelper.getText(html);
+                    String text = HtmlHelper.getText(context, html);
 
                     return new String[]{from, message.subject, text};
                 }

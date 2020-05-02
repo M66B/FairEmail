@@ -1487,106 +1487,61 @@ public class HtmlHelper {
         return preview;
     }
 
-    static String getText(String html) {
+    static String getText(Context context, String html) {
         final StringBuilder sb = new StringBuilder();
-
-        html = html.replace("<br> ", "<br>");
 
         Document d = JsoupEx.parse(html);
 
         truncate(d, true);
 
-        NodeTraversor.traverse(new NodeVisitor() {
-            private int qlevel = 0;
-            private int tlevel = 0;
-            private int plevel = 0;
-            private int lindex = 0;
+        SpannableStringBuilder ssb = fromDocument(context, d);
 
-            private final List<String> tails = Collections.unmodifiableList(Arrays.asList(
-                    "h1", "h2", "h3", "h4", "h5", "h6", "p", "ol", "ul", "li", "div", "table", "br", "hr"));
+        for (URLSpan span : ssb.getSpans(0, ssb.length(), URLSpan.class)) {
+            String url = span.getURL();
+            if (TextUtils.isEmpty(url))
+                continue;
+            if (url.toLowerCase(Locale.ROOT).startsWith("mailto:"))
+                url = url.substring("mailto:".length());
+            int start = ssb.getSpanStart(span);
+            int end = ssb.getSpanEnd(span);
+            String text = ssb.subSequence(start, end).toString();
+            if (!text.contains(url))
+                ssb.insert(end, "[" + url + "]");
+        }
 
-            public void head(Node node, int depth) {
-                if (node instanceof TextNode)
-                    if (plevel > 0) {
-                        String[] lines = ((TextNode) node).getWholeText().split("\\r?\\n");
-                        for (String line : lines) {
-                            append(line, true);
-                            newline();
-                        }
-                    } else
-                        append(((TextNode) node).text());
-                else {
-                    String name = node.nodeName();
-                    if ("li".equals(name) && node.parent() != null)
-                        append("ol".equals(node.parent().nodeName()) ? "-" : "*");
-                    else if ("blockquote".equals(name))
-                        qlevel++;
-                    else if ("pre".equals(name))
-                        plevel++;
-                }
-            }
+        for (ImageSpan span : ssb.getSpans(0, ssb.length(), ImageSpan.class)) {
+            String source = span.getSource();
+            if (TextUtils.isEmpty(source))
+                continue;
+            int start = ssb.getSpanStart(span);
+            int end = ssb.getSpanEnd(span);
+            for (int i = start; i < end; i++)
+                if (ssb.charAt(i) == '\uFFFC')
+                    ssb.replace(i, i + 1, " ");
+            ssb.insert(end, "[" + source + "]");
+        }
 
-            public void tail(Node node, int depth) {
-                String name = node.nodeName();
-                if ("a".equals(name)) {
-                    String addr = node.attr("href").toLowerCase();
-                    if (addr.startsWith("mailto:"))
-                        addr = addr.substring("mailto:".length());
-                    String text = ((Element) node).text().toLowerCase();
-                    if (!text.contains(addr))
-                        append("[" + node.attr("href") + "]");
-                } else if ("img".equals(name))
-                    append("[" + node.attr("src") + "]");
-                else if ("th".equals(name) || "td".equals(name)) {
-                    Node next = node.nextSibling();
-                    if (next == null || !("th".equals(next.nodeName()) || "td".equals(next.nodeName())))
-                        newline();
-                    else
-                        append(" ");
-                } else if ("blockquote".equals(name))
-                    qlevel--;
-                else if ("pre".equals(name))
-                    plevel--;
+        for (QuoteSpan span : ssb.getSpans(0, ssb.length(), QuoteSpan.class)) {
+            int start = ssb.getSpanStart(span);
+            int end = ssb.getSpanEnd(span);
+            for (int i = end - 1; i >= start; i--)
+                if (ssb.charAt(i) == '\n')
+                    ssb.insert(i + 1, "> ");
+            if (ssb.charAt(start) != '\n')
+                ssb.insert(start, "> ");
+        }
 
-                if (tails.contains(name) &&
-                        !("br".equals(name) &&
-                                node.nextSibling() == null &&
-                                node.parent() != null && "div".equals(node.parent().nodeName())))
-                    newline();
-            }
+        for (BulletSpan span : ssb.getSpans(0, ssb.length(), BulletSpan.class)) {
+            int start = ssb.getSpanStart(span);
+            ssb.insert(start, "* ");
+        }
 
-            private void append(String text) {
-                append(text, false);
-            }
+        for (NumberSpan span : ssb.getSpans(0, ssb.length(), NumberSpan.class)) {
+            int start = ssb.getSpanStart(span);
+            ssb.insert(start, "- ");
+        }
 
-            private void append(String text, boolean raw) {
-                if (tlevel != qlevel) {
-                    newline();
-                    tlevel = qlevel;
-                }
-
-                if (!raw && !"-- ".equals(text)) {
-                    text = text.trim();
-                    if (lindex > 0)
-                        text = " " + text;
-                }
-
-                sb.append(text);
-                lindex += text.length();
-            }
-
-            private void newline() {
-                lindex = 0;
-                sb.append("\n");
-
-                for (int i = 0; i < qlevel; i++)
-                    sb.append("> ");
-            }
-        }, d);
-
-        sb.append("\n");
-
-        return sb.toString();
+        return ssb.toString();
     }
 
     static void convertLists(Document document) {
@@ -1750,11 +1705,11 @@ public class HtmlHelper {
         return false;
     }
 
-    static Spanned fromDocument(Context context, @NonNull Document document) {
+    static SpannableStringBuilder fromDocument(Context context, @NonNull Document document) {
         return fromDocument(context, document, null, null);
     }
 
-    static Spanned fromDocument(Context context, @NonNull Document document, @Nullable Html.ImageGetter imageGetter, @Nullable Html.TagHandler tagHandler) {
+    static SpannableStringBuilder fromDocument(Context context, @NonNull Document document, @Nullable Html.ImageGetter imageGetter, @Nullable Html.TagHandler tagHandler) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean debug = prefs.getBoolean("debug", false);
 
@@ -1817,6 +1772,11 @@ public class HtmlHelper {
                 for (int i = 0; i < block.size(); ) {
                     tnode = block.get(i);
                     text = tnode.getWholeText();
+
+                    if ("-- ".equals(text)) {
+                        i++;
+                        continue;
+                    }
 
                     // Remove whitespace before/after newlines
                     TRIM_WHITESPACE_NL.matcher(text).replaceAll(" ");
@@ -1900,8 +1860,12 @@ public class HtmlHelper {
                             String value = param.substring(semi + 1);
                             switch (key) {
                                 case "color":
-                                    int color = Integer.parseInt(value.substring(1), 16) | 0xFF000000;
-                                    ssb.setSpan(new ForegroundColorSpan(color), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                    try {
+                                        int color = Integer.parseInt(value.substring(1), 16) | 0xFF000000;
+                                        ssb.setSpan(new ForegroundColorSpan(color), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                    } catch (NumberFormatException ex) {
+                                        Log.w(ex);
+                                    }
                                     break;
                                 case "text-decoration":
                                     if ("line-through".equals(value))
@@ -2059,7 +2023,20 @@ public class HtmlHelper {
                 if (ssb.charAt(i) == '\n')
                     ssb.insert(i, "|");
 
-        return reverseSpans(ssb);
+        Object[] spans = ssb.getSpans(0, ssb.length(), Object.class);
+        Map<Object, Integer> start = new HashMap<>();
+        Map<Object, Integer> end = new HashMap<>();
+        Map<Object, Integer> flags = new HashMap<>();
+        for (Object span : spans) {
+            start.put(span, ssb.getSpanStart(span));
+            end.put(span, ssb.getSpanEnd(span));
+            flags.put(span, ssb.getSpanFlags(span));
+            ssb.removeSpan(span);
+        }
+        for (int i = spans.length - 1; i >= 0; --i)
+            ssb.setSpan(spans[i], start.get(spans[i]), end.get(spans[i]), flags.get(spans[i]));
+
+        return ssb;
     }
 
     static Spanned fromHtml(@NonNull String html) {

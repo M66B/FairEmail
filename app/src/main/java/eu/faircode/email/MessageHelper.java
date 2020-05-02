@@ -501,7 +501,7 @@ public class MessageHelper {
             Multipart report = new MimeMultipart("report; report-type=disposition-notification");
 
             String html = Helper.readText(message.getFile(context));
-            String plainContent = HtmlHelper.getText(html);
+            String plainContent = HtmlHelper.getText(context, html);
 
             BodyPart plainPart = new MimeBodyPart();
             plainPart.setContent(plainContent, "text/plain; charset=" + Charset.defaultCharset().name());
@@ -612,7 +612,7 @@ public class MessageHelper {
         String htmlContent = document.html();
         String htmlContentType = "text/html; charset=" + Charset.defaultCharset().name();
 
-        String plainContent = HtmlHelper.getText(htmlContent);
+        String plainContent = HtmlHelper.getText(context, htmlContent);
         String plainContentType = "text/plain; charset=" + Charset.defaultCharset().name();
 
         if (format_flowed) {
