@@ -2028,7 +2028,7 @@ public class HtmlHelper {
             flags.put(span, ssb.getSpanFlags(span));
             ssb.removeSpan(span);
         }
-        for (int i = spans.length - 1; i >= 0; --i)
+        for (int i = spans.length - 1; i >= 0; i--)
             ssb.setSpan(spans[i], start.get(spans[i]), end.get(spans[i]), flags.get(spans[i]));
 
         return ssb;
@@ -2079,7 +2079,7 @@ public class HtmlHelper {
         Object[] spans = spanned.getSpans(0, spanned.length(), Object.class);
         Spannable reverse = Spannable.Factory.getInstance().newSpannable(spanned.toString());
         if (spans != null && spans.length > 0)
-            for (int i = spans.length - 1; i >= 0; --i)
+            for (int i = spans.length - 1; i >= 0; i--)
                 reverse.setSpan(
                         spans[i],
                         spanned.getSpanStart(spans[i]),
