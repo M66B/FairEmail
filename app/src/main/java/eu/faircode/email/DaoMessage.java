@@ -78,9 +78,10 @@ public interface DaoMessage {
             " AND message.thread IN" +
             "  (SELECT DISTINCT mm.thread FROM folder ff" +
             "   JOIN message mm ON mm.folder = ff.id" +
-            "   WHERE ((:type IS NULL AND ff.unified) OR (:type IS NOT NULL AND ff.type = :type))" +
-            "   AND (NOT mm.ui_hide OR :debug)" +
-            "   AND (NOT :found OR mm.ui_found))" +
+            "   WHERE ((:found AND mm.ui_found)" +
+            "   OR (NOT :found AND :type IS NULL AND ff.unified)" +
+            "   OR (NOT :found AND :type IS NOT NULL AND ff.type = :type))" +
+            "   AND (NOT mm.ui_hide OR :debug))" +
             " GROUP BY account.id, CASE WHEN message.thread IS NULL OR NOT :threading THEN message.id ELSE message.thread END" +
             " HAVING (NOT :filter_seen OR SUM(1 - message.ui_seen) > 0)" +
             " AND (NOT :filter_unflagged OR COUNT(message.id) - SUM(1 - message.ui_flagged) > 0)" +
