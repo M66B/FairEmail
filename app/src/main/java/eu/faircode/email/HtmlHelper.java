@@ -697,11 +697,10 @@ public class HtmlHelper {
 
         // Pre formatted text
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre
-        if (!view)
-            for (Element pre : document.select("pre")) {
-                pre.html(formatPre(pre.wholeText()));
-                pre.tagName("div");
-            }
+        for (Element pre : document.select("pre")) {
+            pre.html(formatPre(pre.wholeText()));
+            pre.tagName("div");
+        }
 
         // Code
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/code
@@ -1275,9 +1274,9 @@ public class HtmlHelper {
             for (int j = 0; j < line.length(); j++) {
                 char kar = line.charAt(j);
                 if (kar == '\t') {
-                    l.append(' ');
+                    l.append('\u00A0');
                     while (l.length() % TAB_SIZE != 0)
-                        l.append(' ');
+                        l.append('\u00A0');
                 } else
                     l.append(kar);
             }
@@ -1724,35 +1723,31 @@ public class HtmlHelper {
 
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements
         NodeTraversor.traverse(new NodeVisitor() {
-            private int pre = 0;
             private Element element;
             private List<TextNode> block = new ArrayList<>();
 
-            private String WHITESPACE = " \t\f\u00A0";
+            private String WHITESPACE = " \t\f";
             private String WHITESPACE_NL = WHITESPACE + "\r\n";
             private Pattern TRIM_WHITESPACE_NL =
                     Pattern.compile("[" + WHITESPACE + "]*\\r?\\n[" + WHITESPACE + "]*");
 
             private List<String> BLOCK_START = Collections.unmodifiableList(Arrays.asList(
-                    "body", "blockquote", "h1", "h2", "h3", "h4", "h5", "h6", "li", "ol", "ul", "pre"
+                    "body", "blockquote", "h1", "h2", "h3", "h4", "h5", "h6", "li", "ol", "ul"
             ));
             private List<String> BLOCK_END = Collections.unmodifiableList(Arrays.asList(
-                    "body", "blockquote", "br", "h1", "h2", "h3", "h4", "h5", "h6", "li", "ol", "ul", "pre"
+                    "body", "blockquote", "br", "h1", "h2", "h3", "h4", "h5", "h6", "li", "ol", "ul"
             ));
 
             @Override
             public void head(Node node, int depth) {
-                if (node instanceof TextNode) {
-                    if (pre == 0)
-                        block.add((TextNode) node);
-                } else if (node instanceof Element) {
+                if (node instanceof TextNode)
+                    block.add((TextNode) node);
+                else if (node instanceof Element) {
                     element = (Element) node;
                     if (BLOCK_START.contains(element.tagName())) {
                         normalizeText(block);
                         block.clear();
                     }
-                    if ("pre".equals(element.tagName()))
-                        pre++;
                 }
             }
 
@@ -1764,8 +1759,6 @@ public class HtmlHelper {
                         normalizeText(block);
                         block.clear();
                     }
-                    if ("pre".equals(element.tagName()))
-                        pre--;
                 }
             }
 
@@ -1973,9 +1966,6 @@ public class HtmlHelper {
                                 ssb.setSpan(new LeadingMarginSpan.Standard(llevel * dp24), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                             newline(start);
                             newline(ssb.length());
-                            break;
-                        case "pre":
-                            // Do nothing
                             break;
                         case "small":
                             ssb.setSpan(new RelativeSizeSpan(FONT_SMALL), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);

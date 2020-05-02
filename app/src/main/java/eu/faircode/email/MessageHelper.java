@@ -1589,7 +1589,7 @@ public class MessageHelper {
                 if (part.isMimeType("text/plain")) {
                     if ("flowed".equalsIgnoreCase(ct.getParameter("format")))
                         result = HtmlHelper.flow(result);
-                    result = "<pre>" + HtmlHelper.formatPre(result) + "</pre>";
+                    result = "<div>" + HtmlHelper.formatPre(result) + "</div>";
                 } else if (part.isMimeType("text/html")) {
                     if (TextUtils.isEmpty(charset)) {
                         // <meta charset="utf-8" />
