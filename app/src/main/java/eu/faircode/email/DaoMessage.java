@@ -78,10 +78,9 @@ public interface DaoMessage {
             " AND message.thread IN" +
             "  (SELECT DISTINCT mm.thread FROM folder ff" +
             "   JOIN message mm ON mm.folder = ff.id" +
-            "   WHERE (:found" +
-            "   OR (:type IS NULL AND ff.unified)" +
-            "   OR (:type IS NOT NULL AND ff.type = :type))" +
-            "   AND (NOT mm.ui_hide OR :debug))" +
+            "   WHERE ((:type IS NULL AND ff.unified) OR (:type IS NOT NULL AND ff.type = :type))" +
+            "   AND (NOT mm.ui_hide OR :debug)" +
+            "   AND (NOT :found OR mm.ui_found))" +
             " GROUP BY account.id, CASE WHEN message.thread IS NULL OR NOT :threading THEN message.id ELSE message.thread END" +
             " HAVING (NOT :filter_seen OR SUM(1 - message.ui_seen) > 0)" +
             " AND (NOT :filter_unflagged OR COUNT(message.id) - SUM(1 - message.ui_flagged) > 0)" +
@@ -142,7 +141,8 @@ public interface DaoMessage {
             " AND message.thread IN" +
             "  (SELECT DISTINCT mm.thread FROM message mm" +
             "   WHERE mm.folder = :folder" +
-            "   AND (NOT mm.ui_hide OR :debug))" +
+            "   AND (NOT mm.ui_hide OR :debug)" +
+            "   AND (NOT :found OR mm.ui_found))" +
             " GROUP BY CASE WHEN message.thread IS NULL OR NOT :threading THEN message.id ELSE message.thread END" +
             " HAVING (NOT :filter_seen OR SUM(1 - message.ui_seen) > 0 OR " + is_outbox + ")" +
             " AND (NOT :filter_unflagged OR COUNT(message.id) - SUM(1 - message.ui_flagged) > 0 OR " + is_outbox + ")" +
