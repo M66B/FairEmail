@@ -120,7 +120,7 @@
     <string name="title_setup_quick_imap">Serveur IMAP pour la réception des messages</string>
     <string name="title_setup_quick_smtp">Serveur SMTP pour l’envoi des messages</string>
     <string name="title_setup_wizard">Assistant</string>
-    <string name="title_setup_wizard_multiple">L’assistant d’installation peut être utilisé plusieurs fois pour configurer d’autres comptes</string>
+    <string name="title_setup_wizard_multiple">L\'assistant d\'installation peut être utilisé plusieurs fois pour configurer plusieurs comptes</string>
     <string name="title_setup_wizard_remark">Faites « Retour » pour aller à la boîte de réception</string>
     <string name="title_setup_other">Autre fournisseur</string>
     <string name="title_setup_gmail_support">L’autorisation des comptes Google fonctionnera uniquement dans les versions officielles parce qu’Android vérifie la signature de l’application</string>
@@ -537,7 +537,7 @@
     <string name="title_service_vpn">Ceci pourrait être dû au VPN utilisé</string>
     <string name="title_service_port">Veuillez vérifier le numéro de port</string>
     <string name="title_advanced_browse">Parcourir les messages sur le serveur</string>
-    <string name="title_advanced_expand_read">Marquer les messages comme lus à l\'ouverture</string>
+    <string name="title_advanced_expand_read">Marquer les messages comme lus lors de leur ouverture</string>
     <string name="title_synchronize_now">Synchroniser maintenant</string>
     <string name="title_synchronize_more">Synchroniser davantage de messages</string>
     <string name="title_synchronize_enabled">Synchroniser</string>
@@ -704,7 +704,7 @@
     </string>
     <string name="title_third_party">Vous utilisez une version tierce</string>
     <string name="title_expand_warning">Développer ce message téléchargera %1$s</string>
-    <string name="title_download_message">Téléchargement&#8230;</string>
+    <string name="title_download_message">Téléchargement &#8230;</string>
     <string name="title_compose">Rédiger</string>
     <string name="title_submitter">Envoyé par :</string>
     <string name="title_delivered_to">Envoyé à :</string>
@@ -764,7 +764,7 @@
     <string name="title_unknown_key">La clé privée ne correspond à aucune clé de chiffrement</string>
     <string name="title_send_plain_text">Texte brut seulement</string>
     <string name="title_send_receipt">Demander une confirmation</string>
-    <string name="title_send_receipt_remark">La plupart des fournisseurs et clients de messagerie ignorent les demandes d’accusé de réception</string>
+    <string name="title_send_receipt_remark">La plupart des fournisseurs et des clients de messagerie ignorent les demandes d\'accusé de réception</string>
     <string name="title_from_missing">Expéditeur manquant</string>
     <string name="title_extra_missing">Nom d\'utilisateur manquant</string>
     <string name="title_to_missing">Destinataire manquant</string>
@@ -856,7 +856,7 @@
     <string name="title_zoom">Taille du texte</string>
     <string name="title_select_language">Sélectionner la langue</string>
     <string name="title_select_all">Tout sélectionner</string>
-    <string name="title_select_found">Sélectionner les messages trouvés</string>
+    <string name="title_select_found">Sélectionner tous les messages trouvés</string>
     <string name="title_force_sync">Forcer la synchronisation</string>
     <string name="title_language_all">Toutes</string>
     <string name="title_previous">Précédent</string>
@@ -870,7 +870,7 @@
     <string name="title_answer_favorite">Favori</string>
     <string name="title_answer_hide">Masquer du menu « répondre »</string>
     <string name="title_answer_text">Texte du modèle</string>
-    <string name="title_answer_template_name">$name$ sera remplacé par le nom complet de l\'expéditeur</string>
+    <string name="title_answer_template_name">$name$ sera remplacé par le nom complet de l’expéditeur</string>
     <string name="title_answer_template_email">$email$ sera remplacé par l’adresse e-mail de l’expéditeur</string>
     <string name="title_rule_noop">Aucune action</string>
     <string name="title_rule_seen">Marquer comme lu</string>
@@ -993,7 +993,7 @@
     <string name="title_legend_text_size">Définir la taille du texte</string>
     <string name="title_legend_text_color">Définir la couleur du texte</string>
     <string name="title_legend_metered">La connexion est limitée</string>
-    <string name="title_legend_unmetered">La connexion est illimitée</string>
+    <string name="title_legend_unmetered">La connexion n’est pas limitée</string>
     <string name="title_legend_roaming">Itinérance</string>
     <string name="title_legend_expander">Développer</string>
     <string name="title_legend_avatar">Avatar</string>
@@ -1077,9 +1077,9 @@
     <string name="title_minutes">Minutes</string>
     <string name="title_dismiss">Rejeter</string>
     <string name="title_snooze_now">Reporter</string>
-    <string name="title_loading">Chargement&#8230;</string>
+    <string name="title_loading">Chargement &#8230;</string>
     <string name="title_set">Appliquer</string>
-    <string name="title_fetching_again">Récupérer de nouveau le message depuis le serveur</string>
+    <string name="title_fetching_again">Nouvelle récupération du message depuis le serveur</string>
     <string name="title_conversation_actions">Actions</string>
     <string name="title_conversation_action_reply">Répondre avec : \'%1$s\'</string>
     <string name="title_conversation_action_copy">Copier : \'%1$s\'</string>
@@ -1087,7 +1087,7 @@
     <string name="title_icalendar_decline">Refuser</string>
     <string name="title_icalendar_maybe">Peut-être</string>
     <string name="title_icalendar_calendar">Calendrier</string>
-    <string name="title_try">Essayez FairEmail, une application de messagerie open source et respectueuse de la vie privée pour Android</string>
+    <string name="title_try">Essayez FairEmail, une application de messagerie open source et respectueuse de votre vie privée pour Android</string>
     <string name="title_pro_feature">Il s’agit d’une fonctionnalité Pro</string>
     <string name="title_pro_list">Liste des fonctionnalités Pro</string>
     <string name="title_pro_purchase">Acheter</string>

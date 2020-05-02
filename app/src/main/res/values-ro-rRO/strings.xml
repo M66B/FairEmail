@@ -230,6 +230,7 @@
     <string name="title_advanced_flagged">Toate mesajele marcate</string>
     <string name="title_advanced_delete_unseen">Șterge mesajele vechi necitite</string>
     <string name="title_advanced_kept_removed">Verifică dacă mesajele vechi au fost înlăturate de pe server</string>
+    <string name="title_advanced_gmail_thread">Stil grupare mesaje tip Gmail pentru conturile Gmail</string>
     <string name="title_advanced_sync_folders">Sincronizare lista dosare</string>
     <string name="title_advanced_subscriptions">Gestionați abonările la dosare</string>
     <string name="title_advanced_keyboard">Afișare implicită a tastaturii</string>
@@ -364,6 +365,7 @@
     <string name="title_advanced_confirm_images">Confirmă afișarea imaginilor</string>
     <string name="title_advanced_confirm_html">Arată implicit mesajele reformatate</string>
     <string name="title_advanced_tracking">Detectează și dezactivează în mod automat imaginile folosite la urmărire</string>
+    <string name="title_advanced_hide_timezone">Trimite mesajele fără date despre fusul orar</string>
     <string name="title_advanced_display_hidden">Arată textul ascuns din mesaj</string>
     <string name="title_advanced_secure">Ascunde din lista de aplicații recente și previne capturarea ecranului</string>
     <string name="title_advanced_pin">PIN</string>
@@ -748,6 +750,7 @@
     <string name="title_add_image_inline">Inserare</string>
     <string name="title_add_image_attach">Atașare</string>
     <string name="title_add_image_resize">Redimensionare</string>
+    <string name="title_add_image_privacy">Elimină locația geografică</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixeli</string>
     <string name="title_add_image_select">Selectare fișier</string>
     <string name="title_add_attachment">Adaugă ataşament</string>
@@ -817,6 +820,7 @@
     <string name="title_search_hint">        Căutarea se va face inițial în mesajele stocate pe dispozitivul dumneavoastră.
         Pentru a căuta și pe server apăsați butonul \'căutare din nou\'.
     </string>
+    <string name="title_search_index_hint">Căutarea prin indexul de căutare este rapidă, dar va găsi doar cuvinte întregi</string>
     <string name="title_search_more">Mai multe opțiuni</string>
     <string name="title_search_use_index">Folosește index de căutare</string>
     <string name="title_search_in_senders">În expeditori (de la)</string>
