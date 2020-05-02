@@ -1776,7 +1776,7 @@ public class HtmlHelper {
                     }
 
                     // Remove whitespace before/after newlines
-                    TRIM_WHITESPACE_NL.matcher(text).replaceAll(" ");
+                    text = TRIM_WHITESPACE_NL.matcher(text).replaceAll(" ");
 
                     if (i == 0 || endsWithWhitespace(block.get(i - 1).text()))
                         while (startsWithWhiteSpace(text))
