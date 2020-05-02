@@ -56,6 +56,8 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_search, null);
 
         final AutoCompleteTextView etQuery = dview.findViewById(R.id.etQuery);
+        final ImageButton ibUnseen = dview.findViewById(R.id.ibUnseen);
+        final ImageButton ibFlagged = dview.findViewById(R.id.ibFlagged);
         final ImageButton ibInfo = dview.findViewById(R.id.ibInfo);
         final ImageButton ibMore = dview.findViewById(R.id.ibMore);
         final TextView tvMore = dview.findViewById(R.id.tvMore);
@@ -282,6 +284,30 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                     }
                 })
                 .create();
+
+        View.OnClickListener onClick = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+
+                BoundaryCallbackMessages.SearchCriteria criteria = new BoundaryCallbackMessages.SearchCriteria();
+                switch (v.getId()) {
+                    case R.id.ibUnseen:
+                        criteria.with_unseen = true;
+                        break;
+                    case R.id.ibFlagged:
+                        criteria.with_flagged = true;
+                        break;
+                }
+
+                FragmentMessages.search(
+                        getContext(), getViewLifecycleOwner(), getParentFragmentManager(),
+                        account, folder, false, criteria);
+            }
+        };
+
+        ibUnseen.setOnClickListener(onClick);
+        ibFlagged.setOnClickListener(onClick);
 
         etQuery.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
