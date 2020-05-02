@@ -2155,7 +2155,7 @@ public class HtmlHelper {
                 String number = index + ".";
                 textWidth = p.measureText(number);
 
-                c.drawText(number, x, bottom - p.descent(), p);
+                c.drawText(number, x, baseline, p);
 
                 p.setStyle(ostyle);
                 p.setColor(ocolor);
