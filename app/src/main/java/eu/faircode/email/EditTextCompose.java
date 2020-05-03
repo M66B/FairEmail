@@ -87,17 +87,17 @@ public class EditTextCompose extends FixedEditText {
 
                     SpannableStringBuilder ssb = new SpannableStringBuilder(paste);
                     QuoteSpan[] spans = ssb.getSpans(0, ssb.length(), QuoteSpan.class);
-                    for (QuoteSpan quoteSpan : spans) {
+                    for (QuoteSpan span : spans) {
                         QuoteSpan q;
                         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
                             q = new QuoteSpan(colorPrimary);
                         else
                             q = new QuoteSpan(colorPrimary, dp3, dp6);
                         ssb.setSpan(q,
-                                ssb.getSpanStart(quoteSpan),
-                                ssb.getSpanEnd(quoteSpan),
-                                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                        ssb.removeSpan(quoteSpan);
+                                ssb.getSpanStart(span),
+                                ssb.getSpanEnd(span),
+                                ssb.getSpanFlags(span));
+                        ssb.removeSpan(span);
                     }
 
                     int start = getSelectionStart();
