@@ -1796,8 +1796,10 @@ public class HtmlHelper {
 
                 if (debug) {
                     if (block.size() > 0) {
-                        block.get(0).text("(" + block.get(0));
-                        block.get(block.size() - 1).text(block.get(block.size() - 1) + ")");
+                        TextNode first = block.get(0);
+                        TextNode last = block.get(block.size() - 1);
+                        first.text("(" + first.getWholeText());
+                        last.text(last.getWholeText() + ")");
                     }
                 }
             }
@@ -2017,6 +2019,10 @@ public class HtmlHelper {
             for (int i = ssb.length() - 1; i >= 0; i--)
                 if (ssb.charAt(i) == '\n')
                     ssb.insert(i, "|");
+                else if (ssb.charAt(i) == ' ')
+                    ssb.replace(i, i + 1, "_");
+                else if (ssb.charAt(i) == '\u00A0')
+                    ssb.replace(i, i + 1, "•");
 
         Object[] spans = ssb.getSpans(0, ssb.length(), Object.class);
         Map<Object, Integer> start = new HashMap<>();
