@@ -67,6 +67,7 @@ public class ServiceSend extends ServiceBase {
     private boolean lastSuitable = false;
 
     private PowerManager.WakeLock wlOutbox;
+    private TwoStateOwner owner = new TwoStateOwner("send");
     private ExecutorService executor = Helper.getBackgroundExecutor(1, "send");
 
     private static final int PI_SEND = 1;
@@ -101,7 +102,7 @@ public class ServiceSend extends ServiceBase {
         });
 
         // Observe send operations
-        db.operation().liveOperations(null).observe(this, new Observer<List<TupleOperationEx>>() {
+        db.operation().liveOperations(null).observe(owner, new Observer<List<TupleOperationEx>>() {
             private List<Long> handling = new ArrayList<>();
 
             @Override
@@ -134,8 +135,6 @@ public class ServiceSend extends ServiceBase {
         });
 
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        lastSuitable = ConnectionHelper.getNetworkState(this).isSuitable();
-
         NetworkRequest.Builder builder = new NetworkRequest.Builder();
         builder.addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET);
         cm.registerNetworkCallback(builder.build(), networkCallback);
@@ -245,11 +244,17 @@ public class ServiceSend extends ServiceBase {
             }
 
             // Wait for stabilization of connection
-            try {
-                Thread.sleep(CONNECTIVITY_DELAY);
-            } catch (InterruptedException ex) {
-                Log.w(ex);
-            }
+            if (suitable)
+                try {
+                    Thread.sleep(CONNECTIVITY_DELAY);
+                } catch (InterruptedException ex) {
+                    Log.w(ex);
+                }
+
+            if (suitable)
+                owner.start();
+            else
+                owner.stop();
         }
 
         if (suitable)
