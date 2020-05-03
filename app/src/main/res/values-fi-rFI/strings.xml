@@ -30,8 +30,8 @@
     <string name="shortcut_compose">Kirjoita viesti</string>
     <string name="shortcut_setup">Asetukset</string>
     <plurals name="title_notification_synchronizing">
-        <item quantity="one">Monitoroidaan %1$d tiliä</item>
-        <item quantity="other">Monitoroidaan %1$d tiliä</item>
+        <item quantity="one">Seurataan %1$d tiliä</item>
+        <item quantity="other">Seurataan %1$d tiliä</item>
     </plurals>
     <plurals name="title_notification_operations">
         <item quantity="one">%1$d toimenpide odottaa</item>
@@ -84,8 +84,8 @@
     <string name="menu_operations">Toimenpiteet</string>
     <string name="menu_contacts">Paikalliset yhteystiedot</string>
     <string name="menu_setup">Asetukset</string>
-    <string name="menu_legend">Seloste</string>
-    <string name="menu_test">Testaa ohjelmaa</string>
+    <string name="menu_legend">Selite</string>
+    <string name="menu_test">Testausohjelma</string>
     <string name="menu_faq">Tuki</string>
     <string name="menu_translate">Auta kääntämisessä</string>
     <string name="menu_issue">Ilmoita ongelmasta</string>
@@ -123,9 +123,9 @@
     <string name="title_setup_wizard_remark">Mene \'takaisin\' palataksesi saapuneet-kansioon</string>
     <string name="title_setup_other">Muu palveluntarjoaja</string>
     <string name="title_setup_gmail_support">Google-tilien valtuuttaminen toimii vain virallisissa versioissa, koska Android tarkistaa sovelluksen allekirjoituksen</string>
-    <string name="title_setup_gmail_rationale">Ole hyvä ja myönnä oikeudet, että tili voidaan valita ja nimesi voidaan lukea</string>
-    <string name="title_setup_gmail_permissions">Google kysyy oikeuksia lukea, kirjoittaa, lähettää ja poistaa viestejäsi pysyvästi. FairEmail ei koskaan poista viestejäsi ilman yksiselitteistä hyväksyntääsi.</string>
-    <string name="title_setup_gmail_drafts">Jos luonnokset-kansio ei ole IMAP:lla saatavilla, asia voidaan korjata Gmailin tunnisteiden asetuksissa</string>
+    <string name="title_setup_gmail_rationale">Ole hyvä ja myönnä oikeudet tilin valitsemiseksi ja nimesi lukemiseksi</string>
+    <string name="title_setup_gmail_permissions">Google kysyy oikeuksia lukea, kirjoittaa, lähettää ja poistaa pysyvästi viestejäsi. FairEmail ei koskaan poista viestejäsi ilman erillistä hyväksyntääsi.</string>
+    <string name="title_setup_gmail_drafts">Jos luonnokset-kansio ei ole IMAPin saatavilla, asia voidaan korjata Gmailin tunnisteiden asetuksissa</string>
     <string name="title_setup_oauth_rationale">Valtuuta pääsy tilillesi %1$s</string>
     <string name="title_setup_oauth_authorize">Valtuuta</string>
     <string name="title_setup_select_account">Valitse tili</string>
@@ -810,6 +810,7 @@
         Palvelimelta hakeaksesi näpäytä uudelleenhakupainiketta.
     </string>
     <string name="title_search_index_hint">Hakuindeksin kautta etsiminen on nopeampaa, mutta se löytää vain kokonaisia sanoja</string>
+    <string name="title_search_text_hint">Joillain sähköpostipalvelimilla on vaikeuksia löytää tekstiä monista viesteistä</string>
     <string name="title_search_more">Lisää asetuksia</string>
     <string name="title_search_use_index">Käytä haun indeksiä</string>
     <string name="title_search_in_senders">Lähettäjistä</string>

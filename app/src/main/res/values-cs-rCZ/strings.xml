@@ -319,6 +319,7 @@
     <string name="title_advanced_monospaced">Použít neproporcionální písmo pro text zprávy</string>
     <string name="title_advanced_text_color">Zobrazit barvy textu</string>
     <string name="title_advanced_text_size">Zobrazit malé a velké texty</string>
+    <string name="title_advanced_text_align">Zobrazit vlevo/na střed/vpravo zarovnané texty</string>
     <string name="title_advanced_collapse_quotes">Sbalit citovaný text</string>
     <string name="title_advanced_images_inline">Automaticky zobrazit vložené obrázky</string>
     <string name="title_advanced_seekbar">Zobrazit relativní pozici v konverzaci puntíkem</string>
@@ -834,6 +835,7 @@
         Pro hledání i na serveru, stiskněte tlačítko \"Hledat znovu\".
     </string>
     <string name="title_search_index_hint">Hledání s pomocí indexu vyhledávání je rychlé, ale najde pouze celá slova</string>
+    <string name="title_search_text_hint">Některé e-mailové servery mají potíže s hledáním textu ve velkém množství zpráv</string>
     <string name="title_search_more">Více možností</string>
     <string name="title_search_use_index">Použít index vyhledávání</string>
     <string name="title_search_in_senders">V odesílatelích (od)</string>

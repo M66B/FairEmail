@@ -296,6 +296,7 @@
     <string name="title_advanced_monospaced">Gebruik vaste breedte lettertype voor berichttekst</string>
     <string name="title_advanced_text_color">Tekstkleuren weergeven</string>
     <string name="title_advanced_text_size">Kleine en grote teksten weergeven</string>
+    <string name="title_advanced_text_align">Links/midden/rechts uitgelijnde teksten weergeven</string>
     <string name="title_advanced_collapse_quotes">Geciteerde tekst samenvouwen</string>
     <string name="title_advanced_images_inline">Automatisch inline afbeeldingen weergeven</string>
     <string name="title_advanced_seekbar">Toon relatieve gesprekspositie met een punt</string>

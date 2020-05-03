@@ -821,6 +821,7 @@
         Pentru a căuta și pe server apăsați butonul \'căutare din nou\'.
     </string>
     <string name="title_search_index_hint">Căutarea prin indexul de căutare este rapidă, dar va găsi doar cuvinte întregi</string>
+    <string name="title_search_text_hint">Unele servere de e-mail au probleme în a găsi text în multe mesaje</string>
     <string name="title_search_more">Mai multe opțiuni</string>
     <string name="title_search_use_index">Folosește index de căutare</string>
     <string name="title_search_in_senders">În expeditori (de la)</string>

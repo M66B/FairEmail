@@ -298,6 +298,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_monospaced">Unproportionale Schriftart für den Nachrichtentext verwenden</string>
     <string name="title_advanced_text_color">Textfarben anzeigen</string>
     <string name="title_advanced_text_size">Kleine und große Texte anzeigen</string>
+    <string name="title_advanced_text_align">Texte linksbündig/zentriert/rechtsbündig ausgerichtetet anzeigen</string>
     <string name="title_advanced_collapse_quotes">Zitierten Text ausblenden</string>
     <string name="title_advanced_images_inline">Eingebettete Grafiken automatisch anzeigen</string>
     <string name="title_advanced_seekbar">Relative Unterhaltungsposition mit einem Punkt kennzeichnen</string>
@@ -742,7 +743,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_add_image_inline">Einfügen</string>
     <string name="title_add_image_attach">Anhängen</string>
     <string name="title_add_image_resize">Größe ändern</string>
-    <string name="title_add_image_privacy">Geografischen Standort entfernen</string>
+    <string name="title_add_image_privacy">Aufnahmeort entfernen</string>
     <string name="title_add_resize_pixels">&lt; %1$d Pixel</string>
     <string name="title_add_image_select">Datei auswählen</string>
     <string name="title_add_attachment">Anhang hinzufügen</string>

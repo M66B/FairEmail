@@ -297,6 +297,7 @@
     <string name="title_advanced_monospaced">Utiliser une police à espacement fixe pour le texte du message</string>
     <string name="title_advanced_text_color">Afficher les couleurs du texte</string>
     <string name="title_advanced_text_size">Afficher des petits et des grands textes</string>
+    <string name="title_advanced_text_align">Afficher les textes alignés à gauche/au centre/à droite</string>
     <string name="title_advanced_collapse_quotes">Replier le texte cité</string>
     <string name="title_advanced_images_inline">Afficher automatiquement les images incluses</string>
     <string name="title_advanced_seekbar">Afficher la position relative dans la conversation avec un point</string>

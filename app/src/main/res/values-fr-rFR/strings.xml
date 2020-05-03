@@ -143,10 +143,10 @@
     <string name="title_setup_grant_again">Accorder les autorisations requises</string>
     <string name="title_setup_account">Configurer les comptes</string>
     <string name="title_setup_account_remark">Pour recevoir des e-mails</string>
-    <string name="title_setup_account_hint">Pour changer la couleur, balayer le dossier à gauche/droite, etc</string>
+    <string name="title_setup_account_hint">Pour modifier la couleur, le dossier cible lors du balayage gauche/droite, etc</string>
     <string name="title_setup_identity">Configurer les identités</string>
     <string name="title_setup_identity_remark">Pour envoyer des e-mails</string>
-    <string name="title_setup_identity_hint">Pour changer le nom, la couleur, la signature, etc</string>
+    <string name="title_setup_identity_hint">Pour modifier le nom, la couleur, la signature, etc</string>
     <string name="title_setup_permissions">Accorder les autorisations</string>
     <string name="title_setup_permissions_remark">Pour accéder aux informations des contacts (facultatif)</string>
     <string name="title_setup_doze">Configurer les optimisations de la batterie</string>
@@ -155,7 +155,7 @@
     <string name="title_setup_doze_battery">Utilisation élevée de la batterie ?</string>
     <string name="title_setup_doze_stopped">Synchronisation arrêtée ?</string>
     <string name="title_setup_data">L\'économiseur de données est activé</string>
-    <string name="title_setup_inbox">Voir les messages</string>
+    <string name="title_setup_inbox">Consulter les messages</string>
     <string name="title_setup_go">Aller</string>
     <string name="title_setup_to_do">À faire</string>
     <string name="title_setup_done">Effectué</string>
@@ -297,6 +297,7 @@
     <string name="title_advanced_monospaced">Utiliser une police à espacement fixe pour le texte du message</string>
     <string name="title_advanced_text_color">Afficher les couleurs du texte</string>
     <string name="title_advanced_text_size">Afficher des petits et des grands textes</string>
+    <string name="title_advanced_text_align">Afficher les textes alignés à gauche/au centre/à droite</string>
     <string name="title_advanced_collapse_quotes">Replier le texte cité</string>
     <string name="title_advanced_images_inline">Afficher automatiquement les images incluses</string>
     <string name="title_advanced_seekbar">Indiquer la position relative de la conversation avec un point</string>
@@ -955,7 +956,7 @@
     <string name="title_legend_download_fetch">Nombre de messages téléchargés / en-têtes récupérés</string>
     <string name="title_legend_stop">Arrêter le traitement des règles</string>
     <string name="title_legend_thread">Conversation</string>
-    <string name="title_legend_zoom">Changer la taille du texte</string>
+    <string name="title_legend_zoom">Modifier la taille du texte</string>
     <string name="title_legend_draft">A un brouillon</string>
     <string name="title_legend_priority">A une priorité élevée</string>
     <string name="title_legend_priority_low">A une priorité basse</string>

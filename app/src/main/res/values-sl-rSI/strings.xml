@@ -243,6 +243,7 @@
     <string name="title_advanced_flagged">Vsa sporočila z zvezdico</string>
     <string name="title_advanced_delete_unseen">Izbriši stara neprebrana sporočila</string>
     <string name="title_advanced_kept_removed">Preveri, ali so bila stara sporočila odstranjena s strežnika</string>
+    <string name="title_advanced_gmail_thread">Slog združevanja sporočil za račune Gmail</string>
     <string name="title_advanced_sync_folders">Sinhroniziraj seznam map</string>
     <string name="title_advanced_subscriptions">Upravljaj z naročninami na mape</string>
     <string name="title_advanced_keyboard">Privzeto prikaži tipkovnico</string>
@@ -831,6 +832,7 @@
         Če želite iskati tudi na strežniku, se dotaknite gumba \'Ponovno išči\'.
     </string>
     <string name="title_search_index_hint">Iskanje preko kazala je hitro, vendar pa bo našlo samo cele besede.</string>
+    <string name="title_search_text_hint">Nekateri e-poštni strežniki imajo težave pri iskanju besedila v velikem št. sporočil.</string>
     <string name="title_search_more">Več možnosti</string>
     <string name="title_search_use_index">Uporabi iskalno kazalo</string>
     <string name="title_search_in_senders">Med pošiljatelji (Od)</string>
