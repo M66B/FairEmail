@@ -221,6 +221,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
         json.put("notify", notify);
         json.put("browse", browse);
         json.put("leave_on_server", leave_on_server);
+        json.put("leave_deleted", leave_deleted);
         json.put("leave_on_device", leave_on_device);
         json.put("max_messages", max_messages);
         json.put("auto_seen", auto_seen);
@@ -291,6 +292,8 @@ public class EntityAccount extends EntityOrder implements Serializable {
             account.browse = json.getBoolean("browse");
         if (json.has("leave_on_server"))
             account.leave_on_server = json.getBoolean("leave_on_server");
+        if (json.has("leave_deleted"))
+            account.leave_deleted = json.getBoolean("leave_deleted");
         if (json.has("leave_on_device"))
             account.leave_on_device = json.getBoolean("leave_on_device");
         if (json.has("max_messages"))
