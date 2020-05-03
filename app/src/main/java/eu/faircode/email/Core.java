@@ -558,17 +558,20 @@ class Core {
             }
 
             if (uid != null && purge) {
+                boolean purged = false;
                 for (Message iexisting : imessages) {
                     long muid = ifolder.getUID(iexisting);
                     if (muid != uid)
                         try {
                             Log.i(name + " deleting uid=" + muid + " for msgid=" + msgid);
                             iexisting.setFlag(Flags.Flag.DELETED, true);
+                            purged = true;
                         } catch (MessageRemovedException ignored) {
                             Log.w(name + " existing gone uid=" + muid + " for msgid=" + msgid);
                         }
                 }
-                ifolder.expunge();
+                if (purged)
+                    ifolder.expunge();
             }
         }
 
