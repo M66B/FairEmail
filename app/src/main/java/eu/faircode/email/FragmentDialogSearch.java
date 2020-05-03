@@ -12,6 +12,7 @@ import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AutoCompleteTextView;
@@ -277,12 +278,6 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                         // Do nothing
                     }
                 })
-                .setOnDismissListener(new DialogInterface.OnDismissListener() {
-                    @Override
-                    public void onDismiss(DialogInterface dialog) {
-                        imm.hideSoftInputFromWindow(etQuery.getWindowToken(), 0);
-                    }
-                })
                 .create();
 
         View.OnClickListener onClick = new View.OnClickListener() {
@@ -320,6 +315,12 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         });
 
         return dialog;
+    }
+
+    @Override
+    public void onDismiss(@NonNull DialogInterface dialog) {
+        super.onDismiss(dialog);
+        getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
     }
 
     private void pickDate(TextView tv) {
