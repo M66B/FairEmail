@@ -1051,49 +1051,50 @@ class Core {
         // Delete message
         DB db = DB.getInstance(context);
 
-        if (!account.leave_deleted &&
-                EntityFolder.INBOX.equals(folder.type)) {
-            Map<String, String> caps = istore.capabilities();
+        if (EntityFolder.INBOX.equals(folder.type)) {
+            if (account.leave_deleted)
+                db.message().setMessageUiHide(message.id, true);
+            else {
+                Map<String, String> caps = istore.capabilities();
 
-            Message[] imessages = ifolder.getMessages();
-            Log.i(folder.name + " POP messages=" + imessages.length);
+                Message[] imessages = ifolder.getMessages();
+                Log.i(folder.name + " POP messages=" + imessages.length);
 
-            boolean found = false;
-            for (Message imessage : imessages) {
-                MessageHelper helper = new MessageHelper((MimeMessage) imessage);
+                boolean found = false;
+                for (Message imessage : imessages) {
+                    MessageHelper helper = new MessageHelper((MimeMessage) imessage);
 
-                String msgid;
-                if (caps.containsKey("UIDL"))
-                    msgid = ifolder.getUID(imessage);
+                    String msgid;
+                    if (caps.containsKey("UIDL"))
+                        msgid = ifolder.getUID(imessage);
+                    else
+                        msgid = helper.getMessageID();
+
+                    Log.i("POP searching=" + message.msgid + " iterate=" + msgid);
+                    if (msgid != null && msgid.equals(message.msgid)) {
+                        found = true;
+                        Log.i(folder.name + " POP delete=" + msgid);
+                        imessage.setFlag(Flags.Flag.DELETED, true);
+                        break;
+                    }
+                }
+
+                Log.i(folder.name + " POP expunge=" + found);
+
+                if (found)
+                    try {
+                        ifolder.close(true);
+                        ifolder.open(Folder.READ_WRITE);
+                        db.message().deleteMessage(folder.id, message.id);
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                        state.error(new FolderClosedException(ifolder, "POP"));
+                    }
                 else
-                    msgid = helper.getMessageID();
-
-                Log.i("POP searching=" + message.msgid + " iterate=" + msgid);
-                if (msgid != null && msgid.equals(message.msgid)) {
-                    found = true;
-                    Log.i(folder.name + " POP delete=" + msgid);
-                    imessage.setFlag(Flags.Flag.DELETED, true);
-                    break;
-                }
-            }
-
-            Log.i(folder.name + " POP expunge=" + found);
-
-            if (found)
-                try {
-                    ifolder.close(true);
-                    ifolder.open(Folder.READ_WRITE);
                     db.message().deleteMessage(folder.id, message.id);
-                } catch (Throwable ex) {
-                    Log.e(ex);
-                    state.error(new FolderClosedException(ifolder, "POP"));
-                }
-            else
-                db.message().deleteMessage(folder.id, message.id);
-        } else {
-            if (!EntityFolder.INBOX.equals(folder.type))
-                db.message().deleteMessage(folder.id, message.id);
-        }
+            }
+        } else
+            db.message().deleteMessage(folder.id, message.id);
 
         if (!EntityFolder.DRAFTS.equals(folder.type) &&
                 !EntityFolder.TRASH.equals(folder.type)) {
