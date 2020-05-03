@@ -834,6 +834,7 @@
         Чтобы также выполнить поиск на сервере, нажмите кнопку \"Новый поиск\".
     </string>
     <string name="title_search_index_hint">Индексированный поиск быстрый, но ищет только целые слова</string>
+    <string name="title_search_text_hint">Некоторые почтовые серверы не могут найти текст во множестве сообщений</string>
     <string name="title_search_more">Дополнительные параметры</string>
     <string name="title_search_use_index">Использовать поисковый индекс</string>
     <string name="title_search_in_senders">В отправителях (от)</string>

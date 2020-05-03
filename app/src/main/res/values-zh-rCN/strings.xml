@@ -800,6 +800,7 @@
         若也要搜索服务器上的内容，请点击“再次搜索”按钮
     </string>
     <string name="title_search_index_hint">通过搜索索引搜索很快，但只能找到整个单词</string>
+    <string name="title_search_text_hint">某些电子邮件服务器在许多消息中查找文本方面存在缺陷</string>
     <string name="title_search_more">更多选项</string>
     <string name="title_search_use_index">使用以下搜索索引</string>
     <string name="title_search_in_senders">发件人 (发送自)</string>

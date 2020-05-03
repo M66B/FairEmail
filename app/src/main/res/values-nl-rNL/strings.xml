@@ -811,6 +811,7 @@
         Tik op de \'Opnieuw zoeken\' knop om ook op de server te zoeken.
     </string>
     <string name="title_search_index_hint">Zoeken via de zoekindex is snel, maar zal alleen hele woorden vinden</string>
+    <string name="title_search_text_hint">Sommige e-mailservers hebben problemen met het vinden van tekst in veel berichten</string>
     <string name="title_search_more">Meer opties</string>
     <string name="title_search_use_index">Gebruik zoekindex</string>
     <string name="title_search_in_senders">In afzenders (van)</string>
