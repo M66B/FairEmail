@@ -3786,8 +3786,10 @@ public class FragmentCompose extends FragmentBase {
                     EntityFolder trash = db.folder().getFolderByType(draft.account, EntityFolder.TRASH);
                     if (empty || trash == null || discard_delete)
                         EntityOperation.queue(context, draft, EntityOperation.DELETE);
-                    else
+                    else {
+                        EntityOperation.queue(context, draft, EntityOperation.ADD);
                         EntityOperation.queue(context, draft, EntityOperation.MOVE, trash.id);
+                    }
 
                     Handler handler = new Handler(context.getMainLooper());
                     handler.post(new Runnable() {
