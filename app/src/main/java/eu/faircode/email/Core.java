@@ -775,8 +775,6 @@ class Core {
                 } catch (JSONException ex) {
                     Log.e(ex);
                 }
-
-            ifolder.expunge();
         } else {
             // Mark source read
             if (autoread)
