@@ -1716,10 +1716,11 @@ public class HtmlHelper {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean debug = prefs.getBoolean("debug", false);
 
-        int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
-        int dp3 = Helper.dp2pixels(context, 3);
-        int dp6 = Helper.dp2pixels(context, 6);
-        int dp24 = Helper.dp2pixels(context, 24);
+        final int colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);
+        final int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
+        final int dp3 = Helper.dp2pixels(context, 3);
+        final int dp6 = Helper.dp2pixels(context, 6);
+        final int dp24 = Helper.dp2pixels(context, 24);
 
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements
         NodeTraversor.traverse(new NodeVisitor() {
@@ -1897,7 +1898,12 @@ public class HtmlHelper {
                         case "blockquote":
                             if (start > 0 && ssb.charAt(start - 1) != '\n')
                                 ssb.insert(start++, "\n");
-                            ssb.setSpan(new QuoteSpan(), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
+                                ssb.setSpan(new QuoteSpan(colorPrimary), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            else
+                                ssb.setSpan(new QuoteSpan(colorPrimary, dp3, dp6), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
                             if (ssb.length() > 1 && ssb.charAt(ssb.length() - 1) != '\n')
                                 ssb.append("\n");
                             break;

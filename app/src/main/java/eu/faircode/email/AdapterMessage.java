@@ -1913,7 +1913,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         }
 
                         // Draw images
-                        Spanned spanned = HtmlHelper.fromDocument(context, document, new Html.ImageGetter() {
+                        SpannableStringBuilder ssb = HtmlHelper.fromDocument(context, document, new Html.ImageGetter() {
                             @Override
                             public Drawable getDrawable(String source) {
                                 Drawable drawable = ImageHelper.decodeImage(context, message.id, source, show_images, zoom, tvBody);
@@ -1927,34 +1927,29 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             }
                         }, null);
 
+                        if (show_quotes)
+                            return ssb;
+
                         // Replace quote spans
                         final int px = Helper.dp2pixels(context, 24 + (zoom) * 8);
-                        SpannableStringBuilder builder = new SpannableStringBuilder(spanned);
-                        QuoteSpan[] quoteSpans = builder.getSpans(0, builder.length(), QuoteSpan.class);
+                        QuoteSpan[] quoteSpans = ssb.getSpans(0, ssb.length(), QuoteSpan.class);
                         for (QuoteSpan quoteSpan : quoteSpans) {
-                            int s = builder.getSpanStart(quoteSpan);
-                            int e = builder.getSpanEnd(quoteSpan);
-
-                            builder.removeSpan(quoteSpan);
-
-                            StyledQuoteSpan squote = new StyledQuoteSpan(context, colorPrimary);
-                            builder.setSpan(squote, s, e, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
-
-                            if (!show_quotes)
-                                builder.setSpan(
-                                        new DynamicDrawableSpan() {
-                                            @Override
-                                            public Drawable getDrawable() {
-                                                Drawable d = context.getDrawable(R.drawable.baseline_format_quote_24);
-                                                d.setTint(colorAccent);
-                                                d.setBounds(0, 0, px, px);
-                                                return d;
-                                            }
-                                        },
-                                        s, e, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+                            int s = ssb.getSpanStart(quoteSpan);
+                            int e = ssb.getSpanEnd(quoteSpan);
+                            ssb.setSpan(
+                                    new DynamicDrawableSpan() {
+                                        @Override
+                                        public Drawable getDrawable() {
+                                            Drawable d = context.getDrawable(R.drawable.baseline_format_quote_24);
+                                            d.setTint(colorAccent);
+                                            d.setBounds(0, 0, px, px);
+                                            return d;
+                                        }
+                                    },
+                                    s, e, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
                         }
 
-                        return builder;
+                        return ssb;
                     }
                 }
 

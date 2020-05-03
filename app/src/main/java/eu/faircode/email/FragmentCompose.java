@@ -47,6 +47,7 @@ import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.net.NetworkRequest;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.OperationCanceledException;
@@ -485,8 +486,8 @@ public class FragmentCompose extends FragmentBase {
                     // break block quotes
                     boolean broken = false;
                     SpannableStringBuilder ssb = new SpannableStringBuilder(text);
-                    StyledQuoteSpan[] spans = ssb.getSpans(start + 1, start + 1, StyledQuoteSpan.class);
-                    for (StyledQuoteSpan span : spans) {
+                    QuoteSpan[] spans = ssb.getSpans(start + 1, start + 1, QuoteSpan.class);
+                    for (QuoteSpan span : spans) {
                         int s = ssb.getSpanStart(span);
                         int e = ssb.getSpanEnd(span);
                         int f = ssb.getSpanFlags(span);
@@ -497,11 +498,19 @@ public class FragmentCompose extends FragmentBase {
                                 ssb.charAt(start) == '\n' && ssb.charAt(e - 1) == '\n') {
                             broken = true;
 
-                            StyledQuoteSpan q1 = new StyledQuoteSpan(getContext(), span.getColor());
+                            QuoteSpan q1;
+                            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
+                                q1 = new QuoteSpan(span.getColor());
+                            else
+                                q1 = new QuoteSpan(span.getColor(), span.getStripeWidth(), span.getGapWidth());
                             ssb.setSpan(q1, s, start, f);
                             Log.i("Span " + s + "..." + start);
 
-                            StyledQuoteSpan q2 = new StyledQuoteSpan(getContext(), span.getColor());
+                            QuoteSpan q2;
+                            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
+                                q2 = new QuoteSpan(span.getColor());
+                            else
+                                q2 = new QuoteSpan(span.getColor(), span.getStripeWidth(), span.getGapWidth());
                             ssb.setSpan(q2, start + 1, e, f);
                             Log.i("Span " + (start + 1) + "..." + e);
 
@@ -4428,6 +4437,8 @@ public class FragmentCompose extends FragmentBase {
                 final boolean show_images = args.getBoolean("show_images", false);
 
                 int colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);
+                int dp3 = Helper.dp2pixels(context, 3);
+                int dp6 = Helper.dp2pixels(context, 6);
 
                 DB db = DB.getInstance(context);
                 EntityMessage draft = db.message().getMessage(id);
@@ -4449,8 +4460,12 @@ public class FragmentCompose extends FragmentBase {
                 SpannableStringBuilder bodyBuilder = new SpannableStringBuilder(spannedBody);
                 QuoteSpan[] bodySpans = bodyBuilder.getSpans(0, bodyBuilder.length(), QuoteSpan.class);
                 for (QuoteSpan quoteSpan : bodySpans) {
-                    bodyBuilder.setSpan(
-                            new StyledQuoteSpan(context, colorPrimary),
+                    QuoteSpan q;
+                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
+                        q = new QuoteSpan(colorPrimary);
+                    else
+                        q = new QuoteSpan(colorPrimary, dp3, dp6);
+                    bodyBuilder.setSpan(q,
                             bodyBuilder.getSpanStart(quoteSpan),
                             bodyBuilder.getSpanEnd(quoteSpan),
                             Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
@@ -4463,7 +4478,7 @@ public class FragmentCompose extends FragmentBase {
                 if (!ref.isEmpty()) {
                     Document dref = JsoupEx.parse(ref.outerHtml());
                     Document quote = HtmlHelper.sanitizeView(context, dref, show_images);
-                    SpannableStringBuilder ssb = HtmlHelper.fromDocument(context, quote,
+                    spannedRef = HtmlHelper.fromDocument(context, quote,
                             new Html.ImageGetter() {
                                 @Override
                                 public Drawable getDrawable(String source) {
@@ -4471,18 +4486,6 @@ public class FragmentCompose extends FragmentBase {
                                 }
                             },
                             null);
-
-                    QuoteSpan[] refSpans = ssb.getSpans(0, ssb.length(), QuoteSpan.class);
-                    for (QuoteSpan quoteSpan : refSpans) {
-                        ssb.setSpan(
-                                new StyledQuoteSpan(context, colorPrimary),
-                                ssb.getSpanStart(quoteSpan),
-                                ssb.getSpanEnd(quoteSpan),
-                                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                        ssb.removeSpan(quoteSpan);
-                    }
-
-                    spannedRef = ssb;
                 }
 
                 args.putBoolean("ref_has_images", spannedRef != null &&
