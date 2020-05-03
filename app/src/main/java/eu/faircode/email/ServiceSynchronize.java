@@ -1288,7 +1288,13 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                                     db.folder().setFolderState(folder.id, "connecting");
 
                                                                     ifolder = iservice.getStore().getFolder(folder.name);
-                                                                    ifolder.open(Folder.READ_WRITE);
+                                                                    try {
+                                                                        ifolder.open(Folder.READ_WRITE);
+                                                                    } catch (ReadOnlyFolderException ex) {
+                                                                        Log.w(folder.name + " read only");
+                                                                        ifolder.open(Folder.READ_ONLY);
+                                                                        db.folder().setFolderReadOnly(folder.id, true);
+                                                                    }
 
                                                                     db.folder().setFolderState(folder.id, "connected");
                                                                     db.folder().setFolderError(folder.id, null);
