@@ -38,10 +38,12 @@ import com.sun.mail.imap.IMAPMessage;
 import com.sun.mail.imap.IMAPStore;
 import com.sun.mail.imap.protocol.IMAPProtocol;
 import com.sun.mail.imap.protocol.IMAPResponse;
+import com.sun.mail.imap.protocol.SearchSequence;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
+import java.nio.charset.StandardCharsets;
 import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -386,28 +388,53 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                 } else {
                                     Log.i("Boundary server search=" + criteria);
 
-                                    boolean utf8 = protocol.supportsUtf8();
+                                    try {
+                                        if (protocol.supportsUtf8())
+                                            return (Message[]) state.ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
+                                                @Override
+                                                public Object doCommand(IMAPProtocol protocol) throws ProtocolException {
+                                                    SearchTerm terms = criteria.getTerms(
+                                                            true,
+                                                            state.ifolder.getPermanentFlags(),
+                                                            browsable.keywords);
+
+                                                    try {
+                                                        SearchSequence ss = new SearchSequence(protocol);
+                                                        Argument args = ss.generateSequence(terms, StandardCharsets.UTF_8.name());
+                                                        args.writeAtom("ALL");
+
+                                                        Response[] responses = protocol.command("SEARCH", args);
+                                                        if (responses.length == 0)
+                                                            throw new ProtocolException("No response");
+                                                        if (!responses[responses.length - 1].isOK())
+                                                            throw new ProtocolException(responses[responses.length - 1]);
+
+                                                        List<Integer> msgnums = new ArrayList<>();
+                                                        for (Response response : responses)
+                                                            if (((IMAPResponse) response).keyEquals("SEARCH")) {
+                                                                int msgnum;
+                                                                while ((msgnum = response.readNumber()) != -1)
+                                                                    msgnums.add(msgnum);
+                                                            }
+                                                        Message[] imessages = new Message[msgnums.size()];
+                                                        for (int i = 0; i < msgnums.size(); i++)
+                                                            imessages[i] = state.ifolder.getMessage(msgnums.get(i));
+
+                                                        return imessages;
+                                                    } catch (Throwable ex) {
+                                                        throw new ProtocolException("Search", ex);
+                                                    }
+                                                }
+                                            });
+                                    } catch (MessagingException ex) {
+                                        Log.w(ex);
+                                    }
 
                                     SearchTerm terms = criteria.getTerms(
-                                            utf8,
+                                            false,
                                             state.ifolder.getPermanentFlags(),
                                             browsable.keywords);
-                                    if (terms == null)
-                                        return new Message[0];
-
-                                    try {
-                                        return state.ifolder.search(terms);
-                                    } catch (MessagingException ex) {
-                                        if (utf8) {
-                                            Log.w(ex);
-                                            terms = criteria.getTerms(
-                                                    false,
-                                                    state.ifolder.getPermanentFlags(),
-                                                    browsable.keywords);
-                                            return state.ifolder.search(terms);
-                                        } else
-                                            throw ex;
-                                    }
+                                    return state.ifolder.search(terms);
                                 }
                             } catch (MessagingException ex) {
                                 ProtocolException pex = new ProtocolException(
