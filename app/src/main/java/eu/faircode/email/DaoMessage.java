@@ -289,13 +289,13 @@ public interface DaoMessage {
     Cursor getMessageFts();
 
     @Query("SELECT id, account, thread, (:find IS NULL" +
-            " OR `from` LIKE :find COLLATE NOCASE" +
-            " OR `to` LIKE :find COLLATE NOCASE" +
-            " OR `cc` LIKE :find COLLATE NOCASE" +
-            " OR `bcc` LIKE :find COLLATE NOCASE" +
-            " OR `subject` LIKE :find COLLATE NOCASE" +
-            " OR `keywords` LIKE :find COLLATE NOCASE" +
-            " OR `preview` LIKE :find COLLATE NOCASE) AS matched" +
+            " OR `from` LIKE :find COLLATE NOCASE" + // no index
+            " OR `to` LIKE :find COLLATE NOCASE" + // no index
+            " OR `cc` LIKE :find COLLATE NOCASE" + // no index
+            " OR `bcc` LIKE :find COLLATE NOCASE" + // no index
+            " OR `subject` LIKE :find COLLATE NOCASE" + // unsuitable index
+            " OR `keywords` LIKE :find COLLATE NOCASE" + // no index
+            " OR `preview` LIKE :find COLLATE NOCASE) AS matched" + // no index
             " FROM message" +
             " WHERE NOT ui_hide" +
             " AND (:account IS NULL OR account = :account)" +
