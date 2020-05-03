@@ -2006,12 +2006,19 @@ public class HtmlHelper {
             }
 
             private void newline(int index) {
-                int len = ssb.length();
-                if (len > 2 &&
-                        ssb.charAt(len - 1) == '\n' &&
-                        ssb.charAt(len - 2) == '\n')
-                    return;
-                ssb.insert(index, "\n");
+                int count = 0;
+                int i = Math.min(index, ssb.length() - 1);
+                while (i >= 0) {
+                    char kar = ssb.charAt(i);
+                    if (kar == '\n')
+                        count++;
+                    else if (kar != ' ' && kar != '\u00A0')
+                        break;
+                    i--;
+                }
+
+                if (count < 2)
+                    ssb.insert(index, "\n");
             }
         }, document.body());
 
