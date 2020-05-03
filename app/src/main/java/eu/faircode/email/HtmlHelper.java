@@ -36,6 +36,7 @@ import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextPaint;
 import android.text.TextUtils;
+import android.text.style.AlignmentSpan;
 import android.text.style.BulletSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
@@ -50,6 +51,7 @@ import android.text.style.TypefaceSpan;
 import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
 import android.util.Base64;
+import android.view.View;
 import android.view.textclassifier.TextClassificationManager;
 import android.view.textclassifier.TextLanguage;
 
@@ -313,6 +315,7 @@ public class HtmlHelper {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean text_color = prefs.getBoolean("text_color", true);
         boolean text_size = prefs.getBoolean("text_size", true);
+        boolean text_align = prefs.getBoolean("text_align", true);
         boolean display_hidden = prefs.getBoolean("display_hidden", false);
         boolean disable_tracking = prefs.getBoolean("disable_tracking", true);
         boolean parse_classes = prefs.getBoolean("parse_classes", false);
@@ -449,6 +452,8 @@ public class HtmlHelper {
                 .addProtocols("a", "href", "full");
         if (text_color)
             whitelist.addAttributes("font", "color");
+        if (text_align)
+            whitelist.addTags("center").addAttributes(":all", "align");
         if (!view)
             whitelist.addProtocols("img", "src", "content");
 
@@ -505,6 +510,19 @@ public class HtmlHelper {
 
             // Element style
             style = mergeStyles(style, element.attr("style"));
+
+            if (text_align) {
+                // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/center
+                if ("center".equals(element.tagName())) {
+                    style = mergeStyles(style, "text-align:center");
+                    element.tagName("div");
+                }
+
+                // https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes
+                String align = element.attr("align");
+                if (!TextUtils.isEmpty(align))
+                    style = mergeStyles(style, "text-align:" + align);
+            }
 
             // Process style
             if (!TextUtils.isEmpty(style)) {
@@ -636,6 +654,12 @@ public class HtmlHelper {
                                     if (p[2] != null && p[2] > 0.5)
                                         element.attr("line-after", "true");
                                 }
+                                break;
+
+                            case "text-align":
+                                // https://developer.mozilla.org/en-US/docs/Web/CSS/text-align
+                                if (text_align)
+                                    sb.append(key).append(':').append(value).append(';');
                                 break;
                         }
                     }
@@ -1721,6 +1745,7 @@ public class HtmlHelper {
         final int dp3 = Helper.dp2pixels(context, 3);
         final int dp6 = Helper.dp2pixels(context, 6);
         final int dp24 = Helper.dp2pixels(context, 24);
+        final boolean ltr = (TextUtils.getLayoutDirectionFromLocale(Locale.getDefault()) == View.LAYOUT_DIRECTION_LTR);
 
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements
         NodeTraversor.traverse(new NodeVisitor() {
@@ -1870,6 +1895,22 @@ public class HtmlHelper {
                                 case "text-decoration":
                                     if ("line-through".equals(value))
                                         ssb.setSpan(new StrikethroughSpan(), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                    break;
+                                case "text-align":
+                                    Layout.Alignment alignment = null;
+                                    switch (value) {
+                                        case "left":
+                                            alignment = (ltr ? Layout.Alignment.ALIGN_NORMAL : Layout.Alignment.ALIGN_OPPOSITE);
+                                            break;
+                                        case "center":
+                                            alignment = Layout.Alignment.ALIGN_CENTER;
+                                            break;
+                                        case "right":
+                                            alignment = (ltr ? Layout.Alignment.ALIGN_OPPOSITE : Layout.Alignment.ALIGN_NORMAL);
+                                            break;
+                                    }
+                                    if (alignment != null)
+                                        ssb.setSpan(new AlignmentSpan.Standard(alignment), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                     break;
                             }
                         }
