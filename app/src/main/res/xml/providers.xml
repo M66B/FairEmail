@@ -576,7 +576,7 @@
     </provider>
     <provider
         name="AOL"
-        domain="aol\\.com"
+        domain="aol\\..*"
         link="https://help.aol.com/articles/how-do-i-use-other-email-applications-to-send-and-receive-my-aol-mail">
         <imap
             host="imap.aol.com"
