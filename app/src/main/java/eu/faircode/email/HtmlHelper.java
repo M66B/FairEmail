@@ -544,7 +544,9 @@ public class HtmlHelper {
                                     continue;
 
                                 Integer color = parseColor(value, dark);
-                                if (color != null) {
+                                if (color == null)
+                                    element.removeAttr("color");
+                                else {
                                     // fromHtml does not support transparency
                                     String c = String.format("#%06x", color);
                                     sb.append("color:").append(c).append(";");
