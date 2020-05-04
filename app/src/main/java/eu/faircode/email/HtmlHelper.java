@@ -125,6 +125,7 @@ public class HtmlHelper {
     private static final float FONT_LARGE = 1.25f;
     private static final float MIN_LUMINANCE = 0.5f;
     private static final int TAB_SIZE = 2;
+    private static final int MAX_ALT = 250;
     private static final int MAX_AUTO_LINK = 250;
     private static final int MAX_FORMAT_TEXT_SIZE = 50 * 1024; // characters
     private static final int MAX_FULL_TEXT_SIZE = 1024 * 1024; // characters
@@ -819,6 +820,9 @@ public class HtmlHelper {
             String alt = img.attr("alt");
             String src = img.attr("src");
             String tracking = img.attr("tracking");
+
+            if (alt.length() > MAX_ALT)
+                alt = alt.substring(0, MAX_ALT) + "…";
 
             if (!show_images && !TextUtils.isEmpty(alt))
                 if (TextUtils.isEmpty(tracking))
