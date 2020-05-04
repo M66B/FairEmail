@@ -116,7 +116,7 @@ Please see [here](https://email.faircode.eu/#screenshots) for screenshots.
 The Gmail quick setup wizard can be used in official releases only (Play store or GitHub) because Google approved the use of OAuth for one app signature only.
 
 **Important**: Gsuite accounts authorized with a username/password will stop working
-in the [near future](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
+[in the near future](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
 Gsuite accounts authorized with the quick setup wizard (OAuth) will keep working.
 
 To download a GitHub release you might need to expand the assets section to download the [APK file](https://en.wikipedia.org/wiki/Android_application_package).
@@ -155,7 +155,7 @@ because earlier Android versions do not support notification channels.
 
 FairEmail will work properly on devices without any Google service installed.
 
-See [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems) for known problems.
+Please see [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems) for known problems.
 
 ## Privacy
 
@@ -163,7 +163,7 @@ Please see [here](https://github.com/M66B/FairEmail/blob/master/PRIVACY.md#faire
 
 ## Support
 
-See [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) for a list of often asked questions and about how to get support.
+Please see [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) for a list of often asked questions and about how to get support.
 
 ## Contributing
 
