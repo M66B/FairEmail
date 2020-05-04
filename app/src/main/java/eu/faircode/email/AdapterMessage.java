@@ -1303,13 +1303,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void setFrom(TupleMessageEx message, Address[] addresses) {
-            int recipients = 0;
-            if (viewType == ViewType.THREAD) {
-                recipients = (message.to == null ? 0 : message.to.length) +
-                        (message.cc == null ? 0 : message.cc.length) + (message.bcc == null ? 0 : message.bcc.length);
-                if (message.to != null && message.to.length > 0)
-                    recipients--;
-            }
+            int recipients = (message.to == null ? 0 : message.to.length) +
+                    (message.cc == null ? 0 : message.cc.length) + (message.bcc == null ? 0 : message.bcc.length);
+            if (message.to != null && message.to.length > 0)
+                recipients--;
 
             if (recipients == 0)
                 tvFrom.setText(MessageHelper.formatAddresses(addresses, name_email, false));
@@ -1336,8 +1333,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean show_addresses = properties.getValue("addresses", message.id);
             boolean show_headers = properties.getValue("headers", message.id);
 
-            boolean hasFrom = (message.from != null && message.from.length > 0);
-            boolean hasTo = (message.to != null && message.to.length > 0);
+            int froms = (message.from == null ? 0 : message.from.length);
+            int tos = (message.to == null ? 0 : message.to.length);
             boolean hasChannel = (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O);
 
             String submitter = MessageHelper.formatAddresses(message.submitter);
@@ -1366,10 +1363,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivReceipt.setVisibility(show_addresses && message.receipt_request != null && message.receipt_request ? View.VISIBLE : View.GONE);
             ivBrowsed.setVisibility(show_addresses && message.ui_browsed ? View.VISIBLE : View.GONE);
 
-            ibSearchContact.setVisibility(show_addresses && (hasFrom || hasTo) ? View.VISIBLE : View.GONE);
-            ibNotifyContact.setVisibility(show_addresses && hasChannel && hasFrom ? View.VISIBLE : View.GONE);
-            ibPinContact.setVisibility(show_addresses && pin && hasFrom ? View.VISIBLE : View.GONE);
-            ibAddContact.setVisibility(show_addresses && contacts && hasFrom ? View.VISIBLE : View.GONE);
+            ibSearchContact.setVisibility(show_addresses && (froms > 0 || tos > 0) ? View.VISIBLE : View.GONE);
+            ibNotifyContact.setVisibility(show_addresses && hasChannel && froms > 0 ? View.VISIBLE : View.GONE);
+            ibPinContact.setVisibility(show_addresses && pin && froms > 0 ? View.VISIBLE : View.GONE);
+            ibAddContact.setVisibility(show_addresses && contacts && froms > 0 ? View.VISIBLE : View.GONE);
 
             tvSubmitterTitle.setVisibility(show_addresses && !TextUtils.isEmpty(submitter) ? View.VISIBLE : View.GONE);
             tvSubmitter.setVisibility(show_addresses && !TextUtils.isEmpty(submitter) ? View.VISIBLE : View.GONE);
@@ -1379,24 +1376,24 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvDeliveredTo.setVisibility(show_addresses && !TextUtils.isEmpty(message.deliveredto) ? View.VISIBLE : View.GONE);
             tvDeliveredTo.setText(message.deliveredto);
 
-            tvFromExTitle.setVisibility(show_addresses && !TextUtils.isEmpty(from) ? View.VISIBLE : View.GONE);
-            tvFromEx.setVisibility(show_addresses && !TextUtils.isEmpty(from) ? View.VISIBLE : View.GONE);
+            tvFromExTitle.setVisibility((froms > 1 || show_addresses) && !TextUtils.isEmpty(from) ? View.VISIBLE : View.GONE);
+            tvFromEx.setVisibility((froms > 1 || show_addresses) && !TextUtils.isEmpty(from) ? View.VISIBLE : View.GONE);
             tvFromEx.setText(from);
 
-            tvToTitle.setVisibility(show_addresses && !TextUtils.isEmpty(to) ? View.VISIBLE : View.GONE);
-            tvTo.setVisibility(show_addresses && !TextUtils.isEmpty(to) ? View.VISIBLE : View.GONE);
+            tvToTitle.setVisibility((tos > 1 || show_addresses) && !TextUtils.isEmpty(to) ? View.VISIBLE : View.GONE);
+            tvTo.setVisibility((tos > 1 || show_addresses) && !TextUtils.isEmpty(to) ? View.VISIBLE : View.GONE);
             tvTo.setText(to);
 
             tvReplyToTitle.setVisibility(show_addresses && !TextUtils.isEmpty(replyto) ? View.VISIBLE : View.GONE);
             tvReplyTo.setVisibility(show_addresses && !TextUtils.isEmpty(replyto) ? View.VISIBLE : View.GONE);
             tvReplyTo.setText(replyto);
 
-            tvCcTitle.setVisibility(show_addresses && !TextUtils.isEmpty(cc) ? View.VISIBLE : View.GONE);
-            tvCc.setVisibility(show_addresses && !TextUtils.isEmpty(cc) ? View.VISIBLE : View.GONE);
+            tvCcTitle.setVisibility(!TextUtils.isEmpty(cc) ? View.VISIBLE : View.GONE);
+            tvCc.setVisibility(!TextUtils.isEmpty(cc) ? View.VISIBLE : View.GONE);
             tvCc.setText(cc);
 
-            tvBccTitle.setVisibility(show_addresses && !TextUtils.isEmpty(bcc) ? View.VISIBLE : View.GONE);
-            tvBcc.setVisibility(show_addresses && !TextUtils.isEmpty(bcc) ? View.VISIBLE : View.GONE);
+            tvBccTitle.setVisibility(!TextUtils.isEmpty(bcc) ? View.VISIBLE : View.GONE);
+            tvBcc.setVisibility(!TextUtils.isEmpty(bcc) ? View.VISIBLE : View.GONE);
             tvBcc.setText(bcc);
 
             InternetAddress via = null;
