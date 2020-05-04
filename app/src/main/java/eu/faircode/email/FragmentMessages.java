@@ -1339,15 +1339,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         args.putLong("folder", folder);
         args.putString("type", type);
 
-        new SimpleTask<Void>() {
+        new SimpleTask<Integer>() {
             @Override
-            protected Void onExecute(Context context, Bundle args) {
+            protected Integer onExecute(Context context, Bundle args) {
                 long fid = args.getLong("folder");
                 String type = args.getString("type");
 
                 if (!ConnectionHelper.getNetworkState(context).isSuitable())
                     throw new IllegalStateException(context.getString(R.string.title_no_internet));
 
+                int count = 0;
                 boolean now = true;
                 boolean force = false;
 
@@ -1369,6 +1370,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         if (folder != null)
                             folders.add(folder);
                     }
+
+                    count = folders.size();
 
                     for (EntityFolder folder : folders) {
                         EntityOperation.sync(context, folder.id, true);
@@ -1397,13 +1400,17 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (!now)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_connection));
 
-                return null;
+                return count;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Integer count) {
+                if (count > 0)
+                    swipeRefresh.setRefreshing(true);
             }
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                swipeRefresh.setRefreshing(false);
-
                 if (ex instanceof IllegalStateException) {
                     Snackbar snackbar = Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG);
                     snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
