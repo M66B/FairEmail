@@ -1764,11 +1764,12 @@ public class HtmlHelper {
             private Pattern TRIM_WHITESPACE_NL =
                     Pattern.compile("[" + WHITESPACE + "]*\\r?\\n[" + WHITESPACE + "]*");
 
+            // https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements
             private List<String> BLOCK_START = Collections.unmodifiableList(Arrays.asList(
                     "body", "blockquote", "h1", "h2", "h3", "h4", "h5", "h6", "li", "ol", "ul"
             ));
             private List<String> BLOCK_END = Collections.unmodifiableList(Arrays.asList(
-                    "body", "blockquote", "br", "h1", "h2", "h3", "h4", "h5", "h6", "li", "ol", "ul"
+                    "body", "blockquote", "br", "hr", "h1", "h2", "h3", "h4", "h5", "h6", "li", "ol", "ul"
             ));
 
             @Override
