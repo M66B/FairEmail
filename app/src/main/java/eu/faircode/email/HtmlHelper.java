@@ -1748,6 +1748,7 @@ public class HtmlHelper {
 
         final int colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);
         final int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
+        final int colorSeparator = Helper.resolveColor(context, R.attr.colorSeparator);
         final int dp3 = Helper.dp2pixels(context, 3);
         final int dp6 = Helper.dp2pixels(context, 6);
         final int dp24 = Helper.dp2pixels(context, 24);
@@ -1980,7 +1981,8 @@ public class HtmlHelper {
                         case "hr":
                             ssb.append("\n" + LINE + "\n");
                             float stroke = context.getResources().getDisplayMetrics().density;
-                            ssb.setSpan(new LineSpan(stroke), ssb.length() - 1 - LINE.length(), ssb.length() - 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            ssb.setSpan(new LineSpan(colorSeparator, stroke),
+                                    ssb.length() - 1 - LINE.length(), ssb.length() - 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                             break;
                         case "img":
                             String src = element.attr("src");
@@ -2197,9 +2199,11 @@ public class HtmlHelper {
     }
 
     public static class LineSpan extends ReplacementSpan {
+        private int lineColor;
         private float strokeWidth;
 
-        LineSpan(float strokeWidth) {
+        LineSpan(int lineColor, float strokeWidth) {
+            this.lineColor = lineColor;
             this.strokeWidth = strokeWidth;
         }
 
@@ -2210,10 +2214,13 @@ public class HtmlHelper {
 
         @Override
         public void draw(@NonNull Canvas canvas, CharSequence text, int start, int end, float x, int top, int y, int bottom, @NonNull Paint paint) {
-            int c = (top + bottom) / 2;
+            int ypos = (top + bottom) / 2;
+            int c = paint.getColor();
             float s = paint.getStrokeWidth();
+            paint.setColor(lineColor);
             paint.setStrokeWidth(strokeWidth);
-            canvas.drawLine(x, c, x + canvas.getWidth(), c, paint);
+            canvas.drawLine(0, ypos, canvas.getWidth(), ypos, paint);
+            paint.setColor(c);
             paint.setStrokeWidth(s);
         }
     }
