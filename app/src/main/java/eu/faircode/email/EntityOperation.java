@@ -397,7 +397,7 @@ public class EntityOperation {
             Log.i("Queued sync folder=" + folder);
         }
 
-        if (foreground) // Show spinner
+        if (foreground && folder.sync_state == null) // Show spinner
             db.folder().setFolderSyncState(fid, "requested");
 
         if (folder.account == null) // Outbox
