@@ -477,7 +477,19 @@ or enable two factor authentication and use an app specific password.
 
 Note that an app specific password is required when two factor authentication is enabled.
 
-**Enable "Less secure apps"**
+<br />
+
+*App specific password*
+
+See [here](https://support.google.com/accounts/answer/185833) about how to generate an app specific password.
+
+<br />
+
+*Enable "Less secure apps"*
+
+**Important**: using this method is not recommended because it is less reliable.
+
+**Important**: Gsuite accounts authorized with a username/password will stop working [in the near future](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
 
 See [here](https://support.google.com/accounts/answer/6010255) about how to enable "less secure apps"
 or go [directy to the setting](https://www.google.com/settings/security/lesssecureapps).
@@ -493,13 +505,13 @@ When "less secure apps" is not enabled,
 you'll get the error *Authentication failed - invalid credentials* for accounts (IMAP)
 and *Username and Password not accepted* for identities (SMTP).
 
-**App specific password**
+<br />
 
-See [here](https://support.google.com/accounts/answer/185833) about how to generate an app specific password.
+*General*
 
 You might get the alert "*Please log in via your web browser*".
-This happens when Google considers the network that connects you to the internet (this could be a VPN) to to be unsafe.
-This can be prevented by using an app specific password.
+This happens when Google considers the network that connects you to the internet (this could be a VPN) to be unsafe.
+This can be prevented by using the Gmail quick setup wizard or an app specific password.
 
 See [here](https://support.google.com/mail/answer/7126229) for Google's instructions
 and [here](https://support.google.com/mail/accounts/answer/78754) for troubleshooting.
