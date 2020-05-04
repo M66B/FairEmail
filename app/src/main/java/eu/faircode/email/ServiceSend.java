@@ -271,6 +271,9 @@ public class ServiceSend extends ServiceBase {
         try {
             wlOutbox.acquire();
 
+            if (!ConnectionHelper.getNetworkState(this).isSuitable())
+                return;
+
             DB db = DB.getInstance(this);
             EntityFolder outbox = db.folder().getOutbox();
             try {
