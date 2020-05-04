@@ -132,4 +132,9 @@
         android:id="@+id/menu_force_sync"
         android:title="@string/title_force_sync"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_force_send"
+        android:title="@string/title_force_send"
+        app:showAsAction="never" />
 </menu>
