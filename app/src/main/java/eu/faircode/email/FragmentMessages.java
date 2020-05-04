@@ -3617,6 +3617,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void onMenuFolders(long account) {
+        if (isDetached())
+            return;
+
         if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
             getParentFragmentManager().popBackStack("unified", 0);
 
