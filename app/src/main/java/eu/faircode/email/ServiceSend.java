@@ -68,7 +68,8 @@ public class ServiceSend extends ServiceBase {
 
     private PowerManager.WakeLock wlOutbox;
     private TwoStateOwner owner = new TwoStateOwner("send");
-    private ExecutorService executor = Helper.getBackgroundExecutor(1, "send");
+
+    private static ExecutorService executor = Helper.getBackgroundExecutor(1, "send");
 
     private static final int PI_SEND = 1;
     private static final long CONNECTIVITY_DELAY = 5000L; // milliseconds
