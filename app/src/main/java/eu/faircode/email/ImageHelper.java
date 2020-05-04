@@ -320,7 +320,7 @@ class ImageHelper {
                     InputStream inputStream = context.getContentResolver().openInputStream(uri);
                     Drawable d = Drawable.createFromStream(inputStream, uri.toString());
                     if (d == null)
-                        throw new IllegalArgumentException("createFromStream");
+                        throw new FileNotFoundException(a.source);
                     d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
                     if (view != null)
                         fitDrawable(d, a, view);
