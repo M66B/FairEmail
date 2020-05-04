@@ -43,6 +43,7 @@ import android.text.style.ImageSpan;
 import android.text.style.LeadingMarginSpan;
 import android.text.style.QuoteSpan;
 import android.text.style.RelativeSizeSpan;
+import android.text.style.ReplacementSpan;
 import android.text.style.StrikethroughSpan;
 import android.text.style.StyleSpan;
 import android.text.style.SubscriptSpan;
@@ -129,6 +130,7 @@ public class HtmlHelper {
     private static final int MAX_FULL_TEXT_SIZE = 1024 * 1024; // characters
     private static final int TRACKING_PIXEL_SURFACE = 25; // pixels
     private static final float[] HEADING_SIZES = {1.5f, 1.4f, 1.3f, 1.2f, 1.1f, 1f};
+    private static final String LINE = "----------------------------------------";
     private static final HashMap<String, Integer> x11ColorMap = new HashMap<>();
 
     static {
@@ -734,10 +736,11 @@ public class HtmlHelper {
 
         // Lines
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr
-        for (Element hr : document.select("hr")) {
-            hr.tagName("div");
-            hr.text("----------------------------------------");
-        }
+        if (!view)
+            for (Element hr : document.select("hr")) {
+                hr.tagName("div");
+                hr.text(LINE);
+            }
 
         // Descriptions
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl
@@ -1972,6 +1975,11 @@ public class HtmlHelper {
                             newline(start);
                             newline(ssb.length());
                             break;
+                        case "hr":
+                            ssb.append("\n" + LINE + "\n");
+                            float stroke = context.getResources().getDisplayMetrics().density;
+                            ssb.setSpan(new LineSpan(stroke), ssb.length() - 1 - LINE.length(), ssb.length() - 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            break;
                         case "img":
                             String src = element.attr("src");
                             Drawable d = (imageGetter == null
@@ -2183,6 +2191,28 @@ public class HtmlHelper {
                 c.drawText(number, x + dir, baseline, tp);
                 tp.setTextSize(textSize);
             }
+        }
+    }
+
+    public static class LineSpan extends ReplacementSpan {
+        private float strokeWidth;
+
+        LineSpan(float strokeWidth) {
+            this.strokeWidth = strokeWidth;
+        }
+
+        @Override
+        public int getSize(@NonNull Paint paint, CharSequence text, int start, int end, @Nullable Paint.FontMetricsInt fm) {
+            return 0;
+        }
+
+        @Override
+        public void draw(@NonNull Canvas canvas, CharSequence text, int start, int end, float x, int top, int y, int bottom, @NonNull Paint paint) {
+            int c = (top + bottom) / 2;
+            float s = paint.getStrokeWidth();
+            paint.setStrokeWidth(strokeWidth);
+            canvas.drawLine(x, c, x + canvas.getWidth(), c, paint);
+            paint.setStrokeWidth(s);
         }
     }
 }
