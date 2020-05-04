@@ -80,6 +80,7 @@ class ImageHelper {
 
     private static final int DOWNLOAD_TIMEOUT = 15 * 1000; // milliseconds
     private static final int MAX_REDIRECTS = 10;
+    private static final int MAX_PROBE = 64 * 1024; // bytes
     private static final int SLOW_CONNECTION = 2 * 1024; // Kbps
 
     static Bitmap generateIdenticon(@NonNull String email, int size, int pixels, Context context) {
@@ -577,27 +578,7 @@ class ImageHelper {
                 break;
             }
 
-            BufferedInputStream is = new BufferedInputStream(urlConnection.getInputStream());
-
-            Log.i("Probe " + source);
-            is.mark(64 * 1024);
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inJustDecodeBounds = true;
-            BitmapFactory.decodeStream(is, null, options);
-
-            int scaleToPixels = dm.widthPixels;
-            int factor = 1;
-            while (options.outWidth / factor > scaleToPixels)
-                factor *= 2;
-
-            Log.i("Download " + source + " factor=" + factor);
-            is.reset();
-            if (factor > 1) {
-                options.inJustDecodeBounds = false;
-                options.inSampleSize = factor;
-                bm = BitmapFactory.decodeStream(is, null, options);
-            } else
-                bm = BitmapFactory.decodeStream(is);
+            bm = getScaledBitmap(urlConnection.getInputStream(), source, dm);
         } finally {
             if (urlConnection != null)
                 urlConnection.disconnect();
@@ -618,6 +599,30 @@ class ImageHelper {
         Drawable d = new BitmapDrawable(res, bm);
         d.setBounds(0, 0, Math.round(bm.getWidth() * dm.density), Math.round(bm.getHeight() * dm.density));
         return d;
+    }
+
+    private static Bitmap getScaledBitmap(InputStream is, String source, DisplayMetrics dm) throws IOException {
+        BufferedInputStream bis = new BufferedInputStream(is);
+
+        Log.i("Probe " + source);
+        bis.mark(MAX_PROBE);
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeStream(bis, null, options);
+
+        int scaleToPixels = dm.widthPixels;
+        int factor = 1;
+        while (options.outWidth / factor > scaleToPixels)
+            factor *= 2;
+
+        Log.i("Download " + source + " factor=" + factor);
+        bis.reset();
+        if (factor > 1) {
+            options.inJustDecodeBounds = false;
+            options.inSampleSize = factor;
+            return BitmapFactory.decodeStream(bis, null, options);
+        } else
+            return BitmapFactory.decodeStream(bis);
     }
 
     @NonNull
