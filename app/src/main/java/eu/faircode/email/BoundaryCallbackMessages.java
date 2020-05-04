@@ -355,12 +355,14 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         public Object doCommand(IMAPProtocol protocol) throws ProtocolException {
                             try {
                                 // https://tools.ietf.org/html/rfc3501#section-6.4.4
-                                Argument arg = new Argument();
                                 if (criteria.query != null &&
                                         criteria.query.startsWith("raw:") &&
                                         state.iservice.hasCapability("X-GM-EXT-1")) {
                                     // https://support.google.com/mail/answer/7190
                                     // https://developers.google.com/gmail/imap/imap-extensions#extension_of_the_search_command_x-gm-raw
+                                    Log.i("Boundary raw search=" + criteria.query);
+
+                                    Argument arg = new Argument();
                                     arg.writeAtom("X-GM-RAW");
                                     arg.writeString(criteria.query.substring(4));
 
@@ -369,8 +371,6 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                         throw new ProtocolException("No response");
                                     if (!responses[responses.length - 1].isOK())
                                         throw new ProtocolException(responses[responses.length - 1]);
-
-                                    Log.i("Boundary raw search=" + criteria.query);
 
                                     List<Integer> msgnums = new ArrayList<>();
                                     for (Response response : responses)
@@ -388,47 +388,41 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                 } else {
                                     Log.i("Boundary server search=" + criteria);
 
-                                    try {
-                                        if (protocol.supportsUtf8())
-                                            return (Message[]) state.ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
-                                                @Override
-                                                public Object doCommand(IMAPProtocol protocol) throws ProtocolException {
-                                                    SearchTerm terms = criteria.getTerms(
-                                                            true,
-                                                            state.ifolder.getPermanentFlags(),
-                                                            browsable.keywords);
+                                    if (protocol.supportsUtf8())
+                                        try {
+                                            SearchTerm terms = criteria.getTerms(
+                                                    true,
+                                                    state.ifolder.getPermanentFlags(),
+                                                    browsable.keywords);
 
-                                                    try {
-                                                        SearchSequence ss = new SearchSequence(protocol);
-                                                        Argument args = ss.generateSequence(terms, StandardCharsets.UTF_8.name());
-                                                        args.writeAtom("ALL");
+                                            SearchSequence ss = new SearchSequence(protocol);
+                                            Argument args = ss.generateSequence(terms, StandardCharsets.UTF_8.name());
+                                            args.writeAtom("ALL");
 
-                                                        Response[] responses = protocol.command("SEARCH", args);
-                                                        if (responses.length == 0)
-                                                            throw new ProtocolException("No response");
-                                                        if (!responses[responses.length - 1].isOK())
-                                                            throw new ProtocolException(responses[responses.length - 1]);
+                                            Response[] responses = protocol.command("SEARCH", args);
+                                            if (responses.length == 0)
+                                                throw new ProtocolException("No response");
+                                            if (!responses[responses.length - 1].isOK())
+                                                throw new ProtocolException(responses[responses.length - 1]);
 
-                                                        List<Integer> msgnums = new ArrayList<>();
-                                                        for (Response response : responses)
-                                                            if (((IMAPResponse) response).keyEquals("SEARCH")) {
-                                                                int msgnum;
-                                                                while ((msgnum = response.readNumber()) != -1)
-                                                                    msgnums.add(msgnum);
-                                                            }
-                                                        Message[] imessages = new Message[msgnums.size()];
-                                                        for (int i = 0; i < msgnums.size(); i++)
-                                                            imessages[i] = state.ifolder.getMessage(msgnums.get(i));
-
-                                                        return imessages;
-                                                    } catch (Throwable ex) {
-                                                        throw new ProtocolException("Search", ex);
-                                                    }
+                                            List<Integer> msgnums = new ArrayList<>();
+                                            for (Response response : responses)
+                                                if (((IMAPResponse) response).keyEquals("SEARCH")) {
+                                                    int msgnum;
+                                                    while ((msgnum = response.readNumber()) != -1)
+                                                        msgnums.add(msgnum);
                                                 }
-                                            });
-                                    } catch (MessagingException ex) {
-                                        Log.w(ex);
-                                    }
+                                            Message[] imessages = new Message[msgnums.size()];
+                                            for (int i = 0; i < msgnums.size(); i++)
+                                                imessages[i] = state.ifolder.getMessage(msgnums.get(i));
+
+                                            return imessages;
+                                        } catch (Throwable ex) {
+                                            ProtocolException pex = new ProtocolException(
+                                                    "Search unicode " + account.host + " " + criteria, ex);
+                                            Log.e(pex);
+                                            // Fallback to ASCII search
+                                        }
 
                                     SearchTerm terms = criteria.getTerms(
                                             false,
@@ -607,7 +601,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     static class SearchCriteria implements Serializable {
         String query;
         boolean in_senders = true;
-        boolean in_receipients = true;
+        boolean in_recipients = true;
         boolean in_subject = true;
         boolean in_keywords = true;
         boolean in_message = true;
@@ -629,7 +623,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         boolean isQueryOnly() {
             return (!TextUtils.isEmpty(query) &&
                     in_senders &&
-                    in_receipients &&
+                    in_recipients &&
                     in_subject &&
                     in_keywords &&
                     in_message &&
@@ -666,7 +660,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
                 if (in_senders)
                     or.add(new FromStringTerm(search));
-                if (in_receipients) {
+                if (in_recipients) {
                     or.add(new RecipientStringTerm(Message.RecipientType.TO, search));
                     or.add(new RecipientStringTerm(Message.RecipientType.CC, search));
                     or.add(new RecipientStringTerm(Message.RecipientType.BCC, search));
@@ -726,7 +720,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 SearchCriteria other = (SearchCriteria) obj;
                 return (Objects.equals(this.query, other.query) &&
                         this.in_senders == other.in_senders &&
-                        this.in_receipients == other.in_receipients &&
+                        this.in_recipients == other.in_recipients &&
                         this.in_subject == other.in_subject &&
                         this.in_keywords == other.in_keywords &&
                         this.in_message == other.in_message &&
@@ -746,7 +740,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         public String toString() {
             return query +
                     " senders=" + in_senders +
-                    " receipients=" + in_receipients +
+                    " recipients=" + in_recipients +
                     " subject=" + in_subject +
                     " keywords=" + in_keywords +
                     " message=" + in_message +

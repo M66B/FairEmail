@@ -246,7 +246,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
 
                         if (!cbSearchIndex.isChecked()) {
                             criteria.in_senders = cbSenders.isChecked();
-                            criteria.in_receipients = cbRecipients.isChecked();
+                            criteria.in_recipients = cbRecipients.isChecked();
                             criteria.in_subject = cbSubject.isChecked();
                             criteria.in_keywords = cbKeywords.isChecked();
                             criteria.in_message = cbMessage.isChecked();
