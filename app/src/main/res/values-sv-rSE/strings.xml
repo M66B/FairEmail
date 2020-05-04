@@ -296,6 +296,7 @@
     <string name="title_advanced_monospaced">Använd monospace-typsnitt för meddelandetexten</string>
     <string name="title_advanced_text_color">Visa textfärger</string>
     <string name="title_advanced_text_size">Visa små och stora texter</string>
+    <string name="title_advanced_text_align">Visa vänster/mitten/högerinriktade texter</string>
     <string name="title_advanced_collapse_quotes">Kollapsa citerad text</string>
     <string name="title_advanced_images_inline">Visa automatiskt infogade bilder</string>
     <string name="title_advanced_seekbar">Visa relativ konversationsposition med en punkt</string>

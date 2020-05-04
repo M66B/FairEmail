@@ -285,6 +285,7 @@
     <string name="title_advanced_monospaced">对邮件文本使用等宽字体</string>
     <string name="title_advanced_text_color">显示文本颜色</string>
     <string name="title_advanced_text_size">显示大小文本</string>
+    <string name="title_advanced_text_align">显示左/居中/右对齐文本</string>
     <string name="title_advanced_collapse_quotes">折叠引用文本</string>
     <string name="title_advanced_images_inline">自动显示内联图像</string>
     <string name="title_advanced_seekbar">在底部用一个圆点显示会话相对位置</string>

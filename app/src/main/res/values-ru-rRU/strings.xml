@@ -319,6 +319,7 @@
     <string name="title_advanced_monospaced">Использовать моноширинный шрифт для текста сообщения</string>
     <string name="title_advanced_text_color">Показывать цвета текста</string>
     <string name="title_advanced_text_size">Показывать маленькие и большие тексты</string>
+    <string name="title_advanced_text_align">Показывать выравнивание текста по левому/правому краю или центру</string>
     <string name="title_advanced_collapse_quotes">Сворачивать цитируемый текст</string>
     <string name="title_advanced_images_inline">Автоматически показывать встроенные изображения</string>
     <string name="title_advanced_seekbar">Показывать относительное положение диалога точкой</string>

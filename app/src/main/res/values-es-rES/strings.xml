@@ -298,6 +298,7 @@
     <string name="title_advanced_monospaced">Usar fuente monoespaciada para texto de mensaje</string>
     <string name="title_advanced_text_color">Mostrar colores de texto</string>
     <string name="title_advanced_text_size">Mostrar textos pequeños y grandes</string>
+    <string name="title_advanced_text_align">Mostrar textos alineados a la izquierda/centro/derecha</string>
     <string name="title_advanced_collapse_quotes">Colapsar texto citado</string>
     <string name="title_advanced_images_inline">Mostrar imágenes embebidas automáticamente</string>
     <string name="title_advanced_seekbar">Mostrar posición relativa de conversación con un punto</string>

@@ -295,6 +295,7 @@
     <string name="title_advanced_monospaced">Käytä kiinteävälistä kirjaisinta viestien tekstille</string>
     <string name="title_advanced_text_color">Näytä tekstin värit</string>
     <string name="title_advanced_text_size">Näytä pienet ja suuret tekstit</string>
+    <string name="title_advanced_text_align">Näytä vasemmalle/keskelle/oikealle tasatut tekstit</string>
     <string name="title_advanced_collapse_quotes">Tiivistä lainattu teksti</string>
     <string name="title_advanced_images_inline">Näytä tekstiin upotetut kuvat oletuksena</string>
     <string name="title_advanced_seekbar">Näytä suhteellinen sijainti keskustelussa pisteellä</string>
