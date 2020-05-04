@@ -860,6 +860,7 @@
     <string name="title_select_all">Tout sélectionner</string>
     <string name="title_select_found">Sélectionner les messages trouvés</string>
     <string name="title_force_sync">Forcer la synchronisation</string>
+    <string name="title_force_send">Forcer l’envoi</string>
     <string name="title_language_all">Toutes</string>
     <string name="title_previous">Précédent</string>
     <string name="title_next">Suivant</string>

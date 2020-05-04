@@ -306,6 +306,7 @@
     <string name="title_advanced_monospaced">Folosește fontul proporțional pentru textul mesajului</string>
     <string name="title_advanced_text_color">Arată culori text</string>
     <string name="title_advanced_text_size">Arată mărimile mici și mari de text</string>
+    <string name="title_advanced_text_align">Arată textele aliniate stânga/centru/dreapta</string>
     <string name="title_advanced_collapse_quotes">Restrânge textul citat</string>
     <string name="title_advanced_images_inline">Arată automat imaginile integrate</string>
     <string name="title_advanced_seekbar">Arată poziția relativă în conversație cu un punct</string>
@@ -868,6 +869,7 @@
     <string name="title_select_all">Selectează tot</string>
     <string name="title_select_found">Selectare găsite</string>
     <string name="title_force_sync">Sincronizare forțată</string>
+    <string name="title_force_send">Trimite forțat</string>
     <string name="title_language_all">Toate</string>
     <string name="title_previous">Precedent</string>
     <string name="title_next">Următor</string>

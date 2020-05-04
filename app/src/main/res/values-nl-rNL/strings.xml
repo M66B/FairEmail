@@ -859,6 +859,7 @@
     <string name="title_select_all">Selecteer alles</string>
     <string name="title_select_found">Selecteer gevonden</string>
     <string name="title_force_sync">Forceer verversen</string>
+    <string name="title_force_send">Forceer verzenden</string>
     <string name="title_language_all">Alle</string>
     <string name="title_previous">Vorige</string>
     <string name="title_next">Volgende</string>

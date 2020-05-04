@@ -1,5 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="tile_synchronize">Synchronise</string>
+    <string name="title_setup_account_hint">To change colour, swipe left/right target folder, etc</string>
+    <string name="title_setup_identity_hint">To change name, colour, signature, etc</string>
+    <string name="title_setup_doze">Setup battery optimisations</string>
+    <string name="title_setup_doze_instructions">In the next dialog, select \"All apps\" at the top, select this app and select and confirm \"Don\'t optimise\"</string>
+    <string name="title_setup_theme_reverse">Reverse colours</string>
+    <string name="title_advanced_always">Always synchronise these accounts</string>
+    <string name="title_advanced_sync_folders">Synchronise folder list</string>
+    <string name="title_advanced_color_stripe">Show colour stripe</string>
+    <string name="title_advanced_color_threshold">Threshold letter colour</string>
+    <string name="title_advanced_flags_background">Show coloured background instead of coloured stars</string>
+    <string name="title_advanced_archive_trash">Show buttons to archive or delete a message</string>
+    <string name="title_advanced_text_color">Show text colours</string>
+    <string name="title_advanced_actionbar_color">Use account colour as background colour for conversation action bar</string>
+    <string name="title_advanced_navbar_colorize">Colourise the Android navigation bar</string>
+    <string name="title_advanced_notify_action_trash">Delete</string>
+    <string name="title_advanced_optimize">Automatically optimise settings</string>
+    <string name="title_advanced_manual_hint">If synchronisation is disabled, it is still possible to synchronise manually by pulling down the message list.</string>
+    <string name="title_advanced_poll_hint">Synchronising periodically will compare local and remote messages each and every time, which is an expensive operation possibly resulting in extra battery usage, especially when there are a lot of messages to synchronise. Always synchronising will avoid this by continuous monitoring for changes only.</string>
+    <string name="title_advanced_check_mx">Check sender email addresses on synchronising messages</string>
+    <string name="title_advanced_check_reply">Check reply email addresses on synchronising messages</string>
+    <string name="title_advanced_unseen_hint">Some providers don\'t support this properly, which may cause synchronising none or all messages</string>
+    <string name="title_advanced_sync_delay_hint">This will slow down synchronising messages</string>
+    <string name="title_advanced_highlight_hint">The accent colour of the theme will be used for highlighting</string>
+    <string name="title_advanced_autoclose_hint">Automatically close conversations when all messages are archived, sent or deleted</string>
+    <string name="title_advanced_cleanup_attachments_hint">When manually cleaning, this will remove attachments from messages that are no longer synchronised</string>
+    <string name="title_identity_color_hint">Identity colours take precedence over folder and account colours</string>
+    <string name="title_color">Colour</string>
+    <string name="title_account_ondemand">Synchronise manually</string>
+    <string name="title_account_gmail">For reliable synchronisation of a Gmail account, the Gmail quick setup wizard should be used whenever possible</string>
+    <string name="title_no_sync">Synchronisation errors since %1$s</string>
+    <string name="title_synchronize_more">Synchronise more messages</string>
+    <string name="title_synchronize_enabled">Synchronise</string>
+    <string name="title_empty_trash">Empty bin</string>
+    <string name="title_empty_trash_ask">Delete all deleted messages permanently?</string>
+    <string name="title_empty_trash_all_ask">Delete all deleted messages of all accounts permanently?</string>
+    <string name="title_hint_operations">Deleting operations can result in disappearing messages and synchronisation problems</string>
+    <string name="title_synchronize_folder">Synchronise (receive messages)</string>
+    <string name="title_poll_folder">Check periodically instead of continuous synchronise</string>
+    <string name="title_sync_days">Synchronise messages (days)</string>
+    <string name="title_auto_trash">Automatically move old messages to bin</string>
+    <string name="title_folder_trash">Bin</string>
+    <string name="title_flag_color">Coloured star &#8230;</string>
+    <string name="title_trash">Delete</string>
+    <string name="title_style_color">Colour</string>
+    <string name="title_legend_section_synchronize">Synchronise</string>
+    <string name="title_legend_synchronize_on">Synchronise on</string>
+    <string name="title_legend_synchronize_off">Synchronise off</string>
+    <string name="title_legend_synchronizing">Synchronising</string>
+    <string name="title_legend_waiting">Waiting for next synchronisation</string>
+    <string name="title_legend_trash">Bin</string>
+    <string name="title_legend_sync_keep">Number of days to synchronise / to keep messages</string>
+    <string name="title_legend_text_color">Set text colour</string>
+    <string name="title_legend_default_color">Default colour</string>
+    <string name="title_legend_sync_state">Synchronisation state</string>
+    <string name="title_legend_d">Delete</string>
+    <string name="title_hint_folder_sync">To limit battery and network usage not all folders and not all messages will be synchronised by default</string>
+    <string name="title_hint_message_actions">Swipe left to delete; Swipe right to archive (if available); The swipe actions can be configured in the account settings</string>
     <!-- Thunderbird -->
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

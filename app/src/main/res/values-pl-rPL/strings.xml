@@ -242,6 +242,7 @@
     <string name="title_advanced_flagged">Wszystkie oznaczone wiadomości</string>
     <string name="title_advanced_delete_unseen">Usuń stare nieprzeczytane wiadomości</string>
     <string name="title_advanced_kept_removed">Sprawdź, czy stare wiadomości zostały usunięte z serwera</string>
+    <string name="title_advanced_gmail_thread">Styl grupowania wiadomości Gmail dla kont Gmail</string>
     <string name="title_advanced_sync_folders">Synchronizuj listę folderów</string>
     <string name="title_advanced_subscriptions">Zarządzaj subskrypcjami folderów</string>
     <string name="title_advanced_keyboard">Domyślnie pokaż klawiaturę</string>
@@ -316,6 +317,7 @@
     <string name="title_advanced_monospaced">Użyj czcionki o stałej szerokości dla tekstu wiadomości</string>
     <string name="title_advanced_text_color">Pokaż kolory tekstu</string>
     <string name="title_advanced_text_size">Pokaż małe i duże teksty</string>
+    <string name="title_advanced_text_align">Pokaż wyrównywanie tekstu do lewej/środka/prawej</string>
     <string name="title_advanced_collapse_quotes">Zwiń cytowany tekst</string>
     <string name="title_advanced_images_inline">Automatycznie pokazuj wstawione obrazy</string>
     <string name="title_advanced_seekbar">Pokaż względną pozycję rozmowy za pomocą kropki</string>
@@ -760,6 +762,7 @@
     <string name="title_add_image_inline">Wstaw</string>
     <string name="title_add_image_attach">Załącz</string>
     <string name="title_add_image_resize">Zmień rozmiar</string>
+    <string name="title_add_image_privacy">Usuń lokalizację geograficzną</string>
     <string name="title_add_resize_pixels">&lt; %1$d pikseli</string>
     <string name="title_add_image_select">Wybierz plik</string>
     <string name="title_add_attachment">Dodaj załącznik</string>
@@ -830,6 +833,7 @@
         Aby wyszukiwanie objęło również serwer, dotknij przycisku \'Szukaj ponownie\'.
     </string>
     <string name="title_search_index_hint">Wyszukiwanie za pomocą indeksu wyszukiwania jest szybkie, ale znajdzie tylko całe słowa</string>
+    <string name="title_search_text_hint">Niektóre serwery e-mail mają problem ze znalezieniem tekstu w wielu wiadomościach</string>
     <string name="title_search_more">Więcej opcji</string>
     <string name="title_search_use_index">Użyj indeksu wyszukiwania</string>
     <string name="title_search_in_senders">W nadawcach (od)</string>
@@ -876,6 +880,7 @@
     <string name="title_select_all">Wybierz wszystkie</string>
     <string name="title_select_found">Wybierz znalezione</string>
     <string name="title_force_sync">Wymuś synchronizację</string>
+    <string name="title_force_send">Wymuś wysyłkę</string>
     <string name="title_language_all">Wszystkie</string>
     <string name="title_previous">Poprzedni</string>
     <string name="title_next">Następny</string>

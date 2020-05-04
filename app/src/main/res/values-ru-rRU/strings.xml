@@ -882,6 +882,7 @@
     <string name="title_select_all">Выбрать все</string>
     <string name="title_select_found">Выбрать найденное</string>
     <string name="title_force_sync">Принудительная синхронизация</string>
+    <string name="title_force_send">Принудительная отправка</string>
     <string name="title_language_all">Все</string>
     <string name="title_previous">Назад</string>
     <string name="title_next">Вперёд</string>

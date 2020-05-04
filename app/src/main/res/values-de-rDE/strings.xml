@@ -859,6 +859,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_select_all">Alle auswählen</string>
     <string name="title_select_found">Alle gefundenen Nachrichten auswählen</string>
     <string name="title_force_sync">Synchronisation erzwingen</string>
+    <string name="title_force_send">Senden erzwingen</string>
     <string name="title_language_all">Alle</string>
     <string name="title_previous">Vorherige</string>
     <string name="title_next">Nächste</string>
