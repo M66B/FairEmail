@@ -1091,6 +1091,7 @@ public class HtmlHelper {
                 return 900;
             case "none":
             case "auto":
+            case "unset":
             case "initial":
             case "inherit":
                 return null;
@@ -1113,6 +1114,7 @@ public class HtmlHelper {
         if (value.contains("calc") ||
                 "none".equals(value) ||
                 "auto".equals(value) ||
+                "unset".equals(value) ||
                 "initial".equals(value) ||
                 "inherit".equals(value))
             return null;
