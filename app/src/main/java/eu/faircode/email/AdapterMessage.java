@@ -1813,6 +1813,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     DB db = DB.getInstance(context);
                     List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
+                    properties.setAttachments(message.id, attachments);
 
                     boolean signed_data = false;
                     for (EntityAttachment attachment : attachments)

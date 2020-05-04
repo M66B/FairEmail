@@ -289,13 +289,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private Long closeId = null;
     private int autoCloseCount = 0;
     private boolean autoExpanded = true;
-    private Map<String, String> kv = new HashMap<>();
-    private Map<String, List<Long>> values = new HashMap<>();
-    private LongSparseArray<Float> sizes = new LongSparseArray<>();
-    private LongSparseArray<Integer> heights = new LongSparseArray<>();
-    private LongSparseArray<Pair<Integer, Integer>> positions = new LongSparseArray<>();
-    private LongSparseArray<List<EntityAttachment>> attachments = new LongSparseArray<>();
-    private LongSparseArray<TupleAccountSwipes> accountSwipes = new LongSparseArray<>();
+
+    final private Map<String, String> kv = new HashMap<>();
+    final private Map<String, List<Long>> values = new HashMap<>();
+    final private LongSparseArray<Float> sizes = new LongSparseArray<>();
+    final private LongSparseArray<Integer> heights = new LongSparseArray<>();
+    final private LongSparseArray<Pair<Integer, Integer>> positions = new LongSparseArray<>();
+    final private LongSparseArray<List<EntityAttachment>> attachments = new LongSparseArray<>();
+    final private LongSparseArray<TupleAccountSwipes> accountSwipes = new LongSparseArray<>();
 
     private NumberFormat NF = NumberFormat.getNumberInstance();
 
@@ -1531,12 +1532,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         @Override
         public void setAttachments(long id, List<EntityAttachment> list) {
-            attachments.put(id, list);
+            synchronized (attachments) {
+                attachments.put(id, list);
+            }
         }
 
         @Override
         public List<EntityAttachment> getAttachments(long id) {
-            return attachments.get(id);
+            synchronized (attachments) {
+                return attachments.get(id);
+            }
         }
 
         public void scrollTo(final int pos, final int y) {
