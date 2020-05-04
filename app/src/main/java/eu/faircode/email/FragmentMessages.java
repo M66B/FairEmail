@@ -1348,7 +1348,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (!ConnectionHelper.getNetworkState(context).isSuitable())
                     throw new IllegalStateException(context.getString(R.string.title_no_internet));
 
-                int count = 0;
+                int count;
                 boolean now = true;
                 boolean force = false;
 
@@ -3850,7 +3850,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         else
             fabError.hide();
 
-        swipeRefresh.setRefreshing(refreshing);
+        if (refreshing != swipeRefresh.isRefreshing())
+            swipeRefresh.setRefreshing(refreshing);
     }
 
     private void loadMessages(final boolean top) {
