@@ -317,11 +317,37 @@ class ImageHelper {
                 try {
                     Uri uri = Uri.parse(a.source);
                     Log.i("Loading image source=" + uri);
-                    InputStream inputStream = context.getContentResolver().openInputStream(uri);
-                    Drawable d = Drawable.createFromStream(inputStream, uri.toString());
-                    if (d == null)
-                        throw new FileNotFoundException(a.source);
-                    d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
+
+                    DisplayMetrics dm = context.getResources().getDisplayMetrics();
+
+                    BitmapFactory.Options options;
+                    try (InputStream is = context.getContentResolver().openInputStream(uri)) {
+                        options = new BitmapFactory.Options();
+                        options.inJustDecodeBounds = true;
+                        BitmapFactory.decodeStream(is, null, options);
+                    }
+
+                    int scaleToPixels = dm.widthPixels;
+                    int factor = 1;
+                    while (options.outWidth / factor > scaleToPixels)
+                        factor *= 2;
+
+                    Bitmap bm;
+                    try (InputStream is = context.getContentResolver().openInputStream(uri)) {
+                        if (factor > 1) {
+                            options.inJustDecodeBounds = false;
+                            options.inSampleSize = factor;
+                            bm = BitmapFactory.decodeStream(is, null, options);
+                        } else
+                            bm = BitmapFactory.decodeStream(is);
+
+                        if (bm == null)
+                            throw new FileNotFoundException(a.source);
+                    }
+
+                    Drawable d = new BitmapDrawable(res, bm);
+                    d.setBounds(0, 0, Math.round(bm.getWidth() * dm.density), Math.round(bm.getHeight() * dm.density));
+
                     if (view != null)
                         fitDrawable(d, a, view);
                     return d;
