@@ -2118,7 +2118,7 @@ FairEmail uses services and alarms, provides widgets and listens for the boot co
 so it is not possible to store the app on external storage media, like an sdcard.
 See also [here](https://developer.android.com/guide/topics/data/install-location).
 
-Messages, attachments, etc stored on external storage media, like an scard, can be accessed by other apps and is therefore not safe.
+Messages, attachments, etc stored on external storage media, like an sdcard, can be accessed by other apps and is therefore not safe.
 See [here](https://developer.android.com/training/data-storage) for the details.
 
 When needed you can save (raw) messages via the three-dots menu just above the message text
