@@ -828,7 +828,7 @@ public class HtmlHelper {
         for (Element img : document.select("img")) {
             String alt = img.attr("alt");
             String src = img.attr("src");
-            String tracking = img.attr("tracking");
+            String tracking = img.attr("x-tracking");
 
             if (alt.length() > MAX_ALT)
                 alt = alt.substring(0, MAX_ALT) + "…";
@@ -1366,7 +1366,7 @@ public class HtmlHelper {
 
         // Images
         for (Element img : document.select("img")) {
-            img.removeAttr("tracking");
+            img.removeAttr("x-tracking");
             String src = img.attr("src");
             if (!TextUtils.isEmpty(src) && isTrackingPixel(img)) {
                 Uri uri = Uri.parse(src);
@@ -1377,7 +1377,7 @@ public class HtmlHelper {
                     img.attr("height", "24");
                     img.attr("width", "24");
                     img.attr("style", "display:block !important; width:24px !important; height:24px !important;");
-                    img.attr("tracking", src);
+                    img.attr("x-tracking", src);
                 }
             }
         }
