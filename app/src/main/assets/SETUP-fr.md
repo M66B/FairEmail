@@ -1,6 +1,6 @@
 # Aide pour la configuration
 
-La configuration de FairEmail est assez simple. Vous devrez ajouter au moins un compte pour recevoir des e-mails et au moins une identité si vous souhaitez en envoyer. La configuration rapide ajoutera un compte et une identité en une seule opération pour la plupart des principaux fournisseurs.
+La configuration de FairEmail est assez simple. Vous devrez ajouter au moins un compte pour recevoir des e-mails et au moins une identité si vous souhaitez en envoyer. La configuration rapide ajoutera un compte et une identité en une seule opération pour la plupart des principaux fournisseurs de messagerie.
 
 ## Pré-requis
 

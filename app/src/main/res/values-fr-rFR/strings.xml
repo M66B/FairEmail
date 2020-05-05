@@ -192,7 +192,7 @@
     <string name="title_setup_theme_dark">Sombre</string>
     <string name="title_setup_theme_black_background">Fond noir</string>
     <string name="title_setup_theme_system">Suivre le thème</string>
-    <string name="title_setup_theme_system_hint">Suivre le thème basculera automatiquement en mode clair/sombre le jour/la nuit si pris en charge par Android</string>
+    <string name="title_setup_theme_system_hint">Ceci basculera automatiquement en mode clair/sombre le jour/la nuit si pris en charge par Android</string>
     <string name="title_setup_advanced">Avancé</string>
     <string name="title_setup_options">Options</string>
     <string name="title_setup_defaults">Rétablir les paramètres par défaut</string>
@@ -519,7 +519,7 @@
     <string name="title_no_primary_drafts">Pas de compte principal ou de dossier « Brouillons »</string>
     <string name="title_no_identities">L’envoi d’e-mails nécessite au moins une identité et un dossier « Brouillons »</string>
     <string name="title_no_standard">Ce fournisseur utilise un protocole de messagerie propriétaire, il n’est donc pas possible d’utiliser des clients de messagerie tiers</string>
-    <string name="title_no_idle">Ce fournisseur ne gère pas les messages en mode push. Ceci retardera la réception des nouveaux messages et augmentera l’utilisation de la batterie.</string>
+    <string name="title_no_idle">Ce fournisseur ne gère pas les messages en mode push. Ceci retardera la réception des nouveaux messages et entraînera une utilisation accrue de la batterie.</string>
     <string name="title_no_utf8">Ce fournisseur ne prend pas en charge l\'UTF-8</string>
     <string name="title_no_sync">Erreurs de synchronisation depuis %1$s</string>
     <string name="title_reply_domain">Le domaine de l\'expéditeur (%1$s) et celui de l\'adresse de réponse (%2$s) sont différents</string>
