@@ -1330,20 +1330,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             cowner.recreate();
 
-            boolean show_addresses = properties.getValue("addresses", message.id);
-            boolean show_headers = properties.getValue("headers", message.id);
-
-            int froms = (message.from == null ? 0 : message.from.length);
-            int tos = (message.to == null ? 0 : message.to.length);
-            boolean hasChannel = (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O);
-
-            String submitter = MessageHelper.formatAddresses(message.submitter);
-            String from = MessageHelper.formatAddresses(message.senders);
-            String to = MessageHelper.formatAddresses(message.to);
-            String replyto = MessageHelper.formatAddresses(message.reply);
-            String cc = MessageHelper.formatAddresses(message.cc);
-            String bcc = MessageHelper.formatAddresses(message.bcc);
-
             if (compact) {
                 tvFrom.setSingleLine(false);
                 tvSubject.setSingleLine(false);
@@ -1353,124 +1339,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             ensureExpanded();
 
-            // Addresses
-            grpAddresses.setVisibility(View.VISIBLE);
-
-            ibExpanderAddress.setImageLevel(show_addresses ? 0 /* less */ : 1 /* more */);
-            ibExpanderAddress.setContentDescription(context.getString(show_addresses ? R.string.title_accessibility_hide_addresses : R.string.title_accessibility_show_addresses));
-
-            ivPlain.setVisibility(show_addresses && message.plain_only != null && message.plain_only ? View.VISIBLE : View.GONE);
-            ivReceipt.setVisibility(show_addresses && message.receipt_request != null && message.receipt_request ? View.VISIBLE : View.GONE);
-            ivBrowsed.setVisibility(show_addresses && message.ui_browsed ? View.VISIBLE : View.GONE);
-
-            ibSearchContact.setVisibility(show_addresses && (froms > 0 || tos > 0) ? View.VISIBLE : View.GONE);
-            ibNotifyContact.setVisibility(show_addresses && hasChannel && froms > 0 ? View.VISIBLE : View.GONE);
-            ibPinContact.setVisibility(show_addresses && pin && froms > 0 ? View.VISIBLE : View.GONE);
-            ibAddContact.setVisibility(show_addresses && contacts && froms > 0 ? View.VISIBLE : View.GONE);
-
-            tvSubmitterTitle.setVisibility(show_addresses && !TextUtils.isEmpty(submitter) ? View.VISIBLE : View.GONE);
-            tvSubmitter.setVisibility(show_addresses && !TextUtils.isEmpty(submitter) ? View.VISIBLE : View.GONE);
-            tvSubmitter.setText(submitter);
-
-            tvDeliveredToTitle.setVisibility(show_addresses && !TextUtils.isEmpty(message.deliveredto) ? View.VISIBLE : View.GONE);
-            tvDeliveredTo.setVisibility(show_addresses && !TextUtils.isEmpty(message.deliveredto) ? View.VISIBLE : View.GONE);
-            tvDeliveredTo.setText(message.deliveredto);
-
-            tvFromExTitle.setVisibility((froms > 1 || show_addresses) && !TextUtils.isEmpty(from) ? View.VISIBLE : View.GONE);
-            tvFromEx.setVisibility((froms > 1 || show_addresses) && !TextUtils.isEmpty(from) ? View.VISIBLE : View.GONE);
-            tvFromEx.setText(from);
-
-            tvToTitle.setVisibility((tos > 1 || show_addresses) && !TextUtils.isEmpty(to) ? View.VISIBLE : View.GONE);
-            tvTo.setVisibility((tos > 1 || show_addresses) && !TextUtils.isEmpty(to) ? View.VISIBLE : View.GONE);
-            tvTo.setText(to);
-
-            tvReplyToTitle.setVisibility(show_addresses && !TextUtils.isEmpty(replyto) ? View.VISIBLE : View.GONE);
-            tvReplyTo.setVisibility(show_addresses && !TextUtils.isEmpty(replyto) ? View.VISIBLE : View.GONE);
-            tvReplyTo.setText(replyto);
-
-            tvCcTitle.setVisibility(!TextUtils.isEmpty(cc) ? View.VISIBLE : View.GONE);
-            tvCc.setVisibility(!TextUtils.isEmpty(cc) ? View.VISIBLE : View.GONE);
-            tvCc.setText(cc);
-
-            tvBccTitle.setVisibility(!TextUtils.isEmpty(bcc) ? View.VISIBLE : View.GONE);
-            tvBcc.setVisibility(!TextUtils.isEmpty(bcc) ? View.VISIBLE : View.GONE);
-            tvBcc.setText(bcc);
-
-            InternetAddress via = null;
-            if (message.identityEmail != null)
-                try {
-                    via = new InternetAddress(message.identityEmail, message.identityName);
-                } catch (UnsupportedEncodingException ignored) {
-                }
-
-            tvIdentityTitle.setVisibility(show_addresses && via != null ? View.VISIBLE : View.GONE);
-            tvIdentity.setVisibility(show_addresses && via != null ? View.VISIBLE : View.GONE);
-            tvIdentity.setText(via == null ? null : MessageHelper.formatAddresses(new Address[]{via}));
-
-            tvSentTitle.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
-            tvSent.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
-            tvSent.setText(message.sent == null ? null : DTF.format(message.sent));
-
-            tvReceivedTitle.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
-            tvReceived.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
-            tvReceived.setText(DTF.format(message.received));
-
-            if (!message.duplicate)
-                tvSizeEx.setAlpha(message.content ? 1.0f : Helper.LOW_LIGHT);
-            tvSizeExTitle.setVisibility(!show_addresses || message.size == null ? View.GONE : View.VISIBLE);
-            tvSizeEx.setVisibility(!show_addresses || (message.size == null && message.total == null) ? View.GONE : View.VISIBLE);
-            StringBuilder size = new StringBuilder();
-            size
-                    .append(message.size == null ? "-" : Helper.humanReadableByteCount(message.size, true))
-                    .append("/")
-                    .append(message.total == null ? "-" : Helper.humanReadableByteCount(message.total, true));
-            tvSizeEx.setText(size.toString());
-
-            tvLanguageTitle.setVisibility(
-                    show_addresses && language_detection && message.language != null
-                            ? View.VISIBLE : View.GONE);
-            tvLanguage.setVisibility(
-                    show_addresses && language_detection && message.language != null
-                            ? View.VISIBLE : View.GONE);
-            tvLanguage.setText(message.language == null ? null : new Locale(message.language).getDisplayLanguage());
-
-            tvSubjectEx.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
-            tvSubjectEx.setText(message.subject);
-            if (subject_italic)
-                tvSubjectEx.setTypeface(Typeface.DEFAULT, Typeface.ITALIC);
-            else
-                tvSubjectEx.setTypeface(Typeface.DEFAULT);
-
-            // Flags
-            tvFlags.setVisibility(show_addresses && debug ? View.VISIBLE : View.GONE);
-            tvFlags.setText(message.flags);
-
-            // Keywords
-            if (keywords_header) {
-                tvKeywordsEx.setVisibility(show_addresses && message.keywords.length > 0 ? View.VISIBLE : View.GONE);
-                tvKeywordsEx.setText(TextUtils.join(" ", message.keywords));
-            } else {
-                SpannableStringBuilder keywords = getKeywords(message);
-                tvKeywordsEx.setVisibility(show_addresses && keywords.length() > 0 ? View.VISIBLE : View.GONE);
-                tvKeywordsEx.setText(keywords);
-            }
-
-            // Headers
-            grpHeaders.setVisibility(show_headers ? View.VISIBLE : View.GONE);
-            if (show_headers && message.headers == null) {
-                pbHeaders.setVisibility(suitable ? View.VISIBLE : View.GONE);
-                tvNoInternetHeaders.setVisibility(suitable ? View.GONE : View.VISIBLE);
-            } else {
-                pbHeaders.setVisibility(View.GONE);
-                tvNoInternetHeaders.setVisibility(View.GONE);
-            }
-
-            if (show_headers && message.headers != null)
-                tvHeaders.setText(HtmlHelper.highlightHeaders(context, message.headers));
-            else
-                tvHeaders.setText(null);
-
-            // Attachments
+            bindAddresses(message);
+            bindHeaders(message);
             bindAttachments(message, properties.getAttachments(message.id));
 
             // Actions
@@ -1618,6 +1488,140 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
             }.setLog(false).execute(context, owner, sargs, "message:more");
+        }
+
+        private void bindAddresses(TupleMessageEx message) {
+            boolean show_addresses = properties.getValue("addresses", message.id);
+
+            int froms = (message.from == null ? 0 : message.from.length);
+            int tos = (message.to == null ? 0 : message.to.length);
+            boolean hasChannel = (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O);
+
+            String submitter = MessageHelper.formatAddresses(message.submitter);
+            String from = MessageHelper.formatAddresses(message.senders);
+            String to = MessageHelper.formatAddresses(message.to);
+            String replyto = MessageHelper.formatAddresses(message.reply);
+            String cc = MessageHelper.formatAddresses(message.cc);
+            String bcc = MessageHelper.formatAddresses(message.bcc);
+
+            grpAddresses.setVisibility(View.VISIBLE);
+
+            ibExpanderAddress.setImageLevel(show_addresses ? 0 /* less */ : 1 /* more */);
+            ibExpanderAddress.setContentDescription(context.getString(show_addresses ? R.string.title_accessibility_hide_addresses : R.string.title_accessibility_show_addresses));
+
+            ivPlain.setVisibility(show_addresses && message.plain_only != null && message.plain_only ? View.VISIBLE : View.GONE);
+            ivReceipt.setVisibility(show_addresses && message.receipt_request != null && message.receipt_request ? View.VISIBLE : View.GONE);
+            ivBrowsed.setVisibility(show_addresses && message.ui_browsed ? View.VISIBLE : View.GONE);
+
+            ibSearchContact.setVisibility(show_addresses && (froms > 0 || tos > 0) ? View.VISIBLE : View.GONE);
+            ibNotifyContact.setVisibility(show_addresses && hasChannel && froms > 0 ? View.VISIBLE : View.GONE);
+            ibPinContact.setVisibility(show_addresses && pin && froms > 0 ? View.VISIBLE : View.GONE);
+            ibAddContact.setVisibility(show_addresses && contacts && froms > 0 ? View.VISIBLE : View.GONE);
+
+            tvSubmitterTitle.setVisibility(show_addresses && !TextUtils.isEmpty(submitter) ? View.VISIBLE : View.GONE);
+            tvSubmitter.setVisibility(show_addresses && !TextUtils.isEmpty(submitter) ? View.VISIBLE : View.GONE);
+            tvSubmitter.setText(submitter);
+
+            tvDeliveredToTitle.setVisibility(show_addresses && !TextUtils.isEmpty(message.deliveredto) ? View.VISIBLE : View.GONE);
+            tvDeliveredTo.setVisibility(show_addresses && !TextUtils.isEmpty(message.deliveredto) ? View.VISIBLE : View.GONE);
+            tvDeliveredTo.setText(message.deliveredto);
+
+            tvFromExTitle.setVisibility((froms > 1 || show_addresses) && !TextUtils.isEmpty(from) ? View.VISIBLE : View.GONE);
+            tvFromEx.setVisibility((froms > 1 || show_addresses) && !TextUtils.isEmpty(from) ? View.VISIBLE : View.GONE);
+            tvFromEx.setText(from);
+
+            tvToTitle.setVisibility((tos > 1 || show_addresses) && !TextUtils.isEmpty(to) ? View.VISIBLE : View.GONE);
+            tvTo.setVisibility((tos > 1 || show_addresses) && !TextUtils.isEmpty(to) ? View.VISIBLE : View.GONE);
+            tvTo.setText(to);
+
+            tvReplyToTitle.setVisibility(show_addresses && !TextUtils.isEmpty(replyto) ? View.VISIBLE : View.GONE);
+            tvReplyTo.setVisibility(show_addresses && !TextUtils.isEmpty(replyto) ? View.VISIBLE : View.GONE);
+            tvReplyTo.setText(replyto);
+
+            tvCcTitle.setVisibility(!TextUtils.isEmpty(cc) ? View.VISIBLE : View.GONE);
+            tvCc.setVisibility(!TextUtils.isEmpty(cc) ? View.VISIBLE : View.GONE);
+            tvCc.setText(cc);
+
+            tvBccTitle.setVisibility(!TextUtils.isEmpty(bcc) ? View.VISIBLE : View.GONE);
+            tvBcc.setVisibility(!TextUtils.isEmpty(bcc) ? View.VISIBLE : View.GONE);
+            tvBcc.setText(bcc);
+
+            InternetAddress via = null;
+            if (message.identityEmail != null)
+                try {
+                    via = new InternetAddress(message.identityEmail, message.identityName);
+                } catch (UnsupportedEncodingException ignored) {
+                }
+
+            tvIdentityTitle.setVisibility(show_addresses && via != null ? View.VISIBLE : View.GONE);
+            tvIdentity.setVisibility(show_addresses && via != null ? View.VISIBLE : View.GONE);
+            tvIdentity.setText(via == null ? null : MessageHelper.formatAddresses(new Address[]{via}));
+
+            tvSentTitle.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
+            tvSent.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
+            tvSent.setText(message.sent == null ? null : DTF.format(message.sent));
+
+            tvReceivedTitle.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
+            tvReceived.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
+            tvReceived.setText(DTF.format(message.received));
+
+            if (!message.duplicate)
+                tvSizeEx.setAlpha(message.content ? 1.0f : Helper.LOW_LIGHT);
+            tvSizeExTitle.setVisibility(!show_addresses || message.size == null ? View.GONE : View.VISIBLE);
+            tvSizeEx.setVisibility(!show_addresses || (message.size == null && message.total == null) ? View.GONE : View.VISIBLE);
+            StringBuilder size = new StringBuilder();
+            size
+                    .append(message.size == null ? "-" : Helper.humanReadableByteCount(message.size, true))
+                    .append("/")
+                    .append(message.total == null ? "-" : Helper.humanReadableByteCount(message.total, true));
+            tvSizeEx.setText(size.toString());
+
+            tvLanguageTitle.setVisibility(
+                    show_addresses && language_detection && message.language != null
+                            ? View.VISIBLE : View.GONE);
+            tvLanguage.setVisibility(
+                    show_addresses && language_detection && message.language != null
+                            ? View.VISIBLE : View.GONE);
+            tvLanguage.setText(message.language == null ? null : new Locale(message.language).getDisplayLanguage());
+
+            tvSubjectEx.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
+            tvSubjectEx.setText(message.subject);
+            if (subject_italic)
+                tvSubjectEx.setTypeface(Typeface.DEFAULT, Typeface.ITALIC);
+            else
+                tvSubjectEx.setTypeface(Typeface.DEFAULT);
+
+            // Flags
+            tvFlags.setVisibility(show_addresses && debug ? View.VISIBLE : View.GONE);
+            tvFlags.setText(message.flags);
+
+            // Keywords
+            if (keywords_header) {
+                tvKeywordsEx.setVisibility(show_addresses && message.keywords.length > 0 ? View.VISIBLE : View.GONE);
+                tvKeywordsEx.setText(TextUtils.join(" ", message.keywords));
+            } else {
+                SpannableStringBuilder keywords = getKeywords(message);
+                tvKeywordsEx.setVisibility(show_addresses && keywords.length() > 0 ? View.VISIBLE : View.GONE);
+                tvKeywordsEx.setText(keywords);
+            }
+        }
+
+        private void bindHeaders(TupleMessageEx message) {
+            boolean show_headers = properties.getValue("headers", message.id);
+
+            grpHeaders.setVisibility(show_headers ? View.VISIBLE : View.GONE);
+            if (show_headers && message.headers == null) {
+                pbHeaders.setVisibility(suitable ? View.VISIBLE : View.GONE);
+                tvNoInternetHeaders.setVisibility(suitable ? View.GONE : View.VISIBLE);
+            } else {
+                pbHeaders.setVisibility(View.GONE);
+                tvNoInternetHeaders.setVisibility(View.GONE);
+            }
+
+            if (show_headers && message.headers != null)
+                tvHeaders.setText(HtmlHelper.highlightHeaders(context, message.headers));
+            else
+                tvHeaders.setText(null);
         }
 
         private void bindBody(TupleMessageEx message, final boolean scroll) {
