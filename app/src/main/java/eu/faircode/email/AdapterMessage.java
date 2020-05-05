@@ -1341,7 +1341,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ensureExpanded();
 
             bindAddresses(message);
-            bindHeaders(message);
+            bindHeaders(message, false);
             bindAttachments(message, properties.getAttachments(message.id));
 
             // Actions
@@ -1611,7 +1611,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
         }
 
-        private void bindHeaders(TupleMessageEx message) {
+        private void bindHeaders(TupleMessageEx message, boolean scroll) {
             boolean show_headers = properties.getValue("headers", message.id);
 
             grpHeaders.setVisibility(show_headers ? View.VISIBLE : View.GONE);
@@ -1628,18 +1628,19 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             else
                 tvHeaders.setText(null);
 
-            new Handler().post(new Runnable() {
-                @Override
-                public void run() {
-                    View inHeaders = itemView.findViewById(R.id.inHeaders);
+            if (scroll)
+                new Handler().post(new Runnable() {
+                    @Override
+                    public void run() {
+                        View inHeaders = itemView.findViewById(R.id.inHeaders);
 
-                    Rect rect = new Rect();
-                    inHeaders.getDrawingRect(rect);
-                    ((ViewGroup) itemView).offsetDescendantRectToMyCoords(inHeaders, rect);
+                        Rect rect = new Rect();
+                        inHeaders.getDrawingRect(rect);
+                        ((ViewGroup) itemView).offsetDescendantRectToMyCoords(inHeaders, rect);
 
-                    properties.scrollTo(getAdapterPosition(), rect.top);
-                }
-            });
+                        properties.scrollTo(getAdapterPosition(), rect.top);
+                    }
+                });
         }
 
         private void bindBody(TupleMessageEx message, final boolean scroll) {
@@ -4223,7 +4224,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean show_headers = !properties.getValue("headers", message.id);
             properties.setValue("headers", message.id, show_headers);
 
-            bindHeaders(message);
+            bindHeaders(message, true);
 
             if (show_headers && message.headers == null) {
                 Bundle args = new Bundle();
