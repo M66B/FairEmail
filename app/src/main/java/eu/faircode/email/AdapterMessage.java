@@ -4088,11 +4088,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     public void run() {
                         try {
                             int line = tvBody.getLayout().getLineForOffset(pos);
-                            int y = Math.round(line * tvBody.getLineHeight());
+                            int y = tvBody.getLayout().getLineTop(line);
 
                             Rect rect = new Rect();
                             tvBody.getDrawingRect(rect);
-                            ((ViewGroup) view).offsetDescendantRectToMyCoords(tvBody, rect);
+                            ((ViewGroup) itemView).offsetDescendantRectToMyCoords(tvBody, rect);
 
                             properties.scrollTo(apos, rect.top + y);
                         } catch (Throwable ex) {
