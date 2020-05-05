@@ -182,7 +182,7 @@
     <string name="title_setup_biometrics_enable">Activer</string>
     <string name="title_setup_biometrics_disable">Désactiver</string>
     <string name="title_setup_biometrics_unlock">Déverrouiller</string>
-    <string name="title_setup_theme">Modifier le thème</string>
+    <string name="title_setup_theme">Choisir le thème</string>
     <string name="title_setup_theme_blue_orange">Bleu/orange</string>
     <string name="title_setup_theme_yellow_purple">Jaune/violet</string>
     <string name="title_setup_theme_red_green">Rouge/vert</string>
@@ -191,8 +191,8 @@
     <string name="title_setup_theme_reverse">Permuter les couleurs</string>
     <string name="title_setup_theme_dark">Sombre</string>
     <string name="title_setup_theme_black_background">Fond noir</string>
-    <string name="title_setup_theme_system">Suivre le thème du système</string>
-    <string name="title_setup_theme_system_hint">Suivre le thème du système basculera automatiquement en mode clair/sombre le jour/la nuit si pris en charge par Android</string>
+    <string name="title_setup_theme_system">Suivre le thème</string>
+    <string name="title_setup_theme_system_hint">Suivre le thème basculera automatiquement en mode clair/sombre le jour/la nuit si pris en charge par Android</string>
     <string name="title_setup_advanced">Avancé</string>
     <string name="title_setup_options">Options</string>
     <string name="title_setup_defaults">Rétablir les paramètres par défaut</string>
@@ -258,6 +258,7 @@
     <string name="title_advanced_caption_message_header">En-tête du message</string>
     <string name="title_advanced_caption_message_body">Contenu du message</string>
     <string name="title_advanced_landscape">Utiliser deux colonnes en mode paysage</string>
+    <string name="title_advanced_landscape3">Afficher le menu de navigation en mode paysage par défaut</string>
     <string name="title_advanced_startup">Afficher sur l\'écran de démarrage</string>
     <string name="title_advanced_cards">Utiliser le style carte au lieu du style tableau</string>
     <string name="title_advanced_date_header">Grouper par date</string>
