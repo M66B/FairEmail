@@ -130,6 +130,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     static final String ACTION_EDIT_ANSWER = BuildConfig.APPLICATION_ID + ".EDIT_ANSWER";
     static final String ACTION_EDIT_RULES = BuildConfig.APPLICATION_ID + ".EDIT_RULES";
     static final String ACTION_EDIT_RULE = BuildConfig.APPLICATION_ID + ".EDIT_RULE";
+    static final String ACTION_NEW_MESSAGE = BuildConfig.APPLICATION_ID + ".NEW_MESSAGE";
 
     private static final int UPDATE_TIMEOUT = 15 * 1000; // milliseconds
     private static final long EXIT_DELAY = 2500L; // milliseconds
@@ -616,6 +617,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         iff.addAction(ACTION_EDIT_ANSWER);
         iff.addAction(ACTION_EDIT_RULES);
         iff.addAction(ACTION_EDIT_RULE);
+        iff.addAction(ACTION_NEW_MESSAGE);
         lbm.registerReceiver(receiver, iff);
 
         checkUpdate(false);
@@ -1153,6 +1155,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     onEditRules(intent);
                 else if (ACTION_EDIT_RULE.equals(action))
                     onEditRule(intent);
+                else if (ACTION_NEW_MESSAGE.equals(action))
+                    onNewMessage(intent);
             }
         }
     };
@@ -1255,6 +1259,25 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("rule");
         fragmentTransaction.commit();
+    }
+
+    private List<Long> updatedFolders = new ArrayList<>();
+
+    boolean isFolderUpdated(long folder) {
+        boolean value = updatedFolders.contains(folder);
+        if (value)
+            updatedFolders.remove(folder);
+        return value;
+    }
+
+    private void onNewMessage(Intent intent) {
+        long folder = intent.getLongExtra("folder", -1);
+        boolean unified = intent.getBooleanExtra("unified", false);
+
+        if (!updatedFolders.contains(folder))
+            updatedFolders.add(folder);
+        if (unified && !updatedFolders.contains(-1L))
+            updatedFolders.add(-1L);
     }
 
     private class UpdateInfo {

@@ -327,7 +327,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
     static final String ACTION_STORE_RAW = BuildConfig.APPLICATION_ID + ".STORE_RAW";
     static final String ACTION_DECRYPT = BuildConfig.APPLICATION_ID + ".DECRYPT";
-    static final String ACTION_NEW_MESSAGE = BuildConfig.APPLICATION_ID + ".NEW_MESSAGE";
 
     private static final long REVIEW_ASK_DELAY = 21 * 24 * 3600 * 1000L; // milliseconds
     private static final long REVIEW_LATER_DELAY = 3 * 24 * 3600 * 1000L; // milliseconds
@@ -1266,10 +1265,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         pgpService.bindToService();
 
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-        IntentFilter iff = new IntentFilter();
-        iff.addAction(SimpleTask.ACTION_TASK_COUNT);
-        iff.addAction(ACTION_NEW_MESSAGE);
-        lbm.registerReceiver(creceiver, iff);
+        IntentFilter iff = new IntentFilter(SimpleTask.ACTION_TASK_COUNT);
+        lbm.registerReceiver(treceiver, iff);
 
         return view;
     }
@@ -1277,7 +1274,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     @Override
     public void onDestroyView() {
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-        lbm.unregisterReceiver(creceiver);
+        lbm.unregisterReceiver(treceiver);
 
         if (pgpService != null && pgpService.isBound()) {
             Log.i("PGP unbinding");
@@ -3168,7 +3165,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         IntentFilter iff = new IntentFilter();
         iff.addAction(ACTION_STORE_RAW);
         iff.addAction(ACTION_DECRYPT);
-        iff.addAction(ACTION_NEW_MESSAGE);
         lbm.registerReceiver(receiver, iff);
 
         ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -3974,9 +3970,19 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (messages == null)
                 return;
 
-            if (viewType == AdapterMessage.ViewType.THREAD)
+            if (viewType == AdapterMessage.ViewType.THREAD) {
                 if (handleThreadActions(messages))
                     return;
+            } else {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                boolean autoscroll = prefs.getBoolean("autoscroll", true);
+                if (autoscroll) {
+                    ActivityView activity = (ActivityView) getActivity();
+                    if (activity != null &&
+                            activity.isFolderUpdated(viewType == AdapterMessage.ViewType.UNIFIED ? -1L : folder))
+                        adapter.gotoTop();
+                }
+            }
 
             Log.i("Submit messages=" + messages.size());
             adapter.submitList(messages);
@@ -4788,20 +4794,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         return super.onCreateAnimation(transit, enter, nextAnim);
     }
 
-    private BroadcastReceiver creceiver = new BroadcastReceiver() {
+    private BroadcastReceiver treceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            String action = intent.getAction();
-
-            if (!SimpleTask.ACTION_TASK_COUNT.equals(action)) {
-                Log.i("Received " + intent);
-                Log.logExtras(intent);
-            }
-
-            if (SimpleTask.ACTION_TASK_COUNT.equals(action))
-                onTaskCount(intent);
-            else if (ACTION_NEW_MESSAGE.equals(action))
-                onNewMessage(intent);
+            onTaskCount(intent);
         }
     };
 
@@ -4820,19 +4816,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
     private void onTaskCount(Intent intent) {
         updateListState("Tasks", intent.getIntExtra("count", 0), adapter.getItemCount());
-    }
-
-    private void onNewMessage(Intent intent) {
-        long fid = intent.getLongExtra("folder", -1);
-        boolean unified = intent.getBooleanExtra("unified", false);
-
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        boolean autoscroll = prefs.getBoolean("autoscroll", true);
-
-        if (autoscroll &&
-                ((viewType == AdapterMessage.ViewType.UNIFIED && unified) ||
-                        (viewType == AdapterMessage.ViewType.FOLDER && folder == fid)))
-            adapter.gotoTop();
     }
 
     private void onStoreRaw(Intent intent) {

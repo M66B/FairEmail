@@ -2377,7 +2377,7 @@ class Core {
 
                 // Prepare scroll to top
                 if (!message.ui_seen && message.received > account.created) {
-                    Intent report = new Intent(FragmentMessages.ACTION_NEW_MESSAGE);
+                    Intent report = new Intent(ActivityView.ACTION_NEW_MESSAGE);
                     report.putExtra("folder", folder.id);
                     report.putExtra("unified", folder.unified);
 
