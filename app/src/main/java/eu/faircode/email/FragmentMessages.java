@@ -5274,7 +5274,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                                         // Write decrypted body
                                         String text = Helper.readText(plain);
-                                        String html = "<div plain=\"true\">" + HtmlHelper.formatPre(text) + "</div>";
+                                        String html = "<div x-plain=\"true\">" + HtmlHelper.formatPre(text) + "</div>";
                                         Helper.writeText(message.getFile(context), html);
                                         db.message().setMessageStored(message.id, new Date().getTime());
                                         db.message().setMessageFts(message.id, false);

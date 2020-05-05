@@ -446,7 +446,7 @@ public class HtmlHelper {
                 .addAttributes(":all", "class")
                 .addAttributes(":all", "style")
                 .addAttributes("font", "size")
-                .addAttributes("div", "plain")
+                .addAttributes("div", "x-plain")
                 .removeTags("col", "colgroup", "thead", "tbody")
                 .removeAttributes("table", "width")
                 .removeAttributes("td", "colspan", "rowspan", "width")
@@ -732,7 +732,7 @@ public class HtmlHelper {
         for (Element pre : document.select("pre")) {
             pre.html(formatPre(pre.wholeText()));
             pre.tagName("div");
-            pre.attr("plain", "true");
+            pre.attr("x-plain", "true");
         }
 
         // Code
@@ -1789,7 +1789,7 @@ public class HtmlHelper {
                         block.add((TextNode) node);
                 } else if (node instanceof Element) {
                     element = (Element) node;
-                    if ("true".equals(element.attr("plain")))
+                    if ("true".equals(element.attr("x-plain")))
                         plain++;
                     if (BLOCK_START.contains(element.tagName())) {
                         normalizeText(block);
@@ -1802,7 +1802,7 @@ public class HtmlHelper {
             public void tail(Node node, int depth) {
                 if (node instanceof Element) {
                     element = (Element) node;
-                    if ("true".equals(element.attr("plain")))
+                    if ("true".equals(element.attr("x-plain")))
                         plain--;
                     if (BLOCK_END.contains(element.tagName())) {
                         normalizeText(block);
