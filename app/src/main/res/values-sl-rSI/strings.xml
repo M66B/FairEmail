@@ -280,7 +280,6 @@
     <string name="title_advanced_caption_message_header">Glava sporočila</string>
     <string name="title_advanced_caption_message_body">Telo sporočila</string>
     <string name="title_advanced_landscape">V ležečem načinu uporabi dva stolpca</string>
-    <string name="title_advanced_landscape3">V ležečem načinu omogoči pritrjen meni za krmarjenje</string>
     <string name="title_advanced_startup">Prikaži ob zagonu</string>
     <string name="title_advanced_cards">Uporabi kartice namesto seznama</string>
     <string name="title_advanced_date_header">Združi po datumu</string>

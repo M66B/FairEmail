@@ -4,7 +4,7 @@ A FairEmail telepítése nagyon egyszerű. Hozzá kell adnia legalább egy fiók
 
 ## Követelmények
 
-Internetcsatlakozás szükséges a fiókok és az identitások létrehozásához.
+Internetkapcsolat szükséges a fiókok és az identitások beállításához.
 
 ## Gyors beállítás
 
@@ -16,21 +16,21 @@ Ha a gyors telepítés nem működik, egy másik módon kell majd fiókot és id
 
 ## Fiók beállítása - email fogadásához
 
-Fiók hozzáadásához koppintson a *Fiókok kezelése*-re majd koppintson a narancssárga *Hozzáadás* gombra alul. Válasszon egy szolgáltatót a listából, adja meg a felhasználónevet, ami legtöbbször az email-címe, és írja be a jelszavát. Koppintson az *Ellenőrzés*-re hogy engedélyezze a FairEmail-nek hogy kapcsolódjon az email szerverhez és lekérje a rendszermappák listáját. After reviewing the system folder selection you can add the account by tapping *Save*.
+Fiók hozzáadásához koppintson a *Fiókok kezelése*-re majd koppintson a narancssárga *Hozzáadás* gombra alul. Válasszon egy szolgáltatót a listából, adja meg a felhasználónevet, ami legtöbbször az email-címe, és írja be a jelszavát. Koppintson az *Ellenőrzés*-re hogy engedélyezze a FairEmail-nek hogy kapcsolódjon az email szerverhez és lekérje a rendszermappák listáját. A rendszermappák listájának átnézése után hozzáadhatod a fiókot a *Mentés* megnyomásával.
 
-Ha a szolgáltatója nincs a listában, koppintson az *Egyéni*-re. Írja be a domain nevet, például *gmail.com* majd nyomjon a *beállítások lekérése*-re. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the hostname and port number, else check the setup instructions of your provider for the right IMAP hostname, port number and protocol (SSL/TLS or STARTTLS). For more about this, please see [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
+Ha a szolgáltatója nincs a listában, koppintson az *Egyéni*-re. Írja be a domain nevet, például *gmail.com* majd nyomjon a *beállítások lekérése*-re. Ha a szolgáltatód támogatja [az automata felfedezést](https://tools.ietf.org/html/rfc6186), a FairEmail ki fogja tölteni a hosztnévet és portszámát, máskülönben lásd a telepítési instrukciókat a szolgáltatódhoz a megfelelő IMAP hosztnévhez, portszámhoz és protokolloz (SSL/TLS vagy STARTTLS). Erről több információért kérlek nézd meg [ezt](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
 
 ## Identitás beállítása - email küldéshez
 
-Similarly, to add an identity, tap *Manage identity* and tap the orange *add* button at the bottom. Enter the name you want to appear in the from address of the emails you send and select a linked account. Tap *Save* to add the identity.
+Hasonlóan egy identitás hozzáadásához koppintson az *Identitás kezelése*-re majd koppintson a narancssárga *Hozzáadás* gombra alul. Írd be a nevet amit szeretnél megjeleníttetni a Címzett címben az emaileknél amit küldesz és válassz ki egy linkelt fiókot. Koppints a *Mentés*-re hogy hozzáadd az identitást.
 
-If the account was configured manually, you likely need to configure the identity manually too. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the hostname and port number, else check the setup instructions of your provider for the right SMTP hostname, port number and protocol (SSL/TLS or STARTTLS).
+Ha a fiók manuálisan lett konfigurálva, valószínűleg az identitást is manuálisan kell majd. Írja be a domain nevet, például *gmail.com* majd koppintson a *Beállítások lekérése*-re. Ha a szolgáltatód támogatja [az automata felfedezést](https://tools.ietf.org/html/rfc6186), a FairEmail ki fogja tölteni a hosztnévet és portszámát, máskülönben lásd a telepítési instrukciókat a szolgáltatódhoz a megfelelő SMTP hosztnévhez, portszámhoz és protokolloz (SSL/TLS vagy STARTTLS).
 
 Az aliasok használatáról lásd [ezt a GYIK-et](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9).
 
-## Grant permissions - to access contact information
+## Engedély megadása - a kapcsolat információk eléréséhez
 
-If you want to lookup email addresses, have contact photos shown, etc, you'll need to grant read contacts permission to FairEmail. Just tap *Grant permissions* and select *Allow*.
+Ha keresni szeretnél email címeket, látni szeretnél névjegyfotókat, stb, akkor a névjegyek olvasása engedélyt meg kell adnod. Csak koppints az *Engedélyek megadása*-ra, majd válaszd ki az *Engedélyezés*-t.
 
 ## Akkumulátorhasználat optimalizálás beállítása - hogy folyamatosan fogadjon leveleket
 

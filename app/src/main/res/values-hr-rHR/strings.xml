@@ -251,7 +251,6 @@
     <string name="title_advanced_caption_general">Općenito</string>
     <string name="title_advanced_caption_conversation">Konverzacija</string>
     <string name="title_advanced_landscape">Koristi dva stupca u pejzažnom načinu</string>
-    <string name="title_advanced_landscape3">Dopusti fiksni navigacijski izbornik u pejzažnom modusu</string>
     <string name="title_advanced_startup">Prikaži na početnom zaslonu</string>
     <string name="title_advanced_cards">Upotrijebi stil kartice umjesto tabularnog stila</string>
     <string name="title_advanced_date_header">Grupiraj po datumu</string>

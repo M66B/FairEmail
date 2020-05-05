@@ -221,6 +221,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_flagged">Összes csillagozott üzenet</string>
     <string name="title_advanced_delete_unseen">Régi olvasatlan üzenetek törlése</string>
     <string name="title_advanced_kept_removed">Régi üzenetek szerverről való törlésének ellenőrzése</string>
+    <string name="title_advanced_gmail_thread">Gmail stílusú üzenetcsoportosítás a Gmail fiókokhoz</string>
     <string name="title_advanced_sync_folders">Mappák listájának szinkronizálása</string>
     <string name="title_advanced_subscriptions">Mappa feliratkozások kezelése</string>
     <string name="title_advanced_keyboard">Billentyűzet alapértelmezett megjelenítése</string>
@@ -257,7 +258,6 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_caption_message_header">Üzenet fejléc</string>
     <string name="title_advanced_caption_message_body">Üzenet szövege</string>
     <string name="title_advanced_landscape">Két oszlopba rendezés tájkép módban</string>
-    <string name="title_advanced_landscape3">Rögzített navigációs menü engedélyezése tájkép módban</string>
     <string name="title_advanced_startup">Megjelenítés a kezdőképernyőn</string>
     <string name="title_advanced_cards">A kártyás stílus használata a tabuláris stílus helyett</string>
     <string name="title_advanced_date_header">Csoportosítás dátum szerint</string>
@@ -296,6 +296,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_monospaced">Monospace betűtípus használata az üzenetek szövegéhez</string>
     <string name="title_advanced_text_color">Szöveg színek megjelenítése</string>
     <string name="title_advanced_text_size">Kicsi és nagy szövegek megjelenítése</string>
+    <string name="title_advanced_text_align">Balra/középre/jobbra igazított szöveg megjelenítése</string>
     <string name="title_advanced_collapse_quotes">Idézett szöveg összecsukása</string>
     <string name="title_advanced_images_inline">Beágyazott képek automatikus megjelenitese</string>
     <string name="title_advanced_seekbar">Relatív beszélgetés-pozíció ponttal váló megjelenítése</string>
@@ -345,6 +346,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_notify_action_snooze">Szundi</string>
     <string name="title_advanced_notify_remove">\"Új üzenet\" értesítés törlése az értesítésre koppintással</string>
     <string name="title_advanced_notify_clear">Összes \"Új üzenet\" értesítés törlése az üzenetlista megnyitásakor</string>
+    <string name="title_advanced_wearable_preview">Csak üzeneti előnézettel rendelkező értesítéseket küldjön hordhatóknak</string>
     <string name="title_advanced_biometrics_notify">Értesítés tartalmának megjelenítése biometrikus azonosítás használata mellett</string>
     <string name="title_advanced_light">Értesítő fény használata</string>
     <string name="title_advanced_sound">Válasszon értesítő hangot</string>
@@ -369,6 +371,8 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_manage_keys">Privát kulcsok kezelése</string>
     <string name="title_advanced_external_search">Keresés engedélyezése az üzenetekben más alkalmazások számára</string>
     <string name="title_advanced_shortcuts">Gyakran használt névjegyek megjelenítése az Android megosztás menüjében</string>
+    <string name="title_advanced_conversation_actions">Műveletek javaslása</string>
+    <string name="title_advanced_conversation_actions_replies">Üzenetválaszok javaslása</string>
     <string name="title_advanced_language_detection">Üzenetszöveg nyelvének észlelése</string>
     <string name="title_advanced_fts">Keresési index létrehozása</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d üzenet indexelve (%3$s)</string>
@@ -442,6 +446,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_optimize_hint">Ennek a bekapcsolása automatikusan módosíthatja a fogadási beállításokat az akkumulátorhasználat csökkentése érdekében</string>
     <string name="title_advanced_experiments_hint">A jelenlegi kísérleti funkciók listája</string>
     <string name="title_advanced_debug_hint">Bővített logok és részletes debug üzenetek bekapcsolása</string>
+    <string name="title_advanced_cleanup_attachments_hint">Manuális ürítésnél ez törölni fogja a mellékleteket olyan üzenetekről, amik már nem szinkronizáltak</string>
     <string name="title_advanced_cleanup_hint">Ez törli az összes ideiglenes fájlt</string>
     <string name="title_advanced_never_favorite">Kedvencként megjelölés tiltása</string>
     <string name="title_advanced_swipe_actions">Csúsztatási műveletek beállítása</string>
@@ -799,6 +804,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
         Ahhoz hogy a szervert is keresse, koppintson a \'keresés újra\' gombra.
     </string>
     <string name="title_search_index_hint">Keresés a keresési indexen keresztül gyors, de csak teljes szavakat fog találni</string>
+    <string name="title_search_text_hint">Egyes szervereknek problémáik vannak szöveg megkeresésével sok üzenetben</string>
     <string name="title_search_more">Több opció</string>
     <string name="title_search_use_index">Keresési index használata</string>
     <string name="title_search_in_senders">A küldőkben (tól)</string>
@@ -845,6 +851,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_select_all">Összes kijelölése</string>
     <string name="title_select_found">Találatok kijelölése</string>
     <string name="title_force_sync">Szinkronizálás erőltetése</string>
+    <string name="title_force_send">Küldés erőltetése</string>
     <string name="title_language_all">Mind</string>
     <string name="title_previous">Előző</string>
     <string name="title_next">Következő</string>
@@ -922,7 +929,9 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_legend_executing">Műveletek végrehajtása</string>
     <string name="title_legend_synchronizing">Szinkronizálás...</string>
     <string name="title_legend_downloading">Letöltés...</string>
+    <string name="title_legend_closing">Bezárás</string>
     <string name="title_legend_waiting">Szinkronizálásra várakozás</string>
+    <string name="title_legend_unified">Egységes beérkező mappa / elsődleges fiók</string>
     <string name="title_legend_inbox">Bejövő mappa</string>
     <string name="title_legend_drafts">Piszkozatok</string>
     <string name="title_legend_sent">Elküldött</string>
@@ -953,6 +962,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_legend_answered">Megválaszolt</string>
     <string name="title_legend_plain_only">Csak sima szöveg</string>
     <string name="title_legend_attachment">Rendelkezik melléklettel</string>
+    <string name="title_legend_flagged">Kedvenc</string>
     <string name="title_legend_contacts">Névjegyzék kezelése</string>
     <string name="title_legend_search">Keresés feladó alapján</string>
     <string name="title_legend_view">Tartalom megjelenítése</string>
@@ -1006,7 +1016,10 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_hint_folder_sync">Az akkumulátor- és hálózathasználat limitálása érdekében nem minden mappa és üzenet lesz szinkronizálva alapértelmezésként</string>
     <string name="title_hint_support">Ha kérdésed vagy problémád van, használd a támogatási menüt segítségért</string>
     <string name="title_hint_message_actions">Törlés balra csúsztatásra; Archiválás jobbra csúsztatásra (ha elérhető); A csúsztatáshoz tartozó műveletek módosíthatóak a fiók beállításai között</string>
+    <string name="title_hint_message_selection">Tarts hosszan egy üzenetet több üzenet kiválasztásának elkezdéséhez; Tartsd és görgess fel vagy le több üzenet kiválasztásához</string>
     <string name="title_hint_important">Fontos</string>
+    <string name="title_hint_sync">Az üzenetek letöltése eltarthat egy ideig, és alapul a szolgáltató sebességén, az internetkapcsolaton, az eszközön és az üzenetek számán. Üzenetek letöltése alatt az alkalmazás lassabban válaszolhat.</string>
+    <string name="title_hint_battery">Mivel a FairEmail alapértelmezésből mindig fogad leveleket, az Android mindig aktívként fogja jelenteni. Ezáltal úgy látszódhat hogy a FairEmail mindig fogyaszt energiát habár valójában ez nem így van.</string>
     <string name="title_hint_reformat">Alapértelmezésből a FairEmail újraformázza az üzeneteket adatvédelmi és biztonsági okokból. Az eredeti üzenet megtekintéséhez koppintson a \'Teljes képernyő\' ikonra az üzenetszöveg fölött.</string>
     <string name="title_hint_contact_actions">Nyomja hosszan a további opciókért</string>
     <string name="title_open_link">Link megnyitása</string>
@@ -1085,6 +1098,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_unexpected_error">Váratlan hiba</string>
     <string name="title_log">Napló</string>
     <string name="title_auto_scroll">Automatikus görgetés</string>
+    <string name="title_log_clear">Törlés</string>
     <string name="title_debug_info">Hibakeresési információ</string>
     <string name="title_debug_info_remark">Kérlek jellemezd a problémát és jelezd az idejét a problémának:</string>
     <string name="title_crash_info_remark">Kérlek magyarázd el mit csináltál amikor az alkalmazás összeomlott:</string>
@@ -1154,7 +1168,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string-array name="startupNames">
         <item>Összesített bejövő mappa</item>
         <item>Összesített mappák</item>
-        <item>Primary account folders</item>
+        <item>Elsődleges fiókmappák</item>
         <item>Fiókok</item>
     </string-array>
     <string-array name="downloadNames">
@@ -1182,7 +1196,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">
-        <item>To</item>
+        <item>Címzett</item>
         <item>Cc</item>
         <item>Bcc</item>
     </string-array>
@@ -1227,9 +1241,9 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     </string-array>
     <string-array name="encryptNames">
         <item>Egyik sem</item>
-        <item>PGP sign-only</item>
+        <item>PGP csak aláírás</item>
         <item>PGP aláírás+titkosítás</item>
-        <item>S/MIME sign-only</item>
+        <item>S/MIME csak aláírás</item>
         <item>S/MIME aláírás+titkosítás</item>
     </string-array>
 </resources>

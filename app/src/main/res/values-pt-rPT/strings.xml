@@ -107,7 +107,6 @@
     <string name="title_advanced_caption_message_header">Cabeçalho da mensagem</string>
     <string name="title_advanced_caption_message_body">Corpo da mensagem</string>
     <string name="title_advanced_landscape">Usar duas colunas no modo paisagem</string>
-    <string name="title_advanced_landscape3">Permitir menu de navegação fixo no modo paisagem</string>
     <string name="title_advanced_startup">Mostrar no ecrã de bloqueio</string>
     <string name="title_advanced_cards">Usar estilo de cartões em vez do estilo tabular</string>
     <string name="title_advanced_date_header">Agrupar por data</string>

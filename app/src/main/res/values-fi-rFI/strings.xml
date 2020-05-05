@@ -30,8 +30,8 @@
     <string name="shortcut_compose">Kirjoita viesti</string>
     <string name="shortcut_setup">Asetukset</string>
     <plurals name="title_notification_synchronizing">
-        <item quantity="one">Seurataan %1$d tiliä</item>
-        <item quantity="other">Seurataan %1$d tiliä</item>
+        <item quantity="one">Monitoroidaan %1$d tiliä</item>
+        <item quantity="other">Monitoroidaan %1$d tiliä</item>
     </plurals>
     <plurals name="title_notification_operations">
         <item quantity="one">%1$d toimenpide odottaa</item>
@@ -50,8 +50,8 @@
         <item quantity="other">%1$d uutta</item>
     </plurals>
     <plurals name="title_selected_conversations">
-        <item quantity="one">%1$d keskustelu valittu</item>
-        <item quantity="other">%1$d keskustelua valittu</item>
+        <item quantity="one">Valittuna %1$d keskustelu</item>
+        <item quantity="other">Valittuna %1$d keskustelua</item>
     </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Siirrä %1$d viesti kansioon %2$s?</item>
@@ -124,7 +124,7 @@
     <string name="title_setup_other">Muu palveluntarjoaja</string>
     <string name="title_setup_gmail_support">Google-tilien valtuuttaminen toimii vain virallisissa versioissa, koska Android tarkistaa sovelluksen allekirjoituksen</string>
     <string name="title_setup_gmail_rationale">Ole hyvä ja myönnä oikeudet tilin valitsemiseksi ja nimesi lukemiseksi</string>
-    <string name="title_setup_gmail_permissions">Google kysyy oikeuksia lukea, kirjoittaa, lähettää ja poistaa pysyvästi viestejäsi. FairEmail ei koskaan poista viestejäsi ilman erillistä hyväksyntääsi.</string>
+    <string name="title_setup_gmail_permissions">Google kysyy oikeuksia lukea, kirjoittaa, lähettää ja poistaa viestejäsi pysyvästi. FairEmail ei koskaan poista viestejäsi ilman yksiselitteistä hyväksyntääsi.</string>
     <string name="title_setup_gmail_drafts">Jos luonnokset-kansio ei ole IMAPin saatavilla, asia voidaan korjata Gmailin tunnisteiden asetuksissa</string>
     <string name="title_setup_oauth_rationale">Valtuuta pääsy tilillesi %1$s</string>
     <string name="title_setup_oauth_authorize">Valtuuta</string>
@@ -256,7 +256,6 @@
     <string name="title_advanced_caption_message_header">Viestin tunnistetiedot</string>
     <string name="title_advanced_caption_message_body">Viestin sisältö</string>
     <string name="title_advanced_landscape">Käytä kahta saraketta vaakatilassa</string>
-    <string name="title_advanced_landscape3">Salli kiinteä navigointivalikko vaakatilassa</string>
     <string name="title_advanced_startup">Näytä aloitusnäytössä</string>
     <string name="title_advanced_cards">Käytä korttityyliä taulukkotyylin sijaan</string>
     <string name="title_advanced_date_header">Ryhmittely päivämäärän mukaan</string>
@@ -858,6 +857,7 @@
     <string name="title_select_all">Valitse kaikki</string>
     <string name="title_select_found">Valitse löytyneet</string>
     <string name="title_force_sync">Pakota synkronointi</string>
+    <string name="title_force_send">Pakota lähetys</string>
     <string name="title_language_all">Kaikki</string>
     <string name="title_previous">Edellinen</string>
     <string name="title_next">Seuraava</string>

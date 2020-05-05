@@ -209,7 +209,7 @@
     <string name="title_advanced_flagged">所有已标星消息</string>
     <string name="title_advanced_delete_unseen">删除旧的未读消息</string>
     <string name="title_advanced_kept_removed">检查旧消息是否已从服务器移除</string>
-    <string name="title_advanced_gmail_thread">Gmail账户的 Gmail 分组风格</string>
+    <string name="title_advanced_gmail_thread">为 Gmail 账户采用 Gmail (官方)分组风格</string>
     <string name="title_advanced_sync_folders">同步文件夹列表</string>
     <string name="title_advanced_subscriptions">管理文件夹订阅</string>
     <string name="title_advanced_keyboard">默认显示键盘</string>
@@ -246,7 +246,6 @@
     <string name="title_advanced_caption_message_header">消息标题</string>
     <string name="title_advanced_caption_message_body">消息正文</string>
     <string name="title_advanced_landscape">在横屏模式下使用两列</string>
-    <string name="title_advanced_landscape3">在横屏模式下允许固定的导航栏菜单</string>
     <string name="title_advanced_startup">在启动屏幕上显示</string>
     <string name="title_advanced_cards">使用卡片样式而不是表单样式</string>
     <string name="title_advanced_date_header">按日期分组</string>
@@ -285,7 +284,7 @@
     <string name="title_advanced_monospaced">对邮件文本使用等宽字体</string>
     <string name="title_advanced_text_color">显示文本颜色</string>
     <string name="title_advanced_text_size">显示大小文本</string>
-    <string name="title_advanced_text_align">显示左/居中/右对齐文本</string>
+    <string name="title_advanced_text_align">显示左/中/右对齐文本</string>
     <string name="title_advanced_collapse_quotes">折叠引用文本</string>
     <string name="title_advanced_images_inline">自动显示内联图像</string>
     <string name="title_advanced_seekbar">在底部用一个圆点显示会话相对位置</string>
@@ -613,7 +612,7 @@
     <string name="title_share">分享</string>
     <string name="title_pin">添加快捷方式</string>
     <string name="title_print">打印</string>
-    <string name="title_show_headers">显示标题</string>
+    <string name="title_show_headers">显示邮件头</string>
     <string name="title_raw_save">保存原始消息</string>
     <string name="title_raw_send">作为附件发送</string>
     <string name="title_manage_keywords">关键字管理</string>
@@ -702,9 +701,9 @@
     <string name="title_reply_to">回复：</string>
     <string name="title_cc">抄送：</string>
     <string name="title_bcc">密送：</string>
-    <string name="title_via_identity">自：</string>
-    <string name="title_sent">已发送：</string>
-    <string name="title_received">已接收：</string>
+    <string name="title_via_identity">账号：</string>
+    <string name="title_sent">发送时间：</string>
+    <string name="title_received">接收时间：</string>
     <string name="title_size">大小：</string>
     <string name="title_language">语言：</string>
     <string name="title_subject">主题：</string>
@@ -730,7 +729,7 @@
     <string name="title_add_image_inline">插入</string>
     <string name="title_add_image_attach">附件</string>
     <string name="title_add_image_resize">调整大小</string>
-    <string name="title_add_image_privacy">删除地理位置</string>
+    <string name="title_add_image_privacy">移除图片地理位置信息</string>
     <string name="title_add_resize_pixels">&lt; %1$d 像素</string>
     <string name="title_add_image_select">选择文件</string>
     <string name="title_add_attachment">添加附件</string>
@@ -848,6 +847,7 @@
     <string name="title_select_all">选择所有</string>
     <string name="title_select_found">选中找到的</string>
     <string name="title_force_sync">强制同步</string>
+    <string name="title_force_send">强制发送</string>
     <string name="title_language_all">全部</string>
     <string name="title_previous">上一封</string>
     <string name="title_next">下一封</string>

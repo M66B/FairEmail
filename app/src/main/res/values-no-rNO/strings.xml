@@ -253,7 +253,6 @@
     <string name="title_advanced_caption_message_header">Meldingstittel</string>
     <string name="title_advanced_caption_message_body">Meldingstekst</string>
     <string name="title_advanced_landscape">Bruk to kolonner i liggende modus</string>
-    <string name="title_advanced_landscape3">Tillat fast navigasjonsmeny i liggende modus</string>
     <string name="title_advanced_startup">Vis på startskjermen</string>
     <string name="title_advanced_cards">Bruk kortstil i stedet for tabellstil</string>
     <string name="title_advanced_date_header">Gruppere etter dato</string>

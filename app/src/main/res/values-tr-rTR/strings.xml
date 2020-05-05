@@ -233,7 +233,6 @@
     <string name="title_advanced_socks">SOCKS proxy kullan</string>
     <string name="title_advanced_manage_connectivity">Bağlanabilirliği yönet</string>
     <string name="title_advanced_landscape">Yatay modda iki sütun kullanın</string>
-    <string name="title_advanced_landscape3">Yatay modda sabit navigasyon menüsüne izin ver</string>
     <string name="title_advanced_startup">Başlangıç ekranında göster</string>
     <string name="title_advanced_cards">Tablo stili yerine kart stilini kullan</string>
     <string name="title_advanced_date_header">Tarihe göre grup</string>

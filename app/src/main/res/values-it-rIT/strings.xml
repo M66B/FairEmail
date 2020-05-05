@@ -257,7 +257,6 @@
     <string name="title_advanced_caption_message_header">Intestazione messaggio</string>
     <string name="title_advanced_caption_message_body">Corpo del messaggio</string>
     <string name="title_advanced_landscape">Usa due colonne in modalità orizzontale</string>
-    <string name="title_advanced_landscape3">Consenti menu di navigazione fisso in modalità orizzontale</string>
     <string name="title_advanced_startup">Mostra nella schermata iniziale</string>
     <string name="title_advanced_cards">Utilizza lo stile della carta al posto dello stile tabulare</string>
     <string name="title_advanced_date_header">Raggruppa per data</string>

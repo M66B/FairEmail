@@ -257,7 +257,6 @@
     <string name="title_advanced_caption_message_header">Meddelandehuvud</string>
     <string name="title_advanced_caption_message_body">Meddelande-text</string>
     <string name="title_advanced_landscape">Använd två kolumner i landskapsläge</string>
-    <string name="title_advanced_landscape3">Tillåt fast navigeringsmeny i landskapsläge</string>
     <string name="title_advanced_startup">Visa på startskärmen</string>
     <string name="title_advanced_cards">Använd kortstil istället för tabellstil</string>
     <string name="title_advanced_date_header">Gruppera efter datum</string>

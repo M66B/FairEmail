@@ -239,7 +239,6 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_caption_message_header">メッセージヘッダー</string>
     <string name="title_advanced_caption_message_body">本文</string>
     <string name="title_advanced_landscape">横向きモードで2列を使用</string>
-    <string name="title_advanced_landscape3">横向きモードで固定ナビゲーションメニューを許可</string>
     <string name="title_advanced_startup">スタート画面に表示</string>
     <string name="title_advanced_cards">表形式では無くカード形式を使用</string>
     <string name="title_advanced_date_header">日付毎にグループ化</string>
