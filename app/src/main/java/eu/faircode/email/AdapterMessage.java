@@ -3222,7 +3222,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private void onToggleAddresses(TupleMessageEx message) {
             boolean addresses = !properties.getValue("addresses", message.id);
             properties.setValue("addresses", message.id, addresses);
-            bindExpanded(message, false);
+            bindAddresses(message);
         }
 
         private void onDownloadAttachments(final TupleMessageEx message) {
@@ -4201,13 +4201,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private void onMenuShowHeaders(TupleMessageEx message) {
             boolean show_headers = !properties.getValue("headers", message.id);
             properties.setValue("headers", message.id, show_headers);
-            if (show_headers && message.headers == null) {
-                grpHeaders.setVisibility(View.VISIBLE);
-                if (suitable)
-                    pbHeaders.setVisibility(View.VISIBLE);
-                else
-                    tvNoInternetHeaders.setVisibility(View.VISIBLE);
 
+            bindHeaders(message);
+
+            if (show_headers && message.headers == null) {
                 Bundle args = new Bundle();
                 args.putLong("id", message.id);
 
@@ -4241,8 +4238,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                     }
                 }.execute(context, owner, args, "message:headers");
-            } else
-                bindExpanded(message, false);
+            }
         }
 
         private void onMenuRawSave(TupleMessageEx message) {
