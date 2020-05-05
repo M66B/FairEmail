@@ -1389,21 +1389,25 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             db.attachment().liveAttachments(message.id).observe(cowner, new Observer<List<EntityAttachment>>() {
                 @Override
                 public void onChanged(@Nullable List<EntityAttachment> attachments) {
-                    int inlineImages = 0;
-                    if (attachments != null)
-                        for (EntityAttachment attachment : attachments)
-                            if (attachment.available && attachment.isInline() && attachment.isImage())
-                                inlineImages++;
+                    boolean show_images = properties.getValue("images", message.id);
+                    boolean inline = prefs.getBoolean("inline_images", false);
+                    if (show_images || inline) {
+                        int inlineImages = 0;
+                        if (attachments != null)
+                            for (EntityAttachment attachment : attachments)
+                                if (attachment.available && attachment.isInline() && attachment.isImage())
+                                    inlineImages++;
 
-                    int lastInlineImages = 0;
-                    List<EntityAttachment> lastAttachments = properties.getAttachments(message.id);
-                    if (lastAttachments != null)
-                        for (EntityAttachment attachment : lastAttachments)
-                            if (attachment.available && attachment.isInline() && attachment.isImage())
-                                lastInlineImages++;
+                        int lastInlineImages = 0;
+                        List<EntityAttachment> lastAttachments = properties.getAttachments(message.id);
+                        if (lastAttachments != null)
+                            for (EntityAttachment attachment : lastAttachments)
+                                if (attachment.available && attachment.isInline() && attachment.isImage())
+                                    lastInlineImages++;
 
-                    if (inlineImages > lastInlineImages)
-                        bindBody(message, false);
+                        if (inlineImages > lastInlineImages)
+                            bindBody(message, false);
+                    }
 
                     bindAttachments(message, attachments);
                 }
