@@ -1905,6 +1905,11 @@ public class HtmlHelper {
                                         ssb.setSpan(new StrikethroughSpan(), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                     break;
                                 case "text-align":
+                                    for (AlignmentSpan span : ssb.getSpans(0, start, AlignmentSpan.class)) {
+                                        int s = ssb.getSpanStart(span);
+                                        ssb.removeSpan(span);
+                                        ssb.setSpan(span, s, start, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                    }
                                     Layout.Alignment alignment = null;
                                     switch (value) {
                                         case "left":
