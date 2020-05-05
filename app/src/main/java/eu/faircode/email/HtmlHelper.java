@@ -519,12 +519,14 @@ public class HtmlHelper {
                 if ("center".equals(element.tagName())) {
                     style = mergeStyles(style, "text-align:center");
                     element.tagName("div");
+                } else if ("table".equals(element.tagName()))
+                    style = mergeStyles(style, "text-align:left");
+                else {
+                    // https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes
+                    String align = element.attr("align");
+                    if (!TextUtils.isEmpty(align))
+                        style = mergeStyles(style, "text-align:" + align);
                 }
-
-                // https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes
-                String align = element.attr("align");
-                if (!TextUtils.isEmpty(align))
-                    style = mergeStyles(style, "text-align:" + align);
             }
 
             // Process style
@@ -1910,25 +1912,33 @@ public class HtmlHelper {
                                         ssb.setSpan(new StrikethroughSpan(), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                     break;
                                 case "text-align":
-                                    for (AlignmentSpan span : ssb.getSpans(0, start, AlignmentSpan.class)) {
-                                        int s = ssb.getSpanStart(span);
-                                        ssb.removeSpan(span);
-                                        ssb.setSpan(span, s, start, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                    boolean table = false;
+                                    Element e = element;
+                                    while (e != null) {
+                                        if ("table".equals(e.tagName())) {
+                                            table = true;
+                                            break;
+                                        }
+                                        e = e.parent();
                                     }
-                                    Layout.Alignment alignment = null;
-                                    switch (value) {
-                                        case "left":
-                                            alignment = (ltr ? Layout.Alignment.ALIGN_NORMAL : Layout.Alignment.ALIGN_OPPOSITE);
-                                            break;
-                                        case "center":
-                                            alignment = Layout.Alignment.ALIGN_CENTER;
-                                            break;
-                                        case "right":
-                                            alignment = (ltr ? Layout.Alignment.ALIGN_OPPOSITE : Layout.Alignment.ALIGN_NORMAL);
-                                            break;
+
+                                    if (!table) {
+                                        Layout.Alignment alignment = null;
+                                        switch (value) {
+                                            case "left":
+                                            case "justify":
+                                                alignment = (ltr ? Layout.Alignment.ALIGN_NORMAL : Layout.Alignment.ALIGN_OPPOSITE);
+                                                break;
+                                            case "center":
+                                                alignment = Layout.Alignment.ALIGN_CENTER;
+                                                break;
+                                            case "right":
+                                                alignment = (ltr ? Layout.Alignment.ALIGN_OPPOSITE : Layout.Alignment.ALIGN_NORMAL);
+                                                break;
+                                        }
+                                        if (alignment != null)
+                                            ssb.setSpan(new AlignmentSpan.Standard(alignment), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                     }
-                                    if (alignment != null)
-                                        ssb.setSpan(new AlignmentSpan.Standard(alignment), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                     break;
                             }
                         }
