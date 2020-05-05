@@ -4985,7 +4985,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.differ.addPagedListListener(new AsyncPagedListDiffer.PagedListListener<TupleMessageEx>() {
             @Override
             public void onCurrentListChanged(@Nullable PagedList<TupleMessageEx> previousList, @Nullable PagedList<TupleMessageEx> currentList) {
-                if (gotoTop) {
+                if (gotoTop && previousList != null) {
                     gotoTop = false;
                     properties.scrollTo(0, 0);
                 }
