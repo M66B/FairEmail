@@ -1626,6 +1626,19 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvHeaders.setText(HtmlHelper.highlightHeaders(context, message.headers));
             else
                 tvHeaders.setText(null);
+
+            new Handler().post(new Runnable() {
+                @Override
+                public void run() {
+                    View inHeaders = itemView.findViewById(R.id.inHeaders);
+
+                    Rect rect = new Rect();
+                    inHeaders.getDrawingRect(rect);
+                    ((ViewGroup) itemView).offsetDescendantRectToMyCoords(inHeaders, rect);
+
+                    properties.scrollTo(getAdapterPosition(), rect.top);
+                }
+            });
         }
 
         private void bindBody(TupleMessageEx message, final boolean scroll) {
