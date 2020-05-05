@@ -2371,19 +2371,7 @@ class Core {
                     attachment.id = db.attachment().insertAttachment(attachment);
                 }
 
-                runRules(context, imessage, message, rules);
-
-                // Prepare scroll to top
-                if (!message.ui_seen && !message.ui_hide &&
-                        message.received > account.created) {
-                    Intent report = new Intent(ActivityView.ACTION_NEW_MESSAGE);
-                    report.putExtra("folder", folder.id);
-                    report.putExtra("unified", folder.unified);
-                    Log.i("Report new id=" + message.id + " folder=" + folder.name + " unified=" + folder.unified);
-
-                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-                    lbm.sendBroadcast(report);
-                }
+                runRules(context, imessage, account, folder, message, rules);
 
                 db.setTransactionSuccessful();
             } catch (SQLiteConstraintException ex) {
@@ -2526,7 +2514,7 @@ class Core {
                     db.message().updateMessage(message);
 
                     if (process)
-                        runRules(context, imessage, message, rules);
+                        runRules(context, imessage, account, folder, message, rules);
 
                     db.setTransactionSuccessful();
                 } finally {
@@ -2597,7 +2585,10 @@ class Core {
         return null;
     }
 
-    private static void runRules(Context context, Message imessage, EntityMessage message, List<EntityRule> rules) {
+    private static void runRules(
+            Context context, Message imessage,
+            EntityAccount account, EntityFolder folder, EntityMessage message,
+            List<EntityRule> rules) {
 
         if (!ActivityBilling.isPro(context))
             return;
@@ -2613,6 +2604,18 @@ class Core {
         } catch (Throwable ex) {
             Log.e(ex);
             db.message().setMessageError(message.id, Log.formatThrowable(ex));
+        }
+
+        // Prepare scroll to top
+        if (!message.ui_seen && !message.ui_hide &&
+                message.received > account.created) {
+            Intent report = new Intent(ActivityView.ACTION_NEW_MESSAGE);
+            report.putExtra("folder", folder.id);
+            report.putExtra("unified", folder.unified);
+            Log.i("Report new id=" + message.id + " folder=" + folder.name + " unified=" + folder.unified);
+
+            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+            lbm.sendBroadcast(report);
         }
     }
 
