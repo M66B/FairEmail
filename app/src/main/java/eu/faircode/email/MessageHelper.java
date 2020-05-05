@@ -340,8 +340,9 @@ public class MessageHelper {
                 Log.i("Sending PGP encrypted message");
 
                 // Build header
+                // https://tools.ietf.org/html/rfc3156
                 BodyPart bpHeader = new MimeBodyPart();
-                bpHeader.setContent("", "application/pgp-encrypted");
+                bpHeader.setContent("Version: 1\n", "application/pgp-encrypted");
 
                 // Build content
                 BodyPart bpContent = new MimeBodyPart();
