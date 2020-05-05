@@ -358,6 +358,8 @@ public class EntityRule {
         for (EntityMessage threaded : messages)
             EntityOperation.queue(context, threaded, EntityOperation.MOVE, target, seen);
 
+        message.ui_hide = true;
+
         if (seen) {
             message.ui_seen = true;
             message.ui_ignored = true;

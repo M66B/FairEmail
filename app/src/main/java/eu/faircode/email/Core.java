@@ -2374,10 +2374,12 @@ class Core {
                 runRules(context, imessage, message, rules);
 
                 // Prepare scroll to top
-                if (!message.ui_seen && message.received > account.created) {
+                if (!message.ui_seen && !message.ui_hide &&
+                        message.received > account.created) {
                     Intent report = new Intent(ActivityView.ACTION_NEW_MESSAGE);
                     report.putExtra("folder", folder.id);
                     report.putExtra("unified", folder.unified);
+                    Log.i("Report new id=" + message.id + " folder=" + folder.name + " unified=" + folder.unified);
 
                     LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                     lbm.sendBroadcast(report);
