@@ -1053,9 +1053,7 @@ class Core {
         DB db = DB.getInstance(context);
 
         if (EntityFolder.INBOX.equals(folder.type)) {
-            if (account.leave_deleted)
-                db.message().setMessageUiHide(message.id, true);
-            else {
+            if (!account.leave_deleted) {
                 Map<String, String> caps = istore.capabilities();
 
                 Message[] imessages = ifolder.getMessages();
@@ -1080,20 +1078,20 @@ class Core {
                     }
                 }
 
-                Log.i(folder.name + " POP expunge=" + found);
-
-                if (found)
+                if (found) {
                     try {
+                        Log.i(folder.name + " POP expunge=" + found);
                         ifolder.close(true);
                         ifolder.open(Folder.READ_WRITE);
-                        db.message().deleteMessage(folder.id, message.id);
                     } catch (Throwable ex) {
                         Log.e(ex);
                         state.error(new FolderClosedException(ifolder, "POP"));
                     }
-                else
-                    db.message().deleteMessage(folder.id, message.id);
+                }
             }
+
+            // Synchronize will delete messages when needed
+            db.message().setMessageUiHide(message.id, true);
         } else
             db.message().deleteMessage(folder.id, message.id);
 
