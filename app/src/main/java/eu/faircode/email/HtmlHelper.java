@@ -456,7 +456,7 @@ public class HtmlHelper {
         if (text_color)
             whitelist.addAttributes("font", "color");
         if (text_align)
-            whitelist.addTags("center");
+            whitelist.addTags("center").addAttributes(":all", "align");
         if (!view)
             whitelist.addProtocols("img", "src", "content");
 
@@ -520,6 +520,11 @@ public class HtmlHelper {
                     style = mergeStyles(style, "text-align:center");
                     element.tagName("div");
                 }
+
+                // https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes
+                String align = element.attr("align");
+                if (!TextUtils.isEmpty(align))
+                    style = mergeStyles(style, "text-align:" + align);
             }
 
             // Process style
