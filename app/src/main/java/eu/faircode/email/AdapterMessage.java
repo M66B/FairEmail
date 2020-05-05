@@ -226,6 +226,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean name_email;
     private boolean prefer_contact;
     private boolean distinguish_contacts;
+    private boolean show_recipients;
     private Float font_size_sender;
     private Float font_size_subject;
     private boolean subject_top;
@@ -823,7 +824,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean inbox = EntityFolder.INBOX.equals(message.folderType);
             boolean outbox = EntityFolder.OUTBOX.equals(message.folderType);
             boolean outgoing = isOutgoing(message);
-            Address[] addresses = (outgoing && (viewType != ViewType.THREAD || !threading) ? message.to : message.senders);
+            Address[] senders = (outgoing && (viewType != ViewType.THREAD || !threading) ? message.to : message.senders);
+            Address[] recipients = (outgoing && (viewType != ViewType.THREAD || !threading) ? message.from : message.recipients);
             boolean authenticated =
                     !(Boolean.FALSE.equals(message.dkim) ||
                             Boolean.FALSE.equals(message.spf) ||
@@ -947,7 +949,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             ? View.VISIBLE : View.GONE);
             ivSigned.setVisibility(message.signed > 0 ? View.VISIBLE : View.GONE);
             ivEncrypted.setVisibility(message.encrypted > 0 ? View.VISIBLE : View.GONE);
-            setFrom(message, addresses);
+            if (show_recipients && recipients != null && recipients.length > 0)
+                tvFrom.setText(context.getString(R.string.title_from_to,
+                        MessageHelper.formatAddresses(senders, name_email, false),
+                        MessageHelper.formatAddresses(recipients, name_email, false)));
+            else
+                tvFrom.setText(MessageHelper.formatAddresses(senders, name_email, false));
             tvFrom.setPaintFlags(tvFrom.getPaintFlags() & ~Paint.UNDERLINE_TEXT_FLAG);
             tvSize.setText(message.totalSize == null ? null : Helper.humanReadableByteCount(message.totalSize, true));
             tvSize.setVisibility(
@@ -1062,7 +1069,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
 
             // Contact info
-            ContactInfo[] info = ContactInfo.getCached(context, message.account, addresses);
+            ContactInfo[] info = ContactInfo.getCached(context, message.account, senders);
             if (info == null) {
                 if (taskContactInfo != null)
                     taskContactInfo.cancel(context);
@@ -1070,15 +1077,31 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 Bundle aargs = new Bundle();
                 aargs.putLong("id", message.id);
                 aargs.putLong("account", message.account);
-                aargs.putSerializable("addresses", addresses);
+                aargs.putSerializable("senders", senders);
+                aargs.putSerializable("recipients", show_recipients ? recipients : null);
 
                 taskContactInfo = new SimpleTask<ContactInfo[]>() {
                     @Override
                     protected ContactInfo[] onExecute(Context context, Bundle args) {
                         long account = args.getLong("account");
-                        Address[] addresses = (Address[]) args.getSerializable("addresses");
+                        Address[] senders = (Address[]) args.getSerializable("senders");
+                        Address[] recipients = (Address[]) args.getSerializable("recipients");
 
-                        return ContactInfo.get(context, account, addresses);
+                        Map<String, Address> map = new HashMap<>();
+                        if (senders != null)
+                            for (Address a : senders) {
+                                String email = ((InternetAddress) a).getAddress();
+                                if (!TextUtils.isEmpty(email))
+                                    map.put(email, a);
+                            }
+                        if (recipients != null)
+                            for (Address a : recipients) {
+                                String email = ((InternetAddress) a).getAddress();
+                                if (!TextUtils.isEmpty(email))
+                                    map.put(email, a);
+                            }
+
+                        return ContactInfo.get(context, account, map.values().toArray(new Address[0]));
                     }
 
                     @Override
@@ -1090,7 +1113,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         if (amessage == null || !amessage.id.equals(id))
                             return;
 
-                        bindContactInfo(amessage, info, addresses, name_email);
+                        bindContactInfo(amessage, info, senders, recipients);
                     }
 
                     @Override
@@ -1100,7 +1123,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }.setLog(false);
                 taskContactInfo.execute(context, owner, aargs, "message:avatar");
             } else
-                bindContactInfo(message, info, addresses, name_email);
+                bindContactInfo(message, info, senders, show_recipients ? recipients : null);
 
             if (viewType == ViewType.THREAD)
                 if (expanded)
@@ -1260,63 +1283,88 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibFlagged.setVisibility(View.GONE);
         }
 
-        private void bindContactInfo(TupleMessageEx message, ContactInfo[] info, Address[] addresses, boolean name_email) {
-            if (info[0].hasPhoto()) {
-                ibAvatar.setImageBitmap(info[0].getPhotoBitmap());
-                ibAvatar.setVisibility(View.VISIBLE);
-            } else {
+        private void bindContactInfo(TupleMessageEx message, ContactInfo[] info, Address[] senders, Address[] recipients) {
+            Map<String, ContactInfo> map = new HashMap<>();
+            for (ContactInfo c : info)
+                map.put(c.getEmailAddress(), c);
+
+            ContactInfo main = null;
+            if (senders != null && senders.length > 0) {
+                String email = ((InternetAddress) senders[0]).getAddress();
+                if (!TextUtils.isEmpty(email))
+                    main = map.get(email);
+            }
+
+            if (main == null) {
                 ibAvatar.setImageDrawable(null);
-                ibAvatar.setVisibility(View.GONE);
+                ibAvatar.setTag(null);
+            } else {
+                ibAvatar.setImageBitmap(main.getPhotoBitmap());
+
+                Uri lookupUri = main.getLookupUri();
+                ibAvatar.setTag(lookupUri);
+                ibAvatar.setEnabled(lookupUri != null);
             }
+            ibAvatar.setVisibility(main == null ? View.GONE : View.VISIBLE);
 
-            Uri lookupUri = info[0].getLookupUri();
-            ibAvatar.setTag(lookupUri);
-            ibAvatar.setEnabled(lookupUri != null);
+            Address[] _senders = fillIn(senders, map);
+            Address[] _recipients = fillIn(recipients, map);
+            if (_senders != null || _recipients != null)
+                if (show_recipients && _recipients != null && _recipients.length > 0)
+                    tvFrom.setText(context.getString(R.string.title_from_to,
+                            MessageHelper.formatAddresses(_senders, name_email, false),
+                            MessageHelper.formatAddresses(_recipients, name_email, false)));
+                else
+                    tvFrom.setText(MessageHelper.formatAddresses(senders, name_email, false));
 
-            if (addresses == null)
-                return;
-
-            boolean known = false;
-            boolean updated = false;
-            Address[] modified = Arrays.copyOf(addresses, addresses.length);
-            for (int i = 0; i < info.length; i++) {
-                if (info[i].isKnown())
-                    known = true;
-                String displayName = info[i].getDisplayName();
-                if (!TextUtils.isEmpty(displayName)) {
-                    String email = ((InternetAddress) modified[i]).getAddress();
-                    String personal = ((InternetAddress) modified[i]).getPersonal();
-                    if (TextUtils.isEmpty(personal) ||
-                            (prefer_contact && !personal.equals(displayName)))
-                        try {
-                            modified[i] = new InternetAddress(email, displayName, StandardCharsets.UTF_8.name());
-                            updated = true;
-                        } catch (UnsupportedEncodingException ex) {
-                            Log.w(ex);
+            if (distinguish_contacts) {
+                boolean known = false;
+                if (senders != null)
+                    for (Address sender : senders) {
+                        String email = ((InternetAddress) sender).getAddress();
+                        if (!TextUtils.isEmpty(email) &&
+                                map.containsKey(email) && map.get(email).isKnown()) {
+                            known = true;
+                            break;
                         }
-                }
+                    }
+                if (known)
+                    tvFrom.setPaintFlags(tvFrom.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
             }
-            if (updated)
-                setFrom(message, modified);
-
-            if (distinguish_contacts && known)
-                tvFrom.setPaintFlags(tvFrom.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         }
 
-        private void setFrom(TupleMessageEx message, Address[] addresses) {
-            int recipients = 0;
-            if (viewType == ViewType.THREAD) {
-                recipients = (message.to == null ? 0 : message.to.length) +
-                        (message.cc == null ? 0 : message.cc.length) + (message.bcc == null ? 0 : message.bcc.length);
-                if (message.to != null && message.to.length > 0)
-                    recipients--;
+        private Address[] fillIn(Address[] addresses, Map<String, ContactInfo> map) {
+            if (addresses == null)
+                return null;
+
+            boolean updated = false;
+            List<Address> modified = new ArrayList<>();
+            for (Address a : addresses) {
+                String email = ((InternetAddress) a).getAddress();
+                if (TextUtils.isEmpty(email) || !map.containsKey(email))
+                    modified.add(a);
+                else {
+                    String displayName = map.get(email).getDisplayName();
+                    if (TextUtils.isEmpty(displayName))
+                        modified.add(a);
+                    else {
+                        String personal = ((InternetAddress) a).getPersonal();
+                        if (TextUtils.isEmpty(personal) ||
+                                (prefer_contact && !personal.equals(displayName)))
+                            try {
+                                modified.add(new InternetAddress(email, displayName, StandardCharsets.UTF_8.name()));
+                                updated = true;
+                            } catch (UnsupportedEncodingException ex) {
+                                Log.w(ex);
+                                modified.add(a);
+                            }
+                        else
+                            modified.add(a);
+                    }
+                }
             }
 
-            if (recipients == 0)
-                tvFrom.setText(MessageHelper.formatAddresses(addresses, name_email, false));
-            else
-                tvFrom.setText(context.getString(R.string.title_name_plus,
-                        MessageHelper.formatAddresses(addresses, name_email, false), recipients));
+            return (updated ? modified.toArray(new Address[0]) : null);
         }
 
         private void bindExpandWarning(TupleMessageEx message, boolean expanded) {
@@ -4638,6 +4686,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.name_email = prefs.getBoolean("name_email", false);
         this.prefer_contact = prefs.getBoolean("prefer_contact", false);
         this.distinguish_contacts = prefs.getBoolean("distinguish_contacts", false);
+        this.show_recipients = prefs.getBoolean("show_recipients", true);
 
         this.subject_top = prefs.getBoolean("subject_top", false);
 

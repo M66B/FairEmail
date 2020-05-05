@@ -78,6 +78,10 @@ public class ContactInfo {
         return bitmap;
     }
 
+    String getEmailAddress() {
+        return email;
+    }
+
     String getDisplayName() {
         return displayName;
     }
