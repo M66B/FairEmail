@@ -141,6 +141,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState, false);
 
+        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
+        lbm.registerReceiver(creceiver, new IntentFilter(ACTION_NEW_MESSAGE));
+
         if (savedInstanceState != null)
             searching = savedInstanceState.getBoolean("fair:searching");
 
@@ -617,7 +620,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         iff.addAction(ACTION_EDIT_ANSWER);
         iff.addAction(ACTION_EDIT_RULES);
         iff.addAction(ACTION_EDIT_RULE);
-        iff.addAction(ACTION_NEW_MESSAGE);
         lbm.registerReceiver(receiver, iff);
 
         checkUpdate(false);
@@ -629,6 +631,13 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         super.onPause();
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
         lbm.unregisterReceiver(receiver);
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        unregisterReceiver(creceiver);
+        super.onDestroy();
     }
 
     @Override
@@ -1131,6 +1140,32 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         fragmentTransaction.commit();
     }
 
+    private BroadcastReceiver creceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            onNewMessage(intent);
+        }
+    };
+
+    private List<Long> updatedFolders = new ArrayList<>();
+
+    boolean isFolderUpdated(long folder) {
+        boolean value = updatedFolders.contains(folder);
+        if (value)
+            updatedFolders.remove(folder);
+        return value;
+    }
+
+    private void onNewMessage(Intent intent) {
+        long folder = intent.getLongExtra("folder", -1);
+        boolean unified = intent.getBooleanExtra("unified", false);
+
+        if (!updatedFolders.contains(folder))
+            updatedFolders.add(folder);
+        if (unified && !updatedFolders.contains(-1L))
+            updatedFolders.add(-1L);
+    }
+
     private BroadcastReceiver receiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -1155,8 +1190,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     onEditRules(intent);
                 else if (ACTION_EDIT_RULE.equals(action))
                     onEditRule(intent);
-                else if (ACTION_NEW_MESSAGE.equals(action))
-                    onNewMessage(intent);
             }
         }
     };
@@ -1259,25 +1292,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("rule");
         fragmentTransaction.commit();
-    }
-
-    private List<Long> updatedFolders = new ArrayList<>();
-
-    boolean isFolderUpdated(long folder) {
-        boolean value = updatedFolders.contains(folder);
-        if (value)
-            updatedFolders.remove(folder);
-        return value;
-    }
-
-    private void onNewMessage(Intent intent) {
-        long folder = intent.getLongExtra("folder", -1);
-        boolean unified = intent.getBooleanExtra("unified", false);
-
-        if (!updatedFolders.contains(folder))
-            updatedFolders.add(folder);
-        if (unified && !updatedFolders.contains(-1L))
-            updatedFolders.add(-1L);
     }
 
     private class UpdateInfo {
