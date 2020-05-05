@@ -752,4 +752,16 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="Acor.de"
+        link="https://www.vodafone.de/hilfe/email/abrufen-senden.html">
+        <imap
+            host="imap.arcor.de"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="mail.arcor.de"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
