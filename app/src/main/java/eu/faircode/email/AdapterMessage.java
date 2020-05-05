@@ -90,6 +90,7 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.inputmethod.InputMethodManager;
 import android.view.textclassifier.ConversationAction;
 import android.view.textclassifier.ConversationActions;
 import android.view.textclassifier.TextClassificationManager;
@@ -4054,6 +4055,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
             });
             pw.showAtLocation(parentFragment.getView(), Gravity.TOP | Gravity.END, 0, 0);
+
+            etSearch.requestFocus();
+            InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+            if (imm != null)
+                imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
         }
 
         private int find(String query, int result) {
