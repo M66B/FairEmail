@@ -2404,7 +2404,7 @@ class Core {
                 updateContactInfo(context, folder, message);
 
             // Download small messages inline
-            if (download && message.size != null) {
+            if (download && message.size != null && !message.ui_hide) {
                 long maxSize;
                 if (state == null || state.networkState.isUnmetered())
                     maxSize = MessageHelper.SMALL_MESSAGE_SIZE;
@@ -2432,7 +2432,6 @@ class Core {
                         reportEmptyMessage(context, state, account, istore);
                 }
             }
-
         } else {
             if (process) {
                 EntityIdentity identity = matchIdentity(context, folder, message);
