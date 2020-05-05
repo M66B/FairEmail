@@ -1866,7 +1866,7 @@ public class HtmlHelper {
                     element = (Element) node;
                     element.attr("start-index", Integer.toString(ssb.length()));
                     if (debug)
-                        ssb.append("[" + element.tagName() + ":" + element.attr("x-font-size-rel") + "]");
+                        ssb.append("[" + element.tagName() + ":" + element.attr("style") + "]");
                 } else if (node instanceof TextNode) {
                     tnode = (TextNode) node;
                     ssb.append(tnode.getWholeText());
