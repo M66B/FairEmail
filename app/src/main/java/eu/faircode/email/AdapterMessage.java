@@ -4090,11 +4090,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             int line = tvBody.getLayout().getLineForOffset(pos);
                             int y = tvBody.getLayout().getLineTop(line);
 
+                            int dy = Helper.dp2pixels(context, 48);
+
                             Rect rect = new Rect();
                             tvBody.getDrawingRect(rect);
                             ((ViewGroup) itemView).offsetDescendantRectToMyCoords(tvBody, rect);
 
-                            properties.scrollTo(apos, rect.top + y);
+                            properties.scrollTo(apos, rect.top + y - dy);
                         } catch (Throwable ex) {
                             Log.e(ex);
                         }

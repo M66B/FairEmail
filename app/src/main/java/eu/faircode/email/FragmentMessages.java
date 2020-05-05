@@ -1546,7 +1546,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 @Override
                 public void run() {
                     LinearLayoutManager llm = (LinearLayoutManager) rvMessage.getLayoutManager();
-                    llm.scrollToPositionWithOffset(pos, -y);
+                    View child = llm.getChildAt(pos);
+                    int dy = (child == null ? 0 : llm.getTopDecorationHeight(child));
+                    llm.scrollToPositionWithOffset(pos, -y - dy);
                 }
             });
         }
