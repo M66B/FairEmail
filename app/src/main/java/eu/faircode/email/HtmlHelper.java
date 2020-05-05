@@ -446,6 +446,7 @@ public class HtmlHelper {
                 .addAttributes(":all", "class")
                 .addAttributes(":all", "style")
                 .addAttributes("font", "size")
+                .addAttributes("div", "plain")
                 .removeTags("col", "colgroup", "thead", "tbody")
                 .removeAttributes("table", "width")
                 .removeAttributes("td", "colspan", "rowspan", "width")
@@ -731,6 +732,7 @@ public class HtmlHelper {
         for (Element pre : document.select("pre")) {
             pre.html(formatPre(pre.wholeText()));
             pre.tagName("div");
+            pre.attr("plain", "true");
         }
 
         // Code
@@ -1311,9 +1313,9 @@ public class HtmlHelper {
             for (int j = 0; j < line.length(); j++) {
                 char kar = line.charAt(j);
                 if (kar == '\t') {
-                    l.append('\u00A0');
+                    l.append(' ');
                     while (l.length() % TAB_SIZE != 0)
-                        l.append('\u00A0');
+                        l.append(' ');
                 } else
                     l.append(kar);
             }
@@ -1764,9 +1766,10 @@ public class HtmlHelper {
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements
         NodeTraversor.traverse(new NodeVisitor() {
             private Element element;
+            private int plain = 0;
             private List<TextNode> block = new ArrayList<>();
 
-            private String WHITESPACE = " \t\f";
+            private String WHITESPACE = " \t\f\u00A0";
             private String WHITESPACE_NL = WHITESPACE + "\r\n";
             private Pattern TRIM_WHITESPACE_NL =
                     Pattern.compile("[" + WHITESPACE + "]*\\r?\\n[" + WHITESPACE + "]*");
@@ -1781,10 +1784,13 @@ public class HtmlHelper {
 
             @Override
             public void head(Node node, int depth) {
-                if (node instanceof TextNode)
-                    block.add((TextNode) node);
-                else if (node instanceof Element) {
+                if (node instanceof TextNode) {
+                    if (plain == 0)
+                        block.add((TextNode) node);
+                } else if (node instanceof Element) {
                     element = (Element) node;
+                    if ("true".equals(element.attr("plain")))
+                        plain++;
                     if (BLOCK_START.contains(element.tagName())) {
                         normalizeText(block);
                         block.clear();
@@ -1796,6 +1802,8 @@ public class HtmlHelper {
             public void tail(Node node, int depth) {
                 if (node instanceof Element) {
                     element = (Element) node;
+                    if ("true".equals(element.attr("plain")))
+                        plain--;
                     if (BLOCK_END.contains(element.tagName())) {
                         normalizeText(block);
                         block.clear();
