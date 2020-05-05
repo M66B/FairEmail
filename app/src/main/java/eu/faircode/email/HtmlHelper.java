@@ -611,7 +611,7 @@ public class HtmlHelper {
                                 }
                                 if ("inline".equals(value) || "inline-block".equals(value)) {
                                     if (element.nextSibling() != null)
-                                        element.attr("inline", "true");
+                                        element.attr("x-inline", "true");
                                 }
                                 break;
 
@@ -937,7 +937,7 @@ public class HtmlHelper {
         }
 
         for (Element div : document.select("div")) {
-            boolean inline = Boolean.parseBoolean(div.attr("inline"));
+            boolean inline = Boolean.parseBoolean(div.attr("x-inline"));
             if (inline)
                 div.tagName("span");
         }
