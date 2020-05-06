@@ -2434,23 +2434,30 @@ public class FragmentCompose extends FragmentBase {
                 certs.add(chain[0]); // Allow sender to decrypt own message
 
                 for (Address address : addresses) {
+                    boolean found = false;
+                    Throwable cex = null;
                     String email = ((InternetAddress) address).getAddress();
-
                     List<EntityCertificate> acertificates = db.certificate().getCertificateByEmail(email);
-                    if (acertificates == null || acertificates.size() == 0)
-                        throw new IllegalArgumentException(
-                                context.getString(R.string.title_certificate_missing, email), new CertificateException());
-
-                    for (EntityCertificate acertificate : acertificates) {
-                        X509Certificate cert = acertificate.getCertificate();
-                        try {
-                            cert.checkValidity();
-                        } catch (CertificateException ex) {
-                            throw new IllegalArgumentException(
-                                    context.getString(R.string.title_certificate_invalid, email), ex);
+                    if (acertificates != null)
+                        for (EntityCertificate acertificate : acertificates) {
+                            X509Certificate cert = acertificate.getCertificate();
+                            try {
+                                cert.checkValidity();
+                                certs.add(cert);
+                                found = true;
+                            } catch (CertificateException ex) {
+                                Log.w(ex);
+                                cex = ex;
+                            }
                         }
-                        certs.add(cert);
-                    }
+
+                    if (!found)
+                        if (cex == null)
+                            throw new IllegalArgumentException(
+                                    context.getString(R.string.title_certificate_missing, email));
+                        else
+                            throw new IllegalArgumentException(
+                                    context.getString(R.string.title_certificate_invalid, email), cex);
                 }
 
                 // Build signature
