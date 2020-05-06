@@ -826,8 +826,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean inbox = EntityFolder.INBOX.equals(message.folderType);
             boolean outbox = EntityFolder.OUTBOX.equals(message.folderType);
             boolean outgoing = isOutgoing(message);
-            Address[] senders = (outgoing && (viewType != ViewType.THREAD || !threading) ? message.to : message.senders);
-            Address[] recipients = (outgoing && (viewType != ViewType.THREAD || !threading) ? message.from : message.recipients);
+            boolean reverse = (outgoing && (viewType != ViewType.THREAD || !threading) && !show_recipients);
+            Address[] senders = (reverse ? message.to : message.senders);
+            Address[] recipients = (reverse ? message.from : message.recipients);
             boolean authenticated =
                     !(Boolean.FALSE.equals(message.dkim) ||
                             Boolean.FALSE.equals(message.spf) ||
