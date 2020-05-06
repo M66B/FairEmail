@@ -1069,7 +1069,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
 
             // Contact info
-            ContactInfo[] info = ContactInfo.getCached(context, message.account, senders);
+            List<Address> all = new ArrayList<>();
+            if (senders != null)
+                all.addAll(Arrays.asList(senders));
+            if (show_recipients && recipients != null)
+                all.addAll(Arrays.asList(recipients));
+            ContactInfo[] info = ContactInfo.getCached(context, message.account, all.toArray(new Address[0]));
             if (info == null) {
                 if (taskContactInfo != null)
                     taskContactInfo.cancel(context);
@@ -1312,8 +1317,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (_senders != null || _recipients != null)
                 if (show_recipients && _recipients != null && _recipients.length > 0)
                     tvFrom.setText(context.getString(R.string.title_from_to,
-                            MessageHelper.formatAddresses(_senders, name_email, false),
-                            MessageHelper.formatAddresses(_recipients, name_email, false)));
+                            MessageHelper.formatAddresses(_senders == null ? senders : _senders, name_email, false),
+                            MessageHelper.formatAddresses(_recipients == null ? recipients : _recipients, name_email, false)));
                 else
                     tvFrom.setText(MessageHelper.formatAddresses(senders, name_email, false));
 
