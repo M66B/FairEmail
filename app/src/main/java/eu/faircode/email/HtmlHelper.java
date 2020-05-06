@@ -123,6 +123,7 @@ public class HtmlHelper {
     private static final int DEFAULT_FONT_SIZE_PT = 12; // points
     private static final float FONT_SMALL = 0.8f;
     private static final float FONT_LARGE = 1.25f;
+    private static final int GRAY_THRESHOLD = Math.round(255 * 0.2f);
     private static final float MIN_LUMINANCE = 0.5f;
     private static final int TAB_SIZE = 2;
     private static final int MAX_ALT = 250;
@@ -322,6 +323,8 @@ public class HtmlHelper {
         boolean display_hidden = prefs.getBoolean("display_hidden", false);
         boolean disable_tracking = prefs.getBoolean("disable_tracking", true);
         boolean parse_classes = prefs.getBoolean("parse_classes", false);
+
+        int textColorPrimary = Helper.resolveColor(context, android.R.attr.textColorPrimary);
 
         // https://chromium.googlesource.com/chromium/blink/+/master/Source/core/css/html.css
 
@@ -549,7 +552,7 @@ public class HtmlHelper {
                                 if (!text_color)
                                     continue;
 
-                                Integer color = parseColor(value, dark);
+                                Integer color = parseColor(value, dark, textColorPrimary);
                                 if (color == null)
                                     element.removeAttr("color");
                                 else {
@@ -1170,7 +1173,7 @@ public class HtmlHelper {
         }
     }
 
-    private static Integer parseColor(@NonNull String value, boolean dark) {
+    private static Integer parseColor(@NonNull String value, boolean dark, int textColorPrimary) {
         // https://developer.mozilla.org/en-US/docs/Web/CSS/color_value
         String c = value
                 .replace("null", "")
@@ -1240,7 +1243,12 @@ public class HtmlHelper {
         }
 
         if (color != null) {
-            if (dark || color != Color.BLACK)
+            int r = Color.red(color);
+            int g = Color.green(color);
+            int b = Color.blue(color);
+            if (r == g && r == b && (dark ? 255 - r : r) < GRAY_THRESHOLD)
+                color = textColorPrimary;
+            else
                 color = Helper.adjustLuminance(color, dark, MIN_LUMINANCE);
 
             color &= 0xFFFFFF;
