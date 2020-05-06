@@ -301,13 +301,35 @@
             app:layout_constraintTop_toTopOf="@id/ivAnswered" />
 
         <ImageView
+            android:id="@+id/ivForwarded"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/title_legend_answered"
+            android:padding="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivAnswered"
+            app:srcCompat="@drawable/baseline_forwarded_24" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvForwarded"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:text="@string/title_legend_forwarded"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivForwarded"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivForwarded"
+            app:layout_constraintTop_toTopOf="@id/ivForwarded" />
+
+        <ImageView
             android:id="@+id/ivPlain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/title_legend_plain_only"
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivAnswered"
+            app:layout_constraintTop_toBottomOf="@id/ivForwarded"
             app:srcCompat="@drawable/baseline_notes_24" />
 
         <eu.faircode.email.FixedTextView
