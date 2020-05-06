@@ -750,7 +750,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swNameEmail.setChecked(prefs.getBoolean("name_email", false));
         swPreferContact.setChecked(prefs.getBoolean("prefer_contact", false));
         swDistinguishContacts.setChecked(prefs.getBoolean("distinguish_contacts", false));
-        swShowRecipients.setChecked(prefs.getBoolean("show_recipients", true));
+        swShowRecipients.setChecked(prefs.getBoolean("show_recipients", false));
         swSubjectTop.setChecked(prefs.getBoolean("subject_top", false));
 
         int[] fontSizeValues = getResources().getIntArray(R.array.fontSizeValues);

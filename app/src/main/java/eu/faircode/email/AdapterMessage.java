@@ -4700,7 +4700,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.name_email = prefs.getBoolean("name_email", false);
         this.prefer_contact = prefs.getBoolean("prefer_contact", false);
         this.distinguish_contacts = prefs.getBoolean("distinguish_contacts", false);
-        this.show_recipients = prefs.getBoolean("show_recipients", true);
+        this.show_recipients = prefs.getBoolean("show_recipients", false);
 
         this.subject_top = prefs.getBoolean("subject_top", false);
 
