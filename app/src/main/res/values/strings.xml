@@ -234,7 +234,7 @@
     <string name="title_setup_theme_black_background">Black background</string>
     <string name="title_setup_theme_system">Follow system</string>
 
-    <string name="title_setup_theme_system_hint">This will automatically switch to light/dark on day/night, if supported by Android</string>
+    <string name="title_setup_theme_system_hint">This will automatically switch to a light/dark theme on day/night mode, if supported by Android</string>
 
     <string name="title_setup_advanced">Advanced</string>
 
