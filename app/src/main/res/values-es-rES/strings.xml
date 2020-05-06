@@ -79,7 +79,6 @@
     <string name="title_notification_alert">Alerta del servidor \'%1$s\'</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
-    <string name="title_from_to">%1$s &gt; %2$s</string>
     <string name="title_factor_minutes">%1$d minutos</string>
     <string name="menu_exit">Salir</string>
     <string name="menu_answers">Plantillas</string>

@@ -79,7 +79,6 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_notification_alert">\'%1$s\' szerver figyelmeztetés</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s + %2$d</string>
-    <string name="title_from_to">%1$s &gt; %2$s</string>
     <string name="title_factor_minutes">%1$d perc</string>
     <string name="menu_exit">Kilépés</string>
     <string name="menu_answers">Sablonok</string>
