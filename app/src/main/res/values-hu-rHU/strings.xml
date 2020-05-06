@@ -79,6 +79,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_notification_alert">\'%1$s\' szerver figyelmeztetés</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s + %2$d</string>
+    <string name="title_from_to">%1$s &gt; %2$s</string>
     <string name="title_factor_minutes">%1$d perc</string>
     <string name="menu_exit">Kilépés</string>
     <string name="menu_answers">Sablonok</string>
@@ -258,6 +259,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_caption_message_header">Üzenet fejléc</string>
     <string name="title_advanced_caption_message_body">Üzenet szövege</string>
     <string name="title_advanced_landscape">Két oszlopba rendezés tájkép módban</string>
+    <string name="title_advanced_landscape3">Navigációs menü mutatósa fekvő módban alapértelmezésként</string>
     <string name="title_advanced_startup">Megjelenítés a kezdőképernyőn</string>
     <string name="title_advanced_cards">A kártyás stílus használata a tabuláris stílus helyett</string>
     <string name="title_advanced_date_header">Csoportosítás dátum szerint</string>
@@ -277,6 +279,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_name_email">Nevek és email címek megjelenítése</string>
     <string name="title_advanced_replace_name">Preferálja a névjegyi neveket a küldői nevek helyett</string>
     <string name="title_advanced_distinguish_contacts">Húzza alá a küldőt, ha az egy ismert, korábban megcímzett helyi névjegy</string>
+    <string name="title_advanced_show_recipients">Címzettek mutatása az üzenet fejlécében</string>
     <string name="title_advanced_font_size_sender">Küldő betűmérete</string>
     <string name="title_advanced_font_size_subject">Tárgy betűmérete</string>
     <string name="title_advanced_subject_top">Tárgy megjelenítése a küldő fölött</string>
@@ -1002,6 +1005,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_legend_download_state">Letöltés állapota</string>
     <string name="title_legend_save">Mentés</string>
     <string name="title_legend_delete">Tőrlés</string>
+    <string name="title_legend_count">Mennyiség</string>
     <string name="title_legend_folder_type">Mappatípus</string>
     <string name="title_legend_enter">Megnyitás</string>
     <string name="title_legend_a">Archívum</string>

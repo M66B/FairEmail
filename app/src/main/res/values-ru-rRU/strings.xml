@@ -101,6 +101,7 @@
     <string name="title_notification_alert">\'%1$s\' предупреждение сервера</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
+    <string name="title_from_to">%1$s &gt; %2$s</string>
     <string name="title_factor_minutes">%1$d мин.</string>
     <string name="menu_exit">Выход</string>
     <string name="menu_answers">Шаблоны</string>
@@ -300,6 +301,7 @@
     <string name="title_advanced_name_email">Показывать имена и адреса электронной почты</string>
     <string name="title_advanced_replace_name">Предпочитать имя контакта вместо имени отправителя</string>
     <string name="title_advanced_distinguish_contacts">Подчёркивать отправителя, если он известен как локальный контакт \"кому\"</string>
+    <string name="title_advanced_show_recipients">Показывать получателей в заголовке сообщения</string>
     <string name="title_advanced_font_size_sender">Размера шрифта поля \"Отправитель\"</string>
     <string name="title_advanced_font_size_subject">Размера шрифта поля \"Тема\"</string>
     <string name="title_advanced_subject_top">Показывать тему выше отправителя</string>

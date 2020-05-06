@@ -67,6 +67,7 @@
     <string name="title_notification_alert">\'%1$s\' 服务器警告</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
+    <string name="title_from_to">%1$s &gt; %2$s</string>
     <string name="title_factor_minutes">%1$d分钟</string>
     <string name="menu_exit">退出</string>
     <string name="menu_answers">模板</string>
@@ -246,6 +247,7 @@
     <string name="title_advanced_caption_message_header">消息标题</string>
     <string name="title_advanced_caption_message_body">消息正文</string>
     <string name="title_advanced_landscape">在横屏模式下使用两列</string>
+    <string name="title_advanced_landscape3">默认在横屏模式下显示导航菜单</string>
     <string name="title_advanced_startup">在启动屏幕上显示</string>
     <string name="title_advanced_cards">使用卡片样式而不是表单样式</string>
     <string name="title_advanced_date_header">按日期分组</string>
@@ -265,6 +267,7 @@
     <string name="title_advanced_name_email">显示名称和电子邮件地址</string>
     <string name="title_advanced_replace_name">优先使用联系人姓名而不是发送名称</string>
     <string name="title_advanced_distinguish_contacts">下划线发件人(当其为本地发送给的联系人时)</string>
+    <string name="title_advanced_show_recipients">在消息头中显示收件人</string>
     <string name="title_advanced_font_size_sender">发件人字体大小</string>
     <string name="title_advanced_font_size_subject">邮件主题字体大小</string>
     <string name="title_advanced_subject_top">在发件人上方显示主题</string>

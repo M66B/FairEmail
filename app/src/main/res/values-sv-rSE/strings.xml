@@ -79,6 +79,7 @@
     <string name="title_notification_alert">\"%1$s\" servermeddelande</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
+    <string name="title_from_to">%1$s &gt; %2$s</string>
     <string name="title_factor_minutes">%1$d minuter</string>
     <string name="menu_exit">Avsluta</string>
     <string name="menu_answers">Mallar</string>
@@ -277,12 +278,13 @@
     <string name="title_advanced_name_email">Visa namn och e-postadresser</string>
     <string name="title_advanced_replace_name">Föredrar ett kontaktnamn över ett skickat namn</string>
     <string name="title_advanced_distinguish_contacts">Understryk avsändaren när avsändaren är känd som lokal \"till\" kontakt</string>
+    <string name="title_advanced_show_recipients">Visa mottagare i meddelandehuvudet</string>
     <string name="title_advanced_font_size_sender">Teckenstorlek på avsändare</string>
     <string name="title_advanced_font_size_subject">Teckenstorlek på ämnesrad</string>
     <string name="title_advanced_subject_top">Visa ämne ovanför avsändaren</string>
     <string name="title_advanced_subject_italic">Visa ämnet kursivt</string>
     <string name="title_advanced_subject_elipsed">När det behövs, förkorta ämnet</string>
-    <string name="title_advanced_keywords">Visa nyckelord i meddelandehuvudet (header)</string>
+    <string name="title_advanced_keywords">Visa nyckelord i sidhuvudet för meddelandet</string>
     <string name="title_advanced_flags">Visa stjärnor</string>
     <string name="title_advanced_flags_background">Visa färgad bakgrund istället för färgade stjärnor</string>
     <string name="title_advanced_preview">Förhandsvisning av meddelande</string>
@@ -502,7 +504,7 @@
     <string name="title_leave_on_device">Spara meddelanden på enheten</string>
     <string name="title_max_messages">Maximalt antal meddelanden att ladda ner (lämna tomt för alla)</string>
     <string name="title_keep_alive_interval">Keep-alive/frågeintervall (minuter)</string>
-    <string name="title_use_date">Använd datum och tid från header istället för mottagen tid för servern</string>
+    <string name="title_use_date">Använd datumet i sidhuvudet istället för mottagen tid på servern</string>
     <string name="title_related_identity">Lägg till relaterad identitet</string>
     <string name="title_check">Kontrollera</string>
     <string name="title_trust">Lita på servercertifikat med fingeravtryck %1$s</string>
@@ -624,7 +626,7 @@
     <string name="title_share">Dela</string>
     <string name="title_pin">Lägg till genväg</string>
     <string name="title_print">Skriv ut</string>
-    <string name="title_show_headers">Visa rubriker</string>
+    <string name="title_show_headers">Visa sidhuvuden</string>
     <string name="title_raw_save">Spara rent meddelande</string>
     <string name="title_raw_send">Skicka som bilaga</string>
     <string name="title_manage_keywords">Hantera nyckelord</string>
@@ -898,7 +900,7 @@
     <string name="title_rule_recipient">Mottagare innehåller</string>
     <string name="title_rule_subject">Ämnet innehåller</string>
     <string name="title_rule_attachments">Har bilagor</string>
-    <string name="title_rule_header">Rubriken innhåller</string>
+    <string name="title_rule_header">Sidhuvud innehåller</string>
     <string name="title_rule_time">Tid mellan</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">OCH</string>
@@ -917,7 +919,7 @@
     <string name="title_rule_execute">Verkställ nu</string>
     <string name="title_rule_applied">Berörda meddelanden: %1$d</string>
     <string name="title_rule_check">Kontrollera</string>
-    <string name="title_rule_no_headers">Rubrikvillkor kan inte kontrolleras</string>
+    <string name="title_rule_no_headers">Sidhuvudvillkor kan inte kontrolleras</string>
     <string name="title_rule_matched">Matchande meddelanden</string>
     <string name="title_rule_no_matches">Inga matchande meddelanden</string>
     <string name="title_legend_section_synchronize">Synkronisera</string>

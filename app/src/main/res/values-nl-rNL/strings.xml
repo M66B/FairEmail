@@ -79,6 +79,7 @@
     <string name="title_notification_alert">\'%1$s\' servermelding</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
+    <string name="title_from_to">%1$s &gt; %2$s</string>
     <string name="title_factor_minutes">%1$d minuten</string>
     <string name="menu_exit">Afsluiten</string>
     <string name="menu_answers">Sjablonen</string>
@@ -277,6 +278,7 @@
     <string name="title_advanced_name_email">Toon namen en e-mailadressen</string>
     <string name="title_advanced_replace_name">Geef de voorkeur aan een contactnaam boven een verzonden naam</string>
     <string name="title_advanced_distinguish_contacts">Onderstreep de afzender wanneer de afzender bekend staat als lokaal \'aan\'-contact</string>
+    <string name="title_advanced_show_recipients">Geadresseerden in berichtkop tonen</string>
     <string name="title_advanced_font_size_sender">Tekengrootte afzender</string>
     <string name="title_advanced_font_size_subject">Tekengrootte onderwerp</string>
     <string name="title_advanced_subject_top">Toon onderwerp boven afzender</string>

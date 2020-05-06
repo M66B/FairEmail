@@ -90,6 +90,7 @@
     <string name="title_notification_alert">Alertă server %1$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
+    <string name="title_from_to">%1$s &gt; %2$s</string>
     <string name="title_factor_minutes">%1$d minute</string>
     <string name="menu_exit">Ieșire</string>
     <string name="menu_answers">Șabloane</string>
@@ -267,6 +268,7 @@
     <string name="title_advanced_caption_message_header">Antet mesaj</string>
     <string name="title_advanced_caption_message_body">Corp mesaj</string>
     <string name="title_advanced_landscape">Folosește două coloane în modul portret</string>
+    <string name="title_advanced_landscape3">Afișează implicit meniul de navigare în modul peisaj</string>
     <string name="title_advanced_startup">Arată pe ecranul de start</string>
     <string name="title_advanced_cards">Folosește stilul carduri în loc de cel tabular</string>
     <string name="title_advanced_date_header">Grupare după dată</string>
@@ -286,6 +288,7 @@
     <string name="title_advanced_name_email">Arată nume și adrese de e-mail</string>
     <string name="title_advanced_replace_name">Preferă nume contact în loc de nume trimis</string>
     <string name="title_advanced_distinguish_contacts">Subliniază expeditorul atunci când este cunoscut drept un contact `către`</string>
+    <string name="title_advanced_show_recipients">Arată destinatarii în antetul mesajului</string>
     <string name="title_advanced_font_size_sender">Mărime font expeditor</string>
     <string name="title_advanced_font_size_subject">Mărime font subiect</string>
     <string name="title_advanced_subject_top">Arată subiectul desupra expeditorului</string>

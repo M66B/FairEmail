@@ -79,6 +79,7 @@
     <string name="title_notification_alert">Alerte serveur \'%1$s\'</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
+    <string name="title_from_to">%1$s &gt; %2$s</string>
     <string name="title_factor_minutes">%1$d minutes</string>
     <string name="menu_exit">Sortir</string>
     <string name="menu_answers">Modèles</string>
@@ -191,7 +192,7 @@
     <string name="title_setup_theme_reverse">Permuter les couleurs</string>
     <string name="title_setup_theme_dark">Sombre</string>
     <string name="title_setup_theme_black_background">Fond noir</string>
-    <string name="title_setup_theme_system">Suivre le thème</string>
+    <string name="title_setup_theme_system">Suivre le mode système</string>
     <string name="title_setup_theme_system_hint">Ceci basculera automatiquement en mode clair/sombre le jour/la nuit si pris en charge par Android</string>
     <string name="title_setup_advanced">Avancé</string>
     <string name="title_setup_options">Options</string>
@@ -278,6 +279,7 @@
     <string name="title_advanced_name_email">Afficher les noms et les adresses e-mail</string>
     <string name="title_advanced_replace_name">Préférer un nom de contact à un nom d\'envoi</string>
     <string name="title_advanced_distinguish_contacts">Souligner l\'expéditeur lorsqu\'il est connu comme contact local</string>
+    <string name="title_advanced_show_recipients">Afficher les destinataires dans l\'en-tête du message</string>
     <string name="title_advanced_font_size_sender">Taille de police du champ « Expéditeur »</string>
     <string name="title_advanced_font_size_subject">Taille de police du champ « Objet »</string>
     <string name="title_advanced_subject_top">Afficher l’objet au-dessus de l’expéditeur</string>
@@ -1028,8 +1030,8 @@
     <string name="title_hint_folder_actions">Appuyez longuement sur un dossier pour afficher les options, comme ajouter un dossier au menu de navigation pour un accès rapide</string>
     <string name="title_hint_folder_sync">Afin de limiter l’utilisation de la batterie et du réseau, les dossiers et messages ne seront pas tous synchronisés par défaut</string>
     <string name="title_hint_support">Si vous avez une question ou un problème, veuillez utiliser le menu « Assistance » pour obtenir de l’aide</string>
-    <string name="title_hint_message_actions">Balayer vers la gauche pour mettre à la corbeille ; balayer vers la droite pour archiver (si disponible) ; les actions de balayage peuvent être configurées dans les paramètres du compte</string>
-    <string name="title_hint_message_selection">Appuyez longuement sur un message pour activer la sélection multiple ; maintenez et faites glisser vers le haut ou vers le bas pour sélectionner davantage de messages</string>
+    <string name="title_hint_message_actions">Balayez vers la gauche pour mettre à la corbeille ; balayez vers la droite pour archiver (si disponible) ; les actions de balayage peuvent être configurées dans les paramètres du compte</string>
+    <string name="title_hint_message_selection">Appuyez longuement sur un message pour activer la sélection multiple ; maintenez et faites glisser vers le haut ou vers le bas pour sélectionner davantage de messages</string>
     <string name="title_hint_important">Important</string>
     <string name="title_hint_sync">Le téléchargement des messages peut prendre un certain temps selon la vitesse du fournisseur, de la connexion Internet, de l’appareil ainsi que du nombre de messages. Pendant le téléchargement des messages, l’application peut répondre plus lentement.</string>
     <string name="title_hint_battery">Étant donné que FairEmail reçoit toujours des messages par défaut, Android signalera FairEmail comme étant toujours actif. Ceci peut donner l’impression que FairEmail utilise de la batterie en permanence alors que ce n’est pas le cas.</string>
@@ -1215,7 +1217,7 @@
         <item>Cci</item>
     </string-array>
     <string-array name="biometricsTimeoutNames">
-        <item>1 minute</item>
+        <item>Une minute</item>
         <item>2 minutes</item>
         <item>5 minutes</item>
         <item>10 minutes</item>
