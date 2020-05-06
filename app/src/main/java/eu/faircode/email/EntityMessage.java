@@ -218,6 +218,14 @@ public class EntityMessage implements Serializable {
         return addresses.toArray(new Address[0]);
     }
 
+    boolean isForwarded() {
+        if (keywords != null)
+            for (String keyword : keywords)
+                if ("$Forwarded".equalsIgnoreCase(keyword))
+                    return true;
+        return false;
+    }
+
     String getNotificationChannelId() {
         if (from == null || from.length == 0)
             return null;

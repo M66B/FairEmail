@@ -325,6 +325,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageView ivFound;
         private ImageButton ibSnoozed;
         private ImageView ivAnswered;
+        private ImageView ivForwarded;
         private ImageView ivAttachments;
         private TextView tvSubject;
         private TextView tvKeywords;
@@ -472,6 +473,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivFound = itemView.findViewById(R.id.ivFound);
             ibSnoozed = itemView.findViewById(R.id.ibSnoozed);
             ivAnswered = itemView.findViewById(R.id.ivAnswered);
+            ivForwarded = itemView.findViewById(R.id.ivForwarded);
             ivAttachments = itemView.findViewById(R.id.ivAttachments);
             tvSubject = itemView.findViewById(subject_top ? R.id.tvFrom : R.id.tvSubject);
             tvKeywords = itemView.findViewById(R.id.tvKeywords);
@@ -804,6 +806,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivFound.setVisibility(View.GONE);
             ibSnoozed.setVisibility(View.GONE);
             ivAnswered.setVisibility(View.GONE);
+            ivForwarded.setVisibility(View.GONE);
             ivAttachments.setVisibility(View.GONE);
             tvSubject.setText(null);
             tvKeywords.setVisibility(View.GONE);
@@ -877,6 +880,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ivFound.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ibSnoozed.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ivAnswered.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
+                ivForwarded.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ivAttachments.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 tvSubject.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 tvKeywords.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
@@ -996,6 +1000,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             ibSnoozed.setVisibility(message.ui_snoozed == null ? View.GONE : View.VISIBLE);
             ivAnswered.setVisibility(message.ui_answered ? View.VISIBLE : View.GONE);
+            ivForwarded.setVisibility(message.isForwarded() ? View.VISIBLE : View.GONE);
             ivAttachments.setVisibility(message.attachments > 0 ? View.VISIBLE : View.GONE);
 
             if (viewType == ViewType.FOLDER)

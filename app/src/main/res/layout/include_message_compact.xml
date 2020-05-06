@@ -213,13 +213,24 @@
         app:srcCompat="@drawable/baseline_reply_24" />
 
     <ImageView
+        android:id="@+id/ivForwarded"
+        android:layout_width="21dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="6dp"
+        android:contentDescription="@string/title_legend_answered"
+        app:layout_constraintBottom_toBottomOf="@+id/tvSubject"
+        app:layout_constraintStart_toEndOf="@id/ivAnswered"
+        app:layout_constraintTop_toTopOf="@+id/tvSubject"
+        app:srcCompat="@drawable/baseline_forwarded_24" />
+
+    <ImageView
         android:id="@+id/ivAttachments"
         android:layout_width="21dp"
         android:layout_height="21dp"
         android:layout_marginStart="6dp"
         android:contentDescription="@string/title_legend_attachment"
         app:layout_constraintBottom_toBottomOf="@+id/tvSubject"
-        app:layout_constraintStart_toEndOf="@id/ivAnswered"
+        app:layout_constraintStart_toEndOf="@id/ivForwarded"
         app:layout_constraintTop_toTopOf="@+id/tvSubject"
         app:srcCompat="@drawable/baseline_attachment_24" />
 
