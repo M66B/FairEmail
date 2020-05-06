@@ -1114,7 +1114,7 @@ public class FragmentAccount extends FragmentBase {
                         account.keep_alive_failed = 0;
                         account.keep_alive_succeeded = 0;
                     }
-                    account.poll_interval = poll_interval;
+                    account.poll_interval = Math.max(1, poll_interval);
 
                     account.partial_fetch = partial_fetch;
                     account.ignore_size = ignore_size;

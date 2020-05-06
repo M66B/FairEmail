@@ -379,7 +379,7 @@ public class FragmentPop extends FragmentBase {
                     account.leave_deleted = leave_deleted;
                     account.leave_on_device = leave_device;
                     account.max_messages = (TextUtils.isEmpty(max) ? null : Integer.parseInt(max));
-                    account.poll_interval = Integer.parseInt(interval);
+                    account.poll_interval = Math.max(1, Integer.parseInt(interval));
 
                     if (!update)
                         account.created = now;
