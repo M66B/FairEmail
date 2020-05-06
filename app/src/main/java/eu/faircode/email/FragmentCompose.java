@@ -2528,7 +2528,7 @@ public class FragmentCompose extends FragmentBase {
                             public void onClick(View v) {
                                 startActivity(
                                         new Intent(getContext(), ActivitySetup.class)
-                                                .putExtra("tab", "privacy"));
+                                                .putExtra("tab", "encryption"));
                             }
                         });
                     snackbar.show();
