@@ -68,7 +68,7 @@ public interface DaoMessage {
             "   OR (NOT :found AND :type IS NULL AND folder.unified)" +
             "   OR (NOT :found AND folder.type = :type))" +
             "   THEN message.received ELSE 0 END) AS dummy" +
-            " FROM message" +
+            " FROM (SELECT * FROM message ORDER BY received DESC) AS message" + // group_concat
             " JOIN account_view AS account ON account.id = message.account" +
             " LEFT JOIN identity_view AS identity ON identity.id = message.identity" +
             " JOIN folder_view AS folder ON folder.id = message.folder" +
@@ -132,7 +132,7 @@ public interface DaoMessage {
             ", message.priority AS ui_priority" +
             ", message.importance AS ui_importance" +
             ", MAX(CASE WHEN folder.id = :folder THEN message.received ELSE 0 END) AS dummy" +
-            " FROM message" +
+            " FROM (SELECT * FROM message ORDER BY received DESC) AS message" + // group_concat
             " JOIN account_view AS account ON account.id = message.account" +
             " LEFT JOIN identity_view AS identity ON identity.id = message.identity" +
             " JOIN folder_view AS folder ON folder.id = message.folder" +
