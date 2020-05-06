@@ -1324,12 +1324,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             Address[] _senders = fillIn(senders, map);
             Address[] _recipients = fillIn(recipients, map);
             if (_senders != null || _recipients != null)
-                if (show_recipients && _recipients != null && _recipients.length > 0)
+                if (show_recipients && recipients != null && recipients.length > 0)
                     tvFrom.setText(context.getString(R.string.title_from_to,
                             MessageHelper.formatAddresses(_senders == null ? senders : _senders, name_email, false),
                             MessageHelper.formatAddresses(_recipients == null ? recipients : _recipients, name_email, false)));
                 else
-                    tvFrom.setText(MessageHelper.formatAddresses(senders, name_email, false));
+                    tvFrom.setText(MessageHelper.formatAddresses(_senders, name_email, false));
 
             if (distinguish_contacts) {
                 boolean known = false;
