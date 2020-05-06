@@ -827,8 +827,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean outbox = EntityFolder.OUTBOX.equals(message.folderType);
             boolean outgoing = isOutgoing(message);
             boolean reverse = (outgoing && (viewType != ViewType.THREAD || !threading) && !show_recipients);
-            Address[] senders = (reverse ? message.to : message.senders);
-            Address[] recipients = (reverse ? message.from : message.recipients);
+            Address[] senders = ContactInfo.fillIn(reverse ? message.to : message.senders, prefer_contact);
+            Address[] recipients = ContactInfo.fillIn(reverse ? message.from : message.recipients, prefer_contact);
             boolean authenticated =
                     !(Boolean.FALSE.equals(message.dkim) ||
                             Boolean.FALSE.equals(message.spf) ||
@@ -1321,16 +1321,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibAvatar.setVisibility(main == null || !main.hasPhoto() ? View.GONE : View.VISIBLE);
             }
 
-            Address[] _senders = fillIn(senders, map);
-            Address[] _recipients = fillIn(recipients, map);
-            if (_senders != null || _recipients != null)
-                if (show_recipients && recipients != null && recipients.length > 0)
-                    tvFrom.setText(context.getString(R.string.title_from_to,
-                            MessageHelper.formatAddresses(_senders == null ? senders : _senders, name_email, false),
-                            MessageHelper.formatAddresses(_recipients == null ? recipients : _recipients, name_email, false)));
-                else
-                    tvFrom.setText(MessageHelper.formatAddresses(_senders, name_email, false));
-
             if (distinguish_contacts) {
                 boolean known = false;
                 if (senders != null)
@@ -1345,40 +1335,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (known)
                     tvFrom.setPaintFlags(tvFrom.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
             }
-        }
-
-        private Address[] fillIn(Address[] addresses, Map<String, ContactInfo> map) {
-            if (addresses == null)
-                return null;
-
-            boolean updated = false;
-            List<Address> modified = new ArrayList<>();
-            for (Address a : addresses) {
-                String email = ((InternetAddress) a).getAddress();
-                if (TextUtils.isEmpty(email) || !map.containsKey(email))
-                    modified.add(a);
-                else {
-                    String displayName = map.get(email).getDisplayName();
-                    if (TextUtils.isEmpty(displayName))
-                        modified.add(a);
-                    else {
-                        String personal = ((InternetAddress) a).getPersonal();
-                        if (TextUtils.isEmpty(personal) ||
-                                (prefer_contact && !personal.equals(displayName)))
-                            try {
-                                modified.add(new InternetAddress(email, displayName, StandardCharsets.UTF_8.name()));
-                                updated = true;
-                            } catch (UnsupportedEncodingException ex) {
-                                Log.w(ex);
-                                modified.add(a);
-                            }
-                        else
-                            modified.add(a);
-                    }
-                }
-            }
-
-            return (updated ? modified.toArray(new Address[0]) : null);
         }
 
         private void bindExpandWarning(TupleMessageEx message, boolean expanded) {

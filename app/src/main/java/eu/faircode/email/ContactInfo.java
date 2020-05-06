@@ -31,14 +31,17 @@ import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
 import android.provider.ContactsContract;
+import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
@@ -57,7 +60,7 @@ public class ContactInfo {
     private boolean known;
     private long time;
 
-    private static Map<String, Uri> emailLookup = new ConcurrentHashMap<>();
+    private static Map<String, Lookup> emailLookup = new ConcurrentHashMap<>();
     private static final Map<String, ContactInfo> emailContactInfo = new HashMap<>();
     private static final Map<String, Avatar> emailGravatar = new HashMap<>();
     private static final ExecutorService executor =
@@ -311,21 +314,47 @@ public class ContactInfo {
         }
     }
 
-    static Uri getLookupUri(Context context, Address[] addresses) {
+    static Uri getLookupUri(Address[] addresses) {
         if (addresses == null)
             return null;
 
         for (Address from : addresses) {
             String email = ((InternetAddress) from).getAddress();
             if (emailLookup.containsKey(email))
-                return emailLookup.get(email);
+                return emailLookup.get(email).uri;
         }
 
         return null;
     }
 
-    private static Map<String, Uri> getEmailLookup(Context context) {
-        Map<String, Uri> all = new ConcurrentHashMap<>();
+    static Address[] fillIn(Address[] addresses, boolean prefer_contact) {
+        if (addresses == null)
+            return null;
+
+        Address[] modified = new Address[addresses.length];
+        for (int i = 0; i < addresses.length; i++) {
+            InternetAddress address = (InternetAddress) addresses[i];
+            String email = address.getAddress();
+            String personal = address.getPersonal();
+            if (!TextUtils.isEmpty(email) && emailLookup.containsKey(email)) {
+                Lookup lookup = emailLookup.get(email);
+                if (TextUtils.isEmpty(personal) ||
+                        (prefer_contact && !personal.equals(lookup.displayName)))
+                    personal = lookup.displayName;
+            }
+            try {
+                modified[i] = new InternetAddress(email, personal, StandardCharsets.UTF_8.name());
+            } catch (UnsupportedEncodingException ex) {
+                Log.e(ex);
+                modified[i] = address;
+            }
+        }
+
+        return modified;
+    }
+
+    private static Map<String, Lookup> getEmailLookup(Context context) {
+        Map<String, Lookup> all = new ConcurrentHashMap<>();
 
         if (Helper.hasPermission(context, Manifest.permission.READ_CONTACTS)) {
             Log.i("Reading email/uri");
@@ -335,7 +364,8 @@ public class ContactInfo {
                     new String[]{
                             ContactsContract.CommonDataKinds.Photo.CONTACT_ID,
                             ContactsContract.Contacts.LOOKUP_KEY,
-                            ContactsContract.CommonDataKinds.Email.ADDRESS
+                            ContactsContract.CommonDataKinds.Email.ADDRESS,
+                            ContactsContract.Contacts.DISPLAY_NAME
                     },
                     ContactsContract.CommonDataKinds.Email.ADDRESS + " <> ''",
                     null, null)) {
@@ -343,9 +373,12 @@ public class ContactInfo {
                     long contactId = cursor.getLong(0);
                     String lookupKey = cursor.getString(1);
                     String email = cursor.getString(2);
+                    String displayName = cursor.getString(3);
 
-                    Uri uri = ContactsContract.Contacts.getLookupUri(contactId, lookupKey);
-                    all.put(email, uri);
+                    Lookup lookup = new Lookup();
+                    lookup.uri = ContactsContract.Contacts.getLookupUri(contactId, lookupKey);
+                    lookup.displayName = displayName;
+                    all.put(email, lookup);
                 }
             } catch (Throwable ex) {
                 Log.e(ex);
@@ -354,6 +387,11 @@ public class ContactInfo {
 
         Log.i("Read email/uri=" + all.size());
         return all;
+    }
+
+    private static class Lookup {
+        Uri uri;
+        String displayName;
     }
 
     private static class Avatar {

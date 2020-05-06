@@ -1619,7 +1619,7 @@ class Core {
                         message.identity = (identity == null ? null : identity.id);
 
                         message.sender = MessageHelper.getSortKey(message.from);
-                        Uri lookupUri = ContactInfo.getLookupUri(context, message.from);
+                        Uri lookupUri = ContactInfo.getLookupUri(message.from);
                         message.avatar = (lookupUri == null ? null : lookupUri.toString());
 
                         // No MX check
@@ -2251,7 +2251,7 @@ class Core {
             message.identity = (identity == null ? null : identity.id);
 
             message.sender = MessageHelper.getSortKey(message.from);
-            Uri lookupUri = ContactInfo.getLookupUri(context, message.from);
+            Uri lookupUri = ContactInfo.getLookupUri(message.from);
             message.avatar = (lookupUri == null ? null : lookupUri.toString());
 
             boolean check_mx = prefs.getBoolean("check_mx", false);
@@ -2479,7 +2479,7 @@ class Core {
                 Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid + " browsed=" + browsed);
             }
 
-            Uri uri = ContactInfo.getLookupUri(context, message.from);
+            Uri uri = ContactInfo.getLookupUri(message.from);
             if (uri != null) {
                 String avatar = uri.toString();
                 if (!Objects.equals(message.avatar, avatar)) {
@@ -2656,7 +2656,7 @@ class Core {
         for (Address address : addresses) {
             final String email = ((InternetAddress) address).getAddress();
             final String name = ((InternetAddress) address).getPersonal();
-            final Uri avatar = ContactInfo.getLookupUri(context, new Address[]{address});
+            final Uri avatar = ContactInfo.getLookupUri(new Address[]{address});
 
             try {
                 db.beginTransaction();

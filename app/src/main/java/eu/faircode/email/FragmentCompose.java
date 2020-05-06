@@ -3450,7 +3450,7 @@ public class FragmentCompose extends FragmentBase {
                     data.draft.from = new InternetAddress[]{new InternetAddress(selected.email, selected.name)};
 
                     data.draft.sender = MessageHelper.getSortKey(data.draft.from);
-                    Uri lookupUri = ContactInfo.getLookupUri(context, data.draft.from);
+                    Uri lookupUri = ContactInfo.getLookupUri(data.draft.from);
                     data.draft.avatar = (lookupUri == null ? null : lookupUri.toString());
 
                     data.draft.received = new Date().getTime();
@@ -3935,7 +3935,7 @@ public class FragmentCompose extends FragmentBase {
                         draft.subject = subject;
                         draft.signature = signature;
                         draft.sender = MessageHelper.getSortKey(draft.from);
-                        Uri lookupUri = ContactInfo.getLookupUri(context, draft.from);
+                        Uri lookupUri = ContactInfo.getLookupUri(draft.from);
                         draft.avatar = (lookupUri == null ? null : lookupUri.toString());
                         db.message().updateMessage(draft);
                     }
