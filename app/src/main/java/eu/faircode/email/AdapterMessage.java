@@ -845,12 +845,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvFolder.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize * 0.9f);
                 tvPreview.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize * 0.9f);
 
-                int px = Math.round(fz_sender + fz_subject + (compact ? 0 : textSize * 0.9f));
-                ViewGroup.LayoutParams lparams = ibAvatar.getLayoutParams();
-                if (lparams.height != px) {
-                    lparams.width = px;
-                    lparams.height = px;
-                    ibAvatar.requestLayout();
+                if (avatars) {
+                    int px = Math.round(fz_sender + fz_subject + (compact ? 0 : textSize * 0.9f));
+                    ViewGroup.LayoutParams lparams = ibAvatar.getLayoutParams();
+                    if (lparams.height != px) {
+                        lparams.width = px;
+                        lparams.height = px;
+                        ibAvatar.requestLayout();
+                    }
                 }
             }
 
@@ -1297,24 +1299,26 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             for (ContactInfo c : info)
                 map.put(c.getEmailAddress(), c);
 
-            ContactInfo main = null;
-            if (senders != null && senders.length > 0) {
-                String email = ((InternetAddress) senders[0]).getAddress();
-                if (!TextUtils.isEmpty(email))
-                    main = map.get(email);
-            }
+            if (avatars) {
+                ContactInfo main = null;
+                if (senders != null && senders.length > 0) {
+                    String email = ((InternetAddress) senders[0]).getAddress();
+                    if (!TextUtils.isEmpty(email))
+                        main = map.get(email);
+                }
 
-            if (main == null) {
-                ibAvatar.setImageDrawable(null);
-                ibAvatar.setTag(null);
-            } else {
-                ibAvatar.setImageBitmap(main.getPhotoBitmap());
+                if (main == null) {
+                    ibAvatar.setImageDrawable(null);
+                    ibAvatar.setTag(null);
+                } else {
+                    ibAvatar.setImageBitmap(main.getPhotoBitmap());
 
-                Uri lookupUri = main.getLookupUri();
-                ibAvatar.setTag(lookupUri);
-                ibAvatar.setEnabled(lookupUri != null);
+                    Uri lookupUri = main.getLookupUri();
+                    ibAvatar.setTag(lookupUri);
+                    ibAvatar.setEnabled(lookupUri != null);
+                }
+                ibAvatar.setVisibility(main == null ? View.GONE : View.VISIBLE);
             }
-            ibAvatar.setVisibility(main == null ? View.GONE : View.VISIBLE);
 
             Address[] _senders = fillIn(senders, map);
             Address[] _recipients = fillIn(recipients, map);
