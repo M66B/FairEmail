@@ -107,6 +107,7 @@ public class EntityMessage implements Serializable {
     public String references;
     public String deliveredto;
     public String inreplyto;
+    public String wasforwardedfrom;
     public String thread; // compose = null
     public Integer priority;
     public Integer importance;

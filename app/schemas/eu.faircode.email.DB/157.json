@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 157,
-    "identityHash": "ee43818bdd3f33b94f82d802239e316f",
+    "identityHash": "cdf521da5900991a1a62bcd329430fc6",
     "entities": [
       {
         "tableName": "identity",
@@ -900,7 +900,7 @@
       },
       {
         "tableName": "message",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `account` INTEGER NOT NULL, `folder` INTEGER NOT NULL, `identity` INTEGER, `extra` TEXT, `replying` INTEGER, `forwarding` INTEGER, `uid` INTEGER, `msgid` TEXT, `hash` TEXT, `references` TEXT, `deliveredto` TEXT, `inreplyto` TEXT, `thread` TEXT, `priority` INTEGER, `importance` INTEGER, `receipt` INTEGER, `receipt_request` INTEGER, `receipt_to` TEXT, `dkim` INTEGER, `spf` INTEGER, `dmarc` INTEGER, `mx` INTEGER, `avatar` TEXT, `sender` TEXT, `submitter` TEXT, `from` TEXT, `to` TEXT, `cc` TEXT, `bcc` TEXT, `reply` TEXT, `list_post` TEXT, `unsubscribe` TEXT, `autocrypt` TEXT, `headers` TEXT, `raw` INTEGER, `subject` TEXT, `size` INTEGER, `total` INTEGER, `attachments` INTEGER NOT NULL, `content` INTEGER NOT NULL, `language` TEXT, `plain_only` INTEGER, `encrypt` INTEGER, `ui_encrypt` INTEGER, `preview` TEXT, `signature` INTEGER NOT NULL, `sent` INTEGER, `received` INTEGER NOT NULL, `stored` INTEGER NOT NULL, `seen` INTEGER NOT NULL, `answered` INTEGER NOT NULL, `flagged` INTEGER NOT NULL, `flags` TEXT, `keywords` TEXT, `notifying` INTEGER NOT NULL, `fts` INTEGER NOT NULL, `ui_seen` INTEGER NOT NULL, `ui_answered` INTEGER NOT NULL, `ui_flagged` INTEGER NOT NULL, `ui_hide` INTEGER NOT NULL, `ui_found` INTEGER NOT NULL, `ui_ignored` INTEGER NOT NULL, `ui_browsed` INTEGER NOT NULL, `ui_busy` INTEGER, `ui_snoozed` INTEGER, `color` INTEGER, `revision` INTEGER, `revisions` INTEGER, `warning` TEXT, `error` TEXT, `last_attempt` INTEGER, FOREIGN KEY(`account`) REFERENCES `account`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`folder`) REFERENCES `folder`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`identity`) REFERENCES `identity`(`id`) ON UPDATE NO ACTION ON DELETE SET NULL , FOREIGN KEY(`replying`) REFERENCES `message`(`id`) ON UPDATE NO ACTION ON DELETE SET NULL , FOREIGN KEY(`forwarding`) REFERENCES `message`(`id`) ON UPDATE NO ACTION ON DELETE SET NULL )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `account` INTEGER NOT NULL, `folder` INTEGER NOT NULL, `identity` INTEGER, `extra` TEXT, `replying` INTEGER, `forwarding` INTEGER, `uid` INTEGER, `msgid` TEXT, `hash` TEXT, `references` TEXT, `deliveredto` TEXT, `inreplyto` TEXT, `wasforwardedfrom` TEXT, `thread` TEXT, `priority` INTEGER, `importance` INTEGER, `receipt` INTEGER, `receipt_request` INTEGER, `receipt_to` TEXT, `dkim` INTEGER, `spf` INTEGER, `dmarc` INTEGER, `mx` INTEGER, `avatar` TEXT, `sender` TEXT, `submitter` TEXT, `from` TEXT, `to` TEXT, `cc` TEXT, `bcc` TEXT, `reply` TEXT, `list_post` TEXT, `unsubscribe` TEXT, `autocrypt` TEXT, `headers` TEXT, `raw` INTEGER, `subject` TEXT, `size` INTEGER, `total` INTEGER, `attachments` INTEGER NOT NULL, `content` INTEGER NOT NULL, `language` TEXT, `plain_only` INTEGER, `encrypt` INTEGER, `ui_encrypt` INTEGER, `preview` TEXT, `signature` INTEGER NOT NULL, `sent` INTEGER, `received` INTEGER NOT NULL, `stored` INTEGER NOT NULL, `seen` INTEGER NOT NULL, `answered` INTEGER NOT NULL, `flagged` INTEGER NOT NULL, `flags` TEXT, `keywords` TEXT, `notifying` INTEGER NOT NULL, `fts` INTEGER NOT NULL, `ui_seen` INTEGER NOT NULL, `ui_answered` INTEGER NOT NULL, `ui_flagged` INTEGER NOT NULL, `ui_hide` INTEGER NOT NULL, `ui_found` INTEGER NOT NULL, `ui_ignored` INTEGER NOT NULL, `ui_browsed` INTEGER NOT NULL, `ui_busy` INTEGER, `ui_snoozed` INTEGER, `color` INTEGER, `revision` INTEGER, `revisions` INTEGER, `warning` TEXT, `error` TEXT, `last_attempt` INTEGER, FOREIGN KEY(`account`) REFERENCES `account`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`folder`) REFERENCES `folder`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`identity`) REFERENCES `identity`(`id`) ON UPDATE NO ACTION ON DELETE SET NULL , FOREIGN KEY(`replying`) REFERENCES `message`(`id`) ON UPDATE NO ACTION ON DELETE SET NULL , FOREIGN KEY(`forwarding`) REFERENCES `message`(`id`) ON UPDATE NO ACTION ON DELETE SET NULL )",
         "fields": [
           {
             "fieldPath": "id",
@@ -977,6 +977,12 @@
           {
             "fieldPath": "inreplyto",
             "columnName": "inreplyto",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "wasforwardedfrom",
+            "columnName": "wasforwardedfrom",
             "affinity": "TEXT",
             "notNull": false
           },
@@ -2212,7 +2218,7 @@
     "views": [
       {
         "viewName": "account_view",
-        "createSql": "CREATE VIEW `${VIEW_NAME}` AS SELECT id, pop, name, color, synchronize, notify, auto_seen, leave_deleted, created FROM account"
+        "createSql": "CREATE VIEW `${VIEW_NAME}` AS SELECT id, pop, name, color, synchronize, notify, auto_seen, created FROM account"
       },
       {
         "viewName": "identity_view",
@@ -2225,7 +2231,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'ee43818bdd3f33b94f82d802239e316f')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'cdf521da5900991a1a62bcd329430fc6')"
     ]
   }
 }

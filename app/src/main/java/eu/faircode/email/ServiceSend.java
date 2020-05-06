@@ -521,6 +521,12 @@ public class ServiceSend extends ServiceBase {
                         EntityOperation.queue(this, replied, EntityOperation.ANSWERED, true);
                 }
 
+                if (message.wasforwardedfrom != null) {
+                    List<EntityMessage> forwardeds = db.message().getMessagesByMsgId(message.account, message.wasforwardedfrom);
+                    for (EntityMessage forwarded : forwardeds)
+                        EntityOperation.queue(this, forwarded, EntityOperation.KEYWORD, "$Forwarded", true);
+                }
+
                 // Check sent message
                 if (sid != null) {
                     // Check for sent orphans

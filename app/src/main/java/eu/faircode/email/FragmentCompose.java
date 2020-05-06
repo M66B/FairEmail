@@ -3231,8 +3231,11 @@ public class FragmentCompose extends FragmentBase {
                                 data.draft.receipt_request = false;
                             }
 
-                        } else if ("forward".equals(action) || "editasnew".equals(action))
+                        } else if ("forward".equals(action)) {
                             data.draft.thread = data.draft.msgid; // new thread
+                            data.draft.wasforwardedfrom = ref.msgid;
+                        } else if ("editasnew".equals(action))
+                            data.draft.thread = data.draft.msgid;
 
                         String subject = (ref.subject == null ? "" : ref.subject);
                         if ("reply".equals(action) || "reply_all".equals(action)) {
