@@ -1308,7 +1308,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         main = map.get(email);
                 }
 
-                if (main == null) {
+                if (main == null || !main.hasPhoto()) {
                     ibAvatar.setImageDrawable(null);
                     ibAvatar.setTag(null);
                 } else {
@@ -1318,7 +1318,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibAvatar.setTag(lookupUri);
                     ibAvatar.setEnabled(lookupUri != null);
                 }
-                ibAvatar.setVisibility(main == null ? View.GONE : View.VISIBLE);
+                ibAvatar.setVisibility(main == null || !main.hasPhoto() ? View.GONE : View.VISIBLE);
             }
 
             Address[] _senders = fillIn(senders, map);
