@@ -1512,7 +1512,7 @@ class Core {
             db.folder().setFolderSyncState(folder.id, "syncing");
 
             Map<String, String> caps = istore.capabilities();
-            Log.i(folder.name + "POP capabilities= " + caps.keySet());
+            Log.i(folder.name + " POP capabilities= " + caps.keySet());
 
             Message[] imessages = ifolder.getMessages();
             Log.i(folder.name + " POP messages=" + imessages.length);
@@ -1532,35 +1532,15 @@ class Core {
             List<String> existing = db.message().getMsgIds(folder.id);
             Log.i(folder.name + " POP existing=" + existing.size());
 
-            int count = 0;
             for (Message imessage : imessages)
                 try {
                     if (!state.isRunning())
                         return;
 
                     MessageHelper helper = new MessageHelper((MimeMessage) imessage);
-
-                    String msgid;
-                    if (caps.containsKey("UIDL")) {
-                        String uid = ifolder.getUID(imessage);
-                        if (existing.contains(uid))
-                            msgid = uid;
-                        else {
-                            msgid = helper.getMessageID();
-                            if (existing.contains(msgid)) {
-                                List<EntityMessage> messages = db.message().getMessagesByMsgId(account.id, msgid);
-                                if (messages.size() == 1) {
-                                    messages.get(0).msgid = uid;
-                                    db.message().updateMessage(messages.get(0));
-                                    existing.remove(msgid);
-                                    existing.add(uid);
-                                    msgid = uid;
-                                    Log.w(folder.name + " POP update uid=" + uid + " msgid=" + msgid);
-                                }
-                            }
-                        }
-                    } else
-                        msgid = helper.getMessageID();
+                    String msgid = caps.containsKey("UIDL")
+                            ? ifolder.getUID(imessage)
+                            : helper.getMessageID();
 
                     if (TextUtils.isEmpty(msgid)) {
                         Log.w(folder.name + " POP no message ID");
@@ -1573,117 +1553,119 @@ class Core {
                         continue;
                     }
 
-                    Log.i(folder.name + " POP sync=" + msgid);
-
-                    Long sent = helper.getSent();
-                    if (sent == null)
-                        sent = 0L;
-
-                    String authentication = helper.getAuthentication();
-                    MessageHelper.MessageParts parts = helper.getMessageParts(context);
-
-                    EntityMessage message = new EntityMessage();
-                    message.account = folder.account;
-                    message.folder = folder.id;
-                    message.uid = null;
-
-                    message.msgid = helper.getMessageID();
-                    message.hash = helper.getHash();
-                    message.references = TextUtils.join(" ", helper.getReferences());
-                    message.inreplyto = helper.getInReplyTo();
-                    message.deliveredto = helper.getDeliveredTo();
-                    message.thread = helper.getThreadId(context, account.id, 0);
-                    message.priority = helper.getPriority();
-                    message.receipt_request = helper.getReceiptRequested();
-                    message.receipt_to = helper.getReceiptTo();
-                    message.dkim = MessageHelper.getAuthentication("dkim", authentication);
-                    message.spf = MessageHelper.getAuthentication("spf", authentication);
-                    message.dmarc = MessageHelper.getAuthentication("dmarc", authentication);
-                    message.submitter = helper.getSender();
-                    message.from = helper.getFrom();
-                    message.to = helper.getTo();
-                    message.cc = helper.getCc();
-                    message.bcc = helper.getBcc();
-                    message.reply = helper.getReply();
-                    message.list_post = helper.getListPost();
-                    message.unsubscribe = helper.getListUnsubscribe();
-                    message.subject = helper.getSubject();
-                    message.size = parts.getBodySize();
-                    message.total = helper.getSize();
-                    message.content = false;
-                    message.encrypt = parts.getEncryption();
-                    message.ui_encrypt = message.encrypt;
-                    message.received = sent;
-                    message.sent = sent;
-                    message.seen = false;
-                    message.answered = false;
-                    message.flagged = false;
-                    message.flags = null;
-                    message.keywords = new String[0];
-                    message.ui_seen = false;
-                    message.ui_answered = false;
-                    message.ui_flagged = false;
-                    message.ui_hide = false;
-                    message.ui_found = false;
-                    message.ui_ignored = false;
-                    message.ui_browsed = false;
-
-                    if (MessageHelper.equal(message.submitter, message.from))
-                        message.submitter = null;
-
-                    if (message.size == null && message.total != null)
-                        message.size = message.total;
-
-                    EntityIdentity identity = matchIdentity(context, folder, message);
-                    message.identity = (identity == null ? null : identity.id);
-
-                    message.sender = MessageHelper.getSortKey(message.from);
-                    Uri lookupUri = ContactInfo.getLookupUri(context, message.from);
-                    message.avatar = (lookupUri == null ? null : lookupUri.toString());
-
-                    // No MX check
-
                     try {
-                        db.beginTransaction();
+                        Log.i(folder.name + " POP sync=" + msgid);
 
-                        message.id = db.message().insertMessage(message);
-                        Log.i(folder.name + " added id=" + message.id + " uid=" + message.uid);
+                        Long sent = helper.getSent();
+                        if (sent == null)
+                            sent = 0L;
 
-                        int sequence = 1;
-                        for (EntityAttachment attachment : parts.getAttachments()) {
-                            Log.i(folder.name + " attachment seq=" + sequence +
-                                    " name=" + attachment.name + " type=" + attachment.type +
-                                    " cid=" + attachment.cid + " pgp=" + attachment.encryption +
-                                    " size=" + attachment.size);
-                            attachment.message = message.id;
-                            attachment.sequence = sequence++;
-                            attachment.id = db.attachment().insertAttachment(attachment);
+                        String authentication = helper.getAuthentication();
+                        MessageHelper.MessageParts parts = helper.getMessageParts(context);
+
+                        EntityMessage message = new EntityMessage();
+                        message.account = folder.account;
+                        message.folder = folder.id;
+                        message.uid = null;
+
+                        message.msgid = helper.getMessageID();
+                        message.hash = helper.getHash();
+                        message.references = TextUtils.join(" ", helper.getReferences());
+                        message.inreplyto = helper.getInReplyTo();
+                        message.deliveredto = helper.getDeliveredTo();
+                        message.thread = helper.getThreadId(context, account.id, 0);
+                        message.priority = helper.getPriority();
+                        message.receipt_request = helper.getReceiptRequested();
+                        message.receipt_to = helper.getReceiptTo();
+                        message.dkim = MessageHelper.getAuthentication("dkim", authentication);
+                        message.spf = MessageHelper.getAuthentication("spf", authentication);
+                        message.dmarc = MessageHelper.getAuthentication("dmarc", authentication);
+                        message.submitter = helper.getSender();
+                        message.from = helper.getFrom();
+                        message.to = helper.getTo();
+                        message.cc = helper.getCc();
+                        message.bcc = helper.getBcc();
+                        message.reply = helper.getReply();
+                        message.list_post = helper.getListPost();
+                        message.unsubscribe = helper.getListUnsubscribe();
+                        message.subject = helper.getSubject();
+                        message.size = parts.getBodySize();
+                        message.total = helper.getSize();
+                        message.content = false;
+                        message.encrypt = parts.getEncryption();
+                        message.ui_encrypt = message.encrypt;
+                        message.received = sent;
+                        message.sent = sent;
+                        message.seen = false;
+                        message.answered = false;
+                        message.flagged = false;
+                        message.flags = null;
+                        message.keywords = new String[0];
+                        message.ui_seen = false;
+                        message.ui_answered = false;
+                        message.ui_flagged = false;
+                        message.ui_hide = false;
+                        message.ui_found = false;
+                        message.ui_ignored = false;
+                        message.ui_browsed = false;
+
+                        if (MessageHelper.equal(message.submitter, message.from))
+                            message.submitter = null;
+
+                        if (message.size == null && message.total != null)
+                            message.size = message.total;
+
+                        EntityIdentity identity = matchIdentity(context, folder, message);
+                        message.identity = (identity == null ? null : identity.id);
+
+                        message.sender = MessageHelper.getSortKey(message.from);
+                        Uri lookupUri = ContactInfo.getLookupUri(context, message.from);
+                        message.avatar = (lookupUri == null ? null : lookupUri.toString());
+
+                        // No MX check
+
+                        try {
+                            db.beginTransaction();
+
+                            message.id = db.message().insertMessage(message);
+                            Log.i(folder.name + " added id=" + message.id + " uid=" + message.uid);
+
+                            int sequence = 1;
+                            for (EntityAttachment attachment : parts.getAttachments()) {
+                                Log.i(folder.name + " attachment seq=" + sequence +
+                                        " name=" + attachment.name + " type=" + attachment.type +
+                                        " cid=" + attachment.cid + " pgp=" + attachment.encryption +
+                                        " size=" + attachment.size);
+                                attachment.message = message.id;
+                                attachment.sequence = sequence++;
+                                attachment.id = db.attachment().insertAttachment(attachment);
+                            }
+
+                            // No rules
+
+                            db.setTransactionSuccessful();
+                        } finally {
+                            db.endTransaction();
                         }
 
-                        // No rules
+                        String body = parts.getHtml(context);
+                        File file = message.getFile(context);
+                        Helper.writeText(file, body);
+                        db.message().setMessageContent(message.id,
+                                true,
+                                HtmlHelper.getLanguage(context, body),
+                                parts.isPlainOnly(),
+                                HtmlHelper.getPreview(body),
+                                parts.getWarnings(message.warning));
 
-                        db.setTransactionSuccessful();
-                    } finally {
-                        db.endTransaction();
+                        for (EntityAttachment attachment : parts.getAttachments())
+                            parts.downloadAttachment(context, attachment);
+
+                        if (message.received > account.created)
+                            updateContactInfo(context, folder, message);
+                    } catch (Throwable ex) {
+                        db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
                     }
-
-                    String body = parts.getHtml(context);
-                    File file = message.getFile(context);
-                    Helper.writeText(file, body);
-                    db.message().setMessageContent(message.id,
-                            true,
-                            HtmlHelper.getLanguage(context, body),
-                            parts.isPlainOnly(),
-                            HtmlHelper.getPreview(body),
-                            parts.getWarnings(message.warning));
-
-                    for (EntityAttachment attachment : parts.getAttachments())
-                        parts.downloadAttachment(context, attachment);
-
-                    if (message.received > account.created)
-                        updateContactInfo(context, folder, message);
-                } catch (Throwable ex) {
-                    db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
                 } finally {
                     ((POP3Message) imessage).invalidate(true);
                 }
@@ -1694,7 +1676,7 @@ class Core {
                     db.message().deleteMessage(folder.id, msgid);
                 }
 
-            Log.i(folder.name + " done");
+            Log.i(folder.name + " POP done");
         } finally {
             db.folder().setFolderSyncState(folder.id, null);
         }
