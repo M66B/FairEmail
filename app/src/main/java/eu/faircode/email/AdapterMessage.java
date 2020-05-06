@@ -2060,9 +2060,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     !EntityMessage.SMIME_SIGNENCRYPT.equals(message.encrypt))
                             ? R.drawable.baseline_lock_24 : R.drawable.baseline_lock_open_24
                     );
-                    ibDecrypt.setVisibility(args.getBoolean("inline_encrypted") ||
-                            EntityMessage.PGP_SIGNENCRYPT.equals(message.ui_encrypt) ||
-                            EntityMessage.SMIME_SIGNENCRYPT.equals(message.ui_encrypt)
+                    ibDecrypt.setVisibility(!EntityFolder.OUTBOX.equals(message.folderType) &&
+                            (args.getBoolean("inline_encrypted") ||
+                                    EntityMessage.PGP_SIGNENCRYPT.equals(message.ui_encrypt) ||
+                                    EntityMessage.SMIME_SIGNENCRYPT.equals(message.ui_encrypt))
                             ? View.VISIBLE : View.GONE);
 
                     boolean signed_data = args.getBoolean("signed_data");
