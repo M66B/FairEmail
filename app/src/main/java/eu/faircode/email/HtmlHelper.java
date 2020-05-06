@@ -127,7 +127,7 @@ public class HtmlHelper {
     private static final int TAB_SIZE = 2;
     private static final int MAX_ALT = 250;
     private static final int MAX_AUTO_LINK = 250;
-    private static final int MAX_FORMAT_TEXT_SIZE = 50 * 1024; // characters
+    private static final int MAX_FORMAT_TEXT_SIZE = 200 * 1024; // characters
     private static final int MAX_FULL_TEXT_SIZE = 1024 * 1024; // characters
     private static final int TRACKING_PIXEL_SURFACE = 25; // pixels
     private static final float[] HEADING_SIZES = {1.5f, 1.4f, 1.3f, 1.2f, 1.1f, 1f};
