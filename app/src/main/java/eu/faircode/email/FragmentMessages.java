@@ -1949,7 +1949,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                     FragmentDialogColor fragment = new FragmentDialogColor();
                     fragment.setArguments(args);
-                    fragment.setTargetFragment(FragmentMessages.this, FragmentMessages.REQUEST_MESSAGE_COLOR);
+                    fragment.setTargetFragment(FragmentMessages.this, REQUEST_MESSAGE_COLOR);
                     fragment.show(getParentFragmentManager(), "message:color");
                 }
             });
@@ -1992,7 +1992,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             FragmentDialogAsk ask = new FragmentDialogAsk();
             ask.setArguments(args);
-            ask.setTargetFragment(FragmentMessages.this, FragmentMessages.REQUEST_MESSAGE_DELETE);
+            ask.setTargetFragment(FragmentMessages.this, REQUEST_MESSAGE_DELETE);
             ask.show(getParentFragmentManager(), "swipe:delete");
         }
 
@@ -2924,7 +2924,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         FragmentDialogFolder fragment = new FragmentDialogFolder();
         fragment.setArguments(args);
-        fragment.setTargetFragment(FragmentMessages.this, FragmentMessages.REQUEST_MESSAGES_MOVE);
+        fragment.setTargetFragment(FragmentMessages.this, REQUEST_MESSAGES_MOVE);
         fragment.show(getParentFragmentManager(), "messages:move");
     }
 
@@ -3664,7 +3664,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         FragmentDialogAsk ask = new FragmentDialogAsk();
         ask.setArguments(aargs);
-        ask.setTargetFragment(this, FragmentMessages.REQUEST_EMPTY_FOLDER);
+        ask.setTargetFragment(this, REQUEST_EMPTY_FOLDER);
         ask.show(getParentFragmentManager(), "messages:empty");
     }
 
