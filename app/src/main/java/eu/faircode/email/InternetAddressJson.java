@@ -106,7 +106,7 @@ public class InternetAddressJson extends InternetAddress {
         if (this.json != null) {
             try {
                 JSONObject jaddress = new JSONObject("{" + this.json + "}");
-                String address = jaddress.getString("address");
+                String address = jaddress.optString("address");
                 String personal = jaddress.optString("personal");
                 if (!TextUtils.isEmpty(address))
                     super.setAddress(address);
