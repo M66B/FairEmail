@@ -350,7 +350,7 @@
     <string name="title_advanced_notify_action_snooze">Reporter</string>
     <string name="title_advanced_notify_remove">Supprimer les notifications de nouveaux messages en tapant dessus</string>
     <string name="title_advanced_notify_clear">Supprimer les notifications de nouveaux messages lors de la visualisation de la liste des messages</string>
-    <string name="title_advanced_wearable_preview">Envoyer uniquement des notifications avec un aperçu de message aux appareils connectés</string>
+    <string name="title_advanced_wearable_preview">Envoyer uniquement des notifications avec un aperçu de message aux appareils portables</string>
     <string name="title_advanced_biometrics_notify">Afficher le contenu des notifications lors de l’utilisation de l’authentification biométrique</string>
     <string name="title_advanced_light">Utiliser le voyant lumineux pour les notifications</string>
     <string name="title_advanced_sound">Sélectionner le son pour les notifications</string>
@@ -443,8 +443,8 @@
     <string name="title_advanced_notify_manage_hint">Appuyez sur le nom d’un canal pour définir ses propriétés</string>
     <string name="title_advanced_notify_manage_default_hint">Pour définir le son par défaut, etc</string>
     <string name="title_advanced_notify_manage_service_hint">Pour désactiver la notification permanente</string>
-    <string name="title_advanced_notify_preview_all_hint">Pour les appareils connectés qui peuvent afficher le texte complet (jusqu\'à 5 000 caractères)</string>
-    <string name="title_advanced_wearable_hint">Les notifications sont envoyées à un appareil connecté seulement après le téléchargement du texte du message</string>
+    <string name="title_advanced_notify_preview_all_hint">Pour les appareils portables qui peuvent afficher le texte complet (jusqu\'à 5 000 caractères)</string>
+    <string name="title_advanced_wearable_hint">Les notifications sont envoyées à un appareil portable seulement après le téléchargement du texte du message</string>
     <string name="title_advanced_move_hint">Le dossier de destination peut être configuré dans les paramètres du compte</string>
     <string name="title_advanced_notify_no_grouping">Cette version d\'Android ne prend pas en charge le regroupement de notifications</string>
     <string name="title_advanced_notify_no_channels">Cette version d’Android ne prend pas en charge les canaux de notification</string>
@@ -972,6 +972,7 @@
     <string name="title_legend_snoozed">Est reporté</string>
     <string name="title_legend_browsed">Est parcouru ou recherché</string>
     <string name="title_legend_answered">A reçu une réponse</string>
+    <string name="title_legend_forwarded">A été transféré</string>
     <string name="title_legend_plain_only">Texte brut seulement</string>
     <string name="title_legend_receipt">Une confirmation a été demandée</string>
     <string name="title_legend_attachment">A une pièce jointe</string>

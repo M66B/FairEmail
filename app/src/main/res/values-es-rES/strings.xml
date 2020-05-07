@@ -79,6 +79,7 @@
     <string name="title_notification_alert">Alerta del servidor \'%1$s\'</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
+    <string name="title_from_to">%1$s ➤ %2$s</string>
     <string name="title_factor_minutes">%1$d minutos</string>
     <string name="menu_exit">Salir</string>
     <string name="menu_answers">Plantillas</string>
@@ -972,6 +973,7 @@
     <string name="title_legend_snoozed">Está postergado</string>
     <string name="title_legend_browsed">Está navegado o buscado</string>
     <string name="title_legend_answered">Ha sido respondido</string>
+    <string name="title_legend_forwarded">Fue reenviado</string>
     <string name="title_legend_plain_only">Sólo es texto plano</string>
     <string name="title_legend_receipt">Se solicitó confirmación de lectura</string>
     <string name="title_legend_attachment">Tiene adjunto</string>

@@ -971,6 +971,7 @@
     <string name="title_legend_snoozed">Is gesluimerd</string>
     <string name="title_legend_browsed">Is gebladerd of gezocht</string>
     <string name="title_legend_answered">Is beantwoord</string>
+    <string name="title_legend_forwarded">Is doorgestuurd</string>
     <string name="title_legend_plain_only">Is alleen platte tekst</string>
     <string name="title_legend_receipt">Ontvangstbevestiging werd gevraagd</string>
     <string name="title_legend_attachment">Heeft bijlagen</string>

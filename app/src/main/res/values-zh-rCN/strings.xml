@@ -960,6 +960,7 @@
     <string name="title_legend_snoozed">已打盹</string>
     <string name="title_legend_browsed">已浏览或搜索</string>
     <string name="title_legend_answered">已回复</string>
+    <string name="title_legend_forwarded">已转发的</string>
     <string name="title_legend_plain_only">仅纯文本</string>
     <string name="title_legend_receipt">请求接收</string>
     <string name="title_legend_attachment">有附件</string>

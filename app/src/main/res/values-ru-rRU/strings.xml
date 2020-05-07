@@ -101,6 +101,7 @@
     <string name="title_notification_alert">\'%1$s\' предупреждение сервера</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
+    <string name="title_from_to">%1$s ➤ %2$s</string>
     <string name="title_factor_minutes">%1$d мин.</string>
     <string name="menu_exit">Выход</string>
     <string name="menu_answers">Шаблоны</string>
@@ -993,6 +994,7 @@
     <string name="title_legend_snoozed">Отложено</string>
     <string name="title_legend_browsed">Сообщение на сервере</string>
     <string name="title_legend_answered">Был дан ответ</string>
+    <string name="title_legend_forwarded">Было переслано</string>
     <string name="title_legend_plain_only">Только простой текст</string>
     <string name="title_legend_receipt">Запрошено уведомление</string>
     <string name="title_legend_attachment">Имеет вложение</string>

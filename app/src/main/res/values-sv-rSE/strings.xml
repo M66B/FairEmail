@@ -971,6 +971,7 @@
     <string name="title_legend_snoozed">Slumrar</string>
     <string name="title_legend_browsed">Bläddrat eller sökt</string>
     <string name="title_legend_answered">Har besvarats</string>
+    <string name="title_legend_forwarded">Vidarebefordrades</string>
     <string name="title_legend_plain_only">Är endast oformaterad text</string>
     <string name="title_legend_receipt">Kvitto begärdes</string>
     <string name="title_legend_attachment">Har bilaga</string>

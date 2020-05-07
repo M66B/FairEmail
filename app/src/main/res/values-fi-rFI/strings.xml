@@ -78,6 +78,7 @@
     <string name="title_notification_alert">Palvelimen \'%1$s\' hälytys</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
+    <string name="title_from_to">%1$s ➤ %2$s</string>
     <string name="title_factor_minutes">%1$d minuuttia</string>
     <string name="menu_exit">Poistu</string>
     <string name="menu_answers">Viestipohjat</string>
@@ -276,6 +277,7 @@
     <string name="title_advanced_name_email">Näytä nimet ja sähköpostiosoitteet</string>
     <string name="title_advanced_replace_name">Käytä ensisijaisesti yhteystiedon nimeä lähettäjän nimen sijaan</string>
     <string name="title_advanced_distinguish_contacts">Alleviivaa lähettäjä tämän ollessa paikallisesti tunnettu vastaanottaja</string>
+    <string name="title_advanced_show_recipients">Näytä vastaanottajat viestin tunnistetiedoissa</string>
     <string name="title_advanced_font_size_sender">Viestin lähettäjän kirjaisimen koko</string>
     <string name="title_advanced_font_size_subject">Viestin aiheen kirjaisimen koko</string>
     <string name="title_advanced_subject_top">Näytä aihe lähettäjän yläpuolella</string>
@@ -968,6 +970,7 @@
     <string name="title_legend_snoozed">Torkutettu</string>
     <string name="title_legend_browsed">Selattu tai haettu</string>
     <string name="title_legend_answered">Vastattu</string>
+    <string name="title_legend_forwarded">Edelleenlähetetty</string>
     <string name="title_legend_plain_only">Muotoilematon teksti</string>
     <string name="title_legend_receipt">Kuittaus pyydetty</string>
     <string name="title_legend_attachment">Sisältää liitteen</string>
