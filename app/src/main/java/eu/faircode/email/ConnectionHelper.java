@@ -186,17 +186,16 @@ public class ConnectionHelper {
         if (cm == null)
             return null;
 
-        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.M) {
-            NetworkInfo ani = cm.getActiveNetworkInfo();
-            if (ani == null || !ani.isConnected())
-                return null;
-            return cm.isActiveNetworkMetered();
-        }
-
-        Network active = cm.getActiveNetwork();
+        Network active = null;
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M)
+            active = cm.getActiveNetwork();
         if (active == null) {
-            Log.i("isMetered: no active network");
-            return null;
+            NetworkInfo ani = cm.getActiveNetworkInfo();
+            if (ani == null || !ani.isConnected()) {
+                Log.i("isMetered: no active network info=" + ani);
+                return null;
+            }
+            return cm.isActiveNetworkMetered();
         }
 
         // onLost [... state: DISCONNECTED/DISCONNECTED ... available: true]
