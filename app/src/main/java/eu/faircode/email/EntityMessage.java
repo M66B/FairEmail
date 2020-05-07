@@ -314,6 +314,7 @@ public class EntityMessage implements Serializable {
                     Objects.equals(this.references, other.references) &&
                     Objects.equals(this.deliveredto, other.deliveredto) &&
                     Objects.equals(this.inreplyto, other.inreplyto) &&
+                    Objects.equals(this.wasforwardedfrom, other.wasforwardedfrom) &&
                     Objects.equals(this.thread, other.thread) &&
                     Objects.equals(this.priority, other.priority) &&
                     Objects.equals(this.receipt, other.receipt) &&
