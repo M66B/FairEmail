@@ -1635,24 +1635,19 @@ public abstract class DB extends RoomDatabase {
 
         @TypeConverter
         public static Address[] decodeAddresses(String json) {
-            try {
-                if (TextUtils.isEmpty(json))
-                    return null;
-                else if (json.startsWith("[[")) {
-                    // [[{"address":"...","personal":"..."}],[{... ...}]]
-                    // There is a slim chance somebody uses the split pattern in an email address
-                    String[] parts = json.substring(3, json.length() - 3).split(JSPLIT);
-                    Address[] addresses = new Address[parts.length];
-                    for (int i = 0; i < parts.length; i++)
-                        addresses[i] = InternetAddressJson.from(parts[i]);
-                    return addresses;
-                } else {
-                    // [{"address":"...","personal":"..."}]
-                    return new Address[]{InternetAddressJson.from(json.substring(2, json.length() - 2))};
-                }
-            } catch (Throwable ex) {
-                Log.e(ex);
+            if (json == null)
                 return null;
+            else if (json.startsWith("[[")) {
+                // [[{"address":"...","personal":"..."}],[{... ...}]]
+                // There is a slim chance somebody uses the split pattern in an email address
+                String[] parts = json.substring(3, json.length() - 3).split(JSPLIT);
+                Address[] addresses = new Address[parts.length];
+                for (int i = 0; i < parts.length; i++)
+                    addresses[i] = InternetAddressJson.from(parts[i]);
+                return addresses;
+            } else {
+                // [{"address":"...","personal":"..."}]
+                return new Address[]{InternetAddressJson.from(json.substring(2, json.length() - 2))};
             }
         }
     }
