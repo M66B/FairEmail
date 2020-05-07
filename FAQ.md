@@ -789,7 +789,8 @@ If there are any error messages, please see [this FAQ](#user-content-faq22).
 
 On some devices, where there are lots of applications competing for memory, Android may stop the synchronization service as a last resort.
 
-Some Android versions stop apps and services too aggressively. See [this dedicated website](https://dontkillmyapp.com/) for more information.
+Some Android versions stop apps and services too aggressively.
+See [this dedicated website](https://dontkillmyapp.com/) and [this Android issue](https://issuetracker.google.com/issues/122098785) for more information.
 
 Disabling battery optimizations (setup step 4) reduces the chance Android will stop the synchronization service.
 
