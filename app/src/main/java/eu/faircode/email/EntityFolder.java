@@ -173,17 +173,28 @@ public class EntityFolder extends EntityOrder implements Serializable {
         // Contains:
         put("all", new TypeScore(EntityFolder.ARCHIVE, 100));
         put("archive", new TypeScore(EntityFolder.ARCHIVE, 100));
+
         put("draft", new TypeScore(EntityFolder.DRAFTS, 100));
         put("concept", new TypeScore(EntityFolder.DRAFTS, 100));
+        put("Entwurf", new TypeScore(EntityFolder.DRAFTS, 100));
         put("brouillon", new TypeScore(EntityFolder.DRAFTS, 100));
+        put("Черновики", new TypeScore(EntityFolder.DRAFTS, 100));
+
         put("trash", new TypeScore(EntityFolder.TRASH, 100));
+        put("Papierkorb", new TypeScore(EntityFolder.TRASH, 100));
         put("corbeille", new TypeScore(EntityFolder.TRASH, 100));
+        put("Корзина", new TypeScore(EntityFolder.TRASH, 100));
+
         put("junk", new TypeScore(EntityFolder.JUNK, 100));
         put("spam", new TypeScore(EntityFolder.JUNK, 100));
         put("pourriel", new TypeScore(EntityFolder.JUNK, 100));
         put("quarantaine", new TypeScore(EntityFolder.JUNK, 50));
+        put("Спам", new TypeScore(EntityFolder.JUNK, 100));
+
         put("sent", new TypeScore(EntityFolder.SENT, 100));
+        put("Gesendet", new TypeScore(EntityFolder.SENT, 100));
         put("envoyé", new TypeScore(EntityFolder.SENT, 100));
+        put("Отправленные", new TypeScore(EntityFolder.SENT, 100));
     }};
 
     static final int DEFAULT_SYNC = 7; // days
@@ -331,20 +342,22 @@ public class EntityFolder extends EntityOrder implements Serializable {
     }
 
     private static class TypeScore {
-        String type;
-        int score;
+        @NonNull
+        private String type;
+        private int score;
 
-        TypeScore(String type, int score) {
+        TypeScore(@NonNull String type, int score) {
             this.score = score;
             this.type = type;
         }
     }
 
     private static class FolderScore {
-        EntityFolder folder;
-        int score;
+        @NonNull
+        private EntityFolder folder;
+        private int score;
 
-        FolderScore(EntityFolder folder, int score) {
+        FolderScore(@NonNull EntityFolder folder, int score) {
             this.score = score;
             this.folder = folder;
         }
@@ -356,14 +369,14 @@ public class EntityFolder extends EntityOrder implements Serializable {
         }
     }
 
-    static void guessTypes(List<EntityFolder> folders, final char separator) {
+    static void guessTypes(List<EntityFolder> folders, final Character separator) {
         List<String> types = new ArrayList<>();
         Map<String, List<FolderScore>> typeFolderScore = new HashMap<>();
 
         for (EntityFolder folder : folders)
-            if (EntityFolder.USER.equals(folder.type) || BuildConfig.DEBUG) {
+            if (EntityFolder.USER.equals(folder.type)) {
                 for (String guess : GUESS_FOLDER_TYPE.keySet())
-                    if (folder.name.toLowerCase(Locale.ROOT).contains(guess)) {
+                    if (folder.name.toLowerCase(Locale.ROOT).contains(guess.toLowerCase(Locale.ROOT))) {
                         TypeScore score = GUESS_FOLDER_TYPE.get(guess);
                         if (!typeFolderScore.containsKey(score.type))
                             typeFolderScore.put(score.type, new ArrayList<>());
@@ -382,10 +395,16 @@ public class EntityFolder extends EntityOrder implements Serializable {
                     public int compare(FolderScore fs1, FolderScore fs2) {
                         int s = Integer.compare(fs1.score, fs2.score);
                         if (s == 0) {
-                            String sep = String.valueOf(separator);
-                            return Integer.compare(
-                                    fs1.folder.name.split(sep).length,
-                                    fs2.folder.name.split(sep).length);
+                            if (separator == null)
+                                return Integer.compare(
+                                        fs1.folder.name.length(),
+                                        fs2.folder.name.length());
+                            else {
+                                String sep = String.valueOf(separator);
+                                return Integer.compare(
+                                        fs1.folder.name.split(sep).length,
+                                        fs2.folder.name.split(sep).length);
+                            }
                         } else
                             return s;
                     }
