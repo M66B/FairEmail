@@ -24,7 +24,6 @@ import android.accounts.AccountManager;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.net.Uri;
@@ -59,7 +58,6 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
-import androidx.preference.PreferenceManager;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
@@ -653,8 +651,6 @@ public class FragmentAccount extends FragmentBase {
                 if (TextUtils.isEmpty(realm))
                     realm = null;
 
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-
                 DB db = DB.getInstance(context);
 
                 CheckResult result = new CheckResult();
@@ -674,9 +670,6 @@ public class FragmentAccount extends FragmentBase {
                     result.idle = iservice.hasCapability("IDLE");
 
                     boolean inbox = false;
-
-                    List<EntityFolder> guesses = new ArrayList<>();
-
                     for (Folder ifolder : iservice.getStore().getDefaultFolder().list("*")) {
                         // Check folder attributes
                         String fullName = ifolder.getFullName();
@@ -697,12 +690,6 @@ public class FragmentAccount extends FragmentBase {
                                 folder = new EntityFolder(fullName, type);
                             result.folders.add(folder);
 
-                            if (EntityFolder.USER.equals(type)) {
-                                String guess = EntityFolder.guessType(fullName);
-                                if (guess != null)
-                                    guesses.add(folder);
-                            }
-
                             if (EntityFolder.INBOX.equals(type)) {
                                 inbox = true;
 
@@ -719,20 +706,7 @@ public class FragmentAccount extends FragmentBase {
                         }
                     }
 
-                    for (EntityFolder guess : guesses) {
-                        boolean has = false;
-                        String gtype = EntityFolder.guessType(guess.name);
-                        for (EntityFolder folder : result.folders)
-                            if (folder.type.equals(gtype)) {
-                                has = true;
-                                break;
-                            }
-                        if (!has) {
-                            guess.type = gtype;
-                            guess.setProperties();
-                            Log.i(guess.name + " guessed type=" + gtype);
-                        }
-                    }
+                    EntityFolder.guessTypes(result.folders, iservice.getStore().getDefaultFolder().getSeparator());
 
                     if (!inbox)
                         throw new IllegalArgumentException(context.getString(R.string.title_no_inbox));

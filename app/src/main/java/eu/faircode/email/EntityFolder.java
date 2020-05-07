@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
@@ -33,6 +34,7 @@ import org.json.JSONObject;
 
 import java.io.Serializable;
 import java.text.Collator;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
@@ -167,20 +169,21 @@ public class EntityFolder extends EntityOrder implements Serializable {
             ARCHIVE
     ));
 
-    private static Map<String, String> GUESS_FOLDER_TYPE = new HashMap<String, String>() {{
+    private static Map<String, TypeScore> GUESS_FOLDER_TYPE = new HashMap<String, TypeScore>() {{
         // Contains:
-        put("all", EntityFolder.ARCHIVE);
-        put("archive", EntityFolder.ARCHIVE);
-        put("draft", EntityFolder.DRAFTS);
-        put("concept", EntityFolder.DRAFTS);
-        put("brouillon", EntityFolder.DRAFTS);
-        put("trash", EntityFolder.TRASH);
-        put("corbeille", EntityFolder.TRASH);
-        put("junk", EntityFolder.JUNK);
-        put("spam", EntityFolder.JUNK);
-        put("pourriel", EntityFolder.JUNK);
-        put("sent", EntityFolder.SENT);
-        put("envoyé", EntityFolder.SENT);
+        put("all", new TypeScore(EntityFolder.ARCHIVE, 100));
+        put("archive", new TypeScore(EntityFolder.ARCHIVE, 100));
+        put("draft", new TypeScore(EntityFolder.DRAFTS, 100));
+        put("concept", new TypeScore(EntityFolder.DRAFTS, 100));
+        put("brouillon", new TypeScore(EntityFolder.DRAFTS, 100));
+        put("trash", new TypeScore(EntityFolder.TRASH, 100));
+        put("corbeille", new TypeScore(EntityFolder.TRASH, 100));
+        put("junk", new TypeScore(EntityFolder.JUNK, 100));
+        put("spam", new TypeScore(EntityFolder.JUNK, 100));
+        put("pourriel", new TypeScore(EntityFolder.JUNK, 100));
+        put("quarantaine", new TypeScore(EntityFolder.JUNK, 50));
+        put("sent", new TypeScore(EntityFolder.SENT, 100));
+        put("envoyé", new TypeScore(EntityFolder.SENT, 100));
     }};
 
     static final int DEFAULT_SYNC = 7; // days
@@ -327,11 +330,73 @@ public class EntityFolder extends EntityOrder implements Serializable {
         return USER;
     }
 
-    static String guessType(String fullName) {
-        for (String guess : GUESS_FOLDER_TYPE.keySet())
-            if (fullName.toLowerCase(Locale.ROOT).contains(guess))
-                return GUESS_FOLDER_TYPE.get(guess);
-        return null;
+    private static class TypeScore {
+        String type;
+        int score;
+
+        TypeScore(String type, int score) {
+            this.score = score;
+            this.type = type;
+        }
+    }
+
+    private static class FolderScore {
+        EntityFolder folder;
+        int score;
+
+        FolderScore(EntityFolder folder, int score) {
+            this.score = score;
+            this.folder = folder;
+        }
+
+        @NonNull
+        @Override
+        public String toString() {
+            return folder.name + ":" + score;
+        }
+    }
+
+    static void guessTypes(List<EntityFolder> folders, final char separator) {
+        List<String> types = new ArrayList<>();
+        Map<String, List<FolderScore>> typeFolderScore = new HashMap<>();
+
+        for (EntityFolder folder : folders)
+            if (EntityFolder.USER.equals(folder.type) || BuildConfig.DEBUG) {
+                for (String guess : GUESS_FOLDER_TYPE.keySet())
+                    if (folder.name.toLowerCase(Locale.ROOT).contains(guess)) {
+                        TypeScore score = GUESS_FOLDER_TYPE.get(guess);
+                        if (!typeFolderScore.containsKey(score.type))
+                            typeFolderScore.put(score.type, new ArrayList<>());
+                        typeFolderScore.get(score.type).add(new FolderScore(folder, score.score));
+                        break;
+                    }
+            } else
+                types.add(folder.type);
+
+        for (String type : typeFolderScore.keySet()) {
+            List<FolderScore> candidates = typeFolderScore.get(type);
+            Log.i("Guess type=" + type + " candidates=" + TextUtils.join(", ", candidates));
+            if (!types.contains(type)) {
+                Collections.sort(candidates, new Comparator<FolderScore>() {
+                    @Override
+                    public int compare(FolderScore fs1, FolderScore fs2) {
+                        int s = Integer.compare(fs1.score, fs2.score);
+                        if (s == 0) {
+                            String sep = String.valueOf(separator);
+                            return Integer.compare(
+                                    fs1.folder.name.split(sep).length,
+                                    fs2.folder.name.split(sep).length);
+                        } else
+                            return s;
+                    }
+                });
+
+                candidates.get(0).folder.type = type;
+                candidates.get(0).folder.setProperties();
+                Log.i(candidates.get(0).folder.name + " guessed type=" + type);
+                types.add(type);
+            }
+        }
     }
 
     String getParentName(Character separator) {

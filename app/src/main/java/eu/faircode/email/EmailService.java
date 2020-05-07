@@ -585,7 +585,6 @@ public class EmailService implements AutoCloseable {
 
     List<EntityFolder> getFolders() throws MessagingException {
         List<EntityFolder> folders = new ArrayList<>();
-        List<EntityFolder> guesses = new ArrayList<>();
 
         for (Folder ifolder : getStore().getDefaultFolder().list("*")) {
             String fullName = ifolder.getFullName();
@@ -593,32 +592,11 @@ public class EmailService implements AutoCloseable {
             String type = EntityFolder.getType(attrs, fullName, true);
             Log.i(fullName + " attrs=" + TextUtils.join(" ", attrs) + " type=" + type);
 
-            if (type != null) {
-                EntityFolder folder = new EntityFolder(fullName, type);
-                folders.add(folder);
-
-                if (EntityFolder.USER.equals(type)) {
-                    String guess = EntityFolder.guessType(fullName);
-                    if (guess != null)
-                        guesses.add(folder);
-                }
-            }
+            if (type != null)
+                folders.add(new EntityFolder(fullName, type));
         }
 
-        for (EntityFolder guess : guesses) {
-            boolean has = false;
-            String gtype = EntityFolder.guessType(guess.name);
-            for (EntityFolder folder : folders)
-                if (folder.type.equals(gtype)) {
-                    has = true;
-                    break;
-                }
-            if (!has) {
-                guess.type = gtype;
-                guess.setProperties();
-                Log.i(guess.name + " guessed type=" + gtype);
-            }
-        }
+        EntityFolder.guessTypes(folders, getStore().getDefaultFolder().getSeparator());
 
         boolean inbox = false;
         boolean drafts = false;
