@@ -727,7 +727,7 @@
     <string name="title_discard">Abandonner</string>
     <string name="title_save">Enregistrer</string>
     <string name="title_send">Envoyer</string>
-    <string name="title_send_now">Envoyer maintenant</string>
+    <string name="title_send_now">Env. mnt</string>
     <string name="title_send_via">Envoyer via</string>
     <string name="title_send_at">Envoyer à&#8230;</string>
     <string name="title_send_encryption">Chiffrement</string>
