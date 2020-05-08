@@ -764,4 +764,17 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="Kabel Mail &amp; Cloud"
+        link="https://sso.kabelmail.de/portal/info/IMAP_und_SMTP"
+        useip="false">
+        <imap
+            host="imap.kabelmail.de"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.kabelmail.de"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
