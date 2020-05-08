@@ -149,6 +149,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.UnknownHostException;
+import java.security.GeneralSecurityException;
 import java.security.PrivateKey;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
@@ -2277,7 +2278,8 @@ public class FragmentCompose extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 if (ex instanceof OperationCanceledException)
                     ; // Do nothing
-                else if (ex instanceof IllegalArgumentException) {
+                else if (ex instanceof IllegalArgumentException
+                        || ex instanceof GeneralSecurityException /* InvalidKeyException */) {
                     Log.i(ex);
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                 } else
