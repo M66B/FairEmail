@@ -78,10 +78,8 @@ public interface DaoMessage {
             " AND (NOT :found OR message.ui_found = :found)" +
             " AND message.thread IN" +
             "  (SELECT DISTINCT mm.thread FROM folder ff" +
-            "   JOIN account aa ON aa.id = ff.account" +
             "   JOIN message mm ON mm.folder = ff.id" +
-            "   WHERE aa.synchronize" +
-            "   AND ((:found AND mm.ui_found)" +
+            "   WHERE ((:found AND mm.ui_found)" +
             "   OR (NOT :found AND :type IS NULL AND ff.unified)" +
             "   OR (NOT :found AND :type IS NOT NULL AND ff.type = :type))" +
             "   AND (NOT mm.ui_hide OR :debug))" +
