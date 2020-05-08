@@ -1568,7 +1568,7 @@ class Core {
                         message.folder = folder.id;
                         message.uid = null;
 
-                        message.msgid = helper.getMessageID();
+                        message.msgid = msgid;
                         message.hash = helper.getHash();
                         message.references = TextUtils.join(" ", helper.getReferences());
                         message.inreplyto = helper.getInReplyTo();
