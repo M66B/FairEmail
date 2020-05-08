@@ -84,9 +84,9 @@ public interface DaoMessage {
             "   OR (NOT :found AND :type IS NOT NULL AND ff.type = :type))" +
             "   AND (NOT mm.ui_hide OR :debug))" +
             " GROUP BY account.id, CASE WHEN message.thread IS NULL OR NOT :threading THEN message.id ELSE message.thread END" +
-            " HAVING (SUM(:found AND message.ui_found) > 0" + // thread can be the same in different accounts
-            " OR SUM(NOT :found AND :type IS NULL AND folder.unified) > 0" +
-            " OR SUM(NOT :found AND :type IS NOT NULL AND folder.type = :type) > 0)" +
+            " HAVING (SUM((:found AND message.ui_found)" +
+            " OR (NOT :found AND :type IS NULL AND folder.unified)" +
+            " OR (NOT :found AND :type IS NOT NULL AND folder.type = :type)) > 0)" + // thread can be the same in different accounts
             " AND (NOT :filter_seen OR SUM(1 - message.ui_seen) > 0)" +
             " AND (NOT :filter_unflagged OR COUNT(message.id) - SUM(1 - message.ui_flagged) > 0)" +
             " AND (NOT :filter_unknown OR SUM(message.avatar IS NOT NULL AND message.sender <> identity.email) > 0)" +
