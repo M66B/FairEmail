@@ -178,8 +178,6 @@ public class EmailService implements AutoCloseable {
             properties.put("mail.debug.auth", "true");
 
         if ("pop3".equals(protocol) || "pop3s".equals(protocol)) {
-            this.debug = true;
-
             // https://javaee.github.io/javamail/docs/api/com/sun/mail/pop3/package-summary.html#properties
             properties.put("mail.pop3s.starttls.enable", "false");
 
