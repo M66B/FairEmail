@@ -138,7 +138,6 @@
     <string name="title_setup_no_settings">Nije pronađena nijedna postavka za domenu \'%1$s\'</string>
     <string name="title_setup_no_settings_hint">Pokušajte postaviti račun i identitet u koracima 1 i 2 za postavljanje pomoću postavki danih od vašeg davatelja usluga e-pošte</string>
     <string name="title_setup_no_auth_hint">Molimo da provjerite svoju adresu e-pošte i zaporku i provjerite je li omogućen vanjski pristup (IMAP / SMTP) za vaš račun</string>
-    <string name="title_setup_app_password_hint">Ovaj davatelj zahtijeva lozinku aplikacije umjesto lozinke računa</string>
     <string name="title_setup_no_system_folders">Mapa pristigle pošte ili skica nije pronađena</string>
     <string name="title_setup_quick_success">Račun i identitet uspješno su dodani</string>
     <string name="title_setup_quick_failed">U nastavku možete pokušati konfigurirati račun i identitet</string>

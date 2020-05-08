@@ -136,7 +136,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_setup_no_settings">Keine Einstellungen für Domain \'%1$s\' gefunden</string>
     <string name="title_setup_no_settings_hint">Bitte versuchen Sie, ein Konto und eine Identität in Schritt 1 und 2 des Setups einzurichten, indem Sie die Einstellungen Ihres E-Mail-Anbieters nutzen</string>
     <string name="title_setup_no_auth_hint">Bitte überprüfen Sie Ihre E-Mail-Adresse und Ihr Passwort und stellen Sie sicher, dass der externe Zugriff (IMAP/SMTP) für Ihr Konto aktiviert ist</string>
-    <string name="title_setup_app_password_hint">Bei diesem Anbieter ist ein App-Passwort anstatt des Konto-Passworts erforderlich</string>
+    <string name="title_setup_app_password_hint">Dieser Anbieter benötigt ein App-Passwort anstelle des Konto-Passworts. Bitte überprüfen Sie die Anweisungen Ihres Anbieters</string>
     <string name="title_setup_no_system_folders">Posteingang oder Entwurfsordner nicht gefunden</string>
     <string name="title_setup_quick_success">Ein Konto und eine Identität wurden erfolgreich hinzugefügt</string>
     <string name="title_setup_quick_failed">Sie können unten versuchen, ein Konto und eine Identität zu konfigurieren</string>

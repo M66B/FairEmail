@@ -155,7 +155,6 @@
     <string name="title_setup_no_settings">Nie ma ustawień dla domeny \'%1$s\'</string>
     <string name="title_setup_no_settings_hint">Spróbuj skonfigurować konto i tożsamość w krokach konfiguracji 1 i 2, korzystając z ustawień dostarczonych przez dostawcę poczty e-mail</string>
     <string name="title_setup_no_auth_hint">Sprawdź dokładnie swój adres e-mail i hasło oraz upewnij się, że dostęp zewnętrzny (IMAP/SMTP) jest włączony dla Twojego konta</string>
-    <string name="title_setup_app_password_hint">Ten dostawca wymaga hasła aplikacji zamiast hasła do konta</string>
     <string name="title_setup_no_system_folders">Nie znaleziono folderu skrzynki odbiorczej lub szkiców</string>
     <string name="title_setup_quick_success">Pomyślnie dodano konto i tożsamość</string>
     <string name="title_setup_quick_failed">Możesz ustawić konto i tożsamość w krokach poniżej</string>

@@ -135,7 +135,7 @@
     <string name="title_setup_no_settings">Inga inställningar hittades för domänen \"%1$s\"</string>
     <string name="title_setup_no_settings_hint">Försök att skapa ett konto och en identitet i steg 1 och 2 med de inställningar som tillhandahålls av din e-postleverantör</string>
     <string name="title_setup_no_auth_hint">Vänligen dubbelkolla din e-postadress och lösenord och se till att extern åtkomst (IMAP/SMTP) är aktiverad för ditt konto</string>
-    <string name="title_setup_app_password_hint">Denna leverantör kräver ett applösenord istället för kontots lösenord</string>
+    <string name="title_setup_app_password_hint">Denna leverantör kräver ett app-lösenord istället för kontots lösenord, vänligen kontrollera instruktionerna hos din leverantör</string>
     <string name="title_setup_no_system_folders">Inkorgen eller utkastmappen hittades inte</string>
     <string name="title_setup_quick_success">Ett konto och en identitet har lagts till</string>
     <string name="title_setup_quick_failed">Du kan prova att konfigurera ett konto och en identitet nedan också</string>
@@ -614,7 +614,7 @@
     <string name="title_flag">Lägg till stjärna</string>
     <string name="title_flag_color">Färgad stjärna &#8230;</string>
     <string name="title_unflag">Ta bort stjärna</string>
-    <string name="title_set_importance">Ställ in betydelsen</string>
+    <string name="title_set_importance">Sätt prioritet</string>
     <string name="title_importance_low">Låg</string>
     <string name="title_importance_normal">Normal</string>
     <string name="title_importance_high">Hög</string>

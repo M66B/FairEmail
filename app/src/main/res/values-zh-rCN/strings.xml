@@ -123,7 +123,7 @@
     <string name="title_setup_no_settings">找不到域名\"%1$s\"的设置</string>
     <string name="title_setup_no_settings_hint">请尝试使用您的电子邮件提供商提供的设置，在设置步骤1和2中设置一个帐户和身份</string>
     <string name="title_setup_no_auth_hint">请仔细检查您的邮件地址和密码，并确保您的帐户已启用外部访问 (IMAP/SMTP)</string>
-    <string name="title_setup_app_password_hint">此提供商需要一个app密码而不是帐户密码</string>
+    <string name="title_setup_app_password_hint">此供应商需要应用密码而不是帐户密码，请查看供应商的说明</string>
     <string name="title_setup_no_system_folders">找不到收件箱或草稿文件夹</string>
     <string name="title_setup_quick_success">已成功添加了一个账户和身份</string>
     <string name="title_setup_quick_failed">您也可以尝试在下方配置一个账户和身份</string>

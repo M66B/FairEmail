@@ -135,7 +135,6 @@
     <string name="title_setup_no_settings">Nessuna impostazione trovata per il dominio \'%1$s\'</string>
     <string name="title_setup_no_settings_hint">Prova a configurare un account e un\'identità nei passaggi 1 e 2 del setup utilizzando le impostazioni fornite dal tuo provider di posta elettronica</string>
     <string name="title_setup_no_auth_hint">Controlla nuovamente l\'indirizzo email e la password e assicurati che l\'accesso esterno (IMAP/SMTP) sia abilitato per il tuo account</string>
-    <string name="title_setup_app_password_hint">Questo provider richiede una password dell\'app invece della password dell\'account</string>
     <string name="title_setup_no_system_folders">Cartella in arrivo o bozza non trovata</string>
     <string name="title_setup_quick_success">Un account e un\'identità sono stati aggiunti con successo</string>
     <string name="title_setup_quick_failed">Puoi provare a configurare un account e un\'identità qui sotto</string>

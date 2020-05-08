@@ -134,7 +134,6 @@
     <string name="title_setup_no_settings">Ingen innstillinger funnet for domene \'%1$s\'</string>
     <string name="title_setup_no_settings_hint">Prøv å konfigurere en konto og identitet i konfigureringstrinn 1 og 2 ved å bruke innstillingene som er levert av e-postleverandøren</string>
     <string name="title_setup_no_auth_hint">Kontroller e-postadressen og passordet ditt, og sørg for at ekstern tilgang (IMAP/SMTP) er aktivert for kontoen din</string>
-    <string name="title_setup_app_password_hint">Denne leverandøren krever et app passord i stedet for kontopassordet</string>
     <string name="title_setup_no_system_folders">Innboks eller kladdmappe ikke funnet</string>
     <string name="title_setup_quick_success">En konto og en identitet har blitt lagt til</string>
     <string name="title_setup_quick_failed">Du kan prøve å konfigurere en konto og en identitet nedenfor også</string>

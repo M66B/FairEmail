@@ -110,18 +110,18 @@
     <string name="title_edit_folder">Modifier le dossier</string>
     <string name="title_setup">Paramètres</string>
     <string name="title_setup_help">Aide</string>
-    <string name="title_setup_welcome">        La réception et l\'envoi de messages nécessitent la mise en place d\'un compte et d\'une identité comme dans toute autre application de messagerie.
-        La configuration rapide créera à la fois un compte et une identité en demandant simplement votre nom, votre adresse e-mail et votre mot de passe.
+    <string name="title_setup_welcome">        La réception et l’envoi de messages nécessitent la mise en place d’un compte et d’une identité comme dans toute autre application de messagerie.
+        L’assistant de configuration rapide créera à la fois un compte et une identité en demandant simplement votre nom, votre adresse e-mail et votre mot de passe.
         Les comptes et les identités (alias) peuvent aussi être configurés manuellement si nécessaire.
-        Les protocoles non standard comme Microsoft Exchange Web Services et Microsoft ActiveSync ne sont pas pris en charge ; voir également la description de l\'application.
+        Les protocoles non standard comme Microsoft Exchange Web Services et Microsoft ActiveSync ne sont pas pris en charge ; voir également la description de l\'application.
     </string>
     <string name="title_setup_quick">Configuration rapide</string>
     <string name="title_setup_quick_remark">Pour configurer rapidement un compte et une identité pour la plupart des fournisseurs</string>
-    <string name="title_setup_quick_hint">La configuration rapide récupérera les informations de configuration de autoconfig.thunderbird.net</string>
+    <string name="title_setup_quick_hint">L’assistant récupérera les informations de configuration de autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">Serveur IMAP pour la réception des messages</string>
     <string name="title_setup_quick_smtp">Serveur SMTP pour l’envoi des messages</string>
     <string name="title_setup_wizard">Assistant</string>
-    <string name="title_setup_wizard_multiple">L\'assistant d\'installation peut être utilisé plusieurs fois pour configurer plusieurs comptes</string>
+    <string name="title_setup_wizard_multiple">L’assistant de configuration rapide peut être utilisé plusieurs fois pour configurer plusieurs comptes</string>
     <string name="title_setup_wizard_remark">Faites « Retour » pour vous rendre à la boîte de réception</string>
     <string name="title_setup_other">Autre fournisseur</string>
     <string name="title_setup_gmail_support">L’autorisation des comptes Google fonctionnera seulement sur les versions officielles parce qu’Android vérifie la signature de l’application</string>
@@ -135,7 +135,7 @@
     <string name="title_setup_no_settings">Aucun paramètre trouvé pour le domaine \'%1$s\'</string>
     <string name="title_setup_no_settings_hint">Veuillez essayer de configurer un compte et une identité dans les étapes 1 et 2 des paramètres en utilisant les informations données par votre fournisseur de messagerie</string>
     <string name="title_setup_no_auth_hint">Veuillez revérifier votre adresse e-mail et votre mot de passe et vous assurer que l’accès externe (IMAP/SMTP) est activé pour votre compte</string>
-    <string name="title_setup_app_password_hint">Ce fournisseur requiert un mot de passe issu d\'une application au lieu du mot de passe du compte</string>
+    <string name="title_setup_app_password_hint">Ce fournisseur requiert un mot de passe d\'application au lieu du mot de passe du compte, veuillez vérifier les instructions de votre fournisseur</string>
     <string name="title_setup_no_system_folders">Boîte de réception ou dossier « Brouillons » introuvable</string>
     <string name="title_setup_quick_success">Compte et identité ajoutés avec succès</string>
     <string name="title_setup_quick_failed">Vous pouvez essayer de configurer un compte et une identité ci-dessous</string>
@@ -697,7 +697,7 @@
     <string name="title_ask_show_image">L’affichage des images peut entraîner la divulgation d’informations confidentielles</string>
     <string name="title_ask_show_image_hint">Les images identifiées comme étant des images de pistage ne seront pas affichées</string>
     <string name="title_ask_delete_local">Supprimer les messages locaux ? Les messages resteront sur le serveur distant.</string>
-    <string name="title_ask_help">Aider à améliorer FairEmail</string>
+    <string name="title_ask_help">Aider à l’amélioration de FairEmail</string>
     <string name="title_ask_reporting">Envoyer des rapports d\'erreur ?</string>
     <string name="title_reporting_why">Le signalement d’erreurs aidera à améliorer FairEmail</string>
     <string name="title_ask_review">Veuillez évaluer FairEmail</string>
@@ -727,7 +727,7 @@
     <string name="title_discard">Abandonner</string>
     <string name="title_save">Enregistrer</string>
     <string name="title_send">Envoyer</string>
-    <string name="title_send_now">Env. mnt</string>
+    <string name="title_send_now">Env. maint.</string>
     <string name="title_send_via">Envoyer via</string>
     <string name="title_send_at">Envoyer à&#8230;</string>
     <string name="title_send_encryption">Chiffrement</string>
@@ -1007,7 +1007,7 @@
     <string name="title_legend_show_junk">Traiter comme spam</string>
     <string name="title_legend_show_unsubscribe">Se désabonner de la liste</string>
     <string name="title_legend_show_images">Afficher les images</string>
-    <string name="title_legend_show_full">Afficher en plein écran</string>
+    <string name="title_legend_show_full">Afficher le message original</string>
     <string name="title_legend_edit">Modifier</string>
     <string name="title_legend_default_color">Couleur par défaut</string>
     <string name="title_legend_close_hint">Fermer l’astuce</string>

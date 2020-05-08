@@ -134,7 +134,7 @@
     <string name="title_setup_no_settings">Geen instellingen gevonden voor domein \'%1$s\'</string>
     <string name="title_setup_no_settings_hint">Probeer a.u.b. een account en identiteit in stappen 1 en 2 in te stellen met behulp van de instellingen die door uw e-mailprovider werden verstrekt</string>
     <string name="title_setup_no_auth_hint">Controleer a.u.b. uw e-mailadres en wachtwoord en zorg ervoor dat externe toegang (IMAP/SMTP) is ingeschakeld voor uw account</string>
-    <string name="title_setup_app_password_hint">Deze provider vereist een app-wachtwoord in plaats van het account wachtwoord</string>
+    <string name="title_setup_app_password_hint">Deze provider vereist een app-wachtwoord in plaats van het wachtwoord van uw account, controleer a.u.b. de instructies van uw provider</string>
     <string name="title_setup_no_system_folders">Inbox of conceptmap niet gevonden</string>
     <string name="title_setup_quick_success">Een account en een identiteit zijn succesvol toegevoegd</string>
     <string name="title_setup_quick_failed">U kunt ook proberen om hieronder een account en een identiteit te configureren</string>

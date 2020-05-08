@@ -134,7 +134,6 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_setup_no_settings">Nem találhatók beállítások a következő domainhez: %1$s</string>
     <string name="title_setup_no_settings_hint">Kérem állitson be egy fiókot és egy identitást a varázsló első két lépésével, az email szolgálatója által megadottaknak megfelelően</string>
     <string name="title_setup_no_auth_hint">Ellenőrizze az email címét és jelszavát, illetve bizonyosodjon meg róla hogy a fiókja elérhető SMTP/IMAP protokollokon keresztül</string>
-    <string name="title_setup_app_password_hint">Ez a szolgáltó alkalmazásjelszót igényel a fiók jelszava helyett</string>
     <string name="title_setup_no_system_folders">Bejövő vagy piszkozatok mappa nem található</string>
     <string name="title_setup_quick_success">Egy fiók és egy identitás sikeresen hozzáadva</string>
     <string name="title_setup_quick_failed">Megpróbálhat beállítani egy fiókot és egy identitást lentebb is</string>

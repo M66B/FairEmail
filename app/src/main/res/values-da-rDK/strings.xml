@@ -134,7 +134,6 @@
     <string name="title_setup_no_settings">Ingen indstillinger fundet for domænet \'%1$s\'</string>
     <string name="title_setup_no_settings_hint">Prøv at opsætte en konto og identitet i opsætningstrin 1 og 2 vha. indstillingerne leveret af din e-mailudbyder</string>
     <string name="title_setup_no_auth_hint">Dobbelttjek din e-mailadresse og adgangskode, og sørg for, at ekstern adgang (IMAP/SMTP) er aktiveret for din konto</string>
-    <string name="title_setup_app_password_hint">Denne udbyder kræver en app-adgangskode i stedet for kontoadgangskoden</string>
     <string name="title_setup_no_system_folders">Indbakke- eller Udkastmappe ikke fundet</string>
     <string name="title_setup_quick_success">En konto og identitet er nu blevet tilføjet</string>
     <string name="title_setup_quick_failed">Du kan også prøve at opsætte en konto og identitet nedenfor</string>

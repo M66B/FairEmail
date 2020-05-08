@@ -134,7 +134,6 @@
     <string name="title_setup_no_settings">Не са намерени настройки за домейн %1$s</string>
     <string name="title_setup_no_settings_hint">Моля, опитайте да настроите профил и самоличност в стъпки за настройка 1 и 2, като използвате настройките, предоставени от вашия доставчик на електронна поща</string>
     <string name="title_setup_no_auth_hint">Моля, проверете два пъти имейл адреса и паролата си и се уверете, че външният достъп (IMAP/SMTP) е активиран за вашия профил</string>
-    <string name="title_setup_app_password_hint">Този доставчик изисква парола за приложение вместо паролата за профила</string>
     <string name="title_setup_no_system_folders">Папките вх. поща или чернова не са намерени</string>
     <string name="title_setup_quick_success">Профил и идентичност бяха успешно добавени</string>
     <string name="title_setup_quick_failed">Можете да опитате да конфигурирате профил и идентичност по долу</string>

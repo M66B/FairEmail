@@ -156,7 +156,6 @@
     <string name="title_setup_no_settings">Nastavitev za domeno \'%1$s\' ni bilo mogoče najti.</string>
     <string name="title_setup_no_settings_hint">Poizkusite nastaviti račun in identiteto v 1. in 2. koraku z uporabo nastavitev od svojega e-poštnega ponudnika.</string>
     <string name="title_setup_no_auth_hint">Preverite e-poštni naslov in geslo in se prepričajte, da je za vaš račun omogočen zunanji dostop (IMAP/SMTP).</string>
-    <string name="title_setup_app_password_hint">Ta ponudnik zahteva geslo programa namesto gesla računa.</string>
     <string name="title_setup_no_system_folders">Mape \'Prejeto\' ali \'Osnutki\' ni bilo mogoče najti.</string>
     <string name="title_setup_quick_success">Račun in identiteta sta bila uspešno dodana.</string>
     <string name="title_setup_quick_failed">Račun in identiteto lahko poizkusite nastaviti tudi spodaj.</string>

@@ -134,7 +134,6 @@
     <string name="title_setup_no_settings">Nenhuma configuração encontrada para o domínio \'%1$s\'</string>
     <string name="title_setup_no_settings_hint">Tente criar uma conta e identidade nas etapas de configuração 1 e 2 utilizando as configurações fornecidas pelo seu fornecedor de e-mail</string>
     <string name="title_setup_no_auth_hint">Por favor, verifique o seu endereço de e-mail e senha e certifique-se de que o acesso externo (IMAP/SMTP) está ativado para sua conta</string>
-    <string name="title_setup_app_password_hint">Este provedor de e-mail requer uma senha de app em vez da senha de conta</string>
     <string name="title_setup_no_system_folders">Caixa de entrada ou pasta de rascunho não encontrada</string>
     <string name="title_setup_quick_success">Uma conta e uma identidade foram adicionados com sucesso</string>
     <string name="title_setup_quick_failed">Você também pode tentar configurar uma conta e uma identidade abaixo</string>
