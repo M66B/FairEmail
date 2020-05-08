@@ -340,6 +340,7 @@
     </provider>
     <provider
         name="Apple iCloud"
+        appPassword="true"
         domain="icloud\\.com"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq148"
         user="local">
