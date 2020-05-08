@@ -1554,7 +1554,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                 if (state.isRunning()) {
                     int backoff = state.getBackoff();
-                    long cbackoff = RECONNECT_BACKOFF - (new Date().getTime() - lastLost);
+                    long cbackoff = (RECONNECT_BACKOFF - (new Date().getTime() - lastLost)) / 1000L;
                     if (cbackoff > backoff) {
                         try {
                             EntityLog.log(this, account.name + " reconnect backoff=" + cbackoff);
