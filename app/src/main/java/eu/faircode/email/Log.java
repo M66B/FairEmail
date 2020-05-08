@@ -105,6 +105,8 @@ import javax.mail.internet.InternetAddress;
 import javax.net.ssl.SSLHandshakeException;
 import javax.net.ssl.SSLPeerUnverifiedException;
 
+import io.requery.android.database.CursorWindowAllocationException;
+
 public class Log {
     private static boolean debug = false;
     private static final int MAX_CRASH_REPORTS = 5;
@@ -706,6 +708,9 @@ public class Log {
         if (ex instanceof TimeoutException &&
                 ex.getMessage() != null &&
                 ex.getMessage().contains("finalize"))
+            return false;
+
+        if (ex instanceof CursorWindowAllocationException)
             return false;
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
