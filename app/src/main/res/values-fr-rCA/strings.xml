@@ -135,7 +135,7 @@
     <string name="title_setup_no_settings">Aucun paramètre trouvé pour le domaine \'%1$s\'</string>
     <string name="title_setup_no_settings_hint">Veuillez essayer de configurer un compte et une identité dans les étapes 1 et 2 des paramètres en utilisant les informations données par votre fournisseur de messagerie</string>
     <string name="title_setup_no_auth_hint">Veuillez revérifier votre adresse courriel et votre mot de passe et vous assurer que l’accès externe (IMAP/SMTP) est activé pour votre compte</string>
-    <string name="title_setup_app_password_hint">Ce fournisseur requiert un mot de passe d\'application au lieu du mot de passe du compte, veuillez vérifier les instructions de votre fournisseur</string>
+    <string name="title_setup_app_password_hint">Ce fournisseur requiert un mot de passe d’application au lieu du mot de passe du compte, veuillez vérifier les instructions de votre fournisseur</string>
     <string name="title_setup_no_system_folders">Boîte de réception ou dossier brouillons introuvable</string>
     <string name="title_setup_quick_success">Un compte et une identité ont été ajoutés avec succès</string>
     <string name="title_setup_quick_failed">Vous pouvez essayer de configurer un compte et une identité ci-dessous</string>
