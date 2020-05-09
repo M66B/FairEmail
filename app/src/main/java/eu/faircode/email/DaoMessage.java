@@ -68,7 +68,15 @@ public interface DaoMessage {
             "   OR (NOT :found AND :type IS NULL AND folder.unified)" +
             "   OR (NOT :found AND folder.type = :type))" +
             "   THEN message.received ELSE 0 END) AS dummy" +
-            " FROM (SELECT * FROM message ORDER BY received DESC) AS message" + // group_concat
+            " FROM (SELECT * FROM message" +
+            "  WHERE message.thread IN" +
+            "  (SELECT DISTINCT mm.thread FROM folder ff" +
+            "   JOIN message mm ON mm.folder = ff.id" +
+            "   WHERE ((:found AND mm.ui_found)" +
+            "   OR (NOT :found AND :type IS NULL AND ff.unified)" +
+            "   OR (NOT :found AND :type IS NOT NULL AND ff.type = :type))" +
+            "   AND (NOT mm.ui_hide OR :debug))" +
+            "   ORDER BY received DESC) AS message" + // group_concat
             " JOIN account_view AS account ON account.id = message.account" +
             " LEFT JOIN identity_view AS identity ON identity.id = message.identity" +
             " JOIN folder_view AS folder ON folder.id = message.folder" +
@@ -76,13 +84,6 @@ public interface DaoMessage {
             " AND (:threading OR (:type IS NULL AND (folder.unified OR :found)) OR (:type IS NOT NULL AND folder.type = :type))" +
             " AND (NOT message.ui_hide OR :debug)" +
             " AND (NOT :found OR message.ui_found = :found)" +
-            " AND message.thread IN" +
-            "  (SELECT DISTINCT mm.thread FROM folder ff" +
-            "   JOIN message mm ON mm.folder = ff.id" +
-            "   WHERE ((:found AND mm.ui_found)" +
-            "   OR (NOT :found AND :type IS NULL AND ff.unified)" +
-            "   OR (NOT :found AND :type IS NOT NULL AND ff.type = :type))" +
-            "   AND (NOT mm.ui_hide OR :debug))" +
             " GROUP BY account.id, CASE WHEN message.thread IS NULL OR NOT :threading THEN message.id ELSE message.thread END" +
             " HAVING (SUM((:found AND message.ui_found)" +
             " OR (NOT :found AND :type IS NULL AND folder.unified)" +
@@ -135,7 +136,13 @@ public interface DaoMessage {
             ", message.priority AS ui_priority" +
             ", message.importance AS ui_importance" +
             ", MAX(CASE WHEN folder.id = :folder THEN message.received ELSE 0 END) AS dummy" +
-            " FROM (SELECT * FROM message ORDER BY received DESC) AS message" + // group_concat
+            " FROM (SELECT * FROM message" +
+            " WHERE message.thread IN" +
+            "  (SELECT DISTINCT mm.thread FROM message mm" +
+            "   WHERE mm.folder = :folder" +
+            "   AND (NOT mm.ui_hide OR :debug)" +
+            "   AND (NOT :found OR mm.ui_found))" +
+            "   ORDER BY received DESC) AS message" + // group_concat
             " JOIN account_view AS account ON account.id = message.account" +
             " LEFT JOIN identity_view AS identity ON identity.id = message.identity" +
             " JOIN folder_view AS folder ON folder.id = message.folder" +
@@ -144,11 +151,6 @@ public interface DaoMessage {
             " AND (:threading OR folder.id = :folder)" +
             " AND (NOT message.ui_hide OR :debug)" +
             " AND (NOT :found OR message.ui_found = :found)" +
-            " AND message.thread IN" +
-            "  (SELECT DISTINCT mm.thread FROM message mm" +
-            "   WHERE mm.folder = :folder" +
-            "   AND (NOT mm.ui_hide OR :debug)" +
-            "   AND (NOT :found OR mm.ui_found))" +
             " GROUP BY CASE WHEN message.thread IS NULL OR NOT :threading THEN message.id ELSE message.thread END" +
             " HAVING (NOT :filter_seen OR SUM(1 - message.ui_seen) > 0 OR " + is_outbox + ")" +
             " AND (NOT :filter_unflagged OR COUNT(message.id) - SUM(1 - message.ui_flagged) > 0 OR " + is_outbox + ")" +
