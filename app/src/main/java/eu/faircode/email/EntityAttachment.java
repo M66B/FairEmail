@@ -188,6 +188,9 @@ public class EntityAttachment {
                 type = gtype;
         }
 
+        if ("gpx".equals(extension))
+            return "application/gpx+xml";
+
         if ("eml".equals(extension))
             return "message/rfc822";
 
