@@ -102,6 +102,7 @@ public class EntityMessage implements Serializable {
     public Long replying; // obsolete
     public Long forwarding; // obsolete
     public Long uid; // compose/moved = null
+    public String uidl; // POP3
     public String msgid;
     public String hash; // headers hash
     public String references;
