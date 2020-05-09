@@ -1529,8 +1529,13 @@ class Core {
 
             db.folder().setFolderSyncState(folder.id, "downloading");
 
-            List<String> uidls = db.message().getUidls(folder.id);
-            Log.i(folder.name + " POP existing=" + uidls.size());
+            List<TupleUidl> ids = db.message().getUidls(folder.id);
+            Log.i(folder.name + " POP existing=" + ids.size());
+
+            Map<String, TupleUidl> uidls = new HashMap<>();
+            for (TupleUidl id : ids)
+                if (id.uidl != null)
+                    uidls.put(id.uidl, id);
 
             for (Message imessage : imessages)
                 try {
@@ -1547,7 +1552,7 @@ class Core {
                         continue;
                     }
 
-                    if (uidls.contains(uidl)) {
+                    if (uidls.containsKey(uidl)) {
                         uidls.remove(uidl);
                         Log.i(folder.name + " POP having=" + uidl);
                         continue;
@@ -1671,9 +1676,9 @@ class Core {
                 }
 
             if (!account.leave_on_device)
-                for (String msgid : uidls) {
-                    Log.i(folder.name + " POP deleted=" + msgid);
-                    db.message().deleteMessage(folder.id, msgid);
+                for (TupleUidl id : uidls.values()) {
+                    Log.i(folder.name + " POP deleting=" + id.msgid);
+                    db.message().deleteMessage(folder.id, id.msgid);
                 }
 
             Log.i(folder.name + " POP done");
