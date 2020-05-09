@@ -425,7 +425,7 @@ public class FragmentBase extends Fragment {
                     String name = Helper.sanitizeFilename(attachment.name);
                     if (TextUtils.isEmpty(name))
                         name = Long.toString(attachment.id);
-                    DocumentFile document = tree.createFile(attachment.type, name);
+                    DocumentFile document = tree.createFile(attachment.getMimeType(), name);
                     if (document == null)
                         throw new FileNotFoundException("Could not save " + uri + ":" + name);
 
