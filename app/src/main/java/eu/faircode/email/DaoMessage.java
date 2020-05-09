@@ -483,7 +483,7 @@ public interface DaoMessage {
             " AND NOT uid IS NULL")
     List<Long> getUids(long folder, Long received);
 
-    @Query("SELECT IFNULL(uidl, msgid) FROM message" +
+    @Query("SELECT uidl FROM message" +
             " WHERE folder = :folder")
     List<String> getUidls(long folder);
 
