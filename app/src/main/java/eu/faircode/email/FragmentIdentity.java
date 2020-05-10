@@ -808,8 +808,8 @@ public class FragmentIdentity extends FragmentBase {
                         !Objects.equals(identity.certificate_alias, certificate) ||
                         !Objects.equals(realm, identityRealm) ||
                         !Objects.equals(identity.fingerprint, fingerprint) ||
-                        use_ip != identity.use_ip) ||
-                        !Objects.equals(identity.ehlo, ehlo));
+                        use_ip != identity.use_ip ||
+                        !Objects.equals(identity.ehlo, ehlo)));
                 Log.i("Identity check=" + check);
 
                 Long last_connected = null;
