@@ -282,6 +282,9 @@ public class FragmentOAuth extends FragmentBase {
             if ("gmail".equals(provider.id))
                 authRequestBuilder.setPrompt("consent");
 
+            if ("outlook".equals(provider.id))
+                authRequestBuilder.setPrompt("select_account");
+
             AuthorizationRequest authRequest = authRequestBuilder.build();
 
             Log.i("OAuth request provider=" + provider.id);
