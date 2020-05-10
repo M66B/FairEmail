@@ -41,6 +41,7 @@ public interface DaoFolder {
             ", COUNT(DISTINCT message.id) AS messages" +
             ", COUNT(DISTINCT CASE WHEN message.content = 1 THEN message.id ELSE NULL END) AS content" +
             ", COUNT(DISTINCT CASE WHEN NOT message.ui_seen THEN message.id ELSE NULL END) AS unseen" +
+            ", COUNT(DISTINCT CASE WHEN message.ui_flagged THEN message.id ELSE NULL END) AS flagged" +
             ", COUNT(DISTINCT CASE WHEN operation.state = 'executing' THEN operation.id ELSE NULL END) AS executing" +
             " FROM folder" +
             " LEFT JOIN account ON account.id = folder.account" +
@@ -78,6 +79,7 @@ public interface DaoFolder {
             ", COUNT(DISTINCT CASE WHEN message.ui_hide THEN NULL ELSE message.id END) AS messages" +
             ", COUNT(DISTINCT CASE WHEN message.content = 1 AND NOT message.ui_hide THEN message.id ELSE NULL END) AS content" +
             ", COUNT(DISTINCT CASE WHEN NOT message.ui_seen AND NOT message.ui_hide THEN message.id ELSE NULL END) AS unseen" +
+            ", COUNT(DISTINCT CASE WHEN message.ui_flagged AND NOT message.ui_hide THEN message.id ELSE NULL END) AS flagged" +
             ", COUNT(DISTINCT CASE WHEN operation.state = 'executing' THEN operation.id ELSE NULL END) AS executing" +
             " FROM folder" +
             " JOIN account ON account.id = folder.account" +
@@ -100,6 +102,7 @@ public interface DaoFolder {
             ", COUNT(DISTINCT message.id) AS messages" +
             ", COUNT(DISTINCT CASE WHEN message.content = 1 THEN message.id ELSE NULL END) AS content" +
             ", COUNT(DISTINCT CASE WHEN NOT message.ui_seen THEN message.id ELSE NULL END) AS unseen" +
+            ", COUNT(DISTINCT CASE WHEN message.ui_flagged THEN message.id ELSE NULL END) AS flagged" +
             ", COUNT(DISTINCT CASE WHEN operation.state = 'executing' THEN operation.id ELSE NULL END) AS executing" +
             " FROM folder" +
             " JOIN account ON account.id = folder.account" +
@@ -137,6 +140,7 @@ public interface DaoFolder {
             ", COUNT(DISTINCT message.id) AS messages" +
             ", COUNT(DISTINCT CASE WHEN message.content = 1 THEN message.id ELSE NULL END) AS content" +
             ", COUNT(DISTINCT CASE WHEN NOT message.ui_seen THEN message.id ELSE NULL END) AS unseen" +
+            ", COUNT(DISTINCT CASE WHEN message.ui_flagged THEN message.id ELSE NULL END) AS flagged" +
             ", COUNT(DISTINCT CASE WHEN operation.state = 'executing' THEN operation.id ELSE NULL END) AS executing" +
             " FROM folder" +
             " LEFT JOIN account ON account.id = folder.account" +
