@@ -63,6 +63,28 @@ public class FixedTextView extends AppCompatTextView {
     }
 
     @Override
+    public boolean onPreDraw() {
+        try {
+            return super.onPreDraw();
+        } catch (Throwable ex) {
+            Log.w(ex);
+            /*
+                java.lang.ArrayIndexOutOfBoundsException: length=54; index=54
+                at android.text.TextLine.measure(TextLine.java:316)
+                at android.text.TextLine.metrics(TextLine.java:271)
+                at android.text.Layout.getLineExtent(Layout.java:1374)
+                at android.text.Layout.getLineStartPos(Layout.java:700)
+                at android.text.Layout.getHorizontal(Layout.java:1175)
+                at android.text.Layout.getHorizontal(Layout.java:1144)
+                at android.text.Layout.getPrimaryHorizontal(Layout.java:1115)
+                at android.widget.TextView.bringPointIntoView(TextView.java:8944)
+                at android.widget.TextView.onPreDraw(TextView.java:6475)
+            */
+            return true;
+        }
+    }
+
+    @Override
     protected void onDraw(Canvas canvas) {
         try {
             super.onDraw(canvas);
