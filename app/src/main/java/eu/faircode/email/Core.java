@@ -1533,16 +1533,11 @@ class Core {
             Log.i(folder.name + " POP existing=" + ids.size());
 
             Map<String, TupleUidl> uidls = new HashMap<>();
-            Map<String, TupleUidl> msgids = new HashMap<>();
             for (TupleUidl id : ids)
-                if (id.uidl != null)
-                    uidls.put(id.uidl, id);
-                else if (id.msgid != null)
-                    msgids.put(id.msgid, id);
-
-            for (TupleUidl id : uidls.values())
-                if (id.msgid != null && msgids.containsKey(id.msgid))
+                if (id.uidl == null)
                     db.message().deleteMessage(id.id);
+                else
+                    uidls.put(id.uidl, id);
 
             for (Message imessage : imessages)
                 try {
