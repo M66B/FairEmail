@@ -195,7 +195,8 @@ public class EntityOperation {
                     db.message().setMessageUiHide(message.id, true);
 
                 if (account != null && account.isGmail() &&
-                        EntityFolder.ARCHIVE.equals(source.type))
+                        EntityFolder.ARCHIVE.equals(source.type) &&
+                        !(EntityFolder.TRASH.equals(target.type) || EntityFolder.JUNK.equals(target.type)))
                     name = COPY;
 
                 if (message.ui_snoozed != null &&
