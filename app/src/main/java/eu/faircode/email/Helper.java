@@ -991,8 +991,8 @@ public class Helper {
         intent.putExtra("android.content.extra.FANCY", true);
         intent.putExtra("android.content.extra.SHOW_FILESIZE", true);
         intent.putExtra("android.provider.extra.SHOW_ADVANCED", true);
-        File initial = Environment.getExternalStorageDirectory();
-        intent.putExtra(DocumentsContract.EXTRA_INITIAL_URI, Uri.fromFile(initial));
+        //File initial = Environment.getExternalStorageDirectory();
+        //intent.putExtra(DocumentsContract.EXTRA_INITIAL_URI, Uri.fromFile(initial));
     }
 
     // Cryptography
