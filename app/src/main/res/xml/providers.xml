@@ -755,7 +755,7 @@
             starttls="false" />
     </provider>
     <provider
-        name="Acor.de"
+        name="Arcor.de"
         link="https://www.vodafone.de/hilfe/email/abrufen-senden.html">
         <imap
             host="imap.arcor.de"
