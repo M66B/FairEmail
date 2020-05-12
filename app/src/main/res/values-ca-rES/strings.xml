@@ -30,8 +30,8 @@
     <string name="shortcut_compose">Redactar</string>
     <string name="shortcut_setup">Preferències</string>
     <plurals name="title_notification_synchronizing">
-        <item quantity="one">Monitoritza %1$d compte</item>
-        <item quantity="other">Monitoritza %1$d comptes</item>
+        <item quantity="one">Monitoritzant %1$d compte</item>
+        <item quantity="other">Monitoritzant %1$d comptes</item>
     </plurals>
     <plurals name="title_notification_operations">
         <item quantity="one">%1$d operació pendent</item>

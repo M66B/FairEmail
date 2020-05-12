@@ -79,6 +79,7 @@
     <string name="title_notification_alert">Сигнал от сървър \'%1$s\'</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
+    <string name="title_from_to">%1$s ➤ %2$s</string>
     <string name="title_factor_minutes">%1$d минути</string>
     <string name="menu_exit">Изход</string>
     <string name="menu_answers">Шаблони</string>
@@ -134,6 +135,7 @@
     <string name="title_setup_no_settings">Не са намерени настройки за домейн %1$s</string>
     <string name="title_setup_no_settings_hint">Моля, опитайте да настроите профил и самоличност в стъпки за настройка 1 и 2, като използвате настройките, предоставени от вашия доставчик на електронна поща</string>
     <string name="title_setup_no_auth_hint">Моля, проверете два пъти имейл адреса и паролата си и се уверете, че външният достъп (IMAP/SMTP) е активиран за вашия профил</string>
+    <string name="title_setup_app_password_hint">Този доставчик изисква парола за приложение вместо паролата за акаунта, моля, проверете инструкциите на вашия доставчик</string>
     <string name="title_setup_no_system_folders">Папките вх. поща или чернова не са намерени</string>
     <string name="title_setup_quick_success">Профил и идентичност бяха успешно добавени</string>
     <string name="title_setup_quick_failed">Можете да опитате да конфигурирате профил и идентичност по долу</string>
@@ -220,6 +222,7 @@
     <string name="title_advanced_flagged">Всички съобщения със звезда</string>
     <string name="title_advanced_delete_unseen">Изтрий старите непрочетени съобщения</string>
     <string name="title_advanced_kept_removed">Проверете дали старите съобщения са премахнати от сървъра</string>
+    <string name="title_advanced_gmail_thread">Gmail стил за групиране на съобщения за акаунти в Gmail</string>
     <string name="title_advanced_sync_folders">Синхронизиране на списъка с папки</string>
     <string name="title_advanced_subscriptions">Управление на абонирани папки</string>
     <string name="title_advanced_keyboard">Клавиатура по подразбиране</string>
@@ -256,6 +259,7 @@
     <string name="title_advanced_caption_message_header">Заглавка на съобщението</string>
     <string name="title_advanced_caption_message_body">Тяло на съобщението</string>
     <string name="title_advanced_landscape">Две колони в легнал режим</string>
+    <string name="title_advanced_landscape3">Показвайте менюто за навигация в пейзажен режим по подразбиране</string>
     <string name="title_advanced_startup">Показване при стартиране</string>
     <string name="title_advanced_cards">Използвайте стил на карти вместо табличен стил</string>
     <string name="title_advanced_date_header">Групиране по дата</string>
@@ -275,6 +279,7 @@
     <string name="title_advanced_name_email">Покажи имена и имейл адреси</string>
     <string name="title_advanced_replace_name">Предпочитано име от контакти пред изпратено име</string>
     <string name="title_advanced_distinguish_contacts">Подчертайте подателя, когато подателят е известен като локаленен „до“ контакт</string>
+    <string name="title_advanced_show_recipients">Показване на получателите в заглавката на съобщението</string>
     <string name="title_advanced_font_size_sender">Големина на шрифта на подателя</string>
     <string name="title_advanced_font_size_subject">Големина на шрифта на темата</string>
     <string name="title_advanced_subject_top">Покажи темата над подателя</string>
@@ -294,6 +299,7 @@
     <string name="title_advanced_monospaced">Използвай шрифт с еднакъв размер за текст на съобщението</string>
     <string name="title_advanced_text_color">Покажи текста с цветове</string>
     <string name="title_advanced_text_size">Показвайте малки и големи текстове</string>
+    <string name="title_advanced_text_align">Показване на подравнени текстове вляво/в центъра/вдясно</string>
     <string name="title_advanced_collapse_quotes">Свиване на цитирания текст</string>
     <string name="title_advanced_images_inline">Автоматично показване на вградени изображения</string>
     <string name="title_advanced_seekbar">Покажи позицията на разговора с точка</string>
@@ -737,6 +743,7 @@
     <string name="title_add_image_inline">Вмъкване</string>
     <string name="title_add_image_attach">Прикачване</string>
     <string name="title_add_image_resize">Размер</string>
+    <string name="title_add_image_privacy">Премахнете географското местоположение</string>
     <string name="title_add_resize_pixels">&lt; %1$d пиксела</string>
     <string name="title_add_image_select">Избиране на файл</string>
     <string name="title_add_attachment">Прикачване на файл</string>
@@ -807,6 +814,7 @@
         За да търсите и в сървъра, натиснете бутона „търсене отново“.
     </string>
     <string name="title_search_index_hint">Търсене чрез индекса за търсене е бързо, но ще намери само цели думи</string>
+    <string name="title_search_text_hint">Някои имейл сървъри имат проблеми с намирането на текст в много съобщения</string>
     <string name="title_search_more">Още опции</string>
     <string name="title_search_use_index">Използвай индекс за търсене</string>
     <string name="title_search_in_senders">В подетели (от)</string>
@@ -853,6 +861,7 @@
     <string name="title_select_all">Маркирай всички</string>
     <string name="title_select_found">Маркирай намереното</string>
     <string name="title_force_sync">Принудително синхронизиране</string>
+    <string name="title_force_send">Принудително изпращане</string>
     <string name="title_language_all">Всички</string>
     <string name="title_previous">Предишен</string>
     <string name="title_next">Следващ</string>
@@ -962,6 +971,7 @@
     <string name="title_legend_snoozed">Е отложен</string>
     <string name="title_legend_browsed">Преглежда се и се търси</string>
     <string name="title_legend_answered">Е отговорено</string>
+    <string name="title_legend_forwarded">Беше препратен</string>
     <string name="title_legend_plain_only">Само обикновен текст</string>
     <string name="title_legend_receipt">Беше поискана разписка</string>
     <string name="title_legend_attachment">Има прикачен файл</string>

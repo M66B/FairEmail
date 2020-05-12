@@ -5,7 +5,7 @@
     <string name="app_welcome">FairEmail est une application de messagerie open source centrée sur la confidentialité et la sécurité. C’est pourquoi certaines fonctionnalités peuvent être différentes de ce à quoi vous êtes habitué.</string>
     <string name="app_limitations">Par exemple, les messages seront toujours reformatés afin d’en retirer les éléments non sûrs tout en améliorant leur lisibilité et l’ouverture des liens devra être confirmée par sécurité.</string>
     <string name="app_crash">FairEmail n\'est pas pris en charge sur cet appareil parce que des bogues dans Android provoquent des plantages</string>
-    <string name="app_exit">Faites de nouveau « Retour » pour quitter</string>
+    <string name="app_exit">Faire de nouveau « Retour » pour quitter</string>
     <string name="channel_service">Service</string>
     <string name="channel_send">Envoi</string>
     <string name="channel_notification">Notifications</string>
@@ -122,7 +122,7 @@
     <string name="title_setup_quick_smtp">Serveur SMTP pour l’envoi des messages</string>
     <string name="title_setup_wizard">Assistant</string>
     <string name="title_setup_wizard_multiple">L’assistant de configuration rapide peut être utilisé plusieurs fois pour configurer plusieurs comptes</string>
-    <string name="title_setup_wizard_remark">Faites « Retour » pour vous rendre à la boîte de réception</string>
+    <string name="title_setup_wizard_remark">Faire « Retour » pour aller à la boîte de réception</string>
     <string name="title_setup_other">Autre fournisseur</string>
     <string name="title_setup_gmail_support">L’autorisation des comptes Google fonctionnera seulement sur les versions officielles parce qu’Android vérifie la signature de l’application</string>
     <string name="title_setup_gmail_rationale">Veuillez accorder les autorisations pour sélectionner un compte et lire votre nom</string>
@@ -153,7 +153,7 @@
     <string name="title_setup_doze">Configurer les optimisations de la batterie</string>
     <string name="title_setup_doze_remark">Pour recevoir des e-mails en continu (facultatif)</string>
     <string name="title_setup_doze_instructions">Sur le prochain écran, sélectionnez « Toutes les applications » en haut, recherchez cette application puis sélectionnez et validez « Ne pas optimiser »</string>
-    <string name="title_setup_doze_battery">Utilisation élevée de la batterie ?</string>
+    <string name="title_setup_doze_battery">Utilisation élevée de la batterie ?</string>
     <string name="title_setup_doze_stopped">Synchronisation arrêtée ?</string>
     <string name="title_setup_data">L\'économiseur de données est activé</string>
     <string name="title_setup_inbox">Consulter les messages</string>
@@ -511,8 +511,8 @@
     <string name="title_trust">Faire confiance au certificat du serveur avec l\'empreinte digitale %1$s</string>
     <string name="title_no_name">Nom manquant</string>
     <string name="title_no_email">Adresse e-mail manquante</string>
-    <string name="title_email_invalid">Adresse e-mail non valide : \'%1$s\'</string>
-    <string name="title_address_parse_error">Adresse \'%1$s\' non valide : %2$s</string>
+    <string name="title_email_invalid">Adresse e-mail non valide : \'%1$s\'</string>
+    <string name="title_address_parse_error">Adresse \'%1$s\' non valide : %2$s</string>
     <string name="title_no_account">Compte manquant</string>
     <string name="title_no_host">Nom d\'hôte manquant</string>
     <string name="title_no_user">Nom d\'utilisateur manquant</string>
@@ -687,10 +687,10 @@
     <string name="title_attachments_saved">Pièces jointes enregistrées</string>
     <string name="title_attachments_incomplete">Certaines pièces jointes ou images n\'ont pas été téléchargées et n\'ont pas pu être ajoutées</string>
     <string name="title_ask_save">Enregistrer les modifications ?</string>
-    <string name="title_ask_delete">Supprimer définitivement ce message ?</string>
+    <string name="title_ask_delete">Supprimer définitivement ce message ?</string>
     <string name="title_ask_delete_answer">Supprimer définitivement ce modèle de réponse ?</string>
     <string name="title_ask_delete_rule">Supprimer définitivement la règle ?</string>
-    <string name="title_ask_discard">Abandonner le brouillon ?</string>
+    <string name="title_ask_discard">Abandonner le brouillon ?</string>
     <string name="title_ask_show_html">L’affichage du message original peut entraîner la divulgation d’informations confidentielles</string>
     <string name="title_ask_show_html_remark">L’affichage du message original sur fond sombre n’est pas possible car cela pourrait rendre invisibles le texte et les images sombres</string>
     <string name="title_ask_show_html_images">Toujours afficher les images lors de l\'affichage des messages originaux</string>
@@ -775,7 +775,7 @@
     <string name="title_subject_reminder">L\'objet est vide</string>
     <string name="title_text_reminder">Le message est vide</string>
     <string name="title_attachment_keywords">joint,jointe,joints,jointes,ci-joint,ci-jointe,ci-joints,ci-jointes,attaché,attachés,attachée,attachées,lettre de motivation,cv</string>
-    <string name="title_attachment_reminder">Aviez-vous l’intention d’ajouter une pièce jointe ?</string>
+    <string name="title_attachment_reminder">Aviez-vous l’intention d’ajouter une pièce jointe ?</string>
     <string name="title_attachments_missing">Les pièces jointes n’ont pas toutes été téléchargées</string>
     <string name="title_dialog_hint">Cette boîte de dialogue peut être réactivée via le menu à trois points de la barre d’action supérieure</string>
     <string name="title_draft_deleted">Brouillon abandonné</string>
@@ -795,11 +795,11 @@
     <string name="title_reset_sign_key">Réinitialiser la clé de signature</string>
     <string name="title_signature_none">Message non signé</string>
     <string name="title_signature_valid">Signature du message valide</string>
-    <string name="title_signature_valid_from">Signature du message valide : %1$s</string>
+    <string name="title_signature_valid_from">Signature du message valide : %1$s</string>
     <string name="title_signature_unconfirmed">Signature du message valide mais non confirmée</string>
-    <string name="title_signature_unconfirmed_from">Signature du message valide mais non confirmée : %1$s</string>
+    <string name="title_signature_unconfirmed_from">Signature du message valide mais non confirmée : %1$s</string>
     <string name="title_signature_invalid">Signature du message non valide</string>
-    <string name="title_signature_invalid_reason">Signature du message non valide : %1$s</string>
+    <string name="title_signature_invalid_reason">Signature du message non valide : %1$s</string>
     <string name="title_signature_key_missing">La clé pour la vérification de la signature est manquante</string>
     <string name="title_signature_certificate_invalid">Chaîne de certificats non valide</string>
     <string name="title_signature_sender">Adresse de l\'expéditeur</string>
@@ -918,7 +918,7 @@
     <string name="title_rule_condition_missing">Condition manquante</string>
     <string name="title_rule_automation_hint">Ceci enverra l\'intent \'%1$s\' avec les extras \'%2$s\'</string>
     <string name="title_rule_execute">Exécuter maintenant</string>
-    <string name="title_rule_applied">Messages concernés : %1$d</string>
+    <string name="title_rule_applied">Messages concernés : %1$d</string>
     <string name="title_rule_check">Vérifier</string>
     <string name="title_rule_no_headers">Les conditions sur l\'en-tête ne peuvent pas être vérifiées</string>
     <string name="title_rule_matched">Messages correspondants</string>
@@ -1071,7 +1071,7 @@
     <string name="title_no_ask_again">Ne plus me le demander</string>
     <string name="title_no_ask_for_again">Ne plus demander ceci pour %1$s</string>
     <string name="title_no_body">Aucun texte de message trouvé</string>
-    <string name="title_no_charset">Encodage non pris en charge : %1$s</string>
+    <string name="title_no_charset">Encodage non pris en charge : %1$s</string>
     <string name="title_via">Via : %1$s</string>
     <string name="title_1hour">1 heure</string>
     <string name="title_1day">1 jour</string>
