@@ -3380,6 +3380,8 @@ public class FragmentCompose extends FragmentBase {
                             if (TextUtils.isEmpty(s)) {
                                 // Get referenced message body
                                 d = JsoupEx.parse(ref.getFile(context));
+                                for (Element e : d.select("[x-plain=true]"))
+                                    e.removeAttr("x-plain");
 
                                 // Remove signature separators
                                 boolean remove_signatures = prefs.getBoolean("remove_signatures", false);
