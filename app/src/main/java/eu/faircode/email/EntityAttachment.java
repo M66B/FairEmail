@@ -203,6 +203,9 @@ public class EntityAttachment {
         if ("application/x-pdf".equals(type))
             return "application/pdf";
 
+        if ("application/vnd.ms-pps".equals(type))
+            return "application/vnd.ms-powerpoint";
+
         if (TextUtils.isEmpty(type) ||
                 type.startsWith("unknown/") || type.endsWith("/unknown") ||
                 "application/octet-stream".equals(type) || "application/zip".equals(type)) {
