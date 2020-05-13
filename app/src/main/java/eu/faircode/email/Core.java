@@ -958,10 +958,6 @@ class Core {
             message.ui_flagged = false;
         message.ui_hide = false;
 
-        // Prevent deleting message from inbox
-        if (message.uidl == null)
-            message.uidl = message.msgid;
-
         db.message().updateMessage(message);
     }
 
