@@ -664,9 +664,11 @@ public interface DaoMessage {
     @Query("UPDATE message SET ui_found = 0")
     int resetSearch();
 
-    @Query("UPDATE message SET ui_snoozed = :wakeup" +
-            " WHERE id = :id")
+    @Query("UPDATE message SET ui_snoozed = :wakeup WHERE id = :id")
     int setMessageSnoozed(long id, Long wakeup);
+
+    @Query("UPDATE message SET uidl = :uidl WHERE id = :id")
+    int setMessageUidl(long id, String uidl);
 
     @Query("UPDATE message SET notifying = 0")
     int clearNotifyingMessages();
