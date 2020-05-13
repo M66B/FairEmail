@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_search">FairEmail search</string>
+    <string name="app_changelog">Changelog</string>
+    <string name="app_welcome">FairEmail is an open source email app focused on privacy and security. For this reason some features might work differently from what you are used to.</string>
+    <string name="app_limitations">For example, messages will always be reformatted to remove unsafe elements and to improve readability and opening links needs to be confirmed for safety.</string>
+    <string name="app_crash">FairEmail is not supported on this device because bugs in Android cause crashes</string>
     <!-- Thunderbird -->
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
