@@ -44,7 +44,6 @@ import android.os.LocaleList;
 import android.os.Parcel;
 import android.os.PowerManager;
 import android.os.StatFs;
-import android.provider.DocumentsContract;
 import android.security.KeyChain;
 import android.security.KeyChainAliasCallback;
 import android.security.KeyChainException;
@@ -527,7 +526,7 @@ public class Helper {
     }
 
     static Intent getIntentIssue(Context context) {
-        if (ActivityBilling.isPro(context)) {
+        if (ActivityBilling.isPro(context) && Helper.hasValidFingerprint(context)) {
             String version = BuildConfig.VERSION_NAME + "/" +
                     (Helper.hasValidFingerprint(context) ? "1" : "3") +
                     (BuildConfig.PLAY_STORE_RELEASE ? "p" : "") +
