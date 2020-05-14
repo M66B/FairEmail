@@ -155,6 +155,7 @@ import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.text.Collator;
 import java.text.DateFormat;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -4646,16 +4647,20 @@ public class FragmentCompose extends FragmentBase {
             final long working = getArguments().getLong("working");
             int focussed = getArguments().getInt("focussed");
 
-            View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_contact_group, null);
+            final Context context = getContext();
+
+            View dview = LayoutInflater.from(context).inflate(R.layout.dialog_contact_group, null);
             final Spinner spGroup = dview.findViewById(R.id.spGroup);
             final Spinner spTarget = dview.findViewById(R.id.spTarget);
 
-            Cursor groups = getContext().getContentResolver().query(
+            Cursor groups = context.getContentResolver().query(
                     ContactsContract.Groups.CONTENT_SUMMARY_URI,
                     new String[]{
                             ContactsContract.Groups._ID,
                             ContactsContract.Groups.TITLE,
-                            ContactsContract.Groups.SUMMARY_COUNT
+                            ContactsContract.Groups.SUMMARY_COUNT,
+                            ContactsContract.Groups.ACCOUNT_NAME,
+                            ContactsContract.Groups.ACCOUNT_TYPE,
                     },
                     ContactsContract.Groups.DELETED + " = 0" +
                             " AND " + ContactsContract.Groups.SUMMARY_COUNT + " > 0",
@@ -4664,17 +4669,38 @@ public class FragmentCompose extends FragmentBase {
             );
 
             SimpleCursorAdapter adapter = new SimpleCursorAdapter(
-                    getContext(),
-                    R.layout.spinner_item1_dropdown,
+                    context,
+                    R.layout.spinner_contact_group,
                     groups,
-                    new String[]{ContactsContract.Groups.TITLE},
-                    new int[]{android.R.id.text1},
+                    new String[]{ContactsContract.Groups.TITLE, ContactsContract.Groups.ACCOUNT_NAME},
+                    new int[]{R.id.tvGroup, R.id.tvAccount},
                     0);
+
+            final NumberFormat NF = NumberFormat.getInstance();
+
+            adapter.setViewBinder(new SimpleCursorAdapter.ViewBinder() {
+                @Override
+                public boolean setViewValue(View view, Cursor cursor, int columnIndex) {
+                    if (view.getId() == R.id.tvGroup) {
+                        String title = cursor.getString(1);
+                        int count = cursor.getInt(2);
+                        ((TextView) view).setText(context.getString(R.string.title_name_count, title, NF.format(count)));
+                        return true;
+                    } else if (view.getId() == R.id.tvAccount && BuildConfig.DEBUG) {
+                        String account = cursor.getString(3);
+                        String type = cursor.getString(4);
+                        ((TextView) view).setText(account + ":" + type);
+                        return true;
+                    } else
+                        return false;
+                }
+            });
+
             spGroup.setAdapter(adapter);
 
             spTarget.setSelection(focussed);
 
-            return new AlertDialog.Builder(getContext())
+            return new AlertDialog.Builder(context)
                     .setView(dview)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
