@@ -123,7 +123,7 @@
     <string name="title_setup_no_settings">找不到域名\"%1$s\"的设置</string>
     <string name="title_setup_no_settings_hint">请尝试使用您的电子邮件提供商提供的设置，在设置步骤1和2中设置一个帐户和身份</string>
     <string name="title_setup_no_auth_hint">请仔细检查您的邮件地址和密码，并确保您的帐户已启用外部访问 (IMAP/SMTP)</string>
-    <string name="title_setup_app_password_hint">此供应商需要应用密码而不是帐户密码，请查看供应商的说明</string>
+    <string name="title_setup_app_password_hint">此供应商需要 app 密码而不是帐户密码，请查看该供应商的相关说明</string>
     <string name="title_setup_no_system_folders">找不到收件箱或草稿文件夹</string>
     <string name="title_setup_quick_success">已成功添加了一个账户和身份</string>
     <string name="title_setup_quick_failed">您也可以尝试在下方配置一个账户和身份</string>
@@ -244,7 +244,7 @@
     <string name="title_advanced_caption_list">列表</string>
     <string name="title_advanced_caption_conversation">会话</string>
     <string name="title_advanced_caption_message">消息</string>
-    <string name="title_advanced_caption_message_header">消息标题</string>
+    <string name="title_advanced_caption_message_header">邮件头</string>
     <string name="title_advanced_caption_message_body">消息正文</string>
     <string name="title_advanced_landscape">在横屏模式下使用两列</string>
     <string name="title_advanced_landscape3">默认在横屏模式下显示导航菜单</string>
@@ -267,13 +267,13 @@
     <string name="title_advanced_name_email">显示名称和电子邮件地址</string>
     <string name="title_advanced_replace_name">优先使用联系人姓名而不是发送名称</string>
     <string name="title_advanced_distinguish_contacts">下划线发件人(当其为本地发送给的联系人时)</string>
-    <string name="title_advanced_show_recipients">在消息头中显示收件人</string>
+    <string name="title_advanced_show_recipients">在邮件头中显示收件人</string>
     <string name="title_advanced_font_size_sender">发件人字体大小</string>
     <string name="title_advanced_font_size_subject">邮件主题字体大小</string>
     <string name="title_advanced_subject_top">在发件人上方显示主题</string>
     <string name="title_advanced_subject_italic">用斜体字显示邮件主题</string>
     <string name="title_advanced_subject_elipsed">必要时缩短邮件主题</string>
-    <string name="title_advanced_keywords">在消息标题中显示关键字</string>
+    <string name="title_advanced_keywords">在邮件头中显示关键字</string>
     <string name="title_advanced_flags">显示星标</string>
     <string name="title_advanced_flags_background">显示有色背景而非有色星标</string>
     <string name="title_advanced_preview">显示邮件预览</string>
@@ -960,7 +960,7 @@
     <string name="title_legend_snoozed">已打盹</string>
     <string name="title_legend_browsed">已浏览或搜索</string>
     <string name="title_legend_answered">已回复</string>
-    <string name="title_legend_forwarded">已转发的</string>
+    <string name="title_legend_forwarded">已转发过的</string>
     <string name="title_legend_plain_only">仅纯文本</string>
     <string name="title_legend_receipt">请求接收</string>
     <string name="title_legend_attachment">有附件</string>
