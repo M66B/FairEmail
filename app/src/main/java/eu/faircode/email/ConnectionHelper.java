@@ -305,7 +305,8 @@ public class ConnectionHelper {
                 (message.contains("Too many simultaneous connections") /* Gmail */ ||
                         message.contains("Maximum number of connections") /* ... from user+IP exceeded */ /* Dovecot */ ||
                         message.contains("Too many concurrent connections") /* ... to this mailbox */ ||
-                        message.contains("User is authenticated but not connected") /* Outlook */));
+                        message.contains("User is authenticated but not connected") /* Outlook */ ||
+                        message.contains("Account is temporarily unavailable") /* Acor.de */));
     }
 
     static Boolean isSyntacticallyInvalid(Throwable ex) {
