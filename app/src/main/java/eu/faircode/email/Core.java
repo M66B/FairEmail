@@ -401,9 +401,9 @@ class Core {
                     } catch (Throwable ex) {
                         Log.e(folder.name, ex);
                         EntityLog.log(context, folder.name +
-                                " op=" + op.name + " " +
-                                " try=" + op.tries + " " +
-                                Log.formatThrowable(ex, false));
+                                " op=" + op.name +
+                                " try=" + op.tries +
+                                " " + Log.formatThrowable(ex, false));
 
                         if (similar.size() > 0) {
                             // Retry individually
