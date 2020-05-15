@@ -133,9 +133,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
             views.setOnClickFillInIntent(R.id.llMessage, thread);
 
             int colorBackground =
-                    (message.accountColor == null || !ActivityBilling.isPro(context)
-                            ? colorSeparator : message.accountColor);
-
+                    (message.accountColor == null || !pro ? colorSeparator : message.accountColor);
             views.setInt(R.id.stripe, "setBackgroundColor", colorBackground);
             views.setViewVisibility(R.id.stripe, account < 0 && color_stripe ? View.VISIBLE : View.GONE);
 
