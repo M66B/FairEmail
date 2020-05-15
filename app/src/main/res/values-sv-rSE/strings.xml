@@ -123,7 +123,7 @@
     <string name="title_setup_wizard">Guide</string>
     <string name="title_setup_wizard_multiple">Installationsguiden kan användas flera gånger om flera konton ska sättas upp</string>
     <string name="title_setup_wizard_remark">Gå \"tillbaka\" för att gå till inkorgen</string>
-    <string name="title_setup_other">Andra leverantör</string>
+    <string name="title_setup_other">Annan leverantör</string>
     <string name="title_setup_gmail_support">Godkännande av Google-konton fungerar endast i officiella versioner eftersom Android kontrollerar appens signatur</string>
     <string name="title_setup_gmail_rationale">Vänligen bevilja behörigheter för att välja ett konto och läsa ditt namn</string>
     <string name="title_setup_gmail_permissions">Google kommer att be om behörighet att läsa, komponera, skicka och permanent ta bort all din e-post. FairEmail kommer aldrig att ta bort dina meddelanden utan ditt uttryckliga medgivande.</string>

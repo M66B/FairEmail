@@ -1,6 +1,6 @@
 # 设置帮助
 
-设置 FairEmail 相当简单。 如果您想发送电子邮件，就需要添加至少一个身份，并添加至少一个接收电子邮件的账户。 快速设置可一次性为大多数主要电邮服务提供商添加一个账户和一个身份。
+设置 FairEmail 相当简单。 要想发送邮件，您需要至少添加一个接收邮件的账户以及至少一个身份。 快速设置可一次性为大多数主要电邮服务提供商添加一个账户和一个身份。
 
 ## 要求
 
@@ -26,7 +26,7 @@
 
 如果手动配置了帐户，您也可能需要手动配置身份。 输入域名，例如 *gmail.com*并点击*获取设置*。 如果你的供应商支持 [自动发现](https://tools.ietf.org/html/rfc6186)，FairEmail将填写主机名和端口号，请您检查SMTP主机名、端口号和协议(SSL/TLS 或 STARTLS)是否正确。
 
-有关使用邮件别名，请参阅此 [FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) 。
+有关使用邮件别名，请参阅此 [FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) 
 
 ## 授予权限-访问联系人信息
 
