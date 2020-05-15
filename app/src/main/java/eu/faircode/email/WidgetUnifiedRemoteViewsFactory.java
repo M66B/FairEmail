@@ -45,12 +45,14 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
     private boolean threading;
     private boolean subject_top;
     private boolean subject_italic;
+    private boolean color_stripe;
     private long folder;
     private long account;
     private boolean unseen;
     private boolean flagged;
     private int colorWidgetForeground;
     private int colorWidgetRead;
+    private int colorSeparator;
     private boolean pro;
     private List<TupleMessageWidget> messages = new ArrayList<>();
 
@@ -74,12 +76,14 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
         threading = prefs.getBoolean("threading", true);
         subject_top = prefs.getBoolean("subject_top", false);
         subject_italic = prefs.getBoolean("subject_italic", true);
+        color_stripe = prefs.getBoolean("color_stripe", true);
         account = prefs.getLong("widget." + appWidgetId + ".account", -1L);
         folder = prefs.getLong("widget." + appWidgetId + ".folder", -1L);
         unseen = prefs.getBoolean("widget." + appWidgetId + ".unseen", false);
         flagged = prefs.getBoolean("widget." + appWidgetId + ".flagged", false);
         colorWidgetForeground = ContextCompat.getColor(context, R.color.colorWidgetForeground);
         colorWidgetRead = ContextCompat.getColor(context, R.color.colorWidgetRead);
+        colorSeparator = ContextCompat.getColor(context, R.color.lightColorSeparator);
 
         pro = ActivityBilling.isPro(context);
 
@@ -127,6 +131,13 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
             thread.putExtra("thread", message.thread);
             thread.putExtra("id", message.id);
             views.setOnClickFillInIntent(R.id.llMessage, thread);
+
+            int colorBackground =
+                    (message.accountColor == null || !ActivityBilling.isPro(context)
+                            ? colorSeparator : message.accountColor);
+
+            views.setInt(R.id.stripe, "setBackgroundColor", colorBackground);
+            views.setViewVisibility(R.id.stripe, account < 0 && color_stripe ? View.VISIBLE : View.GONE);
 
             SpannableString ssFrom = new SpannableString(pro
                     ? MessageHelper.formatAddressesShort(message.from)

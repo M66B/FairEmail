@@ -2483,7 +2483,7 @@ Checking *Remove tracking parameters* will remove all [UTM parameters](https://e
 The widget is designed to look good on most home/launcher screens by making it monochrome and by using a half transparent background.
 This way the widget will nicely blend in, while still being properly readable.
 
-Adding (account) colors will cause problems with some backgrounds and will cause readability problems, which is why this won't be added.
+Adding colors will cause problems with some backgrounds and will cause readability problems, which is why this won't be added.
 
 Due to Android limitations it is not possible to dynamically set the opacity of the background and to have rounded corners at the same time.
 
