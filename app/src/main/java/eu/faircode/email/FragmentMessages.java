@@ -1444,6 +1444,21 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     values.get(name).add(id);
             } else
                 values.get(name).remove(id);
+
+            if ("selected".equals(name) && enabled) {
+                int pos = adapter.getPositionForKey(id);
+                if (pos != NO_POSITION)
+                    adapter.notifyItemChanged(pos);
+
+                for (Long other : new ArrayList<>(values.get("selected")))
+                    if (!other.equals(id)) {
+                        values.get(name).remove(other);
+
+                        pos = adapter.getPositionForKey(other);
+                        if (pos != NO_POSITION)
+                            adapter.notifyItemChanged(pos);
+                    }
+            }
         }
 
         @Override

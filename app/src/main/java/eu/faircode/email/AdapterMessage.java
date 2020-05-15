@@ -1022,6 +1022,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             } else {
                 tvCount.setText(NF.format(message.visible));
                 ivThread.setVisibility(View.VISIBLE);
+                if (properties.getValue("selected", message.id))
+                    ivThread.setColorFilter(colorAccent);
+                else
+                    ivThread.clearColorFilter();
             }
 
             // Starred
@@ -2738,12 +2742,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 if (EntityFolder.DRAFTS.equals(message.folderType) && message.visible == 1 &&
                         !EntityMessage.PGP_SIGNENCRYPT.equals(message.encrypt) &&
-                        !EntityMessage.SMIME_SIGNENCRYPT.equals(message.encrypt))
+                        !EntityMessage.SMIME_SIGNENCRYPT.equals(message.encrypt)) {
                     context.startActivity(
                             new Intent(context, ActivityCompose.class)
                                     .putExtra("action", "edit")
                                     .putExtra("id", message.id));
-                else {
+                    properties.setValue("selected", message.id, true);
+                } else {
                     final LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                     final Intent viewThread = new Intent(ActivityView.ACTION_VIEW_THREAD)
                             .putExtra("account", message.account)
@@ -2759,6 +2764,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             (message.uid == null && message.accountProtocol == EntityAccount.TYPE_IMAP) ||
                             EntityFolder.OUTBOX.equals(message.folderType)) {
                         lbm.sendBroadcast(viewThread);
+                        properties.setValue("selected", message.id, true);
                         return;
                     }
 
@@ -2770,6 +2776,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 if (firstClick) {
                                     firstClick = false;
                                     lbm.sendBroadcast(viewThread);
+                                    properties.setValue("selected", message.id, true);
                                 }
                             }
                         }, ViewConfiguration.getDoubleTapTimeout());
