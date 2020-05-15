@@ -459,8 +459,7 @@ public interface DaoMessage {
     LiveData<List<TupleMessageWidgetCount>> liveWidgetUnified();
 
     @Query("SELECT message.*" +
-            ", account.name AS accountName" +
-            ", COALESCE(identity.color, folder.color, account.color) AS accountColor" +
+            ", account.name AS accountName, account.color AS accountColor" +
             ", SUM(1 - message.ui_seen) AS unseen" +
             ", COUNT(message.id) - SUM(message.ui_flagged) AS unflagged" +
             ", MAX(message.received) AS dummy" +
