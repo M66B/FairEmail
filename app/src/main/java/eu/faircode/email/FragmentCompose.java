@@ -4662,8 +4662,8 @@ public class FragmentCompose extends FragmentBase {
                             ContactsContract.Groups.ACCOUNT_NAME,
                             ContactsContract.Groups.ACCOUNT_TYPE,
                     },
-                    ContactsContract.Groups.GROUP_VISIBLE + " = 1" +
-                            " AND " + ContactsContract.Groups.DELETED + " = 0" +
+                    // ContactsContract.Groups.GROUP_VISIBLE + " = 1" + " AND " +
+                    ContactsContract.Groups.DELETED + " = 0" +
                             " AND " + ContactsContract.Groups.SUMMARY_COUNT + " > 0",
                     null,
                     ContactsContract.Groups.TITLE
