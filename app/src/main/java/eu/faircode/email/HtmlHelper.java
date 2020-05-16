@@ -795,7 +795,7 @@ public class HtmlHelper {
             // separate columns
             if (hasVisibleContent(col.childNodes()))
                 if (col.nextElementSibling() != null)
-                    col.appendText(" ");
+                    col.appendText("\u2003"); // em space
 
             if ("th".equals(col.tagName()))
                 col.tagName("strong");
