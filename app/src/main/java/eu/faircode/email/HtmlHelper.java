@@ -1823,6 +1823,7 @@ public class HtmlHelper {
                 // https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Whitespace
                 TextNode tnode;
                 String text;
+                int index;
                 for (int i = 0; i < block.size(); ) {
                     tnode = block.get(i);
                     text = tnode.getWholeText();
@@ -1838,9 +1839,14 @@ public class HtmlHelper {
                     text = TRIM_WHITESPACE_NL.matcher(text).replaceAll(" ");
 
                     // Remove leading whitespace
-                    if (i == 0 || endsWithWhitespace(block.get(i - 1).text()))
-                        while (startsWithWhiteSpace(text))
-                            text = text.substring(1);
+                    if (i == 0 || endsWithWhitespace(block.get(i - 1).text())) {
+                        index = 0;
+                        while (isWhiteSpace(text, index))
+                            index++;
+
+                        if (index > 0)
+                            text = text.substring(index);
+                    }
 
                     tnode.text(text);
 
@@ -1855,9 +1861,13 @@ public class HtmlHelper {
                 while (i > 0) {
                     tnode = block.get(i - 1);
                     text = tnode.getWholeText();
-                    if (endsWithWhitespace(text)) {
-                        while (endsWithWhitespace(text))
-                            text = text.substring(0, text.length() - 1);
+                    index = text.length() - 1;
+                    if (isWhiteSpace(text, index)) {
+                        index--;
+                        while (isWhiteSpace(text, index))
+                            index--;
+
+                        text = text.substring(0, index + 1);
 
                         tnode.text(text);
 
@@ -1879,18 +1889,15 @@ public class HtmlHelper {
                 }
             }
 
-            boolean startsWithWhiteSpace(String text) {
-                int len = text.length();
-                if (len == 0)
+            boolean isWhiteSpace(String text, int index) {
+                if (index < 0 || index >= text.length())
                     return false;
-                return WHITESPACE_NL.contains(text.substring(0, 1));
+                char kar = text.charAt(index);
+                return (WHITESPACE_NL.indexOf(kar) >= 0);
             }
 
             boolean endsWithWhitespace(String text) {
-                int len = text.length();
-                if (len == 0)
-                    return false;
-                return WHITESPACE_NL.contains(text.substring(len - 1));
+                return isWhiteSpace(text, text.length() - 1);
             }
         }, document.body());
 
