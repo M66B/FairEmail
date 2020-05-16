@@ -257,7 +257,7 @@
                 android:padding="12dp"
                 android:tint="?attr/colorSeparator"
                 app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
-                app:layout_constraintEnd_toEndOf="@+id/ibSnoozed"
+                app:layout_constraintEnd_toStartOf="@+id/ibSnoozed"
                 app:layout_constraintStart_toEndOf="@id/ibSeen"
                 app:srcCompat="@drawable/baseline_star_24" />
 
