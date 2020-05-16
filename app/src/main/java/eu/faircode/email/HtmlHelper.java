@@ -1826,6 +1826,8 @@ public class HtmlHelper {
                 for (int i = 0; i < block.size(); ) {
                     tnode = block.get(i);
                     text = tnode.getWholeText();
+                    if (text.contains("7,80"))
+                        Log.i("Here");
 
                     if ("-- ".equals(text)) {
                         i++;
@@ -1835,13 +1837,10 @@ public class HtmlHelper {
                     // Remove whitespace before/after newlines
                     text = TRIM_WHITESPACE_NL.matcher(text).replaceAll(" ");
 
+                    // Remove leading whitespace
                     if (i == 0 || endsWithWhitespace(block.get(i - 1).text()))
                         while (startsWithWhiteSpace(text))
                             text = text.substring(1);
-
-                    if (i == block.size() - 1)
-                        while (endsWithWhitespace(text))
-                            text = text.substring(0, text.length() - 1);
 
                     tnode.text(text);
 
@@ -1849,6 +1848,25 @@ public class HtmlHelper {
                         block.remove(i);
                     else
                         i++;
+                }
+
+                // Remove trailing whitespace
+                int i = block.size();
+                while (i > 0) {
+                    tnode = block.get(i - 1);
+                    text = tnode.getWholeText();
+                    if (endsWithWhitespace(text)) {
+                        while (endsWithWhitespace(text))
+                            text = text.substring(0, text.length() - 1);
+
+                        tnode.text(text);
+
+                        if (TextUtils.isEmpty(text))
+                            i--;
+                        else
+                            break;
+                    } else
+                        break;
                 }
 
                 if (debug) {
