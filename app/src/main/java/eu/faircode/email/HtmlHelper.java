@@ -1827,8 +1827,6 @@ public class HtmlHelper {
                 for (int i = 0; i < block.size(); ) {
                     tnode = block.get(i);
                     text = tnode.getWholeText();
-                    if (text.contains("7,80"))
-                        Log.i("Here");
 
                     if ("-- ".equals(text)) {
                         i++;
@@ -1848,6 +1846,14 @@ public class HtmlHelper {
                             text = text.substring(index);
                     }
 
+                    // Remove multiple trailing whitespace
+                    index = text.length() - 1;
+                    while (isWhiteSpace(text, index) &&
+                            (i == block.size() - 1 || index == 0 || isWhiteSpace(text, index - 1)))
+                        index--;
+
+                    text = text.substring(0, index + 1);
+
                     tnode.text(text);
 
                     if (TextUtils.isEmpty(text))
@@ -1856,27 +1862,14 @@ public class HtmlHelper {
                         i++;
                 }
 
-                // Remove trailing whitespace
-                int i = block.size();
-                while (i > 0) {
-                    tnode = block.get(i - 1);
+                // Remove last trailing whitespace
+                if (block.size() > 0) {
+                    tnode = block.get(block.size() - 1);
                     text = tnode.getWholeText();
-                    index = text.length() - 1;
-                    if (isWhiteSpace(text, index)) {
-                        index--;
-                        while (isWhiteSpace(text, index))
-                            index--;
-
-                        text = text.substring(0, index + 1);
-
+                    if (endsWithWhitespace(text)) {
+                        text = text.substring(0, text.length() - 1);
                         tnode.text(text);
-
-                        if (TextUtils.isEmpty(text))
-                            i--;
-                        else
-                            break;
-                    } else
-                        break;
+                    }
                 }
 
                 if (debug) {
