@@ -336,6 +336,9 @@ public class FragmentAnswer extends FragmentBase {
 
     private void onLinkSelected(Bundle args) {
         String link = args.getString("link");
+        int start = args.getInt("start");
+        int end = args.getInt("end");
+        etText.setSelection(start, end);
         StyleHelper.apply(R.id.menu_link, etText, link);
     }
 
@@ -389,6 +392,8 @@ public class FragmentAnswer extends FragmentBase {
 
             Bundle args = new Bundle();
             args.putParcelable("uri", uri);
+            args.putInt("start", etText.getSelectionStart());
+            args.putInt("end", etText.getSelectionEnd());
 
             FragmentDialogLink fragment = new FragmentDialogLink();
             fragment.setArguments(args);

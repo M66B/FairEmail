@@ -237,6 +237,8 @@ public class ActivitySignature extends ActivityBase {
 
         if (action == R.id.menu_link) {
             Uri uri = null;
+            final int start = etText.getSelectionStart();
+            final int end = etText.getSelectionEnd();
 
             ClipboardManager cbm = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
             if (cbm != null && cbm.hasPrimaryClip()) {
@@ -259,6 +261,7 @@ public class ActivitySignature extends ActivityBase {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             String link = etLink.getText().toString();
+                            etText.setSelection(start, end);
                             StyleHelper.apply(R.id.menu_link, etText, link);
                         }
                     })
