@@ -1934,12 +1934,13 @@ public class HtmlHelper {
                             String value = param.substring(semi + 1);
                             switch (key) {
                                 case "color":
-                                    try {
-                                        int color = Integer.parseInt(value.substring(1), 16) | 0xFF000000;
-                                        ssb.setSpan(new ForegroundColorSpan(color), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                    } catch (NumberFormatException ex) {
-                                        Log.w(ex);
-                                    }
+                                    if (!TextUtils.isEmpty(value))
+                                        try {
+                                            int color = Integer.parseInt(value.substring(1), 16) | 0xFF000000;
+                                            ssb.setSpan(new ForegroundColorSpan(color), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                        } catch (NumberFormatException ex) {
+                                            Log.w(ex);
+                                        }
                                     break;
                                 case "text-decoration":
                                     if ("line-through".equals(value))
