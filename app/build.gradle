@@ -223,7 +223,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     def core_version = "1.3.0-rc01"
-    def appcompat_version = "1.2.0-beta01"
+    def appcompat_version = "1.2.0-rc01"
     def fragment_version = "1.3.0-alpha04"
     def recyclerview_version = "1.2.0-alpha03"
     def coordinatorlayout_version = "1.1.0"
