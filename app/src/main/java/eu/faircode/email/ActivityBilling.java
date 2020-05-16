@@ -515,8 +515,9 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
 
         EntityLog.log(this, message);
 
-        for (IBillingListener listener : listeners)
-            listener.onError(message);
+        if (result.getResponseCode() != BillingClient.BillingResponseCode.USER_CANCELED)
+            for (IBillingListener listener : listeners)
+                listener.onError(message);
     }
 
     private static String getBillingResponseText(BillingResult result) {
