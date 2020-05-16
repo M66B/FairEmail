@@ -3003,7 +3003,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         outState.putStringArray("fair:values", values.keySet().toArray(new String[0]));
         for (String name : values.keySet())
-            outState.putLongArray("fair:name:" + name, Helper.toLongArray(values.get(name)));
+            if (!"selected".equals(name))
+                outState.putLongArray("fair:name:" + name, Helper.toLongArray(values.get(name)));
 
         if (rvMessage != null) {
             Parcelable rv = rvMessage.getLayoutManager().onSaveInstanceState();
