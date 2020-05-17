@@ -4166,7 +4166,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             FragmentDialogKeywordManage fragment = new FragmentDialogKeywordManage();
             fragment.setArguments(args);
-            fragment.setTargetFragment(parentFragment, FragmentMessages.REQUEST_KEYWORDS);
             fragment.show(parentFragment.getParentFragmentManager(), "keyword:manage");
         }
 

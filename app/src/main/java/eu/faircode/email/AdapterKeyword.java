@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -31,6 +32,7 @@ import android.widget.CompoundButton;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LifecycleOwner;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
@@ -165,6 +167,9 @@ public class AdapterKeyword extends RecyclerView.Adapter<AdapterKeyword.ViewHold
                 prefs.edit().remove("keyword." + keyword.name).apply();
             else
                 prefs.edit().putInt("keyword." + keyword.name, keyword.color).apply();
+
+            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+            lbm.sendBroadcast(new Intent(FragmentMessages.ACTION_KEYWORDS));
         }
     }
 
