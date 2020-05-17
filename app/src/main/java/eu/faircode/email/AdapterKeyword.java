@@ -165,41 +165,6 @@ public class AdapterKeyword extends RecyclerView.Adapter<AdapterKeyword.ViewHold
                 prefs.edit().remove("keyword." + keyword.name).apply();
             else
                 prefs.edit().putInt("keyword." + keyword.name, keyword.color).apply();
-
-            Bundle args = new Bundle();
-            args.putLong("id", id);
-
-            new SimpleTask<Void>() {
-                @Override
-                protected Void onExecute(Context context, Bundle args) {
-                    long id = args.getLong("id");
-
-                    DB db = DB.getInstance(context);
-
-                    EntityMessage message = db.message().getMessage(id);
-                    if (message == null)
-                        return null;
-
-                    // Update keyword colors
-                    try {
-                        db.beginTransaction();
-
-                        db.message().setMessageKeywords(message.id, DB.Converters.fromStringArray(null));
-                        db.message().setMessageKeywords(message.id, DB.Converters.fromStringArray(message.keywords));
-
-                        db.setTransactionSuccessful();
-                    } finally {
-                        db.endTransaction();
-                    }
-
-                    return null;
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Log.e(ex);
-                }
-            }.execute(context, owner, args, "keyword:set");
         }
     }
 

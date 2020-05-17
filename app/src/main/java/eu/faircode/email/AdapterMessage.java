@@ -4166,6 +4166,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             FragmentDialogKeywordManage fragment = new FragmentDialogKeywordManage();
             fragment.setArguments(args);
+            fragment.setTargetFragment(parentFragment, FragmentMessages.REQUEST_KEYWORDS);
             fragment.show(parentFragment.getParentFragmentManager(), "keyword:manage");
         }
 
@@ -4992,10 +4993,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (prev.duplicate != next.duplicate) {
                     same = false;
                     log("duplicate changed", next.id);
-                }
-                if (!Arrays.equals(prev.keyword_colors, next.keyword_colors)) {
-                    same = false;
-                    log("keyword colors changed", next.id);
                 }
 
                 return same;

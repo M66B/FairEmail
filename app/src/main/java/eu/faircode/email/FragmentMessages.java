@@ -324,6 +324,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private static final int REQUEST_EMPTY_FOLDER = 20;
     private static final int REQUEST_BOUNDARY_RETRY = 21;
     static final int REQUEST_PICK_CONTACT = 22;
+    static final int REQUEST_KEYWORDS = 23;
 
     static final String ACTION_STORE_RAW = BuildConfig.APPLICATION_ID + ".STORE_RAW";
     static final String ACTION_DECRYPT = BuildConfig.APPLICATION_ID + ".DECRYPT";
@@ -5048,6 +5049,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 case REQUEST_PICK_CONTACT:
                     if (resultCode == RESULT_OK && data != null)
                         onPickContact(data.getData());
+                    break;
+                case REQUEST_KEYWORDS:
+                    adapter.notifyDataSetChanged();
                     break;
             }
         } catch (Throwable ex) {
