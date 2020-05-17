@@ -3004,8 +3004,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         outState.putStringArray("fair:values", values.keySet().toArray(new String[0]));
         for (String name : values.keySet())
-            if (!"selected".equals(name))
-                outState.putLongArray("fair:name:" + name, Helper.toLongArray(values.get(name)));
+            outState.putLongArray("fair:name:" + name, Helper.toLongArray(values.get(name)));
 
         if (rvMessage != null) {
             Parcelable rv = rvMessage.getLayoutManager().onSaveInstanceState();
@@ -3027,11 +3026,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             autoExpanded = savedInstanceState.getBoolean("fair:autoExpanded");
             autoCloseCount = savedInstanceState.getInt("fair:autoCloseCount");
 
-            for (String name : savedInstanceState.getStringArray("fair:values")) {
-                values.put(name, new ArrayList<Long>());
-                for (Long value : savedInstanceState.getLongArray("fair:name:" + name))
-                    values.get(name).add(value);
-            }
+            for (String name : savedInstanceState.getStringArray("fair:values"))
+                if (!"selected".equals(name)) {
+                    values.put(name, new ArrayList<>());
+                    for (Long value : savedInstanceState.getLongArray("fair:name:" + name))
+                        values.get(name).add(value);
+                }
 
             if (rvMessage != null) {
                 Parcelable rv = savedInstanceState.getParcelable("fair:rv");
