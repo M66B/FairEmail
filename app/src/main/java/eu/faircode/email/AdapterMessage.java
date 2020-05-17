@@ -252,6 +252,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private int searchResult = 0;
     private AsyncPagedListDiffer<TupleMessageEx> differ;
     private Map<Long, Integer> keyPosition = new HashMap<>();
+    private Map<Integer, Long> positionKey = new HashMap<>();
     private SelectionTracker<Long> selectionTracker = null;
 
     enum ViewType {UNIFIED, FOLDER, THREAD, SEARCH}
@@ -5069,16 +5070,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     }
 
     void submitList(PagedList<TupleMessageEx> list) {
-        keyPosition.clear();
-
-        for (int i = 0; i < list.size(); i++) {
-            TupleMessageEx message = list.get(i);
-            if (message != null) {
-                keyPosition.put(message.id, i);
-                message.resolveKeywordColors(context);
-            }
-        }
-
         differ.submitList(list);
     }
 
@@ -5176,6 +5167,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         if (message == null || context == null)
             return;
 
+        Integer p = keyPosition.get(message.id);
+        Long i = positionKey.get(position);
+        if (p != null)
+            positionKey.remove(p);
+        if (i != null)
+            keyPosition.remove(i);
+
+        keyPosition.put(message.id, position);
+        positionKey.put(position, message.id);
+
+        message.resolveKeywordColors(context);
+
         if (viewType == ViewType.THREAD) {
             boolean outgoing = holder.isOutgoing(message);
             holder.card.setOutgoing(outgoing);
@@ -5263,8 +5266,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     }
 
     Long getKeyAtPosition(int pos) {
-        TupleMessageEx message = getItemAtPosition(pos);
-        Long key = (message == null ? null : message.id);
+        Long key = positionKey.get(pos);
         Log.d("Key=" + key + " @Position=" + pos);
         return key;
     }
