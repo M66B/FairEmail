@@ -5067,6 +5067,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     }
 
     void submitList(PagedList<TupleMessageEx> list) {
+        for (int i = 0; i < list.size(); i++) {
+            TupleMessageEx message = list.get(i);
+            if (message != null) {
+                keyPosition.put(message.id, i);
+                positionKey.put(i, message.id);
+                message.resolveKeywordColors(context);
+            }
+        }
+
         differ.submitList(list);
     }
 
