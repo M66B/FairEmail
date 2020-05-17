@@ -1017,13 +1017,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             tvFolder.setVisibility(compact && viewType != ViewType.THREAD ? View.GONE : View.VISIBLE);
 
-            if (viewType == ViewType.THREAD || !threading) {
+            boolean selected = properties.getValue("selected", message.id);
+            if (viewType == ViewType.THREAD || (!threading && !selected)) {
                 tvCount.setVisibility(View.GONE);
                 ivThread.setVisibility(View.GONE);
             } else {
-                tvCount.setText(NF.format(message.visible));
+                tvCount.setVisibility(threading ? View.VISIBLE : View.GONE);
                 ivThread.setVisibility(View.VISIBLE);
-                if (properties.getValue("selected", message.id))
+
+                tvCount.setText(NF.format(message.visible));
+
+                if (selected)
                     ivThread.setColorFilter(colorAccent);
                 else
                     ivThread.clearColorFilter();
