@@ -1,8 +1,61 @@
-diff --git a/app/src/main/java/androidx/recyclerview/selection/SelectionTracker.java b/app/src/main/java/androidx/recyclerview/selection/SelectionTracker.java
-index 50cc4ceb7..910935a0a 100644
---- a/app/src/main/java/androidx/recyclerview/selection/SelectionTracker.java
-+++ b/app/src/main/java/androidx/recyclerview/selection/SelectionTracker.java
-@@ -503,7 +503,7 @@ public abstract class SelectionTracker<K> {
+diff -rupN /home/marcel/support/recyclerview/recyclerview-selection/src/main/java/androidx/recyclerview/selection/DefaultSelectionTracker.java app/src/main/java/androidx/recyclerview/selection/DefaultSelectionTracker.java
+--- /home/marcel/support/recyclerview/recyclerview-selection/src/main/java/androidx/recyclerview/selection/DefaultSelectionTracker.java	2020-03-23 17:03:46.043122318 +0100
++++ app/src/main/java/androidx/recyclerview/selection/DefaultSelectionTracker.java	2020-04-24 21:08:55.542011257 +0200
+@@ -379,6 +379,10 @@ public class DefaultSelectionTracker<K>
+         return mRange != null;
+     }
+ 
++    boolean isOverlapping(int position, int count) {
++        return (mRange != null && mRange.isOverlapping(position, count));
++    }
++
+     private boolean canSetState(@NonNull K key, boolean nextState) {
+         return mSelectionPredicate.canSetStateForKey(key, nextState);
+     }
+@@ -601,17 +605,21 @@ public class DefaultSelectionTracker<K>
+ 
+         @Override
+         public void onItemRangeInserted(int startPosition, int itemCount) {
+-            mSelectionTracker.endRange();
++            if (mSelectionTracker.isOverlapping(startPosition, itemCount))
++                mSelectionTracker.endRange();
+         }
+ 
+         @Override
+         public void onItemRangeRemoved(int startPosition, int itemCount) {
+-            mSelectionTracker.endRange();
++            if (mSelectionTracker.isOverlapping(startPosition, itemCount))
++                mSelectionTracker.endRange();
+         }
+ 
+         @Override
+         public void onItemRangeMoved(int fromPosition, int toPosition, int itemCount) {
+-            mSelectionTracker.endRange();
++            if (mSelectionTracker.isOverlapping(fromPosition, itemCount) ||
++                    mSelectionTracker.isOverlapping(toPosition, itemCount))
++                mSelectionTracker.endRange();
+         }
+     }
+ }
+diff -rupN /home/marcel/support/recyclerview/recyclerview-selection/src/main/java/androidx/recyclerview/selection/Range.java app/src/main/java/androidx/recyclerview/selection/Range.java
+--- /home/marcel/support/recyclerview/recyclerview-selection/src/main/java/androidx/recyclerview/selection/Range.java	2020-03-23 17:03:46.045122318 +0100
++++ app/src/main/java/androidx/recyclerview/selection/Range.java	2020-04-24 21:08:55.543011257 +0200
+@@ -169,6 +169,11 @@ final class Range {
+         mCallbacks.updateForRange(begin, end, selected, type);
+     }
+ 
++    boolean isOverlapping(int position, int count) {
++        return (position >= mBegin && position <= mEnd) ||
++                (position + count >= mBegin && position + count <= mEnd);
++    }
++
+     @Override
+     public String toString() {
+         return "Range{begin=" + mBegin + ", end=" + mEnd + "}";
+diff -rupN /home/marcel/support/recyclerview/recyclerview-selection/src/main/java/androidx/recyclerview/selection/SelectionTracker.java app/src/main/java/androidx/recyclerview/selection/SelectionTracker.java
+--- /home/marcel/support/recyclerview/recyclerview-selection/src/main/java/androidx/recyclerview/selection/SelectionTracker.java	2020-03-23 17:03:46.046122318 +0100
++++ app/src/main/java/androidx/recyclerview/selection/SelectionTracker.java	2020-04-24 21:08:55.544011257 +0200
+@@ -503,7 +503,7 @@ public abstract class SelectionTracker<K
          private OnContextClickListener mOnContextClickListener;
  
          private BandPredicate mBandPredicate;
@@ -11,7 +64,7 @@ index 50cc4ceb7..910935a0a 100644
  
          // TODO(b/144500333): Remove support for overriding gesture and pointer tooltypes.
          private int[] mGestureToolTypes = new int[]{
-@@ -815,7 +815,11 @@ public abstract class SelectionTracker<K> {
+@@ -815,7 +815,11 @@ public abstract class SelectionTracker<K
                          @Override
                          public void run() {
                              if (mSelectionPredicate.canSelectMultiple()) {
@@ -24,19 +77,3 @@ index 50cc4ceb7..910935a0a 100644
                              }
                          }
                      },
-diff --git a/app/src/main/java/androidx/recyclerview/selection/TouchInputHandler.java b/app/src/main/java/androidx/recyclerview/selection/TouchInputHandler.java
-index be4c3fa0b..c434ced07 100644
---- a/app/src/main/java/androidx/recyclerview/selection/TouchInputHandler.java
-+++ b/app/src/main/java/androidx/recyclerview/selection/TouchInputHandler.java
-@@ -112,6 +112,11 @@ final class TouchInputHandler<K> extends MotionInputHandler<K> {
-     }
- 
-     @Override
-+    public boolean onDoubleTapEvent(MotionEvent e) {
-+        return mSelectionTracker.hasSelection();
-+    }
-+
-+    @Override
-     public void onLongPress(@NonNull MotionEvent e) {
-         if (DEBUG) {
-             checkArgument(MotionEvents.isFingerEvent(e));
