@@ -194,6 +194,16 @@
             app:layout_constraintTop_toBottomOf="@id/tvImapTitle" />
 
         <eu.faircode.email.FixedTextView
+            android:id="@+id/tvImapFingerprint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="fingerprint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="?attr/colorWarning"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvImap" />
+
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvSmtpTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -201,7 +211,7 @@
             android:text="@string/title_setup_quick_smtp"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvImap" />
+            app:layout_constraintTop_toBottomOf="@id/tvImapFingerprint" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvSmtp"
@@ -213,6 +223,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSmtpTitle" />
 
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvSmtpFingerprint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="fingerprint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="?attr/colorWarning"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSmtp" />
+
         <Button
             android:id="@+id/btnSave"
             android:layout_width="wrap_content"
@@ -221,7 +241,7 @@
             android:tag="disable"
             android:text="@string/title_save"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvSmtp" />
+            app:layout_constraintTop_toBottomOf="@id/tvSmtpFingerprint" />
 
         <eu.faircode.email.ContentLoadingProgressBar
             android:id="@+id/pbSave"
@@ -238,7 +258,10 @@
             android:id="@+id/grpSetup"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvImapTitle,tvImap,tvSmtpTitle,tvSmtp,btnSave" />
+            app:constraint_referenced_ids="
+            tvImapTitle,tvImap,tvImapFingerprint,tvSmtpTitle,
+            tvSmtp,tvSmtpFingerprint,
+            btnSave" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpError"
