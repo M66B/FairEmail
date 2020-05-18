@@ -1070,7 +1070,8 @@ class Core {
                         msgid = helper.getMessageID();
 
                     Log.i("POP searching=" + message.msgid + " iterate=" + msgid);
-                    if (msgid != null && msgid.equals(message.msgid)) {
+                    if (msgid != null &&
+                            (msgid.equals(message.uidl) || msgid.equals(message.msgid))) {
                         found = true;
                         Log.i(folder.name + " POP delete=" + msgid);
                         imessage.setFlag(Flags.Flag.DELETED, true);
