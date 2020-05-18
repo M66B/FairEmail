@@ -795,7 +795,7 @@ public class HtmlHelper {
             // separate columns
             if (hasVisibleContent(col.childNodes()))
                 if (col.nextElementSibling() != null)
-                    col.appendText("\u2003"); // em space
+                    col.appendText(" ");
 
             if ("th".equals(col.tagName()))
                 col.tagName("strong");
@@ -1849,7 +1849,7 @@ public class HtmlHelper {
                     // Remove multiple trailing whitespace
                     index = text.length() - 1;
                     while (isWhiteSpace(text, index) &&
-                            (i == block.size() - 1 || index == 0 || isWhiteSpace(text, index - 1)))
+                            (isWhiteSpace(text, index - 1) || i == block.size() - 1))
                         index--;
 
                     text = text.substring(0, index + 1);
