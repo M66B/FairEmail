@@ -112,11 +112,6 @@ final class TouchInputHandler<K> extends MotionInputHandler<K> {
     }
 
     @Override
-    public boolean onDoubleTapEvent(MotionEvent e) {
-        return mSelectionTracker.hasSelection();
-    }
-
-    @Override
     public void onLongPress(@NonNull MotionEvent e) {
         if (DEBUG) {
             checkArgument(MotionEvents.isFingerEvent(e));
