@@ -42,6 +42,8 @@ public class FragmentDialogBase extends DialogFragment {
     private boolean once = false;
     private LifecycleOwner owner;
     private LifecycleRegistry registry;
+    private Fragment targetFragment;
+    private int targetRequestCode;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -131,14 +133,15 @@ public class FragmentDialogBase extends DialogFragment {
 
     @Override
     public void setTargetFragment(@Nullable Fragment fragment, int requestCode) {
-        super.setTargetFragment(fragment, requestCode);
-        Log.i("Set target " + this + " " + fragment);
+        targetFragment = fragment;
+        targetRequestCode = requestCode;
+        Log.i("Set target " + this + " " + fragment + " request=" + requestCode);
 
         fragment.getViewLifecycleOwner().getLifecycle().addObserver(new LifecycleObserver() {
             @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
             public void onDestroy() {
                 Log.i("Reset target " + FragmentDialogBase.this);
-                FragmentDialogBase.super.setTargetFragment(null, requestCode);
+                targetFragment = null;
             }
         });
     }
@@ -146,12 +149,11 @@ public class FragmentDialogBase extends DialogFragment {
     protected void sendResult(int result) {
         if (!once) {
             once = true;
-            Fragment target = getTargetFragment();
-            Log.i("Dialog target=" + target + " result=" + result);
-            if (target != null) {
+            Log.i("Dialog target=" + targetFragment + " result=" + result);
+            if (targetFragment != null) {
                 Intent data = new Intent();
                 data.putExtra("args", getArguments());
-                target.onActivityResult(getTargetRequestCode(), result, data);
+                targetFragment.onActivityResult(targetRequestCode, result, data);
             }
         }
     }
