@@ -79,6 +79,7 @@
     <string name="title_notification_alert">\'%1$s\'-serveradvarsel</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
+    <string name="title_from_to">%1$s ➤ %2$s</string>
     <string name="title_factor_minutes">%1$d minutter</string>
     <string name="menu_exit">Afslut</string>
     <string name="menu_answers">Skabeloner</string>
@@ -134,6 +135,7 @@
     <string name="title_setup_no_settings">Ingen indstillinger fundet for domænet \'%1$s\'</string>
     <string name="title_setup_no_settings_hint">Prøv at opsætte en konto og identitet i opsætningstrin 1 og 2 vha. indstillingerne leveret af din e-mailudbyder</string>
     <string name="title_setup_no_auth_hint">Dobbelttjek din e-mailadresse og adgangskode, og sørg for, at ekstern adgang (IMAP/SMTP) er aktiveret for din konto</string>
+    <string name="title_setup_app_password_hint">Denne udbyder kræver en app-adgangskode i stedet for kontoadgangskoden. Tjek din leverandørs instrukser</string>
     <string name="title_setup_no_system_folders">Indbakke- eller Udkastmappe ikke fundet</string>
     <string name="title_setup_quick_success">En konto og identitet er nu blevet tilføjet</string>
     <string name="title_setup_quick_failed">Du kan også prøve at opsætte en konto og identitet nedenfor</string>
@@ -220,6 +222,7 @@
     <string name="title_advanced_flagged">Alle stjernemarkerede beskeder</string>
     <string name="title_advanced_delete_unseen">Slet gamle, ulæste beskeder</string>
     <string name="title_advanced_kept_removed">Tjek, om gamle beskeder er fjernet fra serveren</string>
+    <string name="title_advanced_gmail_thread">Gmail- beskedgrupperingsstil for Gmail-konti</string>
     <string name="title_advanced_sync_folders">Synkronisér mappeliste</string>
     <string name="title_advanced_subscriptions">Håndér mappeabonnementer</string>
     <string name="title_advanced_keyboard">Vis tastatur som standard</string>
@@ -256,6 +259,7 @@
     <string name="title_advanced_caption_message_header">Beskedoverskrift</string>
     <string name="title_advanced_caption_message_body">Beskedtekst</string>
     <string name="title_advanced_landscape">Benyt to kolonner i liggende tilstand</string>
+    <string name="title_advanced_landscape3">Vis som standard navigeringsmenu i liggende tilstand</string>
     <string name="title_advanced_startup">Vis på startskærmen</string>
     <string name="title_advanced_cards">Brug kortstil i stedet for tabelform</string>
     <string name="title_advanced_date_header">Gruppér efter dato</string>
@@ -275,6 +279,7 @@
     <string name="title_advanced_name_email">Vis navne og e-mailadresser</string>
     <string name="title_advanced_replace_name">Foretræk Kontakt- fremfor Afsendernavn</string>
     <string name="title_advanced_distinguish_contacts">Understreg afsender, når denne er kendt som lokal \'Til\'-kontakt</string>
+    <string name="title_advanced_show_recipients">Vis modtagere i beskedhoved</string>
     <string name="title_advanced_font_size_sender">Skriftstørrelse, Afsender</string>
     <string name="title_advanced_font_size_subject">Skriftstørrelse, Emne</string>
     <string name="title_advanced_subject_top">Vis emne over afsender</string>
@@ -294,12 +299,14 @@
     <string name="title_advanced_monospaced">Benyt monospatieret skrifttype til beskedtekst</string>
     <string name="title_advanced_text_color">Vis skriftfarver</string>
     <string name="title_advanced_text_size">Vis små og store tekster</string>
+    <string name="title_advanced_text_align">Vis venstre-/højre-/centerjusteret tekster</string>
     <string name="title_advanced_collapse_quotes">Skjul citeret tekst</string>
     <string name="title_advanced_images_inline">Auto-vis indlejrede/vehæftede billeder</string>
     <string name="title_advanced_seekbar">Vis relativ samtaleposition med en prik</string>
     <string name="title_advanced_actionbar">Vis samtale-handlingsbjælke</string>
     <string name="title_advanced_actionbar_color">Benyt kontofarve som baggrundsfarve til samtalens handlingsbjælke</string>
     <string name="title_advanced_navbar_colorize">Farvelæg Abdroid-navigeringsbjælken</string>
+    <string name="title_advanced_parse_classes">Fortolk stilark</string>
     <string name="title_advanced_authentication">Vis en advarsel, når indgående server ikke kunne bekræfte beskeden</string>
     <string name="title_advanced_double_back">Dobbelttryk \"Tilbage\"/stryg for at lukke</string>
     <string name="title_advanced_pull_refresh">Træk ned for at opfriske</string>
@@ -352,6 +359,7 @@
     <string name="title_advanced_confirm_images">Bekræft visning af billeder</string>
     <string name="title_advanced_confirm_html">Vis som standard omformaterede beskeder</string>
     <string name="title_advanced_tracking">Genkend og deaktivér automatisk sporingsbilleder</string>
+    <string name="title_advanced_hide_timezone">Send beskeder uden tidszonedata</string>
     <string name="title_advanced_display_hidden">Vis skjulte beskedtekster</string>
     <string name="title_advanced_secure">Skjul fra seneste apps-skærm og forhindr skærmfotofunktion</string>
     <string name="title_advanced_pin">PIN-kode</string>
@@ -420,6 +428,7 @@
     <string name="title_advanced_preview_hint">Kun tilgængelig, når beskedtekst er downloadet</string>
     <string name="title_advanced_preview_issue">Rulning kan, grundet en fejl i visse Android-versioner, være langsom, når antallet af linjer er flere end én</string>
     <string name="title_advanced_inline_hint">Inline-billeder er billeder, som er inkluderet i beskeden</string>
+    <string name="title_advanced_parse_classes_hint">Dette viser beskeder mere korrekt, men muligvis med en forsinkelse</string>
     <string name="title_advanced_autoexpand_hint">Åbn automatisk besked, når der kun er én besked eller kun én ulæst besked i en samtale</string>
     <string name="title_advanced_autoseen_hint">Automarkering af læste beskeder ved udvidelse kan deaktiveres i de individuelle kontoindstillinger</string>
     <string name="title_advanced_autoclose_hint">Luk automatisk samtaler, når alle beskeder arkiveres, sendes eller kasseres</string>
@@ -487,6 +496,7 @@
     <string name="title_client_certificate">Klientcertifikat</string>
     <string name="title_realm">Område</string>
     <string name="title_use_ip">Brug lokal IP-adresse i stedet for værtsnavn</string>
+    <string name="title_ehlo">Tilpasset HELO/EHLO identifikation</string>
     <string name="title_primary">Primær</string>
     <string name="title_primary_account">Primær (standardkonto)</string>
     <string name="title_primary_identity">Primær (standardidentitet)</string>
@@ -734,6 +744,7 @@
     <string name="title_add_image_inline">Indsæt</string>
     <string name="title_add_image_attach">Vedhæft</string>
     <string name="title_add_image_resize">Skalér</string>
+    <string name="title_add_image_privacy">Fjern geografisk placering</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixels</string>
     <string name="title_add_image_select">Vælg fil</string>
     <string name="title_add_attachment">Tilføj vedhæftning</string>
@@ -803,6 +814,8 @@
     <string name="title_search_hint">        Søgning sker indledningsvis efter beskeder gemt på din enhed.
          For også at søge på serveren, tryk på knappen \'søg igen\'.
     </string>
+    <string name="title_search_index_hint">Søgning via søgeindekset er hurtig, men vil kun finde hele ord</string>
+    <string name="title_search_text_hint">Visse e-mailservere har problemer med at finde tekst i mange beskeder</string>
     <string name="title_search_more">Flere valgmuligheder</string>
     <string name="title_search_use_index">Benyt søgeindeks</string>
     <string name="title_search_in_senders">I afsendere (Fra)</string>
@@ -849,6 +862,7 @@
     <string name="title_select_all">Markér alle</string>
     <string name="title_select_found">Markér fundne</string>
     <string name="title_force_sync">Gennemtving synk</string>
+    <string name="title_force_send">Gennemtving afsend</string>
     <string name="title_language_all">Alle</string>
     <string name="title_previous">Foregående</string>
     <string name="title_next">Næste</string>
@@ -958,6 +972,7 @@
     <string name="title_legend_snoozed">Er udsat</string>
     <string name="title_legend_browsed">Gennemses eller søges i</string>
     <string name="title_legend_answered">Er besvaret</string>
+    <string name="title_legend_forwarded">Blev videresendt</string>
     <string name="title_legend_plain_only">Kun klartekst</string>
     <string name="title_legend_receipt">Kvittering blev udbedt</string>
     <string name="title_legend_attachment">Har vedhæftning</string>
