@@ -14,7 +14,9 @@
             android:id="@+id/content_frame"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="2" />
+            android:layout_weight="2"
+            android:focusable="false"
+            android:focusableInTouchMode="false" />
 
         <View
             android:id="@+id/content_separator"
@@ -26,7 +28,9 @@
             android:id="@+id/content_pane"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:focusable="false"
+            android:focusableInTouchMode="false" />
     </LinearLayout>
 
     <eu.faircode.email.ScrollViewEx
