@@ -187,7 +187,11 @@ public class EntityMessage implements Serializable {
     public Long last_attempt; // send
 
     static String generateMessageId() {
-        return "<" + UUID.randomUUID() + "@localhost" + '>';
+        return generateMessageId("localhost");
+    }
+
+    static String generateMessageId(String domain) {
+        return "<" + UUID.randomUUID() + "@" + domain + '>';
     }
 
     boolean replySelf(List<TupleIdentityEx> identities, long account) {

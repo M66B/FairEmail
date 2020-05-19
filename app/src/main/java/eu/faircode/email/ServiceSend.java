@@ -58,6 +58,7 @@ import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
 import javax.mail.SendFailedException;
 import javax.mail.Session;
+import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
@@ -404,6 +405,14 @@ public class ServiceSend extends ServiceBase {
 
         if (!message.content)
             throw new IllegalArgumentException("Message body missing");
+
+        // Update message ID
+        if (message.from != null && message.from.length > 0) {
+            String from = ((InternetAddress) message.from[0]).getAddress();
+            int at = (from == null ? -1 : from.indexOf('@'));
+            if (at > 0 && at + 1 < from.length())
+                message.msgid = EntityMessage.generateMessageId(from.substring(at + 1));
+        }
 
         // Create message
         Properties props = MessageHelper.getSessionProperties();
