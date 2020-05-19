@@ -568,6 +568,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_folder_name">Ordnername</string>
     <string name="title_display_name">Anzeigename</string>
     <string name="title_show_folders">Ausgeblendete Ordner anzeigen</string>
+    <string name="title_show_flagged">Markierte Nachrichten anzeigen</string>
     <string name="title_subscribed_only">Nur abonnierte</string>
     <string name="title_apply_to_all">Auf alle anwenden &#8230;</string>
     <string name="title_hide_folder">Ordner ausblenden</string>

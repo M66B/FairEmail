@@ -566,6 +566,7 @@
     <string name="title_folder_name">Mapnaam</string>
     <string name="title_display_name">Weergavenaam</string>
     <string name="title_show_folders">Toon verborgen mappen</string>
+    <string name="title_show_flagged">Toon berichten met ster</string>
     <string name="title_subscribed_only">Alleen geabonneerde</string>
     <string name="title_apply_to_all">Toepassen op alle &#8230;</string>
     <string name="title_hide_folder">Verberg map</string>

@@ -567,6 +567,7 @@
     <string name="title_folder_name">Nom du dossier</string>
     <string name="title_display_name">Nom affiché</string>
     <string name="title_show_folders">Afficher les dossiers cachés</string>
+    <string name="title_show_flagged">Afficher les messages suivis</string>
     <string name="title_subscribed_only">Abonnés uniquement</string>
     <string name="title_apply_to_all">Appliquer à tous&#8230;</string>
     <string name="title_hide_folder">Masquer le dossier</string>
