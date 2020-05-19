@@ -90,7 +90,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     private LayoutInflater inflater;
 
     private boolean subscriptions;
-    private boolean debug;
 
     private int dp12;
     private float textSize;
@@ -344,10 +343,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         folder.synchronize && folder.initialize != 0 && !EntityFolder.OUTBOX.equals(folder.type)
                                 ? textColorPrimary : textColorSecondary));
 
-                tvKeywords.setText(debug ? TextUtils.join(" ", folder.keywords) : null);
-                tvKeywords.setVisibility(
-                        show_flagged || (debug && folder.keywords.length > 0)
-                                ? View.VISIBLE : View.GONE);
+                tvKeywords.setText(BuildConfig.DEBUG ? TextUtils.join(" ", folder.keywords) : null);
+                tvKeywords.setVisibility(show_flagged ? View.VISIBLE : View.GONE);
 
                 tvFlagged.setText(NF.format(folder.flagged));
 
@@ -807,7 +804,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
         this.subscriptions = prefs.getBoolean("subscriptions", false);
         this.subscribed_only = prefs.getBoolean("subscribed_only", false) && subscriptions;
-        this.debug = prefs.getBoolean("debug", false);
 
         this.dp12 = Helper.dp2pixels(context, 12);
         this.textSize = Helper.getTextSize(context, zoom);
