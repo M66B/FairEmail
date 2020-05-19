@@ -105,6 +105,8 @@ Please see [here](https://email.faircode.eu/#screenshots) for screenshots.
 
 ## Downloads
 
+Supported download locations:
+
 * [GitHub](https://github.com/M66B/FairEmail/releases)
 * [Play store](https://play.google.com/store/apps/details?id=eu.faircode.email)
 * ~~[Play store](https://play.google.com/apps/testing/eu.faircode.email) (test)~~
