@@ -1001,8 +1001,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibSnoozed.setImageResource(
                     message.ui_snoozed != null && message.ui_snoozed == Long.MAX_VALUE
                             ? R.drawable.baseline_visibility_off_24 : R.drawable.baseline_timelapse_24);
+            if (message.ui_unsnoozed)
+                ibSnoozed.setColorFilter(colorAccent);
+            else
+                ibSnoozed.clearColorFilter();
 
-            ibSnoozed.setVisibility(message.ui_snoozed == null ? View.GONE : View.VISIBLE);
+            ibSnoozed.setVisibility(message.ui_snoozed == null && !message.ui_unsnoozed ? View.GONE : View.VISIBLE);
             ivAnswered.setVisibility(message.ui_answered ? View.VISIBLE : View.GONE);
             ivForwarded.setVisibility(message.isForwarded() ? View.VISIBLE : View.GONE);
             ivAttachments.setVisibility(message.attachments > 0 ? View.VISIBLE : View.GONE);
@@ -4900,6 +4904,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (!Objects.equals(prev.ui_snoozed, next.ui_snoozed)) {
                     same = false;
                     log("ui_snoozed changed", next.id);
+                }
+                if (!Objects.equals(prev.ui_unsnoozed, next.ui_unsnoozed)) {
+                    same = false;
+                    log("ui_unsnoozed changed", next.id);
                 }
                 if (!Objects.equals(prev.color, next.color)) {
                     same = false;

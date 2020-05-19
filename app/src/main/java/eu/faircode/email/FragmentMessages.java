@@ -1480,6 +1480,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             (message.accountAutoSeen && !message.ui_seen && !message.folderReadOnly))) {
                 message.unseen = 0;
                 message.ui_seen = true;
+                message.ui_unsnoozed = false;
             }
 
             setValue("expanded", message.id, value);
@@ -4299,6 +4300,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     if (account == null)
                         return null;
 
+                    if (message.ui_unsnoozed)
+                        db.message().setMessageUnsnoozed(message.id, false);
+
                     if (account.protocol != EntityAccount.TYPE_IMAP) {
                         if (!message.ui_seen)
                             EntityOperation.queue(context, message, EntityOperation.SEEN, true);
@@ -4311,8 +4315,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 int ops = db.operation().getOperationCount(message.folder, message.id, EntityOperation.SEEN);
                                 if (!message.seen || ops > 0)
                                     EntityOperation.queue(context, message, EntityOperation.SEEN, true);
-                            } else
-                                db.message().setMessageUiIgnored(message.id, true);
+                            } else {
+                                if (!message.ui_ignored)
+                                    db.message().setMessageUiIgnored(message.id, true);
+                            }
                     }
 
                     db.setTransactionSuccessful();

@@ -475,6 +475,7 @@ public class ServiceUI extends IntentService {
                                 .renameTo(message.getFile(this));
                 }
                 db.message().setMessageSnoozed(message.id, null);
+                db.message().setMessageUnsnoozed(message.id, true);
                 EntityOperation.queue(this, message, EntityOperation.SEEN, false, false);
             }
 
