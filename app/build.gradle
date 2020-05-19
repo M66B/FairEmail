@@ -52,6 +52,9 @@ android {
         exclude 'META-INF/README.md'
         exclude 'META-INF/CHANGES'
         exclude 'META-INF/jersey-module-version'
+        exclude 'META-INF/COPYRIGHT.html'
+        exclude 'META-INF/LICENSE.gpl.txt'
+        exclude 'META-INF/LICENSE.commercial.txt'
     }
 
     signingConfigs {
