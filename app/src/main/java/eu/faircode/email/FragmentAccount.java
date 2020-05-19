@@ -25,7 +25,6 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -100,7 +99,6 @@ public class FragmentAccount extends FragmentBase {
     private Button btnCertificate;
     private TextView tvCertificate;
     private Button btnOAuth;
-    private TextView tvOAuthSupport;
     private EditText etRealm;
 
     private EditText etName;
@@ -214,7 +212,6 @@ public class FragmentAccount extends FragmentBase {
         btnCertificate = view.findViewById(R.id.btnCertificate);
         tvCertificate = view.findViewById(R.id.tvCertificate);
         btnOAuth = view.findViewById(R.id.btnOAuth);
-        tvOAuthSupport = view.findViewById(R.id.tvOAuthSupport);
         etRealm = view.findViewById(R.id.etRealm);
 
         etName = view.findViewById(R.id.etName);
@@ -379,14 +376,6 @@ public class FragmentAccount extends FragmentBase {
             @Override
             public void onClick(View v) {
                 onAuth();
-            }
-        });
-
-        tvOAuthSupport.setPaintFlags(tvOAuthSupport.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-        tvOAuthSupport.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Helper.viewFAQ(getContext(), 111);
             }
         });
 

@@ -300,19 +300,6 @@
             app:layout_constraintTop_toBottomOf="@id/btnCertificate" />
 
         <eu.faircode.email.FixedTextView
-            android:id="@+id/tvOAuthSupport"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:drawableEnd="@drawable/baseline_open_in_new_24"
-            android:drawablePadding="6dp"
-            android:text="@string/title_oauth_support"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="?android:attr/textColorLink"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnOAuth" />
-
-        <eu.faircode.email.FixedTextView
             android:id="@+id/tvRealm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -320,7 +307,7 @@
             android:text="@string/title_realm"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvOAuthSupport" />
+            app:layout_constraintTop_toBottomOf="@id/btnOAuth" />
 
         <eu.faircode.email.EditTextPlain
             android:id="@+id/etRealm"
@@ -933,7 +920,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:constraint_referenced_ids="
-                tvUser,etUser,tvPassword,tilPassword,btnCertificate,tvCertificate,btnOAuth,tvOAuthSupport,tvRealm,etRealm,
+                tvUser,etUser,tvPassword,tilPassword,btnCertificate,tvCertificate,btnOAuth,tvRealm,etRealm,
                 tvName,tvNameRemark,etName,
                 tvColor,btnColor,tvColorHint,tvColorPro" />
 
