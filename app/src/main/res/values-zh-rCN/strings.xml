@@ -555,6 +555,7 @@
     <string name="title_folder_name">文件夹名</string>
     <string name="title_display_name">显示昵称</string>
     <string name="title_show_folders">显示隐藏文件夹</string>
+    <string name="title_show_flagged">显示星标消息</string>
     <string name="title_subscribed_only">只显示已订阅的</string>
     <string name="title_apply_to_all">应用到所有文件夹 &#8230;</string>
     <string name="title_hide_folder">隐藏文件夹</string>

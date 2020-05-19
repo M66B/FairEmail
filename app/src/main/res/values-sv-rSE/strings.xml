@@ -566,6 +566,7 @@
     <string name="title_folder_name">Mappnamn</string>
     <string name="title_display_name">Visningsnamn</string>
     <string name="title_show_folders">Visa dolda mappar</string>
+    <string name="title_show_flagged">Visa stjärnmärkta meddelanden</string>
     <string name="title_subscribed_only">Endast prenumerationer</string>
     <string name="title_apply_to_all">Tillämpa på alla &#8230;</string>
     <string name="title_hide_folder">Dölj mapp</string>

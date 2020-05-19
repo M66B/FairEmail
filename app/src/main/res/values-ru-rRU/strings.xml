@@ -589,6 +589,7 @@
     <string name="title_folder_name">Название папки</string>
     <string name="title_display_name">Отображаемое имя</string>
     <string name="title_show_folders">Показывать скрытые папки</string>
+    <string name="title_show_flagged">Показать избранные сообщения</string>
     <string name="title_subscribed_only">Только подписки</string>
     <string name="title_apply_to_all">Применить ко всем&#8230;</string>
     <string name="title_hide_folder">Скрыть папку</string>

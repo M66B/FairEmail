@@ -568,6 +568,7 @@
     <string name="title_folder_name">Nombre de carpeta</string>
     <string name="title_display_name">Nombre para mostrar</string>
     <string name="title_show_folders">Mostrar carpetas ocultas</string>
+    <string name="title_show_flagged">Mostrar mensajes destacados</string>
     <string name="title_subscribed_only">Sólo suscritas</string>
     <string name="title_apply_to_all">Aplicar a todos/as los/las &#8230;</string>
     <string name="title_hide_folder">Ocultar carpeta</string>
