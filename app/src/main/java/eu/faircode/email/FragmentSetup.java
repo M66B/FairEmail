@@ -168,8 +168,7 @@ public class FragmentSetup extends FragmentBase {
                 int order = 1;
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_gmail, order++, R.string.title_setup_gmail);
 
-                if (!Helper.isPlayStoreInstall() &&
-                        (Helper.hasValidFingerprint(getContext()) || BuildConfig.DEBUG))
+                if (Helper.hasValidFingerprint(getContext()) || BuildConfig.DEBUG)
                     for (EmailProvider provider : EmailProvider.loadProfiles(getContext()))
                         if (provider.oauth != null && (provider.oauth.enabled || BuildConfig.DEBUG))
                             popupMenu.getMenu()
