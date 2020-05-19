@@ -288,23 +288,26 @@ public class FragmentQuickSetup extends FragmentBase {
                 String user = (provider.user == EmailProvider.UserType.EMAIL ? email : username);
                 Log.i("User type=" + provider.user + " name=" + user);
 
-                List<EntityFolder> folders = null;
+                List<EntityFolder> folders;
 
                 String aprotocol = provider.imap.starttls ? "imap" : "imaps";
                 try (EmailService iservice = new EmailService(
                         context, aprotocol, null, false, EmailService.PURPOSE_CHECK, true)) {
-                    boolean check_folders = false;
                     try {
                         iservice.connect(
                                 provider.imap.host, provider.imap.port,
                                 EmailService.AUTH_TYPE_PASSWORD, null,
                                 user, password,
                                 null, imap_fingerprint);
-                        check_folders = true;
                     } catch (EmailService.UntrustedException ex) {
-                        if (check)
+                        if (check) {
                             imap_fingerprint = ex.getFingerprint();
-                        else
+                            iservice.connect(
+                                    provider.imap.host, provider.imap.port,
+                                    EmailService.AUTH_TYPE_PASSWORD, null,
+                                    user, password,
+                                    null, imap_fingerprint);
+                        } else
                             throw ex;
                     } catch (AuthenticationFailedException ex) {
                         if (!user.equals(username)) {
@@ -320,12 +323,10 @@ public class FragmentQuickSetup extends FragmentBase {
                             throw ex;
                     }
 
-                    if (check_folders) {
-                        folders = iservice.getFolders();
+                    folders = iservice.getFolders();
 
-                        if (folders == null)
-                            throw new IllegalArgumentException(context.getString(R.string.title_setup_no_system_folders));
-                    }
+                    if (folders == null)
+                        throw new IllegalArgumentException(context.getString(R.string.title_setup_no_system_folders));
                 }
 
                 String iprotocol = provider.smtp.starttls ? "smtp" : "smtps";
