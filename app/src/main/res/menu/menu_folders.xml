@@ -21,6 +21,12 @@
         app:showAsAction="never" />
 
     <item
+        android:id="@+id/menu_show_flagged"
+        android:checkable="true"
+        android:title="@string/title_show_flagged"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/menu_subscribed_only"
         android:checkable="true"
         android:title="@string/title_subscribed_only"

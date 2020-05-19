@@ -657,6 +657,7 @@
     <string name="title_folder_name">Folder name</string>
     <string name="title_display_name">Display name</string>
     <string name="title_show_folders">Show hidden folders</string>
+    <string name="title_show_flagged">Show starred messages</string>
     <string name="title_subscribed_only">Subscribed only</string>
     <string name="title_apply_to_all">Apply to all &#8230;</string>
     <string name="title_hide_folder">Hide folder</string>

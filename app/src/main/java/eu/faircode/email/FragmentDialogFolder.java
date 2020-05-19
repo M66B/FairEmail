@@ -119,7 +119,7 @@ public class FragmentDialogFolder extends FragmentDialogBase {
         rvFolder.setLayoutManager(llm);
 
         final AdapterFolder adapter = new AdapterFolder(context, getViewLifecycleOwner(),
-                account, false, false, false, new AdapterFolder.IFolderSelectedListener() {
+                account, false, false, false, false, new AdapterFolder.IFolderSelectedListener() {
             @Override
             public void onFolderSelected(TupleFolderEx folder) {
                 String name = folder.getDisplayName(context, folder.parent_ref);

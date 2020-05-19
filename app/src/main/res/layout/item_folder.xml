@@ -217,11 +217,36 @@
                 android:layout_marginTop="3dp"
                 android:layout_marginEnd="6dp"
                 android:gravity="center_vertical"
+                android:minHeight="24dp"
                 android:text="Keywords"
                 android:textAppearance="@android:style/TextAppearance.Small"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/tvFlagged"
                 app:layout_constraintStart_toEndOf="@id/ibExpander"
                 app:layout_constraintTop_toBottomOf="@id/tvType" />
+
+            <eu.faircode.email.FixedTextView
+                android:id="@+id/tvFlagged"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_marginEnd="6dp"
+                android:gravity="center_vertical"
+                android:text="3"
+                android:textAppearance="@android:style/TextAppearance.Small"
+                app:layout_constraintBottom_toBottomOf="@id/tvKeywords"
+                app:layout_constraintEnd_toStartOf="@+id/ibFlagged"
+                app:layout_constraintTop_toTopOf="@+id/tvKeywords" />
+
+            <ImageView
+                android:id="@+id/ibFlagged"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="6dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/title_flag"
+                app:layout_constraintBottom_toBottomOf="@id/tvKeywords"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvKeywords"
+                app:srcCompat="@drawable/baseline_star_24" />
 
             <eu.faircode.email.FixedTextView
                 android:id="@+id/tvError"
@@ -248,6 +273,12 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvError" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/grpFlagged"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:constraint_referenced_ids="tvFlagged,ibFlagged" />
 
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/grpExtended"

@@ -83,6 +83,7 @@ public class FragmentFolders extends FragmentBase {
     private long account;
     private boolean primary;
     private boolean show_hidden = false;
+    private boolean show_flagged;
     private AdapterFolder adapter;
 
     private NumberFormat NF = NumberFormat.getNumberInstance();
@@ -104,6 +105,7 @@ public class FragmentFolders extends FragmentBase {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         cards = prefs.getBoolean("cards", true);
         compact = prefs.getBoolean("compact_folders", false);
+        show_flagged = prefs.getBoolean("flagged_folders", false);
 
         setTitle(R.string.page_folders);
     }
@@ -176,7 +178,7 @@ public class FragmentFolders extends FragmentBase {
             rvFolder.addItemDecoration(itemDecorator);
         }
 
-        adapter = new AdapterFolder(this, account, primary, compact, show_hidden, null);
+        adapter = new AdapterFolder(this, account, primary, compact, show_hidden, show_flagged, null);
         rvFolder.setAdapter(adapter);
 
         fabAdd.setOnClickListener(new View.OnClickListener() {
@@ -429,6 +431,7 @@ public class FragmentFolders extends FragmentBase {
 
         menu.findItem(R.id.menu_compact).setChecked(compact);
         menu.findItem(R.id.menu_show_hidden).setChecked(show_hidden);
+        menu.findItem(R.id.menu_show_flagged).setChecked(show_flagged);
         menu.findItem(R.id.menu_subscribed_only).setChecked(subscribed_only);
         menu.findItem(R.id.menu_subscribed_only).setVisible(subscriptions);
         menu.findItem(R.id.menu_apply_all).setVisible(account >= 0);
@@ -447,6 +450,9 @@ public class FragmentFolders extends FragmentBase {
                 return true;
             case R.id.menu_show_hidden:
                 onMenuShowHidden();
+                return true;
+            case R.id.menu_show_flagged:
+                onMenuShowFlagged();
                 return true;
             case R.id.menu_subscribed_only:
                 onMenuSubscribedOnly();
@@ -485,6 +491,16 @@ public class FragmentFolders extends FragmentBase {
         show_hidden = !show_hidden;
         getActivity().invalidateOptionsMenu();
         adapter.setShowHidden(show_hidden);
+    }
+
+    private void onMenuShowFlagged() {
+        show_flagged = !show_flagged;
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        prefs.edit().putBoolean("flagged_folders", show_flagged).apply();
+
+        getActivity().invalidateOptionsMenu();
+        adapter.setShowFlagged(show_flagged);
     }
 
     private void onMenuSubscribedOnly() {
