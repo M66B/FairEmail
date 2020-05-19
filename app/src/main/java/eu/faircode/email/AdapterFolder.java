@@ -347,6 +347,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 tvKeywords.setVisibility(show_flagged ? View.VISIBLE : View.GONE);
 
                 tvFlagged.setText(NF.format(folder.flagged));
+                ibFlagged.setImageResource(folder.flagged == 0
+                        ? R.drawable.baseline_star_border_24 : R.drawable.baseline_star_24);
 
                 tvError.setText(folder.error);
                 tvError.setVisibility(folder.error != null ? View.VISIBLE : View.GONE);
