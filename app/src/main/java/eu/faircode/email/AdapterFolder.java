@@ -355,7 +355,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 if (btnHelp != null)
                     btnHelp.setVisibility(folder.error == null ? View.GONE : View.VISIBLE);
 
-                grpFlagged.setVisibility(show_compact || !show_flagged ? View.GONE : View.VISIBLE);
+                grpFlagged.setVisibility(show_flagged ? View.VISIBLE : View.GONE);
                 grpExtended.setVisibility(show_compact ? View.GONE : View.VISIBLE);
             }
         }
