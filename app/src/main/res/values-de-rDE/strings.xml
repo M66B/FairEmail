@@ -627,6 +627,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_editasnew">Als neu bearbeiten</string>
     <string name="title_create_rule">Regel erstellen &#8230;</string>
     <string name="title_share">Teilen</string>
+    <string name="title_event">Zum Kalender hinzufügen</string>
     <string name="title_pin">Verknüpfung hinzufügen</string>
     <string name="title_print">Drucken</string>
     <string name="title_show_headers">Kopfzeilen anzeigen</string>

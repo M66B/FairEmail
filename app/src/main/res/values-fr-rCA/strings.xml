@@ -626,6 +626,7 @@
     <string name="title_editasnew">Modifier comme nouveau message</string>
     <string name="title_create_rule">Créer une règle&#8230;</string>
     <string name="title_share">Partager</string>
+    <string name="title_event">Ajouter au calendrier</string>
     <string name="title_pin">Ajouter un raccourci</string>
     <string name="title_print">Imprimer</string>
     <string name="title_show_headers">Afficher les en-têtes</string>

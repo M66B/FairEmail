@@ -625,6 +625,7 @@
     <string name="title_editasnew">Bewerken als nieuw</string>
     <string name="title_create_rule">Maak regel &#8230;</string>
     <string name="title_share">Delen</string>
+    <string name="title_event">Toevoegen aan agenda</string>
     <string name="title_pin">Snelkoppeling toevoegen</string>
     <string name="title_print">Afdrukken</string>
     <string name="title_show_headers">Toon koppen</string>
