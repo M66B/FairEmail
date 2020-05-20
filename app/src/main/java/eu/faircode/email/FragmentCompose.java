@@ -699,39 +699,43 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             public boolean setViewValue(View view, Cursor cursor, int columnIndex) {
-                int id = view.getId();
-                if (id == R.id.tvName) {
-                    if (colName < 0)
-                        colName = cursor.getColumnIndex("name");
+                try {
+                    int id = view.getId();
+                    if (id == R.id.tvName) {
+                        if (colName < 0)
+                            colName = cursor.getColumnIndex("name");
 
-                    if (cursor.isNull(colName)) {
-                        ((TextView) view).setText("-");
+                        if (cursor.isNull(colName)) {
+                            ((TextView) view).setText("-");
+                            return true;
+                        }
+                    } else if (id == R.id.ivPhoto) {
+                        if (colLocal < 0)
+                            colLocal = cursor.getColumnIndex("local");
+
+                        ImageView photo = (ImageView) view;
+
+                        GradientDrawable bg = new GradientDrawable();
+                        if (circular)
+                            bg.setShape(GradientDrawable.OVAL);
+                        else
+                            bg.setCornerRadius(dp3);
+                        photo.setBackground(bg);
+                        photo.setClipToOutline(true);
+
+                        if (cursor.getInt(colLocal) == 1)
+                            photo.setImageDrawable(null);
+                        else {
+                            String uri = cursor.getString(columnIndex);
+                            if (uri == null)
+                                photo.setImageResource(R.drawable.baseline_person_24);
+                            else
+                                photo.setImageURI(Uri.parse(uri));
+                        }
                         return true;
                     }
-                } else if (id == R.id.ivPhoto) {
-                    if (colLocal < 0)
-                        colLocal = cursor.getColumnIndex("local");
-
-                    ImageView photo = (ImageView) view;
-
-                    GradientDrawable bg = new GradientDrawable();
-                    if (circular)
-                        bg.setShape(GradientDrawable.OVAL);
-                    else
-                        bg.setCornerRadius(dp3);
-                    photo.setBackground(bg);
-                    photo.setClipToOutline(true);
-
-                    if (cursor.getInt(colLocal) == 1)
-                        photo.setImageDrawable(null);
-                    else {
-                        String uri = cursor.getString(columnIndex);
-                        if (uri == null)
-                            photo.setImageResource(R.drawable.baseline_person_24);
-                        else
-                            photo.setImageURI(Uri.parse(uri));
-                    }
-                    return true;
+                } catch (Throwable ex) {
+                    Log.e(ex);
                 }
                 return false;
             }
@@ -742,132 +746,142 @@ public class FragmentCompose extends FragmentBase {
             private int colEmail = -1;
 
             public CharSequence convertToString(Cursor cursor) {
-                if (colName < 0)
-                    colName = cursor.getColumnIndex("name");
-                if (colEmail < 0)
-                    colEmail = cursor.getColumnIndex("email");
+                try {
+                    if (colName < 0)
+                        colName = cursor.getColumnIndex("name");
+                    if (colEmail < 0)
+                        colEmail = cursor.getColumnIndex("email");
 
-                String name = cursor.getString(colName);
-                String email = MessageHelper.sanitizeEmail(cursor.getString(colEmail));
-                StringBuilder sb = new StringBuilder();
-                if (name == null)
-                    sb.append(email);
-                else {
-                    sb.append("\"").append(name).append("\" ");
-                    sb.append("<").append(email).append(">");
+                    String name = cursor.getString(colName);
+                    String email = MessageHelper.sanitizeEmail(cursor.getString(colEmail));
+                    StringBuilder sb = new StringBuilder();
+                    if (name == null)
+                        sb.append(email);
+                    else {
+                        sb.append("\"").append(name).append("\" ");
+                        sb.append("<").append(email).append(">");
+                    }
+                    return sb.toString();
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                    return ex.toString();
                 }
-                return sb.toString();
             }
         });
 
         cadapter.setFilterQueryProvider(new FilterQueryProvider() {
             public Cursor runQuery(CharSequence typed) {
-                Log.i("Suggest contact=" + typed);
-
                 MatrixCursor result = new MatrixCursor(new String[]{"_id", "name", "email", "photo", "local"});
-                if (typed == null)
-                    return result;
 
-                String wildcard = "%" + typed + "%";
-                Map<String, EntityContact> map = new HashMap<>();
+                try {
+                    Log.i("Suggest contact=" + typed);
+                    if (typed == null)
+                        return result;
 
-                boolean contacts = Helper.hasPermission(getContext(), Manifest.permission.READ_CONTACTS);
-                if (contacts) {
-                    Cursor cursor = resolver.query(
-                            ContactsContract.CommonDataKinds.Email.CONTENT_URI,
-                            new String[]{
-                                    ContactsContract.Contacts.DISPLAY_NAME,
-                                    ContactsContract.CommonDataKinds.Email.DATA,
-                                    ContactsContract.Contacts.PHOTO_THUMBNAIL_URI
-                            },
-                            ContactsContract.CommonDataKinds.Email.DATA + " <> ''" +
-                                    " AND (" + ContactsContract.Contacts.DISPLAY_NAME + " LIKE ?" +
-                                    " OR " + ContactsContract.CommonDataKinds.Email.DATA + " LIKE ?)",
-                            new String[]{wildcard, wildcard},
-                            null);
+                    String wildcard = "%" + typed + "%";
+                    Map<String, EntityContact> map = new HashMap<>();
 
-                    while (cursor != null && cursor.moveToNext()) {
-                        EntityContact item = new EntityContact();
-                        item.id = 0L;
-                        item.name = cursor.getString(0);
-                        item.email = cursor.getString(1);
-                        item.avatar = cursor.getString(2);
-                        item.times_contacted = 0;
-                        item.last_contacted = 0L;
-                        EntityContact existing = map.get(item.email);
-                        if (existing == null ||
-                                (existing.avatar == null && item.avatar != null))
-                            map.put(item.email, item);
-                    }
-                }
+                    boolean contacts = Helper.hasPermission(getContext(), Manifest.permission.READ_CONTACTS);
+                    if (contacts) {
+                        Cursor cursor = resolver.query(
+                                ContactsContract.CommonDataKinds.Email.CONTENT_URI,
+                                new String[]{
+                                        ContactsContract.Contacts.DISPLAY_NAME,
+                                        ContactsContract.CommonDataKinds.Email.DATA,
+                                        ContactsContract.Contacts.PHOTO_THUMBNAIL_URI
+                                },
+                                ContactsContract.CommonDataKinds.Email.DATA + " <> ''" +
+                                        " AND (" + ContactsContract.Contacts.DISPLAY_NAME + " LIKE ?" +
+                                        " OR " + ContactsContract.CommonDataKinds.Email.DATA + " LIKE ?)",
+                                new String[]{wildcard, wildcard},
+                                null);
 
-                List<EntityContact> items = new ArrayList<>();
-                if (suggest_sent)
-                    items.addAll(db.contact().searchContacts(null, EntityContact.TYPE_TO, wildcard));
-                if (suggest_received)
-                    items.addAll(db.contact().searchContacts(null, EntityContact.TYPE_FROM, wildcard));
-                for (EntityContact item : items) {
-                    EntityContact existing = map.get(item.email);
-                    if (existing == null)
-                        map.put(item.email, item);
-                    else {
-                        existing.times_contacted = Math.max(existing.times_contacted, item.times_contacted);
-                        existing.last_contacted = Math.max(existing.last_contacted, item.last_contacted);
-                    }
-                }
-
-                items = new ArrayList<>(map.values());
-
-                final Collator collator = Collator.getInstance(Locale.getDefault());
-                collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
-
-                Collections.sort(items, new Comparator<EntityContact>() {
-                    @Override
-                    public int compare(EntityContact i1, EntityContact i2) {
-                        try {
-                            if (suggest_frequently) {
-                                int t = -i1.times_contacted.compareTo(i2.times_contacted);
-                                if (t != 0)
-                                    return t;
-
-                                int l = -i1.last_contacted.compareTo(i2.last_contacted);
-                                if (l != 0)
-                                    return l;
-                            } else {
-                                int a = -Boolean.compare(i1.id == 0, i2.id == 0);
-                                if (a != 0)
-                                    return a;
-                            }
-
-                            if (TextUtils.isEmpty(i1.name) && TextUtils.isEmpty(i2.name))
-                                return 0;
-                            if (TextUtils.isEmpty(i1.name) && !TextUtils.isEmpty(i2.name))
-                                return 1;
-                            if (!TextUtils.isEmpty(i1.name) && TextUtils.isEmpty(i2.name))
-                                return -1;
-
-                            int n = collator.compare(i1.name, i2.name);
-                            if (n != 0)
-                                return n;
-
-                            return collator.compare(i1.email, i2.email);
-                        } catch (Throwable ex) {
-                            Log.e(ex);
-                            return 0;
+                        while (cursor != null && cursor.moveToNext()) {
+                            EntityContact item = new EntityContact();
+                            item.id = 0L;
+                            item.name = cursor.getString(0);
+                            item.email = cursor.getString(1);
+                            item.avatar = cursor.getString(2);
+                            item.times_contacted = 0;
+                            item.last_contacted = 0L;
+                            EntityContact existing = map.get(item.email);
+                            if (existing == null ||
+                                    (existing.avatar == null && item.avatar != null))
+                                map.put(item.email, item);
                         }
                     }
-                });
 
-                for (int i = 0; i < items.size(); i++) {
-                    EntityContact item = items.get(i);
-                    result.newRow()
-                            .add(i + 1) // id
-                            .add(item.name)
-                            .add(item.email)
-                            .add(item.avatar)
-                            .add(item.id == 0 ? 0 : 1);
+                    List<EntityContact> items = new ArrayList<>();
+                    if (suggest_sent)
+                        items.addAll(db.contact().searchContacts(null, EntityContact.TYPE_TO, wildcard));
+                    if (suggest_received)
+                        items.addAll(db.contact().searchContacts(null, EntityContact.TYPE_FROM, wildcard));
+                    for (EntityContact item : items) {
+                        EntityContact existing = map.get(item.email);
+                        if (existing == null)
+                            map.put(item.email, item);
+                        else {
+                            existing.times_contacted = Math.max(existing.times_contacted, item.times_contacted);
+                            existing.last_contacted = Math.max(existing.last_contacted, item.last_contacted);
+                        }
+                    }
+
+                    items = new ArrayList<>(map.values());
+
+                    final Collator collator = Collator.getInstance(Locale.getDefault());
+                    collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
+
+                    Collections.sort(items, new Comparator<EntityContact>() {
+                        @Override
+                        public int compare(EntityContact i1, EntityContact i2) {
+                            try {
+                                if (suggest_frequently) {
+                                    int t = -i1.times_contacted.compareTo(i2.times_contacted);
+                                    if (t != 0)
+                                        return t;
+
+                                    int l = -i1.last_contacted.compareTo(i2.last_contacted);
+                                    if (l != 0)
+                                        return l;
+                                } else {
+                                    int a = -Boolean.compare(i1.id == 0, i2.id == 0);
+                                    if (a != 0)
+                                        return a;
+                                }
+
+                                if (TextUtils.isEmpty(i1.name) && TextUtils.isEmpty(i2.name))
+                                    return 0;
+                                if (TextUtils.isEmpty(i1.name) && !TextUtils.isEmpty(i2.name))
+                                    return 1;
+                                if (!TextUtils.isEmpty(i1.name) && TextUtils.isEmpty(i2.name))
+                                    return -1;
+
+                                int n = collator.compare(i1.name, i2.name);
+                                if (n != 0)
+                                    return n;
+
+                                return collator.compare(i1.email, i2.email);
+                            } catch (Throwable ex) {
+                                Log.e(ex);
+                                return 0;
+                            }
+                        }
+                    });
+
+                    for (int i = 0; i < items.size(); i++) {
+                        EntityContact item = items.get(i);
+                        result.newRow()
+                                .add(i + 1) // id
+                                .add(item.name)
+                                .add(item.email)
+                                .add(item.avatar)
+                                .add(item.id == 0 ? 0 : 1);
+                    }
+                } catch (Throwable ex) {
+                    Log.e(ex);
                 }
 
+                Log.i("Suggesting contacts=" + result.getCount());
                 return result;
             }
         });
