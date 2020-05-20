@@ -4993,6 +4993,9 @@ public class FragmentCompose extends FragmentBase {
             cbPlainOnly.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                    cbPlainOnly.setTextColor(Helper.resolveColor(getContext(),
+                            checked ? R.attr.colorAccent : android.R.attr.textColorSecondary));
+
                     Bundle args = new Bundle();
                     args.putLong("id", id);
                     args.putBoolean("plain_only", checked);
