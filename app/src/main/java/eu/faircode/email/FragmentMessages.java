@@ -3827,10 +3827,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (folder.error != null && folder.account != null /* outbox */)
                 errors = true;
             if (folder.sync_state != null &&
-                    (folder.account == null || "connected".equals(folder.accountState))) {
+                    (folder.account == null || "connected".equals(folder.accountState)))
                 refreshing = true;
-                break;
-            }
         }
 
         // Get name
