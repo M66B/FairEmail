@@ -3649,7 +3649,8 @@ class Core {
         }
 
         long getIdleTime() {
-            return (lastActivity == null ? 0 : SystemClock.elapsedRealtime() - lastActivity);
+            Long last = lastActivity;
+            return (last == null ? 0 : SystemClock.elapsedRealtime() - last);
         }
 
         long getSequence(long folder, int priority) {
