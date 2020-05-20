@@ -1307,6 +1307,9 @@ public class HtmlHelper {
                     sb.append("<blockquote>");
 
                 line = line.substring(1); // >
+
+                if (line.startsWith(" >"))
+                    line = line.substring(1);
             }
             if (tlevel > 0)
                 if (line.length() > 0 && line.charAt(0) == ' ')
@@ -1575,10 +1578,12 @@ public class HtmlHelper {
 
             for (int i = end - 1; i >= start; i--)
                 if (ssb.charAt(i) == '\n')
-                    ssb.insert(i + 1, ">");
+                    if (i + 1 < ssb.length() && ssb.charAt(i + 1) == '>')
+                        ssb.insert(i + 1, ">");
+                    else
+                        ssb.insert(i + 1, "> ");
 
-            if (ssb.charAt(start) != '\n')
-                ssb.insert(start, ">");
+            ssb.insert(start, ssb.charAt(start) == '>' ? ">" : "> ");
         }
 
         for (BulletSpan span : ssb.getSpans(0, ssb.length(), BulletSpan.class)) {
@@ -2008,9 +2013,9 @@ public class HtmlHelper {
                                 ssb.insert(start++, "\n");
 
                             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
-                                ssb.setSpan(new QuoteSpan(colorPrimary), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                ssb.setSpan(new QuoteSpan(colorPrimary), start, ssb.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
                             else
-                                ssb.setSpan(new QuoteSpan(colorPrimary, dp3, dp6), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                ssb.setSpan(new QuoteSpan(colorPrimary, dp3, dp6), start, ssb.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
 
                             if (ssb.length() > 1 && ssb.charAt(ssb.length() - 1) != '\n')
                                 ssb.append("\n");
