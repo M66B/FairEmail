@@ -29,7 +29,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 public class SwipeRefreshLayoutEx extends SwipeRefreshLayout {
     private boolean refreshing = false;
 
-    private static final int DELAY_DISABLE = 1000; // milliseconds
+    private static final int DELAY_DISABLE = 1500; // milliseconds
 
     public SwipeRefreshLayoutEx(@NonNull Context context) {
         super(context);
