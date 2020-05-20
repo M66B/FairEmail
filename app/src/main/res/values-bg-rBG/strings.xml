@@ -566,6 +566,7 @@
     <string name="title_folder_name">Име на папка</string>
     <string name="title_display_name">Име</string>
     <string name="title_show_folders">Показвана не скрити папки</string>
+    <string name="title_show_flagged">Показване на броя на съобщенията със звезда</string>
     <string name="title_subscribed_only">Само абонирани</string>
     <string name="title_apply_to_all">Приложи на всички &#8230;</string>
     <string name="title_hide_folder">Скриване на папката</string>

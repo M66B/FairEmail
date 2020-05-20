@@ -567,6 +567,7 @@
     <string name="title_folder_name">Mappenavn</string>
     <string name="title_display_name">Visningsnavn</string>
     <string name="title_show_folders">Vis skjulte mapper</string>
+    <string name="title_show_flagged">Vis stjernemarkerede beskedantal</string>
     <string name="title_subscribed_only">Abonnér på</string>
     <string name="title_apply_to_all">Anvend for alle &#8230;</string>
     <string name="title_hide_folder">Skjul mappe</string>

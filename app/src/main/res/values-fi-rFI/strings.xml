@@ -565,6 +565,7 @@
     <string name="title_folder_name">Kansion nimi</string>
     <string name="title_display_name">Näyttönimi</string>
     <string name="title_show_folders">Näytä piilotetut kansiot</string>
+    <string name="title_show_flagged">Näytä tähdellisten viestien lukumäärä</string>
     <string name="title_subscribed_only">Vain tilatut</string>
     <string name="title_apply_to_all">Käytä kaikille &#8230;</string>
     <string name="title_hide_folder">Piilota kansio</string>
