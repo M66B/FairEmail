@@ -709,15 +709,24 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 btnCalendarMaybe.setOnLongClickListener(this);
 
                 gestureDetector = new ScaleGestureDetector(context, new ScaleGestureDetector.SimpleOnScaleGestureListener() {
+                    private float scale = 1.0f;
+                    private Toast toast = null;
+
                     @Override
                     public boolean onScale(ScaleGestureDetector detector) {
                         TupleMessageEx message = getMessage();
                         if (message != null) {
                             float factor = detector.getScaleFactor();
                             float size = tvBody.getTextSize() * factor;
-                            //Log.i("Gesture factor=" + factor + " size=" + size);
                             properties.setSize(message.id, size);
                             tvBody.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
+
+                            scale = scale * factor;
+                            String perc = Math.round(scale * 100) + " %";
+                            if (toast != null)
+                                toast.cancel();
+                            toast = ToastEx.makeText(context, perc, Toast.LENGTH_SHORT);
+                            toast.show();
                         }
                         return true;
                     }
