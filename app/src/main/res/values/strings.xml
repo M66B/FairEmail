@@ -719,6 +719,7 @@
     <string name="title_editasnew">Edit as new</string>
     <string name="title_create_rule">Create rule &#8230;</string>
     <string name="title_share">Share</string>
+    <string name="title_event">Add to calendar</string>
     <string name="title_pin">Add shortcut</string>
     <string name="title_print">Print</string>
     <string name="title_show_headers">Show headers</string>
