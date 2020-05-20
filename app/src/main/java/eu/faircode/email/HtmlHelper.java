@@ -1299,6 +1299,7 @@ public class HtmlHelper {
         String[] lines = text.split("\\r?\\n");
         for (String line : lines) {
             // Opening quotes
+            // https://tools.ietf.org/html/rfc3676#section-4.5
             int tlevel = 0;
             while (line.startsWith(">")) {
                 tlevel++;
@@ -1306,10 +1307,10 @@ public class HtmlHelper {
                     sb.append("<blockquote>");
 
                 line = line.substring(1); // >
-
-                if (line.startsWith(" "))
-                    line = line.substring(1);
             }
+            if (tlevel > 0)
+                if (line.length() > 0 && line.charAt(0) == ' ')
+                    line = line.substring(1);
 
             // Closing quotes
             for (int i = 0; i < level - tlevel; i++)
@@ -1567,14 +1568,17 @@ public class HtmlHelper {
             ssb.insert(end, "[" + source + "]");
         }
 
+        // https://tools.ietf.org/html/rfc3676#section-4.5
         for (QuoteSpan span : ssb.getSpans(0, ssb.length(), QuoteSpan.class)) {
             int start = ssb.getSpanStart(span);
             int end = ssb.getSpanEnd(span);
+
             for (int i = end - 1; i >= start; i--)
                 if (ssb.charAt(i) == '\n')
-                    ssb.insert(i + 1, "> ");
+                    ssb.insert(i + 1, ">");
+
             if (ssb.charAt(start) != '\n')
-                ssb.insert(start, "> ");
+                ssb.insert(start, ">");
         }
 
         for (BulletSpan span : ssb.getSpans(0, ssb.length(), BulletSpan.class)) {
