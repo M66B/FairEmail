@@ -60,7 +60,7 @@ import io.requery.android.database.sqlite.SQLiteDatabase;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 159,
+        version = 160,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -282,6 +282,7 @@ public abstract class DB extends RoomDatabase {
                 " BEGIN" +
                 "  UPDATE message SET attachments = attachments + 1" +
                 "  WHERE message.id = NEW.message" +
+                "  AND NEW.disposition = 'attachment'" +
                 "  AND (NEW.encryption IS NULL OR NEW.encryption = 0);" +
                 " END");
         db.execSQL("CREATE TRIGGER IF NOT EXISTS attachment_delete" +
@@ -289,6 +290,7 @@ public abstract class DB extends RoomDatabase {
                 " BEGIN" +
                 "  UPDATE message SET attachments = attachments - 1" +
                 "  WHERE message.id = OLD.message" +
+                "  AND OLD.disposition = 'attachment'" +
                 "  AND (OLD.encryption IS NULL OR OLD.encryption = 0);" +
                 " END");
     }
@@ -1578,6 +1580,15 @@ public abstract class DB extends RoomDatabase {
                     public void migrate(@NonNull SupportSQLiteDatabase db) {
                         Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `message` ADD COLUMN `ui_unsnoozed` INTEGER NOT NULL DEFAULT 0");
+                    }
+                })
+                .addMigrations(new Migration(159, 160) {
+                    @Override
+                    public void migrate(@NonNull SupportSQLiteDatabase db) {
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
+                        db.execSQL("DROP TRIGGER attachment_insert");
+                        db.execSQL("DROP TRIGGER attachment_delete");
+                        createTriggers(db);
                     }
                 });
     }
