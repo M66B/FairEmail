@@ -255,7 +255,7 @@ public class FragmentGmail extends FragmentBase {
         AccountManager am = AccountManager.get(getContext());
         Account[] accounts = am.getAccountsByType(type);
         for (final Account account : accounts)
-            if (name.equals(account.name)) {
+            if (name.equalsIgnoreCase(account.name)) {
                 found = true;
                 Log.i("Requesting token name=" + account.name);
                 am.getAuthToken(
