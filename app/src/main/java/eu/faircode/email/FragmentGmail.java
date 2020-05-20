@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2020 by Marcel Bokhorst (M66B)
 */
 
+import android.Manifest;
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.accounts.AccountManagerCallback;
@@ -248,10 +249,13 @@ public class FragmentGmail extends FragmentBase {
         String name = data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
         String type = data.getStringExtra(AccountManager.KEY_ACCOUNT_TYPE);
 
+        boolean found = false;
         AccountManager am = AccountManager.get(getContext());
         Account[] accounts = am.getAccountsByType(type);
         for (final Account account : accounts)
             if (name.equals(account.name)) {
+                found = true;
+                Log.i("Requesting token name=" + account.name);
                 am.getAuthToken(
                         account,
                         EmailService.getAuthTokenType(type),
@@ -265,7 +269,7 @@ public class FragmentGmail extends FragmentBase {
                                     String token = bundle.getString(AccountManager.KEY_AUTHTOKEN);
                                     if (token == null)
                                         throw new IllegalArgumentException("no token");
-                                    Log.i("Got token");
+                                    Log.i("Got token name=" + account.name);
 
                                     onAuthorized(name, token);
                                 } catch (Throwable ex) {
@@ -285,6 +289,16 @@ public class FragmentGmail extends FragmentBase {
                         null);
                 break;
             }
+
+        if (!found) {
+            Log.e("Account missing");
+            for (Account account : accounts)
+                Log.i("Account " + account.name + ":" + account.type);
+            Log.i("GET_ACCOUNTS=" + Helper.hasPermission(getContext(), Manifest.permission.GET_ACCOUNTS));
+
+            tvError.setText(getString(R.string.title_no_account));
+            grpError.setVisibility(View.VISIBLE);
+        }
     }
 
     private void onAuthorized(String user, String password) {
