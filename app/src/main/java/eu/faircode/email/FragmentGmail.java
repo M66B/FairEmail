@@ -50,7 +50,9 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static android.accounts.AccountManager.newChooseAccountIntent;
 import static android.app.Activity.RESULT_OK;
@@ -291,10 +293,15 @@ public class FragmentGmail extends FragmentBase {
             }
 
         if (!found) {
+            boolean permission = Helper.hasPermission(getContext(), Manifest.permission.GET_ACCOUNTS);
+
+            Map<String, String> crumb = new HashMap<>();
+            crumb.put("type", type);
+            crumb.put("count", Integer.toString(accounts.length));
+            crumb.put("permission", Boolean.toString(permission));
+            Log.breadcrumb("Gmail", crumb);
+
             Log.e("Account missing");
-            for (Account account : accounts)
-                Log.i("Account " + account.name + ":" + account.type);
-            Log.i("GET_ACCOUNTS=" + Helper.hasPermission(getContext(), Manifest.permission.GET_ACCOUNTS));
 
             tvError.setText(getString(R.string.title_no_account));
             grpError.setVisibility(View.VISIBLE);
