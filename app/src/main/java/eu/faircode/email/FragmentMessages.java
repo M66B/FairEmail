@@ -1334,6 +1334,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void onSwipeRefresh() {
+        swipeRefresh.onRefresh();
+
         Bundle args = new Bundle();
         args.putLong("folder", folder);
         args.putString("type", type);

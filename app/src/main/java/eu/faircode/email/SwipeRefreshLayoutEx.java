@@ -59,6 +59,11 @@ public class SwipeRefreshLayoutEx extends SwipeRefreshLayout {
         return this.refreshing;
     }
 
+    public void onRefresh() {
+        this.refreshing = true;
+        setRefreshing(false);
+    }
+
     public void resetRefreshing() {
         // Restart spinner after screen off, etc
         if (super.isRefreshing()) {
