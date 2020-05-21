@@ -1086,7 +1086,6 @@ PlayストアでFairEmailを評価できれば幸いです。
     <string name="title_pro_info">FairEmailの開発には文字通り数千時間かかりましたが、殆どの機能は無料で使用出来ます。
 FairEmailを長期的持続可能にする為、プロ機能課金が有ります。一部の便利な機能と高度な機能は無料では使用出来ません。
 FairEmailは、Pro機能購入の為に上部に小さなメッセージを表示します。プロ機能を購入すると削除されます。</string>
-    <string name="title_pro_hide">短いメッセージを1週間非表示にする</string>
     <string name="title_pro_hint">プロ機能を購入すると、現在及び将来全てのプロ機能を使用出来る様になりアプリとサポートが維持されます</string>
     <string name="title_pro_price"><a href="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq19">このFAQ</a>をご覧ください。プロ機能の価格や購入法も有ります</string>
     <string name="title_pro_pending">購入保留中</string>

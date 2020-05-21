@@ -614,6 +614,7 @@
     <string name="title_editasnew">作为新邮件编辑</string>
     <string name="title_create_rule">创建规则 &#8230;</string>
     <string name="title_share">分享</string>
+    <string name="title_event">添加到日历</string>
     <string name="title_pin">添加快捷方式</string>
     <string name="title_print">打印</string>
     <string name="title_show_headers">显示邮件头</string>
@@ -1083,14 +1084,14 @@
     <string name="title_icalendar_maybe">待定</string>
     <string name="title_icalendar_calendar">日历</string>
     <string name="title_try">请试下FairEmail吧！一个安卓平台上开源、隐私友好的邮件客户端</string>
-    <string name="title_pro_feature">这是专业版功能</string>
+    <string name="title_pro_feature">此为 Pro 版功能，请升级至 Pro 版后使用</string>
     <string name="title_pro_list">专业版功能列表</string>
     <string name="title_pro_purchase">购买</string>
     <string name="title_pro_once">仅一次</string>
     <string name="title_pro_info">毫不夸张地说，我在开发FairEmail上花费了数千小时，尽管如此，多数功能依旧可免费使用。
 为了让FairEmail开发维持下去，免费版无法使用一些便利和高级的功能。
 FairEmail会显示一条消息来提醒您这一点，这条消息在您购买专业版后将被移除。</string>
-    <string name="title_pro_hide">将升级Pro横幅隐藏一周</string>
+    <string name="title_pro_hide">将升级为 Pro 版横幅隐藏两周</string>
     <string name="title_pro_hint">购买专业版将获得现在以及未来更新中全部专业版功能，并将支持开发者维护这个应用</string>
     <string name="title_pro_price">请参见<a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">常见问题</a>关于专业版的价格</string>
     <string name="title_pro_pending">购买待处理</string>

@@ -625,6 +625,7 @@
     <string name="title_editasnew">Редактирай като нов</string>
     <string name="title_create_rule">Създай правило &#8230;</string>
     <string name="title_share">Споделяне</string>
+    <string name="title_event">Добавяне в календара</string>
     <string name="title_pin">Добавяне на пряк път</string>
     <string name="title_print">Отпечатване</string>
     <string name="title_show_headers">Покажи заглавки</string>
@@ -1102,7 +1103,6 @@
         За да бъде FairEmail устойчив в дългосрочен план, някои удобства и разширени функции не са безплатни.
         FairEmail показва малко съобщение, което да ви напомня за това, което ще бъде премахнато, ако закупите pro функциите.
     </string>
-    <string name="title_pro_hide">Скрийте малко съобщение за седмица</string>
     <string name="title_pro_hint">Купуването на професионалните функции ще ви позволи да използвате всички настоящи и бъдещи професионални функции, ще поддържа това приложение поддържано.</string>
     <string name="title_pro_price">Моля вижте <a href="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq19">ЧЗВ</a> за цената на PRO функциите</string>
     <string name="title_pro_pending">Чакащо плащане</string>

@@ -648,6 +648,7 @@
     <string name="title_editasnew">Редактировать как новое</string>
     <string name="title_create_rule">Создать правило&#8230;</string>
     <string name="title_share">Поделиться</string>
+    <string name="title_event">Добавить в календарь</string>
     <string name="title_pin">Добавить ярлык</string>
     <string name="title_print">Печать</string>
     <string name="title_show_headers">Показать заголовки</string>
@@ -1125,7 +1126,7 @@
         Чтобы сделать проект FairEmail устойчивым в долгосрочной перспективе, некоторые удобства и расширенные функции являются платными.
         FairEmail показывает небольшое сообщение, чтобы напоминать вам об этом. Оно будет удалено, если вы приобретёте функционал Pro.
     </string>
-    <string name="title_pro_hide">Скрыть маленькое сообщение на неделю</string>
+    <string name="title_pro_hide">Скрыть маленькое сообщение на две недели</string>
     <string name="title_pro_hint">Покупка функций Pro позволит вам использовать все реализованные и будущие Pro-функции.</string>
     <string name="title_pro_price">Ознакомьтесь с <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">​​этим часто задаваемым вопросом</a> о цене функций Pro.</string>
     <string name="title_pro_pending">Ожидание обработки покупки</string>

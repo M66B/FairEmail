@@ -1111,7 +1111,6 @@
         Pentru a face FairEmail sustenabil pe termen lung, unele caracteristici avansate sau ce țin de comoditate nu se pot folosi gratuit.
         FairEmail arată un mic mesaj care să vă reamintească de asta, care se poate ascunde dacă achiziționați caracteristicile Pro.
     </string>
-    <string name="title_pro_hide">Ascunde micul mesaj timp de o săptămână</string>
     <string name="title_pro_hint">Cumpărarea caracteristicilor Pro vă va permite să utilizați toate caracteristicile actuale cât și cele viitoare, și ajută la dezvoltarea acestei aplicații</string>
     <string name="title_pro_price">Vizitați <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">acestă pagină</a> pentru a afla despre prețurile caracteristicilor Pro</string>
     <string name="title_pro_pending">Achiziție în așteptare</string>

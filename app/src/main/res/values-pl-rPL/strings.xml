@@ -100,6 +100,7 @@
     <string name="title_notification_alert">Alert serwera \'%1$s\'</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
+    <string name="title_from_to">%1$s ➤ %2$s</string>
     <string name="title_factor_minutes">%1$d minut</string>
     <string name="menu_exit">Wyjście</string>
     <string name="menu_answers">Szablony</string>
@@ -155,6 +156,7 @@
     <string name="title_setup_no_settings">Nie ma ustawień dla domeny \'%1$s\'</string>
     <string name="title_setup_no_settings_hint">Spróbuj skonfigurować konto i tożsamość w krokach konfiguracji 1 i 2, korzystając z ustawień dostarczonych przez dostawcę poczty e-mail</string>
     <string name="title_setup_no_auth_hint">Sprawdź dokładnie swój adres e-mail i hasło oraz upewnij się, że dostęp zewnętrzny (IMAP/SMTP) jest włączony dla Twojego konta</string>
+    <string name="title_setup_app_password_hint">Ten dostawca wymaga hasła aplikacji zamiast hasła do konta, sprawdź instrukcje swojego dostawcy</string>
     <string name="title_setup_no_system_folders">Nie znaleziono folderu skrzynki odbiorczej lub szkiców</string>
     <string name="title_setup_quick_success">Pomyślnie dodano konto i tożsamość</string>
     <string name="title_setup_quick_failed">Możesz ustawić konto i tożsamość w krokach poniżej</string>
@@ -585,6 +587,7 @@
     <string name="title_folder_name">Nazwa folderu</string>
     <string name="title_display_name">Nazwa wyświetlana</string>
     <string name="title_show_folders">Pokaż ukryte foldery</string>
+    <string name="title_show_flagged">Pokaż liczbę wiadomości oznaczonych gwiazdką</string>
     <string name="title_subscribed_only">Tylko subskrybowane</string>
     <string name="title_apply_to_all">Zastosuj dla wszystkich &#8230;</string>
     <string name="title_hide_folder">Ukryj folder</string>
@@ -643,6 +646,7 @@
     <string name="title_editasnew">Edytuj jako nową</string>
     <string name="title_create_rule">Utwórz regułę &#8230;</string>
     <string name="title_share">Udostępnij</string>
+    <string name="title_event">Dodaj do kalendarza</string>
     <string name="title_pin">Dodaj skrót</string>
     <string name="title_print">Drukuj</string>
     <string name="title_show_headers">Pokaż nagłówki</string>
@@ -990,6 +994,7 @@
     <string name="title_legend_snoozed">Jest odłożona</string>
     <string name="title_legend_browsed">Jest przeglądany lub przeszukiwany</string>
     <string name="title_legend_answered">Udzielono odpowiedzi</string>
+    <string name="title_legend_forwarded">Przesłana dalej</string>
     <string name="title_legend_plain_only">Tylko jako zwykły tekst</string>
     <string name="title_legend_receipt">Zażądano potwierdzenia</string>
     <string name="title_legend_attachment">Zawiera załącznik</string>
@@ -1118,7 +1123,6 @@
     <string name="title_pro_info">Opracowanie FairEmail zajęło dosłownie tysiące godzin i pomimo tego większość funkcji jest darmowea
 W celu utrzymania FairEmail w dłuższej perspektywie, niektóre udogodnienia i zaawansowane funkcje nie są darmowe.
 FairEmail wyświetla o tym małą wiadomość przypominającą, która zostanie usunięta, jeśli kupisz funkcje pro.    </string>
-    <string name="title_pro_hide">Ukryj małą wiadomość na tydzień</string>
     <string name="title_pro_hint">Kupno funkcji pro pozwoli Ci używać wszystkich obecnych i przyszłych funkcji pro oraz będzie utrzymywać i wspierać aplikację</string>
     <string name="title_pro_price">Zobacz <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">ten FAQ</a> na temat cen funkcji pro</string>
     <string name="title_pro_pending">Zakup w toku</string>

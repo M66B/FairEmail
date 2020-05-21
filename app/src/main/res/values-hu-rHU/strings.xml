@@ -79,6 +79,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_notification_alert">\'%1$s\' szerver figyelmeztetés</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s + %2$d</string>
+    <string name="title_from_to">%1$s ➤ %2$s</string>
     <string name="title_factor_minutes">%1$d perc</string>
     <string name="menu_exit">Kilépés</string>
     <string name="menu_answers">Sablonok</string>
@@ -134,6 +135,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_setup_no_settings">Nem találhatók beállítások a következő domainhez: %1$s</string>
     <string name="title_setup_no_settings_hint">Kérem állitson be egy fiókot és egy identitást a varázsló első két lépésével, az email szolgálatója által megadottaknak megfelelően</string>
     <string name="title_setup_no_auth_hint">Ellenőrizze az email címét és jelszavát, illetve bizonyosodjon meg róla hogy a fiókja elérhető SMTP/IMAP protokollokon keresztül</string>
+    <string name="title_setup_app_password_hint">Ez a szolgáltó alkalmazásjelszót igényel a fiók jelszava helyett, kérlek ellenőrizd a szolgáltatód instrukcióit</string>
     <string name="title_setup_no_system_folders">Bejövő vagy piszkozatok mappa nem található</string>
     <string name="title_setup_quick_success">Egy fiók és egy identitás sikeresen hozzáadva</string>
     <string name="title_setup_quick_failed">Megpróbálhat beállítani egy fiókot és egy identitást lentebb is</string>
@@ -559,6 +561,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_folder_name">Mappanév</string>
     <string name="title_display_name">Megjelenítendő név</string>
     <string name="title_show_folders">Rejtett mappák megjelenításe</string>
+    <string name="title_show_flagged">Csillagozott üzenet számláló mutatása</string>
     <string name="title_subscribed_only">Csak feliratkozott</string>
     <string name="title_apply_to_all">Alkalmazás az összesre &#8230;</string>
     <string name="title_hide_folder">Mappa elrejtése</string>
@@ -617,6 +620,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_editasnew">Szerkesztés újként</string>
     <string name="title_create_rule">Szabály létrehozása &#8230;</string>
     <string name="title_share">Megosztás</string>
+    <string name="title_event">Hozzáadás naptárhoz</string>
     <string name="title_pin">Parancsikon hozzáadása</string>
     <string name="title_print">Nyomtatás</string>
     <string name="title_show_headers">Fejlécek megjelenítése</string>
@@ -898,6 +902,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_rule_action">Művelet</string>
     <string name="title_rule_action_remark">Ez a művelet alkalmazva lesz új üzenetekre amik beérkeznek a(z) %1$s mappában</string>
     <string name="title_rule_hours">Óra</string>
+    <string name="title_rule_schedule_end">Az idő végétől kezdve</string>
     <string name="title_rule_folder">Mappa</string>
     <string name="title_rule_thread">Az összes beszélgetéshez és mappához tartozó üzenet</string>
     <string name="title_rule_identity">Identitás</string>
@@ -961,6 +966,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_legend_snoozed">Elhalasztott</string>
     <string name="title_legend_browsed">Böngészett vagy keresett</string>
     <string name="title_legend_answered">Megválaszolt</string>
+    <string name="title_legend_forwarded">Továbbított</string>
     <string name="title_legend_plain_only">Csak sima szöveg</string>
     <string name="title_legend_attachment">Rendelkezik melléklettel</string>
     <string name="title_legend_flagged">Kedvenc</string>
@@ -1014,6 +1020,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_legend_p">Előző</string>
     <string name="title_legend_r">Válasz</string>
     <string name="title_legend_s">Kijelölés/kijelölés megszüntetése</string>
+    <string name="title_legend_t">Fókuszszöveg</string>
     <string name="title_hint_folder_actions">Nyomjon hosszan egy mappát az opciók megjelenítéséhez, mint pl. hozzáadás a navigációs menühöz gyors hozzáféréshez</string>
     <string name="title_hint_folder_sync">Az akkumulátor- és hálózathasználat limitálása érdekében nem minden mappa és üzenet lesz szinkronizálva alapértelmezésként</string>
     <string name="title_hint_support">Ha kérdésed vagy problémád van, használd a támogatási menüt segítségért</string>
@@ -1024,6 +1031,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_hint_battery">Mivel a FairEmail alapértelmezésből mindig fogad leveleket, az Android mindig aktívként fogja jelenteni. Ezáltal úgy látszódhat hogy a FairEmail mindig fogyaszt energiát habár valójában ez nem így van.</string>
     <string name="title_hint_reformat">Alapértelmezésből a FairEmail újraformázza az üzeneteket adatvédelmi és biztonsági okokból. Az eredeti üzenet megtekintéséhez koppintson a \'Teljes képernyő\' ikonra az üzenetszöveg fölött.</string>
     <string name="title_hint_contact_actions">Nyomja hosszan a további opciókért</string>
+    <string name="title_hint_eml">Ez a nyers üzenetfájl tartalmának összefoglalása. Mentsd a nyers üzenetfájlt a műveletmenü mentés ikonjával a teljes tartalom megtekintéséhez.</string>
     <string name="title_open_link">Link megnyitása</string>
     <string name="title_different_link">A link neve és a címe különbözik</string>
     <string name="title_link_http">A forgalom nem lesz titkosítva</string>
@@ -1087,7 +1095,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
         Hogy a FairEmailt fenntarthatóvá tudjam tenni, néhány kényelem haladó beállítások nem ingyenesek.
         A FairEmail egy kicsi üzenetet jelenít meg hogy emlékeztessen erről, ami el lesz távolítva ha megvásárolod a pro verziót.
     </string>
-    <string name="title_pro_hide">A kicsi üzenet elrejtése egy hétre</string>
+    <string name="title_pro_hide">A kicsi üzenet elrejtése két hétre</string>
     <string name="title_pro_hint">A pro funkciók megvásárlása engedélyezi neked hogy használd az összes jelenlegi és jövőbeli pro funkciót amellett hogy fenntartva és támogatva tartja az alkalmazást.</string>
     <string name="title_pro_price">Kérlek lásd <a href="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq19">EZt a GYIK-et</a> a pro funkciók áráért</string>
     <string name="title_pro_pending">A vásárlás folyamatban van</string>

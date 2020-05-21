@@ -624,6 +624,7 @@
     <string name="title_editasnew">Muokkaa uutena</string>
     <string name="title_create_rule">Luo sääntö &#8230;</string>
     <string name="title_share">Jaa</string>
+    <string name="title_event">Lisää kalenteriin</string>
     <string name="title_pin">Lisää pikakuvake</string>
     <string name="title_print">Tulosta</string>
     <string name="title_show_headers">Näytä tunnistetiedot</string>
@@ -1101,7 +1102,6 @@
         Jotta FairEmailin kehittäminen olisi mahdollista, jotkin mukavuutta tuovat ja edistyneemmät ominaisuudet eivät ole ilmaisia.
         FairEmail näyttää pienen viestin muistuttaakseen sinua tästä. Viesti poistuu, jos ostat pro-ominaisuudet.
     </string>
-    <string name="title_pro_hide">Piilota pieni viesti viikon ajaksi</string>
     <string name="title_pro_hint">Pro-ominaisuuksien ostaminen antaa oikeudet käyttää nykyisiä ja tulevia pro-ominaisuuksia sekä auttaa ylläpitämään ja tukemaan tätä sovellusta</string>
     <string name="title_pro_price">Katso <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">nämä usein kysytyt kysymykset</a> pro-ominaisuuksien hinnasta</string>
     <string name="title_pro_pending">Ostos odottaa vahvistusta</string>
