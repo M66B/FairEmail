@@ -219,6 +219,7 @@ public class FragmentCompose extends FragmentBase {
     private TextView tvNoInternet;
     private TextView tvSignature;
     private CheckBox cbSignature;
+    private ImageButton ibSignature;
     private TextView tvReference;
     private ImageButton ibCloseRefHint;
     private ImageButton ibReferenceEdit;
@@ -318,6 +319,7 @@ public class FragmentCompose extends FragmentBase {
         tvNoInternet = view.findViewById(R.id.tvNoInternet);
         tvSignature = view.findViewById(R.id.tvSignature);
         cbSignature = view.findViewById(R.id.cbSignature);
+        ibSignature = view.findViewById(R.id.ibSignature);
         tvReference = view.findViewById(R.id.tvReference);
         ibCloseRefHint = view.findViewById(R.id.ibCloseRefHint);
         ibReferenceEdit = view.findViewById(R.id.ibReferenceEdit);
@@ -564,6 +566,24 @@ public class FragmentCompose extends FragmentBase {
                     if (tag != null)
                         onAction(R.id.action_save, "signature");
                 }
+            }
+        });
+
+        ibSignature.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EntityIdentity identity = (EntityIdentity) spIdentity.getSelectedItem();
+                if (identity == null && TextUtils.isEmpty(identity.signature))
+                    return;
+
+                Spanned sig = HtmlHelper.fromHtml(identity.signature, new Html.ImageGetter() {
+                    @Override
+                    public Drawable getDrawable(String source) {
+                        return ImageHelper.decodeImage(getContext(), working, source, true, zoom, etBody);
+                    }
+                }, null);
+
+                etBody.getText().insert(etBody.getSelectionStart(), sig);
             }
         });
 
