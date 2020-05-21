@@ -74,6 +74,7 @@ public class FragmentFolder extends FragmentBase {
     private CheckBox cbAutoDelete;
     private Button btnSave;
     private ContentLoadingProgressBar pbSave;
+    private TextView tvInboxRootHint;
     private ContentLoadingProgressBar pbWait;
     private Group grpParent;
     private Group grpPoll;
@@ -130,6 +131,7 @@ public class FragmentFolder extends FragmentBase {
         cbAutoDelete = view.findViewById(R.id.cbAutoDelete);
         btnSave = view.findViewById(R.id.btnSave);
         pbSave = view.findViewById(R.id.pbSave);
+        tvInboxRootHint = view.findViewById(R.id.tvInboxRootHint);
         pbWait = view.findViewById(R.id.pbWait);
         grpParent = view.findViewById(R.id.grpParent);
         grpPoll = view.findViewById(R.id.grpPoll);
@@ -209,6 +211,7 @@ public class FragmentFolder extends FragmentBase {
         grpAutoDelete.setVisibility(View.GONE);
         btnSave.setEnabled(false);
         pbSave.setVisibility(View.GONE);
+        tvInboxRootHint.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
 
         return view;
@@ -269,6 +272,8 @@ public class FragmentFolder extends FragmentBase {
                         cbAutoDelete.setChecked(folder != null && folder.auto_delete);
                         grpAutoDelete.setVisibility(View.VISIBLE);
                     }
+
+                    tvInboxRootHint.setVisibility(folder == null && parent == null ? View.VISIBLE : View.GONE);
                 }
 
                 // Consider previous save as cancelled

@@ -300,7 +300,7 @@
             android:text="@string/title_auto_delete_hint"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textStyle="italic"
-            app:layout_constraintEnd_toStartOf="@+id/btnInfo"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbAutoDelete" />
 
@@ -324,6 +324,18 @@
             app:layout_constraintBottom_toBottomOf="@id/btnSave"
             app:layout_constraintStart_toEndOf="@id/btnSave"
             app:layout_constraintTop_toTopOf="@id/btnSave" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvInboxRootHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/title_inbox_root_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnSave" />
 
         <eu.faircode.email.ContentLoadingProgressBar
             android:id="@+id/pbWait"
