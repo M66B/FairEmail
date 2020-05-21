@@ -98,7 +98,7 @@ public class InternetAddressJson extends InternetAddress {
         super.validate();
     }
 
-    private void ensureParsed() {
+    private synchronized void ensureParsed() {
         if (this.json != null) {
             try {
                 String email = json.getString("address");
