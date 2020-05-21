@@ -3709,7 +3709,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             onMenuShare(message, false);
                             return true;
                         case R.id.menu_event:
-                            onMenuShare(message, true);
+                            if (ActivityBilling.isPro(context))
+                                onMenuShare(message, true);
+                            else
+                                context.startActivity(new Intent(context, ActivityBilling.class));
                             return true;
                         case R.id.menu_print:
                             onMenuPrint(message);

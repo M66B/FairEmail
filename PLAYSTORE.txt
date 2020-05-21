@@ -72,6 +72,7 @@ All pro features are convenience or advanced features.
 * Synchronization scheduling
 * Reply templates
 * Accept/decline calendar invitations
+* Add message to calendar
 * Filter rules
 * Search indexing, search on server
 * Keyword management
