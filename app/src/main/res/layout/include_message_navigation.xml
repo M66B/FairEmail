@@ -69,7 +69,7 @@
         android:padding="6dp"
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_folder_inbox"
-        app:srcCompat="@drawable/baseline_inbox_24"
+        app:srcCompat="@drawable/baseline_move_to_inbox_24"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
