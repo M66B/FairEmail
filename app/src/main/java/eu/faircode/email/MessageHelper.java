@@ -1304,7 +1304,8 @@ public class MessageHelper {
                         boolean quote = false;
                         personal = personal.replace("\"", "");
                         for (int c = 0; c < personal.length(); c++)
-                            if ("()<>,;:\\\"[]@".indexOf(personal.charAt(c)) >= 0) {
+                            // https://tools.ietf.org/html/rfc822
+                            if ("()<>@,;:\\\".[]".indexOf(personal.charAt(c)) >= 0) {
                                 quote = true;
                                 break;
                             }
