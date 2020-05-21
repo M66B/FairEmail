@@ -2561,7 +2561,7 @@ public class FragmentCompose extends FragmentBase {
                 } else
                     Log.unexpectedError(getParentFragmentManager(), ex);
             }
-        }.execute(this, args, "compose:s/mimem");
+        }.execute(this, args, "compose:s/mime");
     }
 
     private void onContactGroupSelected(Bundle args) {
