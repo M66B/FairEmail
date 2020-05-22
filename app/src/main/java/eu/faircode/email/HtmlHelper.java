@@ -2016,6 +2016,11 @@ public class HtmlHelper {
                         case "br":
                             newline(ssb.length());
                             break;
+                        case "div": // compose
+                        case "p": // compose
+                            newline(ssb.length());
+                            newline(ssb.length());
+                            break;
                         case "i":
                         case "em":
                             ssb.setSpan(new StyleSpan(Typeface.ITALIC), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
