@@ -5523,7 +5523,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     @Override
                                     public AttributeTable getSignedAttributes() {
                                         // The certificate validity will be check below
-                                        return super.getSignedAttributes().remove(CMSAttributes.signingTime);
+                                        AttributeTable at = super.getSignedAttributes();
+                                        return (at == null ? null : at.remove(CMSAttributes.signingTime));
                                     }
                                 };
 
