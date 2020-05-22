@@ -1293,31 +1293,37 @@ public class HtmlHelper {
     }
 
     static String formatPre(String text) {
+        return formatPre(text, true);
+    }
+
+    static String formatPre(String text, boolean quote) {
         int level = 0;
         StringBuilder sb = new StringBuilder();
         String[] lines = text.split("\\r?\\n");
         for (String line : lines) {
             // Opening quotes
             // https://tools.ietf.org/html/rfc3676#section-4.5
-            int tlevel = 0;
-            while (line.startsWith(">")) {
-                tlevel++;
-                if (tlevel > level)
-                    sb.append("<blockquote>");
+            if (quote) {
+                int tlevel = 0;
+                while (line.startsWith(">")) {
+                    tlevel++;
+                    if (tlevel > level)
+                        sb.append("<blockquote>");
 
-                line = line.substring(1); // >
+                    line = line.substring(1); // >
 
-                if (line.startsWith(" >"))
-                    line = line.substring(1);
+                    if (line.startsWith(" >"))
+                        line = line.substring(1);
+                }
+                if (tlevel > 0)
+                    if (line.length() > 0 && line.charAt(0) == ' ')
+                        line = line.substring(1);
+
+                // Closing quotes
+                for (int i = 0; i < level - tlevel; i++)
+                    sb.append("</blockquote>");
+                level = tlevel;
             }
-            if (tlevel > 0)
-                if (line.length() > 0 && line.charAt(0) == ' ')
-                    line = line.substring(1);
-
-            // Closing quotes
-            for (int i = 0; i < level - tlevel; i++)
-                sb.append("</blockquote>");
-            level = tlevel;
 
             // Tabs characters
             StringBuilder l = new StringBuilder();

@@ -77,7 +77,7 @@ public class EditTextCompose extends FixedEditText {
                         CharSequence text = item.getText();
                         if (text == null)
                             return false;
-                        html = "<div>" + HtmlHelper.formatPre(text.toString()) + "</div>";
+                        html = "<div>" + HtmlHelper.formatPre(text.toString(), false) + "</div>";
                     }
 
                     Document document = HtmlHelper.sanitizeCompose(context, html, false);
