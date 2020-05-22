@@ -1875,7 +1875,7 @@ public class HtmlHelper {
                 if (block.size() > 0) {
                     tnode = block.get(block.size() - 1);
                     text = tnode.getWholeText();
-                    if (endsWithWhitespace(text)) {
+                    if (!"-- ".equals(text) && endsWithWhitespace(text)) {
                         text = text.substring(0, text.length() - 1);
                         tnode.text(text);
                     }
