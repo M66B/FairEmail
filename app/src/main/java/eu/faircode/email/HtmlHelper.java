@@ -103,7 +103,6 @@ import java.io.InputStream;
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -1792,12 +1791,6 @@ public class HtmlHelper {
                     Pattern.compile("[" + WHITESPACE + "]*\\r?\\n[" + WHITESPACE + "]*");
 
             // https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements
-            private List<String> BLOCK_START = Collections.unmodifiableList(Arrays.asList(
-                    "body", "blockquote", "h1", "h2", "h3", "h4", "h5", "h6", "li", "ol", "ul"
-            ));
-            private List<String> BLOCK_END = Collections.unmodifiableList(Arrays.asList(
-                    "body", "blockquote", "br", "hr", "h1", "h2", "h3", "h4", "h5", "h6", "li", "ol", "ul"
-            ));
 
             @Override
             public void head(Node node, int depth) {
@@ -1808,7 +1801,7 @@ public class HtmlHelper {
                     element = (Element) node;
                     if ("true".equals(element.attr("x-plain")))
                         plain++;
-                    if (BLOCK_START.contains(element.tagName())) {
+                    if (element.isBlock()) {
                         normalizeText(block);
                         block.clear();
                     }
@@ -1821,7 +1814,7 @@ public class HtmlHelper {
                     element = (Element) node;
                     if ("true".equals(element.attr("x-plain")))
                         plain--;
-                    if (BLOCK_END.contains(element.tagName())) {
+                    if (element.isBlock() || "br".equals(element.tagName())) {
                         normalizeText(block);
                         block.clear();
                     }
