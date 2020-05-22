@@ -44,6 +44,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
+import java.util.regex.Pattern;
 
 import static androidx.room.ForeignKey.CASCADE;
 
@@ -401,7 +402,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
                                         fs1.folder.name.length(),
                                         fs2.folder.name.length());
                             else {
-                                String sep = String.valueOf(separator);
+                                String sep = Pattern.quote(String.valueOf(separator));
                                 return Integer.compare(
                                         fs1.folder.name.split(sep).length,
                                         fs2.folder.name.split(sep).length);
