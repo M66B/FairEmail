@@ -42,7 +42,6 @@ import android.os.RemoteException;
 import android.os.TransactionTooLargeException;
 import android.text.TextUtils;
 import android.view.Display;
-import android.view.OrientationEventListener;
 import android.view.WindowManager;
 import android.widget.Toast;
 
@@ -52,14 +51,14 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.FragmentManager;
 import androidx.preference.PreferenceManager;
 
-import com.bugsnag.android.BeforeNotify;
-import com.bugsnag.android.BeforeSend;
 import com.bugsnag.android.BreadcrumbType;
 import com.bugsnag.android.Bugsnag;
-import com.bugsnag.android.Callback;
 import com.bugsnag.android.Client;
-import com.bugsnag.android.Error;
-import com.bugsnag.android.Report;
+import com.bugsnag.android.ErrorTypes;
+import com.bugsnag.android.Event;
+import com.bugsnag.android.OnErrorCallback;
+import com.bugsnag.android.OnSessionCallback;
+import com.bugsnag.android.Session;
 import com.bugsnag.android.Severity;
 import com.sun.mail.iap.BadCommandException;
 import com.sun.mail.iap.ConnectionException;
@@ -80,7 +79,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Array;
-import java.lang.reflect.Field;
 import java.net.SocketException;
 import java.security.cert.CertPathValidatorException;
 import java.text.DateFormat;
@@ -88,6 +86,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -137,12 +137,15 @@ public class Log {
     public static int e(String msg) {
         if (BuildConfig.BETA_RELEASE)
             try {
-                List<StackTraceElement> ss = new ArrayList<>(Arrays.asList(new Throwable().getStackTrace()));
+                Throwable ex = new Throwable(msg);
+                List<StackTraceElement> ss = new ArrayList<>(Arrays.asList(ex.getStackTrace()));
                 ss.remove(0);
-                Bugsnag.notify("Internal error", msg, ss.toArray(new StackTraceElement[0]), new Callback() {
+                ex.setStackTrace(ss.toArray(new StackTraceElement[0]));
+                Bugsnag.notify(ex, new OnErrorCallback() {
                     @Override
-                    public void beforeNotify(@NonNull Report report) {
-                        report.getError().setSeverity(Severity.ERROR);
+                    public boolean onError(@NonNull Event event) {
+                        event.setSeverity(Severity.ERROR);
+                        return true;
                     }
                 });
             } catch (Throwable ex) {
@@ -158,7 +161,13 @@ public class Log {
     public static int w(Throwable ex) {
         if (BuildConfig.BETA_RELEASE)
             try {
-                Bugsnag.notify(ex, Severity.INFO);
+                Bugsnag.notify(ex, new OnErrorCallback() {
+                    @Override
+                    public boolean onError(@NonNull Event event) {
+                        event.setSeverity(Severity.INFO);
+                        return true;
+                    }
+                });
             } catch (Throwable ex1) {
                 ex1.printStackTrace();
             }
@@ -168,7 +177,13 @@ public class Log {
     public static int e(Throwable ex) {
         if (BuildConfig.BETA_RELEASE)
             try {
-                Bugsnag.notify(ex, Severity.WARNING);
+                Bugsnag.notify(ex, new OnErrorCallback() {
+                    @Override
+                    public boolean onError(@NonNull Event event) {
+                        event.setSeverity(Severity.WARNING);
+                        return true;
+                    }
+                });
             } catch (Throwable ex1) {
                 ex1.printStackTrace();
             }
@@ -182,7 +197,13 @@ public class Log {
     public static int w(String prefix, Throwable ex) {
         if (BuildConfig.BETA_RELEASE)
             try {
-                Bugsnag.notify(ex, Severity.INFO);
+                Bugsnag.notify(ex, new OnErrorCallback() {
+                    @Override
+                    public boolean onError(@NonNull Event event) {
+                        event.setSeverity(Severity.INFO);
+                        return true;
+                    }
+                });
             } catch (Throwable ex1) {
                 ex1.printStackTrace();
             }
@@ -192,7 +213,13 @@ public class Log {
     public static int e(String prefix, Throwable ex) {
         if (BuildConfig.BETA_RELEASE)
             try {
-                Bugsnag.notify(ex, Severity.WARNING);
+                Bugsnag.notify(ex, new OnErrorCallback() {
+                    @Override
+                    public boolean onError(@NonNull Event event) {
+                        event.setSeverity(Severity.WARNING);
+                        return true;
+                    }
+                });
             } catch (Throwable ex1) {
                 ex1.printStackTrace();
             }
@@ -203,8 +230,6 @@ public class Log {
         try {
             if (enabled)
                 Bugsnag.startSession();
-            else
-                Bugsnag.stopSession();
         } catch (Throwable ex) {
             ex.printStackTrace();
         }
@@ -212,7 +237,10 @@ public class Log {
 
     static void breadcrumb(String name, Map<String, String> crumb) {
         try {
-            Bugsnag.leaveBreadcrumb(name, BreadcrumbType.LOG, crumb);
+            Map<String, Object> ocrumb = new HashMap<>();
+            for (String key : crumb.keySet())
+                ocrumb.put(key, crumb.get(key));
+            Bugsnag.leaveBreadcrumb(name, ocrumb, BreadcrumbType.LOG);
         } catch (Throwable ex) {
             ex.printStackTrace();
         }
@@ -248,12 +276,14 @@ public class Log {
             config.setReleaseStage(type + (BuildConfig.BETA_RELEASE ? "/beta" : ""));
         }
 
-        config.setAutoCaptureSessions(false);
+        config.setAutoTrackSessions(false);
 
-        config.setDetectAnrs(false);
-        config.setDetectNdkCrashes(false);
+        ErrorTypes etypes = new ErrorTypes();
+        etypes.setAnrs(false);
+        etypes.setNdkCrashes(false);
+        config.setEnabledErrorTypes(etypes);
 
-        List<String> ignore = new ArrayList<>();
+        Set<String> ignore = new HashSet<>();
 
         ignore.add("com.sun.mail.util.MailConnectException");
 
@@ -283,22 +313,48 @@ public class Log {
 
         ignore.add("org.xmlpull.v1.XmlPullParserException");
 
-        config.setIgnoreClasses(ignore.toArray(new String[0]));
+        config.setDiscardClasses(ignore);
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
         String no_internet = context.getString(R.string.title_no_internet);
 
-        config.beforeSend(new BeforeSend() {
+        final String installer = context.getPackageManager().getInstallerPackageName(BuildConfig.APPLICATION_ID);
+        final boolean fingerprint = Helper.hasValidFingerprint(context);
+        final Boolean ignoringOptimizations = Helper.isIgnoringOptimizations(context);
+
+        config.addOnSession(new OnSessionCallback() {
             @Override
-            public boolean run(@NonNull Report report) {
+            public boolean onSession(@NonNull Session session) {
+                // opt-in
+                return prefs.getBoolean("crash_reports", false);
+            }
+        });
+
+        config.addOnError(new OnErrorCallback() {
+            @Override
+            public boolean onError(@NonNull Event event) {
                 // opt-in
                 boolean crash_reports = prefs.getBoolean("crash_reports", false);
                 if (!crash_reports)
                     return false;
 
-                Throwable ex = report.getError().getException();
+                Throwable ex = event.getOriginalError();
                 boolean should = shouldNotify(ex);
+
+                if (should) {
+                    event.addMetadata("extra", "installer", installer == null ? "-" : installer);
+                    event.addMetadata("extra", "installed", new Date(Helper.getInstallTime(context)));
+                    event.addMetadata("extra", "fingerprint", fingerprint);
+                    event.addMetadata("extra", "thread", Thread.currentThread().getName() + ":" + Thread.currentThread().getId());
+                    event.addMetadata("extra", "free", Log.getFreeMemMb());
+                    event.addMetadata("extra", "optimizing", (ignoringOptimizations != null && !ignoringOptimizations));
+
+                    String theme = prefs.getString("theme", "light");
+                    event.addMetadata("extra", "theme", theme);
+                    event.addMetadata("extra", "package", BuildConfig.APPLICATION_ID);
+                }
+
                 return should;
             }
 
@@ -364,20 +420,9 @@ public class Log {
             }
         });
 
-        Bugsnag.init(context, config);
+        Bugsnag.start(context, config);
 
         Client client = Bugsnag.getClient();
-
-        try {
-            Log.i("Disabling orientation listener");
-            Field fOrientationListener = Client.class.getDeclaredField("orientationListener");
-            fOrientationListener.setAccessible(true);
-            OrientationEventListener orientationListener = (OrientationEventListener) fOrientationListener.get(client);
-            orientationListener.disable();
-            Log.i("Disabled orientation listener");
-        } catch (Throwable ex) {
-            Log.e(ex);
-        }
 
         String uuid = prefs.getString("uuid", null);
         if (uuid == null) {
@@ -385,31 +430,10 @@ public class Log {
             prefs.edit().putString("uuid", uuid).apply();
         }
         Log.i("uuid=" + uuid);
-        client.setUserId(uuid);
+        client.setUser(uuid, null, null);
 
         if (prefs.getBoolean("crash_reports", false))
             Bugsnag.startSession();
-
-        final String installer = context.getPackageManager().getInstallerPackageName(BuildConfig.APPLICATION_ID);
-        final boolean fingerprint = Helper.hasValidFingerprint(context);
-        final Boolean ignoringOptimizations = Helper.isIgnoringOptimizations(context);
-
-        Bugsnag.beforeNotify(new BeforeNotify() {
-            @Override
-            public boolean run(@NonNull Error error) {
-                error.addToTab("extra", "installer", installer == null ? "-" : installer);
-                error.addToTab("extra", "installed", new Date(Helper.getInstallTime(context)));
-                error.addToTab("extra", "fingerprint", fingerprint);
-                error.addToTab("extra", "thread", Thread.currentThread().getName() + ":" + Thread.currentThread().getId());
-                error.addToTab("extra", "free", Log.getFreeMemMb());
-                error.addToTab("extra", "optimizing", (ignoringOptimizations != null && !ignoringOptimizations));
-
-                String theme = prefs.getString("theme", "light");
-                error.addToTab("extra", "theme", theme);
-                error.addToTab("extra", "package", BuildConfig.APPLICATION_ID);
-                return true;
-            }
-        });
     }
 
     static void logExtras(Intent intent) {

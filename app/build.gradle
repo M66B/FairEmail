@@ -254,7 +254,7 @@ dependencies {
     def openpgp_version = "12.0"
     def requery_version = "3.31.0"
     def badge_version = "1.1.22"
-    def bugsnag_version = "4.17.2"
+    def bugsnag_version = "5.0.0"
     def biweekly_version = "0.6.3"
     def photoview_version = "2.3.0"
     def relinker_version = "1.3.1"
