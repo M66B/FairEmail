@@ -585,6 +585,9 @@
     <string name="title_auto_trash">Auto-flyt gamle beskeder til Papirkurv</string>
     <string name="title_auto_delete">Auto-slet gamle beskeder permanent</string>
     <string name="title_auto_delete_hint">Gamle beskeder er beskeder, som ikke længere opbevares på enheden</string>
+    <string name="title_inbox_root_hint">        Visse udbydere kræver, at nye mapper oprettes under indbakken.
+         Er dette tilfældet, så tryk og hold på indbakken i mappelisten og vælg \'Opret undermappe\'.
+    </string>
     <string name="title_folder_name_missing">Mappenavn manngler</string>
     <string name="title_folder_exists">Mappen %1$s findes</string>
     <string name="title_folder_delete">Slet denne mappe samt evt. beskedindhold permanent?</string>
@@ -626,6 +629,7 @@
     <string name="title_editasnew">Redigér som ny</string>
     <string name="title_create_rule">Opret regel &#8230;</string>
     <string name="title_share">Del</string>
+    <string name="title_event">Føj til kalender</string>
     <string name="title_pin">Tilføj genvej</string>
     <string name="title_print">Udskriv</string>
     <string name="title_show_headers">Vis overskrifter</string>
@@ -1102,6 +1106,7 @@
     <string name="title_pro_info">Udvikling af FairEmail tog bogstaveligt talt tusinder af timer, også selvom de fleste funktioner er gratis at benytte.
          For at gøre FairEmail bæredygtig langsigtet, er visse bekvemmeligheds- og avancerede funktioner ikke gratis at bruge.
          FairEmail viser en lille besked for at minde dig om dette. Denne fjernes, hvis du køber Pro-funktionerne.    </string>
+    <string name="title_pro_hide">Skjul små beskeder i to uger</string>
     <string name="title_pro_hint">Køb af Pro-funktioner vil tillade brug alle aktuelle og fremtidige Pro-funktioner samt sikre denne apps vedligeholdelse og understøttelse</string>
     <string name="title_pro_price">Se venligst <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">denne FAQ</a> ang. prisen for Pro-funktionerne</string>
     <string name="title_pro_pending">Afventende køb</string>
