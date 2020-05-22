@@ -2350,11 +2350,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     if (!result.folders.contains(message.folder))
                         result.folders.add(message.folder);
 
+                    boolean isInbox = EntityFolder.INBOX.equals(folder.type);
                     boolean isArchive = EntityFolder.ARCHIVE.equals(folder.type);
                     boolean isTrash = (EntityFolder.TRASH.equals(folder.type) || account.protocol != EntityAccount.TYPE_IMAP);
                     boolean isJunk = EntityFolder.JUNK.equals(folder.type);
                     boolean isDrafts = EntityFolder.DRAFTS.equals(folder.type);
 
+                    result.isInbox = (result.isInbox == null ? isInbox : result.isInbox && isInbox);
                     result.isArchive = (result.isArchive == null ? isArchive : result.isArchive && isArchive);
                     result.isTrash = (result.isTrash == null ? isTrash : result.isTrash && isTrash);
                     result.isJunk = (result.isJunk == null ? isJunk : result.isJunk && isJunk);
@@ -2404,6 +2406,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     result.hasJunk = (result.hasJunk == null ? hasJunk : result.hasJunk && hasJunk);
                 }
 
+                if (result.isInbox == null) result.isInbox = false;
                 if (result.isArchive == null) result.isArchive = false;
                 if (result.isTrash == null) result.isTrash = false;
                 if (result.isJunk == null) result.isJunk = false;
@@ -2455,6 +2458,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         .setEnabled(!EntityMessage.PRIORITIY_NORMAL.equals(result.importance));
                 importance.add(Menu.NONE, R.string.title_importance_low, 3, R.string.title_importance_low)
                         .setEnabled(!EntityMessage.PRIORITIY_LOW.equals(result.importance));
+
+                if (!result.isInbox) // not is inbox
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_folder_inbox, order++, R.string.title_folder_inbox);
 
                 if (result.hasArchive && !result.isArchive) // has archive and not is archive
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_archive, order++, R.string.title_archive);
@@ -2515,6 +2521,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 return true;
                             case R.string.title_importance_high:
                                 onActionSetImportanceSelection(EntityMessage.PRIORITIY_HIGH);
+                                return true;
+                            case R.string.title_folder_inbox:
+                                onActionMoveSelection(EntityFolder.INBOX);
                                 return true;
                             case R.string.title_archive:
                                 onActionMoveSelection(EntityFolder.ARCHIVE);
@@ -6627,6 +6636,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         Boolean hasArchive;
         Boolean hasTrash;
         Boolean hasJunk;
+        Boolean isInbox;
         Boolean isArchive;
         Boolean isTrash;
         Boolean isJunk;
