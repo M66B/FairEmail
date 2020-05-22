@@ -74,7 +74,7 @@
             android:contentDescription="@string/title_clipboard_copy"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etLink"
-            app:srcCompat="@drawable/baseline_assignment_24" />
+            app:srcCompat="@drawable/baseline_file_copy_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvDifferent"
