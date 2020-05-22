@@ -22,9 +22,11 @@ package eu.faircode.email;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Html;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.QuoteSpan;
@@ -79,7 +81,13 @@ public class EditTextCompose extends FixedEditText {
                     }
 
                     Document document = HtmlHelper.sanitizeCompose(context, html, false);
-                    Spanned paste = HtmlHelper.fromHtml(document.html());
+                    Spanned paste = HtmlHelper.fromHtml(document.html(), new Html.ImageGetter() {
+                        @Override
+                        public Drawable getDrawable(String source) {
+                            return ImageHelper.decodeImage(getContext(),
+                                    -1, source, true, 0, EditTextCompose.this);
+                        }
+                    }, null);
 
                     int colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);
                     int dp3 = Helper.dp2pixels(context, 3);
