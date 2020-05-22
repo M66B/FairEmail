@@ -573,17 +573,20 @@ public class FragmentCompose extends FragmentBase {
             @Override
             public void onClick(View v) {
                 EntityIdentity identity = (EntityIdentity) spIdentity.getSelectedItem();
-                if (identity == null && TextUtils.isEmpty(identity.signature))
+                if (identity == null || TextUtils.isEmpty(identity.signature))
                     return;
 
-                Spanned sig = HtmlHelper.fromHtml(identity.signature, new Html.ImageGetter() {
-                    @Override
-                    public Drawable getDrawable(String source) {
-                        return ImageHelper.decodeImage(getContext(), working, source, true, zoom, etBody);
-                    }
-                }, null);
+                ClipboardManager clipboard =
+                        (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+                if (clipboard != null) {
+                    ClipData clip = ClipData.newHtmlText(
+                            getContext().getString(R.string.title_edit_signature_text),
+                            HtmlHelper.getText(getContext(), identity.signature),
+                            identity.signature);
+                    clipboard.setPrimaryClip(clip);
 
-                etBody.getText().insert(etBody.getSelectionStart(), sig);
+                    ToastEx.makeText(getContext(), R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
+                }
             }
         });
 
