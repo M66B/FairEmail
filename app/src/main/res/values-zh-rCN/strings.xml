@@ -573,6 +573,10 @@
     <string name="title_auto_trash">自动移动旧消息到回收站</string>
     <string name="title_auto_delete">自动永久删除旧消息</string>
     <string name="title_auto_delete_hint">旧消息是不再保留在设备上的消息</string>
+    <string name="title_inbox_root_hint">        某些供应商需要在收件箱下方创建新文件夹。
+
+        在这种情况下, 您可以长按文件夹列表中的收件箱并选择“创建子文件夹”。
+    </string>
     <string name="title_folder_name_missing">缺少文件夹名</string>
     <string name="title_folder_exists">文件夹 %1$s 存在</string>
     <string name="title_folder_delete">是否永久删除此文件夹及其包含的任何邮件？</string>

@@ -584,6 +584,9 @@
     <string name="title_auto_trash">Automatisch oude berichten verplaatsen naar de prullenbak</string>
     <string name="title_auto_delete">Automatisch oude berichten definitief verwijderen</string>
     <string name="title_auto_delete_hint">Oude berichten zijn berichten die niet meer op het apparaat worden bewaard</string>
+    <string name="title_inbox_root_hint">        Sommige aanbieders vereisen dat nieuwe mappen aangemaakt worden onder de inbox.
+        In dit geval u kunt de inbox in de mappenlijst lang indrukken en kiezen voor \'Maak submap\'.
+    </string>
     <string name="title_folder_name_missing">Mapnaam ontbreekt</string>
     <string name="title_folder_exists">Map %1$s bestaat</string>
     <string name="title_folder_delete">Deze map en de berichten die het bevat definitief verwijderen?</string>
@@ -1100,7 +1103,7 @@
     <string name="title_pro_purchase">Koop</string>
     <string name="title_pro_once">Eenmalig</string>
     <string name="title_pro_info">Het ontwikkelen van FairEmail kostte letterlijk duizenden uren en ondanks dat zijn de meeste functies gratis te gebruiken. Om FairEmail op de lange termijn duurzaam te maken, zijn sommige gebruiksgemak en geavanceerde functies niet gratis te gebruiken. FairEmail geeft een klein bericht weer om u hieraan te herinneren, dat wordt verwijderd als u de pro functies aanschaft.</string>
-    <string name="title_pro_hide">Verberg het klein bericht voor twee weken</string>
+    <string name="title_pro_hide">Verberg het kleine bericht voor twee weken</string>
     <string name="title_pro_hint">Het kopen van pro functies geeft toegang tot alle huidige en toekomstige pro functies en zorgt voor onderhoud en ondersteuning van deze app.</string>
     <string name="title_pro_price">Zie <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">deze FAQ</a> over de prijs van de pro-functies</string>
     <string name="title_pro_pending">Aankoop in behandeling</string>

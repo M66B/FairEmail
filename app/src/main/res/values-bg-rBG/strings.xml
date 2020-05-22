@@ -584,6 +584,9 @@
     <string name="title_auto_trash">Автоматично преместване на старите съобщения в коша</string>
     <string name="title_auto_delete">Автоматично изтриване на старите съобщения завинаги</string>
     <string name="title_auto_delete_hint">Старите съобщения са съобщения, които вече не се съхраняват на устройството</string>
+    <string name="title_inbox_root_hint">        Някои доставчици изискват създаване на нови папки под входящата поща.
+        В този случай можете с дълго натискане на входяща поща в списъка с папки да изберете \'Създаване на подпапка\'.
+    </string>
     <string name="title_folder_name_missing">Липсва име на папка</string>
     <string name="title_folder_exists">Папката %1$s съществува</string>
     <string name="title_folder_delete">Да изтрия ли тази папка и съобщенията в нея завинаги?</string>
@@ -1103,6 +1106,7 @@
         За да бъде FairEmail устойчив в дългосрочен план, някои удобства и разширени функции не са безплатни.
         FairEmail показва малко съобщение, което да ви напомня за това, което ще бъде премахнато, ако закупите pro функциите.
     </string>
+    <string name="title_pro_hide">Скрийте малко съобщения за две седмици</string>
     <string name="title_pro_hint">Купуването на професионалните функции ще ви позволи да използвате всички настоящи и бъдещи професионални функции, ще поддържа това приложение поддържано.</string>
     <string name="title_pro_price">Моля вижте <a href="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq19">ЧЗВ</a> за цената на PRO функциите</string>
     <string name="title_pro_pending">Чакащо плащане</string>

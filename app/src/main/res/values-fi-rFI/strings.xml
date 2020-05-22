@@ -583,6 +583,9 @@
     <string name="title_auto_trash">Siirrä vanhat viestit automaattisesti roskakoriin</string>
     <string name="title_auto_delete">Poista vanhat viestit automaattisesti</string>
     <string name="title_auto_delete_hint">Vanhoilla viesteillä tarkoitetaan viestejä, joita ei enää pidetä laitteessa</string>
+    <string name="title_inbox_root_hint">Jotkut palveluntarjoajat edellyttävät, että uudet kansiot luodaan saapuneet-kansion alle.
+        Voit painaa pitkään saapuneet-kansiota kansiolistauksessa ja valita \'Luo alikansio\'.
+    </string>
     <string name="title_folder_name_missing">Kansion nimi puuttuu</string>
     <string name="title_folder_exists">Kansio %1$s on olemassa</string>
     <string name="title_folder_delete">Poistetaanko tämä kansio ja sen sisältämät viestit pysyvästi?</string>
