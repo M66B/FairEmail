@@ -586,6 +586,9 @@
     <string name="title_auto_trash">Mover mensajes antiguos a la papelera de manera automática</string>
     <string name="title_auto_delete">Eliminar mensajes antiguos permanentemente de manera automática</string>
     <string name="title_auto_delete_hint">Los mensajes antiguos son mensajes que ya no se almacenan en el dispositivo</string>
+    <string name="title_inbox_root_hint">        Algunos proveedores requieren que se creen nuevas carpetas debajo de la bandeja de entrada.
+        En este caso, puede mantener presionada la bandeja de entrada en la lista de carpetas y seleccionar \'Crear subcarpeta\'.
+    </string>
     <string name="title_folder_name_missing">Falta nombre de carpeta</string>
     <string name="title_folder_exists">La carpeta %1$s ya existe</string>
     <string name="title_folder_delete">¿Eliminar permanentemente esta carpeta y los mensajes que contenga?</string>

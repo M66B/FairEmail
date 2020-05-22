@@ -606,6 +606,9 @@
     <string name="title_auto_trash">Automaticky přesouvat staré zprávy do koše</string>
     <string name="title_auto_delete">Automaticky trvale mazat staré zprávy</string>
     <string name="title_auto_delete_hint">Staré zprávy jsou zprávy, které již nejsou uchovány v zařízení</string>
+    <string name="title_inbox_root_hint">        Někteří poskytovatelé vyžadují, že nové složky budou tvořeny pod složkou doručené.
+        V takovém případě v seznamu složek dlouze podržte složku doručené a zvolte \"Vytvořit podsložku\".
+    </string>
     <string name="title_folder_name_missing">Chybí název složky</string>
     <string name="title_folder_exists">Složka %1$s již existuje</string>
     <string name="title_folder_delete">Trvale odstranit tuto složku a všechny její zprávy?</string>
