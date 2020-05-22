@@ -811,7 +811,8 @@ public class FragmentCompose extends FragmentBase {
                                 new String[]{
                                         ContactsContract.Contacts.DISPLAY_NAME,
                                         ContactsContract.CommonDataKinds.Email.DATA,
-                                        ContactsContract.Contacts.PHOTO_THUMBNAIL_URI
+                                        ContactsContract.Contacts.PHOTO_THUMBNAIL_URI,
+                                        ContactsContract.Contacts.STARRED
                                 },
                                 ContactsContract.CommonDataKinds.Email.DATA + " <> ''" +
                                         " AND (" + ContactsContract.Contacts.DISPLAY_NAME + " LIKE ?" +
@@ -825,7 +826,7 @@ public class FragmentCompose extends FragmentBase {
                             item.name = cursor.getString(0);
                             item.email = cursor.getString(1);
                             item.avatar = cursor.getString(2);
-                            item.times_contacted = 0;
+                            item.times_contacted = (cursor.getInt(3) == 0 ? 0 : Integer.MAX_VALUE);
                             item.last_contacted = 0L;
                             EntityContact existing = map.get(item.email);
                             if (existing == null ||
