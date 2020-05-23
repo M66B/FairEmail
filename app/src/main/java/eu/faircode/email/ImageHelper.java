@@ -281,7 +281,7 @@ class ImageHelper {
                             return gif;
                         }
                     } else {
-                        Bitmap bm = ImageHelper.decodeImage(attachment.getFile(context), scaleToPixels);
+                        Bitmap bm = decodeImage(attachment.getFile(context), scaleToPixels);
                         if (bm == null) {
                             Log.i("Image not decodable CID=" + cid);
                             Drawable d = res.getDrawable(R.drawable.baseline_broken_image_24, theme);
