@@ -386,9 +386,6 @@ dependencies {
         exclude group: 'com.fasterxml.jackson.core', module: 'jackson-core'
     }
 
-    // https://github.com/chrisbanes/PhotoView
-    implementation "com.github.chrisbanes:PhotoView:$photoview_version"
-
     // https://github.com/KeepSafe/ReLinker
     // https://mvnrepository.com/artifact/com.getkeepsafe.relinker/relinker?repo=jcenter
     implementation "com.getkeepsafe.relinker:relinker:$relinker_version"

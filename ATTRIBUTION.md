@@ -14,7 +14,6 @@ FairEmail uses:
 * [ShortcutBadger](https://github.com/leolin310148/ShortcutBadger). Copyright 2014 Leo Lin. [Apache license 2.0](https://github.com/leolin310148/ShortcutBadger/blob/master/LICENSE).
 * [Bugsnag exception reporter for Android](https://github.com/bugsnag/bugsnag-android). Copyright (c) 2012 Bugsnag. [MIT License](https://github.com/bugsnag/bugsnag-android/blob/master/LICENSE.txt).
 * [biweekly](https://github.com/mangstadt/biweekly). Copyright (c) 2013-2018, Michael Angstadt. [BSD 2-Clause](https://github.com/mangstadt/biweekly/blob/master/LICENSE).
-* [PhotoView](https://github.com/chrisbanes/PhotoView). Copyright 2018 Chris Banes. [Apache License 2.0](https://github.com/chrisbanes/PhotoView/blob/master/LICENSE).
 * [ReLinker](https://github.com/KeepSafe/ReLinker). Copyright 2015 - 2016 KeepSafe Software, Inc. [Apache License 2.0](https://github.com/KeepSafe/ReLinker/blob/master/LICENSE).
 * [Markwon](https://github.com/noties/Markwon). Copyright 2019 Dimitry Ivanov. [Apache License 2.0](https://github.com/noties/Markwon/blob/master/LICENSE).
 * [Color Picker](https://github.com/QuadFlask/colorpicker). Copyright 2014-2017 QuadFlask. [Apache License 2.0](https://github.com/QuadFlask/colorpicker#user-content-license).

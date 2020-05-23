@@ -138,7 +138,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
-import com.github.chrisbanes.photoview.PhotoView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -3794,7 +3793,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ImageSpan[] image = buffer.getSpans(off, off, ImageSpan.class);
                     if (image.length > 0) {
                         String source = image[0].getSource();
-                        if (source != null) {
+                        if (!TextUtils.isEmpty(source)) {
                             onOpenImage(message.id, source);
                             return true;
                         }
@@ -3866,7 +3865,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             args.putString("source", source);
             args.putInt("zoom", zoom);
 
-            if ("cid".equals(scheme)) {
+            if ("cid".equals(scheme))
                 new SimpleTask<EntityAttachment>() {
                     @Override
                     protected EntityAttachment onExecute(Context context, Bundle args) {
@@ -3889,9 +3888,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                     }
                 }.execute(context, owner, args, "view:cid");
-            } else if ("http".equals(scheme) || "https".equals(scheme))
+
+            else if ("http".equals(scheme) || "https".equals(scheme))
                 Helper.view(context, uri, false);
-            else if ("data".equals(scheme)) {
+
+            else if ("data".equals(scheme))
                 new SimpleTask<File>() {
                     @Override
                     protected File onExecute(Context context, Bundle args) throws IOException {
@@ -3920,11 +3921,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                     }
                 }.execute(context, owner, args, "view:cid");
-            } else {
-                FragmentDialogImage fragment = new FragmentDialogImage();
-                fragment.setArguments(args);
-                fragment.show(parentFragment.getParentFragmentManager(), "view:image");
-            }
+
+            else
+                ToastEx.makeText(context, context.getString(R.string.title_no_viewer, source), Toast.LENGTH_LONG).show();
         }
 
         private void onMenuUnseen(final TupleMessageEx message) {
@@ -5722,43 +5721,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     }
 
             return (changed ? builder.build() : null);
-        }
-    }
-
-    public static class FragmentDialogImage extends FragmentDialogBase {
-        @NonNull
-        @Override
-        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            final PhotoView pv = new PhotoView(getContext());
-
-            new SimpleTask<Drawable>() {
-                @Override
-                protected Drawable onExecute(Context context, Bundle args) throws Throwable {
-                    long id = args.getLong("id");
-                    String source = args.getString("source");
-                    int zoom = args.getInt("zoom");
-                    return ImageHelper.decodeImage(context, id, source, true, zoom, null);
-                }
-
-                @Override
-                protected void onExecuted(Bundle args, Drawable drawable) {
-                    pv.setImageDrawable(drawable);
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-                        if (drawable instanceof AnimatedImageDrawable)
-                            ((AnimatedImageDrawable) drawable).start();
-                    }
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Log.unexpectedError(getParentFragmentManager(), ex);
-                }
-            }.execute(this, getArguments(), "view:image");
-
-            final Dialog dialog = new Dialog(getContext(), android.R.style.Theme_Black_NoTitleBar_Fullscreen);
-            dialog.setContentView(pv);
-
-            return dialog;
         }
     }
 
