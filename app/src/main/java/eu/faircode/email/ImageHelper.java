@@ -519,7 +519,11 @@ class ImageHelper {
         // "//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU" +
         // "5ErkJggg==\" alt=\"Red dot\" />";
 
-        String base64 = source.substring(source.indexOf(',') + 1);
+        int comma = source.indexOf(',');
+        if (comma < 0)
+            return null;
+
+        String base64 = source.substring(comma + 1);
         byte[] bytes = Base64.decode(base64.getBytes(), 0);
 
         return BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
