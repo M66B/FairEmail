@@ -37,6 +37,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -59,6 +60,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static android.app.ActionBar.DISPLAY_SHOW_CUSTOM;
 import static android.app.Activity.RESULT_OK;
 
 public class FragmentBase extends Fragment {
@@ -255,10 +257,17 @@ public class FragmentBase extends Fragment {
         AppCompatActivity activity = (AppCompatActivity) getActivity();
         if (activity != null && !isPane()) {
             ActionBar actionbar = activity.getSupportActionBar();
-            if (actionbar != null) {
-                actionbar.setTitle(title == null ? getString(R.string.app_name) : title);
-                actionbar.setSubtitle(subtitle);
-            }
+            if (actionbar != null)
+                if ((actionbar.getDisplayOptions() & DISPLAY_SHOW_CUSTOM) == 0) {
+                    actionbar.setTitle(title == null ? getString(R.string.app_name) : title);
+                    actionbar.setSubtitle(subtitle);
+                } else {
+                    View custom = actionbar.getCustomView();
+                    TextView tvTitle = custom.findViewById(R.id.title);
+                    TextView tvSubtitle = custom.findViewById(R.id.subtitle);
+                    tvTitle.setText(title == null ? getString(R.string.app_name) : title);
+                    tvSubtitle.setText(subtitle);
+                }
         }
     }
 
