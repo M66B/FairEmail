@@ -2235,7 +2235,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     return tcm.getTextClassifier().suggestConversationActions(crequest);
                 }
-            }.execute(context, owner, args, "message:body");
+            }.setCount(false).execute(context, owner, args, "message:body");
         }
 
         private void bindAttachments(final TupleMessageEx message, @Nullable List<EntityAttachment> attachments) {
