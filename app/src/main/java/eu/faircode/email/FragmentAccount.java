@@ -1229,18 +1229,24 @@ public class FragmentAccount extends FragmentBase {
                     fragment.setArguments(aargs);
                     fragment.setTargetFragment(FragmentAccount.this, REQUEST_SAVE);
                     fragment.show(getParentFragmentManager(), "account:save");
-                } else if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
-                    getParentFragmentManager().popBackStack();
+                } else {
+                    Context context = getContext();
+                    if (context != null)
+                        WidgetUnified.updateData(context); // Update color stripe
 
-                    if (cbIdentity.isChecked()) {
-                        Bundle aargs = new Bundle();
-                        aargs.putLong("account", args.getLong("account"));
+                    if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
+                        getParentFragmentManager().popBackStack();
 
-                        FragmentIdentity fragment = new FragmentIdentity();
-                        fragment.setArguments(aargs);
-                        FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("identity");
-                        fragmentTransaction.commit();
+                        if (cbIdentity.isChecked()) {
+                            Bundle aargs = new Bundle();
+                            aargs.putLong("account", args.getLong("account"));
+
+                            FragmentIdentity fragment = new FragmentIdentity();
+                            fragment.setArguments(aargs);
+                            FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                            fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("identity");
+                            fragmentTransaction.commit();
+                        }
                     }
                 }
             }
