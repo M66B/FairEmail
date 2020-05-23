@@ -166,7 +166,7 @@ public class ActivityEML extends ActivityBase {
                     Session isession = Session.getInstance(props, null);
                     MimeMessage imessage = new MimeMessage(isession, is);
 
-                    MessageHelper helper = new MessageHelper(imessage);
+                    MessageHelper helper = new MessageHelper(imessage, context);
 
                     result.from = MessageHelper.formatAddresses(helper.getFrom());
                     result.to = MessageHelper.formatAddresses(helper.getTo());
@@ -176,7 +176,7 @@ public class ActivityEML extends ActivityBase {
                     result.sent = helper.getSent();
                     result.received = helper.getReceived();
                     result.subject = helper.getSubject();
-                    result.parts = helper.getMessageParts(context);
+                    result.parts = helper.getMessageParts();
 
                     String html = result.parts.getHtml(context);
                     if (html != null) {

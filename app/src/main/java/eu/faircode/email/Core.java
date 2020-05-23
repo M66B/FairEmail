@@ -1061,7 +1061,7 @@ class Core {
 
                 boolean found = false;
                 for (Message imessage : imessages) {
-                    MessageHelper helper = new MessageHelper((MimeMessage) imessage);
+                    MessageHelper helper = new MessageHelper((MimeMessage) imessage, context);
 
                     String msgid;
                     if (caps.containsKey("UIDL"))
@@ -1145,7 +1145,7 @@ class Core {
         if (imessage == null)
             throw new MessageRemovedException();
 
-        MessageHelper helper = new MessageHelper(imessage);
+        MessageHelper helper = new MessageHelper(imessage, context);
         db.message().setMessageHeaders(message.id, helper.getHeaders());
     }
 
@@ -1198,8 +1198,8 @@ class Core {
         if (imessage == null)
             throw new MessageRemovedException();
 
-        MessageHelper helper = new MessageHelper((MimeMessage) imessage);
-        MessageHelper.MessageParts parts = helper.getMessageParts(context);
+        MessageHelper helper = new MessageHelper((MimeMessage) imessage, context);
+        MessageHelper.MessageParts parts = helper.getMessageParts();
         String body = parts.getHtml(context);
         File file = message.getFile(context);
         Helper.writeText(file, body);
@@ -1232,8 +1232,8 @@ class Core {
             throw new MessageRemovedException();
 
         // Get message parts
-        MessageHelper helper = new MessageHelper((MimeMessage) imessage);
-        MessageHelper.MessageParts parts = helper.getMessageParts(context);
+        MessageHelper helper = new MessageHelper((MimeMessage) imessage, context);
+        MessageHelper.MessageParts parts = helper.getMessageParts();
 
         // Download attachment
         parts.downloadAttachment(context, attachment);
@@ -1547,7 +1547,7 @@ class Core {
                     if (!state.isRunning())
                         return;
 
-                    MessageHelper helper = new MessageHelper((MimeMessage) imessage);
+                    MessageHelper helper = new MessageHelper((MimeMessage) imessage, context);
                     String uidl = caps.containsKey("UIDL")
                             ? ifolder.getUID(imessage)
                             : helper.getMessageID();
@@ -1580,7 +1580,7 @@ class Core {
                             sent = 0L;
 
                         String authentication = helper.getAuthentication();
-                        MessageHelper.MessageParts parts = helper.getMessageParts(context);
+                        MessageHelper.MessageParts parts = helper.getMessageParts();
 
                         EntityMessage message = new EntityMessage();
                         message.account = folder.account;
@@ -1986,10 +1986,11 @@ class Core {
                     try {
                         // Some providers erroneously return old messages
                         if (full.contains(isub[j])) {
-                            Date received = isub[j].getReceivedDate();
+                            MessageHelper helper = new MessageHelper((MimeMessage) isub[j], context);
+                            long received = helper.getReceived();
                             boolean unseen = (sync_unseen && !isub[j].isSet(Flags.Flag.SEEN));
                             boolean flagged = (sync_flagged && isub[j].isSet(Flags.Flag.FLAGGED));
-                            if (received != null && received.getTime() < keep_time && !unseen && !flagged) {
+                            if (received < keep_time && !unseen && !flagged) {
                                 long uid = ifolder.getUID(isub[j]);
                                 Log.i(folder.name + " Skipping old uid=" + uid + " date=" + received);
                                 ids[from + j] = null;
@@ -2127,7 +2128,7 @@ class Core {
             throw new MessageRemovedException("Flagged deleted");
         }
 
-        MessageHelper helper = new MessageHelper(imessage);
+        MessageHelper helper = new MessageHelper(imessage, context);
         boolean seen = helper.getSeen();
         boolean answered = helper.getAnsered();
         boolean flagged = helper.getFlagged();
@@ -2197,7 +2198,7 @@ class Core {
             }
 
             String authentication = helper.getAuthentication();
-            MessageHelper.MessageParts parts = helper.getMessageParts(context);
+            MessageHelper.MessageParts parts = helper.getMessageParts();
 
             message = new EntityMessage();
             message.account = folder.account;
@@ -2762,8 +2763,8 @@ class Core {
             //    fp.add(GmailFolder.FetchProfileItem.THRID);
             //ifolder.fetch(new Message[]{imessage}, fp);
 
-            MessageHelper helper = new MessageHelper(imessage);
-            MessageHelper.MessageParts parts = helper.getMessageParts(context);
+            MessageHelper helper = new MessageHelper(imessage, context);
+            MessageHelper.MessageParts parts = helper.getMessageParts();
 
             if (!message.content) {
                 if (state.getNetworkState().isUnmetered() ||

@@ -5314,8 +5314,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     Session isession = Session.getInstance(props, null);
                                     try (InputStream fis = new FileInputStream(plain)) {
                                         MimeMessage imessage = new MimeMessage(isession, fis);
-                                        MessageHelper helper = new MessageHelper(imessage);
-                                        parts = helper.getMessageParts(context);
+                                        MessageHelper helper = new MessageHelper(imessage, context);
+                                        parts = helper.getMessageParts();
                                     }
 
                                     try {
@@ -5917,8 +5917,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 Properties props = MessageHelper.getSessionProperties();
                 Session isession = Session.getInstance(props, null);
                 MimeMessage imessage = new MimeMessage(isession, is);
-                MessageHelper helper = new MessageHelper(imessage);
-                MessageHelper.MessageParts parts = helper.getMessageParts(context);
+                MessageHelper helper = new MessageHelper(imessage, context);
+                MessageHelper.MessageParts parts = helper.getMessageParts();
 
                 DB db = DB.getInstance(context);
                 try {

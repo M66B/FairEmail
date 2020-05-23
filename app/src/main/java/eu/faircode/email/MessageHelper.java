@@ -29,6 +29,7 @@ import androidx.documentfile.provider.DocumentFile;
 import androidx.preference.PreferenceManager;
 
 import com.sun.mail.gimap.GmailMessage;
+import com.sun.mail.imap.IMAPMessage;
 import com.sun.mail.util.ASCIIUtility;
 import com.sun.mail.util.BASE64DecoderStream;
 import com.sun.mail.util.FolderClosedIOException;
@@ -100,7 +101,11 @@ import biweekly.Biweekly;
 import biweekly.ICalendar;
 
 public class MessageHelper {
+    private boolean ensuredEnvelope = false;
+    private boolean ensuredBody = false;
     private MimeMessage imessage;
+
+    private static File cacheDir = null;
 
     static final int SMALL_MESSAGE_SIZE = 64 * 1024; // bytes
     static final int DEFAULT_ATTACHMENT_DOWNLOAD_SIZE = 256 * 1024; // bytes
@@ -747,7 +752,9 @@ public class MessageHelper {
         }
     }
 
-    MessageHelper(MimeMessage message) {
+    MessageHelper(MimeMessage message, Context context) {
+        if (cacheDir == null)
+            cacheDir = context.getCacheDir();
         this.imessage = message;
     }
 
@@ -779,6 +786,8 @@ public class MessageHelper {
     }
 
     String getMessageID() throws MessagingException {
+        ensureMessage(false);
+
         // Outlook outbox -> sent
         String header = imessage.getHeader("X-Correlation-ID", null);
         if (header == null)
@@ -787,6 +796,8 @@ public class MessageHelper {
     }
 
     String[] getReferences() throws MessagingException {
+        ensureMessage(false);
+
         List<String> result = new ArrayList<>();
         String refs = imessage.getHeader("References", null);
         if (refs != null)
@@ -847,6 +858,8 @@ public class MessageHelper {
     }
 
     String getDeliveredTo() throws MessagingException {
+        ensureMessage(false);
+
         String header = imessage.getHeader("Delivered-To", null);
         if (header == null)
             header = imessage.getHeader("X-Delivered-To", null);
@@ -861,11 +874,15 @@ public class MessageHelper {
     }
 
     String getInReplyTo() throws MessagingException {
+        ensureMessage(false);
+
         String header = imessage.getHeader("In-Reply-To", null);
         return (header == null ? null : MimeUtility.unfold(header));
     }
 
     String getThreadId(Context context, long account, long uid) throws MessagingException {
+        ensureMessage(false);
+
         if (imessage instanceof GmailMessage) {
             // https://developers.google.com/gmail/imap/imap-extensions#access_to_the_gmail_thread_id_x-gm-thrid
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -927,6 +944,8 @@ public class MessageHelper {
     Integer getPriority() throws MessagingException {
         Integer priority = null;
 
+        ensureMessage(false);
+
         // https://docs.microsoft.com/en-us/openspecs/exchange_server_protocols/ms-oxcmail/2bb19f1b-b35e-4966-b1cb-1afd044e83ab
         String header = imessage.getHeader("Importance", null);
         if (header == null)
@@ -985,15 +1004,21 @@ public class MessageHelper {
     }
 
     boolean getReceiptRequested() throws MessagingException {
+        ensureMessage(false);
+
         return (imessage.getHeader("Return-Receipt-To") != null ||
                 imessage.getHeader("Disposition-Notification-To") != null);
     }
 
     Address[] getReceiptTo() throws MessagingException {
+        ensureMessage(false);
+
         return getAddressHeader("Disposition-Notification-To");
     }
 
     String getAuthentication() throws MessagingException {
+        ensureMessage(false);
+
         String header = imessage.getHeader("Authentication-Results", null);
         return (header == null ? null : MimeUtility.unfold(header));
     }
@@ -1024,6 +1049,8 @@ public class MessageHelper {
     }
 
     String getReceivedFromHost() throws MessagingException {
+        ensureMessage(false);
+
         String[] received = imessage.getHeader("Received");
         if (received == null || received.length == 0)
             return null;
@@ -1062,6 +1089,8 @@ public class MessageHelper {
     }
 
     private Address[] getAddressHeader(String name) throws MessagingException {
+        ensureMessage(false);
+
         String header = imessage.getHeader(name, ",");
         if (header == null)
             return null;
@@ -1121,6 +1150,8 @@ public class MessageHelper {
     }
 
     Address[] getListPost() throws MessagingException {
+        ensureMessage(false);
+
         String list;
         try {
             // https://www.ietf.org/rfc/rfc2369.txt
@@ -1159,6 +1190,8 @@ public class MessageHelper {
     }
 
     String getListUnsubscribe() throws MessagingException {
+        ensureMessage(false);
+
         String list;
         try {
             // https://www.ietf.org/rfc/rfc2369.txt
@@ -1203,6 +1236,8 @@ public class MessageHelper {
     }
 
     String getAutocrypt() throws MessagingException {
+        ensureMessage(false);
+
         String autocrypt = imessage.getHeader("Autocrypt", null);
         if (autocrypt == null)
             return null;
@@ -1211,6 +1246,8 @@ public class MessageHelper {
     }
 
     String getSubject() throws MessagingException {
+        ensureMessage(false);
+
         String subject = imessage.getHeader("Subject", null);
         if (subject == null)
             return null;
@@ -1227,11 +1264,15 @@ public class MessageHelper {
     }
 
     Long getSize() throws MessagingException {
+        ensureMessage(false);
+
         long size = imessage.getSize();
         return (size < 0 ? null : size);
     }
 
     long getReceived() throws MessagingException {
+        ensureMessage(false);
+
         Date received = imessage.getReceivedDate();
         if (received == null)
             received = imessage.getSentDate();
@@ -1239,11 +1280,15 @@ public class MessageHelper {
     }
 
     Long getSent() throws MessagingException {
+        ensureMessage(false);
+
         Date date = imessage.getSentDate();
         return (date == null ? null : date.getTime());
     }
 
     String getHeaders() throws MessagingException {
+        ensureMessage(false);
+
         StringBuilder sb = new StringBuilder();
         Enumeration<Header> headers = imessage.getAllHeaders();
         while (headers.hasMoreElements()) {
@@ -1817,33 +1862,10 @@ public class MessageHelper {
         EntityAttachment attachment;
     }
 
-    MessageParts getMessageParts(Context context) throws IOException, MessagingException {
+    MessageParts getMessageParts() throws IOException, MessagingException {
         MessageParts parts = new MessageParts();
 
-        try {
-            imessage.getContentType();
-        } catch (MessagingException ex) {
-            // https://javaee.github.io/javamail/FAQ#imapserverbug
-            if ("Failed to load IMAP envelope".equals(ex.getMessage()) ||
-                    "Unable to load BODYSTRUCTURE".equals(ex.getMessage())) {
-                Log.w("Fetching raw message");
-                File file = File.createTempFile("serverbug", null, context.getCacheDir());
-                try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
-                    imessage.writeTo(os);
-                }
-
-                Properties props = MessageHelper.getSessionProperties();
-                Session isession = Session.getInstance(props, null);
-
-                Log.w("Decoding raw message");
-                try (InputStream is = new BufferedInputStream(new FileInputStream(file))) {
-                    imessage = new MimeMessageEx(isession, is, imessage);
-                }
-
-                file.delete();
-            } else
-                throw ex;
-        }
+        ensureMessage(true);
 
         try {
             MimePart part = imessage;
@@ -2041,6 +2063,53 @@ public class MessageHelper {
         } catch (MessagingException ex) {
             Log.w(ex);
             parts.warnings.add(Log.formatThrowable(ex, false));
+        }
+    }
+
+    private void ensureMessage(boolean body) throws MessagingException {
+        if (body ? ensuredBody : ensuredEnvelope)
+            return;
+
+        if (body)
+            ensuredBody = true;
+        else
+            ensuredEnvelope = true;
+
+        Log.i("Ensure body=" + body);
+
+        try {
+            if (imessage instanceof IMAPMessage) {
+                if (body)
+                    imessage.getContentType(); // force loadBODYSTRUCTURE
+                else
+                    imessage.getMessageID(); // force loadEnvelope
+            }
+        } catch (MessagingException ex) {
+            // https://javaee.github.io/javamail/FAQ#imapserverbug
+            if ("Failed to load IMAP envelope".equals(ex.getMessage()) ||
+                    "Unable to load BODYSTRUCTURE".equals(ex.getMessage()))
+                try {
+                    Log.w("Fetching raw message");
+                    File file = File.createTempFile("serverbug", null, cacheDir);
+                    try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
+                        imessage.writeTo(os);
+                    }
+
+                    Properties props = MessageHelper.getSessionProperties();
+                    Session isession = Session.getInstance(props, null);
+
+                    Log.w("Decoding raw message");
+                    try (InputStream is = new BufferedInputStream(new FileInputStream(file))) {
+                        imessage = new MimeMessageEx(isession, is, imessage);
+                    }
+
+                    file.delete();
+                } catch (IOException ex1) {
+                    Log.e(ex1);
+                    throw ex;
+                }
+            else
+                throw ex;
         }
     }
 
