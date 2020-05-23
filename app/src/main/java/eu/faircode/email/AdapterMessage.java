@@ -3857,12 +3857,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private void onOpenImage(long id, @NonNull String source) {
             Log.i("Viewing image source=" + source);
 
-            Uri uri = Uri.parse(source);
+            ImageHelper.AnnotatedSource annotated = new ImageHelper.AnnotatedSource(source);
+            Uri uri = Uri.parse(annotated.getSource());
             String scheme = uri.getScheme();
 
             Bundle args = new Bundle();
             args.putLong("id", id);
-            args.putString("source", source);
+            args.putString("source", annotated.getSource());
             args.putInt("zoom", zoom);
 
             if ("cid".equals(scheme))
@@ -3890,7 +3891,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }.execute(context, owner, args, "view:cid");
 
             else if ("http".equals(scheme) || "https".equals(scheme))
-                Helper.view(context, uri, false);
+                onOpenLink(uri, null);
 
             else if ("data".equals(scheme))
                 new SimpleTask<File>() {
@@ -3923,7 +3924,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }.execute(context, owner, args, "view:cid");
 
             else
-                ToastEx.makeText(context, context.getString(R.string.title_no_viewer, source), Toast.LENGTH_LONG).show();
+                ToastEx.makeText(context, context.getString(R.string.title_no_viewer, uri.toString()), Toast.LENGTH_LONG).show();
         }
 
         private void onMenuUnseen(final TupleMessageEx message) {
