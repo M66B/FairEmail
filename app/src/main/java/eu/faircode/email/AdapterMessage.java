@@ -39,6 +39,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
@@ -144,8 +145,11 @@ import com.google.android.material.snackbar.Snackbar;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
 import java.nio.charset.StandardCharsets;
@@ -3887,7 +3891,36 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }.execute(context, owner, args, "view:cid");
             } else if ("http".equals(scheme) || "https".equals(scheme))
                 Helper.view(context, uri, false);
-            else {
+            else if ("data".equals(scheme)) {
+                new SimpleTask<File>() {
+                    @Override
+                    protected File onExecute(Context context, Bundle args) throws IOException {
+                        long id = args.getLong("id");
+                        String source = args.getString("source");
+
+                        Bitmap bm = ImageHelper.getDataBitmap(source);
+                        if (bm == null)
+                            return null;
+
+                        File file = ImageHelper.getCacheFile(context, id, source);
+                        try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
+                            bm.compress(Bitmap.CompressFormat.PNG, 90, os);
+                        }
+
+                        return file;
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, File file) {
+                        Helper.share(context, file, "image/png", file.getName());
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                    }
+                }.execute(context, owner, args, "view:cid");
+            } else {
                 FragmentDialogImage fragment = new FragmentDialogImage();
                 fragment.setArguments(args);
                 fragment.show(parentFragment.getParentFragmentManager(), "view:image");

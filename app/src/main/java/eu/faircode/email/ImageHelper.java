@@ -302,7 +302,15 @@ class ImageHelper {
             // Data URI
             if (data && (show || inline || a.tracking))
                 try {
-                    Drawable d = getDataDrawable(context, a.source);
+                    Bitmap bm = getDataBitmap(source);
+                    if (bm == null)
+                        throw new IllegalArgumentException("decode byte array failed");
+
+                    Drawable d = new BitmapDrawable(context.getResources(), bm);
+
+                    DisplayMetrics dm = context.getResources().getDisplayMetrics();
+                    d.setBounds(0, 0, Math.round(bm.getWidth() * dm.density), Math.round(bm.getHeight() * dm.density));
+
                     if (view != null)
                         fitDrawable(d, a, view);
                     return d;
@@ -505,7 +513,7 @@ class ImageHelper {
         }
     }
 
-    private static Drawable getDataDrawable(Context context, String source) {
+    static Bitmap getDataBitmap(String source) {
         // "<img src=\"data:image/png;base64,iVBORw0KGgoAAA" +
         // "ANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4" +
         // "//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU" +
@@ -514,16 +522,7 @@ class ImageHelper {
         String base64 = source.substring(source.indexOf(',') + 1);
         byte[] bytes = Base64.decode(base64.getBytes(), 0);
 
-        Bitmap bm = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-        if (bm == null)
-            throw new IllegalArgumentException("decode byte array failed");
-
-        Drawable d = new BitmapDrawable(context.getResources(), bm);
-
-        DisplayMetrics dm = context.getResources().getDisplayMetrics();
-        d.setBounds(0, 0, Math.round(bm.getWidth() * dm.density), Math.round(bm.getHeight() * dm.density));
-
-        return d;
+        return BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
     }
 
     private static Drawable getCachedImage(Context context, long id, String source) {
@@ -652,7 +651,7 @@ class ImageHelper {
     }
 
     @NonNull
-    private static File getCacheFile(Context context, long id, String source) {
+    static File getCacheFile(Context context, long id, String source) {
         File dir = new File(context.getCacheDir(), "images");
         if (!dir.exists())
             dir.mkdir();
