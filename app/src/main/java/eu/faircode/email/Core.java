@@ -2130,7 +2130,7 @@ class Core {
 
         MessageHelper helper = new MessageHelper(imessage, context);
         boolean seen = helper.getSeen();
-        boolean answered = helper.getAnsered();
+        boolean answered = helper.getAnswered();
         boolean flagged = helper.getFlagged();
         String flags = helper.getFlags();
         String[] keywords = helper.getKeywords();

@@ -762,7 +762,7 @@ public class MessageHelper {
         return imessage.isSet(Flags.Flag.SEEN);
     }
 
-    boolean getAnsered() throws MessagingException {
+    boolean getAnswered() throws MessagingException {
         return imessage.isSet(Flags.Flag.ANSWERED);
     }
 
