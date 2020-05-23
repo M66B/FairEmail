@@ -2288,9 +2288,12 @@ So, you don't have to disable this option if you don't have an EU SIM or are not
 **(106) Which launchers can show a badge count with the number of unread messages?**
 
 Please [see here](https://github.com/leolin310148/ShortcutBadger#supported-launchers)
-for a list of launchers which can show the number of new messages.
+for a list of launchers which can show the number of unread messages.
 
 Note that the notification setting *Show launcher icon with number of new messages* needs to be enabled (default enabled).
+
+Only *new* unread messages in folders set to show new message notifications will be counted,
+so messages marked unread again and messages in folders set to not show new message notification will not be counted.
 
 Depending on what you want, the notification settings *Let the number of new messages match the number of notifications* needs to be enabled or disabled.
 
