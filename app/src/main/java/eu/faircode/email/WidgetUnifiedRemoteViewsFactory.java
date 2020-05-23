@@ -54,6 +54,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
     private int colorWidgetRead;
     private int colorSeparator;
     private boolean pro;
+    private boolean hasColor;
     private List<TupleMessageWidget> messages = new ArrayList<>();
 
     WidgetUnifiedRemoteViewsFactory(final Context context, Intent intent) {
@@ -100,6 +101,14 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
         } finally {
             db.endTransaction();
         }
+
+        hasColor = false;
+        if (account < 0)
+            for (TupleMessageWidget message : messages)
+                if (message.accountColor != null) {
+                    hasColor = true;
+                    break;
+                }
     }
 
     @Override
@@ -135,7 +144,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
             int colorBackground =
                     (message.accountColor == null || !pro ? colorSeparator : message.accountColor);
             views.setInt(R.id.stripe, "setBackgroundColor", colorBackground);
-            views.setViewVisibility(R.id.stripe, account < 0 && color_stripe ? View.VISIBLE : View.GONE);
+            views.setViewVisibility(R.id.stripe, hasColor && color_stripe ? View.VISIBLE : View.GONE);
 
             SpannableString ssFrom = new SpannableString(pro
                     ? MessageHelper.formatAddressesShort(message.from)
