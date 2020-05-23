@@ -381,7 +381,6 @@
     <string name="title_advanced_secure">Skrij z zaslona nedavnih programov in prepreči zaslonske slike</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Časovna omejitev biometrične overitve</string>
-    <string name="title_advanced_encrypt_method">Privzeti način šifriranja</string>
     <string name="title_advanced_sign_default">Privzeto podpiši</string>
     <string name="title_advanced_encrypt_default">Privzeto šifriraj</string>
     <string name="title_advanced_auto_decrypt">Samodejno odšifriraj sporočila</string>

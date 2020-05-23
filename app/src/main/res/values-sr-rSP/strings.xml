@@ -287,7 +287,6 @@
     <string name="title_advanced_secure">Сакриј са екрана скорашњих апликација и онемогући узимање снимака екрана</string>
     <string name="title_advanced_pin">ПИН</string>
     <string name="title_advanced_biometrics_timeout">Време истека за биометријску проверу идентитета</string>
-    <string name="title_advanced_encrypt_method">Подразумевани начин шифровања</string>
     <string name="title_advanced_sign_default">Подразумевани потписуј</string>
     <string name="title_advanced_encrypt_default">Подразумевано шифруј</string>
     <string name="title_advanced_auto_decrypt">Аутоматски дешифруј поруке</string>

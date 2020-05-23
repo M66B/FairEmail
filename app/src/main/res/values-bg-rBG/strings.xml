@@ -364,7 +364,6 @@
     <string name="title_advanced_secure">Скриване от екрана на последно използвани приложения и предотвратяване правенето снимка на екрана</string>
     <string name="title_advanced_pin">ПИН</string>
     <string name="title_advanced_biometrics_timeout">Време на изчакване за биометрично удостоверяване</string>
-    <string name="title_advanced_encrypt_method">Метод на криптиране по подразбиране</string>
     <string name="title_advanced_sign_default">Подписване по подразбиране</string>
     <string name="title_advanced_encrypt_default">Криптиране по подразбиране</string>
     <string name="title_advanced_auto_decrypt">Автоматично декриптиране на съобщение</string>

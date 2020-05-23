@@ -345,7 +345,6 @@
     <string name="title_advanced_secure">Sakrij sa zaslona nedavnih aplikacija i spriječi snimanje zaslona</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Timeout biometrijske autentifikacije</string>
-    <string name="title_advanced_encrypt_method">Zadana metoda šifriranja</string>
     <string name="title_advanced_sign_default">Zadani potpis</string>
     <string name="title_advanced_encrypt_default">Zadano šifriranje</string>
     <string name="title_advanced_auto_decrypt">Automatski dešifriraj poruke</string>

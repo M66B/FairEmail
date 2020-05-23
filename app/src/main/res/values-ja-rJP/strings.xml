@@ -351,7 +351,6 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_secure">最近使ったアプリから非表示にしスクリーンショット撮影から守る</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">生体認証タイムアウト</string>
-    <string name="title_advanced_encrypt_method">デフォルトの暗号化方法</string>
     <string name="title_advanced_sign_default">デフォルトで署名</string>
     <string name="title_advanced_encrypt_default">デフォルトで暗号化</string>
     <string name="title_advanced_auto_decrypt">メッセージを自動的に解読</string>

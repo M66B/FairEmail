@@ -386,7 +386,6 @@
     <string name="title_advanced_secure">Скрыть с экрана недавних приложений и запретить создание снимков экрана</string>
     <string name="title_advanced_pin">PIN-код</string>
     <string name="title_advanced_biometrics_timeout">Таймаут биометрической аутентификации</string>
-    <string name="title_advanced_encrypt_method">Метод шифрования по умолчанию</string>
     <string name="title_advanced_sign_default">Подписать по умолчанию</string>
     <string name="title_advanced_encrypt_default">Шифровать по умолчанию</string>
     <string name="title_advanced_auto_decrypt">Автоматически расшифровывать сообщения</string>

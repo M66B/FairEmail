@@ -364,7 +364,6 @@
     <string name="title_advanced_secure">Nascondi dalla schermata delle app recenti e impedisci di catturare screenshot</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Timeout autenticazione biometrica</string>
-    <string name="title_advanced_encrypt_method">Metodo di crittografia predefinito</string>
     <string name="title_advanced_sign_default">Firma di default</string>
     <string name="title_advanced_encrypt_default">Crittografa di default</string>
     <string name="title_advanced_auto_decrypt">Decodifica automaticamente i messaggi</string>

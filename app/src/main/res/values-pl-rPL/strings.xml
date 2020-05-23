@@ -384,7 +384,6 @@
     <string name="title_advanced_secure">Ukryj z ekranu najnowszych aplikacji i uniemożliwiaj wykonywanie zrzutów ekranu</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Limit czasu uwierzytelniania biometrycznego</string>
-    <string name="title_advanced_encrypt_method">Domyślna metoda szyfrowania</string>
     <string name="title_advanced_sign_default">Domyślnie podpisuj</string>
     <string name="title_advanced_encrypt_default">Domyślnie szyfruj</string>
     <string name="title_advanced_auto_decrypt">Automatycznie odszyfruj wiadomości</string>

@@ -278,7 +278,6 @@
     <string name="title_advanced_secure">Amaga de la pantalla d\'aplicacions recents i evita que es pugui fer captures de pantalla</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Retard de l’autenticació biomètrica</string>
-    <string name="title_advanced_encrypt_method">Mètode de xifratge per defecte</string>
     <string name="title_advanced_sign_default">Signa per defecte</string>
     <string name="title_advanced_encrypt_default">Xifra per defecte</string>
     <string name="title_advanced_auto_decrypt">Xifra automàticament els missatges</string>

@@ -362,7 +362,6 @@
     <string name="title_advanced_secure">Ezkutatu erabilitako azken aplikazioen pantailatik eta saihestu pantaila-argazkia egitea</string>
     <string name="title_advanced_pin">PINa</string>
     <string name="title_advanced_biometrics_timeout">Autentifikazio biometrikoaren iraupena</string>
-    <string name="title_advanced_encrypt_method">Berezko zifratze-metodoa</string>
     <string name="title_advanced_sign_default">Besterik ezean sinatu</string>
     <string name="title_advanced_encrypt_default">Besterik ezean zifratu</string>
     <string name="title_advanced_auto_decrypt">Desenkriptatu mezuak automatikoki</string>
