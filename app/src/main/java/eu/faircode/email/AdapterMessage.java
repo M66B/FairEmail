@@ -3851,17 +3851,47 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             return true;
         }
 
-        private void onOpenImage(long id, String source) {
+        private void onOpenImage(long id, @NonNull String source) {
             Log.i("Viewing image source=" + source);
+
+            Uri uri = Uri.parse(source);
+            String scheme = uri.getScheme();
 
             Bundle args = new Bundle();
             args.putLong("id", id);
             args.putString("source", source);
             args.putInt("zoom", zoom);
 
-            FragmentDialogImage fragment = new FragmentDialogImage();
-            fragment.setArguments(args);
-            fragment.show(parentFragment.getParentFragmentManager(), "view:image");
+            if ("cid".equals(scheme)) {
+                new SimpleTask<EntityAttachment>() {
+                    @Override
+                    protected EntityAttachment onExecute(Context context, Bundle args) {
+                        long id = args.getLong("id");
+                        String source = args.getString("source");
+
+                        DB db = DB.getInstance(context);
+                        String cid = "<" + source.substring(4) + ">";
+                        return db.attachment().getAttachment(id, cid);
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, EntityAttachment attachment) {
+                        if (attachment != null)
+                            Helper.share(context, attachment.getFile(context), attachment.getMimeType(), attachment.name);
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                    }
+                }.execute(context, owner, args, "view:cid");
+            } else if ("http".equals(scheme) || "https".equals(scheme))
+                Helper.view(context, uri, false);
+            else {
+                FragmentDialogImage fragment = new FragmentDialogImage();
+                fragment.setArguments(args);
+                fragment.show(parentFragment.getParentFragmentManager(), "view:image");
+            }
         }
 
         private void onMenuUnseen(final TupleMessageEx message) {
