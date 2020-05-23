@@ -2624,8 +2624,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 } else
                     return false;
             } else {
-                view.getParent().requestDisallowInterceptTouchEvent(false);
-                return (view.getId() == R.id.wvBody && ev.getAction() == MotionEvent.ACTION_MOVE);
+                if (view.getId() == R.id.tvBody)
+                    view.getParent().requestDisallowInterceptTouchEvent(false);
+                else {
+                    boolean xm = view.canScrollHorizontally(-1);
+                    boolean xp = view.canScrollHorizontally(1);
+                    boolean ym = view.canScrollVertically(-1);
+                    boolean yp = view.canScrollVertically(1);
+                    boolean zoomed = (xm || xp || ym || yp);
+                    view.getParent().requestDisallowInterceptTouchEvent(zoomed);
+                }
+                return false;
             }
         }
 
