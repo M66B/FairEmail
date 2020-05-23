@@ -333,6 +333,7 @@ public class ServiceSend extends ServiceBase {
                         if (ex instanceof OutOfMemoryError ||
                                 ex instanceof MessageRemovedException ||
                                 ex instanceof FileNotFoundException ||
+                                ex instanceof AuthenticationFailedException ||
                                 ex instanceof SendFailedException ||
                                 ex instanceof IllegalArgumentException) {
                             Log.w("Unrecoverable");
