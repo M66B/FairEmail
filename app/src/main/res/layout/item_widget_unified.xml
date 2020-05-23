@@ -9,12 +9,12 @@
         android:id="@+id/stripe"
         android:layout_width="3dp"
         android:layout_height="match_parent"
-        android:background="@android:color/darker_gray" />
+        android:background="@android:color/darker_gray"
+        android:layout_marginEnd="3dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="3dp"
         android:orientation="vertical"
         android:paddingTop="6dp"
         android:paddingBottom="6dp">
