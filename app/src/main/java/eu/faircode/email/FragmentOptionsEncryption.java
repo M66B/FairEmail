@@ -56,7 +56,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FragmentOptionsEncryption extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
-    private Spinner spEncryptMethod;
     private SwitchCompat swSign;
     private SwitchCompat swEncrypt;
     private SwitchCompat swAutoDecrypt;
@@ -74,7 +73,7 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
     private List<String> openPgpProvider = new ArrayList<>();
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "default_encrypt_method", "sign_default", "encrypt_default", "auto_decrypt",
+            "sign_default", "encrypt_default", "auto_decrypt",
             "openpgp_provider", "autocrypt", "autocrypt_mutual"
     };
 
@@ -89,7 +88,6 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
 
         // Get controls
 
-        spEncryptMethod = view.findViewById(R.id.spEncryptMethod);
         swSign = view.findViewById(R.id.swSign);
         swEncrypt = view.findViewById(R.id.swEncrypt);
         swAutoDecrypt = view.findViewById(R.id.swAutoDecrypt);
@@ -119,21 +117,6 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
         // Wire controls
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-
-        spEncryptMethod.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 1)
-                    prefs.edit().putString("default_encrypt_method", "s/mime").apply();
-                else
-                    onNothingSelected(parent);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                prefs.edit().remove("default_encrypt_method").apply();
-            }
-        });
 
         swSign.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -280,10 +263,6 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
 
     private void setOptions() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-
-        String encrypt_method = prefs.getString("default_encrypt_method", "pgp");
-        if ("s/mime".equals(encrypt_method))
-            spEncryptMethod.setSelection(1);
 
         swSign.setChecked(prefs.getBoolean("sign_default", false));
         swEncrypt.setChecked(prefs.getBoolean("encrypt_default", false));

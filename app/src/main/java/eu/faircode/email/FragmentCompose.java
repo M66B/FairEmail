@@ -1302,10 +1302,8 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onMenuEncrypt() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        String encrypt_method = prefs.getString("default_encrypt_method", "pgp");
-
-        if ("pgp".equals(encrypt_method)) {
+        EntityIdentity identity = (EntityIdentity) spIdentity.getSelectedItem();
+        if (identity == null || identity.encrypt == 0) {
             if (EntityMessage.ENCRYPT_NONE.equals(encrypt) || encrypt == null)
                 encrypt = EntityMessage.PGP_SIGNENCRYPT;
             else if (EntityMessage.PGP_SIGNENCRYPT.equals(encrypt))
@@ -3008,7 +3006,6 @@ public class FragmentCompose extends FragmentBase {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean plain_only = prefs.getBoolean("plain_only", false);
             boolean resize_reply = prefs.getBoolean("resize_reply", true);
-            String encrypt_method = prefs.getString("default_encrypt_method", "pgp");
             boolean sign_default = prefs.getBoolean("sign_default", false);
             boolean encrypt_default = prefs.getBoolean("encrypt_default", false);
             boolean receipt_default = prefs.getBoolean("receipt_default", false);
@@ -3041,21 +3038,6 @@ public class FragmentCompose extends FragmentBase {
 
                     data.draft = new EntityMessage();
                     data.draft.msgid = EntityMessage.generateMessageId();
-
-                    if (plain_only)
-                        data.draft.plain_only = true;
-                    if (encrypt_default)
-                        if ("s/mime".equals(encrypt_method))
-                            data.draft.ui_encrypt = EntityMessage.SMIME_SIGNENCRYPT;
-                        else
-                            data.draft.ui_encrypt = EntityMessage.PGP_SIGNENCRYPT;
-                    else if (sign_default)
-                        if ("s/mime".equals(encrypt_method))
-                            data.draft.ui_encrypt = EntityMessage.SMIME_SIGNONLY;
-                        else
-                            data.draft.ui_encrypt = EntityMessage.PGP_SIGNONLY;
-                    if (receipt_default)
-                        data.draft.receipt_request = true;
 
                     // Select identity matching from address
                     EntityIdentity selected = null;
@@ -3155,6 +3137,23 @@ public class FragmentCompose extends FragmentBase {
 
                     if (selected == null)
                         throw new IllegalArgumentException(context.getString(R.string.title_no_identities));
+
+                    if (plain_only)
+                        data.draft.plain_only = true;
+
+                    if (encrypt_default)
+                        if (selected.encrypt == 0)
+                            data.draft.ui_encrypt = EntityMessage.PGP_SIGNENCRYPT;
+                        else
+                            data.draft.ui_encrypt = EntityMessage.SMIME_SIGNENCRYPT;
+                    else if (sign_default)
+                        if (selected.encrypt == 0)
+                            data.draft.ui_encrypt = EntityMessage.PGP_SIGNONLY;
+                        else
+                            data.draft.ui_encrypt = EntityMessage.SMIME_SIGNONLY;
+
+                    if (receipt_default)
+                        data.draft.receipt_request = true;
 
                     Document document = Document.createShell("");
 
@@ -5101,7 +5100,27 @@ public class FragmentCompose extends FragmentBase {
                             int encrypt = args.getInt("encrypt");
 
                             DB db = DB.getInstance(context);
-                            db.message().setMessageUiEncrypt(id, encrypt);
+                            try {
+                                db.beginTransaction();
+
+                                EntityMessage message = db.message().getMessage(id);
+                                if (message == null)
+                                    return null;
+
+                                db.message().setMessageUiEncrypt(message.id, encrypt);
+
+                                if (message.identity != null) {
+                                    int iencrypt =
+                                            (encrypt == EntityMessage.SMIME_SIGNONLY ||
+                                                    encrypt == EntityMessage.SMIME_SIGNENCRYPT
+                                                    ? 1 : 0);
+                                    db.identity().setIdentityEncrypt(message.identity, iencrypt);
+                                }
+
+                                db.setTransactionSuccessful();
+                            } finally {
+                                db.endTransaction();
+                            }
 
                             return null;
                         }

@@ -425,7 +425,6 @@
     <string name="title_advanced_biometrics_timeout">Biometric authentication timeout</string>
     <string name="title_advanced_safe_browsing" translatable="false">Google Safe browsing</string>
 
-    <string name="title_advanced_encrypt_method">Default encryption method</string>
     <string name="title_advanced_sign_default">Sign by default</string>
     <string name="title_advanced_encrypt_default">Encrypt by default</string>
     <string name="title_advanced_auto_decrypt">Automatically decrypt messages</string>
@@ -1493,11 +1492,6 @@
         <item>Above the text</item>
         <item>Below the text</item>
         <item>At the bottom</item>
-    </string-array>
-
-    <string-array name="encryptMethod" translatable="false">
-        <item>PGP</item>
-        <item>S/MIME</item>
     </string-array>
 
     <string-array name="encryptNames">

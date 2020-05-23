@@ -60,7 +60,7 @@ import io.requery.android.database.sqlite.SQLiteDatabase;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 160,
+        version = 161,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -1589,6 +1589,16 @@ public abstract class DB extends RoomDatabase {
                         db.execSQL("DROP TRIGGER attachment_insert");
                         db.execSQL("DROP TRIGGER attachment_delete");
                         createTriggers(db);
+                    }
+                })
+                .addMigrations(new Migration(160, 161) {
+                    @Override
+                    public void migrate(@NonNull SupportSQLiteDatabase db) {
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
+                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                        String encrypt_method = prefs.getString("default_encrypt_method", "pgp");
+                        db.execSQL("UPDATE identity SET encrypt = " + ("pgp".equals(encrypt_method) ? 0 : 1));
+                        prefs.edit().remove("default_encrypt_method").apply();
                     }
                 });
     }

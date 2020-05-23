@@ -103,6 +103,9 @@ public interface DaoIdentity {
     @Query("UPDATE identity SET last_connected = :last_connected WHERE id = :id")
     int setIdentityConnected(long id, long last_connected);
 
+    @Query("UPDATE identity SET encrypt = :encrypt WHERE id = :id")
+    int setIdentityEncrypt(long id, int encrypt);
+
     @Query("UPDATE identity SET sign_key = :sign_key WHERE id = :id")
     int setIdentitySignKey(long id, Long sign_key);
 
