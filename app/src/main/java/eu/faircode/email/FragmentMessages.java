@@ -2641,6 +2641,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         args.putLong("id", message.id);
         args.putLong("duration", message.ui_snoozed == null ? Long.MAX_VALUE : 0);
         args.putLong("time", message.ui_snoozed == null ? Long.MAX_VALUE : 0);
+        args.putBoolean("hide", true);
 
         onSnooze(args);
     }
@@ -6183,6 +6184,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 Long wakeup = args.getLong("wakeup");
                 if (wakeup < 0)
                     wakeup = null;
+                boolean hide = args.getBoolean("hide");
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean flag_snoozed = prefs.getBoolean("flag_snoozed", false);
@@ -6200,7 +6202,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     for (EntityMessage threaded : messages) {
                         db.message().setMessageSnoozed(threaded.id, wakeup);
                         db.message().setMessageUiIgnored(threaded.id, true);
-                        if (flag_snoozed && threaded.folder.equals(message.folder))
+                        if (!hide && flag_snoozed && threaded.folder.equals(message.folder))
                             EntityOperation.queue(context, threaded, EntityOperation.FLAG, wakeup != null);
                         EntityMessage.snooze(context, threaded.id, wakeup);
                     }
