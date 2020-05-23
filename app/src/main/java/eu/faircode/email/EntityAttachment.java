@@ -188,11 +188,14 @@ public class EntityAttachment {
                 type = gtype;
         }
 
-        if ("gpx".equals(extension))
-            return "application/gpx+xml";
+        if ("csv".equals(extension))
+            return "text/csv";
 
         if ("eml".equals(extension))
             return "message/rfc822";
+
+        if ("gpx".equals(extension))
+            return "application/gpx+xml";
 
         if ("text/plain".equals(type) && "ics".equals(extension))
             return "text/calendar";
