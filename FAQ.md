@@ -1349,7 +1349,7 @@ or by Android not supporting older protocols anymore, like SSLv3.
 Android 8 Oreo and later [do not support](https://developer.android.com/about/versions/oreo/android-8.0-changes#security-all) SSLv3 anymore.
 There is no way to workaround lacking RC4 and SSLv3 support because it has completely been removed from Android (which should say something).
 
-You can use [this website](https://ssl-tools.net/mailservers) to check for SSL/TLS problems of email servers.
+You can use [this website](https://ssl-tools.net/mailservers) or [this website](https://www.immuniweb.com/ssl/) to check for SSL/TLS problems of email servers.
 
 <br />
 
