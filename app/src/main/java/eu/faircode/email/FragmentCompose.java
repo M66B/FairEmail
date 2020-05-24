@@ -4113,7 +4113,7 @@ public class FragmentCompose extends FragmentBase {
                                     identity != null && identity.sender_extra)
                                 args.putBoolean("remind_extra", true);
 
-                            if (pgpService.isBound() &&
+                            if (pgpService != null && pgpService.isBound() &&
                                     (draft.ui_encrypt == null ||
                                             EntityMessage.ENCRYPT_NONE.equals(draft.ui_encrypt))) {
                                 List<Address> recipients = new ArrayList<>();
