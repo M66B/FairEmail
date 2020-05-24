@@ -50,8 +50,15 @@ import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 
+import java.io.IOException;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.SortedMap;
+
+import javax.net.ssl.SSLSocket;
+import javax.net.ssl.SSLSocketFactory;
 
 import io.requery.android.database.sqlite.SQLiteDatabase;
 
@@ -81,6 +88,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private TextView tvStorageSpace;
     private TextView tvFingerprint;
     private Button btnCharsets;
+    private Button btnCiphers;
 
     private Group grpDebug;
 
@@ -134,6 +142,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvStorageSpace = view.findViewById(R.id.tvStorageSpace);
         tvFingerprint = view.findViewById(R.id.tvFingerprint);
         btnCharsets = view.findViewById(R.id.btnCharsets);
+        btnCiphers = view.findViewById(R.id.btnCiphers);
 
         grpDebug = view.findViewById(R.id.grpDebug);
 
@@ -328,6 +337,57 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                         Log.unexpectedError(getParentFragmentManager(), ex);
                     }
                 }.execute(FragmentOptionsMisc.this, new Bundle(), "setup:charsets");
+            }
+        });
+
+        btnCiphers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                StringBuilder sb = new StringBuilder();
+                try {
+                    SSLSocket socket = (SSLSocket) SSLSocketFactory.getDefault().createSocket();
+
+                    List<String> protocols = new ArrayList<>();
+                    protocols.addAll(Arrays.asList(socket.getEnabledProtocols()));
+
+                    List<String> ciphers = new ArrayList<>();
+                    ciphers.addAll(Arrays.asList(socket.getEnabledCipherSuites()));
+
+                    for (String p : socket.getSupportedProtocols()) {
+                        boolean enabled = protocols.contains(p);
+                        if (!enabled)
+                            sb.append("(");
+                        sb.append(p);
+                        if (!enabled)
+                            sb.append(")");
+                        sb.append("\r\n");
+                    }
+                    sb.append("\r\n");
+
+                    for (String c : socket.getSupportedCipherSuites()) {
+                        boolean enabled = ciphers.contains(c);
+                        if (!enabled)
+                            sb.append("(");
+                        sb.append(c);
+                        if (!enabled)
+                            sb.append(")");
+                        sb.append("\r\n");
+                    }
+                    sb.append("\r\n");
+                } catch (IOException ex) {
+                    sb.append(ex.toString());
+                }
+
+                new AlertDialog.Builder(getContext())
+                        .setTitle(R.string.title_advanced_ciphers)
+                        .setMessage(sb.toString())
+                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // Do nothing
+                            }
+                        })
+                        .show();
             }
         });
 
