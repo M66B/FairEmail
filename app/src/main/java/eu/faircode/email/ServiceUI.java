@@ -176,6 +176,8 @@ public class ServiceUI extends IntentService {
         } catch (Throwable ex) {
             Log.e(ex);
         }
+
+        ServiceSynchronize.eval(this, "ui/" + action);
     }
 
     private void onClear(long group) {
@@ -210,8 +212,6 @@ public class ServiceUI extends IntentService {
         } finally {
             db.endTransaction();
         }
-
-        ServiceSynchronize.eval(this, "ui/move:" + folderType);
     }
 
     private void onMove(long id) {
@@ -233,8 +233,6 @@ public class ServiceUI extends IntentService {
         } finally {
             db.endTransaction();
         }
-
-        ServiceSynchronize.eval(this, "ui/move:" + id);
     }
 
     private void onJunk(long id) throws JSONException {
@@ -265,8 +263,6 @@ public class ServiceUI extends IntentService {
         } finally {
             db.endTransaction();
         }
-
-        ServiceSynchronize.eval(this, "ui/junk");
     }
 
     private void onReplyDirect(long id, Intent intent) throws IOException {
@@ -360,8 +356,6 @@ public class ServiceUI extends IntentService {
         } finally {
             db.endTransaction();
         }
-
-        ServiceSynchronize.eval(this, "ui/flag");
     }
 
     private void onSeen(long id) {
@@ -379,8 +373,6 @@ public class ServiceUI extends IntentService {
         } finally {
             db.endTransaction();
         }
-
-        ServiceSynchronize.eval(this, "ui/seen");
     }
 
     private void onSnooze(long id) {
@@ -486,8 +478,6 @@ public class ServiceUI extends IntentService {
 
         if (EntityFolder.OUTBOX.equals(folder.type))
             ServiceSend.start(this);
-        else
-            ServiceSynchronize.eval(this, "ui/wakeup");
     }
 
     private void onSync(long aid, boolean reschedule) {
@@ -508,8 +498,6 @@ public class ServiceUI extends IntentService {
         } finally {
             db.endTransaction();
         }
-
-        ServiceSynchronize.eval(this, "ui/poll");
 
         if (reschedule) {
             long now = new Date().getTime();
