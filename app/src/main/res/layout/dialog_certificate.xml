@@ -89,13 +89,26 @@
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvSubjectTitle"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            android:layout_marginEnd="12dp"
             android:text="@string/title_signature_subject"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toStartOf="@+id/ibInfo"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvEmailInvalid" />
+
+        <ImageButton
+            android:id="@+id/ibInfo"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_info"
+            android:tooltipText="@string/title_info"
+            app:layout_constraintBottom_toBottomOf="@id/tvSubjectTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/baseline_info_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvSubject"

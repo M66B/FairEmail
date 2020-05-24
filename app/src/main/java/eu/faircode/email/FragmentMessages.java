@@ -5786,6 +5786,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 TextView tvEmail = dview.findViewById(R.id.tvEmail);
                                 TextView tvEmailInvalid = dview.findViewById(R.id.tvEmailInvalid);
                                 TextView tvSubject = dview.findViewById(R.id.tvSubject);
+                                ImageButton ibInfo = dview.findViewById(R.id.ibInfo);
                                 TextView tvAfter = dview.findViewById(R.id.tvAfter);
                                 TextView tvBefore = dview.findViewById(R.id.tvBefore);
                                 TextView tvExpired = dview.findViewById(R.id.tvExpired);
@@ -5803,22 +5804,22 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 tvBefore.setText(record.before == null ? null : TF.format(record.before));
                                 tvExpired.setVisibility(record.isExpired(time) ? View.VISIBLE : View.GONE);
 
-                                if (trace != null && trace.size() > 0)
-                                    tvSubject.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-                                            StringBuilder sb = new StringBuilder();
-                                            for (int i = 0; i < trace.size(); i++) {
-                                                if (i > 0)
-                                                    sb.append("\n\n");
-                                                sb.append(i + 1).append(") ").append(trace.get(i));
-                                            }
-
-                                            new AlertDialog.Builder(getContext())
-                                                    .setMessage(sb.toString())
-                                                    .show();
+                                ibInfo.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        StringBuilder sb = new StringBuilder();
+                                        for (int i = 0; i < trace.size(); i++) {
+                                            if (i > 0)
+                                                sb.append("\n\n");
+                                            sb.append(i + 1).append(") ").append(trace.get(i));
                                         }
-                                    });
+
+                                        new AlertDialog.Builder(getContext())
+                                                .setMessage(sb.toString())
+                                                .show();
+                                    }
+                                });
+                                ibInfo.setVisibility(trace != null && trace.size() > 0 ? View.VISIBLE : View.GONE);
 
                                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext())
                                         .setView(dview)
