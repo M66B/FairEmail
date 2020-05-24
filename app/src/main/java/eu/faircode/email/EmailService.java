@@ -117,6 +117,12 @@ public class EmailService implements AutoCloseable {
     private static final Pattern SSL_CIPHER_BLACKLIST =
             Pattern.compile(".*(_DES|DH_|DSS|EXPORT|MD5|NULL|RC4|TLS_FALLBACK_SCSV).*");
 
+    // TLS_FALLBACK_SCSV
+    // TLS_EMPTY_RENEGOTIATION_INFO_SCSV
+    // https://security.stackexchange.com/questions/112531/is-tls-fallback-scsv-useless-if-only-tls-1-0-1-1-1-2-is-supported
+    // https://en.wikipedia.org/wiki/POODLE
+    // https://tools.ietf.org/html/rfc5746
+
     private EmailService() {
         // Prevent instantiation
     }
