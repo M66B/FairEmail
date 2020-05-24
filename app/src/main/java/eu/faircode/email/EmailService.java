@@ -773,29 +773,37 @@ public class EmailService implements AutoCloseable {
 
         private Socket configure(Socket socket) {
             if (socket instanceof SSLSocket) {
-                // https://developer.android.com/reference/javax/net/ssl/SSLSocket.html
                 SSLSocket sslSocket = (SSLSocket) socket;
 
-                List<String> protocols = new ArrayList<>();
-                for (String protocol :
-                        secure ? sslSocket.getEnabledProtocols() : sslSocket.getSupportedProtocols())
-                    if (secure && harden && SSL_PROTOCOL_BLACKLIST.contains(protocol))
-                        Log.i("SSL disabling protocol=" + protocol);
-                    else
-                        protocols.add(protocol);
-                Log.i("SSL protocols=" + TextUtils.join(",", protocols));
-                sslSocket.setEnabledProtocols(protocols.toArray(new String[0]));
+                if (!secure) {
+                    sslSocket.setEnabledProtocols(sslSocket.getSupportedProtocols());
 
-                ArrayList<String> ciphers = new ArrayList<>();
-                for (String cipher :
-                        secure ? sslSocket.getEnabledCipherSuites() : sslSocket.getSupportedCipherSuites()) {
-                    if (secure && harden && SSL_CIPHER_BLACKLIST.matcher(cipher).matches())
-                        Log.i("SSL disabling cipher=" + cipher);
-                    else if (secure || !cipher.endsWith("_SCSV"))
-                        ciphers.add(cipher);
+                    List<String> ciphers = new ArrayList<>();
+                    for (String cipher : sslSocket.getSupportedCipherSuites())
+                        if (!cipher.endsWith("_SCSV"))
+                            ciphers.add(cipher);
+                    sslSocket.setEnabledCipherSuites(ciphers.toArray(new String[0]));
+                } else if (harden) {
+                    List<String> protocols = new ArrayList<>();
+                    for (String protocol : sslSocket.getEnabledProtocols())
+                        if (SSL_PROTOCOL_BLACKLIST.contains(protocol))
+                            Log.i("SSL disabling protocol=" + protocol);
+                        else
+                            protocols.add(protocol);
+                    sslSocket.setEnabledProtocols(protocols.toArray(new String[0]));
+
+                    List<String> ciphers = new ArrayList<>();
+                    for (String cipher : sslSocket.getEnabledCipherSuites()) {
+                        if (SSL_CIPHER_BLACKLIST.matcher(cipher).matches())
+                            Log.i("SSL disabling cipher=" + cipher);
+                        else
+                            ciphers.add(cipher);
+                    }
+                    sslSocket.setEnabledCipherSuites(ciphers.toArray(new String[0]));
                 }
-                Log.i("SSL ciphers=" + TextUtils.join(",", ciphers));
-                sslSocket.setEnabledCipherSuites(ciphers.toArray(new String[0]));
+
+                Log.i("SSL protocols=" + TextUtils.join(",", sslSocket.getEnabledProtocols()));
+                Log.i("SSL ciphers=" + TextUtils.join(",", sslSocket.getEnabledCipherSuites()));
             }
 
             return socket;
