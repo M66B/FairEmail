@@ -4648,6 +4648,8 @@ public class FragmentCompose extends FragmentBase {
             grpSignature.setVisibility(signature == null ? View.GONE : View.VISIBLE);
 
             setBodyPadding();
+
+            updateEncryption();
         }
 
         @Override
@@ -4659,6 +4661,64 @@ public class FragmentCompose extends FragmentBase {
             grpSignature.setVisibility(View.GONE);
 
             setBodyPadding();
+
+            updateEncryption();
+        }
+
+        private void updateEncryption() {
+            EntityIdentity identity = (EntityIdentity) spIdentity.getSelectedItem();
+            if (identity == null)
+                return;
+
+            Bundle args = new Bundle();
+            args.putLong("id", working);
+            args.putLong("identity", identity.id);
+
+            new SimpleTask<Integer>() {
+                @Override
+                protected Integer onExecute(Context context, Bundle args) {
+                    long id = args.getLong("id");
+                    long iid = args.getLong("identity");
+
+                    DB db = DB.getInstance(context);
+                    EntityMessage draft = db.message().getMessage(id);
+                    if (draft == null ||
+                            draft.ui_encrypt == null || EntityMessage.ENCRYPT_NONE.equals(draft.ui_encrypt))
+                        return null;
+
+                    EntityIdentity identity = db.identity().getIdentity(iid);
+                    if (identity == null)
+                        return null;
+
+                    int encrypt = draft.ui_encrypt;
+                    if (identity.encrypt == 0) {
+                        if (EntityMessage.SMIME_SIGNONLY.equals(draft.ui_encrypt))
+                            encrypt = EntityMessage.PGP_SIGNONLY;
+                        else if (EntityMessage.SMIME_SIGNENCRYPT.equals(draft.ui_encrypt))
+                            encrypt = EntityMessage.PGP_SIGNENCRYPT;
+                    } else {
+                        if (EntityMessage.PGP_SIGNONLY.equals(draft.ui_encrypt))
+                            encrypt = EntityMessage.SMIME_SIGNONLY;
+                        else if (EntityMessage.PGP_SIGNENCRYPT.equals(draft.ui_encrypt))
+                            encrypt = EntityMessage.SMIME_SIGNENCRYPT;
+                    }
+
+                    if (draft.ui_encrypt != encrypt)
+                        db.message().setMessageUiEncrypt(draft.id, encrypt);
+
+                    return encrypt;
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, Integer encrypt) {
+                    FragmentCompose.this.encrypt = encrypt;
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(getParentFragmentManager(), ex);
+                }
+            }.execute(FragmentCompose.this, args, "compose:identity");
         }
     };
 
