@@ -693,6 +693,23 @@ Common errors:
 * *No certificate found matching targetContraints*: this likely means you are using an old version of FairEmail
 * *unable to find valid certification path to requested target*: basically this means one or more intermediate or root certificates were not found
 
+In case the certificate chain is incorrect, you can tap on the little info button to show the all certificates.
+After the certificate details the issuer or "selfSign" is shown.
+A certificate is self signed when the subject and the issuer are the same.
+Certificates from a certificate authority (CA) are marked with "[keyCertSign](https://tools.ietf.org/html/rfc5280#section-4.2.1.3)".
+Certificates found in the Android key store are marked with "Android".
+
+A valid chain looks like this:
+
+```
+Your certificate > zero or more intermediate certificates > CA (root) certificate marked with "Android"
+```
+
+Note that a certificate chain will always be invalid when no anchor certificate can be found in the Android key store,
+which is fundamental to S/MIME certificate validation.
+
+Please see [here](https://support.google.com/pixelphone/answer/2844832?hl=en) how you can import certificates into the Android key store.
+
 The use of expired keys, inline encrypted/signed messages and hardware security tokens is not supported.
 
 If you are looking for a free (test) S/MIME certificate, see [here](http://kb.mozillazine.org/Getting_an_SMIME_certificate) for the options.
