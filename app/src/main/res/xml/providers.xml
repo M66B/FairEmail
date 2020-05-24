@@ -541,6 +541,7 @@
     </provider>
     <provider
         name="Bluewin.ch"
+        appPassword="true"
         domain="bluewin\\.ch"
         link="https://emailsetup.swisscom.ch/guide/?accountType=imap&amp;customer=residential&amp;device=mobile&amp;lang=en&amp;manual=setup&amp;step=emailSettingsMobileAppSelection">
         <imap
