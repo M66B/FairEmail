@@ -769,13 +769,14 @@ public class EmailService implements AutoCloseable {
         }
 
         private Socket configure(Socket socket) {
-            if (harden && socket instanceof SSLSocket) {
+            if (socket instanceof SSLSocket) {
                 // https://developer.android.com/reference/javax/net/ssl/SSLSocket.html
                 SSLSocket sslSocket = (SSLSocket) socket;
 
                 List<String> protocols = new ArrayList<>();
-                for (String protocol : sslSocket.getEnabledProtocols())
-                    if (SSL_PROTOCOL_BLACKLIST.contains(protocol))
+                for (String protocol :
+                        secure ? sslSocket.getEnabledProtocols() : sslSocket.getSupportedProtocols())
+                    if (secure && harden && SSL_PROTOCOL_BLACKLIST.contains(protocol))
                         Log.i("SSL disabling protocol=" + protocol);
                     else
                         protocols.add(protocol);
@@ -783,8 +784,9 @@ public class EmailService implements AutoCloseable {
                 sslSocket.setEnabledProtocols(protocols.toArray(new String[0]));
 
                 ArrayList<String> ciphers = new ArrayList<>();
-                for (String cipher : sslSocket.getEnabledCipherSuites()) {
-                    if (SSL_CIPHER_BLACKLIST.matcher(cipher).matches())
+                for (String cipher :
+                        secure ? sslSocket.getEnabledCipherSuites() : sslSocket.getSupportedCipherSuites()) {
+                    if (secure && harden && SSL_CIPHER_BLACKLIST.matcher(cipher).matches())
                         Log.i("SSL disabling cipher=" + cipher);
                     else
                         ciphers.add(cipher);
