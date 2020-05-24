@@ -302,7 +302,7 @@ class ImageHelper {
             // Data URI
             if (data && (show || inline || a.tracking))
                 try {
-                    Bitmap bm = getDataBitmap(source);
+                    Bitmap bm = getDataBitmap(a.source);
                     if (bm == null)
                         throw new IllegalArgumentException("decode byte array failed");
 
