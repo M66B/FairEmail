@@ -1985,18 +1985,20 @@ class Core {
                 for (int j = isub.length - 1; j >= 0 && state.isRunning() && state.isRecoverable(); j--)
                     try {
                         // Some providers erroneously return old messages
-                        if (full.contains(isub[j])) {
-                            MessageHelper helper = new MessageHelper((MimeMessage) isub[j], context);
-                            long received = helper.getReceived();
-                            boolean unseen = (sync_unseen && !isub[j].isSet(Flags.Flag.SEEN));
-                            boolean flagged = (sync_flagged && isub[j].isSet(Flags.Flag.FLAGGED));
-                            if (received < keep_time && !unseen && !flagged) {
-                                long uid = ifolder.getUID(isub[j]);
-                                Log.i(folder.name + " Skipping old uid=" + uid + " date=" + received);
-                                ids[from + j] = null;
-                                continue;
+                        if (full.contains(isub[j]))
+                            try {
+                                Date received = isub[j].getReceivedDate();
+                                boolean unseen = (sync_unseen && !isub[j].isSet(Flags.Flag.SEEN));
+                                boolean flagged = (sync_flagged && isub[j].isSet(Flags.Flag.FLAGGED));
+                                if (received != null && received.getTime() < keep_time && !unseen && !flagged) {
+                                    long uid = ifolder.getUID(isub[j]);
+                                    Log.i(folder.name + " Skipping old uid=" + uid + " date=" + received);
+                                    ids[from + j] = null;
+                                    continue;
+                                }
+                            } catch (Throwable ex) {
+                                Log.w(ex);
                             }
-                        }
 
                         EntityMessage message = synchronizeMessage(
                                 context,
