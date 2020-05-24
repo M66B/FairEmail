@@ -5947,6 +5947,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }
 
             private ArrayList<String> getTrace(List<X509Certificate> certs, KeyStore ks) {
+                // https://tools.ietf.org/html/rfc5280#section-4.2.1.3
                 ArrayList<String> trace = new ArrayList<>();
                 for (Certificate c : certs)
                     try {
