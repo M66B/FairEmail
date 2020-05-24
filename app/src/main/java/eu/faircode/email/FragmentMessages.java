@@ -5613,8 +5613,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                         cpv.validate(path.getCertPath(), params);
 
                                         List<X509Certificate> pcerts = new ArrayList<>();
-                                        pcerts.add(cert);
-                                        for (Certificate c : pcerts)
+                                        for (Certificate c : path.getCertPath().getCertificates())
                                             if (c instanceof X509Certificate)
                                                 pcerts.add((X509Certificate) c);
                                         if (path instanceof PKIXCertPathValidatorResult) {
@@ -5956,9 +5955,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         boolean selfSigned = cert.getIssuerX500Principal().equals(cert.getSubjectX500Principal());
                         EntityCertificate record = EntityCertificate.from(cert, null);
                         trace.add(record.subject +
-                                " (" + cert.getIssuerX500Principal() + ")" +
+                                " (" + (selfSigned ? "selfSigned" : cert.getIssuerX500Principal()) + ")" +
                                 (keyCertSign ? " (keyCertSign)" : "") +
-                                (selfSigned ? " (selfSigned)" : "") +
                                 (ks != null && ks.getCertificateAlias(cert) != null ? " (Android)" : ""));
                     } catch (Throwable ex) {
                         Log.e(ex);
