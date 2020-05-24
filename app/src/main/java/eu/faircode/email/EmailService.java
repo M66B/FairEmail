@@ -800,6 +800,16 @@ public class EmailService implements AutoCloseable {
                             ciphers.add(cipher);
                     }
                     sslSocket.setEnabledCipherSuites(ciphers.toArray(new String[0]));
+                } else {
+                    List<String> ciphers = new ArrayList<>();
+                    ciphers.addAll(Arrays.asList(sslSocket.getEnabledCipherSuites()));
+                    for (String cipher : sslSocket.getSupportedCipherSuites())
+                        if (cipher.contains("3DES")) {
+                            // Some servers support 3DES and RC4 only
+                            Log.i("SSL enabling cipher=" + cipher);
+                            ciphers.add(cipher);
+                        }
+                    sslSocket.setEnabledCipherSuites(ciphers.toArray(new String[0]));
                 }
 
                 Log.i("SSL protocols=" + TextUtils.join(",", sslSocket.getEnabledProtocols()));
