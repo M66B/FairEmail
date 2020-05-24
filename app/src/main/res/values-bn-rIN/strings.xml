@@ -1,5 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_search">ফেয়ারইমেইল সার্চ</string>
+    <string name="app_changelog">পরিবর্তনসূচী</string>
+    <string name="app_welcome">ফেয়ারমেল গোপনীয়তা এবং নিরাপত্তার উপর মনোযোগী একটি মুক্ত(ওপেন) সোর্স ইমেল অ্যাপ্লিকেশন। এই কারণে কিছু বৈশিষ্ট্য আপনার অভ্যস্ততা থেকে আলাদাভাবে কাজ করতে পারে।</string>
+    <string name="app_limitations">উদাহরণস্বরূপ, অনিরাপদ অংশ অপসারণ করতে এবং পাঠযোগ্যতা উন্নত করতে এবং লিঙ্কগুলি নিশ্চিতকরণ করার বার্তাগুলি সর্বদা প্রদর্শিত হবে।</string>
+    <string name="app_crash">ফেয়ার ইমেইল এই ডিভাইসে সমর্থিত নয় কারণ এই অ্যান্ড্রয়েডের বাগগুলি ক্রাশ হওয়ার কারণ</string>
+    <string name="app_exit">বের হওয়ার জন্য \'ব্যাক\' করুন</string>
+    <string name="channel_service">সেবা</string>
+    <string name="channel_send">পাঠান</string>
+    <string name="channel_notification">বিজ্ঞপ্তি</string>
+    <string name="channel_update">আপডেট</string>
+    <string name="channel_warning">সতর্কতা</string>
+    <string name="channel_error">ত্রুটি</string>
+    <string name="channel_alert">সার্ভার বিজ্ঞপ্তি</string>
+    <string name="channel_group_contacts">যোগাযোগ</string>
+    <string name="page_folders">ফোল্ডার</string>
+    <string name="page_compose">লেখুন</string>
+    <string name="tile_synchronize">সিংক্রোনাইজ হয়েছে</string>
+    <string name="tile_unseen">নতুন বার্তা</string>
+    <string name="shortcut_refresh">রিফ্রেশ</string>
+    <string name="shortcut_compose">লেখুন</string>
+    <string name="shortcut_setup">সেটিংস</string>
+    <plurals name="title_notification_synchronizing">
+        <item quantity="one">মনিটরিং %1$dটি অ্যাকাউন্ট</item>
+        <item quantity="other">মনিটরিং %1$dটি অ্যাকাউন্ট</item>
+    </plurals>
+    <plurals name="title_notification_operations">
+        <item quantity="one">%1$dটি কাজ চলছে</item>
+        <item quantity="other">%1$dটি কাজ চলছে</item>
+    </plurals>
+    <plurals name="title_notification_unseen">
+        <item quantity="one">%1$dটি নতুন বার্তা</item>
+        <item quantity="other">%1$dটি নতুন বার্তা</item>
+    </plurals>
     <!-- Thunderbird -->
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
