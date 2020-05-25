@@ -5678,6 +5678,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     !TextUtils.isEmpty(uri.getQueryParameter("url"))) {
                 changed = true;
                 url = Uri.parse(uri.getQueryParameter("url"));
+                if (url.isOpaque())
+                    return uri;
             } else if ("https".equals(uri.getScheme()) &&
                     "www.google.com".equals(uri.getHost()) &&
                     uri.getPath() != null &&
