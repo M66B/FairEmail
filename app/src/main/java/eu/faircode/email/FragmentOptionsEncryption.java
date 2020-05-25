@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2020 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -26,6 +28,7 @@ import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.security.KeyChain;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -42,6 +45,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.lifecycle.Lifecycle;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
@@ -51,8 +55,14 @@ import org.openintents.openpgp.IOpenPgpService2;
 import org.openintents.openpgp.util.OpenPgpApi;
 import org.openintents.openpgp.util.OpenPgpServiceConnection;
 
+import java.security.KeyStore;
 import java.security.NoSuchAlgorithmException;
+import java.security.Principal;
+import java.security.cert.Certificate;
+import java.security.cert.X509Certificate;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Enumeration;
 import java.util.List;
 
 public class FragmentOptionsEncryption extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
@@ -67,6 +77,7 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
     private Button btnManageCertificates;
     private Button btnImportKey;
     private Button btnManageKeys;
+    private Button btnCa;
     private TextView tvKeySize;
 
     private OpenPgpServiceConnection pgpService;
@@ -99,6 +110,7 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
         btnManageCertificates = view.findViewById(R.id.btnManageCertificates);
         btnImportKey = view.findViewById(R.id.btnImportKey);
         btnManageKeys = view.findViewById(R.id.btnManageKeys);
+        btnCa = view.findViewById(R.id.btnCa);
         tvKeySize = view.findViewById(R.id.tvKeySize);
 
         Intent intent = new Intent(OpenPgpApi.SERVICE_INTENT_2);
@@ -201,6 +213,56 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
             @Override
             public void onClick(View v) {
                 startActivity(security);
+            }
+        });
+
+        btnCa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new SimpleTask<List<String>>() {
+                    @Override
+                    protected List<String> onExecute(Context context, Bundle args) throws Throwable {
+                        KeyStore ks = KeyStore.getInstance("AndroidCAStore");
+                        ks.load(null, null);
+
+                        List<String> issuers = new ArrayList<>();
+                        Enumeration<String> aliases = ks.aliases();
+                        while (aliases.hasMoreElements()) {
+                            String alias = aliases.nextElement();
+                            Certificate kcert = ks.getCertificate(alias);
+                            if (kcert instanceof X509Certificate) {
+                                Principal issuer = ((X509Certificate) kcert).getIssuerDN();
+                                if (issuer != null) {
+                                    String name = issuer.getName();
+                                    if (name != null)
+                                        issuers.add(name);
+                                }
+                            }
+                        }
+
+                        Collections.sort(issuers);
+                        return issuers;
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, List<String> issuers) {
+                        new AlertDialog.Builder(getContext())
+                                .setTitle(R.string.title_advanced_ca)
+                                .setMessage(TextUtils.join("\r\n", issuers))
+                                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        // Do nothing
+                                    }
+                                })
+                                .show();
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Log.unexpectedError(getParentFragmentManager(), ex);
+                    }
+                }.execute(FragmentOptionsEncryption.this, new Bundle(), "ca");
             }
         });
 

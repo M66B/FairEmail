@@ -434,6 +434,7 @@
     <string name="title_advanced_manage_certificates">Manage public keys</string>
     <string name="title_advanced_import_key">Import private key</string>
     <string name="title_advanced_manage_keys">Manage private keys</string>
+    <string name="title_advanced_ca">Installed CA certificates</string>
     <string name="title_advanced_aes_key_size" translatable="false">Max AES key size: %1$d</string>
 
     <string name="title_advanced_external_search">Allow other apps to search in messages</string>

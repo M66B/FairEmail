@@ -165,6 +165,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnImportKey" />
 
+        <Button
+            android:id="@+id/btnCa"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_ca"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnManageKeys" />
+
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvKeySize"
             android:layout_width="0dp"
@@ -174,6 +184,6 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnManageKeys" />
+            app:layout_constraintTop_toBottomOf="@id/btnCa" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>
