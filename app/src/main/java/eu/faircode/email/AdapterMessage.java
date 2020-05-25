@@ -4837,6 +4837,36 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (!Objects.equals(prev.uid, next.uid)) {
                     same = false;
                     log("uid changed", next.id);
+
+                    // Download body when needed
+                    if (!next.content &&
+                            prev.uid == null && next.uid != null && // once only
+                            properties.getValue("expanded", next.id)) {
+
+                        Bundle args = new Bundle();
+                        args.putLong("id", next.id);
+
+                        new SimpleTask<Void>() {
+                            @Override
+                            protected Void onExecute(Context context, Bundle args) {
+                                long id = args.getLong("id");
+
+                                DB db = DB.getInstance(context);
+                                EntityMessage message = db.message().getMessage(id);
+                                if (message == null || message.content)
+                                    return null;
+
+                                EntityOperation.queue(context, message, EntityOperation.BODY);
+
+                                return null;
+                            }
+
+                            @Override
+                            protected void onException(Bundle args, Throwable ex) {
+                                Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                            }
+                        }.execute(context, owner, args, "message:body");
+                    }
                 }
                 if (!Objects.equals(prev.msgid, next.msgid)) {
                     // debug info
