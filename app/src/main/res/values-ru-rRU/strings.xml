@@ -1153,6 +1153,7 @@
     <string name="title_widget_folder_unified">Папки единого почтового ящика</string>
     <string name="title_widget_unseen">Только непрочитанные сообщения</string>
     <string name="title_widget_flagged">Только избранные сообщения</string>
+    <string name="title_widget_font_size">Размер шрифта</string>
     <string name="title_widget_semi_transparent">Полупрозрачный фон</string>
     <string name="title_accessibility_collapsed">Свёрнуто</string>
     <string name="title_accessibility_expanded">Развёрнуто</string>

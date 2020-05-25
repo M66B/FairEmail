@@ -1130,6 +1130,7 @@
     <string name="title_widget_folder_unified">Samlade inkorgsmappar</string>
     <string name="title_widget_unseen">Endast olästa meddelanden</string>
     <string name="title_widget_flagged">Endast stjärnmärkta meddelanden</string>
+    <string name="title_widget_font_size">Teckenstorlek</string>
     <string name="title_widget_semi_transparent">Semi transparent bakgrund</string>
     <string name="title_accessibility_collapsed">Ihopfälld</string>
     <string name="title_accessibility_expanded">Expanderad</string>
