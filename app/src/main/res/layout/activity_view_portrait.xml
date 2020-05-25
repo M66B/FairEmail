@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <eu.faircode.email.ScrollViewEx
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/drawer_container"
         android:layout_width="270dp"
         android:layout_height="match_parent"
@@ -22,5 +22,5 @@
             layout="@layout/include_nav"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-    </eu.faircode.email.ScrollViewEx>
+    </androidx.core.widget.NestedScrollView>
 </eu.faircode.email.DrawerLayoutEx>

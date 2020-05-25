@@ -51,6 +51,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.NotificationCompat;
+import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -93,7 +94,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private TwoStateOwner owner = new TwoStateOwner("drawer");
     private DrawerLayoutEx drawerLayout;
     private ActionBarDrawerToggle drawerToggle;
-    private ScrollView drawerContainer;
+    private NestedScrollView drawerContainer;
     private ImageButton ibExpanderAccount;
     private RecyclerView rvAccount;
     private ImageButton ibExpanderUnified;
