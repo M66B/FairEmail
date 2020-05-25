@@ -2724,7 +2724,7 @@ class Core {
 
         DB db = DB.getInstance(context);
         EntityMessage message = db.message().getMessage(id);
-        if (message == null)
+        if (message == null || message.ui_hide)
             return;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
