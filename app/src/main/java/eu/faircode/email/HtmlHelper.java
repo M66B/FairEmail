@@ -1588,7 +1588,8 @@ public class HtmlHelper {
                     else
                         ssb.insert(i + 1, "> ");
 
-            ssb.insert(start, ssb.charAt(start) == '>' ? ">" : "> ");
+            if (start < ssb.length())
+                ssb.insert(start, ssb.charAt(start) == '>' ? ">" : "> ");
         }
 
         for (BulletSpan span : ssb.getSpans(0, ssb.length(), BulletSpan.class)) {
