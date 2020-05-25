@@ -52,6 +52,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
     private boolean unseen;
     private boolean flagged;
     private int font;
+    private int padding;
     private int colorWidgetForeground;
     private int colorWidgetRead;
     private int colorSeparator;
@@ -85,6 +86,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
         unseen = prefs.getBoolean("widget." + appWidgetId + ".unseen", false);
         flagged = prefs.getBoolean("widget." + appWidgetId + ".flagged", false);
         font = prefs.getInt("widget." + appWidgetId + ".font", 0);
+        padding = prefs.getInt("widget." + appWidgetId + ".padding", 0);
         colorWidgetForeground = ContextCompat.getColor(context, R.color.colorWidgetForeground);
         colorWidgetRead = ContextCompat.getColor(context, R.color.colorWidgetRead);
         colorSeparator = ContextCompat.getColor(context, R.color.lightColorSeparator);
@@ -132,6 +134,19 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
         int idSubject = (subject_top ? R.id.tvFrom : R.id.tvSubject);
         int idAccount = (subject_top ? R.id.tvTime : R.id.tvAccount);
 
+        if (font > 0) {
+            int sp = WidgetUnified.getFontSizeSp(font);
+            views.setTextViewTextSize(idFrom, TypedValue.COMPLEX_UNIT_SP, sp);
+            views.setTextViewTextSize(idTime, TypedValue.COMPLEX_UNIT_SP, sp);
+            views.setTextViewTextSize(idSubject, TypedValue.COMPLEX_UNIT_SP, sp);
+            views.setTextViewTextSize(idAccount, TypedValue.COMPLEX_UNIT_SP, sp);
+        }
+
+        if (padding > 0) {
+            int px = WidgetUnified.getPaddingPx(padding, context);
+            views.setViewPadding(R.id.llMessage, px, px, px, px);
+        }
+
         if (position >= messages.size())
             return views;
 
@@ -168,15 +183,6 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
                 ssTime.setSpan(new StyleSpan(Typeface.BOLD), 0, ssTime.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
                 ssSubject.setSpan(new StyleSpan(subject_italic ? Typeface.BOLD_ITALIC : Typeface.BOLD), 0, ssSubject.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
                 ssAccount.setSpan(new StyleSpan(Typeface.BOLD), 0, ssAccount.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
-            }
-
-            if (font > 0) {
-                int text_size = WidgetUnified.getFontSizeSp(font);
-
-                views.setTextViewTextSize(idFrom, TypedValue.COMPLEX_UNIT_SP, text_size);
-                views.setTextViewTextSize(idTime, TypedValue.COMPLEX_UNIT_SP, text_size);
-                views.setTextViewTextSize(idSubject, TypedValue.COMPLEX_UNIT_SP, text_size);
-                views.setTextViewTextSize(idAccount, TypedValue.COMPLEX_UNIT_SP, text_size);
             }
 
             views.setTextViewText(idFrom, ssFrom);

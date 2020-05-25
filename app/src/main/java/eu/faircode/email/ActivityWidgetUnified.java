@@ -47,6 +47,7 @@ public class ActivityWidgetUnified extends ActivityBase {
     private CheckBox cbFlagged;
     private CheckBox cbSemiTransparent;
     private Spinner spFontSize;
+    private Spinner spPadding;
     private Button btnSave;
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
@@ -54,6 +55,7 @@ public class ActivityWidgetUnified extends ActivityBase {
     private ArrayAdapter<EntityAccount> adapterAccount;
     private ArrayAdapter<TupleFolderEx> adapterFolder;
     private ArrayAdapter<String> adapterFontSize;
+    private ArrayAdapter<String> adapterPadding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +79,7 @@ public class ActivityWidgetUnified extends ActivityBase {
         cbFlagged = findViewById(R.id.cbFlagged);
         cbSemiTransparent = findViewById(R.id.cbSemiTransparent);
         spFontSize = findViewById(R.id.spFontSize);
+        spPadding = findViewById(R.id.spPadding);
         btnSave = findViewById(R.id.btnSave);
         pbWait = findViewById(R.id.pbWait);
         grpReady = findViewById(R.id.grpReady);
@@ -108,6 +111,7 @@ public class ActivityWidgetUnified extends ActivityBase {
                 editor.putBoolean("widget." + appWidgetId + ".flagged", cbFlagged.isChecked());
                 editor.putBoolean("widget." + appWidgetId + ".semi", cbSemiTransparent.isChecked());
                 editor.putInt("widget." + appWidgetId + ".font", spFontSize.getSelectedItemPosition());
+                editor.putInt("widget." + appWidgetId + ".padding", spPadding.getSelectedItemPosition());
 
                 editor.apply();
 
@@ -179,9 +183,14 @@ public class ActivityWidgetUnified extends ActivityBase {
         });
 
         String[] sizes = getResources().getStringArray(R.array.fontSizeNames);
+
         adapterFontSize = new ArrayAdapter<>(this, R.layout.spinner_item1, android.R.id.text1, sizes);
         adapterFontSize.setDropDownViewResource(R.layout.spinner_item1_dropdown);
         spFontSize.setAdapter(adapterFontSize);
+
+        adapterPadding = new ArrayAdapter<>(this, R.layout.spinner_item1, android.R.id.text1, sizes);
+        adapterPadding.setDropDownViewResource(R.layout.spinner_item1_dropdown);
+        spPadding.setAdapter(adapterPadding);
 
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
