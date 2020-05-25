@@ -373,6 +373,7 @@
     <string name="title_advanced_manage_certificates">Управление на публични ключове</string>
     <string name="title_advanced_import_key">Импортиране на частен ключ</string>
     <string name="title_advanced_manage_keys">Управление на частни ключове</string>
+    <string name="title_advanced_ca">Инсталирани на CA сертификати</string>
     <string name="title_advanced_external_search">Разрешаване на други приложения да търсят в съобщения</string>
     <string name="title_advanced_shortcuts">Показвайте често използвани контакти в менюто за споделяне на Android</string>
     <string name="title_advanced_conversation_actions">Предложения за действия</string>
@@ -917,6 +918,7 @@
     <string name="title_rule_identity">Идентичност</string>
     <string name="title_rule_template">Отговор с шаблон</string>
     <string name="title_rule_cc">Отговори на CC адрес</string>
+    <string name="title_rule_answer_remark">Само един отговор ще бъде изпратен за всеки разговор, за да се избегне цикъл на отговоряне</string>
     <string name="title_rule_name_missing">Няма име на правило</string>
     <string name="title_rule_condition_missing">Липсва условие</string>
     <string name="title_rule_automation_hint">Това ще изпрати намерението %1$s с екстрите %2$s</string>
@@ -1130,6 +1132,8 @@
     <string name="title_widget_folder_unified">Обща папка входящи</string>
     <string name="title_widget_unseen">Непрочетени съобщения</string>
     <string name="title_widget_flagged">Само съобщения със звезда</string>
+    <string name="title_widget_font_size">Размер на шрифта</string>
+    <string name="title_widget_padding">Разстояние</string>
     <string name="title_widget_semi_transparent">Полупрозрачен фон</string>
     <string name="title_accessibility_collapsed">Свиване</string>
     <string name="title_accessibility_expanded">Разширен</string>

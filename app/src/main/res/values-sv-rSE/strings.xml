@@ -372,6 +372,7 @@
     <string name="title_advanced_manage_certificates">Hantera publika nycklar</string>
     <string name="title_advanced_import_key">Importera privat nyckel</string>
     <string name="title_advanced_manage_keys">Hantera privata nycklar</string>
+    <string name="title_advanced_ca">Installerade CA-certifikat</string>
     <string name="title_advanced_external_search">Tillåt andra appar att söka i meddelanden</string>
     <string name="title_advanced_shortcuts">Visa ofta använda kontakter i Android dela-menyn</string>
     <string name="title_advanced_conversation_actions">Föreslå åtgärder</string>
@@ -917,6 +918,7 @@
     <string name="title_rule_identity">Identitet</string>
     <string name="title_rule_template">Svarsmall</string>
     <string name="title_rule_cc">Svar till CC-adresser</string>
+    <string name="title_rule_answer_remark">Endast ett svar kommer att skickas för någon konversation, för att undvika svarsloopar</string>
     <string name="title_rule_name_missing">Regelnamn saknas</string>
     <string name="title_rule_condition_missing">Tillstånd saknas</string>
     <string name="title_rule_automation_hint">Detta kommer att skicka avsikten \'%1$s\' med extramaterial \'%2$s\'</string>
@@ -1004,7 +1006,7 @@
     <string name="title_legend_metered">Uppmätt anslutning</string>
     <string name="title_legend_unmetered">Icke-uppmätt anslutning</string>
     <string name="title_legend_roaming">Roaming</string>
-    <string name="title_legend_expander">Utvidgare</string>
+    <string name="title_legend_expander">Expandera</string>
     <string name="title_legend_avatar">Avatar</string>
     <string name="title_legend_show_quotes">Visa citat</string>
     <string name="title_legend_show_junk">Behandla som skräppost</string>
@@ -1131,6 +1133,7 @@
     <string name="title_widget_unseen">Endast olästa meddelanden</string>
     <string name="title_widget_flagged">Endast stjärnmärkta meddelanden</string>
     <string name="title_widget_font_size">Teckenstorlek</string>
+    <string name="title_widget_padding">Utfyllnad</string>
     <string name="title_widget_semi_transparent">Semi transparent bakgrund</string>
     <string name="title_accessibility_collapsed">Ihopfälld</string>
     <string name="title_accessibility_expanded">Expanderad</string>

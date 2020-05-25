@@ -395,6 +395,7 @@
     <string name="title_advanced_manage_certificates">Управление публичными ключами</string>
     <string name="title_advanced_import_key">Импорт приватного ключа</string>
     <string name="title_advanced_manage_keys">Управление приватными ключами</string>
+    <string name="title_advanced_ca">Установленные сертификаты ЦС</string>
     <string name="title_advanced_external_search">Разрешить другим приложениям искать в сообщениях</string>
     <string name="title_advanced_shortcuts">Показывать часто используемые контакты в меню \"Поделиться\" Android</string>
     <string name="title_advanced_conversation_actions">Предлагать действия</string>
@@ -940,6 +941,7 @@
     <string name="title_rule_identity">Идентификатор</string>
     <string name="title_rule_template">Шаблон ответа</string>
     <string name="title_rule_cc">Ответить на адреса копий (CC)</string>
+    <string name="title_rule_answer_remark">Только один ответ будет отправлен в каждый диалог, чтобы избежать петель ответов</string>
     <string name="title_rule_name_missing">Отсутствует название правила</string>
     <string name="title_rule_condition_missing">Отсутствует условие</string>
     <string name="title_rule_automation_hint">Это отправит цель \"%1$s\" с дополнениями \"%2$s\"</string>
@@ -1154,6 +1156,7 @@
     <string name="title_widget_unseen">Только непрочитанные сообщения</string>
     <string name="title_widget_flagged">Только избранные сообщения</string>
     <string name="title_widget_font_size">Размер шрифта</string>
+    <string name="title_widget_padding">Отступы</string>
     <string name="title_widget_semi_transparent">Полупрозрачный фон</string>
     <string name="title_accessibility_collapsed">Свёрнуто</string>
     <string name="title_accessibility_expanded">Развёрнуто</string>

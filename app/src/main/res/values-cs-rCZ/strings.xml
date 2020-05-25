@@ -1151,6 +1151,7 @@
     <string name="title_widget_folder_unified">Složky sjednocené doručené pošty</string>
     <string name="title_widget_unseen">Pouze nepřečtené zprávy</string>
     <string name="title_widget_flagged">Pouze zprávy označené hvězdičkou</string>
+    <string name="title_widget_font_size">Velikost písma</string>
     <string name="title_widget_semi_transparent">Poloprůhledné pozadí</string>
     <string name="title_accessibility_collapsed">Sbaleno</string>
     <string name="title_accessibility_expanded">Rozbaleno</string>

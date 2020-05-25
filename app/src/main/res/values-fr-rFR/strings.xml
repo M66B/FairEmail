@@ -373,6 +373,7 @@
     <string name="title_advanced_manage_certificates">Gérer les clés publiques</string>
     <string name="title_advanced_import_key">Importer une clé privée</string>
     <string name="title_advanced_manage_keys">Gérer les clés privées</string>
+    <string name="title_advanced_ca">Certificats AC installés</string>
     <string name="title_advanced_external_search">Autoriser les autres applications à rechercher dans les messages</string>
     <string name="title_advanced_shortcuts">Afficher les contacts fréquemment utilisés dans le menu « Partager » d’Android</string>
     <string name="title_advanced_conversation_actions">Suggérer des actions</string>
@@ -918,6 +919,7 @@
     <string name="title_rule_identity">Identité</string>
     <string name="title_rule_template">Répondre avec un modèle</string>
     <string name="title_rule_cc">Répondre aux adresses Cc</string>
+    <string name="title_rule_answer_remark">Une seule réponse par conversation sera envoyée afin d\'éviter les réponses en boucle</string>
     <string name="title_rule_name_missing">Nom de règle manquant</string>
     <string name="title_rule_condition_missing">Condition manquante</string>
     <string name="title_rule_automation_hint">Ceci enverra l\'intent \'%1$s\' avec les extras \'%2$s\'</string>
@@ -1132,6 +1134,7 @@
     <string name="title_widget_unseen">Messages non lus seulement</string>
     <string name="title_widget_flagged">Messages suivis seulement</string>
     <string name="title_widget_font_size">Taille de police</string>
+    <string name="title_widget_padding">Remplissage</string>
     <string name="title_widget_semi_transparent">Arrière-plan semi-transparent</string>
     <string name="title_accessibility_collapsed">Replié</string>
     <string name="title_accessibility_expanded">Étendu</string>

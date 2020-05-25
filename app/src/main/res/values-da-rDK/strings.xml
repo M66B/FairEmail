@@ -373,6 +373,7 @@
     <string name="title_advanced_manage_certificates">Håndtér offentlige nøgler</string>
     <string name="title_advanced_import_key">Importér privat nøgle</string>
     <string name="title_advanced_manage_keys">Håndtér private nøgler</string>
+    <string name="title_advanced_ca">Installerede CA-certifikater</string>
     <string name="title_advanced_external_search">Tillad andre apps at søge i beskeder</string>
     <string name="title_advanced_shortcuts">Vis ofte anvendte kontakter i Android-delingsmenuen</string>
     <string name="title_advanced_conversation_actions">Foreslå handlinger</string>
@@ -918,6 +919,7 @@
     <string name="title_rule_identity">Identitet</string>
     <string name="title_rule_template">Besvarelsesskabelon</string>
     <string name="title_rule_cc">Svar til Cc-adresser</string>
+    <string name="title_rule_answer_remark">For at undgå svarsløjfer, sendes kun ét svar til en given samtale</string>
     <string name="title_rule_name_missing">Regelnavn mangler</string>
     <string name="title_rule_condition_missing">Betingelse mangler</string>
     <string name="title_rule_automation_hint">Dette vil sende intent \'%1$s\' med ekstra \'%2$s\'</string>
@@ -1130,6 +1132,8 @@
     <string name="title_widget_folder_unified">Samlede Indbakkemapper</string>
     <string name="title_widget_unseen">Kun ulæste beskeder</string>
     <string name="title_widget_flagged">Kun stjerne-beskeder</string>
+    <string name="title_widget_font_size">Skriftypetstørrelse</string>
+    <string name="title_widget_padding">Afstand</string>
     <string name="title_widget_semi_transparent">Halvgennemsigtig baggrund</string>
     <string name="title_accessibility_collapsed">Sammenfoldet</string>
     <string name="title_accessibility_expanded">Udfoldet</string>

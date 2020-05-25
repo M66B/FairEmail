@@ -575,6 +575,7 @@
     <string name="title_folder_name">Nume dosar</string>
     <string name="title_display_name">Nume afișat</string>
     <string name="title_show_folders">Arată dosarele ascunse</string>
+    <string name="title_show_flagged">Arată numărul de mesaje cu stea</string>
     <string name="title_subscribed_only">Doar abonat</string>
     <string name="title_apply_to_all">Aplicare la toate &#8230;</string>
     <string name="title_hide_folder">Ascunde dosar</string>
@@ -633,6 +634,7 @@
     <string name="title_editasnew">Editare ca nou</string>
     <string name="title_create_rule">Creare regulă &#8230;</string>
     <string name="title_share">Partajează</string>
+    <string name="title_event">Adaugă în calendar</string>
     <string name="title_pin">Adaugă scurtătură</string>
     <string name="title_print">Tipărire</string>
     <string name="title_show_headers">Arată antetul</string>
@@ -1110,6 +1112,7 @@
         Pentru a face FairEmail sustenabil pe termen lung, unele caracteristici avansate sau ce țin de comoditate nu se pot folosi gratuit.
         FairEmail arată un mic mesaj care să vă reamintească de asta, care se poate ascunde dacă achiziționați caracteristicile Pro.
     </string>
+    <string name="title_pro_hide">Ascunde micul mesaj timp de două săptămâni</string>
     <string name="title_pro_hint">Cumpărarea caracteristicilor Pro vă va permite să utilizați toate caracteristicile actuale cât și cele viitoare, și ajută la dezvoltarea acestei aplicații</string>
     <string name="title_pro_price">Vizitați <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">acestă pagină</a> pentru a afla despre prețurile caracteristicilor Pro</string>
     <string name="title_pro_pending">Achiziție în așteptare</string>
@@ -1134,6 +1137,8 @@
     <string name="title_widget_folder_unified">Dosare unificate</string>
     <string name="title_widget_unseen">Numai mesajele necitite</string>
     <string name="title_widget_flagged">Numai mesajele cu stea</string>
+    <string name="title_widget_font_size">Mărime font</string>
+    <string name="title_widget_padding">Spațiere</string>
     <string name="title_widget_semi_transparent">Fundal semi transparent</string>
     <string name="title_accessibility_collapsed">Restrâns</string>
     <string name="title_accessibility_expanded">Extins</string>

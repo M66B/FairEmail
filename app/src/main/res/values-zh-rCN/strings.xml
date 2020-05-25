@@ -361,6 +361,7 @@
     <string name="title_advanced_manage_certificates">管理公钥</string>
     <string name="title_advanced_import_key">导入私钥</string>
     <string name="title_advanced_manage_keys">管理私钥</string>
+    <string name="title_advanced_ca">已安装的 CA 证书</string>
     <string name="title_advanced_external_search">允许其他应用在消息中搜索</string>
     <string name="title_advanced_shortcuts">在安卓共享菜单中显示常用联系人</string>
     <string name="title_advanced_conversation_actions">建议操作</string>
@@ -572,9 +573,8 @@
     <string name="title_auto_trash">自动移动旧消息到回收站</string>
     <string name="title_auto_delete">自动永久删除旧消息</string>
     <string name="title_auto_delete_hint">旧消息是不再保留在设备上的消息</string>
-    <string name="title_inbox_root_hint">        某些供应商需要在收件箱下方创建新文件夹。
-
-        在这种情况下, 您可以长按文件夹列表中的收件箱并选择“创建子文件夹”。
+    <string name="title_inbox_root_hint">        某些供应商需要在收件箱下方创建新文件夹
+        在这种情况下, 您可以长按文件夹列表中的收件箱并选择\"创建子文件夹\"
     </string>
     <string name="title_folder_name_missing">缺少文件夹名</string>
     <string name="title_folder_exists">文件夹 %1$s 存在</string>
@@ -907,6 +907,7 @@
     <string name="title_rule_identity">身份</string>
     <string name="title_rule_template">回复模板</string>
     <string name="title_rule_cc">回信给邮件抄送地址</string>
+    <string name="title_rule_answer_remark">对于任何会话，仅一个回复会被发送，以避免回复循环</string>
     <string name="title_rule_name_missing">缺少规则名称</string>
     <string name="title_rule_condition_missing">条件缺失</string>
     <string name="title_rule_automation_hint">将使用参数 \'%2$s\' 发送 \'%1$s\' 的 intent</string>
@@ -1119,6 +1120,8 @@ FairEmail会显示一条消息来提醒您这一点，这条消息在您购买�
     <string name="title_widget_folder_unified">聚合收件箱文件夹</string>
     <string name="title_widget_unseen">仅未读信息</string>
     <string name="title_widget_flagged">仅带有星标的邮件</string>
+    <string name="title_widget_font_size">字体大小</string>
+    <string name="title_widget_padding">内边距</string>
     <string name="title_widget_semi_transparent">半透明背景</string>
     <string name="title_accessibility_collapsed">折叠</string>
     <string name="title_accessibility_expanded">展开</string>
