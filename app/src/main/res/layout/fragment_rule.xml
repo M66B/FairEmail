@@ -657,6 +657,17 @@
                     app:layout_constraintTop_toBottomOf="@id/spAnswer" />
 
                 <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvAnswerRemark"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_rule_answer_remark"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="italic"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cbCc" />
+
+                <eu.faircode.email.FixedTextView
                     android:id="@+id/tvAutomation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -664,7 +675,7 @@
                     android:text="@string/title_rule_automation_hint"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cbCc" />
+                    app:layout_constraintTop_toBottomOf="@+id/tvAnswerRemark" />
 
                 <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpReady"
@@ -720,7 +731,7 @@
                     android:id="@+id/grpAnswer"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:constraint_referenced_ids="tvAnswerIdentity,spIdent,tvAnswerTemplate,spAnswer,cbCc" />
+                    app:constraint_referenced_ids="tvAnswerIdentity,spIdent,tvAnswerTemplate,spAnswer,cbCc,tvAnswerRemark" />
 
                 <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpAutomation"

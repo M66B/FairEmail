@@ -396,6 +396,19 @@ public class EntityRule {
         if (answer == null)
             throw new IllegalArgumentException("Rule answer not found");
 
+        Address[] from = new InternetAddress[]{new InternetAddress(identity.email, identity.name)};
+
+        // Prevent loop
+        List<EntityMessage> messages = db.message().getMessagesByThread(
+                message.account, message.thread, null, message.folder);
+        for (EntityMessage threaded : messages)
+            if (!threaded.id.equals(message.id) &&
+                    MessageHelper.equal(threaded.from, from)) {
+                EntityLog.log(context, "Answer loop" +
+                        " name=" + answer.name +
+                        " from=" + MessageHelper.formatAddresses(from));
+                return false;
+            }
 
         EntityMessage reply = new EntityMessage();
         reply.account = message.account;
@@ -406,7 +419,7 @@ public class EntityRule {
         reply.inreplyto = message.msgid;
         reply.thread = message.thread;
         reply.to = (message.reply == null || message.reply.length == 0 ? message.from : message.reply);
-        reply.from = new InternetAddress[]{new InternetAddress(identity.email, identity.name)};
+        reply.from = from;
         if (cc)
             reply.cc = message.cc;
         reply.unsubscribe = "mailto:" + identity.email;
