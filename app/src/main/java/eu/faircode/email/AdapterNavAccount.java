@@ -253,9 +253,11 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
             TupleAccountEx a2 = next.get(newItemPosition);
             return Objects.equals(a1.name, a2.name) &&
                     Objects.equals(a1.color, a2.color) &&
+                    a1.primary == a2.primary &&
                     a1.unseen == a2.unseen &&
                     Objects.equals(a1.state, a2.state) &&
-                    Objects.equals(a1.last_connected, a2.last_connected);
+                    Objects.equals(a1.last_connected, a2.last_connected) &&
+                    Objects.equals(a1.error, a2.error);
         }
     }
 
