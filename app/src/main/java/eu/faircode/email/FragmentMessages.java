@@ -120,6 +120,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import org.bouncycastle.asn1.ASN1Encoding;
 import org.bouncycastle.asn1.cms.Attribute;
 import org.bouncycastle.asn1.cms.AttributeTable;
 import org.bouncycastle.asn1.cms.CMSAttributes;
@@ -5536,6 +5537,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                         // The certificate validity will be check below
                                         AttributeTable at = super.getSignedAttributes();
                                         return (at == null ? null : at.remove(CMSAttributes.signingTime));
+                                    }
+
+                                    @Override
+                                    public byte[] getEncodedSignedAttributes() throws IOException {
+                                        // http://www.bouncycastle.org/jira/browse/BJA-587
+                                        return signedAttributeSet.getEncoded(ASN1Encoding.DL);
                                     }
                                 };
 
