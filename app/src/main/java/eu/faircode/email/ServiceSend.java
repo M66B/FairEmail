@@ -440,6 +440,8 @@ public class ServiceSend extends ServiceBase {
 
             MessageHelper.MessageParts parts = helper.getMessageParts();
             String body = parts.getHtml(this);
+            if (parts.isPlainOnly())
+                body = body.replace("<div x-plain=\"true\">", "<div>");
 
             try {
                 db.beginTransaction();
