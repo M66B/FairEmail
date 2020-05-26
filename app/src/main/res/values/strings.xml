@@ -1276,7 +1276,7 @@
     <string name="title_widget_unseen">Unread messages only</string>
     <string name="title_widget_flagged">Starred messages only</string>
     <string name="title_widget_font_size">Font size</string>
-    <string name="title_widget_padding">Padding</string>
+    <string name="title_widget_padding">Padding size</string>
     <string name="title_widget_semi_transparent">Semi transparent background</string>
 
     <string name="title_accessibility_collapsed">Collapsed</string>
