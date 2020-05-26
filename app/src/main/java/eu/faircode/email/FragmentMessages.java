@@ -134,6 +134,7 @@ import org.bouncycastle.cms.CMSSignedData;
 import org.bouncycastle.cms.CMSTypedData;
 import org.bouncycastle.cms.KeyTransRecipientId;
 import org.bouncycastle.cms.RecipientInformation;
+import org.bouncycastle.cms.SignerId;
 import org.bouncycastle.cms.SignerInformation;
 import org.bouncycastle.cms.SignerInformationStore;
 import org.bouncycastle.cms.SignerInformationVerifier;
@@ -5503,12 +5504,19 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     boolean matching = false;
                     Store store = signedData.getCertificates();
                     SignerInformationStore signerInfos = signedData.getSignerInfos();
-                    for (SignerInformation signer : signerInfos.getSigners()) {
-                        for (Object match : store.getMatches(signer.getSID())) {
+                    Collection<SignerInformation> signers = signerInfos.getSigners();
+                    Log.i("Signers count=" + signers.size());
+                    for (SignerInformation signer : signers) {
+                        SignerId sid = signer.getSID();
+                        Log.i("Checking signer=" + (sid == null ? null : sid.getIssuer()));
+                        Collection<Object> matches = store.getMatches(sid);
+                        Log.i("Matching certificates count=" + matches.size());
+                        for (Object match : matches) {
                             matching = true;
                             X509CertificateHolder certHolder = (X509CertificateHolder) match;
                             X509Certificate cert = new JcaX509CertificateConverter()
                                     .getCertificate(certHolder);
+                            Log.i("Checking certificate subject=" + cert.getSubjectDN());
                             try {
                                 Date signingTime;
                                 AttributeTable at = signer.getSignedAttributes();
