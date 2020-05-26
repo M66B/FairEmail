@@ -1837,13 +1837,14 @@ public class HtmlHelper {
                     tnode = block.get(i);
                     text = tnode.getWholeText();
 
+                    // Remove whitespace before/after newlines
+                    text = TRIM_WHITESPACE_NL.matcher(text).replaceAll(" ");
+
                     if ("-- ".equals(text)) {
+                        tnode.text(text);
                         i++;
                         continue;
                     }
-
-                    // Remove whitespace before/after newlines
-                    text = TRIM_WHITESPACE_NL.matcher(text).replaceAll(" ");
 
                     // Remove leading whitespace
                     if (i == 0 || endsWithWhitespace(block.get(i - 1).text())) {
