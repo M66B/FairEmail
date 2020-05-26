@@ -682,6 +682,10 @@ There is a shortcut (button) for this in the privacy settings.
 Android will ask you to set a PIN, pattern, or password if you didn't before.
 If you have a Nokia device with Android 9, please [read this first](https://nokiamob.net/2019/08/10/a-bug-prevents-nokia-1-owners-from-unlocking-their-screen-even-with-right-pin-pattern/).
 
+Note that certificates can contains multiple keys for multiple purposes,  for example for authentication, encryption and signing.
+Android only imports the first key, so to import all the keys, the certificate must first be split.
+This is not very trivial and you are advised to ask the certificate supplier for support.
+
 To allow different private keys for the same email address, FairEmail will always let you select a key when there are multiple identities with the same email address for the same account.
 
 Public keys are stored by FairEmail and can be imported when verifying a signature for the first time or via the privacy settings (PEM or DER format).
@@ -719,7 +723,7 @@ if you want to request an S/MIME Actalis certificate.
 How to extract a public key from a S/MIME certificate:
 
 ```
-openssl pkcs12 -in filename.pfx -clcerts -nokeys -out cert.pem
+openssl pkcs12 -in filename.pfx/p12 -clcerts -nokeys -out cert.pem
 ```
 
 You can decode S/MIME signatures, etc, [here](https://lapo.it/asn1js/).
