@@ -338,7 +338,7 @@ with the "side effect" that new messages are often not or late being reported an
 Android shows icons of high priority status bar notifications first and will hide the icon of FairEmail's notification if there is no space to show icons anymore.
 In practice this means that the status bar notification doesn't take space in the status bar, unless there is space available.
 
-In most cases it is possible to disable the status bar notification via the notification settings of FairEmail (service channel).
+On Android 8 Oreo and later it is possible to disable the status bar notification via the notification settings of FairEmail (service channel).
 
 You can switch to periodically synchronization of messages in the receive settings to remove the notification, but be aware that this might use more battery power.
 See [here](#user-content-faq39) for more details about battery usage.
