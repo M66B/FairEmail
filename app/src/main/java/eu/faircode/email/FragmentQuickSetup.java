@@ -309,7 +309,9 @@ public class FragmentQuickSetup extends FragmentBase {
                                     null, imap_fingerprint);
                         } else
                             throw ex;
-                    } catch (AuthenticationFailedException ex) {
+                    } catch (Throwable ex) {
+                        // Why not AuthenticationFailedException?
+                        // Some providers refuse connection with an invalid username
                         if (!user.equals(username)) {
                             Log.w(ex);
                             user = username;
