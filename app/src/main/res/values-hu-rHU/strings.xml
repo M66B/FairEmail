@@ -371,6 +371,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_manage_certificates">Nyilvános kulcsok kezelése</string>
     <string name="title_advanced_import_key">Privát kulcs importálása</string>
     <string name="title_advanced_manage_keys">Privát kulcsok kezelése</string>
+    <string name="title_advanced_ca">Telepített CA tanúsítványok</string>
     <string name="title_advanced_external_search">Keresés engedélyezése az üzenetekben más alkalmazások számára</string>
     <string name="title_advanced_shortcuts">Gyakran használt névjegyek megjelenítése az Android megosztás menüjében</string>
     <string name="title_advanced_conversation_actions">Műveletek javaslása</string>
@@ -911,6 +912,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_rule_identity">Identitás</string>
     <string name="title_rule_template">Válaszsablon</string>
     <string name="title_rule_cc">Válasz a másolatok címzetteinek</string>
+    <string name="title_rule_answer_remark">A válaszhurkok elkerülése érdekében minden beszélgetéshez csak egy válasz lesz elküldve</string>
     <string name="title_rule_name_missing">Hiányzó szabálynév</string>
     <string name="title_rule_condition_missing">Kondíció hianyzik</string>
     <string name="title_rule_automation_hint">Ez el fogja küldeni a(z) \'%1$s\' intentet a(z) \'%2$s\' extrákkal</string>
@@ -1123,6 +1125,8 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_widget_folder_unified">Összesített bejövő mappák</string>
     <string name="title_widget_unseen">Csak olvasatlan üzenetek</string>
     <string name="title_widget_flagged">Csak csillagozott üzenetek</string>
+    <string name="title_widget_font_size">Betűméret</string>
+    <string name="title_widget_padding">Helykitöltés</string>
     <string name="title_widget_semi_transparent">Félig átlátszó háttér</string>
     <string name="title_accessibility_collapsed">Összecsukott</string>
     <string name="title_accessibility_expanded">Kinyitott</string>
