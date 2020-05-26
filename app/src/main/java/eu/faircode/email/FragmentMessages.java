@@ -5500,10 +5500,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     }
 
                     // Check signature
+                    boolean matching = false;
                     Store store = signedData.getCertificates();
                     SignerInformationStore signerInfos = signedData.getSignerInfos();
                     for (SignerInformation signer : signerInfos.getSigners()) {
                         for (Object match : store.getMatches(signer.getSID())) {
+                            matching = true;
                             X509CertificateHolder certHolder = (X509CertificateHolder) match;
                             X509Certificate cert = new JcaX509CertificateConverter()
                                     .getCertificate(certHolder);
@@ -5653,6 +5655,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         if (result != null)
                             break;
                     }
+
+                    if (result == null)
+                        args.putString("reason", matching
+                                ? "Signature could not be verified"
+                                : "Certificates and signatures do not match");
+
 
                     if (is != null)
                         decodeMessage(context, is, message, args);
