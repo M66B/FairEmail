@@ -1,4 +1,4 @@
-# Setup help
+# راهنمای راه‌اندازی
 
 Setting up FairEmail is fairly simple. You'll need to add at least one account to receive email and at least one identity if you want to send email. The quick setup will add an account and an identity in one go for most major providers.
 
@@ -6,7 +6,7 @@ Setting up FairEmail is fairly simple. You'll need to add at least one account t
 
 An internet connection is required to set up accounts and identities.
 
-## Quick setup
+## راه اندازی سریع
 
 Just enter your name, email address and password and tap *Go*.
 

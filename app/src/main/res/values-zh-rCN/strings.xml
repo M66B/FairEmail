@@ -1121,7 +1121,6 @@ FairEmail会显示一条消息来提醒您这一点，这条消息在您购买�
     <string name="title_widget_unseen">仅未读信息</string>
     <string name="title_widget_flagged">仅带有星标的邮件</string>
     <string name="title_widget_font_size">字体大小</string>
-    <string name="title_widget_padding">内边距</string>
     <string name="title_widget_semi_transparent">半透明背景</string>
     <string name="title_accessibility_collapsed">折叠</string>
     <string name="title_accessibility_expanded">展开</string>

@@ -1126,7 +1126,6 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_widget_unseen">Csak olvasatlan üzenetek</string>
     <string name="title_widget_flagged">Csak csillagozott üzenetek</string>
     <string name="title_widget_font_size">Betűméret</string>
-    <string name="title_widget_padding">Helykitöltés</string>
     <string name="title_widget_semi_transparent">Félig átlátszó háttér</string>
     <string name="title_accessibility_collapsed">Összecsukott</string>
     <string name="title_accessibility_expanded">Kinyitott</string>

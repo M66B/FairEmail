@@ -1138,7 +1138,6 @@
     <string name="title_widget_unseen">Numai mesajele necitite</string>
     <string name="title_widget_flagged">Numai mesajele cu stea</string>
     <string name="title_widget_font_size">Mărime font</string>
-    <string name="title_widget_padding">Spațiere</string>
     <string name="title_widget_semi_transparent">Fundal semi transparent</string>
     <string name="title_accessibility_collapsed">Restrâns</string>
     <string name="title_accessibility_expanded">Extins</string>
