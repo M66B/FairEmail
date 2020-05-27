@@ -30,6 +30,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.os.Build;
 import android.util.Printer;
 import android.webkit.CookieManager;
 
@@ -274,6 +275,9 @@ public class ApplicationEx extends Application {
                 editor.putBoolean("experiments", true);
         } else if (version < 1124) {
             editor.remove("experiments");
+        } else if (version < 1181) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)
+                editor.remove("background_service");
         }
 
         if (version < BuildConfig.VERSION_CODE)
