@@ -287,9 +287,7 @@ public class FragmentOAuth extends FragmentBase {
 
             AuthorizationRequest authRequest = authRequestBuilder.build();
 
-            Log.i("OAuth request provider=" + provider.id);
-            if (BuildConfig.DEBUG)
-                Log.i("OAuth uri=" + authRequest.toUri());
+            Log.i("OAuth request provider=" + provider.id + " uri=" + authRequest.toUri());
             Intent authIntent = authService.getAuthorizationRequestIntent(authRequest);
             if (authIntent.resolveActivity(getContext().getPackageManager()) == null)
                 throw new ActivityNotFoundException(authIntent.toString());
