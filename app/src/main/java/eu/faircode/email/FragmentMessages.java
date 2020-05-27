@@ -5542,6 +5542,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     @Override
                                     public byte[] getEncodedSignedAttributes() throws IOException {
                                         // http://www.bouncycastle.org/jira/browse/BJA-587
+                                        // http://luca.ntop.org/Teaching/Appunti/asn1.html
                                         return signedAttributeSet.getEncoded(ASN1Encoding.DL);
                                     }
                                 };
