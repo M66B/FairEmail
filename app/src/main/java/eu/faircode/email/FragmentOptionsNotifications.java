@@ -52,6 +52,8 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
     private Button btnManage;
     private Button btnManageDefault;
     private Button btnManageService;
+    private SwitchCompat swBackground;
+
     private CheckBox cbNotifyActionTrash;
     private CheckBox cbNotifyActionJunk;
     private CheckBox cbNotifyActionBlockSender;
@@ -106,6 +108,8 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         btnManage = view.findViewById(R.id.btnManage);
         btnManageDefault = view.findViewById(R.id.btnManageDefault);
         btnManageService = view.findViewById(R.id.btnManageService);
+        swBackground = view.findViewById(R.id.swBackground);
+
         cbNotifyActionTrash = view.findViewById(R.id.cbNotifyActionTrash);
         cbNotifyActionJunk = view.findViewById(R.id.cbNotifyActionJunk);
         cbNotifyActionBlockSender = view.findViewById(R.id.cbNotifyActionBlockSender);
@@ -177,6 +181,14 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             @Override
             public void onClick(View view) {
                 startActivity(channelService);
+            }
+        });
+
+        swBackground.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("background_service", checked).apply();
+                ServiceSynchronize.eval(getContext(), "background=" + checked);
             }
         });
 
@@ -405,6 +417,8 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
     private void setOptions() {
         boolean pro = ActivityBilling.isPro(getContext());
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+
+        swBackground.setChecked(prefs.getBoolean("background_service", false));
 
         cbNotifyActionTrash.setChecked(prefs.getBoolean("notify_trash", true) || !pro);
         cbNotifyActionJunk.setChecked(prefs.getBoolean("notify_junk", false) && pro);
