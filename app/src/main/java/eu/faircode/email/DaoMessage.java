@@ -297,13 +297,13 @@ public interface DaoMessage {
     Cursor getMessageFts();
 
     @Query("SELECT id, account, thread, (:find IS NULL" +
-            " OR `from` LIKE :find COLLATE NOCASE" + // no index
-            " OR `to` LIKE :find COLLATE NOCASE" + // no index
-            " OR `cc` LIKE :find COLLATE NOCASE" + // no index
-            " OR `bcc` LIKE :find COLLATE NOCASE" + // no index
-            " OR `subject` LIKE :find COLLATE NOCASE" + // unsuitable index
-            " OR `keywords` LIKE :find COLLATE NOCASE" + // no index
-            " OR `preview` LIKE :find COLLATE NOCASE) AS matched" + // no index
+            " OR (:senders AND `from` LIKE :find COLLATE NOCASE)" + // no index
+            " OR (:recipients AND `to` LIKE :find COLLATE NOCASE)" + // no index
+            " OR (:recipients AND `cc` LIKE :find COLLATE NOCASE)" + // no index
+            " OR (:recipients AND `bcc` LIKE :find COLLATE NOCASE)" + // no index
+            " OR (:subject AND `subject` LIKE :find COLLATE NOCASE)" + // unsuitable index
+            " OR (:keywords AND `keywords` LIKE :find COLLATE NOCASE)" + // no index
+            " OR (:message AND `preview` LIKE :find COLLATE NOCASE)) AS matched" + // no index
             " FROM message" +
             " WHERE NOT ui_hide" +
             " AND (:account IS NULL OR account = :account)" +
@@ -319,6 +319,7 @@ public interface DaoMessage {
             " LIMIT :limit OFFSET :offset")
     List<TupleMatch> matchMessages(
             Long account, Long folder, String find,
+            boolean senders, boolean recipients, boolean subject, boolean keywords, boolean message,
             boolean unseen, boolean flagged, boolean hidden, boolean encrypted, boolean attachments,
             Long after, Long before,
             int limit, int offset);

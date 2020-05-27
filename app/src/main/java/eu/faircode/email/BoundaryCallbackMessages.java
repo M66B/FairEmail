@@ -229,6 +229,11 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     state.matches = db.message().matchMessages(
                             account, folder,
                             criteria.query == null ? null : "%" + criteria.query + "%",
+                            criteria.in_senders,
+                            criteria.in_recipients,
+                            criteria.in_subject,
+                            criteria.in_keywords,
+                            criteria.in_message,
                             criteria.with_unseen,
                             criteria.with_flagged,
                             criteria.with_hidden,
@@ -252,7 +257,9 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     state.index = i + 1;
 
                     TupleMatch match = state.matches.get(i);
-                    if (criteria.query != null && (match.matched == null || !match.matched))
+                    if (criteria.query != null &&
+                            criteria.in_message &&
+                            (match.matched == null || !match.matched))
                         try {
                             File file = EntityMessage.getFile(context, match.id);
                             if (file.exists()) {
