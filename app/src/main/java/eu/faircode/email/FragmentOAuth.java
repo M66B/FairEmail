@@ -282,7 +282,7 @@ public class FragmentOAuth extends FragmentBase {
             if ("gmail".equals(provider.id))
                 authRequestBuilder.setPrompt("consent");
 
-            if ("outlook".equals(provider.id))
+            if ("office365".equals(provider.id))
                 authRequestBuilder.setPrompt("select_account");
 
             AuthorizationRequest authRequest = authRequestBuilder.build();
@@ -383,7 +383,7 @@ public class FragmentOAuth extends FragmentBase {
                 if (askAccount) {
                     primaryEmail = address;
                     identities.add(new Pair<>(address, personal));
-                } else if ("outlook".equals(id)) {
+                } else if ("office365".equals(id)) {
                     // https://docs.microsoft.com/en-us/graph/api/user-get?view=graph-rest-1.0&tabs=http#http-request
                     URL url = new URL("https://graph.microsoft.com/v1.0/me?$select=displayName,otherMails");
                     Log.i("Fetching " + url);
