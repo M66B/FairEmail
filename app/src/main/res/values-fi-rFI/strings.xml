@@ -371,6 +371,7 @@
     <string name="title_advanced_manage_certificates">Hallinnoi julkisia avaimia</string>
     <string name="title_advanced_import_key">Tuo yksityinen avain</string>
     <string name="title_advanced_manage_keys">Hallinnoi yksityisiä avaimia</string>
+    <string name="title_advanced_ca">Asennetut CA-sertifikaatit</string>
     <string name="title_advanced_external_search">Salli muiden sovellusten hakea viesteistä</string>
     <string name="title_advanced_shortcuts">Näytä usein käytetyt yhteystiedot Androidin jakamisvalikossa</string>
     <string name="title_advanced_conversation_actions">Ehdota toimintoja</string>
@@ -916,6 +917,7 @@
     <string name="title_rule_identity">Identiteetti</string>
     <string name="title_rule_template">Vastausviestipohja</string>
     <string name="title_rule_cc">Vastaa kopio-osoitteisiin</string>
+    <string name="title_rule_answer_remark">Vain yksi vastaus lähetetään yhteen keskusteluun, jotta voidaan välttää vastausten loputon toistaminen</string>
     <string name="title_rule_name_missing">Säännön nimi puuttuu</string>
     <string name="title_rule_condition_missing">Ehdot puuttuvat</string>
     <string name="title_rule_automation_hint">Tämä lähettää intentin \'%1$s\' extradatalla \'%2$s\'</string>
@@ -1129,6 +1131,8 @@
     <string name="title_widget_folder_unified">Yhdistetyn saapuneet-kansion kansiot</string>
     <string name="title_widget_unseen">Vain lukemattomat viestit</string>
     <string name="title_widget_flagged">Vain tähdelliset viestit</string>
+    <string name="title_widget_font_size">Kirjasimen koko</string>
+    <string name="title_widget_padding">Tyhjän tilan koko</string>
     <string name="title_widget_semi_transparent">Osittain läpinäkyvä tausta</string>
     <string name="title_accessibility_collapsed">Tiivistetty</string>
     <string name="title_accessibility_expanded">Laajennettu</string>

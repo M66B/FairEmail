@@ -1133,6 +1133,7 @@
     <string name="title_widget_unseen">Непрочетени съобщения</string>
     <string name="title_widget_flagged">Само съобщения със звезда</string>
     <string name="title_widget_font_size">Размер на шрифта</string>
+    <string name="title_widget_padding">Размер на отстъпа</string>
     <string name="title_widget_semi_transparent">Полупрозрачен фон</string>
     <string name="title_accessibility_collapsed">Свиване</string>
     <string name="title_accessibility_expanded">Разширен</string>

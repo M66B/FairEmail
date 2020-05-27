@@ -334,6 +334,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_notifications">Benachrichtigungen verwalten</string>
     <string name="title_advanced_notifications_default">Standardkanal</string>
     <string name="title_advanced_notifications_service">Service-Kanal</string>
+    <string name="title_advanced_notifications_background_hint">Ein Hintergrunddienst kann jederzeit von Android gestoppt werden, erfordert aber keine Benachrichtigung in der Statusleiste</string>
     <string name="title_advanced_badge">Startsymbol mit der Anzahl der neuen Nachrichten anzeigen</string>
     <string name="title_advanced_unseen_ignored">Lässt die Anzahl der neuen Nachrichten (im Widget) mit der Anzahl der Mails in den Benachrichtigungen übereinstimmen</string>
     <string name="title_advanced_notify_summary">Nur Benachrichtigungs-Zusammenfassung anzeigen</string>
@@ -1132,6 +1133,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_widget_unseen">Nur ungelesene Nachrichten</string>
     <string name="title_widget_flagged">Nur markierte Nachrichten</string>
     <string name="title_widget_font_size">Schriftgröße</string>
+    <string name="title_widget_padding">Abstand zwischen den Texten</string>
     <string name="title_widget_semi_transparent">Halbtransparenter Hintergrund</string>
     <string name="title_accessibility_collapsed">Eingeklappt</string>
     <string name="title_accessibility_expanded">Erweitert</string>

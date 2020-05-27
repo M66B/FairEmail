@@ -355,6 +355,7 @@
     <string name="title_advanced_notifications">Настроить уведомления</string>
     <string name="title_advanced_notifications_default">Канал по умолчанию</string>
     <string name="title_advanced_notifications_service">Служебный канал</string>
+    <string name="title_advanced_notifications_background_hint">Фоновая служба может быть остановлена Android в любое время, но не требует уведомления в строке состояния</string>
     <string name="title_advanced_badge">Показывать значок запуска с числом новых сообщений</string>
     <string name="title_advanced_unseen_ignored">Количество уведомлений соответствует количеству новых сообщений</string>
     <string name="title_advanced_notify_summary">Показывать только сводное уведомление</string>
@@ -1156,6 +1157,7 @@
     <string name="title_widget_unseen">Только непрочитанные сообщения</string>
     <string name="title_widget_flagged">Только избранные сообщения</string>
     <string name="title_widget_font_size">Размер шрифта</string>
+    <string name="title_widget_padding">Размер отступа</string>
     <string name="title_widget_semi_transparent">Полупрозрачный фон</string>
     <string name="title_accessibility_collapsed">Свёрнуто</string>
     <string name="title_accessibility_expanded">Развёрнуто</string>
