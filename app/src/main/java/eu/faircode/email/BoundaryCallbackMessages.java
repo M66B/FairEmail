@@ -679,9 +679,9 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 and.add(new FlagTerm(new Flags(Flags.Flag.FLAGGED), true));
 
             if (after != null)
-                and.add(new ReceivedDateTerm(ComparisonTerm.GT, new Date(after)));
+                and.add(new ReceivedDateTerm(ComparisonTerm.GE, new Date(after)));
             if (before != null)
-                and.add(new ReceivedDateTerm(ComparisonTerm.LT, new Date(before)));
+                and.add(new ReceivedDateTerm(ComparisonTerm.LE, new Date(before)));
 
             SearchTerm term = null;
 

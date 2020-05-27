@@ -352,6 +352,5 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         });
 
         picker.show();
-
     }
 }
