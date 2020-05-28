@@ -1040,10 +1040,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvCount.setVisibility(threading ? View.VISIBLE : View.GONE);
                 ivThread.setVisibility(View.VISIBLE);
 
-                if (BuildConfig.DEBUG)
-                    tvCount.setText(NF.format(message.unseen) + "/" + NF.format(message.visible));
-                else
-                    tvCount.setText(NF.format(message.visible));
+                tvCount.setText(NF.format(message.visible));
 
                 if (selected)
                     ivThread.setColorFilter(colorAccent);
