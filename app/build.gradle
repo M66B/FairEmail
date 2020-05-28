@@ -36,6 +36,25 @@ android {
         }
     }
 
+    android {
+        buildFeatures {
+            buildFeatures {
+                buildConfig = true
+                viewBinding = false
+                dataBinding = false
+                aidl = true
+                renderScript = false
+                resValues = false
+                shaders = false
+            }
+        }
+    }
+
+    dependenciesInfo {
+        includeInApk = false
+        includeInBundle = false
+    }
+
     lintOptions {
         disable 'MissingTranslation'
         abortOnError false
