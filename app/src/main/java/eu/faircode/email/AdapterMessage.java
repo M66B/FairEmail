@@ -2810,7 +2810,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         }, ViewConfiguration.getDoubleTapTimeout());
                     } else {
                         message.ui_seen = !message.ui_seen;
-                        message.unseen = (message.ui_seen ? 0 : message.visible);
+                        message.unseen = (message.ui_seen ? 0 : message.count);
                         bindTo(message, false);
 
                         Bundle args = new Bundle();
@@ -3975,7 +3975,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     properties.setExpanded(message, false);
                     message.ui_seen = args.getBoolean("seen");
-                    message.unseen = (message.ui_seen ? 0 : message.visible);
+                    message.unseen = (message.ui_seen ? 0 : message.count);
                     bindTo(message, false);
                 }
 
