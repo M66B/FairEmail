@@ -1189,7 +1189,10 @@ public class FragmentRule extends FragmentBase {
 
                         @Override
                         protected void onException(Bundle args, Throwable ex) {
-                            Log.unexpectedError(getParentFragmentManager(), ex);
+                            if (ex instanceof IllegalArgumentException)
+                                ToastEx.makeText(getContext(), ex.getMessage(), Toast.LENGTH_LONG).show();
+                            else
+                                Log.unexpectedError(getParentFragmentManager(), ex);
                         }
                     }.execute(FragmentDialogCheck.this, args, "rule:execute");
                 }
