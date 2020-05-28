@@ -1871,14 +1871,18 @@ public class MessageHelper {
             MimePart part = imessage;
 
             if (part.isMimeType("multipart/mixed")) {
-                Multipart mp = (Multipart) part.getContent();
-                for (int i = 0; i < mp.getCount(); i++) {
-                    BodyPart bp = mp.getBodyPart(i);
-                    if (bp.isMimeType("multipart/signed") || bp.isMimeType("multipart/encrypted")) {
-                        part = (MimePart) bp;
-                        break;
+                Object content = part.getContent();
+                if (content instanceof Multipart) {
+                    Multipart mp = (Multipart) content;
+                    for (int i = 0; i < mp.getCount(); i++) {
+                        BodyPart bp = mp.getBodyPart(i);
+                        if (bp.isMimeType("multipart/signed") || bp.isMimeType("multipart/encrypted")) {
+                            part = (MimePart) bp;
+                            break;
+                        }
                     }
-                }
+                } else
+                    Log.e("Mixed type=" + (content == null ? null : content.getClass().getName()));
             }
 
             if (part.isMimeType("multipart/signed")) {
