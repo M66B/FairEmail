@@ -4190,45 +4190,58 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     String thread = args.getString("thread");
                     long id = args.getLong("id");
 
-                    DB db = DB.getInstance(context);
-
-                    EntityAccount account = db.account().getAccount(aid);
-                    if (account != null && account.color != null)
-                        args.putInt("color", account.color);
-
-                    EntityFolder trash = db.folder().getFolderByType(aid, EntityFolder.TRASH);
-                    EntityFolder archive = db.folder().getFolderByType(aid, EntityFolder.ARCHIVE);
-
-                    List<EntityMessage> messages = db.message().getMessagesByThread(
-                            aid, thread, threading ? null : id, null);
+                    EntityAccount account;
+                    EntityFolder trash;
+                    EntityFolder archive;
 
                     boolean trashable = false;
                     boolean snoozable = false;
                     boolean archivable = false;
-                    for (EntityMessage message : messages) {
-                        EntityFolder folder = db.folder().getFolder(message.folder);
 
-                        if (!folder.read_only &&
-                                !EntityFolder.DRAFTS.equals(folder.type) &&
-                                !EntityFolder.OUTBOX.equals(folder.type) &&
-                                // allow sent
-                                !EntityFolder.TRASH.equals(folder.type) &&
-                                !EntityFolder.JUNK.equals(folder.type))
-                            trashable = true;
+                    DB db = DB.getInstance(context);
+                    try {
+                        db.beginTransaction();
 
-                        if (!EntityFolder.OUTBOX.equals(folder.type))
-                            snoozable = true;
+                        account = db.account().getAccount(aid);
+                        if (account != null && account.color != null)
+                            args.putInt("color", account.color);
 
-                        if (!folder.read_only &&
-                                !EntityFolder.isOutgoing(folder.type) &&
-                                !EntityFolder.TRASH.equals(folder.type) &&
-                                !EntityFolder.JUNK.equals(folder.type) &&
-                                !EntityFolder.ARCHIVE.equals(folder.type))
-                            archivable = true;
+                        trash = db.folder().getFolderByType(aid, EntityFolder.TRASH);
+                        archive = db.folder().getFolderByType(aid, EntityFolder.ARCHIVE);
+
+                        List<EntityMessage> messages = db.message().getMessagesByThread(
+                                aid, thread, threading ? null : id, null);
+
+                        for (EntityMessage message : messages) {
+                            EntityFolder folder = db.folder().getFolder(message.folder);
+
+                            if (!folder.read_only &&
+                                    !EntityFolder.DRAFTS.equals(folder.type) &&
+                                    !EntityFolder.OUTBOX.equals(folder.type) &&
+                                    // allow sent
+                                    !EntityFolder.TRASH.equals(folder.type) &&
+                                    !EntityFolder.JUNK.equals(folder.type))
+                                trashable = true;
+
+                            if (!EntityFolder.OUTBOX.equals(folder.type))
+                                snoozable = true;
+
+                            if (!folder.read_only &&
+                                    !EntityFolder.isOutgoing(folder.type) &&
+                                    !EntityFolder.TRASH.equals(folder.type) &&
+                                    !EntityFolder.JUNK.equals(folder.type) &&
+                                    !EntityFolder.ARCHIVE.equals(folder.type))
+                                archivable = true;
+                        }
+
+                        db.setTransactionSuccessful();
+                    } finally {
+                        db.endTransaction();
                     }
 
                     return new Boolean[]{
-                            trash == null || account.protocol == EntityAccount.TYPE_POP,
+                            trash == null ||
+                                    (account != null && account.protocol == EntityAccount.TYPE_POP),
                             trashable,
                             snoozable,
                             archivable && archive != null};
