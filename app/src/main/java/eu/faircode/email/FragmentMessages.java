@@ -2399,9 +2399,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 }
 
                 for (EntityAccount account : accounts.values()) {
-                    boolean hasArchive = (db.folder().getFolderByType(account.id, EntityFolder.ARCHIVE) != null);
-                    boolean hasTrash = (db.folder().getFolderByType(account.id, EntityFolder.TRASH) != null);
-                    boolean hasJunk = (db.folder().getFolderByType(account.id, EntityFolder.JUNK) != null);
+                    boolean hasArchive = (account.protocol == EntityAccount.TYPE_IMAP &&
+                            db.folder().getFolderByType(account.id, EntityFolder.ARCHIVE) != null);
+                    boolean hasTrash = (account.protocol == EntityAccount.TYPE_IMAP &&
+                            db.folder().getFolderByType(account.id, EntityFolder.TRASH) != null);
+                    boolean hasJunk = (account.protocol == EntityAccount.TYPE_IMAP &&
+                            db.folder().getFolderByType(account.id, EntityFolder.JUNK) != null);
 
                     result.hasArchive = (result.hasArchive == null ? hasArchive : result.hasArchive && hasArchive);
                     result.hasTrash = (result.hasTrash == null ? hasTrash : result.hasTrash && hasTrash);
