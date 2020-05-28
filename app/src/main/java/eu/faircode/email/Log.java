@@ -253,7 +253,7 @@ public class Log {
         setupBugsnag(context);
     }
 
-    private static void setupBugsnag(Context context) {
+    private static void setupBugsnag(final Context context) {
         // https://docs.bugsnag.com/platforms/android/sdk/
         com.bugsnag.android.Configuration config =
                 new com.bugsnag.android.Configuration("9d2d57476a0614974449a3ec33f2604a");
@@ -319,9 +319,10 @@ public class Log {
 
         String no_internet = context.getString(R.string.title_no_internet);
 
-        final String installer = context.getPackageManager().getInstallerPackageName(BuildConfig.APPLICATION_ID);
-        final boolean fingerprint = Helper.hasValidFingerprint(context);
-        final Boolean ignoringOptimizations = Helper.isIgnoringOptimizations(context);
+        String installer = context.getPackageManager().getInstallerPackageName(BuildConfig.APPLICATION_ID);
+        config.addMetadata("extra", "installer", installer == null ? "-" : installer);
+        config.addMetadata("extra", "installed", new Date(Helper.getInstallTime(context)));
+        config.addMetadata("extra", "fingerprint", Helper.hasValidFingerprint(context));
 
         config.addOnSession(new OnSessionCallback() {
             @Override
@@ -343,11 +344,10 @@ public class Log {
                 boolean should = shouldNotify(ex);
 
                 if (should) {
-                    event.addMetadata("extra", "installer", installer == null ? "-" : installer);
-                    event.addMetadata("extra", "installed", new Date(Helper.getInstallTime(context)));
-                    event.addMetadata("extra", "fingerprint", fingerprint);
                     event.addMetadata("extra", "thread", Thread.currentThread().getName() + ":" + Thread.currentThread().getId());
                     event.addMetadata("extra", "free", Log.getFreeMemMb());
+
+                    Boolean ignoringOptimizations = Helper.isIgnoringOptimizations(context);
                     event.addMetadata("extra", "optimizing", (ignoringOptimizations != null && !ignoringOptimizations));
 
                     String theme = prefs.getString("theme", "light");
