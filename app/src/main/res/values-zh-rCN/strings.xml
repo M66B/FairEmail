@@ -321,6 +321,8 @@
     <string name="title_advanced_notifications">管理通知</string>
     <string name="title_advanced_notifications_default">默认频道</string>
     <string name="title_advanced_notifications_service">服务频道</string>
+    <string name="title_advanced_notifications_background">使用后台服务来同步消息</string>
+    <string name="title_advanced_notifications_background_hint">后台服务不会显示状态栏通知，但随时可能会被 Android 终止</string>
     <string name="title_advanced_badge">在启动器图标上显示新消息数目</string>
     <string name="title_advanced_unseen_ignored">让新消息数量匹配通知数量</string>
     <string name="title_advanced_notify_summary">仅显示摘要通知</string>
@@ -907,7 +909,7 @@
     <string name="title_rule_identity">身份</string>
     <string name="title_rule_template">回复模板</string>
     <string name="title_rule_cc">回信给邮件抄送地址</string>
-    <string name="title_rule_answer_remark">对于任何会话，仅一个回复会被发送，以避免回复循环</string>
+    <string name="title_rule_answer_remark">(设置自动回复后)任何会话将仅发送一个回复，以避免回复循环</string>
     <string name="title_rule_name_missing">缺少规则名称</string>
     <string name="title_rule_condition_missing">条件缺失</string>
     <string name="title_rule_automation_hint">将使用参数 \'%2$s\' 发送 \'%1$s\' 的 intent</string>
@@ -1121,7 +1123,7 @@ FairEmail会显示一条消息来提醒您这一点，这条消息在您购买�
     <string name="title_widget_unseen">仅未读信息</string>
     <string name="title_widget_flagged">仅带有星标的邮件</string>
     <string name="title_widget_font_size">字体大小</string>
-    <string name="title_widget_padding">衬距尺寸</string>
+    <string name="title_widget_padding">内边距尺寸</string>
     <string name="title_widget_semi_transparent">半透明背景</string>
     <string name="title_accessibility_collapsed">折叠</string>
     <string name="title_accessibility_expanded">展开</string>

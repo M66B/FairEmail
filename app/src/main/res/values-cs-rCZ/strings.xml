@@ -157,6 +157,7 @@
     <string name="title_setup_no_settings">Pro doménu \'%1$s\' nebylo nalezeno žádné nastavení</string>
     <string name="title_setup_no_settings_hint">Zkuste prosím nastavit účet a identitu v krocích 1 a 2 nastavení, s použitím nastavení poskytnutých vaším poskytovatelem e-mailu</string>
     <string name="title_setup_no_auth_hint">Zkontrolujte prosím zadanou e-mailovou adresu a heslo a ujistěte se, že u daného účtu máte povolen externí přístup (IMAP/SMTP)</string>
+    <string name="title_setup_app_password_hint">Tento poskytovatel vyžaduje heslo pro aplikaci, namísto hesla k účtu, podívejte se prosím na pokyny svého poskytovatele</string>
     <string name="title_setup_no_system_folders">Složka doručené či koncepty nebyla nalezena</string>
     <string name="title_setup_quick_success">Účet a identita byly úspěšně přidány</string>
     <string name="title_setup_quick_failed">Účet a identitu můžete také zkusit nastavit níže</string>
@@ -354,6 +355,8 @@
     <string name="title_advanced_notifications">Spravovat oznámení</string>
     <string name="title_advanced_notifications_default">Výchozí kanál</string>
     <string name="title_advanced_notifications_service">Servisní kanál</string>
+    <string name="title_advanced_notifications_background">Pro synchronizaci zpráv použít službu na pozadí</string>
+    <string name="title_advanced_notifications_background_hint">Služba na pozadí může být systémem Android kdykoli zastavena, ale nevyžaduje oznámení ve stavové liště</string>
     <string name="title_advanced_badge">Zobrazit počet nových zpráv na ikoně aplikace</string>
     <string name="title_advanced_unseen_ignored">Počet oznámení bude odpovídat počtu nových zpráv</string>
     <string name="title_advanced_notify_summary">Zobrazit pouze souhrnné oznámení</string>
@@ -376,7 +379,7 @@
     <string name="title_advanced_light">Použít oznamovací LED</string>
     <string name="title_advanced_sound">Vybrat zvuk oznámení</string>
     <string name="title_advanced_confirm_links">Potvrzovat otevírání odkazů</string>
-    <string name="title_advanced_browse_links">Přenechat otevírání odkazů Androidu</string>
+    <string name="title_advanced_browse_links">Otevírání odkazů přenechat Androidu</string>
     <string name="title_advanced_confirm_images">Potvrzovat zobrazení obrázků</string>
     <string name="title_advanced_confirm_html">Automaticky zobrazit zprávy přeformátované</string>
     <string name="title_advanced_tracking">Automaticky rozpoznat a zakázat sledovací obrázky</string>
@@ -940,6 +943,7 @@
     <string name="title_rule_identity">Identita</string>
     <string name="title_rule_template">Šablona odpovědi</string>
     <string name="title_rule_cc">Odpovědět na adresy kopie</string>
+    <string name="title_rule_answer_remark">Aby se zabránilo smyčkám odpovědí, bude na každou konverzaci odeslána pouze jedna odpověď</string>
     <string name="title_rule_name_missing">Chybí název pravidla</string>
     <string name="title_rule_condition_missing">Chybí podmínka</string>
     <string name="title_rule_automation_hint">Bude odeslán záměr (intent) \"%1$s\" s dodatky (extras) \"%2$s\"</string>
@@ -1153,6 +1157,7 @@
     <string name="title_widget_unseen">Pouze nepřečtené zprávy</string>
     <string name="title_widget_flagged">Pouze zprávy označené hvězdičkou</string>
     <string name="title_widget_font_size">Velikost písma</string>
+    <string name="title_widget_padding">Velikost odsazení položek</string>
     <string name="title_widget_semi_transparent">Poloprůhledné pozadí</string>
     <string name="title_accessibility_collapsed">Sbaleno</string>
     <string name="title_accessibility_expanded">Rozbaleno</string>

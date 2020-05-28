@@ -334,6 +334,8 @@
     <string name="title_advanced_notifications">Gestionar notificaciones</string>
     <string name="title_advanced_notifications_default">Canal por defecto</string>
     <string name="title_advanced_notifications_service">Canal de servicio</string>
+    <string name="title_advanced_notifications_background">Usar servicio en segundo plano para sincronizar mensajes</string>
+    <string name="title_advanced_notifications_background_hint">Un servicio en segundo plano puede ser detenido por Android en cualquier momento, pero no requiere una notificación de la barra de estado</string>
     <string name="title_advanced_badge">Mostrar icono del lanzador con el número de mensajes nuevos</string>
     <string name="title_advanced_unseen_ignored">Permitir que el número de mensajes nuevos coincida con el número de notificaciones</string>
     <string name="title_advanced_notify_summary">Mostrar notificación resumen únicamente</string>
@@ -1135,6 +1137,7 @@
     <string name="title_widget_unseen">Sólo mensajes no leídos</string>
     <string name="title_widget_flagged">Sólo mensajes destacados</string>
     <string name="title_widget_font_size">Tamaño de la fuente</string>
+    <string name="title_widget_padding">Tamaño de margen interno</string>
     <string name="title_widget_semi_transparent">Fondo semi transparente</string>
     <string name="title_accessibility_collapsed">Oculto</string>
     <string name="title_accessibility_expanded">Expandido</string>

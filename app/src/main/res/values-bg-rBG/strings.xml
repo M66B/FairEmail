@@ -100,8 +100,8 @@
     <string name="menu_other">Други приложения</string>
     <string name="title_welcome">Добре дошли</string>
     <string name="title_eula">Лицензно споразумение за потребители</string>
-    <string name="title_agree">Има съгласието ми</string>
-    <string name="title_disagree">Няма съгласието ми</string>
+    <string name="title_agree">Съгласен съм</string>
+    <string name="title_disagree">Не съм съгласен</string>
     <string name="title_version">Версия %1$s</string>
     <string name="title_list_accounts">Профили</string>
     <string name="title_list_identities">Самоличности</string>
@@ -333,6 +333,8 @@
     <string name="title_advanced_notifications">Управление на известията</string>
     <string name="title_advanced_notifications_default">Канал по подразбиране</string>
     <string name="title_advanced_notifications_service">Служебен канал</string>
+    <string name="title_advanced_notifications_background">Използвайте фонова услуга за синхронизиране на съобщения</string>
+    <string name="title_advanced_notifications_background_hint">Услугата за фон може да бъде спряна от Android по всяко време, но не изисква известие за лентата на състоянието</string>
     <string name="title_advanced_badge">Покажети иконата на стартовия панел с брой нови съобщения</string>
     <string name="title_advanced_unseen_ignored">Нека броят на новите съобщения съответства на броя на известията</string>
     <string name="title_advanced_notify_summary">Показване на обобщено известие</string>

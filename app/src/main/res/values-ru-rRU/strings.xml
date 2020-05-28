@@ -6,7 +6,7 @@
     <string name="app_limitations">Например, сообщения всегда будут переформатированы, чтобы удалить небезопасные элементы и улучшить читабельность, а также открытие ссылок требует подтверждения в целях безопасности.</string>
     <string name="app_crash">FairEmail не поддерживается на этом устройстве, так как ошибки в Android вызывают сбои</string>
     <string name="app_exit">Для выхода снова перейдите \"назад\"</string>
-    <string name="channel_service">Сервис</string>
+    <string name="channel_service">Служба</string>
     <string name="channel_send">Отправка</string>
     <string name="channel_notification">Уведомления</string>
     <string name="channel_update">Обновления</string>
@@ -355,7 +355,8 @@
     <string name="title_advanced_notifications">Настроить уведомления</string>
     <string name="title_advanced_notifications_default">Канал по умолчанию</string>
     <string name="title_advanced_notifications_service">Служебный канал</string>
-    <string name="title_advanced_notifications_background_hint">Фоновая служба может быть остановлена Android в любое время, но не требует уведомления в строке состояния</string>
+    <string name="title_advanced_notifications_background">Использовать фоновую службу для синхронизации сообщений</string>
+    <string name="title_advanced_notifications_background_hint">Фоновая служба может быть остановлена Android в любое время, но не требует уведомления в статусной строке</string>
     <string name="title_advanced_badge">Показывать значок запуска с числом новых сообщений</string>
     <string name="title_advanced_unseen_ignored">Количество уведомлений соответствует количеству новых сообщений</string>
     <string name="title_advanced_notify_summary">Показывать только сводное уведомление</string>
