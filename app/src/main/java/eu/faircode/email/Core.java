@@ -3244,7 +3244,7 @@ class Core {
                         .putExtra("group", group);
                 PendingIntent piJunk = PendingIntent.getService(context, ServiceUI.PI_JUNK, junk, PendingIntent.FLAG_UPDATE_CURRENT);
                 NotificationCompat.Action.Builder actionJunk = new NotificationCompat.Action.Builder(
-                        R.drawable.baseline_flag_24,
+                        R.drawable.baseline_report_problem_24,
                         context.getString(R.string.title_advanced_notify_action_junk),
                         piJunk)
                         .setAllowGeneratedReplies(false);

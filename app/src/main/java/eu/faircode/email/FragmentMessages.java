@@ -1739,7 +1739,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             else if (FragmentAccount.SWIPE_ACTION_MOVE.equals(action))
                 icon = R.drawable.baseline_folder_24;
             else if (FragmentAccount.SWIPE_ACTION_JUNK.equals(action))
-                icon = R.drawable.baseline_flag_24;
+                icon = R.drawable.baseline_report_problem_24;
             else if (FragmentAccount.SWIPE_ACTION_DELETE.equals(action) ||
                     (action.equals(message.folder) && EntityFolder.TRASH.equals(message.folderType)) ||
                     (EntityFolder.TRASH.equals(actionType) && EntityFolder.JUNK.equals(message.folderType)))

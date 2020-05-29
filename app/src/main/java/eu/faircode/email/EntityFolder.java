@@ -288,7 +288,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
         if (EntityFolder.TRASH.equals(type))
             return R.drawable.baseline_delete_24;
         if (EntityFolder.JUNK.equals(type))
-            return R.drawable.baseline_flag_24;
+            return R.drawable.baseline_report_problem_24;
         if (EntityFolder.SYSTEM.equals(type))
             return R.drawable.baseline_folder_special_24;
         return R.drawable.baseline_folder_24;
