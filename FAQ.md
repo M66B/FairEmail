@@ -2564,7 +2564,7 @@ FairEmail will wait 8, 16 and 32 seconds while keeping the device awake (=use ba
 If this fails, FairEmail will schedule an alarm to retry after 15, 30 and 60 minutes and let the device sleep (=no battery usage).
 
 Between connectivity changes there is a wait of 90 seconds to give the email server the opportunity to discover the old connection is broken.
-This is necessary because the internet connection of a mobile device is often lost abruptly and will prevent the problem described in [this FAQ](#user-content-faq23).
+This is necessary because the internet connection of a mobile device is often lost abruptly and to prevent the problem described in [this FAQ](#user-content-faq23).
 
 Note that [Android doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby)
 does not allow to wake the device earlier than after 15 minutes.
@@ -2575,6 +2575,9 @@ Sending messages will be retried on connectivity changes only
 (reconnecting to the same network or connecting to another network)
 to prevent the email server from blocking the connection permanently.
 You can pull down the outbox to retry manually.
+
+Note that sending will not be retried in case of authentication problems and when the server rejected the message.
+In this case you can open/expand the message and use the undo icon to move the message to the drafts folder, possible change it and send it again.
 
 <br />
 
