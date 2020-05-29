@@ -440,7 +440,8 @@ public class ServiceSend extends ServiceBase {
 
             MessageHelper.MessageParts parts = helper.getMessageParts();
             String body = parts.getHtml(this);
-            if (parts.isPlainOnly())
+            Boolean plain = parts.isPlainOnly();
+            if (plain != null && plain)
                 body = body.replace("<div x-plain=\"true\">", "<div>");
 
             try {
