@@ -294,7 +294,6 @@
     <string name="title_advanced_manage_certificates">Управљање јавним кључевима</string>
     <string name="title_advanced_import_key">Увези приватни кључ</string>
     <string name="title_advanced_manage_keys">Управљање приватним кључевима</string>
-    <string name="title_advanced_english">Форсирај енглески језик</string>
     <string name="title_advanced_watchdog">Периодично проверавај да ли је FairEmail и даље активан</string>
     <string name="title_advanced_updates">Провери за ажурирања</string>
     <string name="title_advanced_experiments">Испробај експерименталне функционалности</string>

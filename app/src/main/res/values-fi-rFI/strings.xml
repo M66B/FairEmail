@@ -379,7 +379,6 @@
     <string name="title_advanced_language_detection">Tunnista tekstin kieli</string>
     <string name="title_advanced_fts">Rakenna haun indeksi</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d viestiä indeksoitu (%3$s)</string>
-    <string name="title_advanced_english">Pakota englannin kieli</string>
     <string name="title_advanced_watchdog">Tarkista toistuvasti, että FairEmail on edelleen aktiivinen</string>
     <string name="title_advanced_optimize">Optimoi asetukset automaattisesti</string>
     <string name="title_advanced_updates">Päivitysten tarkastus</string>

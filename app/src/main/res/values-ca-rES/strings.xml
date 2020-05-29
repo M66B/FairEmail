@@ -286,7 +286,6 @@
     <string name="title_advanced_manage_certificates">Gestiona claus públiques</string>
     <string name="title_advanced_import_key">Importa la clau privada</string>
     <string name="title_advanced_manage_keys">Gestiona claus privades</string>
-    <string name="title_advanced_english">Forçar idioma anglès</string>
     <string name="title_advanced_watchdog">Comproveu periòdicament si FairEmail està actiu</string>
     <string name="title_advanced_updates">Comprova si hi ha actualitzacions</string>
     <string name="title_advanced_experiments">Prova característiques experimentals</string>

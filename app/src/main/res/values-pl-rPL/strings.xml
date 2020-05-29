@@ -353,6 +353,8 @@
     <string name="title_advanced_notifications">Zarządzaj powiadomieniami</string>
     <string name="title_advanced_notifications_default">Domyślny kanał</string>
     <string name="title_advanced_notifications_service">Kanał usługi</string>
+    <string name="title_advanced_notifications_background">Użyj usługi w tle do synchronizacji wiadomości</string>
+    <string name="title_advanced_notifications_background_hint">Usługa w tle może być w dowolnym momencie zatrzymana przez Androida, ale nie wymaga powiadomienia na pasku stanu</string>
     <string name="title_advanced_badge">Pokaż liczbę nowych wiadomości na ikonie launchera</string>
     <string name="title_advanced_unseen_ignored">Niech liczba nowych wiadomości odpowiada liczbie powiadomień</string>
     <string name="title_advanced_notify_summary">Pokaż tylko podsumowanie</string>
@@ -393,6 +395,7 @@
     <string name="title_advanced_manage_certificates">Zarządzaj kluczami publicznymi</string>
     <string name="title_advanced_import_key">Importuj klucz prywatny</string>
     <string name="title_advanced_manage_keys">Zarządzaj kluczami prywatnymi</string>
+    <string name="title_advanced_ca">Zainstalowane certyfikaty CA</string>
     <string name="title_advanced_external_search">Zezwalaj innym aplikacjom na wyszukiwanie w wiadomościach</string>
     <string name="title_advanced_shortcuts">Pokaż często używane kontakty w menu udostępniania Androida</string>
     <string name="title_advanced_conversation_actions">Sugeruj czynności</string>
@@ -400,7 +403,6 @@
     <string name="title_advanced_language_detection">Wykryj język tekstu wiadomości</string>
     <string name="title_advanced_fts">Zbuduj Indeks Wyszukiwania</string>
     <string name="title_advanced_fts_indexed">Zindeksowano %1$d / %2$d Wiadomości (%3$s)</string>
-    <string name="title_advanced_english">Wymuś język angielski</string>
     <string name="title_advanced_watchdog">Okresowo sprawdzaj, czy FairEmail jest nadal aktywny</string>
     <string name="title_advanced_optimize">Automatycznie optymalizuj ustawienia</string>
     <string name="title_advanced_updates">Sprawdź aktualizacje</string>
@@ -604,6 +606,9 @@
     <string name="title_auto_trash">Automatycznie przenieś stare wiadomości do kosza</string>
     <string name="title_auto_delete">Automatycznie trwale usuwaj stare wiadomości</string>
     <string name="title_auto_delete_hint">Stare wiadomości to wiadomości, które nie są już przechowywane na urządzeniu</string>
+    <string name="title_inbox_root_hint">        Niektórzy dostawcy wymagają utworzenia nowych folderów w skrzynce odbiorczej.
+        W takim przypadku możesz dłużej nacisnąć skrzynkę odbiorczą na liście folderów i wybrać \'Utwórz podfolder\'.
+    </string>
     <string name="title_folder_name_missing">Brak nazwy folderu</string>
     <string name="title_folder_exists">Folder %1$s istnieje</string>
     <string name="title_folder_delete">Usunąć bezpowrotnie ten folder i wszystkie wiadomości, które zawiera?</string>
@@ -935,6 +940,7 @@
     <string name="title_rule_identity">Tożsamość</string>
     <string name="title_rule_template">Szablon odpowiedzi</string>
     <string name="title_rule_cc">Odpowiedz na adresy CC</string>
+    <string name="title_rule_answer_remark">Dla każdej rozmowy zostanie wysłana tylko jedna odpowiedź, aby uniknąć zapętlenia odpowiedzi</string>
     <string name="title_rule_name_missing">Brak nazwy reguły</string>
     <string name="title_rule_condition_missing">Brak warunku</string>
     <string name="title_rule_automation_hint">Zostanie wysłany zamiar (intent) \'%1$s\' z dodatkami (extras) \'%2$s\'</string>
@@ -1122,6 +1128,7 @@
     <string name="title_pro_info">Opracowanie FairEmail zajęło dosłownie tysiące godzin i pomimo tego większość funkcji jest darmowea
 W celu utrzymania FairEmail w dłuższej perspektywie, niektóre udogodnienia i zaawansowane funkcje nie są darmowe.
 FairEmail wyświetla o tym małą wiadomość przypominającą, która zostanie usunięta, jeśli kupisz funkcje pro.    </string>
+    <string name="title_pro_hide">Ukryj małą wiadomość na dwa tygodnie</string>
     <string name="title_pro_hint">Kupno funkcji pro pozwoli Ci używać wszystkich obecnych i przyszłych funkcji pro oraz będzie utrzymywać i wspierać aplikację</string>
     <string name="title_pro_price">Zobacz <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">ten FAQ</a> na temat cen funkcji pro</string>
     <string name="title_pro_pending">Zakup w toku</string>
@@ -1146,6 +1153,8 @@ FairEmail wyświetla o tym małą wiadomość przypominającą, która zostanie 
     <string name="title_widget_folder_unified">Foldery wspólnej skrzynki odbiorczej</string>
     <string name="title_widget_unseen">Tylko nieprzeczytane wiadomości</string>
     <string name="title_widget_flagged">Tylko oznaczone</string>
+    <string name="title_widget_font_size">Rozmiar czcionki</string>
+    <string name="title_widget_padding">Rozmiar wypełnienia</string>
     <string name="title_widget_semi_transparent">Półprzezroczyste tło</string>
     <string name="title_accessibility_collapsed">Zwinięta</string>
     <string name="title_accessibility_expanded">Rozwinięta</string>

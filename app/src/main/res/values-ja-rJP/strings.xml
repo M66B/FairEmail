@@ -367,7 +367,6 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_language_detection">メッセージのテキスト言語を検出</string>
     <string name="title_advanced_fts">検索インデックスを作成</string>
     <string name="title_advanced_fts_indexed">%1$d/%2$d個のメッセージがインデックス付けされました(%3$s)</string>
-    <string name="title_advanced_english">強制的に英語表示</string>
     <string name="title_advanced_watchdog">FairEmailがアクティブか定期的に確認</string>
     <string name="title_advanced_optimize">設定を自動的に最適化する</string>
     <string name="title_advanced_updates">更新を確認</string>

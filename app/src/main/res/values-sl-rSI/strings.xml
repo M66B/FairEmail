@@ -397,7 +397,6 @@
     <string name="title_advanced_language_detection">Zaznaj jezik besedila sporočila</string>
     <string name="title_advanced_fts">Zgradi iskalno kazalo</string>
     <string name="title_advanced_fts_indexed">V kazalo je bilo dodanih %1$d/%2$d sporočil (%3$s)</string>
-    <string name="title_advanced_english">Vsili angleški jezik</string>
     <string name="title_advanced_watchdog">Občasno preveri, ali je FairEmail še vedno dejaven</string>
     <string name="title_advanced_optimize">Samodejno optimiziraj nastavitve</string>
     <string name="title_advanced_updates">Preveri za posodobitve</string>

@@ -371,7 +371,7 @@
     <string name="title_advanced_language_detection">检测消息文本语言</string>
     <string name="title_advanced_fts">创建搜索索引</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d 的消息已索引(%3$s)</string>
-    <string name="title_advanced_english">强制使用英语</string>
+    <string name="title_advanced_english">使用美国国家设置</string>
     <string name="title_advanced_watchdog">定期检查 FairEmail 是否仍在运行</string>
     <string name="title_advanced_optimize">自动优化设置</string>
     <string name="title_advanced_updates">检查更新</string>

@@ -357,7 +357,6 @@
     <string name="title_advanced_external_search">Dopusti drugim aplikacijama da pretražuju u porukama</string>
     <string name="title_advanced_fts">Gradi registar pretrage</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d poruke indeksirane (%3$s)</string>
-    <string name="title_advanced_english">Prisiliti engleski jezik</string>
     <string name="title_advanced_watchdog">Povremeno provjeriti je li je FairEmail još uvijek aktivan</string>
     <string name="title_advanced_optimize">Postavke automatski optimizirati</string>
     <string name="title_advanced_updates">Provjeri ažuriranja</string>

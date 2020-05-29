@@ -382,7 +382,7 @@
     <string name="title_advanced_language_detection">Detektera textens språk</string>
     <string name="title_advanced_fts">Bygg sökindex</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d meddelanden indexerade (%3$s)</string>
-    <string name="title_advanced_english">Tvinga användning av engelska</string>
+    <string name="title_advanced_english">Använd amerikanska (US) inställningar</string>
     <string name="title_advanced_watchdog">Kontrollera regelbundet om FairEmail fortfarande är aktiv</string>
     <string name="title_advanced_optimize">Optimera inställningarna automatiskt</string>
     <string name="title_advanced_updates">Sök efter uppdateringar</string>
