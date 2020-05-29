@@ -321,7 +321,7 @@ public class Log {
 
         String installer = context.getPackageManager().getInstallerPackageName(BuildConfig.APPLICATION_ID);
         config.addMetadata("extra", "installer", installer == null ? "-" : installer);
-        config.addMetadata("extra", "installed", new Date(Helper.getInstallTime(context)));
+        config.addMetadata("extra", "installed", new Date(Helper.getInstallTime(context)).toString());
         config.addMetadata("extra", "fingerprint", Helper.hasValidFingerprint(context));
 
         config.addOnSession(new OnSessionCallback() {
