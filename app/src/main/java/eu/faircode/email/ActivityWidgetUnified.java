@@ -34,12 +34,9 @@ import android.widget.Spinner;
 import androidx.constraintlayout.widget.Group;
 import androidx.preference.PreferenceManager;
 
-import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
-import java.util.Locale;
 
 public class ActivityWidgetUnified extends ActivityBase {
     private int appWidgetId;
@@ -156,19 +153,8 @@ public class ActivityWidgetUnified extends ActivityBase {
 
                         DB db = DB.getInstance(context);
                         List<TupleFolderEx> folders = db.folder().getFoldersEx(account);
-
-                        if (folders != null) {
-                            final Collator collator = Collator.getInstance(Locale.getDefault());
-                            collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
-
-                            Collections.sort(folders, new Comparator<TupleFolderEx>() {
-                                @Override
-                                public int compare(TupleFolderEx o1, TupleFolderEx o2) {
-                                    return collator.compare(o1.name, o2.name);
-                                }
-                            });
-                        }
-
+                        if (folders != null && folders.size() > 0)
+                            Collections.sort(folders, folders.get(0).getComparator(context));
                         return folders;
                     }
 
