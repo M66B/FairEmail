@@ -159,7 +159,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             public void onClick(View v) {
                 final boolean biometrics = prefs.getBoolean("biometrics", false);
 
-                Helper.authenticate(getActivity(), biometrics, new Runnable() {
+                Helper.authenticate(getActivity(), getViewLifecycleOwner(), biometrics, new Runnable() {
                     @Override
                     public void run() {
                         try {
