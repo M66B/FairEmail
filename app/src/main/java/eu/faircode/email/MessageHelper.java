@@ -2003,13 +2003,7 @@ public class MessageHelper {
                     contentType = new ContentType(part.getContentType());
                 } catch (ParseException ex) {
                     Log.w(ex);
-
-                    if (part instanceof MimeMessage)
-                        contentType = new ContentType("text/html");
-                    else
-                        contentType = new ContentType(Helper.guessMimeType(filename));
-
-                    Log.i("Content type guessed=" + contentType);
+                    contentType = new ContentType(Helper.guessMimeType(filename));
                 }
 
                 boolean plain = "text/plain".equalsIgnoreCase(contentType.getBaseType());
