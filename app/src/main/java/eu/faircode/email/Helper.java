@@ -1141,8 +1141,8 @@ public class Helper {
             prompt.authenticate(info.build());
 
             owner.getLifecycle().addObserver(new LifecycleObserver() {
-                @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
-                public void onPause() {
+                @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+                public void onDestroy() {
                     prompt.cancelAuthentication();
                     handler.post(cancelled);
                     owner.getLifecycle().removeObserver(this);
