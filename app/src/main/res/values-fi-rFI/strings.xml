@@ -331,6 +331,8 @@
     <string name="title_advanced_notifications">Hallinnoi ilmoituksia</string>
     <string name="title_advanced_notifications_default">Oletuskanava</string>
     <string name="title_advanced_notifications_service">Palvelukanava</string>
+    <string name="title_advanced_notifications_background">Käytä taustapalvelua viestien synkronointiin</string>
+    <string name="title_advanced_notifications_background_hint">Android voi lopettaa taustapalvelun koska tahansa, mutta taustapalvelu ei tarvitse tilapalkki-ilmoitusta</string>
     <string name="title_advanced_badge">Näytä käynnistinsovelluksen kuvakkeessa uusien viestien lukumäärä</string>
     <string name="title_advanced_unseen_ignored">Anna uusien viestien lukumäärän vastata ilmoitusten lukumäärää</string>
     <string name="title_advanced_notify_summary">Näytä vain yhteenvetoilmoitus</string>
@@ -379,6 +381,7 @@
     <string name="title_advanced_language_detection">Tunnista tekstin kieli</string>
     <string name="title_advanced_fts">Rakenna haun indeksi</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d viestiä indeksoitu (%3$s)</string>
+    <string name="title_advanced_english">Käytä Yhdysvaltojen maa-asetusta</string>
     <string name="title_advanced_watchdog">Tarkista toistuvasti, että FairEmail on edelleen aktiivinen</string>
     <string name="title_advanced_optimize">Optimoi asetukset automaattisesti</string>
     <string name="title_advanced_updates">Päivitysten tarkastus</string>

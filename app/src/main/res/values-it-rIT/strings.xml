@@ -225,7 +225,7 @@
     <string name="title_advanced_gmail_thread">Raggruppamento messaggi Gmail per account Gmail</string>
     <string name="title_advanced_sync_folders">Sincronizza elenco cartelle</string>
     <string name="title_advanced_subscriptions">Gestisci abbonamenti cartelle</string>
-    <string name="title_advanced_keyboard">Mostra tastiera di default</string>
+    <string name="title_advanced_keyboard">Mostra tastiera in modo predefinito</string>
     <string name="title_advanced_suggest_local">Suggerisci contatti memorizzati localmente</string>
     <string name="title_advanced_suggest_sent">Suggerisci indirizzi trovati nei messaggi inviati</string>
     <string name="title_advanced_suggest_received">Suggerisci indirizzi trovati nei messaggi ricevuti</string>
@@ -333,6 +333,8 @@
     <string name="title_advanced_notifications">Gestisci notifiche</string>
     <string name="title_advanced_notifications_default">Canale predefinito</string>
     <string name="title_advanced_notifications_service">Servizio canale</string>
+    <string name="title_advanced_notifications_background">Usa un servizio in secondo piano per sincronizzare i messaggi</string>
+    <string name="title_advanced_notifications_background_hint">Un servizio in secondo piano può essere interrotto da Android in qualsiasi momento, ma non richiede una notifica nella barra di stato</string>
     <string name="title_advanced_badge">Mostra icona launcher con numero di nuovi messaggi</string>
     <string name="title_advanced_unseen_ignored">Lascia che il numero di nuovi messaggi corrisponda al numero di notifiche</string>
     <string name="title_advanced_notify_summary">Mostra solo le notifiche di riepilogo</string>
@@ -357,15 +359,15 @@
     <string name="title_advanced_confirm_links">Conferma apertura link</string>
     <string name="title_advanced_browse_links">Delega link di apertura a Android</string>
     <string name="title_advanced_confirm_images">Conferma visualizzazione immagini</string>
-    <string name="title_advanced_confirm_html">Mostra i messaggi riformattati di default</string>
+    <string name="title_advanced_confirm_html">Mostra i messaggi riformattati in modo predefinito</string>
     <string name="title_advanced_tracking">Riconoscere e disabilitare automaticamente le immagini di tracciamento</string>
     <string name="title_advanced_hide_timezone">Invia messaggi senza fuso orario</string>
     <string name="title_advanced_display_hidden">Mostra il testo nascosto del messaggio</string>
     <string name="title_advanced_secure">Nascondi dalla schermata delle app recenti e impedisci di catturare screenshot</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Timeout autenticazione biometrica</string>
-    <string name="title_advanced_sign_default">Firma di default</string>
-    <string name="title_advanced_encrypt_default">Crittografa di default</string>
+    <string name="title_advanced_sign_default">Firma in modo predefinito</string>
+    <string name="title_advanced_encrypt_default">Cripta in modo predefinito</string>
     <string name="title_advanced_auto_decrypt">Decodifica automaticamente i messaggi</string>
     <string name="title_advanced_openpgp">Provider OpenPGP</string>
     <string name="title_advanced_autocrypt">Usa Autocrypt</string>
@@ -373,6 +375,7 @@
     <string name="title_advanced_manage_certificates">Gestisci chiavi pubbliche</string>
     <string name="title_advanced_import_key">Importa chiave privata</string>
     <string name="title_advanced_manage_keys">Gestisci le chiavi private</string>
+    <string name="title_advanced_ca">Certificati CA installati</string>
     <string name="title_advanced_external_search">Consenti ad altre applicazioni di cercare nei messaggi</string>
     <string name="title_advanced_shortcuts">Mostra i contatti più usati nel menu di condivisione di Android</string>
     <string name="title_advanced_conversation_actions">Suggerisci azioni</string>
@@ -464,7 +467,7 @@
     <string name="title_advanced_sender_regex">Regex per abbinare il nome utente degli indirizzi email in arrivo</string>
     <string name="title_identity_reply_to">Rispondi all\'indirizzo</string>
     <string name="title_identity_unicode">Consenti Unicode negli indirizzi email</string>
-    <string name="title_identity_receipt">Richiedi ricevuta di consegna/lettura per default</string>
+    <string name="title_identity_receipt">Richiedi ricevuta di consegna/lettura in modo predefinito</string>
     <string name="title_identity_use_ip_hint">In caso di \"saluto non valido\", \"richiede un indirizzo valido\" o un errore simile, provare a modificare questa impostazione</string>
     <string name="title_optional">Facoltativo</string>
     <string name="title_recommended">Consigliati</string>
@@ -478,7 +481,7 @@
     <string name="title_account_notify">Notifiche separate</string>
     <string name="title_account_left">Scorri a sinistra</string>
     <string name="title_account_right">Scorri a destra</string>
-    <string name="title_account_move">Spostare di default a</string>
+    <string name="title_account_move">Sposta in modo predefinito in</string>
     <string name="title_account_gmail">Per una sincronizzazione affidabile di un account Gmail, la procedura guidata di configurazione rapida Gmail dovrebbe essere utilizzata quando possibile</string>
     <string name="title_domain">Nome dominio</string>
     <string name="title_autoconfig">Ottieni impostazioni</string>
@@ -916,6 +919,7 @@
     <string name="title_rule_identity">Identità</string>
     <string name="title_rule_template">Modello di risposta</string>
     <string name="title_rule_cc">Rispondi agli indirizzi CC</string>
+    <string name="title_rule_answer_remark">Verrà inviata una sola risposta per qualsiasi conversazione, per evitare ripetizioni di risposta</string>
     <string name="title_rule_name_missing">Nome Regola mancante</string>
     <string name="title_rule_condition_missing">Condizione mancante</string>
     <string name="title_rule_automation_hint">Questo invierà l\'intento \'%1$s\' con gli extra \'%2$s\'</string>
@@ -1129,6 +1133,8 @@
     <string name="title_widget_folder_unified">Cartelle in arrivo unificate</string>
     <string name="title_widget_unseen">Solo messaggi non letti</string>
     <string name="title_widget_flagged">Solo messaggi preferiti</string>
+    <string name="title_widget_font_size">Dimensione del carattere</string>
+    <string name="title_widget_padding">Dimensione del rientro</string>
     <string name="title_widget_semi_transparent">Sfondo semi trasparente</string>
     <string name="title_accessibility_collapsed">Compresso</string>
     <string name="title_accessibility_expanded">Espanso</string>
