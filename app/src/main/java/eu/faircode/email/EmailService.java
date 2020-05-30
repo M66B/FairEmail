@@ -161,6 +161,9 @@ public class EmailService implements AutoCloseable {
         properties.put("mail.event.scope", "folder");
         properties.put("mail.event.executor", executor);
 
+        //properties.put("mail." + protocol + ".auth.login.disable", "true");
+        //properties.put("mail." + protocol + ".auth.plain.disable", "true");
+
         properties.put("mail." + protocol + ".sasl.enable", "true");
         if (sasl) {
             properties.put("mail." + protocol + ".sasl.mechanisms", "CRAM-MD5");
