@@ -70,7 +70,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private TextView tvFtsPro;
     private SwitchCompat swEnglish;
     private SwitchCompat swWatchdog;
-    private SwitchCompat swSasl;
     private SwitchCompat swOptimize;
     private SwitchCompat swUpdates;
     private SwitchCompat swExperiments;
@@ -78,6 +77,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swCrashReports;
     private TextView tvUuid;
     private SwitchCompat swDebug;
+    private SwitchCompat swSasl;
     private Button btnReset;
     private SwitchCompat swCleanupAttachments;
     private Button btnCleanup;
@@ -94,8 +94,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private Group grpDebug;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "shortcuts", "fts", "english", "watchdog", "sasl", "auto_optimize", "updates",
-            "experiments", "crash_reports", "debug", "cleanup_attachments"
+            "shortcuts", "fts", "english", "watchdog", "auto_optimize", "updates",
+            "experiments", "crash_reports", "debug", "sasl", "cleanup_attachments"
     };
 
     private final static String[] RESET_QUESTIONS = new String[]{
@@ -125,7 +125,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvFtsPro = view.findViewById(R.id.tvFtsPro);
         swEnglish = view.findViewById(R.id.swEnglish);
         swWatchdog = view.findViewById(R.id.swWatchdog);
-        swSasl = view.findViewById(R.id.swSasl);
         swOptimize = view.findViewById(R.id.swOptimize);
         swUpdates = view.findViewById(R.id.swUpdates);
         swExperiments = view.findViewById(R.id.swExperiments);
@@ -133,6 +132,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swCrashReports = view.findViewById(R.id.swCrashReports);
         tvUuid = view.findViewById(R.id.tvUuid);
         swDebug = view.findViewById(R.id.swDebug);
+        swSasl = view.findViewById(R.id.swSasl);
         btnReset = view.findViewById(R.id.btnReset);
         swCleanupAttachments = view.findViewById(R.id.swCleanupAttachments);
         btnCleanup = view.findViewById(R.id.btnCleanup);
@@ -225,14 +225,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
-        swSasl.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("sasl", checked).apply();
-                ServiceSynchronize.reload(getContext(), -1L, false, "sasl=" + checked);
-            }
-        });
-
         swOptimize.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -284,6 +276,14 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                 prefs.edit().putBoolean("debug", checked).apply();
                 Log.setDebug(checked);
                 grpDebug.setVisibility(checked || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+            }
+        });
+
+        swSasl.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("sasl", checked).apply();
+                ServiceSynchronize.reload(getContext(), -1L, false, "sasl=" + checked);
             }
         });
 
@@ -518,7 +518,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swFts.setChecked(prefs.getBoolean("fts", false));
         swEnglish.setChecked(prefs.getBoolean("english", false));
         swWatchdog.setChecked(prefs.getBoolean("watchdog", true));
-        swSasl.setChecked(prefs.getBoolean("sasl", true));
         swOptimize.setChecked(prefs.getBoolean("auto_optimize", false));
         swUpdates.setChecked(prefs.getBoolean("updates", true));
         swUpdates.setVisibility(
@@ -528,6 +527,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swCrashReports.setChecked(prefs.getBoolean("crash_reports", false));
         tvUuid.setText(prefs.getString("uuid", null));
         swDebug.setChecked(prefs.getBoolean("debug", false));
+        swSasl.setChecked(prefs.getBoolean("sasl", true));
         swCleanupAttachments.setChecked(prefs.getBoolean("cleanup_attachments", false));
 
         tvProcessors.setText(getString(R.string.title_advanced_processors, Runtime.getRuntime().availableProcessors()));

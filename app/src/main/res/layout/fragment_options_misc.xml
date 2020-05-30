@@ -147,18 +147,6 @@
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/swSasl"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:checked="true"
-            android:text="@string/title_advanced_sasl"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swWatchdog"
-            app:switchPadding="12dp" />
-
-        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swOptimize"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -167,7 +155,7 @@
             android:text="@string/title_advanced_optimize"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swSasl"
+            app:layout_constraintTop_toBottomOf="@id/swWatchdog"
             app:switchPadding="12dp" />
 
         <eu.faircode.email.FixedTextView
@@ -266,6 +254,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/swDebug" />
 
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swSasl"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/title_advanced_sasl"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDebugHint"
+            app:switchPadding="12dp" />
+
         <Button
             android:id="@+id/btnReset"
             style="?android:attr/buttonStyleSmall"
@@ -274,7 +274,7 @@
             android:layout_marginTop="12dp"
             android:text="@string/title_setup_reset_questions"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvDebugHint" />
+            app:layout_constraintTop_toBottomOf="@id/swSasl" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swCleanupAttachments"
@@ -408,6 +408,6 @@
             android:id="@+id/grpDebug"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvProcessors,tvMemoryClass,tvStorageSpace,tvFingerprint,btnCharsets,btnCiphers" />
+            app:constraint_referenced_ids="swSasl,tvProcessors,tvMemoryClass,tvStorageSpace,tvFingerprint,btnCharsets,btnCiphers" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>
