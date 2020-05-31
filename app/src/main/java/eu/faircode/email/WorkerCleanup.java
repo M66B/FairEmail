@@ -111,10 +111,6 @@ public class WorkerCleanup extends Worker {
                     Log.i("Attachments purged=" + purged);
                 }
 
-                // Clear raw headers
-                int headers = db.message().clearMessageHeaders();
-                Log.i("Cleared message headers=" + headers);
-
                 // Restore alarms
                 for (EntityMessage message : db.message().getSnoozed(null))
                     EntityMessage.snooze(context, message.id, message.ui_snoozed);
