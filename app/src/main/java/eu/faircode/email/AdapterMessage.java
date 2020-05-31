@@ -3653,8 +3653,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_print).setVisible(Helper.canPrint(context));
 
             popupMenu.getMenu().findItem(R.id.menu_show_headers).setChecked(show_headers);
-            popupMenu.getMenu().findItem(R.id.menu_show_headers).setEnabled(message.uid != null);
-            popupMenu.getMenu().findItem(R.id.menu_show_headers).setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
+            popupMenu.getMenu().findItem(R.id.menu_show_headers).setEnabled(message.uid != null ||
+                    (message.accountProtocol == EntityAccount.TYPE_POP && message.headers != null));
 
             popupMenu.getMenu().findItem(R.id.menu_raw_save).setEnabled(message.uid != null);
             popupMenu.getMenu().findItem(R.id.menu_raw_send).setEnabled(message.uid != null);

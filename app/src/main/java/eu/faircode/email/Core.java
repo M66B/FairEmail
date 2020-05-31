@@ -1607,6 +1607,7 @@ class Core {
                         message.reply = helper.getReply();
                         message.list_post = helper.getListPost();
                         message.unsubscribe = helper.getListUnsubscribe();
+                        message.headers = helper.getHeaders();
                         message.subject = helper.getSubject();
                         message.size = parts.getBodySize();
                         message.total = helper.getSize();
