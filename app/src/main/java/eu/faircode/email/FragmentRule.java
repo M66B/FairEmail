@@ -499,7 +499,7 @@ public class FragmentRule extends FragmentBase {
                         getString(R.string.title_rule_action_remark, data.folder.getDisplayName(getContext())));
                 tvActionRemark.setVisibility(View.VISIBLE);
 
-                loadRule();
+                loadRule(savedInstanceState);
             }
 
             @Override
@@ -507,6 +507,19 @@ public class FragmentRule extends FragmentBase {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "rule:accounts");
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putInt("fair:start", spScheduleDayStart.getSelectedItemPosition());
+        outState.putInt("fair:end", spScheduleDayEnd.getSelectedItemPosition());
+        outState.putInt("fair:action", spAction.getSelectedItemPosition());
+        outState.putInt("fair:importance", spImportance.getSelectedItemPosition());
+        outState.putInt("fair:target", spTarget.getSelectedItemPosition());
+        outState.putInt("fair:identity", spIdent.getSelectedItemPosition());
+        outState.putInt("fair:answer", spAnswer.getSelectedItemPosition());
+
+        super.onSaveInstanceState(outState);
     }
 
     @Override
@@ -619,7 +632,7 @@ public class FragmentRule extends FragmentBase {
         cbScheduleEnd.setChecked(true);
     }
 
-    private void loadRule() {
+    private void loadRule(final Bundle savedInstanceState) {
         Bundle rargs = new Bundle();
         rargs.putLong("id", copy < 0 ? id : copy);
         rargs.putString("sender", getArguments().getString("sender"));
@@ -636,121 +649,136 @@ public class FragmentRule extends FragmentBase {
             @Override
             protected void onExecuted(Bundle args, TupleRuleEx rule) {
                 try {
-                    JSONObject jcondition = (rule == null ? new JSONObject() : new JSONObject(rule.condition));
-                    JSONObject jaction = (rule == null ? new JSONObject() : new JSONObject(rule.action));
+                    if (savedInstanceState == null) {
+                        JSONObject jcondition = (rule == null ? new JSONObject() : new JSONObject(rule.condition));
+                        JSONObject jaction = (rule == null ? new JSONObject() : new JSONObject(rule.action));
 
-                    JSONObject jsender = jcondition.optJSONObject("sender");
-                    JSONObject jrecipient = jcondition.optJSONObject("recipient");
-                    JSONObject jsubject = jcondition.optJSONObject("subject");
-                    JSONObject jheader = jcondition.optJSONObject("header");
-                    JSONObject jschedule = jcondition.optJSONObject("schedule");
+                        JSONObject jsender = jcondition.optJSONObject("sender");
+                        JSONObject jrecipient = jcondition.optJSONObject("recipient");
+                        JSONObject jsubject = jcondition.optJSONObject("subject");
+                        JSONObject jheader = jcondition.optJSONObject("header");
+                        JSONObject jschedule = jcondition.optJSONObject("schedule");
 
-                    etName.setText(rule == null ? args.getString("subject") : rule.name);
-                    etOrder.setText(rule == null ? null : Integer.toString(rule.order));
-                    cbEnabled.setChecked(rule == null || rule.enabled);
-                    cbStop.setChecked(rule != null && rule.stop);
+                        etName.setText(rule == null ? args.getString("subject") : rule.name);
+                        etOrder.setText(rule == null ? null : Integer.toString(rule.order));
+                        cbEnabled.setChecked(rule == null || rule.enabled);
+                        cbStop.setChecked(rule != null && rule.stop);
 
-                    etSender.setText(jsender == null ? args.getString("sender") : jsender.getString("value"));
-                    cbSender.setChecked(jsender != null && jsender.getBoolean("regex"));
-                    cbKnownSender.setChecked(jsender != null && jsender.optBoolean("known"));
-                    etSender.setEnabled(!cbKnownSender.isChecked());
-                    ibSender.setEnabled(!cbKnownSender.isChecked());
-                    cbSender.setEnabled(!cbKnownSender.isChecked());
+                        etSender.setText(jsender == null ? args.getString("sender") : jsender.getString("value"));
+                        cbSender.setChecked(jsender != null && jsender.getBoolean("regex"));
+                        cbKnownSender.setChecked(jsender != null && jsender.optBoolean("known"));
+                        etSender.setEnabled(!cbKnownSender.isChecked());
+                        ibSender.setEnabled(!cbKnownSender.isChecked());
+                        cbSender.setEnabled(!cbKnownSender.isChecked());
 
-                    etRecipient.setText(jrecipient == null ? args.getString("recipient") : jrecipient.getString("value"));
-                    cbRecipient.setChecked(jrecipient != null && jrecipient.getBoolean("regex"));
+                        etRecipient.setText(jrecipient == null ? args.getString("recipient") : jrecipient.getString("value"));
+                        cbRecipient.setChecked(jrecipient != null && jrecipient.getBoolean("regex"));
 
-                    etSubject.setText(jsubject == null ? args.getString("subject") : jsubject.getString("value"));
-                    cbSubject.setChecked(jsubject != null && jsubject.getBoolean("regex"));
+                        etSubject.setText(jsubject == null ? args.getString("subject") : jsubject.getString("value"));
+                        cbSubject.setChecked(jsubject != null && jsubject.getBoolean("regex"));
 
-                    cbAttachments.setChecked(jcondition.optBoolean("attachments"));
+                        cbAttachments.setChecked(jcondition.optBoolean("attachments"));
 
-                    etHeader.setText(jheader == null ? null : jheader.getString("value"));
-                    cbHeader.setChecked(jheader != null && jheader.getBoolean("regex"));
+                        etHeader.setText(jheader == null ? null : jheader.getString("value"));
+                        cbHeader.setChecked(jheader != null && jheader.getBoolean("regex"));
 
-                    int start = (jschedule != null && jschedule.has("start") ? jschedule.getInt("start") : 0);
-                    int end = (jschedule != null && jschedule.has("end") ? jschedule.getInt("end") : 0);
+                        int start = (jschedule != null && jschedule.has("start") ? jschedule.getInt("start") : 0);
+                        int end = (jschedule != null && jschedule.has("end") ? jschedule.getInt("end") : 0);
 
-                    spScheduleDayStart.setSelection(start / (24 * 60));
-                    spScheduleDayEnd.setSelection(end / (24 * 60));
+                        spScheduleDayStart.setSelection(start / (24 * 60));
+                        spScheduleDayEnd.setSelection(end / (24 * 60));
 
-                    tvScheduleHourStart.setTag(start % (24 * 60));
-                    tvScheduleHourStart.setText(formatHour(getContext(), start % (24 * 60)));
+                        tvScheduleHourStart.setTag(start % (24 * 60));
+                        tvScheduleHourStart.setText(formatHour(getContext(), start % (24 * 60)));
 
-                    tvScheduleHourEnd.setTag(end % (24 * 60));
-                    tvScheduleHourEnd.setText(formatHour(getContext(), end % (24 * 60)));
+                        tvScheduleHourEnd.setTag(end % (24 * 60));
+                        tvScheduleHourEnd.setText(formatHour(getContext(), end % (24 * 60)));
 
-                    if (rule == null) {
-                        for (int pos = 0; pos < adapterIdentity.getCount(); pos++)
-                            if (adapterIdentity.getItem(pos).primary) {
-                                spIdent.setSelection(pos);
-                                break;
-                            }
-                    } else {
-                        int type = jaction.getInt("type");
-                        switch (type) {
-                            case EntityRule.TYPE_SNOOZE:
-                                npDuration.setValue(jaction.optInt("duration", 0));
-                                cbScheduleEnd.setChecked(jaction.optBoolean("schedule_end", false));
-                                cbSnoozeSeen.setChecked(jaction.optBoolean("seen", false));
-                                break;
-
-                            case EntityRule.TYPE_FLAG:
-                                btnColor.setColor(
-                                        !jaction.has("color") || jaction.isNull("color")
-                                                ? null : jaction.getInt("color"));
-                                break;
-
-                            case EntityRule.TYPE_IMPORTANCE:
-                                spImportance.setSelection(jaction.optInt("value"));
-                                break;
-
-                            case EntityRule.TYPE_KEYWORD:
-                                etKeyword.setText(jaction.getString("keyword"));
-                                break;
-
-                            case EntityRule.TYPE_MOVE:
-                            case EntityRule.TYPE_COPY:
-                                long target = jaction.optLong("target", -1);
-                                for (int pos = 0; pos < adapterTarget.getCount(); pos++)
-                                    if (adapterTarget.getItem(pos).folder.id.equals(target)) {
-                                        spTarget.setSelection(pos);
-                                        break;
-                                    }
-                                if (type == EntityRule.TYPE_MOVE) {
-                                    cbMoveSeen.setChecked(jaction.optBoolean("seen"));
-                                    cbMoveThread.setChecked(jaction.optBoolean("thread"));
+                        if (rule == null) {
+                            for (int pos = 0; pos < adapterIdentity.getCount(); pos++)
+                                if (adapterIdentity.getItem(pos).primary) {
+                                    spIdent.setSelection(pos);
+                                    break;
                                 }
-                                break;
+                        } else {
+                            int type = jaction.getInt("type");
+                            switch (type) {
+                                case EntityRule.TYPE_SNOOZE:
+                                    npDuration.setValue(jaction.optInt("duration", 0));
+                                    cbScheduleEnd.setChecked(jaction.optBoolean("schedule_end", false));
+                                    cbSnoozeSeen.setChecked(jaction.optBoolean("seen", false));
+                                    break;
 
-                            case EntityRule.TYPE_ANSWER:
-                                long identity = jaction.optLong("identity", -1);
-                                for (int pos = 0; pos < adapterIdentity.getCount(); pos++)
-                                    if (adapterIdentity.getItem(pos).id.equals(identity)) {
-                                        spIdent.setSelection(pos);
-                                        break;
+                                case EntityRule.TYPE_FLAG:
+                                    btnColor.setColor(
+                                            !jaction.has("color") || jaction.isNull("color")
+                                                    ? null : jaction.getInt("color"));
+                                    break;
+
+                                case EntityRule.TYPE_IMPORTANCE:
+                                    spImportance.setSelection(jaction.optInt("value"));
+                                    break;
+
+                                case EntityRule.TYPE_KEYWORD:
+                                    etKeyword.setText(jaction.getString("keyword"));
+                                    break;
+
+                                case EntityRule.TYPE_MOVE:
+                                case EntityRule.TYPE_COPY:
+                                    long target = jaction.optLong("target", -1);
+                                    for (int pos = 0; pos < adapterTarget.getCount(); pos++)
+                                        if (adapterTarget.getItem(pos).folder.id.equals(target)) {
+                                            spTarget.setSelection(pos);
+                                            break;
+                                        }
+                                    if (type == EntityRule.TYPE_MOVE) {
+                                        cbMoveSeen.setChecked(jaction.optBoolean("seen"));
+                                        cbMoveThread.setChecked(jaction.optBoolean("thread"));
                                     }
+                                    break;
 
-                                long answer = jaction.optLong("answer", -1);
-                                for (int pos = 0; pos < adapterAnswer.getCount(); pos++)
-                                    if (adapterAnswer.getItem(pos).id.equals(answer)) {
-                                        spAnswer.setSelection(pos);
-                                        break;
-                                    }
+                                case EntityRule.TYPE_ANSWER:
+                                    long identity = jaction.optLong("identity", -1);
+                                    for (int pos = 0; pos < adapterIdentity.getCount(); pos++)
+                                        if (adapterIdentity.getItem(pos).id.equals(identity)) {
+                                            spIdent.setSelection(pos);
+                                            break;
+                                        }
 
-                                cbCc.setChecked(jaction.optBoolean("cc"));
-                                break;
-                        }
+                                    long answer = jaction.optLong("answer", -1);
+                                    for (int pos = 0; pos < adapterAnswer.getCount(); pos++)
+                                        if (adapterAnswer.getItem(pos).id.equals(answer)) {
+                                            spAnswer.setSelection(pos);
+                                            break;
+                                        }
 
-                        for (int pos = 0; pos < adapterAction.getCount(); pos++)
-                            if (adapterAction.getItem(pos).type == type) {
-                                spAction.setTag(pos);
-                                spAction.setSelection(pos);
-                                break;
+                                    cbCc.setChecked(jaction.optBoolean("cc"));
+                                    break;
                             }
 
-                        showActionParameters(type);
+                            for (int pos = 0; pos < adapterAction.getCount(); pos++)
+                                if (adapterAction.getItem(pos).type == type) {
+                                    spAction.setTag(pos);
+                                    spAction.setSelection(pos);
+                                    break;
+                                }
+
+                            showActionParameters(type);
+                        }
+                    } else {
+                        spScheduleDayStart.setSelection(savedInstanceState.getInt("fair:start"));
+                        spScheduleDayEnd.setSelection(savedInstanceState.getInt("fair:end"));
+                        spAction.setSelection(savedInstanceState.getInt("fair:action"));
+                        spImportance.setSelection(savedInstanceState.getInt("fair:importance"));
+                        spTarget.setSelection(savedInstanceState.getInt("fair:target"));
+                        spIdent.setSelection(savedInstanceState.getInt("fair:identity"));
+                        spAnswer.setSelection(savedInstanceState.getInt("fair:answer"));
+
+                        Action action = adapterAction.getItem(spAction.getSelectedItemPosition());
+                        if (action != null)
+                            showActionParameters(action.type);
                     }
+
                 } catch (Throwable ex) {
                     Log.e(ex);
                 } finally {
