@@ -244,13 +244,6 @@ public interface DaoMessage {
             " GROUP BY account.id")
     LiveData<TupleThreadStats> liveThreadStats(long account, String thread, Long id, boolean filter_archive);
 
-    @Query("SELECT message.id FROM folder" +
-            " JOIN message ON message.folder = folder.id" +
-            " WHERE ((:folder IS NULL AND :type IS NULL AND folder.unified)" +
-            " OR folder.type = :type OR folder.id = :folder)" +
-            " AND ui_hide")
-    LiveData<List<Long>> liveHiddenFolder(Long folder, String type);
-
     @Query("SELECT id FROM message" +
             " WHERE account = :account" +
             " AND thread = :thread" +
@@ -365,6 +358,10 @@ public interface DaoMessage {
             " WHERE folder = :folder" +
             " AND msgid = :msgid")
     int countMessageByMsgId(long folder, String msgid);
+
+    @Query("SELECT COUNT(*) FROM message" +
+            " WHERE id = :id AND NOT ui_hide")
+    int countVisible(long id);
 
     @Query("SELECT message.*" +
             ", account.pop AS accountProtocol, account.name AS accountName, identity.color AS accountColor" +

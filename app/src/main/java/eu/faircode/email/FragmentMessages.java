@@ -3111,14 +3111,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         updateState(folders);
                     }
                 });
-                db.message().liveHiddenFolder(null, type).observe(getViewLifecycleOwner(), new Observer<List<Long>>() {
-                    @Override
-                    public void onChanged(List<Long> ids) {
-                        if (ids != null && selectionTracker != null)
-                            for (long id : ids)
-                                selectionTracker.deselect(id);
-                    }
-                });
                 break;
 
             case FOLDER:
@@ -3130,14 +3122,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             folders.add(folder);
 
                         updateState(folders);
-                    }
-                });
-                db.message().liveHiddenFolder(folder, null).observe(getViewLifecycleOwner(), new Observer<List<Long>>() {
-                    @Override
-                    public void onChanged(List<Long> ids) {
-                        if (ids != null && selectionTracker != null)
-                            for (long id : ids)
-                                selectionTracker.deselect(id);
                     }
                 });
                 break;

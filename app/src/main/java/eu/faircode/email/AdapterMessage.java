@@ -130,6 +130,7 @@ import androidx.paging.AsyncPagedListDiffer;
 import androidx.paging.PagedList;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.selection.ItemDetailsLookup;
+import androidx.recyclerview.selection.Selection;
 import androidx.recyclerview.selection.SelectionTracker;
 import androidx.recyclerview.widget.AdapterListUpdateCallback;
 import androidx.recyclerview.widget.AsyncDifferConfig;
@@ -5142,6 +5143,46 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (gotoTop && previousList != null) {
                     gotoTop = false;
                     properties.scrollTo(0, 0);
+                }
+
+                if (selectionTracker != null && selectionTracker.hasSelection()) {
+                    Selection<Long> selection = selectionTracker.getSelection();
+
+                    long[] ids = new long[selection.size()];
+                    int i = 0;
+                    for (Long id : selection)
+                        ids[i++] = id;
+
+                    Bundle args = new Bundle();
+                    args.putLongArray("ids", ids);
+
+                    new SimpleTask<List<Long>>() {
+                        @Override
+                        protected List<Long> onExecute(Context context, Bundle args) throws Throwable {
+                            long[] ids = args.getLongArray("ids");
+
+                            List<Long> removed = new ArrayList<>();
+
+                            DB db = DB.getInstance(context);
+                            for (long id : ids)
+                                if (db.message().countVisible(id) == 0)
+                                    removed.add(id);
+
+                            return removed;
+                        }
+
+                        @Override
+                        protected void onExecuted(Bundle args, List<Long> removed) {
+                            Log.i("Selection removed=" + removed.size());
+                            for (long id : removed)
+                                selectionTracker.deselect(id);
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                        }
+                    }.execute(context, owner, args, "selection:update");
                 }
             }
         });
