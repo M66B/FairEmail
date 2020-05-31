@@ -35,6 +35,7 @@ import androidx.lifecycle.OnLifecycleEvent;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -118,13 +119,16 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
 
         future = executor.submit(new Runnable() {
             private Object data;
+            private long elapse;
             private Throwable ex;
 
             @Override
             public void run() {
                 // Run in background thread
                 try {
+                    long start = new Date().getTime();
                     data = onExecute(context, args);
+                    elapse = new Date().getTime() - start;
                 } catch (Throwable ex) {
                     if (!(ex instanceof IllegalArgumentException))
                         Log.e(ex);
@@ -141,7 +145,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
                             cleanup(context);
                         } else if (state.isAtLeast(Lifecycle.State.RESUMED)) {
                             // Inline delivery
-                            Log.i("Deliver task " + name + " state=" + state);
+                            Log.i("Deliver task " + name + " state=" + state + " elapse=" + elapse + " ms");
                             deliver();
                             cleanup(context);
                         } else
