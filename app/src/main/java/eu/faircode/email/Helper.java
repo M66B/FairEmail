@@ -1140,12 +1140,23 @@ public class Helper {
 
             prompt.authenticate(info.build());
 
+            Runnable cancelPrompt = new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        prompt.cancelAuthentication();
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
+                }
+            };
+
+            handler.postDelayed(cancelPrompt, 60 * 1000L);
+
             owner.getLifecycle().addObserver(new LifecycleObserver() {
                 @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
                 public void onDestroy() {
-                    prompt.cancelAuthentication();
-                    handler.post(cancelled);
-                    owner.getLifecycle().removeObserver(this);
+                    handler.post(cancelPrompt);
                 }
             });
 
