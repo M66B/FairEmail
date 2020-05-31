@@ -159,18 +159,21 @@ public class FragmentAnswer extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, EntityAnswer answer) {
-                etName.setText(answer == null ? null : answer.name);
-                cbFavorite.setChecked(answer == null ? false : answer.favorite);
-                cbHide.setChecked(answer == null ? false : answer.hide);
-                if (answer == null)
-                    etText.setText(null);
-                else
-                    etText.setText(HtmlHelper.fromHtml(answer.text, new Html.ImageGetter() {
-                        @Override
-                        public Drawable getDrawable(String source) {
-                            return ImageHelper.decodeImage(getContext(), -1, source, true, 0, etText);
-                        }
-                    }, null));
+                if (savedInstanceState == null) {
+                    etName.setText(answer == null ? null : answer.name);
+                    cbFavorite.setChecked(answer == null ? false : answer.favorite);
+                    cbHide.setChecked(answer == null ? false : answer.hide);
+                    if (answer == null)
+                        etText.setText(null);
+                    else
+                        etText.setText(HtmlHelper.fromHtml(answer.text, new Html.ImageGetter() {
+                            @Override
+                            public Drawable getDrawable(String source) {
+                                return ImageHelper.decodeImage(getContext(), -1, source, true, 0, etText);
+                            }
+                        }, null));
+                }
+
                 bottom_navigation.findViewById(R.id.action_delete).setVisibility(answer == null ? View.GONE : View.VISIBLE);
 
                 pbWait.setVisibility(View.GONE);
