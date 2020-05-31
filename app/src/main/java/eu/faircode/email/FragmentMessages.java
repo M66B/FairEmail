@@ -240,6 +240,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private FloatingActionButton fabReply;
     private FloatingActionButton fabCompose;
     private FloatingActionButton fabMore;
+    private TextView tvSelectedCount;
     private FloatingActionButton fabSearch;
     private FloatingActionButton fabError;
 
@@ -444,6 +445,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         fabReply = view.findViewById(R.id.fabReply);
         fabCompose = view.findViewById(R.id.fabCompose);
         fabMore = view.findViewById(R.id.fabMore);
+        tvSelectedCount = view.findViewById(R.id.tvSelectedCount);
         fabSearch = view.findViewById(R.id.fabSearch);
         fabError = view.findViewById(R.id.fabError);
 
@@ -975,6 +977,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }
         });
 
+        tvSelectedCount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onMore();
+            }
+        });
+
         fabSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -1117,6 +1126,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             fabSearch.hide();
 
         fabMore.hide();
+        tvSelectedCount.setVisibility(View.GONE);
         fabError.hide();
 
         if (viewType == AdapterMessage.ViewType.THREAD) {
@@ -1226,10 +1236,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     if (activity != null)
                         activity.invalidateOptionsMenu();
 
-                    if (selectionTracker != null && selectionTracker.hasSelection())
-                        fabMore.show();
-                    else
-                        fabMore.hide();
+                    updateMore();
                 }
 
                 @Override
@@ -3090,11 +3097,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         loadMessages(false);
 
         updateExpanded();
-
-        if (selectionTracker != null && selectionTracker.hasSelection())
-            fabMore.show();
-        else
-            fabMore.hide();
+        updateMore();
 
         // Folder
         switch (viewType) {
@@ -3876,6 +3879,17 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             fabError.hide();
 
         swipeRefresh.setRefreshing(refreshing);
+    }
+
+    private void updateMore() {
+        if (selectionTracker != null && selectionTracker.hasSelection()) {
+            fabMore.show();
+            tvSelectedCount.setText(NF.format(selectionTracker.getSelection().size()));
+            tvSelectedCount.setVisibility(View.VISIBLE);
+        } else {
+            fabMore.hide();
+            tvSelectedCount.setVisibility(View.GONE);
+        }
     }
 
     private void loadMessages(final boolean top) {

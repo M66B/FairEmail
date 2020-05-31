@@ -340,6 +340,20 @@
         app:backgroundTint="?attr/colorFabBackground"
         app:srcCompat="@drawable/baseline_more_vert_24" />
 
+    <TextView
+        android:id="@+id/tvSelectedCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selected_count_background"
+        android:elevation="7dp"
+        android:paddingHorizontal="6dp"
+        android:paddingVertical="3dp"
+        android:text="3"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/action_foreground"
+        app:layout_anchor="@id/fabMore"
+        app:layout_anchorGravity="center_horizontal|bottom" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabSearch"
         android:layout_width="wrap_content"
