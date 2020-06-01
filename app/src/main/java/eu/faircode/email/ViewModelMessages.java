@@ -72,6 +72,7 @@ public class ViewModelMessages extends ViewModel {
     private ExecutorService executor = Helper.getBackgroundExecutor(4, "model");
 
     private static final int LOCAL_PAGE_SIZE = 50;
+    private static final int THREAD_PAGE_SIZE = 100;
     private static final int REMOTE_PAGE_SIZE = 10;
     private static final int SEARCH_PAGE_SIZE = 10;
     private static final int LOW_MEM_MB = 32;
@@ -151,7 +152,7 @@ public class ViewModelMessages extends ViewModel {
                                     args.threading ? null : args.id,
                                     args.filter_archive,
                                     args.ascending,
-                                    args.debug), LOCAL_PAGE_SIZE);
+                                    args.debug), THREAD_PAGE_SIZE);
                     break;
 
                 case SEARCH:
