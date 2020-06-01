@@ -4124,6 +4124,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 if (!(EntityFolder.OUTBOX.equals(message.folderType) && message.ui_snoozed != null) &&
                         !(EntityFolder.ARCHIVE.equals(message.folderType) && filter_archive) &&
+                        !EntityFolder.DRAFTS.equals(message.folderType) &&
                         !EntityFolder.SENT.equals(message.folderType) &&
                         !EntityFolder.TRASH.equals(message.folderType) &&
                         !EntityFolder.JUNK.equals(message.folderType))
@@ -4174,6 +4175,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                     if (!(EntityFolder.OUTBOX.equals(folderType) && message.ui_snoozed != null) &&
                             !(EntityFolder.ARCHIVE.equals(folderType) && filter_archive) &&
+                            !EntityFolder.DRAFTS.equals(folderType) &&
                             !EntityFolder.SENT.equals(folderType) &&
                             !EntityFolder.TRASH.equals(folderType) &&
                             !EntityFolder.JUNK.equals(folderType))
