@@ -177,6 +177,17 @@
             app:layout_constraintEnd_toEndOf="parent" />
 
         <eu.faircode.email.FixedTextView
+            android:id="@+id/tvPop3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="6dp"
+            android:text="@string/title_pop3"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/one" />
+
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvAccount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
