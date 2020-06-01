@@ -4342,7 +4342,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 if (!message.seen || ops > 0)
                                     EntityOperation.queue(context, message, EntityOperation.SEEN, true);
                             } else {
-                                if (!message.ui_ignored)
+                                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                                boolean notify_remove = prefs.getBoolean("notify_remove", true);
+                                if (notify_remove && !message.ui_ignored)
                                     db.message().setMessageUiIgnored(message.id, true);
                             }
                     }
