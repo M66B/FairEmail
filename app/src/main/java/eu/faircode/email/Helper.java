@@ -1140,7 +1140,7 @@ public class Helper {
 
             prompt.authenticate(info.build());
 
-            Runnable cancelPrompt = new Runnable() {
+            final Runnable cancelPrompt = new Runnable() {
                 @Override
                 public void run() {
                     try {
