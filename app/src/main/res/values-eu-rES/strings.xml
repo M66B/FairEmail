@@ -331,6 +331,8 @@
     <string name="title_advanced_notifications">Kudeatu jakinarazpenak</string>
     <string name="title_advanced_notifications_default">Kanal lehenetsia</string>
     <string name="title_advanced_notifications_service">Zerbitzuko kanala</string>
+    <string name="title_advanced_notifications_background">Erabili bigarren planoko zerbitzua mezuak sinkrinizatzeko</string>
+    <string name="title_advanced_notifications_background_hint">Bigarren planoko zerbitzua Androidek gelditu dezake noiznahi, baina ez du jakinarazpenik behar egoera barran</string>
     <string name="title_advanced_badge">Erakutsi mezu berrien kopurua abiarazleko ikonoan</string>
     <string name="title_advanced_unseen_ignored">Mezu berri kopurua eta jakinarazpenen kopurua berdina izan dadila</string>
     <string name="title_advanced_notify_summary">Erakutsi laburpen jakinarazpen bat besterik ez</string>
@@ -371,6 +373,7 @@
     <string name="title_advanced_manage_certificates">Kudeatu gako publikoak</string>
     <string name="title_advanced_import_key">Inportatu gako pribatua</string>
     <string name="title_advanced_manage_keys">Kudeatu gako pribatuak</string>
+    <string name="title_advanced_ca">Instalatutako CA ziurtagiriak</string>
     <string name="title_advanced_external_search">Baimendu beste aplikazioei mezuetan bilatzea</string>
     <string name="title_advanced_shortcuts">Erakutsi maiz erabilitako kontaktuak Android partekatzeko menuan</string>
     <string name="title_advanced_conversation_actions">Iradoki ekintzak</string>
@@ -378,6 +381,7 @@
     <string name="title_advanced_language_detection">Detektatu mezuen testuaren hizkuntza</string>
     <string name="title_advanced_fts">Sortu bilaketa-indizea</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d mezu indexatuak (%3$s)</string>
+    <string name="title_advanced_english">Erabili EEBBko herrialde ezarpenak</string>
     <string name="title_advanced_watchdog">Aldiro egiaztatu FairEmail aktibo dagoen</string>
     <string name="title_advanced_optimize">Optimizatu ezarpenak automatikoki</string>
     <string name="title_advanced_updates">Egiaztatu eguneraketarik dagoen</string>
@@ -914,6 +918,7 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_rule_identity">Identitatea</string>
     <string name="title_rule_template">Erantzun txantiloia</string>
     <string name="title_rule_cc">Erantzun CC helbideei</string>
+    <string name="title_rule_answer_remark">Erantzun bakarra bidaliko da elkarrizketako, erantzun begiztan sahiesteko</string>
     <string name="title_rule_name_missing">Arauaren izena falta da</string>
     <string name="title_rule_condition_missing">Baldintza falta da</string>
     <string name="title_rule_automation_hint">Honek \'%1$s\' intent-a bidaliko du \'%2$s\' gehigarriekin</string>
@@ -1127,6 +1132,8 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_widget_folder_unified">Bateratutako sarrera-ontziko karpetak</string>
     <string name="title_widget_unseen">Irakurri gabeko mezuak soilik</string>
     <string name="title_widget_flagged">Izardun mezuak soilik</string>
+    <string name="title_widget_font_size">Letra-tamaina</string>
+    <string name="title_widget_padding">Betegarriaren tamaina</string>
     <string name="title_widget_semi_transparent">Atzeko plano erdi gardena</string>
     <string name="title_accessibility_collapsed">Tolestuta</string>
     <string name="title_accessibility_expanded">Hedatua</string>
