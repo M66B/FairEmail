@@ -1146,7 +1146,7 @@
     <string name="title_legend_show_junk">Treat as spam</string>
     <string name="title_legend_show_unsubscribe">Unsubscribe from list</string>
     <string name="title_legend_show_images">Show images</string>
-    <string name="title_legend_show_full">Show fullscreen</string>
+    <string name="title_legend_show_full">Show original message</string>
     <string name="title_legend_edit">Edit</string>
     <string name="title_legend_default_color">Default color</string>
     <string name="title_legend_close_hint">Close hint</string>
