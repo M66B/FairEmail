@@ -336,6 +336,7 @@ dependencies {
     annotationProcessor "androidx.room:room-compiler:$room_version"
 
     // https://mvnrepository.com/artifact/androidx.paging/paging-runtime
+    // https://developer.android.com/jetpack/androidx/releases/paging
     implementation "androidx.paging:paging-runtime:$paging_version"
 
     // https://mvnrepository.com/artifact/androidx.preference/preference
