@@ -67,6 +67,7 @@ public class FragmentBase extends Fragment {
     private String title = null;
     private String subtitle = " ";
     private boolean finish = false;
+    private boolean finished = false;
 
     private long message = -1;
     private long attachment = -1;
@@ -117,6 +118,10 @@ public class FragmentBase extends Fragment {
     }
 
     protected void finish() {
+        if (finished)
+            return;
+        finished = true;
+
         if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
             getParentFragmentManager().popBackStack();
         else
