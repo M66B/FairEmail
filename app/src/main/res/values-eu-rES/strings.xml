@@ -1012,7 +1012,6 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_legend_show_junk">Tratatu spam gisa</string>
     <string name="title_legend_show_unsubscribe">Kendu zerrendarako harpidetza</string>
     <string name="title_legend_show_images">Erakutsi irudiak</string>
-    <string name="title_legend_show_full">Erakutsi pantaila osoan</string>
     <string name="title_legend_edit">Editatu</string>
     <string name="title_legend_default_color">Lehenetsitako kolorea</string>
     <string name="title_legend_close_hint">Itxi laguntza</string>

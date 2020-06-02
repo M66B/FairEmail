@@ -1016,7 +1016,7 @@
     <string name="title_legend_show_junk">Tratar como spam</string>
     <string name="title_legend_show_unsubscribe">Desuscribirse de la lista</string>
     <string name="title_legend_show_images">Mostrar imágenes</string>
-    <string name="title_legend_show_full">Mostrar en pantalla completa</string>
+    <string name="title_legend_show_full">Mostrar mensaje original</string>
     <string name="title_legend_edit">Editar</string>
     <string name="title_legend_default_color">Color por defecto</string>
     <string name="title_legend_close_hint">Cerrar pista</string>

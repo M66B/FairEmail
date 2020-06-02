@@ -765,7 +765,6 @@
     <string name="title_legend_show_quotes">Прикажи цитирања</string>
     <string name="title_legend_show_unsubscribe">Одјави се са листе</string>
     <string name="title_legend_show_images">Прикажи слике</string>
-    <string name="title_legend_show_full">Прикажи преко целог екрана</string>
     <string name="title_legend_edit">Измени</string>
     <string name="title_legend_default_color">Подразумевана боја</string>
     <string name="title_legend_close_hint">Затвори савет</string>

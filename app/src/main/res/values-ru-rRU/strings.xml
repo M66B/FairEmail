@@ -1037,7 +1037,7 @@
     <string name="title_legend_show_junk">Считать спамом</string>
     <string name="title_legend_show_unsubscribe">Отписаться от рассылки</string>
     <string name="title_legend_show_images">Показывать изображения</string>
-    <string name="title_legend_show_full">На полный экран</string>
+    <string name="title_legend_show_full">Показать оригинальное сообщение</string>
     <string name="title_legend_edit">Редактировать</string>
     <string name="title_legend_default_color">Цвет по умолчанию</string>
     <string name="title_legend_close_hint">Закрыть подсказку</string>

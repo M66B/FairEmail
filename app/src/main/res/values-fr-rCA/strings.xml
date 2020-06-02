@@ -1015,7 +1015,7 @@
     <string name="title_legend_show_junk">Traiter comme indésirable</string>
     <string name="title_legend_show_unsubscribe">Se désabonner de la liste</string>
     <string name="title_legend_show_images">Afficher les images</string>
-    <string name="title_legend_show_full">Afficher en plein écran</string>
+    <string name="title_legend_show_full">Afficher le message original</string>
     <string name="title_legend_edit">Modifier</string>
     <string name="title_legend_default_color">Couleur par défaut</string>
     <string name="title_legend_close_hint">Fermer l\'astuce</string>

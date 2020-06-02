@@ -1014,7 +1014,7 @@
     <string name="title_legend_show_junk">Третиране като спам</string>
     <string name="title_legend_show_unsubscribe">Отписване от абонамент</string>
     <string name="title_legend_show_images">Показване на изображения</string>
-    <string name="title_legend_show_full">Покажи на цял екран</string>
+    <string name="title_legend_show_full">Показване на оригиналното съобщение</string>
     <string name="title_legend_edit">Редактиране</string>
     <string name="title_legend_default_color">Цвят по подразбиране</string>
     <string name="title_legend_close_hint">Затвори подсказка</string>

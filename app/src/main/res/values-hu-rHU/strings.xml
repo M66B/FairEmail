@@ -1004,7 +1004,6 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_legend_show_junk">Megjelölés spamként</string>
     <string name="title_legend_show_unsubscribe">Leiratkozás listáról</string>
     <string name="title_legend_show_images">Képek megjelenítése</string>
-    <string name="title_legend_show_full">Teljes képernyős megjelenítés</string>
     <string name="title_legend_edit">Szerkesztés</string>
     <string name="title_legend_default_color">Alapértelmezett szín</string>
     <string name="title_legend_close_hint">Tipp bezárása</string>

@@ -1003,7 +1003,7 @@
     <string name="title_legend_show_junk">视为垃圾邮件</string>
     <string name="title_legend_show_unsubscribe">从列表取消订阅</string>
     <string name="title_legend_show_images">显示图片</string>
-    <string name="title_legend_show_full">全屏显示</string>
+    <string name="title_legend_show_full">显示原始消息</string>
     <string name="title_legend_edit">编辑</string>
     <string name="title_legend_default_color">默认颜色</string>
     <string name="title_legend_close_hint">关闭提示</string>

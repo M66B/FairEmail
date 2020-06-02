@@ -868,7 +868,6 @@
     <string name="title_legend_show_junk">Spam olarak değerlendir</string>
     <string name="title_legend_show_unsubscribe">Listeden Çık</string>
     <string name="title_legend_show_images">Resimleri göster</string>
-    <string name="title_legend_show_full">Tam ekran göster</string>
     <string name="title_legend_edit">Düzenle</string>
     <string name="title_legend_default_color">Varsayılan renk</string>
     <string name="title_legend_close_hint">Ipucuları kapat</string>

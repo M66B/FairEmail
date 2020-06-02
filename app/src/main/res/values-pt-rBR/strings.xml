@@ -334,6 +334,8 @@
     <string name="title_advanced_notifications">Gerenciar notificações</string>
     <string name="title_advanced_notifications_default">Canal padrão</string>
     <string name="title_advanced_notifications_service">Canal de serviço</string>
+    <string name="title_advanced_notifications_background">Usar o serviço em segundo plano para sincronizar mensagens</string>
+    <string name="title_advanced_notifications_background_hint">Um serviço em segundo plano pode ser interrompido pelo Android a qualquer momento, mas não requer uma notificação na barra de status</string>
     <string name="title_advanced_badge">Mostrar ícone no launcher com número de novas mensagens</string>
     <string name="title_advanced_unseen_ignored">Permitir que o número de novas mensagens corresponda ao número de notificações</string>
     <string name="title_advanced_notify_summary">Mostrar apenas notificação de resumo</string>
@@ -382,6 +384,7 @@
     <string name="title_advanced_language_detection">Detectar idioma do texto da mensagem</string>
     <string name="title_advanced_fts">Construir índice de busca</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d mensagens indexadas (%3$s)</string>
+    <string name="title_advanced_english">Usar configurações do país dos EUA</string>
     <string name="title_advanced_watchdog">Verifique periodicamente se o FairEmail ainda está ativo</string>
     <string name="title_advanced_optimize">Otimizar automaticamente as configurações</string>
     <string name="title_advanced_updates">Procurar por atualizações</string>
@@ -584,9 +587,15 @@
     <string name="title_keep_all">Manter todas as mensagens</string>
     <string name="title_auto_trash">Mover automaticamente mensagens antigas para lixeira</string>
     <string name="title_auto_delete">Excluir permanentemente mensagens antigas</string>
+    <string name="title_auto_delete_hint">Mensagens antigas são mensagens que não são mais mantidas no dispositivo</string>
+    <string name="title_inbox_root_hint">        Alguns provedores exigem que novas pastas sejam criadas abaixo da caixa de entrada.
+        Neste caso, você pode pressionar longamente a caixa de entrada na lista de pastas e selecionar \'Criar subpasta\'.
+    </string>
     <string name="title_folder_name_missing">Nome da pasta faltando</string>
     <string name="title_folder_exists">A pasta %1$s já existe</string>
     <string name="title_folder_delete">Excluir permanentemente esta pasta e quaisquer mensagens que ela contenha?</string>
+    <string name="title_months">Meses</string>
+    <string name="title_months_all">Todos</string>
     <string name="title_folder_unified">Caixa de entrada unificada</string>
     <string name="title_folder_inbox">Caixa de entrada</string>
     <string name="title_folder_outbox">Caixa de saída</string>
@@ -617,11 +626,14 @@
     <string name="title_importance_low">Baixa</string>
     <string name="title_importance_normal">Normal</string>
     <string name="title_importance_high">Alta</string>
+    <string name="title_search_in_text">Pesquisar no texto &#8230;</string>
     <string name="title_forward">Encaminhar</string>
     <string name="title_new_message">Nova mensagem</string>
     <string name="title_editasnew">Editar como novo</string>
     <string name="title_create_rule">Criar regra &#8230;</string>
     <string name="title_share">Compartilhar</string>
+    <string name="title_event">Adicionar ao calendário</string>
+    <string name="title_pin">Adicionar atalho</string>
     <string name="title_print">Imprimir</string>
     <string name="title_show_headers">Mostrar cabeçalhos</string>
     <string name="title_raw_save">Salvar imagem raw</string>
@@ -640,11 +652,20 @@
     <string name="title_more">Mais</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Mover</string>
+    <string name="title_no_junk">Não é spam</string>
+    <string name="title_move_to">Mover para &#8230;</string>
     <string name="title_move_to_folder">Mover para &#8230;</string>
     <string name="title_move_to_account">Mover para %1$s &#8230;</string>
+    <string name="title_report_spam">Tratar como spam</string>
+    <string name="title_delete_permanently">Apagar permanentemente</string>
     <string name="title_snooze">Adiar &#8230;</string>
     <string name="title_archive">Arquivar</string>
     <string name="title_reply">Responder</string>
+    <string name="title_reply_to_sender">Responder ao remetente</string>
+    <string name="title_reply_to_all">Responder a todos</string>
+    <string name="title_reply_list">Responder à lista</string>
+    <string name="title_reply_receipt">Enviar confirmação de leitura</string>
+    <string name="title_reply_template">Modelo de resposta</string>
     <string name="title_moving">Movendo para %1$s</string>
     <string name="title_open_with">Abrir com</string>
     <string name="title_authentication_failed">%1$s a autenticação falhou</string>
@@ -652,6 +673,8 @@
     <string name="title_receipt_text">Esta confirmação de leitura só reconhece que a mensagem foi exibida. Não há garantia de que o destinatário tenha lido o conteúdo da mensagem.</string>
     <string name="title_no_answers">Nenhum modelo de resposta definido</string>
     <string name="title_no_viewer">Nenhum aplicativo visualizador disponível para %1$s</string>
+    <string name="title_no_recorder">Nenhum aplicativo de gravador de áudio adequado disponível</string>
+    <string name="title_no_camera">Nenhum aplicativo de câmera adequado disponível</string>
     <string name="title_no_saf">Storage access framework não disponivel</string>
     <string name="title_no_stream">Um aplicativo desatualizado enviou um caminho de arquivo em vez de um fluxo de arquivo</string>
     <string name="title_no_contacts">Seletor de contato não está disponível</string>
@@ -661,6 +684,10 @@
     <string name="title_no_format">Mensagem originalmente recebida será incluída</string>
     <string name="title_no_image">A imagem não pôde ser decodificada</string>
     <string name="title_no_search">Pesquisa no servidor não está disponível para esta conta</string>
+    <string name="title_too_large">Mensagem muito grande para reformar completamente</string>
+    <string name="title_truncated">Mensagem muito grande para exibir completamente</string>
+    <string name="title_insufficient_memory">Mensagem muito grande para caber na memória disponível</string>
+    <string name="title_show_full">Mostrar mensagem completa</string>
     <string name="title_unused_inline">Imagens embutidas não utilizadas serão removidas ao enviar</string>
     <string name="title_accross_remark">Mensagens movidas entre contas serão baixadas novamente, resultando em uso extra de dados</string>
     <string name="title_raw_saved">Mensagem bruta salva</string>
@@ -686,9 +713,12 @@
         Seria apreciado se você pudesse avaliar o FairEmail na Play Store.
         Isso ajudará a manter um equilíbrio entre revisões desfavoráveis e favoráveis.
     </string>
+    <string name="title_third_party">Você está usando uma versão de terceiros</string>
     <string name="title_expand_warning">Expandir esta mensagem irá baixar %1$s</string>
     <string name="title_download_message">Baixando &#8230;</string>
     <string name="title_compose">Escrever</string>
+    <string name="title_submitter">Enviado por:</string>
+    <string name="title_delivered_to">Entregue a:</string>
     <string name="title_from">De:</string>
     <string name="title_to">Para:</string>
     <string name="title_reply_to">Responder a:</string>
@@ -698,7 +728,9 @@
     <string name="title_sent">Enviado:</string>
     <string name="title_received">Recebida:</string>
     <string name="title_size">Tamanho:</string>
+    <string name="title_language">Idioma:</string>
     <string name="title_subject">Assunto:</string>
+    <string name="title_attachment">Anexo:</string>
     <string name="title_body_hint">Sua mensagem</string>
     <string name="title_discard">Descartar</string>
     <string name="title_save">Salvar</string>
@@ -716,11 +748,20 @@
     <string name="title_style_color">Cor</string>
     <string name="title_style_clear">Limpar formatação</string>
     <string name="title_style_link">Inserir link</string>
+    <string name="title_add_image">Adicionar imagem</string>
+    <string name="title_add_image_inline">Inserir</string>
+    <string name="title_add_image_attach">Anexar</string>
+    <string name="title_add_image_resize">Redimensionar</string>
+    <string name="title_add_image_privacy">Remover localização geográfica</string>
+    <string name="title_add_resize_pixels">&lt; %1$d pixels</string>
+    <string name="title_add_image_select">Selecionar arquivo</string>
     <string name="title_add_attachment">Adicionar anexo</string>
     <string name="title_attachment_file">Anexar arquivo</string>
     <string name="title_attachment_photo">Tirar foto</string>
     <string name="title_attachment_audio">Gravar áudio</string>
     <string name="title_show_addresses">Mostrar CC/CCO</string>
+    <string name="title_send_dialog">Mostrar opções de envio</string>
+    <string name="title_image_dialog">Mostrar opções de imagem</string>
     <string name="title_media_toolbar">Barra de mídia</string>
     <string name="title_insert_contact_group">Inserir grupo de contato</string>
     <string name="title_insert_template">Inserir modelo</string>
@@ -731,15 +772,20 @@
     <string name="title_certificate_invalid">A chave pública de %1$s é inválida</string>
     <string name="title_no_key">Nenhuma chave privada</string>
     <string name="title_invalid_key">Chave privada inválida</string>
+    <string name="title_unknown_key">A chave privada não corresponde a nenhuma chave de criptografia</string>
     <string name="title_send_plain_text">Somente texto simples</string>
+    <string name="title_send_receipt">Solicitar recibo</string>
     <string name="title_send_receipt_remark">A maioria dos provedores e clientes de e-mail ignoram as solicitações de confirmação</string>
     <string name="title_from_missing">Remetente faltante</string>
+    <string name="title_extra_missing">Nome de usuário ausente</string>
     <string name="title_to_missing">Destinatário faltante</string>
+    <string name="title_pgp_reminder">Chaves PGP disponíveis</string>
     <string name="title_subject_reminder">Assunto está vazio</string>
     <string name="title_text_reminder">A mensagem está em branco</string>
     <string name="title_attachment_keywords">anexado,anexo,anexos,incluídos</string>
     <string name="title_attachment_reminder">Você quis adicionar um anexo?</string>
     <string name="title_attachments_missing">Nem todos os anexos foram baixados</string>
+    <string name="title_dialog_hint">Esta caixa de diálogo pode ser ativada novamente através do menu de três pontos na barra de ação superior</string>
     <string name="title_draft_deleted">Rascunho descartado</string>
     <string name="title_draft_saved">Rascunho salvo</string>
     <string name="title_ask_send_via">Enviar mensagem para %1$s via %2$s?</string>
@@ -751,12 +797,18 @@
     <string name="title_resync">Resincronizar</string>
     <string name="title_no_openpgp">OpenKeychain não encontrado</string>
     <string name="title_user_interaction">Transferindo para o OpenKeychain</string>
+    <string name="title_signed_data">Verifique a assinatura para mostrar o texto da mensagem</string>
     <string name="title_not_encrypted">Mensagem não assinada ou criptografada</string>
+    <string name="title_no_sign_key">Nenhuma assinatura da chave selecionada</string>
     <string name="title_reset_sign_key">Redefinir chave de assinante</string>
     <string name="title_signature_none">Mensagem não assinada</string>
     <string name="title_signature_valid">Assinatura de mensagem válida</string>
+    <string name="title_signature_valid_from">Assinatura da mensagem válida: %1$s</string>
     <string name="title_signature_unconfirmed">Assinatura de mensagem válida mas não confirmada</string>
+    <string name="title_signature_unconfirmed_from">Assinatura da mensagem válida mas não confirmada: %1$s</string>
     <string name="title_signature_invalid">Assinatura de mensagem inválida</string>
+    <string name="title_signature_invalid_reason">Assinatura da mensagem inválida: %1$s</string>
+    <string name="title_signature_key_missing">Falta a chave para verificação de assinatura</string>
     <string name="title_signature_certificate_invalid">Cadeia de certificados inválido</string>
     <string name="title_signature_sender">Endereço do remetente</string>
     <string name="title_signature_email">Endereço da assinatura</string>
@@ -928,7 +980,6 @@
     <string name="title_legend_show_junk">Tratar como spam</string>
     <string name="title_legend_show_unsubscribe">Cancelar inscrição da lista</string>
     <string name="title_legend_show_images">Mostrar Imagens</string>
-    <string name="title_legend_show_full">Mostrar tela cheia</string>
     <string name="title_legend_edit">Editar</string>
     <string name="title_legend_default_color">Cor padrão</string>
     <string name="title_legend_close_hint">Dica para fechar</string>
@@ -993,6 +1044,8 @@
     <string name="title_snooze_now">Adiar</string>
     <string name="title_loading">Carregando &#8230;</string>
     <string name="title_set">Set</string>
+    <string name="title_conversation_action_reply">Resposta com: \'%1$s\'</string>
+    <string name="title_conversation_action_copy">Copiar: \'%1$s\'</string>
     <string name="title_icalendar_accept">Aceitar</string>
     <string name="title_icalendar_decline">Recusar</string>
     <string name="title_icalendar_maybe">Talvez</string>
@@ -1006,6 +1059,7 @@
         Para tornar o FairEmail sustentável a longo prazo, algumas conveniências e recursos avançados não são gratuitos.
         O FairEmail exibe uma pequena mensagem para lembrá-lo disso, que será removida se você comprar os recursos profissionais.
     </string>
+    <string name="title_pro_hide">Ocultar mensagem pequena por duas semanas</string>
     <string name="title_pro_hint">Comprar recursos Pro permitirá que você use todas as funcionalidades atuais e futuras, ajudará na manutenção e suporte deste app</string>
     <string name="title_pro_price">Por favor, veja <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">este FAQ</a> sobre o preço dos recursos Pro</string>
     <string name="title_pro_pending">Compra pendente</string>
@@ -1013,6 +1067,8 @@
     <string name="title_pro_valid">Todos os recursos Pro ativados</string>
     <string name="title_pro_invalid">Resposta inválida</string>
     <string name="title_pro_support">O FairEmail precisa da sua ajuda. Toque para comprar os recursos Pro para manter o projeto em andamento.</string>
+    <string name="title_boundary_error">Erro ao baixar mensagens do servidor de e-mails</string>
+    <string name="title_boundary_retry">Desculpe, tente denovo</string>
     <string name="title_unexpected_error">Erro inesperado</string>
     <string name="title_log">Log</string>
     <string name="title_auto_scroll">Rolagem automática</string>
@@ -1028,6 +1084,7 @@
     <string name="title_widget_folder_unified">Pastas da caixa de entrada unificadas</string>
     <string name="title_widget_unseen">Apenas mensagens não lidas</string>
     <string name="title_widget_flagged">Apenas mensagens com estrela</string>
+    <string name="title_widget_font_size">Tamanho da letra</string>
     <string name="title_accessibility_collapsed">Desabou</string>
     <string name="title_accessibility_expanded">Expandido</string>
     <string name="title_accessibility_seen">Lido</string>

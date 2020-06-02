@@ -1015,7 +1015,7 @@
     <string name="title_legend_show_junk">Håndtér som spam</string>
     <string name="title_legend_show_unsubscribe">Afabonnér fra liste</string>
     <string name="title_legend_show_images">Vis billeder</string>
-    <string name="title_legend_show_full">Vis fuldskærm</string>
+    <string name="title_legend_show_full">Vis oprindelig besked</string>
     <string name="title_legend_edit">Redigér</string>
     <string name="title_legend_default_color">Standardfarve</string>
     <string name="title_legend_close_hint">Luk tip</string>

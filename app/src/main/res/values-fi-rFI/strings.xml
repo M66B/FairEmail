@@ -1013,7 +1013,7 @@
     <string name="title_legend_show_junk">Käsittele roskapostina</string>
     <string name="title_legend_show_unsubscribe">Peruuta listan tilaus</string>
     <string name="title_legend_show_images">Näytä kuvat</string>
-    <string name="title_legend_show_full">Näytä koko näytöllä</string>
+    <string name="title_legend_show_full">Näytä alkuperäinen viesti</string>
     <string name="title_legend_edit">Muokkaa</string>
     <string name="title_legend_default_color">Oletusväri</string>
     <string name="title_legend_close_hint">Sulkemisvihje</string>

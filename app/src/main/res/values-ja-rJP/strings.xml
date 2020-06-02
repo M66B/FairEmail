@@ -320,6 +320,8 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_notifications">通知の管理</string>
     <string name="title_advanced_notifications_default">デフォルトチャンネル</string>
     <string name="title_advanced_notifications_service">サービスチャンネル</string>
+    <string name="title_advanced_notifications_background">メッセージの同期にバックグラウンドサービスを使用</string>
+    <string name="title_advanced_notifications_background_hint">バックグラウンドサービスはAndroidによって停止される可能性がありますが、ステータスバーに通知が表示されなくなります。</string>
     <string name="title_advanced_badge">新着メッセージの数をランチャーアイコンに表示</string>
     <string name="title_advanced_unseen_ignored">新着メッセージ数を通知数と一致</string>
     <string name="title_advanced_notify_summary">簡素な通知のみ表示</string>
@@ -333,7 +335,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_notify_action_reply">返信</string>
     <string name="title_advanced_notify_action_reply_direct">直接返信</string>
     <string name="title_advanced_notify_action_flag">スター</string>
-    <string name="title_advanced_notify_action_seen">読む</string>
+    <string name="title_advanced_notify_action_seen">既読</string>
     <string name="title_advanced_notify_action_snooze">スヌーズ</string>
     <string name="title_advanced_notify_remove">通知をタップすると新着メッセージ通知を削除</string>
     <string name="title_advanced_notify_clear">メッセージリスト表示時に新着メッセージ通知を削除</string>
@@ -360,6 +362,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_manage_certificates">公開鍵の管理</string>
     <string name="title_advanced_import_key">秘密鍵をインポート</string>
     <string name="title_advanced_manage_keys">秘密鍵を管理する</string>
+    <string name="title_advanced_ca">インストール済みのCA証明書</string>
     <string name="title_advanced_external_search">他のアプリにメッセージの検索を許可</string>
     <string name="title_advanced_shortcuts">頻繁に使用される連絡先をAndroid共有メニューに表示</string>
     <string name="title_advanced_conversation_actions">アクションを提案</string>
@@ -367,6 +370,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_language_detection">メッセージのテキスト言語を検出</string>
     <string name="title_advanced_fts">検索インデックスを作成</string>
     <string name="title_advanced_fts_indexed">%1$d/%2$d個のメッセージがインデックス付けされました(%3$s)</string>
+    <string name="title_advanced_english">アメリカ合衆国向けの設定を使用する</string>
     <string name="title_advanced_watchdog">FairEmailがアクティブか定期的に確認</string>
     <string name="title_advanced_optimize">設定を自動的に最適化する</string>
     <string name="title_advanced_updates">更新を確認</string>
@@ -551,6 +555,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_folder_name">フォルダー名</string>
     <string name="title_display_name">表示名</string>
     <string name="title_show_folders">隠しフォルダーを表示</string>
+    <string name="title_show_flagged">スター付きメッセージの数を表示</string>
     <string name="title_subscribed_only">購読済みのみ</string>
     <string name="title_apply_to_all">全ての &#8230; に適用</string>
     <string name="title_hide_folder">フォルダーを非表示</string>
@@ -568,6 +573,9 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_auto_trash">古いメッセージをゴミ箱に自動的に移動する</string>
     <string name="title_auto_delete">古いメッセージを自動的に完全に削除します</string>
     <string name="title_auto_delete_hint">古いメッセージはデバイスに保持されなくなったメッセージです</string>
+    <string name="title_inbox_root_hint">一部のプロバイダーでは受信トレイの中に新しいフォルダーを作る必要があります。
+        その場合は、フォルダーリストの中の受信トレイを長押しして「サブフォルダーを作成」を選択してください。
+    </string>
     <string name="title_folder_name_missing">フォルダー名が有りません</string>
     <string name="title_folder_exists">フォルダ %1$s が存在します</string>
     <string name="title_folder_delete">このフォルダとそれに含まれるメッセージを完全に削除しますか？</string>
@@ -609,6 +617,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_editasnew">新規として編集</string>
     <string name="title_create_rule">ルール &#8230; を作成します</string>
     <string name="title_share">共有</string>
+    <string name="title_event">カレンダーに追加</string>
     <string name="title_pin">ショートカットを追加</string>
     <string name="title_print">印刷</string>
     <string name="title_show_headers">ヘッダーを表示</string>
@@ -990,7 +999,6 @@ PlayストアでFairEmailを評価できれば幸いです。
     <string name="title_legend_show_junk">迷惑メールとして扱う</string>
     <string name="title_legend_show_unsubscribe">リストから退会する</string>
     <string name="title_legend_show_images">画像を表示</string>
-    <string name="title_legend_show_full">全画面表示</string>
     <string name="title_legend_edit">編集</string>
     <string name="title_legend_default_color">デフォルトの色</string>
     <string name="title_legend_close_hint">ヒントを閉じる</string>
@@ -1108,6 +1116,8 @@ FairEmailは、Pro機能購入の為に上部に小さなメッセージを表�
     <string name="title_widget_folder_unified">統合受信トレイフォルダー</string>
     <string name="title_widget_unseen">未読メッセージのみ</string>
     <string name="title_widget_flagged">スター付きメッセージのみ</string>
+    <string name="title_widget_font_size">フォントサイズ</string>
+    <string name="title_widget_padding">余白のサイズ</string>
     <string name="title_widget_semi_transparent">半透明の背景</string>
     <string name="title_accessibility_collapsed">折りたたんだ</string>
     <string name="title_accessibility_expanded">拡大</string>

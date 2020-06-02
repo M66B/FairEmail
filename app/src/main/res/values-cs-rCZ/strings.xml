@@ -1037,7 +1037,7 @@
     <string name="title_legend_show_junk">Považovat za nevyžádané</string>
     <string name="title_legend_show_unsubscribe">Ukončit odebírání kanálu</string>
     <string name="title_legend_show_images">Zobrazit obrázky</string>
-    <string name="title_legend_show_full">Zobrazit na celou obrazovku</string>
+    <string name="title_legend_show_full">Zobrazit původní zprávu</string>
     <string name="title_legend_edit">Upravit</string>
     <string name="title_legend_default_color">Výchozí barva</string>
     <string name="title_legend_close_hint">Zavřít tip</string>

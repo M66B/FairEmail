@@ -1013,7 +1013,6 @@
     <string name="title_legend_show_junk">Tratta come spam</string>
     <string name="title_legend_show_unsubscribe">Cancellare dalla lista</string>
     <string name="title_legend_show_images">Mostra immagini</string>
-    <string name="title_legend_show_full">Mostra schermo intero</string>
     <string name="title_legend_edit">Modifica</string>
     <string name="title_legend_default_color">Colore predefinito</string>
     <string name="title_legend_close_hint">Chiudi suggerimento</string>
