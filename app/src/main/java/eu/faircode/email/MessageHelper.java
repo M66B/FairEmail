@@ -2002,7 +2002,10 @@ public class MessageHelper {
                 try {
                     contentType = new ContentType(part.getContentType());
                 } catch (ParseException ex) {
-                    Log.w(ex);
+                    if (part instanceof MimeMessage)
+                        Log.e("MimeMessage content type=" + ex.getMessage());
+                    else
+                        Log.w(ex);
                     contentType = new ContentType(Helper.guessMimeType(filename));
                 }
 
