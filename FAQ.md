@@ -660,6 +660,7 @@ To let apps like FairEmail reliably connect to the OpenKeychain service to encry
 it might be necessary to disable battery optimizations for the OpenKeychain app.
 On some Android versions / devices it is necessary to enable *Show popups while running in background*
 in the additional permissions of the Android app settings of the OpenKeychain app.
+Without this permission the draft will be saved, but the OpenKeychain popup to confirm/select might not appear.
 
 FairEmail will send the [Autocrypt](https://autocrypt.org/) headers for use by other email clients
 and send received Autocrypt headers to the OpenKeychain app for storage.
