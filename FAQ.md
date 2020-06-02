@@ -272,6 +272,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(152) How can I insert a contact group?](#user-content-faq152)
 * [(153) Why does permanently deleting Gmail message not work?](#user-content-faq153)
 * [(154) Can you add favicons as contact photos?](#user-content-faq154)
+* [(155) What is a winmail.dat file?](#user-content-faq155)
 
 [I have another question.](#user-content-support)
 
@@ -3011,6 +3012,18 @@ Some background: Gmail seems to have an additional message view for IMAP, which 
 
 Besides that a [favicon](https://en.wikipedia.org/wiki/Favicon) might be shared by many email addresses with the same domain name
 and therefore is not directly related to an email address, favicons can be used to track you.
+
+<br />
+
+<a name="faq155"></a>
+**(155) What is a winmail.dat file?**
+
+A *winmail.dat* file is sent by an incorrectly configured Outlook client.
+It is a Microsoft specific file format ([TNEF](https://en.wikipedia.org/wiki/Transport_Neutral_Encapsulation_Format)) containing a message and possibly attachments.
+
+You can find some more information about this file [here](https://support.mozilla.org/en-US/kb/what-winmaildat-attachment).
+
+You can view it with for example the Android app [Letter Opener](https://play.google.com/store/apps/details?id=app.letteropener).
 
 <br />
 
