@@ -47,6 +47,7 @@ Related questions:
 
 * Change the account name: Setup, step 1, Manage, tap account
 * Change the swipe left/right target: Setup, Behavior, Set swipe actions
+* Change password: Setup, step 1, Manage, tap account, change password
 * Set a signature: Setup, step 2, Manage, tap identity, Edit signature.
 * Add CC and BCC addresses: tap the people's icon at the end of the subject
 * Go to the next/previous message on archive/delete: in the behavior settings disable *Automatically close conversations* and select *Go to next/previous conversation* for *On closing a conversation*
