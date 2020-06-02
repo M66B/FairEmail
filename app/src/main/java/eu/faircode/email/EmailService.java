@@ -110,10 +110,12 @@ public class EmailService implements AutoCloseable {
 
     private static final int APPEND_BUFFER_SIZE = 4 * 1024 * 1024; // bytes
 
+    // https://developer.android.com/reference/javax/net/ssl/SSLSocket.html#protocols
     private static final List<String> SSL_PROTOCOL_BLACKLIST = Collections.unmodifiableList(Arrays.asList(
             "SSLv2", "SSLv3", "TLSv1", "TLSv1.1"
     ));
 
+    // https://developer.android.com/reference/javax/net/ssl/SSLSocket.html#cipher-suites
     private static final Pattern SSL_CIPHER_BLACKLIST =
             Pattern.compile(".*(_DES|DH_|DSS|EXPORT|MD5|NULL|RC4|TLS_FALLBACK_SCSV).*");
 
