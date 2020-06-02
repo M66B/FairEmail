@@ -77,7 +77,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swCrashReports;
     private TextView tvUuid;
     private SwitchCompat swDebug;
-    private SwitchCompat swSasl;
+    private SwitchCompat swAuthPlain;
+    private SwitchCompat swAuthSasl;
     private Button btnReset;
     private SwitchCompat swCleanupAttachments;
     private Button btnCleanup;
@@ -95,7 +96,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
     private final static String[] RESET_OPTIONS = new String[]{
             "shortcuts", "fts", "english", "watchdog", "auto_optimize", "updates",
-            "experiments", "crash_reports", "debug", "sasl", "cleanup_attachments"
+            "experiments", "crash_reports", "debug", "auth_plain", "auth_sasl", "cleanup_attachments"
     };
 
     private final static String[] RESET_QUESTIONS = new String[]{
@@ -132,7 +133,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swCrashReports = view.findViewById(R.id.swCrashReports);
         tvUuid = view.findViewById(R.id.tvUuid);
         swDebug = view.findViewById(R.id.swDebug);
-        swSasl = view.findViewById(R.id.swSasl);
+        swAuthPlain = view.findViewById(R.id.swAuthPlain);
+        swAuthSasl = view.findViewById(R.id.swAuthSasl);
         btnReset = view.findViewById(R.id.btnReset);
         swCleanupAttachments = view.findViewById(R.id.swCleanupAttachments);
         btnCleanup = view.findViewById(R.id.btnCleanup);
@@ -279,11 +281,19 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
-        swSasl.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        swAuthPlain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("sasl", checked).apply();
-                ServiceSynchronize.reload(getContext(), -1L, false, "sasl=" + checked);
+                prefs.edit().putBoolean("auth_plain", checked).apply();
+                ServiceSynchronize.reload(getContext(), -1L, false, "auth_plain=" + checked);
+            }
+        });
+
+        swAuthSasl.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("auth_sasl", checked).apply();
+                ServiceSynchronize.reload(getContext(), -1L, false, "auth_sasl=" + checked);
             }
         });
 
@@ -527,7 +537,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swCrashReports.setChecked(prefs.getBoolean("crash_reports", false));
         tvUuid.setText(prefs.getString("uuid", null));
         swDebug.setChecked(prefs.getBoolean("debug", false));
-        swSasl.setChecked(prefs.getBoolean("sasl", true));
+        swAuthPlain.setChecked(prefs.getBoolean("auth_plain", true));
+        swAuthSasl.setChecked(prefs.getBoolean("auth_sasl", true));
         swCleanupAttachments.setChecked(prefs.getBoolean("cleanup_attachments", false));
 
         tvProcessors.setText(getString(R.string.title_advanced_processors, Runtime.getRuntime().availableProcessors()));

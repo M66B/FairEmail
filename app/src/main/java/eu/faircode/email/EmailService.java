@@ -144,7 +144,8 @@ public class EmailService implements AutoCloseable {
         boolean socks_enabled = prefs.getBoolean("socks_enabled", false);
         String socks_proxy = prefs.getString("socks_proxy", "localhost:9050");
 
-        boolean sasl = prefs.getBoolean("sasl", true);
+        boolean auth_plain = prefs.getBoolean("auth_plain", true);
+        boolean auth_sasl = prefs.getBoolean("auth_sasl", true);
 
         // SOCKS proxy
         if (socks_enabled) {
@@ -163,11 +164,10 @@ public class EmailService implements AutoCloseable {
         properties.put("mail.event.scope", "folder");
         properties.put("mail.event.executor", executor);
 
-        //properties.put("mail." + protocol + ".auth.login.disable", "true");
-        //properties.put("mail." + protocol + ".auth.plain.disable", "true");
+        properties.put("mail." + protocol + ".auth.plain.disable", Boolean.toString(!auth_plain));
 
         properties.put("mail." + protocol + ".sasl.enable", "true");
-        if (sasl) {
+        if (auth_sasl) {
             properties.put("mail." + protocol + ".sasl.mechanisms", "CRAM-MD5");
             properties.put("mail." + protocol + ".sasl.realm", realm == null ? "" : realm);
         }
