@@ -27,8 +27,10 @@ import androidx.annotation.Nullable;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 public class SwipeRefreshLayoutEx extends SwipeRefreshLayout {
+    private boolean muted = false;
     private boolean refreshing = false;
 
+    private static final int DELAY_MUTE = 45 * 1000; // milliseconds
     private static final int DELAY_DISABLE = 1500; // milliseconds
 
     public SwipeRefreshLayoutEx(@NonNull Context context) {
@@ -47,11 +49,17 @@ public class SwipeRefreshLayoutEx extends SwipeRefreshLayout {
         this.refreshing = refreshing;
 
         removeCallbacks(delayedDisable);
+        removeCallbacks(delayedMute);
 
-        if (refreshing)
-            super.setRefreshing(refreshing);
-        else
+        if (refreshing) {
+            if (!muted) {
+                super.setRefreshing(true);
+                postDelayed(delayedMute, DELAY_MUTE);
+            }
+        } else {
+            muted = false;
             postDelayed(delayedDisable, DELAY_DISABLE);
+        }
     }
 
     @Override
@@ -60,8 +68,9 @@ public class SwipeRefreshLayoutEx extends SwipeRefreshLayout {
     }
 
     public void onRefresh() {
+        // User initiated
         this.refreshing = true;
-        setRefreshing(false);
+        setRefreshing(false); // disable, unless confirmed by folder update
     }
 
     public void resetRefreshing() {
@@ -77,6 +86,16 @@ public class SwipeRefreshLayoutEx extends SwipeRefreshLayout {
         public void run() {
             if (!refreshing)
                 SwipeRefreshLayoutEx.super.setRefreshing(refreshing);
+        }
+    };
+
+    private final Runnable delayedMute = new Runnable() {
+        @Override
+        public void run() {
+            if (refreshing) {
+                muted = true;
+                SwipeRefreshLayoutEx.super.setRefreshing(false);
+            }
         }
     };
 }
