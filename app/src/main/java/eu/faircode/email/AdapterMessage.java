@@ -268,6 +268,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private static final ExecutorService executor =
             Helper.getBackgroundExecutor(2, "differ");
 
+    private static final int MAX_RECIPIENTS = 10;
+
     // https://github.com/newhouse/url-tracking-stripper
     private static final List<String> PARANOID_QUERY = Collections.unmodifiableList(Arrays.asList(
             // https://en.wikipedia.org/wiki/UTM_parameters
@@ -1583,7 +1585,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             tvToTitle.setVisibility((!show_recipients || show_addresses) && !TextUtils.isEmpty(to) ? View.VISIBLE : View.GONE);
             tvTo.setVisibility((!show_recipients || show_addresses) && !TextUtils.isEmpty(to) ? View.VISIBLE : View.GONE);
-            tvTo.setText(to);
+            if (show_addresses || (message.to == null || message.to.length < MAX_RECIPIENTS))
+                tvTo.setText(to);
+            else
+                tvTo.setText(context.getString(R.string.title_recipients, message.to.length));
 
             tvReplyToTitle.setVisibility(show_addresses && !TextUtils.isEmpty(replyto) ? View.VISIBLE : View.GONE);
             tvReplyTo.setVisibility(show_addresses && !TextUtils.isEmpty(replyto) ? View.VISIBLE : View.GONE);
@@ -1591,11 +1596,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             tvCcTitle.setVisibility(!TextUtils.isEmpty(cc) ? View.VISIBLE : View.GONE);
             tvCc.setVisibility(!TextUtils.isEmpty(cc) ? View.VISIBLE : View.GONE);
-            tvCc.setText(cc);
+            if (show_addresses || (message.cc == null || message.cc.length < MAX_RECIPIENTS))
+                tvCc.setText(cc);
+            else
+                tvCc.setText(context.getString(R.string.title_recipients, message.cc.length));
 
             tvBccTitle.setVisibility(!TextUtils.isEmpty(bcc) ? View.VISIBLE : View.GONE);
             tvBcc.setVisibility(!TextUtils.isEmpty(bcc) ? View.VISIBLE : View.GONE);
-            tvBcc.setText(bcc);
+            if (show_addresses || (message.bcc == null || message.bcc.length < MAX_RECIPIENTS))
+                tvBcc.setText(bcc);
+            else
+                tvBcc.setText(context.getString(R.string.title_recipients, message.bcc.length));
 
             InternetAddress via = null;
             if (message.identityEmail != null)
