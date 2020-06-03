@@ -46,6 +46,8 @@ public class SwipeRefreshLayoutEx extends SwipeRefreshLayout {
         if (this.refreshing == refreshing)
             return;
 
+        Log.i("Refreshing=" + this.refreshing + "/" + refreshing + " muted=" + muted + " event=set");
+
         this.refreshing = refreshing;
 
         removeCallbacks(delayedDisable);
@@ -76,6 +78,7 @@ public class SwipeRefreshLayoutEx extends SwipeRefreshLayout {
     public void resetRefreshing() {
         // Restart spinner after screen off, etc
         if (super.isRefreshing()) {
+            Log.i("Refreshing=" + refreshing + " muted=" + muted + " event=reset");
             super.setRefreshing(false);
             super.setRefreshing(true);
         }
@@ -84,6 +87,7 @@ public class SwipeRefreshLayoutEx extends SwipeRefreshLayout {
     private final Runnable delayedDisable = new Runnable() {
         @Override
         public void run() {
+            Log.i("Refreshing=" + refreshing + " muted=" + muted + " event=disable");
             if (!refreshing)
                 SwipeRefreshLayoutEx.super.setRefreshing(refreshing);
         }
@@ -92,6 +96,7 @@ public class SwipeRefreshLayoutEx extends SwipeRefreshLayout {
     private final Runnable delayedMute = new Runnable() {
         @Override
         public void run() {
+            Log.i("Refreshing=" + refreshing + " muted=" + muted + " event=mute");
             if (refreshing) {
                 muted = true;
                 SwipeRefreshLayoutEx.super.setRefreshing(false);
