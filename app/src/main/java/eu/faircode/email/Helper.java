@@ -436,9 +436,13 @@ public class Helper {
 
         // Check if viewer available
         if (ris.size() == 0) {
-            String message = context.getString(R.string.title_no_viewer,
-                    type != null ? type : name != null ? name : file.getName());
-            ToastEx.makeText(context, message, Toast.LENGTH_LONG).show();
+            if ("application/ms-tnef".equals(type))
+                viewFAQ(context, 155);
+            else {
+                String message = context.getString(R.string.title_no_viewer,
+                        type != null ? type : name != null ? name : file.getName());
+                ToastEx.makeText(context, message, Toast.LENGTH_LONG).show();
+            }
         } else
             context.startActivity(intent);
     }
