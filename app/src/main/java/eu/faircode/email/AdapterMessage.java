@@ -5172,11 +5172,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         protected List<Long> onExecute(Context context, Bundle args) throws Throwable {
                             long[] ids = args.getLongArray("ids");
 
+                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                            boolean filter_seen = prefs.getBoolean("filter_seen", false);
+                            boolean filter_unflagged = prefs.getBoolean("filter_unflagged", false);
+                            boolean filter_snoozed = prefs.getBoolean("filter_snoozed", true);
+
                             List<Long> removed = new ArrayList<>();
 
                             DB db = DB.getInstance(context);
                             for (long id : ids)
-                                if (db.message().countVisible(id) == 0)
+                                if (db.message().countVisible(id, filter_seen, filter_unflagged, filter_snoozed) == 0)
                                     removed.add(id);
 
                             return removed;

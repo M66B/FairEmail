@@ -360,8 +360,13 @@ public interface DaoMessage {
     int countMessageByMsgId(long folder, String msgid);
 
     @Query("SELECT COUNT(*) FROM message" +
-            " WHERE id = :id AND NOT ui_hide")
-    int countVisible(long id);
+            " JOIN folder_view AS folder ON folder.id = message.folder" +
+            " WHERE message.id = :id" +
+            " AND NOT message.ui_hide" +
+            " AND (NOT :filter_seen OR NOT message.ui_seen)" +
+            " AND (NOT :filter_unflagged OR message.ui_flagged)" +
+            " AND (NOT :filter_snoozed OR message.ui_snoozed IS NULL OR " + is_drafts + ")")
+    int countVisible(long id, boolean filter_seen, boolean filter_unflagged, boolean filter_snoozed);
 
     @Query("SELECT message.*" +
             ", account.pop AS accountProtocol, account.name AS accountName, identity.color AS accountColor" +
