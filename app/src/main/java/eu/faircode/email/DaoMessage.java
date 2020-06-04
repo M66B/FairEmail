@@ -60,6 +60,11 @@ public interface DaoMessage {
             "   CASE WHEN NOT message.hash IS NULL THEN message.hash" +
             "   WHEN NOT message.msgid IS NULL THEN message.msgid" +
             "   ELSE message.id END) AS visible" +
+            ", COUNT(DISTINCT" +
+            "   CASE WHEN message.ui_seen THEN NULL" +
+            "   WHEN NOT message.hash IS NULL THEN message.hash" +
+            "   WHEN NOT message.msgid IS NULL THEN message.msgid" +
+            "   ELSE message.id END) AS visible_unseen" +
             ", SUM(message.total) AS totalSize" +
             ", message.priority AS ui_priority" +
             ", message.importance AS ui_importance" +
@@ -132,6 +137,11 @@ public interface DaoMessage {
             "   CASE WHEN NOT message.hash IS NULL THEN message.hash" +
             "   WHEN NOT message.msgid IS NULL THEN message.msgid" +
             "   ELSE message.id END) AS visible" +
+            ", COUNT(DISTINCT" +
+            "   CASE WHEN message.ui_seen THEN NULL" +
+            "   WHEN NOT message.hash IS NULL THEN message.hash" +
+            "   WHEN NOT message.msgid IS NULL THEN message.msgid" +
+            "   ELSE message.id END) AS visible_unseen" +
             ", SUM(message.total) AS totalSize" +
             ", message.priority AS ui_priority" +
             ", message.importance AS ui_importance" +
@@ -193,6 +203,7 @@ public interface DaoMessage {
             ", (message.ui_encrypt IN (2, 4)) AS signed" +
             ", (message.ui_encrypt IN (1, 3)) AS encrypted" +
             ", 1 AS visible" +
+            ", NOT message.ui_seen AS visible_unseen" +
             ", message.total AS totalSize" +
             ", message.priority AS ui_priority" +
             ", message.importance AS ui_importance" +
@@ -382,6 +393,7 @@ public interface DaoMessage {
             ", (message.ui_encrypt IN (2, 4)) AS signed" +
             ", (message.ui_encrypt IN (1, 3)) AS encrypted" +
             ", 1 AS visible" +
+            ", NOT message.ui_seen AS visible_unseen" +
             ", message.total AS totalSize" +
             ", message.priority AS ui_priority" +
             ", message.importance AS ui_importance" +
@@ -413,6 +425,7 @@ public interface DaoMessage {
             ", (message.ui_encrypt IN (2, 4)) AS signed" +
             ", (message.ui_encrypt IN (1, 3)) AS encrypted" +
             ", 1 AS visible" +
+            ", NOT message.ui_seen AS visible_unseen" +
             ", message.total AS totalSize" +
             ", message.priority AS ui_priority" +
             ", message.importance AS ui_importance" +

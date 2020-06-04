@@ -1043,7 +1043,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvCount.setVisibility(threading ? View.VISIBLE : View.GONE);
                 ivThread.setVisibility(View.VISIBLE);
 
-                tvCount.setText(NF.format(message.visible));
+                if (BuildConfig.DEBUG)
+                    tvCount.setText(NF.format(message.visible_unseen) + "/" + NF.format(message.visible));
+                else
+                    tvCount.setText(NF.format(message.visible));
 
                 if (selected)
                     ivThread.setColorFilter(colorAccent);
@@ -5115,6 +5118,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (prev.visible != next.visible) {
                     same = false;
                     log("visible changed " + prev.visible + "/" + next.visible, next.id);
+                }
+                if (prev.visible_unseen != next.visible_unseen) {
+                    same = false;
+                    log("visible_unseen changed " + prev.visible_unseen + "/" + next.visible_unseen, next.id);
                 }
                 if (!Objects.equals(prev.totalSize, next.totalSize)) {
                     same = false;
