@@ -330,6 +330,17 @@ public class FragmentAccount extends FragmentBase {
             }
         });
 
+        cbInsecure.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                Object tag = cbInsecure.getTag();
+                if (tag != null && tag.equals(isChecked))
+                    return;
+                if (isChecked)
+                    rgEncryption.check(R.id.radio_starttls);
+            }
+        });
+
         tilPassword.getEditText().addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -1408,6 +1419,7 @@ public class FragmentAccount extends FragmentBase {
                     }
 
                     rgEncryption.check(account != null && account.starttls ? R.id.radio_starttls : R.id.radio_ssl);
+                    cbInsecure.setTag(account == null ? false : account.insecure);
                     cbInsecure.setChecked(account == null ? false : account.insecure);
 
                     etUser.setText(account == null ? null : account.user);
