@@ -100,6 +100,19 @@
             app:layout_constraintTop_toBottomOf="@id/spPollInterval" />
 
         <eu.faircode.email.FixedTextView
+            android:id="@+id/tvOptimizedHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_optimized_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?attr/colorWarning"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvPollHint" />
+
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvExempted"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -110,7 +123,7 @@
             android:textColor="?android:attr/textColorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvPollHint" />
+            app:layout_constraintTop_toBottomOf="@id/tvOptimizedHint" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvExempted"
