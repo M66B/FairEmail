@@ -27,7 +27,6 @@ import androidx.annotation.Nullable;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 public class SwipeRefreshLayoutEx extends SwipeRefreshLayout {
-    private boolean muted = false;
     private boolean refreshing = false;
 
     private static final int DELAY_MUTE = 45 * 1000; // milliseconds
@@ -46,7 +45,7 @@ public class SwipeRefreshLayoutEx extends SwipeRefreshLayout {
         if (this.refreshing == refreshing)
             return;
 
-        Log.i("Refreshing=" + this.refreshing + "/" + refreshing + " muted=" + muted + " event=set");
+        Log.i("Refreshing=" + this.refreshing + "/" + refreshing + " event=set");
 
         this.refreshing = refreshing;
 
@@ -54,14 +53,10 @@ public class SwipeRefreshLayoutEx extends SwipeRefreshLayout {
         removeCallbacks(delayedMute);
 
         if (refreshing) {
-            if (!muted) {
-                super.setRefreshing(true);
-                postDelayed(delayedMute, DELAY_MUTE);
-            }
-        } else {
-            muted = false;
+            super.setRefreshing(refreshing);
+            postDelayed(delayedMute, DELAY_MUTE);
+        } else
             postDelayed(delayedDisable, DELAY_DISABLE);
-        }
     }
 
     @Override
@@ -78,7 +73,7 @@ public class SwipeRefreshLayoutEx extends SwipeRefreshLayout {
     public void resetRefreshing() {
         // Restart spinner after screen off, etc
         if (super.isRefreshing()) {
-            Log.i("Refreshing=" + refreshing + " muted=" + muted + " event=reset");
+            Log.i("Refreshing=" + refreshing + " event=reset");
             super.setRefreshing(false);
             super.setRefreshing(true);
         }
@@ -87,7 +82,7 @@ public class SwipeRefreshLayoutEx extends SwipeRefreshLayout {
     private final Runnable delayedDisable = new Runnable() {
         @Override
         public void run() {
-            Log.i("Refreshing=" + refreshing + " muted=" + muted + " event=disable");
+            Log.i("Refreshing=" + refreshing + " event=disable");
             if (!refreshing)
                 SwipeRefreshLayoutEx.super.setRefreshing(refreshing);
         }
@@ -96,11 +91,9 @@ public class SwipeRefreshLayoutEx extends SwipeRefreshLayout {
     private final Runnable delayedMute = new Runnable() {
         @Override
         public void run() {
-            Log.i("Refreshing=" + refreshing + " muted=" + muted + " event=mute");
-            if (refreshing) {
-                muted = true;
+            Log.i("Refreshing=" + refreshing + " event=mute");
+            if (refreshing)
                 SwipeRefreshLayoutEx.super.setRefreshing(false);
-            }
         }
     };
 }
