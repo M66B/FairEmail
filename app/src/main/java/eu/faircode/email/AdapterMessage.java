@@ -224,6 +224,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     private boolean date;
     private boolean threading;
+    private boolean threading_unread;
     private boolean avatars;
     private boolean color_stripe;
     private boolean name_email;
@@ -1043,8 +1044,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvCount.setVisibility(threading ? View.VISIBLE : View.GONE);
                 ivThread.setVisibility(View.VISIBLE);
 
-                if (BuildConfig.DEBUG)
-                    tvCount.setText(NF.format(message.visible_unseen) + "/" + NF.format(message.visible));
+                if (threading_unread)
+                    tvCount.setText(context.getString(R.string.title_of,
+                            NF.format(message.visible_unseen),
+                            NF.format(message.visible)));
                 else
                     tvCount.setText(NF.format(message.visible));
 
@@ -4783,6 +4786,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         this.date = prefs.getBoolean("date", true);
         this.threading = prefs.getBoolean("threading", true);
+        this.threading_unread = threading && prefs.getBoolean("threading_unread", false);
         this.avatars = (contacts && avatars) || generated;
         this.color_stripe = prefs.getBoolean("color_stripe", true);
         this.name_email = prefs.getBoolean("name_email", false);

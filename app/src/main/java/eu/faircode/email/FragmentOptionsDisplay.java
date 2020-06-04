@@ -64,6 +64,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swLandscape3;
 
     private SwitchCompat swThreading;
+    private SwitchCompat swThreadingUnread;
     private SwitchCompat swIndentation;
     private SwitchCompat swSeekbar;
     private SwitchCompat swActionbar;
@@ -118,7 +119,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
     private final static String[] RESET_OPTIONS = new String[]{
             "theme", "startup", "cards", "date", "navbar_colorize", "landscape", "landscape3",
-            "threading", "indentation", "seekbar", "actionbar", "actionbar_color",
+            "threading", "threading_unread", "indentation", "seekbar", "actionbar", "actionbar_color",
             "highlight_unread", "color_stripe",
             "avatars", "gravatars", "generated_icons", "identicons", "circular", "saturation", "brightness", "threshold",
             "name_email", "prefer_contact", "distinguish_contacts", "show_recipients",
@@ -150,6 +151,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swLandscape3 = view.findViewById(R.id.swLandscape3);
 
         swThreading = view.findViewById(R.id.swThreading);
+        swThreadingUnread = view.findViewById(R.id.swThreadingUnread);
         swIndentation = view.findViewById(R.id.swIndentation);
         swSeekbar = view.findViewById(R.id.swSeekbar);
         swActionbar = view.findViewById(R.id.swActionbar);
@@ -268,7 +270,15 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("threading", checked).apply();
+                swThreadingUnread.setEnabled(checked);
                 WidgetUnified.updateData(getContext());
+            }
+        });
+
+        swThreadingUnread.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("threading_unread", checked).apply();
             }
         });
 
@@ -725,6 +735,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swLandscape3.setEnabled(normal && swLandscape.isChecked());
 
         swThreading.setChecked(prefs.getBoolean("threading", true));
+        swThreadingUnread.setChecked(prefs.getBoolean("threading_unread", false));
+        swThreadingUnread.setEnabled(swThreading.isChecked());
         swIndentation.setChecked(prefs.getBoolean("indentation", false));
         swIndentation.setEnabled(swCards.isChecked());
         swSeekbar.setChecked(prefs.getBoolean("seekbar", false));
