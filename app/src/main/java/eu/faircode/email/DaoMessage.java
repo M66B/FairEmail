@@ -43,6 +43,8 @@ public interface DaoMessage {
     String is_outbox = "folder.type = '" + EntityFolder.OUTBOX + "'";
     String is_sent = "folder.type = '" + EntityFolder.SENT + "'";
 
+    @Transaction
+    @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
     @Query("SELECT message.*" +
             ", account.pop AS accountProtocol, account.name AS accountName, COALESCE(identity.color, folder.color, account.color) AS accountColor" +
             ", account.notify AS accountNotify, account.auto_seen AS accountAutoSeen" +
@@ -111,7 +113,6 @@ public interface DaoMessage {
             "   ELSE 0" +
             "  END" +
             ", CASE WHEN :ascending THEN message.received ELSE -message.received END")
-    @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
     DataSource.Factory<Integer, TupleMessageEx> pagedUnified(
             String type,
             boolean threading,
@@ -120,6 +121,8 @@ public interface DaoMessage {
             boolean found,
             boolean debug);
 
+    @Transaction
+    @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
     @Query("SELECT message.*" +
             ", account.pop AS accountProtocol, account.name AS accountName, COALESCE(identity.color, folder.color, account.color) AS accountColor" +
             ", account.notify AS accountNotify, account.auto_seen AS accountAutoSeen" +
@@ -181,7 +184,6 @@ public interface DaoMessage {
             "   ELSE 0" +
             "  END" +
             ", CASE WHEN :ascending THEN message.received ELSE -message.received END")
-    @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
     DataSource.Factory<Integer, TupleMessageEx> pagedFolder(
             long folder, boolean threading,
             String sort, boolean ascending,
@@ -189,6 +191,7 @@ public interface DaoMessage {
             boolean found,
             boolean debug);
 
+    @Transaction
     @Query("SELECT message.*" +
             ", account.pop AS accountProtocol, account.name AS accountName, COALESCE(identity.color, folder.color, account.color) AS accountColor" +
             ", account.notify AS accountNotify, account.auto_seen AS accountAutoSeen" +
