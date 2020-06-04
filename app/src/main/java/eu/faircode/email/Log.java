@@ -734,7 +734,34 @@ public class Log {
                 ex.getMessage().contains("finalize"))
             return false;
 
-        if (ex instanceof CursorWindowAllocationException)
+        if (ex instanceof CursorWindowAllocationException ||
+                "android.database.CursorWindowAllocationException".equals(ex.getClass().getName()))
+            /*
+                android.database.CursorWindowAllocationException: Could not allocate CursorWindow '/data/user/0/eu.faircode.email/no_backup/androidx.work.workdb' of size 2097152 due to error -12.
+                android.database.CursorWindowAllocationException: Could not allocate CursorWindow '/data/user/0/eu.faircode.email/no_backup/androidx.work.workdb' of size 2097152 due to error -12.
+                at android.database.CursorWindow.nativeCreate(Native Method)
+                at android.database.CursorWindow.<init>(CursorWindow.java:139)
+                at android.database.CursorWindow.<init>(CursorWindow.java:120)
+                at android.database.AbstractWindowedCursor.clearOrCreateWindow(AbstractWindowedCursor.java:202)
+                at android.database.sqlite.SQLiteCursor.fillWindow(SQLiteCursor.java:147)
+                at android.database.sqlite.SQLiteCursor.getCount(SQLiteCursor.java:140)
+                at android.database.AbstractCursor.moveToPosition(AbstractCursor.java:232)
+                at android.database.AbstractCursor.moveToNext(AbstractCursor.java:281)
+                at androidx.room.InvalidationTracker$1.checkUpdatedTable(SourceFile:417)
+                at androidx.room.InvalidationTracker$1.run(SourceFile:388)
+                at androidx.work.impl.utils.SerialExecutor$Task.run(SourceFile:91)
+             */
+            return false;
+
+        if ("android.util.SuperNotCalledException".equals(ex.getClass().getName()))
+            /*
+                android.util.SuperNotCalledException: Activity {eu.faircode.email/eu.faircode.email.ActivityView} did not call through to super.onResume()
+                android.util.SuperNotCalledException: Activity {eu.faircode.email/eu.faircode.email.ActivityView} did not call through to super.onResume()
+                  at android.app.Activity.performResume(Activity.java:7304)
+                  at android.app.ActivityThread.performNewIntents(ActivityThread.java:3165)
+                  at android.app.ActivityThread.handleNewIntent(ActivityThread.java:3180)
+                  at android.app.servertransaction.NewIntentItem.execute(NewIntentItem.java:49)
+             */
             return false;
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
