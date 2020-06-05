@@ -116,6 +116,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private static final int BACKOFF_ERROR_AFTER = 16; // seconds
     private static final long WIDGET_UPDATE_DELAY = 2500L; // milliseconds
 
+    private static final String ACTION_NEW_MESSAGE_COUNT = BuildConfig.APPLICATION_ID + ".NEW_MESSAGE_COUNT";
+
     private static final List<String> PREF_EVAL = Collections.unmodifiableList(Arrays.asList(
             "enabled", "poll_interval" // restart account(s)
     ));
@@ -539,6 +541,16 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                 if (lastCount == null || !lastCount.equals(count)) {
                     lastCount = count;
+                    // Broadcast new message count
+                    try {
+                        Intent intent = new Intent(ACTION_NEW_MESSAGE_COUNT);
+                        intent.putExtra("count", count);
+                        sendBroadcast(intent);
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
+
+                    // Update badge
                     try {
                         if (count == 0 || !badge)
                             ShortcutBadger.removeCount(ServiceSynchronize.this);

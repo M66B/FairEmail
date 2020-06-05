@@ -2333,6 +2333,14 @@ despite FairEmail explicitly requesting not to show a badge for this notificatio
 
 Note that Tesla Unread is [not supported anymore](https://forum.xda-developers.com/android/general/bad-news-tesla-unread-devoloper-t3920415).
 
+FairEmail does send a new message count intent as well:
+
+```
+eu.faircode.email.NEW_MESSAGE_COUNT
+```
+
+The number of new, unread messages will be in an integer "*count*" parameter.
+
 <br />
 
 <a name="faq107"></a>
