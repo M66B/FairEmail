@@ -24,6 +24,8 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Build;
 import android.util.Pair;
+import android.view.InputDevice;
+import android.view.MotionEvent;
 import android.view.View;
 import android.webkit.DownloadListener;
 import android.webkit.WebSettings;
@@ -166,6 +168,14 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
             return true;
         }
         return false;
+    }
+
+    @Override
+    public boolean onGenericMotionEvent(MotionEvent event) {
+        if (event.getAction() == MotionEvent.ACTION_SCROLL &&
+                (event.getSource() & InputDevice.SOURCE_MOUSE) != 0)
+            return false;
+        return super.onGenericMotionEvent(event);
     }
 
     interface IWebView {
