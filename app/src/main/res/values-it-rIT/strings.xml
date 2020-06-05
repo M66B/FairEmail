@@ -77,6 +77,7 @@
     <string name="title_notification_idle">Inattivo</string>
     <string name="title_notification_failed">\'%1$s\' fallito</string>
     <string name="title_notification_alert">\'%1$s\' avvisi sul server</string>
+    <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
     <string name="title_from_to">%1$s ➤ %2$s</string>
@@ -264,6 +265,7 @@
     <string name="title_advanced_cards">Utilizza lo stile della carta al posto dello stile tabulare</string>
     <string name="title_advanced_date_header">Raggruppa per data</string>
     <string name="title_advanced_threading">Thread di conversazione</string>
+    <string name="title_advanced_threading_unread">Show number of unread messages in conversations</string>
     <string name="title_advanced_indentation">Messaggi ricevuti/inviati con rientro a sinistra/destra nelle conversazioni</string>
     <string name="title_advanced_highlight_unread">Evidenzia i messaggi non letti</string>
     <string name="title_advanced_highlight_subject">Evidenzia oggetto</string>
@@ -383,6 +385,7 @@
     <string name="title_advanced_language_detection">Rileva lingua testo messaggio</string>
     <string name="title_advanced_fts">Crea indice di ricerca</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d messaggi indicizzati (%3$s)</string>
+    <string name="title_advanced_english">Use US country settings</string>
     <string name="title_advanced_watchdog">Controlla periodicamente se FairEmail è ancora attiva</string>
     <string name="title_advanced_optimize">Ottimizza automaticamente le impostazioni</string>
     <string name="title_advanced_updates">Controlla aggiornamenti</string>
@@ -396,6 +399,7 @@
     <string name="title_advanced_enabled_hint">Attiva o disattiva a livello globale la ricezione dei messaggi</string>
     <string name="title_advanced_manual_hint">Se la sincronizzazione è disabilitata, è ancora possibile sincronizzare manualmente tirando verso il basso l\'elenco dei messaggi.</string>
     <string name="title_advanced_poll_hint">La sincronizzazione periodica compara i messaggi locali e remoti ogni volta, il che è un\'operazione costosa che potrebbe comportare un utilizzo aggiuntivo di batteria, specialmente quando ci sono molti messaggi da sincronizzare. La sincronizzazione sempre eviterà questo tramite un monitoraggio continuo solo per le modifiche.</string>
+    <string name="title_advanced_optimized_hint">This option can be optimized automatically (miscellaneous settings)</string>
     <string name="title_advanced_schedule_hint">Tocca un orario per impostare un orario</string>
     <string name="title_advanced_check_mx">Controlla gli indirizzi email mittente alla sincronizzazione dei messaggi</string>
     <string name="title_advanced_check_reply">Controlla gli indirizzi email di risposta alla sincronizzazione dei messaggi</string>
@@ -721,6 +725,7 @@
     <string name="title_reply_to">Rispondi a:</string>
     <string name="title_cc">CC:</string>
     <string name="title_bcc">CCN:</string>
+    <string name="title_recipients">%1$d recipients</string>
     <string name="title_via_identity">Tramite:</string>
     <string name="title_sent">Inviato:</string>
     <string name="title_received">Ricevuto:</string>
@@ -1013,6 +1018,7 @@
     <string name="title_legend_show_junk">Tratta come spam</string>
     <string name="title_legend_show_unsubscribe">Cancellare dalla lista</string>
     <string name="title_legend_show_images">Mostra immagini</string>
+    <string name="title_legend_show_full">Show original message</string>
     <string name="title_legend_edit">Modifica</string>
     <string name="title_legend_default_color">Colore predefinito</string>
     <string name="title_legend_close_hint">Chiudi suggerimento</string>

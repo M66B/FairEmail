@@ -77,6 +77,7 @@
     <string name="title_notification_idle">Празен</string>
     <string name="title_notification_failed">%1$s се провали</string>
     <string name="title_notification_alert">Сигнал от сървър \'%1$s\'</string>
+    <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
     <string name="title_from_to">%1$s ➤ %2$s</string>
@@ -264,6 +265,7 @@
     <string name="title_advanced_cards">Използвайте стил на карти вместо табличен стил</string>
     <string name="title_advanced_date_header">Групиране по дата</string>
     <string name="title_advanced_threading">Групиране на разговори</string>
+    <string name="title_advanced_threading_unread">Показване на броя на непрочетените съобщения в разговорите</string>
     <string name="title_advanced_indentation">Ляв/десен отстъп на получени/изпратени съобщения в разговори</string>
     <string name="title_advanced_highlight_unread">Маркирай непрочетените съобщения</string>
     <string name="title_advanced_highlight_subject">Маркирана тема</string>
@@ -392,10 +394,12 @@
     <string name="title_advanced_debug">Режим за отстраняване на грешки</string>
     <string name="title_advanced_cleanup_attachments">Изтрийте прикачени файлове на стари съобщения</string>
     <string name="title_advanced_cleanup">Почистване</string>
+    <string name="title_advanced_last_cleanup">Last cleanup: %1$s</string>
     <string name="title_advanced_more">Още опции</string>
     <string name="title_advanced_enabled_hint">Глобално активира или деактивира получаването на съобщения</string>
     <string name="title_advanced_manual_hint">Ако синхронизирането е деактивирано, все още е възможно да се синхронизира ръчно чрез изтегляне на списъка със съобщения.</string>
     <string name="title_advanced_poll_hint">Периодичното синхронизиране ще сравнява всеки път локални и отдалечени съобщения, което е скъпа операция, която евентуално води до допълнително използване на батерията, особено когато има много съобщения за синхронизиране. Постоянната синхронизация ще избегне това като наблюдава само за промени.</string>
+    <string name="title_advanced_optimized_hint">Тази опция може да бъде оптимизирана автоматично (различни настройки)</string>
     <string name="title_advanced_schedule_hint">Докосни за настройка</string>
     <string name="title_advanced_check_mx">Проверка имейл адреса на изпращача при синхронизиране на съобщенията</string>
     <string name="title_advanced_check_reply">Проверка имейл адреса на изпращача при синхронизиране на съобщенията</string>
@@ -722,6 +726,7 @@
     <string name="title_reply_to">Отговори на:</string>
     <string name="title_cc">Копие:</string>
     <string name="title_bcc">Скрито копие:</string>
+    <string name="title_recipients">%1$d получатели</string>
     <string name="title_via_identity">През:</string>
     <string name="title_sent">Изпратено:</string>
     <string name="title_received">Получено:</string>

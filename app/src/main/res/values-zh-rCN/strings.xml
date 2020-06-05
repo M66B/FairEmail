@@ -65,6 +65,7 @@
     <string name="title_notification_idle">空闲</string>
     <string name="title_notification_failed">\'%1$s\' 失败</string>
     <string name="title_notification_alert">\'%1$s\' 服务器警告</string>
+    <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
     <string name="title_from_to">%1$s ➤ %2$s</string>
@@ -252,6 +253,7 @@
     <string name="title_advanced_cards">使用卡片样式而不是表单样式</string>
     <string name="title_advanced_date_header">按日期分组</string>
     <string name="title_advanced_threading">会话线程</string>
+    <string name="title_advanced_threading_unread">在对话中显示未读消息的数量</string>
     <string name="title_advanced_indentation">左/右缩进接收/发送的消息</string>
     <string name="title_advanced_highlight_unread">高亮未读消息</string>
     <string name="title_advanced_highlight_subject">高亮主题</string>
@@ -385,6 +387,8 @@
     <string name="title_advanced_enabled_hint">全局禁用或启用邮件接收</string>
     <string name="title_advanced_manual_hint">即便禁用同步，仍然可以通过下拉消息列表手动同步。</string>
     <string name="title_advanced_poll_hint">定期同步将每次都比较本地和远程消息，这是有代价的操作(更耗电)，特别是在要同步的消息很多时。而始终同步可通过持续监视变化以避免发生上述情形</string>
+    <string name="title_advanced_optimized_hint">此选项可以被自动优化
+（其他设置）</string>
     <string name="title_advanced_schedule_hint">点击“时间”选项来设置时间</string>
     <string name="title_advanced_check_mx">同步消息时检查发送者电子邮件地址</string>
     <string name="title_advanced_check_reply">同步消息时检查回复邮件地址</string>
@@ -711,6 +715,7 @@
     <string name="title_reply_to">回复：</string>
     <string name="title_cc">抄送：</string>
     <string name="title_bcc">密送：</string>
+    <string name="title_recipients">%1$d位收件人</string>
     <string name="title_via_identity">账号：</string>
     <string name="title_sent">发送时间：</string>
     <string name="title_received">接收时间：</string>

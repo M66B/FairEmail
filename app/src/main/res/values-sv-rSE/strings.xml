@@ -77,6 +77,7 @@
     <string name="title_notification_idle">Inaktiv</string>
     <string name="title_notification_failed">\"%1$s\" misslyckades</string>
     <string name="title_notification_alert">\"%1$s\" servermeddelande</string>
+    <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
     <string name="title_from_to">%1$s ➤ %2$s</string>
@@ -263,6 +264,7 @@
     <string name="title_advanced_cards">Använd kortstil istället för tabellstil</string>
     <string name="title_advanced_date_header">Gruppera efter datum</string>
     <string name="title_advanced_threading">Konversationstrådar</string>
+    <string name="title_advanced_threading_unread">Visa antal olästa meddelanden i konversationer</string>
     <string name="title_advanced_indentation">Vänster/höger indrag mottaget/skickade meddelanden i konversationer</string>
     <string name="title_advanced_highlight_unread">Markera olästa meddelanden</string>
     <string name="title_advanced_highlight_subject">Markera ämnet</string>
@@ -396,6 +398,7 @@
     <string name="title_advanced_enabled_hint">Globalt inaktivera eller aktivera mottagning av meddelanden</string>
     <string name="title_advanced_manual_hint">Om synkroniseringen är inaktiverad är det fortfarande möjligt att synkronisera manuellt genom att dra ner meddelandelistan.</string>
     <string name="title_advanced_poll_hint">Synkronisering med jämna mellanrum kommer att jämföra lokala och fjärrmeddelanden varje gång, vilket är en dyr operation som eventuellt resulterar i extra batterianvändning, speciellt när det finns många meddelanden att synkronisera. Kontinuerlig synkronisering kommer att undvika detta genom kontinuerlig övervakning endast för ändringar.</string>
+    <string name="title_advanced_optimized_hint">Detta alternativ kan optimeras automatiskt (diverse inställningar)</string>
     <string name="title_advanced_schedule_hint">Tryck på en tid för att ställa in en tid</string>
     <string name="title_advanced_check_mx">Kontrollera avsändarens e-postadresser vid synkronisering av meddelanden</string>
     <string name="title_advanced_check_reply">Kontrollera svarsadresser vid synkronisering av meddelanden</string>
@@ -722,6 +725,7 @@
     <string name="title_reply_to">Svara till:</string>
     <string name="title_cc">Kopia:</string>
     <string name="title_bcc">Dold kopia:</string>
+    <string name="title_recipients">%1$d mottagare</string>
     <string name="title_via_identity">Via:</string>
     <string name="title_sent">Skickat:</string>
     <string name="title_received">Mottaget:</string>

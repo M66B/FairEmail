@@ -78,6 +78,7 @@
     <string name="title_notification_idle">Leerlauf</string>
     <string name="title_notification_failed">\'%1$s\' fehlgeschlagen</string>
     <string name="title_notification_alert">\'%1$s\' Server-Warnung</string>
+    <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
     <string name="title_from_to">%1$s ➤ %2$s</string>
@@ -265,6 +266,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_cards">Ordner und Unterhaltungen mit Rahmen (breit) statt in Tabellendesign (schmal) zeigen</string>
     <string name="title_advanced_date_header">Nach Datum gruppieren</string>
     <string name="title_advanced_threading">Themenbaum</string>
+    <string name="title_advanced_threading_unread">Anzahl ungelesener Nachrichten in Unterhaltungen anzeigen</string>
     <string name="title_advanced_indentation">Empfangene/gesendete Nachrichten im Themenbaum links/rechts einrücken</string>
     <string name="title_advanced_highlight_unread">Ungelesene Nachrichten hervorheben</string>
     <string name="title_advanced_highlight_subject">Betreff hervorheben</string>
@@ -398,6 +400,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_enabled_hint">Nachrichtenempfang global deaktivieren oder aktivieren</string>
     <string name="title_advanced_manual_hint">Selbst wenn die Synchronisation deaktiviert ist, ist es möglich, manuell zu synchronisieren, indem Sie die Nachrichtenliste herunterziehen.</string>
     <string name="title_advanced_poll_hint">Die regelmäßige Synchronisation vergleicht jedes Mal lokale und entfernte Nachrichten, was ein aufwendiger Vorgang ist, der möglicherweise zu einem zusätzlichen Akkuverbrauch führt, besonders wenn es viele zu synchronisierende Nachrichten gibt. Durch ständiges synchronisieren wird das vermieden, indem nur auf Änderungen überwacht wird.</string>
+    <string name="title_advanced_optimized_hint">Diese Einstellung kann automatisch optimiert werden (siehe auch Verschiedenes in den Einstellungen)</string>
     <string name="title_advanced_schedule_hint">Tippe auf eine Zeit, um eine Zeit zu setzen</string>
     <string name="title_advanced_check_mx">Überprüft die Absender-E-Mail-Adressen beim Synchronisieren von Nachrichten per DNS MX</string>
     <string name="title_advanced_check_reply">Überprüft die Antwort-An-E-Mail-Adressen beim Synchronisieren von Nachrichten</string>
@@ -723,6 +726,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_reply_to">Antworten an:</string>
     <string name="title_cc">Kopie:</string>
     <string name="title_bcc">Blindkopie:</string>
+    <string name="title_recipients">%1$d Empfänger</string>
     <string name="title_via_identity">Über:</string>
     <string name="title_sent">Gesendet:</string>
     <string name="title_received">Empfangen:</string>

@@ -99,8 +99,10 @@
     <string name="title_notification_idle">Nedejavno</string>
     <string name="title_notification_failed">\'%1$s\' je spodletelo.</string>
     <string name="title_notification_alert">Opozorilo strežnika \'%1$s\'</string>
+    <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s + %2$d</string>
+    <string name="title_from_to">%1$s ➤ %2$s</string>
     <string name="title_factor_minutes">%1$d minut</string>
     <string name="menu_exit">Izhod</string>
     <string name="menu_answers">Predloge</string>
@@ -156,6 +158,7 @@
     <string name="title_setup_no_settings">Nastavitev za domeno \'%1$s\' ni bilo mogoče najti.</string>
     <string name="title_setup_no_settings_hint">Poizkusite nastaviti račun in identiteto v 1. in 2. koraku z uporabo nastavitev od svojega e-poštnega ponudnika.</string>
     <string name="title_setup_no_auth_hint">Preverite e-poštni naslov in geslo in se prepričajte, da je za vaš račun omogočen zunanji dostop (IMAP/SMTP).</string>
+    <string name="title_setup_app_password_hint">This provider requires an app password instead of the account password, please check the instructions of your provider</string>
     <string name="title_setup_no_system_folders">Mape \'Prejeto\' ali \'Osnutki\' ni bilo mogoče najti.</string>
     <string name="title_setup_quick_success">Račun in identiteta sta bila uspešno dodana.</string>
     <string name="title_setup_quick_failed">Račun in identiteto lahko poizkusite nastaviti tudi spodaj.</string>
@@ -279,10 +282,12 @@
     <string name="title_advanced_caption_message_header">Glava sporočila</string>
     <string name="title_advanced_caption_message_body">Telo sporočila</string>
     <string name="title_advanced_landscape">V ležečem načinu uporabi dva stolpca</string>
+    <string name="title_advanced_landscape3">Show navigation menu in landscape mode by default</string>
     <string name="title_advanced_startup">Prikaži ob zagonu</string>
     <string name="title_advanced_cards">Uporabi kartice namesto seznama</string>
     <string name="title_advanced_date_header">Združi po datumu</string>
     <string name="title_advanced_threading">Niti pogovorov</string>
+    <string name="title_advanced_threading_unread">Show number of unread messages in conversations</string>
     <string name="title_advanced_indentation">V pogovorih zamakni prejeta/poslana sporočila levo/desno</string>
     <string name="title_advanced_highlight_unread">Poudari neprebrana sporočila</string>
     <string name="title_advanced_highlight_subject">Poudari zadevo</string>
@@ -298,6 +303,7 @@
     <string name="title_advanced_name_email">Prikaži imena in e-poštne naslove</string>
     <string name="title_advanced_replace_name">Prednost ima ime stika pred poslanim imenom</string>
     <string name="title_advanced_distinguish_contacts">Podčrtaj pošiljatelja, ko je ta poznan kot krajevni stik \'Za\'</string>
+    <string name="title_advanced_show_recipients">Show recipients in message header</string>
     <string name="title_advanced_font_size_sender">Velikost pisave pošiljatelja</string>
     <string name="title_advanced_font_size_subject">Velikost pisave zadeve</string>
     <string name="title_advanced_subject_top">Prikaži zadevo nad pošiljateljem</string>
@@ -317,6 +323,7 @@
     <string name="title_advanced_monospaced">Uporabi stalno širino za besedilo sporočila</string>
     <string name="title_advanced_text_color">Prikaži barve besedila</string>
     <string name="title_advanced_text_size">Prikaži majhna in velika besedila</string>
+    <string name="title_advanced_text_align">Show left/center/right aligned texts</string>
     <string name="title_advanced_collapse_quotes">Strni navedeno besedilo</string>
     <string name="title_advanced_images_inline">Samodejno prikaži slike v besedilu</string>
     <string name="title_advanced_seekbar">Prikaži relativni položaj pogovora s piko</string>
@@ -350,6 +357,8 @@
     <string name="title_advanced_notifications">Upravljaj z obvestili</string>
     <string name="title_advanced_notifications_default">Privzeti kanal</string>
     <string name="title_advanced_notifications_service">Kanal storitev</string>
+    <string name="title_advanced_notifications_background">Use background service to synchronize messages</string>
+    <string name="title_advanced_notifications_background_hint">A background service can be stopped by Android at any time, but doesn\'t require a status bar notification</string>
     <string name="title_advanced_badge">Ikono zaganjalnika prikaži s številom novih sporočil</string>
     <string name="title_advanced_unseen_ignored">Število novih sporočil naj se ujema s številom obvestil</string>
     <string name="title_advanced_notify_summary">Prikaži samo obvestilo s povzetkom</string>
@@ -390,6 +399,7 @@
     <string name="title_advanced_manage_certificates">Upravljaj z javnimi ključi</string>
     <string name="title_advanced_import_key">Uvozi zasebni ključ</string>
     <string name="title_advanced_manage_keys">Upravljaj z zasebnimi ključi</string>
+    <string name="title_advanced_ca">Installed CA certificates</string>
     <string name="title_advanced_external_search">Dovoli drugim programom iskati v sporočilih</string>
     <string name="title_advanced_shortcuts">V Androidovem meniju za deljenje prikaži pogosto uporabljene stike</string>
     <string name="title_advanced_conversation_actions">Predlagaj dejanja</string>
@@ -397,6 +407,7 @@
     <string name="title_advanced_language_detection">Zaznaj jezik besedila sporočila</string>
     <string name="title_advanced_fts">Zgradi iskalno kazalo</string>
     <string name="title_advanced_fts_indexed">V kazalo je bilo dodanih %1$d/%2$d sporočil (%3$s)</string>
+    <string name="title_advanced_english">Use US country settings</string>
     <string name="title_advanced_watchdog">Občasno preveri, ali je FairEmail še vedno dejaven</string>
     <string name="title_advanced_optimize">Samodejno optimiziraj nastavitve</string>
     <string name="title_advanced_updates">Preveri za posodobitve</string>
@@ -405,10 +416,12 @@
     <string name="title_advanced_debug">Razhroščevalni način</string>
     <string name="title_advanced_cleanup_attachments">Izbriši priloge starih sporočil</string>
     <string name="title_advanced_cleanup">Počisti</string>
+    <string name="title_advanced_last_cleanup">Last cleanup: %1$s</string>
     <string name="title_advanced_more">Več možnosti</string>
     <string name="title_advanced_enabled_hint">Onemogoči ali omogoči splošno prejemanje sporočil.</string>
     <string name="title_advanced_manual_hint">Če je sinhronizacija onemogočena, je še vedno mogoča ročna sinhronizacija s potegom navzdol po seznamu sporočil.</string>
     <string name="title_advanced_poll_hint">Občasna sinhronizacija bo vsakič primerjala krajevna in oddaljena sporočila, kar je potratno opravilo, ki lahko porabi dodatno energijo, posebno pri velikem številu sporočil.  Če sinhronizirate vedno, se boste izognili dodatni porabi energije, ker pri tem program stalno preverja samo za spremembe.</string>
+    <string name="title_advanced_optimized_hint">This option can be optimized automatically (miscellaneous settings)</string>
     <string name="title_advanced_schedule_hint">Dotaknite se časa, da ga nastavite.</string>
     <string name="title_advanced_check_mx">Preveri pošiljateljeve e-poštne naslove ob sinhronizaciji sporočil</string>
     <string name="title_advanced_check_reply">Preveri e-poštne naslove za odgovor ob sinhronizaciji sporočil</string>
@@ -581,6 +594,7 @@
     <string name="title_folder_name">Ime mape</string>
     <string name="title_display_name">Prikazano ime</string>
     <string name="title_show_folders">Prikaži skrite mape</string>
+    <string name="title_show_flagged">Show starred message count</string>
     <string name="title_subscribed_only">Samo naročene</string>
     <string name="title_apply_to_all">Uporabi za vse &#8230;</string>
     <string name="title_hide_folder">Skrij mapo</string>
@@ -598,6 +612,9 @@
     <string name="title_auto_trash">Samodejno premakni stara sporočila v smeti</string>
     <string name="title_auto_delete">Samodejno trajno izbriši stara sporočila</string>
     <string name="title_auto_delete_hint">Stara sporočila so sporočila, ki se ne hranijo več na napravi.</string>
+    <string name="title_inbox_root_hint">        Some providers require new folders to be created below the inbox.
+        In this case, you can long press the inbox in the folder list and select \'Create sub folder\'.
+    </string>
     <string name="title_folder_name_missing">Manjka ime mape.</string>
     <string name="title_folder_exists">Mapa %1$s obstaja.</string>
     <string name="title_folder_delete">Trajno izbriši to mapo in vsa sporočila v njej?</string>
@@ -639,6 +656,7 @@
     <string name="title_editasnew">Uredi kot novo</string>
     <string name="title_create_rule">Ustvari pravilo &#8230;</string>
     <string name="title_share">Deli</string>
+    <string name="title_event">Add to calendar</string>
     <string name="title_pin">Dodaj bližnjico</string>
     <string name="title_print">Natisni</string>
     <string name="title_show_headers">Prikaži glave</string>
@@ -730,6 +748,7 @@
     <string name="title_reply_to">Odgovori za:</string>
     <string name="title_cc">Kp:</string>
     <string name="title_bcc">Skp:</string>
+    <string name="title_recipients">%1$d recipients</string>
     <string name="title_via_identity">Preko:</string>
     <string name="title_sent">Poslano:</string>
     <string name="title_received">Prejeto:</string>
@@ -758,6 +777,7 @@
     <string name="title_add_image_inline">Vstavi</string>
     <string name="title_add_image_attach">Priloži</string>
     <string name="title_add_image_resize">Spremeni velikost</string>
+    <string name="title_add_image_privacy">Remove geographic location</string>
     <string name="title_add_resize_pixels">&lt; %1$d sl. točk</string>
     <string name="title_add_image_select">Izberi datoteko</string>
     <string name="title_add_attachment">Dodaj prilogo</string>
@@ -875,6 +895,7 @@
     <string name="title_select_all">Izberi vse</string>
     <string name="title_select_found">Izberi najdene</string>
     <string name="title_force_sync">Vsili sinhronizacijo</string>
+    <string name="title_force_send">Force send</string>
     <string name="title_language_all">Vsi</string>
     <string name="title_previous">Nazaj</string>
     <string name="title_next">Naprej</string>
@@ -926,6 +947,7 @@
     <string name="title_rule_identity">Identiteta</string>
     <string name="title_rule_template">Predloga za odgovor</string>
     <string name="title_rule_cc">Naslovi Kp za odgovor</string>
+    <string name="title_rule_answer_remark">Only one reply will be sent for any conversation, to avoid reply loops</string>
     <string name="title_rule_name_missing">Manjka ime pravila.</string>
     <string name="title_rule_condition_missing">Manjka pogoj.</string>
     <string name="title_rule_automation_hint">To bo poslalo namen \'%1$s\' z dodatki \'%2$s\'.</string>
@@ -984,6 +1006,7 @@
     <string name="title_legend_snoozed">Je v dremežu</string>
     <string name="title_legend_browsed">Je prebrskano ali iskano</string>
     <string name="title_legend_answered">Je bilo odgovorjeno</string>
+    <string name="title_legend_forwarded">Was forwarded</string>
     <string name="title_legend_plain_only">Je samo v golem besedilu</string>
     <string name="title_legend_receipt">Zahtevano je bilo potrdilo</string>
     <string name="title_legend_attachment">Vsebuje priloge</string>
@@ -1018,6 +1041,7 @@
     <string name="title_legend_show_junk">Obravnavaj kot vsiljeno</string>
     <string name="title_legend_show_unsubscribe">Odjavi se s seznama</string>
     <string name="title_legend_show_images">Prikaži slike</string>
+    <string name="title_legend_show_full">Show original message</string>
     <string name="title_legend_edit">Uredi</string>
     <string name="title_legend_default_color">Privzeta barva</string>
     <string name="title_legend_close_hint">Zapri namig</string>
@@ -1112,6 +1136,7 @@
         Zaradi vzdržljivosti FairEmaila na dolgi rok nekatere priročne in napredne značilnosti niso brezplačne.
         FairEmail za ta namen prikaže majhno sporočilo, ki bo odstranjeno, če kupite značilnosti Pro.
     </string>
+    <string name="title_pro_hide">Hide small message for two weeks</string>
     <string name="title_pro_hint">Nakup značilnosti Pro bo omogočil uporabo vseh trenutnih in prihodnjih značilnosti, vzdrževanje in podporo tega programa.</string>
     <string name="title_pro_price">Oglejte si <a href="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq19">ta pogosta vprašanja</a> glede cene značilnosti Pro.</string>
     <string name="title_pro_pending">Nakup je na čakanju.</string>
@@ -1136,6 +1161,8 @@
     <string name="title_widget_folder_unified">Poenotene mape \'Prejeto\'</string>
     <string name="title_widget_unseen">Samo neprebrana sporočila</string>
     <string name="title_widget_flagged">Samo sporočila z zvezdico</string>
+    <string name="title_widget_font_size">Font size</string>
+    <string name="title_widget_padding">Padding size</string>
     <string name="title_widget_semi_transparent">Polprosojno ozadje</string>
     <string name="title_accessibility_collapsed">Strnjeno</string>
     <string name="title_accessibility_expanded">Razširjeno</string>

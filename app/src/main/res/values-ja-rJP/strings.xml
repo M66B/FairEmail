@@ -65,6 +65,7 @@
     <string name="title_notification_idle">待機</string>
     <string name="title_notification_failed">\'%1$s\' 失敗</string>
     <string name="title_notification_alert">%1$s サーバアラート</string>
+    <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
     <string name="title_from_to">%1$s ➤ %2$s</string>
@@ -251,6 +252,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_cards">表形式では無くカード形式を使用</string>
     <string name="title_advanced_date_header">日付毎にグループ化</string>
     <string name="title_advanced_threading">会話スレッド</string>
+    <string name="title_advanced_threading_unread">会話の中の未読メッセージの数を表示する</string>
     <string name="title_advanced_indentation">会話の受信/送信メッセージの左/右インデント</string>
     <string name="title_advanced_highlight_unread">未読メッセージを強調表示</string>
     <string name="title_advanced_highlight_subject">件名を強調する</string>
@@ -379,10 +381,12 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_debug">デバッグモード</string>
     <string name="title_advanced_cleanup_attachments">古いメッセージの添付ファイルを削除</string>
     <string name="title_advanced_cleanup">クリーンアップ</string>
+    <string name="title_advanced_last_cleanup">Last cleanup: %1$s</string>
     <string name="title_advanced_more">その他のオプション</string>
     <string name="title_advanced_enabled_hint">メッセージのグローバルな無効又は有効にします</string>
     <string name="title_advanced_manual_hint">同期が無効になっている場合でも、メッセージリストをプルダウンして手動で同期する事は可能です</string>
     <string name="title_advanced_poll_hint">定期的に同期はローカルメッセージとリモートメッセージが毎回比較されます。特に同期するメッセージが多く有る場合、電池消費が増える可能性が有り負荷のかかる操作です。常に同期は変更のみを継続的に監視するのでこれを回避できます</string>
+    <string name="title_advanced_optimized_hint">この設定は自動で最適化できます (その他の設定)</string>
     <string name="title_advanced_schedule_hint">時間をタップして時間を設定</string>
     <string name="title_advanced_check_mx">メッセージの同期時に送信者のメールアドレスを確認</string>
     <string name="title_advanced_check_reply">メッセージ同期に関する返信メールアドレスを確認</string>
@@ -708,6 +712,7 @@ PlayストアでFairEmailを評価できれば幸いです。
     <string name="title_reply_to">返信先:</string>
     <string name="title_cc">CC:</string>
     <string name="title_bcc">BCC:</string>
+    <string name="title_recipients">%1$d人の相手</string>
     <string name="title_via_identity">経由:</string>
     <string name="title_sent">送信済み:</string>
     <string name="title_received">受信:</string>
@@ -906,6 +911,7 @@ PlayストアでFairEmailを評価できれば幸いです。
     <string name="title_rule_identity">ID</string>
     <string name="title_rule_template">テンプレートで返信</string>
     <string name="title_rule_cc">CCアドレスへ返信</string>
+    <string name="title_rule_answer_remark">返信のループを回避するために、それぞれの会話に対して1度だけ返信が送信されます</string>
     <string name="title_rule_name_missing">ルール名が有りません</string>
     <string name="title_rule_condition_missing">条件が有りません</string>
     <string name="title_rule_automation_hint">これにより、インテント \'%1$s\' とエクストラ \'%2$s\' が送信されます</string>
@@ -999,6 +1005,7 @@ PlayストアでFairEmailを評価できれば幸いです。
     <string name="title_legend_show_junk">迷惑メールとして扱う</string>
     <string name="title_legend_show_unsubscribe">リストから退会する</string>
     <string name="title_legend_show_images">画像を表示</string>
+    <string name="title_legend_show_full">オリジナルのメッセージを表示する</string>
     <string name="title_legend_edit">編集</string>
     <string name="title_legend_default_color">デフォルトの色</string>
     <string name="title_legend_close_hint">ヒントを閉じる</string>
@@ -1092,6 +1099,7 @@ PlayストアでFairEmailを評価できれば幸いです。
     <string name="title_pro_info">FairEmailの開発には文字通り数千時間かかりましたが、殆どの機能は無料で使用出来ます。
 FairEmailを長期的持続可能にする為、プロ機能課金が有ります。一部の便利な機能と高度な機能は無料では使用出来ません。
 FairEmailは、Pro機能購入の為に上部に小さなメッセージを表示します。プロ機能を購入すると削除されます。</string>
+    <string name="title_pro_hide">Hide small message for two weeks</string>
     <string name="title_pro_hint">プロ機能を購入すると、現在及び将来全てのプロ機能を使用出来る様になりアプリとサポートが維持されます</string>
     <string name="title_pro_price"><a href="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq19">このFAQ</a>をご覧ください。プロ機能の価格や購入法も有ります</string>
     <string name="title_pro_pending">購入保留中</string>

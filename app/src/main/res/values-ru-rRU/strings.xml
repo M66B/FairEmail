@@ -99,6 +99,7 @@
     <string name="title_notification_idle">Низкий</string>
     <string name="title_notification_failed">\"%1$s\" не удалось</string>
     <string name="title_notification_alert">\'%1$s\' предупреждение сервера</string>
+    <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
     <string name="title_from_to">%1$s ➤ %2$s</string>
@@ -286,6 +287,7 @@
     <string name="title_advanced_cards">Использовать карточный стиль вместо табличного</string>
     <string name="title_advanced_date_header">Группировать по дате</string>
     <string name="title_advanced_threading">Связанные диалоги</string>
+    <string name="title_advanced_threading_unread">Показывать количество непрочитанных сообщений в диалогах</string>
     <string name="title_advanced_indentation">Левый/правый отступ для полученных/отправленных сообщений в диалогах</string>
     <string name="title_advanced_highlight_unread">Выделять непрочитанные сообщения</string>
     <string name="title_advanced_highlight_subject">Выделить тему</string>
@@ -419,6 +421,7 @@
     <string name="title_advanced_enabled_hint">Глобальное включение/отключение получения сообщений</string>
     <string name="title_advanced_manual_hint">Если синхронизация отключена, она может быть произведена вручную, потянув вниз список сообщений.</string>
     <string name="title_advanced_poll_hint">Периодическая синхронизация будет каждый раз сравнивать сообщения на сервере с локальными. Это \"дорогая\" операция, которая может привести к высокому потреблению заряда батареи, особенно когда сообщений для синхронизации много. Непрерывная синхронизация избегает этого, постоянно отслеживая только изменения.</string>
+    <string name="title_advanced_optimized_hint">Эта функция может быть оптимизирована автоматически (разные настройки)</string>
     <string name="title_advanced_schedule_hint">Нажмите на время, чтобы установить его</string>
     <string name="title_advanced_check_mx">Проверять адреса электронной почты отправителя при синхронизации сообщений</string>
     <string name="title_advanced_check_reply">Проверять адреса электронной почты для ответа при синхронизации сообщений</string>
@@ -745,6 +748,7 @@
     <string name="title_reply_to">Обратный адрес:</string>
     <string name="title_cc">Копия:</string>
     <string name="title_bcc">Скрытая копия:</string>
+    <string name="title_recipients">%1$d получателей</string>
     <string name="title_via_identity">Через:</string>
     <string name="title_sent">Отправлено:</string>
     <string name="title_received">Получено:</string>

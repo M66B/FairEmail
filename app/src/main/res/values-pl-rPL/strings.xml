@@ -98,6 +98,7 @@
     <string name="title_notification_idle">Bezczynny</string>
     <string name="title_notification_failed">%1$s nie powiodło się</string>
     <string name="title_notification_alert">Alert serwera \'%1$s\'</string>
+    <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
     <string name="title_from_to">%1$s ➤ %2$s</string>
@@ -258,6 +259,7 @@
     <string name="title_advanced_signature_location">Pozycja podpisu</string>
     <string name="title_advanced_signature_end">Dodaj podpis po cytowanej/przesyłanej wiadomości</string>
     <string name="title_advanced_plain_only">Domyślnie wysyłaj czystym tekstem</string>
+    <string name="title_advanced_flow">\'format flowed\' for plain text</string>
     <string name="title_advanced_receipt">Podczas żądania potwierdzenia</string>
     <string name="title_advanced_usenet_signature">Konwencja podpisu Usenet</string>
     <string name="title_advanced_remove_signatures">Usuń rozpoznane podpisy</string>
@@ -284,6 +286,7 @@
     <string name="title_advanced_cards">Użyj stylu karty zamiast stylu tabelarycznego</string>
     <string name="title_advanced_date_header">Grupuj według dat</string>
     <string name="title_advanced_threading">Konwersacje w wątkach</string>
+    <string name="title_advanced_threading_unread">Show number of unread messages in conversations</string>
     <string name="title_advanced_indentation">Lewe/prawe wcięcie otrzymane/wysłane wiadomości w rozmowach</string>
     <string name="title_advanced_highlight_unread">Podświetl nieprzeczytane wiadomości</string>
     <string name="title_advanced_highlight_subject">Podświetl temat</string>
@@ -403,6 +406,7 @@
     <string name="title_advanced_language_detection">Wykryj język tekstu wiadomości</string>
     <string name="title_advanced_fts">Zbuduj Indeks Wyszukiwania</string>
     <string name="title_advanced_fts_indexed">Zindeksowano %1$d / %2$d Wiadomości (%3$s)</string>
+    <string name="title_advanced_english">Użyj ustawień kraju US</string>
     <string name="title_advanced_watchdog">Okresowo sprawdzaj, czy FairEmail jest nadal aktywny</string>
     <string name="title_advanced_optimize">Automatycznie optymalizuj ustawienia</string>
     <string name="title_advanced_updates">Sprawdź aktualizacje</string>
@@ -416,6 +420,7 @@
     <string name="title_advanced_enabled_hint">Globalnie wyłącz lub włącz odbieranie wiadomości</string>
     <string name="title_advanced_manual_hint">Jeśli synchronizacja jest wyłączona, nadal można synchronizować ręcznie, przeciągając listę wiadomości.</string>
     <string name="title_advanced_poll_hint">Synchronizacja okresowa za każdym razem porównuje wiadomości lokalne i zdalne, co jest kosztowną operacją, która może prowadzić do dodatkowego zużycia baterii, zwłaszcza gdy jest wiele wiadomości do synchronizacji. Synchronizacja ciągła pozwoli uniknąć tego poprzez stałe monitorowanie tylko zmian.</string>
+    <string name="title_advanced_optimized_hint">Ta opcja może być optymalizowana automatycznie (różne ustawienia)</string>
     <string name="title_advanced_schedule_hint">Dotknij zegara, aby ustawić czas</string>
     <string name="title_advanced_check_mx">Sprawdź adresy e-mail nadawcy przy synchronizowaniu wiadomości</string>
     <string name="title_advanced_check_reply">Sprawdź adresy e-mail odpowiedzi podczas synchronizacji wiadomości</string>
@@ -742,6 +747,7 @@
     <string name="title_reply_to">Odpisz do:</string>
     <string name="title_cc">DW:</string>
     <string name="title_bcc">UDW:</string>
+    <string name="title_recipients">%1$d odbiorców</string>
     <string name="title_via_identity">Przez:</string>
     <string name="title_sent">Wysłano:</string>
     <string name="title_received">Odebrano:</string>
@@ -1034,6 +1040,7 @@
     <string name="title_legend_show_junk">Traktuj jako spam</string>
     <string name="title_legend_show_unsubscribe">Wypisz się z listy</string>
     <string name="title_legend_show_images">Pokaż obrazy</string>
+    <string name="title_legend_show_full">Zobacz oryginalną wiadomość</string>
     <string name="title_legend_edit">Edycja</string>
     <string name="title_legend_default_color">Kolor domyślny</string>
     <string name="title_legend_close_hint">Zamknij podpowiedź</string>

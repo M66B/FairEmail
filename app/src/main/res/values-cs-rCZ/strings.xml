@@ -99,6 +99,7 @@
     <string name="title_notification_idle">Nečinný</string>
     <string name="title_notification_failed">\"%1$s\" selhalo</string>
     <string name="title_notification_alert">\'%1$s\' upozornění serveru</string>
+    <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
     <string name="title_from_to">%1$s ➤ %2$s</string>
@@ -286,6 +287,7 @@
     <string name="title_advanced_cards">Použít styl karet namísto tabulkového zobrazení</string>
     <string name="title_advanced_date_header">Seskupit podle data</string>
     <string name="title_advanced_threading">Vlákna konverzací</string>
+    <string name="title_advanced_threading_unread">Zobrazit počet nepřečtených zpráv v konverzacích</string>
     <string name="title_advanced_indentation">Levé/pravé odsazení přijatých/odeslaných zpráv v konverzacích</string>
     <string name="title_advanced_highlight_unread">Zvýraznit nepřečtené zprávy</string>
     <string name="title_advanced_highlight_subject">Zvýraznit předmět</string>
@@ -419,6 +421,7 @@
     <string name="title_advanced_enabled_hint">Globálně zakáže nebo povolí příjem zpráv</string>
     <string name="title_advanced_manual_hint">Je-li synchronizace vypnuta, stále je možné synchronizovat ručně tažením dolů v seznamu zpráv.</string>
     <string name="title_advanced_poll_hint">Synchronizování periodicky bude pokaždé porovnávat lokální a vzdálené zprávy, což je náročná operace, potencionálně vedoucí ke zvýšené spotřebě baterie, zvláště při velkém množství zpráv k synchronizaci. Synchronizování nepřetržitě tomuto předchází průběžným nasloucháním pouze změnám.</string>
+    <string name="title_advanced_optimized_hint">Tuto možnost lze optimalizovat automaticky (ostatní nastavení)</string>
     <string name="title_advanced_schedule_hint">Pro změnu času se jej dotkněte</string>
     <string name="title_advanced_check_mx">Kontrolovat e-mailové adresy odesílatelů při synchronizaci zpráv</string>
     <string name="title_advanced_check_reply">Kontrolovat e-mailové adresy pro odpověď při synchronizaci zpráv</string>
@@ -745,6 +748,7 @@
     <string name="title_reply_to">Odpovědět na:</string>
     <string name="title_cc">Kopie:</string>
     <string name="title_bcc">Skrytá kopie:</string>
+    <string name="title_recipients">%1$d příjemců</string>
     <string name="title_via_identity">Přes:</string>
     <string name="title_sent">Odesláno:</string>
     <string name="title_received">Přijato:</string>
