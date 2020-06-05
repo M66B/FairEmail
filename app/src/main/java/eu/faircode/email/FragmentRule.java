@@ -55,7 +55,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -553,11 +552,11 @@ public class FragmentRule extends FragmentBase {
                     break;
                 case REQUEST_SCHEDULE_START:
                     if (resultCode == RESULT_OK)
-                        onScheduleStart(data);
+                        onScheduleStart(data.getBundleExtra("args"));
                     break;
                 case REQUEST_SCHEDULE_END:
                     if (resultCode == RESULT_OK)
-                        onScheduleEnd(data);
+                        onScheduleEnd(data.getBundleExtra("args"));
                     break;
             }
         } catch (Throwable ex) {
@@ -618,15 +617,15 @@ public class FragmentRule extends FragmentBase {
         }.execute(this, args, "rule:delete");
     }
 
-    private void onScheduleStart(Intent data) {
-        int minutes = data.getIntExtra("minutes", 0);
+    private void onScheduleStart(Bundle args) {
+        int minutes = args.getInt("minutes", 0);
         tvScheduleHourStart.setTag(minutes);
         tvScheduleHourStart.setText(formatHour(getContext(), minutes));
         cbScheduleEnd.setChecked(true);
     }
 
-    private void onScheduleEnd(Intent data) {
-        int minutes = data.getIntExtra("minutes", 0);
+    private void onScheduleEnd(Bundle args) {
+        int minutes = args.getInt("minutes", 0);
         tvScheduleHourEnd.setTag(minutes);
         tvScheduleHourEnd.setText(formatHour(getContext(), minutes));
         cbScheduleEnd.setChecked(true);
@@ -1127,12 +1126,8 @@ public class FragmentRule extends FragmentBase {
         }
 
         public void onTimeSet(TimePicker view, int hour, int minute) {
-            Fragment target = getTargetFragment();
-            if (target != null) {
-                Intent data = new Intent();
-                data.putExtra("minutes", hour * 60 + minute);
-                target.onActivityResult(getTargetRequestCode(), RESULT_OK, data);
-            }
+            getArguments().putInt("minutes", hour * 60 + minute);
+            sendResult(RESULT_OK);
         }
     }
 
