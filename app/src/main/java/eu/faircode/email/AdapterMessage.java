@@ -215,6 +215,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private int colorUnread;
     private int colorRead;
     private int colorSubject;
+    private int colorEncrypt;
     private int colorSeparator;
 
     private boolean hasWebView;
@@ -973,6 +974,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             EntityMessage.PRIORITIY_HIGH.equals(message.ui_importance)
                             ? View.VISIBLE : View.GONE);
             ivSigned.setVisibility(message.signed > 0 ? View.VISIBLE : View.GONE);
+            if (message.verified)
+                ivSigned.setColorFilter(colorEncrypt);
+            else
+                ivSigned.clearColorFilter();
             ivEncrypted.setVisibility(message.encrypted > 0 ? View.VISIBLE : View.GONE);
             if (show_recipients && recipients != null && recipients.length > 0)
                 tvFrom.setText(context.getString(R.string.title_from_to,
@@ -4774,7 +4779,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.colorUnread = Helper.resolveColor(context, highlight_unread ? R.attr.colorUnreadHighlight : R.attr.colorUnread);
         this.colorRead = Helper.resolveColor(context, R.attr.colorRead);
         this.colorSubject = Helper.resolveColor(context, highlight_subject ? R.attr.colorUnreadHighlight : R.attr.colorRead);
-
+        this.colorEncrypt = Helper.resolveColor(context, R.attr.colorEncrypt);
         this.colorSeparator = Helper.resolveColor(context, R.attr.colorSeparator);
 
         this.hasWebView = Helper.hasWebView(context);
@@ -4970,6 +4975,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (!Objects.equals(prev.encrypt, next.encrypt)) {
                     same = false;
                     log("encrypt changed", next.id);
+                }
+                if (!Objects.equals(prev.ui_encrypt, next.ui_encrypt)) {
+                    same = false;
+                    log("ui_encrypt changed", next.id);
+                }
+                if (!Objects.equals(prev.verified, next.verified)) {
+                    same = false;
+                    log("verified changed", next.id);
                 }
                 if (!Objects.equals(prev.preview, next.preview)) {
                     same = false;

@@ -667,6 +667,9 @@ public interface DaoMessage {
     @Query("UPDATE message SET ui_encrypt = :ui_encrypt WHERE id = :id")
     int setMessageUiEncrypt(long id, Integer ui_encrypt);
 
+    @Query("UPDATE message SET verified = :verified WHERE id = :id")
+    int setMessageVerified(long id, boolean verified);
+
     @Query("UPDATE message SET last_attempt = :last_attempt WHERE id = :id")
     int setMessageLastAttempt(long id, long last_attempt);
 

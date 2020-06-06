@@ -143,6 +143,8 @@ public class EntityMessage implements Serializable {
     public Boolean plain_only = null;
     public Integer encrypt = null;
     public Integer ui_encrypt = null;
+    @NonNull
+    public Boolean verified = false;
     public String preview;
     @NonNull
     public Boolean signature = true;
@@ -352,6 +354,7 @@ public class EntityMessage implements Serializable {
                     Objects.equals(this.plain_only, other.plain_only) &&
                     Objects.equals(this.encrypt, other.encrypt) &&
                     Objects.equals(this.ui_encrypt, other.ui_encrypt) &&
+                    this.verified == other.verified &&
                     Objects.equals(this.preview, other.preview) &&
                     this.signature.equals(other.signature) &&
                     Objects.equals(this.sent, other.sent) &&

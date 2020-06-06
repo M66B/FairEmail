@@ -5422,6 +5422,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                             ? R.string.title_signature_unconfirmed
                                             : R.string.title_signature_valid);
                                 args.putString("sigresult", text);
+                                if (sresult == RESULT_VALID_KEY_CONFIRMED)
+                                    db.message().setMessageVerified(message.id, true);
                             } else if (sresult == RESULT_KEY_MISSING)
                                 args.putString("sigresult", context.getString(R.string.title_signature_key_missing));
                             else {
@@ -5695,6 +5697,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                             }
 
                                         args.putBoolean("valid", valid);
+                                        if (known)
+                                            db.message().setMessageVerified(message.id, true);
                                     } catch (Throwable ex) {
                                         Log.w(ex);
                                         args.putString("reason", ex.getMessage());
@@ -5927,6 +5931,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                                                 record.id = db.certificate().insertCertificate(record);
                                                             }
                                                         }
+
+                                                        db.message().setMessageVerified(message.id, true);
 
                                                         return null;
                                                     }
