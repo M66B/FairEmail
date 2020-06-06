@@ -1240,7 +1240,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
         <item>Am Anfang</item>
         <item>In der Mitte</item>
         <item>Am Ende</item>
-        <item>Show completely</item>
+        <item>Vollständig anzeigen</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Niedrig</item>

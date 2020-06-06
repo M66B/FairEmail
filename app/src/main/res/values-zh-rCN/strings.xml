@@ -1229,7 +1229,7 @@ FairEmail会显示一条消息来提醒您这一点，这条消息在您购买�
         <item>主题开头</item>
         <item>主题中部</item>
         <item>主题末尾</item>
-        <item>Show completely</item>
+        <item>完整显示</item>
     </string-array>
     <string-array name="priorityNames">
         <item>低</item>

@@ -1242,7 +1242,7 @@
         <item>Au début</item>
         <item>Au milieu</item>
         <item>À la fin</item>
-        <item>Show completely</item>
+        <item>Afficher en entier</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Basse</item>
