@@ -1987,7 +1987,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         }
 
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
-                            args.putParcelable("actions", getConversationActions(message, document));
+                            args.putParcelable("actions", getConversationActions(message, document, context));
 
                         return document.html();
                     } else {
@@ -1995,7 +1995,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         document = HtmlHelper.sanitizeView(context, document, show_images);
 
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
-                            args.putParcelable("actions", getConversationActions(message, document));
+                            args.putParcelable("actions", getConversationActions(message, document, context));
 
                         // Collapse quotes
                         if (!show_quotes) {
@@ -2209,7 +2209,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
 
                 @RequiresApi(api = Build.VERSION_CODES.Q)
-                private ConversationActions getConversationActions(TupleMessageEx message, Document document) {
+                private ConversationActions getConversationActions(TupleMessageEx message, Document document, Context context) {
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                     boolean conversation_actions = prefs.getBoolean("conversation_actions", true);
                     boolean conversation_actions_replies = prefs.getBoolean("conversation_actions_replies", true);
