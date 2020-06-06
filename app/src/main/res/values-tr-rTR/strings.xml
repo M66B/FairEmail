@@ -1242,6 +1242,7 @@
         <item>Başlangıçta</item>
         <item>Ortada</item>
         <item>Sonunda</item>
+        <item>Show completely</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Düşük</item>

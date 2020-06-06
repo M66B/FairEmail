@@ -496,13 +496,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (tvSubject != null) {
                 tvSubject.setTextColor(colorSubject);
 
-                if (compact)
+                if (compact) {
+                    tvSubject.setSingleLine(!"full".equals(subject_ellipsize));
                     if ("start".equals(subject_ellipsize))
                         tvSubject.setEllipsize(TextUtils.TruncateAt.START);
                     else if ("end".equals(subject_ellipsize))
                         tvSubject.setEllipsize(TextUtils.TruncateAt.END);
                     else
                         tvSubject.setEllipsize(TextUtils.TruncateAt.MIDDLE);
+                }
             }
 
             if (viewType != R.layout.item_message_compact && viewType != R.layout.item_message_normal)
@@ -1190,7 +1192,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private void clearExpanded(TupleMessageEx message) {
             if (compact) {
                 tvFrom.setSingleLine(true);
-                tvSubject.setSingleLine(true);
+                tvSubject.setSingleLine(!"full".equals(subject_ellipsize));
             }
 
             tvPreview.setVisibility(

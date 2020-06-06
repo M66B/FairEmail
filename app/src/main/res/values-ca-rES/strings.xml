@@ -1242,6 +1242,7 @@
         <item>Al començament</item>
         <item>Al mig</item>
         <item>Al final</item>
+        <item>Show completely</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Baixa</item>

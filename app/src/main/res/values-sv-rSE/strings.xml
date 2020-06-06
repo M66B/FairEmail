@@ -1241,6 +1241,7 @@
         <item>I början</item>
         <item>I mitten</item>
         <item>I slutet</item>
+        <item>Show completely</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Låg</item>

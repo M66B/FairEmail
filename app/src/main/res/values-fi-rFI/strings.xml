@@ -1240,6 +1240,7 @@
         <item>Alusta</item>
         <item>Keskeltä</item>
         <item>Lopusta</item>
+        <item>Show completely</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Alhainen</item>

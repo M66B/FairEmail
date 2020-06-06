@@ -1226,6 +1226,7 @@ FairEmailは、Pro機能購入の為に上部に小さなメッセージを表�
         <item>開始時</item>
         <item>途中</item>
         <item>最後</item>
+        <item>Show completely</item>
     </string-array>
     <string-array name="priorityNames">
         <item>低</item>

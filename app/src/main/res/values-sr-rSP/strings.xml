@@ -1254,6 +1254,7 @@
         <item>Са почетка</item>
         <item>У средини</item>
         <item>Са краја</item>
+        <item>Show completely</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Низак</item>

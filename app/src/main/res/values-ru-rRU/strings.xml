@@ -414,7 +414,7 @@
     <string name="title_advanced_experiments">Попробовать экспериментальные функции</string>
     <string name="title_advanced_crash_reports">Отправлять отчёты об ошибках</string>
     <string name="title_advanced_debug">Режим отладки</string>
-    <string name="title_advanced_cleanup_attachments">Удалить вложения старых сообщений</string>
+    <string name="title_advanced_cleanup_attachments">Удалять вложения старых сообщений</string>
     <string name="title_advanced_cleanup">Очистка</string>
     <string name="title_advanced_last_cleanup">Последняя очистка: %1$s</string>
     <string name="title_advanced_more">Другие возможности</string>
@@ -1266,6 +1266,7 @@
         <item>В начале</item>
         <item>В середине</item>
         <item>В конце</item>
+        <item>Show completely</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Низкий</item>

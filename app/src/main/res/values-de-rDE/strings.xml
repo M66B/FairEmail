@@ -392,7 +392,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_updates">Nach Aktualisierungen suchen</string>
     <string name="title_advanced_experiments">Experimentelle Funktionen ausprobieren</string>
     <string name="title_advanced_crash_reports">Fehlerberichte senden</string>
-    <string name="title_advanced_debug">Debugmodus</string>
+    <string name="title_advanced_debug">Fehlersuchmodus</string>
     <string name="title_advanced_cleanup_attachments">Anhänge aus alten Nachrichten löschen</string>
     <string name="title_advanced_cleanup">Bereinigen</string>
     <string name="title_advanced_last_cleanup">Letzte Bereinigung: %1$s</string>
@@ -400,7 +400,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_enabled_hint">Nachrichtenempfang global deaktivieren oder aktivieren</string>
     <string name="title_advanced_manual_hint">Selbst wenn die Synchronisation deaktiviert ist, ist es möglich, manuell zu synchronisieren, indem Sie die Nachrichtenliste herunterziehen.</string>
     <string name="title_advanced_poll_hint">Die regelmäßige Synchronisation vergleicht jedes Mal lokale und entfernte Nachrichten, was ein aufwendiger Vorgang ist, der möglicherweise zu einem zusätzlichen Akkuverbrauch führt, besonders wenn es viele zu synchronisierende Nachrichten gibt. Durch ständiges synchronisieren wird das vermieden, indem nur auf Änderungen überwacht wird.</string>
-    <string name="title_advanced_optimized_hint">Diese Einstellung kann automatisch optimiert werden (siehe auch Verschiedenes in den Einstellungen)</string>
+    <string name="title_advanced_optimized_hint">Diese Einstellung kann automatisch optimiert werden (Einstellungen→Verschiedenes)</string>
     <string name="title_advanced_schedule_hint">Tippe auf eine Zeit, um eine Zeit zu setzen</string>
     <string name="title_advanced_check_mx">Überprüft die Absender-E-Mail-Adressen beim Synchronisieren von Nachrichten per DNS MX</string>
     <string name="title_advanced_check_reply">Überprüft die Antwort-An-E-Mail-Adressen beim Synchronisieren von Nachrichten</string>
@@ -456,7 +456,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_notify_no_channels">Diese Android-Version unterstützt keine Benachrichtigungskanäle</string>
     <string name="title_advanced_fts_hint">Dies zu aktivieren, verbessert die Suchleistung, erhöht aber auch den Akku- und Speicherverbrauch</string>
     <string name="title_advanced_english_hint">Dadurch wird die App neu gestartet</string>
-    <string name="title_advanced_optimize_hint">Wenn aktiviert, werden manche Empfangseinstellungen - teilweise sofort, teilweise erst im Laufe der Zeit - automatisch geändert, um den Batterieverbrauch zu reduzieren</string>
+    <string name="title_advanced_optimize_hint">Wenn aktiviert, werden manche Empfangseinstellungen – teilweise sofort, teilweise erst im Laufe der Zeit – automatisch geändert, um den Akkuverbrauch zu verringern.</string>
     <string name="title_advanced_experiments_hint">Liste der aktuellen experimentellen Funktionen</string>
     <string name="title_advanced_debug_hint">Aktiviert zusätzliche Protokollierung und zeigt Fehlerbehebungsinformationen an verschiedenen Stellen an</string>
     <string name="title_advanced_cleanup_attachments_hint">Beim manuellen Bereinigen werden Anhänge von Nachrichten entfernt, die nicht mehr synchronisiert werden</string>
@@ -1126,7 +1126,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_log">Protokoll</string>
     <string name="title_auto_scroll">Automatisches Blättern</string>
     <string name="title_log_clear">Protokoll leeren</string>
-    <string name="title_debug_info">Debuginformationen</string>
+    <string name="title_debug_info">Fehlersuchinformationen</string>
     <string name="title_debug_info_remark">Bitte beschreiben Sie das Problem und zu welchem Zeitpunkt es aufgetreten ist:</string>
     <string name="title_crash_info_remark">Bitte beschreiben Sie, was Sie getan haben, während die App abgestürzt ist:</string>
     <string name="title_widget_title_count">Anzahl neuer Nachrichten</string>
@@ -1240,6 +1240,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
         <item>Am Anfang</item>
         <item>In der Mitte</item>
         <item>Am Ende</item>
+        <item>Show completely</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Niedrig</item>

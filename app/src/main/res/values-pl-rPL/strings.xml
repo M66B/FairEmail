@@ -1264,6 +1264,7 @@ FairEmail wyświetla o tym małą wiadomość przypominającą, która zostanie 
         <item>Na początku</item>
         <item>W środku</item>
         <item>Na końcu</item>
+        <item>Show completely</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Niski</item>

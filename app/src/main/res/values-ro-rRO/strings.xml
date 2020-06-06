@@ -1253,6 +1253,7 @@
         <item>La început</item>
         <item>La mijloc</item>
         <item>La sfârșit</item>
+        <item>Show completely</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Redusă</item>

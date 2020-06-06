@@ -399,7 +399,7 @@
     <string name="title_advanced_enabled_hint">Désactiver ou activer globalement la réception des messages</string>
     <string name="title_advanced_manual_hint">Si la synchronisation est désactivée, il est toujours possible de synchroniser manuellement en tirant la liste des messages vers le bas.</string>
     <string name="title_advanced_poll_hint">La synchronisation périodique comparera à chaque fois les messages locaux et distants, ce qui est une opération coûteuse pouvant entraîner une utilisation accrue de la batterie, surtout s’il y a beaucoup de messages à synchroniser. La synchronisation en continu évitera cela en surveillant uniquement les changements.</string>
-    <string name="title_advanced_optimized_hint">Ces paramètres peuvent être optimisés automatiquement (paramètres Divers)</string>
+    <string name="title_advanced_optimized_hint">Ce paramètre peut être optimisé automatiquement (onglet Divers)</string>
     <string name="title_advanced_schedule_hint">Appuyez sur une heure pour définir une période</string>
     <string name="title_advanced_check_mx">Vérifier l\'adresse e-mail de l\'expéditeur lors de la synchronisation des messages</string>
     <string name="title_advanced_check_reply">Vérifier les adresses e-mail de réponse lors de la synchronisation des messages</string>
@@ -1242,6 +1242,7 @@
         <item>Au début</item>
         <item>Au milieu</item>
         <item>À la fin</item>
+        <item>Show completely</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Basse</item>

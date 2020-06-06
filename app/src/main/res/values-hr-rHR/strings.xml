@@ -1250,6 +1250,7 @@
         <item>Na početku</item>
         <item>U sredini</item>
         <item>Na kraju</item>
+        <item>Show completely</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Nizak</item>

@@ -92,7 +92,7 @@
     <string name="menu_faq">پشتیبانی</string>
     <string name="menu_translate">کمک به ترجمه</string>
     <string name="menu_issue">گزارش اشکال</string>
-    <string name="menu_attribution">انتساب</string>
+    <string name="menu_attribution">Attribution</string>
     <string name="menu_privacy">حریم خصوصی</string>
     <string name="menu_about">درباره</string>
     <string name="menu_pro">ویژگی‌ نسخه‌ی حرفه‌ای</string>
@@ -167,12 +167,12 @@
     <string name="title_setup_import">وارد کردن تنظیمات</string>
     <string name="title_setup_export_do">Gmail accounts linked to on-device Google accounts cannot be exported</string>
     <string name="title_setup_import_do">Imported accounts will be added without overwriting any existing ones</string>
-    <string name="title_setup_password">کلمه عبور</string>
+    <string name="title_setup_password">گذرواژه</string>
     <string name="title_setup_password_chars">گذرواژه دارای control یا نویسه‌های فضای سفید می‌باشد</string>
-    <string name="title_setup_password_repeat">تکرار کلمه عبور</string>
-    <string name="title_setup_password_missing">کلمه عبور موجود نیست</string>
+    <string name="title_setup_password_repeat">تکرار گذرواژه</string>
+    <string name="title_setup_password_missing">گذرواژه موجود نیست</string>
     <string name="title_setup_password_different">گذرواژه‌ها یکسان نیستند</string>
-    <string name="title_setup_password_invalid">کلمه عبور اشتباه است</string>
+    <string name="title_setup_password_invalid">گذرواژه اشتباه است</string>
     <string name="title_setup_exported">تنظیمات صادر شدند</string>
     <string name="title_setup_imported">تنظیمات وارد شدند</string>
     <string name="title_setup_import_invalid">فایل تنظیمات نامعتبر</string>
@@ -306,7 +306,7 @@
     <string name="title_advanced_images_inline">Automatically show inline images</string>
     <string name="title_advanced_seekbar">Show relative conversation position with a dot</string>
     <string name="title_advanced_actionbar">نمایش نوار کنش گفتگو</string>
-    <string name="title_advanced_actionbar_color">Use account color as background color for conversation action bar</string>
+    <string name="title_advanced_actionbar_color">از رنگ حساب به‌عنوان رنگ پس‌زمینه برای نوار کنش گفتگو استفاده کن</string>
     <string name="title_advanced_navbar_colorize">Colorize the Android navigation bar</string>
     <string name="title_advanced_parse_classes">Parse style sheets</string>
     <string name="title_advanced_authentication">Show a warning when the receiving server could not authenticate the message</string>
@@ -428,7 +428,7 @@
     <string name="title_advanced_navbar_colorize_hint">Whether this works depends on the Android version and variant</string>
     <string name="title_advanced_threading_hint">پیام‌های گروهی مرتبط با یکدیگر</string>
     <string name="title_advanced_highlight_hint">The accent color of the theme will be used for highlighting</string>
-    <string name="title_advanced_gravatars_hint">There might be a privacy risk</string>
+    <string name="title_advanced_gravatars_hint">شاید خطر حریم خصوصی وجود داشته باشد</string>
     <string name="title_advanced_name_email_hint">When disabled only names will be shown when available</string>
     <string name="title_advanced_preview_hint">فقط زمانی در دسترس است که متن پیام دانلود شده باشد</string>
     <string name="title_advanced_preview_issue">Scrolling can be slow due to a bug in some Android versions when the number of lines is more than one</string>
@@ -443,7 +443,7 @@
     <string name="title_advanced_display_hidden_hint">This can result in odd looking and double texts</string>
     <string name="title_advanced_display_pin_hint">A PIN takes precedence over biometrics authentication</string>
     <string name="title_advanced_badge_hint">Only available on supported launchers</string>
-    <string name="title_advanced_notify_action_hint">At most three actions will be shown</string>
+    <string name="title_advanced_notify_action_hint">حداکثر سه کنش نشان داده خواهد شد</string>
     <string name="title_advanced_notify_remove_hint">New message notifications will always be removed on being swiped away and on marking messages read</string>
     <string name="title_advanced_notify_manage_hint">Tap on the channel name to set the channel properties</string>
     <string name="title_advanced_notify_manage_default_hint">To set the default sound, etc</string>
@@ -539,7 +539,7 @@
     <string name="title_last_connected">آخرین اتصال: %1$s</string>
     <string name="title_storage_quota">Server storage usage: %1$s/%2$s</string>
     <string name="title_pop_support">The POP3 protocol supports downloading and deleting messages from the inbox only. POP3 cannot mark messages as read, move messages, etc. POP3 will use more battery power and data than IMAP. So, consider using the IMAP protocol whenever possible.</string>
-    <string name="title_oauth_support">OAuth is not supported</string>
+    <string name="title_oauth_support">OAuth پشتیبانی نمی‌شود</string>
     <string name="title_review">بازبینی</string>
     <string name="title_hint_alias">Long press an identity to display options, like copy to create alias identities</string>
     <string name="title_service_vpn">This might be caused by the VPN that is being used</string>
@@ -564,9 +564,9 @@
     <string name="title_empty_trash_ask">پیام‌های سطل آشغال برای همیشه پاک شوند?</string>
     <string name="title_empty_spam_ask">پیام‌های هرزنامه برای همیشه پاک شوند؟</string>
     <string name="title_empty_trash_all_ask">Delete all trashed messages of all accounts permanently?</string>
-    <string name="title_empty_spam_all_ask">Delete all spam messages of all accounts permanently?</string>
+    <string name="title_empty_spam_all_ask">همه پیام‌های هرزنامه از همه حساب‌ها برای همیشه حذف شود؟</string>
     <string name="title_delete_operation">حذف عملیات با دریافت پیام خطا؟</string>
-    <string name="title_delete_contacts">Delete all local contacts?</string>
+    <string name="title_delete_contacts">حذف همه مخاطبین محلی؟</string>
     <string name="title_no_operations">عملیاتی در انتظار وجود ندارد </string>
     <string name="title_hint_operations">Deleting operations can result in disappearing messages and synchronization problems</string>
     <string name="title_folder_name">نام پوشه</string>
@@ -685,7 +685,7 @@
     <string name="title_no_folder">پوشه وجود ندارد</string>
     <string name="title_no_format">The originally received message will be included</string>
     <string name="title_no_image">تصویر نمی‌تواند رمزگشایی شود</string>
-    <string name="title_no_search">Search on server is not available for this account</string>
+    <string name="title_no_search">جستجو روی سرور برای این حساب در دسترس نیست</string>
     <string name="title_too_large">Message too large to completely reformat</string>
     <string name="title_truncated">Message too large to display completely</string>
     <string name="title_insufficient_memory">Message too large to fit into the available memory</string>
@@ -696,7 +696,7 @@
     <string name="title_attachment_saved">پیوست ذخیره شد</string>
     <string name="title_attachments_saved">پیوست ها ذخیره شدند</string>
     <string name="title_attachments_incomplete">Some attachments or images were not downloaded and could not be added</string>
-    <string name="title_ask_save">Save changes?</string>
+    <string name="title_ask_save">تغییرات ذخیره شود؟</string>
     <string name="title_ask_delete">پیام به صورت همیشگی حذف شود؟</string>
     <string name="title_ask_delete_answer">الگوی پاسخ به صورت همیشگی حذف شود؟</string>
     <string name="title_ask_delete_rule">دستور به صورت همیشگی حذف شود؟</string>
@@ -711,9 +711,9 @@
     <string name="title_ask_reporting">ارسال گزارش‌های خطا؟</string>
     <string name="title_reporting_why">Error reporting will help improve FairEmail</string>
     <string name="title_ask_review">لطفا به FairEmail امتیاز بدهید</string>
-    <string name="title_ask_review_rationale">        You have been using FairEmail for a while.
-        It would be appreciated if you could rate FairEmail in the Play Store.
-        This will help to maintain a balance between unfavorable and favorable reviews.
+    <string name="title_ask_review_rationale">        شما FairEmail برای مدتی استفاده کرده‌اید.
+        اگر بتوانید FairEmail را در Play Store ارزیابی کنید، بسیار قدردان خواهیم بود.
+        این به برقراری توازن بین مرورهای مطلوب و نامطلوب کمک خواهد کرد.
     </string>
     <string name="title_third_party">شما در حال استفاده از نسخه شخص ثالث هستید</string>
     <string name="title_expand_warning">Expanding this message will download %1$s</string>
@@ -724,8 +724,8 @@
     <string name="title_from">از:</string>
     <string name="title_to">به:</string>
     <string name="title_reply_to">پاسخ به:</string>
-    <string name="title_cc">سی‌سی:</string>
-    <string name="title_bcc">بی‌سی‌سی:</string>
+    <string name="title_cc">گیرنده رونوشت:</string>
+    <string name="title_bcc">گیرنده رونوشت پنهان:</string>
     <string name="title_recipients">%1$d recipients</string>
     <string name="title_via_identity">از طریق:</string>
     <string name="title_sent">ارسال شده:</string>
@@ -762,7 +762,7 @@
     <string name="title_attachment_file">پیوست فایل</string>
     <string name="title_attachment_photo">گرفتن عکس</string>
     <string name="title_attachment_audio">ضبط صدا</string>
-    <string name="title_show_addresses">نمایش رونوشت/رونوشت پنهان</string>
+    <string name="title_show_addresses">نمایش گیرنده رونوشت/رونوشت پنهان</string>
     <string name="title_send_dialog">نمایش گزینه‌های ارسال</string>
     <string name="title_image_dialog">نمایش گزینه‌های تصویر</string>
     <string name="title_media_toolbar">نوار ابزار رسانه</string>
@@ -773,14 +773,14 @@
     <string name="title_select_certificate">انتخاب کلید عمومی</string>
     <string name="title_certificate_missing">No public key for %1$s</string>
     <string name="title_certificate_invalid">Public key of %1$s is invalid</string>
-    <string name="title_no_key">No private key</string>
+    <string name="title_no_key">کلید خصوصی نیست</string>
     <string name="title_invalid_key">کلید خصوصی بی اعتبار</string>
-    <string name="title_unknown_key">Private key does not match any encryption keys</string>
+    <string name="title_unknown_key">کلید خصوصی با هیچ کلید رمزنگاری همخوانی ندارد</string>
     <string name="title_send_plain_text">فقط متن ساده</string>
     <string name="title_send_receipt">Request receipt</string>
     <string name="title_send_receipt_remark">Most providers and email clients ignore receipt requests</string>
     <string name="title_from_missing">فرستنده وجود ندارد</string>
-    <string name="title_extra_missing">Username missing</string>
+    <string name="title_extra_missing">نام کاربری وجود ندارد</string>
     <string name="title_to_missing">گیرنده وجود ندارد</string>
     <string name="title_pgp_reminder">PGP keys available</string>
     <string name="title_subject_reminder">موضوع خالی است</string>
@@ -802,9 +802,9 @@
     <string name="title_user_interaction">در حال انتقال به OpenKeychain</string>
     <string name="title_signed_data">Verify the signature to show the message text</string>
     <string name="title_not_encrypted">Message is not signed or encrypted</string>
-    <string name="title_no_sign_key">No sign key selected</string>
-    <string name="title_reset_sign_key">Reset sign key</string>
-    <string name="title_signature_none">Message not signed</string>
+    <string name="title_no_sign_key">کلید امضائی انتخاب نشده</string>
+    <string name="title_reset_sign_key">بازنشانی کلید امضا</string>
+    <string name="title_signature_none">پیام امضا نشده</string>
     <string name="title_signature_valid">Message signature valid</string>
     <string name="title_signature_valid_from">Message signature valid: %1$s</string>
     <string name="title_signature_unconfirmed">Message signature valid but not confirmed</string>
@@ -812,10 +812,10 @@
     <string name="title_signature_invalid">Message signature invalid</string>
     <string name="title_signature_invalid_reason">Message signature invalid: %1$s</string>
     <string name="title_signature_key_missing">Key for signature verification is missing</string>
-    <string name="title_signature_certificate_invalid">Certificate chain invalid</string>
+    <string name="title_signature_certificate_invalid">زنجیر گواهی نامعتبر است</string>
     <string name="title_signature_sender">نشانی فرستنده</string>
     <string name="title_signature_email">نشانی امضا</string>
-    <string name="title_signature_mismatch">The email address of the sender and signature do not match</string>
+    <string name="title_signature_mismatch">نشانی ایمیل فرستنده و امضا همخوانی ندارد</string>
     <string name="title_signature_subject">موضوع</string>
     <string name="title_signature_validity">اعتبار</string>
     <string name="title_signature_outdated">این کلید عمومی در حال حاضر معتبر نیست</string>
@@ -866,7 +866,7 @@
     <string name="title_filter_unflagged">بدون ستاره شده</string>
     <string name="title_filter_unknown">فرستندگان ناشناس</string>
     <string name="title_filter_hidden">پنهان</string>
-    <string name="title_filter_duplicates">Duplicates</string>
+    <string name="title_filter_duplicates">پیام‌های تکراری</string>
     <string name="title_compact">نمایش فشرده</string>
     <string name="title_zoom">اندازه متن</string>
     <string name="title_select_language">انتخاب زبان</string>
@@ -923,8 +923,8 @@
     <string name="title_rule_folder">پوشه</string>
     <string name="title_rule_thread">All messages in same conversation and folder</string>
     <string name="title_rule_identity">هویت</string>
-    <string name="title_rule_template">Reply template</string>
-    <string name="title_rule_cc">Reply to CC addresses</string>
+    <string name="title_rule_template">الگوی پاسخ</string>
+    <string name="title_rule_cc">پاسخ به نشانی گیرنده رونوشت</string>
     <string name="title_rule_answer_remark">Only one reply will be sent for any conversation, to avoid reply loops</string>
     <string name="title_rule_name_missing">نام دستور موجود نیست</string>
     <string name="title_rule_condition_missing">فاقد شرایط</string>
@@ -940,7 +940,7 @@
     <string name="title_legend_section_messages">پیام‌ها</string>
     <string name="title_legend_section_compose">نوشتن</string>
     <string name="title_legend_section_keyboard">صفحه کلید</string>
-    <string name="title_legend_oauth">OAuth authorization</string>
+    <string name="title_legend_oauth">احراز هویت OAuth</string>
     <string name="title_legend_primary_connected">اتصال حساب برقرار شده است</string>
     <string name="title_legend_primary_disconnected">اتصال حساب قطع شده است</string>
     <string name="title_legend_download_on">دریافت خودکار محتوای پیام</string>
@@ -955,7 +955,7 @@
     <string name="title_legend_downloading">درحال بارگیری</string>
     <string name="title_legend_closing">در حال بسته شدن</string>
     <string name="title_legend_waiting">در انتظار همگام سازی بعدی</string>
-    <string name="title_legend_unified">Unified inbox / primary account</string>
+    <string name="title_legend_unified">صندوق دریافت یکپارچه / حساب اصلی</string>
     <string name="title_legend_inbox">صندوق دریافت</string>
     <string name="title_legend_drafts">پيش‌نويس‌ها</string>
     <string name="title_legend_sent">ارسال شده</string>
@@ -999,7 +999,7 @@
     <string name="title_legend_tracking_pixel">Tracking image</string>
     <string name="title_legend_broken_image">تصویر شکسته (خراب)</string>
     <string name="title_legend_pick">انتخاب مخاطب</string>
-    <string name="title_legend_cc">نمایش سی‌سی/بی‌سی‌سی</string>
+    <string name="title_legend_cc">نمایش گیرنده رونوشت/رونوشت پنهان</string>
     <string name="title_legend_link">درج لینک</string>
     <string name="title_legend_file">پیوست نمودن فایل</string>
     <string name="title_legend_picture">درج تصویر</string>
@@ -1131,7 +1131,7 @@
     <string name="title_debug_info">اطلاعات اشکال زدایی</string>
     <string name="title_debug_info_remark">لطفاً مشکل را شرح داده و به زمان مشکل نیز اشاره کنید:</string>
     <string name="title_crash_info_remark">لطفاً توضیح دهید که در هنگام کرش برنامه درحال انجام چه کاری بودید:</string>
-    <string name="title_widget_title_count">New message count</string>
+    <string name="title_widget_title_count">شمار پیام جدید</string>
     <string name="title_widget_title_list">لیست پیام‌ها</string>
     <string name="title_widget_account">حساب</string>
     <string name="title_widget_account_all">همه</string>
@@ -1142,8 +1142,8 @@
     <string name="title_widget_font_size">اندازه قلم</string>
     <string name="title_widget_padding">Padding size</string>
     <string name="title_widget_semi_transparent">Semi transparent background</string>
-    <string name="title_accessibility_collapsed">Collapsed</string>
-    <string name="title_accessibility_expanded">Expanded</string>
+    <string name="title_accessibility_collapsed">جمع شده</string>
+    <string name="title_accessibility_expanded">گسترش یافته</string>
     <string name="title_accessibility_seen">خوانده شده</string>
     <string name="title_accessibility_unseen">خوانده نشده</string>
     <plurals name="title_accessibility_messages">
@@ -1158,8 +1158,8 @@
     <string name="title_keyword_label5">بعدا</string>
     <string name="title_accessibility_flagged">ستاره دار</string>
     <string name="title_accessibility_unflagged">بدون ستاره شده</string>
-    <string name="title_accessibility_collapse">Collapse</string>
-    <string name="title_accessibility_expand">Expand</string>
+    <string name="title_accessibility_collapse">جمع شدن</string>
+    <string name="title_accessibility_expand">گسترش</string>
     <string name="title_accessibility_view_contact">مشاهده مخاطب</string>
     <string name="title_accessibility_show_authentication_result">نمایش نتیجه تایید هویت</string>
     <string name="title_accessibility_show_snooze_time">نمایش زمان تعویق</string>
@@ -1242,6 +1242,7 @@
         <item>در شروع</item>
         <item>در وسط</item>
         <item>در پایان</item>
+        <item>Show completely</item>
     </string-array>
     <string-array name="priorityNames">
         <item>پایین</item>

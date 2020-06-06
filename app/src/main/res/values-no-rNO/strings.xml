@@ -1241,6 +1241,7 @@ Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anme
         <item>I begynnelsen</item>
         <item>I midten</item>
         <item>På slutten</item>
+        <item>Show completely</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Lav</item>

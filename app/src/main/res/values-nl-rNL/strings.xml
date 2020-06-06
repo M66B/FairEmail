@@ -1238,6 +1238,7 @@
         <item>Aan het begin</item>
         <item>In het midden</item>
         <item>Aan het einde</item>
+        <item>Toon volledig</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Laag</item>

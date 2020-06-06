@@ -1241,6 +1241,7 @@
         <item>I starten</item>
         <item>I midten</item>
         <item>Ved slutningen</item>
+        <item>Show completely</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Lav</item>

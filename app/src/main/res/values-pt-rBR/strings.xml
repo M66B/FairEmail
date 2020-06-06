@@ -1243,6 +1243,7 @@
         <item>No início</item>
         <item>No meio</item>
         <item>No final</item>
+        <item>Show completely</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Baixa</item>

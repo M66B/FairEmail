@@ -1242,6 +1242,7 @@
         <item>В началото</item>
         <item>По средата</item>
         <item>Към края</item>
+        <item>Show completely</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Нисък</item>

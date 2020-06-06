@@ -1241,6 +1241,7 @@
         <item>All\'inizio</item>
         <item>Nel mezzo</item>
         <item>Alla fine</item>
+        <item>Show completely</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Basso</item>

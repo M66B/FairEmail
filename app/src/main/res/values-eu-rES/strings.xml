@@ -1240,6 +1240,7 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
         <item>Hasieran</item>
         <item>Erdian</item>
         <item>Amaieran</item>
+        <item>Show completely</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Baxua</item>

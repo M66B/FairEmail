@@ -1242,6 +1242,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
         <item>Az elején</item>
         <item>A közepén</item>
         <item>A végén</item>
+        <item>Show completely</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Alacsony</item>
