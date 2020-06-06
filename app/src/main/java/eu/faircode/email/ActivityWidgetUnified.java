@@ -153,8 +153,11 @@ public class ActivityWidgetUnified extends ActivityBase {
 
                         DB db = DB.getInstance(context);
                         List<TupleFolderEx> folders = db.folder().getFoldersEx(account);
-                        if (folders != null && folders.size() > 0)
+                        if (folders != null && folders.size() > 0) {
+                            for (TupleFolderEx folder : folders)
+                                folder.name = EntityFolder.localizeName(context, folder.name);
                             Collections.sort(folders, folders.get(0).getComparator(context));
+                        }
                         return folders;
                     }
 
