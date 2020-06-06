@@ -312,7 +312,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 if (account < 0 && !primary)
                     tvType.setText(folder.accountName);
                 else
-                    tvType.setText(Helper.localizeFolderType(context, folder.type));
+                    tvType.setText(EntityFolder.localizeType(context, folder.type));
 
                 tvTotal.setText(folder.total == null ? "" : NF.format(folder.total));
 

@@ -1066,7 +1066,7 @@ public class FragmentRule extends FragmentBase {
         public AccountFolder(EntityAccount account, EntityFolder folder, Context context) {
             this.account = account;
             this.folder = folder;
-            this.name = account.name + "/" + Helper.localizeFolderName(context, folder.name);
+            this.name = account.name + "/" + EntityFolder.localizeName(context, folder.name);
         }
 
         @NonNull

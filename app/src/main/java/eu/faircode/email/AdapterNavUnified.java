@@ -95,10 +95,10 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
                 count = folder.unseen;
 
             if (count == 0)
-                tvItem.setText(Helper.localizeFolderType(context, folder.type));
+                tvItem.setText(EntityFolder.localizeType(context, folder.type));
             else
                 tvItem.setText(context.getString(R.string.title_name_count,
-                        Helper.localizeFolderType(context, folder.type), NF.format(count)));
+                        EntityFolder.localizeType(context, folder.type), NF.format(count)));
 
             tvItem.setTextColor(count == 0 ? textColorSecondary : colorUnread);
             tvItem.setTypeface(count == 0 ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);

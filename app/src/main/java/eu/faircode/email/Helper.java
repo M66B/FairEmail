@@ -718,23 +718,6 @@ public class Helper {
             return DateUtils.getRelativeTimeSpanString(context, millis);
     }
 
-    static String localizeFolderType(Context context, String type) {
-        int resid = context.getResources().getIdentifier(
-                "title_folder_" + type.toLowerCase(Locale.ROOT),
-                "string",
-                context.getPackageName());
-        return (resid > 0 ? context.getString(resid) : type);
-    }
-
-    static String localizeFolderName(Context context, String name) {
-        if (name != null && "INBOX".equals(name.toUpperCase(Locale.ROOT)))
-            return context.getString(R.string.title_folder_inbox);
-        else if ("OUTBOX".equals(name))
-            return context.getString(R.string.title_folder_outbox);
-        else
-            return name;
-    }
-
     static void linkPro(final TextView tv) {
         if (ActivityBilling.isPro(tv.getContext()) && !BuildConfig.DEBUG)
             hide(tv);

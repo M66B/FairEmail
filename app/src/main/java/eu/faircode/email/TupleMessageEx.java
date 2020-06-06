@@ -68,7 +68,7 @@ public class TupleMessageEx extends EntityMessage {
 
     String getFolderName(Context context) {
         return (folderDisplay == null
-                ? Helper.localizeFolderName(context, folderName)
+                ? EntityFolder.localizeName(context, folderName)
                 : folderDisplay);
     }
 

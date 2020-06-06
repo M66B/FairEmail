@@ -247,7 +247,7 @@ public class FragmentFolder extends FragmentBase {
                     int interval = args.getInt("interval", EntityAccount.DEFAULT_KEEP_ALIVE_INTERVAL);
                     etName.setText(folder == null ? null : folder.name);
                     etDisplay.setText(folder == null ? null : folder.display);
-                    etDisplay.setHint(folder == null ? null : Helper.localizeFolderName(getContext(), folder.name));
+                    etDisplay.setHint(folder == null ? null : EntityFolder.localizeName(getContext(), folder.name));
                     btnColor.setColor(folder == null ? null : folder.color);
                     cbHide.setChecked(folder == null ? false : folder.hide);
                     cbUnified.setChecked(folder == null ? false : folder.unified);

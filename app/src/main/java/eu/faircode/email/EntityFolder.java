@@ -295,14 +295,14 @@ public class EntityFolder extends EntityOrder implements Serializable {
     }
 
     String getDisplayName(Context context) {
-        return (display == null ? Helper.localizeFolderName(context, name) : display);
+        return (display == null ? localizeName(context, name) : display);
     }
 
     String getDisplayName(Context context, EntityFolder parent) {
         String n = name;
         if (parent != null && name.startsWith(parent.name))
             n = n.substring(parent.name.length() + 1);
-        return (display == null ? Helper.localizeFolderName(context, n) : display);
+        return (display == null ? localizeName(context, n) : display);
     }
 
     @Override
@@ -430,6 +430,23 @@ public class EntityFolder extends EntityOrder implements Serializable {
             else
                 return name.substring(0, p);
         }
+    }
+
+    static String localizeType(Context context, String type) {
+        int resid = context.getResources().getIdentifier(
+                "title_folder_" + type.toLowerCase(Locale.ROOT),
+                "string",
+                context.getPackageName());
+        return (resid > 0 ? context.getString(resid) : type);
+    }
+
+    static String localizeName(Context context, String name) {
+        if (name != null && "INBOX".equals(name.toUpperCase(Locale.ROOT)))
+            return context.getString(R.string.title_folder_inbox);
+        else if ("OUTBOX".equals(name))
+            return context.getString(R.string.title_folder_outbox);
+        else
+            return name;
     }
 
     @Override
