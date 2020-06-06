@@ -1785,7 +1785,7 @@ public class FragmentAccount extends FragmentBase {
         return folders;
     }
 
-    private class CheckResult {
+    private static class CheckResult {
         EntityAccount account;
         List<EntityFolder> folders;
         boolean idle;

@@ -1058,7 +1058,7 @@ public class FragmentRule extends FragmentBase {
         return jaction;
     }
 
-    private class AccountFolder {
+    private static class AccountFolder {
         EntityAccount account;
         EntityFolder folder;
         String name;
@@ -1076,14 +1076,14 @@ public class FragmentRule extends FragmentBase {
         }
     }
 
-    private class RefData {
+    private static class RefData {
         EntityFolder folder;
         List<AccountFolder> folders;
         List<EntityIdentity> identities;
         List<EntityAnswer> answers;
     }
 
-    private class Action {
+    private static class Action {
         int type;
         String name;
 
