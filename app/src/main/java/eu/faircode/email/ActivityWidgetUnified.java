@@ -25,12 +25,16 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Spinner;
+import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
 import androidx.preference.PreferenceManager;
 
@@ -126,7 +130,27 @@ public class ActivityWidgetUnified extends ActivityBase {
         adapterAccount.setDropDownViewResource(R.layout.spinner_item1_dropdown);
         spAccount.setAdapter(adapterAccount);
 
-        adapterFolder = new ArrayAdapter<>(this, R.layout.spinner_item1, android.R.id.text1, new ArrayList<TupleFolderEx>());
+        adapterFolder = new ArrayAdapter<TupleFolderEx>(this, R.layout.spinner_item1, android.R.id.text1, new ArrayList<TupleFolderEx>()) {
+            @NonNull
+            @Override
+            public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+                return localize(position, super.getView(position, convertView, parent));
+            }
+
+            @Override
+            public View getDropDownView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+                return localize(position, super.getDropDownView(position, convertView, parent));
+            }
+
+            private View localize(int position, View view) {
+                TupleFolderEx folder = getItem(position);
+                if (folder != null) {
+                    TextView tv = view.findViewById(android.R.id.text1);
+                    tv.setText(EntityFolder.localizeName(view.getContext(), folder.name));
+                }
+                return view;
+            }
+        };
         adapterFolder.setDropDownViewResource(R.layout.spinner_item1_dropdown);
         spFolder.setAdapter(adapterFolder);
 
