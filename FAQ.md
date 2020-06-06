@@ -1818,7 +1818,8 @@ Rules are applied directly after the message header has been fetched, but before
 so it is not possible to apply conditions and actions to the message text.
 Note that large message texts are downloaded on demand on a metered connection to save on data usage.
 
-If you want to forward a message, consider to use the move action instead. This will be more reliable than forwarding as well.
+If you want to forward a message, consider to use the move action instead.
+This will be more reliable than forwarding as well because forwarded messages might be considered as spam.
 
 Since message headers are not downloaded and stored by default to save on battery and data usage and to save storage space
 it is not possible to preview which messages would match a header rule condition.
