@@ -1783,7 +1783,7 @@ The following rule conditions are available:
 * Subject contains
 * Has attachments
 * Header contains
-* Time between
+* Day/time between
 
 All the conditions of a rule need to be true for the rule action to be executed.
 All conditions are optional, but there needs to be at least one condition, to prevent matching all messages.
@@ -1811,17 +1811,19 @@ You can select one of these actions to apply to matching messages:
 * Add keyword
 * Move
 * Copy (Gmail: label)
-* Reply template
+* Answer (with template)
 * Automation (Tasker, etc)
 
 Rules are applied directly after the message header has been fetched, but before the message text has been downloaded,
 so it is not possible to apply conditions and actions to the message text.
-Note that large message texts are downloaded on demand on a metered connection to save data.
+Note that large message texts are downloaded on demand on a metered connection to save on data usage.
+
+If you want to forward a message, consider to use the move action instead. This will be more reliable than forwarding as well.
 
 Since message headers are not downloaded and stored by default to save on battery and data usage and to save storage space
-it is not possible to preview which messages would match the header rule condition.
+it is not possible to preview which messages would match a header rule condition.
 
-In the *more* message menu there is an item to create a rule for a received message with the most common conditions filled in.
+In the three-dots *more* message menu there is an item to create a rule for a received message with the most common conditions filled in.
 
 Rules are available for IMAP accounts only because the POP3 protocol allows downloading and permanently deleting messages from the inbox only.
 
