@@ -1059,12 +1059,10 @@ public class FragmentRule extends FragmentBase {
     }
 
     private static class AccountFolder {
-        EntityAccount account;
         EntityFolder folder;
         String name;
 
         public AccountFolder(EntityAccount account, EntityFolder folder, Context context) {
-            this.account = account;
             this.folder = folder;
             this.name = account.name + "/" + EntityFolder.localizeName(context, folder.name);
         }
