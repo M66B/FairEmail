@@ -471,7 +471,7 @@ public class FragmentRule extends FragmentBase {
                             if (folders.size() > 0)
                                 Collections.sort(folders, folders.get(0).getComparator(null));
                             for (EntityFolder folder : folders)
-                                data.folders.add(new AccountFolder(account, folder));
+                                data.folders.add(new AccountFolder(account, folder, context));
                         }
                     }
 
@@ -1061,16 +1061,18 @@ public class FragmentRule extends FragmentBase {
     private class AccountFolder {
         EntityAccount account;
         EntityFolder folder;
+        String name;
 
-        public AccountFolder(EntityAccount account, EntityFolder folder) {
+        public AccountFolder(EntityAccount account, EntityFolder folder, Context context) {
             this.account = account;
             this.folder = folder;
+            this.name = account.name + "/" + Helper.localizeFolderName(context, folder.name);
         }
 
         @NonNull
         @Override
         public String toString() {
-            return account.name + "/" + folder.name;
+            return name;
         }
     }
 
