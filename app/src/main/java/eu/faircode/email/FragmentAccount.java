@@ -490,7 +490,27 @@ public class FragmentAccount extends FragmentBase {
         spTrash.setAdapter(adapter);
         spJunk.setAdapter(adapter);
 
-        adapterSwipe = new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1, new ArrayList<EntityFolder>());
+        adapterSwipe = new ArrayAdapter<EntityFolder>(getContext(), R.layout.spinner_item1, android.R.id.text1, new ArrayList<EntityFolder>()) {
+            @NonNull
+            @Override
+            public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+                return localize(position, super.getView(position, convertView, parent));
+            }
+
+            @Override
+            public View getDropDownView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+                return localize(position, super.getDropDownView(position, convertView, parent));
+            }
+
+            private View localize(int position, View view) {
+                EntityFolder folder = getItem(position);
+                if (folder != null) {
+                    TextView tv = view.findViewById(android.R.id.text1);
+                    tv.setText(EntityFolder.localizeName(view.getContext(), folder.name));
+                }
+                return view;
+            }
+        };
         adapterSwipe.setDropDownViewResource(R.layout.spinner_item1_dropdown);
 
         spLeft.setAdapter(adapterSwipe);
