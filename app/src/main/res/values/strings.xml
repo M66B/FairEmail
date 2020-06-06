@@ -1467,7 +1467,7 @@
         <item>At the start</item>
         <item>In the middle</item>
         <item>At the end</item>
-        <item>Show completely</item>
+        <item>Show untruncated</item>
     </string-array>
 
     <string-array name="priorityNames">
