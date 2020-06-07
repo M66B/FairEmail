@@ -5170,7 +5170,8 @@ public class FragmentCompose extends FragmentBase {
 
                                 db.message().setMessageUiEncrypt(message.id, encrypt);
 
-                                if (message.identity != null) {
+                                if (encrypt != EntityMessage.ENCRYPT_NONE &&
+                                        message.identity != null) {
                                     int iencrypt =
                                             (encrypt == EntityMessage.SMIME_SIGNONLY ||
                                                     encrypt == EntityMessage.SMIME_SIGNENCRYPT
