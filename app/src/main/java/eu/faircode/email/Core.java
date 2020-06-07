@@ -1501,6 +1501,8 @@ class Core {
             EntityAccount account, final EntityFolder folder,
             POP3Folder ifolder, POP3Store istore, State state) throws MessagingException {
         DB db = DB.getInstance(context);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean notify_known = prefs.getBoolean("notify_known", false);
 
         Log.i(folder.name + " POP sync type=" + folder.type + " connected=" + (ifolder != null));
 
@@ -1641,6 +1643,8 @@ class Core {
                         message.sender = MessageHelper.getSortKey(message.from);
                         Uri lookupUri = ContactInfo.getLookupUri(message.from);
                         message.avatar = (lookupUri == null ? null : lookupUri.toString());
+                        if (message.avatar == null && notify_known)
+                            message.ui_ignored = true;
 
                         // No MX check
 
@@ -2142,6 +2146,7 @@ class Core {
 
         DB db = DB.getInstance(context);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean notify_known = prefs.getBoolean("notify_known", false);
 
         // Find message by uid (fast, no headers required)
         EntityMessage message = db.message().getMessageByUid(folder.id, uid);
@@ -2276,6 +2281,8 @@ class Core {
             message.sender = MessageHelper.getSortKey(message.from);
             Uri lookupUri = ContactInfo.getLookupUri(message.from);
             message.avatar = (lookupUri == null ? null : lookupUri.toString());
+            if (message.avatar == null && notify_known)
+                message.ui_ignored = true;
 
             boolean check_mx = prefs.getBoolean("check_mx", false);
             if (check_mx)
