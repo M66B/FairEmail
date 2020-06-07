@@ -27,6 +27,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
+import android.util.Base64;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -338,6 +339,8 @@ public class FragmentOAuth extends FragmentBase {
                                     throw error;
 
                                 Log.i("OAuth got token provider=" + provider.id);
+                                if (BuildConfig.DEBUG)
+                                    Log.i("TokenResponse=" + access.jsonSerializeString());
                                 authState.update(access, null);
                                 if (BuildConfig.DEBUG)
                                     Log.i("OAuth response=" + authState.jsonSerializeString());
@@ -345,7 +348,7 @@ public class FragmentOAuth extends FragmentBase {
                                 if (TextUtils.isEmpty(access.refreshToken))
                                     throw new IllegalStateException("No refresh token");
 
-                                onOAuthorized(access.accessToken, authState);
+                                onOAuthorized(access.accessToken, access.idToken, authState);
                             } catch (Throwable ex) {
                                 showError(ex);
                             }
@@ -356,11 +359,12 @@ public class FragmentOAuth extends FragmentBase {
         }
     }
 
-    private void onOAuthorized(String accessToken, AuthState state) {
+    private void onOAuthorized(String accessToken, String idToken, AuthState state) {
         Bundle args = new Bundle();
         args.putString("id", id);
         args.putString("name", name);
         args.putString("token", accessToken);
+        args.putString("jwt", idToken);
         args.putString("state", state.jsonSerializeString());
         args.putBoolean("askAccount", askAccount);
         args.putString("personal", etName.getText().toString().trim());
@@ -372,10 +376,29 @@ public class FragmentOAuth extends FragmentBase {
                 String id = args.getString("id");
                 String name = args.getString("name");
                 String token = args.getString("token");
+                String jwt = args.getString("jwt");
                 String state = args.getString("state");
                 boolean askAccount = args.getBoolean("askAccount", false);
                 String personal = args.getString("personal");
                 String address = args.getString("address");
+
+                if (jwt != null) {
+                    String[] segments = jwt.split("\\.");
+                    if (segments.length > 1)
+                        try {
+                            String payload = new String(Base64.decode(segments[1], Base64.DEFAULT));
+                            Log.i("jwt payload=" + payload);
+                            JSONObject jpayload = new JSONObject(payload);
+                            if (jpayload.has("email")) {
+                                String email = jpayload.getString("email");
+                                Log.i("jwt email=" + email);
+                                if (!TextUtils.isEmpty(email))
+                                    address = email;
+                            }
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        }
+                }
 
                 String primaryEmail = null;
                 List<Pair<String, String>> identities = new ArrayList<>();

@@ -64,7 +64,7 @@
             clientSecret="r=o4@SlzU:MA6MlXM6mPG[44i4gYPq[@"
             enabled="true"
             redirectUri="https://oauth.faircode.eu/"
-            scopes="offline_access,https://outlook.office365.com/IMAP.AccessAsUser.All,https://outlook.office365.com/SMTP.Send"
+            scopes="openid,email,offline_access,https://outlook.office365.com/IMAP.AccessAsUser.All,https://outlook.office365.com/SMTP.Send"
             tokenEndpoint="https://login.microsoftonline.com/common/oauth2/v2.0/token" />
         <!-- https://docs.microsoft.com/en-us/exchange/client-developer/legacy-protocols/how-to-authenticate-an-imap-pop-smtp-application-by-using-oauth -->
     </provider>
