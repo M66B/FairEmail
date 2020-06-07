@@ -476,9 +476,10 @@ Unfortunately, it is impossible to make everybody happy and adding lots of setti
 
 You can use the quick setup wizard to easily setup a Gmail account and identity.
 
-If you don't want to use an on device Gmail account,
+If you don't want to use an on-device Gmail account,
 you can either enable access for "less secure apps" and use your account password
 or enable two factor authentication and use an app specific password.
+Please see [this FAQ](#user-content-faq111) about why it is not possible to non on-device accounts.
 
 Note that an app specific password is required when two factor authentication is enabled.
 
@@ -2415,8 +2416,7 @@ because Google requires a [yearly security audit](https://support.google.com/clo
 
 OAuth for Yandex is supported via the quick setup wizard.
 
-Outlook, Live and Hotmail do not yet support OAuth for IMAP/SMTP connections, but
-"*[We are actively working on OAuth support for IMAP connections to O365 mailboxes. We will make a public announcement once the same is available.](https://stackoverflow.com/a/58072053)*" (September 24, 2019).
+OAuth for Office365 accounts is supported, but Microsoft does not offer OAuth for Outlook, Live and Hotmail accounts (yet?).
 
 OAuth access for Yahoo! was requested, but Yahoo! never responded to the request.
 OAuth for AOL [was deactivated](https://www.programmableweb.com/api/aol-open-auth) by AOL.
