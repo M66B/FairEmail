@@ -1113,7 +1113,7 @@ Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anme
          For å gjøre FairEmail bærekraftig på lang sikt er det noe brukervennlighet og avanserte funksjoner som ikke er gratis å bruke.
          FairEmail viser en liten melding for å minne deg på dette, og som vil bli fjernet hvis du kjøper pro funksjonene.
     </string>
-    <string name="title_pro_hide">Hide small message for two weeks</string>
+    <string name="title_pro_hide">Hide small message for %1$d weeks</string>
     <string name="title_pro_hint">Ved å kjøpe pro-funksjoner kan du bruke alle aktuelle og fremtidige pro-funksjoner, og vil holde denne appen vedlikeholdt og støttet</string>
     <string name="title_pro_price">Vennligst se <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">denne FAQ</a> om pris på Pro-funksjonene</string>
     <string name="title_pro_pending">Ventende kjøp</string>
@@ -1241,7 +1241,7 @@ Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anme
         <item>I begynnelsen</item>
         <item>I midten</item>
         <item>På slutten</item>
-        <item>Show completely</item>
+        <item>Show untruncated</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Lav</item>

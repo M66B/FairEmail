@@ -1113,7 +1113,7 @@
         Per rendere FairEmail sostenibile a lungo termine, alcuni vantaggi e funzionalità avanzate non sono gratuiti.
         FairEmail per ricordare questo mostra un piccolo messaggio, che verrà rimosso se acquisti le funzioni pro.
     </string>
-    <string name="title_pro_hide">Nascondi un piccolo messaggio per due settimane</string>
+    <string name="title_pro_hide">Hide small message for %1$d weeks</string>
     <string name="title_pro_hint">L\'acquisto di funzionalità a pagamento ti permetterà di utilizzare tutte le attuali e future funzioni, aiuterà il mantenimento e il supporto dell\'app</string>
     <string name="title_pro_price">Consulta <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">queste FAQ</a> riguardo il prezzo delle funzioni a pagamento</string>
     <string name="title_pro_pending">Acquisto in sospeso</string>
@@ -1241,7 +1241,7 @@
         <item>All\'inizio</item>
         <item>Nel mezzo</item>
         <item>Alla fine</item>
-        <item>Show completely</item>
+        <item>Show untruncated</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Basso</item>

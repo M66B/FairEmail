@@ -80,6 +80,7 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
 
         long banner_hidden = prefs.getLong("banner_hidden", 0);
         cbHide.setChecked(banner_hidden > 0);
+        cbHide.setText(getString(R.string.title_pro_hide, ServiceUI.HIDE_BANNER));
 
         cbHide.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override

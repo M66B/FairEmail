@@ -1114,7 +1114,7 @@
         За да бъде FairEmail устойчив в дългосрочен план, някои удобства и разширени функции не са безплатни.
         FairEmail показва малко съобщение, което да ви напомня за това, което ще бъде премахнато, ако закупите pro функциите.
     </string>
-    <string name="title_pro_hide">Скрийте малко съобщения за две седмици</string>
+    <string name="title_pro_hide">Hide small message for %1$d weeks</string>
     <string name="title_pro_hint">Купуването на професионалните функции ще ви позволи да използвате всички настоящи и бъдещи професионални функции, ще поддържа това приложение поддържано.</string>
     <string name="title_pro_price">Моля вижте <a href="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq19">ЧЗВ</a> за цената на PRO функциите</string>
     <string name="title_pro_pending">Чакащо плащане</string>
@@ -1242,7 +1242,7 @@
         <item>В началото</item>
         <item>По средата</item>
         <item>Към края</item>
-        <item>Show completely</item>
+        <item>Show untruncated</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Нисък</item>

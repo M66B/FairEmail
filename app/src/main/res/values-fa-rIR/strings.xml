@@ -92,7 +92,7 @@
     <string name="menu_faq">پشتیبانی</string>
     <string name="menu_translate">کمک به ترجمه</string>
     <string name="menu_issue">گزارش اشکال</string>
-    <string name="menu_attribution">Attribution</string>
+    <string name="menu_attribution">انتساب‌ها</string>
     <string name="menu_privacy">حریم خصوصی</string>
     <string name="menu_about">درباره</string>
     <string name="menu_pro">ویژگی‌ نسخه‌ی حرفه‌ای</string>
@@ -126,10 +126,10 @@
     <string name="title_setup_wizard_remark">برای رفتن به صندوق ورودی به عقب بروید</string>
     <string name="title_setup_other">ارائه دهنده دیگر</string>
     <string name="title_setup_gmail_support">حساب های گوگل فقط در نسخه‌های رسمی مجاز می‌شوند چون اندروید امضای برنامه را بررسی می‌کند</string>
-    <string name="title_setup_gmail_rationale">Please grant permissions to select an account and read your name</string>
+    <string name="title_setup_gmail_rationale">لطفا مجوز برای انتخاب حساب و خواندن نام شما را اعطا کنید</string>
     <string name="title_setup_gmail_permissions">Google will ask for permissions to read, compose, send and permanently delete all your email. FairEmail will never delete your messages without your explicit consent.</string>
     <string name="title_setup_gmail_drafts">اگر پوشه پیش‌نویس‌ها به‌وسیله IMAP قابل دسترسی نیست، می‌توان آن را در تنظیمات برچسب‌های جیمیل درست کرد</string>
-    <string name="title_setup_oauth_rationale">Authorize access to your %1$s account</string>
+    <string name="title_setup_oauth_rationale">برای دسترسی به %1$s حسابتان اجازه دهید</string>
     <string name="title_setup_oauth_authorize">اجازه دهید</string>
     <string name="title_setup_select_account">انتخاب حساب</string>
     <string name="title_setup_instructions">دستورالعمل های راه‌اندازی</string>
@@ -234,7 +234,7 @@
     <string name="title_advanced_prefix_once">Prefix subject only once on replying or forwarding</string>
     <string name="title_advanced_extended_reply">Use extended reply/forward header</string>
     <string name="title_advanced_quote_reply">متن پاسخ نقل قول شده</string>
-    <string name="title_advanced_resize_reply">Resize images in replied text</string>
+    <string name="title_advanced_resize_reply">تغییر اندازه تصاویر در متن پاسخ داده شده</string>
     <string name="title_advanced_signature_location">موقعیت امضاء</string>
     <string name="title_advanced_signature_end">Add signature after quoted/forwarded message</string>
     <string name="title_advanced_plain_only">فقط متن ساده را به صورت پیشفرض بفرست</string>
@@ -277,28 +277,28 @@
     <string name="title_advanced_circular">نمایش آیکون‌های گرد</string>
     <string name="title_advanced_color_saturation">اشباع</string>
     <string name="title_advanced_color_value">روشنایی</string>
-    <string name="title_advanced_color_threshold">Threshold letter color</string>
-    <string name="title_advanced_name_email">Show names and email addresses</string>
+    <string name="title_advanced_color_threshold">رنگ نویسه آستانه</string>
+    <string name="title_advanced_name_email">نام‌ها و نشانی‌های ایمیل را نمایش بده</string>
     <string name="title_advanced_replace_name">Prefer a contact name over a sent name</string>
     <string name="title_advanced_distinguish_contacts">Underline the sender when the sender is known as local \'to\' contact</string>
-    <string name="title_advanced_show_recipients">Show recipients in message header</string>
+    <string name="title_advanced_show_recipients">گیرندگان را در سرتیتر نمایش بده</string>
     <string name="title_advanced_font_size_sender">اندازه قلم فرستنده</string>
     <string name="title_advanced_font_size_subject">اندازه قلم موضوع</string>
     <string name="title_advanced_subject_top">نمایش موضوع در بالای فرستنده</string>
     <string name="title_advanced_subject_italic">نمایش موضوع به‌صورت italic</string>
-    <string name="title_advanced_subject_elipsed">When needed, shorten the subject</string>
-    <string name="title_advanced_keywords">Show keywords in message header</string>
+    <string name="title_advanced_subject_elipsed">هنگامی که نیاز باشد، موضوع را کوچک‌تر کن</string>
+    <string name="title_advanced_keywords">کلیدواژه‌ها را در سرتیتر پیام نمایش بده</string>
     <string name="title_advanced_flags">نمایش ستاره‌ها</string>
-    <string name="title_advanced_flags_background">Show colored background instead of colored stars</string>
+    <string name="title_advanced_flags_background">به‌جای ستاره‌های رنگی، پس‌زمینه رنگی را نمایش بده</string>
     <string name="title_advanced_preview">نمایش دادن پیش‌نمایش پیام</string>
-    <string name="title_advanced_preview_italic">Show message preview in italics</string>
+    <string name="title_advanced_preview_italic">پیش‌نمایش پیام را به‌صورت ایتالیک نمایش بده</string>
     <string name="title_advanced_preview_lines">شمار خط‌های پیش‌نمایش</string>
     <string name="title_advanced_archive_trash">نمایش دکمه‌ها برای بایگانی یا حذف پیام</string>
     <string name="title_advanced_move">نمایش دکمه برای انتقال پیام</string>
     <string name="title_advanced_addresses">نمایش جزئیات آدرس به صورت پیش‌فرض</string>
     <string name="title_advanced_attachments_alt">نمایش پیوست‌ها بعد از متن پیام</string>
-    <string name="title_advanced_contrast">Use high contrast for message text</string>
-    <string name="title_advanced_monospaced">Use monospaced font for message text</string>
+    <string name="title_advanced_contrast">از کنتراست زیاد برای متن پیام استفاده کن</string>
+    <string name="title_advanced_monospaced">از فونت monospaced(تک پهنه) برای متن پیام استفاده کن</string>
     <string name="title_advanced_text_color">تنظیم رنگ‌های متن</string>
     <string name="title_advanced_text_size">نمایش متن‌های کوچک و بزرگ</string>
     <string name="title_advanced_text_align">Show left/center/right aligned texts</string>
@@ -365,7 +365,7 @@
     <string name="title_advanced_tracking">Automatically recognize and disable tracking images</string>
     <string name="title_advanced_hide_timezone">Send messages without timezone data</string>
     <string name="title_advanced_display_hidden">نمایش متن پیام‌های پنهان</string>
-    <string name="title_advanced_secure">Hide from recent apps screen and prevent taking screenshots</string>
+    <string name="title_advanced_secure">از صفحه برنامه های اخیر پنهان شو و از گرفتن اسکرین‌شات جلوگیری کن</string>
     <string name="title_advanced_pin">پین</string>
     <string name="title_advanced_biometrics_timeout">وقفه تایید هویت بیومتریک</string>
     <string name="title_advanced_sign_default">امضاء به‌صورت پیشفرض</string>
@@ -384,7 +384,7 @@
     <string name="title_advanced_conversation_actions_replies">پیشنهاد متن‌های پاسخ</string>
     <string name="title_advanced_language_detection">تشخیص زبان متن پیام</string>
     <string name="title_advanced_fts">ساخت شاخص جستجو</string>
-    <string name="title_advanced_fts_indexed">%1$d / %2$d messages indexed (%3$s)</string>
+    <string name="title_advanced_fts_indexed">%1$d / %2$d پیام ایندکس شد (%3$s)</string>
     <string name="title_advanced_english">استفاده از تنظیمات کشور آمریکا</string>
     <string name="title_advanced_watchdog">بطور دوره ای بررسی کن که آیا FairEmail هنوز فعال است یا خیر</string>
     <string name="title_advanced_optimize">به‌طور خودکار تنظیمات را بهینه‌سازی کن</string>
@@ -408,7 +408,7 @@
     <string name="title_advanced_deleted_unseen">When disabled, unread messages are kept on the device forever</string>
     <string name="title_advanced_sync_kept_hint">This will transfer extra data and consume extra battery power, especially if a lot of messages are stored on the device</string>
     <string name="title_advanced_sync_folders_hint">Disabling this will reduce data and battery usage somewhat, but will disable updating the list of folders too</string>
-    <string name="title_advanced_sync_delay_hint">This will slow down synchronizing messages</string>
+    <string name="title_advanced_sync_delay_hint">این سرعت همگام‌سازی پیام‌ها را کاهش خواهد داد</string>
     <string name="title_advanced_suggest_local_hint">In addition to contacts provided by Android. Contact data will be stored for newly sent or received messages only when enabled.</string>
     <string name="title_advanced_usenet_hint">بین متن و امضا \'-- \' درج کنید</string>
     <string name="title_advanced_send_reminders_hint">Show a warning when the message text or the subject is empty or when an attachment might be missing</string>
@@ -442,7 +442,7 @@
     <string name="title_advanced_display_harmful_hint">Disabling this option might be harmful to your privacy</string>
     <string name="title_advanced_display_hidden_hint">This can result in odd looking and double texts</string>
     <string name="title_advanced_display_pin_hint">A PIN takes precedence over biometrics authentication</string>
-    <string name="title_advanced_badge_hint">Only available on supported launchers</string>
+    <string name="title_advanced_badge_hint">تنها روی راه‌اندازهای پشتیبانی‌شده در دسترس است</string>
     <string name="title_advanced_notify_action_hint">حداکثر سه کنش نشان داده خواهد شد</string>
     <string name="title_advanced_notify_remove_hint">New message notifications will always be removed on being swiped away and on marking messages read</string>
     <string name="title_advanced_notify_manage_hint">Tap on the channel name to set the channel properties</string>
@@ -550,14 +550,14 @@
     <string name="title_synchronize_more">Synchronize more messages</string>
     <string name="title_synchronize_enabled">همگام‌سازی</string>
     <string name="title_delete_local">حذف پیام های داخلی</string>
-    <string name="title_delete_browsed">Delete browsed/searched messages</string>
+    <string name="title_delete_browsed">حذف پیام‌های مرور شده/جستجو شده</string>
     <string name="title_empty_trash">خالی کردن زباله‌دان</string>
     <string name="title_empty_spam">خالی کردن هرزنامه</string>
     <string name="title_edit_properties">ویرایش ویژگی‌ها</string>
     <string name="title_edit_rules">ویرایش دستورات</string>
-    <string name="title_create_channel">Create notification channel</string>
-    <string name="title_edit_channel">Edit notification channel</string>
-    <string name="title_delete_channel">Delete notification channel</string>
+    <string name="title_create_channel">کانال اعلان بساز</string>
+    <string name="title_edit_channel">ویرایش کانال اعلان</string>
+    <string name="title_delete_channel">حذف کانال اعلان</string>
     <string name="title_insert_contact">افزودن مخاطب</string>
     <string name="title_edit_contact">ویرایش مخاطب</string>
     <string name="title_create_sub_folder">ساخت زیرپوشه</string>
@@ -572,7 +572,7 @@
     <string name="title_folder_name">نام پوشه</string>
     <string name="title_display_name">نامی که نمایش داده می شود</string>
     <string name="title_show_folders">نمایش پوشه‌های پنهان</string>
-    <string name="title_show_flagged">Show starred message count</string>
+    <string name="title_show_flagged">نمایش شمار پیام‌های ستاره‌دار</string>
     <string name="title_subscribed_only">Subscribed only</string>
     <string name="title_apply_to_all">Apply to all &#8230;</string>
     <string name="title_hide_folder">پنهان‌سازی پوشه</string>
@@ -616,7 +616,7 @@
     <string name="title_filters_active">One or more filters active</string>
     <string name="title_duplicate_in">Duplicate message in %1$s</string>
     <string name="title_subject_reply">پاسخ: %1$s</string>
-    <string name="title_subject_forward">فوروارد: %1$s</string>
+    <string name="title_subject_forward">هدایت: %1$s</string>
     <string name="title_seen">علامت زدن به عنوان خوانده شده</string>
     <string name="title_unseen">علامت زدن به عنوان خوانده نشده</string>
     <string name="title_hide">پنهان کردن</string>
@@ -629,7 +629,7 @@
     <string name="title_importance_normal">متوسط</string>
     <string name="title_importance_high">بالا</string>
     <string name="title_search_in_text">جستجو در متن &#8230;</string>
-    <string name="title_forward">فوروارد</string>
+    <string name="title_forward">هدایت</string>
     <string name="title_new_message">پیام جدید</string>
     <string name="title_editasnew">ویرایش به‌عنوان جدید</string>
     <string name="title_create_rule">ساخت قانون &#8230;</string>
@@ -743,7 +743,7 @@
     <string name="title_send_at">ارسال در &#8230;</string>
     <string name="title_send_encryption">رمزنگاری</string>
     <string name="title_send_priority">اولويت</string>
-    <string name="title_no_server">No server found at \'%1$s\'</string>
+    <string name="title_no_server">هیچ سروری در \'%1$s\' یافت نشد</string>
     <string name="title_style_bold">درشت</string>
     <string name="title_style_italic">مورب</string>
     <string name="title_style_underline">خط زیر</string>
@@ -756,7 +756,7 @@
     <string name="title_add_image_attach">پیوست</string>
     <string name="title_add_image_resize">تغییر اندازه</string>
     <string name="title_add_image_privacy">حذف موقعیت جغرافیایی</string>
-    <string name="title_add_resize_pixels">&lt; %1$d pixels</string>
+    <string name="title_add_resize_pixels">&lt;%1$d پیکسل</string>
     <string name="title_add_image_select">انتخاب فایل</string>
     <string name="title_add_attachment">افزودن پیوست</string>
     <string name="title_attachment_file">پیوست فایل</string>
@@ -772,7 +772,7 @@
     <string name="title_edit_formatted_text">Edit as reformatted text</string>
     <string name="title_select_certificate">انتخاب کلید عمومی</string>
     <string name="title_certificate_missing">No public key for %1$s</string>
-    <string name="title_certificate_invalid">Public key of %1$s is invalid</string>
+    <string name="title_certificate_invalid">کلید عمومی %1$s نامعتبر است</string>
     <string name="title_no_key">کلید خصوصی نیست</string>
     <string name="title_invalid_key">کلید خصوصی بی اعتبار</string>
     <string name="title_unknown_key">کلید خصوصی با هیچ کلید رمزنگاری همخوانی ندارد</string>
@@ -786,14 +786,14 @@
     <string name="title_subject_reminder">موضوع خالی است</string>
     <string name="title_text_reminder">پیام خالی است</string>
     <string name="title_attachment_keywords">attached,attachment,attachments,included</string>
-    <string name="title_attachment_reminder">Did you intend to add an attachment?</string>
+    <string name="title_attachment_reminder">آیا می‌خواستید که یک پیوست اضافه کنید؟</string>
     <string name="title_attachments_missing">همه پیوست ها دانلود نشدند</string>
     <string name="title_dialog_hint">This dialog can be enabled again via the three-dots menu in the top action bar</string>
     <string name="title_draft_deleted">از پیش‌نویس صرف‌نظر شد</string>
     <string name="title_draft_saved">پیش‌نویس ذخیره شد</string>
     <string name="title_ask_send_via">ارسال پیام به %1$s از طریق %2$s?</string>
     <string name="title_queued">درحال ارسال پیام</string>
-    <string name="title_queued_at">Message will be sent around %1$s</string>
+    <string name="title_queued_at">پیام دور و بر %1$s ارسال خواهد شد</string>
     <string name="title_sign">امضا</string>
     <string name="title_encrypt">رمزگذاری</string>
     <string name="title_decrypt">رمزگشایی</string>
@@ -801,7 +801,7 @@
     <string name="title_no_openpgp">OpenKeychain یافت نشد</string>
     <string name="title_user_interaction">در حال انتقال به OpenKeychain</string>
     <string name="title_signed_data">Verify the signature to show the message text</string>
-    <string name="title_not_encrypted">Message is not signed or encrypted</string>
+    <string name="title_not_encrypted">پیام امضا یا رمزنگاری نشده</string>
     <string name="title_no_sign_key">کلید امضائی انتخاب نشده</string>
     <string name="title_reset_sign_key">بازنشانی کلید امضا</string>
     <string name="title_signature_none">پیام امضا نشده</string>
@@ -965,10 +965,10 @@
     <string name="title_legend_primary">اصلی</string>
     <string name="title_legend_subscribed">مشترک شده به</string>
     <string name="title_legend_rule">دارای قوانین</string>
-    <string name="title_legend_similar">Search similar messages</string>
+    <string name="title_legend_similar">جستجوی پیام‌های مشابه</string>
     <string name="title_legend_notify">آگاه‌سازی از پیام‌های جدید</string>
     <string name="title_legend_sync_keep">تعداد روزهای همگام سازی / برای نگه داشتن پیام ها</string>
-    <string name="title_legend_download_fetch">Number of message downloaded / headers fetched</string>
+    <string name="title_legend_download_fetch">شمار پیام‌های بارگیری شده/ سرتیتر بدست آورده شده</string>
     <string name="title_legend_stop">توقف پردازش دستورات</string>
     <string name="title_legend_thread">گفتگو</string>
     <string name="title_legend_zoom">تغییر اندازه متن</string>
@@ -980,17 +980,17 @@
     <string name="title_legend_signed">امضا شده</string>
     <string name="title_legend_encrypted">رمزنگاری شده</string>
     <string name="title_legend_auth">تأیید اعتبار ناموفق بود</string>
-    <string name="title_legend_found">Was found</string>
+    <string name="title_legend_found">یافت شد</string>
     <string name="title_legend_snoozed">موقتا در حالت تعلیق است</string>
     <string name="title_legend_browsed">مرور یا جستجو</string>
     <string name="title_legend_answered">پاسخ داده شده است</string>
-    <string name="title_legend_forwarded">Was forwarded</string>
+    <string name="title_legend_forwarded">هدایت شده</string>
     <string name="title_legend_plain_only">فقط متن ساده</string>
     <string name="title_legend_receipt">Receipt was requested</string>
     <string name="title_legend_attachment">پیوست دارد</string>
     <string name="title_legend_flagged">مورد علاقه</string>
     <string name="title_legend_contacts">مدیریت مخاطبین</string>
-    <string name="title_legend_search">Search for sender</string>
+    <string name="title_legend_search">جستجو برای فرستنده</string>
     <string name="title_legend_view">مشاهده مخاطبین</string>
     <string name="title_legend_hide">پنهان کردن محتوا</string>
     <string name="title_legend_download">دریافت محتوا</string>
@@ -1114,7 +1114,7 @@
         To make FairEmail sustainable in the long term, some convenience and advanced features are not free to use.
         FairEmail displays a small message to remind you of this, which will be removed if you purchase the pro features.
     </string>
-    <string name="title_pro_hide">پنهان‌کردن پیام‌های کوچک برای دو هفته</string>
+    <string name="title_pro_hide">Hide small message for %1$d weeks</string>
     <string name="title_pro_hint">خرید نسخه حرفه‌ای به شما اجازه استفاده از تمامی ویژگی‌های حرفه‌ای فعلی و آینده را خواهد داد. همچنین موجب حفظ و پشتیبانی آن می‌شود</string>
     <string name="title_pro_price">لطفاً ببینید <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">این پرسش و پاسخ</a> درباره ارزش و قیمت نسخه حرفه‌ای</string>
     <string name="title_pro_pending">خرید در انتظار</string>
@@ -1242,7 +1242,7 @@
         <item>در شروع</item>
         <item>در وسط</item>
         <item>در پایان</item>
-        <item>Show completely</item>
+        <item>Show untruncated</item>
     </string-array>
     <string-array name="priorityNames">
         <item>پایین</item>

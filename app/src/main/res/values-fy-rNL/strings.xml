@@ -1114,7 +1114,7 @@
         To make FairEmail sustainable in the long term, some convenience and advanced features are not free to use.
         FairEmail displays a small message to remind you of this, which will be removed if you purchase the pro features.
     </string>
-    <string name="title_pro_hide">Hide small message for two weeks</string>
+    <string name="title_pro_hide">Hide small message for %1$d weeks</string>
     <string name="title_pro_hint">Buying pro features will allow you to use all current and future pro features, will keep this app maintained, and supported.</string>
     <string name="title_pro_price">Sjoch asjebleaft <a href="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq19">dizze FAQ</a> oer de priis fan \'e pro-funksjes</string>
     <string name="title_pro_pending">Purchase pending</string>
@@ -1242,7 +1242,7 @@
         <item>Oan it begjin</item>
         <item>In the middle</item>
         <item>Oan de ein</item>
-        <item>Show completely</item>
+        <item>Show untruncated</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Leech</item>

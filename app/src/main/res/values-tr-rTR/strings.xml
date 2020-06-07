@@ -1114,7 +1114,7 @@
         FairEmail\'i uzun vadede sürdürülebilir kılmak için, bazı kolaylıkların ve gelişmiş özelliklerin kullanımı ücretsiz değildir.
         FairEmail size bunu hatırlatmak için, pro özellikleri satın alırsanız kaldırılacak olan küçük bir mesaj göstermektedir.
     </string>
-    <string name="title_pro_hide">Hide small message for two weeks</string>
+    <string name="title_pro_hide">Hide small message for %1$d weeks</string>
     <string name="title_pro_hint">Pro özelliklerin satın alınması, mevcut ve gelecekteki tüm pro özelliklerin kullanılmasına izin verecek ve bu uygulamayı ayakta tutup destekleyecek</string>
     <string name="title_pro_price">Lütfen pro özelliklerin fiyatı için <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">bu SSS sayfasını</a> görün</string>
     <string name="title_pro_pending">Satın alma beklemede</string>
@@ -1242,7 +1242,7 @@
         <item>Başlangıçta</item>
         <item>Ortada</item>
         <item>Sonunda</item>
-        <item>Show completely</item>
+        <item>Show untruncated</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Düşük</item>

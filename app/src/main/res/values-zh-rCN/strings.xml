@@ -1102,7 +1102,7 @@
     <string name="title_pro_info">毫不夸张地说，我在开发FairEmail上花费了数千小时，尽管如此，多数功能依旧可免费使用。
 为了让FairEmail开发维持下去，免费版无法使用一些便利和高级的功能。
 FairEmail会显示一条消息来提醒您这一点，这条消息在您购买专业版后将被移除。</string>
-    <string name="title_pro_hide">将升级为 Pro 版横幅隐藏两周</string>
+    <string name="title_pro_hide">Hide small message for %1$d weeks</string>
     <string name="title_pro_hint">购买专业版将获得现在以及未来更新中全部专业版功能，并将支持开发者维护这个应用</string>
     <string name="title_pro_price">请参见<a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">常见问题</a>关于专业版的价格</string>
     <string name="title_pro_pending">购买待处理</string>
@@ -1229,7 +1229,7 @@ FairEmail会显示一条消息来提醒您这一点，这条消息在您购买�
         <item>主题开头</item>
         <item>主题中部</item>
         <item>主题末尾</item>
-        <item>完整显示</item>
+        <item>显示未删节的</item>
     </string-array>
     <string-array name="priorityNames">
         <item>低</item>

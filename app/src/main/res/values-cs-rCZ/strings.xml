@@ -1135,7 +1135,7 @@
     <string name="title_pro_info">  Vývoj FairEmail trval doslova tisíce hodin a i přesto lze většinu funkcí používat volně.
   Abychom učinili FairEmail dlouhodobě udržitelným, některé pokročilé funkce a usnadnění nejsou volně k dispozici.
   Jako připomínku téhož zobrazuje FairEmail stručnou zprávu, jež bude odstraněna, zakoupíte-li si funkce Pro.    </string>
-    <string name="title_pro_hide">Skrýt stručnou zprávu na dva týdny</string>
+    <string name="title_pro_hide">Hide small message for %1$d weeks</string>
     <string name="title_pro_hint">Zakoupením Pro funkcí získáte přístup ke všem současným i budoucím Pro funkcím a pomůžete zachovat tuto aplikaci udržovanou a podporovanou</string>
     <string name="title_pro_price">Pro odůvodnění ceny Pro funkcí si prosím přečtěte <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">časté dotazy</a></string>
     <string name="title_pro_pending">Probíhá nákup</string>
@@ -1265,7 +1265,7 @@
         <item>Na začátku</item>
         <item>Uprostřed</item>
         <item>Na konci</item>
-        <item>Show completely</item>
+        <item>Zobrazit nezkrácené</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Nízká</item>

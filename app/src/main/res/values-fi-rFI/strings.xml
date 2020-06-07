@@ -263,7 +263,7 @@
     <string name="title_advanced_cards">Käytä korttityyliä taulukkotyylin sijaan</string>
     <string name="title_advanced_date_header">Ryhmittely päivämäärän mukaan</string>
     <string name="title_advanced_threading">Keskustelujen ketjuttaminen</string>
-    <string name="title_advanced_threading_unread">Show number of unread messages in conversations</string>
+    <string name="title_advanced_threading_unread">Näytä lukemattomien viestien lukumäärä keskusteluissa</string>
     <string name="title_advanced_indentation">Tasaa vastaanotetut/lähetetyt viestit keskusteluissa vasemmalle/oikealle</string>
     <string name="title_advanced_highlight_unread">Korosta lukemattomat viestit</string>
     <string name="title_advanced_highlight_subject">Korosta aihe</string>
@@ -397,7 +397,7 @@
     <string name="title_advanced_enabled_hint">Estä tai salli viestien vastaanotto globaalisti</string>
     <string name="title_advanced_manual_hint">Jos automaattinen synkronointi on pois käytöstä, synkronoinnin voi tehdä manuaalisesti vetämällä alaspäin viestilistassa.</string>
     <string name="title_advanced_poll_hint">Ajoittainen synkronointi vertaa paikallisia ja palvelimen viestejä joka kerta ja voi aiheuttaa ylimääräistä akun käyttöä varsinkin, kun synkronoitavia viestejä on paljon. Koko ajan synkronointi välttää tämän synkronoimalla jatkuvasti vain muutokset.</string>
-    <string name="title_advanced_optimized_hint">This option can be optimized automatically (miscellaneous settings)</string>
+    <string name="title_advanced_optimized_hint">Tämä valinta voidaan optimoida automaattisesti (sekaliset asetukset)</string>
     <string name="title_advanced_schedule_hint">Napauta aikaa asettaaksesi sen</string>
     <string name="title_advanced_check_mx">Tarkista lähettäjien sähköpostiosoitteet viestejä synkronoitaessa</string>
     <string name="title_advanced_check_reply">Tarkista vastaussähköpostiosoitteet viestejä synkronoitaessa</string>
@@ -724,7 +724,7 @@
     <string name="title_reply_to">Vastausosoite:</string>
     <string name="title_cc">Kopio:</string>
     <string name="title_bcc">Piilokopio:</string>
-    <string name="title_recipients">%1$d recipients</string>
+    <string name="title_recipients">%1$d vastaanottajaa</string>
     <string name="title_via_identity">Kautta:</string>
     <string name="title_sent">Lähetetty:</string>
     <string name="title_received">Vastaanotettu:</string>
@@ -1112,7 +1112,7 @@
         Jotta FairEmailin kehittäminen olisi mahdollista, jotkin mukavuutta tuovat ja edistyneemmät ominaisuudet eivät ole ilmaisia.
         FairEmail näyttää pienen viestin muistuttaakseen sinua tästä. Viesti poistuu, jos ostat pro-ominaisuudet.
     </string>
-    <string name="title_pro_hide">Piilota pieni viesti kahden viikon ajaksi</string>
+    <string name="title_pro_hide">Hide small message for %1$d weeks</string>
     <string name="title_pro_hint">Pro-ominaisuuksien ostaminen antaa oikeudet käyttää nykyisiä ja tulevia pro-ominaisuuksia sekä auttaa ylläpitämään ja tukemaan tätä sovellusta</string>
     <string name="title_pro_price">Katso <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">nämä usein kysytyt kysymykset</a> pro-ominaisuuksien hinnasta</string>
     <string name="title_pro_pending">Ostos odottaa vahvistusta</string>
@@ -1240,7 +1240,7 @@
         <item>Alusta</item>
         <item>Keskeltä</item>
         <item>Lopusta</item>
-        <item>Show completely</item>
+        <item>Show untruncated</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Alhainen</item>

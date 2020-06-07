@@ -1112,7 +1112,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
         Um FairEmail langfristig mit Support verfügbar zu halten, sind einige Komfort- und erweiterte Funktionen nicht kostenlos.
         Zur Erinnerung zeigt FairEmail ein kleines Banner an, dies verschwindet beim Kauf der Pro-Funktionen.
     </string>
-    <string name="title_pro_hide">Kleine Hinweisnachricht für zwei Wochen ausblenden</string>
+    <string name="title_pro_hide">Hide small message for %1$d weeks</string>
     <string name="title_pro_hint">Der Erwerb der Pro-Funktionen erlaubt es Ihnen alle momentan und zukünftig verfügbaren Pro-Funktionen zu nutzen und ermöglicht die Weiterentwicklung und Pflege der App.</string>
     <string name="title_pro_price">Informationen zum Preis der Pro-Funktionen finden Sie in der <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">Hilfe</a></string>
     <string name="title_pro_pending">Kauf ausstehend</string>
@@ -1240,7 +1240,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
         <item>Am Anfang</item>
         <item>In der Mitte</item>
         <item>Am Ende</item>
-        <item>Vollständig anzeigen</item>
+        <item>Ungekürzt anzeigen</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Niedrig</item>

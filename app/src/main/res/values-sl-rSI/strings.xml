@@ -1136,7 +1136,7 @@
         Zaradi vzdržljivosti FairEmaila na dolgi rok nekatere priročne in napredne značilnosti niso brezplačne.
         FairEmail za ta namen prikaže majhno sporočilo, ki bo odstranjeno, če kupite značilnosti Pro.
     </string>
-    <string name="title_pro_hide">Hide small message for two weeks</string>
+    <string name="title_pro_hide">Hide small message for %1$d weeks</string>
     <string name="title_pro_hint">Nakup značilnosti Pro bo omogočil uporabo vseh trenutnih in prihodnjih značilnosti, vzdrževanje in podporo tega programa.</string>
     <string name="title_pro_price">Oglejte si <a href="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq19">ta pogosta vprašanja</a> glede cene značilnosti Pro.</string>
     <string name="title_pro_pending">Nakup je na čakanju.</string>
@@ -1266,7 +1266,7 @@
         <item>Na začetku</item>
         <item>Na sredini</item>
         <item>Na koncu</item>
-        <item>Show completely</item>
+        <item>Show untruncated</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Nizka</item>

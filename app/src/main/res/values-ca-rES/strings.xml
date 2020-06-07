@@ -1114,7 +1114,7 @@
         Perquè FairEmail sigui sostenible a llarg termini, algunes comoditats i funcions avançades no són gratuïtes d’utilitzar.
         FairEmail mostra un petit missatge per recordar-lo, que se suprimirà si adquiriu les funcions professionals.
     </string>
-    <string name="title_pro_hide">Hide small message for two weeks</string>
+    <string name="title_pro_hide">Hide small message for %1$d weeks</string>
     <string name="title_pro_hint">Comprar característiques Pro et permet utilitzar tota la funcionalitat Pro actual i futura i mantindrà el desenvolupament de l\'aplicació</string>
     <string name="title_pro_price">Dona un cop d\'ull <a href="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq19">a les preguntes freqüents</a> per saber el preu de les característiques Pro</string>
     <string name="title_pro_pending">Compra pendent</string>
@@ -1242,7 +1242,7 @@
         <item>Al començament</item>
         <item>Al mig</item>
         <item>Al final</item>
-        <item>Show completely</item>
+        <item>Show untruncated</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Baixa</item>

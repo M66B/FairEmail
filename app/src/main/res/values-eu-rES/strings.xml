@@ -1112,7 +1112,7 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
         FairEmail epe luzera mantengarria izan dadin, erosotasun funtzio batzuk edo funtzio aurreratu batzuk ordainpekokoak dira.
         FairEmail-ek mezu txiki bat bistaratzen du hau gogorarazteko, ordainpeko ezaugarriak erosiz gero mezua desagertzen da.
     </string>
-    <string name="title_pro_hide">Ezkutatu mezu txikia bi astez</string>
+    <string name="title_pro_hide">Hide small message for %1$d weeks</string>
     <string name="title_pro_hint">Ordainpeko ezaugarriak erostean oraingo eta etorkizuneko ordainpeko ezaugarri guztiak erabiltzeko eskubidea ematen dizu, eta aplikazio hau mantentzen lagunduko du.</string>
     <string name="title_pro_price">Begiratu <a href="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq19">maiz egindako galderak</a> ordainpeko ezaugarrien salneurriari buruz</string>
     <string name="title_pro_pending">Erosketa egiteke</string>
@@ -1240,7 +1240,7 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
         <item>Hasieran</item>
         <item>Erdian</item>
         <item>Amaieran</item>
-        <item>Show completely</item>
+        <item>Show untruncated</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Baxua</item>

@@ -1114,7 +1114,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
         Hogy a FairEmailt fenntarthatóvá tudjam tenni, néhány kényelem haladó beállítások nem ingyenesek.
         A FairEmail egy kicsi üzenetet jelenít meg hogy emlékeztessen erről, ami el lesz távolítva ha megvásárolod a pro verziót.
     </string>
-    <string name="title_pro_hide">A kicsi üzenet elrejtése két hétre</string>
+    <string name="title_pro_hide">Hide small message for %1$d weeks</string>
     <string name="title_pro_hint">A pro funkciók megvásárlása engedélyezi neked hogy használd az összes jelenlegi és jövőbeli pro funkciót amellett hogy fenntartva és támogatva tartja az alkalmazást.</string>
     <string name="title_pro_price">Kérlek lásd <a href="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq19">EZt a GYIK-et</a> a pro funkciók áráért</string>
     <string name="title_pro_pending">A vásárlás folyamatban van</string>
@@ -1242,7 +1242,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
         <item>Az elején</item>
         <item>A közepén</item>
         <item>A végén</item>
-        <item>Show completely</item>
+        <item>Show untruncated</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Alacsony</item>

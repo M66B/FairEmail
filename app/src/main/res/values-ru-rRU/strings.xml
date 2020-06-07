@@ -1136,7 +1136,7 @@
         Чтобы сделать проект FairEmail устойчивым в долгосрочной перспективе, некоторые удобства и расширенные функции являются платными.
         FairEmail показывает небольшое сообщение, чтобы напоминать вам об этом. Оно будет удалено, если вы приобретёте функционал Pro.
     </string>
-    <string name="title_pro_hide">Скрыть маленькое сообщение на две недели</string>
+    <string name="title_pro_hide">Hide small message for %1$d weeks</string>
     <string name="title_pro_hint">Покупка функций Pro позволит вам использовать все реализованные и будущие Pro-функции.</string>
     <string name="title_pro_price">Ознакомьтесь с <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">​​этим часто задаваемым вопросом</a> о цене функций Pro.</string>
     <string name="title_pro_pending">Ожидание обработки покупки</string>
@@ -1266,7 +1266,7 @@
         <item>В начале</item>
         <item>В середине</item>
         <item>В конце</item>
-        <item>Показать полностью</item>
+        <item>Показать без сокращений</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Низкий</item>

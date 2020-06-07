@@ -1114,7 +1114,7 @@
         Pour rendre FairEmail durable à long terme, certaines fonctionnalités pratiques et avancées ne sont pas gratuites.
         FairEmail affiche une bannière pour vous le rappeler, laquelle sera retirée si vous achetez les fonctionnalités pro.
     </string>
-    <string name="title_pro_hide">Masquer la bannière pendant deux semaines</string>
+    <string name="title_pro_hide">Hide small message for %1$d weeks</string>
     <string name="title_pro_hint">L’achat des fonctionnalités pro vous autorisera à utiliser toutes les fonctionnalités Pro actuelles et futures et permettra de maintenir et de soutenir cette application.</string>
     <string name="title_pro_price">Veuillez voir <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">cette FAQ</a> à propos du prix des fonctionnalités pro</string>
     <string name="title_pro_pending">Achat en attente</string>
@@ -1242,7 +1242,7 @@
         <item>Au début</item>
         <item>Au milieu</item>
         <item>À la fin</item>
-        <item>Afficher en entier</item>
+        <item>Afficher non tronqué</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Basse</item>

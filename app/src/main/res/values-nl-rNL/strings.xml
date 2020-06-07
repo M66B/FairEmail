@@ -1110,7 +1110,7 @@
     <string name="title_pro_purchase">Koop</string>
     <string name="title_pro_once">Eenmalig</string>
     <string name="title_pro_info">Het ontwikkelen van FairEmail kostte letterlijk duizenden uren en ondanks dat zijn de meeste functies gratis te gebruiken. Om FairEmail op de lange termijn duurzaam te maken, zijn sommige gebruiksgemak en geavanceerde functies niet gratis te gebruiken. FairEmail geeft een klein bericht weer om u hieraan te herinneren, dat wordt verwijderd als u de pro functies aanschaft.</string>
-    <string name="title_pro_hide">Verberg het kleine bericht voor twee weken</string>
+    <string name="title_pro_hide">Verberg het kleine bericht voor %1$d weken</string>
     <string name="title_pro_hint">Het kopen van pro functies geeft toegang tot alle huidige en toekomstige pro functies en zorgt voor onderhoud en ondersteuning van deze app.</string>
     <string name="title_pro_price">Zie <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">deze FAQ</a> over de prijs van de pro-functies</string>
     <string name="title_pro_pending">Aankoop in behandeling</string>
@@ -1238,7 +1238,7 @@
         <item>Aan het begin</item>
         <item>In het midden</item>
         <item>Aan het einde</item>
-        <item>Toon volledig</item>
+        <item>Toon ongekort</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Laag</item>

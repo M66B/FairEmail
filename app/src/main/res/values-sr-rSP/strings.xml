@@ -1125,7 +1125,7 @@
         Да би FairEmail био одржив на дуже стазе, неке погодности и напредне функционалности нису бесплатне.
         FairEmail приказује малу поруку да Вас подсети на ово, која се може уклонити куповином премијум функционалности.
     </string>
-    <string name="title_pro_hide">Hide small message for two weeks</string>
+    <string name="title_pro_hide">Hide small message for %1$d weeks</string>
     <string name="title_pro_hint">Куповина премијум функционалности ће Вам дозволити да користите све тренутне и будуће премијум функције, и бринуће се да се апликација одржава и да буде подржана.</string>
     <string name="title_pro_price">Видите ова <a href="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq19">често постављана питања</a> о цени премијум функционалности</string>
     <string name="title_pro_pending">Куповина на чекању</string>
@@ -1254,7 +1254,7 @@
         <item>Са почетка</item>
         <item>У средини</item>
         <item>Са краја</item>
-        <item>Show completely</item>
+        <item>Show untruncated</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Низак</item>

@@ -1121,7 +1121,7 @@
     <string name="title_pro_info">Razvoj FairEmaila trajao je doslovno tisuće sati i bez obzira na to što je većina značajki besplatna za korištenje.
          Da bi FairEmail dugoročno bio održiv, neke pogodnosti i napredne značajke se ne mogu besplatno koristiti.
          FairEmail prikazuje malu poruku koja vas podsjeća na to, a koja će biti uklonjena ako kupite profesionalne značajke.    </string>
-    <string name="title_pro_hide">Hide small message for two weeks</string>
+    <string name="title_pro_hide">Hide small message for %1$d weeks</string>
     <string name="title_pro_hint">Kupnja pro funkcija će vam omogućiti da koristite sve trenutne i buduće mogućnosti aplikacije i zadržat će ovu aplikaciju održavanu i podržanu</string>
     <string name="title_pro_price">Pogledajte <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19"> ovaj FAQ </a> za cijenu pro funkcija</string>
     <string name="title_pro_pending">Kupnja na čekanju</string>
@@ -1250,7 +1250,7 @@
         <item>Na početku</item>
         <item>U sredini</item>
         <item>Na kraju</item>
-        <item>Show completely</item>
+        <item>Show untruncated</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Nizak</item>
