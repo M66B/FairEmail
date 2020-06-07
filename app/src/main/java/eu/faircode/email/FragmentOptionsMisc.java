@@ -28,7 +28,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Paint;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -82,6 +84,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swCleanupAttachments;
     private Button btnCleanup;
     private TextView tvLastCleanup;
+    private Button btnApp;
     private Button btnMore;
 
     private TextView tvProcessors;
@@ -137,6 +140,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swCleanupAttachments = view.findViewById(R.id.swCleanupAttachments);
         btnCleanup = view.findViewById(R.id.btnCleanup);
         tvLastCleanup = view.findViewById(R.id.tvLastCleanup);
+        btnApp = view.findViewById(R.id.btnApp);
         btnMore = view.findViewById(R.id.btnMore);
 
         tvProcessors = view.findViewById(R.id.tvProcessors);
@@ -305,6 +309,20 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onClick(View view) {
                 onCleanup();
+            }
+        });
+
+        final Intent app = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+        app.setData(Uri.parse("package:" + getContext().getPackageName()));
+        btnApp.setEnabled(app.resolveActivity(getContext().getPackageManager()) != null);
+        btnApp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    getContext().startActivity(app);
+                } catch (Throwable ex) {
+                    ToastEx.makeText(getContext(), getString(R.string.title_no_viewer, app.getAction()), Toast.LENGTH_LONG).show();
+                }
             }
         });
 
