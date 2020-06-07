@@ -71,6 +71,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
     private SwitchCompat swBadge;
     private SwitchCompat swUnseenIgnored;
     private SwitchCompat swNotifyKnown;
+    private TextView tvNotifyKnownPro;
     private SwitchCompat swNotifySummary;
     private SwitchCompat swNotifyRemove;
     private SwitchCompat swNotifyClear;
@@ -129,6 +130,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         swBadge = view.findViewById(R.id.swBadge);
         swUnseenIgnored = view.findViewById(R.id.swUnseenIgnored);
         swNotifyKnown = view.findViewById(R.id.swNotifyKnown);
+        tvNotifyKnownPro = view.findViewById(R.id.tvNotifyKnownPro);
         swNotifySummary = view.findViewById(R.id.swNotifySummary);
         swNotifyRemove = view.findViewById(R.id.swNotifyRemove);
         swNotifyClear = view.findViewById(R.id.swNotifyClear);
@@ -267,6 +269,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         });
 
         Helper.linkPro(tvNotifyActionsPro);
+        Helper.linkPro(tvNotifyKnownPro);
 
         swLight.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
