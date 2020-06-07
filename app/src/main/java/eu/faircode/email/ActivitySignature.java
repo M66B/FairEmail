@@ -37,6 +37,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -45,8 +46,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.snackbar.Snackbar;
 
 public class ActivitySignature extends ActivityBase {
+    private ViewGroup view;
     private EditTextCompose etText;
     private BottomNavigationView style_bar;
     private BottomNavigationView bottom_navigation;
@@ -64,7 +67,10 @@ public class ActivitySignature extends ActivityBase {
             raw = savedInstanceState.getBoolean("fair:raw");
 
         getSupportActionBar().setSubtitle(getString(R.string.title_edit_signature));
-        setContentView(R.layout.activity_signature);
+
+        LayoutInflater inflater = LayoutInflater.from(this);
+        view = (ViewGroup) inflater.inflate(R.layout.activity_signature, null, false);
+        setContentView(view);
 
         etText = findViewById(R.id.etText);
         style_bar = findViewById(R.id.style_bar);
@@ -290,6 +296,15 @@ public class ActivitySignature extends ActivityBase {
                 etText.setText(ssb);
                 etText.setSelection(start + 2);
             }
+        } catch (SecurityException ex) {
+            Snackbar sb = Snackbar.make(view, R.string.title_no_stream, Snackbar.LENGTH_INDEFINITE);
+            sb.setAction(R.string.title_info, new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Helper.viewFAQ(ActivitySignature.this, 49);
+                }
+            });
+            sb.show();
         } catch (Throwable ex) {
             Log.unexpectedError(getSupportFragmentManager(), ex);
         }
