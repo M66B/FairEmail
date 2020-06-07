@@ -62,7 +62,7 @@ public class ServiceUI extends IntentService {
     static final int PI_SYNC = 13;
     static final int PI_BANNER = 14;
 
-    static final int HIDE_BANNER = 2; // weeks
+    static final int HIDE_BANNER = 3; // weeks
 
     public ServiceUI() {
         this(ServiceUI.class.getName());

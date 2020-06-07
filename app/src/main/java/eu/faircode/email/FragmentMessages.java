@@ -332,7 +332,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     static final String ACTION_DECRYPT = BuildConfig.APPLICATION_ID + ".DECRYPT";
     static final String ACTION_KEYWORDS = BuildConfig.APPLICATION_ID + ".KEYWORDS";
 
-    private static final long REVIEW_ASK_DELAY = 21 * 24 * 3600 * 1000L; // milliseconds
+    private static final long REVIEW_ASK_DELAY = 14 * 24 * 3600 * 1000L; // milliseconds
     private static final long REVIEW_LATER_DELAY = 3 * 24 * 3600 * 1000L; // milliseconds
 
     static final List<String> SORT_DATE_HEADER = Collections.unmodifiableList(Arrays.asList(
