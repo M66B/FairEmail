@@ -360,6 +360,8 @@ public class FragmentBase extends Fragment {
                 InputStream is = null;
                 try {
                     pfd = context.getContentResolver().openFileDescriptor(uri, "w");
+                    if (pfd == null)
+                        throw new FileNotFoundException(uri.toString());
                     os = new FileOutputStream(pfd.getFileDescriptor());
                     is = new FileInputStream(file);
 
@@ -448,6 +450,8 @@ public class FragmentBase extends Fragment {
                     InputStream is = null;
                     try {
                         pfd = context.getContentResolver().openFileDescriptor(document.getUri(), "w");
+                        if (pfd == null)
+                            throw new FileNotFoundException(name);
                         os = new FileOutputStream(pfd.getFileDescriptor());
                         is = new FileInputStream(file);
 

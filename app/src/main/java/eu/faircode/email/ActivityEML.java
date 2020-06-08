@@ -310,6 +310,8 @@ public class ActivityEML extends ActivityBase {
                 InputStream is;
                 try {
                     pfd = getContentResolver().openFileDescriptor(uri, "w");
+                    if (pfd == null)
+                        throw new FileNotFoundException(uri.toString());
                     os = new FileOutputStream(pfd.getFileDescriptor());
                     is = apart.part.getInputStream();
 
