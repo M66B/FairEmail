@@ -339,6 +339,7 @@
     <string name="title_advanced_notifications_background_hint">Услугата за фон може да бъде спряна от Android по всяко време, но не изисква известие за лентата на състоянието</string>
     <string name="title_advanced_badge">Покажети иконата на стартовия панел с брой нови съобщения</string>
     <string name="title_advanced_unseen_ignored">Нека броят на новите съобщения съответства на броя на известията</string>
+    <string name="title_advanced_notify_known">Показвайте известия само за контакти</string>
     <string name="title_advanced_notify_summary">Показване на обобщено известие</string>
     <string name="title_advanced_notify_preview">Визуализация на съобщението в известията</string>
     <string name="title_advanced_notify_preview_all">Визуализирай целия текст</string>
@@ -374,6 +375,7 @@
     <string name="title_advanced_openpgp">OpenPGP доставчик</string>
     <string name="title_advanced_autocrypt">Използвай Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Автокриптиране на споделен режим</string>
+    <string name="title_advanced_check_certificate">Check public key on sending</string>
     <string name="title_advanced_manage_certificates">Управление на публични ключове</string>
     <string name="title_advanced_import_key">Импортиране на частен ключ</string>
     <string name="title_advanced_manage_keys">Управление на частни ключове</string>
@@ -395,6 +397,7 @@
     <string name="title_advanced_cleanup_attachments">Изтрийте прикачени файлове на стари съобщения</string>
     <string name="title_advanced_cleanup">Почистване</string>
     <string name="title_advanced_last_cleanup">Last cleanup: %1$s</string>
+    <string name="title_advanced_app">Настройки на приложението</string>
     <string name="title_advanced_more">Още опции</string>
     <string name="title_advanced_enabled_hint">Глобално активира или деактивира получаването на съобщения</string>
     <string name="title_advanced_manual_hint">Ако синхронизирането е деактивирано, все още е възможно да се синхронизира ръчно чрез изтегляне на списъка със съобщения.</string>
@@ -1110,11 +1113,12 @@
     <string name="title_pro_list">Списък на pro функции</string>
     <string name="title_pro_purchase">Купувам</string>
     <string name="title_pro_once">Само веднъж</string>
-    <string name="title_pro_info">Разработването на FairEmail отне буквално хиляди часове и въпреки това повечето функции са безплатни за използване.
-        За да бъде FairEmail устойчив в дългосрочен план, някои удобства и разширени функции не са безплатни.
-        FairEmail показва малко съобщение, което да ви напомня за това, което ще бъде премахнато, ако закупите pro функциите.
+    <string name="title_pro_info">        Разработката на FairEmail отне буквално хиляди часове и, въпреки това, повечето от функциите са безплатни за използване.
+        FairEmail взима сериозно поверителността ви и не показва реклами и не използва проследяване или анализи, за да печели пари.
+        За да поддържате и поддържате FairEmail в дългосрочен план, някои удобства и разширени функции не са свободни за използване.
+        FairEmail показва малко съобщение, което да ви напомня за това, което ще бъде премахнато, ако закупите професионалните функции.
     </string>
-    <string name="title_pro_hide">Hide small message for %1$d weeks</string>
+    <string name="title_pro_hide">Скриване на малко съобщение за %1$d седмици</string>
     <string name="title_pro_hint">Купуването на професионалните функции ще ви позволи да използвате всички настоящи и бъдещи професионални функции, ще поддържа това приложение поддържано.</string>
     <string name="title_pro_price">Моля вижте <a href="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq19">ЧЗВ</a> за цената на PRO функциите</string>
     <string name="title_pro_pending">Чакащо плащане</string>
@@ -1242,7 +1246,7 @@
         <item>В началото</item>
         <item>По средата</item>
         <item>Към края</item>
-        <item>Show untruncated</item>
+        <item>Показване на целите</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Нисък</item>

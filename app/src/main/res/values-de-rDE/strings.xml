@@ -58,8 +58,8 @@
         <item quantity="other">%1$d Nachrichten nach %2$s verschieben?</item>
     </plurals>
     <plurals name="title_deleting_messages">
-        <item quantity="one">%1$d E-Mail dauerhaft löschen?</item>
-        <item quantity="other">%1$d E-Mails dauerhaft löschen?</item>
+        <item quantity="one">%1$d Nachricht dauerhaft löschen?</item>
+        <item quantity="other">%1$d Nachrichten dauerhaft löschen?</item>
     </plurals>
     <plurals name="title_ask_spam">
         <item quantity="one">%1$d Nachricht als Spam behandeln?</item>
@@ -340,6 +340,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_notifications_background_hint">Ein Hintergrunddienst kann jederzeit von Android angehalten werden, erfordert aber keine Benachrichtigung in der Statusleiste</string>
     <string name="title_advanced_badge">Startsymbol mit der Anzahl der neuen Nachrichten anzeigen</string>
     <string name="title_advanced_unseen_ignored">Lässt die Anzahl der neuen Nachrichten (im Widget) mit der Anzahl der Mails in den Benachrichtigungen übereinstimmen</string>
+    <string name="title_advanced_notify_known">Benachrichtigungen nur für Kontakte anzeigen</string>
     <string name="title_advanced_notify_summary">Nur Benachrichtigungs-Zusammenfassung anzeigen</string>
     <string name="title_advanced_notify_preview">Nachrichtenvorschau in den Benachrichtigungen anzeigen</string>
     <string name="title_advanced_notify_preview_all">Vorschau des ganzen Textes</string>
@@ -375,6 +376,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_openpgp">OpenPGP-Anbieter</string>
     <string name="title_advanced_autocrypt">Autocrypt verwenden</string>
     <string name="title_advanced_autocrypt_mutual">Gegenseitiger Autocrypt-Modus</string>
+    <string name="title_advanced_check_certificate">Öffentlichen Schlüssel beim Senden überprüfen</string>
     <string name="title_advanced_manage_certificates">Öffentliche Schlüssel verwalten</string>
     <string name="title_advanced_import_key">Privaten Schlüssel importieren</string>
     <string name="title_advanced_manage_keys">Private Schlüssel verwalten</string>
@@ -396,6 +398,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_cleanup_attachments">Anhänge aus alten Nachrichten löschen</string>
     <string name="title_advanced_cleanup">Bereinigen</string>
     <string name="title_advanced_last_cleanup">Letzte Bereinigung: %1$s</string>
+    <string name="title_advanced_app">App-Einstellungen</string>
     <string name="title_advanced_more">Weitere Optionen</string>
     <string name="title_advanced_enabled_hint">Nachrichtenempfang global deaktivieren oder aktivieren</string>
     <string name="title_advanced_manual_hint">Selbst wenn die Synchronisation deaktiviert ist, ist es möglich, manuell zu synchronisieren, indem Sie die Nachrichtenliste herunterziehen.</string>
@@ -697,7 +700,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_attachments_saved">Anhang gespeichert</string>
     <string name="title_attachments_incomplete">Einige Anhänge oder Bilder wurden nicht heruntergeladen und konnten nicht hinzugefügt werden</string>
     <string name="title_ask_save">Änderungen speichern?</string>
-    <string name="title_ask_delete">E-Mail dauerhaft löschen?</string>
+    <string name="title_ask_delete">Nachricht dauerhaft löschen?</string>
     <string name="title_ask_delete_answer">Antwortvorlage dauerhaft löschen?</string>
     <string name="title_ask_delete_rule">Regel dauerhaft löschen?</string>
     <string name="title_ask_discard">Entwurf löschen?</string>
@@ -1108,11 +1111,12 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_pro_list">Liste der Pro-Funktionen</string>
     <string name="title_pro_purchase">Kaufen</string>
     <string name="title_pro_once">Nur einmal</string>
-    <string name="title_pro_info">        Die Entwicklung von FairEmail hat buchstäblich Tausende Stunden gedauert und trotzdem sind die meisten Funktionen kostenlos nutzbar.
-        Um FairEmail langfristig mit Support verfügbar zu halten, sind einige Komfort- und erweiterte Funktionen nicht kostenlos.
-        Zur Erinnerung zeigt FairEmail ein kleines Banner an, dies verschwindet beim Kauf der Pro-Funktionen.
+    <string name="title_pro_info">Die Entwicklung von FairEmail hat buchstäblich tausende Stunden gedauert und trotzdem sind die meisten Funktionen kostenlos nutzbar.
+FairEmail nimmt Ihre Privatsphäre ernst, zeigt keine Werbung an und verwendet keine Tracking- oder Analysefunktionen, um damit Geld zu verdienen.
+Um FairEmail langfristig mit Support verfügbar zu halten, sind einige Komfort- und erweiterte Funktionen nicht kostenlos.
+Zur Erinnerung daran zeigt FairEmail einen kleinen Hinweis an, dieser verschwindet beim Kauf der Pro-Funktionen.
     </string>
-    <string name="title_pro_hide">Hide small message for %1$d weeks</string>
+    <string name="title_pro_hide">Kleinen Hinweis für %1$d Wochen ausblenden</string>
     <string name="title_pro_hint">Der Erwerb der Pro-Funktionen erlaubt es Ihnen alle momentan und zukünftig verfügbaren Pro-Funktionen zu nutzen und ermöglicht die Weiterentwicklung und Pflege der App.</string>
     <string name="title_pro_price">Informationen zum Preis der Pro-Funktionen finden Sie in der <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">Hilfe</a></string>
     <string name="title_pro_pending">Kauf ausstehend</string>

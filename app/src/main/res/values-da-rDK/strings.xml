@@ -339,6 +339,7 @@
     <string name="title_advanced_notifications_background_hint">En baggrundstjeneste kan til enhver tid stoppes af Android, men behøver ingen statusbjælkenotifikation</string>
     <string name="title_advanced_badge">Vis launcher-ikon med antal nye beskeder</string>
     <string name="title_advanced_unseen_ignored">Lad antal Nye beskeder matche notifikationsantal</string>
+    <string name="title_advanced_notify_known">Vis kun notifikationer for kontakter</string>
     <string name="title_advanced_notify_summary">Vis kun resuménotifikationer</string>
     <string name="title_advanced_notify_preview">Beskedforhåndsvisning i notifikationer</string>
     <string name="title_advanced_notify_preview_all">Forhåndsvis al tekst</string>
@@ -374,6 +375,7 @@
     <string name="title_advanced_openpgp">OpenPGP-leverandør</string>
     <string name="title_advanced_autocrypt">Benyt Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Autokrypt gensidig tilstand</string>
+    <string name="title_advanced_check_certificate">Check public key on sending</string>
     <string name="title_advanced_manage_certificates">Håndtér offentlige nøgler</string>
     <string name="title_advanced_import_key">Importér privat nøgle</string>
     <string name="title_advanced_manage_keys">Håndtér private nøgler</string>
@@ -395,6 +397,7 @@
     <string name="title_advanced_cleanup_attachments">Slet gamle beskeders vedhæftninger</string>
     <string name="title_advanced_cleanup">Oprydning</string>
     <string name="title_advanced_last_cleanup">Sidste oprydning: %1$s</string>
+    <string name="title_advanced_app">App-indstillinger</string>
     <string name="title_advanced_more">Flere valgmuligheder</string>
     <string name="title_advanced_enabled_hint">Deaktivér/aktivér global modtagelse af beskeder</string>
     <string name="title_advanced_manual_hint">Er synkronisering deaktiveret, er det stadig muligt at synkronisere manuelt ved at trække beskedlisten ned.</string>
@@ -1110,10 +1113,12 @@
     <string name="title_pro_list">Liste over Pro-funktioner</string>
     <string name="title_pro_purchase">Køb</string>
     <string name="title_pro_once">Kun én gang</string>
-    <string name="title_pro_info">Udvikling af FairEmail tog bogstaveligt talt tusinder af timer, også selvom de fleste funktioner er gratis at benytte.
-         For at gøre FairEmail bæredygtig langsigtet, er visse bekvemmeligheds- og avancerede funktioner ikke gratis at bruge.
-         FairEmail viser en lille besked for at minde dig om dette. Denne fjernes, hvis du køber Pro-funktionerne.    </string>
-    <string name="title_pro_hide">Hide small message for %1$d weeks</string>
+    <string name="title_pro_info">        Udviklingen af FairEmail tog bogstaveligt talt tusindvis af timer, og på trods heraf, er de fleste af funktionerne gratis at benytte.
+         FairEmail tager din datafortrolighed seriøst og viser ikke annoncer og anvender ikke tracking eller analyse mhp. profitformål.
+         For at vedligeholde og supportere FairEmail i det lange løb er visse avancerede og bekvemmelighedsfunktioner ikke gratis at benytte.
+         For at minde dig om dette, viser FairEmail viser en lille meddelelse, der dog fjernes, hvis du køber Pro-funktionerne.
+    </string>
+    <string name="title_pro_hide">Skjul små meddelelser i %1$d uger</string>
     <string name="title_pro_hint">Køb af Pro-funktioner vil tillade brug alle aktuelle og fremtidige Pro-funktioner samt sikre denne apps vedligeholdelse og understøttelse</string>
     <string name="title_pro_price">Se venligst <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">denne FAQ</a> ang. prisen for Pro-funktionerne</string>
     <string name="title_pro_pending">Afventende køb</string>
@@ -1241,7 +1246,7 @@
         <item>I starten</item>
         <item>I midten</item>
         <item>Ved slutningen</item>
-        <item>Show untruncated</item>
+        <item>Vis uforkortet</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Lav</item>

@@ -326,6 +326,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_notifications_background_hint">バックグラウンドサービスはAndroidによって停止される可能性がありますが、ステータスバーに通知が表示されなくなります。</string>
     <string name="title_advanced_badge">新着メッセージの数をランチャーアイコンに表示</string>
     <string name="title_advanced_unseen_ignored">新着メッセージ数を通知数と一致</string>
+    <string name="title_advanced_notify_known">Show notifications for contacts only</string>
     <string name="title_advanced_notify_summary">簡素な通知のみ表示</string>
     <string name="title_advanced_notify_preview">通知にメッセージプレビューを表示</string>
     <string name="title_advanced_notify_preview_all">全てのテキストをプレビュー</string>
@@ -361,6 +362,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_openpgp">OpenPGP プロバイダ</string>
     <string name="title_advanced_autocrypt">自動暗号化を使用</string>
     <string name="title_advanced_autocrypt_mutual">相互暗号化モード</string>
+    <string name="title_advanced_check_certificate">Check public key on sending</string>
     <string name="title_advanced_manage_certificates">公開鍵の管理</string>
     <string name="title_advanced_import_key">秘密鍵をインポート</string>
     <string name="title_advanced_manage_keys">秘密鍵を管理する</string>
@@ -382,6 +384,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_cleanup_attachments">古いメッセージの添付ファイルを削除</string>
     <string name="title_advanced_cleanup">クリーンアップ</string>
     <string name="title_advanced_last_cleanup">Last cleanup: %1$s</string>
+    <string name="title_advanced_app">App settings</string>
     <string name="title_advanced_more">その他のオプション</string>
     <string name="title_advanced_enabled_hint">メッセージのグローバルな無効又は有効にします</string>
     <string name="title_advanced_manual_hint">同期が無効になっている場合でも、メッセージリストをプルダウンして手動で同期する事は可能です</string>
@@ -1096,9 +1099,11 @@ PlayストアでFairEmailを評価できれば幸いです。
     <string name="title_pro_list">プロ機能のリスト</string>
     <string name="title_pro_purchase">購入</string>
     <string name="title_pro_once">一度だけです</string>
-    <string name="title_pro_info">FairEmailの開発には文字通り数千時間かかりましたが、殆どの機能は無料で使用出来ます。
-FairEmailを長期的持続可能にする為、プロ機能課金が有ります。一部の便利な機能と高度な機能は無料では使用出来ません。
-FairEmailは、Pro機能購入の為に上部に小さなメッセージを表示します。プロ機能を購入すると削除されます。</string>
+    <string name="title_pro_info">        Developing FairEmail took literally thousands of hours and, despite that, most of the features are free to use.
+        FairEmail takes your privacy seriously and doesn\'t show ads and doesn\'t use tracking or analytics to earn money.
+        To maintain and support FairEmail in the long run, some convenience and advanced features are not free to use.
+        FairEmail shows a small message to remind you of this, which will be removed if you purchase the pro features.
+    </string>
     <string name="title_pro_hide">Hide small message for %1$d weeks</string>
     <string name="title_pro_hint">プロ機能を購入すると、現在及び将来全てのプロ機能を使用出来る様になりアプリとサポートが維持されます</string>
     <string name="title_pro_price"><a href="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq19">このFAQ</a>をご覧ください。プロ機能の価格や購入法も有ります</string>

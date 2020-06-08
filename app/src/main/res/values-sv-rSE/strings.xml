@@ -338,6 +338,7 @@
     <string name="title_advanced_notifications_background_hint">En bakgrundstjänst kan stoppas av Android när som helst, men kräver inte ett meddelande i statusfältet</string>
     <string name="title_advanced_badge">Visa programstartarikon med antal nya meddelanden</string>
     <string name="title_advanced_unseen_ignored">Låt antalet nya meddelanden matcha antalet aviseringar</string>
+    <string name="title_advanced_notify_known">Visa endast aviseringar för kontakter</string>
     <string name="title_advanced_notify_summary">Visa enbart en sammanställning av aviseringar</string>
     <string name="title_advanced_notify_preview">Visa meddelandeförhandsvisning i aviseringar</string>
     <string name="title_advanced_notify_preview_all">Förhandsgranska all text</string>
@@ -373,6 +374,7 @@
     <string name="title_advanced_openpgp">OpenPGP-leverantör</string>
     <string name="title_advanced_autocrypt">Använd Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Autokryptera ömsesidigt läge</string>
+    <string name="title_advanced_check_certificate">Check public key on sending</string>
     <string name="title_advanced_manage_certificates">Hantera publika nycklar</string>
     <string name="title_advanced_import_key">Importera privat nyckel</string>
     <string name="title_advanced_manage_keys">Hantera privata nycklar</string>
@@ -394,6 +396,7 @@
     <string name="title_advanced_cleanup_attachments">Ta bort bilagor på gamla meddelanden</string>
     <string name="title_advanced_cleanup">Rensa</string>
     <string name="title_advanced_last_cleanup">Senaste rensning: %1$s</string>
+    <string name="title_advanced_app">App-inställningar</string>
     <string name="title_advanced_more">Fler alternativ</string>
     <string name="title_advanced_enabled_hint">Globalt inaktivera eller aktivera mottagning av meddelanden</string>
     <string name="title_advanced_manual_hint">Om synkroniseringen är inaktiverad är det fortfarande möjligt att synkronisera manuellt genom att dra ner meddelandelistan.</string>
@@ -1109,11 +1112,12 @@
     <string name="title_pro_list">Lista över pro-funktioner</string>
     <string name="title_pro_purchase">Köp</string>
     <string name="title_pro_once">Endast en gång</string>
-    <string name="title_pro_info">        Att utveckla FairEmail tog bokstavligen tusentals timmar och trots att de flesta funktioner är fria att använda.
-        För att göra FairEmail hållbar på lång sikt är vissa bekvämlighet och avancerade funktioner inte fria att använda.
-        FairEmail visar ett litet meddelande för att påminna dig om detta, som kommer att tas bort om du köper pro-funktionerna.
+    <string name="title_pro_info">        Att utveckla FairEmail tog bokstavligen tusentals timmar, trots att de flesta funktioner är fria att använda.
+        FairEmail tar din integritet på allvar och visar inte annonser och använder inte spårning eller analys för att tjäna pengar.
+        Att underhålla och stödja FairEmail i det långa loppet, vissa bekvämlighets- och avancerade funktioner är inte gratis att använda.
+        FairEmail visar ett litet meddelande för att påminna dig om detta, som kommer att tas bort om du köper pro funktionerna.
     </string>
-    <string name="title_pro_hide">Hide small message for %1$d weeks</string>
+    <string name="title_pro_hide">Dölj små meddelanden i %1$d veckor</string>
     <string name="title_pro_hint">Att köpa pro-funktioner gör att du kan använda alla aktuella och framtida pro-funktioner, kommer att göra att denna app underhålls och stöds</string>
     <string name="title_pro_price">Se <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">dessa vanliga frågor</a> om pris på pro-funktionerna</string>
     <string name="title_pro_pending">Väntande köp</string>

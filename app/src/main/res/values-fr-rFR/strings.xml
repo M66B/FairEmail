@@ -339,6 +339,7 @@
     <string name="title_advanced_notifications_background_hint">Un service en arrière-plan peut être arrêté par Android à tout moment, mais ne nécessite pas de notification dans la barre d\'état</string>
     <string name="title_advanced_badge">Afficher le nombre de nouveaux messages sur l’icône de lancement</string>
     <string name="title_advanced_unseen_ignored">Faire correspondre le nombre de nouveaux messages et le nombre de notifications</string>
+    <string name="title_advanced_notify_known">Afficher les notifications uniquement pour les contacts</string>
     <string name="title_advanced_notify_summary">Afficher seulement une notification récapitulative</string>
     <string name="title_advanced_notify_preview">Afficher un aperçu du message dans les notifications</string>
     <string name="title_advanced_notify_preview_all">Aperçu de tout le texte</string>
@@ -374,6 +375,7 @@
     <string name="title_advanced_openpgp">Fournisseur OpenPGP</string>
     <string name="title_advanced_autocrypt">Utiliser Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Mode Autocrypt mutuel</string>
+    <string name="title_advanced_check_certificate">Check public key on sending</string>
     <string name="title_advanced_manage_certificates">Gérer les clés publiques</string>
     <string name="title_advanced_import_key">Importer une clé privée</string>
     <string name="title_advanced_manage_keys">Gérer les clés privées</string>
@@ -395,6 +397,7 @@
     <string name="title_advanced_cleanup_attachments">Supprimer les pièces jointes des anciens messages</string>
     <string name="title_advanced_cleanup">Nettoyage</string>
     <string name="title_advanced_last_cleanup">Dernier nettoyage : %1$s</string>
+    <string name="title_advanced_app">Paramètres de l\'application</string>
     <string name="title_advanced_more">Plus d\'options</string>
     <string name="title_advanced_enabled_hint">Désactiver ou activer globalement la réception des messages</string>
     <string name="title_advanced_manual_hint">Si la synchronisation est désactivée, il est toujours possible de synchroniser manuellement en tirant la liste des messages vers le bas.</string>
@@ -1110,11 +1113,12 @@
     <string name="title_pro_list">Liste des fonctionnalités Pro</string>
     <string name="title_pro_purchase">Acheter</string>
     <string name="title_pro_once">Une seule fois</string>
-    <string name="title_pro_info">        Développer FairEmail a littéralement pris des milliers d’heures et malgré cela, la plupart des fonctionnalités sont proposées gratuitement.
-        Pour rendre FairEmail durable à long terme, certaines fonctionnalités pratiques et avancées ne sont pas gratuites.
+    <string name="title_pro_info">        Développer FairEmail a pris littéralement des milliers d’heures et malgré cela, la plupart des fonctionnalités sont proposées gratuitement.
+        FairEmail prend votre vie privée au sérieux, n\'affiche pas de publicités et n\'utilise pas le pistage ni l\'analyse d\'audience pour gagner de l\'argent.
+        Pour maintenir et rendre FairEmail durable à long terme, certaines fonctionnalités pratiques et avancées ne sont pas gratuites.
         FairEmail affiche une bannière pour vous le rappeler, laquelle sera retirée si vous achetez les fonctionnalités Pro.
     </string>
-    <string name="title_pro_hide">Hide small message for %1$d weeks</string>
+    <string name="title_pro_hide">Masquer la bannière pendant %1$d semaines</string>
     <string name="title_pro_hint">L\'achat des fonctionnalités Pro vous autorisera à utiliser toutes les fonctionnalités Pro actuelles et futures et permettra de maintenir et de soutenir cette application.</string>
     <string name="title_pro_price">Veuillez voir <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">cette FAQ</a> à propos du prix des fonctionnalités Pro</string>
     <string name="title_pro_pending">Achat en attente</string>

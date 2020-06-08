@@ -339,6 +339,7 @@
     <string name="title_advanced_notifications_background_hint">A background service can be stopped by Android at any time, but doesn\'t require a status bar notification</string>
     <string name="title_advanced_badge">Vis epost ikonet med antall nye meldinger</string>
     <string name="title_advanced_unseen_ignored">La antallet nye meldinger samsvare med antall varsler</string>
+    <string name="title_advanced_notify_known">Show notifications for contacts only</string>
     <string name="title_advanced_notify_summary">Vis bare sammendragsvarsel</string>
     <string name="title_advanced_notify_preview">Vis forhåndsvisning av melding i varsler</string>
     <string name="title_advanced_notify_preview_all">Forhåndsvis all tekst</string>
@@ -374,6 +375,7 @@
     <string name="title_advanced_openpgp">OpenPGP-leverandør</string>
     <string name="title_advanced_autocrypt">Bruk autokrypt</string>
     <string name="title_advanced_autocrypt_mutual">Autokrypt gjensidig modus</string>
+    <string name="title_advanced_check_certificate">Check public key on sending</string>
     <string name="title_advanced_manage_certificates">Administrer offentlige nøkler</string>
     <string name="title_advanced_import_key">Importer privat nøkkel</string>
     <string name="title_advanced_manage_keys">Administrer private nøkler</string>
@@ -395,6 +397,7 @@
     <string name="title_advanced_cleanup_attachments">Delete attachments of old messages</string>
     <string name="title_advanced_cleanup">Rydd opp</string>
     <string name="title_advanced_last_cleanup">Siste opprydding: %1$s</string>
+    <string name="title_advanced_app">App settings</string>
     <string name="title_advanced_more">Flere valg</string>
     <string name="title_advanced_enabled_hint">Globalt deaktivere eller aktivere mottak av meldinger</string>
     <string name="title_advanced_manual_hint">Hvis synkronisering er deaktivert, er det fortsatt mulig å synkronisere manuelt ved å trekke ned meldingslisten.</string>
@@ -1109,9 +1112,10 @@ Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anme
     <string name="title_pro_list">Liste over Pro funksjoner</string>
     <string name="title_pro_purchase">Kjøp</string>
     <string name="title_pro_once">Bare en gang</string>
-    <string name="title_pro_info">Å utvikle FairEmail tok bokstavelig talt tusenvis av timer, og til tross for at de fleste funksjoner er gratis å bruke.
-         For å gjøre FairEmail bærekraftig på lang sikt er det noe brukervennlighet og avanserte funksjoner som ikke er gratis å bruke.
-         FairEmail viser en liten melding for å minne deg på dette, og som vil bli fjernet hvis du kjøper pro funksjonene.
+    <string name="title_pro_info">        Developing FairEmail took literally thousands of hours and, despite that, most of the features are free to use.
+        FairEmail takes your privacy seriously and doesn\'t show ads and doesn\'t use tracking or analytics to earn money.
+        To maintain and support FairEmail in the long run, some convenience and advanced features are not free to use.
+        FairEmail shows a small message to remind you of this, which will be removed if you purchase the pro features.
     </string>
     <string name="title_pro_hide">Hide small message for %1$d weeks</string>
     <string name="title_pro_hint">Ved å kjøpe pro-funksjoner kan du bruke alle aktuelle og fremtidige pro-funksjoner, og vil holde denne appen vedlikeholdt og støttet</string>

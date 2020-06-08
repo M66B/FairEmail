@@ -339,6 +339,7 @@
     <string name="title_advanced_notifications_background_hint">A background service can be stopped by Android at any time, but doesn\'t require a status bar notification</string>
     <string name="title_advanced_badge">Mostra la icona del llançador amb nombre de missatges nous</string>
     <string name="title_advanced_unseen_ignored">Permet que el nombre de missatges nous coincideixi amb el nombre de notificacions</string>
+    <string name="title_advanced_notify_known">Show notifications for contacts only</string>
     <string name="title_advanced_notify_summary">Mostrar només notificació de resum</string>
     <string name="title_advanced_notify_preview">Mostra la previsualització del missatge a les notificacions</string>
     <string name="title_advanced_notify_preview_all">Preview all text</string>
@@ -374,6 +375,7 @@
     <string name="title_advanced_openpgp">Proveïdor d’OpenPGP</string>
     <string name="title_advanced_autocrypt">Use Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Mode mutu Autocrypt</string>
+    <string name="title_advanced_check_certificate">Check public key on sending</string>
     <string name="title_advanced_manage_certificates">Gestiona claus públiques</string>
     <string name="title_advanced_import_key">Importa la clau privada</string>
     <string name="title_advanced_manage_keys">Gestiona claus privades</string>
@@ -395,6 +397,7 @@
     <string name="title_advanced_cleanup_attachments">Delete attachments of old messages</string>
     <string name="title_advanced_cleanup">Neteja</string>
     <string name="title_advanced_last_cleanup">Last cleanup: %1$s</string>
+    <string name="title_advanced_app">App settings</string>
     <string name="title_advanced_more">More options</string>
     <string name="title_advanced_enabled_hint">Desactivar o habilitar la recepció de missatges globalment</string>
     <string name="title_advanced_manual_hint">Si la sincronització està desactivada, encara es pot sincronitzar manualment desplegant la llista de missatges.</string>
@@ -1110,9 +1113,10 @@
     <string name="title_pro_list">Llista de característiques Pro</string>
     <string name="title_pro_purchase">Comprar</string>
     <string name="title_pro_once">Només un cop</string>
-    <string name="title_pro_info">        El desenvolupament de FairEmail va trigar literalment milers d’hores i, malgrat que la majoria de funcions són gratuïtes d’utilitzar.
-        Perquè FairEmail sigui sostenible a llarg termini, algunes comoditats i funcions avançades no són gratuïtes d’utilitzar.
-        FairEmail mostra un petit missatge per recordar-lo, que se suprimirà si adquiriu les funcions professionals.
+    <string name="title_pro_info">        Developing FairEmail took literally thousands of hours and, despite that, most of the features are free to use.
+        FairEmail takes your privacy seriously and doesn\'t show ads and doesn\'t use tracking or analytics to earn money.
+        To maintain and support FairEmail in the long run, some convenience and advanced features are not free to use.
+        FairEmail shows a small message to remind you of this, which will be removed if you purchase the pro features.
     </string>
     <string name="title_pro_hide">Hide small message for %1$d weeks</string>
     <string name="title_pro_hint">Comprar característiques Pro et permet utilitzar tota la funcionalitat Pro actual i futura i mantindrà el desenvolupament de l\'aplicació</string>

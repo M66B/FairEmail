@@ -175,7 +175,7 @@
     <string name="title_setup_password_invalid">گذرواژه اشتباه است</string>
     <string name="title_setup_exported">تنظیمات صادر شدند</string>
     <string name="title_setup_imported">تنظیمات وارد شدند</string>
-    <string name="title_setup_import_invalid">فایل تنظیمات نامعتبر</string>
+    <string name="title_setup_import_invalid">پرونده تنظیمات نامعتبر است</string>
     <string name="title_setup_reorder_accounts">ترتیب‌بندی حساب‌ها</string>
     <string name="title_setup_reorder_folders">ترتیب‌بندی پوشه‌ها</string>
     <string name="title_reset_order">بازنشانی ترتیب‌بندی</string>
@@ -339,6 +339,7 @@
     <string name="title_advanced_notifications_background_hint">A background service can be stopped by Android at any time, but doesn\'t require a status bar notification</string>
     <string name="title_advanced_badge">نمایش عدد پیام‌های جدید با آیکون راه‌انداز</string>
     <string name="title_advanced_unseen_ignored">Let the number of new messages match the number of notifications</string>
+    <string name="title_advanced_notify_known">Show notifications for contacts only</string>
     <string name="title_advanced_notify_summary">Show summary notification only</string>
     <string name="title_advanced_notify_preview">Show message preview in notifications</string>
     <string name="title_advanced_notify_preview_all">پیش‌نمایش تمام متن</string>
@@ -374,6 +375,7 @@
     <string name="title_advanced_openpgp">ارائه دهنده OpenPGP</string>
     <string name="title_advanced_autocrypt">استفاده از Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">حالت دستی Autocrypt</string>
+    <string name="title_advanced_check_certificate">Check public key on sending</string>
     <string name="title_advanced_manage_certificates">مدیریت کلید‌های عمومی</string>
     <string name="title_advanced_import_key">وارد کردن کلید خصوصی</string>
     <string name="title_advanced_manage_keys">مدیریت کلید‌های خصوصی</string>
@@ -395,6 +397,7 @@
     <string name="title_advanced_cleanup_attachments">پیوست‌های پیام‌های قدیمی را حذف کن</string>
     <string name="title_advanced_cleanup">پاک‌سازی</string>
     <string name="title_advanced_last_cleanup">Last cleanup: %1$s</string>
+    <string name="title_advanced_app">App settings</string>
     <string name="title_advanced_more">گزینه‌های بیشتر</string>
     <string name="title_advanced_enabled_hint">Globally disable or enable receiving of messages</string>
     <string name="title_advanced_manual_hint">If synchronization is disabled, it is still possible to synchronize manually by pulling down the message list.</string>
@@ -459,7 +462,7 @@
     <string name="title_advanced_experiments_hint">List of current experimental features</string>
     <string name="title_advanced_debug_hint">Enable extra logging and show debug information at various places</string>
     <string name="title_advanced_cleanup_attachments_hint">When manually cleaning, this will remove attachments from messages that are no longer synchronized</string>
-    <string name="title_advanced_cleanup_hint">This will delete all temporary files</string>
+    <string name="title_advanced_cleanup_hint">این تمام پرونده‌های موقت را حذف خواهد کرد</string>
     <string name="title_advanced_never_favorite">هرگز مورد علاقه نشود</string>
     <string name="title_advanced_swipe_actions">تنظیم کنش‌های کشیدن</string>
     <string name="title_advanced_swipe_actions_hint">This will set the swipe left and right action for all IMAP accounts</string>
@@ -498,7 +501,7 @@
     <string name="title_port">شماره پورت</string>
     <string name="title_user">نام کاربری</string>
     <string name="title_password">گذرواژه</string>
-    <string name="title_client_certificate">گواهی‌نامه کلاینت</string>
+    <string name="title_client_certificate">گواهی‌نامه کارخواه</string>
     <string name="title_realm">حوزه</string>
     <string name="title_use_ip">Use local IP address instead of host name</string>
     <string name="title_ehlo">Custom HELO/EHLO identification</string>
@@ -645,7 +648,7 @@
     <string name="title_show_inline">نمایش پیوست های درون خطی</string>
     <string name="title_download_all">دانلود همه</string>
     <string name="title_save_all">ذخیره همه</string>
-    <string name="title_save_eml">ذخیره فایل خام پیام</string>
+    <string name="title_save_eml">ذخیره پرونده خام پیام</string>
     <string name="title_trash">سطل آشغال</string>
     <string name="title_copy">کپی &#8230;</string>
     <string name="title_copy_to">کپی به &#8230;</string>
@@ -666,7 +669,7 @@
     <string name="title_reply_to_sender">پاسخ به فرستنده</string>
     <string name="title_reply_to_all">پاسخ به همه</string>
     <string name="title_reply_list">پاسخ به لیست</string>
-    <string name="title_reply_receipt">Send read receipt</string>
+    <string name="title_reply_receipt">فرستادن تایید خواندن</string>
     <string name="title_reply_template">پاسخ با قالب</string>
     <string name="title_moving">انتقال می‌یابد به %1$s</string>
     <string name="title_open_with">باز کردن با</string>
@@ -676,11 +679,11 @@
     <string name="title_no_answers">هیچ الگوی پاسخی تعریف نشده است</string>
     <string name="title_no_viewer">هیچ برنامه نمایش دهنده‌ای در دسترس نیست برای %1$s</string>
     <string name="title_no_recorder">No suitable audio recorder app available</string>
-    <string name="title_no_camera">No suitable camera app available</string>
+    <string name="title_no_camera">برنامه دوربین سازگاری در دسترس نیست</string>
     <string name="title_no_saf">چارچوب دسترسی ذخیره سازی موجود نیست</string>
-    <string name="title_no_stream">یک برنامه منسوخ مسیر فایل را به جای فایل ارسال کرده</string>
+    <string name="title_no_stream">یک برنامه منسوخ مسیر پرونده را به جای جریان پرونده ارسال کرده</string>
     <string name="title_no_contacts">جمع کننده مخاطبین در دسترس نیست</string>
-    <string name="title_no_internet">No or no suitable internet connection</string>
+    <string name="title_no_internet">اینترنت یا اتصال سازگاری در دسترس نیست</string>
     <string name="title_no_connection">Connecting to one or more accounts &#8230;</string>
     <string name="title_no_folder">پوشه وجود ندارد</string>
     <string name="title_no_format">The originally received message will be included</string>
@@ -757,9 +760,9 @@
     <string name="title_add_image_resize">تغییر اندازه</string>
     <string name="title_add_image_privacy">حذف موقعیت جغرافیایی</string>
     <string name="title_add_resize_pixels">&lt;%1$d پیکسل</string>
-    <string name="title_add_image_select">انتخاب فایل</string>
+    <string name="title_add_image_select">انتخاب پرونده</string>
     <string name="title_add_attachment">افزودن پیوست</string>
-    <string name="title_attachment_file">پیوست فایل</string>
+    <string name="title_attachment_file">پیوست پرونده</string>
     <string name="title_attachment_photo">گرفتن عکس</string>
     <string name="title_attachment_audio">ضبط صدا</string>
     <string name="title_show_addresses">نمایش گیرنده رونوشت/رونوشت پنهان</string>
@@ -771,14 +774,14 @@
     <string name="title_edit_plain_text">ویرایش به‌عنوان متن ساده</string>
     <string name="title_edit_formatted_text">Edit as reformatted text</string>
     <string name="title_select_certificate">انتخاب کلید عمومی</string>
-    <string name="title_certificate_missing">No public key for %1$s</string>
+    <string name="title_certificate_missing">کلید عمومی برای %1$s نیست</string>
     <string name="title_certificate_invalid">کلید عمومی %1$s نامعتبر است</string>
     <string name="title_no_key">کلید خصوصی نیست</string>
     <string name="title_invalid_key">کلید خصوصی بی اعتبار</string>
     <string name="title_unknown_key">کلید خصوصی با هیچ کلید رمزنگاری همخوانی ندارد</string>
     <string name="title_send_plain_text">فقط متن ساده</string>
-    <string name="title_send_receipt">Request receipt</string>
-    <string name="title_send_receipt_remark">Most providers and email clients ignore receipt requests</string>
+    <string name="title_send_receipt">درخواست اعلام رسیدن</string>
+    <string name="title_send_receipt_remark">بیشتر ارائه دهندگان و کارخواه‌ها، درخواست های اعلام رسیدن را نادیده می‌گیرند</string>
     <string name="title_from_missing">فرستنده وجود ندارد</string>
     <string name="title_extra_missing">نام کاربری وجود ندارد</string>
     <string name="title_to_missing">گیرنده وجود ندارد</string>
@@ -1001,7 +1004,7 @@
     <string name="title_legend_pick">انتخاب مخاطب</string>
     <string name="title_legend_cc">نمایش گیرنده رونوشت/رونوشت پنهان</string>
     <string name="title_legend_link">درج لینک</string>
-    <string name="title_legend_file">پیوست نمودن فایل</string>
+    <string name="title_legend_file">پیوست پرونده</string>
     <string name="title_legend_picture">درج تصویر</string>
     <string name="title_legend_photo">گرفتن عکس</string>
     <string name="title_legend_audio">ضبط صدا</string>
@@ -1110,9 +1113,10 @@
     <string name="title_pro_list">لیست ویژگی‌های نسخه حرفه‌ای</string>
     <string name="title_pro_purchase">خرید</string>
     <string name="title_pro_once">تنها یک بار</string>
-    <string name="title_pro_info">        Developing FairEmail took literally thousands of hours and despite that most features are free to use.
-        To make FairEmail sustainable in the long term, some convenience and advanced features are not free to use.
-        FairEmail displays a small message to remind you of this, which will be removed if you purchase the pro features.
+    <string name="title_pro_info">        Developing FairEmail took literally thousands of hours and, despite that, most of the features are free to use.
+        FairEmail takes your privacy seriously and doesn\'t show ads and doesn\'t use tracking or analytics to earn money.
+        To maintain and support FairEmail in the long run, some convenience and advanced features are not free to use.
+        FairEmail shows a small message to remind you of this, which will be removed if you purchase the pro features.
     </string>
     <string name="title_pro_hide">Hide small message for %1$d weeks</string>
     <string name="title_pro_hint">خرید نسخه حرفه‌ای به شما اجازه استفاده از تمامی ویژگی‌های حرفه‌ای فعلی و آینده را خواهد داد. همچنین موجب حفظ و پشتیبانی آن می‌شود</string>

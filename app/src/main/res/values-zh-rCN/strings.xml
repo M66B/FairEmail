@@ -327,6 +327,7 @@
     <string name="title_advanced_notifications_background_hint">后台服务不会显示状态栏通知，但随时可能会被 Android 终止</string>
     <string name="title_advanced_badge">在启动器图标上显示新消息数目</string>
     <string name="title_advanced_unseen_ignored">让新消息数量匹配通知数量</string>
+    <string name="title_advanced_notify_known">仅显示联系人通知</string>
     <string name="title_advanced_notify_summary">仅显示摘要通知</string>
     <string name="title_advanced_notify_preview">通知中显示消息预览</string>
     <string name="title_advanced_notify_preview_all">预览所有文本</string>
@@ -362,6 +363,7 @@
     <string name="title_advanced_openpgp">OpenPGP 提供者</string>
     <string name="title_advanced_autocrypt">使用Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">自动双向加密模式</string>
+    <string name="title_advanced_check_certificate">Check public key on sending</string>
     <string name="title_advanced_manage_certificates">管理公钥</string>
     <string name="title_advanced_import_key">导入私钥</string>
     <string name="title_advanced_manage_keys">管理私钥</string>
@@ -383,6 +385,7 @@
     <string name="title_advanced_cleanup_attachments">删除旧消息的附件</string>
     <string name="title_advanced_cleanup">清理</string>
     <string name="title_advanced_last_cleanup">上次清理: %1$s</string>
+    <string name="title_advanced_app">App settings</string>
     <string name="title_advanced_more">更多选项</string>
     <string name="title_advanced_enabled_hint">全局禁用或启用邮件接收</string>
     <string name="title_advanced_manual_hint">即便禁用同步，仍然可以通过下拉消息列表手动同步。</string>
@@ -1099,10 +1102,12 @@
     <string name="title_pro_list">专业版功能列表</string>
     <string name="title_pro_purchase">购买</string>
     <string name="title_pro_once">仅一次</string>
-    <string name="title_pro_info">毫不夸张地说，我在开发FairEmail上花费了数千小时，尽管如此，多数功能依旧可免费使用。
-为了让FairEmail开发维持下去，免费版无法使用一些便利和高级的功能。
-FairEmail会显示一条消息来提醒您这一点，这条消息在您购买专业版后将被移除。</string>
-    <string name="title_pro_hide">Hide small message for %1$d weeks</string>
+    <string name="title_pro_info">        毫不夸张地说，开发FairEmail花了我数千个小时，尽管如此，大多数功能还是可以免费使用。
+        FairEmail拿您的隐私当回事，不会显示广告，也不会使用跟踪或分析来赚钱。
+        为了长期维护和支持FairEmail，一些便利和高级功能需要付费才能使用。
+        FairEmail会显示一条小消息来提醒您这一点，如果您购买了专业功能，该消息将被删除。
+    </string>
+    <string name="title_pro_hide">隐藏升级提示消息%1$d周</string>
     <string name="title_pro_hint">购买专业版将获得现在以及未来更新中全部专业版功能，并将支持开发者维护这个应用</string>
     <string name="title_pro_price">请参见<a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">常见问题</a>关于专业版的价格</string>
     <string name="title_pro_pending">购买待处理</string>

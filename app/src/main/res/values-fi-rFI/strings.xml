@@ -337,6 +337,7 @@
     <string name="title_advanced_notifications_background_hint">Android voi lopettaa taustapalvelun koska tahansa, mutta taustapalvelu ei tarvitse tilapalkki-ilmoitusta</string>
     <string name="title_advanced_badge">Näytä käynnistinsovelluksen kuvakkeessa uusien viestien lukumäärä</string>
     <string name="title_advanced_unseen_ignored">Anna uusien viestien lukumäärän vastata ilmoitusten lukumäärää</string>
+    <string name="title_advanced_notify_known">Näytä ilmoitukset vain yhteystiedoille</string>
     <string name="title_advanced_notify_summary">Näytä vain yhteenvetoilmoitus</string>
     <string name="title_advanced_notify_preview">Näytä viestin esikatselu ilmoituksissa</string>
     <string name="title_advanced_notify_preview_all">Esikatsele teksti kokonaisuudessaan</string>
@@ -372,6 +373,7 @@
     <string name="title_advanced_openpgp">OpenPGP-palveluntarjoaja</string>
     <string name="title_advanced_autocrypt">Käytä Autocryptiä</string>
     <string name="title_advanced_autocrypt_mutual">Autocrypt molemminpuolinen tila</string>
+    <string name="title_advanced_check_certificate">Check public key on sending</string>
     <string name="title_advanced_manage_certificates">Hallinnoi julkisia avaimia</string>
     <string name="title_advanced_import_key">Tuo yksityinen avain</string>
     <string name="title_advanced_manage_keys">Hallinnoi yksityisiä avaimia</string>
@@ -393,6 +395,7 @@
     <string name="title_advanced_cleanup_attachments">Poista vanhojen viestien liitteet</string>
     <string name="title_advanced_cleanup">Siistiminen</string>
     <string name="title_advanced_last_cleanup">Viimeisin puhdistus: %1$s</string>
+    <string name="title_advanced_app">Sovellusasetukset</string>
     <string name="title_advanced_more">Lisää asetuksia</string>
     <string name="title_advanced_enabled_hint">Estä tai salli viestien vastaanotto globaalisti</string>
     <string name="title_advanced_manual_hint">Jos automaattinen synkronointi on pois käytöstä, synkronoinnin voi tehdä manuaalisesti vetämällä alaspäin viestilistassa.</string>
@@ -1108,11 +1111,12 @@
     <string name="title_pro_list">Luettelo pro-ominaisuuksista</string>
     <string name="title_pro_purchase">Osta</string>
     <string name="title_pro_once">Vain kerran</string>
-    <string name="title_pro_info">        FairEmailin kehittämiseen on kulunut kirjaimellisesti tuhansia tunteja mutta siitä huolimatta useimmat ominaisuudet ovat ilmaisia käyttää.
-        Jotta FairEmailin kehittäminen olisi mahdollista, jotkin mukavuutta tuovat ja edistyneemmät ominaisuudet eivät ole ilmaisia.
+    <string name="title_pro_info">FairEmailin kehittäminen kesti kirjaimellisesti tuhansia tunteja mutta siitä huolimatta useimmat ominaisuudet ovat ilmaisia käyttää.
+        FairEmail ottaa yksityisyytesi tosissaan eikä näytä mainoksia eikä käytä seurantaa tai analytiikkaa tienataakseen rahaa.
+        Jotta FairEmailin ylläpitäminen ja tukeminen olisi pitkällä aikavälillä mahdollista, jotkin mukavuutta tuovat ja edistyneemmät ominaisuudet eivät ole ilmaisia.
         FairEmail näyttää pienen viestin muistuttaakseen sinua tästä. Viesti poistuu, jos ostat pro-ominaisuudet.
     </string>
-    <string name="title_pro_hide">Hide small message for %1$d weeks</string>
+    <string name="title_pro_hide">Piilota pieni viesti %1$d viikoksi</string>
     <string name="title_pro_hint">Pro-ominaisuuksien ostaminen antaa oikeudet käyttää nykyisiä ja tulevia pro-ominaisuuksia sekä auttaa ylläpitämään ja tukemaan tätä sovellusta</string>
     <string name="title_pro_price">Katso <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">nämä usein kysytyt kysymykset</a> pro-ominaisuuksien hinnasta</string>
     <string name="title_pro_pending">Ostos odottaa vahvistusta</string>
@@ -1240,7 +1244,7 @@
         <item>Alusta</item>
         <item>Keskeltä</item>
         <item>Lopusta</item>
-        <item>Show untruncated</item>
+        <item>Näytä lyhentämättömänä</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Alhainen</item>

@@ -337,6 +337,7 @@
     <string name="title_advanced_notifications_background_hint">Bigarren planoko zerbitzua Androidek gelditu dezake noiznahi, baina ez du jakinarazpenik behar egoera barran</string>
     <string name="title_advanced_badge">Erakutsi mezu berrien kopurua abiarazleko ikonoan</string>
     <string name="title_advanced_unseen_ignored">Mezu berri kopurua eta jakinarazpenen kopurua berdina izan dadila</string>
+    <string name="title_advanced_notify_known">Show notifications for contacts only</string>
     <string name="title_advanced_notify_summary">Erakutsi laburpen jakinarazpen bat besterik ez</string>
     <string name="title_advanced_notify_preview">Erakutsi mezuaren aurrebista jakinarazpenetan</string>
     <string name="title_advanced_notify_preview_all">Aurreikusi testu osoa</string>
@@ -372,6 +373,7 @@
     <string name="title_advanced_openpgp">OpenPGP hornitzailea</string>
     <string name="title_advanced_autocrypt">Erabili Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Elkarrekiko Autocrypt modua</string>
+    <string name="title_advanced_check_certificate">Check public key on sending</string>
     <string name="title_advanced_manage_certificates">Kudeatu gako publikoak</string>
     <string name="title_advanced_import_key">Inportatu gako pribatua</string>
     <string name="title_advanced_manage_keys">Kudeatu gako pribatuak</string>
@@ -393,6 +395,7 @@
     <string name="title_advanced_cleanup_attachments">Ezabatu mezu zaharren eranskinak</string>
     <string name="title_advanced_cleanup">Garbiketa</string>
     <string name="title_advanced_last_cleanup">Last cleanup: %1$s</string>
+    <string name="title_advanced_app">App settings</string>
     <string name="title_advanced_more">Aukera gehiago</string>
     <string name="title_advanced_enabled_hint">Ezgaitu edo gaitu mezuak jasotzea orokorrean</string>
     <string name="title_advanced_manual_hint">Sinkronizazioa desgaituta badago, mezuen zerrendatik behera tiraka eskuz sinkroniza daiteke.</string>
@@ -1108,9 +1111,10 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_pro_list">Ordainpeko ezaugarrien zerrenda</string>
     <string name="title_pro_purchase">Erosi</string>
     <string name="title_pro_once">Behin bakarrik</string>
-    <string name="title_pro_info">        FairEmail garatzeko literalki milaka ordu erabili dira ezaugarri gehienak doan erabili badaitezke ere.
-        FairEmail epe luzera mantengarria izan dadin, erosotasun funtzio batzuk edo funtzio aurreratu batzuk ordainpekokoak dira.
-        FairEmail-ek mezu txiki bat bistaratzen du hau gogorarazteko, ordainpeko ezaugarriak erosiz gero mezua desagertzen da.
+    <string name="title_pro_info">        Developing FairEmail took literally thousands of hours and, despite that, most of the features are free to use.
+        FairEmail takes your privacy seriously and doesn\'t show ads and doesn\'t use tracking or analytics to earn money.
+        To maintain and support FairEmail in the long run, some convenience and advanced features are not free to use.
+        FairEmail shows a small message to remind you of this, which will be removed if you purchase the pro features.
     </string>
     <string name="title_pro_hide">Hide small message for %1$d weeks</string>
     <string name="title_pro_hint">Ordainpeko ezaugarriak erostean oraingo eta etorkizuneko ordainpeko ezaugarri guztiak erabiltzeko eskubidea ematen dizu, eta aplikazio hau mantentzen lagunduko du.</string>

@@ -361,6 +361,7 @@
     <string name="title_advanced_notifications_background_hint">Фоновая служба может быть остановлена Android в любое время, но не требует уведомления в статусной строке</string>
     <string name="title_advanced_badge">Показывать значок запуска с числом новых сообщений</string>
     <string name="title_advanced_unseen_ignored">Количество уведомлений соответствует количеству новых сообщений</string>
+    <string name="title_advanced_notify_known">Показывать уведомления только для контактов</string>
     <string name="title_advanced_notify_summary">Показывать только сводное уведомление</string>
     <string name="title_advanced_notify_preview">Предпросмотр сообщений в уведомлениях</string>
     <string name="title_advanced_notify_preview_all">Предпросмотр всего текста</string>
@@ -396,6 +397,7 @@
     <string name="title_advanced_openpgp">Провайдер OpenPGP</string>
     <string name="title_advanced_autocrypt">Использовать Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Взаимный режим Autocrypt</string>
+    <string name="title_advanced_check_certificate">Проверять публичный ключ при отправке</string>
     <string name="title_advanced_manage_certificates">Управление публичными ключами</string>
     <string name="title_advanced_import_key">Импорт приватного ключа</string>
     <string name="title_advanced_manage_keys">Управление приватными ключами</string>
@@ -417,6 +419,7 @@
     <string name="title_advanced_cleanup_attachments">Удалять вложения старых сообщений</string>
     <string name="title_advanced_cleanup">Очистка</string>
     <string name="title_advanced_last_cleanup">Последняя очистка: %1$s</string>
+    <string name="title_advanced_app">Настройки приложения</string>
     <string name="title_advanced_more">Другие возможности</string>
     <string name="title_advanced_enabled_hint">Глобальное включение/отключение получения сообщений</string>
     <string name="title_advanced_manual_hint">Если синхронизация отключена, она может быть произведена вручную, потянув вниз список сообщений.</string>
@@ -1133,10 +1136,11 @@
     <string name="title_pro_purchase">Купить</string>
     <string name="title_pro_once">Только один раз</string>
     <string name="title_pro_info">        Разработка FairEmail занимает буквально тысячи часов и, несмотря на это, большинство функций являются бесплатными для использования.
+        FairEmail серьёзно относится к вашей конфиденциальности, не показывает рекламу и не использует отслеживание или аналитику для монетизации.
         Чтобы сделать проект FairEmail устойчивым в долгосрочной перспективе, некоторые удобства и расширенные функции являются платными.
         FairEmail показывает небольшое сообщение, чтобы напоминать вам об этом. Оно будет удалено, если вы приобретёте функционал Pro.
     </string>
-    <string name="title_pro_hide">Hide small message for %1$d weeks</string>
+    <string name="title_pro_hide">Скрыть маленькое сообщение на %1$d недели</string>
     <string name="title_pro_hint">Покупка функций Pro позволит вам использовать все реализованные и будущие Pro-функции.</string>
     <string name="title_pro_price">Ознакомьтесь с <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">​​этим часто задаваемым вопросом</a> о цене функций Pro.</string>
     <string name="title_pro_pending">Ожидание обработки покупки</string>

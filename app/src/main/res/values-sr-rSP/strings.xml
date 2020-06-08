@@ -350,6 +350,7 @@
     <string name="title_advanced_notifications_background_hint">A background service can be stopped by Android at any time, but doesn\'t require a status bar notification</string>
     <string name="title_advanced_badge">Прикажи иконицу са бројем нових порука на покретачу</string>
     <string name="title_advanced_unseen_ignored">Нека се број нових порука поклапа са бројем обавештења</string>
+    <string name="title_advanced_notify_known">Show notifications for contacts only</string>
     <string name="title_advanced_notify_summary">Прикажи само једно сумарно обавештење</string>
     <string name="title_advanced_notify_preview">Прикажи претпреглед поруке у обавештењима</string>
     <string name="title_advanced_notify_preview_all">Preview all text</string>
@@ -385,6 +386,7 @@
     <string name="title_advanced_openpgp">OpenPGP провајдер</string>
     <string name="title_advanced_autocrypt">Use Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Autocrypt mutual mode</string>
+    <string name="title_advanced_check_certificate">Check public key on sending</string>
     <string name="title_advanced_manage_certificates">Управљање јавним кључевима</string>
     <string name="title_advanced_import_key">Увези приватни кључ</string>
     <string name="title_advanced_manage_keys">Управљање приватним кључевима</string>
@@ -406,6 +408,7 @@
     <string name="title_advanced_cleanup_attachments">Delete attachments of old messages</string>
     <string name="title_advanced_cleanup">Чишћење</string>
     <string name="title_advanced_last_cleanup">Last cleanup: %1$s</string>
+    <string name="title_advanced_app">App settings</string>
     <string name="title_advanced_more">More options</string>
     <string name="title_advanced_enabled_hint">Глобално укључи и искључи примање порука</string>
     <string name="title_advanced_manual_hint">Ако се синхронизација искључи, и даље је могућа ручна синхронизација повлачењем листе порука на доле.</string>
@@ -1121,9 +1124,10 @@
     <string name="title_pro_list">Списак премијум функционалности</string>
     <string name="title_pro_purchase">Купи</string>
     <string name="title_pro_once">Само једном</string>
-    <string name="title_pro_info">        Прављење FairEmail-а је трајало буквално хиљаде сати и поред тога су већина функционалности бесплатне.
-        Да би FairEmail био одржив на дуже стазе, неке погодности и напредне функционалности нису бесплатне.
-        FairEmail приказује малу поруку да Вас подсети на ово, која се може уклонити куповином премијум функционалности.
+    <string name="title_pro_info">        Developing FairEmail took literally thousands of hours and, despite that, most of the features are free to use.
+        FairEmail takes your privacy seriously and doesn\'t show ads and doesn\'t use tracking or analytics to earn money.
+        To maintain and support FairEmail in the long run, some convenience and advanced features are not free to use.
+        FairEmail shows a small message to remind you of this, which will be removed if you purchase the pro features.
     </string>
     <string name="title_pro_hide">Hide small message for %1$d weeks</string>
     <string name="title_pro_hint">Куповина премијум функционалности ће Вам дозволити да користите све тренутне и будуће премијум функције, и бринуће се да се апликација одржава и да буде подржана.</string>

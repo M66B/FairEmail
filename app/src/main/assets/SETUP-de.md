@@ -32,10 +32,10 @@ Siehe [diese FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) zur
 
 Wenn Sie E-Mail-Adressen suchen wollen, Kontaktfotos anzeigen lassen möchten etc., müssen Sie FairEmail die Lese-Kontaktberechtigung erteilen. Tippe einfach auf *Berechtigungen erteilen* und wählen Sie *Zulassen*.
 
-## Akku-Optimierungen einrichten - um E-Mails kontinuierlich zu erhalten
+## Akku-Optimierungen einrichten, um E-Mails fortlaufend zu erhalten
 
 Bei den aktuellen Android-Versionen wird Android alle Apps zum Schlafen bringen, wenn der Bildschirm für einige Zeit ausgeschaltet ist, um die Akkunutzung zu reduzieren. Wenn Sie neue E-Mails ohne Verzögerung erhalten möchten, sollten Sie die Batterie-Optimierung für FairEmail deaktivieren. Tippen Sie auf *Akku-Optimierung einrichten* und folgen Sie den Anweisungen.
 
 ## Fragen oder Probleme
 
-Wenn Sie eine Frage oder ein Problem haben, ist [hier die Hilfe](https://github.com/M66B/FairEmail/blob/master/FAQ.md).
+Wenn Sie eine Frage oder ein Problem haben, können Sie [hier Hilfe](https://github.com/M66B/FairEmail/blob/master/FAQ.md) erhalten.

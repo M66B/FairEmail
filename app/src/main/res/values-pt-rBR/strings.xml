@@ -340,6 +340,7 @@
     <string name="title_advanced_notifications_background_hint">Um serviço em segundo plano pode ser interrompido pelo Android a qualquer momento, mas não requer uma notificação na barra de status</string>
     <string name="title_advanced_badge">Mostrar ícone no launcher com número de novas mensagens</string>
     <string name="title_advanced_unseen_ignored">Permitir que o número de novas mensagens corresponda ao número de notificações</string>
+    <string name="title_advanced_notify_known">Show notifications for contacts only</string>
     <string name="title_advanced_notify_summary">Mostrar apenas notificação de resumo</string>
     <string name="title_advanced_notify_preview">Mostrar pré-visualização de mensagem nas notificações</string>
     <string name="title_advanced_notify_preview_all">Pré-visualizar todo o texto</string>
@@ -375,6 +376,7 @@
     <string name="title_advanced_openpgp">Provedor OpenPGP</string>
     <string name="title_advanced_autocrypt">Usar Autocript</string>
     <string name="title_advanced_autocrypt_mutual">Modo mútuo de Autocrypt</string>
+    <string name="title_advanced_check_certificate">Check public key on sending</string>
     <string name="title_advanced_manage_certificates">Gerenciar chaves públicas</string>
     <string name="title_advanced_import_key">Importar chave privada</string>
     <string name="title_advanced_manage_keys">Gerenciar chaves privadas</string>
@@ -396,6 +398,7 @@
     <string name="title_advanced_cleanup_attachments">Apagar anexos de mensagens antigas</string>
     <string name="title_advanced_cleanup">Limpeza</string>
     <string name="title_advanced_last_cleanup">Última limpeza: %1$s</string>
+    <string name="title_advanced_app">App settings</string>
     <string name="title_advanced_more">Mais opções</string>
     <string name="title_advanced_enabled_hint">Globalmente desabilitar ou habilitar o recebimento de mensagens</string>
     <string name="title_advanced_manual_hint">Se a sincronização estiver desativada, ainda é possível sincronizar manualmente puxando para baixo a lista de mensagens.</string>
@@ -1111,9 +1114,10 @@
     <string name="title_pro_list">Lista de recursos Pro</string>
     <string name="title_pro_purchase">Comprar</string>
     <string name="title_pro_once">Apenas uma vez</string>
-    <string name="title_pro_info">        O desenvolvimento do FairEmail levou literalmente milhares de horas e, apesar disso, a maioria dos recursos é gratuita.
-        Para tornar o FairEmail sustentável a longo prazo, algumas conveniências e recursos avançados não são gratuitos.
-        O FairEmail exibe uma pequena mensagem para lembrá-lo disso, que será removida se você comprar os recursos profissionais.
+    <string name="title_pro_info">        Developing FairEmail took literally thousands of hours and, despite that, most of the features are free to use.
+        FairEmail takes your privacy seriously and doesn\'t show ads and doesn\'t use tracking or analytics to earn money.
+        To maintain and support FairEmail in the long run, some convenience and advanced features are not free to use.
+        FairEmail shows a small message to remind you of this, which will be removed if you purchase the pro features.
     </string>
     <string name="title_pro_hide">Hide small message for %1$d weeks</string>
     <string name="title_pro_hint">Comprar recursos Pro permitirá que você use todas as funcionalidades atuais e futuras, ajudará na manutenção e suporte deste app</string>

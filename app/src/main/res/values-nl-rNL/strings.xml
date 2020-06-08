@@ -338,6 +338,7 @@
     <string name="title_advanced_notifications_background_hint">Een achtergrondservice kan op elk gewenst moment worden gestopt door Android, maar vereist geen melding in de statusbalk</string>
     <string name="title_advanced_badge">Toon opstartpictogram met aantal nieuwe berichten</string>
     <string name="title_advanced_unseen_ignored">Laat het aantal nieuwe berichten overeenkomen met het aantal meldingen</string>
+    <string name="title_advanced_notify_known">Toon alleen meldingen voor contacten</string>
     <string name="title_advanced_notify_summary">Toon alleen melding met een samenvatting</string>
     <string name="title_advanced_notify_preview">Toon berichtvoorbeeld in meldingen</string>
     <string name="title_advanced_notify_preview_all">Voorbeeld van alle tekst</string>
@@ -373,6 +374,7 @@
     <string name="title_advanced_openpgp">OpenPGP provider</string>
     <string name="title_advanced_autocrypt">Gebruik Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Autocrypt wederzijdse modus</string>
+    <string name="title_advanced_check_certificate">Controleer de publieke sleutel bij verzenden</string>
     <string name="title_advanced_manage_certificates">Publieke sleutels beheren</string>
     <string name="title_advanced_import_key">Importeer privé sleutel</string>
     <string name="title_advanced_manage_keys">Privé sleutels beheren</string>
@@ -394,6 +396,7 @@
     <string name="title_advanced_cleanup_attachments">Bijlagen van oude berichten verwijderen</string>
     <string name="title_advanced_cleanup">Opruimen</string>
     <string name="title_advanced_last_cleanup">Laatste schoonmaak: %1$s</string>
+    <string name="title_advanced_app">App instellingen</string>
     <string name="title_advanced_more">Meer opties</string>
     <string name="title_advanced_enabled_hint">Globaal in- of uitschakelen van het ontvangen van berichten</string>
     <string name="title_advanced_manual_hint">Als synchronisatie uitgeschakeld is, is het nog steeds mogelijk om handmatig te synchroniseren door het omlaag trekken van de berichtenlijst.</string>
@@ -1109,7 +1112,10 @@
     <string name="title_pro_list">Lijst van pro-functies</string>
     <string name="title_pro_purchase">Koop</string>
     <string name="title_pro_once">Eenmalig</string>
-    <string name="title_pro_info">Het ontwikkelen van FairEmail kostte letterlijk duizenden uren en ondanks dat zijn de meeste functies gratis te gebruiken. Om FairEmail op de lange termijn duurzaam te maken, zijn sommige gebruiksgemak en geavanceerde functies niet gratis te gebruiken. FairEmail geeft een klein bericht weer om u hieraan te herinneren, dat wordt verwijderd als u de pro functies aanschaft.</string>
+    <string name="title_pro_info">         Het ontwikkelen van FairEmail kostte letterlijk duizenden uren en ondanks dat zijn de meeste functies gratis te gebruiken.
+         FairEmail neemt uw privacy serieus en toont geen advertenties en gebruikt geen tracking of analyse om geld te verdienen.
+         Om FairEmail op de lange termijn te onderhouden en te ondersteunen, zijn sommige gemaks- en geavanceerde functies niet gratis te gebruiken.
+         FairEmail toont een klein bericht om u hieraan te herinneren, dat wordt verwijderd als u de pro-functies koopt.</string>
     <string name="title_pro_hide">Verberg het kleine bericht voor %1$d weken</string>
     <string name="title_pro_hint">Het kopen van pro functies geeft toegang tot alle huidige en toekomstige pro functies en zorgt voor onderhoud en ondersteuning van deze app.</string>
     <string name="title_pro_price">Zie <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">deze FAQ</a> over de prijs van de pro-functies</string>

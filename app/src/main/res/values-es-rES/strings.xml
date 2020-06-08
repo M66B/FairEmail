@@ -340,6 +340,7 @@
     <string name="title_advanced_notifications_background_hint">Un servicio en segundo plano puede ser detenido por Android en cualquier momento, pero no requiere una notificación de la barra de estado</string>
     <string name="title_advanced_badge">Mostrar icono del lanzador con el número de mensajes nuevos</string>
     <string name="title_advanced_unseen_ignored">Permitir que el número de mensajes nuevos coincida con el número de notificaciones</string>
+    <string name="title_advanced_notify_known">Mostrar notificaciones sólo para contactos</string>
     <string name="title_advanced_notify_summary">Mostrar notificación resumen únicamente</string>
     <string name="title_advanced_notify_preview">Mostrar vista previa del mensaje en notificaciones</string>
     <string name="title_advanced_notify_preview_all">Previsualizar todo el texto</string>
@@ -375,6 +376,7 @@
     <string name="title_advanced_openpgp">Proveedor OpenPGP</string>
     <string name="title_advanced_autocrypt">Usar Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Modo mutuo Autocrypt</string>
+    <string name="title_advanced_check_certificate">Check public key on sending</string>
     <string name="title_advanced_manage_certificates">Administrar claves públicas</string>
     <string name="title_advanced_import_key">Importar clave privada</string>
     <string name="title_advanced_manage_keys">Administrar claves privadas</string>
@@ -396,6 +398,7 @@
     <string name="title_advanced_cleanup_attachments">Eliminar archivos adjuntos de mensajes antiguos</string>
     <string name="title_advanced_cleanup">Limpieza</string>
     <string name="title_advanced_last_cleanup">Última limpieza: %1$s</string>
+    <string name="title_advanced_app">Ajustes de la app</string>
     <string name="title_advanced_more">Más opciones</string>
     <string name="title_advanced_enabled_hint">Desactivar o activar globalmente la recepción de mensajes</string>
     <string name="title_advanced_manual_hint">Si la sincronización está desactivasa, todavía es posible sincronizar manualmente tirando hacía bajando la lista de mensajes.</string>
@@ -1111,11 +1114,12 @@
     <string name="title_pro_list">Lista de características Pro</string>
     <string name="title_pro_purchase">Comprar</string>
     <string name="title_pro_once">Sólo una vez</string>
-    <string name="title_pro_info">        El desarrollo de FairEmail tomó literalmente miles de horas, y a pesar de ello la mayoría de las funciones son de uso libre.
-        Para hacer a Fairemail sostenible en el largo plazo, algunas funciones de conveniencia y avanzadas no son de uso libre.
-        FairEmail muestra un pequeño mensaje para recordarte esto, que dejará de mostrarse si compras las funciones avanzadas.
+    <string name="title_pro_info">        El desarrollo de FairEmail tomó literalmente miles de horas y, a pesar de ello, la mayoría de las características son de uso gratuito.
+        FairEmail se toma en serio su privacidad y no muestra anuncios y no utiliza rastreo ni análisis para ganar dinero.
+        Para mantener y sostener FairEmail a largo plazo, algunas características avanzadas y convenientes no son gratuitas.
+        FairEmail muestra un pequeño mensaje para recordarle esto, que se eliminará si adquiere las características Pro.
     </string>
-    <string name="title_pro_hide">Hide small message for %1$d weeks</string>
+    <string name="title_pro_hide">Ocultar mensaje pequeño durante %1$d semanas</string>
     <string name="title_pro_hint">La compra de características Pro le permitirá usar todas las características Pro actuales y futuras, y ayudará al mantenimiento y desarrollo de esta aplicación</string>
     <string name="title_pro_price">Por favor vea <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">estas Preguntas Frecuentes</a> acerca del precio de las características Pro</string>
     <string name="title_pro_pending">Compra pendiente</string>
@@ -1243,7 +1247,7 @@
         <item>Al principio</item>
         <item>En el medio</item>
         <item>Al final</item>
-        <item>Show untruncated</item>
+        <item>Mostrar sin truncar</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Baja</item>

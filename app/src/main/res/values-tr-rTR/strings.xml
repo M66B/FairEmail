@@ -339,6 +339,7 @@
     <string name="title_advanced_notifications_background_hint">A background service can be stopped by Android at any time, but doesn\'t require a status bar notification</string>
     <string name="title_advanced_badge">Yeni ileti sayısını başlatıcıdaki simgede göster</string>
     <string name="title_advanced_unseen_ignored">Yeni iletilerin sayısıyla bildirimlerin sayısının eşleşmesine izin ver</string>
+    <string name="title_advanced_notify_known">Show notifications for contacts only</string>
     <string name="title_advanced_notify_summary">Sadece özet bildirimini göster</string>
     <string name="title_advanced_notify_preview">Bildirimlerde ileti önizlemesini göster</string>
     <string name="title_advanced_notify_preview_all">Tüm metni ön izle</string>
@@ -374,6 +375,7 @@
     <string name="title_advanced_openpgp">OpenPGP sağlayıcı</string>
     <string name="title_advanced_autocrypt">Autocrypt kullan</string>
     <string name="title_advanced_autocrypt_mutual">Autocrypt karşılıklı mod</string>
+    <string name="title_advanced_check_certificate">Check public key on sending</string>
     <string name="title_advanced_manage_certificates">Genel anahtarları yönet</string>
     <string name="title_advanced_import_key">Özel anahtarı içe aktar</string>
     <string name="title_advanced_manage_keys">Özel anahtarları yönet</string>
@@ -395,6 +397,7 @@
     <string name="title_advanced_cleanup_attachments">Delete attachments of old messages</string>
     <string name="title_advanced_cleanup">Temizle</string>
     <string name="title_advanced_last_cleanup">Son temizleme: %1$s</string>
+    <string name="title_advanced_app">App settings</string>
     <string name="title_advanced_more">More options</string>
     <string name="title_advanced_enabled_hint">İleti alımını tamamen aç ya da kapat</string>
     <string name="title_advanced_manual_hint">Senkronizasyon devre dışı bırakılmışsa, mesaj listesini aşağı çekerek manuel olarak senkronizasyon yapılabilir.</string>
@@ -1110,9 +1113,10 @@
     <string name="title_pro_list">Pro özelliklerin listesi</string>
     <string name="title_pro_purchase">Satın al</string>
     <string name="title_pro_once">Sadece bir kez</string>
-    <string name="title_pro_info">        FairEmail\'i geliştirmek tam anlamıyla binlerce saat almasına rağmen çoğu özelliğin kullanımı ücretsizdir.
-        FairEmail\'i uzun vadede sürdürülebilir kılmak için, bazı kolaylıkların ve gelişmiş özelliklerin kullanımı ücretsiz değildir.
-        FairEmail size bunu hatırlatmak için, pro özellikleri satın alırsanız kaldırılacak olan küçük bir mesaj göstermektedir.
+    <string name="title_pro_info">        Developing FairEmail took literally thousands of hours and, despite that, most of the features are free to use.
+        FairEmail takes your privacy seriously and doesn\'t show ads and doesn\'t use tracking or analytics to earn money.
+        To maintain and support FairEmail in the long run, some convenience and advanced features are not free to use.
+        FairEmail shows a small message to remind you of this, which will be removed if you purchase the pro features.
     </string>
     <string name="title_pro_hide">Hide small message for %1$d weeks</string>
     <string name="title_pro_hint">Pro özelliklerin satın alınması, mevcut ve gelecekteki tüm pro özelliklerin kullanılmasına izin verecek ve bu uygulamayı ayakta tutup destekleyecek</string>

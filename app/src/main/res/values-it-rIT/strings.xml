@@ -265,7 +265,7 @@
     <string name="title_advanced_cards">Utilizza lo stile della carta al posto dello stile tabulare</string>
     <string name="title_advanced_date_header">Raggruppa per data</string>
     <string name="title_advanced_threading">Thread di conversazione</string>
-    <string name="title_advanced_threading_unread">Show number of unread messages in conversations</string>
+    <string name="title_advanced_threading_unread">Mostra il numero di messaggi non letti nelle conversazioni</string>
     <string name="title_advanced_indentation">Messaggi ricevuti/inviati con rientro a sinistra/destra nelle conversazioni</string>
     <string name="title_advanced_highlight_unread">Evidenzia i messaggi non letti</string>
     <string name="title_advanced_highlight_subject">Evidenzia oggetto</string>
@@ -339,6 +339,7 @@
     <string name="title_advanced_notifications_background_hint">Un servizio in secondo piano può essere interrotto da Android in qualsiasi momento, ma non richiede una notifica nella barra di stato</string>
     <string name="title_advanced_badge">Mostra icona launcher con numero di nuovi messaggi</string>
     <string name="title_advanced_unseen_ignored">Lascia che il numero di nuovi messaggi corrisponda al numero di notifiche</string>
+    <string name="title_advanced_notify_known">Mostra le notifiche solo per i contatti</string>
     <string name="title_advanced_notify_summary">Mostra solo le notifiche di riepilogo</string>
     <string name="title_advanced_notify_preview">Mostra anteprima messaggio nelle notifiche</string>
     <string name="title_advanced_notify_preview_all">Visualizza tutto il testo</string>
@@ -374,6 +375,7 @@
     <string name="title_advanced_openpgp">Provider OpenPGP</string>
     <string name="title_advanced_autocrypt">Usa Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Autocrypt in modalità reciproca</string>
+    <string name="title_advanced_check_certificate">Check public key on sending</string>
     <string name="title_advanced_manage_certificates">Gestisci chiavi pubbliche</string>
     <string name="title_advanced_import_key">Importa chiave privata</string>
     <string name="title_advanced_manage_keys">Gestisci le chiavi private</string>
@@ -385,7 +387,7 @@
     <string name="title_advanced_language_detection">Rileva lingua testo messaggio</string>
     <string name="title_advanced_fts">Crea indice di ricerca</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d messaggi indicizzati (%3$s)</string>
-    <string name="title_advanced_english">Use US country settings</string>
+    <string name="title_advanced_english">Usa le impostazioni degli Stati Uniti</string>
     <string name="title_advanced_watchdog">Controlla periodicamente se FairEmail è ancora attiva</string>
     <string name="title_advanced_optimize">Ottimizza automaticamente le impostazioni</string>
     <string name="title_advanced_updates">Controlla aggiornamenti</string>
@@ -395,11 +397,12 @@
     <string name="title_advanced_cleanup_attachments">Elimina allegati dei vecchi messaggi</string>
     <string name="title_advanced_cleanup">Pulizia</string>
     <string name="title_advanced_last_cleanup">Ultima pulizia: %1$s</string>
+    <string name="title_advanced_app">Impostazioni dell\'app</string>
     <string name="title_advanced_more">Altre opzioni</string>
     <string name="title_advanced_enabled_hint">Attiva o disattiva a livello globale la ricezione dei messaggi</string>
     <string name="title_advanced_manual_hint">Se la sincronizzazione è disabilitata, è ancora possibile sincronizzare manualmente tirando verso il basso l\'elenco dei messaggi.</string>
     <string name="title_advanced_poll_hint">La sincronizzazione periodica compara i messaggi locali e remoti ogni volta, il che è un\'operazione costosa che potrebbe comportare un utilizzo aggiuntivo di batteria, specialmente quando ci sono molti messaggi da sincronizzare. La sincronizzazione sempre eviterà questo tramite un monitoraggio continuo solo per le modifiche.</string>
-    <string name="title_advanced_optimized_hint">This option can be optimized automatically (miscellaneous settings)</string>
+    <string name="title_advanced_optimized_hint">Questa opzione può essere ottimizzata automaticamente (impostazioni varie)</string>
     <string name="title_advanced_schedule_hint">Tocca un orario per impostare un orario</string>
     <string name="title_advanced_check_mx">Controlla gli indirizzi email mittente alla sincronizzazione dei messaggi</string>
     <string name="title_advanced_check_reply">Controlla gli indirizzi email di risposta alla sincronizzazione dei messaggi</string>
@@ -725,7 +728,7 @@
     <string name="title_reply_to">Rispondi a:</string>
     <string name="title_cc">CC:</string>
     <string name="title_bcc">CCN:</string>
-    <string name="title_recipients">%1$d recipients</string>
+    <string name="title_recipients">%1$d destinatari</string>
     <string name="title_via_identity">Tramite:</string>
     <string name="title_sent">Inviato:</string>
     <string name="title_received">Ricevuto:</string>
@@ -1018,7 +1021,7 @@
     <string name="title_legend_show_junk">Tratta come spam</string>
     <string name="title_legend_show_unsubscribe">Cancellare dalla lista</string>
     <string name="title_legend_show_images">Mostra immagini</string>
-    <string name="title_legend_show_full">Show original message</string>
+    <string name="title_legend_show_full">Mostra il messaggio originale</string>
     <string name="title_legend_edit">Modifica</string>
     <string name="title_legend_default_color">Colore predefinito</string>
     <string name="title_legend_close_hint">Chiudi suggerimento</string>
@@ -1109,11 +1112,12 @@
     <string name="title_pro_list">Elenco delle funzionalità a pagamento</string>
     <string name="title_pro_purchase">Acquista</string>
     <string name="title_pro_once">Solo una volta</string>
-    <string name="title_pro_info">        Sviluppare FairEmail ha impiegato letteralmente migliaia di ore e nonostante questa maggior parte delle funzionalità siano gratuite da utilizzare.
-        Per rendere FairEmail sostenibile a lungo termine, alcuni vantaggi e funzionalità avanzate non sono gratuiti.
-        FairEmail per ricordare questo mostra un piccolo messaggio, che verrà rimosso se acquisti le funzioni pro.
+    <string name="title_pro_info">        Developing FairEmail took literally thousands of hours and, despite that, most of the features are free to use.
+        FairEmail takes your privacy seriously and doesn\'t show ads and doesn\'t use tracking or analytics to earn money.
+        To maintain and support FairEmail in the long run, some convenience and advanced features are not free to use.
+        FairEmail shows a small message to remind you of this, which will be removed if you purchase the pro features.
     </string>
-    <string name="title_pro_hide">Hide small message for %1$d weeks</string>
+    <string name="title_pro_hide">Nascondi il piccolo messaggio per %1$d settimane</string>
     <string name="title_pro_hint">L\'acquisto di funzionalità a pagamento ti permetterà di utilizzare tutte le attuali e future funzioni, aiuterà il mantenimento e il supporto dell\'app</string>
     <string name="title_pro_price">Consulta <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">queste FAQ</a> riguardo il prezzo delle funzioni a pagamento</string>
     <string name="title_pro_pending">Acquisto in sospeso</string>
@@ -1241,7 +1245,7 @@
         <item>All\'inizio</item>
         <item>Nel mezzo</item>
         <item>Alla fine</item>
-        <item>Show untruncated</item>
+        <item>Mostra non troncato</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Basso</item>

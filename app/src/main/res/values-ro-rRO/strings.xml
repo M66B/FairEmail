@@ -349,6 +349,7 @@
     <string name="title_advanced_notifications_background_hint">Un serviciu de fundal poate fi oprit de Android în orice moment, dar nu necesită o notificare în bara de stare</string>
     <string name="title_advanced_badge">Afișează iconița lansatorului cu numărul de mesaje noi</string>
     <string name="title_advanced_unseen_ignored">Fie ca numărul de mesaje noi să corespundă cu numărul de notificări</string>
+    <string name="title_advanced_notify_known">Show notifications for contacts only</string>
     <string name="title_advanced_notify_summary">Arată doar sumarul în notificare</string>
     <string name="title_advanced_notify_preview">Arată previzualizare mesaj în notificare</string>
     <string name="title_advanced_notify_preview_all">Previzualizează tot textul</string>
@@ -384,6 +385,7 @@
     <string name="title_advanced_openpgp">Furnizor OpenPGP</string>
     <string name="title_advanced_autocrypt">Folosește Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Modul mutual Autocrypt</string>
+    <string name="title_advanced_check_certificate">Check public key on sending</string>
     <string name="title_advanced_manage_certificates">Gestionare chei publice</string>
     <string name="title_advanced_import_key">Importare cheie privată</string>
     <string name="title_advanced_manage_keys">Gestionare chei private</string>
@@ -405,6 +407,7 @@
     <string name="title_advanced_cleanup_attachments">Ştergeţi ataşamentele mesajelor vechi</string>
     <string name="title_advanced_cleanup">Curățare</string>
     <string name="title_advanced_last_cleanup">Ultima curățare: %1$s</string>
+    <string name="title_advanced_app">App settings</string>
     <string name="title_advanced_more">Mai multe opțiuni</string>
     <string name="title_advanced_enabled_hint">Activează sau dezactivează global recepția mesajelor</string>
     <string name="title_advanced_manual_hint">Dacă sincronizarea este dezactivată tot este posibilă sincronizarea manuală glisând în jos lista de mesaje.</string>
@@ -1120,9 +1123,10 @@
     <string name="title_pro_list">Lista de caracteristici Pro</string>
     <string name="title_pro_purchase">Cumpără</string>
     <string name="title_pro_once">Doar o dată</string>
-    <string name="title_pro_info">        Dezvoltarea FairEmail a durat literalmente mii de ore și în ciuda acestui fapt majoritatea caracteristicilor se pot folosi gratuit.
-        Pentru a face FairEmail sustenabil pe termen lung, unele caracteristici avansate sau ce țin de comoditate nu se pot folosi gratuit.
-        FairEmail arată un mic mesaj care să vă reamintească de asta, care se poate ascunde dacă achiziționați caracteristicile Pro.
+    <string name="title_pro_info">        Developing FairEmail took literally thousands of hours and, despite that, most of the features are free to use.
+        FairEmail takes your privacy seriously and doesn\'t show ads and doesn\'t use tracking or analytics to earn money.
+        To maintain and support FairEmail in the long run, some convenience and advanced features are not free to use.
+        FairEmail shows a small message to remind you of this, which will be removed if you purchase the pro features.
     </string>
     <string name="title_pro_hide">Hide small message for %1$d weeks</string>
     <string name="title_pro_hint">Cumpărarea caracteristicilor Pro vă va permite să utilizați toate caracteristicile actuale cât și cele viitoare, și ajută la dezvoltarea acestei aplicații</string>

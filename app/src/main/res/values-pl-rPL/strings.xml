@@ -286,7 +286,7 @@
     <string name="title_advanced_cards">Użyj stylu karty zamiast stylu tabelarycznego</string>
     <string name="title_advanced_date_header">Grupuj według dat</string>
     <string name="title_advanced_threading">Konwersacje w wątkach</string>
-    <string name="title_advanced_threading_unread">Show number of unread messages in conversations</string>
+    <string name="title_advanced_threading_unread">Pokaż liczbę nieprzeczytanych wiadomości w wątkach</string>
     <string name="title_advanced_indentation">Lewe/prawe wcięcie otrzymane/wysłane wiadomości w rozmowach</string>
     <string name="title_advanced_highlight_unread">Podświetl nieprzeczytane wiadomości</string>
     <string name="title_advanced_highlight_subject">Podświetl temat</string>
@@ -360,6 +360,7 @@
     <string name="title_advanced_notifications_background_hint">Usługa w tle może być w dowolnym momencie zatrzymana przez Androida, ale nie wymaga powiadomienia na pasku stanu</string>
     <string name="title_advanced_badge">Pokaż liczbę nowych wiadomości na ikonie launchera</string>
     <string name="title_advanced_unseen_ignored">Niech liczba nowych wiadomości odpowiada liczbie powiadomień</string>
+    <string name="title_advanced_notify_known">Pokaż powiadomienia tylko dla kontaktów</string>
     <string name="title_advanced_notify_summary">Pokaż tylko podsumowanie</string>
     <string name="title_advanced_notify_preview">Pokaż podgląd wiadomości w powiadomieniach</string>
     <string name="title_advanced_notify_preview_all">Podgląd całego tekstu</string>
@@ -395,6 +396,7 @@
     <string name="title_advanced_openpgp">Dostawca OpenPGP</string>
     <string name="title_advanced_autocrypt">Użyj Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Tryb automatycznego szyfrowania</string>
+    <string name="title_advanced_check_certificate">Check public key on sending</string>
     <string name="title_advanced_manage_certificates">Zarządzaj kluczami publicznymi</string>
     <string name="title_advanced_import_key">Importuj klucz prywatny</string>
     <string name="title_advanced_manage_keys">Zarządzaj kluczami prywatnymi</string>
@@ -416,6 +418,7 @@
     <string name="title_advanced_cleanup_attachments">Usuń załączniki starych wiadomości</string>
     <string name="title_advanced_cleanup">Oczyszczanie</string>
     <string name="title_advanced_last_cleanup">Ostatnie czyszczenie: %1$s</string>
+    <string name="title_advanced_app">Ustawienia aplikacji</string>
     <string name="title_advanced_more">Więcej opcji</string>
     <string name="title_advanced_enabled_hint">Globalnie wyłącz lub włącz odbieranie wiadomości</string>
     <string name="title_advanced_manual_hint">Jeśli synchronizacja jest wyłączona, nadal można synchronizować ręcznie, przeciągając listę wiadomości.</string>
@@ -1131,10 +1134,11 @@
     <string name="title_pro_list">Lista funkcji pro</string>
     <string name="title_pro_purchase">Kup</string>
     <string name="title_pro_once">Tylko raz</string>
-    <string name="title_pro_info">Opracowanie FairEmail zajęło dosłownie tysiące godzin i pomimo tego większość funkcji jest darmowea
-W celu utrzymania FairEmail w dłuższej perspektywie, niektóre udogodnienia i zaawansowane funkcje nie są darmowe.
-FairEmail wyświetla o tym małą wiadomość przypominającą, która zostanie usunięta, jeśli kupisz funkcje pro.    </string>
-    <string name="title_pro_hide">Hide small message for %1$d weeks</string>
+    <string name="title_pro_info">        Opracowanie FairEmail zajęło dosłownie tysiące godzin, a mimo to większość funkcji jest darmowa.
+        FairEmail poważnie traktuje Twoją prywatność i nie wyświetla reklam oraz nie wykorzystuje śledzenia ani analiz do zarabiania pieniędzy.
+        Aby utrzymać i wspierać FairEmail na dłuższą metę, niektóre udogodnienia i zaawansowane funkcje nie są bezpłatne.
+        FairEmail wyświetla małą wiadomość przypominającą o tym, która zostanie usunięta, jeśli kupisz funkcje pro.    </string>
+    <string name="title_pro_hide">Ukryj małą wiadomość na %1$d tygodnie</string>
     <string name="title_pro_hint">Kupno funkcji pro pozwoli Ci używać wszystkich obecnych i przyszłych funkcji pro oraz będzie utrzymywać i wspierać aplikację</string>
     <string name="title_pro_price">Zobacz <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">ten FAQ</a> na temat cen funkcji pro</string>
     <string name="title_pro_pending">Zakup w toku</string>
