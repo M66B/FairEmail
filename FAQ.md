@@ -652,15 +652,16 @@ If you want to undo decryption, you can use the *resync* menu item in the three-
 You'll need to install and configure [OpenKeychain](https://f-droid.org/en/packages/org.sufficientlysecure.keychain/) first.
 FairEmail was tested with OpenKeychain version 5.4. Later versions will most likely be compatible, but earlier versions might not be.
 
-The OpenKeychain app is known to (silently) crash when the calling app (FairEmail) is not authorized yet and is getting an existing public key.
+**Important**: the OpenKeychain app is known to (silently) crash when the calling app (FairEmail) is not authorized yet and is getting an existing public key.
 You can workaround this by trying to send a signed/encrypted message to a sender with an unknown public key.
 
-If the OpenKeychain app cannot find a key (anymore), you might need to reset a previously selected key.
+**Important**: if the OpenKeychain app cannot find a key (anymore), you might need to reset a previously selected key.
 This can be done by long pressing an identity in the list of identities (Setup, step 2, Manage).
 
-To let apps like FairEmail reliably connect to the OpenKeychain service to encrypt/decrypt messages,
+**Important**: to let apps like FairEmail reliably connect to the OpenKeychain service to encrypt/decrypt messages,
 it might be necessary to disable battery optimizations for the OpenKeychain app.
-On some Android versions / devices it is necessary to enable *Show popups while running in background*
+
+**Important**: on some Android versions / devices it is necessary to enable *Show popups while running in background*
 in the additional permissions of the Android app settings of the OpenKeychain app.
 Without this permission the draft will be saved, but the OpenKeychain popup to confirm/select might not appear.
 
