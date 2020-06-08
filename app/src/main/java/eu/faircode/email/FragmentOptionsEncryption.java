@@ -74,6 +74,7 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
     private SwitchCompat swAutocrypt;
     private SwitchCompat swAutocryptMutual;
 
+    private SwitchCompat swCheckCertificate;
     private Button btnManageCertificates;
     private Button btnImportKey;
     private Button btnManageKeys;
@@ -85,7 +86,8 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
 
     private final static String[] RESET_OPTIONS = new String[]{
             "sign_default", "encrypt_default", "auto_decrypt",
-            "openpgp_provider", "autocrypt", "autocrypt_mutual"
+            "openpgp_provider", "autocrypt", "autocrypt_mutual",
+            "check_certificate"
     };
 
     @Override
@@ -107,6 +109,7 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
         swAutocrypt = view.findViewById(R.id.swAutocrypt);
         swAutocryptMutual = view.findViewById(R.id.swAutocryptMutual);
 
+        swCheckCertificate = view.findViewById(R.id.swCheckCertificate);
         btnManageCertificates = view.findViewById(R.id.btnManageCertificates);
         btnImportKey = view.findViewById(R.id.btnImportKey);
         btnManageKeys = view.findViewById(R.id.btnManageKeys);
@@ -189,6 +192,13 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
         });
 
         // S/MIME
+
+        swCheckCertificate.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("check_certificate", checked).apply();
+            }
+        });
 
         btnManageCertificates.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -343,6 +353,8 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
         swAutocrypt.setChecked(prefs.getBoolean("autocrypt", true));
         swAutocryptMutual.setChecked(prefs.getBoolean("autocrypt_mutual", true));
         swAutocryptMutual.setEnabled(swAutocrypt.isChecked());
+
+        swCheckCertificate.setChecked(prefs.getBoolean("check_certificate", true));
     }
 
     private void testOpenPgp(String pkg) {

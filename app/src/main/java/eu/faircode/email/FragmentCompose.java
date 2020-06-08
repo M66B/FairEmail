@@ -2335,6 +2335,9 @@ public class FragmentCompose extends FragmentBase {
                 int type = args.getInt("type");
                 String alias = args.getString("alias");
 
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean check_certificate = prefs.getBoolean("check_certificate", true);
+
                 DB db = DB.getInstance(context);
 
                 // Get data
@@ -2378,23 +2381,46 @@ public class FragmentCompose extends FragmentBase {
                 };
                 bpContent.setContent(imessage.getContent(), imessage.getContentType());
 
-                // Store selected alias
                 if (alias == null)
                     throw new IllegalArgumentException("Key alias missing");
-                db.identity().setIdentitySignKeyAlias(identity.id, alias);
 
                 // Get private key
                 PrivateKey privkey = KeyChain.getPrivateKey(context, alias);
                 if (privkey == null)
                     throw new IllegalArgumentException("Private key missing");
+
+                // Get public key
                 X509Certificate[] chain = KeyChain.getCertificateChain(context, alias);
                 if (chain == null || chain.length == 0)
                     throw new IllegalArgumentException("Certificate missing");
-                try {
-                    chain[0].checkValidity();
-                } catch (CertificateException ex) {
-                    throw new IllegalArgumentException(context.getString(R.string.title_invalid_key), ex);
+
+                if (check_certificate) {
+                    // Check public key validity
+                    try {
+                        chain[0].checkValidity();
+                    } catch (CertificateException ex) {
+                        throw new IllegalArgumentException(context.getString(R.string.title_invalid_key), ex);
+                    }
+
+                    // Check public key email
+                    boolean known = false;
+                    List<String> emails = EntityCertificate.getEmailAddresses(chain[0]);
+                    for (String email : emails)
+                        if (email.equals(identity.email)) {
+                            known = true;
+                            break;
+                        }
+
+                    if (!known && emails.size() > 0) {
+                        String message = identity.email + " (" + TextUtils.join(", ", emails) + ")";
+                        throw new IllegalArgumentException(
+                                context.getString(R.string.title_certificate_missing, message),
+                                new CertificateException());
+                    }
                 }
+
+                // Store selected alias
+                db.identity().setIdentitySignKeyAlias(identity.id, alias);
 
                 // Build content
                 if (EntityMessage.SMIME_SIGNONLY.equals(type)) {
