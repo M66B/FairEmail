@@ -37,13 +37,14 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ScrollView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -158,10 +159,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         Log.i("Orientation=" + config.orientation + " normal=" + normal +
                 " landscape=" + landscape + "/" + landscape3);
 
-        view = LayoutInflater.from(this).inflate(
-                config.orientation == ORIENTATION_PORTRAIT || !normal || !landscape
-                        ? R.layout.activity_view_portrait
-                        : R.layout.activity_view_landscape, null);
+        boolean portrait = (config.orientation == ORIENTATION_PORTRAIT || !normal || !landscape);
+        view = LayoutInflater.from(this).inflate(portrait
+                ? R.layout.activity_view_portrait
+                : R.layout.activity_view_landscape, null);
         setContentView(view);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -218,6 +219,24 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         drawerLayout.addDrawerListener(drawerToggle);
 
         drawerContainer = findViewById(R.id.drawer_container);
+
+        int drawerWidth;
+        DisplayMetrics dm = getResources().getDisplayMetrics();
+        if (portrait || !landscape3) {
+            int actionBarHeight;
+            TypedValue tv = new TypedValue();
+            if (getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true))
+                actionBarHeight = TypedValue.complexToDimensionPixelSize(tv.data, dm);
+            else
+                actionBarHeight = Helper.dp2pixels(this, 56);
+            int screenWidth = Math.min(dm.widthPixels, dm.heightPixels);
+            drawerWidth = screenWidth - actionBarHeight;
+        } else
+            drawerWidth = dm.widthPixels / 3;
+
+        ViewGroup.LayoutParams lparam = drawerContainer.getLayoutParams();
+        lparam.width = drawerWidth;
+        drawerContainer.setLayoutParams(lparam);
 
         // Accounts
         ibExpanderAccount = drawerContainer.findViewById(R.id.ibExpanderAccount);
