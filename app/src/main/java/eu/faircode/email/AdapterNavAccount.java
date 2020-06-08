@@ -153,14 +153,15 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
 
                 @Override
                 protected void onExecuted(Bundle args, EntityFolder inbox) {
-                    if (inbox != null) {
-                        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-                        lbm.sendBroadcast(
-                                new Intent(ActivityView.ACTION_VIEW_MESSAGES)
-                                        .putExtra("account", inbox.account)
-                                        .putExtra("folder", inbox.id)
-                                        .putExtra("type", inbox.type));
-                    }
+                    if (inbox == null)
+                        return;
+
+                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                    lbm.sendBroadcast(
+                            new Intent(ActivityView.ACTION_VIEW_MESSAGES)
+                                    .putExtra("account", inbox.account)
+                                    .putExtra("folder", inbox.id)
+                                    .putExtra("type", inbox.type));
                 }
 
                 @Override
@@ -168,6 +169,7 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
                     // Ignored
                 }
             }.execute(context, owner, args, "account:inbox");
+
             return true;
         }
     }
