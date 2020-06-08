@@ -112,8 +112,10 @@ import javax.mail.UIDFolder;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.mail.search.AndTerm;
 import javax.mail.search.ComparisonTerm;
 import javax.mail.search.FlagTerm;
+import javax.mail.search.HeaderTerm;
 import javax.mail.search.MessageIDTerm;
 import javax.mail.search.OrTerm;
 import javax.mail.search.ReceivedDateTerm;
@@ -1260,6 +1262,16 @@ class Core {
         }
 
         Message[] imessages = ifolder.search(new MessageIDTerm(message.msgid));
+        if (imessages == null || imessages.length == 0)
+            try {
+                // Needed for Outlook
+                imessages = ifolder.search(
+                        new AndTerm(
+                                new SentDateTerm(ComparisonTerm.GE, new Date()),
+                                new HeaderTerm("X-Correlation-ID", message.msgid)));
+            } catch (MessagingException ex) {
+                Log.e(ex);
+            }
         if (imessages == null || imessages.length == 0)
             EntityOperation.queue(context, message, EntityOperation.ADD);
         else {
