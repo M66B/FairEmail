@@ -112,6 +112,10 @@ public abstract class ComputableLiveData<T> {
                         if (computed) {
                             mLiveData.postValue(value);
                         }
+                    } catch (Throwable ex) {
+                        // java.lang.IllegalStateException: Couldn't read row xxx column yyy
+                        eu.faircode.email.Log.e(ex);
+                        mInvalid.set(true);
                     } finally {
                         // release compute lock
                         mComputing.set(false);
