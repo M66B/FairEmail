@@ -383,15 +383,15 @@ public class FragmentOAuth extends FragmentBase {
                 String address = args.getString("address");
 
                 if (jwt != null) {
+                    // https://docs.microsoft.com/en-us/azure/active-directory/develop/id-tokens
                     String[] segments = jwt.split("\\.");
                     if (segments.length > 1)
                         try {
                             String payload = new String(Base64.decode(segments[1], Base64.DEFAULT));
-                            Log.i("jwt payload=" + payload);
+                            EntityLog.log(context, "jwt payload=" + payload);
                             JSONObject jpayload = new JSONObject(payload);
                             if (jpayload.has("email")) {
                                 String email = jpayload.getString("email");
-                                Log.i("jwt email=" + email);
                                 if (!TextUtils.isEmpty(email))
                                     address = email;
                             }
