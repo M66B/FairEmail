@@ -1482,6 +1482,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             (message.accountAutoSeen && !message.ui_seen && !message.folderReadOnly))) {
                 message.unseen = 0;
                 message.ui_seen = true;
+                message.visible_unseen = 0;
                 message.ui_unsnoozed = false;
             }
 

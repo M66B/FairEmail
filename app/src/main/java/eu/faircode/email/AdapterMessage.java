@@ -3277,6 +3277,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 (message.accountAutoSeen && !message.folderReadOnly))) {
                     message.unseen = 0;
                     message.ui_seen = true;
+                    message.visible_unseen = 0;
+                    message.ui_unsnoozed = false;
                 }
                 properties.setValue("expanded", message.id, expanded);
                 bindTo(message, expanded);
