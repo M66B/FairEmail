@@ -232,7 +232,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             int screenWidth = Math.min(dm.widthPixels, dm.heightPixels);
             drawerWidth = screenWidth - actionBarHeight;
         } else
-            drawerWidth = dm.widthPixels / 3;
+            drawerWidth = Helper.dp2pixels(this, 300);
 
         ViewGroup.LayoutParams lparam = drawerContainer.getLayoutParams();
         lparam.width = drawerWidth;
