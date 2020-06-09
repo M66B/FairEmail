@@ -229,8 +229,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 actionBarHeight = TypedValue.complexToDimensionPixelSize(tv.data, dm);
             else
                 actionBarHeight = Helper.dp2pixels(this, 56);
+
             int screenWidth = Math.min(dm.widthPixels, dm.heightPixels);
-            drawerWidth = screenWidth - actionBarHeight;
+            int dp320 = Helper.dp2pixels(this, 320);
+            drawerWidth = Math.min(screenWidth - actionBarHeight, dp320);
         } else
             drawerWidth = Helper.dp2pixels(this, 300);
 
