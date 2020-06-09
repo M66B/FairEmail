@@ -418,6 +418,6 @@
             android:id="@+id/grpDebug"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="swAuthPlain,swAuthSasl,tvProcessors,tvMemoryClass,tvStorageSpace,tvFingerprint,btnCharsets,btnCiphers" />
+            app:constraint_referenced_ids="swAuthSasl,tvProcessors,tvMemoryClass,tvStorageSpace,tvFingerprint,btnCharsets,btnCiphers" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>
