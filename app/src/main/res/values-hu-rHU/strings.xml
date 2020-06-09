@@ -339,7 +339,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_notifications_background_hint">Egy háttérfolyamat leállítható az Android által bármikor, de nem szükséges státusz sor értesítés hozzá</string>
     <string name="title_advanced_badge">Új üzenetek számának megjelenítése az indító ikonon</string>
     <string name="title_advanced_unseen_ignored">Külön értesítés megjelnítése minden egyes új üzenethez</string>
-    <string name="title_advanced_notify_known">Show notifications for contacts only</string>
+    <string name="title_advanced_notify_known">Az értesítéseket csak névjegyeknél jelenítse meg</string>
     <string name="title_advanced_notify_summary">Csak összegző értesítések megjelnítése</string>
     <string name="title_advanced_notify_preview">Üzenet előnézetének megjelnítése az értesítésben</string>
     <string name="title_advanced_notify_preview_all">Összes szöveg előnézete</string>
@@ -375,7 +375,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_openpgp">OpenPGP szolgáltató</string>
     <string name="title_advanced_autocrypt">Autocrypt használata</string>
     <string name="title_advanced_autocrypt_mutual">Autocrypt kölcsönös mód</string>
-    <string name="title_advanced_check_certificate">Check public key on sending</string>
+    <string name="title_advanced_check_certificate">Nyilvános kulcs ellenőrzése küldéskor</string>
     <string name="title_advanced_manage_certificates">Nyilvános kulcsok kezelése</string>
     <string name="title_advanced_import_key">Privát kulcs importálása</string>
     <string name="title_advanced_manage_keys">Privát kulcsok kezelése</string>
@@ -397,7 +397,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_cleanup_attachments">Régi üzenetek csatolmányainak törlése</string>
     <string name="title_advanced_cleanup">Takarítás</string>
     <string name="title_advanced_last_cleanup">Last cleanup: %1$s</string>
-    <string name="title_advanced_app">App settings</string>
+    <string name="title_advanced_app">Alkalmazásbeállítások</string>
     <string name="title_advanced_more">Több opció</string>
     <string name="title_advanced_enabled_hint">Az üzenetek fogadásának globális letiltása</string>
     <string name="title_advanced_manual_hint">Manuális szinkronizálás engedélyezése az üzenet lista lefelé húzásával, ha az automatikus szinkronizálás le van tiltva.</string>
@@ -1118,7 +1118,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
         To maintain and support FairEmail in the long run, some convenience and advanced features are not free to use.
         FairEmail shows a small message to remind you of this, which will be removed if you purchase the pro features.
     </string>
-    <string name="title_pro_hide">Hide small message for %1$d weeks</string>
+    <string name="title_pro_hide">A kicsi üzenet elrejtése %1$d hétre</string>
     <string name="title_pro_hint">A pro funkciók megvásárlása engedélyezi neked hogy használd az összes jelenlegi és jövőbeli pro funkciót amellett hogy fenntartva és támogatva tartja az alkalmazást.</string>
     <string name="title_pro_price">Kérlek lásd <a href="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq19">EZt a GYIK-et</a> a pro funkciók áráért</string>
     <string name="title_pro_pending">A vásárlás folyamatban van</string>
@@ -1246,7 +1246,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
         <item>Az elején</item>
         <item>A közepén</item>
         <item>A végén</item>
-        <item>Show untruncated</item>
+        <item>Megjelenítés csonkítatlanul</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Alacsony</item>
