@@ -1340,7 +1340,7 @@ class Core {
 
             } else {
                 local.put(folder.name, folder);
-                if (folder.initialize != 0)
+                if (folder.synchronize && folder.initialize != 0)
                     sync_folders = true;
             }
         Log.i("Local folder count=" + local.size());
