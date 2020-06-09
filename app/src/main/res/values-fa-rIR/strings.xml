@@ -236,7 +236,7 @@
     <string name="title_advanced_quote_reply">متن پاسخ نقل قول شده</string>
     <string name="title_advanced_resize_reply">تغییر اندازه تصاویر در متن پاسخ داده شده</string>
     <string name="title_advanced_signature_location">موقعیت امضاء</string>
-    <string name="title_advanced_signature_end">Add signature after quoted/forwarded message</string>
+    <string name="title_advanced_signature_end">افزودن امضا بعد از پیام نقل‌شده/هدایت‌شده</string>
     <string name="title_advanced_plain_only">فقط متن ساده را به صورت پیشفرض بفرست</string>
     <string name="title_advanced_flow">\'format flowed\' for plain text</string>
     <string name="title_advanced_receipt">When requesting a receipt</string>
@@ -248,7 +248,7 @@
     <string name="title_advanced_metered">استفاده از شبکه موبایل</string>
     <string name="title_advanced_download">دریافت خودکار پیام‌ها و پیوست‌ها روی شبکه موبایل</string>
     <string name="title_advanced_roaming">بارگیری پیام‌ها و پیوست‌ها هنگام رومینگ</string>
-    <string name="title_advanced_rlah">Roam like at home</string>
+    <string name="title_advanced_rlah">رومینگ مانند اینکه در خانه‌ای</string>
     <string name="title_advanced_timeout">اتصال برقرار نشد (ثانیه)</string>
     <string name="title_advanced_ssl_harden">اتصالات SSL را محکم کن</string>
     <string name="title_advanced_socks">استفاده از پراکسی SOCKS</string>
@@ -302,12 +302,12 @@
     <string name="title_advanced_text_color">تنظیم رنگ‌های متن</string>
     <string name="title_advanced_text_size">نمایش متن‌های کوچک و بزرگ</string>
     <string name="title_advanced_text_align">Show left/center/right aligned texts</string>
-    <string name="title_advanced_collapse_quotes">Collapse quoted text</string>
+    <string name="title_advanced_collapse_quotes">بستن متن نقل شده</string>
     <string name="title_advanced_images_inline">Automatically show inline images</string>
     <string name="title_advanced_seekbar">Show relative conversation position with a dot</string>
     <string name="title_advanced_actionbar">نمایش نوار کنش گفتگو</string>
     <string name="title_advanced_actionbar_color">از رنگ حساب به‌عنوان رنگ پس‌زمینه برای نوار کنش گفتگو استفاده کن</string>
-    <string name="title_advanced_navbar_colorize">Colorize the Android navigation bar</string>
+    <string name="title_advanced_navbar_colorize">رنگ آمیزی نوار جهت‎یابی اندروید</string>
     <string name="title_advanced_parse_classes">Parse style sheets</string>
     <string name="title_advanced_authentication">Show a warning when the receiving server could not authenticate the message</string>
     <string name="title_advanced_double_back">برای خروج دوبار \'بازگشت\' را بزنید</string>
@@ -322,7 +322,7 @@
     <string name="title_advanced_expand_one">Expand only one message at a time</string>
     <string name="title_advanced_collapse_multiple">Collapse messages in a conversation with multiple messages on \'back\'</string>
     <string name="title_advanced_autoclose">بستن خودکار مکالمات</string>
-    <string name="title_advanced_onclose">On closing a conversation</string>
+    <string name="title_advanced_onclose">هنگام بستن یک گفتگو</string>
     <string name="title_advanced_quick_filter">Show non-obtrusive quick filter icons</string>
     <string name="title_advanced_quick_scroll">Show non-obtrusive quick scroll up/down icons</string>
     <string name="title_advanced_autoread">به طور خودکار پیام‌های انتقال یافته به عنوان خوانده شده علامت گذاری شود</string>
@@ -339,9 +339,9 @@
     <string name="title_advanced_notifications_background_hint">A background service can be stopped by Android at any time, but doesn\'t require a status bar notification</string>
     <string name="title_advanced_badge">نمایش عدد پیام‌های جدید با آیکون راه‌انداز</string>
     <string name="title_advanced_unseen_ignored">Let the number of new messages match the number of notifications</string>
-    <string name="title_advanced_notify_known">Show notifications for contacts only</string>
-    <string name="title_advanced_notify_summary">Show summary notification only</string>
-    <string name="title_advanced_notify_preview">Show message preview in notifications</string>
+    <string name="title_advanced_notify_known">اعلان‌ها را تنها برای مخاطبین نمایش بده</string>
+    <string name="title_advanced_notify_summary">تنها چکیده اعلان را نمایش بده</string>
+    <string name="title_advanced_notify_preview">پیش‌نمایش پیام را در اعلان‌ها نمایش بده</string>
     <string name="title_advanced_notify_preview_all">پیش‌نمایش تمام متن</string>
     <string name="title_advanced_notify_actions">کنش‌های اعلان</string>
     <string name="title_advanced_notify_action_trash">زباله‌دان</string>
@@ -364,7 +364,7 @@
     <string name="title_advanced_confirm_images">تایید نمایش تصاویر</string>
     <string name="title_advanced_confirm_html">Show reformatted messages by default</string>
     <string name="title_advanced_tracking">Automatically recognize and disable tracking images</string>
-    <string name="title_advanced_hide_timezone">Send messages without timezone data</string>
+    <string name="title_advanced_hide_timezone">پیام‌ها را بدون داده منطقه زمانی بفرست</string>
     <string name="title_advanced_display_hidden">نمایش متن پیام‌های پنهان</string>
     <string name="title_advanced_secure">از صفحه برنامه های اخیر پنهان شو و از گرفتن اسکرین‌شات جلوگیری کن</string>
     <string name="title_advanced_pin">پین</string>
@@ -375,7 +375,7 @@
     <string name="title_advanced_openpgp">ارائه دهنده OpenPGP</string>
     <string name="title_advanced_autocrypt">استفاده از Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">حالت دستی Autocrypt</string>
-    <string name="title_advanced_check_certificate">Check public key on sending</string>
+    <string name="title_advanced_check_certificate">بررسی کلید عمومی هنگام فرستادن</string>
     <string name="title_advanced_manage_certificates">مدیریت کلید‌های عمومی</string>
     <string name="title_advanced_import_key">وارد کردن کلید خصوصی</string>
     <string name="title_advanced_manage_keys">مدیریت کلید‌های خصوصی</string>
@@ -397,12 +397,12 @@
     <string name="title_advanced_cleanup_attachments">پیوست‌های پیام‌های قدیمی را حذف کن</string>
     <string name="title_advanced_cleanup">پاک‌سازی</string>
     <string name="title_advanced_last_cleanup">Last cleanup: %1$s</string>
-    <string name="title_advanced_app">App settings</string>
+    <string name="title_advanced_app">تنظیمات برنامه</string>
     <string name="title_advanced_more">گزینه‌های بیشتر</string>
     <string name="title_advanced_enabled_hint">Globally disable or enable receiving of messages</string>
-    <string name="title_advanced_manual_hint">If synchronization is disabled, it is still possible to synchronize manually by pulling down the message list.</string>
+    <string name="title_advanced_manual_hint">اگر هم‌گام‌سازی غیرفعال باشد، هنوز می‌توان با پایین کشیدن فهرست پیام‌ها به‌طور دستی هم‌گام‌سازی کرد.</string>
     <string name="title_advanced_poll_hint">Synchronizing periodically will compare local and remote messages each and every time, which is an expensive operation possibly resulting in extra battery usage, especially when there are a lot of messages to synchronize. Always synchronizing will avoid this by continuous monitoring for changes only.</string>
-    <string name="title_advanced_optimized_hint">This option can be optimized automatically (miscellaneous settings)</string>
+    <string name="title_advanced_optimized_hint">این گزینه می‌تواند به‌طور خودکار بهینه شود (تنظیمات متفرقه)</string>
     <string name="title_advanced_schedule_hint">برای تنظیم زمان روی زمان ضربه بزنید</string>
     <string name="title_advanced_check_mx">Check sender email addresses on synchronizing messages</string>
     <string name="title_advanced_check_reply">Check reply email addresses on synchronizing messages</string>
@@ -415,7 +415,7 @@
     <string name="title_advanced_suggest_local_hint">In addition to contacts provided by Android. Contact data will be stored for newly sent or received messages only when enabled.</string>
     <string name="title_advanced_usenet_hint">بین متن و امضا \'-- \' درج کنید</string>
     <string name="title_advanced_send_reminders_hint">Show a warning when the message text or the subject is empty or when an attachment might be missing</string>
-    <string name="title_advanced_lookup_mx_hint">This will check if DNS MX records exist</string>
+    <string name="title_advanced_lookup_mx_hint">این بررسی خواهد کرد که آیا سابقه DNS MX وجود دارد</string>
     <string name="title_advanced_check_reply_hint">This will check if domain name of the sender and reply addresses are the same</string>
     <string name="title_advanced_metered_hint">اتصال‌های حجمی عموما شبکه‌های موبایل یا یک هات اسپات غیر رایگان می‌باشند</string>
     <string name="title_advanced_metered_warning">Disabling this option will disable receiving and sending messages on mobile internet connections</string>
@@ -444,18 +444,18 @@
     <string name="title_advanced_bcc_hint">The address won\'t be shown, but will be added on sending</string>
     <string name="title_advanced_display_harmful_hint">Disabling this option might be harmful to your privacy</string>
     <string name="title_advanced_display_hidden_hint">This can result in odd looking and double texts</string>
-    <string name="title_advanced_display_pin_hint">A PIN takes precedence over biometrics authentication</string>
+    <string name="title_advanced_display_pin_hint">یک پین بر تایید هویت بیومتریک اولویت دارد</string>
     <string name="title_advanced_badge_hint">تنها روی راه‌اندازهای پشتیبانی‌شده در دسترس است</string>
     <string name="title_advanced_notify_action_hint">حداکثر سه کنش نشان داده خواهد شد</string>
     <string name="title_advanced_notify_remove_hint">New message notifications will always be removed on being swiped away and on marking messages read</string>
     <string name="title_advanced_notify_manage_hint">Tap on the channel name to set the channel properties</string>
-    <string name="title_advanced_notify_manage_default_hint">To set the default sound, etc</string>
-    <string name="title_advanced_notify_manage_service_hint">To disable the permanent notification</string>
+    <string name="title_advanced_notify_manage_default_hint">برای تنظیم صدای پیش‌فرض، وغیره</string>
+    <string name="title_advanced_notify_manage_service_hint">برای غیرفعال‌سازی اعلان همیشگی</string>
     <string name="title_advanced_notify_preview_all_hint">For wearables that can show the full text (up to 5,000 characters)</string>
     <string name="title_advanced_wearable_hint">Notifications are only sent to a wearable after the message text has been downloaded</string>
     <string name="title_advanced_move_hint">The target folder can be configured in the account settings</string>
-    <string name="title_advanced_notify_no_grouping">This Android version does not support notification grouping</string>
-    <string name="title_advanced_notify_no_channels">This Android version does not support notification channels</string>
+    <string name="title_advanced_notify_no_grouping">این نگارش اندروید گروه‌بندی اعلان را پشتیبانی نمی‌کند</string>
+    <string name="title_advanced_notify_no_channels">این نگارش اندروید کانال‌های اعلان را پشتیبانی نمی‌کند</string>
     <string name="title_advanced_fts_hint">Enabling this improves search performance, but also increases battery and storage space usage</string>
     <string name="title_advanced_english_hint">این موجب شروع مجدد برنامه خواهد شد</string>
     <string name="title_advanced_optimize_hint">Enabling this can automatically change the receive settings to reduce battery usage</string>
@@ -488,7 +488,7 @@
     <string name="title_account_notify">اعلانات جداگانه</string>
     <string name="title_account_left">کشیدن به چپ</string>
     <string name="title_account_right">کشیدن به راست</string>
-    <string name="title_account_move">Default move to</string>
+    <string name="title_account_move">به‌طور پیش‌فرض انتقال بده به</string>
     <string name="title_account_gmail">For reliable synchronisation of a Gmail account, the Gmail quick setup wizard should be used whenever possible</string>
     <string name="title_domain">نام دامنه</string>
     <string name="title_autoconfig">دریافت تنظیمات</string>
@@ -503,7 +503,7 @@
     <string name="title_password">گذرواژه</string>
     <string name="title_client_certificate">گواهی‌نامه کارخواه</string>
     <string name="title_realm">حوزه</string>
-    <string name="title_use_ip">Use local IP address instead of host name</string>
+    <string name="title_use_ip">استفاده از نشانی IP محلی بجای نام میزبان</string>
     <string name="title_ehlo">Custom HELO/EHLO identification</string>
     <string name="title_primary">اصلی</string>
     <string name="title_primary_account">اصلی (حساب پیش فرض)</string>
@@ -538,7 +538,7 @@
     <string name="title_account_delete">حذف همیشگی این حساب؟</string>
     <string name="title_identity_delete">حذف همیشگی این هویت؟</string>
     <string name="title_edit_html">ویرایش به‌صورت HTML</string>
-    <string name="title_sign_key">Sign key: %1$s</string>
+    <string name="title_sign_key">کلید امضا: %1$s</string>
     <string name="title_last_connected">آخرین اتصال: %1$s</string>
     <string name="title_storage_quota">Server storage usage: %1$s/%2$s</string>
     <string name="title_pop_support">The POP3 protocol supports downloading and deleting messages from the inbox only. POP3 cannot mark messages as read, move messages, etc. POP3 will use more battery power and data than IMAP. So, consider using the IMAP protocol whenever possible.</string>
@@ -577,7 +577,7 @@
     <string name="title_show_folders">نمایش پوشه‌های پنهان</string>
     <string name="title_show_flagged">نمایش شمار پیام‌های ستاره‌دار</string>
     <string name="title_subscribed_only">Subscribed only</string>
-    <string name="title_apply_to_all">Apply to all &#8230;</string>
+    <string name="title_apply_to_all">اعمال به همه &#8230;</string>
     <string name="title_hide_folder">پنهان‌سازی پوشه</string>
     <string name="title_unified_folder">نمایش در صندوق دریافت یکپارچه</string>
     <string name="title_navigation_folder">نمایش در منوی ناوبری</string>
@@ -616,7 +616,7 @@
     <string name="title_folders_unified">پوشه های صندوق پستی یکپارچه</string>
     <string name="title_no_folders">بدون پوشه</string>
     <string name="title_no_messages">پیامی موجود نیست</string>
-    <string name="title_filters_active">One or more filters active</string>
+    <string name="title_filters_active">یک یا چند فیلتر فعالند</string>
     <string name="title_duplicate_in">Duplicate message in %1$s</string>
     <string name="title_subject_reply">پاسخ: %1$s</string>
     <string name="title_subject_forward">هدایت: %1$s</string>
@@ -625,7 +625,7 @@
     <string name="title_hide">پنهان کردن</string>
     <string name="title_unhide">نمایش</string>
     <string name="title_flag">افزودن ستاره</string>
-    <string name="title_flag_color">Colored star &#8230;</string>
+    <string name="title_flag_color">ستاره رنگی &#8230;</string>
     <string name="title_unflag">حذف ستاره</string>
     <string name="title_set_importance">تعیین اهمیت</string>
     <string name="title_importance_low">پایین</string>
@@ -674,7 +674,7 @@
     <string name="title_moving">انتقال می‌یابد به %1$s</string>
     <string name="title_open_with">باز کردن با</string>
     <string name="title_authentication_failed">تایید %1$s ناموفق بود</string>
-    <string name="title_receipt_subject">Read receipt: %1$s</string>
+    <string name="title_receipt_subject">رسید خواندن: %1$s</string>
     <string name="title_receipt_text">This read receipt only acknowledges that the message was displayed. There is no guarantee that the recipient has read the message contents.</string>
     <string name="title_no_answers">هیچ الگوی پاسخی تعریف نشده است</string>
     <string name="title_no_viewer">هیچ برنامه نمایش دهنده‌ای در دسترس نیست برای %1$s</string>
@@ -729,7 +729,7 @@
     <string name="title_reply_to">پاسخ به:</string>
     <string name="title_cc">گیرنده رونوشت:</string>
     <string name="title_bcc">گیرنده رونوشت پنهان:</string>
-    <string name="title_recipients">%1$d recipients</string>
+    <string name="title_recipients">%1$d گیرنده</string>
     <string name="title_via_identity">از طریق:</string>
     <string name="title_sent">ارسال شده:</string>
     <string name="title_received">دریافت شده:</string>
@@ -771,7 +771,7 @@
     <string name="title_media_toolbar">نوار ابزار رسانه</string>
     <string name="title_insert_contact_group">درج گروه مخاطبین</string>
     <string name="title_insert_template">درج قالب</string>
-    <string name="title_edit_plain_text">ویرایش به‌عنوان متن ساده</string>
+    <string name="title_edit_plain_text">ویرایش مانند متن ساده</string>
     <string name="title_edit_formatted_text">Edit as reformatted text</string>
     <string name="title_select_certificate">انتخاب کلید عمومی</string>
     <string name="title_certificate_missing">کلید عمومی برای %1$s نیست</string>
@@ -785,7 +785,7 @@
     <string name="title_from_missing">فرستنده وجود ندارد</string>
     <string name="title_extra_missing">نام کاربری وجود ندارد</string>
     <string name="title_to_missing">گیرنده وجود ندارد</string>
-    <string name="title_pgp_reminder">PGP keys available</string>
+    <string name="title_pgp_reminder">کلیدهای PGP در دسترس هستند</string>
     <string name="title_subject_reminder">موضوع خالی است</string>
     <string name="title_text_reminder">پیام خالی است</string>
     <string name="title_attachment_keywords">attached,attachment,attachments,included</string>
@@ -808,12 +808,12 @@
     <string name="title_no_sign_key">کلید امضائی انتخاب نشده</string>
     <string name="title_reset_sign_key">بازنشانی کلید امضا</string>
     <string name="title_signature_none">پیام امضا نشده</string>
-    <string name="title_signature_valid">Message signature valid</string>
-    <string name="title_signature_valid_from">Message signature valid: %1$s</string>
-    <string name="title_signature_unconfirmed">Message signature valid but not confirmed</string>
-    <string name="title_signature_unconfirmed_from">Message signature valid but not confirmed: %1$s</string>
-    <string name="title_signature_invalid">Message signature invalid</string>
-    <string name="title_signature_invalid_reason">Message signature invalid: %1$s</string>
+    <string name="title_signature_valid">امضای پیام معتبر است</string>
+    <string name="title_signature_valid_from">امضای پیام معتبر است: %1$s</string>
+    <string name="title_signature_unconfirmed">امضای پیام معتبر است ولی تایید نشده</string>
+    <string name="title_signature_unconfirmed_from">امضای پیام معتبر است ولی تایید نشده: %1$s</string>
+    <string name="title_signature_invalid">امضای پیام نامعتبر است</string>
+    <string name="title_signature_invalid_reason">امضای پیام نامعتبر است: %1$s</string>
     <string name="title_signature_key_missing">Key for signature verification is missing</string>
     <string name="title_signature_certificate_invalid">زنجیر گواهی نامعتبر است</string>
     <string name="title_signature_sender">نشانی فرستنده</string>
@@ -822,7 +822,7 @@
     <string name="title_signature_subject">موضوع</string>
     <string name="title_signature_validity">اعتبار</string>
     <string name="title_signature_outdated">این کلید عمومی در حال حاضر معتبر نیست</string>
-    <string name="title_signature_store">Store</string>
+    <string name="title_signature_store">ذخیره کن</string>
     <string name="title_search">جستجو</string>
     <string name="title_search_for_hint">متن را وارد کنید</string>
     <string name="title_search_hint">        Searching will initially look at messages stored on your device.
@@ -832,11 +832,11 @@
     <string name="title_search_text_hint">Some email servers have trouble finding text in many messages</string>
     <string name="title_search_more">گزینه‌های بیشتر</string>
     <string name="title_search_use_index">استفاده از شاخص جستجو</string>
-    <string name="title_search_in_senders">In senders (from)</string>
-    <string name="title_search_in_recipients">In recipients (to, cc)</string>
-    <string name="title_search_in_subject">In subject</string>
-    <string name="title_search_in_keywords">In keywords (if supported)</string>
-    <string name="title_search_in_message">In message text</string>
+    <string name="title_search_in_senders">در فرستندگان (از)</string>
+    <string name="title_search_in_recipients">در گیرندگان (به، گیرندگان رونوشت)</string>
+    <string name="title_search_in_subject">در موضوع</string>
+    <string name="title_search_in_keywords">در کلیدواژه‌ها (اگر پشتیبانی شود)</string>
+    <string name="title_search_in_message">در متن پیام</string>
     <string name="title_search_with">محدود کردن جستجو به</string>
     <string name="title_search_with_unseen">خوانده نشده</string>
     <string name="title_search_with_flagged">ستاره‌دار</string>
@@ -874,9 +874,9 @@
     <string name="title_zoom">اندازه متن</string>
     <string name="title_select_language">انتخاب زبان</string>
     <string name="title_select_all">انتخاب همه</string>
-    <string name="title_select_found">Select found</string>
-    <string name="title_force_sync">Force sync</string>
-    <string name="title_force_send">Force send</string>
+    <string name="title_select_found">انتخاب یافته‌ها</string>
+    <string name="title_force_sync">اجبار هم‌گام‌سازی</string>
+    <string name="title_force_send">اجبار ارسال</string>
     <string name="title_language_all">همه</string>
     <string name="title_previous">قبلی</string>
     <string name="title_next">بعدی</string>
@@ -910,12 +910,12 @@
     <string name="title_rule_order">سفارش</string>
     <string name="title_rule_enabled">فعال شده</string>
     <string name="title_rule_stop">Stop processing rules after executing this rule</string>
-    <string name="title_rule_sender">محتوای فرستنده</string>
+    <string name="title_rule_sender">فرستنده دارای</string>
     <string name="title_rule_sender_known">فرستنده یک مخاطب است</string>
-    <string name="title_rule_recipient">Recipient contains</string>
+    <string name="title_rule_recipient">گیرنده دارای</string>
     <string name="title_rule_subject">محتوای موضوع</string>
     <string name="title_rule_attachments">پیوست دارد</string>
-    <string name="title_rule_header">محتوای سرمتن</string>
+    <string name="title_rule_header">سرمتن دارای</string>
     <string name="title_rule_time">زمان بین</string>
     <string name="title_rule_regex">عبارت منظم</string>
     <string name="title_rule_and">و</string>
@@ -999,7 +999,7 @@
     <string name="title_legend_download">دریافت محتوا</string>
     <string name="title_legend_external_image">مکان نگهدارنده تصویر خارجی</string>
     <string name="title_legend_embedded_image">مکان نگهداری تصویر جاسازی شده</string>
-    <string name="title_legend_tracking_pixel">Tracking image</string>
+    <string name="title_legend_tracking_pixel">تصویر ردیاب</string>
     <string name="title_legend_broken_image">تصویر شکسته (خراب)</string>
     <string name="title_legend_pick">انتخاب مخاطب</string>
     <string name="title_legend_cc">نمایش گیرنده رونوشت/رونوشت پنهان</string>
@@ -1010,7 +1010,7 @@
     <string name="title_legend_audio">ضبط صدا</string>
     <string name="title_legend_bold">متن پررنگ شود</string>
     <string name="title_legend_italic">متن مورب شود</string>
-    <string name="title_legend_underline">Underline text</string>
+    <string name="title_legend_underline">متن زیر خط دار</string>
     <string name="title_legend_text_size">تنظیم اندازه متن</string>
     <string name="title_legend_text_color">تنظیم رنگ متن</string>
     <string name="title_legend_metered">به شبکه موبایل متصلید</string>
@@ -1144,7 +1144,7 @@
     <string name="title_widget_unseen">فقط پیام‌های خوانده نشده</string>
     <string name="title_widget_flagged">فقط پیام‌های ستاره‌دار</string>
     <string name="title_widget_font_size">اندازه قلم</string>
-    <string name="title_widget_padding">Padding size</string>
+    <string name="title_widget_padding">اندازه لایه‌گذاری</string>
     <string name="title_widget_semi_transparent">Semi transparent background</string>
     <string name="title_accessibility_collapsed">جمع شده</string>
     <string name="title_accessibility_expanded">گسترش یافته</string>
@@ -1279,7 +1279,7 @@
         <item>هیچ کدام</item>
         <item>PGP sign-only</item>
         <item>PGP sign+encrypt</item>
-        <item>S/MIME sign-only</item>
-        <item>S/MIME sign+encrypt</item>
+        <item>تنها امضا شده S/MIME</item>
+        <item>امضا+رمزگذاری S/MIME</item>
     </string-array>
 </resources>

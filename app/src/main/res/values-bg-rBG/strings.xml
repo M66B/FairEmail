@@ -375,7 +375,7 @@
     <string name="title_advanced_openpgp">OpenPGP доставчик</string>
     <string name="title_advanced_autocrypt">Използвай Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Автокриптиране на споделен режим</string>
-    <string name="title_advanced_check_certificate">Check public key on sending</string>
+    <string name="title_advanced_check_certificate">Проверете публичния ключ при изпращане</string>
     <string name="title_advanced_manage_certificates">Управление на публични ключове</string>
     <string name="title_advanced_import_key">Импортиране на частен ключ</string>
     <string name="title_advanced_manage_keys">Управление на частни ключове</string>

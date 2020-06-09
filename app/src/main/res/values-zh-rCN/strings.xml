@@ -363,7 +363,7 @@
     <string name="title_advanced_openpgp">OpenPGP 提供者</string>
     <string name="title_advanced_autocrypt">使用Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">自动双向加密模式</string>
-    <string name="title_advanced_check_certificate">Check public key on sending</string>
+    <string name="title_advanced_check_certificate">发送时检查公钥</string>
     <string name="title_advanced_manage_certificates">管理公钥</string>
     <string name="title_advanced_import_key">导入私钥</string>
     <string name="title_advanced_manage_keys">管理私钥</string>
@@ -385,7 +385,7 @@
     <string name="title_advanced_cleanup_attachments">删除旧消息的附件</string>
     <string name="title_advanced_cleanup">清理</string>
     <string name="title_advanced_last_cleanup">上次清理: %1$s</string>
-    <string name="title_advanced_app">App settings</string>
+    <string name="title_advanced_app">应用设置</string>
     <string name="title_advanced_more">更多选项</string>
     <string name="title_advanced_enabled_hint">全局禁用或启用邮件接收</string>
     <string name="title_advanced_manual_hint">即便禁用同步，仍然可以通过下拉消息列表手动同步。</string>

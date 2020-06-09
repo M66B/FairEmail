@@ -374,7 +374,7 @@
     <string name="title_advanced_openpgp">OpenPGP-leverantör</string>
     <string name="title_advanced_autocrypt">Använd Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Autokryptera ömsesidigt läge</string>
-    <string name="title_advanced_check_certificate">Check public key on sending</string>
+    <string name="title_advanced_check_certificate">Kontrollera offentlig nyckel när du skickar</string>
     <string name="title_advanced_manage_certificates">Hantera publika nycklar</string>
     <string name="title_advanced_import_key">Importera privat nyckel</string>
     <string name="title_advanced_manage_keys">Hantera privata nycklar</string>
@@ -1245,7 +1245,7 @@
         <item>I början</item>
         <item>I mitten</item>
         <item>I slutet</item>
-        <item>Show untruncated</item>
+        <item>Visa oavkortat</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Låg</item>
