@@ -273,6 +273,7 @@
     <string name="title_advanced_kept_removed">Check if old messages were removed from the server</string>
     <string name="title_advanced_gmail_thread">Gmail message grouping style for Gmail accounts</string>
     <string name="title_advanced_sync_folders">Synchronize folder list</string>
+    <string name="title_advanced_sync_shared_folders">Synchronize shared folder lists</string>
     <string name="title_advanced_subscriptions">Manage folder subscriptions</string>
 
     <string name="title_advanced_keyboard">Show keyboard by default</string>

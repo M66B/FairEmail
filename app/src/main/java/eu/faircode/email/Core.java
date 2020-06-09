@@ -1285,6 +1285,7 @@ class Core {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean sync_folders = prefs.getBoolean("sync_folders", true);
+        boolean sync_shared_folders = prefs.getBoolean("sync_shared_folders", false);
 
         // Get folder names
         Map<String, EntityFolder> local = new HashMap<>();
@@ -1357,7 +1358,20 @@ class Core {
 
         // Get remote folders
         long start = new Date().getTime();
-        Folder[] ifolders = defaultFolder.list("*");
+        List<Folder> ifolders = new ArrayList<>();
+        ifolders.addAll(Arrays.asList(defaultFolder.list("*")));
+
+        if (sync_shared_folders) {
+            Folder[] namespaces = istore.getSharedNamespaces();
+            Log.i("Namespaces=" + namespaces.length);
+            for (Folder namespace : namespaces) {
+                Log.i("Namespace=" + namespace.getFullName());
+                if (namespace.getSeparator() == separator)
+                    ifolders.addAll(Arrays.asList(namespace.list("*")));
+                else
+                    Log.e("Namespace separator=" + namespace.getSeparator() + " default=" + separator);
+            }
+        }
 
         List<String> subscription = new ArrayList<>();
         try {
@@ -1370,7 +1384,7 @@ class Core {
 
         long duration = new Date().getTime() - start;
 
-        Log.i("Remote folder count=" + ifolders.length +
+        Log.i("Remote folder count=" + ifolders.size() +
                 " separator=" + separator +
                 " fetched in " + duration + " ms");
 

@@ -423,6 +423,17 @@
             app:layout_constraintTop_toBottomOf="@id/swSyncFolders" />
 
         <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swSyncSharedFolders"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_sync_shared_folders"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSyncFolders"
+            app:switchPadding="12dp" />
+
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swSubscriptions"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -430,7 +441,7 @@
             android:text="@string/title_advanced_subscriptions"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvSyncFolders"
+            app:layout_constraintTop_toBottomOf="@id/swSyncSharedFolders"
             app:switchPadding="12dp" />
 
         <eu.faircode.email.FixedTextView
