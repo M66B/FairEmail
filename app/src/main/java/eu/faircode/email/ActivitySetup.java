@@ -961,7 +961,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                         if ("biometrics".equals(key) || "pin".equals(key))
                             continue;
 
-                        if ("alert_once".equals(key))
+                        if ("alert_once".equals(key) && !Log.isXiaomi())
                             continue;
 
                         if (key != null && key.startsWith("widget."))
