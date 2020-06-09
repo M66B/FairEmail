@@ -193,6 +193,7 @@
     <string name="title_setup_doze_battery">High battery usage?</string>
     <string name="title_setup_doze_stopped">Sync stopped?</string>
     <string name="title_setup_data">Data saver is enabled</string>
+    <string name="title_setup_advanced_options">Show advanced options</string>
     <string name="title_setup_inbox">Go to messages</string>
     <string name="title_setup_go">Go</string>
     <string name="title_setup_to_do">To do</string>

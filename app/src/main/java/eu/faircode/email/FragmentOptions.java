@@ -26,6 +26,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,7 +48,8 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 
-public class FragmentOptions extends FragmentBase {
+public class FragmentOptions extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
+    private boolean advanced;
     private ViewPager pager;
     private PagerAdapter adapter;
 
@@ -73,6 +75,14 @@ public class FragmentOptions extends FragmentBase {
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+
+        String tab = getActivity().getIntent().getStringExtra("tab");
+        if (!TextUtils.isEmpty(tab))
+            prefs.edit().putBoolean("setup_advanced", true).apply();
+
+        advanced = prefs.getBoolean("setup_advanced", false);
+
         View view = inflater.inflate(R.layout.fragment_options, container, false);
 
         pager = view.findViewById(R.id.pager);
@@ -137,6 +147,29 @@ public class FragmentOptions extends FragmentBase {
         else if ("encryption".equals(tab))
             pager.setCurrentItem(7);
         getActivity().getIntent().removeExtra("tab");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        prefs.registerOnSharedPreferenceChangeListener(this);
+    }
+
+    @Override
+    public void onPause() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        prefs.unregisterOnSharedPreferenceChangeListener(this);
+        super.onPause();
+    }
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
+        if ("setup_advanced".equals(key)) {
+            advanced = prefs.getBoolean(key, false);
+            Log.i("Show advanced=" + advanced);
+            adapter.notifyDataSetChanged();
+        }
     }
 
     @Override
@@ -222,7 +255,7 @@ public class FragmentOptions extends FragmentBase {
 
         @Override
         public int getCount() {
-            return 10;
+            return (advanced ? 10 : 1);
         }
 
         @Override

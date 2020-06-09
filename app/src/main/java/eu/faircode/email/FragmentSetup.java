@@ -39,6 +39,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -82,6 +84,7 @@ public class FragmentSetup extends FragmentBase {
 
     private Button btnDataSaver;
 
+    private CheckBox cbAdvanced;
     private Button btnInbox;
 
     private Group grpWelcome;
@@ -128,6 +131,7 @@ public class FragmentSetup extends FragmentBase {
 
         btnDataSaver = view.findViewById(R.id.btnDataSaver);
 
+        cbAdvanced = view.findViewById(R.id.cbAdvanced);
         btnInbox = view.findViewById(R.id.btnInbox);
 
         grpWelcome = view.findViewById(R.id.grpWelcome);
@@ -277,6 +281,13 @@ public class FragmentSetup extends FragmentBase {
             btnDataSaver.setEnabled(settings.resolveActivity(pm) != null);
         }
 
+        cbAdvanced.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                prefs.edit().putBoolean("setup_advanced", isChecked).apply();
+            }
+        });
+
         btnInbox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -303,6 +314,8 @@ public class FragmentSetup extends FragmentBase {
         tvDozeDone.setCompoundDrawables(null, null, null, null);
         btnDoze.setEnabled(false);
 
+        boolean setup_advanced = prefs.getBoolean("setup_advanced", false);
+        cbAdvanced.setChecked(setup_advanced);
         btnInbox.setEnabled(false);
 
         boolean welcome = prefs.getBoolean("welcome", true);
