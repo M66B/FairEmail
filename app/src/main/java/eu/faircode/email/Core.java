@@ -1367,7 +1367,11 @@ class Core {
             for (Folder namespace : namespaces) {
                 Log.i("Namespace=" + namespace.getFullName());
                 if (namespace.getSeparator() == separator)
-                    ifolders.addAll(Arrays.asList(namespace.list("*")));
+                    try {
+                        ifolders.addAll(Arrays.asList(namespace.list("*")));
+                    } catch (FolderNotFoundException ex) {
+                        Log.w(ex);
+                    }
                 else
                     Log.e("Namespace separator=" + namespace.getSeparator() + " default=" + separator);
             }
