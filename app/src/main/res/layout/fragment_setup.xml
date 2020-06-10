@@ -559,15 +559,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/five" />
 
-        <CheckBox
-            android:id="@+id/cbAdvanced"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/title_setup_advanced_options"
-            app:layout_constraintBottom_toBottomOf="@id/btnInbox"
-            app:layout_constraintEnd_toStartOf="@id/btnInbox"
-            app:layout_constraintStart_toStartOf="parent" />
-
         <Button
             android:id="@+id/btnInbox"
             android:layout_width="wrap_content"
