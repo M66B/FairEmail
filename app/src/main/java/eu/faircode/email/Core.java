@@ -1364,8 +1364,10 @@ class Core {
         List<String> subscription = new ArrayList<>();
         try {
             Folder[] isubscribed = defaultFolder.listSubscribed("*");
-            for (Folder ifolder : isubscribed)
+            for (Folder ifolder : isubscribed) {
                 subscription.add(ifolder.getFullName());
+                Log.i("Subscribed " + defaultFolder.getFullName() + ":" + ifolder.getFullName());
+            }
         } catch (MessagingException ex) {
             Log.e(account.name, ex);
         }
@@ -1384,8 +1386,10 @@ class Core {
 
                     try {
                         Folder[] isubscribed = namespace.listSubscribed("*");
-                        for (Folder ifolder : isubscribed)
+                        for (Folder ifolder : isubscribed) {
                             subscription.add(ifolder.getFullName());
+                            Log.i("Subscribed " + namespace.getFullName() + ":" + ifolder.getFullName());
+                        }
                     } catch (MessagingException ex) {
                         Log.e(account.name, ex);
                     }
@@ -1397,6 +1401,7 @@ class Core {
         long duration = new Date().getTime() - start;
 
         Log.i("Remote folder count=" + ifolders.size() +
+                " subscriptions=" + subscription.size() +
                 " separator=" + separator +
                 " fetched in " + duration + " ms");
 
