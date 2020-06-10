@@ -1361,29 +1361,6 @@ class Core {
         List<Folder> ifolders = new ArrayList<>();
         ifolders.addAll(Arrays.asList(defaultFolder.list("*")));
 
-        if (sync_shared_folders) {
-            Folder[] namespaces = istore.getSharedNamespaces();
-            Log.i("Namespaces=" + namespaces.length);
-            for (Folder namespace : namespaces) {
-                Log.i("Namespace=" + namespace.getFullName());
-                if (namespace.getSeparator() == separator)
-                    try {
-                        ifolders.addAll(Arrays.asList(namespace.list("*")));
-                    } catch (FolderNotFoundException ex) {
-                        Log.w(ex);
-                    }
-                else
-                    Log.e("Namespace separator=" + namespace.getSeparator() + " default=" + separator);
-            }
-        }
-
-        //Log.i("Checking if folders exist");
-        //for (Folder ifolder : new ArrayList<Folder>(ifolders))
-        //    if (!ifolder.exists()) {
-        //        Log.w("Folder does not exist name=" + ifolder.getFullName());
-        //        ifolders.remove(ifolder);
-        //    }
-
         List<String> subscription = new ArrayList<>();
         try {
             Folder[] isubscribed = defaultFolder.listSubscribed("*");
@@ -1391,6 +1368,30 @@ class Core {
                 subscription.add(ifolder.getFullName());
         } catch (MessagingException ex) {
             Log.e(account.name, ex);
+        }
+
+        if (sync_shared_folders) {
+            Folder[] namespaces = istore.getSharedNamespaces();
+            Log.i("Namespaces=" + namespaces.length);
+            for (Folder namespace : namespaces) {
+                Log.i("Namespace=" + namespace.getFullName());
+                if (namespace.getSeparator() == separator) {
+                    try {
+                        ifolders.addAll(Arrays.asList(namespace.list("*")));
+                    } catch (FolderNotFoundException ex) {
+                        Log.w(ex);
+                    }
+
+                    try {
+                        Folder[] isubscribed = namespace.listSubscribed("*");
+                        for (Folder ifolder : isubscribed)
+                            subscription.add(ifolder.getFullName());
+                    } catch (MessagingException ex) {
+                        Log.e(account.name, ex);
+                    }
+                } else
+                    Log.e("Namespace separator=" + namespace.getSeparator() + " default=" + separator);
+            }
         }
 
         long duration = new Date().getTime() - start;
