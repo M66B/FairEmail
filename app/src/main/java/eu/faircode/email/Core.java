@@ -1377,6 +1377,13 @@ class Core {
             }
         }
 
+        //Log.i("Checking if folders exist");
+        //for (Folder ifolder : new ArrayList<Folder>(ifolders))
+        //    if (!ifolder.exists()) {
+        //        Log.w("Folder does not exist name=" + ifolder.getFullName());
+        //        ifolders.remove(ifolder);
+        //    }
+
         List<String> subscription = new ArrayList<>();
         try {
             Folder[] isubscribed = defaultFolder.listSubscribed("*");
