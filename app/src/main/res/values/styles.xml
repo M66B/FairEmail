@@ -8,6 +8,7 @@
     <attr name="colorSeparator" format="reference" />
     <attr name="colorThumb" format="reference" />
     <attr name="colorWarning" format="reference" />
+    <attr name="colorWarningBackground" format="reference" />
     <attr name="colorDrawerScrim" format="reference" />
     <attr name="colorDrawerText" format="reference" />
     <attr name="colorDrawerBackground" format="reference" />
@@ -35,6 +36,7 @@
         <item name="colorSeparator">@color/lightColorSeparator</item>
         <item name="colorThumb">@color/lightColorThumb</item>
         <item name="colorWarning">@color/lightColorWarning</item>
+        <item name="colorWarningBackground">@color/lightColorWarningBackground</item>
 
         <item name="colorDrawerScrim">@color/lightColorDrawerScrim</item>
         <item name="colorDrawerText">@color/lightColorDrawerText</item>
@@ -77,6 +79,7 @@
         <item name="colorSeparator">@color/darkColorSeparator</item>
         <item name="colorThumb">@color/darkColorThumb</item>
         <item name="colorWarning">@color/darkColorWarning</item>
+        <item name="colorWarningBackground">@color/darkColorWarningBackground</item>
 
         <item name="colorDrawerScrim">@color/darkColorDrawerScrim</item>
         <item name="colorDrawerText">@color/darkColorDrawerText</item>
