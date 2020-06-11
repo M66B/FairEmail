@@ -1371,15 +1371,15 @@ public class HtmlHelper {
 
         // Build list of allowed hosts
         List<String> hosts = new ArrayList<>();
-        for (Element img : document.select("img")) {
-            String src = img.attr("src");
-            if (!TextUtils.isEmpty(src) && !isTrackingPixel(img)) {
-                Uri uri = Uri.parse(img.attr("src"));
-                String host = uri.getHost();
-                if (host != null && !hosts.contains(host))
-                    hosts.add(host);
-            }
-        }
+        //for (Element img : document.select("img")) {
+        //    String src = img.attr("src");
+        //    if (!TextUtils.isEmpty(src) && !isTrackingPixel(img)) {
+        //        Uri uri = Uri.parse(img.attr("src"));
+        //        String host = uri.getHost();
+        //        if (host != null && !hosts.contains(host))
+        //            hosts.add(host);
+        //    }
+        //}
 
         // Images
         for (Element img : document.select("img")) {
