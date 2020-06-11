@@ -276,7 +276,7 @@ dependencies {
     def biweekly_version = "0.6.3"
     def photoview_version = "2.3.0"
     def relinker_version = "1.3.1"
-    def markwon_version = "4.3.1"
+    def markwon_version = "4.4.0"
     def bouncycastle_version = "1.65"
     def colorpicker_version = "0.0.15"
     def appauth_version = "0.7.1"
