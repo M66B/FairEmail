@@ -1364,6 +1364,7 @@ class Core {
         }
 
         if (sync_shared_folders) {
+            // https://tools.ietf.org/html/rfc2342
             Folder[] namespaces = istore.getSharedNamespaces();
             Log.i("Namespaces=" + namespaces.length);
             for (Folder namespace : namespaces) {
