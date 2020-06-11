@@ -114,12 +114,8 @@ public class ServiceSend extends ServiceBase {
                 for (EntityOperation op : operations) {
                     if (!handling.contains(op.id))
                         process = true;
-                    if (!EntityOperation.SYNC.equals(op.name))
-                        ops.add(op.id);
+                    ops.add(op.id);
                 }
-                for (Long h : handling)
-                    if (!ops.contains(h))
-                        process = true;
 
                 handling = ops;
 
