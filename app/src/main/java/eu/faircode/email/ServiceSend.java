@@ -274,11 +274,14 @@ public class ServiceSend extends ServiceBase {
             DB db = DB.getInstance(this);
             EntityFolder outbox = db.folder().getOutbox();
             try {
-                db.folder().setFolderError(outbox.id, null);
                 db.folder().setFolderSyncState(outbox.id, "syncing");
 
                 List<TupleOperationEx> ops = db.operation().getOperations(outbox.id);
                 Log.i(outbox.name + " pending operations=" + ops.size());
+
+                if (ops.size() > 0)
+                    db.folder().setFolderError(outbox.id, null);
+
                 for (EntityOperation op : ops) {
                     EntityMessage message = null;
                     try {
