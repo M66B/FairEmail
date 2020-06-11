@@ -75,6 +75,7 @@ public class ServiceSend extends ServiceBase {
     private static final int PI_SEND = 1;
     private static final long CONNECTIVITY_DELAY = 5000L; // milliseconds
     private static final int IDENTITY_ERROR_AFTER = 30; // minutes
+    private static final int RETRY_MAX = 3;
 
     @Override
     public void onCreate() {
@@ -274,21 +275,30 @@ public class ServiceSend extends ServiceBase {
             DB db = DB.getInstance(this);
             EntityFolder outbox = db.folder().getOutbox();
             try {
+                db.folder().setFolderError(outbox.id, null);
                 db.folder().setFolderSyncState(outbox.id, "syncing");
 
                 List<TupleOperationEx> ops = db.operation().getOperations(outbox.id);
                 Log.i(outbox.name + " pending operations=" + ops.size());
 
-                if (ops.size() > 0)
-                    db.folder().setFolderError(outbox.id, null);
+                while (ops.size() > 0) {
+                    TupleOperationEx op = ops.get(0);
 
-                for (EntityOperation op : ops) {
                     EntityMessage message = null;
+                    if (op.message != null)
+                        message = db.message().getMessage(op.message);
+
                     try {
                         Log.i(outbox.name +
                                 " start op=" + op.id + "/" + op.name +
                                 " msg=" + op.message +
                                 " args=" + op.args);
+
+                        db.operation().setOperationTries(op.id, ++op.tries);
+                        db.operation().setOperationError(op.id, null);
+
+                        if (message != null)
+                            db.message().setMessageError(message.id, null);
 
                         db.operation().setOperationState(op.id, "executing");
 
@@ -307,7 +317,6 @@ public class ServiceSend extends ServiceBase {
                                 break;
 
                             case EntityOperation.SEND:
-                                message = db.message().getMessage(op.message);
                                 if (message == null)
                                     throw new MessageRemovedException();
                                 onSend(message);
@@ -321,6 +330,7 @@ public class ServiceSend extends ServiceBase {
                         }
 
                         db.operation().deleteOperation(op.id);
+                        ops.remove(op);
                     } catch (Throwable ex) {
                         Log.e(outbox.name, ex);
                         EntityLog.log(this, outbox.name + " " + Log.formatThrowable(ex, false));
@@ -329,7 +339,8 @@ public class ServiceSend extends ServiceBase {
                         if (message != null)
                             db.message().setMessageError(message.id, Log.formatThrowable(ex));
 
-                        if (ex instanceof OutOfMemoryError ||
+                        if (op.tries >= RETRY_MAX ||
+                                ex instanceof OutOfMemoryError ||
                                 ex instanceof MessageRemovedException ||
                                 ex instanceof FileNotFoundException ||
                                 ex instanceof AuthenticationFailedException ||
@@ -337,6 +348,7 @@ public class ServiceSend extends ServiceBase {
                                 ex instanceof IllegalArgumentException) {
                             Log.w("Unrecoverable");
                             db.operation().deleteOperation(op.id);
+                            ops.remove(op);
                             continue;
                         } else
                             throw ex;
