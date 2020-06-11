@@ -414,14 +414,6 @@ class Core {
                             continue;
                         }
 
-                        if (op.tries >= TOTAL_RETRY_MAX) {
-                            // Giving up
-                            op.cleanup(context);
-                            db.operation().deleteOperation(op.id);
-                            ops.remove(op);
-                            continue;
-                        }
-
                         try {
                             db.beginTransaction();
 
@@ -436,7 +428,8 @@ class Core {
                             db.endTransaction();
                         }
 
-                        if (ex instanceof OutOfMemoryError ||
+                        if (op.tries >= TOTAL_RETRY_MAX ||
+                                ex instanceof OutOfMemoryError ||
                                 ex instanceof MessageRemovedException ||
                                 ex instanceof MessageRemovedIOException ||
                                 ex instanceof FileNotFoundException ||
