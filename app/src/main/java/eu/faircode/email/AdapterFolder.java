@@ -996,17 +996,24 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         if (parents.size() > 0)
             Collections.sort(parents, parents.get(0).getComparator(context));
 
-        for (TupleFolderEx parent : parents)
-            if ((show_hidden || !parent.hide) &&
-                    (!subscribed_only ||
-                            parent.accountProtocol != EntityAccount.TYPE_IMAP ||
-                            (parent.subscribed != null && parent.subscribed))) {
+        for (TupleFolderEx parent : parents) {
+            if (parent.hide && !show_hidden)
+                continue;
+
+            List<TupleFolderEx> childs = null;
+            if (parent.child_refs != null)
+                childs = getHierarchical(parent.child_refs, indentation + 1);
+
+            if (!subscribed_only ||
+                    parent.accountProtocol != EntityAccount.TYPE_IMAP ||
+                    (parent.subscribed != null && parent.subscribed) ||
+                    (childs != null && childs.size() > 0)) {
                 parent.indentation = indentation;
                 result.add(parent);
-
-                if (!parent.collapsed && parent.child_refs != null)
-                    result.addAll(getHierarchical(parent.child_refs, indentation + 1));
+                if (!parent.collapsed && childs != null)
+                    result.addAll(childs);
             }
+        }
 
         return result;
     }
