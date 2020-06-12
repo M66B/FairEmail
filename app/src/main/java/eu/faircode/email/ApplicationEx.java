@@ -278,7 +278,8 @@ public class ApplicationEx extends Application {
         } else if (version < 1181) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)
                 editor.remove("background_service");
-        }
+        } else if (version < 1195)
+            editor.remove("auto_optimize");
 
         if (version < BuildConfig.VERSION_CODE)
             editor.putInt("previous_version", version);
