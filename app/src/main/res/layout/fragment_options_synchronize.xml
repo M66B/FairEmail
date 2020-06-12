@@ -99,18 +99,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/spPollInterval" />
 
-        <eu.faircode.email.FixedTextView
-            android:id="@+id/tvOptimizedHint"
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swOptimize"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="48dp"
-            android:text="@string/title_advanced_optimized_hint"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="?attr/colorWarning"
-            android:textStyle="italic"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/title_advanced_optimize"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvPollHint" />
+            app:layout_constraintTop_toBottomOf="@id/tvPollHint"
+            app:switchPadding="12dp" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvExempted"
@@ -123,7 +122,7 @@
             android:textColor="?android:attr/textColorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvOptimizedHint" />
+            app:layout_constraintTop_toBottomOf="@id/swOptimize" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvExempted"
