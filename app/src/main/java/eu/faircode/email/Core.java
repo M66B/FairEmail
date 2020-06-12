@@ -1614,7 +1614,7 @@ class Core {
                         if (sent == null)
                             sent = 0L;
 
-                        String authentication = helper.getAuthentication();
+                        String[] authentication = helper.getAuthentication();
                         MessageHelper.MessageParts parts = helper.getMessageParts();
 
                         EntityMessage message = new EntityMessage();
@@ -2239,7 +2239,7 @@ class Core {
                         received = sent;
             }
 
-            String authentication = helper.getAuthentication();
+            String[] authentication = helper.getAuthentication();
             MessageHelper.MessageParts parts = helper.getMessageParts();
 
             message = new EntityMessage();

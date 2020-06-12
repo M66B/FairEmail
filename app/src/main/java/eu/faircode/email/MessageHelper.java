@@ -1016,31 +1016,39 @@ public class MessageHelper {
         return getAddressHeader("Disposition-Notification-To");
     }
 
-    String getAuthentication() throws MessagingException {
+    String[] getAuthentication() throws MessagingException {
         ensureMessage(false);
 
-        String header = imessage.getHeader("Authentication-Results", null);
-        return (header == null ? null : MimeUtility.unfold(header));
+        String[] headers = imessage.getHeader("Authentication-Results");
+        if (headers == null)
+            return null;
+
+        for (int i = 0; i < headers.length; i++)
+            headers[i] = MimeUtility.unfold(headers[i]);
+
+        return headers;
     }
 
-    static Boolean getAuthentication(String type, String header) {
-        if (header == null)
+    static Boolean getAuthentication(String type, String[] headers) {
+        if (headers == null)
             return null;
 
         // https://tools.ietf.org/html/rfc7601
         Boolean result = null;
-        String[] part = header.split(";");
-        for (int i = 1; i < part.length; i++) {
-            String[] kv = part[i].split("=");
-            if (kv.length > 1) {
-                String key = kv[0].trim();
-                String[] val = kv[1].trim().split(" ");
-                if (val.length > 0 && type.equals(key)) {
-                    if ("fail".equals(val[0]))
-                        result = false;
-                    else if ("pass".equals(val[0]))
-                        if (result == null)
-                            result = true;
+        for (String header : headers) {
+            String[] part = header.split(";");
+            for (int i = 1; i < part.length; i++) {
+                String[] kv = part[i].split("=");
+                if (kv.length > 1) {
+                    String key = kv[0].trim();
+                    String[] val = kv[1].trim().split(" ");
+                    if (val.length > 0 && type.equals(key)) {
+                        if ("fail".equals(val[0]))
+                            result = false;
+                        else if ("pass".equals(val[0]))
+                            if (result == null)
+                                result = true;
+                    }
                 }
             }
         }
