@@ -40,6 +40,7 @@ import android.service.notification.StatusBarNotification;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.core.app.AlarmManagerCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
@@ -160,6 +161,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         iif.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
         iif.addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED);
         registerReceiver(connectionChangedReceiver, iif);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+            registerReceiver(idleModeChangedReceiver, new IntentFilter(PowerManager.ACTION_DEVICE_IDLE_MODE_CHANGED));
 
         DB db = DB.getInstance(this);
 
@@ -628,6 +632,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         prefs.unregisterOnSharedPreferenceChangeListener(this);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+            unregisterReceiver(idleModeChangedReceiver);
 
         unregisterReceiver(connectionChangedReceiver);
 
@@ -1753,6 +1760,16 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             }
 
             networkCallback.onCapabilitiesChanged(null, null);
+        }
+    };
+
+    private BroadcastReceiver idleModeChangedReceiver = new BroadcastReceiver() {
+        @Override
+        @RequiresApi(api = Build.VERSION_CODES.M)
+        public void onReceive(Context context, Intent intent) {
+            PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+            EntityLog.log(context, "Doze mode=" + pm.isDeviceIdleMode() +
+                    " ignoring=" + pm.isIgnoringBatteryOptimizations(context.getPackageName()));
         }
     };
 
