@@ -145,6 +145,7 @@
     <string name="title_setup_doze_battery">耗电量高？</string>
     <string name="title_setup_doze_stopped">同步已停止？</string>
     <string name="title_setup_data">已启用数据节省</string>
+    <string name="title_setup_advanced_options">显示高级选项</string>
     <string name="title_setup_inbox">前往邮件</string>
     <string name="title_setup_go">前往</string>
     <string name="title_setup_to_do">待办事项</string>
@@ -213,7 +214,11 @@
     <string name="title_advanced_kept_removed">检查旧消息是否已从服务器移除</string>
     <string name="title_advanced_gmail_thread">为 Gmail 账户采用 Gmail (官方)分组风格</string>
     <string name="title_advanced_sync_folders">同步文件夹列表</string>
+    <string name="title_advanced_sync_shared_folders">同步共享文件夹列表</string>
     <string name="title_advanced_subscriptions">管理文件夹订阅</string>
+    <string name="title_advanced_check_mx">同步消息时检查发送者电子邮件地址</string>
+    <string name="title_advanced_check_reply">同步消息时检查回复邮件地址</string>
+    <string name="title_advanced_tune_keep_alive">Automatically tune the keep-alive interval</string>
     <string name="title_advanced_keyboard">默认显示键盘</string>
     <string name="title_advanced_suggest_local">建议本地存储的联系人</string>
     <string name="title_advanced_suggest_sent">建议在已发送消息中找到的地址</string>
@@ -390,22 +395,19 @@
     <string name="title_advanced_enabled_hint">全局禁用或启用邮件接收</string>
     <string name="title_advanced_manual_hint">即便禁用同步，仍然可以通过下拉消息列表手动同步。</string>
     <string name="title_advanced_poll_hint">定期同步将每次都比较本地和远程消息，这是有代价的操作(更耗电)，特别是在要同步的消息很多时。而始终同步可通过持续监视变化以避免发生上述情形</string>
-    <string name="title_advanced_optimized_hint">此选项可以被自动优化
-（其他设置）</string>
+    <string name="title_advanced_optimized_hint">此选项可被自动优化 (杂项设置)</string>
     <string name="title_advanced_schedule_hint">点击“时间”选项来设置时间</string>
-    <string name="title_advanced_check_mx">同步消息时检查发送者电子邮件地址</string>
-    <string name="title_advanced_check_reply">同步消息时检查回复邮件地址</string>
     <string name="title_advanced_no_date_hint">某些供应商将未知、无效或未来日期的消息存储为不含日期的消息</string>
     <string name="title_advanced_unseen_hint">一些邮件服务提供商对该功能支持不佳，这可能导致同步所有消息或一条消息也不同步</string>
     <string name="title_advanced_deleted_unseen">禁用后未读消息将永远保留在设备上</string>
     <string name="title_advanced_sync_kept_hint">这将更耗数据与电量，特别是如果有大量消息存储在设备上</string>
     <string name="title_advanced_sync_folders_hint">禁用此功能某种程度上会减少数据和电量使用，但也会禁用更新文件夹列表</string>
+    <string name="title_advanced_lookup_mx_hint">这将检查 DNS MX 记录是否存在</string>
     <string name="title_advanced_sync_delay_hint">这将减缓同步消息的速度</string>
+    <string name="title_advanced_check_reply_hint">这将检查发件人和回复对象的地址是否相同</string>
     <string name="title_advanced_suggest_local_hint">除了Android提供的联系人，只有在设置中允许，应用才会储存新接收或发送消息的联系人数据。</string>
     <string name="title_advanced_usenet_hint">在文本和签名之间插入 \'-- \'</string>
     <string name="title_advanced_send_reminders_hint">当消息文本或主题为空或缺失某个附件时显示警告</string>
-    <string name="title_advanced_lookup_mx_hint">这将检查 DNS MX 记录是否存在</string>
-    <string name="title_advanced_check_reply_hint">这将检查发件人和回复对象的地址是否相同</string>
     <string name="title_advanced_metered_hint">计量连接通常是指移动连接或付费WiFi热点</string>
     <string name="title_advanced_metered_warning">禁用此选项将禁止在使用移动互联网连接时接收和发送消息</string>
     <string name="title_advanced_rlah_hint">假定欧盟境内不漫游</string>
@@ -718,7 +720,7 @@
     <string name="title_reply_to">回复：</string>
     <string name="title_cc">抄送：</string>
     <string name="title_bcc">密送：</string>
-    <string name="title_recipients">%1$d位收件人</string>
+    <string name="title_recipients">%1$d 位收件人</string>
     <string name="title_via_identity">账号：</string>
     <string name="title_sent">发送时间：</string>
     <string name="title_received">接收时间：</string>
@@ -1102,12 +1104,11 @@
     <string name="title_pro_list">专业版功能列表</string>
     <string name="title_pro_purchase">购买</string>
     <string name="title_pro_once">仅一次</string>
-    <string name="title_pro_info">        毫不夸张地说，开发FairEmail花了我数千个小时，尽管如此，大多数功能还是可以免费使用。
-        FairEmail拿您的隐私当回事，不会显示广告，也不会使用跟踪或分析来赚钱。
-        为了长期维护和支持FairEmail，一些便利和高级功能需要付费才能使用。
-        FairEmail会显示一条小消息来提醒您这一点，如果您购买了专业功能，该消息将被删除。
-    </string>
-    <string name="title_pro_hide">隐藏升级提示消息%1$d周</string>
+    <string name="title_pro_info">        毫不夸张地说，我花了数千个小时来开发 FairEmail，尽管如此，大多数功能都可以免费使用
+        FairEmail 非常重视您的隐私，不会显示广告，更不会偷偷使用跟踪或分析来牟利
+        为了长期维护和支持 FairEmail，一些便利及高级功能需要付费使用
+        FairEmail 会显示一条小消息来提醒您这一点，如果您购买了专业功能，该消息将会移除</string>
+    <string name="title_pro_hide">隐藏升级提示消息 %1$d 周</string>
     <string name="title_pro_hint">购买专业版将获得现在以及未来更新中全部专业版功能，并将支持开发者维护这个应用</string>
     <string name="title_pro_price">请参见<a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">常见问题</a>关于专业版的价格</string>
     <string name="title_pro_pending">购买待处理</string>
