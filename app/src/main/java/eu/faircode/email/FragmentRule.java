@@ -32,6 +32,8 @@ import android.provider.ContactsContract;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -181,6 +183,7 @@ public class FragmentRule extends FragmentBase {
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setSubtitle(R.string.title_rule_caption);
+        setHasOptionsMenu(true);
 
         view = (ViewGroup) inflater.inflate(R.layout.fragment_rule, container, false);
 
@@ -506,6 +509,28 @@ public class FragmentRule extends FragmentBase {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "rule:accounts");
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_rule, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_help:
+                onMenuHelp();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void onMenuHelp() {
+        Helper.viewFAQ(getContext(), 71);
     }
 
     @Override
