@@ -19,19 +19,16 @@ package eu.faircode.email;
     Copyright 2018-2020 by Marcel Bokhorst (M66B)
 */
 
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.MimeTypeMap;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -39,7 +36,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
@@ -51,7 +47,6 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -115,7 +110,13 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
 
             ibDelete.setVisibility(readonly ? View.GONE :
                     attachment.isInline() && attachment.error == null ? View.INVISIBLE : View.VISIBLE);
-            ivType.setImageDrawable(null);
+
+            int resid = 0;
+            String extension = MimeTypeMap.getSingleton().getExtensionFromMimeType(attachment.getMimeType());
+            if (extension != null)
+                resid = context.getResources().getIdentifier("file_" + extension, "drawable", context.getPackageName());
+            ivType.setImageResource(resid == 0 ? R.drawable.baseline_attachment_24 : resid);
+
             tvName.setText(attachment.name);
 
             if (attachment.size != null)
@@ -154,55 +155,6 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
 
             tvError.setText(attachment.error);
             tvError.setVisibility(attachment.error == null ? View.GONE : View.VISIBLE);
-
-            Bundle args = new Bundle();
-            args.putLong("id", attachment.id);
-            args.putSerializable("file", attachment.getFile(context));
-            args.putString("type", attachment.getMimeType());
-
-            new SimpleTask<Drawable>() {
-                @Override
-                protected Drawable onExecute(Context context, Bundle args) throws Throwable {
-                    File file = (File) args.getSerializable("file");
-                    String type = args.getString("type");
-
-                    Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
-
-                    Intent intent = new Intent(Intent.ACTION_VIEW);
-                    intent.setDataAndTypeAndNormalize(uri, type);
-
-                    PackageManager pm = context.getPackageManager();
-
-                    ComponentName component = intent.resolveActivity(pm);
-                    if (component == null)
-                        return null;
-
-                    return pm.getApplicationIcon(component.getPackageName());
-                }
-
-                @Override
-                protected void onExecuted(Bundle args, Drawable icon) {
-                    long id = args.getLong("id");
-
-                    int pos = getAdapterPosition();
-                    if (pos == RecyclerView.NO_POSITION)
-                        return;
-
-                    EntityAttachment attachment = items.get(pos);
-                    if (attachment == null || !attachment.id.equals(id))
-                        return;
-
-                    if (icon == null)
-                        ivType.setImageResource(R.drawable.baseline_attachment_24);
-                    else
-                        ivType.setImageDrawable(icon);
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
-                }
-            }.execute(context, owner, args, "attachment:icon");
         }
 
         @Override
