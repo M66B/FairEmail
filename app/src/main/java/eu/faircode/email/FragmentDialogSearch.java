@@ -22,6 +22,7 @@ import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.FilterQueryProvider;
 import android.widget.ImageButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -73,6 +74,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         final CheckBox cbHidden = dview.findViewById(R.id.cbHidden);
         final CheckBox cbEncrypted = dview.findViewById(R.id.cbEncrypted);
         final CheckBox cbAttachments = dview.findViewById(R.id.cbAttachments);
+        final Spinner spMessageSize = dview.findViewById(R.id.spMessageSize);
         final Button btnBefore = dview.findViewById(R.id.btnBefore);
         final Button btnAfter = dview.findViewById(R.id.btnAfter);
         final TextView tvBefore = dview.findViewById(R.id.tvBefore);
@@ -96,7 +98,6 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                 new String[]{"suggestion"},
                 new int[]{android.R.id.text1},
                 0);
-
 
         adapter.setFilterQueryProvider(new FilterQueryProvider() {
             public Cursor runQuery(CharSequence typed) {
@@ -156,6 +157,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                 cbHidden.setEnabled(!isChecked);
                 cbEncrypted.setEnabled(!isChecked);
                 cbAttachments.setEnabled(!isChecked);
+                spMessageSize.setEnabled(!isChecked);
             }
         });
 
@@ -255,6 +257,12 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                             criteria.with_hidden = cbHidden.isChecked();
                             criteria.with_encrypted = cbEncrypted.isChecked();
                             criteria.with_attachments = cbAttachments.isChecked();
+
+                            int pos = spMessageSize.getSelectedItemPosition();
+                            if (pos > 0) {
+                                int[] sizes = getResources().getIntArray(R.array.sizeValues);
+                                criteria.with_size = sizes[pos];
+                            }
                         }
 
                         Object after = tvAfter.getTag();
