@@ -3388,6 +3388,10 @@ public class FragmentCompose extends FragmentBase {
                             }
                         }
 
+                        // Signature
+                        if ("reply".equals(action) || "reply_all".equals(action))
+                            data.draft.signature = prefs.getBoolean("signature_reply", true);
+
                         // Reply header
                         String s = args.getString("selected");
                         if (ref.content &&
