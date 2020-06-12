@@ -371,7 +371,7 @@
             app:constraint_referenced_ids="
             cbSearchIndex,tvSearchIndexHint,cbSenders,cbRecipients,cbSubject,cbKeywords,cbMessage,tvSearchTextHint,
             tvAnd,cbUnseen,cbFlagged,cbHidden,cbEncrypted,cbAttachments,
-            tvMessageSize,spMessageSize,
+            tvMessageSize,spMessageSize,tvSizeHint,
             btnAfter,btnBefore,tvBefore,tvAfter" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>
