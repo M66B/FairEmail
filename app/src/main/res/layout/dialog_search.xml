@@ -289,6 +289,7 @@
             android:layout_marginTop="12dp"
             android:text="@string/title_search_with_size"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbAttachments" />
@@ -300,6 +301,7 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="12dp"
             android:entries="@array/sizeNames"
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvMessageSize" />
 
@@ -312,6 +314,7 @@
             android:text="@string/title_search_size_hint"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textStyle="italic"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/spMessageSize" />
@@ -369,7 +372,6 @@
             app:constraint_referenced_ids="
             cbSearchIndex,tvSearchIndexHint,cbSenders,cbRecipients,cbSubject,cbKeywords,cbMessage,tvSearchTextHint,
             tvAnd,cbUnseen,cbFlagged,cbHidden,cbEncrypted,cbAttachments,
-            tvMessageSize,spMessageSize,tvSizeHint,
             btnAfter,btnBefore,tvBefore,tvAfter" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>
