@@ -1376,14 +1376,14 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     boolean first = true;
                     while (state.isRunning()) {
                         long idleTime = state.getIdleTime();
-                        boolean auto_optimize = prefs.getBoolean("auto_optimize", false);
-                        boolean optimize = (auto_optimize && !first &&
+                        boolean tune_keep_alive = prefs.getBoolean("tune_keep_alive", true);
+                        boolean tune = (tune_keep_alive && !first &&
                                 !account.keep_alive_ok && account.poll_interval > 9 &&
                                 Math.abs(idleTime - account.poll_interval * 60 * 1000L) < 60 * 1000L);
-                        if (auto_optimize && !first && !account.keep_alive_ok)
+                        if (tune_keep_alive && !first && !account.keep_alive_ok)
                             EntityLog.log(ServiceSynchronize.this, account.name +
-                                    " Optimize interval=" + account.poll_interval +
-                                    " idle=" + idleTime + "/" + optimize);
+                                    " Tune interval=" + account.poll_interval +
+                                    " idle=" + idleTime + "/" + tune);
                         try {
                             if (!state.isRecoverable())
                                 throw new StoreClosedException(iservice.getStore(), "Unrecoverable");
@@ -1414,7 +1414,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                             Log.i(folder.name + " poll count=" + folder.poll_count);
                                         }
                         } catch (Throwable ex) {
-                            if (optimize) {
+                            if (tune) {
                                 account.keep_alive_failed++;
                                 account.keep_alive_succeeded = 0;
                                 if (account.keep_alive_failed >= 3) {
@@ -1433,7 +1433,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             throw ex;
                         }
 
-                        if (optimize) {
+                        if (tune) {
                             account.keep_alive_failed = 0;
                             account.keep_alive_succeeded++;
                             db.account().setAccountKeepAliveValues(account.id,
