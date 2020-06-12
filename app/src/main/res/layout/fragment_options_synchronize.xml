@@ -41,18 +41,6 @@
             app:switchPadding="12dp" />
 
         <eu.faircode.email.FixedTextView
-            android:id="@+id/tvEnabledHint"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="48dp"
-            android:text="@string/title_advanced_enabled_hint"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textStyle="italic"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swEnabled" />
-
-        <eu.faircode.email.FixedTextView
             android:id="@+id/tvManalHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -63,7 +51,7 @@
             android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvEnabledHint" />
+            app:layout_constraintTop_toBottomOf="@id/swEnabled" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvWhen"
