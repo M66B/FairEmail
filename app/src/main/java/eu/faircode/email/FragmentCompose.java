@@ -3237,6 +3237,8 @@ public class FragmentCompose extends FragmentBase {
                         // - list
                         // - receipt
                         // - participation
+
+                        // References
                         if ("reply".equals(action) || "reply_all".equals(action) ||
                                 "list".equals(action) ||
                                 "receipt".equals(action) ||
@@ -3308,6 +3310,7 @@ public class FragmentCompose extends FragmentBase {
                         } else if ("editasnew".equals(action))
                             data.draft.thread = data.draft.msgid;
 
+                        // Subject
                         String subject = (ref.subject == null ? "" : ref.subject);
                         if ("reply".equals(action) || "reply_all".equals(action)) {
                             if (prefix_once)
@@ -3364,13 +3367,17 @@ public class FragmentCompose extends FragmentBase {
                         } else if ("participation".equals(action))
                             data.draft.subject = status + ": " + ref.subject;
 
+                        // Plain-only
                         if (ref.plain_only != null && ref.plain_only)
                             data.draft.plain_only = true;
+
+                        // Encryption
                         if (ref.ui_encrypt != null && !EntityMessage.ENCRYPT_NONE.equals(ref.ui_encrypt)) {
                             if (ActivityBilling.isPro(context))
                                 data.draft.ui_encrypt = ref.ui_encrypt;
                         }
 
+                        // Reply template
                         if (answer > 0) {
                             EntityAnswer a = db.answer().getAnswer(answer);
                             if (a != null) {
@@ -3381,6 +3388,7 @@ public class FragmentCompose extends FragmentBase {
                             }
                         }
 
+                        // Reply header
                         String s = args.getString("selected");
                         if (ref.content &&
                                 !"editasnew".equals(action) &&
