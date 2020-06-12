@@ -1166,14 +1166,14 @@ You can use the [Email Privacy Tester](https://www.emailprivacytester.com/) for 
 
 Most providers accept validated addresses only when sending messages to prevent spam.
 
-For example Google modifies the message headers like this:
+For example Google modifies the message headers like this for *unverified* addresses:
 
 ```
 From: Somebody <somebody@example.org>
 X-Google-Original-From: Somebody <somebody+extra@example.org>
 ```
 
-This means that the edited sender address was automatically replaced by a validated address before sending the message.
+This means that the edited sender address was automatically replaced by a verified address before sending the message.
 
 Note that this is independent of receiving messages.
 
