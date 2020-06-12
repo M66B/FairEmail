@@ -214,9 +214,9 @@
     <string name="title_advanced_section_encryption">Chiffrement</string>
     <string name="title_advanced_section_notifications">Notifications</string>
     <string name="title_advanced_section_misc">Divers</string>
-    <string name="title_advanced_receive">Recevoir les messages</string>
+    <string name="title_advanced_receive">Recevoir des messages pour tous les comptes</string>
     <string name="title_advanced_when">Quand</string>
-    <string name="title_advanced_always">Synchroniser ces comptes en continu</string>
+    <string name="title_advanced_always">Recevoir toujours des messages pour ces comptes</string>
     <string name="title_advanced_schedule">Planification</string>
     <string name="title_advanced_advanced">Avancé</string>
     <string name="title_advanced_no_date">Messages sans date</string>
@@ -395,7 +395,7 @@
     <string name="title_advanced_fts_indexed">%1$d / %2$d messages indexés (%3$s)</string>
     <string name="title_advanced_english">Utiliser les paramètres des États-Unis</string>
     <string name="title_advanced_watchdog">Vérifier périodiquement si FairEmail est toujours actif</string>
-    <string name="title_advanced_optimize">Optimiser automatiquement les paramètres</string>
+    <string name="title_advanced_optimize">Optimiser automatiquement</string>
     <string name="title_advanced_updates">Vérifier les mises à jour</string>
     <string name="title_advanced_experiments">Essayer les fonctionnalités expérimentales</string>
     <string name="title_advanced_crash_reports">Envoyer les rapports d’erreur</string>
@@ -405,10 +405,8 @@
     <string name="title_advanced_last_cleanup">Dernier nettoyage : %1$s</string>
     <string name="title_advanced_app">Paramètres Android de l\'application</string>
     <string name="title_advanced_more">Plus d’options</string>
-    <string name="title_advanced_enabled_hint">Désactiver ou activer globalement la réception des messages</string>
-    <string name="title_advanced_manual_hint">Si la synchronisation est désactivée, il est toujours possible de synchroniser manuellement en tirant la liste des messages vers le bas.</string>
-    <string name="title_advanced_poll_hint">La synchronisation périodique comparera à chaque fois les messages locaux et distants, ce qui est une opération coûteuse pouvant entraîner une utilisation accrue de la pile, surtout s’il y a beaucoup de messages à synchroniser. La synchronisation en continu évitera cela en surveillant uniquement les changements.</string>
-    <string name="title_advanced_optimized_hint">Ce paramètre peut être optimisé automatiquement (onglet Divers)</string>
+    <string name="title_advanced_manual_hint">Si la réception de messages est désactivée, il est toujours possible de recevoir manuellement des messages en tirant vers le bas la liste des messages</string>
+    <string name="title_advanced_poll_hint">La synchronisation périodique comparera les messages locaux et distants à chaque fois, ce qui est une opération coûteuse qui peut entraîner une utilisation supplémentaire de la batterie, surtout lorsqu\'il y a beaucoup de messages à synchroniser. La synchronisation en continu évitera cela en surveillant uniquement les changements.</string>
     <string name="title_advanced_schedule_hint">Appuyez sur une heure pour définir une période</string>
     <string name="title_advanced_no_date_hint">Certains fournisseurs stockent les messages avec une date inconnue, invalide ou future comme étant des messages sans date</string>
     <string name="title_advanced_unseen_hint">Certains fournisseurs ne prennent pas ceci en charge correctement, ce qui peut entraîner la synchronisation de tous les messages, voire d’aucun</string>
@@ -462,7 +460,6 @@
     <string name="title_advanced_notify_no_channels">Cette version d’Android ne prend pas en charge les canaux de notification</string>
     <string name="title_advanced_fts_hint">Activer ceci améliore les performances de la recherche mais augmente également l’utilisation de la pile et de l’espace de stockage</string>
     <string name="title_advanced_english_hint">Ceci va redémarrer l’application</string>
-    <string name="title_advanced_optimize_hint">Activer ceci peut automatiquement modifier les paramètres de réception afin de réduire l’utilisation de la pile</string>
     <string name="title_advanced_experiments_hint">Liste des fonctionnalités expérimentales actuelles</string>
     <string name="title_advanced_debug_hint">Activer la journalisation supplémentaire et afficher des informations de débogage en divers endroits</string>
     <string name="title_advanced_cleanup_attachments_hint">Lors du nettoyage manuel, ceci supprimera les pièces jointes des messages qui ne sont plus synchronisés</string>
@@ -833,7 +830,8 @@
         Pour rechercher également sur le serveur, appuyez sur le bouton « Rechercher de nouveau ».
     </string>
     <string name="title_search_index_hint">La recherche via l’index de recherche est rapide mais elle ne trouvera que des mots entiers</string>
-    <string name="title_search_text_hint">Certains serveurs de messagerie ont des difficultés à trouver du texte dans des messages en nombre important</string>
+    <string name="title_search_text_hint">La recherche de texte dans les messages, lorsqu\'il y a un grand nombre de messages, peut ne pas fonctionner sur certains serveurs</string>
+    <string name="title_search_size_hint">La recherche de messages par taille, lorsqu\'il y a un grand nombre de messages, peut ne pas fonctionner sur certains serveurs</string>
     <string name="title_search_more">Plus d’options</string>
     <string name="title_search_use_index">Utiliser l’index de recherche</string>
     <string name="title_search_in_senders">Dans les expéditeurs (De)</string>
@@ -847,6 +845,7 @@
     <string name="title_search_with_hidden">Masqués (uniquement sur l’appareil)</string>
     <string name="title_search_with_encrypted">Chiffrés (uniquement sur l’appareil)</string>
     <string name="title_search_with_attachments">Avec des pièces jointes (uniquement sur l’appareil)</string>
+    <string name="title_search_with_size">Taille de message supérieure à</string>
     <string name="title_search_with_before">Avant</string>
     <string name="title_search_with_after">Après</string>
     <string name="title_search_flag_unseen">non lus</string>
@@ -854,6 +853,7 @@
     <string name="title_search_flag_hidden">masqués</string>
     <string name="title_search_flag_encrypted">chiffrés</string>
     <string name="title_search_flag_attachments">pièces jointes</string>
+    <string name="title_search_flag_size">taille &gt; %1$s</string>
     <string name="title_search_device">Rechercher sur l’appareil</string>
     <string name="title_search_server">Rechercher sur le serveur</string>
     <string name="title_search_in">Rechercher dans</string>
@@ -1285,5 +1285,16 @@
         <item>Signature et chiffrement PGP</item>
         <item>Signature S/MIME seulement</item>
         <item>Signature et chiffrement S/MIME</item>
+    </string-array>
+    <string-array name="sizeNames">
+        <item>0 o</item>
+        <item>256 Ko</item>
+        <item>512 Ko</item>
+        <item>1 Mo</item>
+        <item>2 Mo</item>
+        <item>5 Mo</item>
+        <item>10 Mo</item>
+        <item>20 Mo</item>
+        <item>50 Mo</item>
     </string-array>
 </resources>

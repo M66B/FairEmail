@@ -213,9 +213,9 @@
     <string name="title_advanced_section_encryption">Versleuteling</string>
     <string name="title_advanced_section_notifications">Meldingen</string>
     <string name="title_advanced_section_misc">Diversen</string>
-    <string name="title_advanced_receive">Berichten ontvangen</string>
+    <string name="title_advanced_receive">Ontvang berichten voor alle accounts</string>
     <string name="title_advanced_when">Wanneer</string>
-    <string name="title_advanced_always">Synchroniseer deze accounts altijd</string>
+    <string name="title_advanced_always">Ontvang altijd berichten voor deze accounts</string>
     <string name="title_advanced_schedule">Schema</string>
     <string name="title_advanced_advanced">Geavanceerd</string>
     <string name="title_advanced_no_date">Berichten zonder datum</string>
@@ -394,7 +394,7 @@
     <string name="title_advanced_fts_indexed">%1$d / %2$d berichten geïndexeerd (%3$s)</string>
     <string name="title_advanced_english">Gebruik VS landinstellingen</string>
     <string name="title_advanced_watchdog">Periodiek controleren of FairEmail nog actief is</string>
-    <string name="title_advanced_optimize">Automatisch instellingen optimaliseren</string>
+    <string name="title_advanced_optimize">Automatisch optimaliseren</string>
     <string name="title_advanced_updates">Controleren op updates</string>
     <string name="title_advanced_experiments">Probeer experimentele functies</string>
     <string name="title_advanced_crash_reports">Foutrapporten verzenden</string>
@@ -404,10 +404,8 @@
     <string name="title_advanced_last_cleanup">Laatste schoonmaak: %1$s</string>
     <string name="title_advanced_app">App instellingen</string>
     <string name="title_advanced_more">Meer opties</string>
-    <string name="title_advanced_enabled_hint">Globaal in- of uitschakelen van het ontvangen van berichten</string>
-    <string name="title_advanced_manual_hint">Als synchronisatie uitgeschakeld is, is het nog steeds mogelijk om handmatig te synchroniseren door het omlaag trekken van de berichtenlijst.</string>
-    <string name="title_advanced_poll_hint">Periodiek synchroniseren zal elke keer lokale en externe berichten vergelijken, wat een dure operatie is en kan resulteren in extra batterijgebruik, vooral wanneer er veel berichten zijn om te synchroniseren. Altijd synchroniseren vermijdt dit door voortdurend veranderingen te monitoren.</string>
-    <string name="title_advanced_optimized_hint">Deze optie kan automatisch worden geoptimaliseerd (diverse instellingen)</string>
+    <string name="title_advanced_manual_hint">Als het ontvangen van berichten is uitgeschakeld, is het nog steeds mogelijk om handmatig berichten te ontvangen door de berichtenlijst omlaag te trekken</string>
+    <string name="title_advanced_poll_hint">Periodiek controleren op nieuwe berichten zal elke keer lokale en externe berichten vergelijken, wat een dure operatie is die kan resulteren in extra batterijgebruik, vooral als er veel berichten zijn. Altijd ontvangen zal dit voorkomen door continu veranderingen te volgen.</string>
     <string name="title_advanced_schedule_hint">Tik op een tijd om een tijd in te stellen</string>
     <string name="title_advanced_no_date_hint">Sommige providers slaan berichten met een onbekende, ongeldige of toekomstige datum op als berichten zonder datum</string>
     <string name="title_advanced_unseen_hint">Sommige providers ondersteunen dit niet goed, wat kan veroorzaken dat geen of alle berichten worden gesynchroniseerd</string>
@@ -461,7 +459,6 @@
     <string name="title_advanced_notify_no_channels">Deze Android-versie ondersteunt geen meldingskanalen</string>
     <string name="title_advanced_fts_hint">Dit inschakelen verbetert de zoekprestaties, maar verhoogt ook het batterij- en opslaggebruik</string>
     <string name="title_advanced_english_hint">Dit zal de app herstarten</string>
-    <string name="title_advanced_optimize_hint">Dit inschakelen kan automatisch de ontvangstinstellingen wijzigen om het batterijverbruik te verminderen</string>
     <string name="title_advanced_experiments_hint">Lijst van huidige experimentele functies</string>
     <string name="title_advanced_debug_hint">Extra logging inschakelen en debug informatie tonen op verschillende plaatsen</string>
     <string name="title_advanced_cleanup_attachments_hint">Dit zal bijlagen verwijderen van berichten die niet meer worden gesynchroniseerd bij handmatig opruimen</string>
@@ -832,7 +829,8 @@
         Tik op de \'Opnieuw zoeken\' knop om ook op de server te zoeken.
     </string>
     <string name="title_search_index_hint">Zoeken via de zoekindex is snel, maar zal alleen hele woorden vinden</string>
-    <string name="title_search_text_hint">Sommige e-mailservers hebben problemen met het vinden van tekst in veel berichten</string>
+    <string name="title_search_text_hint">Zoeken naar tekst in berichten, wanneer er een groot aantal berichten is, werkt mogelijk niet op sommige servers</string>
+    <string name="title_search_size_hint">Zoeken naar berichten op grootte werkt mogelijk niet op sommige servers als er een groot aantal berichten is</string>
     <string name="title_search_more">Meer opties</string>
     <string name="title_search_use_index">Gebruik zoekindex</string>
     <string name="title_search_in_senders">In afzenders (van)</string>
@@ -846,6 +844,7 @@
     <string name="title_search_with_hidden">Verborgen (alleen op apparaat)</string>
     <string name="title_search_with_encrypted">Versleuteld (alleen op apparaat)</string>
     <string name="title_search_with_attachments">Met bijlagen (alleen op apparaat)</string>
+    <string name="title_search_with_size">Berichtgrootte groter dan</string>
     <string name="title_search_with_before">Voor</string>
     <string name="title_search_with_after">Na</string>
     <string name="title_search_flag_unseen">ongelezen</string>
@@ -853,6 +852,7 @@
     <string name="title_search_flag_hidden">verborgen</string>
     <string name="title_search_flag_encrypted">versleuteld</string>
     <string name="title_search_flag_attachments">bijlagen</string>
+    <string name="title_search_flag_size">grootte &gt; %1$s</string>
     <string name="title_search_device">Zoeken op apparaat</string>
     <string name="title_search_server">Zoek op server</string>
     <string name="title_search_in">Zoeken in</string>
@@ -1283,5 +1283,16 @@
         <item>PGP teken+versleutel</item>
         <item>S/MIME teken-alleen</item>
         <item>S/MIME teken+versleutel</item>
+    </string-array>
+    <string-array name="sizeNames">
+        <item>0 B</item>
+        <item>256 KB</item>
+        <item>512 KB</item>
+        <item>1 MB</item>
+        <item>2 MB</item>
+        <item>5 MB</item>
+        <item>10 MB</item>
+        <item>20 MB</item>
+        <item>50 MB</item>
     </string-array>
 </resources>

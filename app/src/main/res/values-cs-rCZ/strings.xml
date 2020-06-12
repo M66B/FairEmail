@@ -236,9 +236,9 @@
     <string name="title_advanced_section_encryption">Šifrování</string>
     <string name="title_advanced_section_notifications">Oznámení</string>
     <string name="title_advanced_section_misc">Ostatní</string>
-    <string name="title_advanced_receive">Přijímat zprávy</string>
+    <string name="title_advanced_receive">Přijímat zprávy pro všechny účty</string>
     <string name="title_advanced_when">Kdy</string>
-    <string name="title_advanced_always">Tyto účty synchronizovat vždy</string>
+    <string name="title_advanced_always">Vždy přijímat zprávy pro tyto účty</string>
     <string name="title_advanced_schedule">Plán</string>
     <string name="title_advanced_advanced">Pokročilé</string>
     <string name="title_advanced_no_date">Zprávy bez data</string>
@@ -252,7 +252,6 @@
     <string name="title_advanced_subscriptions">Spravovat odběry složek</string>
     <string name="title_advanced_check_mx">Kontrolovat e-mailové adresy odesílatelů při synchronizaci zpráv</string>
     <string name="title_advanced_check_reply">Kontrolovat e-mailové adresy pro odpověď při synchronizaci zpráv</string>
-    <string name="title_advanced_tune_keep_alive">Automatically tune the keep-alive interval</string>
     <string name="title_advanced_keyboard">Automaticky zobrazit klávesnici</string>
     <string name="title_advanced_suggest_local">Navrhovat lokálně uložené kontakty</string>
     <string name="title_advanced_suggest_sent">Navrhovat adresy nalezené v odeslaných zprávách</string>
@@ -263,8 +262,8 @@
     <string name="title_advanced_quote_reply">Citovat text odpovědi</string>
     <string name="title_advanced_resize_reply">Upravit velikost obrázků v textu odpovědi</string>
     <string name="title_advanced_signature_location">Umístění podpisu</string>
-    <string name="title_advanced_signature_reply">Use signature when replying</string>
-    <string name="title_advanced_signature_forward">Use signature when forwarding</string>
+    <string name="title_advanced_signature_reply">Použít podpis při odpovědi</string>
+    <string name="title_advanced_signature_forward">Použít podpis při přeposlání</string>
     <string name="title_advanced_plain_only">Automaticky odeslat pouze prostý text</string>
     <string name="title_advanced_flow">\'format flowed\' pro prostý text</string>
     <string name="title_advanced_receipt">Při požadování potvrzení</string>
@@ -417,7 +416,7 @@
     <string name="title_advanced_fts_indexed">Indexováno %1$d / %2$d zpráv (%3$s)</string>
     <string name="title_advanced_english">Použít nastavení země USA</string>
     <string name="title_advanced_watchdog">Pravidelně kontrolovat, zda je FairEmail stále aktivní</string>
-    <string name="title_advanced_optimize">Automaticky optimalizovat nastavení</string>
+    <string name="title_advanced_optimize">Automaticky optimalizovat</string>
     <string name="title_advanced_updates">Kontrolovat aktualizace</string>
     <string name="title_advanced_experiments">Vyzkoušet experimentální funkce</string>
     <string name="title_advanced_crash_reports">Odesílat zprávy o chybách</string>
@@ -427,10 +426,6 @@
     <string name="title_advanced_last_cleanup">Poslední čištění: %1$s</string>
     <string name="title_advanced_app">Nastavení aplikace</string>
     <string name="title_advanced_more">Více možností</string>
-    <string name="title_advanced_enabled_hint">Globálně zakáže nebo povolí příjem zpráv</string>
-    <string name="title_advanced_manual_hint">Je-li synchronizace vypnuta, stále je možné synchronizovat ručně tažením dolů v seznamu zpráv.</string>
-    <string name="title_advanced_poll_hint">Synchronizování periodicky bude pokaždé porovnávat lokální a vzdálené zprávy, což je náročná operace, potencionálně vedoucí ke zvýšené spotřebě baterie, zvláště při velkém množství zpráv k synchronizaci. Synchronizování nepřetržitě tomuto předchází průběžným nasloucháním pouze změnám.</string>
-    <string name="title_advanced_optimized_hint">Tuto možnost lze optimalizovat automaticky (ostatní nastavení)</string>
     <string name="title_advanced_schedule_hint">Pro změnu času se jej dotkněte</string>
     <string name="title_advanced_no_date_hint">Někteří poskytovatelé ukládají zprávy s neznámým, neplatným nebo budoucím datem jako zprávy bez data</string>
     <string name="title_advanced_unseen_hint">Někteří poskytovatelé toto nepodporují korektně, což může způsobit synchronizaci všech nebo žádných zpráv</string>
@@ -484,7 +479,6 @@
     <string name="title_advanced_notify_no_channels">Tato verze Androidu nepodporuje kanály oznámení</string>
     <string name="title_advanced_fts_hint">Povolením se zlepší výkon vyhledávání, ale také se zvýší využití baterie a místa v úložišti</string>
     <string name="title_advanced_english_hint">Restartuje aplikaci</string>
-    <string name="title_advanced_optimize_hint">Povolení umožní automatickou změnu nastavení příjmu pro snížení spotřeby baterie</string>
     <string name="title_advanced_experiments_hint">Seznam aktuálních experimentálních funkcí</string>
     <string name="title_advanced_debug_hint">Zapnout rozšířený záznam a zobrazit ladící informace na různých místech</string>
     <string name="title_advanced_cleanup_attachments_hint">Při ručním čištění odebere přílohy ze zpráv, které již nejsou synchronizovány</string>
@@ -855,7 +849,6 @@
         Pro hledání i na serveru, stiskněte tlačítko \"Hledat znovu\".
     </string>
     <string name="title_search_index_hint">Hledání s pomocí indexu vyhledávání je rychlé, ale najde pouze celá slova</string>
-    <string name="title_search_text_hint">Některé e-mailové servery mají potíže s hledáním textu ve velkém množství zpráv</string>
     <string name="title_search_more">Více možností</string>
     <string name="title_search_use_index">Použít index vyhledávání</string>
     <string name="title_search_in_senders">V odesílatelích (od)</string>
@@ -869,6 +862,7 @@
     <string name="title_search_with_hidden">Skryto (pouze v zařízení)</string>
     <string name="title_search_with_encrypted">Šifrováno (pouze v zařízení)</string>
     <string name="title_search_with_attachments">S přílohami (pouze v zařízení)</string>
+    <string name="title_search_with_size">Velikost zprávy větší než</string>
     <string name="title_search_with_before">Před</string>
     <string name="title_search_with_after">Po</string>
     <string name="title_search_flag_unseen">nepřečteno</string>
@@ -876,6 +870,7 @@
     <string name="title_search_flag_hidden">skryto</string>
     <string name="title_search_flag_encrypted">šifrováno</string>
     <string name="title_search_flag_attachments">přílohy</string>
+    <string name="title_search_flag_size">velikost &gt; %1$s</string>
     <string name="title_search_device">Hledat v zařízení</string>
     <string name="title_search_server">Hledat na serveru</string>
     <string name="title_search_in">Hledat v</string>
@@ -1309,5 +1304,16 @@
         <item>PGP podpis+šifrovat</item>
         <item>S/MIME pouze podpis</item>
         <item>S/MIME podpis+šifrovat</item>
+    </string-array>
+    <string-array name="sizeNames">
+        <item>0 B</item>
+        <item>256 KB</item>
+        <item>512 KB</item>
+        <item>1 MB</item>
+        <item>2 MB</item>
+        <item>5 MB</item>
+        <item>10 MB</item>
+        <item>20 MB</item>
+        <item>50 MB</item>
     </string-array>
 </resources>

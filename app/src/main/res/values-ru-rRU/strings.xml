@@ -236,9 +236,7 @@
     <string name="title_advanced_section_encryption">Шифрование</string>
     <string name="title_advanced_section_notifications">Уведомления</string>
     <string name="title_advanced_section_misc">Разное</string>
-    <string name="title_advanced_receive">Получить сообщения</string>
     <string name="title_advanced_when">Когда</string>
-    <string name="title_advanced_always">Всегда синхронизировать эти учётные записи</string>
     <string name="title_advanced_schedule">Расписание</string>
     <string name="title_advanced_advanced">Дополнительно</string>
     <string name="title_advanced_no_date">Сообщения без даты</string>
@@ -417,7 +415,6 @@
     <string name="title_advanced_fts_indexed">%1$d / %2$d сообщений проиндексировано (%3$s)</string>
     <string name="title_advanced_english">Использовать настройки для США</string>
     <string name="title_advanced_watchdog">Регулярно проверять, активен ли FairEmail</string>
-    <string name="title_advanced_optimize">Автоматически оптимизировать настройки</string>
     <string name="title_advanced_updates">Проверять наличие обновлений</string>
     <string name="title_advanced_experiments">Попробовать экспериментальные функции</string>
     <string name="title_advanced_crash_reports">Отправлять отчёты об ошибках</string>
@@ -427,10 +424,6 @@
     <string name="title_advanced_last_cleanup">Последняя очистка: %1$s</string>
     <string name="title_advanced_app">Настройки приложения</string>
     <string name="title_advanced_more">Другие возможности</string>
-    <string name="title_advanced_enabled_hint">Глобальное включение/отключение получения сообщений</string>
-    <string name="title_advanced_manual_hint">Если синхронизация отключена, она может быть произведена вручную, потянув вниз список сообщений.</string>
-    <string name="title_advanced_poll_hint">Периодическая синхронизация будет каждый раз сравнивать сообщения на сервере с локальными. Это \"дорогая\" операция, которая может привести к высокому потреблению заряда батареи, особенно когда сообщений для синхронизации много. Непрерывная синхронизация избегает этого, постоянно отслеживая только изменения.</string>
-    <string name="title_advanced_optimized_hint">Эта функция может быть оптимизирована автоматически (разные настройки)</string>
     <string name="title_advanced_schedule_hint">Нажмите на время, чтобы установить его</string>
     <string name="title_advanced_no_date_hint">Некоторые провайдеры хранят сообщения с неизвестными, недействительными или будущими датами как сообщения без даты</string>
     <string name="title_advanced_unseen_hint">Некоторые провайдеры не поддерживают эту функцию правильно, что может привести к синхронизации всех или ни одного сообщения</string>
@@ -484,7 +477,6 @@
     <string name="title_advanced_notify_no_channels">Эта версия Android не поддерживает каналы уведомлений</string>
     <string name="title_advanced_fts_hint">Включение этой функции улучшит скорость поиска, но также увеличит расход батареи и занимаемое место в хранилище</string>
     <string name="title_advanced_english_hint">Произойдёт перезапуск приложения</string>
-    <string name="title_advanced_optimize_hint">Включение этого параметра автоматически изменит настройки получения, чтобы уменьшить расход заряда батареи</string>
     <string name="title_advanced_experiments_hint">Список текущих экспериментальных функций</string>
     <string name="title_advanced_debug_hint">Включить дополнительное журналирование и показывать отладочную информацию в различных местах</string>
     <string name="title_advanced_cleanup_attachments_hint">При ручной очистке будут удалены вложения сообщений, которые больше не синхронизируются</string>
@@ -855,7 +847,6 @@
         Чтобы также выполнить поиск на сервере, нажмите кнопку \"Новый поиск\".
     </string>
     <string name="title_search_index_hint">Индексированный поиск быстрый, но ищет только целые слова</string>
-    <string name="title_search_text_hint">Некоторые почтовые серверы не могут найти текст во множестве сообщений</string>
     <string name="title_search_more">Дополнительные параметры</string>
     <string name="title_search_use_index">Использовать поисковый индекс</string>
     <string name="title_search_in_senders">В отправителях (от)</string>

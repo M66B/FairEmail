@@ -156,7 +156,6 @@
     <string name="title_setup_doze_battery">Suuri akun käyttö?</string>
     <string name="title_setup_doze_stopped">Keskeytyikö synkronointi?</string>
     <string name="title_setup_data">Datan säästäjä on käytössä</string>
-    <string name="title_setup_advanced_options">Show advanced options</string>
     <string name="title_setup_inbox">Siirry viesteihin</string>
     <string name="title_setup_go">Aloita</string>
     <string name="title_setup_to_do">Tehtävänä</string>
@@ -212,9 +211,7 @@
     <string name="title_advanced_section_encryption">Salaus</string>
     <string name="title_advanced_section_notifications">Ilmoitukset</string>
     <string name="title_advanced_section_misc">Sekalaiset</string>
-    <string name="title_advanced_receive">Vastaanota viestejä</string>
     <string name="title_advanced_when">Milloin</string>
-    <string name="title_advanced_always">Synkronoi aina nämä tilit</string>
     <string name="title_advanced_schedule">Aikataulu</string>
     <string name="title_advanced_advanced">Lisäasetukset</string>
     <string name="title_advanced_no_date">Viestit ilman päivämäärää</string>
@@ -224,11 +221,9 @@
     <string name="title_advanced_kept_removed">Tarkista onko vanhoja viestejä poistettu palvelimelta</string>
     <string name="title_advanced_gmail_thread">Gmailin viestiryhmittelytyyli Gmail-tileille</string>
     <string name="title_advanced_sync_folders">Synkronoi kansiolista</string>
-    <string name="title_advanced_sync_shared_folders">Synchronize shared folder lists</string>
     <string name="title_advanced_subscriptions">Hallinnoi tilattuja kansioita</string>
     <string name="title_advanced_check_mx">Tarkista lähettäjien sähköpostiosoitteet viestejä synkronoitaessa</string>
     <string name="title_advanced_check_reply">Tarkista vastaussähköpostiosoitteet viestejä synkronoitaessa</string>
-    <string name="title_advanced_tune_keep_alive">Automatically tune the keep-alive interval</string>
     <string name="title_advanced_keyboard">Näytä näppäimistö oletuksena</string>
     <string name="title_advanced_suggest_local">Ehdota paikallisesti tallennettuja yhteystietoja</string>
     <string name="title_advanced_suggest_sent">Ehdota lähetetyistä viesteistä löytyviä osoitteita</string>
@@ -239,8 +234,6 @@
     <string name="title_advanced_quote_reply">Lainaa vastattu teksti</string>
     <string name="title_advanced_resize_reply">Muuta vastatun tekstin kuvien koot</string>
     <string name="title_advanced_signature_location">Allekirjoituksen sijainti</string>
-    <string name="title_advanced_signature_reply">Use signature when replying</string>
-    <string name="title_advanced_signature_forward">Use signature when forwarding</string>
     <string name="title_advanced_plain_only">Lähetä muotoilemattomana tekstinä oletuksena</string>
     <string name="title_advanced_flow">\'format flowed\' muotoilemattomalle tekstille</string>
     <string name="title_advanced_receipt">Pyydettäessä kuittausta</string>
@@ -379,7 +372,6 @@
     <string name="title_advanced_openpgp">OpenPGP-palveluntarjoaja</string>
     <string name="title_advanced_autocrypt">Käytä Autocryptiä</string>
     <string name="title_advanced_autocrypt_mutual">Autocrypt molemminpuolinen tila</string>
-    <string name="title_advanced_check_certificate">Check public key on sending</string>
     <string name="title_advanced_manage_certificates">Hallinnoi julkisia avaimia</string>
     <string name="title_advanced_import_key">Tuo yksityinen avain</string>
     <string name="title_advanced_manage_keys">Hallinnoi yksityisiä avaimia</string>
@@ -393,7 +385,6 @@
     <string name="title_advanced_fts_indexed">%1$d / %2$d viestiä indeksoitu (%3$s)</string>
     <string name="title_advanced_english">Käytä Yhdysvaltojen maa-asetusta</string>
     <string name="title_advanced_watchdog">Tarkista toistuvasti, että FairEmail on edelleen aktiivinen</string>
-    <string name="title_advanced_optimize">Optimoi asetukset automaattisesti</string>
     <string name="title_advanced_updates">Päivitysten tarkastus</string>
     <string name="title_advanced_experiments">Käytä kokeellisia ominaisuuksia</string>
     <string name="title_advanced_crash_reports">Lähetä virheraportit</string>
@@ -403,10 +394,6 @@
     <string name="title_advanced_last_cleanup">Viimeisin puhdistus: %1$s</string>
     <string name="title_advanced_app">Sovellusasetukset</string>
     <string name="title_advanced_more">Lisää asetuksia</string>
-    <string name="title_advanced_enabled_hint">Estä tai salli viestien vastaanotto globaalisti</string>
-    <string name="title_advanced_manual_hint">Jos automaattinen synkronointi on pois käytöstä, synkronoinnin voi tehdä manuaalisesti vetämällä alaspäin viestilistassa.</string>
-    <string name="title_advanced_poll_hint">Ajoittainen synkronointi vertaa paikallisia ja palvelimen viestejä joka kerta ja voi aiheuttaa ylimääräistä akun käyttöä varsinkin, kun synkronoitavia viestejä on paljon. Koko ajan synkronointi välttää tämän synkronoimalla jatkuvasti vain muutokset.</string>
-    <string name="title_advanced_optimized_hint">Tämä valinta voidaan optimoida automaattisesti (sekaliset asetukset)</string>
     <string name="title_advanced_schedule_hint">Napauta aikaa asettaaksesi sen</string>
     <string name="title_advanced_no_date_hint">Jotkin palveluntarjoajat tallentavat viestien virheelliset tai tulevaisuudessa olevat päivämäärät puuttuvina</string>
     <string name="title_advanced_unseen_hint">Jotkin palveluntarjoajat eivät tue tätä kunnolla, mikä voi aiheuttaa kaikkien tai ei minkään viestin synkronoinnin</string>
@@ -460,7 +447,6 @@
     <string name="title_advanced_notify_no_channels">Tämä Android-versio ei tue ilmoituskanavia</string>
     <string name="title_advanced_fts_hint">Tämän käyttöönotto parantaa haun suorituskykyä, mutta myös lisää akun ja tallennustilan käyttöä</string>
     <string name="title_advanced_english_hint">Tämä käynnistää sovelluksen uudelleen</string>
-    <string name="title_advanced_optimize_hint">Tämän ottaminen käyttöön voi muuttaa automaattisesti vastaanottoasetuksia akun säästämiseksi</string>
     <string name="title_advanced_experiments_hint">Lista kokeellisista ominaisuuksista</string>
     <string name="title_advanced_debug_hint">Salli ylimääräinen lokitietojen tallennus ja näytä debug-tietoja</string>
     <string name="title_advanced_cleanup_attachments_hint">Manuaalisesti siivottaessa tämä poistaa liitteet viesteistä, joita ei enää synkronoida</string>
@@ -831,7 +817,6 @@
         Palvelimelta hakeaksesi näpäytä uudelleenhakupainiketta.
     </string>
     <string name="title_search_index_hint">Hakuindeksin kautta etsiminen on nopeampaa, mutta se löytää vain kokonaisia sanoja</string>
-    <string name="title_search_text_hint">Joillain sähköpostipalvelimilla on vaikeuksia löytää tekstiä monista viesteistä</string>
     <string name="title_search_more">Lisää asetuksia</string>
     <string name="title_search_use_index">Käytä haun indeksiä</string>
     <string name="title_search_in_senders">Lähettäjistä</string>

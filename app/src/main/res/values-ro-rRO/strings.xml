@@ -99,7 +99,6 @@
     <string name="menu_contacts">Contacte locale</string>
     <string name="menu_setup">Setări</string>
     <string name="menu_legend">Legendă</string>
-    <string name="menu_test">Test program</string>
     <string name="menu_faq">Suport tehnic</string>
     <string name="menu_translate">Ajută la traducere</string>
     <string name="menu_issue">Raportaţi o problemă</string>
@@ -224,9 +223,7 @@
     <string name="title_advanced_section_encryption">Criptare</string>
     <string name="title_advanced_section_notifications">Notificări</string>
     <string name="title_advanced_section_misc">Diverse</string>
-    <string name="title_advanced_receive">Primire mesaje</string>
     <string name="title_advanced_when">Când</string>
-    <string name="title_advanced_always">Sincronizează mereu aceste conturi</string>
     <string name="title_advanced_schedule">Programat</string>
     <string name="title_advanced_advanced">Avansate</string>
     <string name="title_advanced_no_date">Mesaje fără dată</string>
@@ -405,7 +402,6 @@
     <string name="title_advanced_fts_indexed">%1$d / %2$d mesaje indexate (%3$s)</string>
     <string name="title_advanced_english">Utilizați setările pentru țara SUA</string>
     <string name="title_advanced_watchdog">Verifică periodic dacă FairEmail este încă activ</string>
-    <string name="title_advanced_optimize">Optimizează automat setările</string>
     <string name="title_advanced_updates">Verificare actualizări aplicație</string>
     <string name="title_advanced_experiments">Încercați funcţii experimentale</string>
     <string name="title_advanced_crash_reports">Trimite rapoarte de eroare</string>
@@ -415,10 +411,6 @@
     <string name="title_advanced_last_cleanup">Ultima curățare: %1$s</string>
     <string name="title_advanced_app">Setări aplicație</string>
     <string name="title_advanced_more">Mai multe opțiuni</string>
-    <string name="title_advanced_enabled_hint">Activează sau dezactivează global recepția mesajelor</string>
-    <string name="title_advanced_manual_hint">Dacă sincronizarea este dezactivată tot este posibilă sincronizarea manuală glisând în jos lista de mesaje.</string>
-    <string name="title_advanced_poll_hint">Sincronizarea periodică va compara mesajele locale cu cele de pe server de fiecare dată, aceasta este o operațiune costisitoare ce va rezulta într-un consum ridicat al bateriei, mai ales atunci când sunt multe mesaje de sincronizat. Modul de sincronizare permanent evită asta prin monitorizarea continuă a schimbărilor.</string>
-    <string name="title_advanced_optimized_hint">Această opțiune poate fi optimizată automat (diverse setări)</string>
     <string name="title_advanced_schedule_hint">Atingeţi data pentru a seta un timp</string>
     <string name="title_advanced_no_date_hint">Unii furnizori stochează mesaje cu o dată necunoscută, invalidă sau viitoare ca mesaje fără dată</string>
     <string name="title_advanced_unseen_hint">Unii furnizori nu suportă asta în mod corect, fapt ce va duce la sincronizarea tuturor mesajelor sau a nici unuia</string>
@@ -472,7 +464,6 @@
     <string name="title_advanced_notify_no_channels">Această versiune de Android nu suportă canale de notificare</string>
     <string name="title_advanced_fts_hint">Activată îmbunătățește performanța de căutare, dar de asemenea crește folosirea bateriei și a spațiului de stocare</string>
     <string name="title_advanced_english_hint">Aplicația se va restarta</string>
-    <string name="title_advanced_optimize_hint">Activarea acesteia poate modifica automat setările de primire pentru a reduce utilizarea bateriei</string>
     <string name="title_advanced_experiments_hint">Lista de funcții experimentale curente</string>
     <string name="title_advanced_debug_hint">Activați înregistrări suplimentare în jurnalul aplicației și afișați informații de depanare în diferite locuri</string>
     <string name="title_advanced_cleanup_attachments_hint">Când se curăță manual, se vor elimina atașamentele din mesajele care nu mai sunt sincronizate</string>
@@ -843,7 +834,6 @@
         Pentru a căuta și pe server apăsați butonul \'căutare din nou\'.
     </string>
     <string name="title_search_index_hint">Căutarea prin indexul de căutare este rapidă, dar va găsi doar cuvinte întregi</string>
-    <string name="title_search_text_hint">Unele servere de e-mail au probleme în a găsi text în multe mesaje</string>
     <string name="title_search_more">Mai multe opțiuni</string>
     <string name="title_search_use_index">Folosește index de căutare</string>
     <string name="title_search_in_senders">În expeditori (de la)</string>

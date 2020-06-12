@@ -202,9 +202,7 @@
     <string name="title_advanced_section_encryption">加密</string>
     <string name="title_advanced_section_notifications">通知</string>
     <string name="title_advanced_section_misc">杂项</string>
-    <string name="title_advanced_receive">接收消息</string>
     <string name="title_advanced_when">何时</string>
-    <string name="title_advanced_always">总是同步这些账户</string>
     <string name="title_advanced_schedule">计划任务</string>
     <string name="title_advanced_advanced">高级</string>
     <string name="title_advanced_no_date">不含日期的消息</string>
@@ -383,7 +381,6 @@
     <string name="title_advanced_fts_indexed">%1$d / %2$d 的消息已索引(%3$s)</string>
     <string name="title_advanced_english">使用美国国家设置</string>
     <string name="title_advanced_watchdog">定期检查 FairEmail 是否仍在运行</string>
-    <string name="title_advanced_optimize">自动优化设置</string>
     <string name="title_advanced_updates">检查更新</string>
     <string name="title_advanced_experiments">尝试实验性功能</string>
     <string name="title_advanced_crash_reports">发送错误报告</string>
@@ -393,10 +390,6 @@
     <string name="title_advanced_last_cleanup">上次清理: %1$s</string>
     <string name="title_advanced_app">应用设置</string>
     <string name="title_advanced_more">更多选项</string>
-    <string name="title_advanced_enabled_hint">全局禁用或启用邮件接收</string>
-    <string name="title_advanced_manual_hint">即便禁用同步，仍然可以通过下拉消息列表手动同步。</string>
-    <string name="title_advanced_poll_hint">定期同步将每次都比较本地和远程消息，这是有代价的操作(更耗电)，特别是在要同步的消息很多时。而始终同步可通过持续监视变化以避免发生上述情形</string>
-    <string name="title_advanced_optimized_hint">此选项可被自动优化 (杂项设置)</string>
     <string name="title_advanced_schedule_hint">点击“时间”选项来设置时间</string>
     <string name="title_advanced_no_date_hint">某些供应商将未知、无效或未来日期的消息存储为不含日期的消息</string>
     <string name="title_advanced_unseen_hint">一些邮件服务提供商对该功能支持不佳，这可能导致同步所有消息或一条消息也不同步</string>
@@ -450,7 +443,6 @@
     <string name="title_advanced_notify_no_channels">此Android版本不支持通知通道</string>
     <string name="title_advanced_fts_hint">启用此功能将提高搜索性能，但也会增加电池和存储空间用量</string>
     <string name="title_advanced_english_hint">这将重新启动应用程序</string>
-    <string name="title_advanced_optimize_hint">启用此功能可以自动更改接收设置以减少电池损耗</string>
     <string name="title_advanced_experiments_hint">当前实验性功能列表</string>
     <string name="title_advanced_debug_hint">启用额外日志并在不同地方显示调试信息</string>
     <string name="title_advanced_cleanup_attachments_hint">手动清理时，这将从不再同步的消息中移除附件</string>
@@ -821,7 +813,6 @@
         若也要搜索服务器上的内容，请点击“再次搜索”按钮
     </string>
     <string name="title_search_index_hint">通过搜索索引搜索很快，但只能找到整个单词</string>
-    <string name="title_search_text_hint">某些电子邮件服务器在许多消息中查找文本方面存在缺陷</string>
     <string name="title_search_more">更多选项</string>
     <string name="title_search_use_index">使用以下搜索索引</string>
     <string name="title_search_in_senders">发件人 (发送自)</string>

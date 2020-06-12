@@ -235,9 +235,7 @@
     <string name="title_advanced_section_encryption">Szyfrowanie</string>
     <string name="title_advanced_section_notifications">Powiadomienia</string>
     <string name="title_advanced_section_misc">Różne</string>
-    <string name="title_advanced_receive">Odbierz wiadomości</string>
     <string name="title_advanced_when">Kiedy</string>
-    <string name="title_advanced_always">Zawsze synchronizuj te konta</string>
     <string name="title_advanced_schedule">Harmonogram</string>
     <string name="title_advanced_advanced">Zaawansowane</string>
     <string name="title_advanced_no_date">Wiadomości bez daty</string>
@@ -251,7 +249,7 @@
     <string name="title_advanced_subscriptions">Zarządzaj subskrypcjami folderów</string>
     <string name="title_advanced_check_mx">Sprawdź adresy e-mail nadawcy przy synchronizowaniu wiadomości</string>
     <string name="title_advanced_check_reply">Sprawdź adresy e-mail odpowiedzi podczas synchronizacji wiadomości</string>
-    <string name="title_advanced_tune_keep_alive">Automatically tune the keep-alive interval</string>
+    <string name="title_advanced_tune_keep_alive">Automatycznie dostosuj interwał zachowania aktywności</string>
     <string name="title_advanced_keyboard">Domyślnie pokaż klawiaturę</string>
     <string name="title_advanced_suggest_local">Proponuj kontakty przechowywane lokalnie</string>
     <string name="title_advanced_suggest_sent">Proponuj adresy znalezione w wysłanych wiadomościach</string>
@@ -262,8 +260,8 @@
     <string name="title_advanced_quote_reply">Cytuj treść w odpowiedzi</string>
     <string name="title_advanced_resize_reply">Zmień rozmiar zdjęć w treści odpowiedzi</string>
     <string name="title_advanced_signature_location">Pozycja podpisu</string>
-    <string name="title_advanced_signature_reply">Use signature when replying</string>
-    <string name="title_advanced_signature_forward">Use signature when forwarding</string>
+    <string name="title_advanced_signature_reply">Użyj podpisu podczas odpowiedzi</string>
+    <string name="title_advanced_signature_forward">Użyj podpisu podczas przekazywania</string>
     <string name="title_advanced_plain_only">Domyślnie wysyłaj czystym tekstem</string>
     <string name="title_advanced_flow">\'Format flowed\' dla zwykłego tekstu</string>
     <string name="title_advanced_receipt">Podczas żądania potwierdzenia</string>
@@ -416,7 +414,6 @@
     <string name="title_advanced_fts_indexed">Zindeksowano %1$d / %2$d Wiadomości (%3$s)</string>
     <string name="title_advanced_english">Użyj ustawień kraju US</string>
     <string name="title_advanced_watchdog">Okresowo sprawdzaj, czy FairEmail jest nadal aktywny</string>
-    <string name="title_advanced_optimize">Automatycznie optymalizuj ustawienia</string>
     <string name="title_advanced_updates">Sprawdź aktualizacje</string>
     <string name="title_advanced_experiments">Wypróbuj funkcje eksperymentalne</string>
     <string name="title_advanced_crash_reports">Wyślij raport o błędach</string>
@@ -426,10 +423,6 @@
     <string name="title_advanced_last_cleanup">Ostatnie czyszczenie: %1$s</string>
     <string name="title_advanced_app">Ustawienia aplikacji</string>
     <string name="title_advanced_more">Więcej opcji</string>
-    <string name="title_advanced_enabled_hint">Globalnie wyłącz lub włącz odbieranie wiadomości</string>
-    <string name="title_advanced_manual_hint">Jeśli synchronizacja jest wyłączona, nadal można synchronizować ręcznie, przeciągając listę wiadomości.</string>
-    <string name="title_advanced_poll_hint">Synchronizacja okresowa za każdym razem porównuje wiadomości lokalne i zdalne, co jest kosztowną operacją, która może prowadzić do dodatkowego zużycia baterii, zwłaszcza gdy jest wiele wiadomości do synchronizacji. Synchronizacja ciągła pozwoli uniknąć tego poprzez stałe monitorowanie tylko zmian.</string>
-    <string name="title_advanced_optimized_hint">Ta opcja może być optymalizowana automatycznie (różne ustawienia)</string>
     <string name="title_advanced_schedule_hint">Dotknij zegara, aby ustawić czas</string>
     <string name="title_advanced_no_date_hint">Niektórzy dostawcy przechowują wiadomości z nieznaną, niepoprawną lub przyszłą datą jako wiadomości bez daty</string>
     <string name="title_advanced_unseen_hint">Niektórzy dostawcy nie obsługują tego poprawnie, co może powodować brak synchronizacji lub synchronizację wszystkich wiadomości</string>
@@ -483,7 +476,6 @@
     <string name="title_advanced_notify_no_channels">Ta wersja Androida nie obsługuje kanałów powiadomień</string>
     <string name="title_advanced_fts_hint">Włączenie tej opcji poprawia wydajność wyszukiwania, ale także zwiększa zużycie baterii i przestrzeni dyskowej</string>
     <string name="title_advanced_english_hint">Spowoduje to ponowne uruchomienie aplikacji</string>
-    <string name="title_advanced_optimize_hint">Włączenie tej opcji może automatycznie zmienić ustawienia odbioru, aby zmniejszyć zużycie baterii</string>
     <string name="title_advanced_experiments_hint">Lista aktualnych funkcji eksperymentalnych</string>
     <string name="title_advanced_debug_hint">Włącz dodatkowe rejestrowanie i wyświetlaj informacje debugowania w różnych miejscach</string>
     <string name="title_advanced_cleanup_attachments_hint">Podczas ręcznego czyszczenia spowoduje to usunięcie załączników z wiadomości, które nie są już synchronizowane</string>
@@ -854,7 +846,6 @@
         Aby wyszukiwanie objęło również serwer, dotknij przycisku \'Szukaj ponownie\'.
     </string>
     <string name="title_search_index_hint">Wyszukiwanie za pomocą indeksu wyszukiwania jest szybkie, ale znajdzie tylko całe słowa</string>
-    <string name="title_search_text_hint">Niektóre serwery e-mail mają problem ze znalezieniem tekstu w wielu wiadomościach</string>
     <string name="title_search_more">Więcej opcji</string>
     <string name="title_search_use_index">Użyj indeksu wyszukiwania</string>
     <string name="title_search_in_senders">W nadawcach (od)</string>

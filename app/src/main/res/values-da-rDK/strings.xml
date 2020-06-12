@@ -214,9 +214,7 @@
     <string name="title_advanced_section_encryption">Kryptering</string>
     <string name="title_advanced_section_notifications">Notifikationer</string>
     <string name="title_advanced_section_misc">Diverse</string>
-    <string name="title_advanced_receive">Beskedmodtagelse</string>
     <string name="title_advanced_when">Når</string>
-    <string name="title_advanced_always">Synkronisér altid disse konti</string>
     <string name="title_advanced_schedule">Planlægning</string>
     <string name="title_advanced_advanced">Avanceret</string>
     <string name="title_advanced_no_date">Beskeder uden dato</string>
@@ -230,7 +228,6 @@
     <string name="title_advanced_subscriptions">Håndér mappeabonnementer</string>
     <string name="title_advanced_check_mx">Tjek afsenderadresser ved beskedsynkroniseringer</string>
     <string name="title_advanced_check_reply">Tjek svar e-mailadresser ved beskedsynkroniseringer</string>
-    <string name="title_advanced_tune_keep_alive">Automatically tune the keep-alive interval</string>
     <string name="title_advanced_keyboard">Vis tastatur som standard</string>
     <string name="title_advanced_suggest_local">Foreslår lokalt lagrede kontakter</string>
     <string name="title_advanced_suggest_sent">Foreslå adresser fra sendte beskeder</string>
@@ -241,8 +238,6 @@
     <string name="title_advanced_quote_reply">Citat af svartekst</string>
     <string name="title_advanced_resize_reply">Skalér billedstørrelse i tekstsvaret</string>
     <string name="title_advanced_signature_location">Signaturposition</string>
-    <string name="title_advanced_signature_reply">Use signature when replying</string>
-    <string name="title_advanced_signature_forward">Use signature when forwarding</string>
     <string name="title_advanced_plain_only">Send kun simpel tekst som standard</string>
     <string name="title_advanced_flow">\'format flowed\' til simpel tekst</string>
     <string name="title_advanced_receipt">Når kvittering udbedes</string>
@@ -395,7 +390,6 @@
     <string name="title_advanced_fts_indexed">%1$d/%2$d beskeder indekseret (%3$s)</string>
     <string name="title_advanced_english">Benyt landeinstillinger fra U.S.A.</string>
     <string name="title_advanced_watchdog">Tjek periodisk om FairEmail stadig er aktiv</string>
-    <string name="title_advanced_optimize">Optimér indstillinger automarisk</string>
     <string name="title_advanced_updates">Søg efter opdateringer</string>
     <string name="title_advanced_experiments">Prøv eksperimentelle funktioner</string>
     <string name="title_advanced_crash_reports">Send fejlrapporter</string>
@@ -405,10 +399,6 @@
     <string name="title_advanced_last_cleanup">Sidste oprydning: %1$s</string>
     <string name="title_advanced_app">App-indstillinger</string>
     <string name="title_advanced_more">Flere valgmuligheder</string>
-    <string name="title_advanced_enabled_hint">Deaktivér/aktivér global modtagelse af beskeder</string>
-    <string name="title_advanced_manual_hint">Er synkronisering deaktiveret, er det stadig muligt at synkronisere manuelt ved at trække beskedlisten ned.</string>
-    <string name="title_advanced_poll_hint">Periodisk synkronisering vil hver gang sammenligne lokale og fjernplacerede beskeder, hvilket koster en del resssourcer, herunder et muligt ekstra strømforbrug, især hvis der er mange beskeder at synkronisere. Kontinuerlig synkronisering undgår dette ved løbende kun at tjekke for ændringer.</string>
-    <string name="title_advanced_optimized_hint">Denne indstilling kan auto-optimeres (div. indstillinger)</string>
     <string name="title_advanced_schedule_hint">Tryk på et tidspunkt for at angive et tidspunkt</string>
     <string name="title_advanced_no_date_hint">Visse udbydere gemmer beskeder med en ukendt, ugyldig eller fremtidig dato som beskeder uden en dato</string>
     <string name="title_advanced_unseen_hint">Visse udbydere understøtter ikke dette ordentligt, hvilket kan forårsage synkronisering af ingen eller alle beskeder</string>
@@ -462,7 +452,6 @@
     <string name="title_advanced_notify_no_channels">Denne Android-version understøtter ikke notifikationskanaler</string>
     <string name="title_advanced_fts_hint">Aktivering af dette forøger søgeydelsen, men forøge også batteri- og lagerpladsforbruget</string>
     <string name="title_advanced_english_hint">Dette vil genstarte app\'en</string>
-    <string name="title_advanced_optimize_hint">Aktivering af dette kan automatisk ændre modtagelsesindstillingerne for at reducere strømforbruget</string>
     <string name="title_advanced_experiments_hint">Liste over aktuelle eksperimentelle funktioner</string>
     <string name="title_advanced_debug_hint">Aktivér ekstra logning og vis fejlretningsoplysninger forskellige steder</string>
     <string name="title_advanced_cleanup_attachments_hint">Ved manuel rensning, vil dette fjerner vedhæftninger fra beskeder, som ikke længere synkroniseres</string>
@@ -833,7 +822,6 @@
          For også at søge på serveren, tryk på knappen \'søg igen\'.
     </string>
     <string name="title_search_index_hint">Søgning via søgeindekset er hurtig, men vil kun finde hele ord</string>
-    <string name="title_search_text_hint">Visse e-mailservere har problemer med at finde tekst i mange beskeder</string>
     <string name="title_search_more">Flere valgmuligheder</string>
     <string name="title_search_use_index">Benyt søgeindeks</string>
     <string name="title_search_in_senders">I afsendere (Fra)</string>

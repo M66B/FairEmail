@@ -213,9 +213,7 @@
     <string name="title_advanced_section_encryption">Kryptering</string>
     <string name="title_advanced_section_notifications">Aviseringar</string>
     <string name="title_advanced_section_misc">Diverse</string>
-    <string name="title_advanced_receive">Ta emot meddelanden</string>
     <string name="title_advanced_when">När</string>
-    <string name="title_advanced_always">Synkronisera alltid dessa konton</string>
     <string name="title_advanced_schedule">Schema</string>
     <string name="title_advanced_advanced">Avancerat</string>
     <string name="title_advanced_no_date">Meddelanden utan datum</string>
@@ -240,8 +238,8 @@
     <string name="title_advanced_quote_reply">Citera svarstext</string>
     <string name="title_advanced_resize_reply">Ändra storlek på bilder i svarande text</string>
     <string name="title_advanced_signature_location">Signaturens position</string>
-    <string name="title_advanced_signature_reply">Use signature when replying</string>
-    <string name="title_advanced_signature_forward">Use signature when forwarding</string>
+    <string name="title_advanced_signature_reply">Använd signatur vid svar</string>
+    <string name="title_advanced_signature_forward">Använd signatur vid vidarebefordran</string>
     <string name="title_advanced_plain_only">Skicka bara vanlig text som standard</string>
     <string name="title_advanced_flow">\'Formatera flöde\' för oformaterad text</string>
     <string name="title_advanced_receipt">När kvitto begärs</string>
@@ -394,7 +392,6 @@
     <string name="title_advanced_fts_indexed">%1$d / %2$d meddelanden indexerade (%3$s)</string>
     <string name="title_advanced_english">Använd amerikanska (US) inställningar</string>
     <string name="title_advanced_watchdog">Kontrollera regelbundet om FairEmail fortfarande är aktiv</string>
-    <string name="title_advanced_optimize">Optimera inställningarna automatiskt</string>
     <string name="title_advanced_updates">Sök efter uppdateringar</string>
     <string name="title_advanced_experiments">Prova experimentella funktioner</string>
     <string name="title_advanced_crash_reports">Skicka felrapporter</string>
@@ -404,10 +401,6 @@
     <string name="title_advanced_last_cleanup">Senaste rensning: %1$s</string>
     <string name="title_advanced_app">App-inställningar</string>
     <string name="title_advanced_more">Fler alternativ</string>
-    <string name="title_advanced_enabled_hint">Globalt inaktivera eller aktivera mottagning av meddelanden</string>
-    <string name="title_advanced_manual_hint">Om synkroniseringen är inaktiverad är det fortfarande möjligt att synkronisera manuellt genom att dra ner meddelandelistan.</string>
-    <string name="title_advanced_poll_hint">Synkronisering med jämna mellanrum kommer att jämföra lokala och fjärrmeddelanden varje gång, vilket är en dyr operation som eventuellt resulterar i extra batterianvändning, speciellt när det finns många meddelanden att synkronisera. Kontinuerlig synkronisering kommer att undvika detta genom kontinuerlig övervakning endast för ändringar.</string>
-    <string name="title_advanced_optimized_hint">Detta alternativ kan optimeras automatiskt (diverse inställningar)</string>
     <string name="title_advanced_schedule_hint">Tryck på en tid för att ställa in en tid</string>
     <string name="title_advanced_no_date_hint">Vissa leverantörer lagrar meddelanden med ett okänt, ogiltigt eller framtida datum som meddelanden utan datum</string>
     <string name="title_advanced_unseen_hint">Vissa leverantörer stödjer inte detta korrekt, vilket kan orsaka synkronisering av inga eller alla meddelanden</string>
@@ -461,7 +454,6 @@
     <string name="title_advanced_notify_no_channels">Den här Android-versionen stödjer inte notifikationsgruppering</string>
     <string name="title_advanced_fts_hint">Att aktivera detta förbättrar sökprestandan, men ökar både batteri- och utrymmesanvändingen</string>
     <string name="title_advanced_english_hint">Detta startar om appen</string>
-    <string name="title_advanced_optimize_hint">Aktivering av detta kan automatiskt ändra mottagningsinställningarna för att minska batterianvändningen</string>
     <string name="title_advanced_experiments_hint">Lista över aktuella experimentella funktioner</string>
     <string name="title_advanced_debug_hint">Aktivera extra loggning och visa felsökningsinformation på olika ställen</string>
     <string name="title_advanced_cleanup_attachments_hint">När du städar manuellt kommer detta att ta bort bilagor från meddelanden som inte längre är synkroniserade</string>
@@ -832,7 +824,6 @@
         För att söka på servern också, tryck på knappen \"Sök igen\".
     </string>
     <string name="title_search_index_hint">Sökning via index är snabbt, men kommer bara att hitta hela ord</string>
-    <string name="title_search_text_hint">Vissa e-postservrar har svårt att hitta text i många meddelanden</string>
     <string name="title_search_more">Fler alternativ</string>
     <string name="title_search_use_index">Använd sökindex</string>
     <string name="title_search_in_senders">I avsändare (från)</string>
