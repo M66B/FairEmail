@@ -313,6 +313,26 @@ public class FragmentRule extends FragmentBase {
         for (int day = Calendar.SUNDAY; day <= Calendar.SATURDAY; day++)
             adapterDay.add(dayNames[day]);
 
+        AdapterView.OnItemSelectedListener onItemSelectedListener = new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                parent.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        parent.requestFocusFromTouch();
+                    }
+                });
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Do nothing
+            }
+        };
+
+        spScheduleDayStart.setOnItemSelectedListener(onItemSelectedListener);
+        spScheduleDayEnd.setOnItemSelectedListener(onItemSelectedListener);
+
         tvScheduleHourStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -364,6 +384,13 @@ public class FragmentRule extends FragmentBase {
                     onActionSelected(action.type);
                 }
                 adapterView.setTag(position);
+
+                adapterView.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        adapterView.requestFocusFromTouch();
+                    }
+                });
             }
 
             @Override
@@ -402,6 +429,11 @@ public class FragmentRule extends FragmentBase {
                 fragment.show(getParentFragmentManager(), "rule:color");
             }
         });
+
+        spImportance.setOnItemSelectedListener(onItemSelectedListener);
+        spTarget.setOnItemSelectedListener(onItemSelectedListener);
+        spIdent.setOnItemSelectedListener(onItemSelectedListener);
+        spAnswer.setOnItemSelectedListener(onItemSelectedListener);
 
         tvAutomation.setText(getString(R.string.title_rule_automation_hint,
                 EntityRule.ACTION_AUTOMATION,
