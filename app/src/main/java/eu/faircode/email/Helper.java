@@ -472,8 +472,10 @@ public class Helper {
             builder.setToolbarColor(resolveColor(context, R.attr.colorPrimary));
             builder.setSecondaryToolbarColor(resolveColor(context, R.attr.colorPrimaryDark));
             builder.setColorScheme(Helper.isDarkTheme(context)
-                    ? CustomTabsIntent.COLOR_SCHEME_DARK : CustomTabsIntent.COLOR_SCHEME_LIGHT);
-            builder.addDefaultShareMenuItem();
+                    ? CustomTabsIntent.COLOR_SCHEME_DARK
+                    : CustomTabsIntent.COLOR_SCHEME_LIGHT);
+            builder.setDefaultShareMenuItemEnabled(true);
+            builder.setUrlBarHidingEnabled(true);
 
             CustomTabsIntent customTabsIntent = builder.build();
             try {
