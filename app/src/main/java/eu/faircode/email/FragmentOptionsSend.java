@@ -56,6 +56,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private SwitchCompat swResizeReply;
     private Spinner spSignatureLocation;
     private SwitchCompat swSignatureReply;
+    private SwitchCompat swSignatureForward;
 
     private SwitchCompat swPlainOnly;
     private SwitchCompat swFormatFlowed;
@@ -68,7 +69,8 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private final static String[] RESET_OPTIONS = new String[]{
             "keyboard", "suggest_sent", "suggested_received", "suggest_frequently",
             "send_reminders", "send_delayed",
-            "prefix_once", "extended_reply", "quote_reply", "resize_reply", "signature_location", "signature_reply",
+            "prefix_once", "extended_reply", "quote_reply", "resize_reply",
+            "signature_location", "signature_reply", "signature_forward",
             "plain_only", "format_flowed", "usenet_signature", "remove_signatures",
             "receipt_default", "receipt_type", "lookup_mx"
     };
@@ -97,6 +99,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swResizeReply = view.findViewById(R.id.swResizeReply);
         spSignatureLocation = view.findViewById(R.id.spSignatureLocation);
         swSignatureReply = view.findViewById(R.id.swSignatureReply);
+        swSignatureForward = view.findViewById(R.id.swSignatureForward);
 
         swPlainOnly = view.findViewById(R.id.swPlainOnly);
         swFormatFlowed = view.findViewById(R.id.swFormatFlowed);
@@ -214,6 +217,13 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("signature_reply", checked).apply();
+            }
+        });
+
+        swSignatureForward.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("signature_forward", checked).apply();
             }
         });
 
@@ -341,6 +351,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         spSignatureLocation.setSelection(signature_location);
 
         swSignatureReply.setChecked(prefs.getBoolean("signature_reply", true));
+        swSignatureForward.setChecked(prefs.getBoolean("signature_forward", true));
 
         swPlainOnly.setChecked(prefs.getBoolean("plain_only", false));
         swFormatFlowed.setChecked(prefs.getBoolean("format_flowed", false));

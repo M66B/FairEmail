@@ -3391,6 +3391,10 @@ public class FragmentCompose extends FragmentBase {
                         // Signature
                         if ("reply".equals(action) || "reply_all".equals(action))
                             data.draft.signature = prefs.getBoolean("signature_reply", true);
+                        else if ("forward".equals(action))
+                            data.draft.signature = prefs.getBoolean("signature_forward", true);
+                        else
+                            data.draft.signature = false;
 
                         // Reply header
                         String s = args.getString("selected");
