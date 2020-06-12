@@ -239,7 +239,8 @@
     <string name="title_advanced_quote_reply">Aipatu erantzundako testua</string>
     <string name="title_advanced_resize_reply">Aldatu irudien tamaina erantzundako testuan</string>
     <string name="title_advanced_signature_location">Sinaduraren kokapena</string>
-    <string name="title_advanced_signature_end">Gehitu sinadura aipatutako/bidalitako mezuaren ondoren</string>
+    <string name="title_advanced_signature_reply">Use signature when replying</string>
+    <string name="title_advanced_signature_forward">Use signature when forwarding</string>
     <string name="title_advanced_plain_only">Bidali testu soil hutsa lehenetsita</string>
     <string name="title_advanced_flow">egokitu formatua testu soilean</string>
     <string name="title_advanced_receipt">Agiria eskatzean</string>

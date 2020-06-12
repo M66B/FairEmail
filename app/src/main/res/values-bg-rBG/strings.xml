@@ -241,7 +241,8 @@
     <string name="title_advanced_quote_reply">Цитирай текста в отговора</string>
     <string name="title_advanced_resize_reply">Преоразмерете изображенията в текста за отговор</string>
     <string name="title_advanced_signature_location">Позиция на подписа</string>
-    <string name="title_advanced_signature_end">Добавете подпис след цитирано/препратено съобщение</string>
+    <string name="title_advanced_signature_reply">Use signature when replying</string>
+    <string name="title_advanced_signature_forward">Use signature when forwarding</string>
     <string name="title_advanced_plain_only">Изпращане на обикновен текст по подразбиране</string>
     <string name="title_advanced_flow">\'форматиран поток\' за обикновен текст</string>
     <string name="title_advanced_receipt">При искане на разписка</string>

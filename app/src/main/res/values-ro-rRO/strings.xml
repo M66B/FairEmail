@@ -240,7 +240,7 @@
     <string name="title_advanced_subscriptions">Gestionați abonările la dosare</string>
     <string name="title_advanced_check_mx">Verifică adresa expeditorului la sincronizarea mesajelor</string>
     <string name="title_advanced_check_reply">Verifică adresa destinatarului la sincronizarea mesajelor</string>
-    <string name="title_advanced_tune_keep_alive">Automatically tune the keep-alive interval</string>
+    <string name="title_advanced_tune_keep_alive">Reglaţi automat intervalul de păstrare al conexiunii</string>
     <string name="title_advanced_keyboard">Afișare implicită a tastaturii</string>
     <string name="title_advanced_suggest_local">Sugerează contacte stocate local</string>
     <string name="title_advanced_suggest_sent">Sugerează adrese găsite în mesajele trimise</string>
@@ -251,7 +251,8 @@
     <string name="title_advanced_quote_reply">Citează textul la care răspunzi</string>
     <string name="title_advanced_resize_reply">Redimensionează imaginile în textul cu răspuns</string>
     <string name="title_advanced_signature_location">Poziție semnătură</string>
-    <string name="title_advanced_signature_end">Adaugă semnătură după mesajul citat/redirecționat</string>
+    <string name="title_advanced_signature_reply">Utilizați semnătura la răspuns</string>
+    <string name="title_advanced_signature_forward">Utilizați semnătura la redirecționare</string>
     <string name="title_advanced_plain_only">Trimite implicit ca text simplu</string>
     <string name="title_advanced_flow">\'format fluent\' pentru text simplu</string>
     <string name="title_advanced_receipt">Când se cere o confirmare</string>

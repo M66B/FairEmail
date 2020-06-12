@@ -252,7 +252,7 @@
     <string name="title_advanced_subscriptions">Управление подпиской на папки</string>
     <string name="title_advanced_check_mx">Проверять адреса электронной почты отправителя при синхронизации сообщений</string>
     <string name="title_advanced_check_reply">Проверять адреса электронной почты для ответа при синхронизации сообщений</string>
-    <string name="title_advanced_tune_keep_alive">Automatically tune the keep-alive interval</string>
+    <string name="title_advanced_tune_keep_alive">Автоматически настраивать интервал keep-alive</string>
     <string name="title_advanced_keyboard">Показывать клавиатуру по умолчанию</string>
     <string name="title_advanced_suggest_local">Предлагать локальные контакты</string>
     <string name="title_advanced_suggest_sent">Предлагать адреса, найденные в отправленных сообщениях</string>
@@ -263,7 +263,8 @@
     <string name="title_advanced_quote_reply">Цитировать текст при ответе</string>
     <string name="title_advanced_resize_reply">Менять размер изображений в ответе</string>
     <string name="title_advanced_signature_location">Расположение подписи</string>
-    <string name="title_advanced_signature_end">Добавлять подпись после цитаты/пересылаемого сообщения</string>
+    <string name="title_advanced_signature_reply">Использовать подпись при ответе</string>
+    <string name="title_advanced_signature_forward">Использовать подпись при пересылке</string>
     <string name="title_advanced_plain_only">По умолчанию отправлять простым текстом</string>
     <string name="title_advanced_flow">\"Пластичное\" форматирование обычного текста</string>
     <string name="title_advanced_receipt">При запросе уведомления</string>

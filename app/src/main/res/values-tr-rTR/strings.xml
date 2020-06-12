@@ -241,7 +241,8 @@
     <string name="title_advanced_quote_reply">Cevap metnini alıntıla</string>
     <string name="title_advanced_resize_reply">Resize images in replied text</string>
     <string name="title_advanced_signature_location">İmza konumu</string>
-    <string name="title_advanced_signature_end">Alıntılanan/iletilen mesajdan sonra imza ekle</string>
+    <string name="title_advanced_signature_reply">Use signature when replying</string>
+    <string name="title_advanced_signature_forward">Use signature when forwarding</string>
     <string name="title_advanced_plain_only">Öntanımlı olarak yalnızca düz metin gönder</string>
     <string name="title_advanced_flow">\'format flowed\' for plain text</string>
     <string name="title_advanced_receipt">When requesting a receipt</string>

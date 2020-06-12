@@ -241,7 +241,8 @@
     <string name="title_advanced_quote_reply">Sitat svarte tekst</string>
     <string name="title_advanced_resize_reply">Resize images in replied text</string>
     <string name="title_advanced_signature_location">Signaturposisjon</string>
-    <string name="title_advanced_signature_end">Legg til signatur etter sitert/videresendt melding</string>
+    <string name="title_advanced_signature_reply">Use signature when replying</string>
+    <string name="title_advanced_signature_forward">Use signature when forwarding</string>
     <string name="title_advanced_plain_only">Send bare vanlig tekst som standard</string>
     <string name="title_advanced_flow">\'format strømmet\' for ren tekst</string>
     <string name="title_advanced_receipt">Når du ber om kvittering</string>

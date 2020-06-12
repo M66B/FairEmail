@@ -250,7 +250,8 @@
     <string name="title_advanced_quote_reply">Citiraj odgovoreni tekst</string>
     <string name="title_advanced_resize_reply">Resize images in replied text</string>
     <string name="title_advanced_signature_location">Položaj potpisa</string>
-    <string name="title_advanced_signature_end">Dodajte potpis nakon citirane / proslijeđene poruke</string>
+    <string name="title_advanced_signature_reply">Use signature when replying</string>
+    <string name="title_advanced_signature_forward">Use signature when forwarding</string>
     <string name="title_advanced_plain_only">Standardno šaljite samo običan tekst</string>
     <string name="title_advanced_flow">\'format teče\' za obični tekst</string>
     <string name="title_advanced_receipt">Kada tražite potvrdu</string>

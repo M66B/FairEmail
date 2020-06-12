@@ -230,7 +230,8 @@
     <string name="title_advanced_quote_reply">Quote replied text</string>
     <string name="title_advanced_resize_reply">Resize images in replied text</string>
     <string name="title_advanced_signature_location">Signature position</string>
-    <string name="title_advanced_signature_end">Add signature after quoted/forwarded message</string>
+    <string name="title_advanced_signature_reply">Use signature when replying</string>
+    <string name="title_advanced_signature_forward">Use signature when forwarding</string>
     <string name="title_advanced_plain_only">Send plain text only by default</string>
     <string name="title_advanced_flow">\'format flowed\' for plain text</string>
     <string name="title_advanced_receipt">When requesting a receipt</string>

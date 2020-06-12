@@ -230,7 +230,7 @@
     <string name="title_advanced_subscriptions">Gérer les abonnements aux dossiers</string>
     <string name="title_advanced_check_mx">Vérifier l\'adresse e-mail de l\'expéditeur lors de la synchronisation des messages</string>
     <string name="title_advanced_check_reply">Vérifier les adresses e-mail de réponse lors de la synchronisation des messages</string>
-    <string name="title_advanced_tune_keep_alive">Automatically tune the keep-alive interval</string>
+    <string name="title_advanced_tune_keep_alive">Ajuster automatiquement l\'intervalle de connexion</string>
     <string name="title_advanced_keyboard">Afficher le clavier par défaut</string>
     <string name="title_advanced_suggest_local">Suggérer les contacts stockés localement</string>
     <string name="title_advanced_suggest_sent">Suggérer les adresses trouvées dans les messages envoyés</string>
@@ -241,7 +241,8 @@
     <string name="title_advanced_quote_reply">Citer le texte répondu</string>
     <string name="title_advanced_resize_reply">Redimensionner les images dans le texte de la réponse</string>
     <string name="title_advanced_signature_location">Emplacement de la signature</string>
-    <string name="title_advanced_signature_end">Ajouter la signature après le message cité/transféré</string>
+    <string name="title_advanced_signature_reply">Utiliser la signature lors de la réponse</string>
+    <string name="title_advanced_signature_forward">Utiliser la signature lors du transfert</string>
     <string name="title_advanced_plain_only">Envoyer uniquement le texte brut par défaut</string>
     <string name="title_advanced_flow">Utiliser \'format flowed\' pour le texte brut</string>
     <string name="title_advanced_receipt">Lorsque vous demandez une confirmation</string>

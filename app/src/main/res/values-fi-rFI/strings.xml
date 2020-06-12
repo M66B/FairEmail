@@ -239,7 +239,8 @@
     <string name="title_advanced_quote_reply">Lainaa vastattu teksti</string>
     <string name="title_advanced_resize_reply">Muuta vastatun tekstin kuvien koot</string>
     <string name="title_advanced_signature_location">Allekirjoituksen sijainti</string>
-    <string name="title_advanced_signature_end">Lisää allekirjoitus lainatun/edelleenlähetetyn viestin jälkeen</string>
+    <string name="title_advanced_signature_reply">Use signature when replying</string>
+    <string name="title_advanced_signature_forward">Use signature when forwarding</string>
     <string name="title_advanced_plain_only">Lähetä muotoilemattomana tekstinä oletuksena</string>
     <string name="title_advanced_flow">\'format flowed\' muotoilemattomalle tekstille</string>
     <string name="title_advanced_receipt">Pyydettäessä kuittausta</string>

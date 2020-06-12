@@ -263,7 +263,8 @@
     <string name="title_advanced_quote_reply">Citovat text odpovědi</string>
     <string name="title_advanced_resize_reply">Upravit velikost obrázků v textu odpovědi</string>
     <string name="title_advanced_signature_location">Umístění podpisu</string>
-    <string name="title_advanced_signature_end">Připojit podpis za citovanou/přeposílanou zprávu</string>
+    <string name="title_advanced_signature_reply">Use signature when replying</string>
+    <string name="title_advanced_signature_forward">Use signature when forwarding</string>
     <string name="title_advanced_plain_only">Automaticky odeslat pouze prostý text</string>
     <string name="title_advanced_flow">\'format flowed\' pro prostý text</string>
     <string name="title_advanced_receipt">Při požadování potvrzení</string>

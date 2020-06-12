@@ -218,7 +218,7 @@
     <string name="title_advanced_subscriptions">管理文件夹订阅</string>
     <string name="title_advanced_check_mx">同步消息时检查发送者电子邮件地址</string>
     <string name="title_advanced_check_reply">同步消息时检查回复邮件地址</string>
-    <string name="title_advanced_tune_keep_alive">Automatically tune the keep-alive interval</string>
+    <string name="title_advanced_tune_keep_alive">自动调整keep-alive间隔</string>
     <string name="title_advanced_keyboard">默认显示键盘</string>
     <string name="title_advanced_suggest_local">建议本地存储的联系人</string>
     <string name="title_advanced_suggest_sent">建议在已发送消息中找到的地址</string>
@@ -229,7 +229,8 @@
     <string name="title_advanced_quote_reply">引用回复文本</string>
     <string name="title_advanced_resize_reply">调整回复文本中图像的大小</string>
     <string name="title_advanced_signature_location">签名位置</string>
-    <string name="title_advanced_signature_end">在引用/转发消息后添加签名</string>
+    <string name="title_advanced_signature_reply">回复时使用签名</string>
+    <string name="title_advanced_signature_forward">转发时使用签名</string>
     <string name="title_advanced_plain_only">默认仅发送纯文本</string>
     <string name="title_advanced_flow">对纯文本采用”格式流动式“（format flowed）引用文本换行</string>
     <string name="title_advanced_receipt">请求回执时</string>

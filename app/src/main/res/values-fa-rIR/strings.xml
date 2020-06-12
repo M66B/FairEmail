@@ -241,7 +241,8 @@
     <string name="title_advanced_quote_reply">متن پاسخ نقل قول شده</string>
     <string name="title_advanced_resize_reply">تغییر اندازه تصاویر در متن پاسخ داده شده</string>
     <string name="title_advanced_signature_location">موقعیت امضاء</string>
-    <string name="title_advanced_signature_end">افزودن امضا بعد از پیام نقل‌شده/هدایت‌شده</string>
+    <string name="title_advanced_signature_reply">Use signature when replying</string>
+    <string name="title_advanced_signature_forward">Use signature when forwarding</string>
     <string name="title_advanced_plain_only">فقط متن ساده را به صورت پیشفرض بفرست</string>
     <string name="title_advanced_flow">\'format flowed\' for plain text</string>
     <string name="title_advanced_receipt">هنگام درخواست رسید</string>

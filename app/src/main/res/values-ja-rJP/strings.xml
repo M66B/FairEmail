@@ -228,7 +228,8 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_quote_reply">返信テキスト時に引用符を付ける</string>
     <string name="title_advanced_resize_reply">返信したテキストの画像のサイズを変更する</string>
     <string name="title_advanced_signature_location">署名の場所</string>
-    <string name="title_advanced_signature_end">引用/転送されたメッセージの後に署名を追加</string>
+    <string name="title_advanced_signature_reply">Use signature when replying</string>
+    <string name="title_advanced_signature_forward">Use signature when forwarding</string>
     <string name="title_advanced_plain_only">デフォルトでプレーンテキストのみを送信</string>
     <string name="title_advanced_flow">プレーンテキストの \'フォーマットフロー\'</string>
     <string name="title_advanced_receipt">受取をリクエストする時</string>

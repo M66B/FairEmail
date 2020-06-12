@@ -241,7 +241,8 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_quote_reply">Megválaszolt szöveg idézése</string>
     <string name="title_advanced_resize_reply">Képek átméretezése válaszolt szövegben</string>
     <string name="title_advanced_signature_location">Aláírás pozíció</string>
-    <string name="title_advanced_signature_end">Aláírás beillesztése az idézett/továbbított szöveg után</string>
+    <string name="title_advanced_signature_reply">Use signature when replying</string>
+    <string name="title_advanced_signature_forward">Use signature when forwarding</string>
     <string name="title_advanced_plain_only">Nyers szöveg alapértelmezett küldése</string>
     <string name="title_advanced_flow">\'format flowed\' üres szöveghez</string>
     <string name="title_advanced_receipt">Visszajelzés kérésekor</string>

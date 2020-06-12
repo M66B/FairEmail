@@ -242,7 +242,8 @@
     <string name="title_advanced_quote_reply">Citar texto respondido</string>
     <string name="title_advanced_resize_reply">Redimensionar imagens em texto respondido</string>
     <string name="title_advanced_signature_location">Posição da assinatura</string>
-    <string name="title_advanced_signature_end">Adicionar assinatura após mensagem citada/encaminhada</string>
+    <string name="title_advanced_signature_reply">Use signature when replying</string>
+    <string name="title_advanced_signature_forward">Use signature when forwarding</string>
     <string name="title_advanced_plain_only">Enviar texto simples por padrão</string>
     <string name="title_advanced_flow">Usar \'formato fluído\' para texto simples</string>
     <string name="title_advanced_receipt">Ao solicitar confirmação de entrega</string>

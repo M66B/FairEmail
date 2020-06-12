@@ -239,8 +239,9 @@
     <string name="title_advanced_extended_reply">Gebruik uitgebreide kop bij antwoorden/doorsturen</string>
     <string name="title_advanced_quote_reply">Haal beantwoorde tekst aan</string>
     <string name="title_advanced_resize_reply">Wijzig de grootte van de afbeeldingen in beantwoorde tekst</string>
-    <string name="title_advanced_signature_location">Positie ondertekening</string>
-    <string name="title_advanced_signature_end">Handtekening toevoegen na geciteerd/doorgestuurd bericht</string>
+    <string name="title_advanced_signature_location">Positie handtekening</string>
+    <string name="title_advanced_signature_reply">Gebruik handtekening bij antwoorden</string>
+    <string name="title_advanced_signature_forward">Gebruik handtekening bij doorsturen</string>
     <string name="title_advanced_plain_only">Verzend standaard platte tekst</string>
     <string name="title_advanced_flow">\'format flowed\' voor platte tekst</string>
     <string name="title_advanced_receipt">Bij het aanvragen van een bevestiging</string>

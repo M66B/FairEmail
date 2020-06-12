@@ -263,7 +263,8 @@
     <string name="title_advanced_quote_reply">Navedi besedilo, na katerega odgovarjam</string>
     <string name="title_advanced_resize_reply">V navedenem besedilu prilagodi velikost slik</string>
     <string name="title_advanced_signature_location">Položaj podpisa</string>
-    <string name="title_advanced_signature_end">Podpis dodaj pod navedenim/posredovanim sporočilom</string>
+    <string name="title_advanced_signature_reply">Use signature when replying</string>
+    <string name="title_advanced_signature_forward">Use signature when forwarding</string>
     <string name="title_advanced_plain_only">Privzeto pošlji samo golo besedilo</string>
     <string name="title_advanced_flow">\'Tekoča oblika\' za golo besedilo</string>
     <string name="title_advanced_receipt">Kadar zahtevam potrdilo</string>
