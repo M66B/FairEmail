@@ -238,7 +238,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [~~(116) How can I show images in messages from trusted senders by default?~~](#user-content-faq116)
 * [(117) Can you help me restore my purchase?](#user-content-faq117)
 * [(118) What does 'Remove tracking parameters' exactly?](#user-content-faq118)
-* [(119) Can you add colors to the unified inbox widget?](#user-content-faq119)
+* [~~(119) Can you add colors to the unified inbox widget?~~](#user-content-faq119)
 * [(120) Why are new message notifications not removed on opening the app?](#user-content-faq120)
 * [(121) How are messages grouped into a conversation?](#user-content-faq121)
 * [~~(122) Why is the recipient name/email address show with a warning color?~~](#user-content-faq122)
@@ -2533,12 +2533,12 @@ Checking *Remove tracking parameters* will remove all [UTM parameters](https://e
 <br />
 
 <a name="faq119"></a>
-**(119) Can you add colors to the unified inbox widget?**
+**~~(119) Can you add colors to the unified inbox widget?~~**
 
-The widget is designed to look good on most home/launcher screens by making it monochrome and by using a half transparent background.
-This way the widget will nicely blend in, while still being properly readable.
+~~The widget is designed to look good on most home/launcher screens by making it monochrome and by using a half transparent background.~~
+~~This way the widget will nicely blend in, while still being properly readable.~~
 
-Adding colors will cause problems with some backgrounds and will cause readability problems, which is why this won't be added.
+~~Adding colors will cause problems with some backgrounds and will cause readability problems, which is why this won't be added.~~
 
 Due to Android limitations it is not possible to dynamically set the opacity of the background and to have rounded corners at the same time.
 
