@@ -23,6 +23,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.util.AttributeSet;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 
 import androidx.annotation.NonNull;
@@ -165,6 +166,39 @@ public class FixedTextView extends AppCompatTextView {
                     at android.widget.Editor.performLongClick(Unknown:72)
                     at android.widget.TextView.performLongClick(Unknown:24)
 */
+            Log.w(ex);
+            return false;
+        }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        try {
+            return super.onKeyDown(keyCode, event);
+        } catch (Throwable ex) {
+            /*
+                java.lang.IllegalArgumentException
+                  at com.android.internal.util.Preconditions.checkArgument(Preconditions.java:33)
+                  at android.widget.SelectionActionModeHelper$TextClassificationHelper.init(SelectionActionModeHelper.java:641)
+                  at android.widget.SelectionActionModeHelper.resetTextClassificationHelper(SelectionActionModeHelper.java:204)
+                  at android.widget.SelectionActionModeHelper.startActionModeAsync(SelectionActionModeHelper.java:88)
+                  at android.widget.Editor.startSelectionActionModeAsync(Editor.java:2021)
+                  at android.widget.Editor.refreshTextActionMode(Editor.java:1966)
+                  at android.widget.TextView.spanChange(TextView.java:9525)
+                  at android.widget.TextView$ChangeWatcher.onSpanChanged(TextView.java:11973)
+                  at android.text.SpannableStringBuilder.sendSpanChanged(SpannableStringBuilder.java:1292)
+                  at android.text.SpannableStringBuilder.setSpan(SpannableStringBuilder.java:748)
+                  at android.text.SpannableStringBuilder.setSpan(SpannableStringBuilder.java:672)
+                  at android.text.Selection.extendSelection(Selection.java:102)
+                  at android.text.Selection.extendLeft(Selection.java:324)
+                  at android.text.method.ArrowKeyMovementMethod.left(ArrowKeyMovementMethod.java:72)
+                  at android.text.method.BaseMovementMethod.handleMovementKey(BaseMovementMethod.java:165)
+                  at android.text.method.ArrowKeyMovementMethod.handleMovementKey(ArrowKeyMovementMethod.java:65)
+                  at android.text.method.BaseMovementMethod.onKeyDown(BaseMovementMethod.java:42)
+                  at android.widget.TextView.doKeyDown(TextView.java:7367)
+                  at android.widget.TextView.onKeyDown(TextView.java:7117)
+                  at android.view.KeyEvent.dispatch(KeyEvent.java:2707)
+             */
             Log.w(ex);
             return false;
         }
