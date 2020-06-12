@@ -27,6 +27,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.database.sqlite.SQLiteDatabaseCorruptException;
 import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
@@ -192,9 +193,14 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                     new SimpleTask<Void>() {
                         @Override
                         protected Void onExecute(Context context, Bundle args) {
-                            SQLiteDatabase sdb = FtsDbHelper.getInstance(context);
-                            FtsDbHelper.delete(sdb);
-                            FtsDbHelper.optimize(sdb);
+                            try {
+                                SQLiteDatabase sdb = FtsDbHelper.getInstance(context);
+                                FtsDbHelper.delete(sdb);
+                                FtsDbHelper.optimize(sdb);
+                            } catch (SQLiteDatabaseCorruptException ex) {
+                                Log.e(ex);
+                                FtsDbHelper.delete(context);
+                            }
 
                             DB db = DB.getInstance(context);
                             db.message().resetFts();
