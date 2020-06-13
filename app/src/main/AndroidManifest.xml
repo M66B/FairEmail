@@ -39,10 +39,23 @@
 
     <!-- Android 11: https://developer.android.com/preview/privacy/package-visibility -->
     <queries>
-        <!--intent>
+        <intent>
             <action android:name="android.intent.action.VIEW" />
             <data android:mimeType="*/*" />
-        </intent-->
+        </intent>
+
+        <intent>
+            <action android:name="android.intent.action.GET_CONTENT" />
+            <data android:mimeType="*/*" />
+        </intent>
+
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE" />
+        </intent>
+
+        <intent>
+            <action android:name="android.provider.MediaStore.RECORD_SOUND" />
+        </intent>
 
         <package android:name="org.sufficientlysecure.keychain" />
         <package android:name="org.sufficientlysecure.keychain.debug" />
