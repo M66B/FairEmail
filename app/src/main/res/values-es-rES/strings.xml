@@ -215,7 +215,9 @@
     <string name="title_advanced_section_encryption">Cifrado</string>
     <string name="title_advanced_section_notifications">Notificaciones</string>
     <string name="title_advanced_section_misc">Misceláneas</string>
+    <string name="title_advanced_receive">Recibir mensajes para todas las cuentas</string>
     <string name="title_advanced_when">Cuando</string>
+    <string name="title_advanced_always">Siempre recibir mensajes para estas cuentas</string>
     <string name="title_advanced_schedule">Programar</string>
     <string name="title_advanced_advanced">Avanzado</string>
     <string name="title_advanced_no_date">Mensajes sin fecha</string>
@@ -394,6 +396,7 @@
     <string name="title_advanced_fts_indexed">%1$d / %2$d mensajes indexados (%3$s)</string>
     <string name="title_advanced_english">Usar ajustes de país de Estados Unidos</string>
     <string name="title_advanced_watchdog">Comprobar periódicamente si FairEmail sigue activo</string>
+    <string name="title_advanced_optimize">Optimizar automáticamente</string>
     <string name="title_advanced_updates">Buscar actualizaciones</string>
     <string name="title_advanced_experiments">Probar características experimentales</string>
     <string name="title_advanced_crash_reports">Enviar informes de errores</string>
@@ -403,6 +406,8 @@
     <string name="title_advanced_last_cleanup">Última limpieza: %1$s</string>
     <string name="title_advanced_app">Ajustes de la app</string>
     <string name="title_advanced_more">Más opciones</string>
+    <string name="title_advanced_manual_hint">Si la recepción de mensajes está desactivada, todavía es posible recibir mensajes manualmente tirando hacia abajo en la lista de mensajes</string>
+    <string name="title_advanced_poll_hint">Comprobar periódicamente si hay nuevos mensajes comparará los mensajes locales y remotos cada vez, lo que es una operación costosa que puede resultar en un uso adicional de la batería, especialmente si hay muchos mensajes. Siempre recibir evitará esto siguiendo continuamente los cambios.</string>
     <string name="title_advanced_schedule_hint">Toque en una hora para establecer una hora</string>
     <string name="title_advanced_no_date_hint">Algunos proveedores almacenan mensajes con una fecha desconocida, inválida o futura como mensajes sin fecha</string>
     <string name="title_advanced_unseen_hint">Algunos proveedores no soportan esto correctamente, lo que puede causar la sincronización de ninguno o todos los mensajes</string>
