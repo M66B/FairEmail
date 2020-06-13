@@ -48,6 +48,18 @@ android {
                 shaders = false
             }
         }
+
+        sourceSets {
+            github {
+                java.srcDirs = ['src/main/java', 'src/iab/java']
+            }
+            fdroid {
+                java.srcDirs = ['src/main/java', 'src/fdroid/java']
+            }
+            play {
+                java.srcDirs = ['src/main/java', 'src/iab/java']
+            }
+        }
     }
 
     dependenciesInfo {
@@ -76,13 +88,13 @@ android {
     }
 
     signingConfigs {
-        play {
+        release {
             storeFile file(keystoreProperties['storeFile'])
             storePassword keystoreProperties['storePassword']
             keyAlias keystoreProperties['keyAlias']
             keyPassword keystoreProperties['keyPassword']
         }
-        github {
+        v1 {
             storeFile file(keystoreProperties['storeFile'])
             storePassword keystoreProperties['storePassword']
             keyAlias keystoreProperties['keyAlias']
@@ -94,19 +106,12 @@ android {
     }
 
     buildTypes {
-        play {
+        release {
             debuggable = false
             minifyEnabled = true
             useProguard = true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.play
-        }
-        github {
-            debuggable = false
-            minifyEnabled = true
-            useProguard = true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.github
+            signingConfig signingConfigs.release
         }
         debug {
             applicationIdSuffix '.debug'
@@ -120,7 +125,7 @@ android {
     flavorDimensions "all"
 
     productFlavors {
-        full {
+        github {
             dimension "all"
             buildConfigField "boolean", "BETA_RELEASE", "true"
             buildConfigField "boolean", "PLAY_STORE_RELEASE", "false"
@@ -133,24 +138,23 @@ android {
             buildConfigField "String", "RECORDER_URI", "\"https://f-droid.org/packages/com.github.axet.audiorecorder/\""
             buildConfigField "String", "APPS_URI", "\"https://github.com/M66B?tab=repositories/\""
         }
-        play_beta {
+        fdroid {
+            dimension "all"
+            buildConfigField "boolean", "BETA_RELEASE", "true"
+            buildConfigField "boolean", "PLAY_STORE_RELEASE", "false"
+            buildConfigField "String", "INVITE_URI", "\"https://email.faircode.eu/\""
+            buildConfigField "String", "PRO_FEATURES_URI", "\"https://email.faircode.eu/donate/\""
+            buildConfigField "String", "CHANGELOG", "\"https://github.com/M66B/FairEmail/releases/\""
+            buildConfigField "String", "GITHUB_LATEST_API", "\"https://api.github.com/repos/M66B/open-source-email/releases/latest\""
+            buildConfigField "String", "OPENKEYCHAIN_URI", "\"https://f-droid.org/en/packages/org.sufficientlysecure.keychain/\""
+            buildConfigField "String", "CAMERA_URI", "\"https://f-droid.org/en/packages/net.sourceforge.opencamera/\""
+            buildConfigField "String", "RECORDER_URI", "\"https://f-droid.org/packages/com.github.axet.audiorecorder/\""
+            buildConfigField "String", "APPS_URI", "\"https://github.com/M66B?tab=repositories/\""
+        }
+        play {
             dimension "all"
             //minSdkVersion 23
             buildConfigField "boolean", "BETA_RELEASE", "true"
-            buildConfigField "boolean", "PLAY_STORE_RELEASE", "true"
-            buildConfigField "String", "INVITE_URI", "\"https://play.google.com/store/apps/details?id=eu.faircode.email\""
-            buildConfigField "String", "PRO_FEATURES_URI", "\"https://email.faircode.eu/#pro\""
-            buildConfigField "String", "CHANGELOG", "\"\""
-            buildConfigField "String", "GITHUB_LATEST_API", "\"\""
-            buildConfigField "String", "OPENKEYCHAIN_URI", "\"https://play.google.com/store/apps/details?id=org.sufficientlysecure.keychain\""
-            buildConfigField "String", "CAMERA_URI", "\"https://play.google.com/store/apps/details?id=net.sourceforge.opencamera\""
-            buildConfigField "String", "RECORDER_URI", "\"https://play.google.com/store/apps/details?id=com.github.axet.audiorecorder\""
-            buildConfigField "String", "APPS_URI", "\"https://play.google.com/store/apps/dev?id=8420080860664580239\""
-        }
-        play_release {
-            dimension "all"
-            //minSdkVersion 23
-            buildConfigField "boolean", "BETA_RELEASE", "false"
             buildConfigField "boolean", "PLAY_STORE_RELEASE", "true"
             buildConfigField "String", "INVITE_URI", "\"https://play.google.com/store/apps/details?id=eu.faircode.email\""
             buildConfigField "String", "PRO_FEATURES_URI", "\"https://email.faircode.eu/#pro\""
@@ -165,15 +169,10 @@ android {
 
     variantFilter { variant ->
         def flavors = variant.flavors*.name
-        // Builds: play, github, debug
-        // Flavors: full, play_beta, play_release
-        if (variant.buildType.name == "play" && flavors.contains("full")) {
-            setIgnore(true)
-        }
-        if (variant.buildType.name == "github" && flavors.contains("play_beta")) {
-            setIgnore(true)
-        }
-        if (flavors.contains("play_release")) {
+        // Builds: release, debug
+        // Flavors: github, fdroid, play
+        if (variant.buildType.name == "debug" &&
+                (flavors.contains("fdroid") || flavors.contains("play"))) {
             setIgnore(true)
         }
     }
