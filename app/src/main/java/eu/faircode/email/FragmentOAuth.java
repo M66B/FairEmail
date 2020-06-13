@@ -75,6 +75,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.mail.AuthenticationFailedException;
+
 import static android.app.Activity.RESULT_OK;
 
 public class FragmentOAuth extends FragmentBase {
@@ -95,6 +97,7 @@ public class FragmentOAuth extends FragmentBase {
 
     private TextView tvError;
     private TextView tvGmailDraftsHint;
+    private TextView tvOfficeAuthHint;
     private Button btnSupport;
 
     private Group grpError;
@@ -131,6 +134,7 @@ public class FragmentOAuth extends FragmentBase {
 
         tvError = view.findViewById(R.id.tvError);
         tvGmailDraftsHint = view.findViewById(R.id.tvGmailDraftsHint);
+        tvOfficeAuthHint = view.findViewById(R.id.tvOfficeAuthHint);
         btnSupport = view.findViewById(R.id.btnSupport);
 
         grpError = view.findViewById(R.id.grpError);
@@ -603,6 +607,10 @@ public class FragmentOAuth extends FragmentBase {
         if ("gmail".equals(id))
             tvGmailDraftsHint.setVisibility(View.VISIBLE);
 
+        if ("office365".equals(id) &&
+                ex instanceof AuthenticationFailedException)
+            tvOfficeAuthHint.setVisibility(View.VISIBLE);
+
         btnOAuth.setEnabled(true);
         pbOAuth.setVisibility(View.GONE);
 
@@ -617,5 +625,6 @@ public class FragmentOAuth extends FragmentBase {
     private void hideError() {
         grpError.setVisibility(View.GONE);
         tvGmailDraftsHint.setVisibility(View.GONE);
+        tvOfficeAuthHint.setVisibility(View.GONE);
     }
 }

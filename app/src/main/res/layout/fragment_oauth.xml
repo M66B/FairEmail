@@ -132,6 +132,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvError" />
 
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvOfficeAuthHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_setup_office_auth"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvGmailDraftsHint" />
+
         <Button
             android:id="@+id/btnSupport"
             android:layout_width="wrap_content"
@@ -142,7 +153,7 @@
             android:textColor="?attr/colorInfoForeground"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvGmailDraftsHint" />
+            app:layout_constraintTop_toBottomOf="@id/tvOfficeAuthHint" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpError"
