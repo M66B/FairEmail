@@ -320,7 +320,7 @@ public interface DaoMessage {
             " AND (NOT :hidden OR NOT ui_snoozed IS NULL)" +
             " AND (NOT :encrypted OR ui_encrypt > 0)" +
             " AND (NOT :attachments OR attachments > 0)" +
-            " AND (NOT :size OR total > :size)" +
+            " AND (:size IS NULL OR total > :size)" +
             " AND (:after IS NULL OR received > :after)" +
             " AND (:before IS NULL OR received < :before)" +
             " ORDER BY received DESC" +
