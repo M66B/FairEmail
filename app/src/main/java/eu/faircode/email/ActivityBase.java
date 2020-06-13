@@ -531,6 +531,16 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         return false;
     }
 
+    @Override
+    public boolean shouldUpRecreateTask(Intent targetIntent) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q + 1) {
+            ComponentName cn = targetIntent.getComponent();
+            if (cn != null && BuildConfig.APPLICATION_ID.equals(cn.getPackageName()))
+                return false;
+        }
+        return super.shouldUpRecreateTask(targetIntent);
+    }
+
     public interface IKeyPressedListener {
         boolean onKeyPressed(KeyEvent event);
 
