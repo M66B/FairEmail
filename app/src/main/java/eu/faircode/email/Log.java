@@ -1152,16 +1152,24 @@ public class Log {
         File file = attachment.getFile(context);
         try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
             List<EntityAccount> accounts = db.account().getAccounts();
+            size += write(os, "accounts=" + accounts.size() + "\r\n");
             for (EntityAccount account : accounts)
                 try {
                     JSONObject jaccount = account.toJSON();
                     jaccount.put("state", account.state);
                     jaccount.put("warning", account.warning);
                     jaccount.put("error", account.error);
+
                     if (account.last_connected != null)
                         jaccount.put("last_connected", new Date(account.last_connected).toString());
+
+                    jaccount.put("keep_alive_ok", account.keep_alive_ok);
+                    jaccount.put("keep_alive_failed", account.keep_alive_failed);
+                    jaccount.put("keep_alive_succeeded", account.keep_alive_succeeded);
+
                     jaccount.remove("user");
                     jaccount.remove("password");
+
                     size += write(os, "==========\r\n");
                     size += write(os, jaccount.toString(2) + "\r\n");
 
