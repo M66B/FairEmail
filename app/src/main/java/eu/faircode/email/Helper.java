@@ -353,7 +353,8 @@ public class Helper {
         PackageManager pm = context.getPackageManager();
         Intent view = new Intent(Intent.ACTION_VIEW, uri);
 
-        for (ResolveInfo info : pm.queryIntentActivities(view, 0)) {
+        List<ResolveInfo> ris = pm.queryIntentActivities(view, 0);
+        for (ResolveInfo info : ris) {
             Intent intent = new Intent();
             intent.setAction(ACTION_CUSTOM_TABS_CONNECTION);
             intent.setPackage(info.activityInfo.packageName);

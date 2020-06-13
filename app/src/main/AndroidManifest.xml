@@ -38,11 +38,15 @@
         android:required="false" />
 
     <!-- Android 11: https://developer.android.com/preview/privacy/package-visibility -->
-    <!--queries>
-        <intent>
-            <action android:name="org.openintents.openpgp.IOpenPgpService2" />
-        </intent>
-    </queries-->
+    <queries>
+        <!--intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:mimeType="*/*" />
+        </intent-->
+
+        <package android:name="org.sufficientlysecure.keychain" />
+        <package android:name="org.sufficientlysecure.keychain.debug" />
+    </queries>
 
     <application
         android:name=".ApplicationEx"
