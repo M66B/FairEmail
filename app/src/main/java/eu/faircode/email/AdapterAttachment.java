@@ -115,7 +115,10 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             String extension = MimeTypeMap.getSingleton().getExtensionFromMimeType(attachment.getMimeType());
             if (extension != null)
                 resid = context.getResources().getIdentifier("file_" + extension, "drawable", context.getPackageName());
-            ivType.setImageResource(resid == 0 ? R.drawable.baseline_description_24 : resid);
+            if (resid == 0)
+                ivType.setImageDrawable(null);
+            else
+                ivType.setImageResource(resid);
 
             tvName.setText(attachment.name);
 

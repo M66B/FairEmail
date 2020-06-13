@@ -33,7 +33,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/tvType"
             app:layout_constraintStart_toEndOf="@id/ibDelete"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/baseline_description_24" />
+            app:srcCompat="@drawable/file_bin" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvName"
