@@ -356,8 +356,6 @@ public class FragmentSetup extends FragmentBase {
             public void onChanged(@Nullable List<EntityAccount> accounts) {
                 done = (accounts != null && accounts.size() > 0);
 
-                getActivity().invalidateOptionsMenu();
-
                 tvQuickRemark.setVisibility(done ? View.VISIBLE : View.GONE);
 
                 tvAccountDone.setText(done ? R.string.title_setup_done : R.string.title_setup_to_do);

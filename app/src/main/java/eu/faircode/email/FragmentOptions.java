@@ -25,18 +25,26 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.MatrixCursor;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.SearchView;
 import androidx.constraintlayout.widget.Group;
+import androidx.cursoradapter.widget.SimpleCursorAdapter;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
@@ -74,6 +82,7 @@ public class FragmentOptions extends FragmentBase {
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_options, container, false);
+        setHasOptionsMenu(true);
 
         pager = view.findViewById(R.id.pager);
         adapter = new PagerAdapter(getChildFragmentManager());
@@ -142,6 +151,97 @@ public class FragmentOptions extends FragmentBase {
     @Override
     protected void finish() {
         onExit();
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_setup, menu);
+
+        final MenuItem menuSearch = menu.findItem(R.id.menu_search);
+        final SearchView searchView = (SearchView) menuSearch.getActionView();
+
+        searchView.setQueryHint(getString(R.string.title_search));
+
+        searchView.setOnSuggestionListener(new SearchView.OnSuggestionListener() {
+            @Override
+            public boolean onSuggestionSelect(int position) {
+                return false;
+            }
+
+            @Override
+            public boolean onSuggestionClick(int position) {
+                Cursor cursor = searchView.getSuggestionsAdapter().getCursor();
+                cursor.moveToPosition(position);
+                int id = cursor.getInt(cursor.getColumnIndex("_id"));
+                int tab = cursor.getInt(cursor.getColumnIndex("tab"));
+
+                pager.setCurrentItem(tab);
+                FragmentBase fragment = (FragmentBase) adapter.instantiateItem(pager, tab);
+                fragment.scrollTo(id);
+                menuSearch.collapseActionView();
+
+                return true;
+            }
+        });
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            private int[] tabs = {
+                    R.layout.fragment_setup,
+                    R.layout.fragment_options_synchronize,
+                    R.layout.fragment_options_send,
+                    R.layout.fragment_options_connection,
+                    R.layout.fragment_options_display,
+                    R.layout.fragment_options_behavior,
+                    R.layout.fragment_options_privacy,
+                    R.layout.fragment_options_encryption,
+                    R.layout.fragment_options_notifications,
+                    R.layout.fragment_options_misc
+            };
+
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                MatrixCursor cursor = new MatrixCursor(new String[]{"_id", "tab", "title"});
+
+                if (newText != null && newText.length() > 2) {
+                    LayoutInflater inflater = LayoutInflater.from(searchView.getContext());
+                    for (int tab = 0; tab < tabs.length; tab++)
+                        getSuggestions(newText.toLowerCase(), tab, inflater.inflate(tabs[tab], null), cursor);
+                }
+
+                searchView.setSuggestionsAdapter(new SimpleCursorAdapter(
+                        searchView.getContext(),
+                        R.layout.spinner_item1_dropdown,
+                        cursor,
+                        new String[]{"title"},
+                        new int[]{android.R.id.text1},
+                        0
+                ));
+
+                return false;
+            }
+        });
+
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    private void getSuggestions(String query, int tab, View view, MatrixCursor cursor) {
+        if (view instanceof ViewGroup) {
+            ViewGroup group = (ViewGroup) view;
+            for (int i = 0; i <= group.getChildCount(); i++)
+                getSuggestions(query, tab, group.getChildAt(i), cursor);
+        } else if (view instanceof TextView) {
+            String text = ((TextView) view).getText().toString();
+            if (text.toLowerCase().contains(query))
+                cursor.newRow()
+                        .add("_id", view.getId())
+                        .add("tab", tab)
+                        .add("title", text);
+        }
     }
 
     @Override

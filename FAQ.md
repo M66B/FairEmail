@@ -109,7 +109,7 @@ Related questions:
 * ~~Unified starred messages view~~ (there is already a special search for this)
 * ~~Notification move action~~
 * ~~S/MIME support~~
-* Search for settings: low priority
+* ~~Search for settings~~
 
 Anything on this list is in random order and *might* be added in the near future.
 
