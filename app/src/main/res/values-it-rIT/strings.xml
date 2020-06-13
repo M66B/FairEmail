@@ -214,7 +214,9 @@
     <string name="title_advanced_section_encryption">Crittografia</string>
     <string name="title_advanced_section_notifications">Notifiche</string>
     <string name="title_advanced_section_misc">Altro</string>
+    <string name="title_advanced_receive">Ricevi messaggi per tutti gli account</string>
     <string name="title_advanced_when">Quando</string>
+    <string name="title_advanced_always">Ricevi sempre messaggi per questi account</string>
     <string name="title_advanced_schedule">Pianificazione</string>
     <string name="title_advanced_advanced">Avanzato</string>
     <string name="title_advanced_no_date">Messaggi senza data</string>
@@ -228,6 +230,7 @@
     <string name="title_advanced_subscriptions">Gestisci abbonamenti cartelle</string>
     <string name="title_advanced_check_mx">Controlla gli indirizzi email mittente alla sincronizzazione dei messaggi</string>
     <string name="title_advanced_check_reply">Controlla gli indirizzi email di risposta alla sincronizzazione dei messaggi</string>
+    <string name="title_advanced_tune_keep_alive">Regola automaticamente l\'intervallo keepalive</string>
     <string name="title_advanced_keyboard">Mostra tastiera in modo predefinito</string>
     <string name="title_advanced_suggest_local">Suggerisci contatti memorizzati localmente</string>
     <string name="title_advanced_suggest_sent">Suggerisci indirizzi trovati nei messaggi inviati</string>
@@ -238,6 +241,8 @@
     <string name="title_advanced_quote_reply">Cita il testo nella risposta</string>
     <string name="title_advanced_resize_reply">Ridimensiona le immagini nel testo di risposta</string>
     <string name="title_advanced_signature_location">Posizione della firma</string>
+    <string name="title_advanced_signature_reply">Usa la firma quando rispondi</string>
+    <string name="title_advanced_signature_forward">Usa la firma durante l\'inoltro</string>
     <string name="title_advanced_plain_only">Invia solo in testo semplice per impostazione predefinita</string>
     <string name="title_advanced_flow">\'format flowed\' per il testo normale</string>
     <string name="title_advanced_receipt">Quando si richiede una ricevuta</string>
@@ -390,6 +395,7 @@
     <string name="title_advanced_fts_indexed">%1$d / %2$d messaggi indicizzati (%3$s)</string>
     <string name="title_advanced_english">Usa le impostazioni degli Stati Uniti</string>
     <string name="title_advanced_watchdog">Controlla periodicamente se FairEmail è ancora attiva</string>
+    <string name="title_advanced_optimize">Ottimizza automaticamente</string>
     <string name="title_advanced_updates">Controlla aggiornamenti</string>
     <string name="title_advanced_experiments">Prova le funzionalità sperimentali</string>
     <string name="title_advanced_crash_reports">Invia rapporti di errore</string>
@@ -399,6 +405,8 @@
     <string name="title_advanced_last_cleanup">Ultima pulizia: %1$s</string>
     <string name="title_advanced_app">Impostazioni dell\'app</string>
     <string name="title_advanced_more">Altre opzioni</string>
+    <string name="title_advanced_manual_hint">Se la ricezione dei messaggi è disabilitata, è ancora possibile ricevere manualmente i messaggi tirando giù l\'elenco dei messaggi</string>
+    <string name="title_advanced_poll_hint">Controllare periodicamente la presenza di nuovi messaggi confronterà ogni volta i messaggi locali e remoti, che è un\'operazione costosa che può comportare un uso extra della batteria, soprattutto se ci sono molti messaggi. Ricevere sempre questo impedirà continuamente dopo le modifiche.</string>
     <string name="title_advanced_schedule_hint">Tocca un orario per impostare un orario</string>
     <string name="title_advanced_no_date_hint">Alcuni provider memorizzano messaggi con una data sconosciuta, non valida o futura come messaggi senza data</string>
     <string name="title_advanced_unseen_hint">Alcuni provider non supportano correttamente questa funzione, il che potrebbe causare la sincronizzazione di nessuno o di tutti i messaggi</string>
@@ -821,6 +829,8 @@
         Per cercare anche sul server, tocca il pulsante \"cerca di nuovo\".
     </string>
     <string name="title_search_index_hint">La ricerca tramite l\'indice di ricerca è veloce, ma troverà solo parole intere</string>
+    <string name="title_search_text_hint">La ricerca di testo nei messaggi, quando ci sono un gran numero di messaggi, potrebbe non funzionare su alcuni server</string>
+    <string name="title_search_size_hint">Cercare messaggi per dimensione, quando ci sono un gran numero di messaggi, potrebbe non funzionare su alcuni server</string>
     <string name="title_search_more">Altre opzioni</string>
     <string name="title_search_use_index">Usa indice di ricerca</string>
     <string name="title_search_in_senders">Nei mittenti (da)</string>
@@ -834,6 +844,7 @@
     <string name="title_search_with_hidden">Nascosto (solo su dispositivo)</string>
     <string name="title_search_with_encrypted">Crittografato (solo su dispositivo)</string>
     <string name="title_search_with_attachments">Con allegati (solo su dispositivo)</string>
+    <string name="title_search_with_size">Dimensione messaggio maggiore di</string>
     <string name="title_search_with_before">Prima</string>
     <string name="title_search_with_after">Dopo</string>
     <string name="title_search_flag_unseen">non letto</string>
@@ -841,6 +852,7 @@
     <string name="title_search_flag_hidden">nascosto</string>
     <string name="title_search_flag_encrypted">crittografato</string>
     <string name="title_search_flag_attachments">allegati</string>
+    <string name="title_search_flag_size">dimensione &gt; %1$s</string>
     <string name="title_search_device">Cerca sul dispositivo</string>
     <string name="title_search_server">Cerca sul server</string>
     <string name="title_search_in">Cerca in</string>
@@ -1104,6 +1116,11 @@
     <string name="title_pro_list">Elenco delle funzionalità a pagamento</string>
     <string name="title_pro_purchase">Acquista</string>
     <string name="title_pro_once">Solo una volta</string>
+    <string name="title_pro_info">        Sviluppare FairEmail ha richiesto letteralmente migliaia di ore e, nonostante quello, la maggior parte delle caratteristiche sono gratuite.
+        FairEmail prende sul serio la tua vita privata e non mostra annunci e non utilizza tracciamento o analisi per guadagnare denaro.
+        Per mantenere e supportare FairEmail a lungo termine, alcune comodità e funzionalità avanzate non sono gratuite.
+        FairEmail mostra un piccolo messaggio per ricordarti questo, che verrà rimosso se compri le funzioni pro.
+    </string>
     <string name="title_pro_hide">Nascondi il piccolo messaggio per %1$d settimane</string>
     <string name="title_pro_hint">L\'acquisto di funzionalità a pagamento ti permetterà di utilizzare tutte le attuali e future funzioni, aiuterà il mantenimento e il supporto dell\'app</string>
     <string name="title_pro_price">Consulta <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">queste FAQ</a> riguardo il prezzo delle funzioni a pagamento</string>
@@ -1267,5 +1284,16 @@
         <item>PGP firma e crittografia</item>
         <item>S/MIME solo firma</item>
         <item>S/MIME firma e crittografia</item>
+    </string-array>
+    <string-array name="sizeNames">
+        <item>0 B</item>
+        <item>256 KB</item>
+        <item>512 KB</item>
+        <item>1 MB</item>
+        <item>2 MB</item>
+        <item>5 MB</item>
+        <item>10 MB</item>
+        <item>20 MB</item>
+        <item>50 MB</item>
     </string-array>
 </resources>

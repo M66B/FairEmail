@@ -2,7 +2,7 @@
 <resources>
     <string name="app_search">Поиск FairEmail</string>
     <string name="app_changelog">Что нового</string>
-    <string name="app_welcome">FairEmail - это почтовое приложение с открытым исходным кодом, ориентированное на конфиденциальность и безопасность. По этой причине некоторые функции могут работать не так, как вы привыкли.</string>
+    <string name="app_welcome">FairEmail — это почтовое приложение с открытым исходным кодом, ориентированное на конфиденциальность и безопасность. По этой причине некоторые функции могут работать не так, как вы привыкли.</string>
     <string name="app_limitations">Например, сообщения всегда будут переформатированы, чтобы удалить небезопасные элементы и улучшить читабельность, а также открытие ссылок требует подтверждения в целях безопасности.</string>
     <string name="app_crash">FairEmail не поддерживается на этом устройстве, так как ошибки в Android вызывают сбои</string>
     <string name="app_exit">Для выхода снова перейдите \"назад\"</string>
@@ -236,7 +236,9 @@
     <string name="title_advanced_section_encryption">Шифрование</string>
     <string name="title_advanced_section_notifications">Уведомления</string>
     <string name="title_advanced_section_misc">Разное</string>
+    <string name="title_advanced_receive">Получать сообщения со всех учётных записей</string>
     <string name="title_advanced_when">Когда</string>
+    <string name="title_advanced_always">Постоянно получать сообщения с этих учётных записей</string>
     <string name="title_advanced_schedule">Расписание</string>
     <string name="title_advanced_advanced">Дополнительно</string>
     <string name="title_advanced_no_date">Сообщения без даты</string>
@@ -415,6 +417,7 @@
     <string name="title_advanced_fts_indexed">%1$d / %2$d сообщений проиндексировано (%3$s)</string>
     <string name="title_advanced_english">Использовать настройки для США</string>
     <string name="title_advanced_watchdog">Регулярно проверять, активен ли FairEmail</string>
+    <string name="title_advanced_optimize">Автоматическая оптимизация</string>
     <string name="title_advanced_updates">Проверять наличие обновлений</string>
     <string name="title_advanced_experiments">Попробовать экспериментальные функции</string>
     <string name="title_advanced_crash_reports">Отправлять отчёты об ошибках</string>
@@ -424,6 +427,8 @@
     <string name="title_advanced_last_cleanup">Последняя очистка: %1$s</string>
     <string name="title_advanced_app">Настройки приложения</string>
     <string name="title_advanced_more">Другие возможности</string>
+    <string name="title_advanced_manual_hint">Если получение сообщений отключено, его можно выполнить вручную, потянув вниз список сообщений</string>
+    <string name="title_advanced_poll_hint">Периодическая проверка новых сообщений будет сравнивать сообщения на сервере с локальными. Это \"тяжёлая\" операция, которая может привести к высокому потреблению заряда батареи, особенно когда сообщений много. Постоянное получение избегает этого, непрерывно отслеживая только изменения.</string>
     <string name="title_advanced_schedule_hint">Нажмите на время, чтобы установить его</string>
     <string name="title_advanced_no_date_hint">Некоторые провайдеры хранят сообщения с неизвестными, недействительными или будущими датами как сообщения без даты</string>
     <string name="title_advanced_unseen_hint">Некоторые провайдеры не поддерживают эту функцию правильно, что может привести к синхронизации всех или ни одного сообщения</string>
@@ -436,7 +441,7 @@
     <string name="title_advanced_suggest_local_hint">В дополнение к контактам, предоставляемым Android. Контактные данные будут сохранены только для вновь отправленных или полученных сообщений при включении этой функции.</string>
     <string name="title_advanced_usenet_hint">Вставлять \'-- \' между текстом и подписью</string>
     <string name="title_advanced_send_reminders_hint">Показывать предупреждение, если отсутствует текст сообщения, тема или, возможно, отсутствует вложение</string>
-    <string name="title_advanced_metered_hint">Лимитированные подключения - это обычно мобильные сети или платные Wi-Fi</string>
+    <string name="title_advanced_metered_hint">Лимитированные подключения — это обычно мобильные сети или платные Wi-Fi</string>
     <string name="title_advanced_metered_warning">Отключение данной функции отключит получение и отправку сообщений при мобильном подключении к интернету</string>
     <string name="title_advanced_rlah_hint">Предполагать отсутствие роуминга внутри ЕС</string>
     <string name="title_advanced_timeout_hint">Время ожидания для чтения/записи будет установлено в два раза больше времени ожидания соединения. Ещё большие значения могут увеличить расход аккумулятора.</string>
@@ -454,7 +459,7 @@
     <string name="title_advanced_name_email_hint">Если отключено, будут показаны только имена (при наличии)</string>
     <string name="title_advanced_preview_hint">Доступно, только если был загружен текст сообщения</string>
     <string name="title_advanced_preview_issue">Прокрутка может быть медленной из-за ошибки в некоторых версиях Android, когда строк больше одной</string>
-    <string name="title_advanced_inline_hint">Встроенные изображения - это изображения, включённые в сообщение</string>
+    <string name="title_advanced_inline_hint">Встроенные изображения — это изображения, включённые в сообщение</string>
     <string name="title_advanced_parse_classes_hint">Позволит более точно отображать сообщения, но, возможно, с задержкой</string>
     <string name="title_advanced_autoexpand_hint">Автоматически открывать сообщение, когда оно только одно или только одно непрочитанное сообщение в диалоге</string>
     <string name="title_advanced_autoseen_hint">Автоматическая пометка сообщений прочитанными при развёртывании может быть отключена в настройках учётной записи</string>
@@ -610,7 +615,7 @@
     <string name="title_keep_all">Хранить все сообщения</string>
     <string name="title_auto_trash">Автоматически перемещать старые сообщения в корзину</string>
     <string name="title_auto_delete">Автоматически навсегда удалять старые сообщения</string>
-    <string name="title_auto_delete_hint">Старые сообщения - это сообщения, которые больше не хранятся на устройстве</string>
+    <string name="title_auto_delete_hint">Старые сообщения — это сообщения, которые больше не хранятся на устройстве</string>
     <string name="title_inbox_root_hint">        Некоторые провайдеры требуют создания новых папок внутри папки «Входящие».
         Для этого в списке папок удерживайте нажатие на «Входящие» и выберите «Создать вложенную папку».
     </string>
@@ -847,6 +852,8 @@
         Чтобы также выполнить поиск на сервере, нажмите кнопку \"Новый поиск\".
     </string>
     <string name="title_search_index_hint">Индексированный поиск быстрый, но ищет только целые слова</string>
+    <string name="title_search_text_hint">Поиск содержащих определённый текст сообщений при большом их количестве может не работать на некоторых серверах</string>
+    <string name="title_search_size_hint">Поиск сообщений по размеру при большом их количестве может не работать на некоторых серверах</string>
     <string name="title_search_more">Дополнительные параметры</string>
     <string name="title_search_use_index">Использовать поисковый индекс</string>
     <string name="title_search_in_senders">В отправителях (от)</string>
@@ -860,6 +867,7 @@
     <string name="title_search_with_hidden">Скрыто (только на устройстве)</string>
     <string name="title_search_with_encrypted">Зашифровано (только на устройстве)</string>
     <string name="title_search_with_attachments">С вложениями (только на устройстве)</string>
+    <string name="title_search_with_size">Размер сообщения больше</string>
     <string name="title_search_with_before">Перед</string>
     <string name="title_search_with_after">После</string>
     <string name="title_search_flag_unseen">не прочитано</string>
@@ -867,6 +875,7 @@
     <string name="title_search_flag_hidden">скрыто</string>
     <string name="title_search_flag_encrypted">зашифровано</string>
     <string name="title_search_flag_attachments">вложения</string>
+    <string name="title_search_flag_size">размер &gt; %1$s</string>
     <string name="title_search_device">Поиск на устройстве</string>
     <string name="title_search_server">Поиск на сервере</string>
     <string name="title_search_in">Поиск в</string>
@@ -928,7 +937,7 @@
     <string name="title_rule_enabled">Включено</string>
     <string name="title_rule_stop">Остановить обработку правил после выполнения этого правила</string>
     <string name="title_rule_sender">\"Отправитель\" содержит</string>
-    <string name="title_rule_sender_known">Отправитель - это контакт</string>
+    <string name="title_rule_sender_known">Отправитель — это контакт</string>
     <string name="title_rule_recipient">\"Получатель\" содержит</string>
     <string name="title_rule_subject">\"Тема\" содержит</string>
     <string name="title_rule_attachments">Имеет вложения</string>
@@ -1300,5 +1309,16 @@
         <item>Подпись+шифрование PGP</item>
         <item>Только подпись S/MIME</item>
         <item>Подпись+шифрование S/MIME</item>
+    </string-array>
+    <string-array name="sizeNames">
+        <item>0 Б</item>
+        <item>256 КБ</item>
+        <item>512 КБ</item>
+        <item>1 МБ</item>
+        <item>2 МБ</item>
+        <item>5 МБ</item>
+        <item>10 МБ</item>
+        <item>20 МБ</item>
+        <item>50 МБ</item>
     </string-array>
 </resources>

@@ -214,7 +214,9 @@
     <string name="title_advanced_section_encryption">Криптиране</string>
     <string name="title_advanced_section_notifications">Известия</string>
     <string name="title_advanced_section_misc">Разни</string>
+    <string name="title_advanced_receive">Получаване на съобщения от всички акаунти</string>
     <string name="title_advanced_when">Кога</string>
+    <string name="title_advanced_always">Получаване съобщения от тези акаунти винаги</string>
     <string name="title_advanced_schedule">График</string>
     <string name="title_advanced_advanced">Разширени</string>
     <string name="title_advanced_no_date">Съобщения без дата</string>
@@ -228,6 +230,7 @@
     <string name="title_advanced_subscriptions">Управление на абонирани папки</string>
     <string name="title_advanced_check_mx">Проверка имейл адреса на изпращача при синхронизиране на съобщенията</string>
     <string name="title_advanced_check_reply">Проверка имейл адреса на изпращача при синхронизиране на съобщенията</string>
+    <string name="title_advanced_tune_keep_alive">Автоматично настройване на онлайн интервала</string>
     <string name="title_advanced_keyboard">Клавиатура по подразбиране</string>
     <string name="title_advanced_suggest_local">Предложи локални контакти</string>
     <string name="title_advanced_suggest_sent">Предложи адреси, намерени в изпратените съобщения</string>
@@ -238,6 +241,8 @@
     <string name="title_advanced_quote_reply">Цитирай текста в отговора</string>
     <string name="title_advanced_resize_reply">Преоразмерете изображенията в текста за отговор</string>
     <string name="title_advanced_signature_location">Позиция на подписа</string>
+    <string name="title_advanced_signature_reply">Използвайте подпис при отговор</string>
+    <string name="title_advanced_signature_forward">Използвайте подпис при пренасочване</string>
     <string name="title_advanced_plain_only">Изпращане на обикновен текст по подразбиране</string>
     <string name="title_advanced_flow">\'форматиран поток\' за обикновен текст</string>
     <string name="title_advanced_receipt">При искане на разписка</string>
@@ -390,6 +395,7 @@
     <string name="title_advanced_fts_indexed">%1$d / %2$d индексирани съобщения (%3$s)</string>
     <string name="title_advanced_english">Използвайте настройките на САЩ</string>
     <string name="title_advanced_watchdog">Периодична проверка дали FairEmail е активен</string>
+    <string name="title_advanced_optimize">Автоматично оптимизиране</string>
     <string name="title_advanced_updates">Проверка за обновяване</string>
     <string name="title_advanced_experiments">Пробване на експерименталните функции</string>
     <string name="title_advanced_crash_reports">Изпращане на доклад с грешки</string>
@@ -398,6 +404,8 @@
     <string name="title_advanced_cleanup">Почистване</string>
     <string name="title_advanced_app">Настройки на приложението</string>
     <string name="title_advanced_more">Още опции</string>
+    <string name="title_advanced_manual_hint">Ако получаването на съобщения е деактивирано, все още е възможно ръчно получаване на съобщения чрез изтегляне на списъка със съобщения</string>
+    <string name="title_advanced_poll_hint">Периодичното проверяване за нови съобщения ще сравнява всеки път локални и отдалечени съобщения, което е скъпа операция, която може да доведе до допълнително използване на батерията, особено ако има много съобщения. Получаването винаги ще предотврати това.</string>
     <string name="title_advanced_schedule_hint">Докосни за настройка</string>
     <string name="title_advanced_no_date_hint">Някои доставчици съхраняват съобщения с неизвестна, невалидна или бъдеща дата като съобщения без дата</string>
     <string name="title_advanced_unseen_hint">Някои доставчици не поддържат това правилно, което може да доведе до синхронизиране всички или нито едно съобщение</string>
@@ -821,6 +829,8 @@
         За да търсите и в сървъра, натиснете бутона „търсене отново“.
     </string>
     <string name="title_search_index_hint">Търсене чрез индекса за търсене е бързо, но ще намери само цели думи</string>
+    <string name="title_search_text_hint">Търсене на текст в съобщения, когато има голям брой съобщения, може да не работи на някои сървъри</string>
+    <string name="title_search_size_hint">Търсене на съобщения по размер, когато има голям брой съобщения, може да не работи на някои сървъри</string>
     <string name="title_search_more">Още опции</string>
     <string name="title_search_use_index">Използвай индекс за търсене</string>
     <string name="title_search_in_senders">В подетели (от)</string>
@@ -834,6 +844,7 @@
     <string name="title_search_with_hidden">Скрито (само на устройство)</string>
     <string name="title_search_with_encrypted">Шифровано (само на устройство)</string>
     <string name="title_search_with_attachments">С прикачени файлове (само на устройство)</string>
+    <string name="title_search_with_size">Размер на съобщението по-голям от</string>
     <string name="title_search_with_before">Преди</string>
     <string name="title_search_with_after">След</string>
     <string name="title_search_flag_unseen">непрочетени</string>
@@ -841,6 +852,7 @@
     <string name="title_search_flag_hidden">скрити</string>
     <string name="title_search_flag_encrypted">шифровани</string>
     <string name="title_search_flag_attachments">прикачени файлове</string>
+    <string name="title_search_flag_size">размер &gt; %1$s</string>
     <string name="title_search_device">Търсене в устройството</string>
     <string name="title_search_server">Търсене в сървъра</string>
     <string name="title_search_in">Търсене в</string>
@@ -1272,5 +1284,16 @@
         <item>PGP подписване+криптиране</item>
         <item>S/MIME само подписване</item>
         <item>S/MIME подписване+криптиране</item>
+    </string-array>
+    <string-array name="sizeNames">
+        <item>0 B</item>
+        <item>256 KB</item>
+        <item>512 KB</item>
+        <item>1 MB</item>
+        <item>2 MB</item>
+        <item>5 MB</item>
+        <item>10 MB</item>
+        <item>20 MB</item>
+        <item>50 MB</item>
     </string-array>
 </resources>

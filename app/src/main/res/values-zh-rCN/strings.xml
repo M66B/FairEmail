@@ -202,7 +202,9 @@
     <string name="title_advanced_section_encryption">加密</string>
     <string name="title_advanced_section_notifications">通知</string>
     <string name="title_advanced_section_misc">杂项</string>
+    <string name="title_advanced_receive">接收所有帐户的消息</string>
     <string name="title_advanced_when">何时</string>
+    <string name="title_advanced_always">总是接收这些帐户的消息</string>
     <string name="title_advanced_schedule">计划任务</string>
     <string name="title_advanced_advanced">高级</string>
     <string name="title_advanced_no_date">不含日期的消息</string>
@@ -381,6 +383,7 @@
     <string name="title_advanced_fts_indexed">%1$d / %2$d 的消息已索引(%3$s)</string>
     <string name="title_advanced_english">使用美国国家设置</string>
     <string name="title_advanced_watchdog">定期检查 FairEmail 是否仍在运行</string>
+    <string name="title_advanced_optimize">自动优化</string>
     <string name="title_advanced_updates">检查更新</string>
     <string name="title_advanced_experiments">尝试实验性功能</string>
     <string name="title_advanced_crash_reports">发送错误报告</string>
@@ -390,6 +393,8 @@
     <string name="title_advanced_last_cleanup">上次清理: %1$s</string>
     <string name="title_advanced_app">应用设置</string>
     <string name="title_advanced_more">更多选项</string>
+    <string name="title_advanced_manual_hint">如果禁用了自动接收消息，仍然可以通过下拉消息列表来手动接收消息</string>
+    <string name="title_advanced_poll_hint">定期检查新消息将每次都比较本地消息和远程消息，这是一项昂贵的操作，可能会导致额外的电池消耗，尤其是在有很多消息的情况下。 始终接收将通过持续跟踪变化来防止这种情况。</string>
     <string name="title_advanced_schedule_hint">点击“时间”选项来设置时间</string>
     <string name="title_advanced_no_date_hint">某些供应商将未知、无效或未来日期的消息存储为不含日期的消息</string>
     <string name="title_advanced_unseen_hint">一些邮件服务提供商对该功能支持不佳，这可能导致同步所有消息或一条消息也不同步</string>
@@ -813,6 +818,8 @@
         若也要搜索服务器上的内容，请点击“再次搜索”按钮
     </string>
     <string name="title_search_index_hint">通过搜索索引搜索很快，但只能找到整个单词</string>
+    <string name="title_search_text_hint">当消息数量很多时，在消息中搜索文本可能无法在某些服务器上进行</string>
+    <string name="title_search_size_hint">消息数量很多时，按大小搜索消息可能在某些服务器上无法正常运作</string>
     <string name="title_search_more">更多选项</string>
     <string name="title_search_use_index">使用以下搜索索引</string>
     <string name="title_search_in_senders">发件人 (发送自)</string>
@@ -826,6 +833,7 @@
     <string name="title_search_with_hidden">隐藏邮件 (仅设备)</string>
     <string name="title_search_with_encrypted">加密邮件 (仅设备)</string>
     <string name="title_search_with_attachments">带附件的邮件 (仅设备)</string>
+    <string name="title_search_with_size">消息大小大于</string>
     <string name="title_search_with_before">早于</string>
     <string name="title_search_with_after">晚于</string>
     <string name="title_search_flag_unseen">未读</string>
@@ -833,6 +841,7 @@
     <string name="title_search_flag_hidden">隐藏</string>
     <string name="title_search_flag_encrypted">加密</string>
     <string name="title_search_flag_attachments">附件</string>
+    <string name="title_search_flag_size">大小&gt;%1$s</string>
     <string name="title_search_device">在设备上搜索</string>
     <string name="title_search_server">在服务器上搜索</string>
     <string name="title_search_in">搜索范围</string>
@@ -1262,5 +1271,16 @@
         <item>PGP 签名+加密</item>
         <item>仅S/MIME签名</item>
         <item>S/MIME 签名+加密</item>
+    </string-array>
+    <string-array name="sizeNames">
+        <item>0 B</item>
+        <item>256 KB</item>
+        <item>512 KB</item>
+        <item>1 MB</item>
+        <item>2 MB</item>
+        <item>5 MB</item>
+        <item>10 MB</item>
+        <item>20 MB</item>
+        <item>50 MB</item>
     </string-array>
 </resources>
