@@ -174,7 +174,7 @@ public class EntityCertificate {
 
     public static EntityCertificate fromJSON(JSONObject json) throws JSONException, CertificateException, NoSuchAlgorithmException {
         EntityCertificate certificate = new EntityCertificate();
-        certificate.id = json.getLong("id");
+        // id
         certificate.intermediate = json.optBoolean("intermediate");
         certificate.email = json.getString("email");
         certificate.data = json.getString("data");
