@@ -247,8 +247,10 @@ public class FragmentOptions extends FragmentBase {
                     }
 
                     int id = 0;
-                    for (int tab = 0; tab < TAB_PAGES.length; tab++)
-                        id = getSuggestions(query.toLowerCase(), id, tab, views[tab], cursor);
+                    for (int tab = 0; tab < TAB_PAGES.length; tab++) {
+                        String title = (String) adapter.getPageTitle(tab);
+                        id = getSuggestions(query.toLowerCase(), id, tab, title, views[tab], cursor);
+                    }
                 }
 
                 searchView.setSuggestionsAdapter(new SimpleCursorAdapter(
@@ -261,19 +263,21 @@ public class FragmentOptions extends FragmentBase {
                 ));
             }
 
-            private int getSuggestions(String query, int id, int tab, View view, MatrixCursor cursor) {
+            private int getSuggestions(String query, int id, int tab, String title, View view, MatrixCursor cursor) {
                 if (view instanceof ViewGroup) {
                     ViewGroup group = (ViewGroup) view;
                     for (int i = 0; i <= group.getChildCount(); i++)
-                        id = getSuggestions(query, id, tab, group.getChildAt(i), cursor);
+                        id = getSuggestions(query, id, tab, title, group.getChildAt(i), cursor);
                 } else if (view instanceof TextView) {
-                    String text = ((TextView) view).getText().toString();
-                    if (text.toLowerCase().contains(query))
+                    String description = ((TextView) view).getText().toString();
+                    if (description.toLowerCase().contains(query)) {
+                        String text = view.getContext().getString(R.string.title_title_description, title, description);
                         cursor.newRow()
                                 .add(id++)
                                 .add(tab)
                                 .add(view.getId())
                                 .add(text);
+                    }
                 }
 
                 return id;
