@@ -80,6 +80,7 @@
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
     <string name="title_from_to">%1$s ➤ %2$s</string>
+    <string name="title_title_description">%1$s: %2$s</string>
     <string name="title_factor_minutes">%1$d minutu</string>
     <string name="menu_exit">Irten</string>
     <string name="menu_answers">Txantiloiak</string>
@@ -352,7 +353,7 @@
     <string name="title_advanced_notify_action_trash">Zakarrontzia</string>
     <string name="title_advanced_notify_action_junk">Spama</string>
     <string name="title_advanced_notify_action_archive">Artxibatu</string>
-    <string name="title_advanced_notify_action_move">Mugitu</string>
+    <string name="title_advanced_notify_action_move">Eraman</string>
     <string name="title_advanced_notify_action_reply">Erantzun</string>
     <string name="title_advanced_notify_action_reply_direct">Erantzun zuzena</string>
     <string name="title_advanced_notify_action_flag">Izarra</string>
@@ -487,7 +488,7 @@
     <string name="title_account_notify">Banatutako jakinarazpenak</string>
     <string name="title_account_left">Pasatu hatza ezkerrera</string>
     <string name="title_account_right">Pasatu hatza eskumara</string>
-    <string name="title_account_move">Lehenetsita mugitu hona</string>
+    <string name="title_account_move">Lehenetsita eraman hona</string>
     <string name="title_account_gmail">Gmail kontu baten sinkronizazio fidagarria lortzeko, Gmail-en konfigurazio azkarreko morroia erabili behar da ahal den guztietan</string>
     <string name="title_domain">Domeinu-izena</string>
     <string name="title_autoconfig">Jaso ezarpenak</string>
@@ -540,7 +541,7 @@
     <string name="title_sign_key">Sinadura-gakoa: %1$s</string>
     <string name="title_last_connected">Azken konexioa: %1$s</string>
     <string name="title_storage_quota">Zerbitzariko biltegiratze erabilera: %1$s/%2$s</string>
-    <string name="title_pop_support">POP3 protokoloak mezuak deskargatzea eta ezabatzea soilik sarrerako ontzitik onartzen du. POP3-k ezin ditu mezuak irakurrita gisa markatu, mugitu eta abar. POP3-k bateriaren energia eta datu gehiago erabiliko ditu IMAPek baino. Beraz, hobetsi IMAP protokoloa erabiltzea ahal den guztietan.</string>
+    <string name="title_pop_support">POP3 protokoloak mezuak deskargatzea eta ezabatzea soilik sarrerako ontzitik onartzen du. POP3-k ezin ditu mezuak irakurrita gisa markatu, eraman eta abar. POP3-k bateriaren energia eta datu gehiago erabiliko ditu IMAPek baino. Beraz, hobetsi IMAP protokoloa erabiltzea ahal den guztietan.</string>
     <string name="title_oauth_support">Ez da OAuth onartzen</string>
     <string name="title_review">Berrikusi</string>
     <string name="title_hint_alias">Sakatu luze aukeratzeko, hala nola kopiatzeko ezizen identitateak sortzeko</string>
@@ -589,7 +590,7 @@
     <string name="title_keep_days">Mantendu mezuak (egunak)</string>
     <string name="title_keep_days_remark">Mezu zaharrak gailutik kenduko dira, baina zerbitzarian mantenduko dira</string>
     <string name="title_keep_all">Mantendu mezu guztiak</string>
-    <string name="title_auto_trash">Mugitu automatikoki mezu zaharrak zakarrontzira</string>
+    <string name="title_auto_trash">Eraman automatikoki mezu zaharrak zakarrontzira</string>
     <string name="title_auto_delete">Ezabatu mezu zaharrak behin betiko automatikoki</string>
     <string name="title_auto_delete_hint">Mezu zaharrak jadanik gailuan gordetzen ez diren mezuak dira</string>
     <string name="title_inbox_root_hint">        Hornitzaile batzuk karpetak sarrera ontziaren azpian sortzea eskatzen dute.
@@ -655,11 +656,11 @@
     <string name="title_delete">Ezabatu</string>
     <string name="title_more">Gehiago</string>
     <string name="title_spam">Spama</string>
-    <string name="title_move">Mugitu</string>
+    <string name="title_move">Eraman</string>
     <string name="title_no_junk">Ez da spama</string>
-    <string name="title_move_to">Mugitu hona &#8230;</string>
-    <string name="title_move_to_folder">Mugitu hona &#8230;</string>
-    <string name="title_move_to_account">Mugitu %1$s kontura &#8230;</string>
+    <string name="title_move_to">Eraman hona &#8230;</string>
+    <string name="title_move_to_folder">Eraman hona &#8230;</string>
+    <string name="title_move_to_account">Eraman hona %1$s &#8230;</string>
     <string name="title_report_spam">Tratatu spam gisa</string>
     <string name="title_delete_permanently">Ezabatu behin betiko</string>
     <string name="title_snooze">Atzeratu &#8230;</string>
@@ -693,7 +694,7 @@
     <string name="title_insufficient_memory">Mezua handiegia da erabilgarri dagoen memorian sartzeko</string>
     <string name="title_show_full">Erakutsi mezu osoa</string>
     <string name="title_unused_inline">Erabili gabeko txertatutako irudiak kenduko dira bidaltzean</string>
-    <string name="title_accross_remark">Kontuen artean mugitutako mezuak berriro deskargatuko dira horrek dakarren datuen erabilera gehigarriarekin</string>
+    <string name="title_accross_remark">Kontutik kontura eramandako mezuak berriro deskargatuko dira horrek dakarren datuen erabilera gehigarriarekin</string>
     <string name="title_raw_saved">Mezu gordina gorde da</string>
     <string name="title_attachment_saved">Eranskina gordeta</string>
     <string name="title_attachments_saved">Eranskinak gordeta</string>
@@ -902,7 +903,7 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_rule_flag">Gehitu izarra</string>
     <string name="title_rule_importance">Ezarri garrantzia</string>
     <string name="title_rule_keyword">Gehitu hitz gakoa</string>
-    <string name="title_rule_move">Mugitu</string>
+    <string name="title_rule_move">Eraman</string>
     <string name="title_rule_copy">Kopiatu (etiketa)</string>
     <string name="title_rule_answer">Erantzun</string>
     <string name="title_rule_automation">Automatizazioa</string>

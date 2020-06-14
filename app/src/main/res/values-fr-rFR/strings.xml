@@ -130,7 +130,7 @@
     <string name="title_setup_gmail_rationale">Veuillez accorder les autorisations pour sélectionner un compte et lire votre nom</string>
     <string name="title_setup_gmail_permissions">Google vous demandera l’autorisation pour lire, rédiger, envoyer et supprimer définitivement tous vos e-mails. FairEmail ne supprimera jamais vos messages sans votre approbation.</string>
     <string name="title_setup_gmail_drafts">Si le dossier « Brouillons » n’est pas accessible via IMAP, ceci peut être corrigé dans les paramètres de libellé Gmail</string>
-    <string name="title_setup_office_auth">L\'erreur \'AUTHENTICATE failed\' peut être provoquée par la désactivation administrative d\'IMAP/SMTP</string>
+    <string name="title_setup_office_auth">L’erreur \'AUTHENTICATE failed\' peut être provoquée par la désactivation d’IMAP/SMTP par l’administrateur système</string>
     <string name="title_setup_oauth_rationale">Autoriser l\'accès à votre compte %1$s</string>
     <string name="title_setup_oauth_authorize">Autoriser</string>
     <string name="title_setup_select_account">Sélectionner un compte</string>
@@ -832,8 +832,8 @@
         Pour rechercher également sur le serveur, appuyez sur le bouton « Rechercher de nouveau ».
     </string>
     <string name="title_search_index_hint">La recherche via l’index de recherche est rapide mais ne trouvera que des mots entiers</string>
-    <string name="title_search_text_hint">La recherche de texte dans les messages, lorsqu\'il y a un grand nombre de messages, peut ne pas fonctionner sur certains serveurs</string>
-    <string name="title_search_size_hint">La recherche de messages par taille, lorsqu\'il y a un grand nombre de messages, peut ne pas fonctionner sur certains serveurs</string>
+    <string name="title_search_text_hint">La recherche de texte dans les messages peut ne pas fonctionner sur certains serveurs lorsqu’il y a un grand nombre de messages</string>
+    <string name="title_search_size_hint">La recherche de messages par taille peut ne pas fonctionner sur certains serveurs lorsqu’il y a un grand nombre de messages</string>
     <string name="title_search_more">Plus d\'options</string>
     <string name="title_search_use_index">Utiliser l\'index de recherche</string>
     <string name="title_search_in_senders">Dans les expéditeurs (De)</string>
