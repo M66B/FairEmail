@@ -357,7 +357,8 @@ dependencies {
 
     // https://developer.android.com/google/play/billing/billing_library_releases_notes
     // https://android-developers.googleblog.com/2020/06/meet-google-play-billing-library.html
-    implementation "com.android.billingclient:billing:$billingclient_version"
+    githubImplementation "com.android.billingclient:billing:$billingclient_version"
+    playImplementation "com.android.billingclient:billing:$billingclient_version"
 
     // https://javaee.github.io/javamail/
     // https://projects.eclipse.org/projects/ee4j.javamail
