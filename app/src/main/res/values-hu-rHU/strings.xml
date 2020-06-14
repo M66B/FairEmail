@@ -157,6 +157,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_setup_doze_battery">Magas akkumulátorhasználat?</string>
     <string name="title_setup_doze_stopped">Már nem szinkronizál?</string>
     <string name="title_setup_data">Adatkapcsolat csökkentő bekapcsolva</string>
+    <string name="title_setup_advanced_options">Haladó beállítások megjelenítése</string>
     <string name="title_setup_inbox">Ugrás az üzenetekhez</string>
     <string name="title_setup_go">Tovább</string>
     <string name="title_setup_to_do">Teendő</string>
@@ -386,6 +387,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_fts_indexed">%1$d / %2$d üzenet indexelve (%3$s)</string>
     <string name="title_advanced_english">US országbeállítások használata</string>
     <string name="title_advanced_watchdog">A FairEmail futásának időszakos ellenőrzése</string>
+    <string name="title_advanced_optimize">Automatikus optimizálás</string>
     <string name="title_advanced_updates">Frissítések keresése</string>
     <string name="title_advanced_experiments">Kísérleti funkciók kipróbálása</string>
     <string name="title_advanced_crash_reports">Hibajelentések küldése</string>
@@ -833,6 +835,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_search_flag_hidden">rejtett</string>
     <string name="title_search_flag_encrypted">titkosított</string>
     <string name="title_search_flag_attachments">csatolmányok</string>
+    <string name="title_search_flag_size">méret &gt; %1$s</string>
     <string name="title_search_device">Keresés az eszközön</string>
     <string name="title_search_server">Keresés a szerveren</string>
     <string name="title_search_in">Keresés a következőben</string>
@@ -1258,5 +1261,16 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
         <item>PGP aláírás+titkosítás</item>
         <item>S/MIME csak aláírás</item>
         <item>S/MIME aláírás+titkosítás</item>
+    </string-array>
+    <string-array name="sizeNames">
+        <item>0 B</item>
+        <item>256 KB</item>
+        <item>512 KB</item>
+        <item>1 MB</item>
+        <item>2 MB</item>
+        <item>5 MB</item>
+        <item>10 MB</item>
+        <item>20 MB</item>
+        <item>50 MB</item>
     </string-array>
 </resources>
