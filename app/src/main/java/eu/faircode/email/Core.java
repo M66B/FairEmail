@@ -546,6 +546,8 @@ class Core {
         if (imessages != null) {
             for (Message iexisting : imessages) {
                 long muid = ifolder.getUID(iexisting);
+                if (muid < 0)
+                    continue;
                 Log.i(name + " found uid=" + muid + " for msgid=" + msgid);
                 // RFC3501: Unique identifiers are assigned in a strictly ascending fashion
                 if (uid == null || muid > uid)
@@ -556,6 +558,8 @@ class Core {
                 boolean purged = false;
                 for (Message iexisting : imessages) {
                     long muid = ifolder.getUID(iexisting);
+                    if (muid < 0)
+                        continue;
                     if (muid != uid)
                         try {
                             Log.i(name + " deleting uid=" + muid + " for msgid=" + msgid);
@@ -958,6 +962,8 @@ class Core {
 
     private static void onFetch(Context context, JSONArray jargs, EntityFolder folder, IMAPStore istore, IMAPFolder ifolder, State state) throws JSONException, MessagingException, IOException {
         long uid = jargs.getLong(0);
+        if (uid < 0)
+            throw new MessageRemovedException("uid");
 
         DB db = DB.getInstance(context);
         EntityAccount account = db.account().getAccount(folder.account);
@@ -2158,6 +2164,10 @@ class Core {
             List<EntityRule> rules, State state) throws MessagingException, IOException {
 
         long uid = ifolder.getUID(imessage);
+        if (uid < 0) {
+            Log.i(folder.name + " invalid uid=" + uid);
+            throw new MessageRemovedException("uid");
+        }
 
         if (imessage.isExpunged()) {
             Log.i(folder.name + " expunged uid=" + uid);
