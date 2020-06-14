@@ -29,6 +29,7 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.Person;
 import android.app.RemoteAction;
+import android.content.ActivityNotFoundException;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.ContentResolver;
@@ -2920,8 +2921,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             Uri lookupUri = (Uri) ibAvatar.getTag();
             if (lookupUri != null) {
                 Intent intent = new Intent(Intent.ACTION_VIEW, lookupUri);
-                if (intent.resolveActivity(context.getPackageManager()) != null)
+                try {
                     context.startActivity(intent);
+                } catch (ActivityNotFoundException ex) {
+                    Log.w(ex);
+                    ToastEx.makeText(context,
+                            context.getString(R.string.title_no_viewer, intent.getAction()),
+                            Toast.LENGTH_LONG).show();
+                }
             }
         }
 
@@ -3216,7 +3223,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void onPickContact(String name, String email) {
             Intent pick = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
-            if (pick.resolveActivity(context.getPackageManager()) == null)
+            if (pick.resolveActivity(context.getPackageManager()) == null) // system whitelisted
                 Snackbar.make(view, R.string.title_no_contacts, Snackbar.LENGTH_LONG).show();
             else {
                 properties.setValue("name", name);
@@ -3236,7 +3243,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             insert.setType(ContactsContract.Contacts.CONTENT_TYPE);
 
             PackageManager pm = context.getPackageManager();
-            if (insert.resolveActivity(pm) == null)
+            if (insert.resolveActivity(pm) == null) // system whitelisted
                 Snackbar.make(parentFragment.getView(),
                         R.string.title_no_contacts, Snackbar.LENGTH_LONG).show();
             else
@@ -3253,7 +3260,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             edit.setDataAndTypeAndNormalize(lookupUri, ContactsContract.Contacts.CONTENT_ITEM_TYPE);
 
             PackageManager pm = context.getPackageManager();
-            if (edit.resolveActivity(pm) == null)
+            if (edit.resolveActivity(pm) == null) // system whitelisted
                 Snackbar.make(parentFragment.getView(),
                         R.string.title_no_contacts, Snackbar.LENGTH_LONG).show();
             else
@@ -4331,7 +4338,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     }
 
                     PackageManager pm = context.getPackageManager();
-                    if (intent.resolveActivity(pm) == null)
+                    if (intent.resolveActivity(pm) == null) // system whitelisted
                         Snackbar.make(parentFragment.getView(),
                                 context.getString(R.string.title_no_viewer, intent.getAction()),
                                 Snackbar.LENGTH_LONG).

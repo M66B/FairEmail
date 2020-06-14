@@ -274,7 +274,7 @@ public class FragmentSetup extends FragmentBase {
                     startActivity(settings);
                 }
             });
-            btnDataSaver.setEnabled(settings.resolveActivity(pm) != null);
+            btnDataSaver.setEnabled(settings.resolveActivity(pm) != null); // system whitelisted
         }
 
         btnInbox.setOnClickListener(new View.OnClickListener() {
@@ -408,7 +408,8 @@ public class FragmentSetup extends FragmentBase {
         Boolean ignoring = true;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             Intent intent = new Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS);
-            if (intent.resolveActivity(getContext().getPackageManager()) != null) {
+            PackageManager pm = getContext().getPackageManager();
+            if (intent.resolveActivity(pm) != null) { // system whitelisted
                 ignoring = Helper.isIgnoringOptimizations(getContext());
                 if (ignoring == null)
                     ignoring = true;

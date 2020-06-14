@@ -3322,12 +3322,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         if (prefs.getBoolean("review_asked", false))
             return false;
 
-        PackageManager pm = getContext().getPackageManager();
-
-        Intent intent = Helper.getIntentRate(getContext());
-        if (intent.resolveActivity(pm) == null)
-            return false;
-
         long now = new Date().getTime();
         long later = prefs.getLong("review_later", -1);
         if (later < 0) {
@@ -4898,7 +4892,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         create.setType("*/*");
         create.putExtra(Intent.EXTRA_TITLE, name);
         Helper.openAdvanced(create);
-        if (create.resolveActivity(getContext().getPackageManager()) == null)
+        PackageManager pm = getContext().getPackageManager();
+        if (create.resolveActivity(pm) == null) // system whitelisted
             Snackbar.make(view, R.string.title_no_saf, Snackbar.LENGTH_LONG).show();
         else
             startActivityForResult(Helper.getChooser(getContext(), create), REQUEST_RAW);
@@ -4958,7 +4953,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         public void onNothingSelected() {
                             Snackbar snackbar = Snackbar.make(view, R.string.title_no_key, Snackbar.LENGTH_LONG);
                             final Intent intent = KeyChain.createInstallIntent();
-                            if (intent.resolveActivity(getContext().getPackageManager()) != null)
+                            PackageManager pm = getContext().getPackageManager();
+                            if (intent.resolveActivity(pm) != null) // system whitelisted
                                 snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
@@ -4983,7 +4979,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 onPgp(data, auto);
             } else {
                 Snackbar snackbar = Snackbar.make(view, R.string.title_no_openpgp, Snackbar.LENGTH_LONG);
-                if (Helper.getIntentOpenKeychain().resolveActivity(getContext().getPackageManager()) != null)
+                PackageManager pm = getContext().getPackageManager();
+                if (Helper.getIntentOpenKeychain().resolveActivity(pm) != null) // package whitelisted
                     snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {

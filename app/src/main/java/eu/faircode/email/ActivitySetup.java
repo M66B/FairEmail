@@ -410,7 +410,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
     private void askPassword(final boolean export) {
         Intent intent = (export ? getIntentExport() : getIntentImport());
-        if (intent.resolveActivity(getPackageManager()) == null) {
+        if (intent.resolveActivity(getPackageManager()) == null) { //  // system/GET_CONTENT whitelisted
             ToastEx.makeText(this, R.string.title_no_saf, Toast.LENGTH_LONG).show();
             return;
         }
@@ -1266,7 +1266,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         Intent open = new Intent(Intent.ACTION_GET_CONTENT);
         open.addCategory(Intent.CATEGORY_OPENABLE);
         open.setType("*/*");
-        if (open.resolveActivity(getPackageManager()) == null)
+        if (open.resolveActivity(getPackageManager()) == null)  // system whitelisted
             ToastEx.makeText(this, R.string.title_no_saf, Toast.LENGTH_LONG).show();
         else
             startActivityForResult(Helper.getChooser(this, open), REQUEST_IMPORT_CERTIFICATE);

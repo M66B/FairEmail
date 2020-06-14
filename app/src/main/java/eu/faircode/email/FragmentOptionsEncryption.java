@@ -117,7 +117,7 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
         tvKeySize = view.findViewById(R.id.tvKeySize);
 
         Intent intent = new Intent(OpenPgpApi.SERVICE_INTENT_2);
-        List<ResolveInfo> ris = pm.queryIntentServices(intent, 0);
+        List<ResolveInfo> ris = pm.queryIntentServices(intent, 0); // package whitelisted
         for (ResolveInfo ri : ris)
             if (ri.serviceInfo != null)
                 openPgpProvider.add(ri.serviceInfo.packageName);
@@ -209,7 +209,7 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
         });
 
         final Intent importKey = KeyChain.createInstallIntent();
-        btnImportKey.setEnabled(importKey.resolveActivity(pm) != null);
+        btnImportKey.setEnabled(importKey.resolveActivity(pm) != null); // system whitelisted
         btnImportKey.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -218,7 +218,7 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
         });
 
         final Intent security = new Intent(Settings.ACTION_SECURITY_SETTINGS);
-        btnImportKey.setEnabled(security.resolveActivity(pm) != null);
+        btnImportKey.setEnabled(security.resolveActivity(pm) != null); // system whitelisted
         btnManageKeys.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

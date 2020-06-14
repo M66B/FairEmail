@@ -27,6 +27,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.IntentSender;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Build;
@@ -135,7 +136,7 @@ public class FragmentBase extends Fragment {
         try {
             super.startActivity(intent);
         } catch (ActivityNotFoundException ex) {
-            Log.e(ex);
+            Log.w(ex);
             ToastEx.makeText(getContext(), getString(R.string.title_no_viewer, intent.getAction()), Toast.LENGTH_LONG).show();
         }
     }
@@ -145,7 +146,7 @@ public class FragmentBase extends Fragment {
         try {
             super.startActivityForResult(intent, requestCode);
         } catch (ActivityNotFoundException ex) {
-            Log.e(ex);
+            Log.w(ex);
             ToastEx.makeText(getContext(), getString(R.string.title_no_viewer, intent.getAction()), Toast.LENGTH_LONG).show();
         }
     }
@@ -351,7 +352,8 @@ public class FragmentBase extends Fragment {
         create.setType(intent.getStringExtra("type"));
         create.putExtra(Intent.EXTRA_TITLE, intent.getStringExtra("name"));
         Helper.openAdvanced(create);
-        if (create.resolveActivity(getContext().getPackageManager()) == null)
+        PackageManager pm = getContext().getPackageManager();
+        if (create.resolveActivity(pm) == null) // system whitelisted
             ToastEx.makeText(getContext(), R.string.title_no_saf, Toast.LENGTH_LONG).show();
         else
             startActivityForResult(Helper.getChooser(getContext(), create), REQUEST_ATTACHMENT);
@@ -361,7 +363,8 @@ public class FragmentBase extends Fragment {
         message = intent.getLongExtra("id", -1);
         Intent tree = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
         Helper.openAdvanced(tree);
-        if (tree.resolveActivity(getContext().getPackageManager()) == null)
+        PackageManager pm = getContext().getPackageManager();
+        if (tree.resolveActivity(pm) == null) // system whitelisted
             ToastEx.makeText(getContext(), R.string.title_no_saf, Toast.LENGTH_LONG).show();
         else
             startActivityForResult(Helper.getChooser(getContext(), tree), REQUEST_ATTACHMENTS);

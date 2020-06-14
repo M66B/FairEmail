@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
@@ -188,8 +189,9 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         });
 
         final Intent manage = getIntentConnectivity();
+        PackageManager pm = getContext().getPackageManager();
         btnManage.setVisibility(
-                manage.resolveActivity(getContext().getPackageManager()) == null
+                manage.resolveActivity(pm) == null // system whitelisted
                         ? View.GONE : View.VISIBLE);
 
         btnManage.setOnClickListener(new View.OnClickListener() {

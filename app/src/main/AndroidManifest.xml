@@ -39,9 +39,22 @@
 
     <!-- Android 11: https://developer.android.com/preview/privacy/package-visibility -->
     <queries>
-        <intent>
+        <!--intent>
             <action android:name="android.intent.action.VIEW" />
             <data android:mimeType="*/*" />
+        </intent-->
+
+        <!-- Customtabs / AppAuth-Android -->
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data android:scheme="https" />
+        </intent>
+
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data android:scheme="http" />
         </intent>
 
         <intent>

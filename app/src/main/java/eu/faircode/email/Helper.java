@@ -350,10 +350,14 @@ public class Helper {
     }
 
     static boolean hasCustomTabs(Context context, Uri uri) {
+        String scheme = (uri == null ? null : uri.getScheme());
+        if (!"http".equals(scheme) && !"https".equals(scheme))
+            return false;
+
         PackageManager pm = context.getPackageManager();
         Intent view = new Intent(Intent.ACTION_VIEW, uri);
 
-        List<ResolveInfo> ris = pm.queryIntentActivities(view, 0);
+        List<ResolveInfo> ris = pm.queryIntentActivities(view, 0); // action whitelisted
         for (ResolveInfo info : ris) {
             Intent intent = new Intent();
             intent.setAction(ACTION_CUSTOM_TABS_CONNECTION);
@@ -407,11 +411,14 @@ public class Helper {
     // View
 
     static Intent getChooser(Context context, Intent intent) {
-        PackageManager pm = context.getPackageManager();
-        if (pm.queryIntentActivities(intent, 0).size() == 1)
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
+            PackageManager pm = context.getPackageManager();
+            if (pm.queryIntentActivities(intent, 0).size() == 1)
+                return intent;
+            else
+                return Intent.createChooser(intent, context.getString(R.string.title_select_app));
+        } else
             return intent;
-        else
-            return Intent.createChooser(intent, context.getString(R.string.title_select_app));
     }
 
     static void share(Context context, File file, String type, String name) {
@@ -427,25 +434,39 @@ public class Helper {
             intent.putExtra(Intent.EXTRA_TITLE, Helper.sanitizeFilename(name));
         Log.i("Intent=" + intent + " type=" + type);
 
-        // Get targets
-        PackageManager pm = context.getPackageManager();
-        List<ResolveInfo> ris = pm.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
-        for (ResolveInfo ri : ris) {
-            Log.i("Target=" + ri);
-            context.grantUriPermission(ri.activityInfo.packageName, uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
-        }
-
-        // Check if viewer available
-        if (ris.size() == 0) {
-            if ("application/ms-tnef".equals(type))
-                viewFAQ(context, 155);
-            else {
-                String message = context.getString(R.string.title_no_viewer,
-                        type != null ? type : name != null ? name : file.getName());
-                ToastEx.makeText(context, message, Toast.LENGTH_LONG).show();
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
+            // Get targets
+            PackageManager pm = context.getPackageManager();
+            List<ResolveInfo> ris = pm.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
+            for (ResolveInfo ri : ris) {
+                Log.i("Target=" + ri);
+                context.grantUriPermission(ri.activityInfo.packageName, uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
             }
-        } else
-            context.startActivity(intent);
+
+            // Check if viewer available
+            if (ris.size() == 0) {
+                if ("application/ms-tnef".equals(type))
+                    viewFAQ(context, 155);
+                else {
+                    String message = context.getString(R.string.title_no_viewer,
+                            type != null ? type : name != null ? name : file.getName());
+                    ToastEx.makeText(context, message, Toast.LENGTH_LONG).show();
+                }
+            } else
+                context.startActivity(intent);
+        } else {
+            try {
+                context.startActivity(intent);
+            } catch (ActivityNotFoundException ex) {
+                if ("application/ms-tnef".equals(type))
+                    viewFAQ(context, 155);
+                else {
+                    String message = context.getString(R.string.title_no_viewer,
+                            type != null ? type : name != null ? name : file.getName());
+                    ToastEx.makeText(context, message, Toast.LENGTH_LONG).show();
+                }
+            }
+        }
     }
 
     static void view(Context context, Intent intent) {
@@ -453,7 +474,12 @@ public class Helper {
         if ("http".equals(uri.getScheme()) || "https".equals(uri.getScheme()))
             view(context, intent.getData(), false);
         else
-            context.startActivity(intent);
+            try {
+                context.startActivity(intent);
+            } catch (ActivityNotFoundException ex) {
+                Log.w(ex);
+                ToastEx.makeText(context, context.getString(R.string.title_no_viewer, uri.toString()), Toast.LENGTH_LONG).show();
+            }
     }
 
     static void view(Context context, Uri uri, boolean browse) {
@@ -554,10 +580,7 @@ public class Helper {
     }
 
     static Intent getIntentRate(Context context) {
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + BuildConfig.APPLICATION_ID));
-        if (intent.resolveActivity(context.getPackageManager()) == null)
-            intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID));
-        return intent;
+        return new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + BuildConfig.APPLICATION_ID));
     }
 
     static long getInstallTime(Context context) {

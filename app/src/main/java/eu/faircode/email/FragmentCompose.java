@@ -438,7 +438,8 @@ public class FragmentCompose extends FragmentBase {
                 }
 
                 Intent pick = new Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Email.CONTENT_URI);
-                if (pick.resolveActivity(getContext().getPackageManager()) == null)
+                PackageManager pm = getContext().getPackageManager();
+                if (pick.resolveActivity(pm) == null) // system whitelisted
                     Snackbar.make(view, R.string.title_no_contacts, Snackbar.LENGTH_LONG).show();
                 else
                     startActivityForResult(Helper.getChooser(getContext(), pick), request);
@@ -1472,7 +1473,7 @@ public class FragmentCompose extends FragmentBase {
         // https://developer.android.com/reference/android/provider/MediaStore.Audio.Media.html#RECORD_SOUND_ACTION
         PackageManager pm = getContext().getPackageManager();
         Intent intent = new Intent(MediaStore.Audio.Media.RECORD_SOUND_ACTION);
-        if (intent.resolveActivity(pm) == null) {
+        if (intent.resolveActivity(pm) == null) { // action whitelisted
             Snackbar snackbar = Snackbar.make(view, getString(R.string.title_no_recorder), Snackbar.LENGTH_INDEFINITE);
             snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
                 @Override
@@ -1510,7 +1511,7 @@ public class FragmentCompose extends FragmentBase {
         intent.setType("*/*");
         intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
         PackageManager pm = getContext().getPackageManager();
-        if (intent.resolveActivity(pm) == null)
+        if (intent.resolveActivity(pm) == null) // system whitelisted
             noStorageAccessFramework();
         else
             startActivityForResult(Helper.getChooser(getContext(), intent), REQUEST_ATTACHMENT);
@@ -1632,7 +1633,8 @@ public class FragmentCompose extends FragmentBase {
                             public void onNothingSelected() {
                                 Snackbar snackbar = Snackbar.make(view, R.string.title_no_key, Snackbar.LENGTH_LONG);
                                 final Intent intent = KeyChain.createInstallIntent();
-                                if (intent.resolveActivity(getContext().getPackageManager()) != null)
+                                PackageManager pm = getContext().getPackageManager();
+                                if (intent.resolveActivity(pm) != null) // package whitelisted
                                     snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
                                         @Override
                                         public void onClick(View v) {
@@ -1698,7 +1700,8 @@ public class FragmentCompose extends FragmentBase {
                 }
             else {
                 Snackbar snackbar = Snackbar.make(view, R.string.title_no_openpgp, Snackbar.LENGTH_LONG);
-                if (Helper.getIntentOpenKeychain().resolveActivity(getContext().getPackageManager()) != null)
+                PackageManager pm = getContext().getPackageManager();
+                if (Helper.getIntentOpenKeychain().resolveActivity(pm) != null) // package whitelisted
                     snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -1874,7 +1877,7 @@ public class FragmentCompose extends FragmentBase {
             // https://developer.android.com/training/camera/photobasics
             PackageManager pm = getContext().getPackageManager();
             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            if (intent.resolveActivity(pm) == null) {
+            if (intent.resolveActivity(pm) == null) { // action whitelisted
                 Snackbar snackbar = Snackbar.make(view, getString(R.string.title_no_camera), Snackbar.LENGTH_LONG);
                 snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
                     @Override
@@ -1903,7 +1906,7 @@ public class FragmentCompose extends FragmentBase {
             intent.setType("image/*");
             intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
             PackageManager pm = getContext().getPackageManager();
-            if (intent.resolveActivity(pm) == null)
+            if (intent.resolveActivity(pm) == null) // GET_CONTENT whitelisted
                 noStorageAccessFramework();
             else
                 startActivityForResult(Helper.getChooser(getContext(), intent), REQUEST_IMAGE_FILE);

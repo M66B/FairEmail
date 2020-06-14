@@ -23,6 +23,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -294,7 +295,8 @@ public class FragmentOAuth extends FragmentBase {
 
             Log.i("OAuth request provider=" + provider.id + " uri=" + authRequest.toUri());
             Intent authIntent = authService.getAuthorizationRequestIntent(authRequest);
-            if (authIntent.resolveActivity(getContext().getPackageManager()) == null)
+            PackageManager pm = getContext().getPackageManager();
+            if (authIntent.resolveActivity(pm) == null) // action whitelisted
                 throw new ActivityNotFoundException(authIntent.toString());
             else
                 startActivityForResult(authIntent, ActivitySetup.REQUEST_OAUTH);

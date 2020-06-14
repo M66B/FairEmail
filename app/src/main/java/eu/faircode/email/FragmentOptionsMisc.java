@@ -310,7 +310,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         final Intent app = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
         app.setData(Uri.parse("package:" + getContext().getPackageName()));
-        btnApp.setEnabled(app.resolveActivity(getContext().getPackageManager()) != null);
         btnApp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
