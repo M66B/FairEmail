@@ -117,6 +117,7 @@
     <string name="title_setup_gmail_rationale">请授予权限来选择一个帐户并读取您的姓名</string>
     <string name="title_setup_gmail_permissions">谷歌会请求权限来读取、撰写、发送和永久删除您所有的电子邮件。相比之下，未经您的明确同意，FairEmail永远不会删除您的邮件。</string>
     <string name="title_setup_gmail_drafts">如果草稿文件夹无法通过IMAP访问，可以在Gmail的标签设置中进行修复</string>
+    <string name="title_setup_office_auth">\"AUTHENTICATE失败\"的错误可能是由于IMAP/SMTP被管理禁用而导致的</string>
     <string name="title_setup_oauth_rationale">授权访问您的 %1$s 帐户</string>
     <string name="title_setup_oauth_authorize">授权</string>
     <string name="title_setup_select_account">选择账户</string>
