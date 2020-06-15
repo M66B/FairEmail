@@ -3044,6 +3044,11 @@ class Core {
         // Android 8+ O https://developer.android.com/training/notify-user/channels
         // Android 7+ N https://android-developers.googleblog.com/2016/06/notifications-in-android-n.html
 
+        // Group
+        // < 0: folder
+        // = 0: unified
+        // > 0: account
+
         NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         if (messages == null || messages.size() == 0 || nm == null)
             return notifications;
