@@ -120,6 +120,7 @@ import androidx.core.content.FileProvider;
 import androidx.core.content.pm.ShortcutInfoCompat;
 import androidx.core.content.pm.ShortcutManagerCompat;
 import androidx.core.graphics.ColorUtils;
+import androidx.core.util.PatternsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
@@ -5527,7 +5528,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 sanitized = (s == null ? uri : s);
             }
 
-            final Uri uriTitle = Uri.parse(title == null ? "" : title);
+            // Process title
+            final Uri uriTitle;
+            if (title != null && PatternsCompat.WEB_URL.matcher(title).matches())
+                uriTitle = Uri.parse(title.contains("://") ? title : "http://" + title);
+            else
+                uriTitle = null;
 
             // Get views
             final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_open_link, null);
@@ -5712,7 +5718,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvTitle.setVisibility(TextUtils.isEmpty(title) ? View.GONE : View.VISIBLE);
             etLink.setText(uri.toString());
 
-            grpDifferent.setVisibility(uriTitle.getHost() == null || uri.getHost() == null ||
+            grpDifferent.setVisibility(uri.getHost() == null ||
+                    uriTitle == null || uriTitle.getHost() == null ||
                     uriTitle.getHost().equalsIgnoreCase(uri.getHost())
                     ? View.GONE : View.VISIBLE);
 
