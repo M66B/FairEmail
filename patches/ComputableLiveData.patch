@@ -1,8 +1,6 @@
-diff --git a/home/marcel/support/lifecycle/lifecycle-livedata/src/main/java/androidx/lifecycle/ComputableLiveData.java b/app/src/main/java/androidx/lifecycle/ComputableLiveData.java
-index 837a35dbf..cc375b15b 100644
---- a/home/marcel/support/lifecycle/lifecycle-livedata/src/main/java/androidx/lifecycle/ComputableLiveData.java
-+++ b/app/src/main/java/androidx/lifecycle/ComputableLiveData.java
-@@ -96,7 +96,16 @@ public abstract class ComputableLiveData<T> {
+--- /home/marcel/support/lifecycle/lifecycle-livedata/src/main/java/androidx/lifecycle/ComputableLiveData.java	2020-03-23 17:03:45.426122318 +0100
++++ /home/marcel/email/app/src/main/java/androidx/lifecycle/ComputableLiveData.java	2020-06-14 11:48:36.977868184 +0200
+@@ -96,13 +96,26 @@ public abstract class ComputableLiveData
                      // as long as it is invalid, keep computing.
                      try {
                          T value = null;
@@ -19,3 +17,13 @@ index 837a35dbf..cc375b15b 100644
                              computed = true;
                              value = compute();
                          }
+                         if (computed) {
+                             mLiveData.postValue(value);
+                         }
++                    } catch (Throwable ex) {
++                        // java.lang.IllegalStateException: Couldn't read row xxx column yyy
++                        eu.faircode.email.Log.e(ex);
++                        mInvalid.set(true);
+                     } finally {
+                         // release compute lock
+                         mComputing.set(false);
