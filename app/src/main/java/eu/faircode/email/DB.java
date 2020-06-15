@@ -107,7 +107,7 @@ public abstract class DB extends RoomDatabase {
 
     private static DB sInstance;
     private static final ExecutorService executor =
-            Helper.getBackgroundExecutor(2, "query"); // AndroidX default thread count
+            Helper.getBackgroundExecutor(2, "query"); // AndroidX default thread count: 4
 
     private static final String DB_NAME = "fairemail";
     private static final int DB_CHECKPOINT = 1000; // requery/sqlite-android default
