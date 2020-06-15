@@ -3102,10 +3102,12 @@ class Core {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N || notify_summary) {
             // Build pending intents
             Intent content;
-            if (group < 0)
+            if (group < 0) {
                 content = new Intent(context, ActivityView.class)
                         .setAction("folder:" + (-group) + (notify_remove ? ":" + group : ""));
-            else
+                if (messages.size() > 0)
+                    content.putExtra("type", messages.get(0).folderType);
+            } else
                 content = new Intent(context, ActivityView.class)
                         .setAction("unified" + (notify_remove ? ":" + group : ""));
             content.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
