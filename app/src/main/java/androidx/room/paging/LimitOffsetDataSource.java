@@ -114,38 +114,29 @@ public abstract class LimitOffsetDataSource<T> extends PositionalDataSource<T> {
         int firstLoadPosition = 0;
         RoomSQLiteQuery sqLiteQuery = null;
         Cursor cursor = null;
-        int retry = 0;
-        while (cursor == null) {
-            mDb.beginTransaction();
-            try {
-                totalCount = countItems();
-                if (totalCount != 0) {
-                    // bound the size requested, based on known count
-                    firstLoadPosition = computeInitialLoadPosition(params, totalCount);
-                    int firstLoadSize = computeInitialLoadSize(params, firstLoadPosition, totalCount);
+        mDb.beginTransaction();
+        try {
+            totalCount = countItems();
+            if (totalCount != 0) {
+                // bound the size requested, based on known count
+                firstLoadPosition = computeInitialLoadPosition(params, totalCount);
+                int firstLoadSize = computeInitialLoadSize(params, firstLoadPosition, totalCount);
 
-                    sqLiteQuery = getSQLiteQuery(firstLoadPosition, firstLoadSize);
-                    cursor = mDb.query(sqLiteQuery);
-                    List<T> rows = convertRows(cursor);
-                    mDb.setTransactionSuccessful();
-                    list = rows;
-                }
-            } catch (Throwable ex) {
-                if (++retry > 10)
-                    throw ex;
-                eu.faircode.email.Log.w(ex);
-                try {
-                    Thread.sleep(3000L);
-                } catch (InterruptedException ignored) {
-                }
-            } finally {
-                if (cursor != null) {
-                    cursor.close();
-                }
-                mDb.endTransaction();
-                if (sqLiteQuery != null) {
-                    sqLiteQuery.release();
-                }
+                sqLiteQuery = getSQLiteQuery(firstLoadPosition, firstLoadSize);
+                cursor = mDb.query(sqLiteQuery);
+                List<T> rows = convertRows(cursor);
+                mDb.setTransactionSuccessful();
+                list = rows;
+            }
+        } catch (Throwable ex) {
+            eu.faircode.email.Log.w(ex);
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+            mDb.endTransaction();
+            if (sqLiteQuery != null) {
+                sqLiteQuery.release();
             }
         }
 
