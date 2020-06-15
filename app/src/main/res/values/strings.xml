@@ -889,6 +889,7 @@
     <string name="title_no_key">No private key</string>
     <string name="title_invalid_key">Invalid private key</string>
     <string name="title_unknown_key">Private key does not match any encryption keys</string>
+    <string name="title_send_reminder_remark">Reminders can be enabled again in the send settings</string>
     <string name="title_send_plain_text">Plain text only</string>
     <string name="title_send_receipt">Request receipt</string>
     <string name="title_send_receipt_remark">Most providers and email clients ignore receipt requests</string>

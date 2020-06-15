@@ -94,6 +94,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.FileProvider;
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
@@ -5053,14 +5054,15 @@ public class FragmentCompose extends FragmentBase {
             Bundle args = getArguments();
             long id = args.getLong("id");
             String address_error = args.getString("address_error");
-            boolean remind_to = args.getBoolean("remind_to", false);
-            boolean remind_extra = args.getBoolean("remind_extra", false);
-            boolean remind_pgp = args.getBoolean("remind_pgp", false);
-            boolean remind_subject = args.getBoolean("remind_subject", false);
-            boolean remind_text = args.getBoolean("remind_text", false);
-            boolean remind_attachment = args.getBoolean("remind_attachment", false);
+            final boolean remind_to = args.getBoolean("remind_to", false);
+            final boolean remind_extra = args.getBoolean("remind_extra", false);
+            final boolean remind_pgp = args.getBoolean("remind_pgp", false);
+            final boolean remind_subject = args.getBoolean("remind_subject", false);
+            final boolean remind_text = args.getBoolean("remind_text", false);
+            final boolean remind_attachment = args.getBoolean("remind_attachment", false);
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            boolean send_reminders = prefs.getBoolean("send_reminders", true);
             int send_delayed = prefs.getInt("send_delayed", 0);
             boolean send_dialog = prefs.getBoolean("send_dialog", true);
 
@@ -5076,6 +5078,8 @@ public class FragmentCompose extends FragmentBase {
             final TextView tvRemindSubject = dview.findViewById(R.id.tvRemindSubject);
             final TextView tvRemindText = dview.findViewById(R.id.tvRemindText);
             final TextView tvRemindAttachment = dview.findViewById(R.id.tvRemindAttachment);
+            final SwitchCompat swSendReminders = dview.findViewById(R.id.swSendReminders);
+            final TextView tvSendRemindersHint = dview.findViewById(R.id.tvSendRemindersHint);
             final TextView tvTo = dview.findViewById(R.id.tvTo);
             final TextView tvVia = dview.findViewById(R.id.tvVia);
             final CheckBox cbPlainOnly = dview.findViewById(R.id.cbPlainOnly);
@@ -5091,12 +5095,12 @@ public class FragmentCompose extends FragmentBase {
 
             tvAddressError.setText(address_error);
             tvAddressError.setVisibility(address_error == null ? View.GONE : View.VISIBLE);
-            tvRemindTo.setVisibility(remind_to ? View.VISIBLE : View.GONE);
-            tvRemindExtra.setVisibility(remind_extra ? View.VISIBLE : View.GONE);
-            tvRemindPgp.setVisibility(remind_pgp ? View.VISIBLE : View.GONE);
-            tvRemindSubject.setVisibility(remind_subject ? View.VISIBLE : View.GONE);
-            tvRemindText.setVisibility(remind_text ? View.VISIBLE : View.GONE);
-            tvRemindAttachment.setVisibility(remind_attachment ? View.VISIBLE : View.GONE);
+            tvRemindTo.setVisibility(send_reminders && remind_to ? View.VISIBLE : View.GONE);
+            tvRemindExtra.setVisibility(send_reminders && remind_extra ? View.VISIBLE : View.GONE);
+            tvRemindPgp.setVisibility(send_reminders && remind_pgp ? View.VISIBLE : View.GONE);
+            tvRemindSubject.setVisibility(send_reminders && remind_subject ? View.VISIBLE : View.GONE);
+            tvRemindText.setVisibility(send_reminders && remind_text ? View.VISIBLE : View.GONE);
+            tvRemindAttachment.setVisibility(send_reminders && remind_attachment ? View.VISIBLE : View.GONE);
             tvTo.setText(null);
             tvVia.setText(null);
             tvReceipt.setVisibility(View.GONE);
@@ -5110,6 +5114,24 @@ public class FragmentCompose extends FragmentBase {
             tvNotAgain.setVisibility(cbNotAgain.isChecked() ? View.VISIBLE : View.GONE);
 
             Helper.setViewsEnabled(dview, false);
+
+            boolean reminder = (remind_to || remind_extra || remind_pgp || remind_subject || remind_text || remind_attachment);
+            swSendReminders.setChecked(send_reminders);
+            swSendReminders.setVisibility(send_reminders && reminder ? View.VISIBLE : View.GONE);
+            tvSendRemindersHint.setVisibility(View.GONE);
+            swSendReminders.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                    prefs.edit().putBoolean("send_reminders", checked).apply();
+                    tvRemindTo.setVisibility(checked && remind_to ? View.VISIBLE : View.GONE);
+                    tvRemindExtra.setVisibility(checked && remind_extra ? View.VISIBLE : View.GONE);
+                    tvRemindPgp.setVisibility(checked && remind_pgp ? View.VISIBLE : View.GONE);
+                    tvRemindSubject.setVisibility(checked && remind_subject ? View.VISIBLE : View.GONE);
+                    tvRemindText.setVisibility(checked && remind_text ? View.VISIBLE : View.GONE);
+                    tvRemindAttachment.setVisibility(checked && remind_attachment ? View.VISIBLE : View.GONE);
+                    tvSendRemindersHint.setVisibility(checked ? View.GONE : View.VISIBLE);
+                }
+            });
 
             cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
