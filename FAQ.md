@@ -2230,7 +2230,7 @@ However, picking contacts is delegated to and done by Android and not by FairEma
 <a name="faq99"></a>
 **(99) Can you add a rich text or markdown editor?**
 
-FairEmail provides common text formatting (bold, italic, underline, text size and color) via the Android text selection menu.
+FairEmail provides common text formatting (bold, italic, underline, text size and color) via a toolbar that appears after selecting some text.
 
 A [Rich text](https://en.wikipedia.org/wiki/Formatted_text) or [Markdown](https://en.wikipedia.org/wiki/Markdown) editor
 would not be used by many people on a small mobile device and, more important,
