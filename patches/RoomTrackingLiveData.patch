@@ -1,8 +1,6 @@
-diff --git a/home/marcel/tmp/RoomTrackingLiveData.java b/app/src/main/java/androidx/room/RoomTrackingLiveData.java
-index 8df1014a4..875beba9b 100644
---- a/home/marcel/tmp/RoomTrackingLiveData.java
-+++ b/app/src/main/java/androidx/room/RoomTrackingLiveData.java
-@@ -86,11 +86,22 @@ class RoomTrackingLiveData<T> extends LiveData<T> {
+--- ./support/room/runtime/src/main/java/androidx/room/RoomTrackingLiveData.java	2020-03-23 17:03:46.216122318 +0100
++++ ./email/app/src/main/java/androidx/room/RoomTrackingLiveData.java	2020-05-25 14:21:49.137386867 +0200
+@@ -86,11 +86,22 @@ class RoomTrackingLiveData<T> extends Li
                          T value = null;
                          while (mInvalid.compareAndSet(true, false)) {
                              computed = true;
@@ -30,7 +28,7 @@ index 8df1014a4..875beba9b 100644
                              }
                          }
                          if (computed) {
-@@ -125,6 +136,7 @@ class RoomTrackingLiveData<T> extends LiveData<T> {
+@@ -125,6 +136,7 @@ class RoomTrackingLiveData<T> extends Li
              }
          }
      };
