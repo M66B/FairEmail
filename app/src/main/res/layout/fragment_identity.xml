@@ -414,6 +414,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tilPassword" />
 
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvCaseSensitiveHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/title_case_sensitive"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCharacters" />
+
         <Button
             android:id="@+id/btnCertificate"
             style="?android:attr/buttonStyleSmall"
@@ -423,7 +434,7 @@
             android:tag="disable"
             android:text="@string/title_client_certificate"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvCharacters" />
+            app:layout_constraintTop_toBottomOf="@id/tvCaseSensitiveHint" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvCertificate"
@@ -780,7 +791,7 @@
                 tvProvider,spProvider,
                 tvDomain,tvDomainHint,etDomain,btnAutoConfig,
                 tvSmtp,tvHost,etHost,rgEncryption,cbInsecure,tvInsecureRemark,tvPort,etPort,
-                tvUser,etUser,tvPassword,tilPassword,btnCertificate,tvCertificate,btnOAuth,
+                tvUser,etUser,tvPassword,tilPassword,tvCaseSensitiveHint,btnCertificate,tvCertificate,btnOAuth,
                 tvRealm,etRealm,
                 cbUseIp,tvUseIpHint,tvEhlo,etEhlo,
                 cbSynchronize,cbPrimary,

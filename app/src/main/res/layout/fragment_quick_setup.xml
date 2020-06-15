@@ -72,6 +72,17 @@
             app:layout_constraintTop_toBottomOf="@id/tilPassword" />
 
         <eu.faircode.email.FixedTextView
+            android:id="@+id/tvCaseSensitiveHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_case_sensitive"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCharacters" />
+
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvHint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -80,7 +91,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvCharacters" />
+            app:layout_constraintTop_toBottomOf="@id/tvCaseSensitiveHint" />
 
         <Button
             android:id="@+id/btnCheck"
