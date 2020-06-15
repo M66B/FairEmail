@@ -942,10 +942,17 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                     getSupportFragmentManager().popBackStack("unified", 0);
 
-                long folder = Long.parseLong(action.split(":", 2)[1]);
+                String[] parts = action.split(":");
+                long folder = Long.parseLong(parts[1]);
                 if (folder > 0) {
                     intent.putExtra("folder", folder);
                     onViewMessages(intent);
+                }
+
+                if (parts.length > 2) {
+                    Intent clear = new Intent(this, ServiceUI.class)
+                            .setAction("clear:" + parts[2]);
+                    startService(clear);
                 }
 
             } else if ("why".equals(action)) {

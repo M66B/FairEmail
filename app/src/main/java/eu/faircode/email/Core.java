@@ -2923,6 +2923,8 @@ class Core {
             }
 
             long group = (pro && message.accountNotify ? message.account : 0);
+            if (!message.folderUnified)
+                group = -message.folder;
             if (!groupNotifying.containsKey(group))
                 groupNotifying.put(group, new ArrayList<Long>());
             if (!groupMessages.containsKey(group))
@@ -3020,7 +3022,7 @@ class Core {
 
                     String tag = "unseen." + group + "." + Math.abs(id);
                     Notification notification = builder.build();
-                    Log.i("Notifying tag=" + tag + " id=" + id +
+                    Log.i("Notifying tag=" + tag + " id=" + id + " group=" + notification.getGroup() +
                             (Build.VERSION.SDK_INT < Build.VERSION_CODES.O ? "" : " channel=" + notification.getChannelId()));
                     try {
                         nm.notify(tag, 1, notification);
@@ -3099,10 +3101,15 @@ class Core {
         // Summary notification
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N || notify_summary) {
             // Build pending intents
-            Intent unified = new Intent(context, ActivityView.class)
-                    .setAction("unified" + (notify_remove ? ":" + group : ""));
-            unified.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            PendingIntent piUnified = PendingIntent.getActivity(context, ActivityView.REQUEST_UNIFIED, unified, PendingIntent.FLAG_UPDATE_CURRENT);
+            Intent content;
+            if (group < 0)
+                content = new Intent(context, ActivityView.class)
+                        .setAction("folder:" + (-group) + (notify_remove ? ":" + group : ""));
+            else
+                content = new Intent(context, ActivityView.class)
+                        .setAction("unified" + (notify_remove ? ":" + group : ""));
+            content.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            PendingIntent piContent = PendingIntent.getActivity(context, ActivityView.REQUEST_UNIFIED, content, PendingIntent.FLAG_UPDATE_CURRENT);
 
             Intent clear = new Intent(context, ServiceUI.class).setAction("clear:" + group);
             PendingIntent piClear = PendingIntent.getService(context, ServiceUI.PI_CLEAR, clear, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -3111,14 +3118,18 @@ class Core {
             String title = context.getResources().getQuantityString(
                     R.plurals.title_notification_unseen, messages.size(), messages.size());
 
+            long cgroup = (group >= 0
+                    ? group
+                    : (pro && messages.size() > 0 && messages.get(0).accountNotify ? messages.get(0).account : 0));
+
             // Build notification
             NotificationCompat.Builder builder =
-                    new NotificationCompat.Builder(context, EntityAccount.getNotificationChannelId(group))
+                    new NotificationCompat.Builder(context, EntityAccount.getNotificationChannelId(cgroup))
                             .setSmallIcon(messages.size() > 1
                                     ? R.drawable.baseline_mail_more_white_24
                                     : R.drawable.baseline_mail_white_24)
                             .setContentTitle(title)
-                            .setContentIntent(piUnified)
+                            .setContentIntent(piContent)
                             .setNumber(messages.size())
                             .setShowWhen(false)
                             .setDeleteIntent(piClear)
@@ -3148,11 +3159,15 @@ class Core {
 
             if (pro && group != 0 && messages.size() > 0) {
                 TupleMessageEx amessage = messages.get(0);
-                if (amessage.accountColor != null) {
-                    builder.setColor(amessage.accountColor);
+                Integer color = getColor(amessage);
+                if (color != null) {
+                    builder.setColor(color);
                     builder.setColorized(true);
                 }
-                builder.setSubText(amessage.accountName);
+                if (amessage.folderUnified)
+                    builder.setSubText(amessage.accountName);
+                else
+                    builder.setSubText(amessage.accountName + " · " + amessage.getFolderName(context));
             }
 
             Notification pub = builder.build();
@@ -3263,8 +3278,11 @@ class Core {
 
             Address[] afrom = messageFrom.get(message.id);
             String from = MessageHelper.formatAddresses(afrom, name_email, false);
-            mbuilder.setContentTitle(from)
-                    .setSubText(message.accountName + " · " + message.getFolderName(context));
+            mbuilder.setContentTitle(from);
+            if (message.folderUnified)
+                mbuilder.setSubText(message.accountName + " · " + message.getFolderName(context));
+            else
+                mbuilder.setSubText(message.accountName);
 
             DB db = DB.getInstance(context);
 
@@ -3483,8 +3501,9 @@ class Core {
             if (info[0].hasLookupUri())
                 mbuilder.addPerson(info[0].getLookupUri().toString());
 
-            if (pro && message.accountColor != null) {
-                mbuilder.setColor(message.accountColor);
+            Integer color = getColor(message);
+            if (pro && color != null) {
+                mbuilder.setColor(color);
                 mbuilder.setColorized(true);
             }
 
@@ -3499,6 +3518,12 @@ class Core {
         }
 
         return notifications;
+    }
+
+    private static Integer getColor(TupleMessageEx message) {
+        if (!message.folderUnified && message.folderColor != null)
+            return message.folderColor;
+        return message.accountColor;
     }
 
     private static void setLightAndSound(NotificationCompat.Builder builder, boolean light, String sound) {
