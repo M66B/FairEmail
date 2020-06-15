@@ -1,5 +1,5 @@
---- /home/marcel/tmp/FastScroller.java	1980-02-01 00:00:00.000000000 +0100
-+++ app/src/main/java/androidx/recyclerview/widget/FastScrollerEx.java	2020-02-16 11:25:11.856872339 +0100
+--- ./support/recyclerview/recyclerview/src/main/java/androidx/recyclerview/widget/FastScroller.java	2020-03-23 17:03:46.092122318 +0100
++++ ./email/app/src/main/java/androidx/recyclerview/widget/FastScrollerEx.java	2020-04-24 21:08:55.544011257 +0200
 @@ -37,8 +37,8 @@ import java.lang.annotation.RetentionPol
  /**
   * Class responsible to animate and provide a fast scroller.
