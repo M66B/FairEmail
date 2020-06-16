@@ -1170,8 +1170,14 @@ public class HtmlHelper {
                 return Float.parseFloat(value.substring(0, value.length() - 2).trim()) / DEFAULT_FONT_SIZE_PT;
             if (value.endsWith("px"))
                 return Float.parseFloat(value.substring(0, value.length() - 2).trim()) / DEFAULT_FONT_SIZE;
-            if (value.endsWith("cm") || value.endsWith("in"))
-                return null;
+
+            // https://www.w3.org/Style/Examples/007/units.en.html
+            if (value.endsWith("pc")) // 6 pc = 72 pt
+                return Float.parseFloat(value.substring(0, value.length() - 2).trim()) / 12 / DEFAULT_FONT_SIZE_PT;
+            if (value.endsWith("cm")) // 1 inch = 2.54 cm
+                return Float.parseFloat(value.substring(0, value.length() - 2).trim()) / 2.54f / 72 / DEFAULT_FONT_SIZE_PT;
+            if (value.endsWith("in")) // 1 inch = 72pt
+                return Float.parseFloat(value.substring(0, value.length() - 2).trim()) / 72 / DEFAULT_FONT_SIZE_PT;
             return Float.parseFloat(value.trim()) / DEFAULT_FONT_SIZE;
         } catch (NumberFormatException ex) {
             Log.i(ex);
