@@ -2417,6 +2417,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     result.hasArchive = (result.hasArchive == null ? hasArchive : result.hasArchive && hasArchive);
                     result.hasTrash = (result.hasTrash == null ? hasTrash : result.hasTrash && hasTrash);
                     result.hasJunk = (result.hasJunk == null ? hasJunk : result.hasJunk && hasJunk);
+
+                    if (accounts.size() == 1)
+                        result.copyto = account;
                 }
 
                 if (result.isInbox == null) result.isInbox = false;
@@ -2498,6 +2501,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     item.setIntent(new Intent().putExtra("account", account.id));
                 }
 
+                if (result.copyto != null)
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_copy_to, order++, R.string.title_copy_to);
+
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem target) {
@@ -2552,7 +2558,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 return true;
                             case R.string.title_move_to_account:
                                 long account = target.getIntent().getLongExtra("account", -1);
-                                onActionMoveSelectionAccount(account, result.folders);
+                                onActionMoveSelectionAccount(account, false, result.folders);
+                                return true;
+                            case R.string.title_copy_to:
+                                onActionMoveSelectionAccount(result.copyto.id, true, result.folders);
                                 return true;
                             default:
                                 return false;
@@ -2949,10 +2958,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }.execute(this, args, "messages:move");
     }
 
-    private void onActionMoveSelectionAccount(long account, List<Long> disabled) {
+    private void onActionMoveSelectionAccount(long account, boolean copy, List<Long> disabled) {
         Bundle args = new Bundle();
-        args.putString("title", getString(R.string.title_move_to_folder));
+        args.putString("title", getString(copy ? R.string.title_copy_to : R.string.title_move_to_folder));
         args.putLong("account", account);
+        args.putBoolean("copy", copy);
         args.putLongArray("disabled", Helper.toLongArray(disabled));
 
         FragmentDialogFolder fragment = new FragmentDialogFolder();
@@ -2961,16 +2971,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         fragment.show(getParentFragmentManager(), "messages:move");
     }
 
-    private void onActionMoveSelection(long target) {
-        Bundle args = new Bundle();
+    private void onActionMoveSelection(Bundle args) {
         args.putLongArray("ids", getSelection());
-        args.putLong("target", target);
 
         new SimpleTask<ArrayList<MessageTarget>>() {
             @Override
             protected ArrayList<MessageTarget> onExecute(Context context, Bundle args) {
                 long[] ids = args.getLongArray("ids");
-                long tid = args.getLong("target");
+                long tid = args.getLong("folder");
+                boolean copy = args.getBoolean("copy");
 
                 ArrayList<MessageTarget> result = new ArrayList<>();
 
@@ -2989,7 +2998,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             List<EntityMessage> messages = db.message().getMessagesByThread(
                                     message.account, message.thread, threading ? null : id, message.folder);
                             for (EntityMessage threaded : messages)
-                                result.add(new MessageTarget(threaded, account, target));
+                                result.add(new MessageTarget(threaded, account, target, copy));
                         }
                     }
 
@@ -3003,7 +3012,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             @Override
             protected void onExecuted(Bundle args, ArrayList<MessageTarget> result) {
-                moveAsk(result, true, true);
+                boolean copy = args.getBoolean("copy");
+                if (copy)
+                    moveAskConfirmed(result);
+                else
+                    moveAsk(result, true, true);
             }
 
             @Override
@@ -4492,8 +4505,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         if (message == null)
                             continue;
 
-                        Log.i("Move id=" + target.id + " target=" + target.folder.name);
-                        EntityOperation.queue(context, message, EntityOperation.MOVE, target.folder.id);
+                        Log.i("Move id=" + target.id + " target=" + target.folder.name + " copy=" + target.copy);
+                        if (target.copy)
+                            EntityOperation.queue(context, message, EntityOperation.COPY, target.folder.id);
+                        else
+                            EntityOperation.queue(context, message, EntityOperation.MOVE, target.folder.id);
                     }
 
                     db.setTransactionSuccessful();
@@ -5060,10 +5076,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         onMove(data.getBundleExtra("args"));
                     break;
                 case REQUEST_MESSAGES_MOVE:
-                    if (resultCode == RESULT_OK && data != null) {
-                        Bundle args = data.getBundleExtra("args");
-                        onActionMoveSelection(args.getLong("folder"));
-                    }
+                    if (resultCode == RESULT_OK && data != null)
+                        onActionMoveSelection(data.getBundleExtra("args"));
                     break;
                 case REQUEST_PRINT:
                     if (resultCode == RESULT_OK && data != null)
@@ -6744,6 +6758,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         Boolean isDrafts;
         List<Long> folders;
         List<EntityAccount> accounts;
+        EntityAccount copyto;
     }
 
     private static class MessageTarget implements Parcelable {
@@ -6751,6 +6766,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         boolean across;
         EntityAccount account;
         EntityFolder folder;
+        boolean copy;
 
         MessageTarget(EntityMessage message, EntityAccount account, EntityFolder folder) {
             this.id = message.id;
@@ -6759,11 +6775,20 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             this.folder = folder;
         }
 
+        MessageTarget(EntityMessage message, EntityAccount account, EntityFolder folder, boolean copy) {
+            this.id = message.id;
+            this.across = !folder.account.equals(message.account);
+            this.account = account;
+            this.folder = folder;
+            this.copy = copy;
+        }
+
         protected MessageTarget(Parcel in) {
             id = in.readLong();
             across = (in.readInt() != 0);
             account = (EntityAccount) in.readSerializable();
             folder = (EntityFolder) in.readSerializable();
+            copy = (in.readInt() != 0);
         }
 
         @Override
@@ -6772,6 +6797,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             dest.writeInt(across ? 1 : 0);
             dest.writeSerializable(account);
             dest.writeSerializable(folder);
+            dest.writeInt(copy ? 1 : 0);
         }
 
         @Override
