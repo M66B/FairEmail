@@ -115,7 +115,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private static final int ACCOUNT_ERROR_AFTER = 60; // minutes
     private static final int ACCOUNT_ERROR_AFTER_POLL = 3; // times
     private static final int BACKOFF_ERROR_AFTER = 16; // seconds
-    private static final long WIDGET_UPDATE_DELAY = 2500L; // milliseconds
+    private static final long WIDGET_UPDATE_DELAY = 1500L; // milliseconds
 
     private static final String ACTION_NEW_MESSAGE_COUNT = BuildConfig.APPLICATION_ID + ".NEW_MESSAGE_COUNT";
 
