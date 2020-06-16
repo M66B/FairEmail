@@ -59,6 +59,7 @@ Related questions:
 * Delete an account/identity: Setup step 1/2, Manage, tap account/identity, three-dots menu, Delete
 * Delete a folder: long press the folder in the folder list, Edit properties, three-dots menu, Delete
 * Store sent messages in the inbox: please [see this FAQ](#user-content-faq142)
+* Change system folders: Setup, step 1, Manage, tap account, at the bottom
 * Export/import settings: Setup, navigation/hamburger menu
 
 ## Known problems
@@ -276,7 +277,6 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(154) Can you add favicons as contact photos?](#user-content-faq154)
 * [(155) What is a winmail.dat file?](#user-content-faq155)
 * [(156) How can I set up an Office365 account?](#user-content-faq156)
-* [(157) How can I change the default folders?](#user-content-faq157)
 
 [I have another question.](#user-content-support)
 
@@ -3056,16 +3056,6 @@ An Office365 account can be set up via the quick setup wizard and selecting *Off
 If the wizard ends with *AUTHENTICATE failed*, IMAP and/or SMTP might be disabled for the account.
 In this case you should ask the administrator to enable IMAP and SMTP.
 The procedure is documented [here](https://docs.microsoft.com/en-in/exchange/troubleshoot/configure-mailboxes/pop3-imap-owa-activesync-office-365).
-
-<br />
-
-
-<a name="faq157"></a>
-**(157) How can I change the default folders?**
-
-Go to Settings, under the *Setup accounts* section click Manage, select your account, and scroll down. Here you'll be able to select the default folder for each action (Sending, archiving, marking as spam).
-
-This is particulary useful if your email provider, for example, archives emails in the current year folder, instead of the *Archive* folder.
 
 <br />
 
