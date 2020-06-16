@@ -3386,6 +3386,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 prefs.edit().putBoolean("third_party_notified", true).apply();
             }
         });
+        snackbar.addCallback(new Snackbar.Callback() {
+            @Override
+            public void onDismissed(Snackbar transientBottomBar, int event) {
+                prefs.edit().putBoolean("third_party_notified", true).apply();
+            }
+        });
         snackbar.show();
 
         return true;
