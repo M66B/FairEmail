@@ -278,7 +278,6 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(156) How can I set up an Office365 account?](#user-content-faq156)
 * [(157) How can I change the default folders?](#user-content-faq157)
 
-
 [I have another question.](#user-content-support)
 
 <a name="faq1"></a>
