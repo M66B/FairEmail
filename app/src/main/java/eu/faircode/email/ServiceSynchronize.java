@@ -1808,7 +1808,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 return;
             }
 
-            if (networkState == null || accountStates == null)
+            if (networkState == null)
+                networkState = ConnectionHelper.getNetworkState(ServiceSynchronize.this);
+
+            if (accountStates == null)
                 return;
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
