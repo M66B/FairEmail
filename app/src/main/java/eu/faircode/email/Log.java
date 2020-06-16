@@ -27,6 +27,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.database.sqlite.SQLiteFullException;
 import android.graphics.Point;
 import android.net.ConnectivityManager;
 import android.net.Network;
@@ -752,6 +753,9 @@ public class Log {
              */
             return false;
 
+        if (ex instanceof SQLiteFullException) // database or disk is full (code 13 SQLITE_FULL)
+            return false;
+
         if ("android.util.SuperNotCalledException".equals(ex.getClass().getName()))
             /*
                 android.util.SuperNotCalledException: Activity {eu.faircode.email/eu.faircode.email.ActivityView} did not call through to super.onResume()
@@ -1152,16 +1156,24 @@ public class Log {
         File file = attachment.getFile(context);
         try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
             List<EntityAccount> accounts = db.account().getAccounts();
+            size += write(os, "accounts=" + accounts.size() + "\r\n");
             for (EntityAccount account : accounts)
                 try {
                     JSONObject jaccount = account.toJSON();
                     jaccount.put("state", account.state);
                     jaccount.put("warning", account.warning);
                     jaccount.put("error", account.error);
+
                     if (account.last_connected != null)
                         jaccount.put("last_connected", new Date(account.last_connected).toString());
+
+                    jaccount.put("keep_alive_ok", account.keep_alive_ok);
+                    jaccount.put("keep_alive_failed", account.keep_alive_failed);
+                    jaccount.put("keep_alive_succeeded", account.keep_alive_succeeded);
+
                     jaccount.remove("user");
                     jaccount.remove("password");
+
                     size += write(os, "==========\r\n");
                     size += write(os, jaccount.toString(2) + "\r\n");
 

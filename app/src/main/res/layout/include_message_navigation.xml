@@ -45,7 +45,7 @@
         android:padding="6dp"
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_more"
-        app:srcCompat="@drawable/baseline_more_vert_24"
+        app:srcCompat="@drawable/baseline_more_horiz_24"
         tools:ignore="MissingConstraints" />
 
     <ImageButton

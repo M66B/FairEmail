@@ -1,0 +1,38 @@
+--- ./support/room/runtime/src/main/java/androidx/room/RoomTrackingLiveData.java	2020-03-23 17:03:46.216122318 +0100
++++ ./email/app/src/main/java/androidx/room/RoomTrackingLiveData.java	2020-05-25 14:21:49.137386867 +0200
+@@ -86,11 +86,22 @@ class RoomTrackingLiveData<T> extends Li
+                         T value = null;
+                         while (mInvalid.compareAndSet(true, false)) {
+                             computed = true;
+-                            try {
+-                                value = mComputeFunction.call();
+-                            } catch (Exception e) {
+-                                throw new RuntimeException("Exception while computing database"
+-                                        + " live data.", e);
++                            int retry = 0;
++                            boolean done = false;
++                            while (!done) {
++                                try {
++                                    value = mComputeFunction.call();
++                                    done = true;
++                                } catch (Exception e) {
++                                    if (++retry > 10)
++                                        throw new RuntimeException(
++                                                "Exception while computing database live data.", e);
++                                    eu.faircode.email.Log.w(e);
++                                    try {
++                                        Thread.sleep(3000L);
++                                    } catch (InterruptedException ignored) {
++                                    }
++                                }
+                             }
+                         }
+                         if (computed) {
+@@ -125,6 +136,7 @@ class RoomTrackingLiveData<T> extends Li
+             }
+         }
+     };
++
+     @SuppressLint("RestrictedApi")
+     RoomTrackingLiveData(
+             RoomDatabase database,

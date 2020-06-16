@@ -103,6 +103,7 @@
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
     <string name="title_from_to">%1$s ➤ %2$s</string>
+    <string name="title_title_description">%1$s: %2$s</string>
     <string name="title_factor_minutes">%1$d minutes</string>
 
     <string name="menu_exit">Exit</string>
@@ -165,6 +166,7 @@
     <string name="title_setup_gmail_rationale">Please grant permissions to select an account and read your name</string>
     <string name="title_setup_gmail_permissions">Google will ask for permissions to read, compose, send and permanently delete all your email. FairEmail will never delete your messages without your explicit consent.</string>
     <string name="title_setup_gmail_drafts">If the drafts folder is not accessible by IMAP, this can be fixed in the Gmail label settings</string>
+    <string name="title_setup_office_auth">The error \'AUTHENTICATE failed\' can be caused by IMAP/SMTP being disabled administratively</string>
     <string name="title_setup_oauth_rationale">Authorize access to your %1$s account</string>
     <string name="title_setup_oauth_authorize">Authorize</string>
     <string name="title_setup_select_account">Select account</string>
@@ -262,9 +264,9 @@
     <string name="title_advanced_section_notifications">Notifications</string>
     <string name="title_advanced_section_misc">Miscellaneous</string>
 
-    <string name="title_advanced_receive">Receive messages</string>
+    <string name="title_advanced_receive">Receive messages for all accounts</string>
     <string name="title_advanced_when">When</string>
-    <string name="title_advanced_always">Always synchronize these accounts</string>
+    <string name="title_advanced_always">Always receive messages for these accounts</string>
     <string name="title_advanced_schedule">Schedule</string>
     <string name="title_advanced_advanced">Advanced</string>
     <string name="title_advanced_no_date">Messages without date</string>
@@ -276,6 +278,9 @@
     <string name="title_advanced_sync_folders">Synchronize folder list</string>
     <string name="title_advanced_sync_shared_folders">Synchronize shared folder lists</string>
     <string name="title_advanced_subscriptions">Manage folder subscriptions</string>
+    <string name="title_advanced_check_mx">Check sender email addresses on synchronizing messages</string>
+    <string name="title_advanced_check_reply">Check reply email addresses on synchronizing messages</string>
+    <string name="title_advanced_tune_keep_alive">Automatically tune the keep-alive interval</string>
 
     <string name="title_advanced_keyboard">Show keyboard by default</string>
     <string name="title_advanced_suggest_local">Suggest locally stored contacts</string>
@@ -287,7 +292,8 @@
     <string name="title_advanced_quote_reply">Quote replied text</string>
     <string name="title_advanced_resize_reply">Resize images in replied text</string>
     <string name="title_advanced_signature_location">Signature position</string>
-    <string name="title_advanced_signature_end">Add signature after quoted/forwarded message</string>
+    <string name="title_advanced_signature_reply">Use signature when replying</string>
+    <string name="title_advanced_signature_forward">Use signature when forwarding</string>
     <string name="title_advanced_plain_only">Send plain text only by default</string>
     <string name="title_advanced_flow">\'format flowed\' for plain text</string>
     <string name="title_advanced_receipt">When requesting a receipt</string>
@@ -456,7 +462,7 @@
     <string name="title_advanced_english">Use US country settings</string>
     <string name="title_advanced_watchdog">Periodically check if FairEmail is still active</string>
     <string name="title_advanced_auth_sasl" translatable="false">SASL</string>
-    <string name="title_advanced_optimize">Automatically optimize settings</string>
+    <string name="title_advanced_optimize">Automatically optimize</string>
     <string name="title_advanced_updates">Check for updates</string>
     <string name="title_advanced_experiments">Try experimental features</string>
     <string name="title_advanced_crash_reports">Send error reports</string>
@@ -472,25 +478,21 @@
     <string name="title_advanced_charsets" translatable="false">Charsets</string>
     <string name="title_advanced_ciphers" translatable="false">Ciphers</string>
 
-    <string name="title_advanced_enabled_hint">Globally disable or enable receiving of messages</string>
-    <string name="title_advanced_manual_hint">If synchronization is disabled, it is still possible to synchronize manually by pulling down the message list.</string>
-    <string name="title_advanced_poll_hint">Synchronizing periodically will compare local and remote messages each and every time, which is an expensive operation possibly resulting in extra battery usage, especially when there are a lot of messages to synchronize. Always synchronizing will avoid this by continuous monitoring for changes only.</string>
-    <string name="title_advanced_optimized_hint">This option can be optimized automatically (miscellaneous settings)</string>
+    <string name="title_advanced_manual_hint">If receiving messages is disabled, it is still possible to manually receive messages by pulling down the message list</string>
+    <string name="title_advanced_poll_hint">Periodically checking for new messages will compare local and remote messages every time, which is an expensive operation that may result in extra battery usage, especially if there are a lot of messages. Always receive will prevent this by continuously following changes.</string>
     <string name="title_advanced_schedule_hint">Tap on a time to set a time</string>
-    <string name="title_advanced_check_mx">Check sender email addresses on synchronizing messages</string>
-    <string name="title_advanced_check_reply">Check reply email addresses on synchronizing messages</string>
     <string name="title_advanced_no_date_hint">Some providers store messages with an unknown, invalid or future date as messages without date</string>
     <string name="title_advanced_unseen_hint">Some providers don\'t support this properly, which may cause synchronizing none or all messages</string>
     <string name="title_advanced_deleted_unseen">When disabled, unread messages are kept on the device forever</string>
     <string name="title_advanced_sync_kept_hint">This will transfer extra data and consume extra battery power, especially if a lot of messages are stored on the device</string>
     <string name="title_advanced_sync_folders_hint">Disabling this will reduce data and battery usage somewhat, but will disable updating the list of folders too</string>
+    <string name="title_advanced_lookup_mx_hint">This will check if DNS MX records exist</string>
     <string name="title_advanced_sync_delay_hint">This will slow down synchronizing messages</string>
+    <string name="title_advanced_check_reply_hint">This will check if domain name of the sender and reply addresses are the same</string>
 
     <string name="title_advanced_suggest_local_hint">In addition to contacts provided by Android. Contact data will be stored for newly sent or received messages only when enabled.</string>
     <string name="title_advanced_usenet_hint">Insert \'-- \' between the text and the signature</string>
     <string name="title_advanced_send_reminders_hint">Show a warning when the message text or the subject is empty or when an attachment might be missing</string>
-    <string name="title_advanced_lookup_mx_hint">This will check if DNS MX records exist</string>
-    <string name="title_advanced_check_reply_hint">This will check if domain name of the sender and reply addresses are the same</string>
 
     <string name="title_advanced_metered_hint">Metered connections are generally mobile connections or paid Wi-Fi hotspots</string>
     <string name="title_advanced_metered_warning">Disabling this option will disable receiving and sending messages on mobile internet connections</string>
@@ -539,7 +541,6 @@
 
     <string name="title_advanced_fts_hint">Enabling this improves search performance, but also increases battery and storage space usage</string>
     <string name="title_advanced_english_hint">This will restart the app</string>
-    <string name="title_advanced_optimize_hint">Enabling this can automatically change the receive settings to reduce battery usage</string>
     <string name="title_advanced_experiments_hint">List of current experimental features</string>
     <string name="title_advanced_debug_hint">Enable extra logging and show debug information at various places</string>
     <string name="title_advanced_cleanup_attachments_hint">When manually cleaning, this will remove attachments from messages that are no longer synchronized</string>
@@ -590,6 +591,7 @@
     <string name="title_port">Port number</string>
     <string name="title_user">User name</string>
     <string name="title_password">Password</string>
+    <string name="title_case_sensitive">Usernames and passwords are usually case sensitive</string>
     <string name="title_client_certificate">Client certificate</string>
     <string name="title_realm">Realm</string>
     <string name="title_use_ip">Use local IP address instead of host name</string>
@@ -888,6 +890,7 @@
     <string name="title_no_key">No private key</string>
     <string name="title_invalid_key">Invalid private key</string>
     <string name="title_unknown_key">Private key does not match any encryption keys</string>
+    <string name="title_send_reminder_remark">Reminders can be enabled again in the send settings</string>
     <string name="title_send_plain_text">Plain text only</string>
     <string name="title_send_receipt">Request receipt</string>
     <string name="title_send_receipt_remark">Most providers and email clients ignore receipt requests</string>
@@ -943,7 +946,8 @@
         To search the server too, tap on the \'search again\' button.
     </string>
     <string name="title_search_index_hint">Searching via the search index is fast, but will only find whole words</string>
-    <string name="title_search_text_hint">Some email servers have trouble finding text in many messages</string>
+    <string name="title_search_text_hint">Searching for text in messages, when there are a large number of messages, might not work on some servers</string>
+    <string name="title_search_size_hint">Searching for messages by size, when there are a large number of messages, might not work on some servers</string>
     <string name="title_search_more">More options</string>
     <string name="title_search_use_index">Use search index</string>
     <string name="title_search_in_senders">In senders (from)</string>
@@ -957,6 +961,7 @@
     <string name="title_search_with_hidden">Hidden (on device only)</string>
     <string name="title_search_with_encrypted">Encrypted (on device only)</string>
     <string name="title_search_with_attachments">With attachments (on device only)</string>
+    <string name="title_search_with_size">Message size larger than</string>
     <string name="title_search_with_before">Before</string>
     <string name="title_search_with_after">After</string>
     <string name="title_search_flag_unseen">unread</string>
@@ -964,6 +969,7 @@
     <string name="title_search_flag_hidden">hidden</string>
     <string name="title_search_flag_encrypted">encrypted</string>
     <string name="title_search_flag_attachments">attachments</string>
+    <string name="title_search_flag_size">size &gt; %1$s</string>
 
     <string name="title_search_device">Search on device</string>
     <string name="title_search_server">Search on server</string>
@@ -1529,6 +1535,30 @@
         <item>1</item>
         <item>4</item>
         <item>3</item>
+    </integer-array>
+
+    <string-array name="sizeNames">
+        <item>0 B</item>
+        <item>256 KB</item>
+        <item>512 KB</item>
+        <item>1 MB</item>
+        <item>2 MB</item>
+        <item>5 MB</item>
+        <item>10 MB</item>
+        <item>20 MB</item>
+        <item>50 MB</item>
+    </string-array>
+
+    <integer-array name="sizeValues" translatable="false">
+        <item>0</item>
+        <item>250000</item>
+        <item>500000</item>
+        <item>1000000</item>
+        <item>2000000</item>
+        <item>5000000</item>
+        <item>10000000</item>
+        <item>20000000</item>
+        <item>50000000</item>
     </integer-array>
 
     <string name="fingerprint" translatable="false">17BA15C1AF55D925F98B99CEA4375D4CDF4C174B</string>

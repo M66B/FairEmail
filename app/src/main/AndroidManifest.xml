@@ -38,11 +38,42 @@
         android:required="false" />
 
     <!-- Android 11: https://developer.android.com/preview/privacy/package-visibility -->
-    <!--queries>
+    <queries>
+        <!--intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:mimeType="*/*" />
+        </intent-->
+
+        <!-- Customtabs / AppAuth-Android -->
         <intent>
-            <action android:name="org.openintents.openpgp.IOpenPgpService2" />
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data android:scheme="https" />
         </intent>
-    </queries-->
+
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data android:scheme="http" />
+        </intent>
+
+        <intent>
+            <action android:name="android.intent.action.GET_CONTENT" />
+            <category android:name="android.intent.category.OPENABLE" />
+            <data android:mimeType="*/*" />
+        </intent>
+
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE" />
+        </intent>
+
+        <intent>
+            <action android:name="android.provider.MediaStore.RECORD_SOUND" />
+        </intent>
+
+        <package android:name="org.sufficientlysecure.keychain" />
+        <package android:name="org.sufficientlysecure.keychain.debug" />
+    </queries>
 
     <application
         android:name=".ApplicationEx"

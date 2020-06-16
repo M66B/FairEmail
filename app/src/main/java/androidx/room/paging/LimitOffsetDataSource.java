@@ -128,6 +128,8 @@ public abstract class LimitOffsetDataSource<T> extends PositionalDataSource<T> {
                 mDb.setTransactionSuccessful();
                 list = rows;
             }
+        } catch (Throwable ex) {
+            eu.faircode.email.Log.w(ex);
         } finally {
             if (cursor != null) {
                 cursor.close();

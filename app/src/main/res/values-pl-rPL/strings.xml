@@ -102,6 +102,7 @@
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
     <string name="title_from_to">%1$s ➤ %2$s</string>
+    <string name="title_title_description">%1$s: %2$s</string>
     <string name="title_factor_minutes">%1$d minut</string>
     <string name="menu_exit">Wyjście</string>
     <string name="menu_answers">Szablony</string>
@@ -150,6 +151,7 @@
     <string name="title_setup_gmail_rationale">Przyznaj uprawnienia, aby wybrać konto i odczytać twoje imię</string>
     <string name="title_setup_gmail_permissions">Google poprosi o uprawnienia do odczytu, tworzenia, wysyłania i trwałego usuwania wszystkich wiadomości e-mail. FairEmail nigdy nie usunie twoich wiadomości bez Twojej wyraźnej zgody.</string>
     <string name="title_setup_gmail_drafts">Jeśli folder wersji roboczych nie jest dostępny przez IMAP, można to naprawić w ustawieniach etykiety Gmail</string>
+    <string name="title_setup_office_auth">Błąd „AUTHENTICATE failed” może być spowodowany administracyjnym wyłączeniem IMAP / SMTP</string>
     <string name="title_setup_oauth_rationale">Autoryzuj dostęp do Twojego konta %1$s</string>
     <string name="title_setup_oauth_authorize">Autoryzuj</string>
     <string name="title_setup_select_account">Wybierz konto</string>
@@ -178,6 +180,7 @@
     <string name="title_setup_doze_battery">Wysokie użycie baterii?</string>
     <string name="title_setup_doze_stopped">Synchronizacja zatrzymana?</string>
     <string name="title_setup_data">Oszczędzanie danych jest włączone</string>
+    <string name="title_setup_advanced_options">Pokaż zaawansowane ustawienia</string>
     <string name="title_setup_inbox">Idź do wiadomości</string>
     <string name="title_setup_go">Idź</string>
     <string name="title_setup_to_do">Do zrobienia</string>
@@ -220,7 +223,7 @@
     <string name="title_setup_options">Opcje</string>
     <string name="title_setup_defaults">Przywróć domyślne</string>
     <string name="title_setup_reset_questions">Zresetuj pytania</string>
-    <string name="title_advanced_hint_title">Opcje zaawansowane</string>
+    <string name="title_advanced_hint_title">Bardziej zaawansowane opcje</string>
     <string name="title_advanced_hint_message">        Przechodzisz do zaawansowanych opcji.
         Wszystkie opcje mają powszechnie używane wartości standardowe, które można zmienić, jeśli masz inne preferencje.
     </string>
@@ -234,9 +237,9 @@
     <string name="title_advanced_section_encryption">Szyfrowanie</string>
     <string name="title_advanced_section_notifications">Powiadomienia</string>
     <string name="title_advanced_section_misc">Różne</string>
-    <string name="title_advanced_receive">Odbierz wiadomości</string>
+    <string name="title_advanced_receive">Odbierz wiadomości ze wszystkich kont</string>
     <string name="title_advanced_when">Kiedy</string>
-    <string name="title_advanced_always">Zawsze synchronizuj te konta</string>
+    <string name="title_advanced_always">Zawsze odbieraj wiadomości z tych kont</string>
     <string name="title_advanced_schedule">Harmonogram</string>
     <string name="title_advanced_advanced">Zaawansowane</string>
     <string name="title_advanced_no_date">Wiadomości bez daty</string>
@@ -246,7 +249,11 @@
     <string name="title_advanced_kept_removed">Sprawdź, czy stare wiadomości zostały usunięte z serwera</string>
     <string name="title_advanced_gmail_thread">Styl grupowania wiadomości Gmail dla kont Gmail</string>
     <string name="title_advanced_sync_folders">Synchronizuj listę folderów</string>
+    <string name="title_advanced_sync_shared_folders">Synchronizuj listy udostępnionych folderów</string>
     <string name="title_advanced_subscriptions">Zarządzaj subskrypcjami folderów</string>
+    <string name="title_advanced_check_mx">Sprawdź adresy e-mail nadawcy przy synchronizowaniu wiadomości</string>
+    <string name="title_advanced_check_reply">Sprawdź adresy e-mail odpowiedzi podczas synchronizacji wiadomości</string>
+    <string name="title_advanced_tune_keep_alive">Automatycznie dostosuj interwał zachowania aktywności</string>
     <string name="title_advanced_keyboard">Domyślnie pokaż klawiaturę</string>
     <string name="title_advanced_suggest_local">Proponuj kontakty przechowywane lokalnie</string>
     <string name="title_advanced_suggest_sent">Proponuj adresy znalezione w wysłanych wiadomościach</string>
@@ -257,7 +264,8 @@
     <string name="title_advanced_quote_reply">Cytuj treść w odpowiedzi</string>
     <string name="title_advanced_resize_reply">Zmień rozmiar zdjęć w treści odpowiedzi</string>
     <string name="title_advanced_signature_location">Pozycja podpisu</string>
-    <string name="title_advanced_signature_end">Dodaj podpis po cytowanej/przesyłanej wiadomości</string>
+    <string name="title_advanced_signature_reply">Użyj podpisu podczas odpowiedzi</string>
+    <string name="title_advanced_signature_forward">Użyj podpisu podczas przekazywania</string>
     <string name="title_advanced_plain_only">Domyślnie wysyłaj czystym tekstem</string>
     <string name="title_advanced_flow">\'Format flowed\' dla zwykłego tekstu</string>
     <string name="title_advanced_receipt">Podczas żądania potwierdzenia</string>
@@ -410,7 +418,7 @@
     <string name="title_advanced_fts_indexed">Zindeksowano %1$d / %2$d Wiadomości (%3$s)</string>
     <string name="title_advanced_english">Użyj ustawień kraju US</string>
     <string name="title_advanced_watchdog">Okresowo sprawdzaj, czy FairEmail jest nadal aktywny</string>
-    <string name="title_advanced_optimize">Automatycznie optymalizuj ustawienia</string>
+    <string name="title_advanced_optimize">Automatycznie optymalizuj</string>
     <string name="title_advanced_updates">Sprawdź aktualizacje</string>
     <string name="title_advanced_experiments">Wypróbuj funkcje eksperymentalne</string>
     <string name="title_advanced_crash_reports">Wyślij raport o błędach</string>
@@ -420,24 +428,20 @@
     <string name="title_advanced_last_cleanup">Ostatnie czyszczenie: %1$s</string>
     <string name="title_advanced_app">Ustawienia aplikacji</string>
     <string name="title_advanced_more">Więcej opcji</string>
-    <string name="title_advanced_enabled_hint">Globalnie wyłącz lub włącz odbieranie wiadomości</string>
-    <string name="title_advanced_manual_hint">Jeśli synchronizacja jest wyłączona, nadal można synchronizować ręcznie, przeciągając listę wiadomości.</string>
-    <string name="title_advanced_poll_hint">Synchronizacja okresowa za każdym razem porównuje wiadomości lokalne i zdalne, co jest kosztowną operacją, która może prowadzić do dodatkowego zużycia baterii, zwłaszcza gdy jest wiele wiadomości do synchronizacji. Synchronizacja ciągła pozwoli uniknąć tego poprzez stałe monitorowanie tylko zmian.</string>
-    <string name="title_advanced_optimized_hint">Ta opcja może być optymalizowana automatycznie (różne ustawienia)</string>
+    <string name="title_advanced_manual_hint">Gdy synchronizacja jest wyłączona, nadal można odbierać wiadomości ręcznie, przeciągając listę wiadomości</string>
+    <string name="title_advanced_poll_hint">Synchronizacja okresowa porównuje wiadomości lokalne i zdalne za każdym razem, co jest kosztowną operacją, która może prowadzić do dodatkowego zużycia baterii, zwłaszcza gdy jest dużo wiadomości do synchronizacji. Synchronizacja stała pozwoli uniknąć ciągłego sprawdzania zmian.</string>
     <string name="title_advanced_schedule_hint">Dotknij zegara, aby ustawić czas</string>
-    <string name="title_advanced_check_mx">Sprawdź adresy e-mail nadawcy przy synchronizowaniu wiadomości</string>
-    <string name="title_advanced_check_reply">Sprawdź adresy e-mail odpowiedzi podczas synchronizacji wiadomości</string>
     <string name="title_advanced_no_date_hint">Niektórzy dostawcy przechowują wiadomości z nieznaną, niepoprawną lub przyszłą datą jako wiadomości bez daty</string>
     <string name="title_advanced_unseen_hint">Niektórzy dostawcy nie obsługują tego poprawnie, co może powodować brak synchronizacji lub synchronizację wszystkich wiadomości</string>
     <string name="title_advanced_deleted_unseen">Kiedy wyłączone, nieprzeczytane wiadomości są zawsze przechowywane w urządzeniu</string>
     <string name="title_advanced_sync_kept_hint">Spowoduje to użycie dodatkowych danych i zużycie dodatkowej energii baterii, zwłaszcza jeśli w urządzeniu przechowywanych jest wiele wiadomości</string>
     <string name="title_advanced_sync_folders_hint">Wyłączenie tej opcji nieco zmniejszy zużycie danych i baterii, ale wyłączy także aktualizację listy folderów</string>
+    <string name="title_advanced_lookup_mx_hint">To sprawdzi, czy istnieją rekordy MX DNS</string>
     <string name="title_advanced_sync_delay_hint">Wydłuży to synchronizację wiadomości</string>
+    <string name="title_advanced_check_reply_hint">Spowoduje to sprawdzenie, czy nazwa domeny nadawcy i adresy odpowiedzi są takie same</string>
     <string name="title_advanced_suggest_local_hint">Oprócz kontaktów dostarczanych przez Androida. Dane kontaktowe będą przechowywane dla nowo wysłanych lub odebranych wiadomości tylko kiedy włączone.</string>
     <string name="title_advanced_usenet_hint">Wstaw \'-- \' między tekstem a podpisem</string>
     <string name="title_advanced_send_reminders_hint">Pokaż ostrzeżenie, gdy tekst wiadomości lub temat jest pusty lub gdy może brakować załącznika</string>
-    <string name="title_advanced_lookup_mx_hint">To sprawdzi, czy istnieją rekordy MX DNS</string>
-    <string name="title_advanced_check_reply_hint">Spowoduje to sprawdzenie, czy nazwa domeny nadawcy i adresy odpowiedzi są takie same</string>
     <string name="title_advanced_metered_hint">Połączenia taryfowe to głównie połączenia komórkowe lub płatne hotspoty Wi-Fi</string>
     <string name="title_advanced_metered_warning">Wyłączenie tej opcji uniemożliwi odbieranie i wysyłanie wiadomości przy użyciu komórkowego połączenia internetowego</string>
     <string name="title_advanced_rlah_hint">Zakładając brak roamingu w UE</string>
@@ -479,7 +483,6 @@
     <string name="title_advanced_notify_no_channels">Ta wersja Androida nie obsługuje kanałów powiadomień</string>
     <string name="title_advanced_fts_hint">Włączenie tej opcji poprawia wydajność wyszukiwania, ale także zwiększa zużycie baterii i przestrzeni dyskowej</string>
     <string name="title_advanced_english_hint">Spowoduje to ponowne uruchomienie aplikacji</string>
-    <string name="title_advanced_optimize_hint">Włączenie tej opcji może automatycznie zmienić ustawienia odbioru, aby zmniejszyć zużycie baterii</string>
     <string name="title_advanced_experiments_hint">Lista aktualnych funkcji eksperymentalnych</string>
     <string name="title_advanced_debug_hint">Włącz dodatkowe rejestrowanie i wyświetlaj informacje debugowania w różnych miejscach</string>
     <string name="title_advanced_cleanup_attachments_hint">Podczas ręcznego czyszczenia spowoduje to usunięcie załączników z wiadomości, które nie są już synchronizowane</string>
@@ -522,6 +525,7 @@
     <string name="title_port">Numer portu</string>
     <string name="title_user">Nazwa użytkownika</string>
     <string name="title_password">Hasło</string>
+    <string name="title_case_sensitive">W nazwach użytkowników i hasłach rozróżniane są małe i wielkie litery</string>
     <string name="title_client_certificate">Certyfikat klienta</string>
     <string name="title_realm">Realm</string>
     <string name="title_use_ip">Użyj lokalnego adresu IP zamiast nazwy hosta</string>
@@ -800,6 +804,7 @@
     <string name="title_no_key">Brak klucza prywatnego</string>
     <string name="title_invalid_key">Nieprawidłowy klucz prywatny</string>
     <string name="title_unknown_key">Klucz prywatny nie pasuje do żadnych kluczy szyfrowania</string>
+    <string name="title_send_reminder_remark">Przypomnienia można włączyć ponownie w ustawieniach wysyłania</string>
     <string name="title_send_plain_text">Tylko zwykły tekst</string>
     <string name="title_send_receipt">Poproś o potwierdzenie</string>
     <string name="title_send_receipt_remark">Większość dostawców i klientów e-mail ignoruje prośby o potwierdzenie</string>
@@ -850,7 +855,8 @@
         Aby wyszukiwanie objęło również serwer, dotknij przycisku \'Szukaj ponownie\'.
     </string>
     <string name="title_search_index_hint">Wyszukiwanie za pomocą indeksu wyszukiwania jest szybkie, ale znajdzie tylko całe słowa</string>
-    <string name="title_search_text_hint">Niektóre serwery e-mail mają problem ze znalezieniem tekstu w wielu wiadomościach</string>
+    <string name="title_search_text_hint">Wyszukiwanie tekstu w wiadomościach może nie działać na niektórych serwerach, gdy istnieje duża liczba wiadomości</string>
+    <string name="title_search_size_hint">Wyszukiwanie wiadomości według rozmiaru może nie działać na niektórych serwerach, gdy istnieje duża liczba wiadomości</string>
     <string name="title_search_more">Więcej opcji</string>
     <string name="title_search_use_index">Użyj indeksu wyszukiwania</string>
     <string name="title_search_in_senders">W nadawcach (od)</string>
@@ -864,6 +870,7 @@
     <string name="title_search_with_hidden">Ukryte (tylko na urządzeniu)</string>
     <string name="title_search_with_encrypted">Zaszyfrowane (tylko na urządzeniu)</string>
     <string name="title_search_with_attachments">Z załącznikami (tylko na urządzeniu)</string>
+    <string name="title_search_with_size">Rozmiar wiadomości większy niż</string>
     <string name="title_search_with_before">Przed</string>
     <string name="title_search_with_after">Po</string>
     <string name="title_search_flag_unseen">nieprzeczytane</string>
@@ -871,6 +878,7 @@
     <string name="title_search_flag_hidden">ukryte</string>
     <string name="title_search_flag_encrypted">zaszyfrowane</string>
     <string name="title_search_flag_attachments">załączniki</string>
+    <string name="title_search_flag_size">rozmiar &gt; %1$s</string>
     <string name="title_search_device">Szukaj na urządzeniu</string>
     <string name="title_search_server">Szukaj na serwerze</string>
     <string name="title_search_in">Szukaj w</string>
@@ -1268,7 +1276,7 @@
         <item>Na początku</item>
         <item>W środku</item>
         <item>Na końcu</item>
-        <item>Pokaż nieskalowane</item>
+        <item>Pokaż cały</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Niski</item>
@@ -1303,5 +1311,16 @@
         <item>Podpis PGP+szyfrowanie</item>
         <item>Tylko podpis S/MIME</item>
         <item>Podpis S/MIME+szyfrowanie</item>
+    </string-array>
+    <string-array name="sizeNames">
+        <item>0 B</item>
+        <item>256 KB</item>
+        <item>512 KB</item>
+        <item>1 MB</item>
+        <item>2 MB</item>
+        <item>5 MB</item>
+        <item>10 MB</item>
+        <item>20 MB</item>
+        <item>50 MB</item>
     </string-array>
 </resources>

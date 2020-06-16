@@ -29,6 +29,7 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.Person;
 import android.app.RemoteAction;
+import android.content.ActivityNotFoundException;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.ContentResolver;
@@ -119,6 +120,7 @@ import androidx.core.content.FileProvider;
 import androidx.core.content.pm.ShortcutInfoCompat;
 import androidx.core.content.pm.ShortcutManagerCompat;
 import androidx.core.graphics.ColorUtils;
+import androidx.core.util.PatternsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
@@ -2920,8 +2922,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             Uri lookupUri = (Uri) ibAvatar.getTag();
             if (lookupUri != null) {
                 Intent intent = new Intent(Intent.ACTION_VIEW, lookupUri);
-                if (intent.resolveActivity(context.getPackageManager()) != null)
+                try {
                     context.startActivity(intent);
+                } catch (ActivityNotFoundException ex) {
+                    Log.w(ex);
+                    ToastEx.makeText(context,
+                            context.getString(R.string.title_no_viewer, intent.getAction()),
+                            Toast.LENGTH_LONG).show();
+                }
             }
         }
 
@@ -3216,7 +3224,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void onPickContact(String name, String email) {
             Intent pick = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
-            if (pick.resolveActivity(context.getPackageManager()) == null)
+            if (pick.resolveActivity(context.getPackageManager()) == null) // system whitelisted
                 Snackbar.make(view, R.string.title_no_contacts, Snackbar.LENGTH_LONG).show();
             else {
                 properties.setValue("name", name);
@@ -3236,7 +3244,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             insert.setType(ContactsContract.Contacts.CONTENT_TYPE);
 
             PackageManager pm = context.getPackageManager();
-            if (insert.resolveActivity(pm) == null)
+            if (insert.resolveActivity(pm) == null) // system whitelisted
                 Snackbar.make(parentFragment.getView(),
                         R.string.title_no_contacts, Snackbar.LENGTH_LONG).show();
             else
@@ -3253,7 +3261,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             edit.setDataAndTypeAndNormalize(lookupUri, ContactsContract.Contacts.CONTENT_ITEM_TYPE);
 
             PackageManager pm = context.getPackageManager();
-            if (edit.resolveActivity(pm) == null)
+            if (edit.resolveActivity(pm) == null) // system whitelisted
                 Snackbar.make(parentFragment.getView(),
                         R.string.title_no_contacts, Snackbar.LENGTH_LONG).show();
             else
@@ -4331,7 +4339,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     }
 
                     PackageManager pm = context.getPackageManager();
-                    if (intent.resolveActivity(pm) == null)
+                    if (intent.resolveActivity(pm) == null) // system whitelisted
                         Snackbar.make(parentFragment.getView(),
                                 context.getString(R.string.title_no_viewer, intent.getAction()),
                                 Snackbar.LENGTH_LONG).
@@ -5520,7 +5528,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 sanitized = (s == null ? uri : s);
             }
 
-            final Uri uriTitle = Uri.parse(title == null ? "" : title);
+            // Process title
+            final Uri uriTitle;
+            if (title != null && PatternsCompat.WEB_URL.matcher(title).matches())
+                uriTitle = Uri.parse(title.contains("://") ? title : "http://" + title);
+            else
+                uriTitle = null;
 
             // Get views
             final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_open_link, null);
@@ -5705,7 +5718,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvTitle.setVisibility(TextUtils.isEmpty(title) ? View.GONE : View.VISIBLE);
             etLink.setText(uri.toString());
 
-            grpDifferent.setVisibility(uriTitle.getHost() == null || uri.getHost() == null ||
+            grpDifferent.setVisibility(uri.getHost() == null ||
+                    uriTitle == null || uriTitle.getHost() == null ||
                     uriTitle.getHost().equalsIgnoreCase(uri.getHost())
                     ? View.GONE : View.VISIBLE);
 

@@ -94,6 +94,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.FileProvider;
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
@@ -438,7 +439,8 @@ public class FragmentCompose extends FragmentBase {
                 }
 
                 Intent pick = new Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Email.CONTENT_URI);
-                if (pick.resolveActivity(getContext().getPackageManager()) == null)
+                PackageManager pm = getContext().getPackageManager();
+                if (pick.resolveActivity(pm) == null) // system whitelisted
                     Snackbar.make(view, R.string.title_no_contacts, Snackbar.LENGTH_LONG).show();
                 else
                     startActivityForResult(Helper.getChooser(getContext(), pick), request);
@@ -1472,7 +1474,7 @@ public class FragmentCompose extends FragmentBase {
         // https://developer.android.com/reference/android/provider/MediaStore.Audio.Media.html#RECORD_SOUND_ACTION
         PackageManager pm = getContext().getPackageManager();
         Intent intent = new Intent(MediaStore.Audio.Media.RECORD_SOUND_ACTION);
-        if (intent.resolveActivity(pm) == null) {
+        if (intent.resolveActivity(pm) == null) { // action whitelisted
             Snackbar snackbar = Snackbar.make(view, getString(R.string.title_no_recorder), Snackbar.LENGTH_INDEFINITE);
             snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
                 @Override
@@ -1510,7 +1512,7 @@ public class FragmentCompose extends FragmentBase {
         intent.setType("*/*");
         intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
         PackageManager pm = getContext().getPackageManager();
-        if (intent.resolveActivity(pm) == null)
+        if (intent.resolveActivity(pm) == null) // system whitelisted
             noStorageAccessFramework();
         else
             startActivityForResult(Helper.getChooser(getContext(), intent), REQUEST_ATTACHMENT);
@@ -1632,7 +1634,8 @@ public class FragmentCompose extends FragmentBase {
                             public void onNothingSelected() {
                                 Snackbar snackbar = Snackbar.make(view, R.string.title_no_key, Snackbar.LENGTH_LONG);
                                 final Intent intent = KeyChain.createInstallIntent();
-                                if (intent.resolveActivity(getContext().getPackageManager()) != null)
+                                PackageManager pm = getContext().getPackageManager();
+                                if (intent.resolveActivity(pm) != null) // package whitelisted
                                     snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
                                         @Override
                                         public void onClick(View v) {
@@ -1698,7 +1701,8 @@ public class FragmentCompose extends FragmentBase {
                 }
             else {
                 Snackbar snackbar = Snackbar.make(view, R.string.title_no_openpgp, Snackbar.LENGTH_LONG);
-                if (Helper.getIntentOpenKeychain().resolveActivity(getContext().getPackageManager()) != null)
+                PackageManager pm = getContext().getPackageManager();
+                if (Helper.getIntentOpenKeychain().resolveActivity(pm) != null) // package whitelisted
                     snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -1874,7 +1878,7 @@ public class FragmentCompose extends FragmentBase {
             // https://developer.android.com/training/camera/photobasics
             PackageManager pm = getContext().getPackageManager();
             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            if (intent.resolveActivity(pm) == null) {
+            if (intent.resolveActivity(pm) == null) { // action whitelisted
                 Snackbar snackbar = Snackbar.make(view, getString(R.string.title_no_camera), Snackbar.LENGTH_LONG);
                 snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
                     @Override
@@ -1903,7 +1907,7 @@ public class FragmentCompose extends FragmentBase {
             intent.setType("image/*");
             intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
             PackageManager pm = getContext().getPackageManager();
-            if (intent.resolveActivity(pm) == null)
+            if (intent.resolveActivity(pm) == null) // GET_CONTENT whitelisted
                 noStorageAccessFramework();
             else
                 startActivityForResult(Helper.getChooser(getContext(), intent), REQUEST_IMAGE_FILE);
@@ -3237,6 +3241,8 @@ public class FragmentCompose extends FragmentBase {
                         // - list
                         // - receipt
                         // - participation
+
+                        // References
                         if ("reply".equals(action) || "reply_all".equals(action) ||
                                 "list".equals(action) ||
                                 "receipt".equals(action) ||
@@ -3308,6 +3314,7 @@ public class FragmentCompose extends FragmentBase {
                         } else if ("editasnew".equals(action))
                             data.draft.thread = data.draft.msgid;
 
+                        // Subject
                         String subject = (ref.subject == null ? "" : ref.subject);
                         if ("reply".equals(action) || "reply_all".equals(action)) {
                             if (prefix_once)
@@ -3364,13 +3371,17 @@ public class FragmentCompose extends FragmentBase {
                         } else if ("participation".equals(action))
                             data.draft.subject = status + ": " + ref.subject;
 
+                        // Plain-only
                         if (ref.plain_only != null && ref.plain_only)
                             data.draft.plain_only = true;
+
+                        // Encryption
                         if (ref.ui_encrypt != null && !EntityMessage.ENCRYPT_NONE.equals(ref.ui_encrypt)) {
                             if (ActivityBilling.isPro(context))
                                 data.draft.ui_encrypt = ref.ui_encrypt;
                         }
 
+                        // Reply template
                         if (answer > 0) {
                             EntityAnswer a = db.answer().getAnswer(answer);
                             if (a != null) {
@@ -3381,6 +3392,15 @@ public class FragmentCompose extends FragmentBase {
                             }
                         }
 
+                        // Signature
+                        if ("reply".equals(action) || "reply_all".equals(action))
+                            data.draft.signature = prefs.getBoolean("signature_reply", true);
+                        else if ("forward".equals(action))
+                            data.draft.signature = prefs.getBoolean("signature_forward", true);
+                        else
+                            data.draft.signature = false;
+
+                        // Reply header
                         String s = args.getString("selected");
                         if (ref.content &&
                                 !"editasnew".equals(action) &&
@@ -5034,14 +5054,15 @@ public class FragmentCompose extends FragmentBase {
             Bundle args = getArguments();
             long id = args.getLong("id");
             String address_error = args.getString("address_error");
-            boolean remind_to = args.getBoolean("remind_to", false);
-            boolean remind_extra = args.getBoolean("remind_extra", false);
-            boolean remind_pgp = args.getBoolean("remind_pgp", false);
-            boolean remind_subject = args.getBoolean("remind_subject", false);
-            boolean remind_text = args.getBoolean("remind_text", false);
-            boolean remind_attachment = args.getBoolean("remind_attachment", false);
+            final boolean remind_to = args.getBoolean("remind_to", false);
+            final boolean remind_extra = args.getBoolean("remind_extra", false);
+            final boolean remind_pgp = args.getBoolean("remind_pgp", false);
+            final boolean remind_subject = args.getBoolean("remind_subject", false);
+            final boolean remind_text = args.getBoolean("remind_text", false);
+            final boolean remind_attachment = args.getBoolean("remind_attachment", false);
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            boolean send_reminders = prefs.getBoolean("send_reminders", true);
             int send_delayed = prefs.getInt("send_delayed", 0);
             boolean send_dialog = prefs.getBoolean("send_dialog", true);
 
@@ -5057,6 +5078,8 @@ public class FragmentCompose extends FragmentBase {
             final TextView tvRemindSubject = dview.findViewById(R.id.tvRemindSubject);
             final TextView tvRemindText = dview.findViewById(R.id.tvRemindText);
             final TextView tvRemindAttachment = dview.findViewById(R.id.tvRemindAttachment);
+            final SwitchCompat swSendReminders = dview.findViewById(R.id.swSendReminders);
+            final TextView tvSendRemindersHint = dview.findViewById(R.id.tvSendRemindersHint);
             final TextView tvTo = dview.findViewById(R.id.tvTo);
             final TextView tvVia = dview.findViewById(R.id.tvVia);
             final CheckBox cbPlainOnly = dview.findViewById(R.id.cbPlainOnly);
@@ -5072,12 +5095,12 @@ public class FragmentCompose extends FragmentBase {
 
             tvAddressError.setText(address_error);
             tvAddressError.setVisibility(address_error == null ? View.GONE : View.VISIBLE);
-            tvRemindTo.setVisibility(remind_to ? View.VISIBLE : View.GONE);
-            tvRemindExtra.setVisibility(remind_extra ? View.VISIBLE : View.GONE);
-            tvRemindPgp.setVisibility(remind_pgp ? View.VISIBLE : View.GONE);
-            tvRemindSubject.setVisibility(remind_subject ? View.VISIBLE : View.GONE);
-            tvRemindText.setVisibility(remind_text ? View.VISIBLE : View.GONE);
-            tvRemindAttachment.setVisibility(remind_attachment ? View.VISIBLE : View.GONE);
+            tvRemindTo.setVisibility(send_reminders && remind_to ? View.VISIBLE : View.GONE);
+            tvRemindExtra.setVisibility(send_reminders && remind_extra ? View.VISIBLE : View.GONE);
+            tvRemindPgp.setVisibility(send_reminders && remind_pgp ? View.VISIBLE : View.GONE);
+            tvRemindSubject.setVisibility(send_reminders && remind_subject ? View.VISIBLE : View.GONE);
+            tvRemindText.setVisibility(send_reminders && remind_text ? View.VISIBLE : View.GONE);
+            tvRemindAttachment.setVisibility(send_reminders && remind_attachment ? View.VISIBLE : View.GONE);
             tvTo.setText(null);
             tvVia.setText(null);
             tvReceipt.setVisibility(View.GONE);
@@ -5091,6 +5114,24 @@ public class FragmentCompose extends FragmentBase {
             tvNotAgain.setVisibility(cbNotAgain.isChecked() ? View.VISIBLE : View.GONE);
 
             Helper.setViewsEnabled(dview, false);
+
+            boolean reminder = (remind_to || remind_extra || remind_pgp || remind_subject || remind_text || remind_attachment);
+            swSendReminders.setChecked(send_reminders);
+            swSendReminders.setVisibility(send_reminders && reminder ? View.VISIBLE : View.GONE);
+            tvSendRemindersHint.setVisibility(View.GONE);
+            swSendReminders.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                    prefs.edit().putBoolean("send_reminders", checked).apply();
+                    tvRemindTo.setVisibility(checked && remind_to ? View.VISIBLE : View.GONE);
+                    tvRemindExtra.setVisibility(checked && remind_extra ? View.VISIBLE : View.GONE);
+                    tvRemindPgp.setVisibility(checked && remind_pgp ? View.VISIBLE : View.GONE);
+                    tvRemindSubject.setVisibility(checked && remind_subject ? View.VISIBLE : View.GONE);
+                    tvRemindText.setVisibility(checked && remind_text ? View.VISIBLE : View.GONE);
+                    tvRemindAttachment.setVisibility(checked && remind_attachment ? View.VISIBLE : View.GONE);
+                    tvSendRemindersHint.setVisibility(checked ? View.GONE : View.VISIBLE);
+                }
+            });
 
             cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override

@@ -174,4 +174,8 @@ public class FtsDbHelper extends SQLiteOpenHelper {
         Log.i("FTS optimize");
         db.execSQL("INSERT INTO message (message) VALUES ('optimize')");
     }
+
+    static void delete(Context context) {
+        context.getDatabasePath(DATABASE_NAME).delete();
+    }
 }

@@ -1,0 +1,30 @@
+--- /home/marcel/support/room/runtime/src/main/java/androidx/room/paging/LimitOffsetDataSource.java	2020-05-18 15:59:35.380887546 +0200
++++ /home/marcel/email/app/src/main/java/androidx/room/paging/LimitOffsetDataSource.java	2020-06-15 16:11:37.701097921 +0200
+@@ -20,6 +20,7 @@ import android.database.Cursor;
+ 
+ import androidx.annotation.NonNull;
+ import androidx.annotation.RestrictTo;
++import androidx.paging.PositionalDataSource;
+ import androidx.room.InvalidationTracker;
+ import androidx.room.RoomDatabase;
+ import androidx.room.RoomSQLiteQuery;
+@@ -42,9 +43,8 @@ import java.util.Set;
+  *
+  * @hide
+  */
+-@SuppressWarnings("deprecation")
+ @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP_PREFIX)
+-public abstract class LimitOffsetDataSource<T> extends androidx.paging.PositionalDataSource<T> {
++public abstract class LimitOffsetDataSource<T> extends PositionalDataSource<T> {
+     private final RoomSQLiteQuery mSourceQuery;
+     private final String mCountQuery;
+     private final String mLimitOffsetQuery;
+@@ -128,6 +128,8 @@ public abstract class LimitOffsetDataSou
+                 mDb.setTransactionSuccessful();
+                 list = rows;
+             }
++        } catch (Throwable ex) {
++            eu.faircode.email.Log.w(ex);
+         } finally {
+             if (cursor != null) {
+                 cursor.close();

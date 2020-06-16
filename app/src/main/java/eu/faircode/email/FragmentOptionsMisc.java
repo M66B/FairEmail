@@ -27,6 +27,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.database.sqlite.SQLiteDatabaseCorruptException;
 import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
@@ -72,7 +73,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private TextView tvFtsPro;
     private SwitchCompat swEnglish;
     private SwitchCompat swWatchdog;
-    private SwitchCompat swOptimize;
     private SwitchCompat swUpdates;
     private SwitchCompat swExperiments;
     private TextView tvExperimentsHint;
@@ -97,7 +97,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private Group grpDebug;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "shortcuts", "fts", "english", "watchdog", "auto_optimize", "updates",
+            "shortcuts", "fts", "english", "watchdog", "updates",
             "experiments", "crash_reports", "debug", "auth_sasl", "cleanup_attachments"
     };
 
@@ -128,7 +128,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvFtsPro = view.findViewById(R.id.tvFtsPro);
         swEnglish = view.findViewById(R.id.swEnglish);
         swWatchdog = view.findViewById(R.id.swWatchdog);
-        swOptimize = view.findViewById(R.id.swOptimize);
         swUpdates = view.findViewById(R.id.swUpdates);
         swExperiments = view.findViewById(R.id.swExperiments);
         tvExperimentsHint = view.findViewById(R.id.tvExperimentsHint);
@@ -192,9 +191,14 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                     new SimpleTask<Void>() {
                         @Override
                         protected Void onExecute(Context context, Bundle args) {
-                            SQLiteDatabase sdb = FtsDbHelper.getInstance(context);
-                            FtsDbHelper.delete(sdb);
-                            FtsDbHelper.optimize(sdb);
+                            try {
+                                SQLiteDatabase sdb = FtsDbHelper.getInstance(context);
+                                FtsDbHelper.delete(sdb);
+                                FtsDbHelper.optimize(sdb);
+                            } catch (SQLiteDatabaseCorruptException ex) {
+                                Log.e(ex);
+                                FtsDbHelper.delete(context);
+                            }
 
                             DB db = DB.getInstance(context);
                             db.message().resetFts();
@@ -226,14 +230,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("watchdog", checked).apply();
                 WorkerWatchdog.init(getContext());
-            }
-        });
-
-        swOptimize.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("auto_optimize", checked).apply();
-                ServiceSynchronize.reload(getContext(), null, false, "optimize");
             }
         });
 
@@ -314,7 +310,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         final Intent app = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
         app.setData(Uri.parse("package:" + getContext().getPackageName()));
-        btnApp.setEnabled(app.resolveActivity(getContext().getPackageManager()) != null);
         btnApp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -536,7 +531,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swFts.setChecked(prefs.getBoolean("fts", false));
         swEnglish.setChecked(prefs.getBoolean("english", false));
         swWatchdog.setChecked(prefs.getBoolean("watchdog", true));
-        swOptimize.setChecked(prefs.getBoolean("auto_optimize", false));
         swUpdates.setChecked(prefs.getBoolean("updates", true));
         swUpdates.setVisibility(
                 Helper.isPlayStoreInstall() || !Helper.hasValidFingerprint(getContext())

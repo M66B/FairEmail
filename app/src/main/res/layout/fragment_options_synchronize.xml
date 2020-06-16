@@ -2,6 +2,7 @@
 <eu.faircode.email.ScrollViewEx xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scroll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingStart="6dp"
@@ -41,18 +42,6 @@
             app:switchPadding="12dp" />
 
         <eu.faircode.email.FixedTextView
-            android:id="@+id/tvEnabledHint"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="48dp"
-            android:text="@string/title_advanced_enabled_hint"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textStyle="italic"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swEnabled" />
-
-        <eu.faircode.email.FixedTextView
             android:id="@+id/tvManalHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -63,7 +52,7 @@
             android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvEnabledHint" />
+            app:layout_constraintTop_toBottomOf="@id/swEnabled" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvWhen"
@@ -99,18 +88,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/spPollInterval" />
 
-        <eu.faircode.email.FixedTextView
-            android:id="@+id/tvOptimizedHint"
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swOptimize"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="48dp"
-            android:text="@string/title_advanced_optimized_hint"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="?attr/colorWarning"
-            android:textStyle="italic"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/title_advanced_optimize"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvPollHint" />
+            app:layout_constraintTop_toBottomOf="@id/tvPollHint"
+            app:switchPadding="12dp" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvExempted"
@@ -123,7 +111,7 @@
             android:textColor="?android:attr/textColorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvOptimizedHint" />
+            app:layout_constraintTop_toBottomOf="@id/swOptimize" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvExempted"
@@ -515,6 +503,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/swCheckReply" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swTuneKeepAlive"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/title_advanced_tune_keep_alive"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCheckReplyHint"
+            app:switchPadding="12dp" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpExempted"

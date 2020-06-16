@@ -81,6 +81,7 @@
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
     <string name="title_from_to">%1$s ➤ %2$s</string>
+    <string name="title_title_description">%1$s: %2$s</string>
     <string name="title_factor_minutes">%1$d minuti</string>
     <string name="menu_exit">Esci</string>
     <string name="menu_answers">Modelli</string>
@@ -129,6 +130,7 @@
     <string name="title_setup_gmail_rationale">Si prega di concedere i permessi per selezionare un account e leggere il tuo nome</string>
     <string name="title_setup_gmail_permissions">Google chiederà le autorizzazioni per leggere, comporre, inviare e eliminare definitivamente tutte le tue email. FairEmail non eliminerà mai i tuoi messaggi senza il tuo esplicito consenso.</string>
     <string name="title_setup_gmail_drafts">Se la cartella bozze non è accessibile da IMAP, questo può essere corretto nelle impostazioni dell\'etichetta Gmail</string>
+    <string name="title_setup_office_auth">L\'errore «AUTENTICA fallita» può essere causato dalla disattivazione amministrativa di IMAP/SMTP</string>
     <string name="title_setup_oauth_rationale">Autorizza l\'accesso al tuo account %1$s</string>
     <string name="title_setup_oauth_authorize">Autorizza</string>
     <string name="title_setup_select_account">Seleziona account</string>
@@ -157,6 +159,7 @@
     <string name="title_setup_doze_battery">Consumo elevato della batteria?</string>
     <string name="title_setup_doze_stopped">Sincronizzazione interrotta?</string>
     <string name="title_setup_data">Risparmio dati attivato</string>
+    <string name="title_setup_advanced_options">Mostra opzioni avanzate</string>
     <string name="title_setup_inbox">Vai ai messaggi</string>
     <string name="title_setup_go">Vai</string>
     <string name="title_setup_to_do">Da fare</string>
@@ -213,9 +216,9 @@
     <string name="title_advanced_section_encryption">Crittografia</string>
     <string name="title_advanced_section_notifications">Notifiche</string>
     <string name="title_advanced_section_misc">Altro</string>
-    <string name="title_advanced_receive">Ricevi messaggi</string>
+    <string name="title_advanced_receive">Ricevi messaggi per tutti gli account</string>
     <string name="title_advanced_when">Quando</string>
-    <string name="title_advanced_always">Sincronizza sempre questi account</string>
+    <string name="title_advanced_always">Ricevi sempre messaggi per questi account</string>
     <string name="title_advanced_schedule">Pianificazione</string>
     <string name="title_advanced_advanced">Avanzato</string>
     <string name="title_advanced_no_date">Messaggi senza data</string>
@@ -225,7 +228,11 @@
     <string name="title_advanced_kept_removed">Controlla se i vecchi messaggi sono stati rimossi dal server</string>
     <string name="title_advanced_gmail_thread">Raggruppamento messaggi Gmail per account Gmail</string>
     <string name="title_advanced_sync_folders">Sincronizza elenco cartelle</string>
+    <string name="title_advanced_sync_shared_folders">Sincronizza gli elenchi di cartelle condovise</string>
     <string name="title_advanced_subscriptions">Gestisci abbonamenti cartelle</string>
+    <string name="title_advanced_check_mx">Controlla gli indirizzi email mittente alla sincronizzazione dei messaggi</string>
+    <string name="title_advanced_check_reply">Controlla gli indirizzi email di risposta alla sincronizzazione dei messaggi</string>
+    <string name="title_advanced_tune_keep_alive">Regola automaticamente l\'intervallo keepalive</string>
     <string name="title_advanced_keyboard">Mostra tastiera in modo predefinito</string>
     <string name="title_advanced_suggest_local">Suggerisci contatti memorizzati localmente</string>
     <string name="title_advanced_suggest_sent">Suggerisci indirizzi trovati nei messaggi inviati</string>
@@ -236,7 +243,8 @@
     <string name="title_advanced_quote_reply">Cita il testo nella risposta</string>
     <string name="title_advanced_resize_reply">Ridimensiona le immagini nel testo di risposta</string>
     <string name="title_advanced_signature_location">Posizione della firma</string>
-    <string name="title_advanced_signature_end">Aggiungi firma dopo il messaggio citato/inoltrato</string>
+    <string name="title_advanced_signature_reply">Usa la firma quando rispondi</string>
+    <string name="title_advanced_signature_forward">Usa la firma durante l\'inoltro</string>
     <string name="title_advanced_plain_only">Invia solo in testo semplice per impostazione predefinita</string>
     <string name="title_advanced_flow">\'format flowed\' per il testo normale</string>
     <string name="title_advanced_receipt">Quando si richiede una ricevuta</string>
@@ -389,7 +397,7 @@
     <string name="title_advanced_fts_indexed">%1$d / %2$d messaggi indicizzati (%3$s)</string>
     <string name="title_advanced_english">Usa le impostazioni degli Stati Uniti</string>
     <string name="title_advanced_watchdog">Controlla periodicamente se FairEmail è ancora attiva</string>
-    <string name="title_advanced_optimize">Ottimizza automaticamente le impostazioni</string>
+    <string name="title_advanced_optimize">Ottimizza automaticamente</string>
     <string name="title_advanced_updates">Controlla aggiornamenti</string>
     <string name="title_advanced_experiments">Prova le funzionalità sperimentali</string>
     <string name="title_advanced_crash_reports">Invia rapporti di errore</string>
@@ -399,24 +407,20 @@
     <string name="title_advanced_last_cleanup">Ultima pulizia: %1$s</string>
     <string name="title_advanced_app">Impostazioni dell\'app</string>
     <string name="title_advanced_more">Altre opzioni</string>
-    <string name="title_advanced_enabled_hint">Attiva o disattiva a livello globale la ricezione dei messaggi</string>
-    <string name="title_advanced_manual_hint">Se la sincronizzazione è disabilitata, è ancora possibile sincronizzare manualmente tirando verso il basso l\'elenco dei messaggi.</string>
-    <string name="title_advanced_poll_hint">La sincronizzazione periodica compara i messaggi locali e remoti ogni volta, il che è un\'operazione costosa che potrebbe comportare un utilizzo aggiuntivo di batteria, specialmente quando ci sono molti messaggi da sincronizzare. La sincronizzazione sempre eviterà questo tramite un monitoraggio continuo solo per le modifiche.</string>
-    <string name="title_advanced_optimized_hint">Questa opzione può essere ottimizzata automaticamente (impostazioni varie)</string>
+    <string name="title_advanced_manual_hint">Se la ricezione dei messaggi è disabilitata, è ancora possibile ricevere manualmente i messaggi tirando giù l\'elenco dei messaggi</string>
+    <string name="title_advanced_poll_hint">Controllare periodicamente la presenza di nuovi messaggi confronterà ogni volta i messaggi locali e remoti, che è un\'operazione costosa che può comportare un uso extra della batteria, soprattutto se ci sono molti messaggi. Ricevere sempre questo impedirà continuamente dopo le modifiche.</string>
     <string name="title_advanced_schedule_hint">Tocca un orario per impostare un orario</string>
-    <string name="title_advanced_check_mx">Controlla gli indirizzi email mittente alla sincronizzazione dei messaggi</string>
-    <string name="title_advanced_check_reply">Controlla gli indirizzi email di risposta alla sincronizzazione dei messaggi</string>
     <string name="title_advanced_no_date_hint">Alcuni provider memorizzano messaggi con una data sconosciuta, non valida o futura come messaggi senza data</string>
     <string name="title_advanced_unseen_hint">Alcuni provider non supportano correttamente questa funzione, il che potrebbe causare la sincronizzazione di nessuno o di tutti i messaggi</string>
     <string name="title_advanced_deleted_unseen">Quando disabilitato, i messaggi non letti vengono mantenuti sul dispositivo per sempre</string>
     <string name="title_advanced_sync_kept_hint">Questo trasferirà dati aggiuntivi e consumerà energia batteria extra, specialmente se molti messaggi vengono memorizzati sul dispositivo</string>
     <string name="title_advanced_sync_folders_hint">Disabilitando questa opzione si ridurranno in qualche modo i dati e l\'utilizzo della batteria, ma disattiverà anche l\'aggiornamento della lista delle cartelle</string>
+    <string name="title_advanced_lookup_mx_hint">Questo controllerà se esistono record DNS MX</string>
     <string name="title_advanced_sync_delay_hint">Questo rallenterà la sincronizzazione dei messaggi</string>
+    <string name="title_advanced_check_reply_hint">Questo controlla se il nome di dominio del mittente e gli indirizzi di risposta sono uguali</string>
     <string name="title_advanced_suggest_local_hint">Oltre ai contatti forniti da Android. I dati di contatto verranno archiviati per i messaggi appena inviati o ricevuti solo quando abilitato.</string>
     <string name="title_advanced_usenet_hint">Inserisci \'-- \' tra il testo e la firma</string>
     <string name="title_advanced_send_reminders_hint">Mostra un avviso quando il testo del messaggio o l\'oggetto è vuoto o quando un allegato potrebbe mancare</string>
-    <string name="title_advanced_lookup_mx_hint">Questo controllerà se esistono record DNS MX</string>
-    <string name="title_advanced_check_reply_hint">Questo controlla se il nome di dominio del mittente e gli indirizzi di risposta sono uguali</string>
     <string name="title_advanced_metered_hint">Le connessioni a consumo sono generalmente connessioni mobili o hotspot Wi-Fi a pagamento</string>
     <string name="title_advanced_metered_warning">Disabilitando questa opzione disattiverai la ricezione e l\'invio di messaggi sulle connessioni internet mobili</string>
     <string name="title_advanced_rlah_hint">Presumi nessun roaming all\'interno dell\'UE</string>
@@ -458,7 +462,6 @@
     <string name="title_advanced_notify_no_channels">Questa versione Android non supporta i canali di notifica</string>
     <string name="title_advanced_fts_hint">Abilitando questa opzione migliora le prestazioni di ricerca, ma aumenta anche l\'utilizzo dello spazio di batteria e archiviazione</string>
     <string name="title_advanced_english_hint">Questo riavvierà l\'app</string>
-    <string name="title_advanced_optimize_hint">L\'attivazione di questo può modificare automaticamente le impostazioni di ricezione per ridurre l\'utilizzo della batteria</string>
     <string name="title_advanced_experiments_hint">Elenco delle attuali funzionalità sperimentali</string>
     <string name="title_advanced_debug_hint">Abilita il log extra e mostra le informazioni di debug in vari luoghi</string>
     <string name="title_advanced_cleanup_attachments_hint">Questo rimuoverà gli allegati dai messaggi che non sono più sincronizzati durante la pulizia manuale</string>
@@ -501,6 +504,7 @@
     <string name="title_port">Numero porta</string>
     <string name="title_user">Nome utente</string>
     <string name="title_password">Password</string>
+    <string name="title_case_sensitive">I nomi utente e le password sono solitamente maiuscole e minuscole</string>
     <string name="title_client_certificate">Certificato client</string>
     <string name="title_realm">Dominio</string>
     <string name="title_use_ip">Usa l\'indirizzo IP locale invece del nome dell\'host</string>
@@ -778,6 +782,7 @@
     <string name="title_no_key">Nessuna chiave privata</string>
     <string name="title_invalid_key">Chiave privata non valida</string>
     <string name="title_unknown_key">La chiave privata non corrisponde ad alcuna chiave di crittografia</string>
+    <string name="title_send_reminder_remark">I promemoria possono essere nuovamente abilitati nelle impostazioni di invio</string>
     <string name="title_send_plain_text">Solo testo semplice</string>
     <string name="title_send_receipt">Richiedi ricevuta</string>
     <string name="title_send_receipt_remark">La maggior parte dei provider e dei client di posta elettronica ignora le richieste di ricevuta</string>
@@ -828,7 +833,8 @@
         Per cercare anche sul server, tocca il pulsante \"cerca di nuovo\".
     </string>
     <string name="title_search_index_hint">La ricerca tramite l\'indice di ricerca è veloce, ma troverà solo parole intere</string>
-    <string name="title_search_text_hint">Alcuni server di posta elettronica hanno problemi a trovare testo in molti messaggi</string>
+    <string name="title_search_text_hint">La ricerca di testo nei messaggi, quando ci sono un gran numero di messaggi, potrebbe non funzionare su alcuni server</string>
+    <string name="title_search_size_hint">Cercare messaggi per dimensione, quando ci sono un gran numero di messaggi, potrebbe non funzionare su alcuni server</string>
     <string name="title_search_more">Altre opzioni</string>
     <string name="title_search_use_index">Usa indice di ricerca</string>
     <string name="title_search_in_senders">Nei mittenti (da)</string>
@@ -842,6 +848,7 @@
     <string name="title_search_with_hidden">Nascosto (solo su dispositivo)</string>
     <string name="title_search_with_encrypted">Crittografato (solo su dispositivo)</string>
     <string name="title_search_with_attachments">Con allegati (solo su dispositivo)</string>
+    <string name="title_search_with_size">Dimensione messaggio maggiore di</string>
     <string name="title_search_with_before">Prima</string>
     <string name="title_search_with_after">Dopo</string>
     <string name="title_search_flag_unseen">non letto</string>
@@ -849,6 +856,7 @@
     <string name="title_search_flag_hidden">nascosto</string>
     <string name="title_search_flag_encrypted">crittografato</string>
     <string name="title_search_flag_attachments">allegati</string>
+    <string name="title_search_flag_size">dimensione &gt; %1$s</string>
     <string name="title_search_device">Cerca sul dispositivo</string>
     <string name="title_search_server">Cerca sul server</string>
     <string name="title_search_in">Cerca in</string>
@@ -1112,10 +1120,10 @@
     <string name="title_pro_list">Elenco delle funzionalità a pagamento</string>
     <string name="title_pro_purchase">Acquista</string>
     <string name="title_pro_once">Solo una volta</string>
-    <string name="title_pro_info">        Developing FairEmail took literally thousands of hours and, despite that, most of the features are free to use.
-        FairEmail takes your privacy seriously and doesn\'t show ads and doesn\'t use tracking or analytics to earn money.
-        To maintain and support FairEmail in the long run, some convenience and advanced features are not free to use.
-        FairEmail shows a small message to remind you of this, which will be removed if you purchase the pro features.
+    <string name="title_pro_info">        Sviluppare FairEmail ha richiesto letteralmente migliaia di ore e, nonostante quello, la maggior parte delle caratteristiche sono gratuite.
+        FairEmail prende sul serio la tua vita privata e non mostra annunci e non utilizza tracciamento o analisi per guadagnare denaro.
+        Per mantenere e supportare FairEmail a lungo termine, alcune comodità e funzionalità avanzate non sono gratuite.
+        FairEmail mostra un piccolo messaggio per ricordarti questo, che verrà rimosso se compri le funzioni pro.
     </string>
     <string name="title_pro_hide">Nascondi il piccolo messaggio per %1$d settimane</string>
     <string name="title_pro_hint">L\'acquisto di funzionalità a pagamento ti permetterà di utilizzare tutte le attuali e future funzioni, aiuterà il mantenimento e il supporto dell\'app</string>
@@ -1280,5 +1288,16 @@
         <item>PGP firma e crittografia</item>
         <item>S/MIME solo firma</item>
         <item>S/MIME firma e crittografia</item>
+    </string-array>
+    <string-array name="sizeNames">
+        <item>0 B</item>
+        <item>256 KB</item>
+        <item>512 KB</item>
+        <item>1 MB</item>
+        <item>2 MB</item>
+        <item>5 MB</item>
+        <item>10 MB</item>
+        <item>20 MB</item>
+        <item>50 MB</item>
     </string-array>
 </resources>

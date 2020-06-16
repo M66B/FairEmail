@@ -1,0 +1,29 @@
+--- /home/marcel/support/lifecycle/lifecycle-livedata/src/main/java/androidx/lifecycle/ComputableLiveData.java	2020-03-23 17:03:45.426122318 +0100
++++ /home/marcel/email/app/src/main/java/androidx/lifecycle/ComputableLiveData.java	2020-06-14 11:48:36.977868184 +0200
+@@ -96,13 +96,26 @@ public abstract class ComputableLiveData
+                     // as long as it is invalid, keep computing.
+                     try {
+                         T value = null;
++                        boolean once = true;
++                        long last = android.os.SystemClock.elapsedRealtime();
+                         while (mInvalid.compareAndSet(true, false)) {
++                            long now = android.os.SystemClock.elapsedRealtime();
++                            if (value != null && (once || last + 2500 < now)) {
++                                eu.faircode.email.Log.i(mLiveData + " post once=" + once + " age=" + (now - last) + " ms");
++                                once = false;
++                                last = now;
++                                mLiveData.postValue(value);
++                            }
+                             computed = true;
+                             value = compute();
+                         }
+                         if (computed) {
+                             mLiveData.postValue(value);
+                         }
++                    } catch (Throwable ex) {
++                        // java.lang.IllegalStateException: Couldn't read row xxx column yyy
++                        eu.faircode.email.Log.e(ex);
++                        mInvalid.set(true);
+                     } finally {
+                         // release compute lock
+                         mComputing.set(false);

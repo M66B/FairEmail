@@ -125,7 +125,7 @@ public class FragmentGmail extends FragmentBase {
                             null,
                             null);
                     PackageManager pm = getContext().getPackageManager();
-                    if (intent.resolveActivity(pm) == null)
+                    if (intent.resolveActivity(pm) == null) // system whitelisted
                         throw new IllegalArgumentException(getString(R.string.title_no_viewer, intent));
                     startActivityForResult(intent, ActivitySetup.REQUEST_CHOOSE_ACCOUNT);
                 } catch (Throwable ex) {

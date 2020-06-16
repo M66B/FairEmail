@@ -62,6 +62,7 @@ import java.util.Objects;
 public class FragmentOptionsSynchronize extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private SwitchCompat swEnabled;
     private Spinner spPollInterval;
+    private SwitchCompat swOptimize;
     private RecyclerView rvExempted;
     private SwitchCompat swSchedule;
     private TextView tvSchedulePro;
@@ -80,15 +81,16 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
     private TextView tvSubscriptionPro;
     private SwitchCompat swCheckMx;
     private SwitchCompat swCheckReply;
+    private SwitchCompat swTuneKeepAlive;
     private Group grpExempted;
 
     private AdapterAccountExempted adapter;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "enabled", "poll_interval", "schedule", "schedule_start", "schedule_end",
+            "enabled", "poll_interval", "auto_optimize", "schedule", "schedule_start", "schedule_end",
             "sync_nodate", "sync_unseen", "sync_flagged", "delete_unseen", "sync_kept", "gmail_thread_id",
             "sync_folders", "sync_shared_folders", "subscriptions",
-            "check_mx", "check_reply"
+            "check_mx", "check_reply", "tune_keep_alive"
     };
 
     @Override
@@ -103,6 +105,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
 
         swEnabled = view.findViewById(R.id.swEnabled);
         spPollInterval = view.findViewById(R.id.spPollInterval);
+        swOptimize = view.findViewById(R.id.swOptimize);
         swSchedule = view.findViewById(R.id.swSchedule);
         rvExempted = view.findViewById(R.id.rvExempted);
         tvSchedulePro = view.findViewById(R.id.tvSchedulePro);
@@ -129,6 +132,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         tvSubscriptionPro = view.findViewById(R.id.tvSubscriptionPro);
         swCheckMx = view.findViewById(R.id.swCheckMx);
         swCheckReply = view.findViewById(R.id.swCheckReply);
+        swTuneKeepAlive = view.findViewById(R.id.swTuneKeepAlive);
         grpExempted = view.findViewById(R.id.grpExempted);
 
         setOptions();
@@ -166,6 +170,14 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
                 prefs.edit().remove("poll_interval").apply();
                 grpExempted.setVisibility(View.GONE);
                 ServiceSynchronize.reschedule(getContext());
+            }
+        });
+
+        swOptimize.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("auto_optimize", checked).apply();
+                ServiceSynchronize.reload(getContext(), null, false, "optimize");
             }
         });
 
@@ -308,6 +320,13 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             }
         });
 
+        swTuneKeepAlive.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("tune_keep_alive", checked).apply();
+            }
+        });
+
         DB db = DB.getInstance(getContext());
         db.account().liveSynchronizingAccounts().observe(getViewLifecycleOwner(), new Observer<List<EntityAccount>>() {
             @Override
@@ -375,6 +394,8 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
                 spPollInterval.setSelection(pos);
                 break;
             }
+
+        swOptimize.setChecked(prefs.getBoolean("auto_optimize", false));
         grpExempted.setVisibility(pollInterval == 0 ? View.GONE : View.VISIBLE);
 
         swSchedule.setChecked(prefs.getBoolean("schedule", false) && pro);
@@ -397,6 +418,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         swSubscriptions.setEnabled(pro);
         swCheckMx.setChecked(prefs.getBoolean("check_mx", false));
         swCheckReply.setChecked(prefs.getBoolean("check_reply", false));
+        swTuneKeepAlive.setChecked(prefs.getBoolean("tune_keep_alive", true));
     }
 
     private String formatHour(Context context, int minutes) {

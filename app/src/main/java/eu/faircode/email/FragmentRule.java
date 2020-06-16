@@ -23,6 +23,7 @@ import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.net.Uri;
@@ -32,6 +33,8 @@ import android.provider.ContactsContract;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -181,6 +184,7 @@ public class FragmentRule extends FragmentBase {
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setSubtitle(R.string.title_rule_caption);
+        setHasOptionsMenu(true);
 
         view = (ViewGroup) inflater.inflate(R.layout.fragment_rule, container, false);
 
@@ -258,7 +262,8 @@ public class FragmentRule extends FragmentBase {
             @Override
             public void onClick(View v) {
                 Intent pick = new Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Email.CONTENT_URI);
-                if (pick.resolveActivity(getContext().getPackageManager()) == null)
+                PackageManager pm = getContext().getPackageManager();
+                if (pick.resolveActivity(pm) == null) // system whitelisted
                     Snackbar.make(view, R.string.title_no_contacts, Snackbar.LENGTH_LONG).show();
                 else
                     startActivityForResult(Helper.getChooser(getContext(), pick), REQUEST_SENDER);
@@ -278,7 +283,8 @@ public class FragmentRule extends FragmentBase {
             @Override
             public void onClick(View v) {
                 Intent pick = new Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Email.CONTENT_URI);
-                if (pick.resolveActivity(getContext().getPackageManager()) == null)
+                PackageManager pm = getContext().getPackageManager();
+                if (pick.resolveActivity(pm) == null) // system whitelisted
                     Snackbar.make(view, R.string.title_no_contacts, Snackbar.LENGTH_LONG).show();
                 else
                     startActivityForResult(Helper.getChooser(getContext(), pick), REQUEST_RECIPIENT);
@@ -309,6 +315,26 @@ public class FragmentRule extends FragmentBase {
         String[] dayNames = DateFormatSymbols.getInstance().getWeekdays();
         for (int day = Calendar.SUNDAY; day <= Calendar.SATURDAY; day++)
             adapterDay.add(dayNames[day]);
+
+        AdapterView.OnItemSelectedListener onItemSelectedListener = new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                parent.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        parent.requestFocusFromTouch();
+                    }
+                });
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Do nothing
+            }
+        };
+
+        spScheduleDayStart.setOnItemSelectedListener(onItemSelectedListener);
+        spScheduleDayEnd.setOnItemSelectedListener(onItemSelectedListener);
 
         tvScheduleHourStart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -361,6 +387,13 @@ public class FragmentRule extends FragmentBase {
                     onActionSelected(action.type);
                 }
                 adapterView.setTag(position);
+
+                adapterView.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        adapterView.requestFocusFromTouch();
+                    }
+                });
             }
 
             @Override
@@ -399,6 +432,11 @@ public class FragmentRule extends FragmentBase {
                 fragment.show(getParentFragmentManager(), "rule:color");
             }
         });
+
+        spImportance.setOnItemSelectedListener(onItemSelectedListener);
+        spTarget.setOnItemSelectedListener(onItemSelectedListener);
+        spIdent.setOnItemSelectedListener(onItemSelectedListener);
+        spAnswer.setOnItemSelectedListener(onItemSelectedListener);
 
         tvAutomation.setText(getString(R.string.title_rule_automation_hint,
                 EntityRule.ACTION_AUTOMATION,
@@ -506,6 +544,28 @@ public class FragmentRule extends FragmentBase {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "rule:accounts");
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_rule, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_help:
+                onMenuHelp();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void onMenuHelp() {
+        Helper.viewFAQ(getContext(), 71);
     }
 
     @Override

@@ -42,6 +42,7 @@ public class TupleMessageEx extends EntityMessage {
     public Integer folderColor;
     public String folderDisplay;
     public String folderType;
+    public boolean folderUnified;
     public boolean folderReadOnly;
     public String identityName;
     public String identityEmail;
@@ -101,6 +102,7 @@ public class TupleMessageEx extends EntityMessage {
                     this.folderName.equals(other.folderName) &&
                     Objects.equals(this.folderDisplay, other.folderDisplay) &&
                     this.folderType.equals(other.folderType) &&
+                    this.folderUnified == other.folderUnified &&
                     this.folderReadOnly == other.folderReadOnly &&
                     Objects.equals(this.identityName, other.identityName) &&
                     Objects.equals(this.identityEmail, other.identityEmail) &&

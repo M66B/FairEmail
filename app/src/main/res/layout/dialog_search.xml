@@ -281,6 +281,44 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbEncrypted" />
 
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvMessageSize"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_search_with_size"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbAttachments" />
+
+        <Spinner
+            android:id="@+id/spMessageSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="12dp"
+            android:entries="@array/sizeNames"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvMessageSize" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvSizeHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="6dp"
+            android:text="@string/title_search_size_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spMessageSize" />
+
         <Button
             android:id="@+id/btnAfter"
             style="?android:attr/buttonStyleSmall"
@@ -291,7 +329,7 @@
             android:text="@string/title_search_with_after"
             app:layout_constraintEnd_toStartOf="@id/btnBefore"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbAttachments" />
+            app:layout_constraintTop_toBottomOf="@id/tvSizeHint" />
 
         <Button
             android:id="@+id/btnBefore"
@@ -303,7 +341,7 @@
             android:text="@string/title_search_with_before"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/btnAfter"
-            app:layout_constraintTop_toBottomOf="@id/cbAttachments" />
+            app:layout_constraintTop_toBottomOf="@id/tvSizeHint" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvAfter"

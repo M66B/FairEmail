@@ -27,6 +27,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.IntentSender;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Build;
@@ -37,6 +38,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -71,6 +73,7 @@ public class FragmentBase extends Fragment {
 
     private long message = -1;
     private long attachment = -1;
+    private int scrollTo = 0;
 
     private static final int REQUEST_ATTACHMENT = 51;
     private static final int REQUEST_ATTACHMENTS = 52;
@@ -97,12 +100,43 @@ public class FragmentBase extends Fragment {
         updateSubtitle();
     }
 
+    void scrollTo(int resid) {
+        scrollTo = resid;
+        scrollTo();
+    }
+
+    private void scrollTo() {
+        if (scrollTo == 0)
+            return;
+
+        View view = getView();
+        if (view == null)
+            return;
+
+        final ScrollView scroll = view.findViewById(R.id.scroll);
+        if (scroll == null)
+            return;
+
+        final View child = scroll.findViewById(scrollTo);
+        if (child == null)
+            return;
+
+        scrollTo = 0;
+
+        scroll.post(new Runnable() {
+            @Override
+            public void run() {
+                scroll.scrollTo(0, child.getTop());
+            }
+        });
+    }
+
     @Override
     public void startActivity(Intent intent) {
         try {
             super.startActivity(intent);
         } catch (ActivityNotFoundException ex) {
-            Log.e(ex);
+            Log.w(ex);
             ToastEx.makeText(getContext(), getString(R.string.title_no_viewer, intent.getAction()), Toast.LENGTH_LONG).show();
         }
     }
@@ -112,7 +146,7 @@ public class FragmentBase extends Fragment {
         try {
             super.startActivityForResult(intent, requestCode);
         } catch (ActivityNotFoundException ex) {
-            Log.e(ex);
+            Log.w(ex);
             ToastEx.makeText(getContext(), getString(R.string.title_no_viewer, intent.getAction()), Toast.LENGTH_LONG).show();
         }
     }
@@ -176,6 +210,7 @@ public class FragmentBase extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         Log.d("Activity " + this + " saved=" + (savedInstanceState != null));
         super.onActivityCreated(savedInstanceState);
+        scrollTo();
     }
 
     @Override
@@ -317,7 +352,8 @@ public class FragmentBase extends Fragment {
         create.setType(intent.getStringExtra("type"));
         create.putExtra(Intent.EXTRA_TITLE, intent.getStringExtra("name"));
         Helper.openAdvanced(create);
-        if (create.resolveActivity(getContext().getPackageManager()) == null)
+        PackageManager pm = getContext().getPackageManager();
+        if (create.resolveActivity(pm) == null) // system whitelisted
             ToastEx.makeText(getContext(), R.string.title_no_saf, Toast.LENGTH_LONG).show();
         else
             startActivityForResult(Helper.getChooser(getContext(), create), REQUEST_ATTACHMENT);
@@ -327,7 +363,8 @@ public class FragmentBase extends Fragment {
         message = intent.getLongExtra("id", -1);
         Intent tree = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
         Helper.openAdvanced(tree);
-        if (tree.resolveActivity(getContext().getPackageManager()) == null)
+        PackageManager pm = getContext().getPackageManager();
+        if (tree.resolveActivity(pm) == null) // system whitelisted
             ToastEx.makeText(getContext(), R.string.title_no_saf, Toast.LENGTH_LONG).show();
         else
             startActivityForResult(Helper.getChooser(getContext(), tree), REQUEST_ATTACHMENTS);

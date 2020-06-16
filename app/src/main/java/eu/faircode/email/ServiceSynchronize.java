@@ -40,6 +40,7 @@ import android.service.notification.StatusBarNotification;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.core.app.AlarmManagerCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
@@ -114,7 +115,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private static final int ACCOUNT_ERROR_AFTER = 60; // minutes
     private static final int ACCOUNT_ERROR_AFTER_POLL = 3; // times
     private static final int BACKOFF_ERROR_AFTER = 16; // seconds
-    private static final long WIDGET_UPDATE_DELAY = 2500L; // milliseconds
+    private static final long WIDGET_UPDATE_DELAY = 1500L; // milliseconds
 
     private static final String ACTION_NEW_MESSAGE_COUNT = BuildConfig.APPLICATION_ID + ".NEW_MESSAGE_COUNT";
 
@@ -160,6 +161,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         iif.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
         iif.addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED);
         registerReceiver(connectionChangedReceiver, iif);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+            registerReceiver(idleModeChangedReceiver, new IntentFilter(PowerManager.ACTION_DEVICE_IDLE_MODE_CHANGED));
 
         DB db = DB.getInstance(this);
 
@@ -628,6 +632,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         prefs.unregisterOnSharedPreferenceChangeListener(this);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+            unregisterReceiver(idleModeChangedReceiver);
 
         unregisterReceiver(connectionChangedReceiver);
 
@@ -1376,14 +1383,14 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     boolean first = true;
                     while (state.isRunning()) {
                         long idleTime = state.getIdleTime();
-                        boolean auto_optimize = prefs.getBoolean("auto_optimize", false);
-                        boolean optimize = (auto_optimize && !first &&
+                        boolean tune_keep_alive = prefs.getBoolean("tune_keep_alive", true);
+                        boolean tune = (tune_keep_alive && !first &&
                                 !account.keep_alive_ok && account.poll_interval > 9 &&
                                 Math.abs(idleTime - account.poll_interval * 60 * 1000L) < 60 * 1000L);
-                        if (auto_optimize && !first && !account.keep_alive_ok)
+                        if (tune_keep_alive && !first && !account.keep_alive_ok)
                             EntityLog.log(ServiceSynchronize.this, account.name +
-                                    " Optimize interval=" + account.poll_interval +
-                                    " idle=" + idleTime + "/" + optimize);
+                                    " Tune interval=" + account.poll_interval +
+                                    " idle=" + idleTime + "/" + tune);
                         try {
                             if (!state.isRecoverable())
                                 throw new StoreClosedException(iservice.getStore(), "Unrecoverable");
@@ -1414,7 +1421,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                             Log.i(folder.name + " poll count=" + folder.poll_count);
                                         }
                         } catch (Throwable ex) {
-                            if (optimize) {
+                            if (tune) {
                                 account.keep_alive_failed++;
                                 account.keep_alive_succeeded = 0;
                                 if (account.keep_alive_failed >= 3) {
@@ -1433,7 +1440,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             throw ex;
                         }
 
-                        if (optimize) {
+                        if (tune) {
                             account.keep_alive_failed = 0;
                             account.keep_alive_succeeded++;
                             db.account().setAccountKeepAliveValues(account.id,
@@ -1753,6 +1760,16 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             }
 
             networkCallback.onCapabilitiesChanged(null, null);
+        }
+    };
+
+    private BroadcastReceiver idleModeChangedReceiver = new BroadcastReceiver() {
+        @Override
+        @RequiresApi(api = Build.VERSION_CODES.M)
+        public void onReceive(Context context, Intent intent) {
+            PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+            EntityLog.log(context, "Doze mode=" + pm.isDeviceIdleMode() +
+                    " ignoring=" + pm.isIgnoringBatteryOptimizations(context.getPackageName()));
         }
     };
 

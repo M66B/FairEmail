@@ -29,7 +29,8 @@ for instance when two factor authentication is enabled.
 For authorizing:
 
 * Gmail / G suite: see [question 6](#user-content-faq6)
-* Outlook / Hotmail: see [question 14](#user-content-faq14)
+* Outlook / Live / Hotmail: see [question 14](#user-content-faq14)
+* Office365: see [question 14](#user-content-faq156)
 * Microsoft Exchange: see [question 8](#user-content-faq8)
 * Yahoo!: see [question 88](#user-content-faq88)
 * Apple iCloud: see [question 148](#user-content-faq148)
@@ -108,7 +109,7 @@ Related questions:
 * ~~Unified starred messages view~~ (there is already a special search for this)
 * ~~Notification move action~~
 * ~~S/MIME support~~
-* Search for settings: low priority
+* ~~Search for settings~~
 
 Anything on this list is in random order and *might* be added in the near future.
 
@@ -134,7 +135,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [~~(10) What does 'UIDPLUS not supported' mean?~~](#user-content-faq10)
 * [(12) How does encryption/decryption work?](#user-content-faq12)
 * [(13) How does search on device/server work?](#user-content-faq13)
-* [(14) How can I setup Outlook / Live / Hotmail with 2FA?](#user-content-faq14)
+* [(14) How can I set up an Outlook / Live / Hotmail account?](#user-content-faq14)
 * [(15) Why does the message text keep loading?](#user-content-faq15)
 * [(16) Why are messages not being synchronized?](#user-content-faq16)
 * [~~(17) Why does manual synchronize not work?~~](#user-content-faq17)
@@ -237,7 +238,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [~~(116) How can I show images in messages from trusted senders by default?~~](#user-content-faq116)
 * [(117) Can you help me restore my purchase?](#user-content-faq117)
 * [(118) What does 'Remove tracking parameters' exactly?](#user-content-faq118)
-* [(119) Can you add colors to the unified inbox widget?](#user-content-faq119)
+* [~~(119) Can you add colors to the unified inbox widget?~~](#user-content-faq119)
 * [(120) Why are new message notifications not removed on opening the app?](#user-content-faq120)
 * [(121) How are messages grouped into a conversation?](#user-content-faq121)
 * [~~(122) Why is the recipient name/email address show with a warning color?~~](#user-content-faq122)
@@ -274,6 +275,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(153) Why does permanently deleting Gmail message not work?](#user-content-faq153)
 * [(154) Can you add favicons as contact photos?](#user-content-faq154)
 * [(155) What is a winmail.dat file?](#user-content-faq155)
+* [(156) How can I set up an Office365 account?](#user-content-faq156)
 
 [I have another question.](#user-content-support)
 
@@ -783,12 +785,16 @@ Searching messages on the device is a free feature, searching messages on the se
 <br />
 
 <a name="faq14"></a>
-**(14) How can I setup Outlook / Live / Hotmail with 2FA?**
+**(14) How can I set up an Outlook / Live / Hotmail account?**
+
+An Outlook / Live / Hotmail account can be set up via the quick setup wizard and selecting *Outlook*.
 
 To use an Outlook, Live or Hotmail account with two factor authentication enabled, you need to create an app password.
 See [here](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-passwords-two-step-verification) for the details.
 
 See [here](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) for Microsoft's instructions.
+
+For setting up an Office365 account, please see [this FAQ](#user-content-faq156).
 
 <br />
 
@@ -1160,14 +1166,14 @@ You can use the [Email Privacy Tester](https://www.emailprivacytester.com/) for 
 
 Most providers accept validated addresses only when sending messages to prevent spam.
 
-For example Google modifies the message headers like this:
+For example Google modifies the message headers like this for *unverified* addresses:
 
 ```
 From: Somebody <somebody@example.org>
 X-Google-Original-From: Somebody <somebody+extra@example.org>
 ```
 
-This means that the edited sender address was automatically replaced by a validated address before sending the message.
+This means that the edited sender address was automatically replaced by a verified address before sending the message.
 
 Note that this is independent of receiving messages.
 
@@ -2224,7 +2230,7 @@ However, picking contacts is delegated to and done by Android and not by FairEma
 <a name="faq99"></a>
 **(99) Can you add a rich text or markdown editor?**
 
-FairEmail provides common text formatting (bold, italic, underline, text size and color) via the Android text selection menu.
+FairEmail provides common text formatting (bold, italic, underline, text size and color) via a toolbar that appears after selecting some text.
 
 A [Rich text](https://en.wikipedia.org/wiki/Formatted_text) or [Markdown](https://en.wikipedia.org/wiki/Markdown) editor
 would not be used by many people on a small mobile device and, more important,
@@ -2527,12 +2533,12 @@ Checking *Remove tracking parameters* will remove all [UTM parameters](https://e
 <br />
 
 <a name="faq119"></a>
-**(119) Can you add colors to the unified inbox widget?**
+**~~(119) Can you add colors to the unified inbox widget?~~**
 
-The widget is designed to look good on most home/launcher screens by making it monochrome and by using a half transparent background.
-This way the widget will nicely blend in, while still being properly readable.
+~~The widget is designed to look good on most home/launcher screens by making it monochrome and by using a half transparent background.~~
+~~This way the widget will nicely blend in, while still being properly readable.~~
 
-Adding colors will cause problems with some backgrounds and will cause readability problems, which is why this won't be added.
+~~Adding colors will cause problems with some backgrounds and will cause readability problems, which is why this won't be added.~~
 
 Due to Android limitations it is not possible to dynamically set the opacity of the background and to have rounded corners at the same time.
 
@@ -3038,6 +3044,17 @@ It is a Microsoft specific file format ([TNEF](https://en.wikipedia.org/wiki/Tra
 You can find some more information about this file [here](https://support.mozilla.org/en-US/kb/what-winmaildat-attachment).
 
 You can view it with for example the Android app [Letter Opener](https://play.google.com/store/apps/details?id=app.letteropener).
+
+<br />
+
+<a name="faq156"></a>
+**(156) How can I set up an Office365 account?**
+
+An Office365 account can be set up via the quick setup wizard and selecting *Office365 (OAuth)*.
+
+If the wizard ends with *AUTHENTICATE failed*, IMAP and/or SMTP might be disabled for the account.
+In this case you should ask the administrator to enable IMAP and SMTP.
+The procedure is documented [here](https://docs.microsoft.com/en-in/exchange/troubleshoot/configure-mailboxes/pop3-imap-owa-activesync-office-365).
 
 <br />
 

@@ -217,7 +217,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
 
             if (contact.state != EntityContact.STATE_IGNORE)
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_advanced_never_favorite, 1, R.string.title_advanced_never_favorite);
-            if (share.resolveActivity(context.getPackageManager()) != null)
+            if (share.resolveActivity(context.getPackageManager()) != null)  // system whitelisted
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_share, 2, R.string.title_share);
             if (ShortcutManagerCompat.isRequestPinShortcutSupported(context))
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_pin, 3, R.string.title_pin);

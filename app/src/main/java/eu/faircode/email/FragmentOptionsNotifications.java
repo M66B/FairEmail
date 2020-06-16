@@ -157,7 +157,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
                 .putExtra("app_uid", getContext().getApplicationInfo().uid)
                 .putExtra(Settings.EXTRA_APP_PACKAGE, getContext().getPackageName());
 
-        btnManage.setEnabled(manage.resolveActivity(pm) != null);
+        btnManage.setEnabled(manage.resolveActivity(pm) != null); // system whitelisted
         btnManage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -169,7 +169,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
                 .putExtra(Settings.EXTRA_APP_PACKAGE, getContext().getPackageName())
                 .putExtra(Settings.EXTRA_CHANNEL_ID, "notification");
 
-        btnManageDefault.setEnabled(channelNotification.resolveActivity(pm) != null);
+        btnManageDefault.setEnabled(channelNotification.resolveActivity(pm) != null); // system whitelisted
         btnManageDefault.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -181,7 +181,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
                 .putExtra(Settings.EXTRA_APP_PACKAGE, getContext().getPackageName())
                 .putExtra(Settings.EXTRA_CHANNEL_ID, "service");
 
-        btnManageService.setEnabled(channelService.resolveActivity(pm) != null);
+        btnManageService.setEnabled(channelService.resolveActivity(pm) != null); // system whitelisted
         btnManageService.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

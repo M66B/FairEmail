@@ -81,6 +81,7 @@
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
     <string name="title_from_to">%1$s ➤ %2$s</string>
+    <string name="title_title_description">%1$s: %2$s</string>
     <string name="title_factor_minutes">%1$d minuter</string>
     <string name="menu_exit">Avsluta</string>
     <string name="menu_answers">Mallar</string>
@@ -129,6 +130,7 @@
     <string name="title_setup_gmail_rationale">Vänligen bevilja behörigheter för att välja ett konto och läsa ditt namn</string>
     <string name="title_setup_gmail_permissions">Google kommer att be om behörighet att läsa, komponera, skicka och permanent ta bort all din e-post. FairEmail kommer aldrig att ta bort dina meddelanden utan ditt uttryckliga medgivande.</string>
     <string name="title_setup_gmail_drafts">Om mappen för utkast inte är åtkomlig för IMAP kan detta lösas under inställningarna för Gmail-etiketten</string>
+    <string name="title_setup_office_auth">Felet \"AUTHENTICATE failed\" kan orsakas av att IMAP/SMTP har inaktiveras på servernivå</string>
     <string name="title_setup_oauth_rationale">Auktorisera åtkomst till ditt %1$s konto</string>
     <string name="title_setup_oauth_authorize">Auktorisera</string>
     <string name="title_setup_select_account">Välj konto</string>
@@ -157,6 +159,7 @@
     <string name="title_setup_doze_battery">Hög batterianvändning?</string>
     <string name="title_setup_doze_stopped">Slutade synkroniseringen?</string>
     <string name="title_setup_data">Datasparning är aktiverat</string>
+    <string name="title_setup_advanced_options">Visa avancerade inställningar</string>
     <string name="title_setup_inbox">Gå till meddelanden</string>
     <string name="title_setup_go">Kör</string>
     <string name="title_setup_to_do">Att göra</string>
@@ -212,9 +215,9 @@
     <string name="title_advanced_section_encryption">Kryptering</string>
     <string name="title_advanced_section_notifications">Aviseringar</string>
     <string name="title_advanced_section_misc">Diverse</string>
-    <string name="title_advanced_receive">Ta emot meddelanden</string>
+    <string name="title_advanced_receive">Ta emot meddelanden för alla konton</string>
     <string name="title_advanced_when">När</string>
-    <string name="title_advanced_always">Synkronisera alltid dessa konton</string>
+    <string name="title_advanced_always">Ta alltid emot meddelanden för dessa konton</string>
     <string name="title_advanced_schedule">Schema</string>
     <string name="title_advanced_advanced">Avancerat</string>
     <string name="title_advanced_no_date">Meddelanden utan datum</string>
@@ -224,7 +227,11 @@
     <string name="title_advanced_kept_removed">Kontrollera om gamla meddelanden har tagits bort från servern</string>
     <string name="title_advanced_gmail_thread">Använd Gmails stil för gruppering av meddelande på Gmail-konton</string>
     <string name="title_advanced_sync_folders">Synkronisera mapplistan</string>
+    <string name="title_advanced_sync_shared_folders">Synkronisera delade mapplistor</string>
     <string name="title_advanced_subscriptions">Hantera mapprenumerationer</string>
+    <string name="title_advanced_check_mx">Kontrollera avsändarens e-postadresser vid synkronisering av meddelanden</string>
+    <string name="title_advanced_check_reply">Kontrollera svarsadresser vid synkronisering av meddelanden</string>
+    <string name="title_advanced_tune_keep_alive">Justera automatiskt keep-alive intervallet</string>
     <string name="title_advanced_keyboard">Visa tangentbord som standard</string>
     <string name="title_advanced_suggest_local">Föreslå lokalt lagrade kontakter</string>
     <string name="title_advanced_suggest_sent">Föreslå adresser som finns i skickade meddelanden</string>
@@ -235,7 +242,8 @@
     <string name="title_advanced_quote_reply">Citera svarstext</string>
     <string name="title_advanced_resize_reply">Ändra storlek på bilder i svarande text</string>
     <string name="title_advanced_signature_location">Signaturens position</string>
-    <string name="title_advanced_signature_end">Lägg till signatur efter citat/vidarebefordrat meddelande</string>
+    <string name="title_advanced_signature_reply">Använd signatur vid svar</string>
+    <string name="title_advanced_signature_forward">Använd signatur vid vidarebefordran</string>
     <string name="title_advanced_plain_only">Skicka bara vanlig text som standard</string>
     <string name="title_advanced_flow">\'Formatera flöde\' för oformaterad text</string>
     <string name="title_advanced_receipt">När kvitto begärs</string>
@@ -388,7 +396,7 @@
     <string name="title_advanced_fts_indexed">%1$d / %2$d meddelanden indexerade (%3$s)</string>
     <string name="title_advanced_english">Använd amerikanska (US) inställningar</string>
     <string name="title_advanced_watchdog">Kontrollera regelbundet om FairEmail fortfarande är aktiv</string>
-    <string name="title_advanced_optimize">Optimera inställningarna automatiskt</string>
+    <string name="title_advanced_optimize">Optimera automatiskt</string>
     <string name="title_advanced_updates">Sök efter uppdateringar</string>
     <string name="title_advanced_experiments">Prova experimentella funktioner</string>
     <string name="title_advanced_crash_reports">Skicka felrapporter</string>
@@ -398,24 +406,20 @@
     <string name="title_advanced_last_cleanup">Senaste rensning: %1$s</string>
     <string name="title_advanced_app">App-inställningar</string>
     <string name="title_advanced_more">Fler alternativ</string>
-    <string name="title_advanced_enabled_hint">Globalt inaktivera eller aktivera mottagning av meddelanden</string>
-    <string name="title_advanced_manual_hint">Om synkroniseringen är inaktiverad är det fortfarande möjligt att synkronisera manuellt genom att dra ner meddelandelistan.</string>
-    <string name="title_advanced_poll_hint">Synkronisering med jämna mellanrum kommer att jämföra lokala och fjärrmeddelanden varje gång, vilket är en dyr operation som eventuellt resulterar i extra batterianvändning, speciellt när det finns många meddelanden att synkronisera. Kontinuerlig synkronisering kommer att undvika detta genom kontinuerlig övervakning endast för ändringar.</string>
-    <string name="title_advanced_optimized_hint">Detta alternativ kan optimeras automatiskt (diverse inställningar)</string>
+    <string name="title_advanced_manual_hint">Om mottagande av meddelanden är inaktiverat är det fortfarande möjligt att manuellt ta emot meddelanden genom att dra ner meddelandelistan</string>
+    <string name="title_advanced_poll_hint">Genom att regelbundet kontrollera efter nya meddelanden kommer att jämföra lokala- och fjärrmeddelanden varje gång, detta är en drastisk åtgärd som kan leda till extra batterianvändning, särskilt om det finns många meddelanden. Genom att alltid ta emot kommer att förhindra detta genom att kontinuerligt följa förändringar.</string>
     <string name="title_advanced_schedule_hint">Tryck på en tid för att ställa in en tid</string>
-    <string name="title_advanced_check_mx">Kontrollera avsändarens e-postadresser vid synkronisering av meddelanden</string>
-    <string name="title_advanced_check_reply">Kontrollera svarsadresser vid synkronisering av meddelanden</string>
     <string name="title_advanced_no_date_hint">Vissa leverantörer lagrar meddelanden med ett okänt, ogiltigt eller framtida datum som meddelanden utan datum</string>
     <string name="title_advanced_unseen_hint">Vissa leverantörer stödjer inte detta korrekt, vilket kan orsaka synkronisering av inga eller alla meddelanden</string>
     <string name="title_advanced_deleted_unseen">När inaktiverad, behålls olästa meddelanden på enheten för alltid</string>
     <string name="title_advanced_sync_kept_hint">Detta kommer att överföra extra data och förbruka extra batterikraft, speciellt om många meddelanden lagras på enheten</string>
     <string name="title_advanced_sync_folders_hint">Inaktivering av detta kommer att minska data och batterianvändning något, men kommer att inaktivera uppdatering av listan över mappar också</string>
+    <string name="title_advanced_lookup_mx_hint">Detta kommer att kontrollera om DNS MX-poster finns</string>
     <string name="title_advanced_sync_delay_hint">Detta kommer att sakta ner synkronisering av meddelanden</string>
+    <string name="title_advanced_check_reply_hint">Detta kommer att kontrollera om domännamnet för avsändaren och svarsadresser är samma</string>
     <string name="title_advanced_suggest_local_hint">Förutom kontakter som tillhandahålls av Android. Kontaktdata lagras endast för nyligen skickade eller mottagna meddelanden när det aktiverat.</string>
     <string name="title_advanced_usenet_hint">Infoga \'-- \' mellan texten och signaturen</string>
     <string name="title_advanced_send_reminders_hint">Visa en varning när meddelandetexten eller ämnet är tomt eller när en bilaga kanske saknas</string>
-    <string name="title_advanced_lookup_mx_hint">Detta kommer att kontrollera om DNS MX-poster finns</string>
-    <string name="title_advanced_check_reply_hint">Detta kommer att kontrollera om domännamnet för avsändaren och svarsadresser är samma</string>
     <string name="title_advanced_metered_hint">Uppmätta anslutningar är generellt mobila anslutningar eller betalda Wi-Fi-hotspots</string>
     <string name="title_advanced_metered_warning">Inaktivering av det här alternativet inaktiverar mottagning och sändning av meddelanden på mobila internetanslutningar</string>
     <string name="title_advanced_rlah_hint">Förutsatt ingen roaming inom EU</string>
@@ -457,7 +461,6 @@
     <string name="title_advanced_notify_no_channels">Den här Android-versionen stödjer inte notifikationsgruppering</string>
     <string name="title_advanced_fts_hint">Att aktivera detta förbättrar sökprestandan, men ökar både batteri- och utrymmesanvändingen</string>
     <string name="title_advanced_english_hint">Detta startar om appen</string>
-    <string name="title_advanced_optimize_hint">Aktivering av detta kan automatiskt ändra mottagningsinställningarna för att minska batterianvändningen</string>
     <string name="title_advanced_experiments_hint">Lista över aktuella experimentella funktioner</string>
     <string name="title_advanced_debug_hint">Aktivera extra loggning och visa felsökningsinformation på olika ställen</string>
     <string name="title_advanced_cleanup_attachments_hint">När du städar manuellt kommer detta att ta bort bilagor från meddelanden som inte längre är synkroniserade</string>
@@ -500,6 +503,7 @@
     <string name="title_port">Portnummer</string>
     <string name="title_user">Användarnamn</string>
     <string name="title_password">Lösenord</string>
+    <string name="title_case_sensitive">Användarnamn och lösenord är oftast skiftlägeskänsliga</string>
     <string name="title_client_certificate">Klientcertifikat</string>
     <string name="title_realm">Domän</string>
     <string name="title_use_ip">Använd lokal IP-adress istället för värdnamn</string>
@@ -778,6 +782,7 @@
     <string name="title_no_key">Ingen privat nyckel</string>
     <string name="title_invalid_key">Ogiltig privat nyckel</string>
     <string name="title_unknown_key">Privat nyckel matchar inte några krypteringsnycklar</string>
+    <string name="title_send_reminder_remark">Påminnelser kan aktiveras igen i sändningsinställningarna</string>
     <string name="title_send_plain_text">Endast oformaterad text</string>
     <string name="title_send_receipt">Begär läskvitto</string>
     <string name="title_send_receipt_remark">De flesta leverantörer och e-postklienter ignorerar kvittonförfrågningar</string>
@@ -828,7 +833,8 @@
         För att söka på servern också, tryck på knappen \"Sök igen\".
     </string>
     <string name="title_search_index_hint">Sökning via index är snabbt, men kommer bara att hitta hela ord</string>
-    <string name="title_search_text_hint">Vissa e-postservrar har svårt att hitta text i många meddelanden</string>
+    <string name="title_search_text_hint">Sökning efter text i meddelanden, när det finns ett stort antal meddelanden, kanske inte fungerar på vissa servrar</string>
+    <string name="title_search_size_hint">Sökning efter meddelanden efter storlek, när det finns ett stort antal meddelanden, kanske inte fungerar på vissa servrar</string>
     <string name="title_search_more">Fler alternativ</string>
     <string name="title_search_use_index">Använd sökindex</string>
     <string name="title_search_in_senders">I avsändare (från)</string>
@@ -842,6 +848,7 @@
     <string name="title_search_with_hidden">Dold (endast på enheten)</string>
     <string name="title_search_with_encrypted">Krypterad (på enheten endast)</string>
     <string name="title_search_with_attachments">Med bilagor (endast på enheten)</string>
+    <string name="title_search_with_size">Meddelandets storlek större än</string>
     <string name="title_search_with_before">Före</string>
     <string name="title_search_with_after">Efter</string>
     <string name="title_search_flag_unseen">oläst</string>
@@ -849,6 +856,7 @@
     <string name="title_search_flag_hidden">dold</string>
     <string name="title_search_flag_encrypted">krypterad</string>
     <string name="title_search_flag_attachments">bilagor</string>
+    <string name="title_search_flag_size">storlek &gt; %1$s</string>
     <string name="title_search_device">Sök på enheten</string>
     <string name="title_search_server">Sök på servern</string>
     <string name="title_search_in">Sök i</string>
@@ -1280,5 +1288,16 @@
         <item>PGP signering + kryptera</item>
         <item>S/MIME signering</item>
         <item>S/MIME signera+kryptera</item>
+    </string-array>
+    <string-array name="sizeNames">
+        <item>0 B</item>
+        <item>256 KB</item>
+        <item>512 KB</item>
+        <item>1 MB</item>
+        <item>2 MB</item>
+        <item>5 MB</item>
+        <item>10 MB</item>
+        <item>20 MB</item>
+        <item>50 MB</item>
     </string-array>
 </resources>

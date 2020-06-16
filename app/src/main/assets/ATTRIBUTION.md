@@ -23,3 +23,4 @@ FairEmail uses:
 * [Material design icons](https://github.com/google/material-design-icons). Copyright ???. [Apache license version 2.0](https://github.com/google/material-design-icons#user-content-license).
 * [CSS Parser](http://cssparser.sourceforge.net/). Copyright © 1999–2019. All rights reserved. [Apache License, Version 2.0](http://cssparser.sourceforge.net/licenses.html).
 * [Java™ Architecture for XML Binding](https://github.com/eclipse-ee4j/jaxb-ri). Copyright (c) 2018 Oracle and/or its affiliates. All rights reserved. [GNU General Public License Version 2](https://github.com/eclipse-ee4j/jaxb-ri/blob/master/jaxb-ri/LICENSE.md).
+* [File Icon Images](https://github.com/dmhendricks/file-icon-vectors). A collection of file type/extension SVG icons, available free for use in your applications. [MIT License](https://github.com/dmhendricks/file-icon-vectors/blob/master/LICENSE).

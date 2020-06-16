@@ -386,7 +386,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         try {
             super.startActivity(intent);
         } catch (ActivityNotFoundException ex) {
-            Log.e(ex);
+            Log.w(ex);
             ToastEx.makeText(this, getString(R.string.title_no_viewer, intent.getAction()), Toast.LENGTH_LONG).show();
         }
     }
@@ -396,7 +396,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         try {
             super.startActivityForResult(intent, requestCode);
         } catch (ActivityNotFoundException ex) {
-            Log.e(ex);
+            Log.w(ex);
             ToastEx.makeText(this, getString(R.string.title_no_viewer, intent.getAction()), Toast.LENGTH_LONG).show();
         }
     }
@@ -529,6 +529,16 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
             if (listener.onBackPressed())
                 return true;
         return false;
+    }
+
+    @Override
+    public boolean shouldUpRecreateTask(Intent targetIntent) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            ComponentName cn = targetIntent.getComponent();
+            if (cn != null && BuildConfig.APPLICATION_ID.equals(cn.getPackageName()))
+                return false;
+        }
+        return super.shouldUpRecreateTask(targetIntent);
     }
 
     public interface IKeyPressedListener {

@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -22,6 +23,7 @@ import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.FilterQueryProvider;
 import android.widget.ImageButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -73,6 +75,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         final CheckBox cbHidden = dview.findViewById(R.id.cbHidden);
         final CheckBox cbEncrypted = dview.findViewById(R.id.cbEncrypted);
         final CheckBox cbAttachments = dview.findViewById(R.id.cbAttachments);
+        final Spinner spMessageSize = dview.findViewById(R.id.spMessageSize);
         final Button btnBefore = dview.findViewById(R.id.btnBefore);
         final Button btnAfter = dview.findViewById(R.id.btnAfter);
         final TextView tvBefore = dview.findViewById(R.id.tvBefore);
@@ -96,7 +99,6 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                 new String[]{"suggestion"},
                 new int[]{android.R.id.text1},
                 0);
-
 
         adapter.setFilterQueryProvider(new FilterQueryProvider() {
             public Cursor runQuery(CharSequence typed) {
@@ -156,6 +158,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                 cbHidden.setEnabled(!isChecked);
                 cbEncrypted.setEnabled(!isChecked);
                 cbAttachments.setEnabled(!isChecked);
+                spMessageSize.setEnabled(!isChecked);
             }
         });
 
@@ -191,6 +194,23 @@ public class FragmentDialogSearch extends FragmentDialogBase {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 prefs.edit().putBoolean("last_search_message", isChecked).apply();
+            }
+        });
+
+        spMessageSize.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                parent.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        parent.requestFocusFromTouch();
+                    }
+                });
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Do nothing
             }
         });
 
@@ -255,6 +275,12 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                             criteria.with_hidden = cbHidden.isChecked();
                             criteria.with_encrypted = cbEncrypted.isChecked();
                             criteria.with_attachments = cbAttachments.isChecked();
+
+                            int pos = spMessageSize.getSelectedItemPosition();
+                            if (pos > 0) {
+                                int[] sizes = getResources().getIntArray(R.array.sizeValues);
+                                criteria.with_size = sizes[pos];
+                            }
                         }
 
                         Object after = tvAfter.getTag();

@@ -200,9 +200,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_section_encryption">暗号化</string>
     <string name="title_advanced_section_notifications">通知</string>
     <string name="title_advanced_section_misc">その他</string>
-    <string name="title_advanced_receive">メッセージを受信する</string>
     <string name="title_advanced_when">同期</string>
-    <string name="title_advanced_always">アカウントを常に同期</string>
     <string name="title_advanced_schedule">スケジュール</string>
     <string name="title_advanced_advanced">詳細</string>
     <string name="title_advanced_no_date">日付無しのメッセージ</string>
@@ -213,6 +211,8 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_gmail_thread">Gmailアカウント用のGmailメッセージグループ化</string>
     <string name="title_advanced_sync_folders">フォルダーリストの同期</string>
     <string name="title_advanced_subscriptions">購読したフォルダーの管理</string>
+    <string name="title_advanced_check_mx">メッセージの同期時に送信者のメールアドレスを確認</string>
+    <string name="title_advanced_check_reply">メッセージ同期に関する返信メールアドレスを確認</string>
     <string name="title_advanced_keyboard">デフォルトでキーボードを表示</string>
     <string name="title_advanced_suggest_local">ローカルに保存された連絡先を提案</string>
     <string name="title_advanced_suggest_sent">送信したメッセージで見つかったアドレスを提案</string>
@@ -223,7 +223,6 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_quote_reply">返信テキスト時に引用符を付ける</string>
     <string name="title_advanced_resize_reply">返信したテキストの画像のサイズを変更する</string>
     <string name="title_advanced_signature_location">署名の場所</string>
-    <string name="title_advanced_signature_end">引用/転送されたメッセージの後に署名を追加</string>
     <string name="title_advanced_plain_only">デフォルトでプレーンテキストのみを送信</string>
     <string name="title_advanced_flow">プレーンテキストの \'フォーマットフロー\'</string>
     <string name="title_advanced_receipt">受取をリクエストする時</string>
@@ -326,7 +325,6 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_notifications_background_hint">バックグラウンドサービスはAndroidによって停止される可能性がありますが、ステータスバーに通知が表示されなくなります。</string>
     <string name="title_advanced_badge">新着メッセージの数をランチャーアイコンに表示</string>
     <string name="title_advanced_unseen_ignored">新着メッセージ数を通知数と一致</string>
-    <string name="title_advanced_notify_known">Show notifications for contacts only</string>
     <string name="title_advanced_notify_summary">簡素な通知のみ表示</string>
     <string name="title_advanced_notify_preview">通知にメッセージプレビューを表示</string>
     <string name="title_advanced_notify_preview_all">全てのテキストをプレビュー</string>
@@ -362,7 +360,6 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_openpgp">OpenPGP プロバイダ</string>
     <string name="title_advanced_autocrypt">自動暗号化を使用</string>
     <string name="title_advanced_autocrypt_mutual">相互暗号化モード</string>
-    <string name="title_advanced_check_certificate">Check public key on sending</string>
     <string name="title_advanced_manage_certificates">公開鍵の管理</string>
     <string name="title_advanced_import_key">秘密鍵をインポート</string>
     <string name="title_advanced_manage_keys">秘密鍵を管理する</string>
@@ -376,34 +373,25 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_fts_indexed">%1$d/%2$d個のメッセージがインデックス付けされました(%3$s)</string>
     <string name="title_advanced_english">アメリカ合衆国向けの設定を使用する</string>
     <string name="title_advanced_watchdog">FairEmailがアクティブか定期的に確認</string>
-    <string name="title_advanced_optimize">設定を自動的に最適化する</string>
     <string name="title_advanced_updates">更新を確認</string>
     <string name="title_advanced_experiments">実験的な機能を試す</string>
     <string name="title_advanced_crash_reports">エラーレポートを送信</string>
     <string name="title_advanced_debug">デバッグモード</string>
     <string name="title_advanced_cleanup_attachments">古いメッセージの添付ファイルを削除</string>
     <string name="title_advanced_cleanup">クリーンアップ</string>
-    <string name="title_advanced_last_cleanup">Last cleanup: %1$s</string>
-    <string name="title_advanced_app">App settings</string>
     <string name="title_advanced_more">その他のオプション</string>
-    <string name="title_advanced_enabled_hint">メッセージのグローバルな無効又は有効にします</string>
-    <string name="title_advanced_manual_hint">同期が無効になっている場合でも、メッセージリストをプルダウンして手動で同期する事は可能です</string>
-    <string name="title_advanced_poll_hint">定期的に同期はローカルメッセージとリモートメッセージが毎回比較されます。特に同期するメッセージが多く有る場合、電池消費が増える可能性が有り負荷のかかる操作です。常に同期は変更のみを継続的に監視するのでこれを回避できます</string>
-    <string name="title_advanced_optimized_hint">この設定は自動で最適化できます (その他の設定)</string>
     <string name="title_advanced_schedule_hint">時間をタップして時間を設定</string>
-    <string name="title_advanced_check_mx">メッセージの同期時に送信者のメールアドレスを確認</string>
-    <string name="title_advanced_check_reply">メッセージ同期に関する返信メールアドレスを確認</string>
     <string name="title_advanced_no_date_hint">一部のプロバイダは日付無しのメッセージとして不明、無効、又は将来の日付を格納しています</string>
     <string name="title_advanced_unseen_hint">一部のプロバイダーはこれを適切にサポートしていないため、メッセージが全く同期されないか全て同期されてしまう場合があります</string>
     <string name="title_advanced_deleted_unseen">無効にすると未読メッセージはデバイスに永久に保持されます</string>
     <string name="title_advanced_sync_kept_hint">特に大量のメッセージがデバイスに保存されている場合、多くのデータが転送され電池消費が増えます</string>
     <string name="title_advanced_sync_folders_hint">これを無効にするとデータと電池の使用量が多少減りますが、フォルダーのリストの更新も無効になります</string>
+    <string name="title_advanced_lookup_mx_hint">DNS MXレコードが存在するかどうか確認</string>
     <string name="title_advanced_sync_delay_hint">メッセージの同期が遅くなります</string>
+    <string name="title_advanced_check_reply_hint">送信者のドメイン名と返信アドレスが同じかどうかを確認</string>
     <string name="title_advanced_suggest_local_hint">Android内の連絡先に加えます。連絡先データは有効にした場合のみ新しく送信又は受信メッセージへ保存されます</string>
     <string name="title_advanced_usenet_hint">テキストと署名の間に「-」を挿入</string>
     <string name="title_advanced_send_reminders_hint">メッセージテキスト又は件名が空の場合や添付ファイルが無い場合に警告を表示</string>
-    <string name="title_advanced_lookup_mx_hint">DNS MXレコードが存在するかどうか確認</string>
-    <string name="title_advanced_check_reply_hint">送信者のドメイン名と返信アドレスが同じかどうかを確認</string>
     <string name="title_advanced_metered_hint">従量制課金接続とは一般的にモバイル接続または有料Wi-Fiホットスポットの事です</string>
     <string name="title_advanced_metered_warning">このオプションを無効にするとモバイルネットワークでのメッセージの送受信が無効になります</string>
     <string name="title_advanced_rlah_hint">EU内でのローミングのみ</string>
@@ -445,7 +433,6 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_notify_no_channels">このAndroidバージョンは通知チャネルをサポートしていません</string>
     <string name="title_advanced_fts_hint">有効にすると検索パフォーマンスが向上しますが、バッテリーとストレージ使用量も増加します</string>
     <string name="title_advanced_english_hint">アプリが再起動されます</string>
-    <string name="title_advanced_optimize_hint">これを有効にすると自動的に受信設定を変更してバッテリー使用量を削減出来ます</string>
     <string name="title_advanced_experiments_hint">現在の実験的な機能のリスト</string>
     <string name="title_advanced_debug_hint">追加のログを有効にし様々な場所でデバッグ情報を表示</string>
     <string name="title_advanced_cleanup_attachments_hint">手動でクリーニングすると同期されていないメッセージから添付ファイルが削除されます</string>
@@ -815,7 +802,6 @@ PlayストアでFairEmailを評価できれば幸いです。
         サーバーも検索するには「もう一度検索」ボタンをタップします
     </string>
     <string name="title_search_index_hint">検索インデックスを介した検索は高速ですが単語全体しか検索されません</string>
-    <string name="title_search_text_hint">一部のメールサーバーで多くのメッセージ内テキストを検索出来ません</string>
     <string name="title_search_more">その他のオプション</string>
     <string name="title_search_use_index">検索インデックスを使用</string>
     <string name="title_search_in_senders">送信者(差出人)</string>
@@ -1099,12 +1085,6 @@ PlayストアでFairEmailを評価できれば幸いです。
     <string name="title_pro_list">プロ機能のリスト</string>
     <string name="title_pro_purchase">購入</string>
     <string name="title_pro_once">一度だけです</string>
-    <string name="title_pro_info">        Developing FairEmail took literally thousands of hours and, despite that, most of the features are free to use.
-        FairEmail takes your privacy seriously and doesn\'t show ads and doesn\'t use tracking or analytics to earn money.
-        To maintain and support FairEmail in the long run, some convenience and advanced features are not free to use.
-        FairEmail shows a small message to remind you of this, which will be removed if you purchase the pro features.
-    </string>
-    <string name="title_pro_hide">Hide small message for %1$d weeks</string>
     <string name="title_pro_hint">プロ機能を購入すると、現在及び将来全てのプロ機能を使用出来る様になりアプリとサポートが維持されます</string>
     <string name="title_pro_price"><a href="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq19">このFAQ</a>をご覧ください。プロ機能の価格や購入法も有ります</string>
     <string name="title_pro_pending">購入保留中</string>

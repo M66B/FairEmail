@@ -18,9 +18,7 @@ android {
     }
 
     buildTypes {
-        play {
-        }
-        github {
+        release {
         }
         debug {
         }

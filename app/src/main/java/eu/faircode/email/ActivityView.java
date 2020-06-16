@@ -489,15 +489,14 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
         }).setExternal(true));
 
-        if (Helper.getIntentIssue(this).resolveActivity(pm) != null)
-            extra.add(new NavMenuItem(R.drawable.baseline_feedback_24, R.string.menu_issue, new Runnable() {
-                @Override
-                public void run() {
-                    if (!drawerLayout.isLocked(drawerContainer))
-                        drawerLayout.closeDrawer(drawerContainer);
-                    onMenuIssue();
-                }
-            }).setExternal(true));
+        extra.add(new NavMenuItem(R.drawable.baseline_feedback_24, R.string.menu_issue, new Runnable() {
+            @Override
+            public void run() {
+                if (!drawerLayout.isLocked(drawerContainer))
+                    drawerLayout.closeDrawer(drawerContainer);
+                onMenuIssue();
+            }
+        }).setExternal(true));
 
         if (Helper.isPlayStoreInstall() && false)
             extra.add(new NavMenuItem(R.drawable.baseline_bug_report_24, R.string.menu_test, new Runnable() {
@@ -543,18 +542,16 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
         }));
 
-        if ((getIntentInvite(this).resolveActivity(pm) != null))
-            extra.add(new NavMenuItem(R.drawable.baseline_people_24, R.string.menu_invite, new Runnable() {
-                @Override
-                public void run() {
-                    if (!drawerLayout.isLocked(drawerContainer))
-                        drawerLayout.closeDrawer(drawerContainer);
-                    onMenuInvite();
-                }
-            }).setExternal(true));
+        extra.add(new NavMenuItem(R.drawable.baseline_people_24, R.string.menu_invite, new Runnable() {
+            @Override
+            public void run() {
+                if (!drawerLayout.isLocked(drawerContainer))
+                    drawerLayout.closeDrawer(drawerContainer);
+                onMenuInvite();
+            }
+        }).setExternal(true));
 
-        if ((Helper.isPlayStoreInstall() || BuildConfig.DEBUG) &&
-                Helper.getIntentRate(this).resolveActivity(pm) != null)
+        if ((Helper.isPlayStoreInstall() || BuildConfig.DEBUG))
             extra.add(new NavMenuItem(R.drawable.baseline_star_24, R.string.menu_rate, new Runnable() {
                 @Override
                 public void run() {
@@ -564,15 +561,14 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 }
             }).setExternal(true));
 
-        if (getIntentOtherApps().resolveActivity(pm) != null)
-            extra.add(new NavMenuItem(R.drawable.baseline_get_app_24, R.string.menu_other, new Runnable() {
-                @Override
-                public void run() {
-                    if (!drawerLayout.isLocked(drawerContainer))
-                        drawerLayout.closeDrawer(drawerContainer);
-                    onMenuOtherApps();
-                }
-            }).setExternal(true));
+        extra.add(new NavMenuItem(R.drawable.baseline_get_app_24, R.string.menu_other, new Runnable() {
+            @Override
+            public void run() {
+                if (!drawerLayout.isLocked(drawerContainer))
+                    drawerLayout.closeDrawer(drawerContainer);
+                onMenuOtherApps();
+            }
+        }).setExternal(true));
 
         adapterNavMenuExtra.set(extra);
 
@@ -883,12 +879,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                                 .setVisibility(NotificationCompat.VISIBILITY_SECRET);
 
                 Intent update = new Intent(Intent.ACTION_VIEW, Uri.parse(info.html_url));
-                if (update.resolveActivity(getPackageManager()) != null) {
-                    update.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    PendingIntent piUpdate = PendingIntent.getActivity(
-                            ActivityView.this, REQUEST_UPDATE, update, PendingIntent.FLAG_UPDATE_CURRENT);
-                    builder.setContentIntent(piUpdate);
-                }
+                update.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                PendingIntent piUpdate = PendingIntent.getActivity(
+                        ActivityView.this, REQUEST_UPDATE, update, PendingIntent.FLAG_UPDATE_CURRENT);
+                builder.setContentIntent(piUpdate);
 
                 try {
                     NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
@@ -948,10 +942,17 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                     getSupportFragmentManager().popBackStack("unified", 0);
 
-                long folder = Long.parseLong(action.split(":", 2)[1]);
+                String[] parts = action.split(":");
+                long folder = Long.parseLong(parts[1]);
                 if (folder > 0) {
                     intent.putExtra("folder", folder);
                     onViewMessages(intent);
+                }
+
+                if (parts.length > 2) {
+                    Intent clear = new Intent(this, ServiceUI.class)
+                            .setAction("clear:" + parts[2]);
+                    startService(clear);
                 }
 
             } else if ("why".equals(action)) {
@@ -1225,8 +1226,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onViewMessages(Intent intent) {
-        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
             getSupportFragmentManager().popBackStack("messages", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+            if (content_pane != null)
+                getSupportFragmentManager().popBackStack("unified", 0);
+        }
 
         Bundle args = new Bundle();
         args.putString("type", intent.getStringExtra("type"));

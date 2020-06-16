@@ -60,7 +60,7 @@ import io.requery.android.database.sqlite.SQLiteDatabase;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 162,
+        version = 164,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -107,7 +107,7 @@ public abstract class DB extends RoomDatabase {
 
     private static DB sInstance;
     private static final ExecutorService executor =
-            Helper.getBackgroundExecutor(4, "query"); // AndroidX default thread count
+            Helper.getBackgroundExecutor(2, "query"); // AndroidX default thread count: 4
 
     private static final String DB_NAME = "fairemail";
     private static final int DB_CHECKPOINT = 1000; // requery/sqlite-android default
@@ -282,7 +282,7 @@ public abstract class DB extends RoomDatabase {
                 " BEGIN" +
                 "  UPDATE message SET attachments = attachments + 1" +
                 "  WHERE message.id = NEW.message" +
-                "  AND NEW.disposition = 'attachment'" +
+                "  AND (NEW.disposition IS NULL OR NEW.disposition <> 'inline')" +
                 "  AND (NEW.encryption IS NULL OR NEW.encryption = 0);" +
                 " END");
         db.execSQL("CREATE TRIGGER IF NOT EXISTS attachment_delete" +
@@ -290,7 +290,7 @@ public abstract class DB extends RoomDatabase {
                 " BEGIN" +
                 "  UPDATE message SET attachments = attachments - 1" +
                 "  WHERE message.id = OLD.message" +
-                "  AND OLD.disposition = 'attachment'" +
+                "  AND (OLD.disposition IS NULL OR OLD.disposition <> 'inline')" +
                 "  AND (OLD.encryption IS NULL OR OLD.encryption = 0);" +
                 " END");
     }
@@ -1606,6 +1606,24 @@ public abstract class DB extends RoomDatabase {
                     public void migrate(@NonNull SupportSQLiteDatabase db) {
                         Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `message` ADD COLUMN `verified` INTEGER NOT NULL DEFAULT 0");
+                    }
+                })
+                .addMigrations(new Migration(162, 163) {
+                    @Override
+                    public void migrate(@NonNull SupportSQLiteDatabase db) {
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
+                        db.execSQL("DROP TRIGGER attachment_insert");
+                        db.execSQL("DROP TRIGGER attachment_delete");
+                        createTriggers(db);
+                    }
+                })
+                .addMigrations(new Migration(163, 164) {
+                    @Override
+                    public void migrate(@NonNull SupportSQLiteDatabase db) {
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
+                        db.execSQL("DROP TRIGGER attachment_insert");
+                        db.execSQL("DROP TRIGGER attachment_delete");
+                        createTriggers(db);
                     }
                 });
     }
