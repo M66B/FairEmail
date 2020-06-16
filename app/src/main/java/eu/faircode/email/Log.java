@@ -27,6 +27,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.database.sqlite.SQLiteFullException;
 import android.graphics.Point;
 import android.net.ConnectivityManager;
 import android.net.Network;
@@ -750,6 +751,9 @@ public class Log {
                 at androidx.room.InvalidationTracker$1.run(SourceFile:388)
                 at androidx.work.impl.utils.SerialExecutor$Task.run(SourceFile:91)
              */
+            return false;
+
+        if (ex instanceof SQLiteFullException) // database or disk is full (code 13 SQLITE_FULL)
             return false;
 
         if ("android.util.SuperNotCalledException".equals(ex.getClass().getName()))
