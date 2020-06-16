@@ -118,7 +118,7 @@
     <string name="title_setup_gmail_rationale">请授予权限来选择一个帐户并读取您的姓名</string>
     <string name="title_setup_gmail_permissions">谷歌会请求权限来读取、撰写、发送和永久删除您所有的电子邮件。相比之下，未经您的明确同意，FairEmail永远不会删除您的邮件。</string>
     <string name="title_setup_gmail_drafts">如果草稿文件夹无法通过IMAP访问，可以在Gmail的标签设置中进行修复</string>
-    <string name="title_setup_office_auth">\"AUTHENTICATE失败\"的错误可能是由于IMAP/SMTP被管理禁用而导致的</string>
+    <string name="title_setup_office_auth">\"认证失败\" 的错误可能是由于 IMAP/SMTP 被管理禁用而导致的</string>
     <string name="title_setup_oauth_rationale">授权访问您的 %1$s 帐户</string>
     <string name="title_setup_oauth_authorize">授权</string>
     <string name="title_setup_select_account">选择账户</string>
@@ -220,7 +220,7 @@
     <string name="title_advanced_subscriptions">管理文件夹订阅</string>
     <string name="title_advanced_check_mx">同步消息时检查发送者电子邮件地址</string>
     <string name="title_advanced_check_reply">同步消息时检查回复邮件地址</string>
-    <string name="title_advanced_tune_keep_alive">自动调整keep-alive间隔</string>
+    <string name="title_advanced_tune_keep_alive">自动调整保持活动时间间隔</string>
     <string name="title_advanced_keyboard">默认显示键盘</string>
     <string name="title_advanced_suggest_local">建议本地存储的联系人</string>
     <string name="title_advanced_suggest_sent">建议在已发送消息中找到的地址</string>
@@ -395,8 +395,8 @@
     <string name="title_advanced_last_cleanup">上次清理: %1$s</string>
     <string name="title_advanced_app">应用设置</string>
     <string name="title_advanced_more">更多选项</string>
-    <string name="title_advanced_manual_hint">如果禁用了自动接收消息，仍然可以通过下拉消息列表来手动接收消息</string>
-    <string name="title_advanced_poll_hint">定期检查新消息将每次都比较本地消息和远程消息，这是一项昂贵的操作，可能会导致额外的电池消耗，尤其是在有很多消息的情况下。 始终接收将通过持续跟踪变化来防止这种情况。</string>
+    <string name="title_advanced_manual_hint">如果禁用了接收消息，仍然可以通过下拉消息列表来手动接收消息</string>
+    <string name="title_advanced_poll_hint">定期检查新消息将每次都比较本地消息和远程消息，这是一项耗费的操作，可能会导致额外的电池用量，尤其是在有消息非常多时。 始终接收将通过持续跟踪变化来防止这种情况</string>
     <string name="title_advanced_schedule_hint">点击“时间”选项来设置时间</string>
     <string name="title_advanced_no_date_hint">某些供应商将未知、无效或未来日期的消息存储为不含日期的消息</string>
     <string name="title_advanced_unseen_hint">一些邮件服务提供商对该功能支持不佳，这可能导致同步所有消息或一条消息也不同步</string>
@@ -492,6 +492,7 @@
     <string name="title_port">端口号</string>
     <string name="title_user">用户名</string>
     <string name="title_password">密码</string>
+    <string name="title_case_sensitive">用户名和密码通常是区分大小写的</string>
     <string name="title_client_certificate">客户端证书</string>
     <string name="title_realm">移动数据库</string>
     <string name="title_use_ip">使用本地IP地址而非主机名</string>
@@ -770,6 +771,7 @@
     <string name="title_no_key">没有私钥</string>
     <string name="title_invalid_key">无效的私钥</string>
     <string name="title_unknown_key">私钥与任何加密密钥不匹配</string>
+    <string name="title_send_reminder_remark">在发送设置中可以再次启用提醒</string>
     <string name="title_send_plain_text">仅纯文本</string>
     <string name="title_send_receipt">请求回执</string>
     <string name="title_send_receipt_remark">大多数供应商和电子邮件客户都忽略回执请求</string>
@@ -820,8 +822,8 @@
         若也要搜索服务器上的内容，请点击“再次搜索”按钮
     </string>
     <string name="title_search_index_hint">通过搜索索引搜索很快，但只能找到整个单词</string>
-    <string name="title_search_text_hint">当消息数量很多时，在消息中搜索文本可能无法在某些服务器上进行</string>
-    <string name="title_search_size_hint">消息数量很多时，按大小搜索消息可能在某些服务器上无法正常运作</string>
+    <string name="title_search_text_hint">当消息数量很多时，在消息中搜索文本可能无法在某些服务器上正常运作</string>
+    <string name="title_search_size_hint">消息数量很多时，通过大小搜索消息可能在某些服务器上无法正常运作</string>
     <string name="title_search_more">更多选项</string>
     <string name="title_search_use_index">使用以下搜索索引</string>
     <string name="title_search_in_senders">发件人 (发送自)</string>
@@ -843,7 +845,7 @@
     <string name="title_search_flag_hidden">隐藏</string>
     <string name="title_search_flag_encrypted">加密</string>
     <string name="title_search_flag_attachments">附件</string>
-    <string name="title_search_flag_size">大小&gt;%1$s</string>
+    <string name="title_search_flag_size">大小 &gt; %1$s</string>
     <string name="title_search_device">在设备上搜索</string>
     <string name="title_search_server">在服务器上搜索</string>
     <string name="title_search_in">搜索范围</string>

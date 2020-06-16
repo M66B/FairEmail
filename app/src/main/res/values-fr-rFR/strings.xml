@@ -130,7 +130,7 @@
     <string name="title_setup_gmail_rationale">Veuillez accorder les autorisations pour sélectionner un compte et lire votre nom</string>
     <string name="title_setup_gmail_permissions">Google vous demandera l’autorisation pour lire, rédiger, envoyer et supprimer définitivement tous vos e-mails. FairEmail ne supprimera jamais vos messages sans votre approbation.</string>
     <string name="title_setup_gmail_drafts">Si le dossier « Brouillons » n’est pas accessible via IMAP, ceci peut être corrigé dans les paramètres de libellé Gmail</string>
-    <string name="title_setup_office_auth">L’erreur \'AUTHENTICATE failed\' peut être provoquée par la désactivation d’IMAP/SMTP par l’administrateur système</string>
+    <string name="title_setup_office_auth">L’erreur \'AUTHENTICATE failed\' peut être provoquée par la désactivation d’IMAP/SMTP par l’administrateur</string>
     <string name="title_setup_oauth_rationale">Autoriser l\'accès à votre compte %1$s</string>
     <string name="title_setup_oauth_authorize">Autoriser</string>
     <string name="title_setup_select_account">Sélectionner un compte</string>
@@ -504,6 +504,7 @@
     <string name="title_port">Numéro de port</string>
     <string name="title_user">Nom d’utilisateur</string>
     <string name="title_password">Mot de passe</string>
+    <string name="title_case_sensitive">Les noms d\'utilisateur et les mots de passe sont généralement sensibles à la casse</string>
     <string name="title_client_certificate">Certificat client</string>
     <string name="title_realm">Domaine</string>
     <string name="title_use_ip">Utiliser l’adresse IP locale au lieu du nom d’hôte</string>
@@ -782,6 +783,7 @@
     <string name="title_no_key">Aucune clé privée</string>
     <string name="title_invalid_key">Clé privée non valide</string>
     <string name="title_unknown_key">La clé privée ne correspond à aucune clé de chiffrement</string>
+    <string name="title_send_reminder_remark">Les rappels peuvent être activés à nouveau dans les paramètres d\'envoi</string>
     <string name="title_send_plain_text">Texte brut seulement</string>
     <string name="title_send_receipt">Demander une confirmation</string>
     <string name="title_send_receipt_remark">La plupart des fournisseurs et des clients de messagerie ignorent les demandes d\'accusé de réception</string>

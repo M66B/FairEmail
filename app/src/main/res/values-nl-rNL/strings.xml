@@ -503,6 +503,7 @@
     <string name="title_port">Poortnummer</string>
     <string name="title_user">Gebruikersnaam</string>
     <string name="title_password">Wachtwoord</string>
+    <string name="title_case_sensitive">Gebruikersnamen en wachtwoorden zijn meestal hoofdlettergevoelig</string>
     <string name="title_client_certificate">Cliëntcertificaat</string>
     <string name="title_realm">Realm</string>
     <string name="title_use_ip">Gebruik lokaal IP-adres in plaats van hostnaam</string>
@@ -781,6 +782,7 @@
     <string name="title_no_key">Geen privé sleutel</string>
     <string name="title_invalid_key">Ongeldige privé sleutel</string>
     <string name="title_unknown_key">Privésleutel komt niet overeen met coderingssleutels</string>
+    <string name="title_send_reminder_remark">Herinneringen kunnen weer worden ingeschakeld in de verzendinstellingen</string>
     <string name="title_send_plain_text">Alleen platte tekst</string>
     <string name="title_send_receipt">Vraag bevestiging</string>
     <string name="title_send_receipt_remark">De meeste providers en e-mail clients negeren bevestigingsverzoeken</string>

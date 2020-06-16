@@ -503,6 +503,7 @@
     <string name="title_port">Portnummer</string>
     <string name="title_user">Användarnamn</string>
     <string name="title_password">Lösenord</string>
+    <string name="title_case_sensitive">Användarnamn och lösenord är oftast skiftlägeskänsliga</string>
     <string name="title_client_certificate">Klientcertifikat</string>
     <string name="title_realm">Domän</string>
     <string name="title_use_ip">Använd lokal IP-adress istället för värdnamn</string>
@@ -781,6 +782,7 @@
     <string name="title_no_key">Ingen privat nyckel</string>
     <string name="title_invalid_key">Ogiltig privat nyckel</string>
     <string name="title_unknown_key">Privat nyckel matchar inte några krypteringsnycklar</string>
+    <string name="title_send_reminder_remark">Påminnelser kan aktiveras igen i sändningsinställningarna</string>
     <string name="title_send_plain_text">Endast oformaterad text</string>
     <string name="title_send_receipt">Begär läskvitto</string>
     <string name="title_send_receipt_remark">De flesta leverantörer och e-postklienter ignorerar kvittonförfrågningar</string>

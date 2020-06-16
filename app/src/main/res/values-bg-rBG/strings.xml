@@ -503,6 +503,7 @@
     <string name="title_port">Номер на порт</string>
     <string name="title_user">Потребителско име</string>
     <string name="title_password">Парола</string>
+    <string name="title_case_sensitive">Потребителските имена и пароли обикновено различават главни от малки букви</string>
     <string name="title_client_certificate">Сертификат на клиента</string>
     <string name="title_realm">Област</string>
     <string name="title_use_ip">Използвай локален IP адрес вместо име на хост</string>
@@ -781,6 +782,7 @@
     <string name="title_no_key">Няма частен ключ</string>
     <string name="title_invalid_key">Невалиден частен ключ</string>
     <string name="title_unknown_key">Частният ключ не съвпада с нито един ключ за криптиране</string>
+    <string name="title_send_reminder_remark">Напомнянията могат да бъдат активирани отново в настройките за изпращане</string>
     <string name="title_send_plain_text">Само обикновен текст</string>
     <string name="title_send_receipt">Заявка за разписка</string>
     <string name="title_send_receipt_remark">Повечето доставчици и имейл клиенти игнорират заявките за получаване</string>
