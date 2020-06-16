@@ -6779,6 +6779,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             this.across = !folder.account.equals(message.account);
             this.account = account;
             this.folder = folder;
+            this.copy = false;
         }
 
         MessageTarget(EntityMessage message, EntityAccount account, EntityFolder folder, boolean copy) {
