@@ -341,9 +341,11 @@ public interface DaoMessage {
 
     @Query("SELECT message.id" +
             " FROM message" +
-            " JOIN folder_view AS folder ON folder.id = message.folder" +
+            " JOIN account ON account.id = message.account" +
             " LEFT JOIN identity_view AS identity ON identity.id = message.identity" +
-            " WHERE CASE" +
+            " JOIN folder_view AS folder ON folder.id = message.folder" +
+            " WHERE account.`synchronize`" +
+            " AND CASE" +
             "  WHEN :folder IS NOT NULL THEN folder.id = :folder" +
             "  WHEN :type IS NOT NULL THEN folder.type = :type" +
             "  ELSE folder.unified" +
