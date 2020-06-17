@@ -339,6 +339,24 @@ public interface DaoMessage {
             " ORDER BY message.received DESC")
     List<Long> getMessageWithContent();
 
+    @Query("SELECT message.id" +
+            " FROM message" +
+            " JOIN folder_view AS folder ON folder.id = message.folder" +
+            " LEFT JOIN identity_view AS identity ON identity.id = message.identity" +
+            " WHERE CASE" +
+            "  WHEN :folder IS NOT NULL THEN folder.id = :folder" +
+            "  WHEN :type IS NOT NULL THEN folder.type = :type" +
+            "  ELSE folder.unified" +
+            " END" +
+            " AND NOT ui_seen" +
+            " AND (NOT :filter_unflagged OR message.ui_flagged)" +
+            " AND (NOT :filter_unknown OR (message.avatar IS NOT NULL AND message.sender <> identity.email))" +
+            " AND (NOT :filter_snoozed OR message.ui_snoozed IS NULL OR " + is_drafts + ")" +
+            " AND (:filter_language IS NULL OR message.language = :filter_language)")
+    List<Long> getMessageUnseen(
+            Long folder, String type,
+            boolean filter_unflagged, boolean filter_unknown, boolean filter_snoozed, String filter_language);
+
     @Query("SELECT message.*" +
             " FROM message" +
             " LEFT JOIN account_view AS account ON account.id = message.account" +
