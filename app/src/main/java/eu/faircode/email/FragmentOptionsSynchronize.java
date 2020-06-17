@@ -78,7 +78,6 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
     private SwitchCompat swSyncFolders;
     private SwitchCompat swSyncSharedFolders;
     private SwitchCompat swSubscriptions;
-    private TextView tvSubscriptionPro;
     private SwitchCompat swCheckMx;
     private SwitchCompat swCheckReply;
     private SwitchCompat swTuneKeepAlive;
@@ -129,7 +128,6 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         swSyncFolders = view.findViewById(R.id.swSyncFolders);
         swSyncSharedFolders = view.findViewById(R.id.swSyncSharedFolders);
         swSubscriptions = view.findViewById(R.id.swSubscriptions);
-        tvSubscriptionPro = view.findViewById(R.id.tvSubscriptionPro);
         swCheckMx = view.findViewById(R.id.swCheckMx);
         swCheckReply = view.findViewById(R.id.swCheckReply);
         swTuneKeepAlive = view.findViewById(R.id.swTuneKeepAlive);
@@ -304,8 +302,6 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             }
         });
 
-        Helper.linkPro(tvSubscriptionPro);
-
         swCheckMx.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -414,8 +410,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         swSyncFolders.setChecked(prefs.getBoolean("sync_folders", true));
         swSyncSharedFolders.setChecked(prefs.getBoolean("sync_shared_folders", false));
         swSyncSharedFolders.setEnabled(swSyncFolders.isChecked());
-        swSubscriptions.setChecked(prefs.getBoolean("subscriptions", false) && pro);
-        swSubscriptions.setEnabled(pro);
+        swSubscriptions.setChecked(prefs.getBoolean("subscriptions", false));
         swCheckMx.setChecked(prefs.getBoolean("check_mx", false));
         swCheckReply.setChecked(prefs.getBoolean("check_reply", false));
         swTuneKeepAlive.setChecked(prefs.getBoolean("tune_keep_alive", true));
