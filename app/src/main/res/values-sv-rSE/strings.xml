@@ -882,6 +882,7 @@
     <string name="title_select_language">Välj språk</string>
     <string name="title_select_all">Markera alla</string>
     <string name="title_select_found">Välj hittade</string>
+    <string name="title_mark_all_read">Markera alla lästa</string>
     <string name="title_force_sync">Tvinga synkronisering</string>
     <string name="title_force_send">Tvinga skickning</string>
     <string name="title_language_all">Alla</string>

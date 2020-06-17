@@ -505,6 +505,7 @@
     <string name="title_port">Puerto</string>
     <string name="title_user">Nombre de usuario</string>
     <string name="title_password">Contraseña</string>
+    <string name="title_case_sensitive">Los nombres de usuario y contraseñas por lo general distinguen mayúsculas y minúsculas</string>
     <string name="title_client_certificate">Certificado de cliente</string>
     <string name="title_realm">Dominio</string>
     <string name="title_use_ip">Usar dirección IP local en lugar de nombre de dominio</string>
@@ -783,6 +784,7 @@
     <string name="title_no_key">Ninguna clave privada</string>
     <string name="title_invalid_key">Clave privada inválida</string>
     <string name="title_unknown_key">La clave privada no coincide con ninguna clave de cifrado</string>
+    <string name="title_send_reminder_remark">Los recordatorios pueden ser activados de nuevo en la configuración de envío</string>
     <string name="title_send_plain_text">Sólo en texto plano</string>
     <string name="title_send_receipt">Solicitar acuse</string>
     <string name="title_send_receipt_remark">La mayoría de los clientes y proveedores de email ignoran los pedidos de recibos</string>

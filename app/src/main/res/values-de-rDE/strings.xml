@@ -881,6 +881,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_select_language">Sprache wählen</string>
     <string name="title_select_all">Alle auswählen</string>
     <string name="title_select_found">Alle gefundenen Nachrichten auswählen</string>
+    <string name="title_mark_all_read">Alle als gelesen markieren</string>
     <string name="title_force_sync">Synchronisation erzwingen</string>
     <string name="title_force_send">Senden erzwingen</string>
     <string name="title_language_all">Alle</string>

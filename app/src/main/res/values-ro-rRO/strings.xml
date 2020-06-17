@@ -92,6 +92,7 @@
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
     <string name="title_from_to">%1$s ➤ %2$s</string>
+    <string name="title_title_description">%1$s: %2$s</string>
     <string name="title_factor_minutes">%1$d minute</string>
     <string name="menu_exit">Ieșire</string>
     <string name="menu_answers">Șabloane</string>
@@ -138,6 +139,7 @@
     <string name="title_setup_gmail_rationale">Vă rugăm să acordați permisiunea de a selecta un cont și a vă citi numele</string>
     <string name="title_setup_gmail_permissions">Google va cere permisiunea de a citi, compune, trimite și șterge în mod permanent mesajele dumneavoastră. de email. FairEmail nu vă va șterge niciodată mesajele fără consimțământul dumneavoastră explicit.</string>
     <string name="title_setup_gmail_drafts">Dacă dosarul de ciorne nu este accesibil IMAP, se poate soluționa în setările de etichete Gmail</string>
+    <string name="title_setup_office_auth">Eroarea \'Autentificare eșuată\' poate fi cauzată de dezactivarea administrativă a IMAP/SMTP</string>
     <string name="title_setup_oauth_rationale">Autorizare acces la contul %1$s</string>
     <string name="title_setup_oauth_authorize">Autorizare</string>
     <string name="title_setup_select_account">Selectare cont</string>
@@ -223,7 +225,9 @@
     <string name="title_advanced_section_encryption">Criptare</string>
     <string name="title_advanced_section_notifications">Notificări</string>
     <string name="title_advanced_section_misc">Diverse</string>
+    <string name="title_advanced_receive">Primește mesaje pentru toate conturile</string>
     <string name="title_advanced_when">Când</string>
+    <string name="title_advanced_always">Primiți întotdeauna mesaje pentru aceste conturi</string>
     <string name="title_advanced_schedule">Programat</string>
     <string name="title_advanced_advanced">Avansate</string>
     <string name="title_advanced_no_date">Mesaje fără dată</string>
@@ -402,6 +406,7 @@
     <string name="title_advanced_fts_indexed">%1$d / %2$d mesaje indexate (%3$s)</string>
     <string name="title_advanced_english">Utilizați setările pentru țara SUA</string>
     <string name="title_advanced_watchdog">Verifică periodic dacă FairEmail este încă activ</string>
+    <string name="title_advanced_optimize">Optimizare automată</string>
     <string name="title_advanced_updates">Verificare actualizări aplicație</string>
     <string name="title_advanced_experiments">Încercați funcţii experimentale</string>
     <string name="title_advanced_crash_reports">Trimite rapoarte de eroare</string>
@@ -411,6 +416,8 @@
     <string name="title_advanced_last_cleanup">Ultima curățare: %1$s</string>
     <string name="title_advanced_app">Setări aplicație</string>
     <string name="title_advanced_more">Mai multe opțiuni</string>
+    <string name="title_advanced_manual_hint">Dacă primirea mesajelor este dezactivată, încă este posibilă primirea manuală a mesajelor glisând în jos lista de mesaje</string>
+    <string name="title_advanced_poll_hint">Sincronizarea periodică va compara mesajele locale cu cele de pe server de fiecare dată, aceasta este o operațiune costisitoare ce va rezulta într-un consum ridicat al bateriei, mai ales atunci când sunt multe mesaje. Modul de sincronizare permanent evită aceasta prin monitorizarea continuă a schimbărilor.</string>
     <string name="title_advanced_schedule_hint">Atingeţi data pentru a seta un timp</string>
     <string name="title_advanced_no_date_hint">Unii furnizori stochează mesaje cu o dată necunoscută, invalidă sau viitoare ca mesaje fără dată</string>
     <string name="title_advanced_unseen_hint">Unii furnizori nu suportă asta în mod corect, fapt ce va duce la sincronizarea tuturor mesajelor sau a nici unuia</string>
@@ -506,6 +513,7 @@
     <string name="title_port">Număr port</string>
     <string name="title_user">Nume utilizator</string>
     <string name="title_password">Parolă</string>
+    <string name="title_case_sensitive">Numele de utilizator și parolele sunt de obicei sensibile la majuscule</string>
     <string name="title_client_certificate">Certificat client</string>
     <string name="title_realm">Domeniu</string>
     <string name="title_use_ip">Folosește adresa IP în loc de numele gazdei</string>
@@ -784,6 +792,7 @@
     <string name="title_no_key">Nici o cheie privată</string>
     <string name="title_invalid_key">Cheie privată invalidă</string>
     <string name="title_unknown_key">Cheia privată nu se potrivește cu nici o cheie de criptare</string>
+    <string name="title_send_reminder_remark">Memento-urile pot fi activate din nou în setările de trimitere</string>
     <string name="title_send_plain_text">Doar text simplu</string>
     <string name="title_send_receipt">Solicitare confirmare</string>
     <string name="title_send_receipt_remark">Majoritatea furnizorilor și clienților de email ignoră cererile de confirmare</string>
@@ -834,6 +843,8 @@
         Pentru a căuta și pe server apăsați butonul \'căutare din nou\'.
     </string>
     <string name="title_search_index_hint">Căutarea prin indexul de căutare este rapidă, dar va găsi doar cuvinte întregi</string>
+    <string name="title_search_text_hint">Se caută text în mesaje, atunci când există un număr mare de mesaje, s-ar putea să nu funcționeze pe unele servere</string>
+    <string name="title_search_size_hint">Căutarea mesajelor după mărime, când există un număr mare de mesaje, s-ar putea să nu funcționeze pe unele servere</string>
     <string name="title_search_more">Mai multe opțiuni</string>
     <string name="title_search_use_index">Folosește index de căutare</string>
     <string name="title_search_in_senders">În expeditori (de la)</string>
@@ -847,6 +858,7 @@
     <string name="title_search_with_hidden">Ascuns (doar pe dispozitiv)</string>
     <string name="title_search_with_encrypted">Criptat (doar pe dispozitiv)</string>
     <string name="title_search_with_attachments">Cu atașamente (doar pe dispozitiv)</string>
+    <string name="title_search_with_size">Dimensiune mesaj mai mare decât</string>
     <string name="title_search_with_before">Înainte de</string>
     <string name="title_search_with_after">După</string>
     <string name="title_search_flag_unseen">necitit</string>
@@ -854,6 +866,7 @@
     <string name="title_search_flag_hidden">ascuns</string>
     <string name="title_search_flag_encrypted">criptat</string>
     <string name="title_search_flag_attachments">atașamente</string>
+    <string name="title_search_flag_size">dimensiune &gt; %1$s</string>
     <string name="title_search_device">Căutare pe dispozitiv</string>
     <string name="title_search_server">Căutare pe server</string>
     <string name="title_search_in">Căutare în</string>
@@ -879,6 +892,7 @@
     <string name="title_select_language">Selectare limbă</string>
     <string name="title_select_all">Selectează tot</string>
     <string name="title_select_found">Selectare găsite</string>
+    <string name="title_mark_all_read">Marcheaza tot ca citit</string>
     <string name="title_force_sync">Sincronizare forțată</string>
     <string name="title_force_send">Trimite forțat</string>
     <string name="title_language_all">Toate</string>
@@ -1286,5 +1300,16 @@
         <item>Semnare+criptare PGP</item>
         <item>Doar semnare S/MIME</item>
         <item>Semnare+criptare S/MIME</item>
+    </string-array>
+    <string-array name="sizeNames">
+        <item>0 B</item>
+        <item>256 Ko</item>
+        <item>512 Ko</item>
+        <item>1 Mo</item>
+        <item>2 Mo</item>
+        <item>5 Mo</item>
+        <item>10 Mo</item>
+        <item>20 Mo</item>
+        <item>50 Mo</item>
     </string-array>
 </resources>

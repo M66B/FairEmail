@@ -501,6 +501,7 @@
     <string name="title_port">Ataka zenbakia</string>
     <string name="title_user">Erabiltzaile izena</string>
     <string name="title_password">Pasahitza</string>
+    <string name="title_case_sensitive">Erabiltzaile-izenak eta pasahitzek maiuskulak eta minuskulak bereizi ohi dituzte</string>
     <string name="title_client_certificate">Bezero ziurtagiria</string>
     <string name="title_realm">Domeinua</string>
     <string name="title_use_ip">Erabili IP lokala ostalari izenaren ordez</string>
@@ -779,6 +780,7 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_no_key">Ez dago gako pribaturik</string>
     <string name="title_invalid_key">Baliorik gabeko gako pribatua</string>
     <string name="title_unknown_key">Gako pribatua ez dator bat zifratze-gakoekin</string>
+    <string name="title_send_reminder_remark">Oroigarriak berriro gaitu daitezke bidalketa ezarpenetan</string>
     <string name="title_send_plain_text">Testu soila besterik ez</string>
     <string name="title_send_receipt">Eskatu agiria</string>
     <string name="title_send_receipt_remark">Hornitzaile eta bezero gehienek ez dituzte jasotze agiri eskariak aintzat hartzen</string>

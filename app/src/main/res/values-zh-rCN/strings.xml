@@ -871,6 +871,7 @@
     <string name="title_select_language">选择语言</string>
     <string name="title_select_all">选择所有</string>
     <string name="title_select_found">选中找到的</string>
+    <string name="title_mark_all_read">全部标记为已读</string>
     <string name="title_force_sync">强制同步</string>
     <string name="title_force_send">强制发送</string>
     <string name="title_language_all">全部</string>

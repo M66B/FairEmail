@@ -904,6 +904,7 @@
     <string name="title_select_language">Wybierz język</string>
     <string name="title_select_all">Wybierz wszystkie</string>
     <string name="title_select_found">Wybierz znalezione</string>
+    <string name="title_mark_all_read">Oznacz wszystko jako przeczytane</string>
     <string name="title_force_sync">Wymuś synchronizację</string>
     <string name="title_force_send">Wymuś wysłanie</string>
     <string name="title_language_all">Wszystkie</string>
