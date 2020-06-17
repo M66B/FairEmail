@@ -44,7 +44,7 @@
             <data android:mimeType="*/*" />
         </intent-->
 
-        <!-- Customtabs / AppAuth-Android -->
+        <!-- AppAuth-Android -->
         <intent>
             <action android:name="android.intent.action.VIEW" />
             <category android:name="android.intent.category.BROWSABLE" />
@@ -55,6 +55,12 @@
             <action android:name="android.intent.action.VIEW" />
             <category android:name="android.intent.category.BROWSABLE" />
             <data android:scheme="http" />
+        </intent>
+
+        <!-- Customtabs -->
+        <!-- https://issuetracker.google.com/issues/158914189 -->
+        <intent>
+            <action android:name="android.support.customtabs.action.CustomTabsService" />
         </intent>
 
         <intent>
