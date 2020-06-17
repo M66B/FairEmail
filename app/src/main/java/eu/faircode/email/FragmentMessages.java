@@ -3512,6 +3512,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 language_detection && folder && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q);
         menu.findItem(R.id.menu_select_all).setVisible(folder);
         menu.findItem(R.id.menu_select_found).setVisible(viewType == AdapterMessage.ViewType.SEARCH);
+        menu.findItem(R.id.menu_mark_all_read).setVisible(folder);
 
         menu.findItem(R.id.menu_force_sync).setVisible(viewType == AdapterMessage.ViewType.UNIFIED);
         menu.findItem(R.id.menu_force_send).setVisible(outbox);
@@ -3631,6 +3632,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             case R.id.menu_select_all:
             case R.id.menu_select_found:
                 onMenuSelectAll();
+                return true;
+
+            case R.id.menu_mark_all_read:
+                onMenuMarkAllRead();
                 return true;
 
             case R.id.menu_force_sync:
@@ -3824,6 +3829,51 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 Toast.LENGTH_LONG).show();
                     }
                 });
+            }
+        });
+    }
+
+    private void onMenuMarkAllRead() {
+        ViewModelMessages model = new ViewModelProvider(getActivity()).get(ViewModelMessages.class);
+        model.getIds(getContext(), getViewLifecycleOwner(), new Observer<List<Long>>() {
+            @Override
+            public void onChanged(List<Long> ids) {
+                Bundle args = new Bundle();
+                args.putLongArray("ids", Helper.toLongArray(ids));
+
+                new SimpleTask<Void>() {
+                    @Override
+                    protected void onPreExecute(Bundle args) {
+                        ToastEx.makeText(getContext(), R.string.title_executing, Toast.LENGTH_LONG).show();
+                    }
+
+                    @Override
+                    protected Void onExecute(Context context, Bundle args) throws Throwable {
+                        long[] ids = args.getLongArray("ids");
+
+                        DB db = DB.getInstance(context);
+                        try {
+                            db.beginTransaction();
+
+                            for (long id : ids) {
+                                EntityMessage message = db.message().getMessage(id);
+                                if (message != null)
+                                    EntityOperation.queue(context, message, EntityOperation.SEEN, true);
+                            }
+
+                            db.setTransactionSuccessful();
+                        } finally {
+                            db.endTransaction();
+                        }
+
+                        return null;
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Log.unexpectedError(getParentFragmentManager(), ex);
+                    }
+                }.execute(FragmentMessages.this, args, "message:read");
             }
         });
     }
