@@ -109,20 +109,22 @@ public class EntityOperation {
             if (SEEN.equals(name)) {
                 boolean seen = jargs.getBoolean(0);
                 boolean ignore = jargs.optBoolean(1, true);
-                for (EntityMessage similar : db.message().getMessagesBySimilarity(message.account, message.id, message.msgid)) {
-                    db.message().setMessageUiSeen(similar.id, seen);
-                    db.message().setMessageUiIgnored(similar.id, ignore);
-                    queue(context, similar.account, similar.folder, similar.id, name, jargs);
-                }
+                for (EntityMessage similar : db.message().getMessagesBySimilarity(message.account, message.id, message.msgid))
+                    if (message.ui_seen != seen || message.ui_ignored != ignore) {
+                        db.message().setMessageUiSeen(similar.id, seen);
+                        db.message().setMessageUiIgnored(similar.id, ignore);
+                        queue(context, similar.account, similar.folder, similar.id, name, jargs);
+                    }
                 return;
 
             } else if (FLAG.equals(name)) {
                 boolean flagged = jargs.getBoolean(0);
                 Integer color = (jargs.length() > 1 && !jargs.isNull(1) ? jargs.getInt(1) : null);
-                for (EntityMessage similar : db.message().getMessagesBySimilarity(message.account, message.id, message.msgid)) {
-                    db.message().setMessageUiFlagged(similar.id, flagged, flagged ? color : null);
-                    queue(context, similar.account, similar.folder, similar.id, name, jargs);
-                }
+                for (EntityMessage similar : db.message().getMessagesBySimilarity(message.account, message.id, message.msgid))
+                    if (message.ui_flagged != flagged || !Objects.equals(message.color, color)) {
+                        db.message().setMessageUiFlagged(similar.id, flagged, flagged ? color : null);
+                        queue(context, similar.account, similar.folder, similar.id, name, jargs);
+                    }
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean auto_important = prefs.getBoolean("auto_important", false);
