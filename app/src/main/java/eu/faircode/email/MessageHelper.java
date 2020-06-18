@@ -976,9 +976,11 @@ public class MessageHelper {
             priority = EntityMessage.PRIORITIY_HIGH;
         else if ("normal".equalsIgnoreCase(header) ||
                 "medium".equalsIgnoreCase(header) ||
-                "med".equalsIgnoreCase(header))
+                "med".equalsIgnoreCase(header) ||
+                "none".equalsIgnoreCase(header))
             priority = EntityMessage.PRIORITIY_NORMAL;
         else if ("low".equalsIgnoreCase(header) ||
+                "lowest".equalsIgnoreCase(header) ||
                 "non-urgent".equalsIgnoreCase(header) ||
                 "marketing".equalsIgnoreCase(header) ||
                 "bulk".equalsIgnoreCase(header) ||
