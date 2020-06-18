@@ -50,6 +50,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private SwitchCompat swSendReminders;
     private Spinner spSendDelayed;
 
+    private SwitchCompat swAutoList;
     private SwitchCompat swPrefixOnce;
     private SwitchCompat swExtendedReply;
     private SwitchCompat swQuoteReply;
@@ -69,7 +70,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private final static String[] RESET_OPTIONS = new String[]{
             "keyboard", "suggest_sent", "suggested_received", "suggest_frequently",
             "send_reminders", "send_delayed",
-            "prefix_once", "extended_reply", "quote_reply", "resize_reply",
+            "autolist", "prefix_once", "extended_reply", "quote_reply", "resize_reply",
             "signature_location", "signature_reply", "signature_forward",
             "plain_only", "format_flowed", "usenet_signature", "remove_signatures",
             "receipt_default", "receipt_type", "lookup_mx"
@@ -93,6 +94,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swSendReminders = view.findViewById(R.id.swSendReminders);
         spSendDelayed = view.findViewById(R.id.spSendDelayed);
 
+        swAutoList = view.findViewById(R.id.swAutoList);
         swPrefixOnce = view.findViewById(R.id.swPrefixOnce);
         swExtendedReply = view.findViewById(R.id.swExtendedReply);
         swQuoteReply = view.findViewById(R.id.swQuoteReply);
@@ -170,6 +172,13 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 prefs.edit().remove("send_delayed").apply();
+            }
+        });
+
+        swAutoList.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("autolist", checked).apply();
             }
         });
 
@@ -342,6 +351,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
                 break;
             }
 
+        swAutoList.setChecked(prefs.getBoolean("autolist", true));
         swPrefixOnce.setChecked(prefs.getBoolean("prefix_once", true));
         swExtendedReply.setChecked(prefs.getBoolean("extended_reply", false));
         swQuoteReply.setChecked(prefs.getBoolean("quote_reply", true));
