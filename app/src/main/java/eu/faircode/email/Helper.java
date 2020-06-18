@@ -483,11 +483,17 @@ public class Helper {
     }
 
     static void view(Context context, Uri uri, boolean browse) {
+        view(context, uri, browse, false);
+    }
+
+    static void view(Context context, Uri uri, boolean browse, boolean task) {
         Log.i("View=" + uri);
 
         if (browse || !hasCustomTabs(context, uri)) {
             try {
                 Intent view = new Intent(Intent.ACTION_VIEW, uri);
+                if (task)
+                    view.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(getChooser(context, view));
             } catch (Throwable ex) {
                 Log.e(ex);

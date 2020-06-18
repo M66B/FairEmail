@@ -5738,7 +5738,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             Uri uri = Uri.parse(etLink.getText().toString());
-                            Helper.view(context, uri, true);
+                            Helper.view(context, uri, true, true);
                         }
                     })
                     .setNegativeButton(android.R.string.cancel, null)
