@@ -152,7 +152,7 @@
     <string name="title_setup_gmail_rationale">Пожалуйста, предоставьте разрешения для выбора учётной записи и чтения вашего имени</string>
     <string name="title_setup_gmail_permissions">Google запросит разрешения на чтение, создание, отправку и безвозвратное удаление всех ваших сообщений. FairEmail никогда не будет удалять ваши сообщения без вашего явного согласия.</string>
     <string name="title_setup_gmail_drafts">Если папка черновиков недоступна по IMAP, это может быть исправлено в настройках ярлыка Gmail</string>
-    <string name="title_setup_office_auth">Ошибка \"AUTHENTICATE failed\" может быть вызвана административным отключением IMAP/SMTP</string>
+    <string name="title_setup_office_auth">Ошибка \'AUTHENTICATE failed\' может быть вызвана отключением IMAP/SMTP системным администратором</string>
     <string name="title_setup_oauth_rationale">Авторизовать доступ к вашей учётной записи %1$s</string>
     <string name="title_setup_oauth_authorize">Авторизироваться</string>
     <string name="title_setup_select_account">Выбрать учётную запись</string>
@@ -175,7 +175,7 @@
     <string name="title_setup_identity_hint">Изменение имени, цвета, подписи и т.д.</string>
     <string name="title_setup_permissions">Предоставить доступ</string>
     <string name="title_setup_permissions_remark">Доступ к контактной информации (необязательно)</string>
-    <string name="title_setup_doze">Настроить оптимизацию энергопотребления</string>
+    <string name="title_setup_doze">Настроить энергосбережение</string>
     <string name="title_setup_doze_remark">Непрерывно получать электронную почту (необязательно)</string>
     <string name="title_setup_doze_instructions">В следующем диалоговом окне выберите \"Все приложения\" вверху, выберите это приложение, выберите и подтвердите \"Не оптимизировать\"</string>
     <string name="title_setup_doze_battery">Высокий расход заряда батареи?</string>
@@ -260,6 +260,7 @@
     <string name="title_advanced_suggest_sent">Предлагать адреса, найденные в отправленных сообщениях</string>
     <string name="title_advanced_suggest_received">Предлагать адреса, найденные в полученных сообщениях</string>
     <string name="title_advanced_suggest_frequently">Сортировать предложенные адреса по частоте использования</string>
+    <string name="title_advanced_auto_list">Автоматическое создание списков</string>
     <string name="title_advanced_prefix_once">Добавлять только один префикс перед темой при ответе или пересылке</string>
     <string name="title_advanced_extended_reply">Использовать расширенный заголовок для ответа/пересылки</string>
     <string name="title_advanced_quote_reply">Цитировать текст при ответе</string>
@@ -279,7 +280,7 @@
     <string name="title_advanced_download">Автоматически загружать сообщения и вложения для лимитного подключения до</string>
     <string name="title_advanced_roaming">Загружать сообщения и вложения в роуминге</string>
     <string name="title_advanced_rlah">В роуминге как дома</string>
-    <string name="title_advanced_timeout">Время ожидания соединения (в секундах)</string>
+    <string name="title_advanced_timeout">Время ожидания соединения (сек.)</string>
     <string name="title_advanced_ssl_harden">Усиленные SSL-соединения</string>
     <string name="title_advanced_socks">Использовать SOCKS-прокси</string>
     <string name="title_advanced_manage_connectivity">Управление подключением</string>
@@ -422,6 +423,7 @@
     <string name="title_advanced_optimize">Автоматическая оптимизация</string>
     <string name="title_advanced_updates">Проверять наличие обновлений</string>
     <string name="title_advanced_experiments">Попробовать экспериментальные функции</string>
+    <string name="title_advanced_query_threads">Ограничение одновременного доступа к базе данных</string>
     <string name="title_advanced_crash_reports">Отправлять отчёты об ошибках</string>
     <string name="title_advanced_debug">Режим отладки</string>
     <string name="title_advanced_cleanup_attachments">Удалять вложения старых сообщений</string>
@@ -516,7 +518,7 @@
     <string name="title_account_move">По умолчанию перемещать в</string>
     <string name="title_account_gmail">Для надёжной синхронизации учётной записи Gmail следует по возможности использовать мастер быстрой настройки</string>
     <string name="title_domain">Имя домена</string>
-    <string name="title_autoconfig">Получать параметры</string>
+    <string name="title_autoconfig">Получить параметры</string>
     <string name="title_aliases">Псевдонимы</string>
     <string name="title_provider">Провайдер</string>
     <string name="title_custom">Пользовательское</string>
@@ -613,7 +615,7 @@
     <string name="title_notify_folder">Уведомлять о новых сообщениях</string>
     <string name="title_sync_days">Синхронизация сообщений (дни)</string>
     <string name="title_sync_days_remark">Увеличение этого значения увеличит потребление трафика и заряда батареи</string>
-    <string name="title_keep_days">Хранение сообщений (дни)</string>
+    <string name="title_keep_days">Хранение сообщений (дн.)</string>
     <string name="title_keep_days_remark">Старые сообщения будут удалены с устройства, но останутся на сервере</string>
     <string name="title_keep_all">Хранить все сообщения</string>
     <string name="title_auto_trash">Автоматически перемещать старые сообщения в корзину</string>

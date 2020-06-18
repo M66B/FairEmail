@@ -139,7 +139,6 @@
     <string name="title_setup_gmail_rationale">Vă rugăm să acordați permisiunea de a selecta un cont și a vă citi numele</string>
     <string name="title_setup_gmail_permissions">Google va cere permisiunea de a citi, compune, trimite și șterge în mod permanent mesajele dumneavoastră. de email. FairEmail nu vă va șterge niciodată mesajele fără consimțământul dumneavoastră explicit.</string>
     <string name="title_setup_gmail_drafts">Dacă dosarul de ciorne nu este accesibil IMAP, se poate soluționa în setările de etichete Gmail</string>
-    <string name="title_setup_office_auth">Eroarea \'Autentificare eșuată\' poate fi cauzată de dezactivarea administrativă a IMAP/SMTP</string>
     <string name="title_setup_oauth_rationale">Autorizare acces la contul %1$s</string>
     <string name="title_setup_oauth_authorize">Autorizare</string>
     <string name="title_setup_select_account">Selectare cont</string>

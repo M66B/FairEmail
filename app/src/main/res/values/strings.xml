@@ -166,7 +166,7 @@
     <string name="title_setup_gmail_rationale">Please grant permissions to select an account and read your name</string>
     <string name="title_setup_gmail_permissions">Google will ask for permissions to read, compose, send and permanently delete all your email. FairEmail will never delete your messages without your explicit consent.</string>
     <string name="title_setup_gmail_drafts">If the drafts folder is not accessible by IMAP, this can be fixed in the Gmail label settings</string>
-    <string name="title_setup_office_auth">The error \'AUTHENTICATE failed\' can be caused by IMAP/SMTP being disabled administratively</string>
+    <string name="title_setup_office_auth">The error \'AUTHENTICATE failed\' can be caused by IMAP/SMTP being disabled by the system administrator</string>
     <string name="title_setup_oauth_rationale">Authorize access to your %1$s account</string>
     <string name="title_setup_oauth_authorize">Authorize</string>
     <string name="title_setup_select_account">Select account</string>
@@ -466,7 +466,7 @@
     <string name="title_advanced_optimize">Automatically optimize</string>
     <string name="title_advanced_updates">Check for updates</string>
     <string name="title_advanced_experiments">Try experimental features</string>
-    <string name="title_advanced_query_threads">Limit parallel database reads</string>
+    <string name="title_advanced_query_threads">Limit parallel database access</string>
     <string name="title_advanced_crash_reports">Send error reports</string>
     <string name="title_advanced_debug">Debug mode</string>
     <string name="title_advanced_cleanup_attachments">Delete attachments of old messages</string>

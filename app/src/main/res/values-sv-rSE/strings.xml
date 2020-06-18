@@ -130,7 +130,7 @@
     <string name="title_setup_gmail_rationale">Vänligen bevilja behörigheter för att välja ett konto och läsa ditt namn</string>
     <string name="title_setup_gmail_permissions">Google kommer att be om behörighet att läsa, komponera, skicka och permanent ta bort all din e-post. FairEmail kommer aldrig att ta bort dina meddelanden utan ditt uttryckliga medgivande.</string>
     <string name="title_setup_gmail_drafts">Om mappen för utkast inte är åtkomlig för IMAP kan detta lösas under inställningarna för Gmail-etiketten</string>
-    <string name="title_setup_office_auth">Felet \"AUTHENTICATE failed\" kan orsakas av att IMAP/SMTP har inaktiveras på servernivå</string>
+    <string name="title_setup_office_auth">Felet \"AUTHENTICATE failed\" kan orsakas av att IMAP/SMTP inaktiveras av systemadministratören</string>
     <string name="title_setup_oauth_rationale">Auktorisera åtkomst till ditt %1$s konto</string>
     <string name="title_setup_oauth_authorize">Auktorisera</string>
     <string name="title_setup_select_account">Välj konto</string>
@@ -237,6 +237,7 @@
     <string name="title_advanced_suggest_sent">Föreslå adresser som finns i skickade meddelanden</string>
     <string name="title_advanced_suggest_received">Föreslå adresser som finns i mottagna meddelanden</string>
     <string name="title_advanced_suggest_frequently">Sortera föreslagna adresser vid användningsfrekvens</string>
+    <string name="title_advanced_auto_list">Skapa automatiskt listor</string>
     <string name="title_advanced_prefix_once">Prefix i ämnet endast när du svarar eller vidarebefordrar</string>
     <string name="title_advanced_extended_reply">Använd förlängd svars-/framåtriktad sidhuvud</string>
     <string name="title_advanced_quote_reply">Citera svarstext</string>
@@ -399,6 +400,7 @@
     <string name="title_advanced_optimize">Optimera automatiskt</string>
     <string name="title_advanced_updates">Sök efter uppdateringar</string>
     <string name="title_advanced_experiments">Prova experimentella funktioner</string>
+    <string name="title_advanced_query_threads">Begränsa parallell åtkomst till databas</string>
     <string name="title_advanced_crash_reports">Skicka felrapporter</string>
     <string name="title_advanced_debug">Felsökningsläge</string>
     <string name="title_advanced_cleanup_attachments">Ta bort bilagor på gamla meddelanden</string>

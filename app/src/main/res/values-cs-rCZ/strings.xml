@@ -152,7 +152,6 @@
     <string name="title_setup_gmail_rationale">Pro zvolení účtu a přečtení vašeho jména prosím udělte oprávnění</string>
     <string name="title_setup_gmail_permissions">Google bude požadovat udělení oprávnění ke čtení, psaní, odesílání a trvalému odstranění všech vašich e-mailů. FairEmail nikdy neodstraní vaše zprávy bez vašeho výslovného souhlasu.</string>
     <string name="title_setup_gmail_drafts">Není-li složka s koncepty přístupná skrze IMAP, lze to v Gmailu napravit v nastavení štítků</string>
-    <string name="title_setup_office_auth">Chyba \'AUTHENTICATE failed\' může být způsobena administrativně zakázaným IMAP/SMTP</string>
     <string name="title_setup_oauth_rationale">Autorizovat přístup k vašemu účtu %1$s</string>
     <string name="title_setup_oauth_authorize">Autorizovat</string>
     <string name="title_setup_select_account">Vybrat účet</string>
@@ -421,6 +420,7 @@
     <string name="title_advanced_optimize">Automaticky optimalizovat</string>
     <string name="title_advanced_updates">Kontrolovat aktualizace</string>
     <string name="title_advanced_experiments">Vyzkoušet experimentální funkce</string>
+    <string name="title_advanced_query_threads">Omezit paralelní přístup k databázi</string>
     <string name="title_advanced_crash_reports">Odesílat zprávy o chybách</string>
     <string name="title_advanced_debug">Režim ladění</string>
     <string name="title_advanced_cleanup_attachments">Odstranit přílohy starých zpráv</string>
@@ -904,6 +904,7 @@
     <string name="title_select_language">Vybrat jazyk</string>
     <string name="title_select_all">Vybrat vše</string>
     <string name="title_select_found">Vybrat nalezené</string>
+    <string name="title_mark_all_read">Označit vše jako přečtené</string>
     <string name="title_force_sync">Vynutit synchronizaci</string>
     <string name="title_force_send">Vynutit odeslání</string>
     <string name="title_language_all">Všechny</string>

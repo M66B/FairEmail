@@ -128,7 +128,7 @@
     <string name="title_setup_gmail_rationale">Eman baimena kontu bat aukeratu eta zure izena irakurtzeko</string>
     <string name="title_setup_gmail_permissions">Google-k zure posta elektronikoa irakurri, konposatu, bidali eta ezabatzeko baimenak eskatuko ditu. FairEmail-ek ez ditu zure mezuak ezabatuko baimen espliziturik gabe.</string>
     <string name="title_setup_gmail_drafts">Zirriborroen karpeta IMAP bidez eskuragarri ez badago, Gmailen etiketen ezarpenetan konpondu daiteke</string>
-    <string name="title_setup_office_auth">\'AUTENTIFIKAZIOAK huts egin du\' errorea IMAP/SMTP administratiboki desgaituta egoteagatik izan daiteke</string>
+    <string name="title_setup_office_auth">\'AUTENTIFIKAZIOAK huts egin du\' errorea sistema administratzaileak IMAP/SMTP desgaitu duelako izan daiteke</string>
     <string name="title_setup_oauth_rationale">Baimendu zure %1$s kontura sarbidea</string>
     <string name="title_setup_oauth_authorize">Baimendu</string>
     <string name="title_setup_select_account">Hautatu kontua</string>
@@ -236,6 +236,7 @@
     <string name="title_advanced_suggest_sent">Proposatu bidalitako mezuetan aurkitutako helbideak</string>
     <string name="title_advanced_suggest_received">Proposatu jasotako mezuetan aurkitutako helbideak</string>
     <string name="title_advanced_suggest_frequently">Ordenatu iradokitako helbideak erabilera maiztasunaren arabera</string>
+    <string name="title_advanced_auto_list">Sortu zerrendak automatikoki</string>
     <string name="title_advanced_prefix_once">Jarri aurrizkia mintzagaiari behin bakarrik erantzun edo birbidaltzean</string>
     <string name="title_advanced_extended_reply">Erabili erantzun/birbidali goiburu hedatua</string>
     <string name="title_advanced_quote_reply">Aipatu erantzundako testua</string>
@@ -398,6 +399,7 @@
     <string name="title_advanced_optimize">Optimizatu automatikoki</string>
     <string name="title_advanced_updates">Egiaztatu eguneraketarik dagoen</string>
     <string name="title_advanced_experiments">Probatu ezaugarri esperimentalak</string>
+    <string name="title_advanced_query_threads">Mugatu datu-baseak paraleloki atzitzea</string>
     <string name="title_advanced_crash_reports">Bidali errore txostenak</string>
     <string name="title_advanced_debug">Arazketa modua</string>
     <string name="title_advanced_cleanup_attachments">Ezabatu mezu zaharren eranskinak</string>
@@ -880,6 +882,7 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_select_language">Hautatu hizkuntza</string>
     <string name="title_select_all">Hautatu denak</string>
     <string name="title_select_found">Hautatu aurkitutakoak</string>
+    <string name="title_mark_all_read">Markatu denak irakurrita bezala</string>
     <string name="title_force_sync">Behartu sinkronizazioa</string>
     <string name="title_force_send">Behartu bidalketa</string>
     <string name="title_language_all">Denak</string>

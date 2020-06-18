@@ -130,7 +130,6 @@
     <string name="title_setup_gmail_rationale">Моля, дайте разрешения за избор на профил</string>
     <string name="title_setup_gmail_permissions">Google ще поиска разрешения за четене, съставяне, изпращане и окончателно изтриване на целия ви имейл. FairEmail никога няма да изтрие вашите съобщения без вашето изрично съгласие.</string>
     <string name="title_setup_gmail_drafts">Ако папката за чернови не е достъпна от IMAP, това може да бъде коригирано в настройките на етикета на Gmail</string>
-    <string name="title_setup_office_auth">Грешката „УДОСТОВЕРЯВАНЕТО не е успешно“ може да бъде причинена от деактивирането на IMAP/SMTP</string>
     <string name="title_setup_oauth_rationale">Разрешете достъп до вашия %1$s акаунт</string>
     <string name="title_setup_oauth_authorize">Упълномощявам</string>
     <string name="title_setup_select_account">Изберане на профил</string>
@@ -882,6 +881,7 @@
     <string name="title_select_language">Избор на език</string>
     <string name="title_select_all">Маркирай всички</string>
     <string name="title_select_found">Маркирай намереното</string>
+    <string name="title_mark_all_read">Маркиране на всичко като прочетено</string>
     <string name="title_force_sync">Принудително синхронизиране</string>
     <string name="title_force_send">Принудително изпращане</string>
     <string name="title_language_all">Всички</string>

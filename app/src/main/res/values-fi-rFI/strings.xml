@@ -129,7 +129,6 @@
     <string name="title_setup_gmail_rationale">Ole hyvä ja myönnä oikeudet tilin valitsemiseksi ja nimesi lukemiseksi</string>
     <string name="title_setup_gmail_permissions">Google kysyy oikeuksia lukea, kirjoittaa, lähettää ja poistaa viestejäsi pysyvästi. FairEmail ei koskaan poista viestejäsi ilman yksiselitteistä hyväksyntääsi.</string>
     <string name="title_setup_gmail_drafts">Jos luonnokset-kansio ei ole IMAPin saatavilla, asia voidaan korjata Gmailin tunnisteiden asetuksissa</string>
-    <string name="title_setup_office_auth">Virhe \'AUTHENTICATE failed\' voi aiheutua ylläpitotason IMAP/SMTP-estosta</string>
     <string name="title_setup_oauth_rationale">Valtuuta pääsy tilillesi %1$s</string>
     <string name="title_setup_oauth_authorize">Valtuuta</string>
     <string name="title_setup_select_account">Valitse tili</string>
@@ -502,6 +501,7 @@
     <string name="title_port">Porttinumero</string>
     <string name="title_user">Käyttäjätunnus</string>
     <string name="title_password">Salasana</string>
+    <string name="title_case_sensitive">Käyttäjätunnukset ja salasanat ovat yleensä merkkikokoriippuvaisia</string>
     <string name="title_client_certificate">Asiakasvarmenne</string>
     <string name="title_realm">Toimialue</string>
     <string name="title_use_ip">Käytä paikallista IP-osoitetta verkkotunnuksen sijaan</string>
@@ -780,6 +780,7 @@
     <string name="title_no_key">Ei yksityistä avainta</string>
     <string name="title_invalid_key">Virheellinen yksityinen avain</string>
     <string name="title_unknown_key">Yksityinen avain ei vastaa mitään salausavainta</string>
+    <string name="title_send_reminder_remark">Muistutukset voidaan ottaa uudelleen käyttöön lähetysasetuksissa</string>
     <string name="title_send_plain_text">Lähetä muotoilemattomana tekstinä</string>
     <string name="title_send_receipt">Pyydä kuittausta</string>
     <string name="title_send_receipt_remark">Useimmat palveluntarjoajat ja sähköpostisovellukset jättävät kuittauspyynnöt huomioimatta</string>
@@ -879,6 +880,7 @@
     <string name="title_select_language">Valitse kieli</string>
     <string name="title_select_all">Valitse kaikki</string>
     <string name="title_select_found">Valitse löytyneet</string>
+    <string name="title_mark_all_read">Merkitse kaikki luetuiksi</string>
     <string name="title_force_sync">Pakota synkronointi</string>
     <string name="title_force_send">Pakota lähetys</string>
     <string name="title_language_all">Kaikki</string>

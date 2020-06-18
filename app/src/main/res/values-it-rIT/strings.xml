@@ -130,7 +130,6 @@
     <string name="title_setup_gmail_rationale">Si prega di concedere i permessi per selezionare un account e leggere il tuo nome</string>
     <string name="title_setup_gmail_permissions">Google chiederà le autorizzazioni per leggere, comporre, inviare e eliminare definitivamente tutte le tue email. FairEmail non eliminerà mai i tuoi messaggi senza il tuo esplicito consenso.</string>
     <string name="title_setup_gmail_drafts">Se la cartella bozze non è accessibile da IMAP, questo può essere corretto nelle impostazioni dell\'etichetta Gmail</string>
-    <string name="title_setup_office_auth">L\'errore «AUTENTICA fallita» può essere causato dalla disattivazione amministrativa di IMAP/SMTP</string>
     <string name="title_setup_oauth_rationale">Autorizza l\'accesso al tuo account %1$s</string>
     <string name="title_setup_oauth_authorize">Autorizza</string>
     <string name="title_setup_select_account">Seleziona account</string>
@@ -882,6 +881,7 @@
     <string name="title_select_language">Seleziona lingua</string>
     <string name="title_select_all">Seleziona tutti</string>
     <string name="title_select_found">Seleziona trovato</string>
+    <string name="title_mark_all_read">Segna tutto come letto</string>
     <string name="title_force_sync">Forza sincronizzazione</string>
     <string name="title_force_send">Forza invio</string>
     <string name="title_language_all">Tutti</string>

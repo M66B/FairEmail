@@ -151,7 +151,6 @@
     <string name="title_setup_gmail_rationale">Przyznaj uprawnienia, aby wybrać konto i odczytać twoje imię</string>
     <string name="title_setup_gmail_permissions">Google poprosi o uprawnienia do odczytu, tworzenia, wysyłania i trwałego usuwania wszystkich wiadomości e-mail. FairEmail nigdy nie usunie twoich wiadomości bez Twojej wyraźnej zgody.</string>
     <string name="title_setup_gmail_drafts">Jeśli folder wersji roboczych nie jest dostępny przez IMAP, można to naprawić w ustawieniach etykiety Gmail</string>
-    <string name="title_setup_office_auth">Błąd „AUTHENTICATE failed” może być spowodowany administracyjnym wyłączeniem IMAP / SMTP</string>
     <string name="title_setup_oauth_rationale">Autoryzuj dostęp do Twojego konta %1$s</string>
     <string name="title_setup_oauth_authorize">Autoryzuj</string>
     <string name="title_setup_select_account">Wybierz konto</string>
@@ -259,6 +258,7 @@
     <string name="title_advanced_suggest_sent">Proponuj adresy znalezione w wysłanych wiadomościach</string>
     <string name="title_advanced_suggest_received">Proponuj adresy znalezione w otrzymanych wiadomościach</string>
     <string name="title_advanced_suggest_frequently">Sortuj sugerowane adresy według częstotliwości używania</string>
+    <string name="title_advanced_auto_list">Automatycznie twórz listy</string>
     <string name="title_advanced_prefix_once">Prefiksuj temat tylko raz przy odpowiedzi lub przesyłaniu dalej</string>
     <string name="title_advanced_extended_reply">Użyj rozszerzonego nagłówka odpowiedzi/przesyłania dalej</string>
     <string name="title_advanced_quote_reply">Cytuj treść w odpowiedzi</string>
@@ -421,6 +421,7 @@
     <string name="title_advanced_optimize">Automatycznie optymalizuj</string>
     <string name="title_advanced_updates">Sprawdź aktualizacje</string>
     <string name="title_advanced_experiments">Wypróbuj funkcje eksperymentalne</string>
+    <string name="title_advanced_query_threads">Ogranicz równoległy dostęp do bazy danych</string>
     <string name="title_advanced_crash_reports">Wyślij raport o błędach</string>
     <string name="title_advanced_debug">Debuguj</string>
     <string name="title_advanced_cleanup_attachments">Usuń załączniki starych wiadomości</string>

@@ -131,7 +131,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_setup_gmail_rationale">Bitte erteilen Sie die Berechtigung, ein Konto auszuwählen und Ihren Namen zu lesen</string>
     <string name="title_setup_gmail_permissions">Google wird Sie um Erlaubnis bitten, alle Ihre E-Mails zu lesen, zu verfassen, zu senden und dauerhaft zu löschen. FairEmail löscht niemals Ihre Nachrichten ohne Ihre ausdrückliche Zustimmung.</string>
     <string name="title_setup_gmail_drafts">Wenn der Entwürfe-Ordner für IMAP nicht zugänglich ist, kann dies in den Google Mail-Label-Einstellungen korrigiert werden</string>
-    <string name="title_setup_office_auth">Der Fehler »AUTHENTICATE failed« kann durch eine administrative Deaktivierung von IMAP/SMTP verursacht werden</string>
+    <string name="title_setup_office_auth">Der Fehler \'AUTHENTICATE failed\' kann dadurch verursacht werden, dass IMAP/SMTP vom Systemadministrator deaktiviert wurde</string>
     <string name="title_setup_oauth_rationale">Zugriff auf Ihr %1$s -Konto autorisieren</string>
     <string name="title_setup_oauth_authorize">Autorisieren</string>
     <string name="title_setup_select_account">Konto wählen</string>
@@ -239,6 +239,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_suggest_sent">Adressen aus gesendeten Nachrichten vorschlagen</string>
     <string name="title_advanced_suggest_received">Adressen aus empfangenen Nachrichten vorschlagen</string>
     <string name="title_advanced_suggest_frequently">Vorgeschlagene Adressen nach Nutzungshäufigkeit sortieren</string>
+    <string name="title_advanced_auto_list">Listen automatisch erstellen</string>
     <string name="title_advanced_prefix_once">Re: und Fwd: nur einmal beim Antworten oder Weiterleiten voranstellen</string>
     <string name="title_advanced_extended_reply">Erweiterte Antwort-/Weiterleitungs-Kopfzeile verwenden</string>
     <string name="title_advanced_quote_reply">Beantworteten Text zitieren</string>
@@ -401,6 +402,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_optimize">Automatisch optimieren</string>
     <string name="title_advanced_updates">Nach Aktualisierungen suchen</string>
     <string name="title_advanced_experiments">Experimentelle Funktionen ausprobieren</string>
+    <string name="title_advanced_query_threads">Parallelen Datenbankzugriff beschränken</string>
     <string name="title_advanced_crash_reports">Fehlerberichte senden</string>
     <string name="title_advanced_debug">Fehlersuchmodus</string>
     <string name="title_advanced_cleanup_attachments">Anhänge aus alten Nachrichten löschen</string>

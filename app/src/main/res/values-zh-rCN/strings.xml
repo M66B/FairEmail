@@ -118,7 +118,7 @@
     <string name="title_setup_gmail_rationale">请授予权限来选择一个帐户并读取您的姓名</string>
     <string name="title_setup_gmail_permissions">谷歌会请求权限来读取、撰写、发送和永久删除您所有的电子邮件。相比之下，未经您的明确同意，FairEmail永远不会删除您的邮件。</string>
     <string name="title_setup_gmail_drafts">如果草稿文件夹无法通过IMAP访问，可以在Gmail的标签设置中进行修复</string>
-    <string name="title_setup_office_auth">\"认证失败\" 的错误可能是由于 IMAP/SMTP 被管理禁用而导致的</string>
+    <string name="title_setup_office_auth">\"认证失败\" 的错误可能是由于 IMAP/SMTP 被系统管理员禁用导致的</string>
     <string name="title_setup_oauth_rationale">授权访问您的 %1$s 帐户</string>
     <string name="title_setup_oauth_authorize">授权</string>
     <string name="title_setup_select_account">选择账户</string>
@@ -226,6 +226,7 @@
     <string name="title_advanced_suggest_sent">建议在已发送消息中找到的地址</string>
     <string name="title_advanced_suggest_received">建议在已收到消息中找到的地址</string>
     <string name="title_advanced_suggest_frequently">按使用频率来排序建议地址</string>
+    <string name="title_advanced_auto_list">自动创建列表</string>
     <string name="title_advanced_prefix_once">答复或抄送邮件时, 主题前的Re或CC只出现一次</string>
     <string name="title_advanced_extended_reply">使用扩展回复/转发头</string>
     <string name="title_advanced_quote_reply">引用回复文本</string>
@@ -388,6 +389,7 @@
     <string name="title_advanced_optimize">自动优化</string>
     <string name="title_advanced_updates">检查更新</string>
     <string name="title_advanced_experiments">尝试实验性功能</string>
+    <string name="title_advanced_query_threads">限制并行数据库访问</string>
     <string name="title_advanced_crash_reports">发送错误报告</string>
     <string name="title_advanced_debug">调试模式</string>
     <string name="title_advanced_cleanup_attachments">删除旧消息的附件</string>

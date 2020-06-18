@@ -130,7 +130,7 @@
     <string name="title_setup_gmail_rationale">Veuillez accorder les autorisations pour sélectionner un compte et lire votre nom</string>
     <string name="title_setup_gmail_permissions">Google vous demandera l’autorisation de lire, rédiger, envoyer et supprimer définitivement tous vos courriels. FairEmail ne supprimera jamais vos messages sans votre approbation.</string>
     <string name="title_setup_gmail_drafts">Si le dossier brouillons n’est pas accessible par IMAP, ceci peut être corrigé dans les paramètres de libellé Gmail</string>
-    <string name="title_setup_office_auth">L’erreur \'AUTHENTICATE failed\' peut être provoquée par la désactivation d’IMAP/SMTP par l’administrateur</string>
+    <string name="title_setup_office_auth">L’erreur \'AUTHENTICATE failed\' peut être due à la désactivation d’IMAP/SMTP par l’administrateur</string>
     <string name="title_setup_oauth_rationale">Autoriser l’accès à votre compte %1$s</string>
     <string name="title_setup_oauth_authorize">Autoriser</string>
     <string name="title_setup_select_account">Sélectionner un compte</string>
@@ -238,6 +238,7 @@
     <string name="title_advanced_suggest_sent">Suggérer les adresses trouvées dans les messages envoyés</string>
     <string name="title_advanced_suggest_received">Suggérer les adresses trouvées dans les messages reçus</string>
     <string name="title_advanced_suggest_frequently">Trier les adresses suggérées par fréquence d’utilisation</string>
+    <string name="title_advanced_auto_list">Créer automatiquement des listes</string>
     <string name="title_advanced_prefix_once">Ne préfixer l’objet qu’une seule fois lors de la réponse ou du transfert</string>
     <string name="title_advanced_extended_reply">Utiliser l’en-tête de réponse/transfert étendu</string>
     <string name="title_advanced_quote_reply">Citer le texte répondu</string>
@@ -400,6 +401,7 @@
     <string name="title_advanced_optimize">Optimiser automatiquement</string>
     <string name="title_advanced_updates">Vérifier les mises à jour</string>
     <string name="title_advanced_experiments">Essayer les fonctionnalités expérimentales</string>
+    <string name="title_advanced_query_threads">Limiter les accès multiples à la base de données</string>
     <string name="title_advanced_crash_reports">Envoyer les rapports d’erreur</string>
     <string name="title_advanced_debug">Débogage</string>
     <string name="title_advanced_cleanup_attachments">Supprimer les pièces jointes des anciens messages</string>
