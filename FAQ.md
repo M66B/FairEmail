@@ -28,12 +28,13 @@ for instance when two factor authentication is enabled.
 
 For authorizing:
 
-* Gmail / G suite: see [question 6](#user-content-faq6)
-* Outlook / Live / Hotmail: see [question 14](#user-content-faq14)
-* Office365: see [question 14](#user-content-faq156)
-* Microsoft Exchange: see [question 8](#user-content-faq8)
-* Yahoo!: see [question 88](#user-content-faq88)
-* Apple iCloud: see [question 148](#user-content-faq148)
+* Gmail / G suite, see [question 6](#user-content-faq6)
+* Outlook / Live / Hotmail, see [question 14](#user-content-faq14)
+* Office365, see [question 14](#user-content-faq156)
+* Microsoft Exchange, see [question 8](#user-content-faq8)
+* Yahoo!, see [question 88](#user-content-faq88)
+* Apple iCloud, see [question 148](#user-content-faq148)
+* Free.fr, see [question 157](#user-content-faq157)
 
 Please see [here](#user-content-faq22) for common error messages.
 
@@ -277,6 +278,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(154) Can you add favicons as contact photos?](#user-content-faq154)
 * [(155) What is a winmail.dat file?](#user-content-faq155)
 * [(156) How can I set up an Office365 account?](#user-content-faq156)
+* [(157) How can I set up an Free.fr account?](#user-content-faq157)
 
 [I have another question.](#user-content-support)
 
@@ -3067,6 +3069,18 @@ In this case you should ask the administrator to enable IMAP and SMTP.
 The procedure is documented [here](https://docs.microsoft.com/en-in/exchange/troubleshoot/configure-mailboxes/pop3-imap-owa-activesync-office-365).
 
 <br />
+
+<a name="faq157"></a>
+**(157) How can I set up an Free.fr account?**
+
+Veuillez [voir ici](https://free.fr/assistance/597.html) pour les instructions.
+
+**SMTP est désactivé par défaut**, veuillez [voir ici](https://free.fr/assistance/2406.html) comment il peut être activé.
+
+Veuillez [voir ici](http://jc.etiemble.free.fr/abc/index.php/trucs-astuces/configurer-smtp-free-fr) pour un guide détaillé.
+
+<br />
+
 
 ## Support
 

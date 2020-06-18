@@ -137,7 +137,7 @@
         name="free.fr"
         appPassword="true"
         domain="free\\.fr"
-        link="http://jc.etiemble.free.fr/abc/index.php/trucs-astuces/configurer-smtp-free-fr">
+        link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq157">
         <imap
             host="imap.free.fr"
             port="993"
