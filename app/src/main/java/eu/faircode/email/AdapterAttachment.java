@@ -23,8 +23,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,7 +31,6 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -64,7 +61,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
 
     private List<EntityAttachment> items = new ArrayList<>();
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private View view;
         private ImageButton ibDelete;
         private ImageView ivType;
@@ -93,14 +90,12 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
 
         private void wire() {
             view.setOnClickListener(this);
-            view.setOnLongClickListener(this);
             ibDelete.setOnClickListener(this);
             ibSave.setOnClickListener(this);
         }
 
         private void unwire() {
             view.setOnClickListener(null);
-            view.setOnLongClickListener(null);
             ibDelete.setOnClickListener(null);
             ibSave.setOnClickListener(null);
         }
@@ -182,25 +177,6 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                         onDownload(attachment);
                 }
             }
-        }
-
-        @Override
-        public boolean onLongClick(View v) {
-            int pos = getAdapterPosition();
-            if (pos == RecyclerView.NO_POSITION)
-                return false;
-
-            EntityAttachment attachment = items.get(pos);
-            if (attachment == null)
-                return false;
-
-            if (TextUtils.isEmpty(attachment.name))
-                return false;
-
-            Toast toast = ToastEx.makeText(context, attachment.name, Toast.LENGTH_LONG);
-            toast.setGravity(Gravity.CENTER, 0, 0);
-            toast.show();
-            return true;
         }
 
         private void onDelete(final EntityAttachment attachment) {
