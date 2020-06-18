@@ -108,6 +108,7 @@ public class FragmentAccount extends FragmentBase {
     private Button btnAdvanced;
     private CheckBox cbSynchronize;
     private CheckBox cbOnDemand;
+    private TextView tvLeave;
     private CheckBox cbPrimary;
     private CheckBox cbNotify;
     private TextView tvNotifyPro;
@@ -221,6 +222,7 @@ public class FragmentAccount extends FragmentBase {
         btnAdvanced = view.findViewById(R.id.btnAdvanced);
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         cbOnDemand = view.findViewById(R.id.cbOnDemand);
+        tvLeave = view.findViewById(R.id.tvLeave);
         cbPrimary = view.findViewById(R.id.cbPrimary);
         cbNotify = view.findViewById(R.id.cbNotify);
         tvNotifyPro = view.findViewById(R.id.tvNotifyPro);
@@ -427,6 +429,14 @@ public class FragmentAccount extends FragmentBase {
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 cbOnDemand.setEnabled(checked);
                 cbPrimary.setEnabled(checked);
+            }
+        });
+
+        tvLeave.getPaint().setUnderlineText(true);
+        tvLeave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Helper.viewFAQ(getContext(), 134);
             }
         });
 

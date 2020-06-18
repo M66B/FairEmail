@@ -2738,11 +2738,20 @@ that non-standard protocols, like Microsoft Exchange Web Services and Microsoft 
 <a name="faq134"></a>
 **(134) Can you add deleting local messages?**
 
-Since locally deleted messages would be downloaded again on the next sync it is not possible to permanently delete local messages.
+*POP3*
 
-As an alternative you can hide messages,
+In the account settings (Setup, step 1, Manage, tap account) you can enable *Leave deleted messages on server*.
+
+*IMAP*
+
+Since the IMAP protocol is meant to synchronize two ways,
+deleting a message from the device would result in fetching the message again when synchronizing again.
+
+However, FairEmail supports hiding messages,
 either via the three-dots menu in the action bar just above the message text
 or by multiple selecting messages in the message list.
+
+It is also possible to set the swipe left or right action to hide a message.
 
 <br />
 

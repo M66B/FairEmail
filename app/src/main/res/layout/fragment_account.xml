@@ -434,6 +434,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbSynchronize" />
 
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvLeave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_leave_deleted"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?android:attr/textColorLink"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbOnDemand" />
+
         <CheckBox
             android:id="@+id/cbPrimary"
             android:layout_width="wrap_content"
@@ -441,7 +452,7 @@
             android:layout_marginTop="12dp"
             android:text="@string/title_primary_account"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbOnDemand" />
+            app:layout_constraintTop_toBottomOf="@id/tvLeave" />
 
         <CheckBox
             android:id="@+id/cbNotify"
@@ -941,7 +952,7 @@
             android:layout_height="0dp"
             app:constraint_referenced_ids="
                 cbNotify,tvNotifyPro,
-                cbSynchronize,cbOnDemand,cbPrimary,
+                cbSynchronize,cbOnDemand,tvLeave,cbPrimary,
                 cbBrowse,tvBrowseHint,
                 cbAutoSeen,
                 tvInterval,etInterval,tvIntervalRemark,
