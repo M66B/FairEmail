@@ -4397,10 +4397,8 @@ public class FragmentCompose extends FragmentBase {
                 int recipients = (draft.to == null ? 0 : draft.to.length) +
                         (draft.cc == null ? 0 : draft.cc.length) +
                         (draft.bcc == null ? 0 : draft.bcc.length);
-                if (send_dialog || (send_reminders &&
-                        (address_error != null || remind_to || remind_extra || remind_pgp ||
-                                remind_subject || remind_text || remind_plain || remind_attachment ||
-                                recipients > RECIPIENTS_WARNING))) {
+                if (send_dialog || address_error != null || recipients > RECIPIENTS_WARNING || (send_reminders &&
+                        (remind_to || remind_extra || remind_pgp || remind_subject || remind_text || remind_plain || remind_attachment))) {
                     setBusy(false);
 
                     FragmentDialogSend fragment = new FragmentDialogSend();
@@ -5059,6 +5057,7 @@ public class FragmentCompose extends FragmentBase {
             final boolean remind_pgp = args.getBoolean("remind_pgp", false);
             final boolean remind_subject = args.getBoolean("remind_subject", false);
             final boolean remind_text = args.getBoolean("remind_text", false);
+            final boolean remind_plain = args.getBoolean("remind_plain", false);
             final boolean remind_attachment = args.getBoolean("remind_attachment", false);
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
@@ -5115,7 +5114,7 @@ public class FragmentCompose extends FragmentBase {
 
             Helper.setViewsEnabled(dview, false);
 
-            boolean reminder = (remind_to || remind_extra || remind_pgp || remind_subject || remind_text || remind_attachment);
+            boolean reminder = (remind_to || remind_extra || remind_pgp || remind_subject || remind_text || remind_plain || remind_attachment);
             swSendReminders.setChecked(send_reminders);
             swSendReminders.setVisibility(send_reminders && reminder ? View.VISIBLE : View.GONE);
             tvSendRemindersHint.setVisibility(View.GONE);
@@ -5130,6 +5129,9 @@ public class FragmentCompose extends FragmentBase {
                     tvRemindText.setVisibility(checked && remind_text ? View.VISIBLE : View.GONE);
                     tvRemindAttachment.setVisibility(checked && remind_attachment ? View.VISIBLE : View.GONE);
                     tvSendRemindersHint.setVisibility(checked ? View.GONE : View.VISIBLE);
+
+                    cbPlainOnly.setTextColor(Helper.resolveColor(getContext(),
+                            checked && cbPlainOnly.isChecked() ? R.attr.colorWarning : android.R.attr.textColorSecondary));
                 }
             });
 
@@ -5145,7 +5147,7 @@ public class FragmentCompose extends FragmentBase {
                 @Override
                 public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                     cbPlainOnly.setTextColor(Helper.resolveColor(getContext(),
-                            checked ? R.attr.colorAccent : android.R.attr.textColorSecondary));
+                            checked ? R.attr.colorWarning : android.R.attr.textColorSecondary));
 
                     Bundle args = new Bundle();
                     args.putLong("id", id);
