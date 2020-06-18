@@ -4155,9 +4155,9 @@ public class FragmentCompose extends FragmentBase {
                                     (identity == null || (identity.cc == null && identity.bcc == null)))
                                 args.putBoolean("remind_to", true);
 
-                            if (TextUtils.isEmpty(draft.extra) &&
-                                    identity != null && identity.sender_extra)
-                                args.putBoolean("remind_extra", true);
+                            //if (TextUtils.isEmpty(draft.extra) &&
+                            //        identity != null && identity.sender_extra)
+                            //    args.putBoolean("remind_extra", true);
 
                             if (pgpService != null && pgpService.isBound() &&
                                     (draft.ui_encrypt == null ||
