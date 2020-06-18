@@ -184,6 +184,29 @@
             app:layout_constraintTop_toBottomOf="@id/swExperiments" />
 
         <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swQueries"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_query_threads"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvExperimentsHint"
+            app:switchPadding="12dp" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvQueriesHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_english_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swQueries" />
+
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swCrashReports"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -191,7 +214,7 @@
             android:text="@string/title_advanced_crash_reports"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvExperimentsHint"
+            app:layout_constraintTop_toBottomOf="@id/tvQueriesHint"
             app:switchPadding="12dp" />
 
         <eu.faircode.email.FixedTextView

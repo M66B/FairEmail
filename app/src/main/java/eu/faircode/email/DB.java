@@ -106,8 +106,6 @@ public abstract class DB extends RoomDatabase {
     public abstract DaoLog log();
 
     private static DB sInstance;
-    private static final ExecutorService executor =
-            Helper.getBackgroundExecutor(2, "query"); // AndroidX default thread count: 4
 
     private static final String DB_NAME = "fairemail";
     private static final int DB_CHECKPOINT = 1000; // requery/sqlite-android default
@@ -260,6 +258,11 @@ public abstract class DB extends RoomDatabase {
         } catch (Throwable ex) {
             Log.e(ex);
         }
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        int threads = prefs.getInt("query_threads", 4); // AndroidX default thread count: 4
+        Log.i("Query threads=" + threads);
+        ExecutorService executor = Helper.getBackgroundExecutor(threads, "query");
 
         return Room
                 .databaseBuilder(context, DB.class, DB_NAME)
