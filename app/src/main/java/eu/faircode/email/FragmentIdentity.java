@@ -802,15 +802,17 @@ public class FragmentIdentity extends FragmentBase {
 
                 boolean check = (synchronize && (identity == null ||
                         !identity.synchronize || identity.error != null ||
-                        !identity.insecure.equals(insecure) ||
-                        !host.equals(identity.host) || Integer.parseInt(port) != identity.port ||
+                        !host.equals(identity.host) ||
                         starttls != identity.starttls ||
-                        !user.equals(identity.user) || !password.equals(identity.password) ||
-                        !Objects.equals(identity.certificate_alias, certificate) ||
+                        insecure != identity.insecure ||
+                        Integer.parseInt(port) != identity.port ||
+                        !user.equals(identity.user) ||
+                        !password.equals(identity.password) ||
+                        !Objects.equals(certificate, identity.certificate_alias) ||
                         !Objects.equals(realm, identityRealm) ||
-                        !Objects.equals(identity.fingerprint, fingerprint) ||
+                        !Objects.equals(fingerprint, identity.fingerprint) ||
                         use_ip != identity.use_ip ||
-                        !Objects.equals(identity.ehlo, ehlo)));
+                        !Objects.equals(ehlo, identity.ehlo)));
                 Log.i("Identity check=" + check);
 
                 Long last_connected = null;
