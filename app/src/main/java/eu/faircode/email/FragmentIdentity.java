@@ -804,6 +804,7 @@ public class FragmentIdentity extends FragmentBase {
                         !identity.synchronize || identity.error != null ||
                         !identity.insecure.equals(insecure) ||
                         !host.equals(identity.host) || Integer.parseInt(port) != identity.port ||
+                        starttls != identity.starttls ||
                         !user.equals(identity.user) || !password.equals(identity.password) ||
                         !Objects.equals(identity.certificate_alias, certificate) ||
                         !Objects.equals(realm, identityRealm) ||
