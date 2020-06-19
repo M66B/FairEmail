@@ -2768,10 +2768,27 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private boolean isEmpty() {
+        String subject = etSubject.getText().toString().trim();
+        if (!TextUtils.isEmpty(subject)) {
+            boolean found = false;
+            List<String> res = new ArrayList<>();
+            res.addAll(Arrays.asList(Helper.getStrings(getContext(), R.string.title_subject_reply, "")));
+            res.addAll(Arrays.asList(Helper.getStrings(getContext(), R.string.title_subject_forward, "")));
+            for (String re : res)
+                if (subject.startsWith(re)) {
+                    found = true;
+                    break;
+                }
+            if (!found)
+                return false;
+        }
+
         if (!TextUtils.isEmpty(JsoupEx.parse(HtmlHelper.toHtml(etBody.getText())).text().trim()))
             return false;
+
         if (rvAttachment.getAdapter().getItemCount() > 0)
             return false;
+
         return true;
     }
 
