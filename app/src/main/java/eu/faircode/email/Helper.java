@@ -92,6 +92,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.jetbrains.annotations.NotNull;
+import org.openintents.openpgp.util.OpenPgpApi;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -406,6 +407,18 @@ public class Helper {
         boolean biometrics = prefs.getBoolean("biometrics", false);
         String pin = prefs.getString("pin", null);
         return (biometrics || !TextUtils.isEmpty(pin));
+    }
+
+    static boolean isOpenKeychainInstalled(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        String provider = prefs.getString("openpgp_provider", "org.sufficientlysecure.keychain");
+
+        PackageManager pm = context.getPackageManager();
+        Intent intent = new Intent(OpenPgpApi.SERVICE_INTENT_2);
+        intent.setPackage(provider);
+        List<ResolveInfo> ris = pm.queryIntentServices(intent, 0);
+
+        return (ris.size() > 0);
     }
 
     // View

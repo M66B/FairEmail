@@ -3377,7 +3377,7 @@ public class FragmentCompose extends FragmentBase {
 
                         // Encryption
                         if (ref.ui_encrypt != null && !EntityMessage.ENCRYPT_NONE.equals(ref.ui_encrypt)) {
-                            if (ActivityBilling.isPro(context))
+                            if (ActivityBilling.isPro(context) && Helper.isOpenKeychainInstalled(context))
                                 data.draft.ui_encrypt = ref.ui_encrypt;
                         }
 
