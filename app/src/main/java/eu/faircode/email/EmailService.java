@@ -73,6 +73,8 @@ import javax.mail.event.StoreListener;
 import javax.net.ssl.KeyManager;
 import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLException;
+import javax.net.ssl.SSLHandshakeException;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
@@ -369,6 +371,15 @@ public class EmailService implements AutoCloseable {
         } catch (MessagingException ex) {
             if (port == 995 && !("pop3".equals(protocol) || "pop3s".equals(protocol)))
                 throw new MessagingException(context.getString(R.string.title_service_port), ex);
+            else if (ex.getMessage() != null &&
+                    ex.getMessage().contains("Got bad greeting"))
+                throw new MessagingException(context.getString(R.string.title_service_protocol), ex);
+            else if (ex.getCause() instanceof SSLException &&
+                    ex.getCause().getMessage() != null &&
+                    ex.getCause().getMessage().contains("Unable to parse TLS packet header"))
+                throw new MessagingException(context.getString(R.string.title_service_protocol), ex);
+            else if (ex.getCause() instanceof SSLHandshakeException)
+                throw new MessagingException(context.getString(R.string.title_service_protocol), ex);
             else
                 throw ex;
         }

@@ -643,6 +643,7 @@
     <string name="title_hint_alias">Long press an identity to display options, like copy to create alias identities</string>
     <string name="title_service_vpn">This might be caused by the VPN that is being used</string>
     <string name="title_service_port">Please double check the port number</string>
+    <string name="title_service_protocol">Please double check the protocol (SSL/TLS or STARTTLS)</string>
 
     <string name="title_advanced_browse">Browse messages on the server</string>
     <string name="title_advanced_expand_read">Mark messages read on expanding</string>
