@@ -321,7 +321,7 @@ public interface DaoMessage {
             " AND (NOT :hidden OR NOT ui_snoozed IS NULL)" +
             " AND (NOT :encrypted OR ui_encrypt > 0)" +
             " AND (NOT :attachments OR attachments > 0)" +
-            " AND (:types IS NULL OR attachment.type IN (:types))" +
+            " AND (:type_count = 0 OR attachment.type IN (:types))" +
             " AND (:size IS NULL OR total > :size)" +
             " AND (:after IS NULL OR received > :after)" +
             " AND (:before IS NULL OR received < :before)" +
@@ -331,7 +331,7 @@ public interface DaoMessage {
             Long account, Long folder, String find,
             boolean senders, boolean recipients, boolean subject, boolean keywords, boolean message,
             boolean unseen, boolean flagged, boolean hidden, boolean encrypted, boolean attachments,
-            String[] types,
+            int type_count, String[] types,
             Integer size,
             Long after, Long before,
             int limit, int offset);
