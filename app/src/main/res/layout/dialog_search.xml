@@ -20,15 +20,29 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
+            android:id="@+id/ibInvite"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginEnd="12dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_search_flag_invite"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_search_flag_invite"
+            app:layout_constraintEnd_toStartOf="@+id/ibUnseen"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/baseline_event_24" />
+
+        <ImageButton
             android:id="@+id/ibUnseen"
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:layout_marginEnd="12dp"
             android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/title_info"
+            android:contentDescription="@string/title_search_flag_unseen"
             android:padding="6dp"
             android:scaleType="fitCenter"
-            android:tooltipText="@string/title_info"
+            android:tooltipText="@string/title_search_flag_unseen"
             app:layout_constraintEnd_toStartOf="@+id/ibFlagged"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/baseline_mail_24" />
@@ -39,10 +53,10 @@
             android:layout_height="36dp"
             android:layout_marginEnd="12dp"
             android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/title_accessibility_flagged"
+            android:contentDescription="@string/title_search_flag_flagged"
             android:padding="6dp"
             android:scaleType="fitCenter"
-            android:tooltipText="@string/title_info"
+            android:tooltipText="@string/title_search_flag_flagged"
             app:layout_constraintEnd_toStartOf="@+id/ibInfo"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/baseline_star_24" />

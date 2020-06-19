@@ -303,7 +303,7 @@ public interface DaoMessage {
             " ORDER BY message.received")
     Cursor getMessageFts();
 
-    @Query("SELECT id, account, thread, (:find IS NULL" +
+    @Query("SELECT message.id, account, thread, (:find IS NULL" +
             " OR (:senders AND `from` LIKE :find COLLATE NOCASE)" + // no index
             " OR (:recipients AND `to` LIKE :find COLLATE NOCASE)" + // no index
             " OR (:recipients AND `cc` LIKE :find COLLATE NOCASE)" + // no index
@@ -312,6 +312,7 @@ public interface DaoMessage {
             " OR (:keywords AND `keywords` LIKE :find COLLATE NOCASE)" + // no index
             " OR (:message AND `preview` LIKE :find COLLATE NOCASE)) AS matched" + // no index
             " FROM message" +
+            " LEFT JOIN attachment ON attachment.message = message.id" +
             " WHERE NOT ui_hide" +
             " AND (:account IS NULL OR account = :account)" +
             " AND (:folder IS NULL OR folder = :folder)" +
@@ -320,6 +321,7 @@ public interface DaoMessage {
             " AND (NOT :hidden OR NOT ui_snoozed IS NULL)" +
             " AND (NOT :encrypted OR ui_encrypt > 0)" +
             " AND (NOT :attachments OR attachments > 0)" +
+            " AND (:types IS NULL OR attachment.type IN (:types))" +
             " AND (:size IS NULL OR total > :size)" +
             " AND (:after IS NULL OR received > :after)" +
             " AND (:before IS NULL OR received < :before)" +
@@ -329,6 +331,7 @@ public interface DaoMessage {
             Long account, Long folder, String find,
             boolean senders, boolean recipients, boolean subject, boolean keywords, boolean message,
             boolean unseen, boolean flagged, boolean hidden, boolean encrypted, boolean attachments,
+            String[] types,
             Integer size,
             Long after, Long before,
             int limit, int offset);

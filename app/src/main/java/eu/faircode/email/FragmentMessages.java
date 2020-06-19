@@ -1118,7 +1118,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             fabCompose.hide();
 
         if (viewType == AdapterMessage.ViewType.SEARCH && criteria != null && !server) {
-            if (criteria.with_hidden || criteria.with_encrypted || criteria.with_attachments)
+            if (criteria.with_hidden ||
+                    criteria.with_encrypted ||
+                    criteria.with_attachments ||
+                    criteria.with_types != null)
                 fabSearch.hide();
             else
                 fabSearch.show();

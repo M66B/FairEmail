@@ -240,6 +240,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                             criteria.with_hidden,
                             criteria.with_encrypted,
                             criteria.with_attachments,
+                            criteria.with_types,
                             criteria.with_size,
                             criteria.after,
                             criteria.before,
@@ -620,6 +621,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         boolean with_hidden;
         boolean with_encrypted;
         boolean with_attachments;
+        String[] with_types;
         Integer with_size = null;
         Long after = null;
         Long before = null;
@@ -647,6 +649,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     with_hidden ||
                     with_encrypted ||
                     with_attachments ||
+                    with_types != null ||
                     with_size != null);
         }
 
@@ -724,6 +727,11 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 flags.add(context.getString(R.string.title_search_flag_encrypted));
             if (with_attachments)
                 flags.add(context.getString(R.string.title_search_flag_attachments));
+            if (with_types != null)
+                if (with_types.length == 1 && "text/calendar".equals(with_types[0]))
+                    flags.add(context.getString(R.string.title_search_flag_invite));
+                else
+                    flags.add(TextUtils.join(", ", with_types));
             if (with_size != null)
                 flags.add(context.getString(R.string.title_search_flag_size,
                         Helper.humanReadableByteCount(with_size, true)));
@@ -747,6 +755,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         this.with_hidden == other.with_hidden &&
                         this.with_encrypted == other.with_encrypted &&
                         this.with_attachments == other.with_attachments &&
+                        Objects.equals(this.with_types, other.with_types) &&
                         Objects.equals(this.with_size, other.with_size) &&
                         Objects.equals(this.after, other.after) &&
                         Objects.equals(this.before, other.before));
@@ -768,6 +777,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     " hidden=" + with_hidden +
                     " encrypted=" + with_encrypted +
                     " attachments=" + with_attachments +
+                    " type=" + (with_types == null ? null : TextUtils.join(",", with_types)) +
                     " size=" + with_size +
                     " after=" + (after == null ? "" : new Date(after)) +
                     " before=" + (before == null ? "" : new Date(before));

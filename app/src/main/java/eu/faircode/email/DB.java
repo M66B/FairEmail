@@ -60,7 +60,7 @@ import io.requery.android.database.sqlite.SQLiteDatabase;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 164,
+        version = 165,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -1626,6 +1626,14 @@ public abstract class DB extends RoomDatabase {
                         Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("DROP TRIGGER attachment_insert");
                         db.execSQL("DROP TRIGGER attachment_delete");
+                        createTriggers(db);
+                    }
+                })
+                .addMigrations(new Migration(164, 165) {
+                    @Override
+                    public void migrate(@NonNull SupportSQLiteDatabase db) {
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
+                        db.execSQL("CREATE INDEX IF NOT EXISTS `index_attachment_message_type` ON `attachment` (`message`, `type`)");
                         createTriggers(db);
                     }
                 });

@@ -972,6 +972,7 @@
     <string name="title_search_flag_hidden">hidden</string>
     <string name="title_search_flag_encrypted">encrypted</string>
     <string name="title_search_flag_attachments">attachments</string>
+    <string name="title_search_flag_invite">invitation</string>
     <string name="title_search_flag_size">size &gt; %1$s</string>
 
     <string name="title_search_device">Search on device</string>

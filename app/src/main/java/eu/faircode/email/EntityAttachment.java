@@ -50,6 +50,7 @@ import static androidx.room.ForeignKey.CASCADE;
         indices = {
                 @Index(value = {"message"}),
                 @Index(value = {"message", "sequence"}, unique = true),
+                @Index(value = {"message", "type"}),
                 @Index(value = {"message", "cid"})
         }
 )
