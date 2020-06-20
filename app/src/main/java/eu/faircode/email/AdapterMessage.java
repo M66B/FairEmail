@@ -5173,8 +5173,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (ascending) {
                         if (currentList != null && currentList.size() > 0) {
                             properties.scrollTo(currentList.size() - 1, 0);
-                            if (currentList.get(currentList.size() - 1) != null)
-                                gotoTop = false;
+                            gotoTop = false;
                         }
                     } else {
                         gotoTop = false;
