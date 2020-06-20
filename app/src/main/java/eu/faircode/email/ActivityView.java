@@ -395,6 +395,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         fragmentTransaction.commit();
     }
 
+    View getContentView() {
+        return drawerLayout.getChildAt(0);
+    }
+
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         outState.putBoolean("fair:toggle", drawerToggle.isDrawerIndicatorEnabled());

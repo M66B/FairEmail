@@ -4520,7 +4520,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         if (result.size() == 0)
             return;
 
-        if (undo) {
+        if (undo || true) {
             moveUndo(result);
             return;
         }
@@ -4643,9 +4643,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             @Override
             protected void onExecuted(Bundle args, final ArrayList<MessageTarget> result) {
+                ActivityView activity = (ActivityView) getActivity();
+                View content = activity.getContentView();
+
                 // Show undo snackbar
                 final Snackbar snackbar = Snackbar.make(
-                        view,
+                        content,
                         getString(R.string.title_moving, getDisplay(result)),
                         Snackbar.LENGTH_INDEFINITE);
                 snackbar.setAction(R.string.title_undo, new View.OnClickListener() {
@@ -4686,9 +4689,28 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             protected void onException(Bundle args, Throwable ex) {
                                 Log.unexpectedError(getParentFragmentManager(), ex);
                             }
-                        }.execute(FragmentMessages.this, args, "messages:moveundo");
+                        }.execute(activity, activity, args, "messages:moveundo");
                     }
                 });
+                snackbar.addCallback(new Snackbar.Callback() {
+                    private int margin;
+
+                    @Override
+                    public void onShown(Snackbar sb) {
+                        ViewGroup.MarginLayoutParams lparam = (ViewGroup.MarginLayoutParams) content.getLayoutParams();
+                        margin = lparam.bottomMargin;
+                        lparam.bottomMargin += snackbar.getView().getHeight();
+                        content.setLayoutParams(lparam);
+                    }
+
+                    @Override
+                    public void onDismissed(Snackbar transientBottomBar, int event) {
+                        ViewGroup.MarginLayoutParams lparam = (ViewGroup.MarginLayoutParams) content.getLayoutParams();
+                        lparam.bottomMargin = margin;
+                        content.setLayoutParams(lparam);
+                    }
+                });
+                snackbar.show();
                 snackbar.show();
 
                 final Context context = getContext().getApplicationContext();
