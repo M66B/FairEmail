@@ -81,6 +81,7 @@
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
     <string name="title_from_to">%1$s ➤ %2$s</string>
+    <string name="title_title_description">%1$s: %2$s</string>
     <string name="title_factor_minutes">%1$d دقیقه</string>
     <string name="menu_exit">خروج</string>
     <string name="menu_answers">الگوها</string>
@@ -337,6 +338,7 @@
     <string name="title_advanced_fts_indexed">%1$d / %2$d پیام ایندکس شد (%3$s)</string>
     <string name="title_advanced_english">استفاده از تنظیمات کشور آمریکا</string>
     <string name="title_advanced_watchdog">بطور دوره ای بررسی کن که آیا FairEmail هنوز فعال است یا خیر</string>
+    <string name="title_advanced_optimize">خودکار بهینه‌سازی کن</string>
     <string name="title_advanced_updates">بررسی بروزرسانی ها</string>
     <string name="title_advanced_experiments">امتحان ویژگی‌های آزمایشی</string>
     <string name="title_advanced_crash_reports">ارسال گزارش‌های خطا</string>
@@ -404,6 +406,9 @@
     <string name="title_primary">اصلی</string>
     <string name="title_primary_account">اصلی (حساب پیش فرض)</string>
     <string name="title_primary_identity">اصلی (هویت پیش فرض)</string>
+    <string name="title_leave_on_server">رها کردن پیام‌ها روی سرور</string>
+    <string name="title_leave_deleted">رهاکردن پیام‌های حذف شده روی سرور</string>
+    <string name="title_leave_on_device">رها کردن پیام‌ها روی دستگاه</string>
     <string name="title_keep_alive_interval">فعال ماندن/فاصله اخذ (دقایق)</string>
     <string name="title_check">بررسی</string>
     <string name="title_no_name">نام وجود ندارد</string>
@@ -684,6 +689,7 @@
     <string name="title_search_with_hidden">پنهان (فقط روی دستگاه)</string>
     <string name="title_search_with_encrypted">رمزنگاری‌شده(فقط روی دستگاه)</string>
     <string name="title_search_with_attachments">همراه پیوست‌ها (فقط روی دستگاه)</string>
+    <string name="title_search_with_size">اندازه پیام بزرگ‌تر از</string>
     <string name="title_search_with_before">قبل از</string>
     <string name="title_search_with_after">بعد از</string>
     <string name="title_search_flag_unseen">خوانده نشده</string>
@@ -691,6 +697,7 @@
     <string name="title_search_flag_hidden">پنهان</string>
     <string name="title_search_flag_encrypted">رمزنگاری شده</string>
     <string name="title_search_flag_attachments">پیوست‎ها</string>
+    <string name="title_search_flag_invite">دعوت</string>
     <string name="title_search_device">جستجو بر روی دستگاه‌</string>
     <string name="title_search_server">جستجو بر روی سرور</string>
     <string name="title_search_in">جستجو در</string>
@@ -715,6 +722,7 @@
     <string name="title_select_language">انتخاب زبان</string>
     <string name="title_select_all">انتخاب همه</string>
     <string name="title_select_found">انتخاب یافته‌ها</string>
+    <string name="title_mark_all_read">علامت‌گذاری همه به‌عنوان خوانده شده</string>
     <string name="title_force_sync">اجبار هم‌گام‌سازی</string>
     <string name="title_force_send">اجبار ارسال</string>
     <string name="title_language_all">همه</string>
@@ -907,6 +915,7 @@
     <string name="title_completed">کامل شده</string>
     <string name="title_clipboard_copy">کپی به کلیپ‌بورد</string>
     <string name="title_clipboard_copied">کپی شده به کلیپ‌بورد</string>
+    <string name="title_ask_what">بپرس چه باید کرد</string>
     <string name="title_no_ask_again">دیگر نپرس</string>
     <string name="title_no_ask_for_again">دوباره برای %1$s نپرس</string>
     <string name="title_no_body">هیچ پیام متنی یافت نشد</string>
@@ -1094,5 +1103,16 @@
         <item>امضا+رمزگذاری PGP</item>
         <item>تنها امضا شده S/MIME</item>
         <item>امضا+رمزگذاری S/MIME</item>
+    </string-array>
+    <string-array name="sizeNames">
+        <item>۰ B</item>
+        <item>۲۵۶ KB</item>
+        <item>۵۱۲ KB</item>
+        <item>۱ MB</item>
+        <item>۲ MB</item>
+        <item>۵ MB</item>
+        <item>۱۰ MB</item>
+        <item>۲۰ MB</item>
+        <item>۵۰ MB</item>
     </string-array>
 </resources>

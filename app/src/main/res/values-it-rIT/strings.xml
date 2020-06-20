@@ -130,6 +130,7 @@
     <string name="title_setup_gmail_rationale">Si prega di concedere i permessi per selezionare un account e leggere il tuo nome</string>
     <string name="title_setup_gmail_permissions">Google chiederà le autorizzazioni per leggere, comporre, inviare e eliminare definitivamente tutte le tue email. FairEmail non eliminerà mai i tuoi messaggi senza il tuo esplicito consenso.</string>
     <string name="title_setup_gmail_drafts">Se la cartella bozze non è accessibile da IMAP, questo può essere corretto nelle impostazioni dell\'etichetta Gmail</string>
+    <string name="title_setup_office_auth">L\'errore «AUTENTICA fallita» può essere causato dalla disattivazione di IMAP/SMTP da parte dell\'amministratore di sistema</string>
     <string name="title_setup_oauth_rationale">Autorizza l\'accesso al tuo account %1$s</string>
     <string name="title_setup_oauth_authorize">Autorizza</string>
     <string name="title_setup_select_account">Seleziona account</string>
@@ -461,6 +462,7 @@
     <string name="title_advanced_move_hint">La cartella di destinazione può essere configurata nelle impostazioni dell\'account</string>
     <string name="title_advanced_notify_no_grouping">Questa versione Android non supporta il raggruppamento di notifiche</string>
     <string name="title_advanced_notify_no_channels">Questa versione Android non supporta i canali di notifica</string>
+    <string name="title_advanced_queries_hint">Abilitare questo diminuirà le prestazioni, ma questo è necessario su alcuni dispositivi</string>
     <string name="title_advanced_fts_hint">Abilitando questa opzione migliora le prestazioni di ricerca, ma aumenta anche l\'utilizzo dello spazio di batteria e archiviazione</string>
     <string name="title_advanced_english_hint">Questo riavvierà l\'app</string>
     <string name="title_advanced_experiments_hint">Elenco delle attuali funzionalità sperimentali</string>
@@ -552,6 +554,7 @@
     <string name="title_hint_alias">Premi a lungo per le opzioni, come copia per creare le identità alias</string>
     <string name="title_service_vpn">Questo potrebbe essere causato dalla VPN in uso</string>
     <string name="title_service_port">Per favore ricontrolla il numero della porta</string>
+    <string name="title_service_protocol">Si prega di controllare di nuovo il protocollo (SSL/TLS o STARTTLS)</string>
     <string name="title_advanced_browse">Sfoglia i messaggi sul server</string>
     <string name="title_advanced_expand_read">Segna i messaggi come letti in fase di espansione</string>
     <string name="title_synchronize_now">Sincronizza ora</string>
@@ -857,6 +860,7 @@
     <string name="title_search_flag_hidden">nascosto</string>
     <string name="title_search_flag_encrypted">crittografato</string>
     <string name="title_search_flag_attachments">allegati</string>
+    <string name="title_search_flag_invite">invito</string>
     <string name="title_search_flag_size">dimensione &gt; %1$s</string>
     <string name="title_search_device">Cerca sul dispositivo</string>
     <string name="title_search_server">Cerca sul server</string>

@@ -462,7 +462,7 @@
     <string name="title_advanced_move_hint">Le dossier de destination peut être configuré dans les paramètres du compte</string>
     <string name="title_advanced_notify_no_grouping">Cette version d\'Android ne prend pas en charge le regroupement de notifications</string>
     <string name="title_advanced_notify_no_channels">Cette version d’Android ne prend pas en charge les canaux de notification</string>
-    <string name="title_advanced_queries_hint">Activer ceci réduira les performances mais cela est nécessaire sur certains appareils</string>
+    <string name="title_advanced_queries_hint">Activer ceci réduira les performances mais ceci est nécessaire sur certains appareils</string>
     <string name="title_advanced_fts_hint">Activer ceci améliore les performances de la recherche mais augmente également l\'utilisation de la batterie et de l\'espace de stockage</string>
     <string name="title_advanced_english_hint">Ceci va redémarrer l’application</string>
     <string name="title_advanced_experiments_hint">Liste des fonctionnalités expérimentales actuelles</string>
@@ -554,7 +554,7 @@
     <string name="title_hint_alias">Appuyer longuement sur une identité pour afficher les options, comme copier afin de créer des identités alias</string>
     <string name="title_service_vpn">Ceci pourrait être dû au VPN utilisé</string>
     <string name="title_service_port">Veuillez vérifier le numéro de port</string>
-    <string name="title_service_protocol">Veuillez vérifier le protocole (SSL/TLS ou STARTTLS)</string>
+    <string name="title_service_protocol">Veuillez vérifier à nouveau le protocole (SSL/TLS ou STARTTLS)</string>
     <string name="title_advanced_browse">Parcourir les messages sur le serveur</string>
     <string name="title_advanced_expand_read">Marquer les messages comme lus lors de leur ouverture</string>
     <string name="title_synchronize_now">Synchroniser maintenant</string>
