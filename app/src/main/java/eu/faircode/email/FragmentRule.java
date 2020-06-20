@@ -331,7 +331,7 @@ public class FragmentRule extends FragmentBase {
                 parent.post(new Runnable() {
                     @Override
                     public void run() {
-                        parent.requestFocusFromTouch();
+                        //parent.requestFocusFromTouch();
                     }
                 });
             }
@@ -400,7 +400,7 @@ public class FragmentRule extends FragmentBase {
                 adapterView.post(new Runnable() {
                     @Override
                     public void run() {
-                        adapterView.requestFocusFromTouch();
+                        //adapterView.requestFocusFromTouch();
                     }
                 });
             }

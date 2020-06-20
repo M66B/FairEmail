@@ -204,7 +204,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                 parent.post(new Runnable() {
                     @Override
                     public void run() {
-                        parent.requestFocusFromTouch();
+                        //parent.requestFocusFromTouch();
                     }
                 });
             }
