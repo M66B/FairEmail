@@ -252,6 +252,7 @@ public class FragmentCompose extends FragmentBase {
     private State state = State.NONE;
     private boolean show_images = false;
     private int last_available = 0; // attachments
+    private boolean saved = false;
 
     private Uri photoURI = null;
 
@@ -664,6 +665,10 @@ public class FragmentCompose extends FragmentBase {
                         break;
                     case R.id.action_send:
                         onAction(R.id.action_check, "check");
+                        break;
+                    case R.id.action_save:
+                        saved = true;
+                        onAction(action, "save");
                         break;
                     default:
                         onAction(action, "navigation");
@@ -2755,7 +2760,7 @@ public class FragmentCompose extends FragmentBase {
     private void onExit() {
         if (state == State.LOADED) {
             state = State.NONE;
-            if (isEmpty())
+            if (!saved && isEmpty())
                 onAction(R.id.action_delete, "empty");
             else {
                 Bundle extras = new Bundle();
@@ -3659,6 +3664,8 @@ public class FragmentCompose extends FragmentBase {
                             }
                     }
                 } else {
+                    args.putBoolean("saved", true);
+
                     if (data.draft.revision == null) {
                         data.draft.revision = 1;
                         data.draft.revisions = 1;
@@ -3736,6 +3743,8 @@ public class FragmentCompose extends FragmentBase {
             working = data.draft.id;
             encrypt = data.draft.ui_encrypt;
             getActivity().invalidateOptionsMenu();
+
+            saved = args.getBoolean("saved");
 
             // Show identities
             AdapterIdentitySelect iadapter = new AdapterIdentitySelect(getContext(), data.identities);
