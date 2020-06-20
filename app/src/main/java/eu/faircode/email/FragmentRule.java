@@ -1279,6 +1279,7 @@ public class FragmentRule extends FragmentBase {
                             if (applied > 0)
                                 ServiceSynchronize.eval(getContext(), "rules/manual");
 
+                            dismiss();
                             ToastEx.makeText(getContext(), getString(R.string.title_rule_applied, applied), Toast.LENGTH_LONG).show();
                         }
 
