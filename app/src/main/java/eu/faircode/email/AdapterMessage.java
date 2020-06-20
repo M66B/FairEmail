@@ -5170,8 +5170,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             @Override
             public void onCurrentListChanged(@Nullable PagedList<TupleMessageEx> previousList, @Nullable PagedList<TupleMessageEx> currentList) {
                 if (gotoTop && previousList != null) {
-                    gotoTop = false;
-                    properties.scrollTo(0, 0);
+                    if (ascending) {
+                        if (currentList != null && currentList.size() > 0) {
+                            properties.scrollTo(currentList.size() - 1, 0);
+                            if (currentList.get(currentList.size() - 1) != null)
+                                gotoTop = false;
+                        }
+                    } else {
+                        gotoTop = false;
+                        properties.scrollTo(0, 0);
+                    }
                 }
 
                 if (selectionTracker != null && selectionTracker.hasSelection()) {
@@ -5255,7 +5263,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     }
 
     void gotoTop() {
-        properties.scrollTo(0, 0);
+        if (ascending) {
+            PagedList<TupleMessageEx> list = getCurrentList();
+            if (list != null && list.size() > 0)
+                properties.scrollTo(list.size() - 1, 0);
+        } else
+            properties.scrollTo(0, 0);
         this.gotoTop = true;
     }
 

@@ -1478,6 +1478,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             return false;
         }
 
+        @Override
         public void setExpanded(TupleMessageEx message, boolean value) {
             // Prevent flicker
             if (value &&
@@ -1539,6 +1540,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             return heights.get(id, defaultHeight);
         }
 
+        @Override
         public void setPosition(long id, Pair<Integer, Integer> position) {
             if (position == null)
                 positions.remove(id);
@@ -1546,6 +1548,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 positions.put(id, position);
         }
 
+        @Override
         public Pair<Integer, Integer> getPosition(long id) {
             return positions.get(id);
         }
@@ -1564,6 +1567,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }
         }
 
+        @Override
         public void scrollTo(final int pos, final int y) {
             new Handler().post(new Runnable() {
                 @Override
