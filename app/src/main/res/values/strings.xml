@@ -1051,6 +1051,7 @@
     <string name="title_rule_recipient">Recipient contains</string>
     <string name="title_rule_subject">Subject contains</string>
     <string name="title_rule_attachments">Has attachments</string>
+    <string name="title_rule_mime_type" translatable="false">Mime type</string>
     <string name="title_rule_header">Header contains</string>
     <string name="title_rule_time">Time between</string>
     <string name="title_rule_regex">Regex</string>

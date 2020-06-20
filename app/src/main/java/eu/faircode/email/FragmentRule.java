@@ -100,6 +100,7 @@ public class FragmentRule extends FragmentBase {
     private CheckBox cbSubject;
 
     private CheckBox cbAttachments;
+    private EditText etMimeType;
 
     private EditText etHeader;
     private CheckBox cbHeader;
@@ -211,6 +212,7 @@ public class FragmentRule extends FragmentBase {
         cbSubject = view.findViewById(R.id.cbSubject);
 
         cbAttachments = view.findViewById(R.id.cbAttachments);
+        etMimeType = view.findViewById(R.id.etMimeType);
 
         etHeader = view.findViewById(R.id.etHeader);
         cbHeader = view.findViewById(R.id.cbHeader);
@@ -288,6 +290,13 @@ public class FragmentRule extends FragmentBase {
                     Snackbar.make(view, R.string.title_no_contacts, Snackbar.LENGTH_LONG).show();
                 else
                     startActivityForResult(Helper.getChooser(getContext(), pick), REQUEST_RECIPIENT);
+            }
+        });
+
+        cbAttachments.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                etMimeType.setEnabled(isChecked);
             }
         });
 
@@ -737,6 +746,8 @@ public class FragmentRule extends FragmentBase {
                         cbSubject.setChecked(jsubject != null && jsubject.getBoolean("regex"));
 
                         cbAttachments.setChecked(jcondition.optBoolean("attachments"));
+                        etMimeType.setText(jcondition.optString("mimetype"));
+                        etMimeType.setEnabled(cbAttachments.isChecked());
 
                         etHeader.setText(jheader == null ? null : jheader.getString("value"));
                         cbHeader.setChecked(jheader != null && jheader.getBoolean("regex"));
@@ -1037,6 +1048,7 @@ public class FragmentRule extends FragmentBase {
         }
 
         jcondition.put("attachments", cbAttachments.isChecked());
+        jcondition.put("mimetype", etMimeType.getText().toString().trim());
 
         String header = etHeader.getText().toString();
         if (!TextUtils.isEmpty(header)) {

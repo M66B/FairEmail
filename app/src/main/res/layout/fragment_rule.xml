@@ -320,6 +320,28 @@
                     app:layout_constraintTop_toBottomOf="@+id/vSeparatorAttachments" />
 
                 <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvMimeType"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/title_rule_mime_type"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cbAttachments" />
+
+                <eu.faircode.email.EditTextPlain
+                    android:id="@+id/etMimeType"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/title_optional"
+                    android:inputType="textCapSentences|textAutoCorrect"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvMimeType" />
+
+                <eu.faircode.email.FixedTextView
                     android:id="@+id/tvAndAttachments"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -329,7 +351,7 @@
                     android:textColor="?android:attr/textColorPrimary"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cbAttachments" />
+                    app:layout_constraintTop_toBottomOf="@+id/etMimeType" />
 
                 <View
                     android:id="@+id/vSeparatorHeader"
