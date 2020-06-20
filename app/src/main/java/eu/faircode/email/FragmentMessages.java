@@ -4711,7 +4711,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     }
                 });
                 snackbar.show();
-                snackbar.show();
 
                 final Context context = getContext().getApplicationContext();
 
