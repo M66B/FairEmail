@@ -4520,7 +4520,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         if (result.size() == 0)
             return;
 
-        if (undo || true) {
+        canUndo = true;
+
+        if (undo) {
             moveUndo(result);
             return;
         }
