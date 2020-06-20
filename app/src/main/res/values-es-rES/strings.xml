@@ -131,6 +131,7 @@
     <string name="title_setup_gmail_rationale">Por favor, conceda permisos para seleccionar una cuenta y leer su nombre</string>
     <string name="title_setup_gmail_permissions">Google solicitará permisos para leer, redactar, enviar y eliminar permanentemente todo su correo electrónico. FairEmail nunca eliminará sus mensajes sin su consentimiento explícito.</string>
     <string name="title_setup_gmail_drafts">Si la carpeta de borradores no es accesible por IMAP, esto se puede arreglar en la configuración de etiquetas de Gmail</string>
+    <string name="title_setup_office_auth">El error \'AUTHENTICATE failed\' puede ser causado por IMAP/SMTP desactivado por el administrador de sistemas</string>
     <string name="title_setup_oauth_rationale">Autorizar acceso a su cuenta %1$s</string>
     <string name="title_setup_oauth_authorize">Autorizar</string>
     <string name="title_setup_select_account">Seleccionar cuenta</string>
@@ -238,6 +239,7 @@
     <string name="title_advanced_suggest_sent">Sugerir direcciones encontradas en mensajes enviados</string>
     <string name="title_advanced_suggest_received">Sugerir direcciones encontradas en mensajes recibidos</string>
     <string name="title_advanced_suggest_frequently">Ordenar direcciones sugeridas por frecuencia de uso</string>
+    <string name="title_advanced_auto_list">Crear listas automáticamente</string>
     <string name="title_advanced_prefix_once">Prefijar el asunto solo una vez al responder o reenviar</string>
     <string name="title_advanced_extended_reply">Usar encabezado de respuesta/reenvío extendido</string>
     <string name="title_advanced_quote_reply">Citar texto a responder</string>
@@ -400,6 +402,7 @@
     <string name="title_advanced_optimize">Optimizar automáticamente</string>
     <string name="title_advanced_updates">Buscar actualizaciones</string>
     <string name="title_advanced_experiments">Probar características experimentales</string>
+    <string name="title_advanced_query_threads">Limitar acceso paralelo a la base de datos</string>
     <string name="title_advanced_crash_reports">Enviar informes de errores</string>
     <string name="title_advanced_debug">Modo de depuración</string>
     <string name="title_advanced_cleanup_attachments">Eliminar archivos adjuntos de mensajes antiguos</string>
@@ -460,6 +463,7 @@
     <string name="title_advanced_move_hint">La carpeta destino puede establecerse en la configuración de la cuenta</string>
     <string name="title_advanced_notify_no_grouping">Esta versión de Android no es compatible con la agrupación de notificaciones</string>
     <string name="title_advanced_notify_no_channels">Esta versión de Android no es compatible con canales de notificación</string>
+    <string name="title_advanced_queries_hint">Activar esto reducirá el rendimiento, pero es necesario en algunos dispositivos</string>
     <string name="title_advanced_fts_hint">Activar esto mejora el rendimiento de búsqueda, pero también aumenta el uso de batería y espacio de almacenamiento</string>
     <string name="title_advanced_english_hint">Esto reiniciará la app</string>
     <string name="title_advanced_experiments_hint">Lista de características experimentales actuales</string>
@@ -551,6 +555,7 @@
     <string name="title_hint_alias">Dejar pulsado para opciones, como copiar para crear identidades de alias</string>
     <string name="title_service_vpn">Esto podría ser causado por la VPN que está siendo usada</string>
     <string name="title_service_port">Por favor, compruebe el número de puerto</string>
+    <string name="title_service_protocol">Por favor, compruebe el protocolo (SSL/TLS o STARTTLS)</string>
     <string name="title_advanced_browse">Explorar mensajes en el servidor</string>
     <string name="title_advanced_expand_read">Marcar mensajes leídos al expandir</string>
     <string name="title_synchronize_now">Sincronizar ahora</string>
@@ -857,6 +862,7 @@
     <string name="title_search_flag_hidden">oculto</string>
     <string name="title_search_flag_encrypted">cifrado</string>
     <string name="title_search_flag_attachments">adjuntos</string>
+    <string name="title_search_flag_invite">invitación</string>
     <string name="title_search_flag_size">tamaño &gt; %1$s</string>
     <string name="title_search_device">Buscar en dispositivo</string>
     <string name="title_search_server">Buscar en el servidor</string>

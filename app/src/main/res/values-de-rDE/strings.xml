@@ -131,7 +131,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_setup_gmail_rationale">Bitte erteilen Sie die Berechtigung, ein Konto auszuwählen und Ihren Namen zu lesen</string>
     <string name="title_setup_gmail_permissions">Google wird Sie um Erlaubnis bitten, alle Ihre E-Mails zu lesen, zu verfassen, zu senden und dauerhaft zu löschen. FairEmail löscht niemals Ihre Nachrichten ohne Ihre ausdrückliche Zustimmung.</string>
     <string name="title_setup_gmail_drafts">Wenn der Entwürfe-Ordner für IMAP nicht zugänglich ist, kann dies in den Google Mail-Label-Einstellungen korrigiert werden</string>
-    <string name="title_setup_office_auth">Der Fehler \'AUTHENTICATE failed\' kann dadurch verursacht werden, dass IMAP/SMTP vom Systemadministrator deaktiviert wurde</string>
+    <string name="title_setup_office_auth">Der Fehler »AUTHENTICATE failed« kann dadurch verursacht werden, dass IMAP/SMTP vom Systemverwalter deaktiviert wurde</string>
     <string name="title_setup_oauth_rationale">Zugriff auf Ihr %1$s -Konto autorisieren</string>
     <string name="title_setup_oauth_authorize">Autorisieren</string>
     <string name="title_setup_select_account">Konto wählen</string>
@@ -172,7 +172,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_setup_export_do">Gmail-Konten, die mit geräteinternen Google-Konten verknüpft sind, können nicht exportiert werden</string>
     <string name="title_setup_import_do">Importierte Konten werden hinzugefügt, ohne vorhandene zu überschreiben</string>
     <string name="title_setup_password">Passwort</string>
-    <string name="title_setup_password_chars">Passwort enthält Kontroll- oder Leerzeichen</string>
+    <string name="title_setup_password_chars">Passwort enthält Steuer- oder Leerzeichen</string>
     <string name="title_setup_password_repeat">Passwort erneut eingeben</string>
     <string name="title_setup_password_missing">Passwort fehlt</string>
     <string name="title_setup_password_different">Passwörter stimmen nicht überein</string>
@@ -463,6 +463,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_move_hint">Der Zielordner kann in den Kontoeinstellungen konfiguriert werden</string>
     <string name="title_advanced_notify_no_grouping">Diese Android-Version unterstützt keine gruppierten Benachrichtigungen</string>
     <string name="title_advanced_notify_no_channels">Diese Android-Version unterstützt keine Benachrichtigungskanäle</string>
+    <string name="title_advanced_queries_hint">Wenn Sie dies aktivieren, kann sich die Leistung verringern, aber bei einigen Geräten ist dies notwendig</string>
     <string name="title_advanced_fts_hint">Dies zu aktivieren, verbessert die Suchleistung, erhöht aber auch den Akku- und Speicherverbrauch</string>
     <string name="title_advanced_english_hint">Dadurch wird die App neu gestartet</string>
     <string name="title_advanced_experiments_hint">Liste der aktuellen experimentellen Funktionen</string>
@@ -554,6 +555,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_hint_alias">Lange Drücken für Optionen, wie z.B. Kopieren oder um Alias-Adressen zu erstellen</string>
     <string name="title_service_vpn">Dies kann durch das verwendete VPN verursacht werden</string>
     <string name="title_service_port">Bitte überprüfen Sie die Portnummer</string>
+    <string name="title_service_protocol">Bitte überprüfen Sie das Protokoll (SSL/TLS oder STARTTLS)</string>
     <string name="title_advanced_browse">E-Mails auf dem Server durchsuchen</string>
     <string name="title_advanced_expand_read">Nachrichten beim Erweitern als gelesen markieren</string>
     <string name="title_synchronize_now">Jetzt synchronisieren</string>
@@ -857,6 +859,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_search_flag_hidden">verborgen</string>
     <string name="title_search_flag_encrypted">verschlüsselt</string>
     <string name="title_search_flag_attachments">Anhänge</string>
+    <string name="title_search_flag_invite">Einladung</string>
     <string name="title_search_flag_size">Größe &gt; %1$s</string>
     <string name="title_search_device">Gerät durchsuchen</string>
     <string name="title_search_server">Auf dem Server suchen</string>

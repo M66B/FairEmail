@@ -130,6 +130,7 @@
     <string name="title_setup_gmail_rationale">Моля, дайте разрешения за избор на профил</string>
     <string name="title_setup_gmail_permissions">Google ще поиска разрешения за четене, съставяне, изпращане и окончателно изтриване на целия ви имейл. FairEmail никога няма да изтрие вашите съобщения без вашето изрично съгласие.</string>
     <string name="title_setup_gmail_drafts">Ако папката за чернови не е достъпна от IMAP, това може да бъде коригирано в настройките на етикета на Gmail</string>
+    <string name="title_setup_office_auth">Грешката „УДОСТОВЕРЯВАНЕТО не е успешно“ може да бъде причинена от деактивиране на IMAP/SMTP от системния администратор</string>
     <string name="title_setup_oauth_rationale">Разрешете достъп до вашия %1$s акаунт</string>
     <string name="title_setup_oauth_authorize">Упълномощявам</string>
     <string name="title_setup_select_account">Изберане на профил</string>
@@ -237,6 +238,7 @@
     <string name="title_advanced_suggest_sent">Предложи адреси, намерени в изпратените съобщения</string>
     <string name="title_advanced_suggest_received">Предложи адреси, намерени в получени съобщения</string>
     <string name="title_advanced_suggest_frequently">Сортиране на предложените адреси по използваемост</string>
+    <string name="title_advanced_auto_list">Автоматично създаване на списъци</string>
     <string name="title_advanced_prefix_once">Префикс в темата само веднъж при отговор или препращане</string>
     <string name="title_advanced_extended_reply">Използвай разширено заглавие за отговор/препращане</string>
     <string name="title_advanced_quote_reply">Цитирай текста в отговора</string>
@@ -399,6 +401,7 @@
     <string name="title_advanced_optimize">Автоматично оптимизиране</string>
     <string name="title_advanced_updates">Проверка за обновяване</string>
     <string name="title_advanced_experiments">Пробване на експерименталните функции</string>
+    <string name="title_advanced_query_threads">Ограничете паралелния достъп до база данни</string>
     <string name="title_advanced_crash_reports">Изпращане на доклад с грешки</string>
     <string name="title_advanced_debug">Режим за отстраняване на грешки</string>
     <string name="title_advanced_cleanup_attachments">Изтрийте прикачени файлове на стари съобщения</string>

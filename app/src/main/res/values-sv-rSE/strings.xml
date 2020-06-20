@@ -461,6 +461,7 @@
     <string name="title_advanced_move_hint">Målmappen kan konfigureras i kontoinställningarna</string>
     <string name="title_advanced_notify_no_grouping">Den här Android-versionen stödjer inte notifikationsgruppering</string>
     <string name="title_advanced_notify_no_channels">Den här Android-versionen stödjer inte notifikationsgruppering</string>
+    <string name="title_advanced_queries_hint">Aktivering av detta kommer att minska prestandan, men detta är nödvändigt på vissa enheter</string>
     <string name="title_advanced_fts_hint">Att aktivera detta förbättrar sökprestandan, men ökar både batteri- och utrymmesanvändingen</string>
     <string name="title_advanced_english_hint">Detta startar om appen</string>
     <string name="title_advanced_experiments_hint">Lista över aktuella experimentella funktioner</string>
@@ -552,6 +553,7 @@
     <string name="title_hint_alias">Långtryck för alternativ, som att kopiera för att skapa alias för olika identiteter</string>
     <string name="title_service_vpn">Detta kan orsakas av den VPN som används</string>
     <string name="title_service_port">Vänligen dubbelkolla portnumret</string>
+    <string name="title_service_protocol">Vänligen dubbelkolla protokollet (SSL/TLS eller STARTTLS)</string>
     <string name="title_advanced_browse">Bläddra bland meddelanden på servern</string>
     <string name="title_advanced_expand_read">Markera meddelanden som lästa vid expanderande</string>
     <string name="title_synchronize_now">Synkronisera nu</string>
@@ -858,6 +860,7 @@
     <string name="title_search_flag_hidden">dold</string>
     <string name="title_search_flag_encrypted">krypterad</string>
     <string name="title_search_flag_attachments">bilagor</string>
+    <string name="title_search_flag_invite">inbjudan</string>
     <string name="title_search_flag_size">storlek &gt; %1$s</string>
     <string name="title_search_device">Sök på enheten</string>
     <string name="title_search_server">Sök på servern</string>

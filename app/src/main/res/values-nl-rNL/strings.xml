@@ -461,6 +461,7 @@
     <string name="title_advanced_move_hint">De doelmap kan worden geconfigureerd in de accountinstellingen</string>
     <string name="title_advanced_notify_no_grouping">Deze Android-versie ondersteunt geen meldingsgroepering</string>
     <string name="title_advanced_notify_no_channels">Deze Android-versie ondersteunt geen meldingskanalen</string>
+    <string name="title_advanced_queries_hint">Dit inschakelen zal de prestaties verminderen, maar dit is noodzakelijk op sommige apparaten</string>
     <string name="title_advanced_fts_hint">Dit inschakelen verbetert de zoekprestaties, maar verhoogt ook het batterij- en opslaggebruik</string>
     <string name="title_advanced_english_hint">Dit zal de app herstarten</string>
     <string name="title_advanced_experiments_hint">Lijst van huidige experimentele functies</string>
@@ -552,6 +553,7 @@
     <string name="title_hint_alias">Druk lang voor opties, zoals kopiëren om alias identiteiten te maken</string>
     <string name="title_service_vpn">Dit kan worden veroorzaakt door de VPN die in gebruik is</string>
     <string name="title_service_port">Controleer het poortnummer a.u.b.</string>
+    <string name="title_service_protocol">Controleer a.u.b. het protocol (SSL/TLS of STARTTLS)</string>
     <string name="title_advanced_browse">Blader door berichten op de server</string>
     <string name="title_advanced_expand_read">Markeer berichten gelezen bij uitvouwen</string>
     <string name="title_synchronize_now">Nu synchroniseren</string>
@@ -858,6 +860,7 @@
     <string name="title_search_flag_hidden">verborgen</string>
     <string name="title_search_flag_encrypted">versleuteld</string>
     <string name="title_search_flag_attachments">bijlagen</string>
+    <string name="title_search_flag_invite">uitnodiging</string>
     <string name="title_search_flag_size">grootte &gt; %1$s</string>
     <string name="title_search_device">Zoeken op apparaat</string>
     <string name="title_search_server">Zoek op server</string>

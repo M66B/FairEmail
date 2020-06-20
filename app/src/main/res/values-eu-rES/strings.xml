@@ -459,6 +459,7 @@
     <string name="title_advanced_move_hint">Helburuko karpeta kontuaren ezarpenetan konfigura daiteke</string>
     <string name="title_advanced_notify_no_grouping">Android bertsio honek ez du jakinarazpenen taldekatzea onartzen</string>
     <string name="title_advanced_notify_no_channels">Android bertsio honek ez ditu jakinarazpenen kanalak onartzen</string>
+    <string name="title_advanced_queries_hint">Hau gaitzean errendimendua galtzen da, baina gailu batzuetan beharrezkoa da</string>
     <string name="title_advanced_fts_hint">Hori gaitzeak bilaketa-errendimendua handituko du, baina bateriaren erabilera areagotuko du eta biltegiratze handiagoa erabiltzen du</string>
     <string name="title_advanced_english_hint">Honek aplikazioa berrabiaraziko du</string>
     <string name="title_advanced_experiments_hint">Egungo funtzio esperimentalen zerrenda</string>
@@ -856,6 +857,7 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_search_flag_hidden">ezkutuan</string>
     <string name="title_search_flag_encrypted">zifratuta</string>
     <string name="title_search_flag_attachments">eranskinak</string>
+    <string name="title_search_flag_invite">gonbidapena</string>
     <string name="title_search_flag_size">neurria &gt; %1$s</string>
     <string name="title_search_device">Bilatu gailuan</string>
     <string name="title_search_server">Bilatu zerbitzarian</string>

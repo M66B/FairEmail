@@ -152,6 +152,7 @@
     <string name="title_setup_gmail_rationale">Pro zvolení účtu a přečtení vašeho jména prosím udělte oprávnění</string>
     <string name="title_setup_gmail_permissions">Google bude požadovat udělení oprávnění ke čtení, psaní, odesílání a trvalému odstranění všech vašich e-mailů. FairEmail nikdy neodstraní vaše zprávy bez vašeho výslovného souhlasu.</string>
     <string name="title_setup_gmail_drafts">Není-li složka s koncepty přístupná skrze IMAP, lze to v Gmailu napravit v nastavení štítků</string>
+    <string name="title_setup_office_auth">Chyba \'AUTHENTICATE failed\' může být způsobena zakázaným IMAP/SMTP správcem systému</string>
     <string name="title_setup_oauth_rationale">Autorizovat přístup k vašemu účtu %1$s</string>
     <string name="title_setup_oauth_authorize">Autorizovat</string>
     <string name="title_setup_select_account">Vybrat účet</string>
@@ -253,11 +254,13 @@
     <string name="title_advanced_subscriptions">Spravovat odběry složek</string>
     <string name="title_advanced_check_mx">Kontrolovat e-mailové adresy odesílatelů při synchronizaci zpráv</string>
     <string name="title_advanced_check_reply">Kontrolovat e-mailové adresy pro odpověď při synchronizaci zpráv</string>
+    <string name="title_advanced_tune_keep_alive">Automaticky vyladit interval udržení naživu</string>
     <string name="title_advanced_keyboard">Automaticky zobrazit klávesnici</string>
     <string name="title_advanced_suggest_local">Navrhovat lokálně uložené kontakty</string>
     <string name="title_advanced_suggest_sent">Navrhovat adresy nalezené v odeslaných zprávách</string>
     <string name="title_advanced_suggest_received">Navrhovat adresy nalezené v přijatých zprávách</string>
     <string name="title_advanced_suggest_frequently">Řadit navrhované adresy dle četnosti použití</string>
+    <string name="title_advanced_auto_list">Automaticky vytvářet seznamy</string>
     <string name="title_advanced_prefix_once">Při odpovídání nebo přeposílání přidat do předmětu pouze jednu předponu</string>
     <string name="title_advanced_extended_reply">Použít rozšířenou hlavičku odpovědi/přeposlání</string>
     <string name="title_advanced_quote_reply">Citovat text odpovědi</string>
@@ -481,6 +484,7 @@
     <string name="title_advanced_move_hint">Cílovou složku lze změnit v nastavení účtu</string>
     <string name="title_advanced_notify_no_grouping">Tato verze Androidu nepodporuje seskupování oznámení</string>
     <string name="title_advanced_notify_no_channels">Tato verze Androidu nepodporuje kanály oznámení</string>
+    <string name="title_advanced_queries_hint">Povolením se sníží výkonnost, na některých zařízeních je to však nutné</string>
     <string name="title_advanced_fts_hint">Povolením se zlepší výkon vyhledávání, ale také se zvýší využití baterie a místa v úložišti</string>
     <string name="title_advanced_english_hint">Restartuje aplikaci</string>
     <string name="title_advanced_experiments_hint">Seznam aktuálních experimentálních funkcí</string>
@@ -572,6 +576,7 @@
     <string name="title_hint_alias">Dlouze podržet pro možnosti, např. kopírování pro vytvoření aliasu identity</string>
     <string name="title_service_vpn">Toto může být zapříčiněno použitou VPN</string>
     <string name="title_service_port">Překontrolujte prosím číslo portu</string>
+    <string name="title_service_protocol">Překontrolujte prosím protokol (SSL/TLS nebo STARTTLS)</string>
     <string name="title_advanced_browse">Procházet zprávy na serveru</string>
     <string name="title_advanced_expand_read">Označit zprávy jako přečtené při rozbalení</string>
     <string name="title_synchronize_now">Synchronizovat nyní</string>
@@ -878,6 +883,7 @@
     <string name="title_search_flag_hidden">skryto</string>
     <string name="title_search_flag_encrypted">šifrováno</string>
     <string name="title_search_flag_attachments">přílohy</string>
+    <string name="title_search_flag_invite">pozvánka</string>
     <string name="title_search_flag_size">velikost &gt; %1$s</string>
     <string name="title_search_device">Hledat v zařízení</string>
     <string name="title_search_server">Hledat na serveru</string>

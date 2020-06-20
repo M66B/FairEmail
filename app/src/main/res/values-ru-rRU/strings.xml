@@ -152,7 +152,7 @@
     <string name="title_setup_gmail_rationale">Пожалуйста, предоставьте разрешения для выбора учётной записи и чтения вашего имени</string>
     <string name="title_setup_gmail_permissions">Google запросит разрешения на чтение, создание, отправку и безвозвратное удаление всех ваших сообщений. FairEmail никогда не будет удалять ваши сообщения без вашего явного согласия.</string>
     <string name="title_setup_gmail_drafts">Если папка черновиков недоступна по IMAP, это может быть исправлено в настройках ярлыка Gmail</string>
-    <string name="title_setup_office_auth">Ошибка \'AUTHENTICATE failed\' может быть вызвана отключением IMAP/SMTP системным администратором</string>
+    <string name="title_setup_office_auth">Ошибка \"AUTHENTICATE failed\" может быть вызвана отключением IMAP/SMTP системным администратором</string>
     <string name="title_setup_oauth_rationale">Авторизовать доступ к вашей учётной записи %1$s</string>
     <string name="title_setup_oauth_authorize">Авторизироваться</string>
     <string name="title_setup_select_account">Выбрать учётную запись</string>
@@ -484,6 +484,7 @@
     <string name="title_advanced_move_hint">Целевая папка может быть указана в настройках учётной записи</string>
     <string name="title_advanced_notify_no_grouping">Эта версия Android не поддерживает группировку уведомлений</string>
     <string name="title_advanced_notify_no_channels">Эта версия Android не поддерживает каналы уведомлений</string>
+    <string name="title_advanced_queries_hint">Включение понизит производительность, но это необходимо на некоторых устройствах</string>
     <string name="title_advanced_fts_hint">Включение этой функции улучшит скорость поиска, но также увеличит расход батареи и занимаемое место в хранилище</string>
     <string name="title_advanced_english_hint">Произойдёт перезапуск приложения</string>
     <string name="title_advanced_experiments_hint">Список текущих экспериментальных функций</string>
@@ -575,6 +576,7 @@
     <string name="title_hint_alias">Длительное нажатие откроет другие действия, например, копирования для создания псевдонима идентификатора.</string>
     <string name="title_service_vpn">Это может быть вызвано использованием VPN</string>
     <string name="title_service_port">Пожалуйста, дважды проверьте номер порта</string>
+    <string name="title_service_protocol">Пожалуйста, дважды проверьте протокол (SSL/TLS или STARTTLS)</string>
     <string name="title_advanced_browse">Просмотр сообщений на сервере</string>
     <string name="title_advanced_expand_read">Отмечать сообщения прочитанными при развёртывании</string>
     <string name="title_synchronize_now">Синхронизировать сейчас</string>
@@ -881,6 +883,7 @@
     <string name="title_search_flag_hidden">скрыто</string>
     <string name="title_search_flag_encrypted">зашифровано</string>
     <string name="title_search_flag_attachments">вложения</string>
+    <string name="title_search_flag_invite">приглашение</string>
     <string name="title_search_flag_size">размер &gt; %1$s</string>
     <string name="title_search_device">Поиск на устройстве</string>
     <string name="title_search_server">Поиск на сервере</string>
