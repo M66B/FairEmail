@@ -85,6 +85,7 @@ public class EmailService implements AutoCloseable {
     private Context context;
     private String protocol;
     private boolean insecure;
+    private int purpose;
     private boolean harden;
     private boolean useip;
     private String ehlo;
@@ -136,6 +137,7 @@ public class EmailService implements AutoCloseable {
         this.context = context.getApplicationContext();
         this.protocol = protocol;
         this.insecure = insecure;
+        this.purpose = purpose;
         this.debug = debug;
 
         properties = MessageHelper.getSessionProperties();
@@ -369,18 +371,21 @@ public class EmailService implements AutoCloseable {
             } else
                 throw ex;
         } catch (MessagingException ex) {
-            if (port == 995 && !("pop3".equals(protocol) || "pop3s".equals(protocol)))
-                throw new MessagingException(context.getString(R.string.title_service_port), ex);
-            else if (ex.getMessage() != null &&
-                    ex.getMessage().contains("Got bad greeting"))
-                throw new MessagingException(context.getString(R.string.title_service_protocol), ex);
-            else if (ex.getCause() instanceof SSLException &&
-                    ex.getCause().getMessage() != null &&
-                    ex.getCause().getMessage().contains("Unable to parse TLS packet header"))
-                throw new MessagingException(context.getString(R.string.title_service_protocol), ex);
-            else if (ex.getCause() instanceof SSLHandshakeException)
-                throw new MessagingException(context.getString(R.string.title_service_protocol), ex);
-            else
+            if (purpose == PURPOSE_CHECK) {
+                if (port == 995 && !("pop3".equals(protocol) || "pop3s".equals(protocol)))
+                    throw new MessagingException(context.getString(R.string.title_service_port), ex);
+                else if (ex.getMessage() != null &&
+                        ex.getMessage().contains("Got bad greeting"))
+                    throw new MessagingException(context.getString(R.string.title_service_protocol), ex);
+                else if (ex.getCause() instanceof SSLException &&
+                        ex.getCause().getMessage() != null &&
+                        ex.getCause().getMessage().contains("Unable to parse TLS packet header"))
+                    throw new MessagingException(context.getString(R.string.title_service_protocol), ex);
+                else if (ex.getCause() instanceof SSLHandshakeException)
+                    throw new MessagingException(context.getString(R.string.title_service_protocol), ex);
+                else
+                    throw ex;
+            } else
                 throw ex;
         }
     }
