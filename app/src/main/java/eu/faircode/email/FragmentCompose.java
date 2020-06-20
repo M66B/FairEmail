@@ -253,6 +253,7 @@ public class FragmentCompose extends FragmentBase {
     private boolean show_images = false;
     private int last_available = 0; // attachments
     private boolean saved = false;
+    private String subject = null;
 
     private Uri photoURI = null;
 
@@ -2773,20 +2774,8 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private boolean isEmpty() {
-        String subject = etSubject.getText().toString().trim();
-        if (!TextUtils.isEmpty(subject)) {
-            boolean found = false;
-            List<String> res = new ArrayList<>();
-            res.addAll(Arrays.asList(Helper.getStrings(getContext(), R.string.title_subject_reply, "")));
-            res.addAll(Arrays.asList(Helper.getStrings(getContext(), R.string.title_subject_forward, "")));
-            for (String re : res)
-                if (subject.startsWith(re)) {
-                    found = true;
-                    break;
-                }
-            if (!found)
-                return false;
-        }
+        if (!etSubject.getText().toString().equals(subject))
+            return false;
 
         if (!TextUtils.isEmpty(JsoupEx.parse(HtmlHelper.toHtml(etBody.getText())).text().trim()))
             return false;
@@ -3744,6 +3733,7 @@ public class FragmentCompose extends FragmentBase {
             encrypt = data.draft.ui_encrypt;
             getActivity().invalidateOptionsMenu();
 
+            subject = data.draft.subject;
             saved = args.getBoolean("saved");
 
             // Show identities
