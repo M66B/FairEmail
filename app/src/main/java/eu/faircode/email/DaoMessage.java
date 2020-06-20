@@ -310,8 +310,8 @@ public interface DaoMessage {
             " OR (:recipients AND `bcc` LIKE :find COLLATE NOCASE)" + // no index
             " OR (:subject AND `subject` LIKE :find COLLATE NOCASE)" + // unsuitable index
             " OR (:keywords AND `keywords` LIKE :find COLLATE NOCASE)" + // no index
-            " OR (:message AND `preview` LIKE :find COLLATE NOCASE)" +
-            " OR (:attachments AND attachment.name LIKE :find COLLATE NOCASE)" +
+            " OR (:message AND `preview` LIKE :find COLLATE NOCASE)" + // no index
+            " OR (:attachments AND attachment.name LIKE :find COLLATE NOCASE)" + // no index
             " OR (:attachments AND attachment.type LIKE :find COLLATE NOCASE)) AS matched" + // no index
             " FROM message" +
             " LEFT JOIN attachment ON attachment.message = message.id" +
