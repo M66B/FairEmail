@@ -4740,7 +4740,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                         if (message == null || !message.ui_hide)
                                             continue;
 
-                                        Log.i("Move id=" + id + " target=" + target.folder.name);
+                                        Log.i("Move id=" + target.id + " target=" + target.folder.name);
                                         db.message().setMessageUiBusy(target.id, null);
                                         db.message().setMessageLastAttempt(target.id, new Date().getTime());
                                         EntityOperation.queue(context, message, EntityOperation.MOVE, target.folder.id);
