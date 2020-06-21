@@ -626,6 +626,19 @@ public class Log {
             */
             return false;
 
+        if (ex instanceof IllegalMonitorStateException)
+            /*
+                java.lang.IllegalMonitorStateException
+                  at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.signal(AbstractQueuedSynchronizer.java:1959)
+                  at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1142)
+                  at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:849)
+                  at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1092)
+                  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1152)
+                  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+                  at java.lang.Thread.run(Thread.java:764)
+             */
+            return false;
+
         if (ex instanceof RuntimeException &&
                 ex.getCause() instanceof TransactionTooLargeException)
             // Some Android versions (Samsung) send images as clip data
