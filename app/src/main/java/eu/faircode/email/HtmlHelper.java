@@ -456,7 +456,8 @@ public class HtmlHelper {
                 .removeAttributes("th", "colspan", "rowspan", "width")
                 .addProtocols("img", "src", "cid")
                 .addProtocols("img", "src", "data")
-                .addProtocols("a", "href", "full");
+                .addProtocols("a", "href", "full",
+                        "rtsp", "ftp", "telnet", "ssh", "sftp", "fish", "xmpp", "geo", "tel");
         if (text_color)
             whitelist.addAttributes("font", "color");
         if (text_align)
