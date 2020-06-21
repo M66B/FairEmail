@@ -1370,7 +1370,14 @@ class Core {
                 subscription.add(fullName);
                 Log.i("Subscribed " + defaultFolder.getFullName() + ":" + fullName);
             }
-        } catch (MessagingException ex) {
+        } catch (Throwable ex) {
+            /*
+                06-21 10:02:38.035  9927 10024 E fairemail: java.lang.NullPointerException: Folder name is null
+                06-21 10:02:38.035  9927 10024 E fairemail: 	at com.sun.mail.imap.IMAPFolder.<init>(SourceFile:372)
+                06-21 10:02:38.035  9927 10024 E fairemail: 	at com.sun.mail.imap.IMAPFolder.<init>(SourceFile:411)
+                06-21 10:02:38.035  9927 10024 E fairemail: 	at com.sun.mail.imap.IMAPStore.newIMAPFolder(SourceFile:1809)
+                06-21 10:02:38.035  9927 10024 E fairemail: 	at com.sun.mail.imap.DefaultFolder.listSubscribed(SourceFile:89)
+             */
             Log.e(account.name, ex);
         }
 
@@ -1396,7 +1403,7 @@ class Core {
                             subscription.add(fullName);
                             Log.i("Subscribed " + namespace.getFullName() + ":" + fullName);
                         }
-                    } catch (MessagingException ex) {
+                    } catch (Throwable ex) {
                         Log.e(account.name, ex);
                     }
                 } else
