@@ -456,8 +456,7 @@ public class HtmlHelper {
                 .removeAttributes("th", "colspan", "rowspan", "width")
                 .addProtocols("img", "src", "cid")
                 .addProtocols("img", "src", "data")
-                .addProtocols("a", "href", "full",
-                        "rtsp", "ftp", "telnet", "ssh", "sftp", "fish", "xmpp", "geo", "tel");
+                .addProtocols("a", "href", "full", "xmpp", "geo", "tel");
         if (text_color)
             whitelist.addAttributes("font", "color");
         if (text_align)
@@ -884,11 +883,6 @@ public class HtmlHelper {
         // Autolink
         if (view) {
             // https://en.wikipedia.org/wiki/List_of_URI_schemes
-            // ftp (generic syntax)
-            // telnet://<user>:<password>@<host>[:<port>/]
-            // ssh://[<user>[;fingerprint=<host-key fingerprint>]@]<host>[:<port>]
-            // sftp://[<user>[;fingerprint=<host-key fingerprint>]@]<host>[:<port>]/<path>/<file>
-            // fish://[<username>[:<password>]@]<hostname>[:<port>]
             // xmpp:[<user>]@<host>[:<port>]/[<resource>][?<query>]
             // geo:<lat>,<lon>[,<alt>][;u=<uncertainty>]
             // tel:<phonenumber>
@@ -896,7 +890,7 @@ public class HtmlHelper {
                     "(((?i:mailto):)?" + PatternsCompat.AUTOLINK_EMAIL_ADDRESS.pattern() + ")|" +
                             PatternsCompat.AUTOLINK_WEB_URL.pattern()
                                     .replace("(?i:http|https|rtsp)://",
-                                            "(((?i:http|https|rtsp|ftp|telnet|ssh|sftp|fish)://)|((?i:xmpp):))") + "|" +
+                                            "(((?i:http|https)://)|((?i:xmpp):))") + "|" +
                             "(?i:geo:\\d+,\\d+(,\\d+)?(;u=\\d+)?)|" +
                             "(?i:tel:" + Patterns.PHONE.pattern() + ")");
 
