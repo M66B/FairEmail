@@ -1364,8 +1364,11 @@ class Core {
         try {
             Folder[] isubscribed = defaultFolder.listSubscribed("*");
             for (Folder ifolder : isubscribed) {
-                subscription.add(ifolder.getFullName());
-                Log.i("Subscribed " + defaultFolder.getFullName() + ":" + ifolder.getFullName());
+                String fullName = ifolder.getFullName();
+                if (TextUtils.isEmpty(fullName))
+                    continue;
+                subscription.add(fullName);
+                Log.i("Subscribed " + defaultFolder.getFullName() + ":" + fullName);
             }
         } catch (MessagingException ex) {
             Log.e(account.name, ex);
@@ -1387,8 +1390,11 @@ class Core {
                     try {
                         Folder[] isubscribed = namespace.listSubscribed("*");
                         for (Folder ifolder : isubscribed) {
-                            subscription.add(ifolder.getFullName());
-                            Log.i("Subscribed " + namespace.getFullName() + ":" + ifolder.getFullName());
+                            String fullName = ifolder.getFullName();
+                            if (TextUtils.isEmpty(fullName))
+                                continue;
+                            subscription.add(fullName);
+                            Log.i("Subscribed " + namespace.getFullName() + ":" + fullName);
                         }
                     } catch (MessagingException ex) {
                         Log.e(account.name, ex);
@@ -1409,6 +1415,11 @@ class Core {
         Map<String, List<EntityFolder>> parentFolders = new HashMap<>();
         for (Folder ifolder : ifolders) {
             String fullName = ifolder.getFullName();
+            if (TextUtils.isEmpty(fullName)) {
+                Log.e("Folder name empty");
+                continue;
+            }
+
             String[] attrs = ((IMAPFolder) ifolder).getAttributes();
             String type = EntityFolder.getType(attrs, fullName, false);
             boolean subscribed = subscription.contains(fullName);
