@@ -463,7 +463,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_move_hint">Der Zielordner kann in den Kontoeinstellungen konfiguriert werden</string>
     <string name="title_advanced_notify_no_grouping">Diese Android-Version unterstützt keine gruppierten Benachrichtigungen</string>
     <string name="title_advanced_notify_no_channels">Diese Android-Version unterstützt keine Benachrichtigungskanäle</string>
-    <string name="title_advanced_queries_hint">Wenn Sie es aktivieren, was bei einigen Geräten notwendig ist, kann sich die Leistung verringern</string>
+    <string name="title_advanced_queries_hint">Das Aktivieren dieser Option wird die Leistung verringern, jedoch ist die Aktivierung auf einigen Geräten erforderlich</string>
     <string name="title_advanced_fts_hint">Dies zu aktivieren, verbessert die Suchleistung, erhöht aber auch den Akku- und Speicherverbrauch</string>
     <string name="title_advanced_english_hint">Dadurch wird die App neu gestartet</string>
     <string name="title_advanced_experiments_hint">Liste der aktuellen experimentellen Funktionen</string>

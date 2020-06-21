@@ -459,7 +459,6 @@
     <string name="title_advanced_move_hint">Helburuko karpeta kontuaren ezarpenetan konfigura daiteke</string>
     <string name="title_advanced_notify_no_grouping">Android bertsio honek ez du jakinarazpenen taldekatzea onartzen</string>
     <string name="title_advanced_notify_no_channels">Android bertsio honek ez ditu jakinarazpenen kanalak onartzen</string>
-    <string name="title_advanced_queries_hint">Hau gaitzean errendimendua galtzen da, baina gailu batzuetan beharrezkoa da</string>
     <string name="title_advanced_fts_hint">Hori gaitzeak bilaketa-errendimendua handituko du, baina bateriaren erabilera areagotuko du eta biltegiratze handiagoa erabiltzen du</string>
     <string name="title_advanced_english_hint">Honek aplikazioa berrabiaraziko du</string>
     <string name="title_advanced_experiments_hint">Egungo funtzio esperimentalen zerrenda</string>

@@ -552,6 +552,7 @@
     <string name="title_hint_alias">Дълго натискане за опции, като копиране, за да се създаде псевдоним за идентичност</string>
     <string name="title_service_vpn">Това може да бъде причинено от VPN, който се използва</string>
     <string name="title_service_port">Проверете два пъти номера на порта</string>
+    <string name="title_service_protocol">Моля, проверете отново протокола (SSL/TLS или STARTTLS)</string>
     <string name="title_advanced_browse">Търсене на съобщения на сървъра</string>
     <string name="title_advanced_expand_read">Маркирайте съобщенията като прочетени при разширяване</string>
     <string name="title_synchronize_now">Синхронизиране сега</string>
@@ -858,6 +859,7 @@
     <string name="title_search_flag_hidden">скрити</string>
     <string name="title_search_flag_encrypted">шифровани</string>
     <string name="title_search_flag_attachments">прикачени файлове</string>
+    <string name="title_search_flag_invite">покана</string>
     <string name="title_search_flag_size">размер &gt; %1$s</string>
     <string name="title_search_device">Търсене в устройството</string>
     <string name="title_search_server">Търсене в сървъра</string>

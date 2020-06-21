@@ -196,6 +196,9 @@
     <string name="title_setup_defaults">بازیابی پیش‌فرض‌ها</string>
     <string name="title_setup_reset_questions">بازنشانی پرسش‌ها</string>
     <string name="title_advanced_hint_title">گزینه‌های پیشرفته بیشتر</string>
+    <string name="title_advanced_hint_message">        شما در حال پیمایش به گزینه‌های پیشرفته تر هستید.
+        همه گزینه ها معمولاً از مقادیر استاندارد استفاده می كنند كه اگر ترجیح دیگری داشته باشید قابل تغییر هستند.
+    </string>
     <string name="title_advanced_section_main">پایه</string>
     <string name="title_advanced_section_synchronize">دریافت</string>
     <string name="title_advanced_section_send">ارسال</string>
@@ -216,14 +219,20 @@
     <string name="title_advanced_kept_removed">بررسی کن که آیا پیام‌های قدیمی از سرور حذف شده‌اند</string>
     <string name="title_advanced_gmail_thread">سبک گروه‌بندی پیام جیمیل برای حساب‌های جیمیل</string>
     <string name="title_advanced_sync_folders">همگام سازی لیست پوشه</string>
+    <string name="title_advanced_sync_shared_folders">فهرست‌های پوشه‌های همرسانی شده را همگام‌سازی کن</string>
     <string name="title_advanced_subscriptions">مدیریت اشتراکات پوشه</string>
+    <string name="title_advanced_check_mx">نشانی‌های ایمیل فرستنده را هنگام همگام‌سازی پیام‌ها بررسی کن</string>
+    <string name="title_advanced_check_reply">نشانی‌های ایمیل پاسخ را هنگام همگام‌سازی پیام‌ها بررسی کن</string>
     <string name="title_advanced_keyboard">نمایش صفحه کلید به‌صورت پیشفرض</string>
     <string name="title_advanced_suggest_local">پیشنهاد مخاطبین ذخیره‌شده محلی</string>
     <string name="title_advanced_suggest_sent">پیشنهاد نشانی‌های یافت شده در پیام‌های ارسال شده</string>
     <string name="title_advanced_suggest_received">پیشنهاد نشانی‌های یافت شده در پیام‌های دریافت شده</string>
+    <string name="title_advanced_auto_list">به‌صورت خودکار فهرست‌ها را ایجاد کن</string>
     <string name="title_advanced_quote_reply">متن پاسخ نقل قول شده</string>
     <string name="title_advanced_resize_reply">تغییر اندازه تصاویر در متن پاسخ داده شده</string>
     <string name="title_advanced_signature_location">موقعیت امضاء</string>
+    <string name="title_advanced_signature_reply">هنگام پاسخ از امضا استفاده کن</string>
+    <string name="title_advanced_signature_forward">هنگام هدایت کردن از امضا استفاده کن</string>
     <string name="title_advanced_plain_only">فقط متن ساده را به صورت پیشفرض بفرست</string>
     <string name="title_advanced_receipt">هنگام درخواست رسید</string>
     <string name="title_advanced_remove_signatures">امضاء های شناخته شده را حذف کن</string>
@@ -289,6 +298,7 @@
     <string name="title_advanced_autoclose">بستن خودکار مکالمات</string>
     <string name="title_advanced_onclose">هنگام بستن یک گفتگو</string>
     <string name="title_advanced_autoread">به طور خودکار پیام‌های انتقال یافته به عنوان خوانده شده علامت گذاری شود</string>
+    <string name="title_advanced_autounstar">هنگام انتقال پیام‌ها ستاره‌ها را خودکار از پیام‌ها حذف کن</string>
     <string name="title_advanced_default_snooze">زمان پیش‌فرض چرت زدن</string>
     <string name="title_advanced_notifications">مدیریت اعلان‌ها</string>
     <string name="title_advanced_notifications_default">کانال پیشفرض</string>
@@ -399,6 +409,7 @@
     <string name="title_port">شماره پورت</string>
     <string name="title_user">نام کاربری</string>
     <string name="title_password">گذرواژه</string>
+    <string name="title_case_sensitive">نام‌های کاربری و گذرواژه‌ها در بیشتر موارد به بزرگ و کوچک بودن حروف حساسند</string>
     <string name="title_client_certificate">گواهی‌نامه کارخواه</string>
     <string name="title_realm">حوزه</string>
     <string name="title_use_ip">استفاده از نشانی IP محلی بجای نام میزبان</string>
@@ -413,6 +424,8 @@
     <string name="title_check">بررسی</string>
     <string name="title_no_name">نام وجود ندارد</string>
     <string name="title_no_email">ایمیل آدرس وجود ندارد</string>
+    <string name="title_email_invalid">نشانی ایمیل نامعتبر: \'%1$s\'</string>
+    <string name="title_address_parse_error">نشانی \'%1$s\' نامعتبر: %2$s</string>
     <string name="title_no_account">حساب وجود ندارد</string>
     <string name="title_no_host">نام میزبان وجود ندارد</string>
     <string name="title_no_user">نام کاربری وجود ندارد</string>
@@ -420,6 +433,7 @@
     <string name="title_no_inbox">صندوق دریافتی پیدا نشد</string>
     <string name="title_no_primary_drafts">عدم وجود حساب اصلی یا پوشه پیش‌نویس‌ها</string>
     <string name="title_no_idle">این سرویس دهنده از قابلیت نشاندن پیام‌ها پشتیبانی نمی‌کند. به همین منظور تاخیر در وصول پیام‌های جدید وجود خواهد داشت و موجب افزایش مصرف باتری می‌شود.</string>
+    <string name="title_no_utf8">فراهم‌کننده از UTF-8 پشتیبانی نمی‌کند</string>
     <string name="title_no_sync">خطای همگام سازی از %1$s</string>
     <string name="title_drafts_required">برای ارسال پیام‌ها به پوشه پیش‌نویس‌ها نیاز است</string>
     <string name="title_account_delete">حذف همیشگی این حساب؟</string>
@@ -431,6 +445,7 @@
     <string name="title_review">بازبینی</string>
     <string name="title_advanced_browse">مرور پیام‌های روی سرور</string>
     <string name="title_synchronize_now">هم اکنون همگام سازی شود</string>
+    <string name="title_synchronize_more">پیام‌های بیشتری را همگام‌سازی کن</string>
     <string name="title_synchronize_enabled">همگام‌سازی</string>
     <string name="title_delete_local">حذف پیام های داخلی</string>
     <string name="title_delete_browsed">حذف پیام‌های مرور شده/جستجو شده</string>
@@ -548,11 +563,13 @@
     <string name="title_receipt_text">این رسید خواندن تنها نشان می‌دهد که پیام نمایش داده شده. هیچ ضمانتی وجود ندارد که گیرنده محتویات پیام را خوانده باشد.</string>
     <string name="title_no_answers">هیچ الگوی پاسخی تعریف نشده است</string>
     <string name="title_no_viewer">هیچ برنامه نمایش دهنده‌ای در دسترس نیست برای %1$s</string>
+    <string name="title_no_recorder">برنامه ضبط صدا سازگاری در دسترس نیست</string>
     <string name="title_no_camera">برنامه دوربین سازگاری در دسترس نیست</string>
     <string name="title_no_saf">چارچوب دسترسی ذخیره سازی موجود نیست</string>
     <string name="title_no_stream">یک برنامه منسوخ مسیر پرونده را به جای جریان پرونده ارسال کرده</string>
     <string name="title_no_contacts">جمع کننده مخاطبین در دسترس نیست</string>
     <string name="title_no_internet">اینترنت یا اتصال سازگاری در دسترس نیست</string>
+    <string name="title_no_connection">در حال اتصال به یک یا چند حساب &#8230;</string>
     <string name="title_no_folder">پوشه وجود ندارد</string>
     <string name="title_no_image">تصویر نمی‌تواند رمزگشایی شود</string>
     <string name="title_no_search">جستجو روی سرور برای این حساب در دسترس نیست</string>
@@ -698,6 +715,7 @@
     <string name="title_search_flag_encrypted">رمزنگاری شده</string>
     <string name="title_search_flag_attachments">پیوست‎ها</string>
     <string name="title_search_flag_invite">دعوت</string>
+    <string name="title_search_flag_size">اندازه &gt; %1$s</string>
     <string name="title_search_device">جستجو بر روی دستگاه‌</string>
     <string name="title_search_server">جستجو بر روی سرور</string>
     <string name="title_search_in">جستجو در</string>
@@ -952,6 +970,7 @@
     <string name="title_pro_valid">تمام ویژگی‌های نسخه حرفه‌ای فعال شده است</string>
     <string name="title_pro_invalid">پاسخ نامعتبر</string>
     <string name="title_pro_support">FairEmail به کمک شما نیاز دارد. برای خرید ویژگی‌های حرفه‌ای ضربه بزنید و آینده و پیشرفت پروژه را تضمین کنید.</string>
+    <string name="title_boundary_error">خطا هنگام بارگیری پیام‌ها از سرور ایمیل</string>
     <string name="title_boundary_retry">دوباره تلاش کن</string>
     <string name="title_unexpected_error">خطای غیر منتظره</string>
     <string name="title_log">گزارش اتفاقات</string>

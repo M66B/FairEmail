@@ -483,7 +483,6 @@
     <string name="title_advanced_move_hint">Folder docelowy można skonfigurować w ustawieniach konta</string>
     <string name="title_advanced_notify_no_grouping">Ta wersja Androida nie obsługuje grupowania powiadomień</string>
     <string name="title_advanced_notify_no_channels">Ta wersja Androida nie obsługuje kanałów powiadomień</string>
-    <string name="title_advanced_queries_hint">Włączenie tej opcji obniży wydajność, ale jest to konieczne na niektórych urządzeniach</string>
     <string name="title_advanced_fts_hint">Włączenie tej opcji poprawia wydajność wyszukiwania, ale także zwiększa zużycie baterii i przestrzeni dyskowej</string>
     <string name="title_advanced_english_hint">Spowoduje to ponowne uruchomienie aplikacji</string>
     <string name="title_advanced_experiments_hint">Lista aktualnych funkcji eksperymentalnych</string>

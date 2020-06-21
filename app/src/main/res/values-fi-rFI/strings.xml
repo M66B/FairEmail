@@ -460,7 +460,6 @@
     <string name="title_advanced_move_hint">Kohdekansio voidaan asettaa tilin asetuksissa</string>
     <string name="title_advanced_notify_no_grouping">Tämä Android-versio ei tue ilmoitusten ryhmittelyä</string>
     <string name="title_advanced_notify_no_channels">Tämä Android-versio ei tue ilmoituskanavia</string>
-    <string name="title_advanced_queries_hint">Tämän käyttöönotto heikentää suorituskykyä, mutta on tarpeen joillakin laitteilla</string>
     <string name="title_advanced_fts_hint">Tämän käyttöönotto parantaa haun suorituskykyä, mutta myös lisää akun ja tallennustilan käyttöä</string>
     <string name="title_advanced_english_hint">Tämä käynnistää sovelluksen uudelleen</string>
     <string name="title_advanced_experiments_hint">Lista kokeellisista ominaisuuksista</string>

@@ -484,7 +484,6 @@
     <string name="title_advanced_move_hint">Cílovou složku lze změnit v nastavení účtu</string>
     <string name="title_advanced_notify_no_grouping">Tato verze Androidu nepodporuje seskupování oznámení</string>
     <string name="title_advanced_notify_no_channels">Tato verze Androidu nepodporuje kanály oznámení</string>
-    <string name="title_advanced_queries_hint">Povolením se sníží výkonnost, na některých zařízeních je to však nutné</string>
     <string name="title_advanced_fts_hint">Povolením se zlepší výkon vyhledávání, ale také se zvýší využití baterie a místa v úložišti</string>
     <string name="title_advanced_english_hint">Restartuje aplikaci</string>
     <string name="title_advanced_experiments_hint">Seznam aktuálních experimentálních funkcí</string>

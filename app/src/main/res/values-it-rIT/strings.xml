@@ -462,7 +462,6 @@
     <string name="title_advanced_move_hint">La cartella di destinazione può essere configurata nelle impostazioni dell\'account</string>
     <string name="title_advanced_notify_no_grouping">Questa versione Android non supporta il raggruppamento di notifiche</string>
     <string name="title_advanced_notify_no_channels">Questa versione Android non supporta i canali di notifica</string>
-    <string name="title_advanced_queries_hint">Abilitare questo diminuirà le prestazioni, ma questo è necessario su alcuni dispositivi</string>
     <string name="title_advanced_fts_hint">Abilitando questa opzione migliora le prestazioni di ricerca, ma aumenta anche l\'utilizzo dello spazio di batteria e archiviazione</string>
     <string name="title_advanced_english_hint">Questo riavvierà l\'app</string>
     <string name="title_advanced_experiments_hint">Elenco delle attuali funzionalità sperimentali</string>

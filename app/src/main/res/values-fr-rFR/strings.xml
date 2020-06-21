@@ -462,7 +462,7 @@
     <string name="title_advanced_move_hint">Le dossier de destination peut être configuré dans les paramètres du compte</string>
     <string name="title_advanced_notify_no_grouping">Cette version d\'Android ne prend pas en charge le regroupement de notifications</string>
     <string name="title_advanced_notify_no_channels">Cette version d’Android ne prend pas en charge les canaux de notification</string>
-    <string name="title_advanced_queries_hint">Activer ceci réduira les performances mais ceci est nécessaire sur certains appareils</string>
+    <string name="title_advanced_queries_hint">Activer ceci réduira les performances, cependant, l\'activation est nécessaire sur certains appareils</string>
     <string name="title_advanced_fts_hint">Activer ceci améliore les performances de la recherche mais augmente également l\'utilisation de la batterie et de l\'espace de stockage</string>
     <string name="title_advanced_english_hint">Ceci va redémarrer l’application</string>
     <string name="title_advanced_experiments_hint">Liste des fonctionnalités expérimentales actuelles</string>
