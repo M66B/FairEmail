@@ -4196,12 +4196,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     }
                 }
 
-                if (!(EntityFolder.OUTBOX.equals(message.folderType) && message.ui_snoozed != null) &&
-                        !(EntityFolder.ARCHIVE.equals(message.folderType) && filter_archive) &&
-                        !EntityFolder.DRAFTS.equals(message.folderType) &&
-                        !EntityFolder.SENT.equals(message.folderType) &&
-                        !EntityFolder.TRASH.equals(message.folderType) &&
-                        !EntityFolder.JUNK.equals(message.folderType))
+                if (message.folder == folder)
                     autoCloseCount++;
             }
 
@@ -4231,6 +4226,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         iProperties.setExpanded(message, true);
         } else {
             if (autoCloseCount > 0 && (autoclose || onclose != null)) {
+                List<MessageTarget> mt = new ArrayList<>();
+                if (targets != null)
+                    mt.addAll(targets);
+
                 int count = 0;
                 for (int i = 0; i < messages.size(); i++) {
                     TupleMessageEx message = messages.get(i);
@@ -4238,23 +4237,28 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             (removed != null && removed.contains(message.id)))
                         continue;
 
-                    String folderType = message.folderType;
+                    boolean found = false;
                     if (targets != null)
                         for (MessageTarget target : targets)
-                            if (!target.across && message.id.equals(target.id)) {
-                                folderType = target.folder.type;
-                                Log.i("Eval thread target=" + folderType);
+                            if (message.id.equals(target.id)) {
+                                Log.i("Eval thread target id=" + target.id);
+                                if (!target.across) {
+                                    found = true;
+                                    if (target.folder.id == folder)
+                                        count++;
+                                }
+                                mt.remove(target);
                                 break;
                             }
 
-                    if (!(EntityFolder.OUTBOX.equals(folderType) && message.ui_snoozed != null) &&
-                            !(EntityFolder.ARCHIVE.equals(folderType) && filter_archive) &&
-                            !EntityFolder.DRAFTS.equals(folderType) &&
-                            !EntityFolder.SENT.equals(folderType) &&
-                            !EntityFolder.TRASH.equals(folderType) &&
-                            !EntityFolder.JUNK.equals(folderType))
+                    if (!found && message.folder == folder)
                         count++;
                 }
+
+                for (MessageTarget target : mt)
+                    if (!target.across && target.folder.id == folder)
+                        count++;
+
                 Log.i("Auto close=" + count);
 
                 // Auto close/next when:
