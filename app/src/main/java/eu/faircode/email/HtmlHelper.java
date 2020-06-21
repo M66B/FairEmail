@@ -884,16 +884,18 @@ public class HtmlHelper {
         if (view) {
             // https://en.wikipedia.org/wiki/List_of_URI_schemes
             // ftp (generic syntax)
-            // fish://[<username>[:<password>]@]<hostname>[:<port>]
             // telnet://<user>:<password>@<host>[:<port>/]
+            // ssh://[<user>[;fingerprint=<host-key fingerprint>]@]<host>[:<port>]
+            // sftp://[<user>[;fingerprint=<host-key fingerprint>]@]<host>[:<port>]/<path>/<file>
+            // fish://[<username>[:<password>]@]<hostname>[:<port>]
+            // xmpp:[<user>]@<host>[:<port>]/[<resource>][?<query>]
             // geo:<lat>,<lon>[,<alt>][;u=<uncertainty>]
             // tel:<phonenumber>
-            // xmpp:[<user>]@<host>[:<port>]/[<resource>][?<query>]
             final Pattern pattern = Pattern.compile(
                     PatternsCompat.AUTOLINK_EMAIL_ADDRESS.pattern() + "|" +
                             PatternsCompat.AUTOLINK_WEB_URL.pattern()
                                     .replace("(?i:http|https|rtsp)://",
-                                            "(((?i:http|https|rtsp|ftp|fish|telnet)://)|((?i:xmpp):))") + "|" +
+                                            "(((?i:http|https|rtsp|ftp|telnet|ssh|sftp|fish)://)|((?i:xmpp):))") + "|" +
                             "(?i:geo:\\d+,\\d+(,\\d+)?(;u=\\d+)?)|" +
                             "(?i:tel:" + Patterns.PHONE.pattern() + ")");
 
