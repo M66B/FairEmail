@@ -4256,7 +4256,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 }
 
                 for (MessageTarget target : mt)
-                    if (!target.across && target.folder.id == folder)
+                    if (!target.across && target.folder.id == folder &&
+                            (removed == null || !removed.contains(target.id)))
                         count++;
 
                 Log.i("Auto close=" + count);
