@@ -52,6 +52,7 @@ import android.text.style.TypefaceSpan;
 import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
 import android.util.Base64;
+import android.util.Patterns;
 import android.view.View;
 import android.view.textclassifier.TextClassificationManager;
 import android.view.textclassifier.TextLanguage;
@@ -881,9 +882,20 @@ public class HtmlHelper {
 
         // Autolink
         if (view) {
+            // https://en.wikipedia.org/wiki/List_of_URI_schemes
+            // ftp (generic syntax)
+            // fish://[<username>[:<password>]@]<hostname>[:<port>]
+            // telnet://<user>:<password>@<host>[:<port>/]
+            // geo:<lat>,<lon>[,<alt>][;u=<uncertainty>]
+            // tel:<phonenumber>
+            // xmpp:[<user>]@<host>[:<port>]/[<resource>][?<query>]
             final Pattern pattern = Pattern.compile(
                     PatternsCompat.AUTOLINK_EMAIL_ADDRESS.pattern() + "|" +
-                            PatternsCompat.AUTOLINK_WEB_URL.pattern());
+                            PatternsCompat.AUTOLINK_WEB_URL.pattern()
+                                    .replace("(?i:http|https|rtsp)://",
+                                            "(((?i:http|https|rtsp|ftp|fish|telnet)://)|((?i:xmpp):))") + "|" +
+                            "(?i:geo:\\d+,\\d+(,\\d+)?(;u=\\d+)?)|" +
+                            "(?i:tel:" + Patterns.PHONE.pattern() + ")");
 
             NodeTraversor.traverse(new NodeVisitor() {
                 private int links = 0;
