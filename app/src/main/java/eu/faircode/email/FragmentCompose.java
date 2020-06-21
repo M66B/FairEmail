@@ -4786,10 +4786,29 @@ public class FragmentCompose extends FragmentBase {
     private ActivityBase.IKeyPressedListener onKeyPressedListener = new ActivityBase.IKeyPressedListener() {
         @Override
         public boolean onKeyPressed(KeyEvent event) {
-            if (event.getKeyCode() == KeyEvent.KEYCODE_ENTER && event.isCtrlPressed()) {
-                onAction(R.id.action_send, "enter");
-                return true;
+            if (event.isCtrlPressed() && event.getAction() == KeyEvent.ACTION_DOWN) {
+                switch (event.getKeyCode()) {
+                    case KeyEvent.KEYCODE_ENTER:
+                        onAction(R.id.action_send, "enter");
+                        return true;
+                    case KeyEvent.KEYCODE_B:
+                        if (etBody.hasSelection())
+                            return StyleHelper.apply(R.id.menu_bold, etBody);
+                        else
+                            return false;
+                    case KeyEvent.KEYCODE_I:
+                        if (etBody.hasSelection())
+                            return StyleHelper.apply(R.id.menu_italic, etBody);
+                        else
+                            return false;
+                    case KeyEvent.KEYCODE_U:
+                        if (etBody.hasSelection())
+                            return StyleHelper.apply(R.id.menu_underline, etBody);
+                        else
+                            return false;
+                }
             }
+
             return false;
         }
 
