@@ -171,6 +171,7 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
                         lbm.sendBroadcast(
                                 new Intent(ActivityView.ACTION_VIEW_THREAD)
                                         .putExtra("account", message.account)
+                                        .putExtra("folder", message.folder)
                                         .putExtra("thread", message.thread)
                                         .putExtra("id", message.id)
                                         .putExtra("found", false));

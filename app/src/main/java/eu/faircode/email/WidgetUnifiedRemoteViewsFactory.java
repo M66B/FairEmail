@@ -155,6 +155,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
 
             Intent thread = new Intent(context, ActivityView.class);
             thread.putExtra("account", message.account);
+            thread.putExtra("folder", message.folder);
             thread.putExtra("thread", message.thread);
             thread.putExtra("id", message.id);
             views.setOnClickFillInIntent(R.id.llMessage, thread);

@@ -2780,6 +2780,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     final LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                     final Intent viewThread = new Intent(ActivityView.ACTION_VIEW_THREAD)
                             .putExtra("account", message.account)
+                            .putExtra("folder", message.folder)
                             .putExtra("thread", message.thread)
                             .putExtra("id", message.id)
                             .putExtra("filter_archive", !EntityFolder.ARCHIVE.equals(message.folderType))
@@ -3998,6 +3999,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             Bundle args = new Bundle();
             args.putString("title", context.getString(R.string.title_snooze));
             args.putLong("account", message.account);
+            args.putLong("folder", message.folder);
             args.putString("thread", message.thread);
             args.putLong("id", message.id);
             args.putBoolean("finish", true);

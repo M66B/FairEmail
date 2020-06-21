@@ -4490,6 +4490,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 Bundle nargs = new Bundle();
                 nargs.putLong("account", message.account);
+                nargs.putLong("folder", message.folder);
                 nargs.putString("thread", message.thread);
                 nargs.putLong("id", message.id);
                 nargs.putBoolean("found", found);
