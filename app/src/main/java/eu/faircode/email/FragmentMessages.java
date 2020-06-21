@@ -4260,10 +4260,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             (removed == null || !removed.contains(target.id)))
                         count++;
 
-                Log.i("Auto close=" + count);
-
-                // Auto close/next when:
-                // - no more non archived/trashed/sent messages
+                Log.i("Auto close=" + count +
+                        " targets=" + (targets != null) +
+                        " removed=" + (removed != null));
 
                 if (count == 0) {
                     handleAutoClose();
@@ -4601,7 +4600,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (viewType == AdapterMessage.ViewType.THREAD) {
                     PagedList<TupleMessageEx> messages = adapter.getCurrentList();
                     if (messages != null && result.size() > 0) {
-                        Log.i("Eval thread messages=" + messages.size() + " targets=" + result.size());
+                        Log.i("Eval confirmed messages=" + messages.size() + " targets=" + result.size());
                         handleThreadActions(messages, result, null);
                     }
                 }
@@ -4651,6 +4650,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             @Override
             protected void onExecuted(Bundle args, final ArrayList<MessageTarget> result) {
+                if (viewType == AdapterMessage.ViewType.THREAD) {
+                    PagedList<TupleMessageEx> messages = adapter.getCurrentList();
+                    if (messages != null && result.size() > 0) {
+                        Log.i("Eval undo messages=" + messages.size() + " targets=" + result.size());
+                        handleThreadActions(messages, result, null);
+                    }
+                }
+
                 FragmentActivity factivity = getActivity();
                 if (!(factivity instanceof ActivityView)) {
                     Log.e("Undo: activity missing");
@@ -6217,7 +6224,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (viewType == AdapterMessage.ViewType.THREAD) {
                     PagedList<TupleMessageEx> messages = adapter.getCurrentList();
                     if (messages != null) {
-                        Log.i("Eval thread messages=" + messages.size() + " id=" + id);
+                        Log.i("Eval delete messages=" + messages.size() + " id=" + id);
                         handleThreadActions(adapter.getCurrentList(), null, Arrays.asList(id));
                     }
                 }
