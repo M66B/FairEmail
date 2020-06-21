@@ -4651,11 +4651,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             @Override
             protected void onExecuted(Bundle args, final ArrayList<MessageTarget> result) {
-                ActivityView activity = (ActivityView) getActivity();
-                if (activity == null) {
+                FragmentActivity factivity = getActivity();
+                if (!(factivity instanceof ActivityView)) {
                     Log.e("Undo: activity missing");
                     return;
                 }
+
+                ActivityView activity = (ActivityView) factivity;
+
                 View content = activity.getContentView();
                 if (content == null) {
                     Log.e("Undo: view missing");
