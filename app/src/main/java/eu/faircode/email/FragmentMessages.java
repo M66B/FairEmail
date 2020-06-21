@@ -5243,7 +5243,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 DB db = DB.getInstance(context);
                 EntityMessage message = db.message().getMessage(id);
                 if (message == null)
-                    throw new FileNotFoundException();
+                    throw new FileNotFoundException("message gone");
                 File file = message.getRawFile(context);
                 Log.i("Raw file=" + file);
 
@@ -5292,7 +5292,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                if (ex instanceof IllegalArgumentException)
+                if (ex instanceof IllegalArgumentException || ex instanceof FileNotFoundException)
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                 else
                     Log.unexpectedError(getParentFragmentManager(), ex);
