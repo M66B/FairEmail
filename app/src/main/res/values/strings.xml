@@ -541,7 +541,7 @@
     <string name="title_advanced_notify_no_grouping">This Android version does not support notification grouping</string>
     <string name="title_advanced_notify_no_channels">This Android version does not support notification channels</string>
 
-    <string name="title_advanced_queries_hint">Enabling this will decrease performance, but this is necessary on some devices</string>
+    <string name="title_advanced_queries_hint">Enabling this will decrease performance, however, enabling is required on some devices</string>
     <string name="title_advanced_fts_hint">Enabling this improves search performance, but also increases battery and storage space usage</string>
     <string name="title_advanced_english_hint">This will restart the app</string>
     <string name="title_advanced_experiments_hint">List of current experimental features</string>
