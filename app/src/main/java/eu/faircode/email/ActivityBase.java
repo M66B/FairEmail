@@ -387,7 +387,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
             super.startActivity(intent);
         } catch (ActivityNotFoundException ex) {
             Log.w(ex);
-            ToastEx.makeText(this, getString(R.string.title_no_viewer, intent.getAction()), Toast.LENGTH_LONG).show();
+            ToastEx.makeText(this, getString(R.string.title_no_viewer, intent), Toast.LENGTH_LONG).show();
         }
     }
 
@@ -397,7 +397,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
             super.startActivityForResult(intent, requestCode);
         } catch (ActivityNotFoundException ex) {
             Log.w(ex);
-            ToastEx.makeText(this, getString(R.string.title_no_viewer, intent.getAction()), Toast.LENGTH_LONG).show();
+            ToastEx.makeText(this, getString(R.string.title_no_viewer, intent), Toast.LENGTH_LONG).show();
         }
     }
 

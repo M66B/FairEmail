@@ -1494,7 +1494,7 @@ public class FragmentCompose extends FragmentBase {
                 startActivityForResult(intent, REQUEST_RECORD_AUDIO);
             } catch (SecurityException ex) {
                 Log.w(ex);
-                Snackbar.make(view, getString(R.string.title_no_viewer, intent.getAction()), Snackbar.LENGTH_INDEFINITE).show();
+                Snackbar.make(view, getString(R.string.title_no_viewer, intent), Snackbar.LENGTH_INDEFINITE).show();
             }
     }
 
@@ -1904,7 +1904,7 @@ public class FragmentCompose extends FragmentBase {
                     startActivityForResult(intent, REQUEST_TAKE_PHOTO);
                 } catch (SecurityException ex) {
                     Log.w(ex);
-                    Snackbar.make(view, getString(R.string.title_no_viewer, intent.getAction()), Snackbar.LENGTH_LONG).show();
+                    Snackbar.make(view, getString(R.string.title_no_viewer, intent), Snackbar.LENGTH_LONG).show();
                 }
             }
         } else {

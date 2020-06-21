@@ -491,7 +491,7 @@ public class Helper {
                 context.startActivity(intent);
             } catch (ActivityNotFoundException ex) {
                 Log.w(ex);
-                ToastEx.makeText(context, context.getString(R.string.title_no_viewer, uri.toString()), Toast.LENGTH_LONG).show();
+                ToastEx.makeText(context, context.getString(R.string.title_no_viewer, uri), Toast.LENGTH_LONG).show();
             }
     }
 
@@ -528,7 +528,7 @@ public class Helper {
                 customTabsIntent.launchUrl(context, uri);
             } catch (ActivityNotFoundException ex) {
                 Log.w(ex);
-                ToastEx.makeText(context, context.getString(R.string.title_no_viewer, uri.toString()), Toast.LENGTH_LONG).show();
+                ToastEx.makeText(context, context.getString(R.string.title_no_viewer, uri), Toast.LENGTH_LONG).show();
             } catch (Throwable ex) {
                 Log.e(ex);
                 ToastEx.makeText(context, Log.formatThrowable(ex, false), Toast.LENGTH_LONG).show();

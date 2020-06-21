@@ -2928,7 +2928,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 } catch (ActivityNotFoundException ex) {
                     Log.w(ex);
                     ToastEx.makeText(context,
-                            context.getString(R.string.title_no_viewer, intent.getAction()),
+                            context.getString(R.string.title_no_viewer, intent),
                             Toast.LENGTH_LONG).show();
                 }
             }
@@ -3941,7 +3941,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }.execute(context, owner, args, "view:cid");
 
             else
-                ToastEx.makeText(context, context.getString(R.string.title_no_viewer, uri.toString()), Toast.LENGTH_LONG).show();
+                ToastEx.makeText(context, context.getString(R.string.title_no_viewer, uri), Toast.LENGTH_LONG).show();
         }
 
         private void onMenuUnseen(final TupleMessageEx message) {
@@ -4343,7 +4343,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     PackageManager pm = context.getPackageManager();
                     if (intent.resolveActivity(pm) == null) // system whitelisted
                         Snackbar.make(parentFragment.getView(),
-                                context.getString(R.string.title_no_viewer, intent.getAction()),
+                                context.getString(R.string.title_no_viewer, intent),
                                 Snackbar.LENGTH_LONG).
                                 show();
                     else
