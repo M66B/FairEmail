@@ -4789,7 +4789,7 @@ public class FragmentCompose extends FragmentBase {
             if (event.isCtrlPressed() && event.getAction() == KeyEvent.ACTION_DOWN) {
                 switch (event.getKeyCode()) {
                     case KeyEvent.KEYCODE_ENTER:
-                        onAction(R.id.action_send, "enter");
+                        onAction(R.id.action_check, "enter");
                         return true;
                     case KeyEvent.KEYCODE_B:
                         if (etBody.hasSelection())
