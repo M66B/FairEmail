@@ -1365,8 +1365,10 @@ class Core {
             Folder[] isubscribed = defaultFolder.listSubscribed("*");
             for (Folder ifolder : isubscribed) {
                 String fullName = ifolder.getFullName();
-                if (TextUtils.isEmpty(fullName))
+                if (TextUtils.isEmpty(fullName)) {
+                    Log.e("Subscribed folder name empty namespace=" + defaultFolder.getFullName());
                     continue;
+                }
                 subscription.add(fullName);
                 Log.i("Subscribed " + defaultFolder.getFullName() + ":" + fullName);
             }
@@ -1398,8 +1400,10 @@ class Core {
                         Folder[] isubscribed = namespace.listSubscribed("*");
                         for (Folder ifolder : isubscribed) {
                             String fullName = ifolder.getFullName();
-                            if (TextUtils.isEmpty(fullName))
+                            if (TextUtils.isEmpty(fullName)) {
+                                Log.e("Subscribed folder name empty namespace=" + namespace.getFullName());
                                 continue;
+                            }
                             subscription.add(fullName);
                             Log.i("Subscribed " + namespace.getFullName() + ":" + fullName);
                         }
