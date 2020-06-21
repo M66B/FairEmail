@@ -395,10 +395,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         fragmentTransaction.commit();
     }
 
-    View getContentView() {
-        return drawerLayout.getChildAt(0);
-    }
-
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         outState.putBoolean("fair:toggle", drawerToggle.isDrawerIndicatorEnabled());
@@ -729,6 +725,12 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    View getContentView() {
+        if (drawerLayout == null || drawerLayout.getChildCount() == 0)
+            return null;
+        return drawerLayout.getChildAt(0);
     }
 
     private void checkFirst() {
