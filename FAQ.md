@@ -2116,10 +2116,12 @@ You might want to create a new identity for this if you want/need to select send
 <a name="faq90"></a>
 **(90) Why are some texts linked while not being a link?**
 
-FairEmail will automatically link not linked web [IRI](https://nl.wikipedia.org/wiki/Internationalized_resource_identifier)s for your convenience.
+FairEmail will automatically link not linked web links (http and https) and not linked email addresses (mailto) for your convenience.
 However, texts and links are not easily distinguished,
 especially not with lots of [top level domains](https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains) being words.
 This is why texts with dots are sometimes incorrectly recognized as links, which is better than not recognizing some links.
+
+Links for less usual protocols like telnet and ftp will not automatically be linked.
 
 <br />
 
