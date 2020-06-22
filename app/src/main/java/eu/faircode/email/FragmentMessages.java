@@ -4215,6 +4215,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     expand = see;
                 else if (messages.size() == 1)
                     expand = messages.get(0);
+                else if (messages.size() > 0) {
+                    TupleMessageEx first = messages.get(adapter.getAscending() ? messages.size() - 1 : 0);
+                    if (first != null && EntityFolder.OUTBOX.equals(first.folderType))
+                        expand = first;
+                }
 
                 if (expand != null &&
                         (expand.content || unmetered || (expand.size != null && expand.size < download)))
