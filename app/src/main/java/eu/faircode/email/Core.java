@@ -1733,6 +1733,8 @@ class Core {
 
                             // No rules
 
+                            reportNewMessage(context, account, folder, message);
+
                             db.setTransactionSuccessful();
                         } finally {
                             db.endTransaction();
@@ -2455,6 +2457,7 @@ class Core {
                 }
 
                 runRules(context, imessage, account, folder, message, rules);
+                reportNewMessage(context, account, folder, message);
 
                 db.setTransactionSuccessful();
             } catch (SQLiteConstraintException ex) {
@@ -2596,8 +2599,10 @@ class Core {
 
                     db.message().updateMessage(message);
 
-                    if (process)
+                    if (process) {
                         runRules(context, imessage, account, folder, message, rules);
+                        reportNewMessage(context, account, folder, message);
+                    }
 
                     db.setTransactionSuccessful();
                 } finally {
@@ -2688,7 +2693,9 @@ class Core {
             Log.e(ex);
             db.message().setMessageError(message.id, Log.formatThrowable(ex));
         }
+    }
 
+    private static void reportNewMessage(Context context, EntityAccount account, EntityFolder folder, EntityMessage message) {
         // Prepare scroll to top
         if (!message.ui_seen && !message.ui_hide &&
                 message.received > account.created) {
