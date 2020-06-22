@@ -215,6 +215,7 @@ public class FragmentOptions extends FragmentBase {
         searchView.setOnSuggestionListener(onSuggestionListener);
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            private String[] titles = null;
             private View[] views = null;
 
             @Override
@@ -239,18 +240,19 @@ public class FragmentOptions extends FragmentBase {
                 MatrixCursor cursor = new MatrixCursor(new String[]{"_id", "tab", "resid", "title"});
 
                 if (query != null && query.length() > 1) {
-                    if (views == null) {
+                    if (titles == null || views == null) {
+                        titles = new String[TAB_PAGES.length];
                         views = new View[TAB_PAGES.length];
                         LayoutInflater inflater = LayoutInflater.from(searchView.getContext());
-                        for (int tab = 0; tab < TAB_PAGES.length; tab++)
+                        for (int tab = 0; tab < TAB_PAGES.length; tab++) {
+                            titles[tab] = (String) adapter.getPageTitle(tab);
                             views[tab] = inflater.inflate(TAB_PAGES[tab], null);
+                        }
                     }
 
                     int id = 0;
-                    for (int tab = 0; tab < TAB_PAGES.length; tab++) {
-                        String title = (String) adapter.getPageTitle(tab);
-                        id = getSuggestions(query.toLowerCase(), id, tab, title, views[tab], cursor);
-                    }
+                    for (int tab = 0; tab < TAB_PAGES.length; tab++)
+                        id = getSuggestions(query.toLowerCase(), id, tab, titles[tab], views[tab], cursor);
                 }
 
                 searchView.setSuggestionsAdapter(new SimpleCursorAdapter(
