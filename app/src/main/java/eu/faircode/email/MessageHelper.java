@@ -109,6 +109,7 @@ public class MessageHelper {
 
     static final int SMALL_MESSAGE_SIZE = 64 * 1024; // bytes
     static final int DEFAULT_ATTACHMENT_DOWNLOAD_SIZE = 256 * 1024; // bytes
+    static final String HEADER_CORRELATION_ID = "X-Correlation-ID";
 
     private static final int MAX_MESSAGE_SIZE = 10 * 1024 * 1024; // bytes
     private static final long ATTACHMENT_PROGRESS_UPDATE = 1500L; // milliseconds
@@ -180,7 +181,7 @@ public class MessageHelper {
             imessage.addHeader("References", message.references);
         if (message.inreplyto != null)
             imessage.addHeader("In-Reply-To", message.inreplyto);
-        imessage.addHeader("X-Correlation-ID", message.msgid);
+        imessage.addHeader(HEADER_CORRELATION_ID, message.msgid);
 
         // Addresses
         if (message.from != null && message.from.length > 0) {
@@ -791,7 +792,7 @@ public class MessageHelper {
         ensureMessage(false);
 
         // Outlook outbox -> sent
-        String header = imessage.getHeader("X-Correlation-ID", null);
+        String header = imessage.getHeader(HEADER_CORRELATION_ID, null);
         if (header == null)
             header = imessage.getHeader("Message-ID", null);
         return (header == null ? null : MimeUtility.unfold(header));

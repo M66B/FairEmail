@@ -1267,7 +1267,7 @@ class Core {
                 imessages = ifolder.search(
                         new AndTerm(
                                 new SentDateTerm(ComparisonTerm.GE, new Date()),
-                                new HeaderTerm("X-Correlation-ID", message.msgid)));
+                                new HeaderTerm(MessageHelper.HEADER_CORRELATION_ID, message.msgid)));
             } catch (MessagingException ex) {
                 Log.e(ex);
             }
