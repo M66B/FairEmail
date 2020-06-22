@@ -589,7 +589,6 @@
     <string name="title_reply">Yanıtla</string>
     <string name="title_reply_to_all">Tümünü yanıtla</string>
     <string name="title_reply_list">Listeyi yanıtla</string>
-    <string name="title_moving">%1$s\'e taşınıyor</string>
     <string name="title_open_with">Birlikte aç</string>
     <string name="title_authentication_failed">%1$s kimlik doğrulama başarısız</string>
     <string name="title_receipt_subject">Okundu bilgisi:%1$s</string>

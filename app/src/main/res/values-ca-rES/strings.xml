@@ -665,7 +665,6 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_reply_list">Respon a la llista</string>
     <string name="title_reply_receipt">Enviar confirmació de lectura</string>
     <string name="title_reply_template">Respondre amb una plantilla</string>
-    <string name="title_moving">Movent a %1$s</string>
     <string name="title_open_with">Obre amb</string>
     <string name="title_authentication_failed">%1$s autenticació ha fallat</string>
     <string name="title_receipt_subject">Avisos de recepció: %1$s</string>

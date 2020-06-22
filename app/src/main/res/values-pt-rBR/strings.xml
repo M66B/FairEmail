@@ -670,7 +670,6 @@
     <string name="title_reply_list">Responder à lista</string>
     <string name="title_reply_receipt">Enviar confirmação de leitura</string>
     <string name="title_reply_template">Modelo de resposta</string>
-    <string name="title_moving">Movendo para %1$s</string>
     <string name="title_open_with">Abrir com</string>
     <string name="title_authentication_failed">%1$s a autenticação falhou</string>
     <string name="title_receipt_subject">Confirmação se leitura: %1$s</string>

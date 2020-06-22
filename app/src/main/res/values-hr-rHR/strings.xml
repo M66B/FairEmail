@@ -594,7 +594,6 @@
     <string name="title_reply_list">Odgovoriti popisu</string>
     <string name="title_reply_receipt">Pošalji potvrdu za čitanje</string>
     <string name="title_reply_template">Odgovori pomoću predloška</string>
-    <string name="title_moving">Premjesti u %1$s</string>
     <string name="title_open_with">Otvori sa</string>
     <string name="title_authentication_failed">%1$s provjera autentičnosti nije uspjela</string>
     <string name="title_receipt_subject">Potvrda o čitanju: %1$s</string>

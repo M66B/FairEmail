@@ -613,7 +613,6 @@
     <string name="title_reply_list">Svar på listen</string>
     <string name="title_reply_receipt">Send lesekvittering</string>
     <string name="title_reply_template">Svar med mal</string>
-    <string name="title_moving">Flytter til %1$s</string>
     <string name="title_open_with">Åpne med</string>
     <string name="title_authentication_failed">%1$s godkjenning mislyktes</string>
     <string name="title_receipt_subject">Lesebekreftelse: %1$s</string>

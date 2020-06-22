@@ -679,7 +679,7 @@
     <string name="title_reply_list">Répondre à la liste</string>
     <string name="title_reply_receipt">Envoyer une confirmation de lecture</string>
     <string name="title_reply_template">Répondre avec un modèle</string>
-    <string name="title_moving">Déplacement vers %1$s</string>
+    <string name="title_move_undo" comment="title_move_undo&#10;&#10;Moving to &lt;folder name&gt; (&lt;number of messages&gt;)">Déplacement vers %1$s (%2$d)</string>
     <string name="title_open_with">Ouvrir avec</string>
     <string name="title_authentication_failed">L\'authentification %1$s a échoué</string>
     <string name="title_receipt_subject">Confirmation de lecture : %1$s</string>

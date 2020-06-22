@@ -664,7 +664,6 @@
     <string name="title_reply_list">Odgovori seznamu</string>
     <string name="title_reply_receipt">Pošlji potrdilo o branju</string>
     <string name="title_reply_template">Odgovori s predlogo</string>
-    <string name="title_moving">Premikanje v %1$s</string>
     <string name="title_open_with">Odpri s/z</string>
     <string name="title_authentication_failed">Overitev %1$s je spodletela.</string>
     <string name="title_receipt_subject">Potrdilo o branju: %1$s</string>

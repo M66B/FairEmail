@@ -674,7 +674,6 @@
     <string name="title_reply_list">Erantzun zerrendari</string>
     <string name="title_reply_receipt">Bidali jaso izanaren agiria</string>
     <string name="title_reply_template">Erantzun txantiloia erabiliz</string>
-    <string name="title_moving">%1$s helburura mugitzen</string>
     <string name="title_open_with">Ireki honekin</string>
     <string name="title_authentication_failed">%1$s autentifikazioak huts egin du</string>
     <string name="title_receipt_subject">Irakurragiria: %1$s</string>

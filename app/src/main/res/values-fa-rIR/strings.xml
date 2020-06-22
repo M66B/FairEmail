@@ -556,7 +556,6 @@
     <string name="title_reply_list">پاسخ به لیست</string>
     <string name="title_reply_receipt">فرستادن رسید خواندن</string>
     <string name="title_reply_template">پاسخ با قالب</string>
-    <string name="title_moving">انتقال می‌یابد به %1$s</string>
     <string name="title_open_with">باز کردن با</string>
     <string name="title_authentication_failed">تایید %1$s ناموفق بود</string>
     <string name="title_receipt_subject">رسید خواندن: %1$s</string>

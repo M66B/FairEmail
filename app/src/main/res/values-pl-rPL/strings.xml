@@ -483,6 +483,7 @@
     <string name="title_advanced_move_hint">Folder docelowy można skonfigurować w ustawieniach konta</string>
     <string name="title_advanced_notify_no_grouping">Ta wersja Androida nie obsługuje grupowania powiadomień</string>
     <string name="title_advanced_notify_no_channels">Ta wersja Androida nie obsługuje kanałów powiadomień</string>
+    <string name="title_advanced_queries_hint">Włączenie tej opcji obniży wydajność, jednak jest wymagane na niektórych urządzeniach</string>
     <string name="title_advanced_fts_hint">Włączenie tej opcji poprawia wydajność wyszukiwania, ale także zwiększa zużycie baterii i przestrzeni dyskowej</string>
     <string name="title_advanced_english_hint">Spowoduje to ponowne uruchomienie aplikacji</string>
     <string name="title_advanced_experiments_hint">Lista aktualnych funkcji eksperymentalnych</string>
@@ -699,7 +700,7 @@
     <string name="title_reply_list">Odpowiedz do listy</string>
     <string name="title_reply_receipt">Wyślij potwierdzenie odczytu</string>
     <string name="title_reply_template">Odpowiedz z szablonem</string>
-    <string name="title_moving">Przenoszę do %1$s</string>
+    <string name="title_move_undo" comment="title_move_undo&#10;&#10;Moving to &lt;folder name&gt; (&lt;number of messages&gt;)">Przenoszenie do %1$s (%2$d)</string>
     <string name="title_open_with">Otwórz za pomocą</string>
     <string name="title_authentication_failed">%1$s uwierzytelnianie nie powiodło się</string>
     <string name="title_receipt_subject">Potwierdzenie: %1$s</string>

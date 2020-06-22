@@ -676,7 +676,6 @@
     <string name="title_reply_list">Vastaa listalle</string>
     <string name="title_reply_receipt">Lähetä vastaanottokuittaus</string>
     <string name="title_reply_template">Vastaa viestipohjalla</string>
-    <string name="title_moving">Siirretään kansioon %1$s</string>
     <string name="title_open_with">Avaa sovelluksessa</string>
     <string name="title_authentication_failed">%1$s tunnistautuminen epäonnistui</string>
     <string name="title_receipt_subject">Vastaanottokuittaus: %1$s</string>

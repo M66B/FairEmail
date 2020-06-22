@@ -645,7 +645,6 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_reply_list">リストに返信</string>
     <string name="title_reply_receipt">開封確認メッセージを送信</string>
     <string name="title_reply_template">テンプレートで返信</string>
-    <string name="title_moving">%1$s に移動</string>
     <string name="title_open_with">開く</string>
     <string name="title_authentication_failed">%1$sの認証に失敗しました</string>
     <string name="title_receipt_subject">受取を読む:%1$s</string>

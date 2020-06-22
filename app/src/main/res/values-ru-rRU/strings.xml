@@ -701,7 +701,7 @@
     <string name="title_reply_list">Ответить в рассылку</string>
     <string name="title_reply_receipt">Отправить квитанцию о прочтении</string>
     <string name="title_reply_template">Ответить с шаблоном</string>
-    <string name="title_moving">Переместить в %1$s</string>
+    <string name="title_move_undo" comment="title_move_undo&#10;&#10;Moving to &lt;folder name&gt; (&lt;number of messages&gt;)">Перемещение в %1$s (%2$d)</string>
     <string name="title_open_with">Открыть с помощью</string>
     <string name="title_authentication_failed">Ошибка аутентификации %1$s</string>
     <string name="title_receipt_subject">Отчёт о прочтении: %1$s</string>
