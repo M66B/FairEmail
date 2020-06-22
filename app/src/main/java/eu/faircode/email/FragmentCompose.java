@@ -215,6 +215,7 @@ public class FragmentCompose extends FragmentBase {
     private ImageButton ibCcBcc;
     private RecyclerView rvAttachment;
     private TextView tvNoInternetAttachments;
+    private TextView tvPlainTextOnly;
     private EditTextCompose etBody;
     private TextView tvNoInternet;
     private TextView tvSignature;
@@ -315,6 +316,7 @@ public class FragmentCompose extends FragmentBase {
         ibCcBcc = view.findViewById(R.id.ivCcBcc);
         rvAttachment = view.findViewById(R.id.rvAttachment);
         tvNoInternetAttachments = view.findViewById(R.id.tvNoInternetAttachments);
+        tvPlainTextOnly = view.findViewById(R.id.tvPlainTextOnly);
         etBody = view.findViewById(R.id.etBody);
         tvNoInternet = view.findViewById(R.id.tvNoInternet);
         tvSignature = view.findViewById(R.id.tvSignature);
@@ -672,6 +674,7 @@ public class FragmentCompose extends FragmentBase {
 
         etExtra.setHint("");
         tvDomain.setText(null);
+        tvPlainTextOnly.setVisibility(View.GONE);
         etBody.setText(null);
 
         grpHeader.setVisibility(View.GONE);
@@ -3819,6 +3822,9 @@ public class FragmentCompose extends FragmentBase {
                         }
                     });
 
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            final boolean plain_only = prefs.getBoolean("plain_only", false);
+
             db.message().liveMessage(data.draft.id).observe(getViewLifecycleOwner(), new Observer<EntityMessage>() {
                 @Override
                 public void onChanged(EntityMessage draft) {
@@ -3832,6 +3838,9 @@ public class FragmentCompose extends FragmentBase {
                         Log.i("Draft content=" + draft.content);
                         if (draft.content && state == State.NONE)
                             showDraft(draft, false);
+
+                        tvPlainTextOnly.setVisibility(
+                                draft.plain_only != null && draft.plain_only && !plain_only ? View.VISIBLE : View.GONE);
 
                         tvNoInternet.setTag(draft.content);
                         checkInternet();
@@ -4232,9 +4241,6 @@ public class FragmentCompose extends FragmentBase {
                             if (empty && d.select("div[fairemail=reference]").isEmpty())
                                 args.putBoolean("remind_text", true);
 
-                            if (draft.plain_only != null && draft.plain_only)
-                                args.putBoolean("remind_plain", true);
-
                             int attached = 0;
                             for (EntityAttachment attachment : attachments)
                                 if (!attachment.available)
@@ -4421,14 +4427,13 @@ public class FragmentCompose extends FragmentBase {
                 boolean remind_pgp = args.getBoolean("remind_pgp", false);
                 boolean remind_subject = args.getBoolean("remind_subject", false);
                 boolean remind_text = args.getBoolean("remind_text", false);
-                boolean remind_plain = args.getBoolean("remind_plain", false);
                 boolean remind_attachment = args.getBoolean("remind_attachment", false);
 
                 int recipients = (draft.to == null ? 0 : draft.to.length) +
                         (draft.cc == null ? 0 : draft.cc.length) +
                         (draft.bcc == null ? 0 : draft.bcc.length);
                 if (send_dialog || address_error != null || recipients > RECIPIENTS_WARNING || (send_reminders &&
-                        (remind_to || remind_extra || remind_pgp || remind_subject || remind_text || remind_plain || remind_attachment))) {
+                        (remind_to || remind_extra || remind_pgp || remind_subject || remind_text || remind_attachment))) {
                     setBusy(false);
 
                     FragmentDialogSend fragment = new FragmentDialogSend();
@@ -5106,7 +5111,6 @@ public class FragmentCompose extends FragmentBase {
             final boolean remind_pgp = args.getBoolean("remind_pgp", false);
             final boolean remind_subject = args.getBoolean("remind_subject", false);
             final boolean remind_text = args.getBoolean("remind_text", false);
-            final boolean remind_plain = args.getBoolean("remind_plain", false);
             final boolean remind_attachment = args.getBoolean("remind_attachment", false);
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
@@ -5163,7 +5167,7 @@ public class FragmentCompose extends FragmentBase {
 
             Helper.setViewsEnabled(dview, false);
 
-            boolean reminder = (remind_to || remind_extra || remind_pgp || remind_subject || remind_text || remind_plain || remind_attachment);
+            boolean reminder = (remind_to || remind_extra || remind_pgp || remind_subject || remind_text || remind_attachment);
             swSendReminders.setChecked(send_reminders);
             swSendReminders.setVisibility(send_reminders && reminder ? View.VISIBLE : View.GONE);
             tvSendRemindersHint.setVisibility(View.GONE);
@@ -5178,9 +5182,6 @@ public class FragmentCompose extends FragmentBase {
                     tvRemindText.setVisibility(checked && remind_text ? View.VISIBLE : View.GONE);
                     tvRemindAttachment.setVisibility(checked && remind_attachment ? View.VISIBLE : View.GONE);
                     tvSendRemindersHint.setVisibility(checked ? View.GONE : View.VISIBLE);
-
-                    cbPlainOnly.setTextColor(Helper.resolveColor(getContext(),
-                            checked && cbPlainOnly.isChecked() ? R.attr.colorWarning : android.R.attr.textColorSecondary));
                 }
             });
 
@@ -5195,9 +5196,6 @@ public class FragmentCompose extends FragmentBase {
             cbPlainOnly.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                    cbPlainOnly.setTextColor(Helper.resolveColor(getContext(),
-                            checked ? R.attr.colorWarning : android.R.attr.textColorSecondary));
-
                     Bundle args = new Bundle();
                     args.putLong("id", id);
                     args.putBoolean("plain_only", checked);

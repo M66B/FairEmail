@@ -245,6 +245,17 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tvNoInternetAttachments" />
 
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvPlainTextOnly"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title_send_plain_text"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/vSeparator" />
+
                 <eu.faircode.email.EditTextCompose
                     android:id="@+id/etBody"
                     android:layout_width="0dp"
@@ -262,7 +273,7 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/vSeparator" />
+                    app:layout_constraintTop_toBottomOf="@id/tvPlainTextOnly" />
 
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvNoInternet"
