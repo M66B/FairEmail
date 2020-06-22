@@ -235,31 +235,6 @@
                     app:layout_constraintStart_toStartOf="@id/rvAttachment"
                     app:layout_constraintTop_toBottomOf="@id/rvAttachment" />
 
-                <ImageButton
-                    android:id="@+id/ibCloseUnusedImagesHint"
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:background="?android:attr/selectableItemBackgroundBorderless"
-                    android:contentDescription="@string/title_no_format"
-                    app:layout_constraintBottom_toBottomOf="@+id/tvUnusedImagesHint"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/tvUnusedImagesHint"
-                    app:srcCompat="@drawable/baseline_close_24" />
-
-                <eu.faircode.email.FixedTextView
-                    android:id="@+id/tvUnusedImagesHint"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="6dp"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginEnd="6dp"
-                    android:text="@string/title_unused_inline"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textStyle="italic"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/ibCloseUnusedImagesHint"
-                    app:layout_constraintTop_toBottomOf="@id/tvNoInternetAttachments" />
-
                 <View
                     android:id="@+id/vSeparator"
                     android:layout_width="0dp"
@@ -268,7 +243,7 @@
                     android:background="?attr/colorSeparator"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/ibCloseUnusedImagesHint" />
+                    app:layout_constraintTop_toBottomOf="@+id/tvNoInternetAttachments" />
 
                 <eu.faircode.email.EditTextCompose
                     android:id="@+id/etBody"
@@ -453,12 +428,6 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     app:constraint_referenced_ids="vSeparatorAttachments,rvAttachment" />
-
-                <androidx.constraintlayout.widget.Group
-                    android:id="@+id/grpUnusedImagesHint"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    app:constraint_referenced_ids="ibCloseUnusedImagesHint,tvUnusedImagesHint" />
 
                 <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpBody"

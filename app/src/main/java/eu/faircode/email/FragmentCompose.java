@@ -215,7 +215,6 @@ public class FragmentCompose extends FragmentBase {
     private ImageButton ibCcBcc;
     private RecyclerView rvAttachment;
     private TextView tvNoInternetAttachments;
-    private ImageButton ibCloseUnusedImagesHint;
     private EditTextCompose etBody;
     private TextView tvNoInternet;
     private TextView tvSignature;
@@ -233,7 +232,6 @@ public class FragmentCompose extends FragmentBase {
     private Group grpExtra;
     private Group grpAddresses;
     private Group grpAttachments;
-    private Group grpUnusedImagesHint;
     private Group grpBody;
     private Group grpSignature;
     private Group grpReferenceHint;
@@ -317,7 +315,6 @@ public class FragmentCompose extends FragmentBase {
         ibCcBcc = view.findViewById(R.id.ivCcBcc);
         rvAttachment = view.findViewById(R.id.rvAttachment);
         tvNoInternetAttachments = view.findViewById(R.id.tvNoInternetAttachments);
-        ibCloseUnusedImagesHint = view.findViewById(R.id.ibCloseUnusedImagesHint);
         etBody = view.findViewById(R.id.etBody);
         tvNoInternet = view.findViewById(R.id.tvNoInternet);
         tvSignature = view.findViewById(R.id.tvSignature);
@@ -337,7 +334,6 @@ public class FragmentCompose extends FragmentBase {
         grpAddresses = view.findViewById(R.id.grpAddresses);
         grpAttachments = view.findViewById(R.id.grpAttachments);
         grpBody = view.findViewById(R.id.grpBody);
-        grpUnusedImagesHint = view.findViewById(R.id.grpUnusedImagesHint);
         grpSignature = view.findViewById(R.id.grpSignature);
         grpReferenceHint = view.findViewById(R.id.grpReferenceHint);
 
@@ -454,15 +450,6 @@ public class FragmentCompose extends FragmentBase {
         ibBccAdd.setOnClickListener(onPick);
 
         setZoom();
-
-        ibCloseUnusedImagesHint.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                prefs.edit().putBoolean("inline_image_hint", false).apply();
-                grpUnusedImagesHint.setVisibility(View.GONE);
-            }
-        });
 
         etBody.setInputContentListener(new EditTextCompose.IInputContentListener() {
             @Override
@@ -936,7 +923,6 @@ public class FragmentCompose extends FragmentBase {
         rvAttachment.setAdapter(adapter);
 
         tvNoInternetAttachments.setVisibility(View.GONE);
-        grpUnusedImagesHint.setVisibility(View.GONE);
 
         final String pkg = Helper.getOpenKeychainPackage(getContext());
         Log.i("PGP binding to " + pkg);
@@ -3775,6 +3761,8 @@ public class FragmentCompose extends FragmentBase {
 
             db.attachment().liveAttachments(data.draft.id).observe(getViewLifecycleOwner(),
                     new Observer<List<EntityAttachment>>() {
+                        private Integer count = null;
+
                         @Override
                         public void onChanged(@Nullable List<EntityAttachment> attachments) {
                             if (attachments == null)
@@ -3784,14 +3772,11 @@ public class FragmentCompose extends FragmentBase {
                             grpAttachments.setVisibility(attachments.size() > 0 ? View.VISIBLE : View.GONE);
 
                             boolean downloading = false;
-                            boolean inline_images = false;
                             for (EntityAttachment attachment : attachments) {
                                 if (attachment.isEncryption())
                                     continue;
                                 if (attachment.progress != null)
                                     downloading = true;
-                                if (attachment.isInline() && attachment.isImage())
-                                    inline_images = true;
                             }
 
                             Log.i("Attachments=" + attachments.size() + " downloading=" + downloading);
@@ -3799,9 +3784,38 @@ public class FragmentCompose extends FragmentBase {
                             rvAttachment.setTag(downloading);
                             checkInternet();
 
-                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                            boolean inline_image_hint = prefs.getBoolean("inline_image_hint", true);
-                            grpUnusedImagesHint.setVisibility(inline_images && inline_image_hint ? View.VISIBLE : View.GONE);
+                            if (count != null && count > attachments.size()) {
+                                boolean updated = false;
+                                Editable edit = etBody.getEditableText();
+
+                                ImageSpan[] spans = edit.getSpans(0, edit.length(), ImageSpan.class);
+                                for (int i = 0; i < spans.length && !updated; i++) {
+                                    ImageSpan span = spans[i];
+                                    String source = span.getSource();
+                                    if (source != null && source.startsWith("cid:")) {
+                                        String cid = "<" + source.substring(4) + ">";
+                                        boolean found = false;
+                                        for (EntityAttachment attachment : attachments)
+                                            if (cid.equals(attachment.cid)) {
+                                                found = true;
+                                                break;
+                                            }
+
+                                        if (!found) {
+                                            updated = true;
+                                            int start = edit.getSpanStart(span);
+                                            int end = edit.getSpanEnd(span);
+                                            edit.removeSpan(span);
+                                            edit.delete(start, end);
+                                        }
+                                    }
+                                }
+
+                                if (updated)
+                                    etBody.setText(edit);
+                            }
+
+                            count = attachments.size();
                         }
                     });
 
