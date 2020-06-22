@@ -4676,7 +4676,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 // Show undo snackbar
                 final Snackbar snackbar = Snackbar.make(
                         content,
-                        getString(R.string.title_moving, getDisplay(result)),
+                        getString(R.string.title_move_undo, getDisplay(result), result.size()),
                         Snackbar.LENGTH_INDEFINITE);
                 snackbar.setAction(R.string.title_undo, new View.OnClickListener() {
                     @Override
