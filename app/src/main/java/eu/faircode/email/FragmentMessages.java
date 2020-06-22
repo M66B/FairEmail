@@ -4198,7 +4198,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     }
                 }
 
-                if (message.folder == folder)
+                if (message.folder == folder &&
+                        !EntityFolder.OUTBOX.equals(message.folderType))
                     autoCloseCount++;
             }
 
