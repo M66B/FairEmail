@@ -311,8 +311,8 @@ public interface DaoMessage {
             " OR (:subject AND `subject` LIKE :find COLLATE NOCASE)" + // unsuitable index
             " OR (:keywords AND `keywords` LIKE :find COLLATE NOCASE)" + // no index
             " OR (:message AND `preview` LIKE :find COLLATE NOCASE)" + // no index
-            " OR (:attachments AND attachment.name LIKE :find COLLATE NOCASE)" + // no index
-            " OR (:attachments AND attachment.type LIKE :find COLLATE NOCASE)) AS matched" + // no index
+            " OR (attachment.name LIKE :find COLLATE NOCASE)" + // no index
+            " OR (attachment.type LIKE :find COLLATE NOCASE)) AS matched" + // no index
             " FROM message" +
             " LEFT JOIN attachment ON attachment.message = message.id" +
             " WHERE NOT ui_hide" +
