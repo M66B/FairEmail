@@ -155,7 +155,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvOwnerTitle"
-            app:srcCompat="@drawable/flag_ad" />
+            app:srcCompat="@drawable/flag_nl" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvHost"
