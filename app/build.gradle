@@ -59,6 +59,7 @@ android {
             play {
                 java.srcDirs = ['src/main/java', 'src/iab/java']
             }
+            main.res.srcDirs += 'src/main/resExtra'
         }
     }
 
