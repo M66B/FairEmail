@@ -813,7 +813,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swAddresses.setChecked(prefs.getBoolean("addresses", false));
         swArchiveTrash.setChecked(prefs.getBoolean("button_archive_trash", true));
         swMove.setChecked(prefs.getBoolean("button_move", true));
-        swRule.setChecked(prefs.getBoolean("button_rule", true));
+        swRule.setChecked(prefs.getBoolean("button_rule", false));
         swContrast.setChecked(prefs.getBoolean("contrast", false));
         swMonospaced.setChecked(prefs.getBoolean("monospaced", false));
         swTextColor.setChecked(prefs.getBoolean("text_color", true));

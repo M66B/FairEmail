@@ -1522,7 +1522,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                     boolean button_archive_trash = prefs.getBoolean("button_archive_trash", true);
                     boolean button_move = prefs.getBoolean("button_move", true);
-                    boolean button_rule = prefs.getBoolean("button_rule", true);
+                    boolean button_rule = prefs.getBoolean("button_rule", false);
                     boolean expand_all = prefs.getBoolean("expand_all", false);
                     boolean expand_one = prefs.getBoolean("expand_one", true);
 
