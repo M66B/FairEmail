@@ -251,7 +251,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/title_send_plain_text"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textStyle="bold|italic"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:textStyle="italic"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/vSeparator" />
