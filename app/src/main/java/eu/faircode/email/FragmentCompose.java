@@ -516,7 +516,7 @@ public class FragmentCompose extends FragmentBase {
                     }
 
                     if (broken) {
-                        StyleSpan[] sspan = ssb.getSpans(start, start, StyleSpan.class);
+                        StyleSpan[] sspan = ssb.getSpans(start + 1, start + 1, StyleSpan.class);
                         for (StyleSpan span : sspan) {
                             int s = ssb.getSpanStart(span);
                             int e = ssb.getSpanEnd(span);
