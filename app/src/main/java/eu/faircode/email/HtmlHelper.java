@@ -1495,7 +1495,7 @@ public class HtmlHelper {
                     return null;
 
                 String text = getPreview(body);
-                if (body == null)
+                if (text == null)
                     return null;
 
                 TextLanguage.Request trequest = new TextLanguage.Request.Builder(text).build();
