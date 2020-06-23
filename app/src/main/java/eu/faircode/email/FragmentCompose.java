@@ -61,11 +61,10 @@ import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.text.method.LinkMovementMethod;
 import android.text.style.CharacterStyle;
-import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
 import android.text.style.QuoteSpan;
-import android.text.style.StyleSpan;
 import android.text.style.URLSpan;
 import android.util.TypedValue;
 import android.view.KeyEvent;
@@ -610,6 +609,7 @@ public class FragmentCompose extends FragmentBase {
 
         etBody.setTypeface(monospaced ? Typeface.MONOSPACE : Typeface.DEFAULT);
         tvReference.setTypeface(monospaced ? Typeface.MONOSPACE : Typeface.DEFAULT);
+        tvReference.setMovementMethod(LinkMovementMethod.getInstance());
 
         style_bar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
