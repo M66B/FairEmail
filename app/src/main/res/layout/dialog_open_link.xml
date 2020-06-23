@@ -149,23 +149,35 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvOwnerRemark" />
 
-        <eu.faircode.email.FixedTextView
-            android:id="@+id/tvHost"
+        <ImageView
+            android:id="@+id/ivFlag"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvOwnerTitle"
+            app:srcCompat="@drawable/flag_ad" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvHost"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="6dp"
             android:text="example.org"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?android:textColorPrimary"
+            app:layout_constraintEnd_toStartOf="@id/ivFlag"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvOwnerTitle" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvOwner"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="6dp"
             android:text="Cloudflare"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?android:textColorPrimary"
+            app:layout_constraintEnd_toStartOf="@id/ivFlag"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvHost" />
 
@@ -189,6 +201,6 @@
             android:id="@+id/grpOwner"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvOwnerTitle,tvHost,tvOwner" />
+            app:constraint_referenced_ids="tvOwnerTitle,ivFlag,tvHost,tvOwner" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>

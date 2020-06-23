@@ -5579,6 +5579,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             final Button btnOwner = dview.findViewById(R.id.btnOwner);
             final TextView tvOwnerRemark = dview.findViewById(R.id.tvOwnerRemark);
             final ContentLoadingProgressBar pbWait = dview.findViewById(R.id.pbWait);
+            final ImageView ivFlag = dview.findViewById(R.id.ivFlag);
             final TextView tvHost = dview.findViewById(R.id.tvHost);
             final TextView tvOwner = dview.findViewById(R.id.tvOwner);
             final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
@@ -5728,8 +5729,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                         @Override
                         protected void onExecuted(Bundle args, Pair<String, IPInfo.Organization> data) {
+                            int resid = 0;
+                            if (data.second.country != null)
+                                resid = getResources().getIdentifier(
+                                        "flag_" + data.second.country.toLowerCase(),
+                                        "drawable", getContext().getPackageName());
+                            if (resid == 0)
+                                ivFlag.setImageDrawable(null);
+                            else
+                                ivFlag.setImageResource(resid);
+
                             tvHost.setText(data.first);
-                            tvOwner.setText(data.second.name == null ? "?" : data.second.name);
+                            tvOwner.setText(TextUtils.isEmpty(data.second.name) ? "?" : data.second.name);
                             new Handler().post(new Runnable() {
                                 @Override
                                 public void run() {
