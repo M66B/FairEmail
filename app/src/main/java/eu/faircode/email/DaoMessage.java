@@ -409,6 +409,12 @@ public interface DaoMessage {
             " AND (NOT :filter_snoozed OR message.ui_snoozed IS NULL OR " + is_drafts + ")")
     int countVisible(long id, boolean filter_seen, boolean filter_unflagged, boolean filter_snoozed);
 
+    @Query("SELECT COUNT(id)" +
+            " FROM message" +
+            " WHERE folder = :folder" +
+            " AND sender = :sender")
+    int countSender(long folder, String sender);
+
     @Query("SELECT message.*" +
             ", account.pop AS accountProtocol, account.name AS accountName, identity.color AS accountColor" +
             ", account.notify AS accountNotify, account.auto_seen AS accountAutoSeen" +

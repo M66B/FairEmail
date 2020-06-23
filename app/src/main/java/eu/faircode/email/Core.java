@@ -2693,6 +2693,18 @@ class Core {
             Log.e(ex);
             db.message().setMessageError(message.id, Log.formatThrowable(ex));
         }
+
+        if (BuildConfig.DEBUG &&
+                message.sender != null && EntityFolder.INBOX.equals(folder.type)) {
+            EntityFolder junk = db.folder().getFolderByType(message.account, EntityFolder.JUNK);
+            if (junk != null) {
+                int senders = db.message().countSender(junk.id, message.sender);
+                if (senders > 0) {
+                    EntityLog.log(context, "JUNK sender=" + message.sender + " count=" + senders);
+                    EntityOperation.queue(context, message, EntityOperation.KEYWORD, "$MoreJunk", true);
+                }
+            }
+        }
     }
 
     private static void reportNewMessage(Context context, EntityAccount account, EntityFolder folder, EntityMessage message) {
