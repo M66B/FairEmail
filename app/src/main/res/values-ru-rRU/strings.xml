@@ -326,6 +326,7 @@
     <string name="title_advanced_preview_lines">Количество строк предпросмотра</string>
     <string name="title_advanced_archive_trash">Показывать кнопки архивации или удаления сообщения</string>
     <string name="title_advanced_move">Показывать кнопку перемещения сообщения</string>
+    <string name="title_advanced_create_rule">Показать кнопку, чтобы создать правило для сообщения</string>
     <string name="title_advanced_addresses">По умолчанию показывать подробную информацию об адресах</string>
     <string name="title_advanced_attachments_alt">Показывать вложения после текста сообщения</string>
     <string name="title_advanced_contrast">Использовать высокий контраст для текста сообщений</string>
@@ -701,7 +702,7 @@
     <string name="title_reply_list">Ответить в рассылку</string>
     <string name="title_reply_receipt">Отправить квитанцию о прочтении</string>
     <string name="title_reply_template">Ответить с шаблоном</string>
-    <string name="title_move_undo" comment="title_move_undo&#10;&#10;Moving to &lt;folder name&gt; (&lt;number of messages&gt;)">Перемещение в %1$s (%2$d)</string>
+    <string name="title_move_undo">Перемещение в %1$s (%2$d)</string>
     <string name="title_open_with">Открыть с помощью</string>
     <string name="title_authentication_failed">Ошибка аутентификации %1$s</string>
     <string name="title_receipt_subject">Отчёт о прочтении: %1$s</string>
@@ -1056,6 +1057,7 @@
     <string name="title_legend_avatar">Аватар</string>
     <string name="title_legend_show_quotes">Показывать цитаты</string>
     <string name="title_legend_show_junk">Считать спамом</string>
+    <string name="title_legend_create_rule">Создать правило</string>
     <string name="title_legend_show_unsubscribe">Отписаться от рассылки</string>
     <string name="title_legend_show_images">Показывать изображения</string>
     <string name="title_legend_show_full">Показать оригинальное сообщение</string>

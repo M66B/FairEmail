@@ -305,6 +305,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_preview_lines">Anzahl der Vorschauzeilen</string>
     <string name="title_advanced_archive_trash">Schaltflächen zum Archivieren und Löschen einer Nachricht anzeigen</string>
     <string name="title_advanced_move">Schaltfläche zum Verschieben einer Nachricht anzeigen</string>
+    <string name="title_advanced_create_rule">Schaltfläche Anzeigen zum Erstellen einer Regel für eine Nachricht</string>
     <string name="title_advanced_addresses">Adressdetails standardmäßig anzeigen</string>
     <string name="title_advanced_attachments_alt">Anhänge nach (statt vor) dem Nachrichtentext anzeigen</string>
     <string name="title_advanced_contrast">Hohen Kontrast für den Nachrichtentext verwenden</string>
@@ -679,7 +680,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_reply_list">An Liste antworten</string>
     <string name="title_reply_receipt">Lesebestätigung senden</string>
     <string name="title_reply_template">Mit Vorlage antworten</string>
-    <string name="title_move_undo" comment="title_move_undo&#10;&#10;Moving to &lt;folder name&gt; (&lt;number of messages&gt;)">Verschieben nach „%1$s“ (%2$d)</string>
+    <string name="title_move_undo">Wird nach »%1$s« verschoben (%2$d)</string>
     <string name="title_open_with">Öffnen mit</string>
     <string name="title_authentication_failed">%1$s-Authentifizierung fehlgeschlagen</string>
     <string name="title_receipt_subject">Lesebestätigung: %1$s</string>
@@ -1032,6 +1033,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_legend_avatar">Benutzerbild</string>
     <string name="title_legend_show_quotes">Zitate anzeigen</string>
     <string name="title_legend_show_junk">Als Spam behandeln</string>
+    <string name="title_legend_create_rule">Regel erstellen</string>
     <string name="title_legend_show_unsubscribe">Aus Liste abmelden</string>
     <string name="title_legend_show_images">Bilder anzeigen</string>
     <string name="title_legend_show_full">Originalnachricht anzeigen</string>

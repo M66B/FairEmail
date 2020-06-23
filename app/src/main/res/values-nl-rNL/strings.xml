@@ -303,6 +303,7 @@
     <string name="title_advanced_preview_lines">Aantal lijnen voorbeeld</string>
     <string name="title_advanced_archive_trash">Toon knoppen om een bericht te archiveren of weg te gooien</string>
     <string name="title_advanced_move">Toon knop om een bericht te verplaatsen</string>
+    <string name="title_advanced_create_rule">Toon knop om een regel voor een bericht te maken</string>
     <string name="title_advanced_addresses">Adresgegevens standaard weergeven</string>
     <string name="title_advanced_attachments_alt">Bijlagen weergeven na de berichttekst</string>
     <string name="title_advanced_contrast">Gebruik hoge contrast voor berichttekst</string>
@@ -678,7 +679,7 @@
     <string name="title_reply_list">Antwoord aan lijst</string>
     <string name="title_reply_receipt">Stuur leesbevestiging</string>
     <string name="title_reply_template">Antwoord met sjabloon</string>
-    <string name="title_move_undo" comment="title_move_undo&#10;&#10;Moving to &lt;folder name&gt; (&lt;number of messages&gt;)">Verplaatsen naar %1$s (%2$d)</string>
+    <string name="title_move_undo">Verplaatsen naar %1$s (%2$d)</string>
     <string name="title_open_with">Openen met</string>
     <string name="title_authentication_failed">%1$s authenticatie mislukt</string>
     <string name="title_receipt_subject">Leesbevestiging: %1$s</string>
@@ -1033,6 +1034,7 @@
     <string name="title_legend_avatar">Avatar</string>
     <string name="title_legend_show_quotes">Toon citaten</string>
     <string name="title_legend_show_junk">Behandel als spam</string>
+    <string name="title_legend_create_rule">Maak regel</string>
     <string name="title_legend_show_unsubscribe">Uitschrijven van lijst</string>
     <string name="title_legend_show_images">Toon afbeeldingen</string>
     <string name="title_legend_show_full">Toon het originele bericht</string>

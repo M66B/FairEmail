@@ -304,6 +304,7 @@
     <string name="title_advanced_preview_lines">Nombre de lignes d\'aperçu</string>
     <string name="title_advanced_archive_trash">Afficher les boutons pour archiver ou mettre à la corbeille un message</string>
     <string name="title_advanced_move">Afficher le bouton pour déplacer un message</string>
+    <string name="title_advanced_create_rule">Afficher le bouton pour créer une règle pour un message</string>
     <string name="title_advanced_addresses">Déplier les détails de l’adresse par défaut</string>
     <string name="title_advanced_attachments_alt">Afficher les pièces jointes après le texte du message</string>
     <string name="title_advanced_contrast">Utiliser un contraste élevé pour le texte du message</string>
@@ -462,7 +463,7 @@
     <string name="title_advanced_move_hint">Le dossier de destination peut être configuré dans les paramètres du compte</string>
     <string name="title_advanced_notify_no_grouping">Cette version d\'Android ne prend pas en charge le regroupement de notifications</string>
     <string name="title_advanced_notify_no_channels">Cette version d’Android ne prend pas en charge les canaux de notification</string>
-    <string name="title_advanced_queries_hint">Activer ceci réduira les performances, cependant, l\'activation est nécessaire sur certains appareils</string>
+    <string name="title_advanced_queries_hint">Activer ceci réduira les performances, cependant l\'activation est nécessaire sur certains appareils</string>
     <string name="title_advanced_fts_hint">Activer ceci améliore les performances de la recherche mais augmente également l\'utilisation de la batterie et de l\'espace de stockage</string>
     <string name="title_advanced_english_hint">Ceci va redémarrer l’application</string>
     <string name="title_advanced_experiments_hint">Liste des fonctionnalités expérimentales actuelles</string>
@@ -679,7 +680,7 @@
     <string name="title_reply_list">Répondre à la liste</string>
     <string name="title_reply_receipt">Envoyer une confirmation de lecture</string>
     <string name="title_reply_template">Répondre avec un modèle</string>
-    <string name="title_move_undo" comment="title_move_undo&#10;&#10;Moving to &lt;folder name&gt; (&lt;number of messages&gt;)">Déplacement vers %1$s (%2$d)</string>
+    <string name="title_move_undo">Déplacement vers %1$s (%2$d)</string>
     <string name="title_open_with">Ouvrir avec</string>
     <string name="title_authentication_failed">L\'authentification %1$s a échoué</string>
     <string name="title_receipt_subject">Confirmation de lecture : %1$s</string>
@@ -1034,6 +1035,7 @@
     <string name="title_legend_avatar">Avatar</string>
     <string name="title_legend_show_quotes">Afficher les citations</string>
     <string name="title_legend_show_junk">Traiter comme spam</string>
+    <string name="title_legend_create_rule">Créer une règle</string>
     <string name="title_legend_show_unsubscribe">Se désabonner de la liste</string>
     <string name="title_legend_show_images">Afficher les images</string>
     <string name="title_legend_show_full">Afficher le message original</string>

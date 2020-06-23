@@ -119,7 +119,7 @@
     </string>
     <string name="title_setup_quick">راه‌اندازی سریع</string>
     <string name="title_setup_quick_remark">برای راه‌اندازی سریع یک حساب و شناسه برای بیشتر ارائه دهندگان</string>
-    <string name="title_setup_quick_hint">راه‌اندازی سریع اطلاعات پیکربندی را از autoconfig.thunderbird.net بدست خواهد آورد</string>
+    <string name="title_setup_quick_hint">راه‌اندازی سریع اطلاعات پیکربندی را از autoconfig.thunderbird.net واکشی خواهد کرد</string>
     <string name="title_setup_quick_imap">سرور IMAP برای دریافت پیام‌ها</string>
     <string name="title_setup_quick_smtp">سرور SMTP برای ارسال پیام‌ها</string>
     <string name="title_setup_wizard">جادوگر</string>
@@ -128,6 +128,7 @@
     <string name="title_setup_other">ارائه دهنده دیگر</string>
     <string name="title_setup_gmail_support">حساب های گوگل فقط در نسخه‌های رسمی مجاز می‌شوند چون اندروید امضای برنامه را بررسی می‌کند</string>
     <string name="title_setup_gmail_rationale">لطفا مجوز برای انتخاب حساب و خواندن نام شما را اعطا کنید</string>
+    <string name="title_setup_gmail_permissions">گوگل برای خواندن، نوشتن، فرستادن و حذف همیشگی همه ایمیل‌های شما درخواست دسترسی خواهد کرد. FairEmail هیچ‌وقت بدون رضایت آشکار شما پیام‌های شما را حذف نخواهد کرد.</string>
     <string name="title_setup_gmail_drafts">اگر پوشه پیش‌نویس‌ها به‌وسیله IMAP قابل دسترسی نیست، می‌توان آن را در تنظیمات برچسب‌های جیمیل درست کرد</string>
     <string name="title_setup_oauth_rationale">برای دسترسی به %1$s حسابتان اجازه دهید</string>
     <string name="title_setup_oauth_authorize">اجازه دهید</string>
@@ -322,7 +323,9 @@
     <string name="title_advanced_light">استفاده از چراغ اعلان‌ها</string>
     <string name="title_advanced_sound">انتخاب صدای اعلان‌ها</string>
     <string name="title_advanced_confirm_links">تایید بازکردن پیوندها</string>
+    <string name="title_advanced_browse_links">بازکردن پیوند‌ها را به اندروید واگذار کن</string>
     <string name="title_advanced_confirm_images">تایید نمایش تصاویر</string>
+    <string name="title_advanced_tracking">تصاویر ردیاب را، خودکار شناسایی و غیرفعال کن</string>
     <string name="title_advanced_hide_timezone">پیام‌ها را بدون داده منطقه زمانی بفرست</string>
     <string name="title_advanced_display_hidden">نمایش متن پیام‌های پنهان</string>
     <string name="title_advanced_secure">از صفحه برنامه های اخیر پنهان شو و از گرفتن اسکرین‌شات جلوگیری کن</string>
@@ -362,7 +365,7 @@
     <string name="title_advanced_sync_delay_hint">این سرعت همگام‌سازی پیام‌ها را کاهش خواهد داد</string>
     <string name="title_advanced_usenet_hint">بین متن و امضا \'-- \' درج کنید</string>
     <string name="title_advanced_metered_hint">اتصال‌های حجمی عموما شبکه‌های موبایل یا یک هات اسپات غیر رایگان می‌باشند</string>
-    <string name="title_advanced_browse_hint">گرفتن و دریافت پیام‌های بیشتر پیمایش به سمت پایین</string>
+    <string name="title_advanced_browse_hint">واکشی پیام‌های بیشتر هنگام پیمایش به پایین</string>
     <string name="title_advanced_threading_hint">پیام‌های گروهی مرتبط با یکدیگر</string>
     <string name="title_advanced_gravatars_hint">شاید خطر حریم خصوصی وجود داشته باشد</string>
     <string name="title_advanced_preview_hint">فقط زمانی در دسترس است که متن پیام دانلود شده باشد</string>
@@ -421,6 +424,7 @@
     <string name="title_leave_deleted">رهاکردن پیام‌های حذف شده روی سرور</string>
     <string name="title_leave_on_device">رها کردن پیام‌ها روی دستگاه</string>
     <string name="title_keep_alive_interval">فعال ماندن/فاصله اخذ (دقایق)</string>
+    <string name="title_related_identity">افزودن هویت مرتبط</string>
     <string name="title_check">بررسی</string>
     <string name="title_no_name">نام وجود ندارد</string>
     <string name="title_no_email">ایمیل آدرس وجود ندارد</string>
@@ -465,6 +469,7 @@
     <string name="title_delete_operation">حذف عملیات با دریافت پیام خطا؟</string>
     <string name="title_delete_contacts">حذف همه مخاطبین محلی؟</string>
     <string name="title_no_operations">عملیاتی در انتظار وجود ندارد </string>
+    <string name="title_hint_operations">عملیات‌های حذف می‌تواند موجب ناپدید شدن پیام‌ها و مشکلات همگام‌سازی شود</string>
     <string name="title_folder_name">نام پوشه</string>
     <string name="title_display_name">نامی که نمایش داده می شود</string>
     <string name="title_show_folders">نمایش پوشه‌های پنهان</string>
@@ -481,7 +486,10 @@
     <string name="title_sync_days">همگام سازی پیام‌ها (روزها)</string>
     <string name="title_sync_days_remark">افزایش مقدار این باعث افزایش مصرف باتری می‌شود</string>
     <string name="title_keep_days">نگهداری پیام‌ها (روزها)</string>
+    <string name="title_keep_days_remark">پیام‌های قدیمی از این دستگاه حذف خواهند شد، ولی بر روی سرور باقی خواهند ماند</string>
     <string name="title_keep_all">نگهداری تمامی پیام‌ها</string>
+    <string name="title_auto_trash">پیام‌های قدیمی را، خودکار به زباله‌دان منتقل کن</string>
+    <string name="title_auto_delete">پیام‌های قدیمی را برای همیشه، خودکار حذف کن</string>
     <string name="title_folder_name_missing">نام پوشه موجود نیست</string>
     <string name="title_folder_exists">پوشه %1$s موجود است</string>
     <string name="title_folder_delete">حذف همیشگی این پوشه با تمامی پیام‌های همراه آن؟</string>
@@ -556,6 +564,7 @@
     <string name="title_reply_list">پاسخ به لیست</string>
     <string name="title_reply_receipt">فرستادن رسید خواندن</string>
     <string name="title_reply_template">پاسخ با قالب</string>
+    <string name="title_move_undo">در حال انتقال به %1$s (%2$d)</string>
     <string name="title_open_with">باز کردن با</string>
     <string name="title_authentication_failed">تایید %1$s ناموفق بود</string>
     <string name="title_receipt_subject">رسید خواندن: %1$s</string>
@@ -793,6 +802,7 @@
     <string name="title_rule_name_missing">نام دستور موجود نیست</string>
     <string name="title_rule_condition_missing">فاقد شرایط</string>
     <string name="title_rule_execute">اکنون اجرا کن</string>
+    <string name="title_rule_applied">پیام‌های متأثر: %1$d</string>
     <string name="title_rule_check">بررسی</string>
     <string name="title_rule_matched">پیام‌های مطابق</string>
     <string name="title_rule_no_matches">هیچ پیام مطابقی وجود ندارد</string>
@@ -829,7 +839,7 @@
     <string name="title_legend_similar">جستجوی پیام‌های مشابه</string>
     <string name="title_legend_notify">آگاه‌سازی از پیام‌های جدید</string>
     <string name="title_legend_sync_keep">تعداد روزهای همگام سازی / برای نگه داشتن پیام ها</string>
-    <string name="title_legend_download_fetch">شمار پیام‌های بارگیری شده/ سرتیتر بدست آورده شده</string>
+    <string name="title_legend_download_fetch">شمار پیام‌های بارگیری شده/ سرتیترهای واکشی شده</string>
     <string name="title_legend_stop">توقف پردازش دستورات</string>
     <string name="title_legend_thread">گفتگو</string>
     <string name="title_legend_zoom">تغییر اندازه متن</string>
@@ -950,6 +960,7 @@
     <string name="title_snooze_now">تعویق</string>
     <string name="title_loading">درحال بارگذاری &#8230;</string>
     <string name="title_set">تنظیم</string>
+    <string name="title_fetching_again">در حال واکشی دوباره پیام از سرور</string>
     <string name="title_conversation_actions">کنش‌ها</string>
     <string name="title_conversation_action_reply">پاسخ با: \'%1$s\'</string>
     <string name="title_conversation_action_copy">کپی: \'%1$s\'</string>
