@@ -407,6 +407,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageButton ibDecrypt;
         private ImageButton ibVerify;
         private ImageButton ibUndo;
+        private ImageButton ibRule;
         private ImageButton ibUnsubscribe;
         private ImageButton ibAnswer;
         private ImageButton ibMove;
@@ -606,6 +607,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibDecrypt = vsBody.findViewById(R.id.ibDecrypt);
             ibVerify = vsBody.findViewById(R.id.ibVerify);
             ibUndo = vsBody.findViewById(R.id.ibUndo);
+            ibRule = vsBody.findViewById(R.id.ibRule);
             ibUnsubscribe = vsBody.findViewById(R.id.ibUnsubscribe);
             ibAnswer = vsBody.findViewById(R.id.ibAnswer);
             ibMove = vsBody.findViewById(R.id.ibMove);
@@ -691,6 +693,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 ibFull.setOnClickListener(this);
                 ibImages.setOnClickListener(this);
+                ibRule.setOnClickListener(this);
                 ibUnsubscribe.setOnClickListener(this);
                 ibDecrypt.setOnClickListener(this);
                 ibVerify.setOnClickListener(this);
@@ -776,6 +779,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 ibFull.setOnClickListener(null);
                 ibImages.setOnClickListener(null);
+                ibRule.setOnClickListener(null);
                 ibUnsubscribe.setOnClickListener(null);
                 ibDecrypt.setOnClickListener(null);
                 ibVerify.setOnClickListener(null);
@@ -1271,6 +1275,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibDecrypt.setVisibility(View.GONE);
             ibVerify.setVisibility(View.GONE);
             ibUndo.setVisibility(View.GONE);
+            ibRule.setVisibility(View.GONE);
             ibUnsubscribe.setVisibility(View.GONE);
             ibAnswer.setVisibility(View.GONE);
             ibMove.setVisibility(View.GONE);
@@ -1399,6 +1404,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibDecrypt.setVisibility(View.GONE);
             ibVerify.setVisibility(View.GONE);
             ibUndo.setVisibility(EntityFolder.OUTBOX.equals(message.folderType) ? View.VISIBLE : View.GONE);
+            ibRule.setVisibility(View.GONE);
             ibUnsubscribe.setVisibility(View.GONE);
             ibAnswer.setVisibility(View.GONE);
             ibMove.setVisibility(View.GONE);
@@ -1516,11 +1522,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                     boolean button_archive_trash = prefs.getBoolean("button_archive_trash", true);
                     boolean button_move = prefs.getBoolean("button_move", true);
+                    boolean button_rule = prefs.getBoolean("button_rule", true);
                     boolean expand_all = prefs.getBoolean("expand_all", false);
                     boolean expand_one = prefs.getBoolean("expand_one", true);
 
                     ibTrash.setTag(delete);
 
+                    ibRule.setVisibility(button_rule && !outbox &&
+                            message.accountProtocol == EntityAccount.TYPE_IMAP ? View.VISIBLE : View.GONE);
                     ibUnsubscribe.setVisibility(message.unsubscribe == null ? View.GONE : View.VISIBLE);
                     ibAnswer.setVisibility(outbox || (!expand_all && expand_one) ? View.GONE : View.VISIBLE);
                     ibMove.setVisibility(move && button_move ? View.VISIBLE : View.GONE);
@@ -2691,6 +2700,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         break;
                     case R.id.ibImages:
                         onShow(message, false);
+                        break;
+                    case R.id.ibRule:
+                        onMenuCreateRule(message);
                         break;
                     case R.id.ibUnsubscribe:
                         onActionUnsubscribe(message);

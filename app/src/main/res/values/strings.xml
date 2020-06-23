@@ -356,6 +356,7 @@
     <string name="title_advanced_preview_lines">Number of preview lines</string>
     <string name="title_advanced_archive_trash">Show buttons to archive or trash a message</string>
     <string name="title_advanced_move">Show button to move a message</string>
+    <string name="title_advanced_create_rule">Show button to create a rule for a message</string>
     <string name="title_advanced_addresses">Expand address details by default</string>
     <string name="title_advanced_attachments_alt">Show attachments after the message text</string>
     <string name="title_advanced_contrast">Use high contrast for message text</string>
@@ -1166,6 +1167,7 @@
     <string name="title_legend_avatar">Avatar</string>
     <string name="title_legend_show_quotes">Show quotes</string>
     <string name="title_legend_show_junk">Treat as spam</string>
+    <string name="title_legend_create_rule">Create rule</string>
     <string name="title_legend_show_unsubscribe">Unsubscribe from list</string>
     <string name="title_legend_show_images">Show images</string>
     <string name="title_legend_show_full">Show original message</string>

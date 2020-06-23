@@ -521,13 +521,35 @@
             app:layout_constraintTop_toTopOf="@id/ivDownload" />
 
         <ImageView
-            android:id="@+id/ivUnsubscribe"
+            android:id="@+id/ivRule"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="@string/title_legend_zoom"
+            android:contentDescription="@string/title_legend_create_rule"
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivDownload"
+            app:srcCompat="@drawable/baseline_rule_24" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvRule"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:text="@string/title_legend_create_rule"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivRule"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivRule"
+            app:layout_constraintTop_toTopOf="@id/ivRule" />
+
+        <ImageView
+            android:id="@+id/ivUnsubscribe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/title_legend_show_unsubscribe"
+            android:padding="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivRule"
             app:srcCompat="@drawable/baseline_unsubscribe_24" />
 
         <eu.faircode.email.FixedTextView
