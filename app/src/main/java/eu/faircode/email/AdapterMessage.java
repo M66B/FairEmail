@@ -352,6 +352,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private ImageButton ibExpanderAddress;
 
+        private ImageView ivFlag;
         private ImageView ivPlain;
         private ImageView ivReceipt;
         private ImageView ivBrowsed;
@@ -532,6 +533,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             ibExpanderAddress = vsBody.findViewById(R.id.ibExpanderAddress);
 
+            ivFlag = vsBody.findViewById(R.id.ivFlag);
             ivPlain = vsBody.findViewById(R.id.ivPlain);
             ivReceipt = vsBody.findViewById(R.id.ivReceipt);
             ivBrowsed = vsBody.findViewById(R.id.ivBrowsed);
@@ -1220,6 +1222,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             grpAttachments.setVisibility(View.GONE);
             grpImages.setVisibility(View.GONE);
 
+            ivFlag.setVisibility(View.GONE);
             ivPlain.setVisibility(View.GONE);
             ivReceipt.setVisibility(View.GONE);
             ivBrowsed.setVisibility(View.GONE);
@@ -1570,6 +1573,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibExpanderAddress.setImageLevel(show_addresses ? 0 /* less */ : 1 /* more */);
             ibExpanderAddress.setContentDescription(context.getString(show_addresses ? R.string.title_accessibility_hide_addresses : R.string.title_accessibility_show_addresses));
 
+            if (message.language != null && language_detection) {
+                int resid = context.getResources().getIdentifier(
+                        "flag_" + message.language.toLowerCase(),
+                        "drawable", context.getPackageName());
+                if (resid == 0)
+                    ivFlag.setImageDrawable(null);
+                else
+                    ivFlag.setImageResource(resid);
+            }
+
+            ivFlag.setVisibility(show_addresses && message.language != null && language_detection ? View.VISIBLE : View.GONE);
             ivPlain.setVisibility(show_addresses && message.plain_only != null && message.plain_only ? View.VISIBLE : View.GONE);
             ivReceipt.setVisibility(show_addresses && message.receipt_request != null && message.receipt_request ? View.VISIBLE : View.GONE);
             ivBrowsed.setVisibility(show_addresses && message.ui_browsed ? View.VISIBLE : View.GONE);

@@ -13,13 +13,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/ivFlag"
+        android:layout_width="21dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="6dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ibExpanderAddress"
+        app:srcCompat="@drawable/flag_nl" />
+
     <eu.faircode.email.ViewImageHint
         android:id="@+id/ivPlain"
         android:layout_width="21dp"
         android:layout_height="21dp"
         android:layout_marginStart="6dp"
         android:contentDescription="@string/title_legend_plain_only"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ivFlag"
         app:layout_constraintTop_toBottomOf="@id/ibExpanderAddress"
         app:srcCompat="@drawable/baseline_notes_24" />
 
