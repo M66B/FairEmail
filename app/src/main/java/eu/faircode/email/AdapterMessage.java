@@ -5732,7 +5732,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             int resid = 0;
                             if (data.second.country != null)
                                 resid = getResources().getIdentifier(
-                                        "flag_" + data.second.country.toLowerCase(),
+                                        "flag_" + data.second.country.toLowerCase(Locale.ROOT),
                                         "drawable", getContext().getPackageName());
                             if (resid == 0)
                                 ivFlag.setImageDrawable(null);
