@@ -535,9 +535,9 @@ public class FragmentCompose extends FragmentBase {
                             ssb.removeSpan(span);
                         }
 
-                        int color = Helper.resolveColor(getContext(), android.R.attr.textColorPrimary);
-                        int flags = (Spanned.SPAN_INCLUSIVE_INCLUSIVE | Spanned.SPAN_COMPOSING);
-                        ssb.setSpan(new ForegroundColorSpan(color), start, start, flags);
+                        //int color = Helper.resolveColor(getContext(), android.R.attr.textColorPrimary);
+                        //int flags = (Spanned.SPAN_INCLUSIVE_INCLUSIVE | Spanned.SPAN_COMPOSING);
+                        //ssb.setSpan(new ForegroundColorSpan(color), start, start, flags);
 
                         etBody.setText(ssb);
                         etBody.setSelection(start);
