@@ -61,6 +61,7 @@ import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.text.style.CharacterStyle;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
 import android.text.style.QuoteSpan;
@@ -516,18 +517,18 @@ public class FragmentCompose extends FragmentBase {
                     }
 
                     if (broken) {
-                        StyleSpan[] sspan = ssb.getSpans(start + 1, start + 1, StyleSpan.class);
-                        for (StyleSpan span : sspan) {
+                        CharacterStyle[] sspan = ssb.getSpans(start + 1, start + 1, CharacterStyle.class);
+                        for (CharacterStyle span : sspan) {
                             int s = ssb.getSpanStart(span);
                             int e = ssb.getSpanEnd(span);
                             int f = ssb.getSpanFlags(span);
                             Log.i("Style span " + s + "..." + e + " start=" + start);
 
-                            StyleSpan s1 = new StyleSpan(span.getStyle());
+                            CharacterStyle s1 = CharacterStyle.wrap(span);
                             ssb.setSpan(s1, s, start, f);
                             Log.i("Style span " + s + "..." + start);
 
-                            StyleSpan s2 = new StyleSpan(span.getStyle());
+                            CharacterStyle s2 = CharacterStyle.wrap(span);
                             ssb.setSpan(s2, start + 1, e, f);
                             Log.i("Style span " + (start + 1) + "..." + e);
 
