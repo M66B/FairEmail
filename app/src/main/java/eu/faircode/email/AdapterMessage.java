@@ -848,7 +848,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean inbox = EntityFolder.INBOX.equals(message.folderType);
             boolean outbox = EntityFolder.OUTBOX.equals(message.folderType);
             boolean outgoing = isOutgoing(message);
-            boolean reverse = (outgoing && (viewType != ViewType.THREAD || !threading) && !show_recipients);
+            boolean reverse = (outgoing &&
+                    (viewType != ViewType.THREAD || !threading) &&
+                    !show_recipients && !"sender".equals(sort));
             Address[] senders = ContactInfo.fillIn(reverse ? message.to : message.senders, prefer_contact);
             Address[] recipients = ContactInfo.fillIn(reverse ? message.from : message.recipients, prefer_contact);
             boolean authenticated =
