@@ -64,11 +64,6 @@
         </intent>
 
         <intent>
-            <action android:name="android.intent.action.PICK" />
-            <data android:scheme="content" />
-        </intent>
-
-        <intent>
             <action android:name="android.intent.action.GET_CONTENT" />
             <category android:name="android.intent.category.OPENABLE" />
             <data android:mimeType="*/*" />
