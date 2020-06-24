@@ -1304,6 +1304,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         //attachments.clear();
         //accountSwipes.clear();
 
+        values.remove("selected");
+
         super.onDestroyView();
     }
 
