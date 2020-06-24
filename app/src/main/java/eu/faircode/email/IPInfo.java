@@ -25,9 +25,6 @@ import android.net.ParseException;
 import android.net.Uri;
 import android.util.Pair;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.URL;
@@ -70,34 +67,19 @@ public class IPInfo {
         }
 
         // https://ipinfo.io/developers
-        URL url = new URL("https://ipinfo.io/" + address.getHostAddress());
+        URL url = new URL("https://ipinfo.io/" + address.getHostAddress() + "/org");
         Log.i("GET " + url);
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
-        connection.setRequestProperty("Accept", "application/json");
         connection.setReadTimeout(FETCH_TIMEOUT);
         connection.connect();
 
         Organization organization = new Organization();
         try {
-            String json = Helper.readStream(connection.getInputStream(), StandardCharsets.UTF_8.name());
-            /* {
-                "ip": "8.8.8.8",
-                    "hostname": "dns.google",
-                    "city": "Mountain View",
-                    "region": "California",
-                    "country": "US",
-                    "loc": "37.4056,-122.0775",
-                    "org": "AS15169 Google LLC",
-                    "postal": "94043",
-                    "timezone": "America/Los_Angeles"
-            } */
-
-            JSONObject jinfo = new JSONObject(json);
-            organization.name = jinfo.optString("org");
-            organization.country = jinfo.optString("country");
-        } catch (JSONException ex) {
-            throw new IOException(ex);
+            String response = Helper.readStream(connection.getInputStream(), StandardCharsets.UTF_8.name());
+            organization.name = response.trim();
+            if ("".equals(organization.name) || "undefined".equals(organization.name))
+                organization.name = null;
         } finally {
             connection.disconnect();
         }
@@ -111,6 +93,5 @@ public class IPInfo {
 
     static class Organization {
         String name;
-        String country;
     }
 }
