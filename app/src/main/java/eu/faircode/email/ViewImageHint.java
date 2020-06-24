@@ -45,7 +45,7 @@ public class ViewImageHint extends AppCompatImageView implements View.OnLongClic
             String title = getContentDescription().toString();
             if (!TextUtils.isEmpty(title)) {
                 int[] pos = new int[2];
-                getLocationInWindow(pos);
+                getLocationOnScreen(pos);
 
                 Toast toast = ToastEx.makeText(getContext(), title, Toast.LENGTH_LONG);
                 toast.setGravity(Gravity.TOP | Gravity.START, pos[0], pos[1]);

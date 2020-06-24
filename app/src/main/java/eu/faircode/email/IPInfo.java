@@ -85,7 +85,7 @@ public class IPInfo {
             organization.name = jinfo.optString("org");
             organization.country = jinfo.optString("country");
         } catch (JSONException ex) {
-            Log.w(ex);
+            throw new IOException(ex);
         } finally {
             connection.disconnect();
         }

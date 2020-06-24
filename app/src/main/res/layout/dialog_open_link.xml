@@ -149,7 +149,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvOwnerRemark" />
 
-        <ImageView
+        <eu.faircode.email.ViewImageHint
             android:id="@+id/ivFlag"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

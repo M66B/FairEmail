@@ -5734,14 +5734,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 resid = getResources().getIdentifier(
                                         "flag_" + data.second.country.toLowerCase(Locale.ROOT),
                                         "drawable", getContext().getPackageName());
+
                             if (resid == 0)
                                 ivFlag.setImageDrawable(null);
                             else
                                 ivFlag.setImageResource(resid);
 
                             ivFlag.setContentDescription(data.second.country);
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-                                ivFlag.setTooltipText(data.second.country);
 
                             tvHost.setText(data.first);
                             tvOwner.setText(TextUtils.isEmpty(data.second.name) ? "?" : data.second.name);
