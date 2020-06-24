@@ -3088,8 +3088,8 @@ Veuillez [voir ici](http://jc.etiemble.free.fr/abc/index.php/trucs-astuces/confi
 <a name="faq158"></a>
 **(158) Which camera / audio recorder do you recommend**
 
-* [Open Camera](https://play.google.com/store/apps/details?id=net.sourceforge.opencamera) [F-Droid](https://f-droid.org/en/packages/net.sourceforge.opencamera/)
-* [Audio Recorder](https://play.google.com/store/apps/details?id=com.github.axet.audiorecorder) [F-Droid](https://f-droid.org/packages/com.github.axet.audiorecorder/)
+* [Open Camera](https://play.google.com/store/apps/details?id=net.sourceforge.opencamera) ([F-Droid](https://f-droid.org/en/packages/net.sourceforge.opencamera/))
+* [Audio Recorder](https://play.google.com/store/apps/details?id=com.github.axet.audiorecorder) ([F-Droid](https://f-droid.org/packages/com.github.axet.audiorecorder/))
 
 <br />
 
