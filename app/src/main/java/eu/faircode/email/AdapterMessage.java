@@ -3595,10 +3595,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }.execute(context, owner, args, "message:move:draft");
         }
 
-        private void onActionNoJunk(TupleMessageEx message) {
-            properties.move(message.id, EntityFolder.INBOX);
-        }
-
         private void onActionArchive(TupleMessageEx message) {
             properties.move(message.id, EntityFolder.ARCHIVE);
         }
@@ -3659,9 +3655,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_set_importance_normal).setEnabled(!EntityMessage.PRIORITIY_NORMAL.equals(i));
             popupMenu.getMenu().findItem(R.id.menu_set_importance_high).setEnabled(!EntityMessage.PRIORITIY_HIGH.equals(i));
 
-            popupMenu.getMenu().findItem(R.id.menu_no_junk).setEnabled(message.uid != null && !message.folderReadOnly);
-            popupMenu.getMenu().findItem(R.id.menu_no_junk).setVisible(EntityFolder.JUNK.equals(message.folderType));
-
             popupMenu.getMenu().findItem(R.id.menu_copy).setEnabled(message.uid != null && !message.folderReadOnly);
             popupMenu.getMenu().findItem(R.id.menu_copy).setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
 
@@ -3717,9 +3710,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             return true;
                         case R.id.menu_set_importance_high:
                             onMenuSetImportance(message, EntityMessage.PRIORITIY_HIGH);
-                            return true;
-                        case R.id.menu_no_junk:
-                            onActionNoJunk(message);
                             return true;
                         case R.id.menu_copy:
                             onActionMove(message, true);
