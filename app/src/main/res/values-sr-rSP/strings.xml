@@ -90,6 +90,7 @@
     <string name="menu_legend">Легенда</string>
     <string name="menu_test">Тест програм</string>
     <string name="menu_faq">Подршка</string>
+    <string name="menu_translate">Помоћ у преводу</string>
     <string name="menu_issue">Пријави проблем</string>
     <string name="menu_attribution">Именовања</string>
     <string name="menu_privacy">Приватност</string>
@@ -145,6 +146,7 @@
     <string name="title_setup_doze_battery">Потрошња батерије?</string>
     <string name="title_setup_doze_stopped">Синхро заустављен?</string>
     <string name="title_setup_data">Укључена је штедња података</string>
+    <string name="title_setup_advanced_options">Прикажи напредне опције</string>
     <string name="title_setup_inbox">Иди на поруке</string>
     <string name="title_setup_go">Напред</string>
     <string name="title_setup_to_do">За урадити</string>
@@ -170,10 +172,13 @@
     <string name="title_setup_biometrics_disable">Искључи</string>
     <string name="title_setup_biometrics_unlock">Откључај</string>
     <string name="title_setup_theme">Одабери тему</string>
+    <string name="title_setup_theme_black_background">Црна позадина</string>
+    <string name="title_setup_theme_system">Прати систем</string>
     <string name="title_setup_advanced">Напредно</string>
     <string name="title_setup_options">Опције</string>
     <string name="title_setup_defaults">Врати на подразумевано</string>
     <string name="title_setup_reset_questions">Ресетуј питања</string>
+    <string name="title_advanced_hint_title">Више напредних опција</string>
     <string name="title_advanced_section_main">Опште</string>
     <string name="title_advanced_section_synchronize">Примање</string>
     <string name="title_advanced_section_send">Слање</string>
@@ -181,10 +186,13 @@
     <string name="title_advanced_section_display">Приказ</string>
     <string name="title_advanced_section_behavior">Понашање</string>
     <string name="title_advanced_section_privacy">Приватност</string>
+    <string name="title_advanced_section_encryption">Шифровање</string>
     <string name="title_advanced_section_notifications">Обавештења</string>
     <string name="title_advanced_section_misc">Разно</string>
     <string name="title_advanced_when">Када</string>
     <string name="title_advanced_schedule">Распоред</string>
+    <string name="title_advanced_advanced">Напредно</string>
+    <string name="title_advanced_no_date">Поруке без датума</string>
     <string name="title_advanced_unseen">Све непрочитане поруке</string>
     <string name="title_advanced_flagged">Све озвездане поруке</string>
     <string name="title_advanced_delete_unseen">Избриши старе непрочитане поруке</string>
@@ -209,6 +217,12 @@
     <string name="title_advanced_rlah">Роминг као да сте кући</string>
     <string name="title_advanced_socks">Користи SOCKS прокси</string>
     <string name="title_advanced_manage_connectivity">Управљање конекцијама</string>
+    <string name="title_advanced_caption_general">Генерално</string>
+    <string name="title_advanced_caption_list">Списак</string>
+    <string name="title_advanced_caption_conversation">Конверзација</string>
+    <string name="title_advanced_caption_message">Порука</string>
+    <string name="title_advanced_caption_message_header">Заглавље поруке</string>
+    <string name="title_advanced_caption_message_body">Тело поруке</string>
     <string name="title_advanced_landscape">Користи две колоне у пејзажном режиму</string>
     <string name="title_advanced_startup">На почетном екрану прикажи</string>
     <string name="title_advanced_date_header">Групиши по датуму</string>
@@ -300,6 +314,8 @@
     <string name="title_advanced_crash_reports">Шаљи извештаје о грешкама</string>
     <string name="title_advanced_debug">Режим отклањања грешака</string>
     <string name="title_advanced_cleanup">Чишћење</string>
+    <string name="title_advanced_app">Подешавања апликације</string>
+    <string name="title_advanced_more">Више опција</string>
     <string name="title_advanced_schedule_hint">Кликните на време да га поставите</string>
     <string name="title_advanced_unseen_hint">Неки провајдери не подржавају ово најбоље, што може да доведе да синхронизујете или све или ниједну поруку</string>
     <string name="title_advanced_sync_kept_hint">Ово ће пренети више података и потрошити више батерије, нарочито ако на уређају има јако много порука</string>
@@ -374,6 +390,7 @@
     <string name="title_password">Лозинка</string>
     <string name="title_realm">Realm</string>
     <string name="title_use_ip">Користи локалне IP адресе уместо имена домаћина</string>
+    <string name="title_primary">Главно</string>
     <string name="title_primary_account">Главни (подразумевани налог)</string>
     <string name="title_primary_identity">Главни (подразумевани идентитет)</string>
     <string name="title_leave_on_server">Остави поруке на серверу</string>
@@ -398,6 +415,7 @@
     <string name="title_drafts_required">За слање порука је потребна фасцикла нацрта</string>
     <string name="title_account_delete">Трајно избрисати овај налог?</string>
     <string name="title_identity_delete">Трајно избрисати овај идентитет?</string>
+    <string name="title_edit_html">Измени као HTML</string>
     <string name="title_sign_key">Кључ потписа: %1$s</string>
     <string name="title_last_connected">Последње повезан: %1$s</string>
     <string name="title_pop_support">POP3 протокол подржава преузимање и брисање порука само из пријемног сандучета. POP3 не може да означава поруке као прочитане, да премешта поруке, итд. POP3 ће више трошити батерију и користити више података него IMAP. Размислите да користите IMAP протокол кад год можете.</string>
@@ -415,7 +433,11 @@
     <string name="title_create_channel">Направи канал за обавештавање</string>
     <string name="title_edit_channel">Измени канал за обавештавање</string>
     <string name="title_delete_channel">Избриши канал за обавештавање</string>
+    <string name="title_insert_contact">Додај контакт</string>
+    <string name="title_edit_contact">Измени контакт</string>
     <string name="title_create_sub_folder">Направи подфасциклу</string>
+    <string name="title_empty_trash_ask">Заувек обрисати све поруке из отпада?</string>
+    <string name="title_empty_spam_ask">Обрисати све нежељене поруке заувек?</string>
     <string name="title_delete_operation">Обриши операције са поруком о грешци?</string>
     <string name="title_delete_contacts">Обриши све локалне контакте?</string>
     <string name="title_no_operations">Нема операција на чекању</string>
@@ -441,6 +463,8 @@
     <string name="title_folder_name_missing">Недостаје име фасцикле</string>
     <string name="title_folder_exists">Фасцикла %1$s већ постоји</string>
     <string name="title_folder_delete">Трајно обрисати ову фасциклу и све поруке које садржи?</string>
+    <string name="title_months">Месеци</string>
+    <string name="title_months_all">Све</string>
     <string name="title_folder_unified">Све примљене</string>
     <string name="title_folder_inbox">Примљене</string>
     <string name="title_folder_outbox">За слање</string>
@@ -467,11 +491,17 @@
     <string name="title_flag">Додај звездицу</string>
     <string name="title_flag_color">Звездице у боју&#8230;</string>
     <string name="title_unflag">Уклони звездицу</string>
+    <string name="title_set_importance">Постави важност</string>
+    <string name="title_importance_low">Ниско</string>
+    <string name="title_importance_normal">Нормално</string>
+    <string name="title_importance_high">Високо</string>
     <string name="title_forward">Проследи</string>
     <string name="title_new_message">Нова порука</string>
     <string name="title_editasnew">Измени као нову</string>
     <string name="title_create_rule">Направи правило&#8230;</string>
     <string name="title_share">Подели</string>
+    <string name="title_event">Додај у календар</string>
+    <string name="title_pin">Додај пречицу</string>
     <string name="title_print">Штампа</string>
     <string name="title_show_headers">Прикажи заглавља</string>
     <string name="title_raw_save">Сачувај сирову поруку</string>
@@ -490,11 +520,17 @@
     <string name="title_more">Више</string>
     <string name="title_spam">Нежељена пошта</string>
     <string name="title_move">Премести</string>
+    <string name="title_no_junk">Није непожељно</string>
+    <string name="title_move_to">Премести у &#8230;</string>
     <string name="title_move_to_folder">Премести у &#8230;</string>
     <string name="title_move_to_account">Премести у %1$s &#8230;</string>
+    <string name="title_report_spam">Сматрај непожељним</string>
+    <string name="title_delete_permanently">Обриши трајно</string>
     <string name="title_snooze">Одложи &#8230;</string>
     <string name="title_archive">Архива</string>
     <string name="title_reply">Одговори</string>
+    <string name="title_reply_to_sender">Одговори пошиљаоцу</string>
+    <string name="title_reply_to_all">Одговори свима</string>
     <string name="title_open_with">Отворите помоћу</string>
     <string name="title_authentication_failed">%1$s неуспела провера идентитета</string>
     <string name="title_receipt_subject">Потврда о пријему: %1$s</string>
@@ -510,6 +546,7 @@
     <string name="title_no_format">Биће укључена и оригинална порука</string>
     <string name="title_no_image">Слика не може да се декодује</string>
     <string name="title_no_search">Претрага на серверу није доступна за овај налог</string>
+    <string name="title_show_full">Прикажи целу поруку</string>
     <string name="title_unused_inline">Неискоришћене уметнуте слике ће бити уклоњене при слању</string>
     <string name="title_accross_remark">Поруке које се премештају између налога ће бити преузимане опет што доводи до повећане потрошње података</string>
     <string name="title_raw_saved">Сачувана сирова порука</string>
@@ -542,7 +579,9 @@
     <string name="title_sent">Послато:</string>
     <string name="title_received">Примљена:</string>
     <string name="title_size">Величина:</string>
+    <string name="title_language">Језик:</string>
     <string name="title_subject">Наслов:</string>
+    <string name="title_attachment">Прилог:</string>
     <string name="title_body_hint">Ваша порука</string>
     <string name="title_discard">Одбаци</string>
     <string name="title_save">Сачувај</string>
@@ -559,11 +598,18 @@
     <string name="title_style_color">Боја</string>
     <string name="title_style_clear">Очисти форматирање</string>
     <string name="title_style_link">Убаци везу</string>
+    <string name="title_add_image">Додај слику</string>
+    <string name="title_add_image_inline">Убаци</string>
+    <string name="title_add_image_attach">Прикачи</string>
+    <string name="title_add_image_resize">Промени величину</string>
+    <string name="title_add_image_select">Изабери датотеку</string>
     <string name="title_add_attachment">Додај прилог</string>
     <string name="title_attachment_file">Закачи фајл</string>
     <string name="title_attachment_photo">Сликај</string>
     <string name="title_attachment_audio">Сними звук</string>
     <string name="title_show_addresses">Прикажи CC/BCC</string>
+    <string name="title_send_dialog">Прикажи опције слања</string>
+    <string name="title_image_dialog">Прикажи опције слика</string>
     <string name="title_media_toolbar">Мултимедијални трака алатки</string>
     <string name="title_insert_contact_group">Убаци групу контакта</string>
     <string name="title_insert_template">Убаци шаблон</string>
@@ -577,6 +623,7 @@
     <string name="title_send_plain_text">Само обични текст</string>
     <string name="title_send_receipt_remark">Већина провајдера и е-мејл клијената игноришу потврде о пријему</string>
     <string name="title_from_missing">Недостаје пошиљалац</string>
+    <string name="title_extra_missing">Недостаје корисничко име</string>
     <string name="title_to_missing">Недостаје прималац</string>
     <string name="title_subject_reminder">Наслов је празан</string>
     <string name="title_text_reminder">Порука је празна</string>
@@ -607,32 +654,56 @@
     <string name="title_signature_outdated">Овај јавни кључ тренутно не важи</string>
     <string name="title_signature_store">Складиште</string>
     <string name="title_search">Претрага</string>
+    <string name="title_search_for_hint">Унеси текст</string>
+    <string name="title_search_more">Више опција</string>
+    <string name="title_search_in_message">У тексту поруке</string>
+    <string name="title_search_with_unseen">Непрочитано</string>
+    <string name="title_search_with_flagged">Озвездано</string>
+    <string name="title_search_with_before">Пре</string>
+    <string name="title_search_with_after">После</string>
+    <string name="title_search_flag_unseen">непрочитано</string>
+    <string name="title_search_flag_flagged">озвездано</string>
+    <string name="title_search_flag_hidden">сакривено</string>
+    <string name="title_search_flag_encrypted">шифровано</string>
+    <string name="title_search_flag_attachments">прилози</string>
+    <string name="title_search_device">Претражи на уређају</string>
     <string name="title_search_server">Претражи на серверу</string>
     <string name="title_search_in">Претражи у</string>
     <string name="title_sort_on">Сортирај по</string>
     <string name="title_sort_on_time">Времену</string>
     <string name="title_sort_on_unread">Непрочитаним</string>
     <string name="title_sort_on_starred">Звездицама</string>
+    <string name="title_sort_on_priority">Приоритет</string>
     <string name="title_sort_on_sender">Пошиљаоцу</string>
     <string name="title_sort_on_subject">Наслову</string>
     <string name="title_sort_on_size">Величини</string>
+    <string name="title_sort_on_attachments">Прилози</string>
     <string name="title_sort_on_hidden">Сакривеним</string>
     <string name="title_sort_ascending">Прво најстарије</string>
     <string name="title_filter">Филтрирај по</string>
     <string name="title_filter_seen">Прочитаним</string>
     <string name="title_filter_unflagged">Без звездице</string>
+    <string name="title_filter_unknown">Непознати пошиљаоци</string>
     <string name="title_filter_hidden">Сакривеним</string>
     <string name="title_filter_duplicates">Дупликатима</string>
     <string name="title_compact">Компактан изглед</string>
     <string name="title_zoom">Величина текста</string>
+    <string name="title_select_language">Изабери језик</string>
     <string name="title_select_all">Изабери све</string>
     <string name="title_select_found">Означи нађене</string>
+    <string name="title_mark_all_read">Означи све као прочитано</string>
     <string name="title_force_sync">Форсирај синхронизацију</string>
+    <string name="title_force_send">Форсирај слање</string>
+    <string name="title_language_all">Све</string>
     <string name="title_previous">Претходно</string>
     <string name="title_next">Следеће</string>
+    <string name="title_edit_signature">Промени потпис</string>
+    <string name="title_edit_signature_text">Текст потписа</string>
+    <string name="title_edit_signature_image">Убаци слику</string>
     <string name="title_answer_caption">Шаблон измене</string>
     <string name="title_answer_reply">Шаблон одговора</string>
     <string name="title_answer_name">Назив шаблона</string>
+    <string name="title_answer_favorite">Омиљено</string>
     <string name="title_answer_hide">Сакриј из менија</string>
     <string name="title_answer_text">Текст шаблона</string>
     <string name="title_answer_template_name">$name$ ће бити замењено пуним именом пошиљаоца</string>
@@ -644,6 +715,7 @@
     <string name="title_rule_ignore">Потисни обавештење</string>
     <string name="title_rule_snooze">Одложи</string>
     <string name="title_rule_flag">Додај звездицу</string>
+    <string name="title_rule_importance">Постави приоритет</string>
     <string name="title_rule_keyword">Додај кључну реч</string>
     <string name="title_rule_move">Премести</string>
     <string name="title_rule_copy">Копирај (ознака)</string>
@@ -686,6 +758,7 @@
     <string name="title_legend_section_folders">Фасцикле</string>
     <string name="title_legend_section_messages">Поруке</string>
     <string name="title_legend_section_compose">Састави</string>
+    <string name="title_legend_section_keyboard">Тастатура</string>
     <string name="title_legend_oauth">OAuth конекција</string>
     <string name="title_legend_primary_connected">Налог повезан</string>
     <string name="title_legend_primary_disconnected">Налог раскачен</string>
@@ -721,6 +794,8 @@
     <string name="title_legend_draft">Има нацрт</string>
     <string name="title_legend_priority">Високог приоритета</string>
     <string name="title_legend_priority_low">Ниског приоритета</string>
+    <string name="title_legend_importance">Важно је</string>
+    <string name="title_legend_importance_low">Није важно</string>
     <string name="title_legend_signed">Је потписан</string>
     <string name="title_legend_encrypted">Је шифрован</string>
     <string name="title_legend_auth">Неуспела провера идентитета</string>
@@ -760,6 +835,7 @@
     <string name="title_legend_show_quotes">Прикажи цитирања</string>
     <string name="title_legend_show_unsubscribe">Одјави се са листе</string>
     <string name="title_legend_show_images">Прикажи слике</string>
+    <string name="title_legend_show_full">Прикажи оригиналну поруку</string>
     <string name="title_legend_edit">Измени</string>
     <string name="title_legend_default_color">Подразумевана боја</string>
     <string name="title_legend_close_hint">Затвори савет</string>
@@ -770,10 +846,17 @@
     <string name="title_legend_delete">Избриши</string>
     <string name="title_legend_count">Број</string>
     <string name="title_legend_folder_type">Тип фасцикле</string>
+    <string name="title_legend_enter">Отвори</string>
+    <string name="title_legend_a">Архивирај</string>
+    <string name="title_legend_c">Састави</string>
+    <string name="title_legend_n">Следеће</string>
+    <string name="title_legend_p">Претходно</string>
+    <string name="title_legend_r">Одговори</string>
     <string name="title_hint_folder_sync">Да би се ограничила употреба батерије и преноса података, подразумевано се неће све фасцикле синхронизовати</string>
     <string name="title_hint_support">Ако имате питање или проблем, користите мени за подршку да добијете помоћ</string>
     <string name="title_hint_message_actions">Превуците на лево за отпад; Превуците десно за архивирање (ако је доступно); Радње приликом превлачења се могу подесити у поставкама налога</string>
     <string name="title_hint_message_selection">Притисните поруку дуго да започнете одабирање више порука; Држите и превлачите горе или доле да означите још порука</string>
+    <string name="title_hint_important">Важно</string>
     <string name="title_hint_sync">Преузимање порука може да потраје, у зависности од брзине провајдера, интернет конекцје, и уређаја и броја порука. За време преузимања порука, апликација може бити спорија.</string>
     <string name="title_hint_contact_actions">Држите дуго за опције</string>
     <string name="title_hint_eml">Ово је сажетак садржаја фајла сирове поруке. Сачувајте сирову поруку преко иконице за чување у траци са радњама да бисте јој видели садржај.</string>
@@ -821,6 +904,7 @@
     <string name="title_snooze_now">Одложи</string>
     <string name="title_loading">Учитавам &#8230;</string>
     <string name="title_set">Постави</string>
+    <string name="title_conversation_actions">Акције</string>
     <string name="title_icalendar_accept">Прихвати</string>
     <string name="title_icalendar_decline">Одбиј</string>
     <string name="title_icalendar_maybe">Можда</string>
@@ -837,6 +921,7 @@
     <string name="title_pro_valid">Све премијум функционалности активиране</string>
     <string name="title_pro_invalid">Неисправан одговор</string>
     <string name="title_pro_support">FairEmail-у је потребна Ваша помоћ. Кликните да купите премијум функције да би пројекат живео.</string>
+    <string name="title_boundary_retry">Покушај поново</string>
     <string name="title_unexpected_error">Неочекивана грешка</string>
     <string name="title_log">Дневник</string>
     <string name="title_auto_scroll">Аутоматско померање</string>
@@ -852,11 +937,17 @@
     <string name="title_widget_folder_unified">Обједињене фасцикле пријемног сандучета</string>
     <string name="title_widget_unseen">Само непрочитане поруке</string>
     <string name="title_widget_flagged">Само озвездане поруке</string>
+    <string name="title_widget_font_size">Величина фонта</string>
     <string name="title_accessibility_collapsed">Смањи</string>
     <string name="title_accessibility_expanded">Прошири</string>
     <string name="title_accessibility_seen">Прочитано</string>
     <string name="title_accessibility_unseen">Не прочитано</string>
     <!-- Thunderbird -->
+    <string name="title_keyword_label1">Важно</string>
+    <string name="title_keyword_label2">Посао</string>
+    <string name="title_keyword_label3">Лично</string>
+    <string name="title_keyword_label4">За урадити</string>
+    <string name="title_keyword_label5">Касније</string>
     <string name="title_accessibility_flagged">Омиљено</string>
     <string name="title_accessibility_unflagged">Без ознаке</string>
     <string name="title_accessibility_collapse">Умањи</string>
@@ -867,6 +958,14 @@
     <string name="title_accessibility_view_help">Прикажи помоћ</string>
     <string name="title_accessibility_selected">Означено</string>
     <string name="title_accessibility_answered">Одговорено</string>
+    <string name="title_accessibility_scroll_down">Скролуј доле</string>
+    <string name="title_accessibility_scroll_up">Скролуј горе</string>
+    <string name="title_accessibility_edit">Измени</string>
+    <string name="title_accessibility_show_addresses">Прикажи адресе</string>
+    <string name="title_accessibility_hide_addresses">Сакриј адресе</string>
+    <string name="title_accessibility_attachment">Прилог</string>
+    <string name="title_accessibility_from">Пошиљалац</string>
+    <string name="title_accessibility_to">Прималац</string>
     <string-array name="pollIntervalNames">
         <item>Увек</item>
         <item>Сваких 15 минута</item>
@@ -875,7 +974,7 @@
         <item>Свака 2 сата</item>
         <item>Свака 4 сата</item>
         <item>Сваких 8 сати</item>
-        <item>Every day</item>
+        <item>Сваки дан</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Не</item>
@@ -889,8 +988,8 @@
     <string-array name="startupNames">
         <item>Обједињено пријемно сандуче</item>
         <item>Обједињене фасцикле</item>
-        <item>Primary account folders</item>
-        <item>Accounts</item>
+        <item>Примарни фолдери налога</item>
+        <item>Налози</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>
@@ -950,6 +1049,11 @@
         <item>Мала</item>
         <item>Средња</item>
         <item>Велика</item>
+    </string-array>
+    <string-array name="signatureNames">
+        <item>Изнад текста</item>
+        <item>Испод текста</item>
+        <item>При дну</item>
     </string-array>
     <string-array name="encryptNames">
         <item>Ниједно</item>
