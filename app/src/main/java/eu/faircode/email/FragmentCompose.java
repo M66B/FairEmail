@@ -1476,7 +1476,7 @@ public class FragmentCompose extends FragmentBase {
             snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Helper.view(getContext(), Uri.parse(BuildConfig.RECORDER_URI), false);
+                    Helper.viewFAQ(getContext(), 158);
                 }
             });
             snackbar.show();
@@ -1878,7 +1878,7 @@ public class FragmentCompose extends FragmentBase {
                 snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Helper.view(getContext(), Uri.parse(BuildConfig.CAMERA_URI), false);
+                        Helper.viewFAQ(getContext(), 158);
                     }
                 });
                 snackbar.show();

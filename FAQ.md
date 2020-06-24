@@ -280,6 +280,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(155) What is a winmail.dat file?](#user-content-faq155)
 * [(156) How can I set up an Office365 account?](#user-content-faq156)
 * [(157) How can I set up an Free.fr account?](#user-content-faq157)
+* [(158) Which camera / audio recorder do you recommend?](#user-content-faq158)
 
 [I have another question.](#user-content-support)
 
@@ -3084,6 +3085,13 @@ Veuillez [voir ici](http://jc.etiemble.free.fr/abc/index.php/trucs-astuces/confi
 
 <br />
 
+<a name="faq158"></a>
+**(158) Which camera / audio recorder do you recommend**
+
+* [Open Camera](https://play.google.com/store/apps/details?id=net.sourceforge.opencamera) [F-Droid](https://f-droid.org/en/packages/net.sourceforge.opencamera/)
+* [Audio Recorder](https://play.google.com/store/apps/details?id=com.github.axet.audiorecorder) [F-Droid](https://f-droid.org/packages/com.github.axet.audiorecorder/)
+
+<br />
 
 ## Support
 
