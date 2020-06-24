@@ -1530,29 +1530,27 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             message.uid == null || message.accountProtocol == EntityAccount.TYPE_POP);
 
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                    boolean button_archive_trash = prefs.getBoolean("button_archive_trash", true);
-                    boolean button_move = prefs.getBoolean("button_move", true);
-                    boolean button_rule = prefs.getBoolean("button_rule", false);
+                    boolean experiments = prefs.getBoolean("experiments", false);
                     boolean expand_all = prefs.getBoolean("expand_all", false);
                     boolean expand_one = prefs.getBoolean("expand_one", true);
                     boolean tools = prefs.getBoolean("message_tools", true);
 
                     ibTrash.setTag(delete);
 
-                    ibRule.setVisibility(tools && button_rule && !outbox &&
+                    ibRule.setVisibility(tools && experiments && !outbox &&
                             message.accountProtocol == EntityAccount.TYPE_IMAP ? View.VISIBLE : View.GONE);
                     ibUnsubscribe.setVisibility(!tools || message.unsubscribe == null ? View.GONE : View.VISIBLE);
                     ibAnswer.setVisibility(!tools || outbox || (!expand_all && expand_one) ? View.GONE : View.VISIBLE);
-                    ibMove.setVisibility(tools && move && button_move ? View.VISIBLE : View.GONE);
-                    ibArchive.setVisibility(tools && archive && button_archive_trash ? View.VISIBLE : View.GONE);
-                    ibTrash.setVisibility(tools && trash && button_archive_trash ? View.VISIBLE : View.GONE);
+                    ibMove.setVisibility(tools && move ? View.VISIBLE : View.GONE);
+                    ibArchive.setVisibility(tools && archive ? View.VISIBLE : View.GONE);
+                    ibTrash.setVisibility(tools && trash ? View.VISIBLE : View.GONE);
                     ibJunk.setVisibility(tools && junk ? View.VISIBLE : View.GONE);
                     ibInbox.setVisibility(tools && inbox ? View.VISIBLE : View.GONE);
                     ibTools.setImageLevel(tools ? 0 : 1);
                     ibTools.setVisibility(View.VISIBLE);
 
-                    ibTrashBottom.setVisibility(tools && trash && button_archive_trash ? View.VISIBLE : View.GONE);
-                    ibArchiveBottom.setVisibility(tools && archive && button_archive_trash ? View.VISIBLE : View.GONE);
+                    ibTrashBottom.setVisibility(tools && trash ? View.VISIBLE : View.GONE);
+                    ibArchiveBottom.setVisibility(tools && archive ? View.VISIBLE : View.GONE);
 
                     if (bind)
                         bindBody(message, scroll);

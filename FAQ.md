@@ -2623,7 +2623,7 @@ Reformatting and displaying such messages will take too long. You can try to use
 <a name="faq125"></a>
 **(125) What are the current experimental features?**
 
-* ~~Custom rendering of reformatted messages~~
+* Showing an icon button to create a rule for a message
 
 <br />
 
