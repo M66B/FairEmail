@@ -5116,14 +5116,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 onPgp(data, auto);
             } else {
                 Snackbar snackbar = Snackbar.make(view, R.string.title_no_openpgp, Snackbar.LENGTH_LONG);
-                PackageManager pm = getContext().getPackageManager();
-                if (Helper.getIntentOpenKeychain().resolveActivity(pm) != null) // package whitelisted
-                    snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            startActivity(Helper.getIntentOpenKeychain());
-                        }
-                    });
+                snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Helper.viewFAQ(getContext(), 12);
+                    }
+                });
                 snackbar.show();
             }
         }

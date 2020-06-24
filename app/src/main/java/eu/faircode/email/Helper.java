@@ -566,12 +566,6 @@ public class Helper {
             view(context, Uri.parse(FAQ_URI + "#user-content-faq" + question), false);
     }
 
-    static Intent getIntentOpenKeychain() {
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse(BuildConfig.OPENKEYCHAIN_URI));
-        return intent;
-    }
-
     static String getOpenKeychainPackage(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         return prefs.getString("openpgp_provider", "org.sufficientlysecure.keychain");
