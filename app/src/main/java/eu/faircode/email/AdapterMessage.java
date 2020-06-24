@@ -415,6 +415,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageButton ibTrash;
         private ImageButton ibJunk;
         private ImageButton ibInbox;
+        private ImageButton ibTools;
         private ImageButton ibMore;
         private TextView tvSignedData;
 
@@ -615,6 +616,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibTrash = vsBody.findViewById(R.id.ibTrash);
             ibJunk = vsBody.findViewById(R.id.ibJunk);
             ibInbox = vsBody.findViewById(R.id.ibInbox);
+            ibTools = vsBody.findViewById(R.id.ibTools);
             ibMore = vsBody.findViewById(R.id.ibMore);
             tvSignedData = vsBody.findViewById(R.id.tvSignedData);
 
@@ -704,6 +706,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibTrash.setOnClickListener(this);
                 ibJunk.setOnClickListener(this);
                 ibInbox.setOnClickListener(this);
+                ibTools.setOnClickListener(this);
                 ibMore.setOnClickListener(this);
 
                 ibDownloading.setOnClickListener(this);
@@ -790,6 +793,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibTrash.setOnClickListener(null);
                 ibJunk.setOnClickListener(null);
                 ibInbox.setOnClickListener(null);
+                ibTools.setOnClickListener(null);
                 ibMore.setOnClickListener(null);
 
                 ibDownloading.setOnClickListener(null);
@@ -1283,6 +1287,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibTrash.setVisibility(View.GONE);
             ibJunk.setVisibility(View.GONE);
             ibInbox.setVisibility(View.GONE);
+            ibTools.setVisibility(View.GONE);
             ibMore.setVisibility(View.GONE);
             tvSignedData.setVisibility(View.GONE);
 
@@ -1412,6 +1417,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibTrash.setVisibility(View.GONE);
             ibJunk.setVisibility(View.GONE);
             ibInbox.setVisibility(View.GONE);
+            ibTools.setVisibility(View.GONE);
             ibMore.setVisibility(EntityFolder.OUTBOX.equals(message.folderType) ? View.GONE : View.VISIBLE);
             tvSignedData.setVisibility(View.GONE);
 
@@ -1468,6 +1474,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             });
 
             // Setup actions
+            setupTools(message, scroll, true);
+        }
+
+        private void setupTools(final TupleMessageEx message, final boolean scroll, final boolean bind) {
             Bundle sargs = new Bundle();
             sargs.putLong("id", message.id);
             sargs.putLong("account", message.account);
@@ -1525,23 +1535,27 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean button_rule = prefs.getBoolean("button_rule", false);
                     boolean expand_all = prefs.getBoolean("expand_all", false);
                     boolean expand_one = prefs.getBoolean("expand_one", true);
+                    boolean tools = prefs.getBoolean("message_tools", true);
 
                     ibTrash.setTag(delete);
 
-                    ibRule.setVisibility(button_rule && !outbox &&
+                    ibRule.setVisibility(tools && button_rule && !outbox &&
                             message.accountProtocol == EntityAccount.TYPE_IMAP ? View.VISIBLE : View.GONE);
-                    ibUnsubscribe.setVisibility(message.unsubscribe == null ? View.GONE : View.VISIBLE);
-                    ibAnswer.setVisibility(outbox || (!expand_all && expand_one) ? View.GONE : View.VISIBLE);
-                    ibMove.setVisibility(move && button_move ? View.VISIBLE : View.GONE);
-                    ibArchive.setVisibility(archive && button_archive_trash ? View.VISIBLE : View.GONE);
-                    ibTrash.setVisibility(trash && button_archive_trash ? View.VISIBLE : View.GONE);
-                    ibJunk.setVisibility(junk ? View.VISIBLE : View.GONE);
-                    ibInbox.setVisibility(inbox ? View.VISIBLE : View.GONE);
+                    ibUnsubscribe.setVisibility(!tools || message.unsubscribe == null ? View.GONE : View.VISIBLE);
+                    ibAnswer.setVisibility(!tools || outbox || (!expand_all && expand_one) ? View.GONE : View.VISIBLE);
+                    ibMove.setVisibility(tools && move && button_move ? View.VISIBLE : View.GONE);
+                    ibArchive.setVisibility(tools && archive && button_archive_trash ? View.VISIBLE : View.GONE);
+                    ibTrash.setVisibility(tools && trash && button_archive_trash ? View.VISIBLE : View.GONE);
+                    ibJunk.setVisibility(tools && junk ? View.VISIBLE : View.GONE);
+                    ibInbox.setVisibility(tools && inbox ? View.VISIBLE : View.GONE);
+                    ibTools.setImageLevel(tools ? 0 : 1);
+                    ibTools.setVisibility(View.VISIBLE);
 
-                    ibTrashBottom.setVisibility(trash && button_archive_trash ? View.VISIBLE : View.GONE);
-                    ibArchiveBottom.setVisibility(archive && button_archive_trash ? View.VISIBLE : View.GONE);
+                    ibTrashBottom.setVisibility(tools && trash && button_archive_trash ? View.VISIBLE : View.GONE);
+                    ibArchiveBottom.setVisibility(tools && archive && button_archive_trash ? View.VISIBLE : View.GONE);
 
-                    bindBody(message, scroll);
+                    if (bind)
+                        bindBody(message, scroll);
                 }
 
                 @Override
@@ -2745,6 +2759,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     case R.id.ibInbox:
                         onActionInbox(message);
                         break;
+                    case R.id.ibTools:
+                        onActionTools(message);
+                        break;
                     case R.id.ibMore:
                         onActionMore(message);
                         break;
@@ -3632,6 +3649,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void onActionInbox(TupleMessageEx message) {
             properties.move(message.id, EntityFolder.INBOX);
+        }
+
+        private void onActionTools(TupleMessageEx message) {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean message_tools = !prefs.getBoolean("message_tools", true);
+            prefs.edit().putBoolean("message_tools", message_tools).apply();
+            setupTools(message, false, false);
         }
 
         private void onActionMore(TupleMessageEx message) {
