@@ -415,8 +415,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageButton ibTrash;
         private ImageButton ibJunk;
         private ImageButton ibInbox;
-        private ImageButton ibTools;
         private ImageButton ibMore;
+        private ImageButton ibTools;
         private TextView tvSignedData;
 
         private TextView tvBody;
@@ -616,8 +616,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibTrash = vsBody.findViewById(R.id.ibTrash);
             ibJunk = vsBody.findViewById(R.id.ibJunk);
             ibInbox = vsBody.findViewById(R.id.ibInbox);
-            ibTools = vsBody.findViewById(R.id.ibTools);
             ibMore = vsBody.findViewById(R.id.ibMore);
+            ibTools = vsBody.findViewById(R.id.ibTools);
             tvSignedData = vsBody.findViewById(R.id.tvSignedData);
 
             tvBody = vsBody.findViewById(R.id.tvBody);
@@ -706,8 +706,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibTrash.setOnClickListener(this);
                 ibJunk.setOnClickListener(this);
                 ibInbox.setOnClickListener(this);
-                ibTools.setOnClickListener(this);
                 ibMore.setOnClickListener(this);
+                ibTools.setOnClickListener(this);
 
                 ibDownloading.setOnClickListener(this);
                 ibTrashBottom.setOnClickListener(this);
@@ -793,8 +793,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibTrash.setOnClickListener(null);
                 ibJunk.setOnClickListener(null);
                 ibInbox.setOnClickListener(null);
-                ibTools.setOnClickListener(null);
                 ibMore.setOnClickListener(null);
+                ibTools.setOnClickListener(null);
 
                 ibDownloading.setOnClickListener(null);
                 ibTrashBottom.setOnClickListener(null);
@@ -1287,8 +1287,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibTrash.setVisibility(View.GONE);
             ibJunk.setVisibility(View.GONE);
             ibInbox.setVisibility(View.GONE);
-            ibTools.setVisibility(View.GONE);
             ibMore.setVisibility(View.GONE);
+            ibTools.setVisibility(View.GONE);
             tvSignedData.setVisibility(View.GONE);
 
             tvNoInternetBody.setVisibility(View.GONE);
@@ -1417,8 +1417,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibTrash.setVisibility(View.GONE);
             ibJunk.setVisibility(View.GONE);
             ibInbox.setVisibility(View.GONE);
+            ibMore.setVisibility(View.GONE);
             ibTools.setVisibility(View.GONE);
-            ibMore.setVisibility(EntityFolder.OUTBOX.equals(message.folderType) ? View.GONE : View.VISIBLE);
             tvSignedData.setVisibility(View.GONE);
 
             // Message text
@@ -1546,6 +1546,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibTrash.setVisibility(tools && trash ? View.VISIBLE : View.GONE);
                     ibJunk.setVisibility(tools && junk ? View.VISIBLE : View.GONE);
                     ibInbox.setVisibility(tools && inbox ? View.VISIBLE : View.GONE);
+                    ibMore.setVisibility(!tools || outbox ? View.GONE : View.VISIBLE);
                     ibTools.setImageLevel(tools ? 0 : 1);
                     ibTools.setVisibility(View.VISIBLE);
 
@@ -2757,11 +2758,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     case R.id.ibInbox:
                         onActionInbox(message);
                         break;
-                    case R.id.ibTools:
-                        onActionTools(message);
-                        break;
                     case R.id.ibMore:
                         onActionMore(message);
+                        break;
+                    case R.id.ibTools:
+                        onActionTools(message);
                         break;
 
                     case R.id.ibDownloading:

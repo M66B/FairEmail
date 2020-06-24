@@ -24,19 +24,6 @@
         app:layout_constraintTop_toBottomOf="@id/vSeparator" />
 
     <ImageButton
-        android:id="@+id/ibMore"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_more"
-        android:padding="6dp"
-        android:scaleType="fitCenter"
-        android:tooltipText="@string/title_more"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/vSeparator"
-        app:srcCompat="@drawable/baseline_more_horiz_24" />
-
-    <ImageButton
         android:id="@+id/ibTools"
         android:layout_width="36dp"
         android:layout_height="36dp"
@@ -45,9 +32,22 @@
         android:padding="6dp"
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_legend_expander"
-        app:layout_constraintStart_toEndOf="@+id/ibMore"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/vSeparator"
         app:srcCompat="@drawable/expander_hor" />
+
+    <ImageButton
+        android:id="@+id/ibMore"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/title_more"
+        android:padding="6dp"
+        android:scaleType="fitCenter"
+        android:tooltipText="@string/title_more"
+        app:layout_constraintStart_toEndOf="@+id/ibTools"
+        app:layout_constraintTop_toBottomOf="@id/vSeparator"
+        app:srcCompat="@drawable/baseline_more_horiz_24" />
 
     <androidx.constraintlayout.helper.widget.Flow
         android:id="@+id/ibFlow"
@@ -60,7 +60,7 @@
         app:flow_horizontalStyle="packed"
         app:flow_wrapMode="chain"
         app:layout_constraintEnd_toStartOf="@+id/ibVerify"
-        app:layout_constraintStart_toEndOf="@+id/ibTools"
+        app:layout_constraintStart_toEndOf="@+id/ibMore"
         app:layout_constraintTop_toBottomOf="@id/vSeparator" />
 
     <ImageButton
