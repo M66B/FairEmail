@@ -122,9 +122,7 @@
     <string name="menu_about">About</string>
 
     <string name="menu_pro">Pro features</string>
-    <string name="menu_invite">Invite</string>
     <string name="menu_rate">Rate this app</string>
-    <string name="menu_other">Other apps</string>
 
     <string name="title_welcome">Welcome</string>
     <string name="title_eula">End-user license agreement</string>
@@ -1261,8 +1259,6 @@
     <string name="title_icalendar_decline">Decline</string>
     <string name="title_icalendar_maybe">Maybe</string>
     <string name="title_icalendar_calendar">Calendar</string>
-
-    <string name="title_try">Try FairEmail, an open source, privacy friendly email app for Android</string>
 
     <string name="title_pro_feature">This is a pro feature</string>
     <string name="title_pro_list">List of pro features</string>

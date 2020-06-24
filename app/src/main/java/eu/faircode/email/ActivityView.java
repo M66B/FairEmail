@@ -542,15 +542,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
         }));
 
-        extra.add(new NavMenuItem(R.drawable.baseline_people_24, R.string.menu_invite, new Runnable() {
-            @Override
-            public void run() {
-                if (!drawerLayout.isLocked(drawerContainer))
-                    drawerLayout.closeDrawer(drawerContainer);
-                onMenuInvite();
-            }
-        }).setExternal(true));
-
         if ((Helper.isPlayStoreInstall() || BuildConfig.DEBUG))
             extra.add(new NavMenuItem(R.drawable.baseline_star_24, R.string.menu_rate, new Runnable() {
                 @Override
@@ -560,15 +551,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     onMenuRate();
                 }
             }).setExternal(true));
-
-        extra.add(new NavMenuItem(R.drawable.baseline_get_app_24, R.string.menu_other, new Runnable() {
-            @Override
-            public void run() {
-                if (!drawerLayout.isLocked(drawerContainer))
-                    drawerLayout.closeDrawer(drawerContainer);
-                onMenuOtherApps();
-            }
-        }).setExternal(true));
 
         adapterNavMenuExtra.set(extra);
 
@@ -1007,12 +989,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         }
     }
 
-    private Intent getIntentOtherApps() {
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse(BuildConfig.APPS_URI));
-        return intent;
-    }
-
     private void onMenuFolders(long account) {
         if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
             getSupportFragmentManager().popBackStack("unified", 0);
@@ -1126,16 +1102,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         fragmentTransaction.commit();
     }
 
-    private void onMenuInvite() {
-        startActivity(getIntentInvite(this));
-    }
-
     private void onMenuRate() {
         new FragmentDialogRate().show(getSupportFragmentManager(), "rate");
-    }
-
-    private void onMenuOtherApps() {
-        Helper.view(this, getIntentOtherApps());
     }
 
     private void onDebugInfo() {
@@ -1333,18 +1301,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private class UpdateInfo {
         String tag_name; // version
         String html_url;
-    }
-
-    private static Intent getIntentInvite(Context context) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(context.getString(R.string.title_try)).append("\n\n");
-        sb.append(BuildConfig.INVITE_URI).append("\n\n");
-
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_SUBJECT, context.getString(R.string.app_name));
-        intent.putExtra(Intent.EXTRA_TEXT, sb.toString());
-        return intent;
     }
 
     public static class FragmentDialogFirst extends FragmentDialogBase {
