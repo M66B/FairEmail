@@ -305,6 +305,7 @@
     <string name="title_advanced_preview_lines">Número de líneas de vista previa</string>
     <string name="title_advanced_archive_trash">Mostrar botones para archivar o eliminar un mensaje</string>
     <string name="title_advanced_move">Mostrar botón para mover un mensaje</string>
+    <string name="title_advanced_create_rule">Mostrar botón para crear una regla para un mensaje</string>
     <string name="title_advanced_addresses">Mostrar detalles de dirección por defecto</string>
     <string name="title_advanced_attachments_alt">Mostrar adjuntos después del texto del mensaje</string>
     <string name="title_advanced_contrast">Utilizar contraste alto para el texto del mensaje</string>
@@ -1035,6 +1036,7 @@
     <string name="title_legend_avatar">Avatar</string>
     <string name="title_legend_show_quotes">Mostrar citas</string>
     <string name="title_legend_show_junk">Tratar como spam</string>
+    <string name="title_legend_create_rule">Crear regla</string>
     <string name="title_legend_show_unsubscribe">Desuscribirse de la lista</string>
     <string name="title_legend_show_images">Mostrar imágenes</string>
     <string name="title_legend_show_full">Mostrar mensaje original</string>

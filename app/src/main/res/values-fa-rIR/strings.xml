@@ -101,7 +101,7 @@
     <string name="menu_rate">به این برنامه امتیاز دهید</string>
     <string name="menu_other">دیگر برنامه‌ها</string>
     <string name="title_welcome">خوش آمدید</string>
-    <string name="title_eula">توافقنامه مجوز نهایی کاربر</string>
+    <string name="title_eula">توافقنامه مجوز کاربر نهایی</string>
     <string name="title_agree">موافقم</string>
     <string name="title_disagree">مخالفم</string>
     <string name="title_version">نگارش %1$s</string>
@@ -118,14 +118,14 @@
         پروتکل‌های غیر استاندارد،مانند Microsoft Exchange Web Services و Microsoft ActiveSync پشتیبانی نمی‌شوند، همچنین شرح برنامه را ببینید.
     </string>
     <string name="title_setup_quick">راه‌اندازی سریع</string>
-    <string name="title_setup_quick_remark">برای راه‌اندازی سریع یک حساب و شناسه برای بیشتر ارائه دهندگان</string>
+    <string name="title_setup_quick_remark">برای راه‌اندازی سریع یک حساب و شناسه برای بیشتر فراهم کنندگان</string>
     <string name="title_setup_quick_hint">راه‌اندازی سریع اطلاعات پیکربندی را از autoconfig.thunderbird.net واکشی خواهد کرد</string>
     <string name="title_setup_quick_imap">سرور IMAP برای دریافت پیام‌ها</string>
     <string name="title_setup_quick_smtp">سرور SMTP برای ارسال پیام‌ها</string>
     <string name="title_setup_wizard">جادوگر</string>
     <string name="title_setup_wizard_multiple">جادوگر نصب می‌تواند چندین بار برای راه‌اندازی چندین حساب‌ مورد استفاده قرار بگیرد</string>
     <string name="title_setup_wizard_remark">برای رفتن به صندوق ورودی به عقب بروید</string>
-    <string name="title_setup_other">ارائه دهنده دیگر</string>
+    <string name="title_setup_other">فراهم کننده دیگر</string>
     <string name="title_setup_gmail_support">حساب های گوگل فقط در نسخه‌های رسمی مجاز می‌شوند چون اندروید امضای برنامه را بررسی می‌کند</string>
     <string name="title_setup_gmail_rationale">لطفا مجوز برای انتخاب حساب و خواندن نام شما را اعطا کنید</string>
     <string name="title_setup_gmail_permissions">گوگل برای خواندن، نوشتن، فرستادن و حذف همیشگی همه ایمیل‌های شما درخواست دسترسی خواهد کرد. FairEmail هیچ‌وقت بدون رضایت آشکار شما پیام‌های شما را حذف نخواهد کرد.</string>
@@ -334,7 +334,7 @@
     <string name="title_advanced_sign_default">امضاء به‌صورت پیشفرض</string>
     <string name="title_advanced_encrypt_default">رمزگذاری به‌صورت پیشفرض</string>
     <string name="title_advanced_auto_decrypt">رمزگشایی خودکار پیام‌ها</string>
-    <string name="title_advanced_openpgp">ارائه دهنده OpenPGP</string>
+    <string name="title_advanced_openpgp">فراهم کننده OpenPGP</string>
     <string name="title_advanced_autocrypt">استفاده از Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">حالت دستی Autocrypt</string>
     <string name="title_advanced_check_certificate">بررسی کلید عمومی هنگام فرستادن</string>
@@ -371,7 +371,7 @@
     <string name="title_advanced_preview_hint">فقط زمانی در دسترس است که متن پیام دانلود شده باشد</string>
     <string name="title_advanced_autoexpand_hint">باز کردن خودکار پیام وقتی فقط یک پیام یا فقط یک پیام خوانده نشده در مکالمه وجود دارد</string>
     <string name="title_advanced_autoclose_hint">بسته شدن خودکار مکالمات زمانی که همه پیام‌ها آرشیو شده، فرستاده شده و یا به به سطل آشغال فرستاده شده است</string>
-    <string name="title_advanced_sender_hint">اکثر سرویس دهندگان اجازه اصلاح یا تغییر آدرس فرستنده را نمی‌دهند</string>
+    <string name="title_advanced_sender_hint">بیشتر فراهم‌کنندگان نشانی‌های ویرایش شده فرستنده را قبول نمی‌کنند</string>
     <string name="title_advanced_display_pin_hint">یک پین بر تایید هویت بیومتریک اولویت دارد</string>
     <string name="title_advanced_badge_hint">تنها روی راه‌اندازهای پشتیبانی‌شده در دسترس است</string>
     <string name="title_advanced_notify_action_hint">حداکثر سه کنش نشان داده خواهد شد</string>
@@ -405,7 +405,7 @@
     <string name="title_domain">نام دامنه</string>
     <string name="title_autoconfig">دریافت تنظیمات</string>
     <string name="title_aliases">نام‌های مستعار</string>
-    <string name="title_provider">سرویس دهنده</string>
+    <string name="title_provider">فراهم کننده</string>
     <string name="title_custom">سفارشی</string>
     <string name="title_host">نام میزبان</string>
     <string name="title_allow_insecure">اجازه اتصال ناامن</string>
@@ -436,7 +436,7 @@
     <string name="title_no_password">گذرواژه موجود نیست</string>
     <string name="title_no_inbox">صندوق دریافتی پیدا نشد</string>
     <string name="title_no_primary_drafts">عدم وجود حساب اصلی یا پوشه پیش‌نویس‌ها</string>
-    <string name="title_no_idle">این سرویس دهنده از قابلیت نشاندن پیام‌ها پشتیبانی نمی‌کند. به همین منظور تاخیر در وصول پیام‌های جدید وجود خواهد داشت و موجب افزایش مصرف باتری می‌شود.</string>
+    <string name="title_no_idle">این فراهم‌کننده از قابلیت نشاندن پیام‌ها پشتیبانی نمی‌کند. برای همین دریافت پیام‌های تازه با دیرکرد همراه خواهد بود و مصرف باتری افزایش خواهد یافت.</string>
     <string name="title_no_utf8">فراهم‌کننده از UTF-8 پشتیبانی نمی‌کند</string>
     <string name="title_no_sync">خطای همگام سازی از %1$s</string>
     <string name="title_drafts_required">برای ارسال پیام‌ها به پوشه پیش‌نویس‌ها نیاز است</string>
@@ -661,7 +661,7 @@
     <string name="title_unknown_key">کلید خصوصی با هیچ کلید رمزنگاری همخوانی ندارد</string>
     <string name="title_send_plain_text">فقط متن ساده</string>
     <string name="title_send_receipt">درخواست رسید دریافت</string>
-    <string name="title_send_receipt_remark">بیشتر ارائه دهندگان و کارخواه‌ها، درخواست‌های رسید دریافت را نادیده می‌گیرند</string>
+    <string name="title_send_receipt_remark">بیشتر فراهم‌کنندگان و کارخواه‌ها، درخواست‌های رسید دریافت را نادیده می‌گیرند</string>
     <string name="title_from_missing">فرستنده وجود ندارد</string>
     <string name="title_extra_missing">نام کاربری وجود ندارد</string>
     <string name="title_to_missing">گیرنده وجود ندارد</string>

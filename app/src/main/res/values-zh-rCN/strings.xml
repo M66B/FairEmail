@@ -543,7 +543,7 @@
     <string name="title_hint_alias">长按出现选项，如复制以创建别名身份</string>
     <string name="title_service_vpn">这可能是正在使用的 VPN 造成的</string>
     <string name="title_service_port">请再次检查端口号</string>
-    <string name="title_service_protocol">请仔细检查协议(SSL/TLS或STARTTLS)</string>
+    <string name="title_service_protocol">请仔细检查协议 (SSL/TLS 或 STARTTLS)</string>
     <string name="title_advanced_browse">浏览服务器上的消息</string>
     <string name="title_advanced_expand_read">将展开的消息标记为已读</string>
     <string name="title_synchronize_now">现在同步</string>

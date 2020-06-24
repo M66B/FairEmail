@@ -304,6 +304,7 @@
     <string name="title_advanced_preview_lines">Редове на показване</string>
     <string name="title_advanced_archive_trash">Показване на бутони за архивиране или изтриване на съобщение</string>
     <string name="title_advanced_move">Показване на бутон за преместване на съобщение</string>
+    <string name="title_advanced_create_rule">Покажи бутона за създаване на правило за съобщение</string>
     <string name="title_advanced_addresses">Покажи адреса по подразбиране</string>
     <string name="title_advanced_attachments_alt">Покажи прикачените файлове след текста на съобщението</string>
     <string name="title_advanced_contrast">Използвай висок контраст за текст на съобщението</string>
@@ -678,6 +679,7 @@
     <string name="title_reply_list">Отговори на списък</string>
     <string name="title_reply_receipt">Изпрати разписка за прочетено</string>
     <string name="title_reply_template">Отговор с шаблон</string>
+    <string name="title_move_undo">Премести в %1$s (%2$d)</string>
     <string name="title_open_with">Отвори с</string>
     <string name="title_authentication_failed">%1$s неуспешна идентификация</string>
     <string name="title_receipt_subject">Разписка за прочетено: %1$s</string>
@@ -1032,6 +1034,7 @@
     <string name="title_legend_avatar">Аватар</string>
     <string name="title_legend_show_quotes">Покажи цитираното</string>
     <string name="title_legend_show_junk">Третиране като спам</string>
+    <string name="title_legend_create_rule">Създай правило</string>
     <string name="title_legend_show_unsubscribe">Отписване от абонамент</string>
     <string name="title_legend_show_images">Показване на изображения</string>
     <string name="title_legend_show_full">Показване на оригиналното съобщение</string>

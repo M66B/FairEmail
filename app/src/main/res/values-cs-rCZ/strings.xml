@@ -326,6 +326,7 @@
     <string name="title_advanced_preview_lines">Počet řádků náhledu</string>
     <string name="title_advanced_archive_trash">Zobrazit tlačítka pro archivaci nebo přesun zprávy do koše</string>
     <string name="title_advanced_move">Zobrazit tlačítko pro přesun zprávy</string>
+    <string name="title_advanced_create_rule">Zobrazit tlačítko pro vytvoření pravidla pro zprávu</string>
     <string name="title_advanced_addresses">Zobrazit detaily adresy automaticky</string>
     <string name="title_advanced_attachments_alt">Přesunout zobrazení příloh pod text zprávy</string>
     <string name="title_advanced_contrast">Použít vysoký kontrast pro text zprávy</string>
@@ -1056,6 +1057,7 @@
     <string name="title_legend_avatar">Avatar</string>
     <string name="title_legend_show_quotes">Zobrazit citace</string>
     <string name="title_legend_show_junk">Považovat za nevyžádané</string>
+    <string name="title_legend_create_rule">Vytvořit pravidlo</string>
     <string name="title_legend_show_unsubscribe">Ukončit odebírání kanálu</string>
     <string name="title_legend_show_images">Zobrazit obrázky</string>
     <string name="title_legend_show_full">Zobrazit původní zprávu</string>
