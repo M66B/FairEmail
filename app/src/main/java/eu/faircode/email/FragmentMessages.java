@@ -1296,13 +1296,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }
         pgpService = null;
 
-        kv.clear();
-        values.clear();
-        sizes.clear();
-        heights.clear();
-        positions.clear();
-        attachments.clear();
-        accountSwipes.clear();
+        //kv.clear();
+        //values.clear();
+        //sizes.clear();
+        //heights.clear();
+        //positions.clear();
+        //attachments.clear();
+        //accountSwipes.clear();
 
         super.onDestroyView();
     }
