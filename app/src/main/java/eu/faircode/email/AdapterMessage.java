@@ -1533,6 +1533,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean experiments = prefs.getBoolean("experiments", false);
                     boolean expand_all = prefs.getBoolean("expand_all", false);
                     boolean expand_one = prefs.getBoolean("expand_one", true);
+                    boolean extras = prefs.getBoolean("message_extras", true);
                     boolean tools = prefs.getBoolean("message_tools", true);
 
                     ibTrash.setTag(delete);
@@ -1542,16 +1543,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibUnsubscribe.setVisibility(!tools || message.unsubscribe == null ? View.GONE : View.VISIBLE);
                     ibAnswer.setVisibility(!tools || outbox || (!expand_all && expand_one) ? View.GONE : View.VISIBLE);
                     ibMove.setVisibility(tools && move ? View.VISIBLE : View.GONE);
-                    ibArchive.setVisibility(tools && archive ? View.VISIBLE : View.GONE);
-                    ibTrash.setVisibility(tools && trash ? View.VISIBLE : View.GONE);
+                    ibArchive.setVisibility(tools && extras && archive ? View.VISIBLE : View.GONE);
+                    ibTrash.setVisibility(tools && extras && trash ? View.VISIBLE : View.GONE);
                     ibJunk.setVisibility(tools && junk ? View.VISIBLE : View.GONE);
                     ibInbox.setVisibility(tools && inbox ? View.VISIBLE : View.GONE);
                     ibMore.setVisibility(!tools || outbox ? View.GONE : View.VISIBLE);
                     ibTools.setImageLevel(tools ? 0 : 1);
                     ibTools.setVisibility(View.VISIBLE);
 
-                    ibTrashBottom.setVisibility(trash ? View.VISIBLE : View.GONE);
-                    ibArchiveBottom.setVisibility(archive ? View.VISIBLE : View.GONE);
+                    ibTrashBottom.setVisibility(extras && trash ? View.VISIBLE : View.GONE);
+                    ibArchiveBottom.setVisibility(extras && archive ? View.VISIBLE : View.GONE);
 
                     if (bind)
                         bindBody(message, scroll);
@@ -3661,9 +3662,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean show_headers = properties.getValue("headers", message.id);
             boolean full = properties.getValue("full", message.id);
 
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean message_extras = prefs.getBoolean("message_extras", true);
+
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, ibMore);
             popupMenu.inflate(R.menu.popup_message_more);
 
+            popupMenu.getMenu().findItem(R.id.menu_extras).setChecked(message_extras);
             popupMenu.getMenu().findItem(R.id.menu_unseen).setTitle(message.ui_seen ? R.string.title_unseen : R.string.title_seen);
             popupMenu.getMenu().findItem(R.id.menu_unseen).setEnabled(
                     (message.uid != null && !message.folderReadOnly) || message.accountProtocol != EntityAccount.TYPE_IMAP);
@@ -3713,6 +3718,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 @Override
                 public boolean onMenuItemClick(MenuItem target) {
                     switch (target.getItemId()) {
+                        case R.id.menu_extras:
+                            onMenuExtras(message, target.isChecked());
+                            return true;
                         case R.id.menu_unseen:
                             onMenuUnseen(message);
                             return true;
@@ -3969,6 +3977,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             else
                 ToastEx.makeText(context, context.getString(R.string.title_no_viewer, uri), Toast.LENGTH_LONG).show();
+        }
+
+        private void onMenuExtras(final TupleMessageEx message, boolean isChecked) {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            prefs.edit().putBoolean("message_extras", !isChecked).apply();
+            setupTools(message, false, false);
         }
 
         private void onMenuUnseen(final TupleMessageEx message) {

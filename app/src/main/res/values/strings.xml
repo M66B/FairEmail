@@ -352,9 +352,6 @@
     <string name="title_advanced_preview">Show message preview</string>
     <string name="title_advanced_preview_italic">Show message preview in italics</string>
     <string name="title_advanced_preview_lines">Number of preview lines</string>
-    <string name="title_advanced_archive_trash">Show buttons to archive or trash a message</string>
-    <string name="title_advanced_move">Show button to move a message</string>
-    <string name="title_advanced_create_rule">Show button to create a rule for a message</string>
     <string name="title_advanced_addresses">Expand address details by default</string>
     <string name="title_advanced_attachments_alt">Show attachments after the message text</string>
     <string name="title_advanced_contrast">Use high contrast for message text</string>
@@ -724,6 +721,7 @@
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
 
+    <string name="title_extras">Extra buttons</string>
     <string name="title_seen">Mark read</string>
     <string name="title_unseen">Mark unread</string>
     <string name="title_hide">Hide</string>

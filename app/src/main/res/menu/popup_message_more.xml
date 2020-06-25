@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
+        android:id="@+id/menu_extras"
+        android:checkable="true"
+        android:title="@string/title_extras" />
+
+    <item
         android:id="@+id/menu_unseen"
         android:title="@string/title_unseen" />
 
