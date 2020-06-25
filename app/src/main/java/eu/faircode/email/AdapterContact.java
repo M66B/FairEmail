@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.Manifest;
+import android.content.ActivityNotFoundException;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
@@ -41,6 +42,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.PopupMenu;
@@ -276,8 +278,9 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
                 private void onActionShare() {
                     try {
                         context.startActivity(share);
-                    } catch (Throwable ex) {
-                        Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                    } catch (ActivityNotFoundException ex) {
+                        Log.w(ex);
+                        ToastEx.makeText(context, context.getString(R.string.title_no_viewer, share), Toast.LENGTH_LONG).show();
                     }
                 }
 

@@ -2648,6 +2648,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         try {
                             context.startActivity((Intent) result);
                         } catch (ActivityNotFoundException ex) {
+                            Log.w(ex);
                             ToastEx.makeText(context, context.getString(R.string.title_no_viewer, result), Toast.LENGTH_LONG).show();
                         }
                     }
@@ -3215,7 +3216,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     Intent intent = new Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS)
                             .putExtra(Settings.EXTRA_APP_PACKAGE, context.getPackageName())
                             .putExtra(Settings.EXTRA_CHANNEL_ID, channelId);
-                    context.startActivity(intent);
+                    try {
+                        context.startActivity(intent);
+                    } catch (ActivityNotFoundException ex) {
+                        Log.w(ex);
+                        ToastEx.makeText(context, context.getString(R.string.title_no_viewer, intent), Toast.LENGTH_LONG).show();
+                    }
                 }
 
                 private void onActionDeleteChannel() {
@@ -3315,7 +3321,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 Snackbar.make(parentFragment.getView(),
                         R.string.title_no_contacts, Snackbar.LENGTH_LONG).show();
             else
-                context.startActivity(insert);
+                try {
+                    context.startActivity(insert);
+                } catch (ActivityNotFoundException ex) {
+                    Log.w(ex);
+                    ToastEx.makeText(context, context.getString(R.string.title_no_viewer, insert), Toast.LENGTH_LONG).show();
+                }
         }
 
         private void onEditContact(String name, String email, Uri lookupUri) {
@@ -3332,7 +3343,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 Snackbar.make(parentFragment.getView(),
                         R.string.title_no_contacts, Snackbar.LENGTH_LONG).show();
             else
-                context.startActivity(edit);
+                try {
+                    context.startActivity(edit);
+                } catch (ActivityNotFoundException ex) {
+                    Log.w(ex);
+                    ToastEx.makeText(context, context.getString(R.string.title_no_viewer, edit), Toast.LENGTH_LONG).show();
+                }
         }
 
         private void onToggleMessage(TupleMessageEx message) {
@@ -4567,7 +4583,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 send.putExtra(Intent.EXTRA_STREAM, uri);
                 send.setType("message/rfc822");
                 send.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                context.startActivity(send);
+
+                try {
+                    context.startActivity(send);
+                } catch (ActivityNotFoundException ex) {
+                    Log.w(ex);
+                    ToastEx.makeText(context, context.getString(R.string.title_no_viewer, send), Toast.LENGTH_LONG).show();
+                }
             }
         }
 
