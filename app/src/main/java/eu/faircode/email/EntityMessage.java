@@ -244,6 +244,16 @@ public class EntityMessage implements Serializable {
         return "notification." + sender.getAddress().toLowerCase(Locale.ROOT);
     }
 
+    void setLabel(String label, boolean set) {
+        List<String> list = new ArrayList<>();
+        if (labels != null)
+            list.addAll(Arrays.asList(labels));
+        list.remove(label);
+        if (set)
+            list.add(label);
+        labels = list.toArray(new String[0]);
+    }
+
     static File getFile(Context context, Long id) {
         File dir = new File(context.getFilesDir(), "messages");
         if (!dir.exists())
