@@ -234,6 +234,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_suggest_sent">Elküldött üzenetekben szereplő címek felajánlása</string>
     <string name="title_advanced_suggest_received">Fogadott üzenetekben szereplő címek felajánlása</string>
     <string name="title_advanced_suggest_frequently">A felajánlott címek rendezése gyakoriság alapján</string>
+    <string name="title_advanced_auto_list">Listák automatikus létrehozása</string>
     <string name="title_advanced_prefix_once">Válasz vagy továbbítás esetén tárgy előtaggal jelzése csak egyszer</string>
     <string name="title_advanced_extended_reply">Kiterjesztett válasz/továbbítás fejléc használata</string>
     <string name="title_advanced_quote_reply">Megválaszolt szöveg idézése</string>
@@ -292,6 +293,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_subject_italic">Tárgy megjelnítése dőlt betűvel</string>
     <string name="title_advanced_subject_elipsed">Tárgy rövidítése szükség esetén</string>
     <string name="title_advanced_keywords">Kulcsszavak megjelenítése az üzenetek fejlécében</string>
+    <string name="title_advanced_labels">Gmail címkék mutatása az üzenet fejlécében</string>
     <string name="title_advanced_flags">Csillagok megjelenítése</string>
     <string name="title_advanced_flags_background">Színes háttér megjelenítése színes csillagok helyett</string>
     <string name="title_advanced_preview">Üzenetek előnézetének megjelenítése</string>
@@ -611,6 +613,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_duplicate_in">Üzenet duplikálása a(z) %1$s mappában</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
+    <string name="title_extras">Extra gombok</string>
     <string name="title_seen">Megjelölés olvasottként</string>
     <string name="title_unseen">Megjelölés olvasatlanként</string>
     <string name="title_hide">Elrejtés</string>
@@ -635,6 +638,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_raw_save">Nyers üzenet mentése</string>
     <string name="title_raw_send">Küldés mellékletként</string>
     <string name="title_manage_keywords">Kulcsszavak kezelése</string>
+    <string name="title_manage_labels">Gmail címkék kezelése</string>
     <string name="title_add_keyword">Kulcsszó hozzáadása</string>
     <string name="title_show_inline">Beágyazott mellékletek megjelenítése</string>
     <string name="title_download_all">Összes letöltése</string>
@@ -831,6 +835,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_search_with_hidden">Rejtett (csak az eszközön)</string>
     <string name="title_search_with_encrypted">Titkosított (csak az eszközön)</string>
     <string name="title_search_with_attachments">Csatolmányokkal (csak az eszközön)</string>
+    <string name="title_search_with_size">Üzenetméret nagyobb, mint</string>
     <string name="title_search_with_before">Előtt</string>
     <string name="title_search_with_after">Után</string>
     <string name="title_search_flag_unseen">olvasatlan</string>
@@ -1010,6 +1015,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_legend_avatar">Profilkép</string>
     <string name="title_legend_show_quotes">Idézetek megjelenítése</string>
     <string name="title_legend_show_junk">Megjelölés spamként</string>
+    <string name="title_legend_create_rule">Szabály létrehozása</string>
     <string name="title_legend_show_unsubscribe">Leiratkozás listáról</string>
     <string name="title_legend_show_images">Képek megjelenítése</string>
     <string name="title_legend_show_full">Eredeti szöveg megjelenítése</string>
