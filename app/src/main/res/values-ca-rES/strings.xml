@@ -96,9 +96,7 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="menu_privacy">Privadesa</string>
     <string name="menu_about">Quant a</string>
     <string name="menu_pro">Característiques Pro</string>
-    <string name="menu_invite">Convida</string>
     <string name="menu_rate">Puntua l\'aplicació</string>
-    <string name="menu_other">Altres aplicacions</string>
     <string name="title_welcome">Benvingut/da</string>
     <string name="title_eula">Contracte de Llicència d’usuari final</string>
     <string name="title_agree">D’acordo https://accounts.crowdin.com/password/reset https://accounts.crowdin.com/password/reset</string>
@@ -297,8 +295,6 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_advanced_preview">Mostra la vista prèvia del missatge</string>
     <string name="title_advanced_preview_italic">Mostra la vista prèvia del missatge en cursiva</string>
     <string name="title_advanced_preview_lines">Nombre de línies de previsualització</string>
-    <string name="title_advanced_archive_trash">Mostra els botons per arxivar o esborrar un missatge</string>
-    <string name="title_advanced_move">Mostra botó per moure un missatge</string>
     <string name="title_advanced_addresses">Mostra els detalls de les adreces per defecte</string>
     <string name="title_advanced_attachments_alt">Mostra fitxers adjunts després del text del missatge</string>
     <string name="title_advanced_contrast">Utilitzeu un alt contrast per al text del missatge</string>
@@ -1083,7 +1079,6 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_icalendar_decline">Rebutja</string>
     <string name="title_icalendar_maybe">Potser</string>
     <string name="title_icalendar_calendar">Calendari</string>
-    <string name="title_try">Prova FairEmail, una aplicació de correu-e per a Android, de codi obert i que respecta la privacitat</string>
     <string name="title_pro_feature">Això es una característica Pro</string>
     <string name="title_pro_list">Llista de característiques Pro</string>
     <string name="title_pro_purchase">Comprar</string>

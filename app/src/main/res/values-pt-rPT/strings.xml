@@ -53,9 +53,7 @@
     <string name="menu_privacy">Privacidade</string>
     <string name="menu_about">Sobre</string>
     <string name="menu_pro">Funcionalidades Pro</string>
-    <string name="menu_invite">Convidar</string>
     <string name="menu_rate">Classifique esta aplicação</string>
-    <string name="menu_other">Outras aplicações</string>
     <string name="title_welcome">Bem-vindo</string>
     <string name="title_eula">Condições de Utilização</string>
     <string name="title_agree">Concordo</string>
@@ -256,8 +254,6 @@
     <string name="title_advanced_preview">Mostrar pré-visualização da mensagem</string>
     <string name="title_advanced_preview_italic">Mostrar pré-visualização de mensagem em itálico</string>
     <string name="title_advanced_preview_lines">Número de linhas de pré-visualização</string>
-    <string name="title_advanced_archive_trash">Mostrar botões para arquivar ou apagar uma mensagem</string>
-    <string name="title_advanced_move">Mostrar botão para mover uma mensagem</string>
     <string name="title_advanced_addresses">Mostrar detalhes do endereço por pré-definição</string>
     <string name="title_advanced_attachments_alt">Mostrar anexos após o texto da mensagem</string>
     <string name="title_advanced_contrast">Usar alto contraste para o texto da mensagem</string>

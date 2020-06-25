@@ -57,9 +57,7 @@
     <string name="menu_privacy">Ιδιωτικότητα</string>
     <string name="menu_about">Σχετικά με την εφαρμογή</string>
     <string name="menu_pro">Δυνατότητες έκδοσης Pro</string>
-    <string name="menu_invite">Πρόσκληση</string>
     <string name="menu_rate">Βαθμολογήστε αυτή την εφαρμογή</string>
-    <string name="menu_other">Άλλες εφαρμογές</string>
     <string name="title_welcome">Καλώς ορίσατε</string>
     <string name="title_eula">Άδεια χρήσης τελικού χρήστη</string>
     <string name="title_agree">Συμφωνώ</string>

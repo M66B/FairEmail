@@ -97,9 +97,7 @@
     <string name="menu_privacy">Gizlilik</string>
     <string name="menu_about">Hakkında</string>
     <string name="menu_pro">Pro özellikleri</string>
-    <string name="menu_invite">Davet et</string>
     <string name="menu_rate">Bu uygulamaya puan verin</string>
-    <string name="menu_other">Diğer uygulamalar</string>
     <string name="title_welcome">Hoşgeldiniz</string>
     <string name="title_eula">Son Kullanıcı Lisans Sözleşmesi</string>
     <string name="title_agree">Kabul ediyorum</string>
@@ -1008,7 +1006,6 @@
     <string name="title_icalendar_decline">Reddet</string>
     <string name="title_icalendar_maybe">Olabilir</string>
     <string name="title_icalendar_calendar">Takvim</string>
-    <string name="title_try">Android için açık kaynaklı, gizlilik dostu bir e-posta uygulaması olan FairEmail\'i deneyin</string>
     <string name="title_pro_feature">Bu Pro özelliğidir</string>
     <string name="title_pro_list">Pro özelliklerin listesi</string>
     <string name="title_pro_purchase">Satın al</string>

@@ -97,9 +97,7 @@
     <string name="menu_privacy">Confidentialité</string>
     <string name="menu_about">À propos</string>
     <string name="menu_pro">Fonctionnalités pro</string>
-    <string name="menu_invite">Inviter</string>
     <string name="menu_rate">Noter cette appli</string>
-    <string name="menu_other">Autres applis</string>
     <string name="title_welcome">Bienvenue</string>
     <string name="title_eula">Contrat de licence d’utilisateur final</string>
     <string name="title_agree">J’accepte</string>
@@ -297,14 +295,12 @@
     <string name="title_advanced_subject_italic">Afficher l’objet en italique</string>
     <string name="title_advanced_subject_elipsed">Raccourcir l’objet si nécessaire</string>
     <string name="title_advanced_keywords">Afficher les mots-clés dans l’en-tête du message</string>
+    <string name="title_advanced_labels">Afficher les libellés Gmail dans l\'en-tête du message</string>
     <string name="title_advanced_flags">Afficher les étoiles de suivi</string>
     <string name="title_advanced_flags_background">Mettre le fond en surbrillance quand le message est marqué comme suivi</string>
     <string name="title_advanced_preview">Afficher l’aperçu du message</string>
     <string name="title_advanced_preview_italic">Afficher l’aperçu du message en italique</string>
     <string name="title_advanced_preview_lines">Nombre de lignes d’aperçu</string>
-    <string name="title_advanced_archive_trash">Afficher les boutons pour archiver ou mettre à la corbeille un message</string>
-    <string name="title_advanced_move">Afficher le bouton pour déplacer un message</string>
-    <string name="title_advanced_create_rule">Afficher le bouton pour créer une règle pour un message</string>
     <string name="title_advanced_addresses">Afficher les détails de l’adresse par défaut</string>
     <string name="title_advanced_attachments_alt">Afficher les pièces jointes après le texte du message</string>
     <string name="title_advanced_contrast">Utiliser un contraste élevé pour le texte du message</string>
@@ -629,6 +625,7 @@
     <string name="title_duplicate_in">Message en double dans %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Tr: %1$s</string>
+    <string name="title_extras">Boutons supplémentaires</string>
     <string name="title_seen">Marquer comme lu</string>
     <string name="title_unseen">Marquer comme non lu</string>
     <string name="title_hide">Masquer</string>
@@ -653,6 +650,7 @@
     <string name="title_raw_save">Enregistrer le message original</string>
     <string name="title_raw_send">Envoyer comme pièce-jointe</string>
     <string name="title_manage_keywords">Gérer les mots-clés</string>
+    <string name="title_manage_labels">Gérer les libellés Gmail</string>
     <string name="title_add_keyword">Ajouter un mot-clé</string>
     <string name="title_show_inline">Afficher les pièces-jointes incluses</string>
     <string name="title_download_all">Télécharger tout</string>
@@ -1124,7 +1122,6 @@
     <string name="title_icalendar_decline">Refuser</string>
     <string name="title_icalendar_maybe">Peut-être</string>
     <string name="title_icalendar_calendar">Calendrier</string>
-    <string name="title_try">Essayez FairEmail, une application de messagerie open source et respectueuse de votre vie privée pour Android</string>
     <string name="title_pro_feature">Ceci est une fonctionnalité pro</string>
     <string name="title_pro_list">Liste des fonctionnalités pro</string>
     <string name="title_pro_purchase">Acheter</string>

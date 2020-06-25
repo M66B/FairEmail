@@ -97,9 +97,7 @@
     <string name="menu_privacy">Поверителност</string>
     <string name="menu_about">За програмата</string>
     <string name="menu_pro">Платени функции</string>
-    <string name="menu_invite">Покана</string>
     <string name="menu_rate">Оценете приложението</string>
-    <string name="menu_other">Други приложения</string>
     <string name="title_welcome">Добре дошли</string>
     <string name="title_eula">Лицензно споразумение за потребители</string>
     <string name="title_agree">Съгласен съм</string>
@@ -302,9 +300,6 @@
     <string name="title_advanced_preview">Покажи преглед на съобщението</string>
     <string name="title_advanced_preview_italic">Покажи преглед на съобщението наклонено</string>
     <string name="title_advanced_preview_lines">Редове на показване</string>
-    <string name="title_advanced_archive_trash">Показване на бутони за архивиране или изтриване на съобщение</string>
-    <string name="title_advanced_move">Показване на бутон за преместване на съобщение</string>
-    <string name="title_advanced_create_rule">Покажи бутона за създаване на правило за съобщение</string>
     <string name="title_advanced_addresses">Покажи адреса по подразбиране</string>
     <string name="title_advanced_attachments_alt">Покажи прикачените файлове след текста на съобщението</string>
     <string name="title_advanced_contrast">Използвай висок контраст за текст на съобщението</string>
@@ -1123,7 +1118,6 @@
     <string name="title_icalendar_decline">Не приемам</string>
     <string name="title_icalendar_maybe">Може би</string>
     <string name="title_icalendar_calendar">Календар</string>
-    <string name="title_try">Изпробвайте FairEmail, приложение с отворен код, ориентирана към поверителност електронна поща за Android</string>
     <string name="title_pro_feature">Това е pro функция</string>
     <string name="title_pro_list">Списък на pro функции</string>
     <string name="title_pro_purchase">Купувам</string>

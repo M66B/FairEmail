@@ -98,9 +98,7 @@
     <string name="menu_privacy">Datenschutz</string>
     <string name="menu_about">Über</string>
     <string name="menu_pro">Pro-Funktionen</string>
-    <string name="menu_invite">Einladen</string>
     <string name="menu_rate">App bewerten</string>
-    <string name="menu_other">Weitere Apps</string>
     <string name="title_welcome">Willkommen</string>
     <string name="title_eula">Endbenutzer-Lizenzvereinbarung</string>
     <string name="title_agree">Ich stimme zu</string>
@@ -298,14 +296,12 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_subject_italic">Betreff kursiv anzeigen</string>
     <string name="title_advanced_subject_elipsed">Wenn nötig, den Betreff kürzen</string>
     <string name="title_advanced_keywords">Schlüsselwörter im Nachrichtenkopf anzeigen</string>
+    <string name="title_advanced_labels">Gmail-Labels im Nachrichtenkopf anzeigen</string>
     <string name="title_advanced_flags">Sterne anzeigen</string>
     <string name="title_advanced_flags_background">Farbigen Hintergrund statt farbiger Sterne anzeigen</string>
     <string name="title_advanced_preview">Nachrichtenvorschau anzeigen</string>
     <string name="title_advanced_preview_italic">Nachrichtenvorschau kursiv anzeigen</string>
     <string name="title_advanced_preview_lines">Anzahl der Vorschauzeilen</string>
-    <string name="title_advanced_archive_trash">Schaltflächen zum Archivieren und Löschen einer Nachricht anzeigen</string>
-    <string name="title_advanced_move">Schaltfläche zum Verschieben einer Nachricht anzeigen</string>
-    <string name="title_advanced_create_rule">Schaltfläche zum Erstellen einer Regel für eine Nachricht anzeigen</string>
     <string name="title_advanced_addresses">Adressdetails standardmäßig anzeigen</string>
     <string name="title_advanced_attachments_alt">Anhänge nach (statt vor) dem Nachrichtentext anzeigen</string>
     <string name="title_advanced_contrast">Hohen Kontrast für den Nachrichtentext verwenden</string>
@@ -629,6 +625,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_duplicate_in">Doppelte Nachricht in %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
+    <string name="title_extras">Zusätzliche Tasten</string>
     <string name="title_seen">Als gelesen kennzeichnen</string>
     <string name="title_unseen">Als ungelesen kennzeichnen</string>
     <string name="title_hide">Ausblenden</string>
@@ -653,6 +650,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_raw_save">Rohdaten speichern</string>
     <string name="title_raw_send">Als Anhang senden</string>
     <string name="title_manage_keywords">Labels verwalten</string>
+    <string name="title_manage_labels">Gmail-Labels verwalten</string>
     <string name="title_add_keyword">Label hinzufügen</string>
     <string name="title_show_inline">Eingebettete Anhänge anzeigen</string>
     <string name="title_download_all">Alle herunterladen</string>
@@ -1122,7 +1120,6 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_icalendar_decline">Ablehnen</string>
     <string name="title_icalendar_maybe">Vielleicht</string>
     <string name="title_icalendar_calendar">Kalender</string>
-    <string name="title_try">Teste FairEmail, eine Open-Source und datenschutzfreundliche E-Mail-App für Android</string>
     <string name="title_pro_feature">Das ist eine Pro-Funktion</string>
     <string name="title_pro_list">Liste der Pro-Funktionen</string>
     <string name="title_pro_purchase">Kaufen</string>

@@ -119,9 +119,7 @@
     <string name="menu_privacy">Soukromí</string>
     <string name="menu_about">O aplikaci</string>
     <string name="menu_pro">Pro funkce</string>
-    <string name="menu_invite">Pozvat</string>
     <string name="menu_rate">Ohodnotit aplikaci</string>
-    <string name="menu_other">Další aplikace</string>
     <string name="title_welcome">Vítejte</string>
     <string name="title_eula">Licenční ujednání s koncovým uživatelem</string>
     <string name="title_agree">Souhlasím</string>
@@ -324,9 +322,6 @@
     <string name="title_advanced_preview">Zobrazit náhled zprávy</string>
     <string name="title_advanced_preview_italic">Zobrazit náhled zprávy kurzívou</string>
     <string name="title_advanced_preview_lines">Počet řádků náhledu</string>
-    <string name="title_advanced_archive_trash">Zobrazit tlačítka pro archivaci nebo přesun zprávy do koše</string>
-    <string name="title_advanced_move">Zobrazit tlačítko pro přesun zprávy</string>
-    <string name="title_advanced_create_rule">Zobrazit tlačítko pro vytvoření pravidla pro zprávu</string>
     <string name="title_advanced_addresses">Zobrazit detaily adresy automaticky</string>
     <string name="title_advanced_attachments_alt">Přesunout zobrazení příloh pod text zprávy</string>
     <string name="title_advanced_contrast">Použít vysoký kontrast pro text zprávy</string>
@@ -1146,7 +1141,6 @@
     <string name="title_icalendar_decline">Odmítnout</string>
     <string name="title_icalendar_maybe">Nezávazně</string>
     <string name="title_icalendar_calendar">Kalendář</string>
-    <string name="title_try">Vyzkoušej FairEmail, e-mailový klient pro Android s otevřeným zdrojovým kódem respektující soukromí</string>
     <string name="title_pro_feature">Toto je Pro funkce</string>
     <string name="title_pro_list">Seznam Pro funkcí</string>
     <string name="title_pro_purchase">Koupit</string>

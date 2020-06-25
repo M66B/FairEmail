@@ -54,9 +54,7 @@
     <string name="menu_privacy">الخصوصية</string>
     <string name="menu_about">عن التطبيق</string>
     <string name="menu_pro">ميزات النسخة الكاملة</string>
-    <string name="menu_invite">دعوة</string>
     <string name="menu_rate">قيّم هذا التطبيق</string>
-    <string name="menu_other">تطبيقات أخرى</string>
     <string name="title_welcome">مرحباً</string>
     <string name="title_eula">اتفاقية ترخيص المستخدم النهائي</string>
     <string name="title_agree">أنا أوافق</string>

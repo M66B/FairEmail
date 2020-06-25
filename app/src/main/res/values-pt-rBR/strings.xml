@@ -95,9 +95,7 @@
     <string name="menu_privacy">Privacidade</string>
     <string name="menu_about">Sobre</string>
     <string name="menu_pro">Recursos Pro</string>
-    <string name="menu_invite">Convidar</string>
     <string name="menu_rate">Avalie este aplicativo</string>
-    <string name="menu_other">Outros aplicativos</string>
     <string name="title_welcome">Bem-vindo(a)</string>
     <string name="title_eula">Contrato de Licença de Usuário Final</string>
     <string name="title_agree">Eu concordo</string>
@@ -291,8 +289,6 @@
     <string name="title_advanced_preview">Mostrar pré-visualização da mensagem</string>
     <string name="title_advanced_preview_italic">Mostrar visualização de mensagem em itálicos</string>
     <string name="title_advanced_preview_lines">Número de linhas de visualização</string>
-    <string name="title_advanced_archive_trash">Mostrar botões para arquivar ou apagar uma mensagem</string>
-    <string name="title_advanced_move">Mostrar botão para mover uma mensagem</string>
     <string name="title_advanced_addresses">Mostrar detalhes do endereço por padrão</string>
     <string name="title_advanced_attachments_alt">Mostrar anexos após o texto da mensagem</string>
     <string name="title_advanced_contrast">Usar alto contraste para o texto da mensagem</string>
@@ -1041,7 +1037,6 @@
     <string name="title_icalendar_decline">Recusar</string>
     <string name="title_icalendar_maybe">Talvez</string>
     <string name="title_icalendar_calendar">Calendário</string>
-    <string name="title_try">Experimente o FairEmail, um aplicativo de e-mail aberto e amigo da privacidade para Android</string>
     <string name="title_pro_feature">Esta é uma funcionalidade Pro</string>
     <string name="title_pro_list">Lista de recursos Pro</string>
     <string name="title_pro_purchase">Comprar</string>

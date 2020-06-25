@@ -97,9 +97,7 @@
     <string name="menu_privacy">حریم خصوصی</string>
     <string name="menu_about">درباره</string>
     <string name="menu_pro">ویژگی‌ نسخه‌ی حرفه‌ای</string>
-    <string name="menu_invite">دعوت کردن</string>
     <string name="menu_rate">به این برنامه امتیاز دهید</string>
-    <string name="menu_other">دیگر برنامه‌ها</string>
     <string name="title_welcome">خوش آمدید</string>
     <string name="title_eula">توافقنامه مجوز کاربر نهایی</string>
     <string name="title_agree">موافقم</string>
@@ -139,7 +137,7 @@
     <string name="title_setup_quick_success">یک حساب و یک هویت با موفقیت اضافه شد</string>
     <string name="title_setup_quick_failed">می‌توانید برای پیکربندی حساب و هویت در زیر نیز اقدام کنید</string>
     <string name="title_setup_manage">مدیریت</string>
-    <string name="title_setup_grant">اجازه دادن</string>
+    <string name="title_setup_grant">دادن</string>
     <string name="title_setup_grant_again">مجوزهای مورد نیاز را اعطا کنید</string>
     <string name="title_setup_account">راه اندازی حساب‌ها</string>
     <string name="title_setup_account_remark">برای دریافت ایمیل</string>
@@ -147,7 +145,7 @@
     <string name="title_setup_identity">راه اندازی هویت‌ها</string>
     <string name="title_setup_identity_remark">برای ارسال ایمیل</string>
     <string name="title_setup_identity_hint">برای تغییر نام، رنگ، امضاء، وغیره</string>
-    <string name="title_setup_permissions">اجازه دادن دسترسی‌ها</string>
+    <string name="title_setup_permissions">دادن دسترسی</string>
     <string name="title_setup_permissions_remark">برای دسترسی به اطلاعات مخاطبین (اختیاری)</string>
     <string name="title_setup_doze">راه‌اندازی بهینه‌سازی‌ باتری</string>
     <string name="title_setup_doze_remark">برای دریافت مداوم ایمیل (اختیاری)</string>
@@ -280,8 +278,6 @@
     <string name="title_advanced_preview">نمایش دادن پیش‌نمایش پیام</string>
     <string name="title_advanced_preview_italic">پیش‌نمایش پیام را به‌صورت ایتالیک نمایش بده</string>
     <string name="title_advanced_preview_lines">شمار خط‌های پیش‌نمایش</string>
-    <string name="title_advanced_archive_trash">نمایش دکمه‌ها برای بایگانی یا حذف پیام</string>
-    <string name="title_advanced_move">نمایش دکمه برای انتقال پیام</string>
     <string name="title_advanced_addresses">نمایش جزئیات آدرس به صورت پیش‌فرض</string>
     <string name="title_advanced_attachments_alt">نمایش پیوست‌ها بعد از متن پیام</string>
     <string name="title_advanced_contrast">از کنتراست زیاد برای متن پیام استفاده کن</string>
@@ -968,7 +964,6 @@
     <string name="title_icalendar_decline">رد کردن</string>
     <string name="title_icalendar_maybe">شاید</string>
     <string name="title_icalendar_calendar">تقویم</string>
-    <string name="title_try">FairEmail را امتحان کنید، برنامه‌ ایمیل منبع‌باز و دوستدار حریم خصوصی برای اندروید</string>
     <string name="title_pro_feature">این یکی از ویژگی‌های نسخه حرفه‌ای است</string>
     <string name="title_pro_list">لیست ویژگی‌های نسخه حرفه‌ای</string>
     <string name="title_pro_purchase">خرید</string>

@@ -103,9 +103,7 @@
     <string name="menu_privacy">Privatnost</string>
     <string name="menu_about">O aplikaciji</string>
     <string name="menu_pro">Pro značajke</string>
-    <string name="menu_invite">Pozvati</string>
     <string name="menu_rate">Ocijeni ovu aplikaciju</string>
-    <string name="menu_other">Ostale aplikacije</string>
     <string name="title_welcome">Dobrodošli</string>
     <string name="title_eula">Ugovor o licenciji s krajnjim korisnikom</string>
     <string name="title_agree">Slažem se</string>
@@ -966,7 +964,6 @@
     <string name="title_icalendar_decline">Odbij</string>
     <string name="title_icalendar_maybe">Možda</string>
     <string name="title_icalendar_calendar">Kalendar</string>
-    <string name="title_try">Pokušajte FairEmail, open source i privatnost poštujući e-mail app za Android</string>
     <string name="title_pro_feature">Ovo je pro funkcija</string>
     <string name="title_pro_list">Popis pro funkcija</string>
     <string name="title_pro_purchase">Kupi</string>

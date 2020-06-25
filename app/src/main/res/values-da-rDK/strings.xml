@@ -97,9 +97,7 @@
     <string name="menu_privacy">Privatliv</string>
     <string name="menu_about">Om</string>
     <string name="menu_pro">Pro-funktioner</string>
-    <string name="menu_invite">Invitér</string>
     <string name="menu_rate">Bedøm denne app</string>
-    <string name="menu_other">Andre apps</string>
     <string name="title_welcome">Velkommen</string>
     <string name="title_eula">Slutbrugerlicensaftale</string>
     <string name="title_agree">Jeg accepterer</string>
@@ -302,9 +300,6 @@
     <string name="title_advanced_preview">Forhåndsvisning af beskeder</string>
     <string name="title_advanced_preview_italic">Vis beskedforhåndsvisning med kursiv</string>
     <string name="title_advanced_preview_lines">Antal forhåndsvisningslinier</string>
-    <string name="title_advanced_archive_trash">Vis knapper til arkivering eller sletning af en besked</string>
-    <string name="title_advanced_move">Vis knap til flytning af en besked</string>
-    <string name="title_advanced_create_rule">Vis knap til oprettelse af en beskedregel</string>
     <string name="title_advanced_addresses">Vis adresseoplysninger som standard</string>
     <string name="title_advanced_attachments_alt">Vis vedhæftninger efter beskedteksten</string>
     <string name="title_advanced_contrast">Benyt høj kontrast til beskedtekst</string>
@@ -1124,7 +1119,6 @@
     <string name="title_icalendar_decline">Afvis</string>
     <string name="title_icalendar_maybe">Måske</string>
     <string name="title_icalendar_calendar">Kalender</string>
-    <string name="title_try">Prøv FairEmail - en open source og privatlivsvenlig e-mail app til Android</string>
     <string name="title_pro_feature">Dette er en Pro-funktion</string>
     <string name="title_pro_list">Liste over Pro-funktioner</string>
     <string name="title_pro_purchase">Køb</string>

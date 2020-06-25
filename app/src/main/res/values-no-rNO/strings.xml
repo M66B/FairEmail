@@ -94,9 +94,7 @@
     <string name="menu_privacy">Personvern</string>
     <string name="menu_about">Om</string>
     <string name="menu_pro">Pro-funksjoner</string>
-    <string name="menu_invite">Inviter</string>
     <string name="menu_rate">Anmeld denne appen</string>
-    <string name="menu_other">Andre apper</string>
     <string name="title_welcome">Velkommen</string>
     <string name="title_eula">Lisensavtale for sluttbruker</string>
     <string name="title_agree">Enig</string>
@@ -281,8 +279,6 @@
     <string name="title_advanced_preview">Vis forhåndsvisning av melding</string>
     <string name="title_advanced_preview_italic">Vis forhåndsvisning av melding i kursiv</string>
     <string name="title_advanced_preview_lines">Antall forhåndsvisningslinjer</string>
-    <string name="title_advanced_archive_trash">Vis knapper for å arkivere eller legge melding i søppelboks</string>
-    <string name="title_advanced_move">Vis knapp for å flytte en melding</string>
     <string name="title_advanced_addresses">Vis adresseinformasjon som standard</string>
     <string name="title_advanced_attachments_alt">Vis vedlegg etter meldingsteksten</string>
     <string name="title_advanced_contrast">Bruk høy kontrast for meldingstekst</string>
@@ -1000,7 +996,6 @@ Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anme
     <string name="title_icalendar_decline">Avslå</string>
     <string name="title_icalendar_maybe">Kanskje</string>
     <string name="title_icalendar_calendar">Kalender</string>
-    <string name="title_try">Prøv FairEmail, en e-postapp for Android med åpen kildekode som respekterer din integritet</string>
     <string name="title_pro_feature">Dette er en Pro-funksjon</string>
     <string name="title_pro_list">Liste over Pro funksjoner</string>
     <string name="title_pro_purchase">Kjøp</string>

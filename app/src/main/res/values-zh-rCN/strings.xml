@@ -85,9 +85,7 @@
     <string name="menu_privacy">隐私政策</string>
     <string name="menu_about">关于</string>
     <string name="menu_pro">专业版功能</string>
-    <string name="menu_invite">邀请好友</string>
     <string name="menu_rate">给此应用评分</string>
-    <string name="menu_other">其他应用</string>
     <string name="title_welcome">欢迎</string>
     <string name="title_eula">最终用户许可协议</string>
     <string name="title_agree">同意</string>
@@ -285,14 +283,12 @@
     <string name="title_advanced_subject_italic">用斜体字显示邮件主题</string>
     <string name="title_advanced_subject_elipsed">必要时缩短邮件主题</string>
     <string name="title_advanced_keywords">在邮件头中显示关键字</string>
+    <string name="title_advanced_labels">在邮件头中显示Gmail标识</string>
     <string name="title_advanced_flags">显示星标</string>
     <string name="title_advanced_flags_background">显示有色背景而非有色星标</string>
     <string name="title_advanced_preview">显示邮件预览</string>
     <string name="title_advanced_preview_italic">斜体字显示邮件预览</string>
     <string name="title_advanced_preview_lines">预览行数</string>
-    <string name="title_advanced_archive_trash">显示要存档或删除消息的按钮</string>
-    <string name="title_advanced_move">显示移动消息的按钮</string>
-    <string name="title_advanced_create_rule">显示创建消息规则的按钮</string>
     <string name="title_advanced_addresses">默认显示地址详情</string>
     <string name="title_advanced_attachments_alt">在消息文本后显示附件</string>
     <string name="title_advanced_contrast">对消息文本使用高对比度颜色</string>
@@ -617,6 +613,7 @@
     <string name="title_duplicate_in">%1$s 中的重复消息</string>
     <string name="title_subject_reply">回复：%1$s</string>
     <string name="title_subject_forward">转发：%1$s</string>
+    <string name="title_extras">额外按钮</string>
     <string name="title_seen">标记为已读</string>
     <string name="title_unseen">标记为未读</string>
     <string name="title_hide">隐藏</string>
@@ -641,6 +638,7 @@
     <string name="title_raw_save">保存原始消息</string>
     <string name="title_raw_send">作为附件发送</string>
     <string name="title_manage_keywords">关键字管理</string>
+    <string name="title_manage_labels">管理 Gmail 标签</string>
     <string name="title_add_keyword">添加关键字</string>
     <string name="title_show_inline">显示内嵌附件</string>
     <string name="title_download_all">全部下载</string>
@@ -1112,7 +1110,6 @@
     <string name="title_icalendar_decline">拒绝</string>
     <string name="title_icalendar_maybe">待定</string>
     <string name="title_icalendar_calendar">日历</string>
-    <string name="title_try">请试下FairEmail吧！一个安卓平台上开源、隐私友好的邮件客户端</string>
     <string name="title_pro_feature">此为 Pro 版功能，请升级至 Pro 版后使用</string>
     <string name="title_pro_list">专业版功能列表</string>
     <string name="title_pro_purchase">购买</string>

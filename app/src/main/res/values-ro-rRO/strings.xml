@@ -107,9 +107,7 @@
     <string name="menu_privacy">Confidențialitate</string>
     <string name="menu_about">Despre</string>
     <string name="menu_pro">Caracteristici versiune Pro</string>
-    <string name="menu_invite">Invită</string>
     <string name="menu_rate">Evaluează această aplicație</string>
-    <string name="menu_other">Alte aplicații</string>
     <string name="title_welcome">Bine ați venit</string>
     <string name="title_eula">Licența de utilizare</string>
     <string name="title_agree">Sunt de acord</string>
@@ -311,9 +309,6 @@
     <string name="title_advanced_preview">Arată previzualizare mesaj</string>
     <string name="title_advanced_preview_italic">Arată previzualizare mesaj cu aldin</string>
     <string name="title_advanced_preview_lines">Numărul de linii de previzualizat</string>
-    <string name="title_advanced_archive_trash">Arată butoanele de arhivare sau mutare la gunoi a unui mesaj</string>
-    <string name="title_advanced_move">Arată butonul pentru a muta un mesaj</string>
-    <string name="title_advanced_create_rule">Arată butonul pentru a crea o regulă pentru un mesaj</string>
     <string name="title_advanced_addresses">Implicit arată detaliile adreselor</string>
     <string name="title_advanced_attachments_alt">Arată atașamentele după textul mesajului</string>
     <string name="title_advanced_contrast">Folosește contrast ridicat pentru text</string>
@@ -1133,7 +1128,6 @@
     <string name="title_icalendar_decline">Refuză</string>
     <string name="title_icalendar_maybe">Poate</string>
     <string name="title_icalendar_calendar">Calendar</string>
-    <string name="title_try">Încearcă FairEmail, o aplicație de e-mail pentru Android cu sursă deschisă, ce protejează intimitatea și confidențialitatea</string>
     <string name="title_pro_feature">Aceasta este o caracteristică Pro</string>
     <string name="title_pro_list">Lista de caracteristici Pro</string>
     <string name="title_pro_purchase">Cumpără</string>

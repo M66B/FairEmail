@@ -86,9 +86,7 @@
     <string name="menu_privacy">隱私權</string>
     <string name="menu_about">關於</string>
     <string name="menu_pro">專業版功能</string>
-    <string name="menu_invite">邀請</string>
     <string name="menu_rate">評分這個程式</string>
-    <string name="menu_other">其他應用程式</string>
     <string name="title_welcome">歡迎</string>
     <string name="title_eula">使用者授權條款</string>
     <string name="title_agree">我同意</string>
@@ -263,8 +261,6 @@
     <string name="title_advanced_preview">顯示訊息預覽</string>
     <string name="title_advanced_preview_italic">把預覽訊息斜體</string>
     <string name="title_advanced_preview_lines">預覽行數</string>
-    <string name="title_advanced_archive_trash">顯示封存或刪除按鈕</string>
-    <string name="title_advanced_move">顯示移動按鈕</string>
     <string name="title_advanced_addresses">預設展開詳細郵件資訊</string>
     <string name="title_advanced_attachments_alt">附件顯示於訊息之後</string>
     <string name="title_advanced_contrast">訊息內容高對比</string>

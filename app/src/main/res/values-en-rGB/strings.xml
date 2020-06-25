@@ -12,7 +12,6 @@
     <string name="title_advanced_color_stripe">Show colour stripe</string>
     <string name="title_advanced_color_threshold">Threshold letter colour</string>
     <string name="title_advanced_flags_background">Show coloured background instead of coloured stars</string>
-    <string name="title_advanced_archive_trash">Show buttons to archive or delete a message</string>
     <string name="title_advanced_text_color">Show text colours</string>
     <string name="title_advanced_actionbar_color">Use account colour as background colour for conversation action bar</string>
     <string name="title_advanced_navbar_colorize">Colourise the Android navigation bar</string>

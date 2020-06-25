@@ -97,9 +97,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="menu_privacy">Adatvédelem</string>
     <string name="menu_about">Névjegy</string>
     <string name="menu_pro">Pro szolgáltatások</string>
-    <string name="menu_invite">Meghívás</string>
     <string name="menu_rate">Alkalmazás értékelése</string>
-    <string name="menu_other">Egyéb alkalmazások</string>
     <string name="title_welcome">Üdvözöljük</string>
     <string name="title_eula">Végfelhasználói licencszerződés</string>
     <string name="title_agree">Elfogadom</string>
@@ -299,8 +297,6 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_preview">Üzenetek előnézetének megjelenítése</string>
     <string name="title_advanced_preview_italic">Üzenetek előnézetének megjelenítése dőlt betűvel</string>
     <string name="title_advanced_preview_lines">Előnézeti sorok száma</string>
-    <string name="title_advanced_archive_trash">Jelenítsen meg gombokat egy üzenet archiválásához vagy törléséhez</string>
-    <string name="title_advanced_move">Jelenítse meg a gombot az üzenet mozgatáshoz</string>
     <string name="title_advanced_addresses">Cím részleteinek alapértelmezett megjelenítése</string>
     <string name="title_advanced_attachments_alt">Csatolmányok megjelenítése a szöveg után</string>
     <string name="title_advanced_contrast">Magas kontraszt használata az üzenetek szövegéhez</string>
@@ -1102,7 +1098,6 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_icalendar_decline">Elutasítás</string>
     <string name="title_icalendar_maybe">Talán</string>
     <string name="title_icalendar_calendar">Naptár</string>
-    <string name="title_try">Próbáld ki a FairEmailt, egy nyílt forráskódú, adatvédelem-barát email alkalmazást Androidra</string>
     <string name="title_pro_feature">Ez egy pro funkció</string>
     <string name="title_pro_list">Pro szolgáltatások listája</string>
     <string name="title_pro_purchase">Vásárlás</string>

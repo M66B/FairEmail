@@ -109,9 +109,7 @@
     <string name="menu_privacy">פרטיות</string>
     <string name="menu_about">אודות</string>
     <string name="menu_pro">מאפייני גירסת Pro</string>
-    <string name="menu_invite">הזמן</string>
     <string name="menu_rate">דרגו את האפליקציה</string>
-    <string name="menu_other">אפליקציות אחרות</string>
     <string name="title_welcome">ברוכים הבאים</string>
     <string name="title_eula">הסכם רישיון למשתמש</string>
     <string name="title_agree">אני מסכים</string>

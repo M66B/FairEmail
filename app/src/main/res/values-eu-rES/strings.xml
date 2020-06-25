@@ -96,9 +96,7 @@
     <string name="menu_privacy">Pribatutasuna</string>
     <string name="menu_about">Honi buruz</string>
     <string name="menu_pro">Ordainpeko ezaugarriak</string>
-    <string name="menu_invite">Gonbidatu</string>
     <string name="menu_rate">Baloratu aplikazio hau</string>
-    <string name="menu_other">Beste aplikazio batzuk</string>
     <string name="title_welcome">Ongi etorri</string>
     <string name="title_eula">Azken erabiltzailearen lizentziaren onarpena</string>
     <string name="title_agree">Ados nago</string>
@@ -300,8 +298,6 @@
     <string name="title_advanced_preview">Erakutsi mezuaren aurrebista</string>
     <string name="title_advanced_preview_italic">Erakutsi mezuaren aurrebista letra etzanean</string>
     <string name="title_advanced_preview_lines">Aurrebistaren lerro kopurua</string>
-    <string name="title_advanced_archive_trash">Erakutsi mezuak artxibatzeko edo zakarrontzira botatzeko botoiak</string>
-    <string name="title_advanced_move">Erakutsi mezua mugitzeko botoia</string>
     <string name="title_advanced_addresses">Erakutsi helbidearen xehetasunak lehenetsita</string>
     <string name="title_advanced_attachments_alt">Erakutsi gehitutakoa mezuko testuaren ondoren</string>
     <string name="title_advanced_contrast">Erabili kontraste altua mezuaren testuarentzat</string>
@@ -1116,7 +1112,6 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_icalendar_decline">Errefusatu</string>
     <string name="title_icalendar_maybe">Agian</string>
     <string name="title_icalendar_calendar">Egutegia</string>
-    <string name="title_try">Probatu FairEmail, Android plataformarako e-mail bezeroa, kode irekikoa eta pribatutasuna aintzat duena</string>
     <string name="title_pro_feature">Hau ordainpeko ezaugarri bat da</string>
     <string name="title_pro_list">Ordainpeko ezaugarrien zerrenda</string>
     <string name="title_pro_purchase">Erosi</string>

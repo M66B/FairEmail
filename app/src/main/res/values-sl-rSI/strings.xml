@@ -116,9 +116,7 @@
     <string name="menu_privacy">Zasebnost</string>
     <string name="menu_about">O programu</string>
     <string name="menu_pro">Značilnosti Pro</string>
-    <string name="menu_invite">Povabi</string>
     <string name="menu_rate">Oceni ta program</string>
-    <string name="menu_other">Drugi programi</string>
     <string name="title_welcome">Dobrodošli</string>
     <string name="title_eula">Licenčna pogodba s končnim uporabnikom</string>
     <string name="title_agree">Strinjam se</string>
@@ -308,8 +306,6 @@
     <string name="title_advanced_preview">Prikaži predogled sporočila</string>
     <string name="title_advanced_preview_italic">Prikaži predogled sporočila v ležeči pisavi</string>
     <string name="title_advanced_preview_lines">Število vrstic predogleda</string>
-    <string name="title_advanced_archive_trash">Prikaži gumbe za arhiviranje ali brisanje sporočila</string>
-    <string name="title_advanced_move">Prikaži gumb za premikanje sporočila</string>
     <string name="title_advanced_addresses">Privzeto prikaži podrobnosti naslova</string>
     <string name="title_advanced_attachments_alt">Prikaži priloge pod besedilom sporočila</string>
     <string name="title_advanced_contrast">Uporabi visoki kontrast za besedilo sporočila</string>
@@ -1093,7 +1089,6 @@
     <string name="title_icalendar_decline">Zavrni</string>
     <string name="title_icalendar_maybe">Morda</string>
     <string name="title_icalendar_calendar">Koledar</string>
-    <string name="title_try">Poizkusite FairEmail, odprtokoden, do zasebnosti prijazen e-poštni program za Android.</string>
     <string name="title_pro_feature">To je značilnost Pro.</string>
     <string name="title_pro_list">Seznam značilnosti Pro</string>
     <string name="title_pro_purchase">Kupi</string>

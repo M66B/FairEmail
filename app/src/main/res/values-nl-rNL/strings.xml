@@ -97,9 +97,7 @@
     <string name="menu_privacy">Privacy</string>
     <string name="menu_about">Over</string>
     <string name="menu_pro">Pro functies</string>
-    <string name="menu_invite">Uitnodigen</string>
     <string name="menu_rate">Beoordeel deze app</string>
-    <string name="menu_other">Andere apps</string>
     <string name="title_welcome">Welkom</string>
     <string name="title_eula">Licentieovereenkomst voor eindgebruikers</string>
     <string name="title_agree">Ik ga akkoord</string>
@@ -296,14 +294,12 @@
     <string name="title_advanced_subject_italic">Toon onderwerp cursief</string>
     <string name="title_advanced_subject_elipsed">Wanneer nodig, verkort het onderwerp</string>
     <string name="title_advanced_keywords">Toon trefwoorden in de berichtkop</string>
+    <string name="title_advanced_labels">Toon Gmail labels in de berichtkop</string>
     <string name="title_advanced_flags">Toon sterren</string>
     <string name="title_advanced_flags_background">Toon gekleurde achtergrond in plaats van gekleurde sterren</string>
     <string name="title_advanced_preview">Toon berichtvoorbeeld</string>
     <string name="title_advanced_preview_italic">Toon berichtvoorbeeld cursief</string>
     <string name="title_advanced_preview_lines">Aantal lijnen voorbeeld</string>
-    <string name="title_advanced_archive_trash">Toon knoppen om een bericht te archiveren of weg te gooien</string>
-    <string name="title_advanced_move">Toon knop om een bericht te verplaatsen</string>
-    <string name="title_advanced_create_rule">Toon knop om een regel voor een bericht te maken</string>
     <string name="title_advanced_addresses">Adresgegevens standaard weergeven</string>
     <string name="title_advanced_attachments_alt">Bijlagen weergeven na de berichttekst</string>
     <string name="title_advanced_contrast">Gebruik hoge contrast voor berichttekst</string>
@@ -628,6 +624,7 @@
     <string name="title_duplicate_in">Dubbel bericht in %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
+    <string name="title_extras">Extra knoppen</string>
     <string name="title_seen">Markeer als gelezen</string>
     <string name="title_unseen">Markeer als ongelezen</string>
     <string name="title_hide">Verbergen</string>
@@ -652,6 +649,7 @@
     <string name="title_raw_save">Ruw bericht opslaan</string>
     <string name="title_raw_send">Stuur als bijlage</string>
     <string name="title_manage_keywords">Trefwoorden beheren</string>
+    <string name="title_manage_labels">Gmail labels beheren</string>
     <string name="title_add_keyword">Trefwoord toevoegen</string>
     <string name="title_show_inline">Toon inline bijlagen</string>
     <string name="title_download_all">Alles downloaden</string>
@@ -1123,7 +1121,6 @@
     <string name="title_icalendar_decline">Weiger</string>
     <string name="title_icalendar_maybe">Misschien</string>
     <string name="title_icalendar_calendar">Agenda</string>
-    <string name="title_try">Probeer FairEmail, een open source, privacy vriendelijke e-mail app voor Android</string>
     <string name="title_pro_feature">Dit is een pro-functie</string>
     <string name="title_pro_list">Lijst van pro-functies</string>
     <string name="title_pro_purchase">Koop</string>

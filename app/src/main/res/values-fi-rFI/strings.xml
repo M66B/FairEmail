@@ -96,9 +96,7 @@
     <string name="menu_privacy">Yksityisyys</string>
     <string name="menu_about">Tietoja</string>
     <string name="menu_pro">Pro-ominaisuudet</string>
-    <string name="menu_invite">Kutsu</string>
     <string name="menu_rate">Arvostele sovellus</string>
-    <string name="menu_other">Muut sovellukset</string>
     <string name="title_welcome">Tervetuloa</string>
     <string name="title_eula">Loppukäyttäjän lisenssisopimus</string>
     <string name="title_agree">Hyväksyn</string>
@@ -300,8 +298,6 @@
     <string name="title_advanced_preview">Näytä viestin esikatselu</string>
     <string name="title_advanced_preview_italic">Näytä viestin esikatselu kursiivilla</string>
     <string name="title_advanced_preview_lines">Esikatselurivien lukumäärä</string>
-    <string name="title_advanced_archive_trash">Näytä painikkeet viestin siirtämiseksi arkistoon tai roskakoriin</string>
-    <string name="title_advanced_move">Näytä painike viestin siirtämiseksi</string>
     <string name="title_advanced_addresses">Näytä viestin osoitetiedot oletuksena</string>
     <string name="title_advanced_attachments_alt">Näytä liitteet viestin tekstin jälkeen</string>
     <string name="title_advanced_contrast">Käytä voimakasta kontrastia viestien tekstille</string>
@@ -1118,7 +1114,6 @@
     <string name="title_icalendar_decline">Hylkää</string>
     <string name="title_icalendar_maybe">Ehkä</string>
     <string name="title_icalendar_calendar">Kalenteri</string>
-    <string name="title_try">Kokeile FairEmailia, yksityisyyttä kunnioittavaa avoimen lähdekoodin sähköpostisovellusta Androidille</string>
     <string name="title_pro_feature">Tämä on pro-ominaisuus</string>
     <string name="title_pro_list">Luettelo pro-ominaisuuksista</string>
     <string name="title_pro_purchase">Osta</string>

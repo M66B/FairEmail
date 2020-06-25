@@ -97,9 +97,7 @@
     <string name="menu_privacy">Privacy</string>
     <string name="menu_about">Al riguardo</string>
     <string name="menu_pro">Funzionalità versione Pro</string>
-    <string name="menu_invite">Invita</string>
     <string name="menu_rate">Valuta questa app</string>
-    <string name="menu_other">Altre app</string>
     <string name="title_welcome">Benvenuto</string>
     <string name="title_eula">Contratto di licenza con l\'utente finale</string>
     <string name="title_agree">Accetto</string>
@@ -302,9 +300,6 @@
     <string name="title_advanced_preview">Mostra l\'anteprima del messaggio</string>
     <string name="title_advanced_preview_italic">Mostra anteprima messaggio in corsivo</string>
     <string name="title_advanced_preview_lines">Numero di linee di anteprima</string>
-    <string name="title_advanced_archive_trash">Mostra i pulsanti per archiviare o cestinare un messaggio</string>
-    <string name="title_advanced_move">Mostra il pulsante per spostare un messaggio</string>
-    <string name="title_advanced_create_rule">Mostra il pulsante per creare una regola per un messaggio</string>
     <string name="title_advanced_addresses">Mostra i dettagli dell\'indirizzo per impostazione predefinita</string>
     <string name="title_advanced_attachments_alt">Mostra allegati dopo il testo del messaggio</string>
     <string name="title_advanced_contrast">Usa il contrasto elevato per il testo del messaggio</string>
@@ -1123,7 +1118,6 @@
     <string name="title_icalendar_decline">Rifiuta</string>
     <string name="title_icalendar_maybe">Forse</string>
     <string name="title_icalendar_calendar">Calendario</string>
-    <string name="title_try">Prova FairEmail, un\'app email per Android open source e rispettosa della privacy</string>
     <string name="title_pro_feature">Questa è una funzionalità a pagamento</string>
     <string name="title_pro_list">Elenco delle funzionalità a pagamento</string>
     <string name="title_pro_purchase">Acquista</string>

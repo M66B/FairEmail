@@ -119,9 +119,7 @@
     <string name="menu_privacy">Конфиденциальность</string>
     <string name="menu_about">О приложении</string>
     <string name="menu_pro">Функции Pro</string>
-    <string name="menu_invite">Пригласить</string>
     <string name="menu_rate">Оценить приложение</string>
-    <string name="menu_other">Другие приложения</string>
     <string name="title_welcome">Добро пожаловать</string>
     <string name="title_eula">Пользовательское соглашение</string>
     <string name="title_agree">Принимаю</string>
@@ -324,9 +322,6 @@
     <string name="title_advanced_preview">Показывать предпросмотр сообщения</string>
     <string name="title_advanced_preview_italic">Показывать предпросмотр сообщения курсивом</string>
     <string name="title_advanced_preview_lines">Количество строк предпросмотра</string>
-    <string name="title_advanced_archive_trash">Показывать кнопки архивации или удаления сообщения</string>
-    <string name="title_advanced_move">Показывать кнопку перемещения сообщения</string>
-    <string name="title_advanced_create_rule">Показать кнопку, чтобы создать правило для сообщения</string>
     <string name="title_advanced_addresses">По умолчанию показывать подробную информацию об адресах</string>
     <string name="title_advanced_attachments_alt">Показывать вложения после текста сообщения</string>
     <string name="title_advanced_contrast">Использовать высокий контраст для текста сообщений</string>
@@ -1146,7 +1141,6 @@
     <string name="title_icalendar_decline">Отклонить</string>
     <string name="title_icalendar_maybe">Возможно</string>
     <string name="title_icalendar_calendar">Календарь</string>
-    <string name="title_try">Попробуйте FairEmail, приложение с открытым исходным кодом, совместимое с электронной почтой для Android</string>
     <string name="title_pro_feature">Это функция версии Pro</string>
     <string name="title_pro_list">Список функций Pro</string>
     <string name="title_pro_purchase">Купить</string>
