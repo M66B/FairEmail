@@ -27,6 +27,7 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.ContactsContract;
@@ -265,7 +266,8 @@ public class FragmentRule extends FragmentBase {
             public void onClick(View v) {
                 Intent pick = new Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Email.CONTENT_URI);
                 PackageManager pm = getContext().getPackageManager();
-                if (pick.resolveActivity(pm) == null) // system whitelisted
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R && // should be system whitelisted
+                        pick.resolveActivity(pm) == null)
                     Snackbar.make(view, R.string.title_no_contacts, Snackbar.LENGTH_LONG).show();
                 else
                     startActivityForResult(Helper.getChooser(getContext(), pick), REQUEST_SENDER);
@@ -286,7 +288,8 @@ public class FragmentRule extends FragmentBase {
             public void onClick(View v) {
                 Intent pick = new Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Email.CONTENT_URI);
                 PackageManager pm = getContext().getPackageManager();
-                if (pick.resolveActivity(pm) == null) // system whitelisted
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R && // should be system whitelisted
+                        pick.resolveActivity(pm) == null)
                     Snackbar.make(view, R.string.title_no_contacts, Snackbar.LENGTH_LONG).show();
                 else
                     startActivityForResult(Helper.getChooser(getContext(), pick), REQUEST_RECIPIENT);
