@@ -2645,7 +2645,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             context.startActivity(reply);
                         }
                     } else if (result instanceof Intent) {
-                        context.startActivity((Intent) result);
+                        try {
+                            context.startActivity((Intent) result);
+                        } catch (ActivityNotFoundException ex) {
+                            ToastEx.makeText(context, context.getString(R.string.title_no_viewer, result), Toast.LENGTH_LONG).show();
+                        }
                     }
                 }
 
@@ -3306,7 +3310,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             insert.setType(ContactsContract.Contacts.CONTENT_TYPE);
 
             PackageManager pm = context.getPackageManager();
-            if (insert.resolveActivity(pm) == null) // system whitelisted
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R && // should be system whitelisted
+                    insert.resolveActivity(pm) == null)
                 Snackbar.make(parentFragment.getView(),
                         R.string.title_no_contacts, Snackbar.LENGTH_LONG).show();
             else
@@ -4456,7 +4461,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     }
 
                     PackageManager pm = context.getPackageManager();
-                    if (intent.resolveActivity(pm) == null) // system whitelisted
+                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R &&
+                            intent.resolveActivity(pm) == null) // system whitelisted
                         Snackbar.make(parentFragment.getView(),
                                 context.getString(R.string.title_no_viewer, intent),
                                 Snackbar.LENGTH_LONG).
