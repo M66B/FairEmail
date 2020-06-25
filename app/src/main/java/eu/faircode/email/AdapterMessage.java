@@ -1550,8 +1550,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibTools.setImageLevel(tools ? 0 : 1);
                     ibTools.setVisibility(View.VISIBLE);
 
-                    ibTrashBottom.setVisibility(tools && trash ? View.VISIBLE : View.GONE);
-                    ibArchiveBottom.setVisibility(tools && archive ? View.VISIBLE : View.GONE);
+                    ibTrashBottom.setVisibility(trash ? View.VISIBLE : View.GONE);
+                    ibArchiveBottom.setVisibility(archive ? View.VISIBLE : View.GONE);
 
                     if (bind)
                         bindBody(message, scroll);
