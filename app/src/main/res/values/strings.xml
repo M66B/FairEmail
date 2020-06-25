@@ -347,6 +347,7 @@
     <string name="title_advanced_subject_italic">Show subject in italics</string>
     <string name="title_advanced_subject_elipsed">When needed, shorten the subject</string>
     <string name="title_advanced_keywords">Show keywords in message header</string>
+    <string name="title_advanced_labels">Show Gmail labels in message header</string>
     <string name="title_advanced_flags">Show stars</string>
     <string name="title_advanced_flags_background">Show colored background instead of colored stars</string>
     <string name="title_advanced_preview">Show message preview</string>
@@ -746,6 +747,7 @@
     <string name="title_raw_save">Save raw message</string>
     <string name="title_raw_send">Send as attachment</string>
     <string name="title_manage_keywords">Manage keywords</string>
+    <string name="title_manage_labels">Manage Gmail labels</string>
     <string name="title_add_keyword">Add keyword</string>
     <string name="title_show_inline">Show inline attachments</string>
     <string name="title_download_all">Download all</string>

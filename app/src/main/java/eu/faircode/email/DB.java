@@ -3,6 +3,7 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.net.Uri;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
@@ -60,7 +61,7 @@ import io.requery.android.database.sqlite.SQLiteDatabase;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 166,
+        version = 167,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -1641,6 +1642,13 @@ public abstract class DB extends RoomDatabase {
                     public void migrate(@NonNull SupportSQLiteDatabase db) {
                         db.execSQL("DROP INDEX `index_attachment_message_type`");
                     }
+                })
+                .addMigrations(new Migration(166, 167) {
+                    @Override
+                    public void migrate(@NonNull SupportSQLiteDatabase db) {
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
+                        db.execSQL("ALTER TABLE `message` ADD COLUMN `labels` TEXT");
+                    }
                 });
     }
 
@@ -1667,16 +1675,25 @@ public abstract class DB extends RoomDatabase {
         public static String[] toStringArray(String value) {
             if (value == null)
                 return new String[0];
-            else
-                return TextUtils.split(value, " ");
+            else {
+                String[] result = TextUtils.split(value, " ");
+                for (int i = 0; i < result.length; i++)
+                    result[i] = Uri.decode(result[i]);
+                return result;
+            }
         }
 
         @TypeConverter
         public static String fromStringArray(String[] value) {
             if (value == null || value.length == 0)
                 return null;
-            else
-                return TextUtils.join(" ", value);
+            else {
+                String[] copy = new String[value.length];
+                System.arraycopy(value, 0, copy, 0, value.length);
+                for (int i = 0; i < copy.length; i++)
+                    copy[i] = Uri.encode(copy[i]);
+                return TextUtils.join(" ", copy);
+            }
         }
 
         @TypeConverter

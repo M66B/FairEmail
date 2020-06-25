@@ -161,6 +161,7 @@ public class EntityMessage implements Serializable {
     public Boolean flagged = false;
     public String flags; // system flags
     public String[] keywords; // user flags
+    public String[] labels; // Gmail
     @NonNull
     public Integer notifying = 0;
     @NonNull

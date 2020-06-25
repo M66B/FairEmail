@@ -499,8 +499,10 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 //fp.add(IMAPFolder.FetchProfileItem.MESSAGE);
                 fp.add(FetchProfile.Item.SIZE);
                 fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
-                if (account.isGmail())
+                if (account.isGmail()) {
                     fp.add(GmailFolder.FetchProfileItem.THRID);
+                    fp.add(GmailFolder.FetchProfileItem.LABELS);
+                }
                 state.ifolder.fetch(add.toArray(new Message[0]), fp);
             }
 

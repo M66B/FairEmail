@@ -43,6 +43,7 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 
 import com.sun.mail.gimap.GmailFolder;
+import com.sun.mail.gimap.GmailMessage;
 import com.sun.mail.iap.BadCommandException;
 import com.sun.mail.iap.CommandFailedException;
 import com.sun.mail.iap.ConnectionException;
@@ -322,6 +323,10 @@ class Core {
 
                                 case EntityOperation.KEYWORD:
                                     onKeyword(context, jargs, folder, message, (IMAPFolder) ifolder);
+                                    break;
+
+                                case EntityOperation.LABEL:
+                                    onLabel(context, jargs, folder, message, (IMAPStore) istore, (IMAPFolder) ifolder, state);
                                     break;
 
                                 case EntityOperation.ADD:
@@ -688,6 +693,26 @@ class Core {
         imessage.setFlags(flags, set);
     }
 
+    private static void onLabel(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPStore istore, IMAPFolder ifolder, State state) throws JSONException, MessagingException, IOException {
+        // Set/clear Gmail label
+        String label = jargs.getString(0);
+        boolean set = jargs.getBoolean(1);
+
+        Message imessage = ifolder.getMessageByUID(message.uid);
+        if (imessage == null)
+            throw new MessageRemovedException();
+
+        if (!(imessage instanceof GmailMessage))
+            throw new IllegalArgumentException("GmailMessage");
+
+        ((GmailMessage) imessage).setLabels(new String[]{label}, set);
+
+        // Gmail does not push label changes
+        JSONArray fargs = new JSONArray();
+        fargs.put(message.uid);
+        onFetch(context, fargs, folder, istore, ifolder, state);
+    }
+
     private static void onAdd(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPStore istore, IMAPFolder ifolder, State state) throws MessagingException, IOException {
         // Add message
         DB db = DB.getInstance(context);
@@ -985,8 +1010,10 @@ class Core {
                 //fp.add(IMAPFolder.FetchProfileItem.MESSAGE);
                 fp.add(FetchProfile.Item.SIZE);
                 fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
-                if (account.isGmail())
+                if (account.isGmail()) {
                     fp.add(GmailFolder.FetchProfileItem.THRID);
+                    fp.add(GmailFolder.FetchProfileItem.LABELS);
+                }
                 ifolder.fetch(new Message[]{imessage}, fp);
 
                 EntityMessage message = synchronizeMessage(context, account, folder, istore, ifolder, imessage, false, download, rules, state);
@@ -1895,6 +1922,8 @@ class Core {
             FetchProfile fp = new FetchProfile();
             fp.add(UIDFolder.FetchProfileItem.UID); // To check if message exists
             fp.add(FetchProfile.Item.FLAGS); // To update existing messages
+            if (account.isGmail())
+                fp.add(GmailFolder.FetchProfileItem.LABELS);
             ifolder.fetch(imessages, fp);
 
             long fetch = SystemClock.elapsedRealtime();
@@ -2213,6 +2242,7 @@ class Core {
         boolean flagged = helper.getFlagged();
         String flags = helper.getFlags();
         String[] keywords = helper.getKeywords();
+        String[] labels = helper.getLabels();
         boolean update = false;
         boolean process = false;
 
@@ -2324,6 +2354,7 @@ class Core {
             message.flagged = flagged;
             message.flags = flags;
             message.keywords = keywords;
+            message.labels = labels;
             message.ui_seen = seen;
             message.ui_answered = answered;
             message.ui_flagged = flagged;
@@ -2555,6 +2586,13 @@ class Core {
                 message.keywords = keywords;
                 Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid +
                         " keywords=" + TextUtils.join(" ", keywords));
+            }
+
+            if (!Helper.equal(message.labels, labels)) {
+                update = true;
+                message.labels = labels;
+                Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid +
+                        " labels=" + (labels == null ? null : TextUtils.join(" ", labels)));
             }
 
             if (message.hash == null || process) {
@@ -2859,8 +2897,10 @@ class Core {
             //fp.add(IMAPFolder.FetchProfileItem.MESSAGE);
             //fp.add(FetchProfile.Item.SIZE);
             //fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
-            //if (account.isGmail())
+            //if (account.isGmail()) {
             //    fp.add(GmailFolder.FetchProfileItem.THRID);
+            //    fp.add(GmailFolder.FetchProfileItem.LABELS);
+            //}
             //ifolder.fetch(new Message[]{imessage}, fp);
 
             MessageHelper helper = new MessageHelper(imessage, context);

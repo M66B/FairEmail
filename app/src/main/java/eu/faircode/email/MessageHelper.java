@@ -944,6 +944,20 @@ public class MessageHelper {
         return thread;
     }
 
+    String[] getLabels() throws MessagingException {
+        //ensureMessage(false);
+
+        List<String> labels = new ArrayList<>();
+        if (imessage instanceof GmailMessage)
+            for (String label : ((GmailMessage) imessage).getLabels())
+                if (!label.startsWith("\\"))
+                    labels.add(label);
+
+        Collections.sort(labels);
+
+        return labels.toArray(new String[0]);
+    }
+
     Integer getPriority() throws MessagingException {
         Integer priority = null;
 

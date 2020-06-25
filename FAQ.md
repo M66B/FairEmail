@@ -380,6 +380,7 @@ The low priority status bar notification shows the number of pending operations,
 * *answered*: mark message as answered in remote folder
 * *flag*: add/remove star in remote folder
 * *keyword*: add/remove IMAP flag in remote folder
+* *label*: set/reset Gmail label in remote folder
 * *headers*: download message headers
 * *raw*: download raw message
 * *body*: download message text
