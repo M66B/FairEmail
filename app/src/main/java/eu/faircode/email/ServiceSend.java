@@ -169,18 +169,11 @@ public class ServiceSend extends ServiceBase {
     }
 
     NotificationCompat.Builder getNotificationService() {
-        // Build pending intent
-        Intent intent = new Intent(this, ActivityView.class);
-        intent.setAction("outbox");
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        PendingIntent pi = PendingIntent.getActivity(
-                this, ActivityView.REQUEST_OUTBOX, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-
         NotificationCompat.Builder builder =
                 new NotificationCompat.Builder(this, "send")
                         .setSmallIcon(R.drawable.baseline_send_24)
                         .setContentTitle(getString(R.string.title_notification_sending))
-                        .setContentIntent(pi)
+                        .setContentIntent(getPendingIntent(this))
                         .setAutoCancel(false)
                         .setShowWhen(true)
                         .setDefaults(0) // disable sound on pre Android 8
@@ -198,6 +191,13 @@ public class ServiceSend extends ServiceBase {
             builder.setSubText(getString(R.string.title_notification_waiting));
 
         return builder;
+    }
+
+    private static PendingIntent getPendingIntent(Context context) {
+        Intent intent = new Intent(context, ActivityView.class);
+        intent.setAction("outbox");
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        return PendingIntent.getActivity(context, ActivityView.REQUEST_OUTBOX, intent, PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
     ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {
@@ -349,9 +349,44 @@ public class ServiceSend extends ServiceBase {
                             Log.w("Unrecoverable");
                             db.operation().deleteOperation(op.id);
                             ops.remove(op);
+
+                            if (message != null) {
+                                String title = MessageHelper.formatAddresses(message.to);
+                                PendingIntent pi = getPendingIntent(this);
+
+                                try {
+                                    NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                                    nm.notify("send:" + message.id, 1,
+                                            Core.getNotificationError(this, "error", title, ex, pi).build());
+                                } catch (Throwable ex1) {
+                                    Log.w(ex1);
+                                }
+                            }
+
                             continue;
-                        } else
+                        } else {
+                            if (message != null) {
+                                String title = MessageHelper.formatAddresses(message.to);
+                                PendingIntent pi = getPendingIntent(this);
+
+                                EntityLog.log(this, title + " last attempt: " + new Date(message.last_attempt));
+
+                                long now = new Date().getTime();
+                                long delayed = now - message.last_attempt;
+                                if (delayed > IDENTITY_ERROR_AFTER * 60 * 1000L) {
+                                    Log.i("Reporting send error after=" + delayed);
+                                    try {
+                                        NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                                        nm.notify("send:" + message.id, 1,
+                                                Core.getNotificationError(this, "warning", title, ex, pi).build());
+                                    } catch (Throwable ex1) {
+                                        Log.w(ex1);
+                                    }
+                                }
+                            }
+
                             throw ex;
+                        }
                     } finally {
                         Log.i(outbox.name + " end op=" + op.id + "/" + op.name);
                         db.operation().setOperationState(op.id, null);
@@ -570,7 +605,7 @@ public class ServiceSend extends ServiceBase {
             ServiceSynchronize.eval(ServiceSend.this, "sent");
 
             NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-            nm.cancel("send:" + message.identity, 1);
+            nm.cancel("send:" + message.id, 1);
         } catch (MessagingException ex) {
             Log.e(ex);
 
@@ -578,34 +613,6 @@ public class ServiceSend extends ServiceBase {
                 db.message().deleteMessage(sid);
 
             db.identity().setIdentityError(ident.id, Log.formatThrowable(ex));
-
-            if (ex instanceof AuthenticationFailedException ||
-                    ex instanceof SendFailedException) {
-                try {
-                    NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                    nm.notify("send:" + message.identity, 1,
-                            Core.getNotificationError(this, "error", ident.name, ex)
-                                    .build());
-                } catch (Throwable ex1) {
-                    Log.w(ex1);
-                }
-                throw ex;
-            }
-
-            EntityLog.log(this, ident.name + " last attempt: " + new Date(message.last_attempt));
-
-            long now = new Date().getTime();
-            long delayed = now - message.last_attempt;
-            if (delayed > IDENTITY_ERROR_AFTER * 60 * 1000L) {
-                Log.i("Reporting send error after=" + delayed);
-                try {
-                    NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                    nm.notify("send:" + message.identity, 1,
-                            Core.getNotificationError(this, "warning", ident.name, ex).build());
-                } catch (Throwable ex1) {
-                    Log.w(ex1);
-                }
-            }
 
             throw ex;
         } finally {

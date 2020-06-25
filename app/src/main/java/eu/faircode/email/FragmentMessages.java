@@ -6209,7 +6209,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             db.identity().setIdentityError(message.identity, null);
 
                             NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-                            nm.cancel("send:" + message.identity, 1);
+                            nm.cancel("send:" + message.id, 1);
                         }
                     } else if (message.uid == null && account.protocol == EntityAccount.TYPE_IMAP) {
                         db.message().deleteMessage(id);

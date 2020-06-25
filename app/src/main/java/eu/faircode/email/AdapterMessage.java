@@ -3696,7 +3696,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (message.identity != null) {
                         // Identity can be deleted
                         NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-                        nm.cancel("send:" + message.identity, 1);
+                        nm.cancel("send:" + message.id, 1);
                     }
 
                     return null;
