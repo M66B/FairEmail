@@ -536,6 +536,7 @@
     </provider>
     <provider
         name="Mailfence"
+        appPassword="true"
         domain="mailfence\\.com"
         link="https://mailfence.com/en/faq.jsp"
         useip="false"
