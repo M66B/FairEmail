@@ -31,34 +31,42 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
         android:text="@string/title_show_inline"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ibSaveAttachments"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rvAttachment" />
 
-    <Button
-        android:id="@+id/btnSaveAttachments"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/title_save_all"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cbInline" />
+    <ImageButton
+        android:id="@+id/ibSaveAttachments"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/title_save_all"
+        android:padding="6dp"
+        android:scaleType="fitCenter"
+        android:tooltipText="@string/title_save_all"
+        app:layout_constraintEnd_toStartOf="@id/ibDownloadAttachments"
+        app:layout_constraintTop_toBottomOf="@+id/rvAttachment"
+        app:srcCompat="@drawable/baseline_save_alt_24" />
 
-    <Button
-        android:id="@+id/btnDownloadAttachments"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/title_download_all"
+    <ImageButton
+        android:id="@+id/ibDownloadAttachments"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/title_download_all"
+        android:padding="6dp"
+        android:scaleType="fitCenter"
+        android:tooltipText="@string/title_download_all"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cbInline" />
+        app:layout_constraintTop_toBottomOf="@+id/rvAttachment"
+        app:srcCompat="@drawable/baseline_cloud_download_24" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier_internet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="btnDownloadAttachments,btnSaveAttachments" />
+        app:constraint_referenced_ids="cbInline,ibSaveAttachments,ibDownloadAttachments" />
 
     <eu.faircode.email.FixedTextView
         android:id="@+id/tvNoInternetAttachments"

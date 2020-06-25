@@ -400,8 +400,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private RecyclerView rvAttachment;
         private CheckBox cbInline;
-        private Button btnSaveAttachments;
-        private Button btnDownloadAttachments;
+        private ImageButton ibSaveAttachments;
+        private ImageButton ibDownloadAttachments;
         private TextView tvNoInternetAttachments;
 
         private View vSeparator;
@@ -603,8 +603,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             rvAttachment.setAdapter(adapterAttachment);
 
             cbInline = attachments.findViewById(R.id.cbInline);
-            btnSaveAttachments = attachments.findViewById(R.id.btnSaveAttachments);
-            btnDownloadAttachments = attachments.findViewById(R.id.btnDownloadAttachments);
+            ibSaveAttachments = attachments.findViewById(R.id.ibSaveAttachments);
+            ibDownloadAttachments = attachments.findViewById(R.id.ibDownloadAttachments);
             tvNoInternetAttachments = attachments.findViewById(R.id.tvNoInternetAttachments);
 
             vSeparator = vsBody.findViewById(R.id.vSeparator);
@@ -696,8 +696,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibPinContact.setOnClickListener(this);
                 ibAddContact.setOnClickListener(this);
 
-                btnSaveAttachments.setOnClickListener(this);
-                btnDownloadAttachments.setOnClickListener(this);
+                ibSaveAttachments.setOnClickListener(this);
+                ibDownloadAttachments.setOnClickListener(this);
 
                 ibFull.setOnClickListener(this);
                 ibImages.setOnClickListener(this);
@@ -784,8 +784,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibPinContact.setOnClickListener(null);
                 ibAddContact.setOnClickListener(null);
 
-                btnSaveAttachments.setOnClickListener(null);
-                btnDownloadAttachments.setOnClickListener(null);
+                ibSaveAttachments.setOnClickListener(null);
+                ibDownloadAttachments.setOnClickListener(null);
 
                 ibFull.setOnClickListener(null);
                 ibImages.setOnClickListener(null);
@@ -1285,8 +1285,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             clearCalendar();
 
             cbInline.setVisibility(View.GONE);
-            btnSaveAttachments.setVisibility(View.GONE);
-            btnDownloadAttachments.setVisibility(View.GONE);
+            ibSaveAttachments.setVisibility(View.GONE);
+            ibDownloadAttachments.setVisibility(View.GONE);
             tvNoInternetAttachments.setVisibility(View.GONE);
 
             vSeparator.setVisibility(View.GONE);
@@ -2346,8 +2346,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             cbInline.setChecked(show_inline);
             cbInline.setVisibility(has_inline ? View.VISIBLE : View.GONE);
 
-            btnSaveAttachments.setVisibility(save ? View.VISIBLE : View.GONE);
-            btnDownloadAttachments.setVisibility(download && suitable ? View.VISIBLE : View.GONE);
+            ibSaveAttachments.setVisibility(save ? View.VISIBLE : View.GONE);
+            ibDownloadAttachments.setVisibility(download && suitable ? View.VISIBLE : View.GONE);
             tvNoInternetAttachments.setVisibility(downloading && !suitable ? View.VISIBLE : View.GONE);
 
             cbInline.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -2733,10 +2733,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         onToggleAddresses(message);
                         break;
 
-                    case R.id.btnSaveAttachments:
+                    case R.id.ibSaveAttachments:
                         onSaveAttachments(message);
                         break;
-                    case R.id.btnDownloadAttachments:
+                    case R.id.ibDownloadAttachments:
                         onDownloadAttachments(message);
                         break;
 
