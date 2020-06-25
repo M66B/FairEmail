@@ -708,9 +708,17 @@ class Core {
         ((GmailMessage) imessage).setLabels(new String[]{label}, set);
 
         // Gmail does not push label changes
-        JSONArray fargs = new JSONArray();
-        fargs.put(message.uid);
-        onFetch(context, fargs, folder, istore, ifolder, state);
+
+        List<String> labels = new ArrayList<>();
+        if (message.labels != null)
+            labels.addAll(Arrays.asList(message.labels));
+        labels.remove(label);
+        if (set)
+            labels.add(label);
+
+        DB db = DB.getInstance(context);
+        db.message().setMessageLabels(message.id,
+                DB.Converters.fromStringArray(labels.toArray(new String[0])));
     }
 
     private static void onAdd(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPStore istore, IMAPFolder ifolder, State state) throws MessagingException, IOException {
