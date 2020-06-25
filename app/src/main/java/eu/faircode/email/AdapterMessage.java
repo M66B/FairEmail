@@ -3585,11 +3585,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             Bundle args = new Bundle();
             args.putLong("id", message.id);
             args.putLong("account", message.account);
+            args.putString("exclude", message.folderName);
 
             new SimpleTask<String[]>() {
                 @Override
                 protected String[] onExecute(Context context, Bundle args) {
                     long account = args.getLong("account");
+                    String exclude = args.getString("exclude");
 
                     DB db = DB.getInstance(context);
                     List<EntityFolder> folders = db.folder().getFolders(account, true, true);
@@ -3597,7 +3599,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     List<String> result = new ArrayList<>();
                     if (folders != null)
                         for (EntityFolder folder : folders)
-                            if (EntityFolder.USER.equals(folder.type))
+                            if (EntityFolder.USER.equals(folder.type) && !exclude.equals(folder.name))
                                 result.add(folder.name);
 
                     Collator collator = Collator.getInstance(Locale.getDefault());
