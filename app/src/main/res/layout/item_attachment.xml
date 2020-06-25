@@ -15,12 +15,12 @@
 
         <ImageButton
             android:id="@+id/ibDelete"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/title_legend_delete"
-            android:paddingEnd="12dp"
-            android:visibility="visible"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
             app:layout_constraintBottom_toBottomOf="@+id/tvType"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -28,8 +28,10 @@
 
         <ImageView
             android:id="@+id/ivType"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:padding="3dp"
+            android:scaleType="fitCenter"
             app:layout_constraintBottom_toBottomOf="@+id/tvType"
             app:layout_constraintStart_toEndOf="@id/ibDelete"
             app:layout_constraintTop_toTopOf="parent"
@@ -50,8 +52,11 @@
 
         <ImageView
             android:id="@+id/ivStatus"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginEnd="3dp"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
             app:layout_constraintBottom_toBottomOf="@+id/tvType"
             app:layout_constraintEnd_toStartOf="@+id/ibSave"
             app:layout_constraintTop_toTopOf="parent"
@@ -59,11 +64,12 @@
 
         <ImageButton
             android:id="@+id/ibSave"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/title_legend_save"
-            android:paddingStart="12dp"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
             app:layout_constraintBottom_toBottomOf="@+id/tvType"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"

@@ -18,9 +18,7 @@
         android:id="@+id/rvAttachment"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
         android:layout_marginTop="3dp"
-        android:layout_marginEnd="6dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vSeparatorAttachments" />
@@ -31,35 +29,39 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
         android:text="@string/title_show_inline"
-        app:layout_constraintEnd_toStartOf="@+id/ibSaveAttachments"
+        app:layout_constraintEnd_toStartOf="@+id/ibDownloadAttachments"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rvAttachment" />
 
     <ImageButton
-        android:id="@+id/ibSaveAttachments"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_save_all"
-        android:padding="6dp"
-        android:scaleType="fitCenter"
-        android:tooltipText="@string/title_save_all"
-        app:layout_constraintEnd_toStartOf="@id/ibDownloadAttachments"
-        app:layout_constraintTop_toBottomOf="@+id/rvAttachment"
-        app:srcCompat="@drawable/baseline_save_alt_24" />
-
-    <ImageButton
         android:id="@+id/ibDownloadAttachments"
-        android:layout_width="36dp"
+        android:layout_width="39dp"
         android:layout_height="36dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/title_download_all"
-        android:padding="6dp"
+        android:paddingVertical="6dp"
+        android:paddingStart="9dp"
+        android:paddingEnd="3dp"
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_download_all"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/ibSaveAttachments"
         app:layout_constraintTop_toBottomOf="@+id/rvAttachment"
         app:srcCompat="@drawable/baseline_cloud_download_24" />
+
+    <ImageButton
+        android:id="@+id/ibSaveAttachments"
+        android:layout_width="39dp"
+        android:layout_height="36dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/title_save_all"
+        android:paddingVertical="6dp"
+        android:paddingStart="9dp"
+        android:paddingEnd="3dp"
+        android:scaleType="fitCenter"
+        android:tooltipText="@string/title_save_all"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rvAttachment"
+        app:srcCompat="@drawable/baseline_save_24" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier_internet"
