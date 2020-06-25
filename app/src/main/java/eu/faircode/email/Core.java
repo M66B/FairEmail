@@ -698,20 +698,25 @@ class Core {
         String label = jargs.getString(0);
         boolean set = jargs.getBoolean(1);
 
-        Message imessage = ifolder.getMessageByUID(message.uid);
-        if (imessage == null)
-            throw new MessageRemovedException();
-
-        if (!(imessage instanceof GmailMessage))
-            throw new IllegalArgumentException("GmailMessage");
-
-        ((GmailMessage) imessage).setLabels(new String[]{label}, set);
-
         // Gmail does not push label changes
-        message.setLabel(label, set);
+        try {
+            Message imessage = ifolder.getMessageByUID(message.uid);
+            if (imessage instanceof GmailMessage)
+                ((GmailMessage) imessage).setLabels(new String[]{label}, set);
+        } catch (MessagingException ex) {
+            Log.w(ex);
+        }
 
         DB db = DB.getInstance(context);
-        db.message().setMessageLabels(message.id, DB.Converters.fromStringArray(message.labels));
+        List<EntityMessage> messages = db.message().getMessagesByMsgId(message.account, message.msgid);
+        if (messages != null)
+            for (EntityMessage m : messages) {
+                EntityFolder f = db.folder().getFolder(m.folder);
+                if (!label.equals(f.name) && m.setLabel(label, set)) {
+                    Log.i("Set " + label + "=" + set + " id=" + m.id + " folder=" + f.name);
+                    db.message().setMessageLabels(m.id, DB.Converters.fromStringArray(m.labels));
+                }
+            }
     }
 
     private static void onAdd(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPStore istore, IMAPFolder ifolder, State state) throws MessagingException, IOException {
@@ -1018,13 +1023,39 @@ class Core {
                 ifolder.fetch(new Message[]{imessage}, fp);
 
                 EntityMessage message = synchronizeMessage(context, account, folder, istore, ifolder, imessage, false, download, rules, state);
-                if (download && message != null)
-                    downloadMessage(context, account, folder, istore, ifolder, imessage, message.id, state);
+                if (message != null) {
+                    if (account.isGmail() && EntityFolder.USER.equals(folder.type))
+                        try {
+                            JSONArray jlabel = new JSONArray();
+                            jlabel.put(0, folder.name);
+                            jlabel.put(1, true);
+                            onLabel(context, jlabel, folder, message, istore, ifolder, state);
+                        } catch (Throwable ex1) {
+                            Log.e(ex1);
+                        }
+
+                    if (download)
+                        downloadMessage(context, account, folder, istore, ifolder, imessage, message.id, state);
+                }
             } finally {
                 ((IMAPMessage) imessage).invalidateHeaders();
             }
         } catch (MessageRemovedException ex) {
             Log.i(ex);
+
+            if (account.isGmail() && EntityFolder.USER.equals(folder.type)) {
+                EntityMessage message = db.message().getMessageByUid(folder.id, uid);
+                if (message != null)
+                    try {
+                        JSONArray jlabel = new JSONArray();
+                        jlabel.put(0, folder.name);
+                        jlabel.put(1, false);
+                        onLabel(context, jlabel, folder, message, istore, ifolder, state);
+                    } catch (Throwable ex1) {
+                        Log.e(ex1);
+                    }
+            }
+
             db.message().deleteMessage(folder.id, uid);
         } finally {
             int count = ifolder.getMessageCount();
