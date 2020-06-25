@@ -6205,12 +6205,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         db.message().deleteMessage(id);
 
                         db.folder().setFolderError(message.folder, null);
-                        if (message.identity != null) {
+                        if (message.identity != null)
                             db.identity().setIdentityError(message.identity, null);
-
-                            NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-                            nm.cancel("send:" + message.id, 1);
-                        }
                     } else if (message.uid == null && account.protocol == EntityAccount.TYPE_IMAP) {
                         db.message().deleteMessage(id);
                         db.folder().setFolderError(message.folder, null);
@@ -6223,6 +6219,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 }
 
                 ServiceSynchronize.eval(context, "delete");
+
+                NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+                nm.cancel("send:" + id, 1);
 
                 return null;
             }

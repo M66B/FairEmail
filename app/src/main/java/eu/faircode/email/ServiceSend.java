@@ -558,6 +558,8 @@ public class ServiceSend extends ServiceBase {
 
             // Send message
             EntityLog.log(this, "Sending " + via);
+            if (BuildConfig.DEBUG && false)
+                throw new SendFailedException("Test");
             iservice.getTransport().sendMessage(imessage, to);
             long time = new Date().getTime();
             EntityLog.log(this, "Sent " + via);

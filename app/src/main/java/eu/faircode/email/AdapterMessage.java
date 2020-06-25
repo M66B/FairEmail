@@ -1425,7 +1425,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibImages.setVisibility(View.GONE);
             ibDecrypt.setVisibility(View.GONE);
             ibVerify.setVisibility(View.GONE);
-            ibUndo.setVisibility(EntityFolder.OUTBOX.equals(message.folderType) ? View.VISIBLE : View.GONE);
+            ibUndo.setVisibility(View.GONE);
             ibRule.setVisibility(View.GONE);
             ibUnsubscribe.setVisibility(View.GONE);
             ibAnswer.setVisibility(View.GONE);
@@ -1563,19 +1563,20 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     ibTrash.setTag(delete);
 
+                    ibUndo.setVisibility(outbox ? View.VISIBLE : View.GONE);
                     ibRule.setVisibility(tools && experiments && !outbox &&
                             message.accountProtocol == EntityAccount.TYPE_IMAP ? View.VISIBLE : View.GONE);
                     ibUnsubscribe.setVisibility(!tools || message.unsubscribe == null ? View.GONE : View.VISIBLE);
                     ibAnswer.setVisibility(!tools || outbox || (!expand_all && expand_one) ? View.GONE : View.VISIBLE);
-                    ibLabels.setVisibility(tools && labels_header && labels ? View.VISIBLE : View.GONE);
+                    ibLabels.setVisibility(tools && labels_header && labels && !outbox ? View.VISIBLE : View.GONE);
                     ibMove.setVisibility(tools && move ? View.VISIBLE : View.GONE);
                     ibArchive.setVisibility(tools && extras && archive ? View.VISIBLE : View.GONE);
-                    ibTrash.setVisibility(tools && extras && trash ? View.VISIBLE : View.GONE);
+                    ibTrash.setVisibility(outbox || (tools && extras && trash) ? View.VISIBLE : View.GONE);
                     ibJunk.setVisibility(tools && junk ? View.VISIBLE : View.GONE);
                     ibInbox.setVisibility(tools && inbox ? View.VISIBLE : View.GONE);
                     ibMore.setVisibility(!tools || outbox ? View.GONE : View.VISIBLE);
                     ibTools.setImageLevel(tools ? 0 : 1);
-                    ibTools.setVisibility(View.VISIBLE);
+                    ibTools.setVisibility(outbox ? View.GONE : View.VISIBLE);
 
                     ibTrashBottom.setVisibility(extras && trash ? View.VISIBLE : View.GONE);
                     ibArchiveBottom.setVisibility(extras && archive ? View.VISIBLE : View.GONE);
@@ -3651,17 +3652,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 protected Void onExecute(Context context, Bundle args) {
                     long id = args.getLong("id");
 
-                    EntityMessage message;
-
                     DB db = DB.getInstance(context);
                     try {
                         db.beginTransaction();
 
-                        message = db.message().getMessage(id);
+                        EntityMessage message = db.message().getMessage(id);
                         if (message == null)
                             return null;
 
                         db.folder().setFolderError(message.folder, null);
+                        if (message.identity != null)
+                            db.identity().setIdentityError(message.identity, null);
 
                         File source = message.getFile(context);
 
@@ -3693,11 +3694,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     ServiceSynchronize.eval(context, "outbox/drafts");
 
-                    if (message.identity != null) {
-                        // Identity can be deleted
-                        NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-                        nm.cancel("send:" + message.id, 1);
-                    }
+                    NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+                    nm.cancel("send:" + id, 1);
 
                     return null;
                 }
