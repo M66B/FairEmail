@@ -2708,7 +2708,11 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onAnswerSelected(Bundle args) {
+        String name = args.getString("name");
         String answer = args.getString("answer");
+
+        if (etSubject.getText().length() == 0)
+            etSubject.setText(name);
 
         InternetAddress[] to = null;
         try {
@@ -2724,6 +2728,7 @@ public class FragmentCompose extends FragmentBase {
                 return ImageHelper.decodeImage(getContext(), working, source, true, zoom, etBody);
             }
         }, null);
+
         etBody.getText().insert(etBody.getSelectionStart(), spanned);
     }
 
@@ -4959,6 +4964,7 @@ public class FragmentCompose extends FragmentBase {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             EntityAnswer answer = adapter.getItem(which);
+                            getArguments().putString("name", answer.name);
                             getArguments().putString("answer", answer.text);
 
                             sendResult(RESULT_OK);
