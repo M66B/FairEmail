@@ -579,6 +579,29 @@ public class Log {
             */
             return false;
 
+        if (ex instanceof IllegalStateException &&
+                "Results have already been set".equals(ex.getMessage()))
+            /*
+                Play billing?
+                java.lang.IllegalStateException: Results have already been set
+                        at Gu.a(Unknown:8)
+                        at Fq.a(Unknown:29)
+                        at Fk.b(Unknown:17)
+                        at Fk.a(Unknown:12)
+                        at Fk.b(Unknown:5)
+                        at Ex.a(Unknown:3)
+                        at Ep.b(Unknown:9)
+                        at Ep.a(Unknown:76)
+                        at Ep.a(Unknown:16)
+                        at GH.a(Unknown:2)
+                        at Gz.a(Unknown:48)
+                        at GC.handleMessage(Unknown:6)
+                        at android.os.Handler.dispatchMessage(Handler.java:108)
+                        at android.os.Looper.loop(Looper.java:166)
+                        at android.os.HandlerThread.run(HandlerThread.java:65)
+             */
+            return false;
+
         if (ex instanceof IllegalArgumentException &&
                 ex.getCause() instanceof RemoteException)
             /*
