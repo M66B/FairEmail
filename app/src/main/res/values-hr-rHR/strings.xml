@@ -6,7 +6,6 @@
     <string name="app_limitations">Na primjer, poruke će uvijek biti preoblikovane kako bi se uklonili nesigurni elementi i poboljšana čitljivost, a otvaranje veza mora biti potvrđeno radi sigurnosti.</string>
     <string name="app_crash">FairEmail nije podržan na ovom uređaju jer greške u Androidu uzrokuju probleme i padove</string>
     <string name="app_exit">Ponovo pritisnite \'natrag\' za izlazak</string>
-    <string name="channel_service">Usluga</string>
     <string name="channel_send">Pošalji</string>
     <string name="channel_notification">Obavijesti</string>
     <string name="channel_update">Ažuriranja</string>
@@ -242,7 +241,6 @@
     <string name="title_advanced_rlah">Roaming kao kod kuće</string>
     <string name="title_advanced_timeout">Vrijeme do prekida veze (u sekundama)</string>
     <string name="title_advanced_ssl_harden">Otvrdni SSL veze</string>
-    <string name="title_advanced_socks">Koristi SOCKS proxy</string>
     <string name="title_advanced_manage_connectivity">Upravljanje povezivanjem</string>
     <string name="title_advanced_caption_general">Općenito</string>
     <string name="title_advanced_caption_conversation">Konverzacija</string>
@@ -378,7 +376,6 @@
     <string name="title_advanced_rlah_hint">Ne pretpostavljajući roaming unutar EU</string>
     <string name="title_advanced_timeout_hint">Vremensko ograničenje čitanja / pisanja postavit će se u dvostruko vrijeme do prekida veze. Veće vrijednosti rezultirat će većom potrošnjom baterije.</string>
     <string name="title_advanced_ssl_harden_hint">Ako se to omogući, onemogućit će se slabi SSL protokoli i šifre, što može dovesti do problema s vezom</string>
-    <string name="title_advanced_socks_hint">Upotreba udaljenog proxy poslužitelja nije sigurna jer proxy veze nisu šifrirane</string>
     <string name="title_advanced_roaming_hint">Zaglavlja poruka uvijek će se prikazivane prilikom roaminga. Postavku roaminga uređaja možete koristiti da biste onemogućili internet tijekom roaminga.</string>
     <string name="title_advanced_browse_hint">Dohvatite više poruka prilikom pomicanja prema dolje</string>
     <string name="title_advanced_layout_hint">Prebacivanje na kompaktniji izgled i promjena veličine teksta poruke može se izvršiti u izborniku gornje radne trake u prikazu poruka</string>
@@ -958,7 +955,6 @@
     <string name="title_dismiss">Odbaci</string>
     <string name="title_snooze_now">Odgodi</string>
     <string name="title_loading">Učitava &#8230;</string>
-    <string name="title_set">Postavi</string>
     <string name="title_fetching_again">Dohvaćanje poruke opet s poslužitelja</string>
     <string name="title_icalendar_accept">Prihvati</string>
     <string name="title_icalendar_decline">Odbij</string>

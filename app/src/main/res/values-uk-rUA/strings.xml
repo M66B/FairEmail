@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_exit">Натисніть \"Назад\" знову, щоб вийти</string>
-    <string name="channel_service">Послуга</string>
     <string name="channel_send">Надіслати</string>
     <string name="channel_notification">Сповіщення</string>
     <string name="channel_update">Оновлення</string>

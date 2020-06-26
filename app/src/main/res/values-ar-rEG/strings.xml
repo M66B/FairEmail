@@ -5,7 +5,6 @@
     <string name="app_welcome">FairEmail تطبيق مفتوح المصدر للبريد الإلكتروني يُركّز على الخصوصية والأمان. ولهذا السبب قد تعمل بعض الميزات بشكل مختلف مما كنت مُعتادًا عليه.</string>
     <string name="app_crash">فيرميل ليس مدعومًا على هذا الجهاز لأن أخطاء في نظام الأندرويد تسبب تعطّلات</string>
     <string name="app_exit">اذهب إلى \"الوراء\" مجددًا للإغلاق</string>
-    <string name="channel_service">الخدمة</string>
     <string name="channel_send">أرسل</string>
     <string name="channel_notification">الاشعارات</string>
     <string name="channel_update">التحديثات</string>

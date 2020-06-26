@@ -6,7 +6,6 @@
     <string name="app_limitations">Ad esempio, i messaggi verranno sempre riformattati per rimuovere elementi non sicuri e per migliorare la leggibilità e l\'apertura dei collegamenti deve essere confermata per sicurezza.</string>
     <string name="app_crash">FairEmail non è supportata su questo dispositivo a causa di bug in Android che causano crash</string>
     <string name="app_exit">Premi di nuovo \'indietro\' per uscire</string>
-    <string name="channel_service">Servizio</string>
     <string name="channel_send">Invia</string>
     <string name="channel_notification">Notifiche</string>
     <string name="channel_update">Aggiornamenti</string>
@@ -258,7 +257,6 @@
     <string name="title_advanced_rlah">Roaming come a casa</string>
     <string name="title_advanced_timeout">Timeout di connessione (secondi)</string>
     <string name="title_advanced_ssl_harden">Connessioni SSL Harden</string>
-    <string name="title_advanced_socks">Usa SOCKS proxy</string>
     <string name="title_advanced_manage_connectivity">Gestisci connettività</string>
     <string name="title_advanced_caption_general">Generale</string>
     <string name="title_advanced_caption_list">Elenco</string>
@@ -424,7 +422,6 @@
     <string name="title_advanced_rlah_hint">Presumi nessun roaming all\'interno dell\'UE</string>
     <string name="title_advanced_timeout_hint">Il timeout di lettura/scrittura verrà impostato sul doppio del timeout di connessione. Valori più alti comporteranno più utilizzo della batteria.</string>
     <string name="title_advanced_ssl_harden_hint">Abilitando questa opzione disabiliterai i protocolli SSL e i cifrari deboli, che possono causare problemi di connessione</string>
-    <string name="title_advanced_socks_hint">L\'utilizzo di un server proxy remoto non è sicuro perché le connessioni proxy non sono cifrate</string>
     <string name="title_advanced_roaming_hint">Le intestazioni dei messaggi saranno sempre recuperate quando in roaming. Puoi utilizzare le impostazioni di roaming del dispositivo per disabilitare internet durante il roaming.</string>
     <string name="title_advanced_browse_hint">Scarica più messaggi quando scorri verso il basso</string>
     <string name="title_advanced_layout_hint">Puoi passare ad un layout più compatto e modificare la dimensione del testo del messaggio nel menu della barra di azione in alto nella vista dei messaggi</string>
@@ -1109,7 +1106,6 @@
     <string name="title_dismiss">Rimuovi</string>
     <string name="title_snooze_now">Posticipa</string>
     <string name="title_loading">Caricamento &#8230;</string>
-    <string name="title_set">Imposta</string>
     <string name="title_fetching_again">Nuovo recupero messaggio dal server</string>
     <string name="title_conversation_actions">Azioni</string>
     <string name="title_conversation_action_reply">Rispondi con: \'%1$s\'</string>

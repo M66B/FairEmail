@@ -6,7 +6,6 @@
     <string name="app_limitations">Meddelanden kommer till exempel alltid att omformateras för att avlägsna osäkra element och för att förbättra läsbarheten och öppna länkar måste bekräftas för säkerheten.</string>
     <string name="app_crash">FairEmail stöds inte på den här enheten eftersom buggar i Android orsakar kraschar</string>
     <string name="app_exit">Tryck \"tillbaka\" igen för att avsluta</string>
-    <string name="channel_service">Tjänst</string>
     <string name="channel_send">Skicka</string>
     <string name="channel_notification">Aviseringar</string>
     <string name="channel_update">Uppdateringar</string>
@@ -257,7 +256,6 @@
     <string name="title_advanced_rlah">Roaming som hemma</string>
     <string name="title_advanced_timeout">Timeout för anslutning (sekunder)</string>
     <string name="title_advanced_ssl_harden">Strikta SSL-anslutningar</string>
-    <string name="title_advanced_socks">Använd SOCKS-proxy</string>
     <string name="title_advanced_manage_connectivity">Hantera anslutning</string>
     <string name="title_advanced_caption_general">Allmänt</string>
     <string name="title_advanced_caption_list">Lista</string>
@@ -424,7 +422,6 @@
     <string name="title_advanced_rlah_hint">Förutsatt ingen roaming inom EU</string>
     <string name="title_advanced_timeout_hint">Tidsgräns för läs/skriva kommer att ställas in på den dubbla av anslutningens tidsgräns. Högre värden kommer att resultera i mer batterianvändning.</string>
     <string name="title_advanced_ssl_harden_hint">Aktivering av detta kommer att inaktivera svaga SSL-protokoll och chiffer, vilket kan leda till anslutningsproblem</string>
-    <string name="title_advanced_socks_hint">Användning av en proxyserver är osäker eftersom proxyanslutningar inte är krypterade</string>
     <string name="title_advanced_roaming_hint">Meddelanderubriker kommer alltid att hämtas vid roaming. Du kan använda enhetens roaminginställning för att inaktivera internet vid roaming.</string>
     <string name="title_advanced_browse_hint">Hämta fler meddelanden när du rullar ner</string>
     <string name="title_advanced_layout_hint">Växla till en mer kompakt layout och ändra meddelandetextstorleken kan göras i menyn högst upp i meddelandevyn</string>
@@ -624,7 +621,6 @@
     <string name="title_duplicate_in">Duplicerade meddelande i %1$s</string>
     <string name="title_subject_reply">Sv: %1$s</string>
     <string name="title_subject_forward">Vb: %1$s</string>
-    <string name="title_extras">Extra knappar</string>
     <string name="title_seen">Märk som läst</string>
     <string name="title_unseen">Märk som oläst</string>
     <string name="title_hide">Dölj</string>
@@ -1112,7 +1108,6 @@
     <string name="title_dismiss">Avfärda</string>
     <string name="title_snooze_now">Slumra</string>
     <string name="title_loading">Läser in &#8230;</string>
-    <string name="title_set">Ställ in</string>
     <string name="title_fetching_again">Hämtar meddelande igen från servern</string>
     <string name="title_conversation_actions">Åtgärder</string>
     <string name="title_conversation_action_reply">Svara med: \'%1$s\'</string>

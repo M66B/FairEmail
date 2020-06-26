@@ -6,7 +6,6 @@
     <string name="app_limitations">Berjochten wurde bygelyks altyd herformateare om ûnfeilige eleminten te ferwiderjen en lêsberens te ferbetterjen, en iepeningslinks moatte wurde befestige foar feiligens.</string>
     <string name="app_crash">FailEmail wurdt net stipe op dit apparaat om\'t bugs yn Android crashes feroarsaakje</string>
     <string name="app_exit">Gean \'werom\' opnij om út te gean</string>
-    <string name="channel_service">Tsjinst</string>
     <string name="channel_send">Stjoere</string>
     <string name="channel_notification">Notifikaasjes</string>
     <string name="channel_update">Bywurken</string>
@@ -77,8 +76,11 @@
     <string name="title_notification_idle">Ynaktyf</string>
     <string name="title_notification_failed">\'%1$s\' mislearre</string>
     <string name="title_notification_alert">\'%1$s\' tsjinner warskôging</string>
+    <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
+    <string name="title_from_to">%1$s ➤ %2$s</string>
+    <string name="title_title_description">%1$s: %2$s</string>
     <string name="title_factor_minutes">%1$d minuten</string>
     <string name="menu_exit">Útgong</string>
     <string name="menu_answers">Sjabloanen</string>
@@ -170,6 +172,7 @@
     <string name="title_advanced_section_privacy">Privacy</string>
     <string name="title_advanced_section_encryption">Fersifering</string>
     <string name="title_advanced_section_notifications">Notifikaasjes</string>
+    <string name="title_advanced_section_misc">Ferskate</string>
     <string name="title_advanced_when">Wannear</string>
     <string name="title_advanced_schedule">Skema</string>
     <string name="title_advanced_advanced">Avansearre</string>
@@ -428,6 +431,7 @@
     <string name="title_legend_draft">Hat konsept</string>
     <string name="title_legend_signed">Is tekene</string>
     <string name="title_legend_encrypted">Is fersifere</string>
+    <string name="title_legend_auth">Ferifikaasje mislearre</string>
     <string name="title_legend_found">Is fûn</string>
     <string name="title_legend_snoozed">Is snoozed</string>
     <string name="title_legend_flagged">Heakje bestân ta</string>
@@ -483,7 +487,6 @@
     <string name="title_minutes">Minuten</string>
     <string name="title_dismiss">Wegerje</string>
     <string name="title_snooze_now">Snooze</string>
-    <string name="title_set">Ynstelle</string>
     <string name="title_conversation_action_copy">Kopiearje: %1$s</string>
     <string name="title_icalendar_accept">Akseptearje</string>
     <string name="title_icalendar_decline">Efterútgong</string>
@@ -617,5 +620,16 @@
         <item>PGP sign+encrypt</item>
         <item>S/MIME sign-only</item>
         <item>S/MIME sign+encrypt</item>
+    </string-array>
+    <string-array name="sizeNames">
+        <item>0 B</item>
+        <item>256 KB</item>
+        <item>512 KB</item>
+        <item>1 MB</item>
+        <item>2 MB</item>
+        <item>5 MB</item>
+        <item>10 MB</item>
+        <item>20 MB</item>
+        <item>50 MB</item>
     </string-array>
 </resources>

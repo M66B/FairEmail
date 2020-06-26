@@ -6,7 +6,6 @@
     <string name="app_limitations">Por ejemplo, el formato de los mensajes siempre será alterado para quitar elementos no seguros y para mejorar la legibilidad, y abrir enlaces debe ser confirmado por seguridad.</string>
     <string name="app_crash">FairEmail no es compatible con este dispositivo porque existen errores en Android que provocan fallos</string>
     <string name="app_exit">Volver \'atrás\' para salir</string>
-    <string name="channel_service">Servicio</string>
     <string name="channel_send">Enviar</string>
     <string name="channel_notification">Notificaciones</string>
     <string name="channel_update">Actualizaciones</string>
@@ -259,7 +258,6 @@
     <string name="title_advanced_rlah">Itinerancia como en casa</string>
     <string name="title_advanced_timeout">Tiempo de espera de conexión (segundos)</string>
     <string name="title_advanced_ssl_harden">Endurecer conexiones SSL</string>
-    <string name="title_advanced_socks">Usar proxy SOCKS</string>
     <string name="title_advanced_manage_connectivity">Administrar conectividad</string>
     <string name="title_advanced_caption_general">General</string>
     <string name="title_advanced_caption_list">Lista</string>
@@ -296,6 +294,7 @@
     <string name="title_advanced_subject_italic">Mostrar asunto en cursiva</string>
     <string name="title_advanced_subject_elipsed">Acortar el asunto cuando sea necesario</string>
     <string name="title_advanced_keywords">Mostrar palabras clave en encabezado del mensaje</string>
+    <string name="title_advanced_labels">Mostrar etiquetas de Gmail en cabecera de mensaje</string>
     <string name="title_advanced_flags">Mostrar estrellas</string>
     <string name="title_advanced_flags_background">Mostrar fondo coloreado en lugar de estrellas de color</string>
     <string name="title_advanced_preview">Mostrar vista previa de mensajes</string>
@@ -425,7 +424,6 @@
     <string name="title_advanced_rlah_hint">Suponiendo que no hay itinerancia dentro de la UE</string>
     <string name="title_advanced_timeout_hint">El tiempo de espera de lectura/escritura se establecerá al doble del tiempo de espera de conexión. Valores más altos resultarán en un mayor uso de la batería.</string>
     <string name="title_advanced_ssl_harden_hint">Activar esto desactivará los protocolos SSL y cifrados débiles, lo que puede provocar problemas de conexión</string>
-    <string name="title_advanced_socks_hint">El uso de un servidor proxy remoto es inseguro porque las conexiones proxy no están cifradas</string>
     <string name="title_advanced_roaming_hint">Los encabezados de mensajes siempre se obtendrán cuando en itinerancia. Puede usar la configuración de itinerancia del dispositivo para desactivar internet mientras se está en itinerancia.</string>
     <string name="title_advanced_browse_hint">Buscar más mensajes al desplazarse hacia abajo</string>
     <string name="title_advanced_layout_hint">Cambiar a un diseño más compacto y cambiar el tamaño del texto del mensaje puede hacerse en el menú de la barra de acción superior en la vista de mensaje</string>
@@ -649,6 +647,7 @@
     <string name="title_raw_save">Guardar mensaje raw</string>
     <string name="title_raw_send">Enviar como adjunto</string>
     <string name="title_manage_keywords">Administrar palabras clave</string>
+    <string name="title_manage_labels">Administrar etiquetas de Gmail</string>
     <string name="title_add_keyword">Añadir palabra clave</string>
     <string name="title_show_inline">Mostrar adjuntos incrustados</string>
     <string name="title_download_all">Descargar todo</string>
@@ -1111,7 +1110,6 @@
     <string name="title_dismiss">Descartar</string>
     <string name="title_snooze_now">Posponer</string>
     <string name="title_loading">Cargando &#8230;</string>
-    <string name="title_set">Aplicar</string>
     <string name="title_fetching_again">Recuperando mensaje nuevamente del servidor</string>
     <string name="title_conversation_actions">Acciones</string>
     <string name="title_conversation_action_reply">Responder con: \'%1$s\'</string>

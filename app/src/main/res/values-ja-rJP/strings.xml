@@ -6,7 +6,6 @@
     <string name="app_limitations">例えば常に安全でない要素を削除し読みやすさを向上させるために再フォーマットされ、リンクを開くには安全の為に確認する必要があります</string>
     <string name="app_crash">Androidのバグによりクラッシュが発生する為、このデバイスではFairEmailはサポートされていません</string>
     <string name="app_exit">もう一度押すと終了します</string>
-    <string name="channel_service">サービス</string>
     <string name="channel_send">送信</string>
     <string name="channel_notification">通知</string>
     <string name="channel_update">更新</string>
@@ -235,7 +234,6 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_rlah">EU内無制限ローミング(EUのみ)</string>
     <string name="title_advanced_timeout">接続タイムアウト(秒)</string>
     <string name="title_advanced_ssl_harden">SSL接続を有効</string>
-    <string name="title_advanced_socks">SOCKS proxyを使用</string>
     <string name="title_advanced_manage_connectivity">接続の管理</string>
     <string name="title_advanced_caption_general">全般</string>
     <string name="title_advanced_caption_list">リスト</string>
@@ -393,7 +391,6 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_rlah_hint">EU内でのローミングのみ</string>
     <string name="title_advanced_timeout_hint">読み取り/書き込みタイムアウトは接続タイムアウトの2倍に設定されます。値を大きくするとバッテリーの使用量が増えます</string>
     <string name="title_advanced_ssl_harden_hint">有効にすると弱いSSLプロトコルと暗号が無効になり接続の問題が発生する可能性が有ります</string>
-    <string name="title_advanced_socks_hint">プロキシ接続は暗号化されていない為、リモートプロキシサーバ使用は安全ではありません</string>
     <string name="title_advanced_roaming_hint">ローミング時メッセージヘッダーが常に取得されます。 デバイスのローミング設定を使用して、ローミング中にインターネットを無効にする事が出来ます</string>
     <string name="title_advanced_browse_hint">下にスクロール時に、更にメッセージを取得</string>
     <string name="title_advanced_layout_hint">よりコンパクトなレイアウトへの切り替えとメッセージのテキストサイズの変更はメッセージビューの上部アクションバーメニューで行えます</string>
@@ -1066,7 +1063,6 @@ PlayストアでFairEmailを評価できれば幸いです。
     <string name="title_dismiss">却下する</string>
     <string name="title_snooze_now">スヌーズ</string>
     <string name="title_loading">&#8230; を読み込んでいます</string>
-    <string name="title_set">設定</string>
     <string name="title_fetching_again">サーバーからメッセージの再取得</string>
     <string name="title_conversation_actions">アクション</string>
     <string name="title_conversation_action_reply">返信: \'%1$s\'</string>

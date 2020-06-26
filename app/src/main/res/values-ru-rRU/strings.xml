@@ -6,7 +6,6 @@
     <string name="app_limitations">Например, сообщения всегда будут переформатированы, чтобы удалить небезопасные элементы и улучшить читабельность, а также открытие ссылок требует подтверждения в целях безопасности.</string>
     <string name="app_crash">FairEmail не поддерживается на этом устройстве, так как ошибки в Android вызывают сбои</string>
     <string name="app_exit">Для выхода снова перейдите \"назад\"</string>
-    <string name="channel_service">Служба</string>
     <string name="channel_send">Отправка</string>
     <string name="channel_notification">Уведомления</string>
     <string name="channel_update">Обновления</string>
@@ -280,7 +279,6 @@
     <string name="title_advanced_rlah">В роуминге как дома</string>
     <string name="title_advanced_timeout">Время ожидания соединения (сек.)</string>
     <string name="title_advanced_ssl_harden">Усиленные SSL-соединения</string>
-    <string name="title_advanced_socks">Использовать SOCKS-прокси</string>
     <string name="title_advanced_manage_connectivity">Управление подключением</string>
     <string name="title_advanced_caption_general">По умолчанию</string>
     <string name="title_advanced_caption_list">Список</string>
@@ -317,6 +315,7 @@
     <string name="title_advanced_subject_italic">Показывать тему сообщения курсивом</string>
     <string name="title_advanced_subject_elipsed">При необходимости сокращать тему сообщения</string>
     <string name="title_advanced_keywords">Показывать ключевые слова в заголовке сообщения</string>
+    <string name="title_advanced_labels">Показывать метки Gmail в заголовке сообщения</string>
     <string name="title_advanced_flags">Показывать метки избранного</string>
     <string name="title_advanced_flags_background">Цветной фон вместо цветных меток избранного</string>
     <string name="title_advanced_preview">Показывать предпросмотр сообщения</string>
@@ -446,7 +445,6 @@
     <string name="title_advanced_rlah_hint">Предполагать отсутствие роуминга внутри ЕС</string>
     <string name="title_advanced_timeout_hint">Время ожидания для чтения/записи будет установлено в два раза больше времени ожидания соединения. Ещё большие значения могут увеличить расход аккумулятора.</string>
     <string name="title_advanced_ssl_harden_hint">Включение этой функции отключит слабые протоколы и алгоритмы SSL, что может привести к проблемам с соединением</string>
-    <string name="title_advanced_socks_hint">Использование удалённого прокси-сервера небезопасно, потому что прокси-соединения не зашифрованы</string>
     <string name="title_advanced_roaming_hint">Заголовки сообщений всегда будут загружаться в роуминге. Вы можете использовать настройки устройства для отключения интернета в роуминге.</string>
     <string name="title_advanced_browse_hint">Получать больше сообщений при прокрутке вниз</string>
     <string name="title_advanced_layout_hint">Переключиться на компактный вид и изменить размера текста сообщения можно через верхнее меню панели действий при просмотре сообщения</string>
@@ -646,6 +644,7 @@
     <string name="title_duplicate_in">Дубликат сообщения в %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
+    <string name="title_buttons">Кнопки</string>
     <string name="title_seen">Отметить как прочитанное</string>
     <string name="title_unseen">Отметить как непрочитанное</string>
     <string name="title_hide">Скрыть</string>
@@ -670,6 +669,7 @@
     <string name="title_raw_save">Сохранить оригинал сообщения</string>
     <string name="title_raw_send">Отправить как вложение</string>
     <string name="title_manage_keywords">Управление ключами (словами)</string>
+    <string name="title_manage_labels">Управление метками Gmail</string>
     <string name="title_add_keyword">Добавить ключ (слово)</string>
     <string name="title_show_inline">Показывать встроенные вложения</string>
     <string name="title_download_all">Загрузить все</string>
@@ -1132,7 +1132,6 @@
     <string name="title_dismiss">Отклонить</string>
     <string name="title_snooze_now">Отложить</string>
     <string name="title_loading">Загрузка&#8230;</string>
-    <string name="title_set">Применить</string>
     <string name="title_fetching_again">Заново загружаем сообщения с сервера</string>
     <string name="title_conversation_actions">Действия</string>
     <string name="title_conversation_action_reply">Ответить на: \'%1$s\'</string>

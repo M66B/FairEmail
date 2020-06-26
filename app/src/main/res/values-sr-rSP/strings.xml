@@ -6,7 +6,6 @@
     <string name="app_limitations">Нпр. поруке ће увек бити форматиране тако да се уклоне небезбедни елементи и да се побољша читљивост, а отварање веза мора да се, ради безбедности, потврди.</string>
     <string name="app_crash">FairEmail није подржан на овом уређају пошто Андроид грешке изазивају рушења апликације</string>
     <string name="app_exit">За излаз још једном притисните „назад“</string>
-    <string name="channel_service">Сервис</string>
     <string name="channel_send">Пошаљи</string>
     <string name="channel_notification">Обавештења</string>
     <string name="channel_update">Ажурирања</string>
@@ -213,7 +212,6 @@
     <string name="title_advanced_download">Аутоматски преузимај поруке и прилоге на конекцијама које мере потрошњу података до</string>
     <string name="title_advanced_roaming">Преузимај поруке и прилоге у ромингу</string>
     <string name="title_advanced_rlah">Роминг као да сте кући</string>
-    <string name="title_advanced_socks">Користи SOCKS прокси</string>
     <string name="title_advanced_manage_connectivity">Управљање конекцијама</string>
     <string name="title_advanced_caption_general">Генерално</string>
     <string name="title_advanced_caption_list">Списак</string>
@@ -324,7 +322,6 @@
     <string name="title_advanced_metered_hint">Конекције које мере потрошњу података су обично мобилне конекције или плаћени Wi-Fi хотспотови</string>
     <string name="title_advanced_metered_warning">Искључивањем ове опције ћете онемогућити примање и слање порука са мобилних конекција</string>
     <string name="title_advanced_rlah_hint">Претпостави да нема роминга унутар Европске Уније</string>
-    <string name="title_advanced_socks_hint">Коришћење удаљеног прокси сервера је небезбедно пошто прокси везе нису шифроване</string>
     <string name="title_advanced_roaming_hint">Заглавља порука ће се увек скидати у ромингу. Користите поставке роминга Вашег уређаја да тамо искључите интернет у ромингу.</string>
     <string name="title_advanced_browse_hint">Дохвати још порука при превлачењу на доле</string>
     <string name="title_advanced_layout_hint">Пребацивање на компактнији приказ и промена величина текста поруке може да се уради из горње акционе траке у порукама</string>
@@ -901,7 +898,6 @@
     <string name="title_dismiss">Одбаци</string>
     <string name="title_snooze_now">Одложи</string>
     <string name="title_loading">Учитавам &#8230;</string>
-    <string name="title_set">Постави</string>
     <string name="title_conversation_actions">Акције</string>
     <string name="title_icalendar_accept">Прихвати</string>
     <string name="title_icalendar_decline">Одбиј</string>

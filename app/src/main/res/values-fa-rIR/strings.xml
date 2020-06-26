@@ -6,7 +6,6 @@
     <string name="app_limitations">برای مثال پیام‌ها همواره برای حذف عناصر ناامن و بهبود خوانایی متن شکل‌ بندی خواهند شد و باز کردن لینک‌ها نیز برای ایمنی بیشتر نیاز به تایید دارد.</string>
     <string name="app_crash">FairEmail در دستگاه شما پشتیبانی نمی‌شود، چون به دلیل وجود اشکالاتی در اندروید موجب خرابی برنامه می‌شود</string>
     <string name="app_exit">برای خروج دوباره روی \'بازگشت\' کلیک کنید</string>
-    <string name="channel_service">سرویس</string>
     <string name="channel_send">ارسال</string>
     <string name="channel_notification">اعلان‌ها</string>
     <string name="channel_update">به‌روزرسانی‌ها</string>
@@ -244,7 +243,6 @@
     <string name="title_advanced_rlah">رومینگ مانند اینکه در خانه‌ای</string>
     <string name="title_advanced_timeout">اتصال برقرار نشد (ثانیه)</string>
     <string name="title_advanced_ssl_harden">اتصالات SSL را محکم کن</string>
-    <string name="title_advanced_socks">استفاده از پروکسی SOCKS</string>
     <string name="title_advanced_manage_connectivity">مدیریت اتصال</string>
     <string name="title_advanced_caption_general">عمومی</string>
     <string name="title_advanced_caption_list">فهرست</string>
@@ -956,7 +954,6 @@
     <string name="title_dismiss">رد</string>
     <string name="title_snooze_now">تعویق</string>
     <string name="title_loading">درحال بارگذاری &#8230;</string>
-    <string name="title_set">تنظیم</string>
     <string name="title_fetching_again">در حال واکشی دوباره پیام از سرور</string>
     <string name="title_conversation_actions">کنش‌ها</string>
     <string name="title_conversation_action_reply">پاسخ با: \'%1$s\'</string>

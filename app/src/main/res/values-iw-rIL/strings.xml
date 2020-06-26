@@ -6,7 +6,6 @@
     <string name="app_limitations">לדוגמה; חלקים המוגדרים \'לא בטוחים\' יוסרו מהודעות ובכך תשופר חווית הקריאה. כהגנה נוספת, ידרש אישור המשתמש לפתיחה של קישורים המצורפים להודעה.</string>
     <string name="app_crash">אפליקצית fairmail אינה נתמכת במכשיר זה בגלל בעיות במערכת ההפעלה של אנדרואיד הגורמת לאפליקציה לקרוס</string>
     <string name="app_exit">לחץ \'חזור\' שוב כדי לצאת</string>
-    <string name="channel_service">שירות</string>
     <string name="channel_send">שלח</string>
     <string name="channel_notification">התראות</string>
     <string name="channel_update">עדכונים</string>

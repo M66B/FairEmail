@@ -6,7 +6,6 @@
     <string name="app_limitations">Többek között: formázással mindig eltávolítja az üzenetkből a nem biztonságos elemeket és javítja az olvashatóságot, valamint a hivatkozások megnyitása megerősítést fog igényelni.</string>
     <string name="app_crash">FairEmail nem támogatott ezen az eszközön, az Android hibái miatt</string>
     <string name="app_exit">A kilépéshez használja újra a \'vissza\' opciót</string>
-    <string name="channel_service">Szolgáltatás</string>
     <string name="channel_send">Küldés</string>
     <string name="channel_notification">Értesítések</string>
     <string name="channel_update">Frissítések</string>
@@ -256,7 +255,6 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_rlah">Roaming mint otthon</string>
     <string name="title_advanced_timeout">Kapcsolat időtúllépés (másodpercben)</string>
     <string name="title_advanced_ssl_harden">SSL kapcsolatok megerősítése</string>
-    <string name="title_advanced_socks">SOCKS proxy használata</string>
     <string name="title_advanced_manage_connectivity">Adatkapcsolat kezelése</string>
     <string name="title_advanced_caption_general">Általános</string>
     <string name="title_advanced_caption_list">Lista</string>
@@ -418,7 +416,6 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_rlah_hint">Roaming figyelmen kívül hagyása az EU-n belül</string>
     <string name="title_advanced_timeout_hint">Az olvasás/írás időtúllépés be lesz állítva a kapcsolat időtúllépés duplájára. Nagyobb értékek több akkumulátor használatot eredményezhetnek.</string>
     <string name="title_advanced_ssl_harden_hint">Ennek a bekapcsolása kikapcsolja a gyenge SSL protokollokat és ciphereket ami csatlakozási problémákat okozhat</string>
-    <string name="title_advanced_socks_hint">Távoli proxy szerver használata nem biztonságos, mert a proxy kapcsolatok nem titkosítottak</string>
     <string name="title_advanced_roaming_hint">Az üzenetek fejléce roamingoláskor minden esetben letöltésre kerül. A készülék beállításai között kikapcsolhatja a roaming internet használatot.</string>
     <string name="title_advanced_browse_hint">Több üzenet letöltése lefelé görgetéssel</string>
     <string name="title_advanced_layout_hint">Váltás egy kompaktabb elrendezésre és az üzenet szövegméret módosítása elvégezhető a felső műveletsáv menüjében az üzenet nézetben</string>
@@ -613,7 +610,6 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_duplicate_in">Üzenet duplikálása a(z) %1$s mappában</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
-    <string name="title_extras">Extra gombok</string>
     <string name="title_seen">Megjelölés olvasottként</string>
     <string name="title_unseen">Megjelölés olvasatlanként</string>
     <string name="title_hide">Elrejtés</string>
@@ -1095,7 +1091,6 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_dismiss">Elvetés</string>
     <string name="title_snooze_now">Szundi</string>
     <string name="title_loading">Betöltés &#8230;</string>
-    <string name="title_set">Beállíítás</string>
     <string name="title_fetching_again">Üzenet letöltése újra a szerverről</string>
     <string name="title_conversation_actions">Műveletek</string>
     <string name="title_conversation_action_reply">Válaszolás ezzel: \'%1$s\'</string>

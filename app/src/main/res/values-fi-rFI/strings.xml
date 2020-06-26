@@ -6,7 +6,6 @@
     <string name="app_limitations">Esimerkiksi viestit muotoillaan aina uudelleen vaarallisten elementtien poistamiseksi ja luettavuuden parantamiseksi, ja linkkien avaaminen pitää turvallisuuden takia erikseen vahvistaa.</string>
     <string name="app_crash">FairEmailia ei tueta tässä laitteessa, koska bugit Androidissa aiheuttavat kaatumisia</string>
     <string name="app_exit">Mene \'takaisin\' uudelleen poistuaksesi</string>
-    <string name="channel_service">Palvelu</string>
     <string name="channel_send">Lähettäminen</string>
     <string name="channel_notification">Ilmoitukset</string>
     <string name="channel_update">Päivitykset</string>
@@ -256,7 +255,6 @@
     <string name="title_advanced_rlah">Kotimaanhintaiset verkkovierailut</string>
     <string name="title_advanced_timeout">Yhteyden aikakatkaisu (sekuntia)</string>
     <string name="title_advanced_ssl_harden">Koveta SSL-yhteydet</string>
-    <string name="title_advanced_socks">Käytä SOCKS-proxypalvelinta</string>
     <string name="title_advanced_manage_connectivity">Hallitse verkkoyhteyksiä</string>
     <string name="title_advanced_caption_general">Yleiset</string>
     <string name="title_advanced_caption_list">Lista</string>
@@ -293,6 +291,7 @@
     <string name="title_advanced_subject_italic">Näytä aihe kursiivilla</string>
     <string name="title_advanced_subject_elipsed">Lyhennä tarvittaessa viestin aihetta</string>
     <string name="title_advanced_keywords">Näytä avainsanat viestin tunnistetiedoissa</string>
+    <string name="title_advanced_labels">Näytä Gmail-tunnisteet viestin tunnistetiedoissa</string>
     <string name="title_advanced_flags">Näytä tähdet</string>
     <string name="title_advanced_flags_background">Näytä värillinen tausta värillisten tähtien sijaan</string>
     <string name="title_advanced_preview">Näytä viestin esikatselu</string>
@@ -422,7 +421,6 @@
     <string name="title_advanced_rlah_hint">Oletetaan, että EU:ssa on kotimaanhintaiset verkkovierailut</string>
     <string name="title_advanced_timeout_hint">Luku-/kirjoitusaikakatkaisu asetetaan kaksi kertaa niin pitkäksi kuin yhteyden aikakatkaisu. Korkeat arvot aiheuttavat enemmän akun käyttöä.</string>
     <string name="title_advanced_ssl_harden_hint">Tämän käyttöönotto kytkee heikot SSL-protokollat ja salakirjoitukset pois käytöstä, mikä voi aiheuttaa yhteysongelmia</string>
-    <string name="title_advanced_socks_hint">Välityspalvelimen käyttö ei ole turvallista, koska yhteys ei ole salattu</string>
     <string name="title_advanced_roaming_hint">Viestien tunnistetiedot haetaan aina myös verkkovierailun aikana. Laitteen asetuksista voi kytkeä verkkoyhteyden pois verkkovieraillessa.</string>
     <string name="title_advanced_browse_hint">Hae lisää viestejä alaspäin vieritettäessä</string>
     <string name="title_advanced_layout_hint">Tiiviimpään näkymään vaihtaminen ja viestin tekstin koon vaihtaminen voidaan tehdä viestinäkymän yläreunan toimintopalkista</string>
@@ -456,6 +454,7 @@
     <string name="title_advanced_move_hint">Kohdekansio voidaan asettaa tilin asetuksissa</string>
     <string name="title_advanced_notify_no_grouping">Tämä Android-versio ei tue ilmoitusten ryhmittelyä</string>
     <string name="title_advanced_notify_no_channels">Tämä Android-versio ei tue ilmoituskanavia</string>
+    <string name="title_advanced_queries_hint">Tämän käyttöönotto heikentää suorituskykyä, mutta on tarpeen joillakin laitteilla</string>
     <string name="title_advanced_fts_hint">Tämän käyttöönotto parantaa haun suorituskykyä, mutta myös lisää akun ja tallennustilan käyttöä</string>
     <string name="title_advanced_english_hint">Tämä käynnistää sovelluksen uudelleen</string>
     <string name="title_advanced_experiments_hint">Lista kokeellisista ominaisuuksista</string>
@@ -645,6 +644,7 @@
     <string name="title_raw_save">Tallenna raakaviesti</string>
     <string name="title_raw_send">Lähetä liitteenä</string>
     <string name="title_manage_keywords">Hallitse avainsanoja</string>
+    <string name="title_manage_labels">Hallitse Gmail-tunnisteita</string>
     <string name="title_add_keyword">Lisää avainsana</string>
     <string name="title_show_inline">Näytä tekstiin upotetut liitteet</string>
     <string name="title_download_all">Lataa kaikki</string>
@@ -672,6 +672,7 @@
     <string name="title_reply_list">Vastaa listalle</string>
     <string name="title_reply_receipt">Lähetä vastaanottokuittaus</string>
     <string name="title_reply_template">Vastaa viestipohjalla</string>
+    <string name="title_move_undo">Siirretään kansioon %1$s (%2$d)</string>
     <string name="title_open_with">Avaa sovelluksessa</string>
     <string name="title_authentication_failed">%1$s tunnistautuminen epäonnistui</string>
     <string name="title_receipt_subject">Vastaanottokuittaus: %1$s</string>
@@ -1026,6 +1027,7 @@
     <string name="title_legend_avatar">Hahmo</string>
     <string name="title_legend_show_quotes">Näytä lainaukset</string>
     <string name="title_legend_show_junk">Käsittele roskapostina</string>
+    <string name="title_legend_create_rule">Luo sääntö</string>
     <string name="title_legend_show_unsubscribe">Peruuta listan tilaus</string>
     <string name="title_legend_show_images">Näytä kuvat</string>
     <string name="title_legend_show_full">Näytä alkuperäinen viesti</string>
@@ -1105,7 +1107,6 @@
     <string name="title_dismiss">Hylkää</string>
     <string name="title_snooze_now">Torkuta</string>
     <string name="title_loading">Ladataan &#8230;</string>
-    <string name="title_set">Aseta</string>
     <string name="title_fetching_again">Haetaan viesti uudestaan palvelimelta</string>
     <string name="title_conversation_actions">Toiminnot</string>
     <string name="title_conversation_action_reply">Vastaa tekstillä: \'%1$s\'</string>

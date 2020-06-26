@@ -6,7 +6,6 @@
     <string name="app_limitations">উদাহরণস্বরূপ, অনিরাপদ অংশ অপসারণ করতে এবং পাঠযোগ্যতা উন্নত করতে এবং লিঙ্কগুলি নিশ্চিতকরণ করার বার্তাগুলি সর্বদা প্রদর্শিত হবে।</string>
     <string name="app_crash">ফেয়ার ইমেইল এই ডিভাইসে সমর্থিত নয় কারণ এই অ্যান্ড্রয়েডের বাগগুলি ক্রাশ হওয়ার কারণ</string>
     <string name="app_exit">বের হওয়ার জন্য \'ব্যাক\' করুন</string>
-    <string name="channel_service">সেবা</string>
     <string name="channel_send">পাঠান</string>
     <string name="channel_notification">বিজ্ঞপ্তি</string>
     <string name="channel_update">আপডেট</string>

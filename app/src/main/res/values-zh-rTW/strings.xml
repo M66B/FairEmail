@@ -6,7 +6,6 @@
     <string name="app_limitations">舉例來說，郵件的內容會因為移除不安全的元素及改進閱讀體驗而重新排版，而且打開所有超連結都會需要您的確認。</string>
     <string name="app_crash">預設頻道</string>
     <string name="app_exit">再次「返回」離開程式</string>
-    <string name="channel_service">服務</string>
     <string name="channel_send">寄送</string>
     <string name="channel_notification">通知</string>
     <string name="channel_update">更新</string>
@@ -222,7 +221,6 @@
     <string name="title_advanced_roaming">漫遊時下載訊息及附件</string>
     <string name="title_advanced_timeout">連線超時（秒）</string>
     <string name="title_advanced_ssl_harden">嚴格的 SSL 連線</string>
-    <string name="title_advanced_socks">使用 SOCKS 代理</string>
     <string name="title_advanced_manage_connectivity">管理連線方式</string>
     <string name="title_advanced_caption_general">一般</string>
     <string name="title_advanced_caption_list">清單</string>

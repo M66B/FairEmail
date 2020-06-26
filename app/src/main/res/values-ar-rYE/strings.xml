@@ -6,7 +6,6 @@
     <string name="app_limitations">على سبيل المثال ، ستتم إعادة تنسيق الرسائل دائمًا لإزالة العناصر غير الآمنة ولتحسين قابلية القراءة ويجب تأكيد فتح الروابط من أجل الأمان.</string>
     <string name="app_crash">فيرميل غير متوافق مع هذا الجهاز وقد تتسبب الأخطاء في حدوث أعطال</string>
     <string name="app_exit">أنقر مرة أخرى للخروج من التطبيق</string>
-    <string name="channel_service">الخدمة</string>
     <string name="channel_send">أرسل</string>
     <string name="channel_notification">الاشعارات</string>
     <string name="channel_update">التحديثات</string>

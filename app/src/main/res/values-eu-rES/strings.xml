@@ -6,7 +6,6 @@
     <string name="app_limitations">Adibidez, mezuei beti aldatuko zaie formatua elementu ez seguruak kentzeko eta irakurterraztasuna hobetzeko, eta estekak irekitzea segurtasunagatik baieztatu egin behar da.</string>
     <string name="app_crash">FairEmail-ek ez du gailu honentzako euskarririk Android akatsek kraskatzea eragiten dutelako</string>
     <string name="app_exit">Jo \'atzera\' berriro irteteko</string>
-    <string name="channel_service">Zerbitzua</string>
     <string name="channel_send">Bidali</string>
     <string name="channel_notification">Jakinarazpenak</string>
     <string name="channel_update">Eguneraketak</string>
@@ -256,7 +255,6 @@
     <string name="title_advanced_rlah">Ibili etxean bezala</string>
     <string name="title_advanced_timeout">Konektatzeko itxarote muga (segundotan)</string>
     <string name="title_advanced_ssl_harden">Gogortu SSL konexioak</string>
-    <string name="title_advanced_socks">Erabili SOCKS proxya</string>
     <string name="title_advanced_manage_connectivity">Kudeatu konektibitatea</string>
     <string name="title_advanced_caption_general">Orokorra</string>
     <string name="title_advanced_caption_list">Zerrenda</string>
@@ -421,7 +419,6 @@
     <string name="title_advanced_rlah_hint">EBn ez da datuen ibiltaritza onartzen</string>
     <string name="title_advanced_timeout_hint">Irakurtzeko/idazteko itxarote-muga konexio-denboraren bikoitza ezarriko da. Balio altuagoak bateriaren erabileran gehiago eragingo lukete.</string>
     <string name="title_advanced_ssl_harden_hint">Hori aktibatuz gero, SSL protokolo ahulak eta zifratzeak desgaituko dira eta horrek konexio arazoak sor ditzake</string>
-    <string name="title_advanced_socks_hint">Urruneko proxy zerbitzari bat erabiltzea ez da segurua proxy-konexioak zifratuta ez daudelako</string>
     <string name="title_advanced_roaming_hint">Mezuen goiburuak beti jasoko dira datuen ibiltaritza dagoenean. Telefonoaren datuen ibiltaritza ezarpena erabil dezakezu internet desgaitzeko.</string>
     <string name="title_advanced_browse_hint">Bilatu mezu gehiago korritzerakoan</string>
     <string name="title_advanced_layout_hint">Diseinua trinkotzea eta mezuaren testuaren tamaina alda daiteke mezuen ikuspegiko goiko ekintza-barran</string>
@@ -1103,7 +1100,6 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_dismiss">Baztertu</string>
     <string name="title_snooze_now">Atzeratu</string>
     <string name="title_loading">Kargatzen &#8230;</string>
-    <string name="title_set">Ezarri</string>
     <string name="title_fetching_again">Mezua berriro zerbitzaritik jasotzen</string>
     <string name="title_conversation_actions">Ekintzak</string>
     <string name="title_conversation_action_reply">Erantzun honekin: \'%1$s\'</string>

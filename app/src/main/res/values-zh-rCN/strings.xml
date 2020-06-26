@@ -6,7 +6,6 @@
     <string name="app_limitations">例如，为了去除不安全元素并提高阅读性，邮件将总被重建格式；出于安全考虑，打开邮件内链接时需经用户确认</string>
     <string name="app_crash">FairEmail不支持该设备，因为 android 中的bug会导致崩溃</string>
     <string name="app_exit">再按一次返回键退出</string>
-    <string name="channel_service">服务</string>
     <string name="channel_send">发送</string>
     <string name="channel_notification">通知</string>
     <string name="channel_update">更新</string>
@@ -65,6 +64,7 @@
     <string name="title_notification_idle">空闲</string>
     <string name="title_notification_failed">\'%1$s\' 失败</string>
     <string name="title_notification_alert">\'%1$s\' 服务器警告</string>
+    <string name="title_notification_sending_failed">发送至 %1$s 失败</string>
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
@@ -246,7 +246,6 @@
     <string name="title_advanced_rlah">国内漫游</string>
     <string name="title_advanced_timeout">连接超时 (秒)</string>
     <string name="title_advanced_ssl_harden">加强 SSL 连接</string>
-    <string name="title_advanced_socks">使用 SOCKS 代理</string>
     <string name="title_advanced_manage_connectivity">管理连接</string>
     <string name="title_advanced_caption_general">常规​​​​​</string>
     <string name="title_advanced_caption_list">列表</string>
@@ -413,7 +412,6 @@
     <string name="title_advanced_rlah_hint">假定欧盟境内不漫游</string>
     <string name="title_advanced_timeout_hint">读/写超时时间将翻倍，值越高将越耗电</string>
     <string name="title_advanced_ssl_harden_hint">启用此选项将禁用较弱的SSL协议和密码，这可能导致连接问题</string>
-    <string name="title_advanced_socks_hint">使用远程代理服务器不安全，因为代理连接未加密</string>
     <string name="title_advanced_roaming_hint">当漫游时，将始终获取消息头。您可以使用设备的漫游设置在漫游时禁用互联网。</string>
     <string name="title_advanced_browse_hint">向下滚动时拉取更多邮件</string>
     <string name="title_advanced_layout_hint">切换到更为紧凑的布局，改变消息文本大小可以在邮件视图中的顶部动作栏菜单中完成</string>
@@ -613,7 +611,7 @@
     <string name="title_duplicate_in">%1$s 中的重复消息</string>
     <string name="title_subject_reply">回复：%1$s</string>
     <string name="title_subject_forward">转发：%1$s</string>
-    <string name="title_extras">额外按钮</string>
+    <string name="title_buttons">按钮</string>
     <string name="title_seen">标记为已读</string>
     <string name="title_unseen">标记为未读</string>
     <string name="title_hide">隐藏</string>
@@ -1101,7 +1099,6 @@
     <string name="title_dismiss">忽略</string>
     <string name="title_snooze_now">打盹</string>
     <string name="title_loading">&#8230;加载中</string>
-    <string name="title_set">设定</string>
     <string name="title_fetching_again">再次从服务器获取消息</string>
     <string name="title_conversation_actions">操作</string>
     <string name="title_conversation_action_reply">回复：\'%1$s\'</string>

@@ -6,7 +6,6 @@
     <string name="app_limitations">Например, съобщенията винаги ще се преформатират, за да се премахнат опасни елементи и да се подобри четенето, както и връзките за отваряне трябва да бъдат потвърдени за безопасност.</string>
     <string name="app_crash">FairEmail не се поддържа на това устройство поради срив, причинен от грешка в Android</string>
     <string name="app_exit">Натиснете отново \"назад\", за изход</string>
-    <string name="channel_service">Услуга</string>
     <string name="channel_send">Изпращане</string>
     <string name="channel_notification">Известия</string>
     <string name="channel_update">Обновявания</string>
@@ -258,7 +257,6 @@
     <string name="title_advanced_rlah">Роуминг като у дома</string>
     <string name="title_advanced_timeout">Време на изчакване на връзката (секунди)</string>
     <string name="title_advanced_ssl_harden">Твърди SSL връзки</string>
-    <string name="title_advanced_socks">Използване на SOCKS прокси</string>
     <string name="title_advanced_manage_connectivity">Управление на свързаност</string>
     <string name="title_advanced_caption_general">Общи</string>
     <string name="title_advanced_caption_list">Списък</string>
@@ -295,6 +293,7 @@
     <string name="title_advanced_subject_italic">Покажи темата наклонена</string>
     <string name="title_advanced_subject_elipsed">При нужда, съкрати темата</string>
     <string name="title_advanced_keywords">Показване на ключови думи в заглавката на съобщението</string>
+    <string name="title_advanced_labels">Показване на етикетите на Gmail в заглавката на съобщението</string>
     <string name="title_advanced_flags">Показване на звездите</string>
     <string name="title_advanced_flags_background">Покажи цветен фон вместо цветни звезди</string>
     <string name="title_advanced_preview">Покажи преглед на съобщението</string>
@@ -423,7 +422,6 @@
     <string name="title_advanced_rlah_hint">Ако не се допуска роуминг в рамките на ЕС</string>
     <string name="title_advanced_timeout_hint">Времето за четене/запис ще бъде зададено двойно на времето за изчакване на връзката. По-високите стойности ще доведат до по-голяма консумация на батерията.</string>
     <string name="title_advanced_ssl_harden_hint">Активирането на това ще деактивира слаби SSL протоколи и шифри, което може да доведе до проблеми с връзката</string>
-    <string name="title_advanced_socks_hint">Използването на отдалечен прокси сървър е несигурно, тъй като прокси връзките не са криптирани</string>
     <string name="title_advanced_roaming_hint">Заглавките на съобщенията винаги ще се получават при роуминг. Можете да използвате настройката за роуминг на устройството, за да деактивирате интернет по време на роуминг.</string>
     <string name="title_advanced_browse_hint">Вземете още съобщения, когато превъртате надолу</string>
     <string name="title_advanced_layout_hint">Преминаване към по-компактно оформление и промяната на размера на текста на съобщение може да се извърши в менюто на горния панел за действие в изглед на съобщението</string>
@@ -647,6 +645,7 @@
     <string name="title_raw_save">Запиши необработено съобщение</string>
     <string name="title_raw_send">Изпращане като прикачен файл</string>
     <string name="title_manage_keywords">Управление по ключови думи</string>
+    <string name="title_manage_labels">Управлявайте етикетите на Gmail</string>
     <string name="title_add_keyword">Добавяне на ключова дума</string>
     <string name="title_show_inline">Показване на вградените прикачени файлове</string>
     <string name="title_download_all">Изтегляне на всичко</string>
@@ -1109,7 +1108,6 @@
     <string name="title_dismiss">Отхвърли</string>
     <string name="title_snooze_now">Отложи</string>
     <string name="title_loading">Зареждане &#8230;</string>
-    <string name="title_set">Задай</string>
     <string name="title_fetching_again">Извличане на съобщението от сървъра отново</string>
     <string name="title_conversation_actions">Действия</string>
     <string name="title_conversation_action_reply">Отговорете с: \'%1$s\'</string>

@@ -6,7 +6,6 @@
     <string name="app_limitations">Na primer sporočila bodo vedno preoblikovana, da se odstranijo nevarni elementi in izboljša berljivost, odpiranje povezav pa je treba potrditi.</string>
     <string name="app_crash">FairEmail na tej napravi ni podprt, ker hrošči v Androidu povzročajo sesutja.</string>
     <string name="app_exit">Za izhod še enkrat pritisnite \'Nazaj\'.</string>
-    <string name="channel_service">Storitev</string>
     <string name="channel_send">Pošlji</string>
     <string name="channel_notification">Obvestila</string>
     <string name="channel_update">Posodobitve</string>
@@ -267,7 +266,6 @@
     <string name="title_advanced_rlah">Gostuj kot doma</string>
     <string name="title_advanced_timeout">Časovna omejitev povezave (v sekundah)</string>
     <string name="title_advanced_ssl_harden">Utrdi povezave SSL</string>
-    <string name="title_advanced_socks">Uporabi posr. strežnik SOCKS</string>
     <string name="title_advanced_manage_connectivity">Upravljaj s povezljivostjo</string>
     <string name="title_advanced_caption_general">Splošno</string>
     <string name="title_advanced_caption_list">Seznam</string>
@@ -417,7 +415,6 @@
     <string name="title_advanced_rlah_hint">Program predvideva, da v EU-ju ni gostovanja.</string>
     <string name="title_advanced_timeout_hint">Časovna omejitev za branje/pisanje bo nastavljena na dvakratno vrednost časovne omejitve povezave.  Višje vrednosti bodo povzročile večjo porabo energije.</string>
     <string name="title_advanced_ssl_harden_hint">Omogočanje tega bo onemogočilo šibke protokole SSL in šifre, kar lahko povzroči težave pri povezavi.</string>
-    <string name="title_advanced_socks_hint">Uporaba oddaljenega posredniškega strežnika ni varna, ker posredniške povezave niso šifrirane.</string>
     <string name="title_advanced_roaming_hint">Med gostovanjem bodo glave sporočil vedno prenesene.  Za onemogočanje interneta med gostovanjem lahko uporabite nastavitve naprave za gostovanje.</string>
     <string name="title_advanced_browse_hint">Ob pomikanju navzdol prenesi več sporočil</string>
     <string name="title_advanced_layout_hint">Preklop na bolj strnjeno razporeditev in spremembo velikosti pisave sporočila lahko opravite v meniju zgornje vrstice z dejanji v pogledu sporočil.</string>
@@ -1080,7 +1077,6 @@
     <string name="title_dismiss">Opusti</string>
     <string name="title_snooze_now">Dremež</string>
     <string name="title_loading">Nalaganje &#8230;</string>
-    <string name="title_set">Nastavi</string>
     <string name="title_fetching_again">Ponovno pridobivanje sporočil s strežnika</string>
     <string name="title_conversation_actions">Dejanja</string>
     <string name="title_conversation_action_reply">Odgovori s/z: \'%1$s\'</string>

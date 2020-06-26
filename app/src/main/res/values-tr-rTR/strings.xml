@@ -6,7 +6,6 @@
     <string name="app_limitations">Örneğin, güvenli olmayan öğeleri çıkarmak ve okunabilirliği arttırmak için, iletiler daima tekrardan düzenlenecektir ve bağlantıları açmak güvenlik açısından doğrulama gerektirecektir.</string>
     <string name="app_crash">FairEmail bu aygıtı desteklemiyor. Çünkü Androiddeki hatalar çökmelere neden oluyor</string>
     <string name="app_exit">Çıkmak için tekrar \'Geri\'yi tıklayın</string>
-    <string name="channel_service">Hizmet</string>
     <string name="channel_send">Gönder</string>
     <string name="channel_notification">Bildirimler</string>
     <string name="channel_update">Güncellemeler</string>
@@ -234,7 +233,6 @@
     <string name="title_advanced_roaming">Gezeleme yaparken iletileri ve ekleri indir</string>
     <string name="title_advanced_rlah">Evde gibi dolaşmak</string>
     <string name="title_advanced_ssl_harden">SSL bağlantılarını sağlamlaştır</string>
-    <string name="title_advanced_socks">SOCKS proxy kullan</string>
     <string name="title_advanced_manage_connectivity">Bağlanabilirliği yönet</string>
     <string name="title_advanced_caption_general">Genel</string>
     <string name="title_advanced_caption_list">Liste</string>
@@ -371,7 +369,6 @@
     <string name="title_advanced_metered_hint">Ölçülü bağlantılar genellikle mobil bağlantılar veya ücretli Wi-Fi noktalarıdır</string>
     <string name="title_advanced_metered_warning">Bu seçeneğin devre dışı bırakılması mobil internet bağlantısında ileti almayı ve göndermeyi devre dışı bırakacaktır</string>
     <string name="title_advanced_rlah_hint">AB içinde dolaşımda olmadığını varsayma</string>
-    <string name="title_advanced_socks_hint">Proxy bağlantıları şifreli olmadığından uzak bir proxy sunucusu kullanmak güvensizdir</string>
     <string name="title_advanced_roaming_hint">Dolaşım halindeyken mesaj başlıkları her zaman alınacaktır. Cihazın dolaşım ayarlarından dolaşım halindeyken interneti devre dışı bırakabilirsiniz.</string>
     <string name="title_advanced_browse_hint">Aşağı doğru kaydırdığında daha çok ileti getirir</string>
     <string name="title_advanced_layout_hint">Daha kompakt bir yerleşime geçmek ve mesaj metin boyutunu değiştirmek, mesaj görünümündeki üst eylem çubuğu menüsünden yapılabilir</string>
@@ -997,7 +994,6 @@
     <string name="title_dismiss">Reddet</string>
     <string name="title_snooze_now">Ertele</string>
     <string name="title_loading">Yükleniyor &#8230;</string>
-    <string name="title_set">Ayarla</string>
     <string name="title_fetching_again">Mesaj sunucudan tekrar alınıyor</string>
     <string name="title_conversation_actions">Eylemler</string>
     <string name="title_conversation_action_reply">\'%1$s\' ile yanıtla</string>
