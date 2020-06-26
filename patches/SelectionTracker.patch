@@ -1,6 +1,5 @@
-diff -rupN /home/marcel/support/recyclerview/recyclerview-selection/src/main/java/androidx/recyclerview/selection/DefaultSelectionTracker.java app/src/main/java/androidx/recyclerview/selection/DefaultSelectionTracker.java
 --- /home/marcel/support/recyclerview/recyclerview-selection/src/main/java/androidx/recyclerview/selection/DefaultSelectionTracker.java	2020-03-23 17:03:46.043122318 +0100
-+++ app/src/main/java/androidx/recyclerview/selection/DefaultSelectionTracker.java	2020-04-24 21:08:55.542011257 +0200
++++ app/src/main/java/androidx/recyclerview/selection/DefaultSelectionTracker.java	2020-06-26 16:48:04.938298254 +0200
 @@ -379,6 +379,10 @@ public class DefaultSelectionTracker<K>
          return mRange != null;
      }
@@ -12,6 +11,15 @@ diff -rupN /home/marcel/support/recyclerview/recyclerview-selection/src/main/jav
      private boolean canSetState(@NonNull K key, boolean nextState) {
          return mSelectionPredicate.canSetStateForKey(key, nextState);
      }
+@@ -390,7 +394,7 @@ public class DefaultSelectionTracker<K>
+ 
+     @SuppressWarnings({"WeakerAccess", "unchecked"}) /* synthetic access */
+     void onDataSetChanged() {
+-        mSelection.clearProvisionalSelection();
++        //mSelection.clearProvisionalSelection();
+ 
+         notifySelectionRefresh();
+ 
 @@ -601,17 +605,21 @@ public class DefaultSelectionTracker<K>
  
          @Override
@@ -37,9 +45,8 @@ diff -rupN /home/marcel/support/recyclerview/recyclerview-selection/src/main/jav
          }
      }
  }
-diff -rupN /home/marcel/support/recyclerview/recyclerview-selection/src/main/java/androidx/recyclerview/selection/Range.java app/src/main/java/androidx/recyclerview/selection/Range.java
 --- /home/marcel/support/recyclerview/recyclerview-selection/src/main/java/androidx/recyclerview/selection/Range.java	2020-03-23 17:03:46.045122318 +0100
-+++ app/src/main/java/androidx/recyclerview/selection/Range.java	2020-04-24 21:08:55.543011257 +0200
++++ app/src/main/java/androidx/recyclerview/selection/Range.java	2020-06-26 16:36:39.708283142 +0200
 @@ -169,6 +169,11 @@ final class Range {
          mCallbacks.updateForRange(begin, end, selected, type);
      }
@@ -52,7 +59,6 @@ diff -rupN /home/marcel/support/recyclerview/recyclerview-selection/src/main/jav
      @Override
      public String toString() {
          return "Range{begin=" + mBegin + ", end=" + mEnd + "}";
-diff -rupN /home/marcel/support/recyclerview/recyclerview-selection/src/main/java/androidx/recyclerview/selection/SelectionTracker.java app/src/main/java/androidx/recyclerview/selection/SelectionTracker.java
 --- /home/marcel/support/recyclerview/recyclerview-selection/src/main/java/androidx/recyclerview/selection/SelectionTracker.java	2020-03-23 17:03:46.046122318 +0100
 +++ app/src/main/java/androidx/recyclerview/selection/SelectionTracker.java	2020-04-24 21:08:55.544011257 +0200
 @@ -503,7 +503,7 @@ public abstract class SelectionTracker<K
