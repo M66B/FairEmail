@@ -551,7 +551,7 @@ public class ServiceSend extends ServiceBase {
             // Connect transport
             db.identity().setIdentityState(ident.id, "connecting");
             iservice.connect(ident);
-            if (BuildConfig.DEBUG)
+            if (BuildConfig.DEBUG && false)
                 throw new IOException("Test");
             db.identity().setIdentityState(ident.id, "connected");
 
