@@ -21,6 +21,10 @@
                 android:checkable="true"
                 android:title="@string/title_move" />
             <item
+                android:id="@+id/menu_button_copy"
+                android:checkable="true"
+                android:title="@string/title_copy_btn" />
+            <item
                 android:id="@+id/menu_button_unsubscribe"
                 android:checkable="true"
                 android:title="@string/title_unsubscribe" />
