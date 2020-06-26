@@ -204,6 +204,22 @@ public class ServiceSend extends ServiceBase {
         return builder;
     }
 
+    NotificationCompat.Builder getNotificationError(String recipient, Throwable ex) {
+        return new NotificationCompat.Builder(this, "error")
+                .setSmallIcon(R.drawable.baseline_warning_white_24)
+                .setContentTitle(getString(R.string.title_notification_sending_failed, recipient))
+                .setContentText(Log.formatThrowable(ex, false))
+                .setContentIntent(getPendingIntent(this))
+                .setAutoCancel(false)
+                .setShowWhen(true)
+                .setPriority(NotificationCompat.PRIORITY_MAX)
+                .setOnlyAlertOnce(true)
+                .setCategory(NotificationCompat.CATEGORY_ERROR)
+                .setVisibility(NotificationCompat.VISIBILITY_SECRET)
+                .setStyle(new NotificationCompat.BigTextStyle()
+                        .bigText(Log.formatThrowable(ex, "\n", false)));
+    }
+
     private static PendingIntent getPendingIntent(Context context) {
         Intent intent = new Intent(context, ActivityView.class);
         intent.setAction("outbox");
@@ -356,13 +372,10 @@ public class ServiceSend extends ServiceBase {
                             ops.remove(op);
 
                             if (message != null) {
-                                String title = MessageHelper.formatAddresses(message.to);
-                                PendingIntent pi = getPendingIntent(this);
-
                                 try {
                                     NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                                    nm.notify("send:" + message.id, 1,
-                                            Core.getNotificationError(this, "error", title, ex, pi).build());
+                                    nm.notify("send:" + message.id, 1, getNotificationError(
+                                            MessageHelper.formatAddressesShort(message.to), ex).build());
                                 } catch (Throwable ex1) {
                                     Log.w(ex1);
                                 }
@@ -535,6 +548,8 @@ public class ServiceSend extends ServiceBase {
             // Connect transport
             db.identity().setIdentityState(ident.id, "connecting");
             iservice.connect(ident);
+            if (BuildConfig.DEBUG)
+                throw new IOException("Test");
             db.identity().setIdentityState(ident.id, "connected");
 
             Address[] to = imessage.getAllRecipients();

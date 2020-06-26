@@ -3689,29 +3689,30 @@ class Core {
     // - on connectivity problems when connecting to store
 
     static NotificationCompat.Builder getNotificationError(Context context, String channel, String title, Throwable ex) {
+        // Build pending intent
         Intent intent = new Intent(context, ActivityView.class);
         intent.setAction("error");
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         PendingIntent pi = PendingIntent.getActivity(
                 context, ActivityView.REQUEST_ERROR, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        return getNotificationError(context, channel, title, ex, pi);
-    }
+        // Build notification
+        NotificationCompat.Builder builder =
+                new NotificationCompat.Builder(context, channel)
+                        .setSmallIcon(R.drawable.baseline_warning_white_24)
+                        .setContentTitle(context.getString(R.string.title_notification_failed, title))
+                        .setContentText(Log.formatThrowable(ex, false))
+                        .setContentIntent(pi)
+                        .setAutoCancel(false)
+                        .setShowWhen(true)
+                        .setPriority(NotificationCompat.PRIORITY_MAX)
+                        .setOnlyAlertOnce(true)
+                        .setCategory(NotificationCompat.CATEGORY_ERROR)
+                        .setVisibility(NotificationCompat.VISIBILITY_SECRET)
+                        .setStyle(new NotificationCompat.BigTextStyle()
+                                .bigText(Log.formatThrowable(ex, "\n", false)));
 
-    static NotificationCompat.Builder getNotificationError(Context context, String channel, String title, Throwable ex, PendingIntent pi) {
-        return new NotificationCompat.Builder(context, channel)
-                .setSmallIcon(R.drawable.baseline_warning_white_24)
-                .setContentTitle(context.getString(R.string.title_notification_failed, title))
-                .setContentText(Log.formatThrowable(ex, false))
-                .setContentIntent(pi)
-                .setAutoCancel(false)
-                .setShowWhen(true)
-                .setPriority(NotificationCompat.PRIORITY_MAX)
-                .setOnlyAlertOnce(true)
-                .setCategory(NotificationCompat.CATEGORY_ERROR)
-                .setVisibility(NotificationCompat.VISIBILITY_SECRET)
-                .setStyle(new NotificationCompat.BigTextStyle()
-                        .bigText(Log.formatThrowable(ex, "\n", false)));
+        return builder;
     }
 
     static class State {
