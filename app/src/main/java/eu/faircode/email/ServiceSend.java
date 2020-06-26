@@ -414,13 +414,16 @@ public class ServiceSend extends ServiceBase {
             db.operation().deleteOperations(outbox.id);
 
             // Requeue operations
+            NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
             for (long id : db.message().getMessageByFolder(outbox.id)) {
                 EntityMessage message = db.message().getMessage(id);
-                if (message != null)
+                if (message != null) {
+                    nm.cancel("send:" + message.id, 1);
                     if (message.ui_snoozed == null)
                         EntityOperation.queue(this, message, EntityOperation.SEND);
                     else
                         EntityMessage.snooze(this, message.id, message.ui_snoozed);
+                }
             }
 
             db.setTransactionSuccessful();
