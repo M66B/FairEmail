@@ -394,7 +394,7 @@ public class DefaultSelectionTracker<K> extends SelectionTracker<K> implements R
 
     @SuppressWarnings({"WeakerAccess", "unchecked"}) /* synthetic access */
     void onDataSetChanged() {
-        mSelection.clearProvisionalSelection();
+        //mSelection.clearProvisionalSelection();
 
         notifySelectionRefresh();
 

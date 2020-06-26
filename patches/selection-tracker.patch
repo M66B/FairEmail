@@ -1,0 +1,47 @@
+--- /home/marcel/support/recyclerview/recyclerview-selection/src/main/java/androidx/recyclerview/selection/DefaultSelectionTracker.java	2020-03-23 17:03:46.043122318 +0100
++++ app/src/main/java/androidx/recyclerview/selection/DefaultSelectionTracker.java	2020-06-26 16:44:56.973294109 +0200
+@@ -379,6 +379,10 @@ public class DefaultSelectionTracker<K>
+         return mRange != null;
+     }
+ 
++    boolean isOverlapping(int position, int count) {
++        return (mRange != null && mRange.isOverlapping(position, count));
++    }
++
+     private boolean canSetState(@NonNull K key, boolean nextState) {
+         return mSelectionPredicate.canSetStateForKey(key, nextState);
+     }
+@@ -390,7 +394,7 @@ public class DefaultSelectionTracker<K>
+ 
+     @SuppressWarnings({"WeakerAccess", "unchecked"}) /* synthetic access */
+     void onDataSetChanged() {
+-        mSelection.clearProvisionalSelection();
++        //mSelection.clearProvisionalSelection();
+ 
+         notifySelectionRefresh();
+ 
+@@ -601,17 +605,21 @@ public class DefaultSelectionTracker<K>
+ 
+         @Override
+         public void onItemRangeInserted(int startPosition, int itemCount) {
+-            mSelectionTracker.endRange();
++            if (mSelectionTracker.isOverlapping(startPosition, itemCount))
++                mSelectionTracker.endRange();
+         }
+ 
+         @Override
+         public void onItemRangeRemoved(int startPosition, int itemCount) {
+-            mSelectionTracker.endRange();
++            if (mSelectionTracker.isOverlapping(startPosition, itemCount))
++                mSelectionTracker.endRange();
+         }
+ 
+         @Override
+         public void onItemRangeMoved(int fromPosition, int toPosition, int itemCount) {
+-            mSelectionTracker.endRange();
++            if (mSelectionTracker.isOverlapping(fromPosition, itemCount) ||
++                    mSelectionTracker.isOverlapping(toPosition, itemCount))
++                mSelectionTracker.endRange();
+         }
+     }
+ }
