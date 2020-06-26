@@ -1558,8 +1558,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean experiments = prefs.getBoolean("experiments", false);
                     boolean expand_all = prefs.getBoolean("expand_all", false);
                     boolean expand_one = prefs.getBoolean("expand_one", true);
-                    boolean extras = prefs.getBoolean("message_extras", true);
                     boolean tools = prefs.getBoolean("message_tools", true);
+                    boolean button_junk = prefs.getBoolean("button_junk", true);
+                    boolean button_trash = prefs.getBoolean("button_trash", true);
+                    boolean button_archive = prefs.getBoolean("button_archive", true);
+                    boolean button_move = prefs.getBoolean("button_move", true);
 
                     ibTrash.setTag(delete);
 
@@ -1569,17 +1572,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibUnsubscribe.setVisibility(!tools || message.unsubscribe == null ? View.GONE : View.VISIBLE);
                     ibAnswer.setVisibility(!tools || outbox || (!expand_all && expand_one) ? View.GONE : View.VISIBLE);
                     ibLabels.setVisibility(tools && labels_header && labels && !outbox ? View.VISIBLE : View.GONE);
-                    ibMove.setVisibility(tools && move ? View.VISIBLE : View.GONE);
-                    ibArchive.setVisibility(tools && extras && archive ? View.VISIBLE : View.GONE);
-                    ibTrash.setVisibility(outbox || (tools && extras && trash) ? View.VISIBLE : View.GONE);
-                    ibJunk.setVisibility(tools && junk ? View.VISIBLE : View.GONE);
+                    ibMove.setVisibility(tools && button_move && move ? View.VISIBLE : View.GONE);
+                    ibArchive.setVisibility(tools && button_archive && archive ? View.VISIBLE : View.GONE);
+                    ibTrash.setVisibility(outbox || (tools && button_trash && trash) ? View.VISIBLE : View.GONE);
+                    ibJunk.setVisibility(tools && button_junk && junk ? View.VISIBLE : View.GONE);
                     ibInbox.setVisibility(tools && inbox ? View.VISIBLE : View.GONE);
                     ibMore.setVisibility(!tools || outbox ? View.GONE : View.VISIBLE);
                     ibTools.setImageLevel(tools ? 0 : 1);
                     ibTools.setVisibility(outbox ? View.GONE : View.VISIBLE);
 
-                    ibTrashBottom.setVisibility(extras && trash ? View.VISIBLE : View.GONE);
-                    ibArchiveBottom.setVisibility(extras && archive ? View.VISIBLE : View.GONE);
+                    ibTrashBottom.setVisibility(button_trash && trash ? View.VISIBLE : View.GONE);
+                    ibArchiveBottom.setVisibility(button_archive && archive ? View.VISIBLE : View.GONE);
 
                     if (bind)
                         bindBody(message, scroll);
@@ -3758,12 +3761,19 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean full = properties.getValue("full", message.id);
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            boolean message_extras = prefs.getBoolean("message_extras", true);
+            boolean button_junk = prefs.getBoolean("button_junk", true);
+            boolean button_trash = prefs.getBoolean("button_trash", true);
+            boolean button_archive = prefs.getBoolean("button_archive", true);
+            boolean button_move = prefs.getBoolean("button_move", true);
 
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, ibMore);
             popupMenu.inflate(R.menu.popup_message_more);
 
-            popupMenu.getMenu().findItem(R.id.menu_extras).setChecked(message_extras);
+            popupMenu.getMenu().findItem(R.id.menu_button_junk).setChecked(button_junk);
+            popupMenu.getMenu().findItem(R.id.menu_button_trash).setChecked(button_trash);
+            popupMenu.getMenu().findItem(R.id.menu_button_archive).setChecked(button_archive);
+            popupMenu.getMenu().findItem(R.id.menu_button_move).setChecked(button_move);
+
             popupMenu.getMenu().findItem(R.id.menu_unseen).setTitle(message.ui_seen ? R.string.title_unseen : R.string.title_seen);
             popupMenu.getMenu().findItem(R.id.menu_unseen).setEnabled(
                     (message.uid != null && !message.folderReadOnly) || message.accountProtocol != EntityAccount.TYPE_IMAP);
@@ -3778,8 +3788,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_set_importance_normal).setEnabled(!EntityMessage.PRIORITIY_NORMAL.equals(i));
             popupMenu.getMenu().findItem(R.id.menu_set_importance_high).setEnabled(!EntityMessage.PRIORITIY_HIGH.equals(i));
 
-            popupMenu.getMenu().findItem(R.id.menu_copy).setEnabled(message.uid != null && !message.folderReadOnly);
-            popupMenu.getMenu().findItem(R.id.menu_copy).setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
+            popupMenu.getMenu().findItem(R.id.menu_move_to).setEnabled(message.uid != null && !message.folderReadOnly);
+            popupMenu.getMenu().findItem(R.id.menu_move_to).setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
+
+            popupMenu.getMenu().findItem(R.id.menu_copy_to).setEnabled(message.uid != null && !message.folderReadOnly);
+            popupMenu.getMenu().findItem(R.id.menu_copy_to).setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
 
             popupMenu.getMenu().findItem(R.id.menu_delete).setEnabled(message.uid == null || !message.folderReadOnly);
             popupMenu.getMenu().findItem(R.id.menu_delete).setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
@@ -3813,8 +3826,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 @Override
                 public boolean onMenuItemClick(MenuItem target) {
                     switch (target.getItemId()) {
-                        case R.id.menu_extras:
-                            onMenuExtras(message, target.isChecked());
+                        case R.id.menu_button_junk:
+                            onMenuButton(message, "junk", target.isChecked());
+                            return true;
+                        case R.id.menu_button_trash:
+                            onMenuButton(message, "trash", target.isChecked());
+                            return true;
+                        case R.id.menu_button_archive:
+                            onMenuButton(message, "archive", target.isChecked());
+                            return true;
+                        case R.id.menu_button_move:
+                            onMenuButton(message, "move", target.isChecked());
                             return true;
                         case R.id.menu_unseen:
                             onMenuUnseen(message);
@@ -3837,7 +3859,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         case R.id.menu_set_importance_high:
                             onMenuSetImportance(message, EntityMessage.PRIORITIY_HIGH);
                             return true;
-                        case R.id.menu_copy:
+                        case R.id.menu_move_to:
+                            onActionMove(message, false);
+                            return true;
+                        case R.id.menu_copy_to:
                             onActionMove(message, true);
                             return true;
                         case R.id.menu_delete:
@@ -4074,9 +4099,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ToastEx.makeText(context, context.getString(R.string.title_no_viewer, uri), Toast.LENGTH_LONG).show();
         }
 
-        private void onMenuExtras(final TupleMessageEx message, boolean isChecked) {
+        private void onMenuButton(final TupleMessageEx message, String button, boolean isChecked) {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            prefs.edit().putBoolean("message_extras", !isChecked).apply();
+            prefs.edit().putBoolean("button_" + button, !isChecked).apply();
             setupTools(message, false, false);
         }
 

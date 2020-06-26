@@ -720,7 +720,7 @@
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
 
-    <string name="title_extras">Extra buttons</string>
+    <string name="title_buttons">Buttons</string>
     <string name="title_seen">Mark read</string>
     <string name="title_unseen">Mark unread</string>
     <string name="title_hide">Hide</string>
