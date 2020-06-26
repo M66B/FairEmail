@@ -20,6 +20,14 @@
                 android:id="@+id/menu_button_move"
                 android:checkable="true"
                 android:title="@string/title_move" />
+            <item
+                android:id="@+id/menu_button_unsubscribe"
+                android:checkable="true"
+                android:title="@string/title_unsubscribe" />
+            <item
+                android:id="@+id/menu_button_rule"
+                android:checkable="true"
+                android:title="@string/title_message_rule" />
         </menu>
     </item>
 

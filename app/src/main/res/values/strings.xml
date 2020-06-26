@@ -761,6 +761,8 @@
     <string name="title_more">More</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Move</string>
+    <string name="title_unsubscribe">Unsubscribe</string>
+    <string name="title_message_rule">Create rule</string>
     <string name="title_no_junk">Not spam</string>
     <string name="title_move_to">Move to &#8230;</string>
     <string name="title_move_to_folder">Move to &#8230;</string>

@@ -1555,7 +1555,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             message.uid == null || message.accountProtocol == EntityAccount.TYPE_POP);
 
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                    boolean experiments = prefs.getBoolean("experiments", false);
                     boolean expand_all = prefs.getBoolean("expand_all", false);
                     boolean expand_one = prefs.getBoolean("expand_one", true);
                     boolean tools = prefs.getBoolean("message_tools", true);
@@ -1563,13 +1562,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean button_trash = prefs.getBoolean("button_trash", true);
                     boolean button_archive = prefs.getBoolean("button_archive", true);
                     boolean button_move = prefs.getBoolean("button_move", true);
+                    boolean button_unsubscribe = prefs.getBoolean("button_unsubscribe", true);
+                    boolean button_rule = prefs.getBoolean("button_rule", false);
 
                     ibTrash.setTag(delete);
 
                     ibUndo.setVisibility(outbox ? View.VISIBLE : View.GONE);
-                    ibRule.setVisibility(tools && experiments && !outbox &&
+                    ibRule.setVisibility(tools && button_rule && !outbox &&
                             message.accountProtocol == EntityAccount.TYPE_IMAP ? View.VISIBLE : View.GONE);
-                    ibUnsubscribe.setVisibility(!tools || message.unsubscribe == null ? View.GONE : View.VISIBLE);
+                    ibUnsubscribe.setVisibility(tools && button_unsubscribe && message.unsubscribe != null ? View.VISIBLE : View.GONE);
                     ibAnswer.setVisibility(!tools || outbox || (!expand_all && expand_one) ? View.GONE : View.VISIBLE);
                     ibLabels.setVisibility(tools && labels_header && labels && !outbox ? View.VISIBLE : View.GONE);
                     ibMove.setVisibility(tools && button_move && move ? View.VISIBLE : View.GONE);
@@ -1577,7 +1578,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibTrash.setVisibility(outbox || (tools && button_trash && trash) ? View.VISIBLE : View.GONE);
                     ibJunk.setVisibility(tools && button_junk && junk ? View.VISIBLE : View.GONE);
                     ibInbox.setVisibility(tools && inbox ? View.VISIBLE : View.GONE);
-                    ibMore.setVisibility(!tools || outbox ? View.GONE : View.VISIBLE);
+                    ibMore.setVisibility(tools && !outbox ? View.VISIBLE : View.GONE);
                     ibTools.setImageLevel(tools ? 0 : 1);
                     ibTools.setVisibility(outbox ? View.GONE : View.VISIBLE);
 
@@ -3765,6 +3766,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean button_trash = prefs.getBoolean("button_trash", true);
             boolean button_archive = prefs.getBoolean("button_archive", true);
             boolean button_move = prefs.getBoolean("button_move", true);
+            boolean button_unsubscribe = prefs.getBoolean("button_unsubscribe", true);
+            boolean button_rule = prefs.getBoolean("button_rule", false);
 
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, ibMore);
             popupMenu.inflate(R.menu.popup_message_more);
@@ -3773,6 +3776,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_button_trash).setChecked(button_trash);
             popupMenu.getMenu().findItem(R.id.menu_button_archive).setChecked(button_archive);
             popupMenu.getMenu().findItem(R.id.menu_button_move).setChecked(button_move);
+            popupMenu.getMenu().findItem(R.id.menu_button_unsubscribe).setChecked(button_unsubscribe);
+            popupMenu.getMenu().findItem(R.id.menu_button_rule).setChecked(button_rule);
 
             popupMenu.getMenu().findItem(R.id.menu_unseen).setTitle(message.ui_seen ? R.string.title_unseen : R.string.title_seen);
             popupMenu.getMenu().findItem(R.id.menu_unseen).setEnabled(
@@ -3837,6 +3842,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             return true;
                         case R.id.menu_button_move:
                             onMenuButton(message, "move", target.isChecked());
+                            return true;
+                        case R.id.menu_button_unsubscribe:
+                            onMenuButton(message, "unsubscribe", target.isChecked());
+                            return true;
+                        case R.id.menu_button_rule:
+                            onMenuButton(message, "rule", target.isChecked());
                             return true;
                         case R.id.menu_unseen:
                             onMenuUnseen(message);
