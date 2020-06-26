@@ -6,6 +6,7 @@
     <string name="app_limitations">Eksempelvis vil beskeder altid blive omformateret for at fjerne usikre elementer samt for at øge læsbarheden, og åbning af links skal af sikkerhedsårsager bekræftes.</string>
     <string name="app_crash">FairEmail er ikke understøttet på denne enhed, da fejl i Android forårsager nedbrud</string>
     <string name="app_exit">Tryk \'Tilbage\' igen for at afslutte</string>
+    <string name="channel_service">Modtage</string>
     <string name="channel_send">Send</string>
     <string name="channel_notification">Notifikationer</string>
     <string name="channel_update">Opdateringer</string>
@@ -76,6 +77,7 @@
     <string name="title_notification_idle">Inaktiv</string>
     <string name="title_notification_failed">\'%1$s\' mislykkedes</string>
     <string name="title_notification_alert">\'%1$s\'-serveradvarsel</string>
+    <string name="title_notification_sending_failed">Afsendelse til %1$s mislykkedes</string>
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
@@ -622,6 +624,7 @@
     <string name="title_duplicate_in">Dubletbeskeder i %1$s</string>
     <string name="title_subject_reply">Sv: %1$s</string>
     <string name="title_subject_forward">Vs: %1$s</string>
+    <string name="title_buttons">Knapper</string>
     <string name="title_seen">Markér som læst</string>
     <string name="title_unseen">Markér som ulæst</string>
     <string name="title_hide">Skjul</string>

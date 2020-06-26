@@ -6,6 +6,7 @@
     <string name="app_limitations">Por ejemplo, el formato de los mensajes siempre será alterado para quitar elementos no seguros y para mejorar la legibilidad, y abrir enlaces debe ser confirmado por seguridad.</string>
     <string name="app_crash">FairEmail no es compatible con este dispositivo porque existen errores en Android que provocan fallos</string>
     <string name="app_exit">Volver \'atrás\' para salir</string>
+    <string name="channel_service">Recibir</string>
     <string name="channel_send">Enviar</string>
     <string name="channel_notification">Notificaciones</string>
     <string name="channel_update">Actualizaciones</string>
@@ -76,6 +77,7 @@
     <string name="title_notification_idle">Inactivo</string>
     <string name="title_notification_failed">\'%1$s\' falló</string>
     <string name="title_notification_alert">Alerta del servidor \'%1$s\'</string>
+    <string name="title_notification_sending_failed">El envío a %1$s falló</string>
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
@@ -623,6 +625,7 @@
     <string name="title_duplicate_in">Mensaje duplicado en %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
+    <string name="title_buttons">Botones</string>
     <string name="title_seen">Marcar como leído</string>
     <string name="title_unseen">Marcar como no leído</string>
     <string name="title_hide">Ocultar</string>

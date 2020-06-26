@@ -6,6 +6,7 @@
     <string name="app_limitations">Beispielsweise werden Nachrichten automatisch neu formatiert, um unsichere Elemente zu entfernen und die Lesbarkeit zu erhöhen. Um die Sicherheit zusätzlich zu erhöhen, muss das Öffnen von Links vorab bestätigt werden.</string>
     <string name="app_crash">FairEmail wird auf diesem Gerät nicht unterstützt, da Fehler in der benutzten Android-Version Abstürze verursachen</string>
     <string name="app_exit">Zum Beenden erneut „Zurück“ drücken</string>
+    <string name="channel_service">Empfangen</string>
     <string name="channel_send">Senden</string>
     <string name="channel_notification">Benachrichtigungen</string>
     <string name="channel_update">Aktualisierungen</string>
@@ -623,6 +624,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_duplicate_in">Doppelte Nachricht in %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
+    <string name="title_buttons">Schaltflächen</string>
     <string name="title_seen">Als gelesen kennzeichnen</string>
     <string name="title_unseen">Als ungelesen kennzeichnen</string>
     <string name="title_hide">Ausblenden</string>
@@ -661,6 +663,8 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_more">Mehr</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Verschieben</string>
+    <string name="title_unsubscribe">Abonnement kündigen</string>
+    <string name="title_message_rule">Regel erstellen</string>
     <string name="title_no_junk">Kein Spam</string>
     <string name="title_move_to">Verschieben nach &#8230;</string>
     <string name="title_move_to_folder">Verschieben nach &#8230;</string>

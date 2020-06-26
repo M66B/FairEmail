@@ -6,6 +6,7 @@
     <string name="app_limitations">De exemplu, mesajele vor fi mereu rescrise pentru a înlătura elementele nesigure și a îmbunătății lizibilitatea iar deschiderea legăturilor trebuie, pentru siguranță, confirmată.</string>
     <string name="app_crash">FairEmail nu suportă acest dispozitiv din cauza erorilor din Android ce duc la blocaje</string>
     <string name="app_exit">Apăsați din nou \'Înapoi\' pentru a ieși</string>
+    <string name="channel_service">Primește</string>
     <string name="channel_send">Trimite</string>
     <string name="channel_notification">Notificări</string>
     <string name="channel_update">Actualizări</string>
@@ -87,6 +88,7 @@
     <string name="title_notification_idle">Inactiv</string>
     <string name="title_notification_failed">\'%1$s\' a eșuat</string>
     <string name="title_notification_alert">Alertă server %1$s</string>
+    <string name="title_notification_sending_failed">Trimiterea către %1$s a eșuat</string>
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
@@ -99,6 +101,7 @@
     <string name="menu_contacts">Contacte locale</string>
     <string name="menu_setup">Setări</string>
     <string name="menu_legend">Legendă</string>
+    <string name="menu_test">Programul de testare</string>
     <string name="menu_faq">Suport tehnic</string>
     <string name="menu_translate">Ajută la traducere</string>
     <string name="menu_issue">Raportaţi o problemă</string>
@@ -302,6 +305,7 @@
     <string name="title_advanced_subject_italic">Arată subiectul cursiv</string>
     <string name="title_advanced_subject_elipsed">La nevoie, scurtează subiectul</string>
     <string name="title_advanced_keywords">Arată cuvinte cheie în antetul mesajului</string>
+    <string name="title_advanced_labels">Arată etichetele Gmail în antetul mesajului</string>
     <string name="title_advanced_flags">Arată cu stea</string>
     <string name="title_advanced_flags_background">Arată fundalul colorat în loc de stea colorată</string>
     <string name="title_advanced_preview">Arată previzualizare mesaj</string>
@@ -630,6 +634,7 @@
     <string name="title_duplicate_in">Mesaj duplicat în %1$s</string>
     <string name="title_subject_reply">Răsp: %1$s</string>
     <string name="title_subject_forward">Redir: %1$s</string>
+    <string name="title_buttons">Butoane</string>
     <string name="title_seen">Marcare ca citit</string>
     <string name="title_unseen">Marcare ca necitit</string>
     <string name="title_hide">Ascunde</string>
@@ -654,6 +659,7 @@
     <string name="title_raw_save">Salvează mesaj original</string>
     <string name="title_raw_send">Trimite ca atașament</string>
     <string name="title_manage_keywords">Gestionare cuvinte cheie</string>
+    <string name="title_manage_labels">Gestionare etichete Gmail</string>
     <string name="title_add_keyword">Adăugă cuvânt cheie</string>
     <string name="title_show_inline">Arată atașamentele integrate</string>
     <string name="title_download_all">Descarcă tot</string>

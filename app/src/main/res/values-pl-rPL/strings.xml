@@ -6,6 +6,7 @@
     <string name="app_limitations">Przykładowo, wiadomości będą zawsze przeformatowane, aby usunąć niebezpieczne elementy i zwiększyć czytelność, a otwieranie linków musi być potwierdzane dla zachowania bezpieczeństwa.</string>
     <string name="app_crash">FairEmail nie jest obsługiwany na tym urządzeniu, ponieważ błędy w Androidzie powodują awarie</string>
     <string name="app_exit">Ponownie \'wstecz\', aby wyjść</string>
+    <string name="channel_service">Odbierz</string>
     <string name="channel_send">Wyślij</string>
     <string name="channel_notification">Powiadomienia</string>
     <string name="channel_update">Aktualizacje</string>
@@ -683,6 +684,8 @@
     <string name="title_more">Więcej</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Przenieś</string>
+    <string name="title_unsubscribe">Anuluj subskrypcję</string>
+    <string name="title_message_rule">Utwórz regułę</string>
     <string name="title_no_junk">To nie jest spam</string>
     <string name="title_move_to">Przenieś do &#8230;</string>
     <string name="title_move_to_folder">Przenieś do &#8230;</string>

@@ -6,6 +6,7 @@
     <string name="app_limitations">Par exemple, les messages seront toujours reformatés afin d’en retirer les éléments non sûrs tout en améliorant leur lisibilité et l’ouverture des liens devra être confirmée par sécurité.</string>
     <string name="app_crash">FairEmail n\'est pas pris en charge sur cet appareil parce que des bogues dans Android provoquent des plantages</string>
     <string name="app_exit">Faites de nouveau « Retour » pour quitter</string>
+    <string name="channel_service">Réception</string>
     <string name="channel_send">Envoyer</string>
     <string name="channel_notification">Notifications</string>
     <string name="channel_update">Mises à jour</string>
@@ -662,6 +663,8 @@
     <string name="title_more">Plus</string>
     <string name="title_spam">Indésirables</string>
     <string name="title_move">Déplacer</string>
+    <string name="title_unsubscribe">Se désabonner</string>
+    <string name="title_message_rule">Créer une règle</string>
     <string name="title_no_junk">Non indésirable</string>
     <string name="title_move_to">Déplacer vers&#8230;</string>
     <string name="title_move_to_folder">Déplacer vers&#8230;</string>

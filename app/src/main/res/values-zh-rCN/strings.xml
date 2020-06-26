@@ -6,6 +6,7 @@
     <string name="app_limitations">例如，为了去除不安全元素并提高阅读性，邮件将总被重建格式；出于安全考虑，打开邮件内链接时需经用户确认</string>
     <string name="app_crash">FairEmail不支持该设备，因为 android 中的bug会导致崩溃</string>
     <string name="app_exit">再按一次返回键退出</string>
+    <string name="channel_service">接收</string>
     <string name="channel_send">发送</string>
     <string name="channel_notification">通知</string>
     <string name="channel_update">更新</string>

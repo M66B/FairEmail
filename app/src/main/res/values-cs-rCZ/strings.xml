@@ -6,6 +6,7 @@
     <string name="app_limitations">Například, zprávy budou vždy přeformátovány pro odstranění prvků které nejsou bezpečné a zároveň pro zlepšení čitelnosti, a otevření odkazů je nutné z důvodu bezpečnosti potvrdit.</string>
     <string name="app_crash">FairEmail není na tomto zařízení podporován, protože chyby v Androidu způsobují jeho pády</string>
     <string name="app_exit">Znovu \"zpět\" pro ukončení</string>
+    <string name="channel_service">Přijmout</string>
     <string name="channel_send">Odesílání</string>
     <string name="channel_notification">Oznámení</string>
     <string name="channel_update">Aktualizace</string>
@@ -98,6 +99,7 @@
     <string name="title_notification_idle">Nečinný</string>
     <string name="title_notification_failed">\"%1$s\" selhalo</string>
     <string name="title_notification_alert">\'%1$s\' upozornění serveru</string>
+    <string name="title_notification_sending_failed">Odesílání na %1$s se nezdařilo</string>
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
@@ -644,6 +646,7 @@
     <string name="title_duplicate_in">Duplikát zprávy v %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
+    <string name="title_buttons">Tlačítka</string>
     <string name="title_seen">Označit přečtené</string>
     <string name="title_unseen">Označit nepřečtené</string>
     <string name="title_hide">Skrýt</string>
@@ -682,6 +685,8 @@
     <string name="title_more">Více</string>
     <string name="title_spam">Nevyžádané</string>
     <string name="title_move">Přesunout</string>
+    <string name="title_unsubscribe">Odhlásit odběr</string>
+    <string name="title_message_rule">Vytvořit pravidlo</string>
     <string name="title_no_junk">Není spam</string>
     <string name="title_move_to">Přesunout do &#8230;</string>
     <string name="title_move_to_folder">Přesunout do &#8230;</string>

@@ -6,6 +6,7 @@
     <string name="app_limitations">Meddelanden kommer till exempel alltid att omformateras för att avlägsna osäkra element och för att förbättra läsbarheten och öppna länkar måste bekräftas för säkerheten.</string>
     <string name="app_crash">FairEmail stöds inte på den här enheten eftersom buggar i Android orsakar kraschar</string>
     <string name="app_exit">Tryck \"tillbaka\" igen för att avsluta</string>
+    <string name="channel_service">Ta emot</string>
     <string name="channel_send">Skicka</string>
     <string name="channel_notification">Aviseringar</string>
     <string name="channel_update">Uppdateringar</string>
@@ -76,6 +77,7 @@
     <string name="title_notification_idle">Inaktiv</string>
     <string name="title_notification_failed">\"%1$s\" misslyckades</string>
     <string name="title_notification_alert">\"%1$s\" servermeddelande</string>
+    <string name="title_notification_sending_failed">Det gick inte att skicka till %1$s</string>
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
@@ -621,6 +623,7 @@
     <string name="title_duplicate_in">Duplicerade meddelande i %1$s</string>
     <string name="title_subject_reply">Sv: %1$s</string>
     <string name="title_subject_forward">Vb: %1$s</string>
+    <string name="title_buttons">Knappar</string>
     <string name="title_seen">Märk som läst</string>
     <string name="title_unseen">Märk som oläst</string>
     <string name="title_hide">Dölj</string>
@@ -659,6 +662,8 @@
     <string name="title_more">Mer</string>
     <string name="title_spam">Skräppost</string>
     <string name="title_move">Flytta</string>
+    <string name="title_unsubscribe">Avbryt prenumeration</string>
+    <string name="title_message_rule">Skapa regel</string>
     <string name="title_no_junk">Inte skräppost</string>
     <string name="title_move_to">Flytta till &#8230;</string>
     <string name="title_move_to_folder">Flytta till &#8230;</string>

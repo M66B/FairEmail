@@ -6,6 +6,7 @@
     <string name="app_limitations">Например, сообщения всегда будут переформатированы, чтобы удалить небезопасные элементы и улучшить читабельность, а также открытие ссылок требует подтверждения в целях безопасности.</string>
     <string name="app_crash">FairEmail не поддерживается на этом устройстве, так как ошибки в Android вызывают сбои</string>
     <string name="app_exit">Для выхода снова перейдите \"назад\"</string>
+    <string name="channel_service">Получение</string>
     <string name="channel_send">Отправка</string>
     <string name="channel_notification">Уведомления</string>
     <string name="channel_update">Обновления</string>
@@ -98,6 +99,7 @@
     <string name="title_notification_idle">Низкий</string>
     <string name="title_notification_failed">\"%1$s\" не удалось</string>
     <string name="title_notification_alert">\'%1$s\' предупреждение сервера</string>
+    <string name="title_notification_sending_failed">Отправка для %1$s не удалась</string>
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
@@ -683,6 +685,8 @@
     <string name="title_more">Ещё</string>
     <string name="title_spam">Спам</string>
     <string name="title_move">Переместить</string>
+    <string name="title_unsubscribe">Отписаться</string>
+    <string name="title_message_rule">Создать правило</string>
     <string name="title_no_junk">Не спам</string>
     <string name="title_move_to">Переместить в&#8230;</string>
     <string name="title_move_to_folder">Переместить в&#8230;</string>
