@@ -9,7 +9,7 @@
     <string name="app_crash">FairEmail is not supported on this device because bugs in Android cause crashes</string>
     <string name="app_exit">Go \'back\' again to exit</string>
 
-    <string name="channel_service">Service</string>
+    <string name="channel_service">Receive</string>
     <string name="channel_send">Send</string>
     <string name="channel_notification">Notifications</string>
     <string name="channel_update">Updates</string>
