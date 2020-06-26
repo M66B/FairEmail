@@ -482,4 +482,9 @@ public class EntityOperation {
         } else
             return false;
     }
+
+    @Override
+    public String toString() {
+        return Long.toString(id);
+    }
 }
