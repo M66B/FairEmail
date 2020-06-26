@@ -61,15 +61,12 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     private SwitchCompat swRlah;
     private EditText etTimeout;
     private SwitchCompat swSslHarden;
-    private SwitchCompat swSocks;
-    private EditText etSocks;
-    private Button btnSocks;
     private Button btnManage;
     private TextView tvConnectionType;
     private TextView tvConnectionRoaming;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "metered", "download", "roaming", "rlah", "timeout", "ssl_harden", "socks_enabled", "socks_proxy"
+            "metered", "download", "roaming", "rlah", "timeout", "ssl_harden"
     };
 
     @Override
@@ -88,9 +85,6 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         swRlah = view.findViewById(R.id.swRlah);
         etTimeout = view.findViewById(R.id.etTimeout);
         swSslHarden = view.findViewById(R.id.swSslHarden);
-        swSocks = view.findViewById(R.id.swSocks);
-        etSocks = view.findViewById(R.id.etSocks);
-        btnSocks = view.findViewById(R.id.btnSocks);
         btnManage = view.findViewById(R.id.btnManage);
 
         tvConnectionType = view.findViewById(R.id.tvConnectionType);
@@ -165,26 +159,6 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("ssl_harden", checked).apply();
-            }
-        });
-
-        swSocks.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("socks_enabled", checked).apply();
-                etSocks.setEnabled(checked);
-                btnSocks.setEnabled(checked);
-            }
-        });
-
-        btnSocks.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String proxy = etSocks.getText().toString();
-                if (TextUtils.isEmpty(proxy))
-                    prefs.edit().remove("socks_proxy").apply();
-                else
-                    prefs.edit().putString("socks_proxy", proxy).apply();
             }
         });
 
@@ -295,10 +269,6 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         etTimeout.setHint(Integer.toString(EmailService.DEFAULT_CONNECT_TIMEOUT));
 
         swSslHarden.setChecked(prefs.getBoolean("ssl_harden", false));
-        swSocks.setChecked(prefs.getBoolean("socks_enabled", false));
-        etSocks.setText(prefs.getString("socks_proxy", null));
-        etSocks.setEnabled(swSocks.isChecked());
-        btnSocks.setEnabled(swSocks.isChecked());
     }
 
     private static Intent getIntentConnectivity() {

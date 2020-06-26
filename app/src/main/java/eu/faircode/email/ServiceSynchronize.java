@@ -124,7 +124,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private static final List<String> PREF_RELOAD = Collections.unmodifiableList(Arrays.asList(
             "metered", "roaming", "rlah", // force reconnect
             "ssl_harden", // force reconnect
-            "socks_enabled", "socks_proxy", // force reconnect
             "badge", "unseen_ignored", // force update badge/widget
             "debug" // force reconnect
     ));

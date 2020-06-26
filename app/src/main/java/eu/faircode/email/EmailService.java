@@ -145,24 +145,7 @@ public class EmailService implements AutoCloseable {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         this.harden = prefs.getBoolean("ssl_harden", false);
 
-        boolean socks_enabled = prefs.getBoolean("socks_enabled", false);
-        String socks_proxy = prefs.getString("socks_proxy", "localhost:9050");
-
         boolean auth_sasl = prefs.getBoolean("auth_sasl", true);
-
-        // SOCKS proxy
-        if (socks_enabled) {
-            String[] address = socks_proxy.split(":");
-            String host = (address.length > 0 ? address[0] : null);
-            String port = (address.length > 1 ? address[1] : null);
-            if (TextUtils.isEmpty(host))
-                host = "localhost";
-            if (TextUtils.isEmpty(port))
-                port = "9050";
-            properties.put("mail." + protocol + ".socks.host", host);
-            properties.put("mail." + protocol + ".socks.port", port);
-            Log.i("Using SOCKS proxy=" + host + ":" + port);
-        }
 
         properties.put("mail.event.scope", "folder");
         properties.put("mail.event.executor", executor);

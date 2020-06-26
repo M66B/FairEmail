@@ -207,49 +207,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/swSslHarden" />
 
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/swSocks"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:checked="true"
-            android:text="@string/title_advanced_socks"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvSslHardenHint"
-            app:switchPadding="12dp" />
-
-        <eu.faircode.email.EditTextPlain
-            android:id="@+id/etSocks"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="localhost:9050"
-            app:layout_constraintEnd_toStartOf="@+id/btnSocks"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swSocks" />
-
-        <Button
-            android:id="@+id/btnSocks"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_set"
-            app:layout_constraintBottom_toBottomOf="@id/etSocks"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <eu.faircode.email.FixedTextView
-            android:id="@+id/tvSocksHint"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="48dp"
-            android:text="@string/title_advanced_socks_hint"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textStyle="italic"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etSocks" />
-
         <Button
             android:id="@+id/btnManage"
             style="?android:attr/buttonStyleSmall"
@@ -258,7 +215,7 @@
             android:layout_marginTop="12dp"
             android:text="@string/title_advanced_manage_connectivity"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvSocksHint" />
+            app:layout_constraintTop_toBottomOf="@id/tvSslHardenHint" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvConnectionType"
