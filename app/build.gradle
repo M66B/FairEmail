@@ -352,6 +352,7 @@ dependencies {
     //implementation "com.sun.mail:android-activation:$javamail_version"
 
     // https://jsoup.org/news/
+    // https://mvnrepository.com/artifact/org.jsoup/jsoup
     implementation "org.jsoup:jsoup:$jsoup_version"
 
     // http://cssparser.sourceforge.net/
