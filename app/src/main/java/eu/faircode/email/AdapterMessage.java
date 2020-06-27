@@ -3601,13 +3601,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             Bundle args = new Bundle();
             args.putLong("id", message.id);
             args.putLong("account", message.account);
-            args.putString("exclude", message.folderName);
+            args.putString("self", message.folderName);
 
             new SimpleTask<String[]>() {
                 @Override
                 protected String[] onExecute(Context context, Bundle args) {
                     long account = args.getLong("account");
-                    String exclude = args.getString("exclude");
 
                     DB db = DB.getInstance(context);
                     List<EntityFolder> folders = db.folder().getFolders(account, true, true);
@@ -3615,7 +3614,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     List<String> result = new ArrayList<>();
                     if (folders != null)
                         for (EntityFolder folder : folders)
-                            if (EntityFolder.USER.equals(folder.type) && !exclude.equals(folder.name))
+                            if (EntityFolder.USER.equals(folder.type))
                                 result.add(folder.name);
 
                     Collator collator = Collator.getInstance(Locale.getDefault());
@@ -6209,10 +6208,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             final long id = getArguments().getLong("id");
+            String self = getArguments().getString("self");
             String[] labels = getArguments().getStringArray("labels");
             final String[] folders = getArguments().getStringArray("folders");
 
             List<String> l = new ArrayList<>();
+            if (self != null)
+                l.add(self);
             if (labels != null)
                 l.addAll(Arrays.asList(labels));
 

@@ -695,19 +695,48 @@ class Core {
 
     private static void onLabel(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPStore istore, IMAPFolder ifolder, State state) throws JSONException, MessagingException, IOException {
         // Set/clear Gmail label
+        // Gmail does not push label changes
         String label = jargs.getString(0);
         boolean set = jargs.getBoolean(1);
 
-        // Gmail does not push label changes
-        try {
-            Message imessage = ifolder.getMessageByUID(message.uid);
-            if (imessage instanceof GmailMessage)
-                ((GmailMessage) imessage).setLabels(new String[]{label}, set);
-        } catch (MessagingException ex) {
-            Log.w(ex);
+        DB db = DB.getInstance(context);
+
+        if (!set && label.equals(folder.name)) {
+            // Prevent deleting message
+            EntityFolder archive = db.folder().getFolderByType(message.account, EntityFolder.ARCHIVE);
+            if (archive == null)
+                throw new IllegalArgumentException("label/archive");
+
+            Message[] imessages;
+            Folder iarchive = istore.getFolder(archive.name);
+            try {
+                iarchive.open(Folder.READ_ONLY);
+                imessages = ifolder.search(new MessageIDTerm(message.msgid));
+            } finally {
+                if (iarchive.isOpen())
+                    iarchive.close();
+            }
+
+            if (imessages != null && imessages.length > 0)
+                try {
+                    Message imessage = ifolder.getMessageByUID(message.uid);
+                    imessage.setFlag(Flags.Flag.DELETED, true);
+                    ifolder.expunge();
+                } catch (MessagingException ex) {
+                    Log.w(ex);
+                }
+            else
+                throw new IllegalArgumentException("label/delete");
+        } else {
+            try {
+                Message imessage = ifolder.getMessageByUID(message.uid);
+                if (imessage instanceof GmailMessage)
+                    ((GmailMessage) imessage).setLabels(new String[]{label}, set);
+            } catch (MessagingException ex) {
+                Log.w(ex);
+            }
         }
 
-        DB db = DB.getInstance(context);
         try {
             db.beginTransaction();
 
