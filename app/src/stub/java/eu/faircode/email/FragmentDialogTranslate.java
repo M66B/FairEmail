@@ -15,4 +15,14 @@ public class FragmentDialogTranslate extends FragmentDialogBase {
                 .setTitle(R.string.title_translate)
                 .create();
     }
+
+    static void Translate(String text, String targetLanguage, ITranslate intf) {
+        // Stub
+    }
+
+    interface ITranslate {
+        void onTranslated(String text);
+
+        void onError(Throwable ex);
+    }
 }

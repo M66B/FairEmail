@@ -44,66 +44,18 @@ public class FragmentDialogTranslate extends FragmentDialogBase {
                     public void onClick(DialogInterface dialog, int which) {
                         String targetLanguage = map.get(items[which]);
 
-                        LanguageIdentifier languageIdentifier = LanguageIdentification.getClient(
-                                new LanguageIdentificationOptions.Builder()
-                                        .setConfidenceThreshold(0.34f)
-                                        .build());
-                        languageIdentifier.identifyLanguage(text)
-                                .addOnSuccessListener(
-                                        new OnSuccessListener<String>() {
-                                            @Override
-                                            public void onSuccess(@Nullable String sourceLanguage) {
-                                                Log.i("Translate source=" + sourceLanguage);
-                                                if (sourceLanguage.equals("und"))
-                                                    sourceLanguage = TranslateLanguage.ENGLISH;
+                        Translate(text, targetLanguage, new ITranslate() {
+                            @Override
+                            public void onTranslated(String text) {
+                                getArguments().putString("translated", text);
+                                sendResult(RESULT_OK);
+                            }
 
-                                                TranslatorOptions options = new TranslatorOptions.Builder()
-                                                        .setSourceLanguage(sourceLanguage)
-                                                        .setTargetLanguage(targetLanguage)
-                                                        .build();
-                                                Translator translator = Translation.getClient(options);
-                                                DownloadConditions conditions = new DownloadConditions.Builder()
-                                                        .requireWifi()
-                                                        .build();
-                                                translator.downloadModelIfNeeded(conditions)
-                                                        .addOnSuccessListener(
-                                                                new OnSuccessListener<Void>() {
-                                                                    @Override
-                                                                    public void onSuccess(Void v) {
-                                                                        translator.translate(text)
-                                                                                .addOnSuccessListener(
-                                                                                        new OnSuccessListener<String>() {
-                                                                                            @Override
-                                                                                            public void onSuccess(@NonNull String translatedText) {
-                                                                                                getArguments().putString("translated", translatedText);
-                                                                                                sendResult(RESULT_OK);
-                                                                                            }
-                                                                                        })
-                                                                                .addOnFailureListener(
-                                                                                        new OnFailureListener() {
-                                                                                            @Override
-                                                                                            public void onFailure(@NonNull Exception ex) {
-                                                                                                Log.unexpectedError(getParentFragmentManager(), ex);
-                                                                                            }
-                                                                                        });
-                                                                    }
-                                                                })
-                                                        .addOnFailureListener(
-                                                                new OnFailureListener() {
-                                                                    @Override
-                                                                    public void onFailure(@NonNull Exception ex) {
-                                                                        Log.unexpectedError(getParentFragmentManager(), ex);
-                                                                    }
-                                                                });
-                                            }
-                                        })
-                                .addOnFailureListener(
-                                        new OnFailureListener() {
-                                            @Override
-                                            public void onFailure(@NonNull Exception ex) {
-                                                Log.unexpectedError(getParentFragmentManager(), ex);
-                                            }
-                                        });
+                            @Override
+                            public void onError(Throwable ex) {
+                                Log.unexpectedError(getParentFragmentManager(), ex);
+                            }
+                        });
                     }
                 })
                 .create();
@@ -111,5 +63,78 @@ public class FragmentDialogTranslate extends FragmentDialogBase {
 
     @Override
     public void onDismiss(@NonNull DialogInterface dialog) {
+    }
+
+    static void Translate(String text, String targetLanguage, ITranslate intf) {
+        LanguageIdentifier languageIdentifier = LanguageIdentification.getClient(
+                new LanguageIdentificationOptions.Builder()
+                        .setConfidenceThreshold(0.34f)
+                        .build());
+        languageIdentifier.identifyLanguage(text)
+                .addOnSuccessListener(
+                        new OnSuccessListener<String>() {
+                            @Override
+                            public void onSuccess(@Nullable String sourceLanguage) {
+                                Log.i("Translate source=" + sourceLanguage);
+                                if (sourceLanguage.equals("und"))
+                                    sourceLanguage = TranslateLanguage.ENGLISH;
+
+                                if (sourceLanguage.equals(targetLanguage)) {
+                                    intf.onTranslated(text);
+                                    return;
+                                }
+
+                                TranslatorOptions options = new TranslatorOptions.Builder()
+                                        .setSourceLanguage(sourceLanguage)
+                                        .setTargetLanguage(targetLanguage)
+                                        .build();
+                                Translator translator = Translation.getClient(options);
+                                DownloadConditions conditions = new DownloadConditions.Builder()
+                                        .requireWifi()
+                                        .build();
+                                translator.downloadModelIfNeeded(conditions)
+                                        .addOnSuccessListener(
+                                                new OnSuccessListener<Void>() {
+                                                    @Override
+                                                    public void onSuccess(Void v) {
+                                                        translator.translate(text)
+                                                                .addOnSuccessListener(
+                                                                        new OnSuccessListener<String>() {
+                                                                            @Override
+                                                                            public void onSuccess(@NonNull String translatedText) {
+                                                                                intf.onTranslated(translatedText);
+                                                                            }
+                                                                        })
+                                                                .addOnFailureListener(
+                                                                        new OnFailureListener() {
+                                                                            @Override
+                                                                            public void onFailure(@NonNull Exception ex) {
+                                                                                intf.onError(ex);
+                                                                            }
+                                                                        });
+                                                    }
+                                                })
+                                        .addOnFailureListener(
+                                                new OnFailureListener() {
+                                                    @Override
+                                                    public void onFailure(@NonNull Exception ex) {
+                                                        intf.onError(ex);
+                                                    }
+                                                });
+                            }
+                        })
+                .addOnFailureListener(
+                        new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception ex) {
+                                intf.onError(ex);
+                            }
+                        });
+    }
+
+    interface ITranslate {
+        void onTranslated(String text);
+
+        void onError(Throwable ex);
     }
 }
