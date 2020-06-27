@@ -708,8 +708,13 @@ class Core {
         }
 
         DB db = DB.getInstance(context);
-        List<EntityMessage> messages = db.message().getMessagesByMsgId(message.account, message.msgid);
-        if (messages != null)
+        try {
+            db.beginTransaction();
+
+            List<EntityMessage> messages = db.message().getMessagesByMsgId(message.account, message.msgid);
+            if (messages == null)
+                return;
+
             for (EntityMessage m : messages) {
                 EntityFolder f = db.folder().getFolder(m.folder);
                 if (!label.equals(f.name) && m.setLabel(label, set)) {
@@ -717,6 +722,11 @@ class Core {
                     db.message().setMessageLabels(m.id, DB.Converters.fromStringArray(m.labels));
                 }
             }
+
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
     }
 
     private static void onAdd(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPStore istore, IMAPFolder ifolder, State state) throws MessagingException, IOException {

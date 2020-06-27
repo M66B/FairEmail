@@ -154,6 +154,13 @@ public class EntityOperation {
 
                 db.message().setMessageKeywords(message.id, DB.Converters.fromStringArray(keywords.toArray(new String[0])));
 
+            } else if (LABEL.equals(name)) {
+                String label = jargs.getString(0);
+                boolean set = jargs.getBoolean(1);
+
+                if (message.setLabel(label, set))
+                    db.message().setMessageLabels(message.id, DB.Converters.fromStringArray(message.labels));
+
             } else if (MOVE.equals(name)) {
                 // Parameters:
                 // 0: target folder
