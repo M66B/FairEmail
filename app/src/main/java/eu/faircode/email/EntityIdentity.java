@@ -154,7 +154,14 @@ public class EntityIdentity {
             if (user.equalsIgnoreCase(cemail[0]))
                 return true;
         } else {
-            if (Pattern.matches(sender_extra_regex, cother[0]))
+            /* match by regex
+             * if the expression contains @, assume the pattern also contains the domain part.
+             * if no @ is contained, assume only the local part should be matched.
+             * Domain part must match identity domain part in any case, else
+             * this is never reached ( see cother[1] comparison above)
+             */
+            String matchInput = (sender_extra_regex.contains("@") ? matchInput = other : cother[0];
+            if (Pattern.matches(sender_extra_regex, matchInput))
                 return true;
         }
 
