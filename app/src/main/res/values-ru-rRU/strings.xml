@@ -685,7 +685,7 @@
     <string name="title_more">Ещё</string>
     <string name="title_spam">Спам</string>
     <string name="title_move">Переместить</string>
-    <string name="title_copy_btn" comment="title_copy_btn&#10;Title for menu to enable/disable copy button (verb)">Копировать</string>
+    <string name="title_copy_btn">Копировать</string>
     <string name="title_unsubscribe">Отписаться</string>
     <string name="title_message_rule">Создать правило</string>
     <string name="title_no_junk">Не спам</string>
@@ -802,6 +802,7 @@
     <string name="title_media_toolbar">Панель медиа</string>
     <string name="title_insert_contact_group">Добавить группу контактов</string>
     <string name="title_insert_template">Вставить шаблон</string>
+    <string name="title_translate">Перевод</string>
     <string name="title_edit_plain_text">Редактировать как простой текст</string>
     <string name="title_edit_formatted_text">Редактировать как исходный текст</string>
     <string name="title_select_certificate">Выбор публичного ключа</string>

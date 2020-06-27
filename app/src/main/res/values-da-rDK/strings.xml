@@ -663,7 +663,7 @@
     <string name="title_more">Mere</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Flyt</string>
-    <string name="title_copy_btn" comment="title_copy_btn&#10;Title for menu to enable/disable copy button (verb)">Kopiér</string>
+    <string name="title_copy_btn">Kopiér</string>
     <string name="title_unsubscribe">Afmeld</string>
     <string name="title_message_rule">Opret regel</string>
     <string name="title_no_junk">Ikke spam</string>

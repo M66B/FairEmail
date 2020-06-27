@@ -662,7 +662,7 @@
     <string name="title_more">Mer</string>
     <string name="title_spam">Skräppost</string>
     <string name="title_move">Flytta</string>
-    <string name="title_copy_btn" comment="title_copy_btn&#10;Title for menu to enable/disable copy button (verb)">Kopiera</string>
+    <string name="title_copy_btn">Kopiera</string>
     <string name="title_unsubscribe">Avbryt prenumeration</string>
     <string name="title_message_rule">Skapa regel</string>
     <string name="title_no_junk">Inte skräppost</string>
@@ -779,6 +779,7 @@
     <string name="title_media_toolbar">Verktygsfält för media</string>
     <string name="title_insert_contact_group">Infoga kontaktgrupp</string>
     <string name="title_insert_template">Infoga mall</string>
+    <string name="title_translate">Översätt</string>
     <string name="title_edit_plain_text">Redigera som oformaterad text</string>
     <string name="title_edit_formatted_text">Redigera som formaterad text</string>
     <string name="title_select_certificate">Välj publik nyckel</string>

@@ -685,7 +685,7 @@
     <string name="title_more">Více</string>
     <string name="title_spam">Nevyžádané</string>
     <string name="title_move">Přesunout</string>
-    <string name="title_copy_btn" comment="title_copy_btn&#10;Title for menu to enable/disable copy button (verb)">Kopírovat</string>
+    <string name="title_copy_btn">Kopírovat</string>
     <string name="title_unsubscribe">Odhlásit odběr</string>
     <string name="title_message_rule">Vytvořit pravidlo</string>
     <string name="title_no_junk">Není spam</string>

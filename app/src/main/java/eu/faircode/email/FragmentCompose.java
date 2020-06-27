@@ -278,9 +278,10 @@ public class FragmentCompose extends FragmentBase {
     private static final int REQUEST_COLOR = 10;
     private static final int REQUEST_CONTACT_GROUP = 11;
     private static final int REQUEST_ANSWER = 12;
-    private static final int REQUEST_LINK = 13;
-    private static final int REQUEST_DISCARD = 14;
-    private static final int REQUEST_SEND = 15;
+    private static final int REQUEST_TRANSLATE = 13;
+    private static final int REQUEST_LINK = 14;
+    private static final int REQUEST_DISCARD = 15;
+    private static final int REQUEST_SEND = 16;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -1213,7 +1214,10 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_contact_group).setEnabled(
                 state == State.LOADED && hasPermission(Manifest.permission.READ_CONTACTS));
         menu.findItem(R.id.menu_answer).setEnabled(state == State.LOADED);
+        menu.findItem(R.id.menu_translate).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_clear).setEnabled(state == State.LOADED);
+
+        menu.findItem(R.id.menu_translate).setVisible(BuildConfig.DEBUG);
 
         int colorEncrypt = Helper.resolveColor(getContext(), R.attr.colorEncrypt);
         ImageButton ib = (ImageButton) menu.findItem(R.id.menu_encrypt).getActionView();
@@ -1274,6 +1278,9 @@ public class FragmentCompose extends FragmentBase {
                 return true;
             case R.id.menu_answer:
                 onMenuAnswer();
+                return true;
+            case R.id.menu_translate:
+                onMenuTranslate();
                 return true;
             case R.id.menu_clear:
                 StyleHelper.apply(R.id.menu_clear, etBody);
@@ -1441,6 +1448,20 @@ public class FragmentCompose extends FragmentBase {
         FragmentDialogAnswer fragment = new FragmentDialogAnswer();
         fragment.setArguments(new Bundle());
         fragment.setTargetFragment(this, REQUEST_ANSWER);
+        fragment.show(getParentFragmentManager(), "compose:answer");
+    }
+
+    private void onMenuTranslate() {
+        Bundle args = new Bundle();
+
+        CharSequence seq = (etBody.hasSelection()
+                ? etBody.getText().subSequence(etBody.getSelectionStart(), etBody.getSelectionEnd())
+                : etBody.getText());
+        args.putString("text", seq.toString());
+
+        FragmentDialogTranslate fragment = new FragmentDialogTranslate();
+        fragment.setArguments(args);
+        fragment.setTargetFragment(this, REQUEST_TRANSLATE);
         fragment.show(getParentFragmentManager(), "compose:answer");
     }
 
@@ -1751,6 +1772,10 @@ public class FragmentCompose extends FragmentBase {
                 case REQUEST_ANSWER:
                     if (resultCode == RESULT_OK && data != null)
                         onAnswerSelected(data.getBundleExtra("args"));
+                    break;
+                case REQUEST_TRANSLATE:
+                    if (resultCode == RESULT_OK && data != null)
+                        onTranslated(data.getBundleExtra("args"));
                     break;
                 case REQUEST_COLOR:
                     if (resultCode == RESULT_OK && data != null)
@@ -2730,6 +2755,15 @@ public class FragmentCompose extends FragmentBase {
         }, null);
 
         etBody.getText().insert(etBody.getSelectionStart(), spanned);
+    }
+
+    private void onTranslated(Bundle args) {
+        String translated = "\n" + args.getString("translated");
+
+        if (etBody.hasSelection())
+            etBody.getEditableText().insert(etBody.getSelectionEnd(), translated);
+        else
+            etBody.getEditableText().append(translated);
     }
 
     private void onColorSelected(Bundle args) {

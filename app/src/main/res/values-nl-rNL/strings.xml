@@ -662,7 +662,7 @@
     <string name="title_more">Meer</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Verplaatsen</string>
-    <string name="title_copy_btn" comment="title_copy_btn&#10;Title for menu to enable/disable copy button (verb)">Kopiëren</string>
+    <string name="title_copy_btn">Kopiëren</string>
     <string name="title_unsubscribe">Uitschrijven</string>
     <string name="title_message_rule">Maak regel</string>
     <string name="title_no_junk">Geen spam</string>
@@ -779,6 +779,7 @@
     <string name="title_media_toolbar">Media werkbalk</string>
     <string name="title_insert_contact_group">Contactgroep toevoegen</string>
     <string name="title_insert_template">Sjabloon invoegen</string>
+    <string name="title_translate">Vertalen</string>
     <string name="title_edit_plain_text">Bewerk als platte tekst</string>
     <string name="title_edit_formatted_text">Bewerk als geformatteerde tekst</string>
     <string name="title_select_certificate">Selecteer publieke sleutel</string>

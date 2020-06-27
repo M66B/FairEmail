@@ -651,7 +651,7 @@
     <string name="title_more">更多</string>
     <string name="title_spam">垃圾邮件</string>
     <string name="title_move">移动</string>
-    <string name="title_copy_btn" comment="title_copy_btn&#10;Title for menu to enable/disable copy button (verb)">复制</string>
+    <string name="title_copy_btn">复制</string>
     <string name="title_unsubscribe">取消订阅</string>
     <string name="title_message_rule">创建规则</string>
     <string name="title_no_junk">不是垃圾邮件</string>
