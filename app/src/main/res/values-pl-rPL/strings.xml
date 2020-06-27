@@ -684,6 +684,7 @@
     <string name="title_more">Więcej</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Przenieś</string>
+    <string name="title_copy_btn" comment="title_copy_btn&#10;Title for menu to enable/disable copy button (verb)">Kopiuj</string>
     <string name="title_unsubscribe">Anuluj subskrypcję</string>
     <string name="title_message_rule">Utwórz regułę</string>
     <string name="title_no_junk">To nie jest spam</string>

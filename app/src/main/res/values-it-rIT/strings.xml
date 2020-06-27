@@ -6,6 +6,7 @@
     <string name="app_limitations">Ad esempio, i messaggi verranno sempre riformattati per rimuovere elementi non sicuri e per migliorare la leggibilità e l\'apertura dei collegamenti deve essere confermata per sicurezza.</string>
     <string name="app_crash">FairEmail non è supportata su questo dispositivo a causa di bug in Android che causano crash</string>
     <string name="app_exit">Premi di nuovo \'indietro\' per uscire</string>
+    <string name="channel_service">Ricevi</string>
     <string name="channel_send">Invia</string>
     <string name="channel_notification">Notifiche</string>
     <string name="channel_update">Aggiornamenti</string>
@@ -76,6 +77,7 @@
     <string name="title_notification_idle">Inattivo</string>
     <string name="title_notification_failed">\'%1$s\' fallito</string>
     <string name="title_notification_alert">\'%1$s\' avvisi sul server</string>
+    <string name="title_notification_sending_failed">Invio a %1$s non riuscito</string>
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
@@ -293,6 +295,7 @@
     <string name="title_advanced_subject_italic">Mostra soggetto in corsivo</string>
     <string name="title_advanced_subject_elipsed">Quando necessario, accorcia l\'oggetto</string>
     <string name="title_advanced_keywords">Mostra parole chiave nell\'intestazione del messaggio</string>
+    <string name="title_advanced_labels">Mostra le etichette Gmail nell\'intestazione del messaggio</string>
     <string name="title_advanced_flags">Mostra stelle</string>
     <string name="title_advanced_flags_background">Mostra lo sfondo colorato invece delle stelle colorate</string>
     <string name="title_advanced_preview">Mostra l\'anteprima del messaggio</string>
@@ -621,6 +624,7 @@
     <string name="title_duplicate_in">Duplica messaggio in %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
+    <string name="title_buttons">Pulsanti</string>
     <string name="title_seen">Segna come letto</string>
     <string name="title_unseen">Segna come non letto</string>
     <string name="title_hide">Nascondi</string>
@@ -645,6 +649,7 @@
     <string name="title_raw_save">Salva messaggio non elaborato</string>
     <string name="title_raw_send">Invia come allegato</string>
     <string name="title_manage_keywords">Gestione parole chiave</string>
+    <string name="title_manage_labels">Gestisci le etichette Gmail</string>
     <string name="title_add_keyword">Aggiungi parola chiave</string>
     <string name="title_show_inline">Mostra gli allegati inline</string>
     <string name="title_download_all">Scarica tutti</string>
@@ -658,6 +663,9 @@
     <string name="title_more">Altro</string>
     <string name="title_spam">Posta indesiderata</string>
     <string name="title_move">Sposta</string>
+    <string name="title_copy_btn" comment="title_copy_btn&#10;Title for menu to enable/disable copy button (verb)">Copia</string>
+    <string name="title_unsubscribe">Disiscriviti</string>
+    <string name="title_message_rule">Crea una regola</string>
     <string name="title_no_junk">Non spam</string>
     <string name="title_move_to">Sposta in &#8230;</string>
     <string name="title_move_to_folder">Sposta in &#8230;</string>

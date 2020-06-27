@@ -6,7 +6,7 @@
     <string name="app_limitations">Eksempelvis vil beskeder altid blive omformateret for at fjerne usikre elementer samt for at øge læsbarheden, og åbning af links skal af sikkerhedsårsager bekræftes.</string>
     <string name="app_crash">FairEmail er ikke understøttet på denne enhed, da fejl i Android forårsager nedbrud</string>
     <string name="app_exit">Tryk \'Tilbage\' igen for at afslutte</string>
-    <string name="channel_service">Modtage</string>
+    <string name="channel_service">Modtagelse</string>
     <string name="channel_send">Send</string>
     <string name="channel_notification">Notifikationer</string>
     <string name="channel_update">Opdateringer</string>
@@ -663,6 +663,9 @@
     <string name="title_more">Mere</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Flyt</string>
+    <string name="title_copy_btn" comment="title_copy_btn&#10;Title for menu to enable/disable copy button (verb)">Kopiér</string>
+    <string name="title_unsubscribe">Afmeld</string>
+    <string name="title_message_rule">Opret regel</string>
     <string name="title_no_junk">Ikke spam</string>
     <string name="title_move_to">Flyt til &#8230;</string>
     <string name="title_move_to_folder">Flyt til &#8230;</string>

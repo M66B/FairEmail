@@ -663,7 +663,8 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_more">Mehr</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Verschieben</string>
-    <string name="title_unsubscribe">Abonnement kündigen</string>
+    <string name="title_copy_btn" comment="title_copy_btn&#10;Title for menu to enable/disable copy button (verb)">Kopieren</string>
+    <string name="title_unsubscribe">Aus Liste abmelden</string>
     <string name="title_message_rule">Regel erstellen</string>
     <string name="title_no_junk">Kein Spam</string>
     <string name="title_move_to">Verschieben nach &#8230;</string>
