@@ -3307,7 +3307,7 @@ public class FragmentCompose extends FragmentBase {
                                     data.draft.to = ref.to;
                                 } else {
                                     data.draft.from = ref.to;
-                                    data.draft.to = (ref.reply == null || ref.reply.length == 0 ? ref.from : ref.reply);
+                                    data.draft.to = (ref.reply == null || ref.reply.length == 0) ? ref.from : ref.reply;
                                 }
 
                                 if (data.draft.from != null && data.draft.from.length > 0) {
