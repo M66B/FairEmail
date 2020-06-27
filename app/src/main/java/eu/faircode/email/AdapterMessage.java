@@ -410,6 +410,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageButton ibDecrypt;
         private ImageButton ibVerify;
         private ImageButton ibUndo;
+        private ImageButton ibTranslate;
         private ImageButton ibRule;
         private ImageButton ibUnsubscribe;
         private ImageButton ibAnswer;
@@ -614,6 +615,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibDecrypt = vsBody.findViewById(R.id.ibDecrypt);
             ibVerify = vsBody.findViewById(R.id.ibVerify);
             ibUndo = vsBody.findViewById(R.id.ibUndo);
+            ibTranslate = vsBody.findViewById(R.id.ibTranslate);
             ibRule = vsBody.findViewById(R.id.ibRule);
             ibUnsubscribe = vsBody.findViewById(R.id.ibUnsubscribe);
             ibAnswer = vsBody.findViewById(R.id.ibAnswer);
@@ -703,6 +705,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 ibFull.setOnClickListener(this);
                 ibImages.setOnClickListener(this);
+                ibTranslate.setOnClickListener(this);
                 ibRule.setOnClickListener(this);
                 ibUnsubscribe.setOnClickListener(this);
                 ibDecrypt.setOnClickListener(this);
@@ -792,6 +795,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 ibFull.setOnClickListener(null);
                 ibImages.setOnClickListener(null);
+                ibTranslate.setOnClickListener(null);
                 ibRule.setOnClickListener(null);
                 ibUnsubscribe.setOnClickListener(null);
                 ibDecrypt.setOnClickListener(null);
@@ -1265,6 +1269,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibDecrypt.setVisibility(View.GONE);
             ibVerify.setVisibility(View.GONE);
             ibUndo.setVisibility(View.GONE);
+            ibTranslate.setVisibility(View.GONE);
             ibRule.setVisibility(View.GONE);
             ibUnsubscribe.setVisibility(View.GONE);
             ibAnswer.setVisibility(View.GONE);
@@ -1397,6 +1402,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibDecrypt.setVisibility(View.GONE);
             ibVerify.setVisibility(View.GONE);
             ibUndo.setVisibility(View.GONE);
+            ibTranslate.setVisibility(View.GONE);
             ibRule.setVisibility(View.GONE);
             ibUnsubscribe.setVisibility(View.GONE);
             ibAnswer.setVisibility(View.GONE);
@@ -1538,9 +1544,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean button_unsubscribe = prefs.getBoolean("button_unsubscribe", true);
                     boolean button_rule = prefs.getBoolean("button_rule", false);
 
+                    boolean full = properties.getValue("full", message.id);
+
                     ibTrash.setTag(delete);
 
                     ibUndo.setVisibility(outbox ? View.VISIBLE : View.GONE);
+                    ibTranslate.setVisibility(tools && !full && !outbox ? View.VISIBLE : View.GONE);
                     ibRule.setVisibility(tools && button_rule && !outbox &&
                             message.accountProtocol == EntityAccount.TYPE_IMAP ? View.VISIBLE : View.GONE);
                     ibUnsubscribe.setVisibility(tools && button_unsubscribe && message.unsubscribe != null ? View.VISIBLE : View.GONE);
@@ -2725,12 +2734,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     case R.id.ibImages:
                         onShow(message, false);
                         break;
-                    case R.id.ibRule:
-                        onMenuCreateRule(message);
-                        break;
-                    case R.id.ibUnsubscribe:
-                        onActionUnsubscribe(message);
-                        break;
                     case R.id.ibDecrypt:
                         boolean lock =
                                 (EntityMessage.PGP_SIGNENCRYPT.equals(message.ui_encrypt) &&
@@ -2748,6 +2751,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     case R.id.ibUndo:
                         onActionUndo(message);
+                        break;
+                    case R.id.ibTranslate:
+                        onActionTranslate(message);
+                        break;
+                    case R.id.ibRule:
+                        onMenuCreateRule(message);
+                        break;
+                    case R.id.ibUnsubscribe:
+                        onActionUnsubscribe(message);
                         break;
                     case R.id.ibAnswer:
                         onActionAnswer(message, ibAnswer);
@@ -3536,7 +3548,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             properties.setHeight(message.id, null);
             properties.setPosition(message.id, null);
 
-            bindBody(message, false);
+            setupTools(message, false, true);
         }
 
         private void onShowImagesConfirmed(TupleMessageEx message) {
@@ -3557,6 +3569,30 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             .putExtra("id", message.id)
                             .putExtra("auto", auto)
                             .putExtra("type", encrypt));
+        }
+
+        private void onActionTranslate(TupleMessageEx message) {
+            CharSequence seq = (tvBody.hasSelection()
+                    ? tvBody.getText().subSequence(tvBody.getSelectionStart(), tvBody.getSelectionEnd())
+                    : tvBody.getText());
+
+            FragmentDialogTranslate.Translate(
+                    seq.toString(),
+                    Locale.getDefault().getLanguage(),
+                    new FragmentDialogTranslate.ITranslate() {
+                        @Override
+                        public void onTranslated(String text) {
+                            new AlertDialog.Builder(context)
+                                    .setTitle(R.string.title_translate)
+                                    .setMessage(text)
+                                    .show();
+                        }
+
+                        @Override
+                        public void onError(Throwable ex) {
+                            Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                        }
+                    });
         }
 
         private void onActionAnswer(TupleMessageEx message, View anchor) {
