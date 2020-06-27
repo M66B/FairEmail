@@ -31,7 +31,7 @@ android {
 
         //ndkVersion "21.0.6113669"
         ndk {
-            // Bugsnag
+            // Bugsnag, sqlite
             abiFilters "armeabi-v7a", "x86", "arm64-v8a", "x86_64"
         }
     }
@@ -250,6 +250,7 @@ dependencies {
     def exif_version = "1.3.0-alpha01"
     def biometric_version = "1.0.1" // https://issuetracker.google.com/issues/159983244
     def textclassifier_version = "1.0.0-alpha03"
+    def mlkit_identify = "16.0.0"
     def mlkit_translate = "16.0.0"
     def billingclient_version = "3.0.0"
     def javamail_version = "1.6.5"
@@ -344,7 +345,9 @@ dependencies {
     // https://developer.android.com/jetpack/androidx/releases/textclassifier
     //implementation "androidx.textclassifier:textclassifier:$textclassifier_version"
 
+    // https://developers.google.com/ml-kit/language/identification/android
     // https://developers.google.com/ml-kit/language/translation/android
+    debugImplementation "com.google.mlkit:language-id:$mlkit_identify"
     debugImplementation "com.google.mlkit:translate:$mlkit_translate"
 
     // https://developer.android.com/google/play/billing/billing_library_releases_notes

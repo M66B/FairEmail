@@ -11,6 +11,9 @@ import androidx.annotation.Nullable;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.mlkit.common.model.DownloadConditions;
+import com.google.mlkit.nl.languageid.LanguageIdentification;
+import com.google.mlkit.nl.languageid.LanguageIdentificationOptions;
+import com.google.mlkit.nl.languageid.LanguageIdentifier;
 import com.google.mlkit.nl.translate.TranslateLanguage;
 import com.google.mlkit.nl.translate.Translation;
 import com.google.mlkit.nl.translate.Translator;
@@ -39,28 +42,50 @@ public class FragmentDialogTranslate extends FragmentDialogBase {
                 .setItems(items, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        String language = map.get(items[which]);
+                        String targetLanguage = map.get(items[which]);
 
-                        TranslatorOptions options = new TranslatorOptions.Builder()
-                                .setSourceLanguage(TranslateLanguage.ENGLISH)
-                                .setTargetLanguage(language)
-                                .build();
-                        Translator translator = Translation.getClient(options);
-                        DownloadConditions conditions = new DownloadConditions.Builder()
-                                .requireWifi()
-                                .build();
-                        translator.downloadModelIfNeeded(conditions)
+                        LanguageIdentifier languageIdentifier = LanguageIdentification.getClient(
+                                new LanguageIdentificationOptions.Builder()
+                                        .setConfidenceThreshold(0.34f)
+                                        .build());
+                        languageIdentifier.identifyLanguage(text)
                                 .addOnSuccessListener(
-                                        new OnSuccessListener<Void>() {
+                                        new OnSuccessListener<String>() {
                                             @Override
-                                            public void onSuccess(Void v) {
-                                                translator.translate(text)
+                                            public void onSuccess(@Nullable String sourceLanguage) {
+                                                Log.i("Translate source=" + sourceLanguage);
+                                                if (sourceLanguage.equals("und"))
+                                                    sourceLanguage = TranslateLanguage.ENGLISH;
+
+                                                TranslatorOptions options = new TranslatorOptions.Builder()
+                                                        .setSourceLanguage(sourceLanguage)
+                                                        .setTargetLanguage(targetLanguage)
+                                                        .build();
+                                                Translator translator = Translation.getClient(options);
+                                                DownloadConditions conditions = new DownloadConditions.Builder()
+                                                        .requireWifi()
+                                                        .build();
+                                                translator.downloadModelIfNeeded(conditions)
                                                         .addOnSuccessListener(
-                                                                new OnSuccessListener<String>() {
+                                                                new OnSuccessListener<Void>() {
                                                                     @Override
-                                                                    public void onSuccess(@NonNull String translatedText) {
-                                                                        getArguments().putString("translated", translatedText);
-                                                                        sendResult(RESULT_OK);
+                                                                    public void onSuccess(Void v) {
+                                                                        translator.translate(text)
+                                                                                .addOnSuccessListener(
+                                                                                        new OnSuccessListener<String>() {
+                                                                                            @Override
+                                                                                            public void onSuccess(@NonNull String translatedText) {
+                                                                                                getArguments().putString("translated", translatedText);
+                                                                                                sendResult(RESULT_OK);
+                                                                                            }
+                                                                                        })
+                                                                                .addOnFailureListener(
+                                                                                        new OnFailureListener() {
+                                                                                            @Override
+                                                                                            public void onFailure(@NonNull Exception ex) {
+                                                                                                Log.unexpectedError(getParentFragmentManager(), ex);
+                                                                                            }
+                                                                                        });
                                                                     }
                                                                 })
                                                         .addOnFailureListener(
