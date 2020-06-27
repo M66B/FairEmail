@@ -1309,8 +1309,10 @@ public class MessageHelper {
     Long getSent() throws MessagingException {
         ensureMessage(false);
 
-        Date date = imessage.getSentDate();
-        return (date == null ? null : date.getTime());
+        Date sent = imessage.getSentDate();
+        if (sent == null)
+            sent = imessage.getReceivedDate();
+        return (sent == null ? new Date() : sent).getTime();
     }
 
     String getHeaders() throws MessagingException {
