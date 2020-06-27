@@ -675,15 +675,20 @@ class Core {
     private static void onKeyword(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException, JSONException {
         // Set/reset user flag
         DB db = DB.getInstance(context);
+        // https://tools.ietf.org/html/rfc3501#section-2.3.2
+        String keyword = jargs.getString(0);
+        boolean set = jargs.getBoolean(1);
+
+        if (TextUtils.isEmpty(keyword))
+            throw new IllegalArgumentException("keyword/empty");
 
         if (!ifolder.getPermanentFlags().contains(Flags.Flag.USER)) {
             db.message().setMessageKeywords(message.id, DB.Converters.fromStringArray(null));
             return;
         }
 
-        // https://tools.ietf.org/html/rfc3501#section-2.3.2
-        String keyword = jargs.getString(0);
-        boolean set = jargs.getBoolean(1);
+        if (message.uid == null)
+            throw new IllegalArgumentException("keyword/uid");
 
         Message imessage = ifolder.getMessageByUID(message.uid);
         if (imessage == null)
@@ -699,9 +704,18 @@ class Core {
         String label = jargs.getString(0);
         boolean set = jargs.getBoolean(1);
 
+        if (TextUtils.isEmpty(label))
+            throw new IllegalArgumentException("label/empty");
+
+        if (message.uid == null)
+            throw new IllegalArgumentException("label/uid");
+
         DB db = DB.getInstance(context);
 
         if (!set && label.equals(folder.name)) {
+            if (TextUtils.isEmpty(message.msgid))
+                throw new IllegalArgumentException("label/msgid");
+
             // Prevent deleting message
             EntityFolder archive = db.folder().getFolderByType(message.account, EntityFolder.ARCHIVE);
             if (archive == null)
