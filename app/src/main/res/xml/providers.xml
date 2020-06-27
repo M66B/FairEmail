@@ -817,4 +817,20 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="all-inkl.com"
+        link="https://all-inkl.com/wichtig/anleitungen/programme/e-mail/aktualisierung-ssl-zertifikat-e-mail-einstellungen/einrichtung-von-e-mail-postfaechern_386.html">
+        <imap
+            host="KAS-LOGINNAME.kasserver.com"
+            port="143"
+            starttls="true" />
+        <smtp
+            host="KAS-LOGINNAME.kasserver.com"
+            port="587"
+            starttls="true" />
+        <documentation
+            url="http://kasserver.com">
+            <descr>Zugangsdaten: Im KAS (technische Verwaltung) unter E-Mail - E-Mail-Postfach hinter dem Postfach auf Bearbeiten klicken</descr>
+        </documentation>
+    </provider>
 </providers>
