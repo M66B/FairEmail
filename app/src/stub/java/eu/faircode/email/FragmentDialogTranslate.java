@@ -21,7 +21,7 @@ public class FragmentDialogTranslate extends FragmentDialogBase {
     }
 
     interface ITranslate {
-        void onTranslated(String text);
+        void onTranslated(String language, String text);
 
         void onError(Throwable ex);
     }

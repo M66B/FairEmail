@@ -46,7 +46,7 @@ public class FragmentDialogTranslate extends FragmentDialogBase {
 
                         Translate(text, targetLanguage, new ITranslate() {
                             @Override
-                            public void onTranslated(String text) {
+                            public void onTranslated(String language, String text) {
                                 getArguments().putString("translated", text);
                                 sendResult(RESULT_OK);
                             }
@@ -74,13 +74,12 @@ public class FragmentDialogTranslate extends FragmentDialogBase {
                 .addOnSuccessListener(
                         new OnSuccessListener<String>() {
                             @Override
-                            public void onSuccess(@Nullable String sourceLanguage) {
-                                Log.i("Translate source=" + sourceLanguage);
-                                if (sourceLanguage.equals("und"))
-                                    sourceLanguage = TranslateLanguage.ENGLISH;
+                            public void onSuccess(@Nullable String language) {
+                                Log.i("Translate source=" + language);
+                                final String sourceLanguage = (language.equals("und") ? TranslateLanguage.ENGLISH : language);
 
                                 if (sourceLanguage.equals(targetLanguage)) {
-                                    intf.onTranslated(text);
+                                    intf.onTranslated(sourceLanguage, text);
                                     return;
                                 }
 
@@ -102,7 +101,7 @@ public class FragmentDialogTranslate extends FragmentDialogBase {
                                                                         new OnSuccessListener<String>() {
                                                                             @Override
                                                                             public void onSuccess(@NonNull String translatedText) {
-                                                                                intf.onTranslated(translatedText);
+                                                                                intf.onTranslated(sourceLanguage, translatedText);
                                                                             }
                                                                         })
                                                                 .addOnFailureListener(
@@ -133,7 +132,7 @@ public class FragmentDialogTranslate extends FragmentDialogBase {
     }
 
     interface ITranslate {
-        void onTranslated(String text);
+        void onTranslated(String language, String text);
 
         void onError(Throwable ex);
     }

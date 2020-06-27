@@ -3581,9 +3581,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     Locale.getDefault().getLanguage(),
                     new FragmentDialogTranslate.ITranslate() {
                         @Override
-                        public void onTranslated(String text) {
+                        public void onTranslated(String language, String text) {
                             new AlertDialog.Builder(context)
-                                    .setTitle(R.string.title_translate)
+                                    .setTitle(new Locale(language).getDisplayLanguage())
                                     .setMessage(text)
                                     .show();
                         }
