@@ -3548,7 +3548,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             properties.setHeight(message.id, null);
             properties.setPosition(message.id, null);
 
-            setupTools(message, false, true);
+            if (BuildConfig.DEBUG)
+                setupTools(message, false, true);
+            else
+                bindBody(message, false);
         }
 
         private void onShowImagesConfirmed(TupleMessageEx message) {
