@@ -830,40 +830,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 view.setAccessibilityDelegate(null);
         }
 
-        private void clear() {
-            vwColor.setVisibility(View.GONE);
-            ibExpander.setVisibility(View.GONE);
-            ibFlagged.setVisibility(View.GONE);
-            ibAvatar.setVisibility(View.GONE);
-            ibAuth.setVisibility(View.GONE);
-            ivPriorityHigh.setVisibility(View.GONE);
-            ivPriorityLow.setVisibility(View.GONE);
-            ivImportance.setVisibility(View.GONE);
-            ivSigned.setVisibility(View.GONE);
-            ivEncrypted.setVisibility(View.GONE);
-            tvFrom.setText(null);
-            tvSize.setText(null);
-            tvTime.setText(null);
-            ivType.setVisibility(View.GONE);
-            ivFound.setVisibility(View.GONE);
-            ibSnoozed.setVisibility(View.GONE);
-            ivAnswered.setVisibility(View.GONE);
-            ivForwarded.setVisibility(View.GONE);
-            ivAttachments.setVisibility(View.GONE);
-            tvSubject.setText(null);
-            tvKeywords.setVisibility(View.GONE);
-            tvFolder.setText(null);
-            tvLabels.setVisibility(View.GONE);
-            tvCount.setText(null);
-            ivThread.setVisibility(View.GONE);
-            tvExpand.setVisibility(View.GONE);
-            tvPreview.setVisibility(View.GONE);
-            tvError.setVisibility(View.GONE);
-            ibHelp.setVisibility(View.GONE);
-
-            clearExpanded(null);
-        }
-
         @SuppressLint("WrongConstant")
         private void bindTo(final TupleMessageEx message, boolean scroll) {
             boolean inbox = EntityFolder.INBOX.equals(message.folderType);
