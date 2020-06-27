@@ -2619,16 +2619,22 @@ public class FragmentCompose extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 if (ex instanceof IllegalArgumentException) {
                     Log.i(ex);
-                    Snackbar snackbar = Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG);
-                    if (ex.getCause() instanceof CertificateException)
-                        snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
+                    Snackbar snackbar = Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_INDEFINITE);
+                    snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            if (ex.getCause() instanceof CertificateException)
                                 startActivity(
                                         new Intent(getContext(), ActivitySetup.class)
                                                 .putExtra("tab", "encryption"));
+                            else {
+                                FragmentDialogSend fragment = new FragmentDialogSend();
+                                fragment.setArguments(args);
+                                fragment.setTargetFragment(FragmentCompose.this, REQUEST_SEND);
+                                fragment.show(getParentFragmentManager(), "compose:send");
                             }
-                        });
+                        }
+                    });
                     snackbar.show();
                 } else
                     Log.unexpectedError(getParentFragmentManager(), ex);
