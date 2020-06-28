@@ -108,6 +108,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swMonospaced;
     private SwitchCompat swTextColor;
     private SwitchCompat swTextSize;
+    private SwitchCompat swTextFont;
     private SwitchCompat swTextAlign;
     private SwitchCompat swCollapseQuotes;
     private SwitchCompat swImagesInline;
@@ -126,7 +127,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "keywords_header", "labels_header", "flags", "flags_background",
             "preview", "preview_italic", "preview_lines",
             "addresses",
-            "contrast", "monospaced", "text_color", "text_size", "text_align",
+            "contrast", "monospaced", "text_color", "text_size", "text_font", "text_align",
             "inline_images", "collapse_quotes", "attachments_alt",
             "parse_classes", "authentication"
     };
@@ -192,6 +193,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swMonospaced = view.findViewById(R.id.swMonospaced);
         swTextColor = view.findViewById(R.id.swTextColor);
         swTextSize = view.findViewById(R.id.swTextSize);
+        swTextFont = view.findViewById(R.id.swTextFont);
         swTextAlign = view.findViewById(R.id.swTextAlign);
         swCollapseQuotes = view.findViewById(R.id.swCollapseQuotes);
         swImagesInline = view.findViewById(R.id.swImagesInline);
@@ -615,6 +617,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
+        swTextFont.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("text_font", checked).apply();
+            }
+        });
+
         swTextAlign.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -798,6 +807,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swMonospaced.setChecked(prefs.getBoolean("monospaced", false));
         swTextColor.setChecked(prefs.getBoolean("text_color", true));
         swTextSize.setChecked(prefs.getBoolean("text_size", true));
+        swTextFont.setChecked(prefs.getBoolean("text_font", true));
         swTextAlign.setChecked(prefs.getBoolean("text_align", true));
         swCollapseQuotes.setChecked(prefs.getBoolean("collapse_quotes", false));
         swImagesInline.setChecked(prefs.getBoolean("inline_images", false));

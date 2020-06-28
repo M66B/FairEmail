@@ -319,6 +319,7 @@ public class HtmlHelper {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean text_color = prefs.getBoolean("text_color", true);
         boolean text_size = prefs.getBoolean("text_size", true);
+        boolean text_font = prefs.getBoolean("text_font", true);
         boolean text_align = prefs.getBoolean("text_align", true);
         boolean display_hidden = prefs.getBoolean("display_hidden", false);
         boolean disable_tracking = prefs.getBoolean("disable_tracking", true);
@@ -448,7 +449,6 @@ public class HtmlHelper {
                 .addTags("hr", "abbr", "big", "font", "dfn", "del", "s", "tt")
                 .addAttributes(":all", "class")
                 .addAttributes(":all", "style")
-                .addAttributes("font", "size")
                 .addAttributes("div", "x-plain")
                 .removeTags("col", "colgroup", "thead", "tbody")
                 .removeAttributes("table", "width")
@@ -460,6 +460,10 @@ public class HtmlHelper {
                 .addProtocols("a", "href", "full", "xmpp", "geo", "tel");
         if (text_color)
             whitelist.addAttributes("font", "color");
+        if (text_size)
+            whitelist.addAttributes("font", "size");
+        if (text_font)
+            whitelist.addAttributes("font", "face");
         if (text_align)
             whitelist.addTags("center").addAttributes(":all", "align");
         if (!view)
@@ -475,6 +479,7 @@ public class HtmlHelper {
             String style = font.attr("style");
             String color = font.attr("color");
             String size = font.attr("size");
+            String face = font.attr("face");
 
             style = style.trim();
             if (!TextUtils.isEmpty(style) && !style.endsWith(";"))
@@ -482,6 +487,7 @@ public class HtmlHelper {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
                 font.removeAttr("color");
             font.removeAttr("size");
+            font.removeAttr("face");
 
             StringBuilder sb = new StringBuilder(style);
 
@@ -502,6 +508,9 @@ public class HtmlHelper {
                     Log.i(ex);
                 }
             }
+
+            if (!TextUtils.isEmpty(face))
+                sb.append("font-family:").append(face).append(";");
 
             font.attr("style", sb.toString());
 
@@ -598,6 +607,14 @@ public class HtmlHelper {
                                         strong.appendChild(element);
                                     }
                                 }
+                                break;
+
+                            case "font-family":
+                                if (!text_font)
+                                    continue;
+
+                                // https://developer.mozilla.org/en-US/docs/Web/CSS/font-family
+                                sb.append(key).append(":").append(value).append(";");
                                 break;
 
                             case "text-decoration":
@@ -1974,6 +1991,9 @@ public class HtmlHelper {
                                         } catch (NumberFormatException ex) {
                                             Log.i(ex);
                                         }
+                                    break;
+                                case "font-family":
+                                    ssb.setSpan(new TypefaceSpan(value), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                     break;
                                 case "text-decoration":
                                     if ("line-through".equals(value))
