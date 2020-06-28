@@ -17,7 +17,7 @@
 
     <item
         android:id="@+id/menu_size"
-        android:icon="@drawable/baseline_format_size_24"
+        android:icon="@drawable/baseline_text_format_24"
         android:title="@string/title_style_size" />
 
     <item
