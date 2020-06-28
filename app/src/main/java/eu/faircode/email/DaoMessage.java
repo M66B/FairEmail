@@ -735,6 +735,11 @@ public interface DaoMessage {
     @Query("UPDATE message SET notifying = 0")
     int clearNotifyingMessages();
 
+    @Query("UPDATE message SET headers = NULL" +
+            " WHERE headers IS NOT NULL" +
+            " AND account IN (SELECT id FROM account WHERE pop = " + EntityAccount.TYPE_IMAP + ")")
+    int clearMessageHeaders();
+
     @Query("UPDATE message SET fts = 0")
     int resetFts();
 

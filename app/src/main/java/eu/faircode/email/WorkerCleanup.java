@@ -107,6 +107,10 @@ public class WorkerCleanup extends Worker {
                 if (cleanup_attachments) {
                     int purged = db.attachment().purge(new Date().getTime());
                     Log.i("Attachments purged=" + purged);
+
+                    // Clear raw headers
+                    int headers = db.message().clearMessageHeaders();
+                    Log.i("Cleared message headers=" + headers);
                 }
 
                 // Restore alarms
