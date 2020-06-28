@@ -491,7 +491,7 @@ public class FragmentQuickSetup extends FragmentBase {
                     btnSupport.setVisibility(View.VISIBLE);
 
                     if (args.containsKey("documentation")) {
-                        tvInstructions.setText(HtmlHelper.fromHtml(args.getString("documentation")));
+                        tvInstructions.setText(HtmlHelper.fromHtml(args.getString("documentation"), getContext()));
                         tvInstructions.setVisibility(View.VISIBLE);
                     }
 

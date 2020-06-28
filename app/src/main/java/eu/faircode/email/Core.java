@@ -3374,7 +3374,7 @@ class Core {
 
                     // Device
                     builder.setStyle(new NotificationCompat.BigTextStyle()
-                            .bigText(HtmlHelper.fromHtml(sb.toString()))
+                            .bigText(HtmlHelper.fromHtml(sb.toString(), context))
                             .setSummaryText(title));
                 }
 
@@ -3663,7 +3663,7 @@ class Core {
 
                 if (sbm.length() > 0) {
                     NotificationCompat.BigTextStyle bigText = new NotificationCompat.BigTextStyle()
-                            .bigText(HtmlHelper.fromHtml(sbm.toString()));
+                            .bigText(HtmlHelper.fromHtml(sbm.toString(), context));
                     if (!TextUtils.isEmpty(message.subject))
                         bigText.setSummaryText(message.subject);
 

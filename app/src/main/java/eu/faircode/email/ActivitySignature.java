@@ -194,7 +194,7 @@ public class ActivitySignature extends ActivityBase {
                 public Drawable getDrawable(String source) {
                     return ImageHelper.decodeImage(ActivitySignature.this, -1, source, true, 0, etText);
                 }
-            }, null));
+            }, null, this));
         dirty = false;
     }
 
@@ -207,7 +207,9 @@ public class ActivitySignature extends ActivityBase {
 
     private void save() {
         etText.clearComposingText();
-        String html = (raw ? etText.getText().toString() : HtmlHelper.toHtml(etText.getText()));
+        String html = (raw
+                ? etText.getText().toString()
+                : HtmlHelper.toHtml(etText.getText(), this));
         Intent result = new Intent();
         result.putExtra("html", html);
         setResult(RESULT_OK, result);
@@ -218,7 +220,9 @@ public class ActivitySignature extends ActivityBase {
         this.raw = raw;
 
         if (!raw || dirty) {
-            String html = (raw ? HtmlHelper.toHtml(etText.getText()) : etText.getText().toString());
+            String html = (raw
+                    ? HtmlHelper.toHtml(etText.getText(), this)
+                    : etText.getText().toString());
             getIntent().putExtra("html", html);
         }
 

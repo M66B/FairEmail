@@ -969,7 +969,7 @@ public class FragmentCompose extends FragmentBase {
                 Bundle args = new Bundle();
                 args.putLong("id", working);
                 args.putBoolean("plain", plain);
-                args.putString("body", HtmlHelper.toHtml(etBody.getText()));
+                args.putString("body", HtmlHelper.toHtml(etBody.getText(), getContext()));
 
                 new SimpleTask<String>() {
                     @Override
@@ -1029,7 +1029,7 @@ public class FragmentCompose extends FragmentBase {
 
             private void deleteRef() {
                 Bundle extras = new Bundle();
-                extras.putString("html", HtmlHelper.toHtml(etBody.getText()));
+                extras.putString("html", HtmlHelper.toHtml(etBody.getText(), getContext()));
                 extras.putBoolean("show", true);
                 onAction(R.id.action_save, extras, "refdelete");
             }
@@ -1965,12 +1965,13 @@ public class FragmentCompose extends FragmentBase {
 
                 args.putInt("start", start);
 
-                return HtmlHelper.fromHtml(HtmlHelper.toHtml(s), new Html.ImageGetter() {
+                // TODO: double conversion
+                return HtmlHelper.fromHtml(HtmlHelper.toHtml(s, getContext()), new Html.ImageGetter() {
                     @Override
                     public Drawable getDrawable(String source) {
                         return ImageHelper.decodeImage(context, id, source, true, zoom, etBody);
                     }
-                }, null);
+                }, null, getContext());
             }
 
             @Override
@@ -2751,14 +2752,14 @@ public class FragmentCompose extends FragmentBase {
         } catch (AddressException ignored) {
         }
 
-        String text = EntityAnswer.replacePlaceholders(answer, to);
+        String html = EntityAnswer.replacePlaceholders(answer, to);
 
-        Spanned spanned = HtmlHelper.fromHtml(text, new Html.ImageGetter() {
+        Spanned spanned = HtmlHelper.fromHtml(html, new Html.ImageGetter() {
             @Override
             public Drawable getDrawable(String source) {
                 return ImageHelper.decodeImage(getContext(), working, source, true, zoom, etBody);
             }
-        }, null);
+        }, null, getContext());
 
         etBody.getText().insert(etBody.getSelectionStart(), spanned);
     }
@@ -2802,7 +2803,7 @@ public class FragmentCompose extends FragmentBase {
         if (!etSubject.getText().toString().equals(subject))
             return false;
 
-        if (!TextUtils.isEmpty(JsoupEx.parse(HtmlHelper.toHtml(etBody.getText())).text().trim()))
+        if (!TextUtils.isEmpty(JsoupEx.parse(HtmlHelper.toHtml(etBody.getText(), getContext())).text().trim()))
             return false;
 
         if (rvAttachment.getAdapter().getItemCount() > 0)
@@ -2831,7 +2832,7 @@ public class FragmentCompose extends FragmentBase {
         args.putString("cc", etCc.getText().toString().trim());
         args.putString("bcc", etBcc.getText().toString().trim());
         args.putString("subject", etSubject.getText().toString().trim());
-        args.putString("body", HtmlHelper.toHtml(etBody.getText()));
+        args.putString("body", HtmlHelper.toHtml(etBody.getText(), getContext()));
         args.putBoolean("signature", cbSignature.isChecked());
         args.putBoolean("empty", isEmpty());
         args.putBoolean("interactive", getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED));
@@ -4629,7 +4630,7 @@ public class FragmentCompose extends FragmentBase {
                 Elements ref = doc.select("div[fairemail=reference]");
                 ref.remove();
 
-                Spanned spannedBody = HtmlHelper.fromHtml(doc.html(), new Html.ImageGetter() {
+                Spanned spannedBody = HtmlHelper.fromDocument(context, doc, new Html.ImageGetter() {
                     @Override
                     public Drawable getDrawable(String source) {
                         return ImageHelper.decodeImage(context, id, source, true, zoom, etBody);
@@ -4759,7 +4760,7 @@ public class FragmentCompose extends FragmentBase {
                     public Drawable getDrawable(String source) {
                         return ImageHelper.decodeImage(getContext(), working, source, true, 0, tvSignature);
                     }
-                }, null);
+                }, null, getContext());
             tvSignature.setText(signature);
             grpSignature.setVisibility(signature == null ? View.GONE : View.VISIBLE);
 

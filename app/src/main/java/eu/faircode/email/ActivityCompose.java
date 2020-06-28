@@ -122,7 +122,7 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
                     CharSequence body = intent.getCharSequenceExtra(Intent.EXTRA_TEXT);
                     if (body != null)
                         if (body instanceof Spanned)
-                            args.putString("body", HtmlHelper.toHtml((Spanned) body));
+                            args.putString("body", HtmlHelper.toHtml((Spanned) body, this));
                         else {
                             String text = body.toString();
                             if (!TextUtils.isEmpty(text)) {

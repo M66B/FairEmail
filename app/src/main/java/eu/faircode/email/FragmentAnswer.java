@@ -171,7 +171,7 @@ public class FragmentAnswer extends FragmentBase {
                             public Drawable getDrawable(String source) {
                                 return ImageHelper.decodeImage(getContext(), -1, source, true, 0, etText);
                             }
-                        }, null));
+                        }, null, getContext()));
                 }
 
                 bottom_navigation.findViewById(R.id.action_delete).setVisibility(answer == null ? View.GONE : View.VISIBLE);
@@ -236,7 +236,7 @@ public class FragmentAnswer extends FragmentBase {
         args.putString("name", etName.getText().toString().trim());
         args.putBoolean("favorite", cbFavorite.isChecked());
         args.putBoolean("hide", cbHide.isChecked());
-        args.putString("text", HtmlHelper.toHtml(etText.getText()));
+        args.putString("text", HtmlHelper.toHtml(etText.getText(), getContext()));
 
         new SimpleTask<Void>() {
             @Override
@@ -425,7 +425,7 @@ public class FragmentAnswer extends FragmentBase {
                     getString(R.string.title_answer_template_name) +
                     "<br>" +
                     getString(R.string.title_answer_template_email) +
-                    "</p>");
+                    "</p>", getContext());
 
             View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_ask_again, null);
             TextView tvMessage = dview.findViewById(R.id.tvMessage);

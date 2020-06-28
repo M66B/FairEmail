@@ -62,7 +62,6 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 import androidx.core.graphics.ColorUtils;
-import androidx.core.text.HtmlCompat;
 import androidx.core.util.PatternsCompat;
 import androidx.preference.PreferenceManager;
 
@@ -112,7 +111,6 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static androidx.core.text.HtmlCompat.FROM_HTML_SEPARATOR_LINE_BREAK_LIST_ITEM;
 import static androidx.core.text.HtmlCompat.TO_HTML_PARAGRAPH_LINES_CONSECUTIVE;
 import static org.w3c.css.sac.Condition.SAC_CLASS_CONDITION;
 
@@ -2221,11 +2219,14 @@ public class HtmlHelper {
         return ssb;
     }
 
-    static Spanned fromHtml(@NonNull String html) {
-        return fromHtml(html, null, null);
+    static Spanned fromHtml(@NonNull String html, Context context) {
+        return fromHtml(html, null, null, context);
     }
 
-    static Spanned fromHtml(@NonNull String html, @Nullable Html.ImageGetter imageGetter, @Nullable Html.TagHandler tagHandler) {
+    static Spanned fromHtml(@NonNull String html, @Nullable Html.ImageGetter imageGetter, @Nullable Html.TagHandler tagHandler, Context context) {
+        Document document = JsoupEx.parse(html);
+        return fromDocument(context, document, false, imageGetter, tagHandler);
+/*
         Spanned spanned = HtmlCompat.fromHtml(html, FROM_HTML_SEPARATOR_LINE_BREAK_LIST_ITEM, imageGetter, tagHandler);
 
         int i = spanned.length();
@@ -2235,10 +2236,12 @@ public class HtmlHelper {
             spanned = (Spanned) spanned.subSequence(0, i);
 
         return reverseSpans(spanned);
+*/
     }
 
-    static String toHtml(Spanned spanned) {
-        String html = HtmlCompat.toHtml(spanned, TO_HTML_PARAGRAPH_LINES_CONSECUTIVE);
+    static String toHtml(Spanned spanned, Context context) {
+        HtmlEx converter = new HtmlEx(context);
+        String html = converter.toHtml(spanned, TO_HTML_PARAGRAPH_LINES_CONSECUTIVE);
 
         // @Google: why convert size to and from in a different way?
         Document doc = JsoupEx.parse(html);
