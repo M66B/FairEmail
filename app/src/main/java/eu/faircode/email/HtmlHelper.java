@@ -2230,15 +2230,7 @@ public class HtmlHelper {
 
     static Spanned fromHtml(@NonNull String html, boolean compress, @Nullable Html.ImageGetter imageGetter, @Nullable Html.TagHandler tagHandler, Context context) {
         Document document = JsoupEx.parse(html);
-        Spanned spanned = fromDocument(context, document, false, compress, imageGetter, tagHandler);
-
-        int i = spanned.length();
-        while (i > 1 && spanned.charAt(i - 2) == '\n' && spanned.charAt(i - 1) == '\n')
-            i--;
-        if (i != spanned.length())
-            spanned = (Spanned) spanned.subSequence(0, i);
-
-        return spanned;
+        return fromDocument(context, document, false, compress, imageGetter, tagHandler);
     }
 
     static String toHtml(Spanned spanned, Context context) {
