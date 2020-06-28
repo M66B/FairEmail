@@ -2603,10 +2603,35 @@ public class FragmentCompose extends FragmentBase {
                                         new Intent(getContext(), ActivitySetup.class)
                                                 .putExtra("tab", "encryption"));
                             else {
-                                FragmentDialogSend fragment = new FragmentDialogSend();
-                                fragment.setArguments(args);
-                                fragment.setTargetFragment(FragmentCompose.this, REQUEST_SEND);
-                                fragment.show(getParentFragmentManager(), "compose:send");
+                                View vwAnchor = view.findViewById(R.id.vwAnchor);
+                                PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), vwAnchor);
+                                popupMenu.getMenu().add(Menu.NONE, R.string.title_send_dialog, 1, R.string.title_send_dialog);
+                                popupMenu.getMenu().add(Menu.NONE, R.string.title_advanced_manage_certificates, 2, R.string.title_advanced_manage_certificates);
+
+                                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                                    @Override
+                                    public boolean onMenuItemClick(MenuItem item) {
+                                        switch (item.getItemId()) {
+                                            case R.string.title_send_dialog:
+                                                FragmentDialogSend fragment = new FragmentDialogSend();
+                                                fragment.setArguments(args);
+                                                fragment.setTargetFragment(FragmentCompose.this, REQUEST_SEND);
+                                                fragment.show(getParentFragmentManager(), "compose:send");
+                                                return true;
+
+                                            case R.string.title_advanced_manage_certificates:
+                                                startActivity(
+                                                        new Intent(getContext(), ActivitySetup.class)
+                                                                .putExtra("tab", "encryption"));
+                                                return true;
+
+                                            default:
+                                                return false;
+                                        }
+                                    }
+                                });
+
+                                popupMenu.show();
                             }
                         }
                     });
