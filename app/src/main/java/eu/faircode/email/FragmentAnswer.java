@@ -351,7 +351,7 @@ public class FragmentAnswer extends FragmentBase {
         int start = args.getInt("start");
         int end = args.getInt("end");
         etText.setSelection(start, end);
-        StyleHelper.apply(R.id.menu_link, etText, link);
+        StyleHelper.apply(R.id.menu_link, null, etText, link);
     }
 
     private void onDelete() {
@@ -414,7 +414,7 @@ public class FragmentAnswer extends FragmentBase {
 
             return true;
         } else
-            return StyleHelper.apply(action, etText);
+            return StyleHelper.apply(action, view.findViewById(action), etText);
     }
 
     public static class FragmentInfo extends FragmentDialogBase {

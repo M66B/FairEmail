@@ -268,7 +268,7 @@ public class ActivitySignature extends ActivityBase {
                         public void onClick(DialogInterface dialog, int which) {
                             String link = etLink.getText().toString();
                             etText.setSelection(start, end);
-                            StyleHelper.apply(R.id.menu_link, etText, link);
+                            StyleHelper.apply(R.id.menu_link, null, etText, link);
                         }
                     })
                     .setNegativeButton(android.R.string.cancel, null)
@@ -276,7 +276,7 @@ public class ActivitySignature extends ActivityBase {
 
             return true;
         } else
-            return StyleHelper.apply(action, etText);
+            return StyleHelper.apply(action, findViewById(action), etText);
     }
 
     private void onImageSelected(Uri uri) {

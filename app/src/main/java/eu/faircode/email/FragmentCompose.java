@@ -1276,7 +1276,7 @@ public class FragmentCompose extends FragmentBase {
                 onMenuAnswer();
                 return true;
             case R.id.menu_clear:
-                StyleHelper.apply(R.id.menu_clear, etBody);
+                StyleHelper.apply(R.id.menu_clear, null, etBody);
                 return true;
             case R.id.menu_legend:
                 onMenuLegend();
@@ -1464,7 +1464,7 @@ public class FragmentCompose extends FragmentBase {
             fragment.show(getParentFragmentManager(), "account:color");
             return true;
         } else
-            return StyleHelper.apply(action, etBody);
+            return StyleHelper.apply(action, view.findViewById(action), etBody);
     }
 
     private void onActionRecordAudio() {
@@ -2768,7 +2768,7 @@ public class FragmentCompose extends FragmentBase {
         int start = args.getInt("start");
         int end = args.getInt("end");
         etBody.setSelection(start, end);
-        StyleHelper.apply(R.id.menu_color, etBody, color);
+        StyleHelper.apply(R.id.menu_color, null, etBody, color);
     }
 
     private void onLinkSelected(Bundle args) {
@@ -2776,7 +2776,7 @@ public class FragmentCompose extends FragmentBase {
         int start = args.getInt("start");
         int end = args.getInt("end");
         etBody.setSelection(start, end);
-        StyleHelper.apply(R.id.menu_link, etBody, link);
+        StyleHelper.apply(R.id.menu_link, null, etBody, link);
     }
 
     private void onActionDiscardConfirmed() {
@@ -4848,17 +4848,17 @@ public class FragmentCompose extends FragmentBase {
                         return true;
                     case KeyEvent.KEYCODE_B:
                         if (etBody.hasSelection())
-                            return StyleHelper.apply(R.id.menu_bold, etBody);
+                            return StyleHelper.apply(R.id.menu_bold, null, etBody);
                         else
                             return false;
                     case KeyEvent.KEYCODE_I:
                         if (etBody.hasSelection())
-                            return StyleHelper.apply(R.id.menu_italic, etBody);
+                            return StyleHelper.apply(R.id.menu_italic, null, etBody);
                         else
                             return false;
                     case KeyEvent.KEYCODE_U:
                         if (etBody.hasSelection())
-                            return StyleHelper.apply(R.id.menu_underline, etBody);
+                            return StyleHelper.apply(R.id.menu_underline, null, etBody);
                         else
                             return false;
                 }

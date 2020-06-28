@@ -9,13 +9,18 @@ import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
 import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
+
+import androidx.appcompat.widget.PopupMenu;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class StyleHelper {
-    static boolean apply(int action, EditText etBody, Object... args) {
+    static boolean apply(int action, View anchor, EditText etBody, Object... args) {
         Log.i("Style action=" + action);
 
         try {
@@ -72,25 +77,41 @@ public class StyleHelper {
                 }
 
                 case R.id.menu_size: {
-                    RelativeSizeSpan[] spans = ss.getSpans(start, end, RelativeSizeSpan.class);
-                    float size = (spans.length > 0 ? spans[0].getSizeChange() : 1.0f);
+                    final int s = start;
+                    final int e = end;
+                    final SpannableString t = ss;
 
-                    // Match small/big
-                    if (size == 0.8f)
-                        size = 1.0f;
-                    else if (size == 1.0)
-                        size = 1.25f;
-                    else
-                        size = 0.8f;
+                    PopupMenu popupMenu = new PopupMenu(anchor.getContext(), anchor);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_style_size_small, 1, R.string.title_style_size_small);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_style_size_medium, 2, R.string.title_style_size_medium);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_style_size_large, 3, R.string.title_style_size_large);
 
-                    for (RelativeSizeSpan span : spans)
-                        ss.removeSpan(span);
+                    popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                        @Override
+                        public boolean onMenuItemClick(MenuItem item) {
+                            RelativeSizeSpan[] spans = t.getSpans(s, e, RelativeSizeSpan.class);
 
-                    if (size != 1.0f)
-                        ss.setSpan(new RelativeSizeSpan(size), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            for (RelativeSizeSpan span : spans)
+                                t.removeSpan(span);
 
-                    etBody.setText(ss);
-                    etBody.setSelection(start, end);
+                            float size;
+                            if (item.getItemId() == R.string.title_style_size_small)
+                                size = 0.8f;
+                            else if (item.getItemId() == R.string.title_style_size_large)
+                                size = 1.25f;
+                            else
+                                size = 1.0f;
+
+                            t.setSpan(new RelativeSizeSpan(size), s, e, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                            etBody.setText(t);
+                            etBody.setSelection(s, e);
+
+                            return false;
+                        }
+                    });
+
+                    popupMenu.show();
 
                     return true;
                 }
