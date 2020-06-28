@@ -279,7 +279,7 @@ public class EntityIdentity {
                     Objects.equals(this.ehlo, other.ehlo) &&
                     this.synchronize.equals(other.synchronize) &&
                     this.primary.equals(other.primary) &&
-                    this.sender_extra.equals(sender_extra) &&
+                    this.sender_extra.equals(other.sender_extra) &&
                     Objects.equals(this.sender_extra_regex, other.sender_extra_regex) &&
                     Objects.equals(this.replyto, other.replyto) &&
                     Objects.equals(this.cc, other.cc) &&
