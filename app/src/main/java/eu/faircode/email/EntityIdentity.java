@@ -154,7 +154,8 @@ public class EntityIdentity {
             if (user.equalsIgnoreCase(cemail[0]))
                 return true;
         } else {
-            if (Pattern.matches(sender_extra_regex, cother[0]))
+            String input = (sender_extra_regex.contains("@") ? other : cother[0]);
+            if (Pattern.matches(sender_extra_regex, input))
                 return true;
         }
 
