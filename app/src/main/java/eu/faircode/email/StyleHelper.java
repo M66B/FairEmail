@@ -88,12 +88,11 @@ public class StyleHelper {
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_style_size_medium, order++, R.string.title_style_size_medium);
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_style_size_large, order++, R.string.title_style_size_large);
 
-                    if (BuildConfig.DEBUG) {
-                        popupMenu.getMenu().add(1, 1, order++, "Cursive");
-                        popupMenu.getMenu().add(1, 2, order++, "Serif");
-                        popupMenu.getMenu().add(1, 3, order++, "Sans-serif");
-                        popupMenu.getMenu().add(1, 4, order++, "Monospace");
-                    }
+                    popupMenu.getMenu().add(1, R.string.title_style_font_cursive, order++, R.string.title_style_font_cursive);
+                    popupMenu.getMenu().add(1, R.string.title_style_font_serif, order++, R.string.title_style_font_serif);
+                    popupMenu.getMenu().add(1, R.string.title_style_font_sans_serif, order++, R.string.title_style_font_sans_serif);
+                    popupMenu.getMenu().add(1, R.string.title_style_font_monospace, order++, R.string.title_style_font_monospace);
+                    popupMenu.getMenu().add(1, R.string.title_style_font_default, order++, R.string.title_style_font_default);
 
                     popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                         @Override
@@ -103,15 +102,16 @@ public class StyleHelper {
                                 for (RelativeSizeSpan span : spans)
                                     t.removeSpan(span);
 
-                                float size;
+                                Float size;
                                 if (item.getItemId() == R.string.title_style_size_small)
                                     size = 0.8f;
                                 else if (item.getItemId() == R.string.title_style_size_large)
                                     size = 1.25f;
                                 else
-                                    size = 1.0f;
+                                    size = null;
 
-                                t.setSpan(new RelativeSizeSpan(size), s, e, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                if (size != null)
+                                    t.setSpan(new RelativeSizeSpan(size), s, e, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
                                 etBody.setText(t);
                                 etBody.setSelection(s, e);
@@ -120,7 +120,26 @@ public class StyleHelper {
                                 for (TypefaceSpan span : spans)
                                     t.removeSpan(span);
 
-                                t.setSpan(new TypefaceSpan(item.getTitle().toString().toLowerCase()), s, e, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                String face;
+                                switch (item.getItemId()) {
+                                    case R.string.title_style_font_cursive:
+                                        face = "cursive";
+                                        break;
+                                    case R.string.title_style_font_serif:
+                                        face = "serif";
+                                        break;
+                                    case R.string.title_style_font_sans_serif:
+                                        face = "sans-serif";
+                                        break;
+                                    case R.string.title_style_font_monospace:
+                                        face = "monospace";
+                                        break;
+                                    default:
+                                        face = null;
+                                }
+
+                                if (face != null)
+                                    t.setSpan(new TypefaceSpan(face), s, e, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
                                 etBody.setText(t);
                                 etBody.setSelection(s, e);
