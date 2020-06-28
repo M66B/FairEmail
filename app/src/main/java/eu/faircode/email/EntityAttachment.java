@@ -203,6 +203,10 @@ public class EntityAttachment {
         if ("text/plain".equals(type) && "ovpn".equals(extension))
             return "application/x-openvpn-profile";
 
+        // https://www.rfc-editor.org/rfc/rfc3555.txt
+        if ("video/jpeg".equals(type))
+            return "image/jpeg";
+
         if ("application/x-pdf".equals(type))
             return "application/pdf";
 
