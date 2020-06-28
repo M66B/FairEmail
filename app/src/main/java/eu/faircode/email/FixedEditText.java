@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -65,6 +66,16 @@ public class FixedEditText extends AppCompatEditText {
             super.setSelection(start, stop);
         } catch (Throwable ex) {
             Log.e(ex);
+        }
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        try {
+            return super.onTouchEvent(event);
+        } catch (Throwable ex) {
+            Log.w(ex);
+            return false;
         }
     }
 
