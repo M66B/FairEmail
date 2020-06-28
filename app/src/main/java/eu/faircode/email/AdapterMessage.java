@@ -412,6 +412,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageButton ibUndo;
         private ImageButton ibRule;
         private ImageButton ibUnsubscribe;
+        private ImageButton ibPrint;
         private ImageButton ibAnswer;
         private ImageButton ibLabels;
         private ImageButton ibCopy;
@@ -616,6 +617,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibUndo = vsBody.findViewById(R.id.ibUndo);
             ibRule = vsBody.findViewById(R.id.ibRule);
             ibUnsubscribe = vsBody.findViewById(R.id.ibUnsubscribe);
+            ibPrint = vsBody.findViewById(R.id.ibPrint);
             ibAnswer = vsBody.findViewById(R.id.ibAnswer);
             ibLabels = vsBody.findViewById(R.id.ibLabels);
             ibCopy = vsBody.findViewById(R.id.ibCopy);
@@ -703,11 +705,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 ibFull.setOnClickListener(this);
                 ibImages.setOnClickListener(this);
-                ibRule.setOnClickListener(this);
-                ibUnsubscribe.setOnClickListener(this);
                 ibDecrypt.setOnClickListener(this);
                 ibVerify.setOnClickListener(this);
                 ibUndo.setOnClickListener(this);
+                ibRule.setOnClickListener(this);
+                ibUnsubscribe.setOnClickListener(this);
+                ibPrint.setOnClickListener(this);
                 ibAnswer.setOnClickListener(this);
                 ibLabels.setOnClickListener(this);
                 ibCopy.setOnClickListener(this);
@@ -792,11 +795,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 ibFull.setOnClickListener(null);
                 ibImages.setOnClickListener(null);
-                ibRule.setOnClickListener(null);
-                ibUnsubscribe.setOnClickListener(null);
                 ibDecrypt.setOnClickListener(null);
                 ibVerify.setOnClickListener(null);
                 ibUndo.setOnClickListener(null);
+                ibRule.setOnClickListener(null);
+                ibUnsubscribe.setOnClickListener(null);
+                ibPrint.setOnClickListener(null);
                 ibAnswer.setOnClickListener(null);
                 ibLabels.setOnClickListener(null);
                 ibCopy.setOnClickListener(null);
@@ -1267,6 +1271,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibUndo.setVisibility(View.GONE);
             ibRule.setVisibility(View.GONE);
             ibUnsubscribe.setVisibility(View.GONE);
+            ibPrint.setVisibility(View.GONE);
             ibAnswer.setVisibility(View.GONE);
             ibLabels.setVisibility(View.GONE);
             ibCopy.setVisibility(View.GONE);
@@ -1399,6 +1404,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibUndo.setVisibility(View.GONE);
             ibRule.setVisibility(View.GONE);
             ibUnsubscribe.setVisibility(View.GONE);
+            ibPrint.setVisibility(View.GONE);
             ibAnswer.setVisibility(View.GONE);
             ibLabels.setVisibility(View.GONE);
             ibCopy.setVisibility(View.GONE);
@@ -1536,6 +1542,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean button_archive = prefs.getBoolean("button_archive", true);
                     boolean button_move = prefs.getBoolean("button_move", true);
                     boolean button_copy = prefs.getBoolean("button_copy", false);
+                    boolean button_print = prefs.getBoolean("button_print", false);
                     boolean button_unsubscribe = prefs.getBoolean("button_unsubscribe", true);
                     boolean button_rule = prefs.getBoolean("button_rule", false);
 
@@ -1545,6 +1552,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibRule.setVisibility(tools && button_rule && !outbox &&
                             message.accountProtocol == EntityAccount.TYPE_IMAP ? View.VISIBLE : View.GONE);
                     ibUnsubscribe.setVisibility(tools && button_unsubscribe && message.unsubscribe != null ? View.VISIBLE : View.GONE);
+                    ibPrint.setVisibility(tools && button_print && hasWebView && message.content && Helper.canPrint(context) ? View.VISIBLE : View.GONE);
                     ibAnswer.setVisibility(!tools || outbox || (!expand_all && expand_one) ? View.GONE : View.VISIBLE);
                     ibLabels.setVisibility(tools && labels_header && labels && !inTrash && !inJunk && !outbox ? View.VISIBLE : View.GONE);
                     ibCopy.setVisibility(tools && button_copy && move ? View.VISIBLE : View.GONE);
@@ -2750,6 +2758,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     case R.id.ibUnsubscribe:
                         onActionUnsubscribe(message);
                         break;
+                    case R.id.ibPrint:
+                        onMenuPrint(message);
+                        break;
                     case R.id.ibAnswer:
                         onActionAnswer(message, ibAnswer);
                         break;
@@ -3745,6 +3756,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean button_archive = prefs.getBoolean("button_archive", true);
             boolean button_move = prefs.getBoolean("button_move", true);
             boolean button_copy = prefs.getBoolean("button_copy", false);
+            boolean button_print = prefs.getBoolean("button_print", false);
             boolean button_unsubscribe = prefs.getBoolean("button_unsubscribe", true);
             boolean button_rule = prefs.getBoolean("button_rule", false);
 
@@ -3757,6 +3769,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_button_archive).setChecked(button_archive);
             popupMenu.getMenu().findItem(R.id.menu_button_move).setChecked(button_move);
             popupMenu.getMenu().findItem(R.id.menu_button_copy).setChecked(button_copy);
+            popupMenu.getMenu().findItem(R.id.menu_button_print).setChecked(button_print);
             popupMenu.getMenu().findItem(R.id.menu_button_unsubscribe).setChecked(button_unsubscribe);
             popupMenu.getMenu().findItem(R.id.menu_button_rule).setChecked(button_rule);
 
@@ -3829,6 +3842,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             return true;
                         case R.id.menu_button_copy:
                             onMenuButton(message, "copy", target.isChecked());
+                            return true;
+                        case R.id.menu_button_print:
+                            onMenuButton(message, "print", target.isChecked());
                             return true;
                         case R.id.menu_button_unsubscribe:
                             onMenuButton(message, "unsubscribe", target.isChecked());
