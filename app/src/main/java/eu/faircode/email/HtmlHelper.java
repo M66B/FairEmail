@@ -1587,7 +1587,7 @@ public class HtmlHelper {
 
         truncate(d, true);
 
-        SpannableStringBuilder ssb = fromDocument(context, d, false, null, null);
+        SpannableStringBuilder ssb = fromDocument(context, d, false, true, null, null);
 
         for (URLSpan span : ssb.getSpans(0, ssb.length(), URLSpan.class)) {
             String url = span.getURL();
@@ -1804,15 +1804,16 @@ public class HtmlHelper {
         return false;
     }
 
-    static SpannableStringBuilder fromDocument(Context context, @NonNull Document document) {
-        return fromDocument(context, document, null, null);
+    static SpannableStringBuilder fromDocument(
+            Context context, @NonNull Document document, boolean compress,
+            @Nullable Html.ImageGetter imageGetter, @Nullable Html.TagHandler tagHandler) {
+        return fromDocument(context, document, true, compress, imageGetter, tagHandler);
     }
 
-    static SpannableStringBuilder fromDocument(Context context, @NonNull Document document, @Nullable Html.ImageGetter imageGetter, @Nullable Html.TagHandler tagHandler) {
-        return fromDocument(context, document, true, imageGetter, tagHandler);
-    }
-
-    private static SpannableStringBuilder fromDocument(Context context, @NonNull Document document, final boolean warn, @Nullable Html.ImageGetter imageGetter, @Nullable Html.TagHandler tagHandler) {
+    private static SpannableStringBuilder fromDocument(
+            Context context, @NonNull Document document,
+            final boolean warn, final boolean compress,
+            @Nullable Html.ImageGetter imageGetter, @Nullable Html.TagHandler tagHandler) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean debug = prefs.getBoolean("debug", false);
 
@@ -2179,14 +2180,17 @@ public class HtmlHelper {
 
             private void newline(int index) {
                 int count = 0;
-                int i = Math.min(index, ssb.length() - 1);
-                while (i >= 0) {
-                    char kar = ssb.charAt(i);
-                    if (kar == '\n')
-                        count++;
-                    else if (kar != ' ' && kar != '\u00A0')
-                        break;
-                    i--;
+
+                if (compress) {
+                    int i = Math.min(index, ssb.length() - 1);
+                    while (i >= 0) {
+                        char kar = ssb.charAt(i);
+                        if (kar == '\n')
+                            count++;
+                        else if (kar != ' ' && kar != '\u00A0')
+                            break;
+                        i--;
+                    }
                 }
 
                 if (count < 2)
@@ -2219,15 +2223,13 @@ public class HtmlHelper {
         return ssb;
     }
 
-    static Spanned fromHtml(@NonNull String html, Context context) {
-        return fromHtml(html, null, null, context);
+    static Spanned fromHtml(@NonNull String html, boolean compress, Context context) {
+        return fromHtml(html, compress, null, null, context);
     }
 
-    static Spanned fromHtml(@NonNull String html, @Nullable Html.ImageGetter imageGetter, @Nullable Html.TagHandler tagHandler, Context context) {
+    static Spanned fromHtml(@NonNull String html, boolean compress, @Nullable Html.ImageGetter imageGetter, @Nullable Html.TagHandler tagHandler, Context context) {
         Document document = JsoupEx.parse(html);
-        return fromDocument(context, document, false, imageGetter, tagHandler);
-/*
-        Spanned spanned = HtmlCompat.fromHtml(html, FROM_HTML_SEPARATOR_LINE_BREAK_LIST_ITEM, imageGetter, tagHandler);
+        Spanned spanned = fromDocument(context, document, false, compress, imageGetter, tagHandler);
 
         int i = spanned.length();
         while (i > 1 && spanned.charAt(i - 2) == '\n' && spanned.charAt(i - 1) == '\n')
@@ -2235,8 +2237,7 @@ public class HtmlHelper {
         if (i != spanned.length())
             spanned = (Spanned) spanned.subSequence(0, i);
 
-        return reverseSpans(spanned);
-*/
+        return spanned;
     }
 
     static String toHtml(Spanned spanned, Context context) {

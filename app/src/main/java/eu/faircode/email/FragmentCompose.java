@@ -1966,7 +1966,7 @@ public class FragmentCompose extends FragmentBase {
                 args.putInt("start", start);
 
                 // TODO: double conversion
-                return HtmlHelper.fromHtml(HtmlHelper.toHtml(s, getContext()), new Html.ImageGetter() {
+                return HtmlHelper.fromHtml(HtmlHelper.toHtml(s, getContext()), false, new Html.ImageGetter() {
                     @Override
                     public Drawable getDrawable(String source) {
                         return ImageHelper.decodeImage(context, id, source, true, zoom, etBody);
@@ -2754,7 +2754,7 @@ public class FragmentCompose extends FragmentBase {
 
         String html = EntityAnswer.replacePlaceholders(answer, to);
 
-        Spanned spanned = HtmlHelper.fromHtml(html, new Html.ImageGetter() {
+        Spanned spanned = HtmlHelper.fromHtml(html, false, new Html.ImageGetter() {
             @Override
             public Drawable getDrawable(String source) {
                 return ImageHelper.decodeImage(getContext(), working, source, true, zoom, etBody);
@@ -4630,7 +4630,7 @@ public class FragmentCompose extends FragmentBase {
                 Elements ref = doc.select("div[fairemail=reference]");
                 ref.remove();
 
-                Spanned spannedBody = HtmlHelper.fromDocument(context, doc, new Html.ImageGetter() {
+                Spanned spannedBody = HtmlHelper.fromDocument(context, doc, false, new Html.ImageGetter() {
                     @Override
                     public Drawable getDrawable(String source) {
                         return ImageHelper.decodeImage(context, id, source, true, zoom, etBody);
@@ -4658,7 +4658,7 @@ public class FragmentCompose extends FragmentBase {
                 if (!ref.isEmpty()) {
                     Document dref = JsoupEx.parse(ref.outerHtml());
                     Document quote = HtmlHelper.sanitizeView(context, dref, show_images);
-                    spannedRef = HtmlHelper.fromDocument(context, quote,
+                    spannedRef = HtmlHelper.fromDocument(context, quote, true,
                             new Html.ImageGetter() {
                                 @Override
                                 public Drawable getDrawable(String source) {
@@ -4755,7 +4755,7 @@ public class FragmentCompose extends FragmentBase {
 
             Spanned signature = null;
             if (identity != null && !TextUtils.isEmpty(identity.signature))
-                signature = HtmlHelper.fromHtml(identity.signature, new Html.ImageGetter() {
+                signature = HtmlHelper.fromHtml(identity.signature, false, new Html.ImageGetter() {
                     @Override
                     public Drawable getDrawable(String source) {
                         return ImageHelper.decodeImage(getContext(), working, source, true, 0, tvSignature);

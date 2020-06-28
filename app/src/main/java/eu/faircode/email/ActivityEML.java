@@ -182,7 +182,7 @@ public class ActivityEML extends ActivityBase {
                     if (html != null) {
                         Document parsed = JsoupEx.parse(html);
                         Document document = HtmlHelper.sanitizeView(context, parsed, false);
-                        result.body = HtmlHelper.fromDocument(context, document);
+                        result.body = HtmlHelper.fromDocument(context, document, true, null, null);
                     }
 
                     return result;

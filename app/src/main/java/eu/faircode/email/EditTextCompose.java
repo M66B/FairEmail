@@ -81,7 +81,7 @@ public class EditTextCompose extends FixedEditText {
                     }
 
                     Document document = HtmlHelper.sanitizeCompose(context, html, false);
-                    Spanned paste = HtmlHelper.fromDocument(getContext(), document, new Html.ImageGetter() {
+                    Spanned paste = HtmlHelper.fromDocument(getContext(), document, true, new Html.ImageGetter() {
                         @Override
                         public Drawable getDrawable(String source) {
                             return ImageHelper.decodeImage(getContext(),
