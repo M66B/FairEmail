@@ -802,7 +802,6 @@
     <string name="title_media_toolbar">Панель медиа</string>
     <string name="title_insert_contact_group">Добавить группу контактов</string>
     <string name="title_insert_template">Вставить шаблон</string>
-    <string name="title_translate">Перевод</string>
     <string name="title_edit_plain_text">Редактировать как простой текст</string>
     <string name="title_edit_formatted_text">Редактировать как исходный текст</string>
     <string name="title_select_certificate">Выбор публичного ключа</string>

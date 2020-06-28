@@ -778,7 +778,6 @@
     <string name="title_media_toolbar">Mediatyökalupalkki</string>
     <string name="title_insert_contact_group">Lisää yhteystietoryhmä</string>
     <string name="title_insert_template">Lisää viestipohja</string>
-    <string name="title_translate">Käännä</string>
     <string name="title_edit_plain_text">Muokkaa pelkkänä tekstinä</string>
     <string name="title_edit_formatted_text">Muokkaa uudelleenmuotoiltuna tekstinä</string>
     <string name="title_select_certificate">Valitse julkinen avain</string>

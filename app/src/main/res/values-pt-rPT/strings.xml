@@ -32,6 +32,7 @@
     <string name="title_notification_idle">Inactivo</string>
     <string name="title_notification_failed">\'%1$s\' falhou</string>
     <string name="title_notification_alert">\'%1$s\' alerta do servidor</string>
+    <string name="title_notification_sending_failed">Falha ao enviar para %1$s</string>
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
@@ -362,6 +363,8 @@
     <string name="title_advanced_never_favorite">Nunca favoritar</string>
     <string name="title_identity_name">Seu Nome</string>
     <string name="title_identity_email">Seu endereço de e-mail</string>
+    <string name="title_duplicate_in">Mensagem duplicada em %1$s</string>
+    <string name="title_filter_duplicates">Duplicados</string>
     <!-- Thunderbird -->
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

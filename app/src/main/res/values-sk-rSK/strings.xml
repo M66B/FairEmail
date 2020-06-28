@@ -94,6 +94,40 @@
     <string name="title_block_sender_hint">        Zablokovaním odosielateľa budú odteraz všetky správy od neho automaticky presúvané do priečinka s nevyžiadanou poštou.
         Vytváranie a používanie pravidiel je pro funkcia.
     </string>
+    <string name="title_notification_sending">Správy sa odosielajú</string>
+    <string name="title_notification_waiting">Čaká sa na vhodné pripojenie</string>
+    <string name="title_notification_idle">Nečinný</string>
+    <string name="title_notification_failed">\"%1$s\" zlyhalo</string>
+    <string name="title_notification_alert">\"%1$s\" serverové varovanie</string>
+    <string name="title_notification_sending_failed">Odosielanie na %1$s zlyhalo</string>
+    <string name="title_of">%1$s/%2$s</string>
+    <string name="title_name_count">%1$s (%2$s)</string>
+    <string name="title_name_plus">%1$s +%2$d</string>
+    <string name="title_from_to">%1$s ➤ %2$s</string>
+    <string name="title_title_description">%1$s: %2$s</string>
+    <string name="title_factor_minutes">%1$d minút</string>
+    <string name="menu_exit">Ukončiť</string>
+    <string name="menu_answers">Šablóny</string>
+    <string name="menu_operations">Operácie</string>
+    <string name="menu_contacts">Miestne kontakty</string>
+    <string name="menu_setup">Nastavenia</string>
+    <string name="menu_legend">Legenda</string>
+    <string name="menu_test">Testovací program</string>
+    <string name="menu_faq">Podpora</string>
+    <string name="menu_translate">Pomôcť s prekladom</string>
+    <string name="menu_issue">Nahlásiť problém</string>
+    <string name="menu_attribution">Zásluhy</string>
+    <string name="menu_privacy">Súkromie</string>
+    <string name="menu_about">O aplikácii</string>
+    <string name="menu_pro">Pro funkcie</string>
+    <string name="menu_rate">Ohodnotiť aplikáciu</string>
+    <string name="title_welcome">Vitajte</string>
+    <string name="title_eula">Licencia pre koncového užívateľa (EULA)</string>
+    <string name="title_agree">Súhlasím</string>
+    <string name="title_disagree">Nesúhlasím</string>
+    <string name="title_version">Verzia %1$s</string>
+    <string name="title_list_accounts">Účty</string>
+    <string name="title_list_identities">Identity</string>
     <!-- Thunderbird -->
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

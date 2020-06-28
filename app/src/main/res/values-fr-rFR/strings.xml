@@ -780,7 +780,6 @@
     <string name="title_media_toolbar">Barre d\'outils média</string>
     <string name="title_insert_contact_group">Insérer un groupe de contacts</string>
     <string name="title_insert_template">Insérer un modèle</string>
-    <string name="title_translate">Traduire</string>
     <string name="title_edit_plain_text">Modifier comme texte brut</string>
     <string name="title_edit_formatted_text">Modifier comme texte reformaté</string>
     <string name="title_select_certificate">Sélectionner la clé publique</string>
