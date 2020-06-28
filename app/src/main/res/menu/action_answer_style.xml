@@ -16,9 +16,9 @@
         android:title="@string/title_style_underline" />
 
     <item
-        android:id="@+id/menu_size"
+        android:id="@+id/menu_style"
         android:icon="@drawable/baseline_text_format_24"
-        android:title="@string/title_style_size" />
+        android:title="@string/title_style" />
 
     <item
         android:id="@+id/menu_link"

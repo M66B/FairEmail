@@ -16,12 +16,7 @@
         android:title="@string/title_style_underline" />
 
     <item
-        android:id="@+id/menu_size"
+        android:id="@+id/menu_style"
         android:icon="@drawable/baseline_text_format_24"
-        android:title="@string/title_style_size" />
-
-    <item
-        android:id="@+id/menu_color"
-        android:icon="@drawable/baseline_format_color_text_24"
-        android:title="@string/title_style_color" />
+        android:title="@string/title_style" />
 </menu>

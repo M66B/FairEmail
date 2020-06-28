@@ -37,7 +37,6 @@ import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
@@ -275,12 +274,11 @@ public class FragmentCompose extends FragmentBase {
     private static final int REQUEST_TAKE_PHOTO = 7;
     private static final int REQUEST_RECORD_AUDIO = 8;
     private static final int REQUEST_OPENPGP = 9;
-    private static final int REQUEST_COLOR = 10;
-    private static final int REQUEST_CONTACT_GROUP = 11;
-    private static final int REQUEST_ANSWER = 12;
-    private static final int REQUEST_LINK = 13;
-    private static final int REQUEST_DISCARD = 14;
-    private static final int REQUEST_SEND = 15;
+    private static final int REQUEST_CONTACT_GROUP = 10;
+    private static final int REQUEST_ANSWER = 11;
+    private static final int REQUEST_LINK = 12;
+    private static final int REQUEST_DISCARD = 13;
+    private static final int REQUEST_SEND = 14;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -1446,25 +1444,7 @@ public class FragmentCompose extends FragmentBase {
 
     private boolean onActionStyle(int action) {
         Log.i("Style action=" + action);
-
-        if (action == R.id.menu_color) {
-            InputMethodManager imm = (InputMethodManager) getContext().getSystemService(Activity.INPUT_METHOD_SERVICE);
-            if (imm != null)
-                imm.hideSoftInputFromWindow(etBody.getWindowToken(), 0);
-
-            Bundle args = new Bundle();
-            args.putInt("color", Color.TRANSPARENT);
-            args.putString("title", getString(R.string.title_style_color));
-            args.putInt("start", etBody.getSelectionStart());
-            args.putInt("end", etBody.getSelectionEnd());
-
-            FragmentDialogColor fragment = new FragmentDialogColor();
-            fragment.setArguments(args);
-            fragment.setTargetFragment(FragmentCompose.this, REQUEST_COLOR);
-            fragment.show(getParentFragmentManager(), "account:color");
-            return true;
-        } else
-            return StyleHelper.apply(action, view.findViewById(action), etBody);
+        return StyleHelper.apply(action, view.findViewById(action), etBody);
     }
 
     private void onActionRecordAudio() {
@@ -1751,10 +1731,6 @@ public class FragmentCompose extends FragmentBase {
                 case REQUEST_ANSWER:
                     if (resultCode == RESULT_OK && data != null)
                         onAnswerSelected(data.getBundleExtra("args"));
-                    break;
-                case REQUEST_COLOR:
-                    if (resultCode == RESULT_OK && data != null)
-                        onColorSelected(data.getBundleExtra("args"));
                     break;
                 case REQUEST_LINK:
                     if (resultCode == RESULT_OK && data != null)
@@ -2762,14 +2738,6 @@ public class FragmentCompose extends FragmentBase {
         }, null, getContext());
 
         etBody.getText().insert(etBody.getSelectionStart(), spanned);
-    }
-
-    private void onColorSelected(Bundle args) {
-        int color = args.getInt("color");
-        int start = args.getInt("start");
-        int end = args.getInt("end");
-        etBody.setSelection(start, end);
-        StyleHelper.apply(R.id.menu_color, null, etBody, color);
     }
 
     private void onLinkSelected(Bundle args) {

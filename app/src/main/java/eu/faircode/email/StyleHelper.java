@@ -1,5 +1,8 @@
 package eu.faircode.email;
 
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.graphics.Typeface;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -10,13 +13,18 @@ import android.text.style.StyleSpan;
 import android.text.style.TypefaceSpan;
 import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
 import androidx.appcompat.widget.PopupMenu;
 
+import com.flask.colorpicker.ColorPickerView;
+import com.flask.colorpicker.builder.ColorPickerClickListener;
+import com.flask.colorpicker.builder.ColorPickerDialogBuilder;
+
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -77,91 +85,162 @@ public class StyleHelper {
                     return true;
                 }
 
-                case R.id.menu_size: {
+                case R.id.menu_style: {
                     final int s = start;
                     final int e = end;
                     final SpannableString t = ss;
 
                     int order = 1;
                     PopupMenu popupMenu = new PopupMenu(anchor.getContext(), anchor);
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_style_size_small, order++, R.string.title_style_size_small);
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_style_size_medium, order++, R.string.title_style_size_medium);
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_style_size_large, order++, R.string.title_style_size_large);
+                    popupMenu.getMenu().add(0, R.string.title_style_size_small, order++, R.string.title_style_size_small);
+                    popupMenu.getMenu().add(0, R.string.title_style_size_medium, order++, R.string.title_style_size_medium);
+                    popupMenu.getMenu().add(0, R.string.title_style_size_large, order++, R.string.title_style_size_large);
 
-                    popupMenu.getMenu().add(1, R.string.title_style_font_cursive, order++, R.string.title_style_font_cursive);
-                    popupMenu.getMenu().add(1, R.string.title_style_font_serif, order++, R.string.title_style_font_serif);
-                    popupMenu.getMenu().add(1, R.string.title_style_font_sans_serif, order++, R.string.title_style_font_sans_serif);
-                    popupMenu.getMenu().add(1, R.string.title_style_font_monospace, order++, R.string.title_style_font_monospace);
-                    popupMenu.getMenu().add(1, R.string.title_style_font_default, order++, R.string.title_style_font_default);
+                    popupMenu.getMenu().add(1, R.string.title_style_color, order++, R.string.title_style_color);
+
+                    popupMenu.getMenu().add(2, R.string.title_style_font_cursive, order++, R.string.title_style_font_cursive);
+                    popupMenu.getMenu().add(2, R.string.title_style_font_serif, order++, R.string.title_style_font_serif);
+                    popupMenu.getMenu().add(2, R.string.title_style_font_sans_serif, order++, R.string.title_style_font_sans_serif);
+                    popupMenu.getMenu().add(2, R.string.title_style_font_monospace, order++, R.string.title_style_font_monospace);
+
+                    popupMenu.getMenu().add(3, R.string.title_style_clear, order++, R.string.title_style_clear);
 
                     popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                         @Override
                         public boolean onMenuItemClick(MenuItem item) {
-                            if (item.getGroupId() == Menu.NONE) {
-                                RelativeSizeSpan[] spans = t.getSpans(s, e, RelativeSizeSpan.class);
-                                for (RelativeSizeSpan span : spans)
-                                    t.removeSpan(span);
+                            switch (item.getGroupId()) {
+                                case 0:
+                                    return setSize(item);
+                                case 1:
+                                    return setColor(item);
+                                case 2:
+                                    return setFont(item);
+                                case 3:
+                                    return clear(item);
+                                default:
+                                    return false;
+                            }
+                        }
 
-                                Float size;
-                                if (item.getItemId() == R.string.title_style_size_small)
-                                    size = 0.8f;
-                                else if (item.getItemId() == R.string.title_style_size_large)
-                                    size = 1.25f;
-                                else
-                                    size = null;
+                        private boolean setSize(MenuItem item) {
+                            RelativeSizeSpan[] spans = t.getSpans(s, e, RelativeSizeSpan.class);
+                            for (RelativeSizeSpan span : spans)
+                                t.removeSpan(span);
 
-                                if (size != null)
-                                    t.setSpan(new RelativeSizeSpan(size), s, e, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            Float size;
+                            if (item.getItemId() == R.string.title_style_size_small)
+                                size = 0.8f;
+                            else if (item.getItemId() == R.string.title_style_size_large)
+                                size = 1.25f;
+                            else
+                                size = null;
 
-                                etBody.setText(t);
-                                etBody.setSelection(s, e);
-                            } else {
-                                TypefaceSpan[] spans = t.getSpans(s, e, TypefaceSpan.class);
-                                for (TypefaceSpan span : spans)
-                                    t.removeSpan(span);
+                            if (size != null)
+                                t.setSpan(new RelativeSizeSpan(size), s, e, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-                                String face;
-                                switch (item.getItemId()) {
-                                    case R.string.title_style_font_cursive:
-                                        face = "cursive";
-                                        break;
-                                    case R.string.title_style_font_serif:
-                                        face = "serif";
-                                        break;
-                                    case R.string.title_style_font_sans_serif:
-                                        face = "sans-serif";
-                                        break;
-                                    case R.string.title_style_font_monospace:
-                                        face = "monospace";
-                                        break;
-                                    default:
-                                        face = null;
-                                }
+                            etBody.setText(t);
+                            etBody.setSelection(s, e);
 
-                                if (face != null)
-                                    t.setSpan(new TypefaceSpan(face), s, e, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            return true;
+                        }
 
-                                etBody.setText(t);
-                                etBody.setSelection(s, e);
+                        private boolean setColor(MenuItem item) {
+                            InputMethodManager imm = (InputMethodManager) etBody.getContext().getSystemService(Activity.INPUT_METHOD_SERVICE);
+                            if (imm != null)
+                                imm.hideSoftInputFromWindow(etBody.getWindowToken(), 0);
+
+                            ColorPickerDialogBuilder builder = ColorPickerDialogBuilder
+                                    .with(etBody.getContext())
+                                    .setTitle(R.string.title_color)
+                                    .showColorEdit(true)
+                                    .wheelType(ColorPickerView.WHEEL_TYPE.FLOWER)
+                                    .density(6)
+                                    .lightnessSliderOnly()
+                                    .setPositiveButton(android.R.string.ok, new ColorPickerClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int selectedColor, Integer[] allColors) {
+                                            _setColor(selectedColor);
+                                        }
+                                    })
+                                    .setNegativeButton(R.string.title_reset, new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            _setColor(null);
+                                        }
+                                    });
+
+                            Dialog dialog = builder.build();
+
+                            try {
+                                Field fColorEdit = builder.getClass().getDeclaredField("colorEdit");
+                                fColorEdit.setAccessible(true);
+                                EditText colorEdit = (EditText) fColorEdit.get(builder);
+                                colorEdit.setTextColor(Helper.resolveColor(etBody.getContext(), android.R.attr.textColorPrimary));
+                            } catch (Throwable ex) {
+                                Log.w(ex);
                             }
 
-                            return false;
+                            dialog.show();
+
+                            return true;
+                        }
+
+                        private void _setColor(Integer color) {
+                            for (ForegroundColorSpan span : t.getSpans(s, e, ForegroundColorSpan.class))
+                                t.removeSpan(span);
+
+                            if (color != null)
+                                t.setSpan(new ForegroundColorSpan(color), s, e, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                            etBody.setText(t);
+                            etBody.setSelection(s, e);
+                        }
+
+                        private boolean setFont(MenuItem item) {
+                            TypefaceSpan[] spans = t.getSpans(s, e, TypefaceSpan.class);
+                            for (TypefaceSpan span : spans)
+                                t.removeSpan(span);
+
+                            String face;
+                            switch (item.getItemId()) {
+                                case R.string.title_style_font_cursive:
+                                    face = "cursive";
+                                    break;
+                                case R.string.title_style_font_serif:
+                                    face = "serif";
+                                    break;
+                                case R.string.title_style_font_sans_serif:
+                                    face = "sans-serif";
+                                    break;
+                                case R.string.title_style_font_monospace:
+                                    face = "monospace";
+                                    break;
+                                default:
+                                    face = null;
+                            }
+
+                            if (face != null)
+                                t.setSpan(new TypefaceSpan(face), s, e, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                            etBody.setText(t);
+                            etBody.setSelection(s, e);
+
+                            return true;
+                        }
+
+                        private boolean clear(MenuItem item) {
+                            for (Object span : t.getSpans(s, e, Object.class))
+                                if (!(span instanceof ImageSpan))
+                                    t.removeSpan(span);
+
+                            etBody.setText(t);
+                            etBody.setSelection(s, e);
+
+                            return true;
                         }
                     });
 
                     popupMenu.show();
-
-                    return true;
-                }
-
-                case R.id.menu_color: {
-                    for (ForegroundColorSpan span : ss.getSpans(start, end, ForegroundColorSpan.class))
-                        ss.removeSpan(span);
-
-                    ss.setSpan(new ForegroundColorSpan((int) args[0]), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-                    etBody.setText(ss);
-                    etBody.setSelection(start, end);
 
                     return true;
                 }

@@ -233,47 +233,25 @@
             app:layout_constraintTop_toTopOf="@id/ivUnderline" />
 
         <ImageView
-            android:id="@+id/ivSize"
+            android:id="@+id/ivStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="@string/title_legend_text_size"
+            android:contentDescription="@string/title_legend_text_style"
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivUnderline"
-            app:srcCompat="@drawable/baseline_format_size_24" />
+            app:srcCompat="@drawable/baseline_text_format_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvSize"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:gravity="center_vertical"
-            android:text="@string/title_legend_text_size"
+            android:text="@string/title_legend_text_style"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintBottom_toBottomOf="@id/ivSize"
+            app:layout_constraintBottom_toBottomOf="@id/ivStyle"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/ivSize"
-            app:layout_constraintTop_toTopOf="@id/ivSize" />
-
-        <ImageView
-            android:id="@+id/ivColor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/title_legend_text_color"
-            android:padding="12dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivSize"
-            app:srcCompat="@drawable/baseline_format_color_text_24" />
-
-        <eu.faircode.email.FixedTextView
-            android:id="@+id/tvColor"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:gravity="center_vertical"
-            android:text="@string/title_legend_text_color"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintBottom_toBottomOf="@id/ivColor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/ivColor"
-            app:layout_constraintTop_toTopOf="@id/ivColor" />
+            app:layout_constraintStart_toEndOf="@id/ivStyle"
+            app:layout_constraintTop_toTopOf="@id/ivStyle" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>
