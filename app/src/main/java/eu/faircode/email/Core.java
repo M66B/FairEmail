@@ -740,7 +740,7 @@ class Core {
                     Log.w(ex);
                 }
             else
-                throw new IllegalArgumentException("label/delete");
+                throw new IllegalArgumentException("label/delete folder=" + folder.name);
         } else {
             try {
                 Message imessage = ifolder.getMessageByUID(message.uid);
