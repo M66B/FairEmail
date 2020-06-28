@@ -1992,7 +1992,8 @@ public class HtmlHelper {
                                         }
                                     break;
                                 case "font-family":
-                                    ssb.setSpan(new TypefaceSpan(value), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                    String face = value.toLowerCase(Locale.ROOT);
+                                    ssb.setSpan(new TypefaceSpan(face), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                     break;
                                 case "text-decoration":
                                     if ("line-through".equals(value))
