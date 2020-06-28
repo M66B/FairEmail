@@ -1521,7 +1521,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean trash = (move || outbox || debug ||
                             message.accountProtocol == EntityAccount.TYPE_POP);
                     boolean junk = (move && (hasJunk && !inJunk));
-                    boolean inbox = (move && (inArchive || inJunk));
+                    boolean inbox = (move && (inArchive || inTrash || inJunk));
 
                     final boolean delete = (inTrash || !hasTrash || inJunk || outbox ||
                             message.uid == null || message.accountProtocol == EntityAccount.TYPE_POP);
@@ -1530,6 +1530,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean expand_all = prefs.getBoolean("expand_all", false);
                     boolean expand_one = prefs.getBoolean("expand_one", true);
                     boolean tools = prefs.getBoolean("message_tools", true);
+                    boolean button_inbox = prefs.getBoolean("button_inbox", true);
                     boolean button_junk = prefs.getBoolean("button_junk", true);
                     boolean button_trash = prefs.getBoolean("button_trash", true);
                     boolean button_archive = prefs.getBoolean("button_archive", true);
@@ -1551,7 +1552,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibArchive.setVisibility(tools && button_archive && archive ? View.VISIBLE : View.GONE);
                     ibTrash.setVisibility(outbox || (tools && button_trash && trash) ? View.VISIBLE : View.GONE);
                     ibJunk.setVisibility(tools && button_junk && junk ? View.VISIBLE : View.GONE);
-                    ibInbox.setVisibility(tools && inbox ? View.VISIBLE : View.GONE);
+                    ibInbox.setVisibility(tools && button_inbox && inbox ? View.VISIBLE : View.GONE);
                     ibMore.setVisibility(tools && !outbox ? View.VISIBLE : View.GONE);
                     ibTools.setImageLevel(tools ? 0 : 1);
                     ibTools.setVisibility(outbox ? View.GONE : View.VISIBLE);
@@ -3738,6 +3739,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean full = properties.getValue("full", message.id);
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean button_inbox = prefs.getBoolean("button_inbox", true);
             boolean button_junk = prefs.getBoolean("button_junk", true);
             boolean button_trash = prefs.getBoolean("button_trash", true);
             boolean button_archive = prefs.getBoolean("button_archive", true);
@@ -3749,6 +3751,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, ibMore);
             popupMenu.inflate(R.menu.popup_message_more);
 
+            popupMenu.getMenu().findItem(R.id.menu_button_inbox).setChecked(button_inbox);
             popupMenu.getMenu().findItem(R.id.menu_button_junk).setChecked(button_junk);
             popupMenu.getMenu().findItem(R.id.menu_button_trash).setChecked(button_trash);
             popupMenu.getMenu().findItem(R.id.menu_button_archive).setChecked(button_archive);
@@ -3809,6 +3812,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 @Override
                 public boolean onMenuItemClick(MenuItem target) {
                     switch (target.getItemId()) {
+                        case R.id.menu_button_inbox:
+                            onMenuButton(message, "inbox", target.isChecked());
+                            return true;
                         case R.id.menu_button_junk:
                             onMenuButton(message, "junk", target.isChecked());
                             return true;

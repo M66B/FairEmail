@@ -63,18 +63,6 @@
         tools:ignore="MissingConstraints" />
 
     <ImageButton
-        android:id="@+id/ibJunk"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_spam"
-        android:padding="6dp"
-        android:scaleType="fitCenter"
-        android:tooltipText="@string/title_spam"
-        app:srcCompat="@drawable/baseline_report_problem_24"
-        tools:ignore="MissingConstraints" />
-
-    <ImageButton
         android:id="@+id/ibInbox"
         android:layout_width="36dp"
         android:layout_height="36dp"
@@ -84,6 +72,18 @@
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_folder_inbox"
         app:srcCompat="@drawable/baseline_move_to_inbox_24"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/ibJunk"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/title_spam"
+        android:padding="6dp"
+        android:scaleType="fitCenter"
+        android:tooltipText="@string/title_spam"
+        app:srcCompat="@drawable/baseline_report_problem_24"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
