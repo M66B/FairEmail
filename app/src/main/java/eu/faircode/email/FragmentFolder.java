@@ -239,6 +239,7 @@ public class FragmentFolder extends FragmentBase {
                     if (account != null) {
                         args.putInt("interval", account.poll_interval);
                         args.putBoolean("exempted", account.poll_exempted);
+                        args.putBoolean("ondemand", account.ondemand);
                     }
                 }
 
@@ -251,6 +252,7 @@ public class FragmentFolder extends FragmentBase {
                 int pollInterval = prefs.getInt("poll_interval", ServiceSynchronize.DEFAULT_POLL_INTERVAL);
                 int interval = args.getInt("interval", EntityAccount.DEFAULT_KEEP_ALIVE_INTERVAL);
                 boolean exempted = args.getBoolean("exempted", false);
+                boolean ondemand = args.getBoolean("ondemand", false);
 
                 if (savedInstanceState == null) {
                     etName.setText(folder == null ? null : folder.name);
@@ -289,10 +291,12 @@ public class FragmentFolder extends FragmentBase {
 
                 Helper.setViewsEnabled(view, true);
 
+                boolean always = (!ondemand && (pollInterval == 0 || exempted));
+
                 etName.setEnabled(folder == null || EntityFolder.USER.equals(folder.type));
-                cbPoll.setEnabled(cbSynchronize.isChecked() && (pollInterval == 0 || exempted));
-                etPoll.setEnabled(cbSynchronize.isChecked() && (pollInterval == 0 || exempted));
-                tvPoll.setEnabled(cbSynchronize.isChecked() && (pollInterval == 0 || exempted));
+                cbPoll.setEnabled(cbSynchronize.isChecked() && always);
+                etPoll.setEnabled(cbSynchronize.isChecked() && always);
+                tvPoll.setEnabled(cbSynchronize.isChecked() && always);
                 grpPoll.setVisibility(cbPoll.isEnabled() && cbPoll.isChecked() ? View.VISIBLE : View.GONE);
                 etKeepDays.setEnabled(!cbKeepAll.isChecked());
                 cbAutoDelete.setEnabled(!cbKeepAll.isChecked());
