@@ -309,9 +309,21 @@ public class ContactInfo {
                 }
             });
 
-            Uri uri = ContactsContract.CommonDataKinds.Email.CONTENT_URI;
-            Log.i("Observing uri=" + uri);
-            context.getContentResolver().registerContentObserver(uri, true, observer);
+            try {
+                Uri uri = ContactsContract.CommonDataKinds.Email.CONTENT_URI;
+                Log.i("Observing uri=" + uri);
+                context.getContentResolver().registerContentObserver(uri, true, observer);
+            } catch (SecurityException ex) {
+                Log.w(ex);
+                /*
+                    Should never happen, but:
+                    Caused by: android.os.RemoteException:
+                      at com.android.server.content.ContentService.registerContentObserver (ContentService.java:340)
+                      at android.content.IContentService$Stub.onTransact (IContentService.java:76)
+                      at com.android.server.content.ContentService.onTransact (ContentService.java:262)
+                      at android.os.Binder.execTransact (Binder.java:731)
+                 */
+            }
         }
     }
 
