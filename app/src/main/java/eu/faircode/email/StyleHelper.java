@@ -7,6 +7,7 @@ import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
+import android.text.style.TypefaceSpan;
 import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
 import android.view.Menu;
@@ -81,31 +82,49 @@ public class StyleHelper {
                     final int e = end;
                     final SpannableString t = ss;
 
+                    int order = 1;
                     PopupMenu popupMenu = new PopupMenu(anchor.getContext(), anchor);
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_style_size_small, 1, R.string.title_style_size_small);
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_style_size_medium, 2, R.string.title_style_size_medium);
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_style_size_large, 3, R.string.title_style_size_large);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_style_size_small, order++, R.string.title_style_size_small);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_style_size_medium, order++, R.string.title_style_size_medium);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_style_size_large, order++, R.string.title_style_size_large);
+
+                    if (BuildConfig.DEBUG) {
+                        popupMenu.getMenu().add(1, 1, order++, "Cursive");
+                        popupMenu.getMenu().add(1, 2, order++, "Serif");
+                        popupMenu.getMenu().add(1, 3, order++, "Sans-serif");
+                        popupMenu.getMenu().add(1, 4, order++, "Monospace");
+                    }
 
                     popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                         @Override
                         public boolean onMenuItemClick(MenuItem item) {
-                            RelativeSizeSpan[] spans = t.getSpans(s, e, RelativeSizeSpan.class);
+                            if (item.getGroupId() == Menu.NONE) {
+                                RelativeSizeSpan[] spans = t.getSpans(s, e, RelativeSizeSpan.class);
+                                for (RelativeSizeSpan span : spans)
+                                    t.removeSpan(span);
 
-                            for (RelativeSizeSpan span : spans)
-                                t.removeSpan(span);
+                                float size;
+                                if (item.getItemId() == R.string.title_style_size_small)
+                                    size = 0.8f;
+                                else if (item.getItemId() == R.string.title_style_size_large)
+                                    size = 1.25f;
+                                else
+                                    size = 1.0f;
 
-                            float size;
-                            if (item.getItemId() == R.string.title_style_size_small)
-                                size = 0.8f;
-                            else if (item.getItemId() == R.string.title_style_size_large)
-                                size = 1.25f;
-                            else
-                                size = 1.0f;
+                                t.setSpan(new RelativeSizeSpan(size), s, e, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-                            t.setSpan(new RelativeSizeSpan(size), s, e, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                etBody.setText(t);
+                                etBody.setSelection(s, e);
+                            } else {
+                                TypefaceSpan[] spans = t.getSpans(s, e, TypefaceSpan.class);
+                                for (TypefaceSpan span : spans)
+                                    t.removeSpan(span);
 
-                            etBody.setText(t);
-                            etBody.setSelection(s, e);
+                                t.setSpan(new TypefaceSpan(item.getTitle().toString().toLowerCase()), s, e, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                                etBody.setText(t);
+                                etBody.setSelection(s, e);
+                            }
 
                             return false;
                         }
