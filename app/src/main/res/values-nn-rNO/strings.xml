@@ -280,9 +280,6 @@
     <string name="title_advanced_addresses">Vis adresseinformasjon som standard</string>
     <string name="title_advanced_attachments_alt">Vis vedlegg etter meldingsteksten</string>
     <string name="title_advanced_contrast">Bruk høy kontrast for meldingstekst</string>
-    <string name="title_advanced_monospaced">Bruk monospaced skrift for meldingstekst</string>
-    <string name="title_advanced_text_color">Vis tekstfarger</string>
-    <string name="title_advanced_text_size">Vis små og store tekster</string>
     <string name="title_advanced_collapse_quotes">Kollapse sitert tekst</string>
     <string name="title_advanced_images_inline">Vis automatisk innebygde bilder</string>
     <string name="title_advanced_seekbar">Vis relativ samtaleposisjon med en prikk</string>
@@ -682,7 +679,6 @@ Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anme
     <string name="title_style_italic">Kursiv</string>
     <string name="title_style_underline">Understrek</string>
     <string name="title_style_size">Størrelse</string>
-    <string name="title_style_color">Farge</string>
     <string name="title_style_clear">Fjern formatering</string>
     <string name="title_style_link">Sett inn lenke</string>
     <string name="title_add_attachment">Legg ved fil</string>
@@ -898,8 +894,6 @@ Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anme
     <string name="title_legend_bold">Gjøre teksten fet</string>
     <string name="title_legend_italic">Gjøre teksten kursiv</string>
     <string name="title_legend_underline">Understreke tekst</string>
-    <string name="title_legend_text_size">Angi tekststørrelse</string>
-    <string name="title_legend_text_color">Angi tekstfarge</string>
     <string name="title_legend_metered">Tilkoblingen er målt</string>
     <string name="title_legend_unmetered">Tilkoblingen er ikke målt</string>
     <string name="title_legend_roaming">Roaming</string>

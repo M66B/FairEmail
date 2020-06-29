@@ -290,10 +290,6 @@
     <string name="title_advanced_addresses">Mostrar detalhes do endereço por padrão</string>
     <string name="title_advanced_attachments_alt">Mostrar anexos após o texto da mensagem</string>
     <string name="title_advanced_contrast">Usar alto contraste para o texto da mensagem</string>
-    <string name="title_advanced_monospaced">Usar fonte mono-espaçada para o texto da mensagem</string>
-    <string name="title_advanced_text_color">Mostrar cores do texto</string>
-    <string name="title_advanced_text_size">Mostrar textos pequenos e grandes</string>
-    <string name="title_advanced_text_align">Mostrar textos alinhados à esquerda/centro/direita</string>
     <string name="title_advanced_collapse_quotes">Recolher texto citado</string>
     <string name="title_advanced_images_inline">Mostrar imagens em linha automaticamente</string>
     <string name="title_advanced_seekbar">Mostrar posição relativa da conversa com um ponto</string>
@@ -729,7 +725,6 @@
     <string name="title_style_italic">Itálico</string>
     <string name="title_style_underline">Sublinhado</string>
     <string name="title_style_size">Tamanho</string>
-    <string name="title_style_color">Cor</string>
     <string name="title_style_clear">Limpar formatação</string>
     <string name="title_style_link">Inserir link</string>
     <string name="title_add_image">Adicionar imagem</string>
@@ -953,8 +948,6 @@
     <string name="title_legend_bold">Colocar o texto em negrito</string>
     <string name="title_legend_italic">Colocar o texto em itálico</string>
     <string name="title_legend_underline">Sublinhado</string>
-    <string name="title_legend_text_size">Definir tamanho do texto</string>
-    <string name="title_legend_text_color">Definir cor do texto</string>
     <string name="title_legend_metered">A conexão é limitada</string>
     <string name="title_legend_unmetered">A conexão é ilimitada</string>
     <string name="title_legend_roaming">Roaming</string>

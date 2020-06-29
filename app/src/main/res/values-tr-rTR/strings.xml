@@ -274,9 +274,6 @@
     <string name="title_advanced_addresses">Öntanımlı olarak adres ayrıntılarını göster</string>
     <string name="title_advanced_attachments_alt">İleti metninden sonra ekleri göster</string>
     <string name="title_advanced_contrast">İleti metni için yüksek karşıtlık kullan</string>
-    <string name="title_advanced_monospaced">İleti metni için tek aralıklı yazı tipi kullan</string>
-    <string name="title_advanced_text_color">Metin renklerini göster</string>
-    <string name="title_advanced_text_size">Küçük ve büyük metinleri göster</string>
     <string name="title_advanced_collapse_quotes">Alıntılanan metni daralt</string>
     <string name="title_advanced_images_inline">İletideki görselleri otomatik olarak göster</string>
     <string name="title_advanced_seekbar">Göreli konuşma konumunu nokta ile göster</string>
@@ -661,7 +658,6 @@
     <string name="title_style_italic">Eğik yazı</string>
     <string name="title_style_underline">Alt çizgi</string>
     <string name="title_style_size">Boyut</string>
-    <string name="title_style_color">Renk</string>
     <string name="title_style_clear">Biçimlendirmeyi temizle</string>
     <string name="title_style_link">Bağlantı ekle</string>
     <string name="title_add_image">Görsel ekle</string>
@@ -907,8 +903,6 @@
     <string name="title_legend_bold">Metni kalın harf yap</string>
     <string name="title_legend_italic">Metni eğik yazı yap</string>
     <string name="title_legend_underline">Tetnin altını çiz</string>
-    <string name="title_legend_text_size">Metin boyutunu ayarla</string>
-    <string name="title_legend_text_color">Metin rengini ayarla</string>
     <string name="title_legend_metered">Bağlantı ölçülü</string>
     <string name="title_legend_unmetered">Bağlantı ölçüsüz</string>
     <string name="title_legend_roaming">Gezeleme</string>

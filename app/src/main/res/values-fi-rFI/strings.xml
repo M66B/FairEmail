@@ -302,10 +302,6 @@
     <string name="title_advanced_addresses">Näytä viestin osoitetiedot oletuksena</string>
     <string name="title_advanced_attachments_alt">Näytä liitteet viestin tekstin jälkeen</string>
     <string name="title_advanced_contrast">Käytä voimakasta kontrastia viestien tekstille</string>
-    <string name="title_advanced_monospaced">Käytä kiinteävälistä kirjaisinta viestien tekstille</string>
-    <string name="title_advanced_text_color">Näytä tekstin värit</string>
-    <string name="title_advanced_text_size">Näytä pienet ja suuret tekstit</string>
-    <string name="title_advanced_text_align">Näytä vasemmalle/keskelle/oikealle tasatut tekstit</string>
     <string name="title_advanced_collapse_quotes">Tiivistä lainattu teksti</string>
     <string name="title_advanced_images_inline">Näytä tekstiin upotetut kuvat oletuksena</string>
     <string name="title_advanced_seekbar">Näytä suhteellinen sijainti keskustelussa pisteellä</string>
@@ -754,11 +750,14 @@
     <string name="title_send_encryption">Salaus</string>
     <string name="title_send_priority">Tärkeysjärjestys</string>
     <string name="title_no_server">Palvelinta ei löytynyt osoitteesta \'%1$s\'</string>
+    <string name="title_style">Tyyli</string>
     <string name="title_style_bold">Lihavointi</string>
     <string name="title_style_italic">Kursiivi</string>
     <string name="title_style_underline">Alleviivaus</string>
     <string name="title_style_size">Koko</string>
-    <string name="title_style_color">Väri</string>
+    <string name="title_style_size_small">Pieni</string>
+    <string name="title_style_size_medium">Keskikokoinen</string>
+    <string name="title_style_size_large">Suuri</string>
     <string name="title_style_clear">Poista muotoilu</string>
     <string name="title_style_link">Lisää linkki</string>
     <string name="title_add_image">Lisää kuva</string>
@@ -1024,8 +1023,6 @@
     <string name="title_legend_bold">Lihavoi teksti</string>
     <string name="title_legend_italic">Kursivoi teksti</string>
     <string name="title_legend_underline">Alleviivaa teksti</string>
-    <string name="title_legend_text_size">Aseta tekstin koko</string>
-    <string name="title_legend_text_color">Aseta tekstin väri</string>
     <string name="title_legend_metered">Yhteys on käytön mukaan laskutettava</string>
     <string name="title_legend_unmetered">Yhteys ei ole käytön mukaan laskutettava</string>
     <string name="title_legend_roaming">Verkkovierailu</string>

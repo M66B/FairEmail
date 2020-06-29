@@ -238,7 +238,6 @@
     <string name="title_send_via">Αποστολή μέσω</string>
     <string name="title_no_server">Δε βρέθηκε διακομιστής στο \'%1$s\'</string>
     <string name="title_style_size">Μέγεθος</string>
-    <string name="title_style_color">Χρώμα</string>
     <string name="title_signature_certificate_invalid">Η αλυσίδα πιστοποιητικών δεν είναι έγκυρη</string>
     <string name="title_search_hint">        Η αναζήτηση αρχικά θα ψάξει μηνύματα που είναι αποθηκευμένα στη συσκευή.
         Για να ψάξετε και μηνύματα στο διακομιστή, πατήστε το κουμπί \'επανάληψη αναζήτησης\'.

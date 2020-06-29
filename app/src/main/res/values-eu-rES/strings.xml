@@ -299,10 +299,6 @@
     <string name="title_advanced_addresses">Erakutsi helbidearen xehetasunak lehenetsita</string>
     <string name="title_advanced_attachments_alt">Erakutsi gehitutakoa mezuko testuaren ondoren</string>
     <string name="title_advanced_contrast">Erabili kontraste altua mezuaren testuarentzat</string>
-    <string name="title_advanced_monospaced">Erabili tipografia monoespaziatua mezuen testuan</string>
-    <string name="title_advanced_text_color">Erakutsi testu-koloreak</string>
-    <string name="title_advanced_text_size">Erakutsi testu labur eta luzeak</string>
-    <string name="title_advanced_text_align">Erakutsi ezkerrean/erdian/eskuinean lerrokatutako testuak</string>
     <string name="title_advanced_collapse_quotes">Tolestu aipatutako testua</string>
     <string name="title_advanced_images_inline">Erakutsi automatikoki txertatutako irudiak</string>
     <string name="title_advanced_seekbar">Erakutsi posizio erlatiboa elkarrizketan puntu batekin</string>
@@ -746,7 +742,6 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_style_italic">Etzana</string>
     <string name="title_style_underline">Azpimarra</string>
     <string name="title_style_size">Tamaina</string>
-    <string name="title_style_color">Kolorea</string>
     <string name="title_style_clear">Garbitu formatua</string>
     <string name="title_style_link">Txertatu esteka</string>
     <string name="title_add_image">Gehitu irudia</string>
@@ -1012,8 +1007,6 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_legend_bold">Bihurtu testu lodia</string>
     <string name="title_legend_italic">Bihurtu testu etzana</string>
     <string name="title_legend_underline">Azpimarratu testua</string>
-    <string name="title_legend_text_size">Ezarri testuaren tamaina</string>
-    <string name="title_legend_text_color">Ezarri testuaren kolorea</string>
     <string name="title_legend_metered">Konexioa neurtua da</string>
     <string name="title_legend_unmetered">Konexioa ez da neurtua</string>
     <string name="title_legend_roaming">Ibiltaritza</string>

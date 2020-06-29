@@ -256,10 +256,6 @@
     <string name="title_advanced_addresses">Mostrar detalhes do endereço por pré-definição</string>
     <string name="title_advanced_attachments_alt">Mostrar anexos após o texto da mensagem</string>
     <string name="title_advanced_contrast">Usar alto contraste para o texto da mensagem</string>
-    <string name="title_advanced_monospaced">Usar fonte monoespaçada para o texto da mensagem</string>
-    <string name="title_advanced_text_color">Mostrar cores do texto</string>
-    <string name="title_advanced_text_size">Mostrar textos pequenos e grandes</string>
-    <string name="title_advanced_text_align">Mostrar textos alinhados à esquerda/centro/direita</string>
     <string name="title_advanced_collapse_quotes">Encolher texto cidado</string>
     <string name="title_advanced_images_inline">Mostrar automaticamente imagens embutidas</string>
     <string name="title_advanced_seekbar">Exibir posição relativa de conversa com um ponto</string>

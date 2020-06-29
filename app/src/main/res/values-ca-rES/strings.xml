@@ -296,10 +296,6 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_advanced_addresses">Mostra els detalls de les adreces per defecte</string>
     <string name="title_advanced_attachments_alt">Mostra fitxers adjunts després del text del missatge</string>
     <string name="title_advanced_contrast">Utilitzeu un alt contrast per al text del missatge</string>
-    <string name="title_advanced_monospaced">Utilitzeu tipus de lletra mono per al text del missatge</string>
-    <string name="title_advanced_text_color">Mostra els colors del text</string>
-    <string name="title_advanced_text_size">Mostrar textos petits i grans</string>
-    <string name="title_advanced_text_align">Mostra els textos alineats a l\'esquerra/al centre/a la dreta</string>
     <string name="title_advanced_collapse_quotes">Aplega el text citat</string>
     <string name="title_advanced_images_inline">Mostra automàticament imatges en línia</string>
     <string name="title_advanced_seekbar">Mostra la posició de conversa relativa amb un punt</string>
@@ -740,7 +736,8 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_style_italic">Cursiva</string>
     <string name="title_style_underline">Subratllat</string>
     <string name="title_style_size">Mida</string>
-    <string name="title_style_color">Color</string>
+    <string name="title_style_font">Font</string>
+    <string name="title_style_color">Color &#8230;</string>
     <string name="title_style_clear">Esborra el format</string>
     <string name="title_style_link">Insereix enllaç</string>
     <string name="title_add_image">Afegir una imatge</string>
@@ -986,8 +983,6 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_legend_bold">Fes negreta el text</string>
     <string name="title_legend_italic">Fes cursiva el text</string>
     <string name="title_legend_underline">Text subratllat</string>
-    <string name="title_legend_text_size">Definiu la mida del text</string>
-    <string name="title_legend_text_color">Definiu el color del text</string>
     <string name="title_legend_metered">La connexió és mesurada</string>
     <string name="title_legend_unmetered">La connexió no es mesurada</string>
     <string name="title_legend_roaming">Itinerància</string>

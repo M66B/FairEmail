@@ -302,10 +302,6 @@
     <string name="title_advanced_addresses">Покажи адреса по подразбиране</string>
     <string name="title_advanced_attachments_alt">Покажи прикачените файлове след текста на съобщението</string>
     <string name="title_advanced_contrast">Използвай висок контраст за текст на съобщението</string>
-    <string name="title_advanced_monospaced">Използвай шрифт с еднакъв размер за текст на съобщението</string>
-    <string name="title_advanced_text_color">Покажи текста с цветове</string>
-    <string name="title_advanced_text_size">Показвайте малки и големи текстове</string>
-    <string name="title_advanced_text_align">Показване на подравнени текстове вляво/в центъра/вдясно</string>
     <string name="title_advanced_collapse_quotes">Свиване на цитирания текст</string>
     <string name="title_advanced_images_inline">Автоматично показване на вградени изображения</string>
     <string name="title_advanced_seekbar">Покажи позицията на разговора с точка</string>
@@ -753,7 +749,6 @@
     <string name="title_style_italic">Наклонен</string>
     <string name="title_style_underline">Подчертан</string>
     <string name="title_style_size">Големина</string>
-    <string name="title_style_color">Цвят</string>
     <string name="title_style_clear">Изчистване на форматирането</string>
     <string name="title_style_link">Вмъкване на връзка</string>
     <string name="title_add_image">Добавяне на изображение</string>
@@ -1019,8 +1014,6 @@
     <string name="title_legend_bold">Удебелен текст</string>
     <string name="title_legend_italic">Наклонен текст</string>
     <string name="title_legend_underline">Подчертан текст</string>
-    <string name="title_legend_text_size">Размер на текста</string>
-    <string name="title_legend_text_color">Избери цвят на текста</string>
     <string name="title_legend_metered">Измервана връзка</string>
     <string name="title_legend_unmetered">Неизмервана връзка</string>
     <string name="title_legend_roaming">Роуминг</string>

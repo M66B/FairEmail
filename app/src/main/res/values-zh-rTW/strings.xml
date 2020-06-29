@@ -262,10 +262,6 @@
     <string name="title_advanced_addresses">預設展開詳細郵件資訊</string>
     <string name="title_advanced_attachments_alt">附件顯示於訊息之後</string>
     <string name="title_advanced_contrast">訊息內容高對比</string>
-    <string name="title_advanced_monospaced">訊息內容使用等寬字型</string>
-    <string name="title_advanced_text_color">顯示文字顏色</string>
-    <string name="title_advanced_text_size">顯示不同大小的文字</string>
-    <string name="title_advanced_text_align">顯示左中右對齊的文字</string>
     <string name="title_advanced_collapse_quotes">折疊引用的文字</string>
     <string name="title_advanced_images_inline">自動顯示行內圖片</string>
     <string name="title_advanced_seekbar">使用點點顯示目前對話的相對位置</string>

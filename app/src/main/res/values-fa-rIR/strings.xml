@@ -280,9 +280,6 @@
     <string name="title_advanced_addresses">نمایش جزئیات آدرس به صورت پیش‌فرض</string>
     <string name="title_advanced_attachments_alt">نمایش پیوست‌ها بعد از متن پیام</string>
     <string name="title_advanced_contrast">از کنتراست زیاد برای متن پیام استفاده کن</string>
-    <string name="title_advanced_monospaced">از فونت monospaced(تک پهنه) برای متن پیام استفاده کن</string>
-    <string name="title_advanced_text_color">تنظیم رنگ‌های متن</string>
-    <string name="title_advanced_text_size">نمایش متن‌های کوچک و بزرگ</string>
     <string name="title_advanced_collapse_quotes">بستن متن نقل شده</string>
     <string name="title_advanced_actionbar">نمایش نوار کنش گفتگو</string>
     <string name="title_advanced_actionbar_color">از رنگ حساب به‌عنوان رنگ پس‌زمینه برای نوار کنش گفتگو استفاده کن</string>
@@ -627,7 +624,6 @@
     <string name="title_style_italic">مورب</string>
     <string name="title_style_underline">خط زیر</string>
     <string name="title_style_size">اندازه</string>
-    <string name="title_style_color">رنگ</string>
     <string name="title_style_clear">پاک کردن شکل‌بندی</string>
     <string name="title_style_link">درج لینک</string>
     <string name="title_add_image">افزودن تصویر</string>
@@ -874,8 +870,6 @@
     <string name="title_legend_bold">متن پررنگ شود</string>
     <string name="title_legend_italic">متن مورب شود</string>
     <string name="title_legend_underline">متن زیر خط دار</string>
-    <string name="title_legend_text_size">تنظیم اندازه متن</string>
-    <string name="title_legend_text_color">تنظیم رنگ متن</string>
     <string name="title_legend_metered">به شبکه موبایل متصلید</string>
     <string name="title_legend_unmetered">به شبکه غیر موبایل متصلید</string>
     <string name="title_legend_roaming">رومینگ</string>

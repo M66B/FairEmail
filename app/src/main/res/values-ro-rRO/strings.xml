@@ -314,10 +314,6 @@
     <string name="title_advanced_addresses">Implicit arată detaliile adreselor</string>
     <string name="title_advanced_attachments_alt">Arată atașamentele după textul mesajului</string>
     <string name="title_advanced_contrast">Folosește contrast ridicat pentru text</string>
-    <string name="title_advanced_monospaced">Folosește fontul proporțional pentru textul mesajului</string>
-    <string name="title_advanced_text_color">Arată culori text</string>
-    <string name="title_advanced_text_size">Arată mărimile mici și mari de text</string>
-    <string name="title_advanced_text_align">Arată textele aliniate stânga/centru/dreapta</string>
     <string name="title_advanced_collapse_quotes">Restrânge textul citat</string>
     <string name="title_advanced_images_inline">Arată automat imaginile integrate</string>
     <string name="title_advanced_seekbar">Arată poziția relativă în conversație cu un punct</string>
@@ -767,7 +763,6 @@
     <string name="title_style_italic">Cursiv</string>
     <string name="title_style_underline">Subliniere</string>
     <string name="title_style_size">Mărime</string>
-    <string name="title_style_color">Culoare</string>
     <string name="title_style_clear">Elimină toate formatările</string>
     <string name="title_style_link">Inserare legătură</string>
     <string name="title_add_image">Adăugare imagine</string>
@@ -1033,8 +1028,6 @@
     <string name="title_legend_bold">Face textul aldin</string>
     <string name="title_legend_italic">Face textul cursiv</string>
     <string name="title_legend_underline">Subliniere text</string>
-    <string name="title_legend_text_size">Setare mărime text</string>
-    <string name="title_legend_text_color">Setare culoare text</string>
     <string name="title_legend_metered">Conexiunea este contorizată</string>
     <string name="title_legend_unmetered">Conexiunea este necontorizată</string>
     <string name="title_legend_roaming">Roaming</string>

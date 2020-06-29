@@ -300,10 +300,6 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_addresses">Cím részleteinek alapértelmezett megjelenítése</string>
     <string name="title_advanced_attachments_alt">Csatolmányok megjelenítése a szöveg után</string>
     <string name="title_advanced_contrast">Magas kontraszt használata az üzenetek szövegéhez</string>
-    <string name="title_advanced_monospaced">Monospace betűtípus használata az üzenetek szövegéhez</string>
-    <string name="title_advanced_text_color">Szöveg színek megjelenítése</string>
-    <string name="title_advanced_text_size">Kicsi és nagy szövegek megjelenítése</string>
-    <string name="title_advanced_text_align">Balra/középre/jobbra igazított szöveg megjelenítése</string>
     <string name="title_advanced_collapse_quotes">Idézett szöveg összecsukása</string>
     <string name="title_advanced_images_inline">Beágyazott képek automatikus megjelenitese</string>
     <string name="title_advanced_seekbar">Relatív beszélgetés-pozíció ponttal váló megjelenítése</string>
@@ -742,7 +738,6 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_style_italic">Dőlt</string>
     <string name="title_style_underline">Aláhúzott</string>
     <string name="title_style_size">Méret</string>
-    <string name="title_style_color">Szín</string>
     <string name="title_style_clear">Formázás törlése</string>
     <string name="title_style_link">Hivatkozás beillesztése</string>
     <string name="title_add_image">Kép hozzáadása</string>
@@ -1002,8 +997,6 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_legend_bold">Szöveg félkövérré változtatása</string>
     <string name="title_legend_italic">Szöveg dőltté változtatása</string>
     <string name="title_legend_underline">Szöveg aláhúzása</string>
-    <string name="title_legend_text_size">Szövegméret beállítása</string>
-    <string name="title_legend_text_color">Szövegszín beállítása</string>
     <string name="title_legend_metered">A kapcsolat mért</string>
     <string name="title_legend_unmetered">A kapcsolat nem mért</string>
     <string name="title_legend_roaming">Roaming</string>

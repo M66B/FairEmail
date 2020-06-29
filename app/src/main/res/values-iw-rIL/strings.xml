@@ -257,7 +257,7 @@
     <string name="title_ask_save">לשמור את השינויים?</string>
     <string name="title_submitter">נשלח מאת:</string>
     <string name="title_delivered_to">נמסר ל:</string>
-    <string name="title_from">מ:</string>
+    <string name="title_from">1546</string>
     <string name="title_to">אל:</string>
     <string name="title_sent">נשלח:</string>
     <string name="title_received">התקבל: </string>
@@ -277,7 +277,6 @@
     <string name="title_style_italic">נטוי</string>
     <string name="title_style_underline">קו תחתון</string>
     <string name="title_style_size">גודל</string>
-    <string name="title_style_color">צבע</string>
     <string name="title_style_link">הכנס קישור</string>
     <string name="title_add_image">הוסף תמונה</string>
     <string name="title_add_image_inline">הזן</string>

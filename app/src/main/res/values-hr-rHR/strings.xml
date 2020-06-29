@@ -277,9 +277,6 @@
     <string name="title_advanced_addresses">Prema zadanim postavkama prikazuje pojedinosti adrese</string>
     <string name="title_advanced_attachments_alt">Prikažite privitke nakon teksta poruke</string>
     <string name="title_advanced_contrast">Koristi visoki kontrast za tekst poruke</string>
-    <string name="title_advanced_monospaced">Upotrijebiti font u jednolikim razmjerima za tekst poruke</string>
-    <string name="title_advanced_text_color">Pokaži boje teksta</string>
-    <string name="title_advanced_text_size">Prikaži male i velike tekstove</string>
     <string name="title_advanced_collapse_quotes">Sažmi citirani tekst</string>
     <string name="title_advanced_images_inline">Automatski prikaz uključenih slika</string>
     <string name="title_advanced_seekbar">Prikaži relativni položaj razgovora s točkom</string>
@@ -665,7 +662,6 @@
     <string name="title_style_italic">Kurziv</string>
     <string name="title_style_underline">Naglasi</string>
     <string name="title_style_size">Veličina</string>
-    <string name="title_style_color">Boja</string>
     <string name="title_style_clear">Očisti sva oblikovanja</string>
     <string name="title_style_link">Umetni vezu</string>
     <string name="title_add_attachment">Dodaj prilog</string>
@@ -879,8 +875,6 @@
     <string name="title_legend_bold">Postavi tekst podebljano</string>
     <string name="title_legend_italic">Postavi tekst kurzivno</string>
     <string name="title_legend_underline">Podcrtaj tekst</string>
-    <string name="title_legend_text_size">Postavi veličinu teksta</string>
-    <string name="title_legend_text_color">Postavi boju teksta</string>
     <string name="title_legend_metered">Veza se mjeri</string>
     <string name="title_legend_unmetered">Veza se ne mjeri</string>
     <string name="title_legend_roaming">Roaming</string>

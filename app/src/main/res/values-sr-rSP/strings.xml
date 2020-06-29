@@ -246,8 +246,6 @@
     <string name="title_advanced_addresses">Подразумевано прикажи детаље адресе</string>
     <string name="title_advanced_attachments_alt">Прикажи прилоге после текста поруке</string>
     <string name="title_advanced_contrast">Користи јак контраст за текст поруке</string>
-    <string name="title_advanced_monospaced">Користи фонт фиксне ширине за текст поруке</string>
-    <string name="title_advanced_text_color">Прикажи боју текста</string>
     <string name="title_advanced_collapse_quotes">Сажми цитирани текст</string>
     <string name="title_advanced_images_inline">Аутоматски приказуј уметнуте слике</string>
     <string name="title_advanced_seekbar">Прикажи релативну позицију у разговору са тачком</string>
@@ -590,7 +588,6 @@
     <string name="title_style_italic">Курзив</string>
     <string name="title_style_underline">Подвучено</string>
     <string name="title_style_size">Величина</string>
-    <string name="title_style_color">Боја</string>
     <string name="title_style_clear">Очисти форматирање</string>
     <string name="title_style_link">Убаци везу</string>
     <string name="title_add_image">Додај слику</string>
@@ -820,8 +817,6 @@
     <string name="title_legend_bold">Подебљај текст</string>
     <string name="title_legend_italic">Закоси текст</string>
     <string name="title_legend_underline">Подвуци текст</string>
-    <string name="title_legend_text_size">Подеси величину текста</string>
-    <string name="title_legend_text_color">Подеси боју текста</string>
     <string name="title_legend_metered">Конекција мери потрошњу података</string>
     <string name="title_legend_unmetered">Конекција не мери потрошњу података</string>
     <string name="title_legend_roaming">Роминг</string>

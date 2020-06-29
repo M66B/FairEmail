@@ -307,9 +307,6 @@
     <string name="title_advanced_addresses">Privzeto prikaži podrobnosti naslova</string>
     <string name="title_advanced_attachments_alt">Prikaži priloge pod besedilom sporočila</string>
     <string name="title_advanced_contrast">Uporabi visoki kontrast za besedilo sporočila</string>
-    <string name="title_advanced_monospaced">Uporabi stalno širino za besedilo sporočila</string>
-    <string name="title_advanced_text_color">Prikaži barve besedila</string>
-    <string name="title_advanced_text_size">Prikaži majhna in velika besedila</string>
     <string name="title_advanced_collapse_quotes">Strni navedeno besedilo</string>
     <string name="title_advanced_images_inline">Samodejno prikaži slike v besedilu</string>
     <string name="title_advanced_seekbar">Prikaži relativni položaj pogovora s piko</string>
@@ -735,7 +732,6 @@
     <string name="title_style_italic">Ležeče</string>
     <string name="title_style_underline">Podčrtaj</string>
     <string name="title_style_size">Velikost</string>
-    <string name="title_style_color">Barva</string>
     <string name="title_style_clear">Počisti oblikovanje</string>
     <string name="title_style_link">Vstavi povezavo</string>
     <string name="title_add_image">Dodaj sliko</string>
@@ -990,8 +986,6 @@
     <string name="title_legend_bold">Naredi besedilo krepko</string>
     <string name="title_legend_italic">Naredi besedilo ležeče</string>
     <string name="title_legend_underline">Podčrtaj besedilo</string>
-    <string name="title_legend_text_size">Nastavi velikost besedila</string>
-    <string name="title_legend_text_color">Nastavi barvo besedila</string>
     <string name="title_legend_metered">Povezava je merjena</string>
     <string name="title_legend_unmetered">Povezava ni merjena.</string>
     <string name="title_legend_roaming">Gostovanje</string>

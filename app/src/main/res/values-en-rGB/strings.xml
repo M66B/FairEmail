@@ -12,7 +12,6 @@
     <string name="title_advanced_color_stripe">Show colour stripe</string>
     <string name="title_advanced_color_threshold">Threshold letter colour</string>
     <string name="title_advanced_flags_background">Show coloured background instead of coloured stars</string>
-    <string name="title_advanced_text_color">Show text colours</string>
     <string name="title_advanced_actionbar_color">Use account colour as background colour for conversation action bar</string>
     <string name="title_advanced_navbar_colorize">Colourise the Android navigation bar</string>
     <string name="title_advanced_notify_action_trash">Delete</string>
@@ -39,7 +38,6 @@
     <string name="title_folder_trash">Bin</string>
     <string name="title_flag_color">Coloured star &#8230;</string>
     <string name="title_trash">Delete</string>
-    <string name="title_style_color">Colour</string>
     <string name="title_legend_section_synchronize">Synchronise</string>
     <string name="title_legend_synchronize_on">Synchronise on</string>
     <string name="title_legend_synchronize_off">Synchronise off</string>
@@ -47,7 +45,6 @@
     <string name="title_legend_waiting">Waiting for next synchronisation</string>
     <string name="title_legend_trash">Bin</string>
     <string name="title_legend_sync_keep">Number of days to synchronise / to keep messages</string>
-    <string name="title_legend_text_color">Set text colour</string>
     <string name="title_legend_default_color">Default colour</string>
     <string name="title_legend_sync_state">Synchronisation state</string>
     <string name="title_legend_d">Delete</string>

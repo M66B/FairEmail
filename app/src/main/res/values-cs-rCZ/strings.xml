@@ -326,10 +326,11 @@
     <string name="title_advanced_addresses">Zobrazit detaily adresy automaticky</string>
     <string name="title_advanced_attachments_alt">Přesunout zobrazení příloh pod text zprávy</string>
     <string name="title_advanced_contrast">Použít vysoký kontrast pro text zprávy</string>
-    <string name="title_advanced_monospaced">Použít neproporcionální písmo pro text zprávy</string>
-    <string name="title_advanced_text_color">Zobrazit barvy textu</string>
-    <string name="title_advanced_text_size">Zobrazit malé a velké texty</string>
-    <string name="title_advanced_text_align">Zobrazit vlevo/na střed/vpravo zarovnané texty</string>
+    <string name="title_advanced_monospaced">Automaticky použít neproporcionální písmo pro text zprávy</string>
+    <string name="title_advanced_text_color">Použít barvy textu</string>
+    <string name="title_advanced_text_size">Použít velikost textu</string>
+    <string name="title_advanced_text_font">Použít fonty písma</string>
+    <string name="title_advanced_text_align">Použít zarovnání textu</string>
     <string name="title_advanced_collapse_quotes">Sbalit citovaný text</string>
     <string name="title_advanced_images_inline">Automaticky zobrazit vložené obrázky</string>
     <string name="title_advanced_seekbar">Zobrazit relativní pozici v konverzaci puntíkem</string>
@@ -782,7 +783,9 @@
     <string name="title_style_italic">Kurzíva</string>
     <string name="title_style_underline">Podtržení</string>
     <string name="title_style_size">Velikost</string>
-    <string name="title_style_color">Barva</string>
+    <string name="title_style_size_small">Malý</string>
+    <string name="title_style_size_medium">Střední</string>
+    <string name="title_style_size_large">Velký</string>
     <string name="title_style_clear">Vymazat formátování</string>
     <string name="title_style_link">Vložit odkaz</string>
     <string name="title_add_image">Přidat obrázek</string>
@@ -1048,8 +1051,6 @@
     <string name="title_legend_bold">Změnit text na tučný</string>
     <string name="title_legend_italic">Změnit text na kurzívu</string>
     <string name="title_legend_underline">Podtrhnout text</string>
-    <string name="title_legend_text_size">Nastavit velikost textu</string>
-    <string name="title_legend_text_color">Nastavit barvu textu</string>
     <string name="title_legend_metered">Současné připojení je účtováno</string>
     <string name="title_legend_unmetered">Současné připojení není účtováno</string>
     <string name="title_legend_roaming">Roaming</string>

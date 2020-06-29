@@ -278,10 +278,6 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_addresses">デフォルトでアドレスの詳細を表示</string>
     <string name="title_advanced_attachments_alt">メッセージテキストの後に添付ファイルを表示</string>
     <string name="title_advanced_contrast">メッセージテキストにハイコントラストを使用</string>
-    <string name="title_advanced_monospaced">メッセージテキストに等幅フォントを使用</string>
-    <string name="title_advanced_text_color">テキストの色を表示</string>
-    <string name="title_advanced_text_size">大小のテキストを表示</string>
-    <string name="title_advanced_text_align">左/中央/右揃えのテキストを表示</string>
     <string name="title_advanced_collapse_quotes">引用テキストを折りたたむ</string>
     <string name="title_advanced_images_inline">インライン画像を自動的に表示</string>
     <string name="title_advanced_seekbar">ドットで相対的な会話の位置を表示</string>
@@ -716,7 +712,6 @@ PlayストアでFairEmailを評価できれば幸いです。
     <string name="title_style_italic">斜体</string>
     <string name="title_style_underline">下線</string>
     <string name="title_style_size">サイズ</string>
-    <string name="title_style_color">カラー</string>
     <string name="title_style_clear">書式をクリア</string>
     <string name="title_style_link">リンクを挿入</string>
     <string name="title_add_image">画像を追加</string>
@@ -975,8 +970,6 @@ PlayストアでFairEmailを評価できれば幸いです。
     <string name="title_legend_bold">テキストを太字にする</string>
     <string name="title_legend_italic">テキストを斜体にする</string>
     <string name="title_legend_underline">テキストに下線を引く</string>
-    <string name="title_legend_text_size">文字サイズを設定する</string>
-    <string name="title_legend_text_color">テキストの色を設定する</string>
     <string name="title_legend_metered">接続が計測されます</string>
     <string name="title_legend_unmetered">接続は未測定です</string>
     <string name="title_legend_roaming">ローミング</string>

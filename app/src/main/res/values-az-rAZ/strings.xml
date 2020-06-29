@@ -172,7 +172,6 @@
     <string name="title_advanced_preview">Mesaj ilkin baxışını göstər</string>
     <string name="title_advanced_addresses">Ünvan təfsilatlarını ilkin olaraq göstər</string>
     <string name="title_advanced_attachments_alt">Mesaj mətnindən sonra qoşmaları göstər</string>
-    <string name="title_advanced_monospaced">Mesaj mətni üçün tək boşluqlu yazı növü istifadə et</string>
     <string name="title_advanced_pull_refresh">Təzələmək üçün aşağı çəkin</string>
     <string name="title_advanced_autoscroll">Yeni mesajları almaq üçün yuxarı sürüşdür</string>
     <string name="title_advanced_swipenav">Sonrakı/əvvəlki danışığa getmək üçün sola/sağa sürüşdürün</string>
