@@ -13,6 +13,7 @@ import android.text.style.StyleSpan;
 import android.text.style.TypefaceSpan;
 import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -92,6 +93,11 @@ public class StyleHelper {
 
                     PopupMenu popupMenu = new PopupMenu(anchor.getContext(), anchor);
                     popupMenu.inflate(R.menu.popup_style);
+
+                    String[] fontNames = anchor.getResources().getStringArray(R.array.fontNameNames);
+                    for (int i = 0; i < fontNames.length; i++)
+                        popupMenu.getMenu().add(R.id.group_style_font, i, Menu.NONE, fontNames[i]);
+                    popupMenu.getMenu().add(R.id.group_style_font, fontNames.length, Menu.NONE, R.string.title_style_font_default);
 
                     popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                         @Override
@@ -189,23 +195,9 @@ public class StyleHelper {
                             for (TypefaceSpan span : spans)
                                 t.removeSpan(span);
 
-                            String face;
-                            switch (item.getItemId()) {
-                                case R.id.menu_style_font_cursive:
-                                    face = "cursive";
-                                    break;
-                                case R.id.menu_style_font_serif:
-                                    face = "serif";
-                                    break;
-                                case R.id.menu_style_font_sans_serif:
-                                    face = "sans-serif";
-                                    break;
-                                case R.id.menu_style_font_monospace:
-                                    face = "monospace";
-                                    break;
-                                default:
-                                    face = null;
-                            }
+                            int id = item.getItemId();
+                            String[] names = anchor.getResources().getStringArray(R.array.fontNameValues);
+                            String face = (id < names.length ? names[id] : null);
 
                             if (face != null)
                                 t.setSpan(new TypefaceSpan(face), s, e, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
