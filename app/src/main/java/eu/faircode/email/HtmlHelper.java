@@ -61,6 +61,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.util.PatternsCompat;
 import androidx.preference.PreferenceManager;
@@ -1993,7 +1994,11 @@ public class HtmlHelper {
                                     break;
                                 case "font-family":
                                     String face = value.toLowerCase(Locale.ROOT);
-                                    ssb.setSpan(new TypefaceSpan(face), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                    if (BuildConfig.DEBUG && "fantasy".equals(face)) {
+                                        Typeface typeface = ResourcesCompat.getFont(context, R.font.fantasy);
+                                        ssb.setSpan(new CustomTypefaceSpan(face, typeface), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                    } else
+                                        ssb.setSpan(new TypefaceSpan(face), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                     break;
                                 case "text-decoration":
                                     if ("line-through".equals(value))
@@ -2332,6 +2337,36 @@ public class HtmlHelper {
             canvas.drawLine(0, ypos, canvas.getWidth(), ypos, paint);
             paint.setColor(c);
             paint.setStrokeWidth(s);
+        }
+    }
+
+    public static class CustomTypefaceSpan extends TypefaceSpan {
+        private final Typeface newType;
+
+        public CustomTypefaceSpan(String family, Typeface type) {
+            super(family);
+            newType = type;
+        }
+
+        @Override
+        public void updateDrawState(TextPaint ds) {
+            applyCustomTypeFace(ds, newType);
+        }
+
+        @Override
+        public void updateMeasureState(TextPaint paint) {
+            applyCustomTypeFace(paint, newType);
+        }
+
+        private static void applyCustomTypeFace(Paint paint, Typeface tf) {
+            Typeface old = paint.getTypeface();
+            int oldStyle = (old == null ? 0 : old.getStyle());
+            int fake = oldStyle & ~tf.getStyle();
+            if ((fake & Typeface.BOLD) != 0)
+                paint.setFakeBoldText(true);
+            if ((fake & Typeface.ITALIC) != 0)
+                paint.setTextSkewX(-0.25f);
+            paint.setTypeface(tf);
         }
     }
 }
