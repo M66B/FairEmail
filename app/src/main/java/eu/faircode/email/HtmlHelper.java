@@ -561,10 +561,13 @@ public class HtmlHelper {
                                 if (!text_color)
                                     continue;
 
-                                Integer color = parseColor(value, dark, textColorPrimary);
+                                Integer color = parseColor(value);
                                 if (color == null)
                                     element.removeAttr("color");
                                 else {
+                                    if (view)
+                                        color = adjustColor(dark, textColorPrimary, color);
+
                                     // fromHtml does not support transparency
                                     String c = String.format("#%06x", color);
                                     sb.append("color:").append(c).append(";");
@@ -1211,7 +1214,7 @@ public class HtmlHelper {
         }
     }
 
-    private static Integer parseColor(@NonNull String value, boolean dark, int textColorPrimary) {
+    private static Integer parseColor(@NonNull String value) {
         // https://developer.mozilla.org/en-US/docs/Web/CSS/color_value
         String c = value
                 .replace("null", "")
@@ -1280,19 +1283,19 @@ public class HtmlHelper {
             Log.i("Color=" + c + ": " + ex);
         }
 
-        if (color != null) {
-            int r = Color.red(color);
-            int g = Color.green(color);
-            int b = Color.blue(color);
-            if (r == g && r == b && (dark ? 255 - r : r) < GRAY_THRESHOLD)
-                color = textColorPrimary;
-            else
-                color = Helper.adjustLuminance(color, dark, MIN_LUMINANCE);
-
-            color &= 0xFFFFFF;
-        }
-
         return color;
+    }
+
+    private static Integer adjustColor(boolean dark, int textColorPrimary, Integer color) {
+        int r = Color.red(color);
+        int g = Color.green(color);
+        int b = Color.blue(color);
+        if (r == g && r == b && (dark ? 255 - r : r) < GRAY_THRESHOLD)
+            color = textColorPrimary;
+        else
+            color = Helper.adjustLuminance(color, dark, MIN_LUMINANCE);
+
+        return (color & 0xFFFFFF);
     }
 
     private static boolean hasVisibleContent(List<Node> nodes) {
