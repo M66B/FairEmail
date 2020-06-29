@@ -315,7 +315,7 @@ public class ViewModelMessages extends ViewModel {
                                     TupleMessageEx prev = (lprev != null && lprev.size() > 0 ? lprev.get(0) : null);
                                     TupleMessageEx next = (lnext != null && lnext.size() > 0 ? lnext.get(0) : null);
 
-                                    Pair result = new Pair<>(
+                                    Pair<Long, Long> result = new Pair<>(
                                             prev == null ? null : prev.id,
                                             next == null ? null : next.id);
                                     Log.i("Observe previous/next fallback=" + result);
