@@ -106,8 +106,8 @@
 
             <ImageButton
                 android:id="@+id/ibInbox"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
                 android:layout_marginEnd="6dp"
                 android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/title_folder_inbox"
