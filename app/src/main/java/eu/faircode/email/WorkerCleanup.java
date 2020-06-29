@@ -19,9 +19,13 @@ package eu.faircode.email;
     Copyright 2018-2020 by Marcel Bokhorst (M66B)
 */
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.os.Build;
+import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
@@ -121,6 +125,30 @@ public class WorkerCleanup extends Worker {
 
                 // Contact info cache
                 ContactInfo.clearCache();
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    Log.i("Checking notification channels");
+                    NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+                    for (NotificationChannel channel : nm.getNotificationChannels()) {
+                        String cid = channel.getId();
+                        Log.i("Notification channel id=" + cid + " name=" + channel.getName());
+                        String[] parts = cid.split("\\.");
+                        if (parts.length > 1 && "notification".equals(parts[0]))
+                            if (parts.length == 2 && TextUtils.isDigitsOnly(parts[1])) {
+                                long id = Integer.parseInt(parts[1]);
+                                EntityAccount account = db.account().getAccount(id);
+                                Log.i("Notification channel id=" + cid + " account=" + (account == null ? null : account.id));
+                                if (account == null)
+                                    nm.deleteNotificationChannel(cid);
+                            } else if (parts.length == 3 && TextUtils.isDigitsOnly(parts[2])) {
+                                long id = Integer.parseInt(parts[2]);
+                                EntityFolder folder = db.folder().getFolder(id);
+                                Log.i("Notification channel id=" + cid + " folder=" + (folder == null ? null : folder.id));
+                                if (folder == null)
+                                    nm.deleteNotificationChannel(cid);
+                            }
+                    }
+                }
             }
 
             long now = new Date().getTime();
