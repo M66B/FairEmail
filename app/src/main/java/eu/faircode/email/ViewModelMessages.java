@@ -255,6 +255,7 @@ public class ViewModelMessages extends ViewModel {
 
         Log.d("Observe previous/next id=" + id);
         model.list.observe(owner, new Observer<PagedList<TupleMessageEx>>() {
+            private boolean fallback = false;
 
             @Override
             public void onChanged(PagedList<TupleMessageEx> messages) {
@@ -282,6 +283,11 @@ public class ViewModelMessages extends ViewModel {
                 }
 
                 Log.w("Observe previous/next gone id=" + id);
+
+                if (fallback)
+                    return;
+
+                fallback = true;
 
                 Bundle args = new Bundle();
                 args.putLong("id", id);
