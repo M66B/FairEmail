@@ -99,8 +99,8 @@
             starttls="false" />
         <oauth
             authorizationEndpoint="https://api.login.yahoo.com/oauth2/request_auth"
-            clientId="dj0yJmk9eDZYbnFSMkVtMEdMJmQ9WVdrOVdXOUZabXBwTnpnbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmc3Y9MCZ4PWJm"
-            clientSecret="927650c8ce98b653d7f88d0398a192dc44cedcd2"
+            clientId="dj0yJmk9MUFMR2dpdnllTHdZJmQ9WVdrOWRraFJNVGwwTkcwbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmc3Y9MCZ4PWFl"
+            clientSecret="054ceb7cc001a322126dd51b3399785604543f83"
             enabled="false"
             redirectUri="https://oauth.faircode.eu/"
             scopes="mail-w"
