@@ -522,13 +522,17 @@ public class FragmentCompose extends FragmentBase {
                             int f = ssb.getSpanFlags(span);
                             Log.i("Style span " + s + "..." + e + " start=" + start);
 
-                            CharacterStyle s1 = CharacterStyle.wrap(span);
-                            ssb.setSpan(s1, s, start, f);
-                            Log.i("Style span " + s + "..." + start);
+                            if (s <= start) {
+                                CharacterStyle s1 = CharacterStyle.wrap(span);
+                                ssb.setSpan(s1, s, start, f);
+                                Log.i("Style span " + s + "..." + start);
+                            }
 
-                            CharacterStyle s2 = CharacterStyle.wrap(span);
-                            ssb.setSpan(s2, start + 1, e, f);
-                            Log.i("Style span " + (start + 1) + "..." + e);
+                            if (start + 1 <= e) {
+                                CharacterStyle s2 = CharacterStyle.wrap(span);
+                                ssb.setSpan(s2, start + 1, e, f);
+                                Log.i("Style span " + (start + 1) + "..." + e);
+                            }
 
                             ssb.removeSpan(span);
                         }
