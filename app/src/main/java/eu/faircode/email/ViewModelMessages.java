@@ -195,11 +195,7 @@ public class ViewModelMessages extends ViewModel {
         owner.getLifecycle().addObserver(new LifecycleObserver() {
             @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
             public void onDestroyed() {
-                int free_mb = Log.getFreeMemMb();
-                boolean lowmem = (free_mb < LOW_MEM_MB);
-
-                Log.d("Destroy model=" + viewType +
-                        " lowmem=" + lowmem + " free=" + free_mb + " MB");
+                Log.d("Destroy model=" + viewType);
 
                 Model model = models.get(viewType);
                 if (model != null) {
@@ -207,7 +203,7 @@ public class ViewModelMessages extends ViewModel {
                     model.list.removeObservers(owner);
                 }
 
-                if (viewType == AdapterMessage.ViewType.THREAD || lowmem) {
+                if (viewType == AdapterMessage.ViewType.THREAD) {
                     Log.d("Remove model=" + viewType);
                     models.remove(viewType);
                 }
