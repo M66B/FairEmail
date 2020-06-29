@@ -464,14 +464,44 @@ public class ServiceUI extends IntentService {
                 }
             } else {
                 if (folder.notify) {
+                    List<EntityAttachment> attachments = db.attachment().getAttachments(id);
+
                     // A new message ID is needed for a new (wearable) notification
                     db.message().deleteMessage(id);
+
                     message.id = null;
                     message.fts = false;
                     message.id = db.message().insertMessage(message);
-                    if (message.content)
-                        EntityMessage.getFile(this, id)
-                                .renameTo(message.getFile(this));
+
+                    if (message.content) {
+                        File source = EntityMessage.getFile(this, id);
+                        File target = message.getFile(this);
+                        try {
+                            Helper.copy(source, target);
+                        } catch (IOException ex) {
+                            Log.e(ex);
+                            db.message().resetMessageContent(message.id);
+                        }
+                    }
+
+                    for (EntityAttachment attachment : attachments) {
+                        File source = attachment.getFile(this);
+
+                        attachment.id = null;
+                        attachment.message = message.id;
+                        attachment.progress = null;
+                        attachment.id = db.attachment().insertAttachment(attachment);
+
+                        if (attachment.available) {
+                            File target = attachment.getFile(this);
+                            try {
+                                Helper.copy(source, target);
+                            } catch (IOException ex) {
+                                Log.e(ex);
+                                db.attachment().setError(attachment.id, Log.formatThrowable(ex, false));
+                            }
+                        }
+                    }
                 }
                 db.message().setMessageSnoozed(message.id, null);
                 db.message().setMessageUnsnoozed(message.id, true);
