@@ -113,6 +113,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swCollapseQuotes;
     private SwitchCompat swImagesInline;
     private SwitchCompat swAttachmentsAlt;
+    private SwitchCompat swThumbnails;
 
     private SwitchCompat swParseClasses;
     private SwitchCompat swAuthentication;
@@ -128,7 +129,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "preview", "preview_italic", "preview_lines",
             "addresses",
             "contrast", "monospaced", "text_color", "text_size", "text_font", "text_align",
-            "inline_images", "collapse_quotes", "attachments_alt",
+            "inline_images", "collapse_quotes", "attachments_alt", "thumbnails",
             "parse_classes", "authentication"
     };
 
@@ -198,6 +199,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swCollapseQuotes = view.findViewById(R.id.swCollapseQuotes);
         swImagesInline = view.findViewById(R.id.swImagesInline);
         swAttachmentsAlt = view.findViewById(R.id.swAttachmentsAlt);
+        swThumbnails = view.findViewById(R.id.swThumbnails);
         swParseClasses = view.findViewById(R.id.swParseClasses);
         swAuthentication = view.findViewById(R.id.swAuthentication);
 
@@ -652,6 +654,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
+        swThumbnails.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("thumbnails", checked).apply();
+            }
+        });
+
         swParseClasses.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -812,6 +821,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swCollapseQuotes.setChecked(prefs.getBoolean("collapse_quotes", false));
         swImagesInline.setChecked(prefs.getBoolean("inline_images", false));
         swAttachmentsAlt.setChecked(prefs.getBoolean("attachments_alt", false));
+        swThumbnails.setChecked(prefs.getBoolean("thumbnails", true));
 
         swParseClasses.setChecked(prefs.getBoolean("parse_classes", false));
         swAuthentication.setChecked(prefs.getBoolean("authentication", true));

@@ -902,6 +902,18 @@
             app:layout_constraintTop_toBottomOf="@id/tvImagesInlineHint"
             app:switchPadding="12dp" />
 
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swThumbnails"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:enabled="true"
+            android:text="@string/title_advanced_thumbnails"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swAttachmentsAlt"
+            app:switchPadding="12dp" />
+
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvAdvanced"
             android:layout_width="0dp"
@@ -912,7 +924,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swAttachmentsAlt" />
+            app:layout_constraintTop_toBottomOf="@id/swThumbnails" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swParseClasses"
