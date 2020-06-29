@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:id="@+id/group_style_size">
+        <item
+            android:id="@+id/menu_style_size_small"
+            android:title="@string/title_style_size_small" />
+
+        <item
+            android:id="@+id/menu_style_size_medium"
+            android:title="@string/title_style_size_medium" />
+
+        <item
+            android:id="@+id/menu_style_size_large"
+            android:title="@string/title_style_size_large" />
+    </group>
+
+    <group android:id="@+id/group_style_color">
+        <item
+            android:id="@+id/menu_style_color"
+            android:title="@string/title_style_color" />
+    </group>
+
+    <group android:id="@+id/group_style_font">
+        <item
+            android:id="@+id/menu_style_font_cursive"
+            android:title="@string/title_style_font_cursive" />
+        <item
+            android:id="@+id/menu_style_font_serif"
+            android:title="@string/title_style_font_serif" />
+        <item
+            android:id="@+id/menu_style_font_sans_serif"
+            android:title="@string/title_style_font_sans_serif" />
+        <item
+            android:id="@+id/menu_style_font_monospace"
+            android:title="@string/title_style_font_monospace" />
+        <item
+            android:id="@+id/menu_style_font_default"
+            android:title="@string/title_style_font_default" />
+    </group>
+
+    <group android:id="@+id/group_style_clear">
+        <item
+            android:id="@+id/menu_style_clear"
+            android:title="@string/title_style_clear" />
+    </group>
+</menu>

@@ -90,32 +90,20 @@ public class StyleHelper {
                     final int e = end;
                     final SpannableString t = ss;
 
-                    int order = 1;
                     PopupMenu popupMenu = new PopupMenu(anchor.getContext(), anchor);
-                    popupMenu.getMenu().add(0, R.string.title_style_size_small, order++, R.string.title_style_size_small);
-                    popupMenu.getMenu().add(0, R.string.title_style_size_medium, order++, R.string.title_style_size_medium);
-                    popupMenu.getMenu().add(0, R.string.title_style_size_large, order++, R.string.title_style_size_large);
-
-                    popupMenu.getMenu().add(1, R.string.title_style_color, order++, R.string.title_style_color);
-
-                    popupMenu.getMenu().add(2, R.string.title_style_font_cursive, order++, R.string.title_style_font_cursive);
-                    popupMenu.getMenu().add(2, R.string.title_style_font_serif, order++, R.string.title_style_font_serif);
-                    popupMenu.getMenu().add(2, R.string.title_style_font_sans_serif, order++, R.string.title_style_font_sans_serif);
-                    popupMenu.getMenu().add(2, R.string.title_style_font_monospace, order++, R.string.title_style_font_monospace);
-
-                    popupMenu.getMenu().add(3, R.string.title_style_clear, order++, R.string.title_style_clear);
+                    popupMenu.inflate(R.menu.popup_style);
 
                     popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                         @Override
                         public boolean onMenuItemClick(MenuItem item) {
                             switch (item.getGroupId()) {
-                                case 0:
+                                case R.id.group_style_size:
                                     return setSize(item);
-                                case 1:
+                                case R.id.group_style_color:
                                     return setColor(item);
-                                case 2:
+                                case R.id.group_style_font:
                                     return setFont(item);
-                                case 3:
+                                case R.id.group_style_clear:
                                     return clear(item);
                                 default:
                                     return false;
@@ -128,9 +116,9 @@ public class StyleHelper {
                                 t.removeSpan(span);
 
                             Float size;
-                            if (item.getItemId() == R.string.title_style_size_small)
+                            if (item.getItemId() == R.id.menu_style_size_small)
                                 size = 0.8f;
-                            else if (item.getItemId() == R.string.title_style_size_large)
+                            else if (item.getItemId() == R.id.menu_style_size_large)
                                 size = 1.25f;
                             else
                                 size = null;
@@ -203,16 +191,16 @@ public class StyleHelper {
 
                             String face;
                             switch (item.getItemId()) {
-                                case R.string.title_style_font_cursive:
+                                case R.id.menu_style_font_cursive:
                                     face = "cursive";
                                     break;
-                                case R.string.title_style_font_serif:
+                                case R.id.menu_style_font_serif:
                                     face = "serif";
                                     break;
-                                case R.string.title_style_font_sans_serif:
+                                case R.id.menu_style_font_sans_serif:
                                     face = "sans-serif";
                                     break;
-                                case R.string.title_style_font_monospace:
+                                case R.id.menu_style_font_monospace:
                                     face = "monospace";
                                     break;
                                 default:
