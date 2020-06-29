@@ -143,8 +143,6 @@ public class EntityAttachment {
         for (EntityAttachment attachment : attachments) {
             File source = attachment.getFile(context);
 
-            long aid = attachment.id;
-
             attachment.id = null;
             attachment.message = newid;
             attachment.progress = null;
@@ -156,7 +154,6 @@ public class EntityAttachment {
                     Helper.copy(source, target);
                 } catch (IOException ex) {
                     Log.e(ex);
-                    db.attachment().setError(aid, Log.formatThrowable(ex, false));
                     db.attachment().setError(attachment.id, Log.formatThrowable(ex, false));
                 }
             }
