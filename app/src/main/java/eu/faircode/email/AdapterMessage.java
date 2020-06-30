@@ -4967,12 +4967,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         boolean contacts = Helper.hasPermission(context, Manifest.permission.READ_CONTACTS);
         boolean avatars = prefs.getBoolean("avatars", true);
+        boolean gravatars = prefs.getBoolean("gravatars", false);
+        boolean favicons = prefs.getBoolean("favicons", false);
         boolean generated = prefs.getBoolean("generated_icons", true);
 
         this.date = prefs.getBoolean("date", true);
         this.threading = prefs.getBoolean("threading", true);
         this.threading_unread = threading && prefs.getBoolean("threading_unread", false);
-        this.avatars = (contacts && avatars) || generated;
+        this.avatars = (contacts && avatars) || (gravatars || favicons || generated);
         this.color_stripe = prefs.getBoolean("color_stripe", true);
         this.name_email = prefs.getBoolean("name_email", false);
         this.prefer_contact = prefs.getBoolean("prefer_contact", false);
