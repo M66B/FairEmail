@@ -779,6 +779,7 @@
     <string name="title_send_encryption">Šifrování</string>
     <string name="title_send_priority">Priorita</string>
     <string name="title_no_server">Nenalezen žádný server na \'%1$s\'</string>
+    <string name="title_style">Styl</string>
     <string name="title_style_bold">Tučně</string>
     <string name="title_style_italic">Kurzíva</string>
     <string name="title_style_underline">Podtržení</string>
@@ -786,6 +787,9 @@
     <string name="title_style_size_small">Malý</string>
     <string name="title_style_size_medium">Střední</string>
     <string name="title_style_size_large">Velký</string>
+    <string name="title_style_font">Písmo</string>
+    <string name="title_style_font_default">Výchozí</string>
+    <string name="title_style_color">Barva &#8230;</string>
     <string name="title_style_clear">Vymazat formátování</string>
     <string name="title_style_link">Vložit odkaz</string>
     <string name="title_add_image">Přidat obrázek</string>
@@ -1051,6 +1055,7 @@
     <string name="title_legend_bold">Změnit text na tučný</string>
     <string name="title_legend_italic">Změnit text na kurzívu</string>
     <string name="title_legend_underline">Podtrhnout text</string>
+    <string name="title_legend_text_style">Nastavit styl textu</string>
     <string name="title_legend_metered">Současné připojení je účtováno</string>
     <string name="title_legend_unmetered">Současné připojení není účtováno</string>
     <string name="title_legend_roaming">Roaming</string>
@@ -1331,5 +1336,11 @@
         <item>10 MB</item>
         <item>20 MB</item>
         <item>50 MB</item>
+    </string-array>
+    <string-array name="fontNameNames">
+        <item>Kurzíva</item>
+        <item>Patkové</item>
+        <item>Bezpatkové</item>
+        <item>Neproporcionální</item>
     </string-array>
 </resources>

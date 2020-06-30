@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">جستجوی FairEmail</string>
-    <string name="app_changelog">گذارش دگرگونی</string>
+    <string name="app_changelog">گزارش دگرگونی</string>
     <string name="app_welcome">FairEmail یک برنامه منبع باز بوده که تمرکز آن بر روی امنیت و حفظ حریم خصوصی است. بنابر دلایلی ممکن است برخی ویژگی‌ها بسته به نوع استفاده شما متفاوت باشند.</string>
     <string name="app_limitations">برای مثال پیام‌ها همواره برای حذف عناصر ناامن و بهبود خوانایی متن شکل‌ بندی خواهند شد و باز کردن لینک‌ها نیز برای ایمنی بیشتر نیاز به تایید دارد.</string>
     <string name="app_crash">FairEmail در دستگاه شما پشتیبانی نمی‌شود، چون به دلیل وجود اشکالاتی در اندروید موجب خرابی برنامه می‌شود</string>
     <string name="app_exit">برای خروج دوباره روی \'بازگشت\' کلیک کنید</string>
+    <string name="channel_service">دریافت</string>
     <string name="channel_send">ارسال</string>
     <string name="channel_notification">اعلان‌ها</string>
     <string name="channel_update">به‌روزرسانی‌ها</string>
@@ -76,6 +77,7 @@
     <string name="title_notification_idle">بیکار</string>
     <string name="title_notification_failed">\'%1$s\' انجام نشد</string>
     <string name="title_notification_alert">\'%1$s\' هشدار سرور</string>
+    <string name="title_notification_sending_failed">ارسال به %1$s ناموفق بود</string>
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
@@ -208,6 +210,7 @@
     <string name="title_advanced_section_encryption">رمزنگاری</string>
     <string name="title_advanced_section_notifications">اعلان‌ها</string>
     <string name="title_advanced_section_misc">متفرقه</string>
+    <string name="title_advanced_receive">دریافت پیام‌ها برای همه حساب‌ها</string>
     <string name="title_advanced_when">وقتی‌که</string>
     <string name="title_advanced_schedule">زمان بندی</string>
     <string name="title_advanced_advanced">پیشرفته</string>
@@ -287,6 +290,7 @@
     <string name="title_advanced_double_back">برای خروج دوبار \'بازگشت\' را بزنید</string>
     <string name="title_advanced_pull_refresh">برای بروزرسانی به پایین بکشید</string>
     <string name="title_advanced_swipenav">کشیدن به چپ/راست برای رفتن به مکالمه بعدی/قبلی</string>
+    <string name="title_advanced_volumenav">بالا/پایین بردن صدا برای رفتن به گفتگوی بعدی/قبلی</string>
     <string name="title_advanced_autoexpand">بسط دادن خودکار پیام‌ها</string>
     <string name="title_advanced_autoclose">بستن خودکار مکالمات</string>
     <string name="title_advanced_onclose">هنگام بستن یک گفتگو</string>
@@ -297,6 +301,7 @@
     <string name="title_advanced_notifications_default">کانال پیشفرض</string>
     <string name="title_advanced_notifications_service">کانال سرویس</string>
     <string name="title_advanced_notifications_background">استفاده از سرویس پس‌زمینه برای همگام‌سازی پیام‌ها</string>
+    <string name="title_advanced_notifications_background_hint">یک سرویس پس‌زمینه می‌تواند هر هنگام توسط اندروید متوقف شود، ولی نیاز به اعلان نوار وضعیت ندارد</string>
     <string name="title_advanced_badge">نمایش عدد پیام‌های جدید با آیکون راه‌انداز</string>
     <string name="title_advanced_notify_known">اعلان‌ها را تنها برای مخاطبین نمایش بده</string>
     <string name="title_advanced_notify_summary">تنها چکیده اعلان را نمایش بده</string>
@@ -620,10 +625,17 @@
     <string name="title_send_encryption">رمزنگاری</string>
     <string name="title_send_priority">اولويت</string>
     <string name="title_no_server">هیچ سروری در \'%1$s\' یافت نشد</string>
+    <string name="title_style">سبک</string>
     <string name="title_style_bold">درشت</string>
     <string name="title_style_italic">مورب</string>
     <string name="title_style_underline">خط زیر</string>
     <string name="title_style_size">اندازه</string>
+    <string name="title_style_size_small">کوچک</string>
+    <string name="title_style_size_medium">متوسط</string>
+    <string name="title_style_size_large">بزرگ</string>
+    <string name="title_style_font">فونت</string>
+    <string name="title_style_font_default">پیش‌فرض</string>
+    <string name="title_style_color">رنگ &#8230;</string>
     <string name="title_style_clear">پاک کردن شکل‌بندی</string>
     <string name="title_style_link">درج لینک</string>
     <string name="title_add_image">افزودن تصویر</string>
@@ -672,7 +684,7 @@
     <string name="title_resync">همگام‌سازی دوباره</string>
     <string name="title_no_openpgp">OpenKeychain یافت نشد</string>
     <string name="title_user_interaction">در حال انتقال به OpenKeychain</string>
-    <string name="title_not_encrypted">پیام امضا یا رمزنگاری نشده</string>
+    <string name="title_not_encrypted">پیام امضا یا رمزگذاری نشده است</string>
     <string name="title_no_sign_key">کلید امضائی انتخاب نشده</string>
     <string name="title_reset_sign_key">بازنشانی کلید امضا</string>
     <string name="title_signature_none">پیام امضا نشده</string>
@@ -703,7 +715,7 @@
     <string name="title_search_with_unseen">خوانده نشده</string>
     <string name="title_search_with_flagged">ستاره‌دار</string>
     <string name="title_search_with_hidden">پنهان (فقط روی دستگاه)</string>
-    <string name="title_search_with_encrypted">رمزنگاری‌شده(فقط روی دستگاه)</string>
+    <string name="title_search_with_encrypted">رمزگذاری شده(فقط روی دستگاه)</string>
     <string name="title_search_with_attachments">همراه پیوست‌ها (فقط روی دستگاه)</string>
     <string name="title_search_with_size">اندازه پیام بزرگ‌تر از</string>
     <string name="title_search_with_before">قبل از</string>
@@ -711,7 +723,7 @@
     <string name="title_search_flag_unseen">خوانده نشده</string>
     <string name="title_search_flag_flagged">ستاره دار</string>
     <string name="title_search_flag_hidden">پنهان</string>
-    <string name="title_search_flag_encrypted">رمزنگاری شده</string>
+    <string name="title_search_flag_encrypted">رمزگذاری شده</string>
     <string name="title_search_flag_attachments">پیوست‎ها</string>
     <string name="title_search_flag_invite">دعوت</string>
     <string name="title_search_flag_size">اندازه &gt; %1$s</string>
@@ -840,7 +852,7 @@
     <string name="title_legend_importance">مهم</string>
     <string name="title_legend_importance_low">مهم نیست</string>
     <string name="title_legend_signed">امضا شده</string>
-    <string name="title_legend_encrypted">رمزنگاری شده</string>
+    <string name="title_legend_encrypted">رمزگذاری شده است</string>
     <string name="title_legend_auth">تأیید اعتبار ناموفق بود</string>
     <string name="title_legend_found">یافت شد</string>
     <string name="title_legend_snoozed">موقتا در حالت تعلیق است</string>
@@ -906,8 +918,8 @@
     <string name="title_hint_sync">دریافت پیامها می تواند زمانی بسته به سرعت سرویس دهنده، اتصال به اینترنت، دستگاه و تعداد پیام‌ها طول بکشد. هنگام دریافت پیامها ممکن است عملکرد برنامه کند شود.</string>
     <string name="title_hint_contact_actions">لمس طولانی برای گزینه‌ها</string>
     <string name="title_open_link">بازکردن لینک</string>
-    <string name="title_link_http">ترافیک رمزنگاری شده نخواهد بود</string>
-    <string name="title_link_https">ترافیک رمزنگاری شده خواهد بود</string>
+    <string name="title_link_http">ترافیک رمزگذاری نخواهد شد</string>
+    <string name="title_link_https">ترافیک رمزگذاری خواهد شد</string>
     <string name="title_sanitize_link">حذف پارامترهای ردیاب</string>
     <string name="title_insecure_link">این پیوند نا‌امن می‌باشد</string>
     <string name="title_check_owner">بررسی مالک</string>

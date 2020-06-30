@@ -302,6 +302,7 @@
     <string name="title_advanced_preview_lines">Aantal lijnen voorbeeld</string>
     <string name="title_advanced_addresses">Adresgegevens standaard weergeven</string>
     <string name="title_advanced_attachments_alt">Bijlagen weergeven na de berichttekst</string>
+    <string name="title_advanced_thumbnails">Afbeeldingsminiaturen weergeven na de berichttekst</string>
     <string name="title_advanced_contrast">Gebruik hoge contrast voor berichttekst</string>
     <string name="title_advanced_monospaced">Gebruik standaard vaste breedte lettertype voor berichttekst</string>
     <string name="title_advanced_text_color">Gebruik tekstkleuren</string>
@@ -511,6 +512,7 @@
     <string name="title_primary">Primair</string>
     <string name="title_primary_account">Primair account (standaard account)</string>
     <string name="title_primary_identity">Primaire identiteit (standaard identiteit)</string>
+    <string name="title_self_identity">Verwijder e-mailadres bij antwoorden</string>
     <string name="title_leave_on_server">Laat berichten achter op de server</string>
     <string name="title_leave_deleted">Laat verwijderde berichten achter op de server</string>
     <string name="title_leave_on_device">Laat berichten achter op apparaat</string>
@@ -765,10 +767,6 @@
     <string name="title_style_size_medium">Middelgroot</string>
     <string name="title_style_size_large">Groot</string>
     <string name="title_style_font">Lettertype</string>
-    <string name="title_style_font_cursive">Schrijfletter</string>
-    <string name="title_style_font_serif">Met schreef</string>
-    <string name="title_style_font_sans_serif">Schreefloos</string>
-    <string name="title_style_font_monospace">Vaste breedte</string>
     <string name="title_style_font_default">Standaard</string>
     <string name="title_style_color">Kleur &#8230;</string>
     <string name="title_style_clear">Opmaak wissen</string>
@@ -1314,5 +1312,11 @@
         <item>10 MB</item>
         <item>20 MB</item>
         <item>50 MB</item>
+    </string-array>
+    <string-array name="fontNameNames">
+        <item>Schrijfletter</item>
+        <item>Met schreef</item>
+        <item>Schreefloos</item>
+        <item>Vaste breedte</item>
     </string-array>
 </resources>

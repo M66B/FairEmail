@@ -302,6 +302,7 @@
     <string name="title_advanced_preview_lines">Antal förhandsgranskningsrader</string>
     <string name="title_advanced_addresses">Visa adressuppgifter som standard</string>
     <string name="title_advanced_attachments_alt">Visa bilagor efter meddelandetexten</string>
+    <string name="title_advanced_thumbnails">Visa miniatyrbilder efter meddelandetexten</string>
     <string name="title_advanced_contrast">Använd hög kontrast för meddelandetext</string>
     <string name="title_advanced_monospaced">Använd monospaced typsnitt för meddelandetext som standard</string>
     <string name="title_advanced_text_color">Använd textfärger</string>
@@ -765,10 +766,6 @@
     <string name="title_style_size_medium">Medel</string>
     <string name="title_style_size_large">Stor</string>
     <string name="title_style_font">Typsnitt</string>
-    <string name="title_style_font_cursive">Kursivt</string>
-    <string name="title_style_font_serif">Serif</string>
-    <string name="title_style_font_sans_serif">Sans-serif</string>
-    <string name="title_style_font_monospace">Monospace</string>
     <string name="title_style_font_default">Standard</string>
     <string name="title_style_color">Färg &#8230;</string>
     <string name="title_style_clear">Rensa formatering</string>
@@ -1315,5 +1312,11 @@
         <item>10 MB</item>
         <item>20 MB</item>
         <item>50 MB</item>
+    </string-array>
+    <string-array name="fontNameNames">
+        <item>Kursivt</item>
+        <item>Serif</item>
+        <item>Sans-serif</item>
+        <item>Monospace</item>
     </string-array>
 </resources>

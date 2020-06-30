@@ -304,6 +304,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_preview_lines">Anzahl der Vorschauzeilen</string>
     <string name="title_advanced_addresses">Adressdetails standardmäßig anzeigen</string>
     <string name="title_advanced_attachments_alt">Anhänge nach (statt vor) dem Nachrichtentext anzeigen</string>
+    <string name="title_advanced_thumbnails">Vorschaubilder nach dem Nachrichtentext anzeigen</string>
     <string name="title_advanced_contrast">Hohen Kontrast für den Nachrichtentext verwenden</string>
     <string name="title_advanced_monospaced">Unproportionale Schriftart standardmäßig für den Nachrichtentext verwenden</string>
     <string name="title_advanced_text_color">Textfarben verwenden</string>
@@ -513,6 +514,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_primary">Hauptkonto</string>
     <string name="title_primary_account">Hauptkonto</string>
     <string name="title_primary_identity">Hauptidentität</string>
+    <string name="title_self_identity">E-Mail-Adresse beim Antworten entfernen</string>
     <string name="title_leave_on_server">Nachrichten auf Server belassen</string>
     <string name="title_leave_deleted">Gelöschte Nachrichten auf Server belassen</string>
     <string name="title_leave_on_device">Nachrichten auf Gerät belassen</string>
@@ -766,10 +768,6 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_style_size_medium">Mittel</string>
     <string name="title_style_size_large">Groß</string>
     <string name="title_style_font">Schriftart</string>
-    <string name="title_style_font_cursive">Kursiv</string>
-    <string name="title_style_font_serif">Serife</string>
-    <string name="title_style_font_sans_serif">Serifenlos</string>
-    <string name="title_style_font_monospace">Festbreitenschrift</string>
     <string name="title_style_font_default">Standard</string>
     <string name="title_style_color">Farbe &#8230;</string>
     <string name="title_style_clear">Formatierung entfernen</string>
@@ -1023,7 +1021,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_legend_download">Inhalt herunterladen</string>
     <string name="title_legend_external_image">Platzhalter für externe Bilder</string>
     <string name="title_legend_embedded_image">Platzhalter für eingebettete Bilder</string>
-    <string name="title_legend_tracking_pixel">Tracking-Bild</string>
+    <string name="title_legend_tracking_pixel">Nachverfolgungsbild</string>
     <string name="title_legend_broken_image">Defekte Bilddatei</string>
     <string name="title_legend_pick">Kontakt auswählen</string>
     <string name="title_legend_cc">Kopie/Blindkopie anzeigen</string>
@@ -1050,7 +1048,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_legend_edit">Bearbeiten</string>
     <string name="title_legend_default_color">Standardfarbe</string>
     <string name="title_legend_close_hint">Hinweis schließen</string>
-    <string name="title_legend_connection_state">Verbindungsstatus</string>
+    <string name="title_legend_connection_state">Verbindungsart</string>
     <string name="title_legend_sync_state">Synchronisationsstatus</string>
     <string name="title_legend_download_state">Übertragungsstatus</string>
     <string name="title_legend_save">Speichern</string>
@@ -1314,5 +1312,11 @@ Zur Erinnerung daran zeigt FairEmail einen kleinen Hinweis an, dieser verschwind
         <item>10 MB</item>
         <item>20 MB</item>
         <item>50 MB</item>
+    </string-array>
+    <string-array name="fontNameNames">
+        <item>Kursiv</item>
+        <item>Serifenbetont</item>
+        <item>Serifenlos</item>
+        <item>Festbreitenschrift</item>
     </string-array>
 </resources>

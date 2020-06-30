@@ -291,6 +291,7 @@
     <string name="title_advanced_preview_lines">预览行数</string>
     <string name="title_advanced_addresses">默认显示地址详情</string>
     <string name="title_advanced_attachments_alt">在消息文本后显示附件</string>
+    <string name="title_advanced_thumbnails">在消息文本后显示图像缩略图</string>
     <string name="title_advanced_contrast">对消息文本使用高对比度颜色</string>
     <string name="title_advanced_monospaced">默认对消息文本使用等宽字体</string>
     <string name="title_advanced_text_color">使用文本颜色</string>
@@ -754,10 +755,6 @@
     <string name="title_style_size_medium">中等</string>
     <string name="title_style_size_large">大</string>
     <string name="title_style_font">字体</string>
-    <string name="title_style_font_cursive">草体</string>
-    <string name="title_style_font_serif">衬线体</string>
-    <string name="title_style_font_sans_serif">无衬线体</string>
-    <string name="title_style_font_monospace">等宽字体</string>
     <string name="title_style_font_default">默认</string>
     <string name="title_style_color">颜色 &#8230;</string>
     <string name="title_style_clear">清除格式</string>
@@ -1302,5 +1299,11 @@
         <item>10 MB</item>
         <item>20 MB</item>
         <item>50 MB</item>
+    </string-array>
+    <string-array name="fontNameNames">
+        <item>草书</item>
+        <item>衬线体</item>
+        <item>无衬线体</item>
+        <item>等宽字体</item>
     </string-array>
 </resources>

@@ -6,6 +6,7 @@
     <string name="app_limitations">Например, съобщенията винаги ще се преформатират, за да се премахнат опасни елементи и да се подобри четенето, както и връзките за отваряне трябва да бъдат потвърдени за безопасност.</string>
     <string name="app_crash">FairEmail не се поддържа на това устройство поради срив, причинен от грешка в Android</string>
     <string name="app_exit">Натиснете отново \"назад\", за изход</string>
+    <string name="channel_service">Получаване</string>
     <string name="channel_send">Изпращане</string>
     <string name="channel_notification">Известия</string>
     <string name="channel_update">Обновявания</string>
@@ -76,6 +77,7 @@
     <string name="title_notification_idle">Празен</string>
     <string name="title_notification_failed">%1$s се провали</string>
     <string name="title_notification_alert">Сигнал от сървър \'%1$s\'</string>
+    <string name="title_notification_sending_failed">Изпращането до %1$s неуспешно</string>
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
@@ -301,7 +303,13 @@
     <string name="title_advanced_preview_lines">Редове на показване</string>
     <string name="title_advanced_addresses">Покажи адреса по подразбиране</string>
     <string name="title_advanced_attachments_alt">Покажи прикачените файлове след текста на съобщението</string>
+    <string name="title_advanced_thumbnails">Показване на миниатюри на изображения след текста на съобщението</string>
     <string name="title_advanced_contrast">Използвай висок контраст за текст на съобщението</string>
+    <string name="title_advanced_monospaced">Използвайте monospaced шрифт за текст на съобщението по подразбиране</string>
+    <string name="title_advanced_text_color">Избери цвят на текста</string>
+    <string name="title_advanced_text_size">Размер на текст</string>
+    <string name="title_advanced_text_font">Използвай шрифтове</string>
+    <string name="title_advanced_text_align">Подравняване на такст</string>
     <string name="title_advanced_collapse_quotes">Свиване на цитирания текст</string>
     <string name="title_advanced_images_inline">Автоматично показване на вградени изображения</string>
     <string name="title_advanced_seekbar">Покажи позицията на разговора с точка</string>
@@ -617,6 +625,7 @@
     <string name="title_duplicate_in">Дублиращо съобщение в %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
+    <string name="title_buttons">Бутони</string>
     <string name="title_seen">Отбелязвам като прочетено</string>
     <string name="title_unseen">Отбелязвам като непрочетено</string>
     <string name="title_hide">Скриване</string>
@@ -655,6 +664,9 @@
     <string name="title_more">Още</string>
     <string name="title_spam">Спам</string>
     <string name="title_move">Премести</string>
+    <string name="title_copy_btn">Копиране</string>
+    <string name="title_unsubscribe">Отписване</string>
+    <string name="title_message_rule">Създай правило</string>
     <string name="title_no_junk">Не е спам</string>
     <string name="title_move_to">Премести в &#8230;</string>
     <string name="title_move_to_folder">Премести в &#8230;</string>
@@ -745,10 +757,17 @@
     <string name="title_send_encryption">Криптиране</string>
     <string name="title_send_priority">Приоритет</string>
     <string name="title_no_server">Няма намерен сървър за \'%1$s\'</string>
+    <string name="title_style">Стил</string>
     <string name="title_style_bold">Удебелен</string>
     <string name="title_style_italic">Наклонен</string>
     <string name="title_style_underline">Подчертан</string>
     <string name="title_style_size">Големина</string>
+    <string name="title_style_size_small">Малък</string>
+    <string name="title_style_size_medium">Среден</string>
+    <string name="title_style_size_large">Голям</string>
+    <string name="title_style_font">Шрифт</string>
+    <string name="title_style_font_default">По подразбиране</string>
+    <string name="title_style_color">Цвят &#8230;</string>
     <string name="title_style_clear">Изчистване на форматирането</string>
     <string name="title_style_link">Вмъкване на връзка</string>
     <string name="title_add_image">Добавяне на изображение</string>
@@ -1014,6 +1033,7 @@
     <string name="title_legend_bold">Удебелен текст</string>
     <string name="title_legend_italic">Наклонен текст</string>
     <string name="title_legend_underline">Подчертан текст</string>
+    <string name="title_legend_text_style">Задаване на стил на текст</string>
     <string name="title_legend_metered">Измервана връзка</string>
     <string name="title_legend_unmetered">Неизмервана връзка</string>
     <string name="title_legend_roaming">Роуминг</string>
@@ -1292,5 +1312,11 @@
         <item>10 MB</item>
         <item>20 MB</item>
         <item>50 MB</item>
+    </string-array>
+    <string-array name="fontNameNames">
+        <item>Курсив</item>
+        <item>Serif</item>
+        <item>Sans-serif</item>
+        <item>Monospace</item>
     </string-array>
 </resources>

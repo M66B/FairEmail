@@ -325,6 +325,7 @@
     <string name="title_advanced_preview_lines">Количество строк предпросмотра</string>
     <string name="title_advanced_addresses">По умолчанию показывать подробную информацию об адресах</string>
     <string name="title_advanced_attachments_alt">Показывать вложения после текста сообщения</string>
+    <string name="title_advanced_thumbnails">Показывать миниатюры изображений после текста сообщения</string>
     <string name="title_advanced_contrast">Использовать высокий контраст для текста сообщений</string>
     <string name="title_advanced_monospaced">По умолчанию использовать моношированный шрифт для текста сообщения</string>
     <string name="title_advanced_text_color">Использовать цвета текста</string>
@@ -534,6 +535,7 @@
     <string name="title_primary">Основная</string>
     <string name="title_primary_account">Основная (учётная запись по умолчанию)</string>
     <string name="title_primary_identity">Основной (идентификатор по умолчанию)</string>
+    <string name="title_self_identity">Удалять адрес электронной почты при ответе</string>
     <string name="title_leave_on_server">Оставлять сообщения на сервере</string>
     <string name="title_leave_deleted">Оставлять удалённые сообщения на сервере</string>
     <string name="title_leave_on_device">Оставлять сообщения на устройстве</string>
@@ -788,12 +790,8 @@
     <string name="title_style_size_medium">Средний</string>
     <string name="title_style_size_large">Большой</string>
     <string name="title_style_font">Шрифт</string>
-    <string name="title_style_font_cursive">Курсив</string>
-    <string name="title_style_font_serif">С засечками</string>
-    <string name="title_style_font_sans_serif">Без засечек</string>
-    <string name="title_style_font_monospace">Моноширинный</string>
     <string name="title_style_font_default">По умолчанию</string>
-    <string name="title_style_color">Цвет &#8230;</string>
+    <string name="title_style_color">Цвет&#8230;</string>
     <string name="title_style_clear">Очистить форматирование</string>
     <string name="title_style_link">Вставить ссылку</string>
     <string name="title_add_image">Добавить изображение</string>
@@ -1340,5 +1338,11 @@
         <item>10 МБ</item>
         <item>20 МБ</item>
         <item>50 МБ</item>
+    </string-array>
+    <string-array name="fontNameNames">
+        <item>Курсив</item>
+        <item>С засечками</item>
+        <item>Без засечек</item>
+        <item>Моноширинный</item>
     </string-array>
 </resources>

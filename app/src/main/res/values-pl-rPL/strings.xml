@@ -324,6 +324,7 @@
     <string name="title_advanced_preview_lines">Liczba linii podglądu</string>
     <string name="title_advanced_addresses">Domyślnie pokazuj szczegóły adresu</string>
     <string name="title_advanced_attachments_alt">Pokaż załączniki za treścią wiadomości</string>
+    <string name="title_advanced_thumbnails">Pokaż miniatury obrazów po tekście wiadomości</string>
     <string name="title_advanced_contrast">Użyj wysokiego kontrastu dla tekstu wiadomości</string>
     <string name="title_advanced_monospaced">Użyj czcionki o stałej szerokości dla tekstu wiadomości</string>
     <string name="title_advanced_text_color">Użyj kolorów tekstu</string>
@@ -787,11 +788,7 @@
     <string name="title_style_size_medium">Średni</string>
     <string name="title_style_size_large">Duży</string>
     <string name="title_style_font">Czcionka</string>
-    <string name="title_style_font_cursive">Kursywa</string>
-    <string name="title_style_font_serif">Szeryfowa</string>
-    <string name="title_style_font_sans_serif">Bezszeryfowa</string>
-    <string name="title_style_font_monospace">O stałej szerokości znaków</string>
-    <string name="title_style_font_default">Domyślna</string>
+    <string name="title_style_font_default">Domyślny</string>
     <string name="title_style_color">Kolor &#8230;</string>
     <string name="title_style_clear">Wyczyść formatowanie</string>
     <string name="title_style_link">Wstaw link</string>
@@ -1338,5 +1335,11 @@
         <item>10 MB</item>
         <item>20 MB</item>
         <item>50 MB</item>
+    </string-array>
+    <string-array name="fontNameNames">
+        <item>Kursywa</item>
+        <item>Szeryfowa</item>
+        <item>Bezszeryfowa</item>
+        <item>Stała szerokość</item>
     </string-array>
 </resources>

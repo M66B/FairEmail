@@ -303,6 +303,7 @@
     <string name="title_advanced_preview_lines">Nombre de lignes d’aperçu</string>
     <string name="title_advanced_addresses">Afficher les détails de l’adresse par défaut</string>
     <string name="title_advanced_attachments_alt">Afficher les pièces jointes après le texte du message</string>
+    <string name="title_advanced_thumbnails">Afficher les vignettes des images après le texte du message</string>
     <string name="title_advanced_contrast">Utiliser un contraste élevé pour le texte du message</string>
     <string name="title_advanced_monospaced">Utiliser une police à espacement fixe pour le texte du message</string>
     <string name="title_advanced_text_color">Afficher les couleurs du texte</string>
@@ -512,6 +513,7 @@
     <string name="title_primary">Principal</string>
     <string name="title_primary_account">Principal (compte par défaut)</string>
     <string name="title_primary_identity">Principal (identité par défaut)</string>
+    <string name="title_self_identity">Supprimer l\'adresse e-mail lors de la réponse</string>
     <string name="title_leave_on_server">Laisser les messages sur le serveur</string>
     <string name="title_leave_deleted">Laisser les messages supprimés sur le serveur</string>
     <string name="title_leave_on_device">Laisser les messages sur l’appareil</string>
@@ -766,10 +768,6 @@
     <string name="title_style_size_medium">Moyen</string>
     <string name="title_style_size_large">Grand</string>
     <string name="title_style_font">Police de caractères</string>
-    <string name="title_style_font_cursive">Cursive</string>
-    <string name="title_style_font_serif">Avec empattement</string>
-    <string name="title_style_font_sans_serif">Sans empattement</string>
-    <string name="title_style_font_monospace">À espacement fixe</string>
     <string name="title_style_font_default">Par défaut</string>
     <string name="title_style_color">Couleur&#8230;</string>
     <string name="title_style_clear">Effacer la mise en forme</string>
@@ -1316,5 +1314,11 @@
         <item>10 Mo</item>
         <item>20 Mo</item>
         <item>50 Mo</item>
+    </string-array>
+    <string-array name="fontNameNames">
+        <item>Cursive</item>
+        <item>Avec empattement</item>
+        <item>Sans empattement</item>
+        <item>À espacement fixe</item>
     </string-array>
 </resources>

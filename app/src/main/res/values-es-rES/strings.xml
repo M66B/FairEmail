@@ -767,11 +767,6 @@
     <string name="title_style_size_medium">Mediano</string>
     <string name="title_style_size_large">Grande</string>
     <string name="title_style_font">Fuente</string>
-    <string name="title_style_font_cursive">Cursiva</string>
-    <string name="title_style_font_serif">Serif</string>
-    <string name="title_style_font_sans_serif">Sans-serif</string>
-    <string name="title_style_font_monospace">Monoespaciado</string>
-    <string name="title_style_font_default">Por defecto</string>
     <string name="title_style_color">Color &#8230;</string>
     <string name="title_style_clear">Quitar formato</string>
     <string name="title_style_link">Insertar enlace</string>
