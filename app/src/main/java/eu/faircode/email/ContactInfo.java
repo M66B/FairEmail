@@ -87,6 +87,7 @@ public class ContactInfo {
     private static final int GRAVATAR_TIMEOUT = 5 * 1000; // milliseconds
     private static final int FAVICON_CONNECT_TIMEOUT = 5 * 1000; // milliseconds
     private static final int FAVICON_READ_TIMEOUT = 10 * 1000; // milliseconds
+    private static final int FAVICON_READ_BYTES = 2048;
     private static final long CACHE_CONTACT_DURATION = 2 * 60 * 1000L; // milliseconds
     private static final long CACHE_GRAVATAR_DURATION = 2 * 60 * 60 * 1000L; // milliseconds
 
@@ -288,7 +289,7 @@ public class ContactInfo {
             String domain = (at < 0 ? null : info.email.substring(at + 1).toLowerCase(Locale.ROOT));
 
             if (domain != null) {
-                if ("gmail.com".equals(domain))
+                if ("gmail.com".equals(domain) || "googlemail.com".equals(domain))
                     domain = "google.com";
 
                 File dir = new File(context.getCacheDir(), "favicons");
@@ -308,30 +309,36 @@ public class ContactInfo {
                         try {
                             info.bitmap = getFavicon(new URL(base, "favicon.ico"));
                         } catch (IOException ex) {
-                            if (isTransient(ex))
+                            if (ex instanceof SocketTimeoutException)
                                 throw ex;
                             Log.i("Favicon ex=" + ex.getClass().getName() + " " + ex.getMessage());
                         }
-                        try {
-                            info.bitmap = parseFavicon(base);
-                        } catch (IOException ex) {
-                            if (isTransient(ex))
-                                throw ex;
-                            Log.i("Favicon ex=" + ex.getClass().getName() + " " + ex.getMessage());
-                        }
+
+                        if (info.bitmap == null)
+                            try {
+                                info.bitmap = parseFavicon(base);
+                            } catch (IOException ex) {
+                                if (ex instanceof SocketTimeoutException)
+                                    throw ex;
+                                Log.i("Favicon ex=" + ex.getClass().getName() + " " + ex.getMessage());
+                            }
 
                         URL www = new URL("https://www." + domain);
-                        try {
-                            info.bitmap = getFavicon(new URL(www, "favicon.ico"));
-                        } catch (IOException ex) {
-                            if (isTransient(ex))
-                                throw ex;
-                            Log.i("Favicon ex=" + ex.getClass().getName() + " " + ex.getMessage());
-                        }
-                        info.bitmap = parseFavicon(www);
+                        if (info.bitmap == null)
+                            try {
+                                info.bitmap = getFavicon(new URL(www, "favicon.ico"));
+                            } catch (IOException ex) {
+                                if (ex instanceof SocketTimeoutException)
+                                    throw ex;
+                                Log.i("Favicon ex=" + ex.getClass().getName() + " " + ex.getMessage());
+                            }
+                        if (info.bitmap == null)
+                            info.bitmap = parseFavicon(www);
 
                         // Add to cache
-                        if (info.bitmap != null)
+                        if (info.bitmap == null)
+                            throw new FileNotFoundException("decode");
+                        else
                             try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
                                 info.bitmap.compress(Bitmap.CompressFormat.PNG, 90, os);
                             }
@@ -397,8 +404,11 @@ public class ContactInfo {
 
         String response;
         try {
-            // TODO limit read
-            response = Helper.readStream(connection.getInputStream(), StandardCharsets.UTF_8.name());
+            byte[] buffer = new byte[FAVICON_READ_BYTES];
+            int len = connection.getInputStream().read(buffer);
+            if (len < 0)
+                throw new IOException("length");
+            response = new String(buffer, 0, len, StandardCharsets.UTF_8.name());
         } finally {
             connection.disconnect();
         }
@@ -439,14 +449,11 @@ public class ContactInfo {
         }
     }
 
-    private static boolean isTransient(Throwable ex) {
-        return (ex instanceof UnknownHostException ||
-                ex instanceof SocketTimeoutException);
-    }
-
     private static boolean isRecoverable(Throwable ex) {
-        return !(ex instanceof SocketTimeoutException ||
-                ex instanceof ConnectException ||
+        return !(ex instanceof ConnectException ||
+                (ex instanceof UnknownHostException &&
+                        ex.getMessage() != null &&
+                        ex.getMessage().contains("No address associated with hostname")) ||
                 ex instanceof FileNotFoundException ||
                 ex instanceof SSLPeerUnverifiedException ||
                 (ex instanceof SSLException &&
