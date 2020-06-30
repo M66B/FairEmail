@@ -264,6 +264,8 @@ public class ViewModelMessages extends ViewModel {
                 for (int pos = 0; pos < messages.size(); pos++) {
                     TupleMessageEx item = messages.get(pos);
                     if (item != null && id == item.id) {
+                        fallback = true;
+
                         if (pos - 1 >= 0) {
                             TupleMessageEx next = messages.get(pos - 1);
                             intf.onNext(true, next == null ? null : next.id);
