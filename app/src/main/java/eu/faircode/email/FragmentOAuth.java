@@ -64,12 +64,8 @@ import net.openid.appauth.browser.Browsers;
 import net.openid.appauth.browser.VersionRange;
 import net.openid.appauth.browser.VersionedBrowserMatcher;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -406,48 +402,12 @@ public class FragmentOAuth extends FragmentBase {
                         }
                 }
 
-                String primaryEmail = null;
+                String primaryEmail;
                 List<Pair<String, String>> identities = new ArrayList<>();
 
                 if (askAccount) {
                     primaryEmail = address;
                     identities.add(new Pair<>(address, personal));
-                } else if ("office365".equals(id)) {
-                    // https://docs.microsoft.com/en-us/graph/api/user-get?view=graph-rest-1.0&tabs=http#http-request
-                    URL url = new URL("https://graph.microsoft.com/v1.0/me?$select=displayName,otherMails");
-                    Log.i("Fetching " + url);
-
-                    HttpURLConnection request = (HttpURLConnection) url.openConnection();
-                    request.setRequestMethod("GET");
-                    request.setReadTimeout(OAUTH_TIMEOUT);
-                    request.setConnectTimeout(OAUTH_TIMEOUT);
-                    request.setDoInput(true);
-                    request.setRequestProperty("Authorization", "Bearer " + token);
-                    request.setRequestProperty("Content-Type", "application/json");
-                    request.connect();
-
-                    String json;
-                    try {
-                        json = Helper.readStream(request.getInputStream(), StandardCharsets.UTF_8.name());
-                        Log.i("Response=" + json);
-                    } finally {
-                        request.disconnect();
-                    }
-
-                    JSONObject data = new JSONObject(json);
-                    if (data.has("otherMails")) {
-                        JSONArray otherMails = data.getJSONArray("otherMails");
-
-                        String displayName = data.getString("displayName");
-                        for (int i = 0; i < otherMails.length(); i++) {
-                            String email = (String) otherMails.get(i);
-                            if (i == 0)
-                                primaryEmail = email;
-                            if (TextUtils.isEmpty(displayName))
-                                displayName = name;
-                            identities.add(new Pair<>(email, displayName));
-                        }
-                    }
                 } else
                     throw new IllegalArgumentException("Unknown provider=" + id);
 
