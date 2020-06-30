@@ -50,10 +50,8 @@ import java.net.HttpURLConnection;
 import java.net.SocketTimeoutException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -74,7 +72,6 @@ public class ContactInfo {
     private static Map<String, Lookup> emailLookup = new ConcurrentHashMap<>();
     private static final Map<String, ContactInfo> emailContactInfo = new HashMap<>();
     private static final Map<String, Avatar> emailGravatar = new HashMap<>();
-    private static final List<String> emailFaviconBlacklist = new ArrayList<>();
 
     private static final ExecutorService executor =
             Helper.getBackgroundExecutor(1, "contact");
@@ -119,10 +116,26 @@ public class ContactInfo {
         return (new Date().getTime() - time > CACHE_CONTACT_DURATION);
     }
 
-    static void clearCache() {
+    static void clearCache(Context context) {
         synchronized (emailContactInfo) {
             emailContactInfo.clear();
         }
+
+        final File dir = new File(context.getCacheDir(), "favicons");
+
+        executor.submit(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    File[] favicons = dir.listFiles();
+                    if (favicons != null)
+                        for (File favicon : favicons)
+                            favicon.delete();
+                } catch (Throwable ex) {
+                    Log.w(ex);
+                }
+            }
+        });
     }
 
     @NonNull
@@ -265,25 +278,22 @@ public class ContactInfo {
             int at = (info.email == null ? -1 : info.email.indexOf('@'));
             String domain = (at < 0 ? null : info.email.substring(at + 1).toLowerCase(Locale.ROOT));
 
-            synchronized (emailFaviconBlacklist) {
-                if (emailFaviconBlacklist.contains(domain)) {
-                    Log.i("Favicon blacklisted domain=" + domain);
-                    domain = null;
-                }
-            }
-
             if (domain != null) {
                 if ("gmail.com".equals(domain))
                     domain = "google.com";
 
+                File dir = new File(context.getCacheDir(), "favicons");
+                if (!dir.exists())
+                    dir.mkdir();
+                File file = new File(dir, domain);
+
                 try {
                     // check cache
-                    File dir = new File(context.getCacheDir(), "favicons");
-                    if (!dir.exists())
-                        dir.mkdir();
-                    File file = new File(dir, domain);
                     if (file.exists())
-                        info.bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
+                        if (file.length() == 0)
+                            Log.i("Favicon blacklisted domain=" + domain);
+                        else
+                            info.bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
                     else {
                         info.bitmap = getFavicon(new URL("https://" + domain));
                         if (info.bitmap == null)
@@ -299,8 +309,10 @@ public class ContactInfo {
                     Log.w(ex);
                 } finally {
                     if (info.bitmap == null)
-                        synchronized (emailFaviconBlacklist) {
-                            emailFaviconBlacklist.add(domain);
+                        try {
+                            file.createNewFile();
+                        } catch (IOException ex) {
+                            Log.e(ex);
                         }
                 }
             }

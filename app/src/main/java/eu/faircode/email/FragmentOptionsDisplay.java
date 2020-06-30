@@ -334,7 +334,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("avatars", checked).apply();
-                ContactInfo.clearCache();
+                ContactInfo.clearCache(getContext());
             }
         });
 
@@ -342,7 +342,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("gravatars", checked).apply();
-                ContactInfo.clearCache();
+                ContactInfo.clearCache(getContext());
             }
         });
 
@@ -350,7 +350,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("favicons", checked).apply();
-                ContactInfo.clearCache();
+                ContactInfo.clearCache(getContext());
             }
         });
 
@@ -370,7 +370,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
                 sbSaturation.setEnabled(checked);
                 sbBrightness.setEnabled(checked);
                 sbThreshold.setEnabled(checked);
-                ContactInfo.clearCache();
+                ContactInfo.clearCache(getContext());
             }
         });
 
@@ -378,7 +378,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("identicons", checked).apply();
-                ContactInfo.clearCache();
+                ContactInfo.clearCache(getContext());
             }
         });
 
@@ -387,7 +387,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("circular", checked).apply();
                 updateColor();
-                ContactInfo.clearCache();
+                ContactInfo.clearCache(getContext());
             }
         });
 
@@ -396,7 +396,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 prefs.edit().putInt("saturation", progress).apply();
                 updateColor();
-                ContactInfo.clearCache();
+                ContactInfo.clearCache(getContext());
             }
 
             @Override
@@ -415,7 +415,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 prefs.edit().putInt("brightness", progress).apply();
                 updateColor();
-                ContactInfo.clearCache();
+                ContactInfo.clearCache(getContext());
             }
 
             @Override
@@ -434,7 +434,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 prefs.edit().putInt("threshold", progress).apply();
                 updateColor();
-                ContactInfo.clearCache();
+                ContactInfo.clearCache(getContext());
             }
 
             @Override
@@ -1023,7 +1023,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
                         public void onClick(DialogInterface dialog, int which) {
                             getActivity().getIntent().putExtra("tab", "display");
 
-                            ContactInfo.clearCache();
+                            ContactInfo.clearCache(getContext());
 
                             boolean reverse = (swReverse.isEnabled() && swReverse.isChecked());
                             boolean dark = (swDark.isEnabled() && swDark.isChecked());

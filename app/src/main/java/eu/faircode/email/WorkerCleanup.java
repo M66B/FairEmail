@@ -124,7 +124,7 @@ public class WorkerCleanup extends Worker {
                 ServiceSynchronize.reschedule(context);
 
                 // Contact info cache
-                ContactInfo.clearCache();
+                ContactInfo.clearCache(context);
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                     Log.i("Checking notification channels");
