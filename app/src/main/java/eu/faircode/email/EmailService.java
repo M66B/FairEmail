@@ -502,6 +502,8 @@ public class EmailService implements AutoCloseable {
                     }
                 } catch (MessagingException ex) {
                     Log.w(ex);
+                    if (purpose == PURPOSE_CHECK)
+                        throw ex;
                 }
 
         } else if ("smtp".equals(protocol) || "smtps".equals(protocol)) {
