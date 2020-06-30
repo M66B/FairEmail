@@ -84,10 +84,6 @@ public class ContactInfo {
     private static final long CACHE_CONTACT_DURATION = 2 * 60 * 1000L; // milliseconds
     private static final long CACHE_GRAVATAR_DURATION = 2 * 60 * 60 * 1000L; // milliseconds
 
-    static {
-        emailFaviconBlacklist.add("gmail.com");
-    }
-
     private ContactInfo() {
     }
 
@@ -277,6 +273,9 @@ public class ContactInfo {
             }
 
             if (domain != null) {
+                if ("gmail.com".equals(domain))
+                    domain = "google.com";
+
                 try {
                     // check cache
                     File dir = new File(context.getCacheDir(), "favicons");
