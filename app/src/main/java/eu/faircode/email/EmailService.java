@@ -305,10 +305,10 @@ public class EmailService implements AutoCloseable {
 
             if (auth == AUTH_TYPE_OAUTH) {
                 AuthState authState = OAuthRefresh(context, provider, password);
-                connect(host, port, user, authState.getAccessToken(), factory);
+                connect(host, port, auth, user, authState.getAccessToken(), factory);
                 return authState.jsonSerializeString();
             } else {
-                connect(host, port, user, password, factory);
+                connect(host, port, auth, user, password, factory);
                 return null;
             }
         } catch (AuthenticationFailedException ex) {
@@ -326,7 +326,7 @@ public class EmailService implements AutoCloseable {
                             if (token == null)
                                 throw new AuthenticatorException("No token on refresh for " + user);
 
-                            connect(host, port, user, token, factory);
+                            connect(host, port, auth, user, token, factory);
                             return token;
                         }
 
@@ -337,7 +337,7 @@ public class EmailService implements AutoCloseable {
                 }
             else if (auth == AUTH_TYPE_OAUTH) {
                 AuthState authState = OAuthRefresh(context, provider, password);
-                connect(host, port, user, authState.getAccessToken(), factory);
+                connect(host, port, auth, user, authState.getAccessToken(), factory);
                 return authState.jsonSerializeString();
             } else
                 throw ex;
@@ -374,9 +374,14 @@ public class EmailService implements AutoCloseable {
     }
 
     private void connect(
-            String host, int port, String user, String password,
+            String host, int port, int auth,
+            String user, String password,
             SSLSocketFactoryService factory) throws MessagingException {
         InetAddress main = null;
+        boolean require_id = (purpose == PURPOSE_CHECK &&
+                auth == AUTH_TYPE_OAUTH &&
+                "outlook.office365.com".equals(host));
+        Log.i("Require ID=" + require_id);
         try {
             //if (BuildConfig.DEBUG)
             //    throw new MailConnectException(
@@ -384,7 +389,7 @@ public class EmailService implements AutoCloseable {
 
             main = InetAddress.getByName(host);
             EntityLog.log(context, "Connecting to " + main);
-            _connect(main, port, user, password, factory);
+            _connect(main, port, require_id, user, password, factory);
         } catch (UnknownHostException ex) {
             throw new MessagingException(ex.getMessage(), ex);
         } catch (MessagingException ex) {
@@ -449,7 +454,7 @@ public class EmailService implements AutoCloseable {
 
                         try {
                             EntityLog.log(context, "Falling back to " + iaddr);
-                            _connect(iaddr, port, user, password, factory);
+                            _connect(iaddr, port, require_id, user, password, factory);
                             return;
                         } catch (MessagingException ex1) {
                             ex = ex1;
@@ -467,7 +472,8 @@ public class EmailService implements AutoCloseable {
     }
 
     private void _connect(
-            InetAddress address, int port, String user, String password,
+            InetAddress address, int port, boolean require_id,
+            String user, String password,
             SSLSocketFactoryService factory) throws MessagingException {
         isession = Session.getInstance(properties, null);
         isession.setDebug(debug);
@@ -502,7 +508,7 @@ public class EmailService implements AutoCloseable {
                     }
                 } catch (MessagingException ex) {
                     Log.w(ex);
-                    if (purpose == PURPOSE_CHECK)
+                    if (require_id)
                         throw ex;
                 }
 
