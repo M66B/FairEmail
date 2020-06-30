@@ -216,8 +216,8 @@ public class ContactInfo {
         }
 
         // Gravatar
-        if (info.bitmap == null) {
-            if (gravatars && !TextUtils.isEmpty(info.email)) {
+        if (info.bitmap == null && gravatars) {
+            if (!TextUtils.isEmpty(info.email)) {
                 String gkey = info.email.toLowerCase(Locale.ROOT);
                 boolean lookup;
                 synchronized (emailGravatar) {
@@ -265,9 +265,10 @@ public class ContactInfo {
         }
 
         // Favicon
-        if (info.bitmap == null) {
+        if (info.bitmap == null && favicons) {
             int at = (info.email == null ? -1 : info.email.indexOf('@'));
             String domain = (at < 0 ? null : info.email.substring(at + 1).toLowerCase(Locale.ROOT));
+
             synchronized (emailFaviconBlacklist) {
                 if (emailFaviconBlacklist.contains(domain)) {
                     Log.i("Favicon blacklisted domain=" + domain);
@@ -275,8 +276,9 @@ public class ContactInfo {
                 }
             }
 
-            if (favicons && domain != null) {
+            if (domain != null) {
                 try {
+                    // check cache
                     File dir = new File(context.getCacheDir(), "favicons");
                     if (!dir.exists())
                         dir.mkdir();
@@ -284,41 +286,11 @@ public class ContactInfo {
                     if (file.exists())
                         info.bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
                     else {
-                        URL base = new URL("https://" + domain);
+                        info.bitmap = getFavicon(new URL("https://" + domain));
+                        if (info.bitmap == null)
+                            info.bitmap = getFavicon(new URL("https://www." + domain));
 
-                        info.bitmap = getFavicon(new URL(base, "favicon.ico"));
-                        if (info.bitmap == null) {
-                            Log.i("GET " + base);
-                            HttpsURLConnection connection = (HttpsURLConnection) base.openConnection();
-                            connection.setRequestMethod("GET");
-                            connection.setReadTimeout(FAVICON_TIMEOUT);
-                            connection.setConnectTimeout(FAVICON_TIMEOUT);
-                            connection.connect();
-
-                            String response;
-                            try {
-                                response = Helper.readStream(connection.getInputStream(), StandardCharsets.UTF_8.name());
-                            } finally {
-                                connection.disconnect();
-                            }
-
-                            Document doc = JsoupEx.parse(response);
-
-                            Element link = doc.head().select("link[href~=.*\\.(ico|png)]").first();
-                            String favicon = (link == null ? null : link.attr("href"));
-
-                            if (TextUtils.isEmpty(favicon)) {
-                                Element meta = doc.head().select("meta[itemprop=image]").first();
-                                favicon = (meta == null ? null : meta.attr("content"));
-                            }
-
-                            if (!TextUtils.isEmpty(favicon)) {
-                                URL url = new URL(base, favicon);
-                                if ("https".equals(url.getProtocol()))
-                                    info.bitmap = getFavicon(url);
-                            }
-                        }
-
+                        // Add to cache
                         if (info.bitmap != null)
                             try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
                                 info.bitmap.compress(Bitmap.CompressFormat.PNG, 90, os);
@@ -337,9 +309,9 @@ public class ContactInfo {
 
         // Generated
         boolean identicon = false;
-        if (info.bitmap == null) {
+        if (info.bitmap == null && generated) {
             int dp = Helper.dp2pixels(context, 96);
-            if (generated && !TextUtils.isEmpty(info.email)) {
+            if (!TextUtils.isEmpty(info.email)) {
                 if (identicons) {
                     identicon = true;
                     info.bitmap = ImageHelper.generateIdenticon(
@@ -370,26 +342,70 @@ public class ContactInfo {
         return info;
     }
 
-    private static Bitmap getFavicon(URL url) throws IOException {
+    private static Bitmap getFavicon(URL base) {
         try {
-            Log.i("GET favicon " + url);
+            try {
+                Bitmap bitmap = _getFavicon(new URL(base, "favicon.ico"));
+                if (bitmap != null)
+                    return bitmap;
+            } catch (IOException ex) {
+                Log.w(ex);
+                if (ex instanceof SocketTimeoutException)
+                    return null;
+            }
 
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            Log.i("GET " + base);
+            HttpsURLConnection connection = (HttpsURLConnection) base.openConnection();
             connection.setRequestMethod("GET");
             connection.setReadTimeout(FAVICON_TIMEOUT);
             connection.setConnectTimeout(FAVICON_TIMEOUT);
+            connection.setInstanceFollowRedirects(true);
             connection.connect();
 
+            String response;
             try {
-                return BitmapFactory.decodeStream(connection.getInputStream());
+                response = Helper.readStream(connection.getInputStream(), StandardCharsets.UTF_8.name());
             } finally {
                 connection.disconnect();
             }
-        } catch (IOException ex) {
-            Log.w(ex);
-            if (ex instanceof SocketTimeoutException)
-                throw ex;
+
+            Document doc = JsoupEx.parse(response);
+
+            Element link = doc.head().select("link[href~=.*\\.(ico|png)]").first();
+            String favicon = (link == null ? null : link.attr("href"));
+
+            if (TextUtils.isEmpty(favicon)) {
+                Element meta = doc.head().select("meta[itemprop=image]").first();
+                favicon = (meta == null ? null : meta.attr("content"));
+            }
+
+            if (!TextUtils.isEmpty(favicon)) {
+                URL url = new URL(base, favicon);
+                if ("https".equals(url.getProtocol()))
+                    return _getFavicon(url);
+            }
+
             return null;
+        } catch (Throwable ex) {
+            Log.w(ex);
+            return null;
+        }
+    }
+
+    private static Bitmap _getFavicon(URL url) throws IOException {
+        Log.i("GET favicon " + url);
+
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        connection.setRequestMethod("GET");
+        connection.setReadTimeout(FAVICON_TIMEOUT);
+        connection.setConnectTimeout(FAVICON_TIMEOUT);
+        connection.setInstanceFollowRedirects(true);
+        connection.connect();
+
+        try {
+            return BitmapFactory.decodeStream(connection.getInputStream());
+        } finally {
+            connection.disconnect();
         }
     }
 
