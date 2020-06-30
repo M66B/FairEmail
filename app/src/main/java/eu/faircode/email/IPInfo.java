@@ -72,6 +72,7 @@ public class IPInfo {
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
         connection.setReadTimeout(FETCH_TIMEOUT);
+        connection.setConnectTimeout(FETCH_TIMEOUT);
         connection.connect();
 
         Organization organization = new Organization();
